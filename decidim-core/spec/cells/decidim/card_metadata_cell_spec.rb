@@ -18,7 +18,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
   context "when show space is disabled" do
     it "does not render the space the model belongs to" do
-      expect(cell_html).to have_no_content(decidim_escape_translated(model.component.participatory_space.title))
+      expect(cell_html).to have_no_text(decidim_escape_translated(model.component.participatory_space.title))
     end
   end
 
@@ -26,7 +26,7 @@ describe Decidim::CardMetadataCell, type: :cell do
     let(:options) { { show_space: true } }
 
     it "renders the space the model belongs to" do
-      expect(cell_html).to have_content(translated_attribute(model.component.participatory_space.title))
+      expect(cell_html).to have_text(translated_attribute(model.component.participatory_space.title))
       expect(cell_html.to_s).to include(decidim_escape_translated(model.component.participatory_space.title).gsub("&quot;", "\""))
     end
   end
@@ -51,7 +51,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
       context "and comments count is zero" do
         it "displays 0" do
-          expect(cell_html).to have_content("0")
+          expect(cell_html).to have_text("0")
         end
       end
 
@@ -59,7 +59,7 @@ describe Decidim::CardMetadataCell, type: :cell do
         let(:comments_count) { 123 }
 
         it "displays the count of comments" do
-          expect(cell_html).to have_content("123")
+          expect(cell_html).to have_text("123")
         end
       end
     end
@@ -69,7 +69,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
       context "and likes count is zero" do
         it "displays 0" do
-          expect(cell_html).to have_content("0")
+          expect(cell_html).to have_text("0")
         end
       end
 
@@ -77,7 +77,7 @@ describe Decidim::CardMetadataCell, type: :cell do
         let(:likes_count) { 123 }
 
         it "displays the count of likes" do
-          expect(cell_html).to have_content("123")
+          expect(cell_html).to have_text("123")
         end
       end
     end
@@ -87,7 +87,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
       it "displays the author cell" do
         expect(cell_html).to have_css("p[data-author]")
-        expect(cell_html).to have_content(model.author.name)
+        expect(cell_html).to have_text(model.author.name)
       end
     end
 
@@ -106,7 +106,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
         it "displays the progress" do
           expect(cell_html).to have_css("span.card__grid-loader")
-          expect(cell_html).to have_content(/4 days.*remaining/)
+          expect(cell_html).to have_text(/4 days.*remaining/)
         end
       end
     end
@@ -127,7 +127,7 @@ describe Decidim::CardMetadataCell, type: :cell do
         let(:end_date) { 5.days.from_now.at_beginning_of_day }
 
         it "displays the duration" do
-          expect(cell_html).to have_content("00:00 AM UTC")
+          expect(cell_html).to have_text("00:00 AM UTC")
         end
       end
     end
@@ -151,7 +151,7 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Date.parse("2066-06-06") }
 
           it "displays the dates including year" do
-            expect(cell_html).to have_content("31 Jan 2046 → 06 Jun 2066")
+            expect(cell_html).to have_text("31 Jan 2046 → 06 Jun 2066")
           end
         end
 
@@ -160,8 +160,8 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Date.parse("#{current_year}-06-06") }
 
           it "displays the dates excluding year" do
-            expect(cell_html).to have_no_content(current_year)
-            expect(cell_html).to have_content("31 Jan → 06 Jun")
+            expect(cell_html).to have_no_text(current_year)
+            expect(cell_html).to have_text("31 Jan → 06 Jun")
           end
         end
 
@@ -170,7 +170,7 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Date.parse("#{current_year + 5}-06-06") }
 
           it "displays the dates including year" do
-            expect(cell_html).to have_content("31 Jan #{current_year + 5} → 06 Jun #{current_year + 5}")
+            expect(cell_html).to have_text("31 Jan #{current_year + 5} → 06 Jun #{current_year + 5}")
           end
         end
 
@@ -179,8 +179,8 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Time.zone.parse("#{current_year}-01-31 17:00") }
 
           it "displays hour interval excluding year" do
-            expect(cell_html).to have_no_content(current_year)
-            expect(cell_html).to have_content("31 Jan 14:30 → 17:00")
+            expect(cell_html).to have_no_text(current_year)
+            expect(cell_html).to have_text("31 Jan 14:30 → 17:00")
           end
         end
 
@@ -189,7 +189,7 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Time.zone.parse("#{current_year + 5}-01-31 17:00") }
 
           it "displays hour interval excluding year" do
-            expect(cell_html).to have_content("31 Jan #{current_year + 5} 14:30 → 17:00")
+            expect(cell_html).to have_text("31 Jan #{current_year + 5} 14:30 → 17:00")
           end
         end
       end

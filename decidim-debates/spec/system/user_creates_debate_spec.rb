@@ -41,10 +41,10 @@ describe "User creates debate" do
 
               expect(page).to have_css("div.sr-announce")
               within "div.sr-announce" do
-                expect(page).to have_content("There are errors on the form, please correct them to continue.")
+                expect(page).to have_text("There are errors on the form, please correct them to continue.")
               end
 
-              expect(page).to have_content("There is an error in this field.")
+              expect(page).to have_text("There is an error in this field.")
               expect(page).to have_no_css("*[type=submit][data-disable='true']")
               expect(find("button[type='submit']")).not_to be_disabled
             end
@@ -91,31 +91,31 @@ describe "User creates debate" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("Debate successfully created.")
-            expect(page).to have_content("Should every organization use Decidim?")
-            expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
+            expect(page).to have_text("Debate successfully created.")
+            expect(page).to have_text("Should every organization use Decidim?")
+            expect(page).to have_text("Add your comments on whether Decidim is useful for every organization.")
             expect(page).to have_css("[data-author]", text: user.name)
             expect(page).to have_css("img[src*='#{image_filename}']")
 
             click_on "Documents"
 
             expect(page).to have_css("a[href*='#{document_filename}']")
-            expect(page).to have_content("Download file", count: 1)
+            expect(page).to have_text("Download file", count: 1)
           end
 
           it "shows validation error when format is not accepted" do
             dynamically_attach_file(:debate_documents, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
-              expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
+              expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
             end
-            expect(page).to have_content("Validation error!")
+            expect(page).to have_text("Validation error!")
           end
 
           context "when attaching an invalid file format" do
             it "shows an error message" do
               dynamically_attach_file(:debate_documents, Decidim::Dev.asset("participatory_text.odt"), keep_modal_open: true) do
-                expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
+                expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
               end
-              expect(page).to have_content("Validation error! Check that the file has an allowed extension or size.")
+              expect(page).to have_text("Validation error! Check that the file has an allowed extension or size.")
             end
           end
         end
@@ -143,10 +143,10 @@ describe "User creates debate" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("Debate successfully created.")
-          expect(page).to have_content("Should every organization use Decidim?")
-          expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
-          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+          expect(page).to have_text("Debate successfully created.")
+          expect(page).to have_text("Should every organization use Decidim?")
+          expect(page).to have_text("Add your comments on whether Decidim is useful for every organization.")
+          expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
           expect(page).to have_css("[data-author]", text: user.name)
         end
       end

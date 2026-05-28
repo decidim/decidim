@@ -47,8 +47,8 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to proposals_path" do
-          expect(page).to have_content("Proposals")
-          expect(page).to have_content("New proposal")
+          expect(page).to have_text("Proposals")
+          expect(page).to have_text("New proposal")
         end
       end
     end
@@ -68,9 +68,9 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "shows a preview" do
-        expect(page).to have_content(proposal_title)
-        expect(page).to have_content(user.name)
-        expect(page).to have_content(proposal_body)
+        expect(page).to have_text(proposal_title)
+        expect(page).to have_text(user.name)
+        expect(page).to have_text(proposal_body)
       end
 
       it "shows a publish button" do
@@ -82,7 +82,7 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "does not show a geocoded address" do
-        expect(page).to have_no_content("ADDRESS")
+        expect(page).to have_no_text("ADDRESS")
         expect(page).to have_no_css(".card__content.address")
       end
 
@@ -92,7 +92,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to edit the proposal draft" do
-          expect(page).to have_content("Edit proposal draft")
+          expect(page).to have_text("Edit proposal draft")
         end
       end
 
@@ -110,7 +110,7 @@ shared_examples "proposals wizards" do |options|
         let!(:file) { create(:attachment, :with_pdf, title: { en: "<svg onload=alert('ALERT')>.pdf" }, weight: 1, attached_to: proposal_draft) }
 
         before do
-          expect(page).to have_content(translated(proposal_draft.title))
+          expect(page).to have_text(translated(proposal_draft.title))
 
           visit component_path.preview_proposal_path(proposal_draft)
         end
@@ -190,8 +190,8 @@ shared_examples "proposals wizards" do |options|
         end
         click_on "Preview"
 
-        expect(page).to have_content(proposal_title)
-        expect(page).to have_content(proposal_body)
+        expect(page).to have_text(proposal_title)
+        expect(page).to have_text(proposal_body)
         expect(page).to have_no_field("proposal_address")
         expect(page).to have_no_field("proposal_longitude")
         expect(page).to have_no_field("proposal_latitude")
@@ -219,18 +219,18 @@ shared_examples "proposals wizards" do |options|
         click_on "Publish"
 
         visit decidim.last_activities_path
-        expect(page).to have_content("New proposal: #{translated(proposal_draft.title)}")
+        expect(page).to have_text("New proposal: #{translated(proposal_draft.title)}")
 
         within "#filters" do
           find("a", class: "filter", text: "Proposal", match: :first).click
         end
-        expect(page).to have_content("New proposal: #{translated(proposal_draft.title)}")
+        expect(page).to have_text("New proposal: #{translated(proposal_draft.title)}")
       end
 
       it "shows a preview" do
-        expect(page).to have_content(proposal_title)
-        expect(page).to have_content(user.name)
-        expect(page).to have_content(proposal_body)
+        expect(page).to have_text(proposal_title)
+        expect(page).to have_text(user.name)
+        expect(page).to have_text(proposal_body)
 
         expect(page).to have_css(".static-map__container")
       end
@@ -249,7 +249,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to edit the proposal draft" do
-          expect(page).to have_content("Edit proposal draft")
+          expect(page).to have_text("Edit proposal draft")
         end
       end
 
@@ -257,9 +257,9 @@ shared_examples "proposals wizards" do |options|
         let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: nil, component:, title: proposal_title, body: proposal_body) }
 
         it "does not shows a preview" do
-          expect(page).to have_content(proposal_title)
-          expect(page).to have_content(user.name)
-          expect(page).to have_content(proposal_body)
+          expect(page).to have_text(proposal_title)
+          expect(page).to have_text(user.name)
+          expect(page).to have_text(proposal_body)
 
           expect(page).to have_no_css(".card__content.address")
         end

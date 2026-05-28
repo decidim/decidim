@@ -14,34 +14,34 @@ describe "Data consent" do
   context "when cookie dialog is shown" do
     it "user see the cookie policy" do
       within "#dc-dialog-wrapper" do
-        expect(page).to have_content "Information about the cookies used on the website"
+        expect(page).to have_text "Information about the cookies used on the website"
       end
     end
 
     it "user accepts the cookies and dialog is not shown anymore'" do
-      expect(page).to have_content(cookies_description)
+      expect(page).to have_text(cookies_description)
 
       within "#dc-dialog-wrapper" do
         click_on "Accept all"
       end
 
-      expect(page).to have_no_content(cookies_description)
+      expect(page).to have_no_text(cookies_description)
 
       visit decidim.root_path
-      expect(page).to have_no_content(cookies_description)
+      expect(page).to have_no_text(cookies_description)
     end
 
     it "user rejects the cookies and dialog is not shown anymore'" do
-      expect(page).to have_content(cookies_description)
+      expect(page).to have_text(cookies_description)
 
       within "#dc-dialog-wrapper" do
         click_on "Accept only essential"
       end
 
-      expect(page).to have_no_content(cookies_description)
+      expect(page).to have_no_text(cookies_description)
 
       visit decidim.root_path
-      expect(page).to have_no_content(cookies_description)
+      expect(page).to have_no_text(cookies_description)
     end
   end
 
@@ -53,11 +53,11 @@ describe "Data consent" do
     end
 
     it "shows cookie" do
-      expect(page).to have_no_content("decidim-consent")
-      expect(page).to have_no_content("Stores information about the cookies allowed by the user on this website")
+      expect(page).to have_no_text("decidim-consent")
+      expect(page).to have_no_text("Stores information about the cookies allowed by the user on this website")
       find("[data-id='essential']").find("[id^='accordion-trigger']").click
-      expect(page).to have_content("decidim-consent")
-      expect(page).to have_content("Stores information about the cookies allowed by the user on this website")
+      expect(page).to have_text("decidim-consent")
+      expect(page).to have_text("Stores information about the cookies allowed by the user on this website")
     end
 
     it "modal remembers users selection" do

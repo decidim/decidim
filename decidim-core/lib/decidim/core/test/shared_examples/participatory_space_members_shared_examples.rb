@@ -31,7 +31,7 @@ shared_examples "participatory space members" do
       it "the menu link is not shown" do
         visit participatory_space_homepage_path
 
-        expect(page).to have_no_content("Members")
+        expect(page).to have_no_text("Members")
       end
     end
   end
@@ -68,7 +68,7 @@ shared_examples "participatory space members" do
         it "the menu link is not shown" do
           visit participatory_space_homepage_path
 
-          expect(page).to have_no_content("Members")
+          expect(page).to have_no_text("Members")
         end
       end
     end
@@ -98,7 +98,7 @@ shared_examples "participatory space members" do
           visit participatory_space_homepage_path
 
           within ".participatory-space__nav-container" do
-            expect(page).to have_content("Members")
+            expect(page).to have_text("Members")
             click_on "Members"
           end
 
@@ -109,12 +109,12 @@ shared_examples "participatory space members" do
       it "lists all the members" do
         within ".layout-main__section" do
           expect(page).to have_css(".profile__user", count: 1)
-          expect(page).to have_no_content(Decidim::ParticipatorySpace::MemberPresenter.new(unpublished_member).name)
+          expect(page).to have_no_text(Decidim::ParticipatorySpace::MemberPresenter.new(unpublished_member).name)
         end
 
         click_on(member.name)
 
-        expect(page).to have_content("Profile")
+        expect(page).to have_text("Profile")
       end
     end
   end

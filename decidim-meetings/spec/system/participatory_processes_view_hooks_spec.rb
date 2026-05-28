@@ -29,13 +29,13 @@ describe "Meetings in process home" do
       visit resource_locator(participatory_process).path
 
       within("#participatory-process-homepage-highlighted-meetings") do
-        expect(page).to have_content("PAST MEETINGS")
+        expect(page).to have_text("PAST MEETINGS")
         expect(page).to have_css(meetings_selector, count: 3)
 
-        expect(page).to have_no_content(/#{translated(moderated_meeting.title)}/i)
+        expect(page).to have_no_text(/#{translated(moderated_meeting.title)}/i)
 
         past_meetings.sort_by { |m| [m.end_time, m.start_time] }.last(3).each do |meeting|
-          expect(page).to have_content(translated(meeting.title))
+          expect(page).to have_text(translated(meeting.title))
         end
       end
     end
@@ -51,13 +51,13 @@ describe "Meetings in process home" do
       visit resource_locator(participatory_process).path
 
       within("#participatory-process-homepage-highlighted-meetings") do
-        expect(page).to have_content("UPCOMING MEETINGS")
+        expect(page).to have_text("UPCOMING MEETINGS")
         expect(page).to have_css(meetings_selector, count: 3)
 
-        expect(page).to have_no_content(/#{translated(moderated_meeting.title)}/i)
+        expect(page).to have_no_text(/#{translated(moderated_meeting.title)}/i)
 
         upcoming_meetings.sort_by { |m| [m.start_time, m.end_time] }.first(3).each do |meeting|
-          expect(page).to have_content(translated(meeting.title))
+          expect(page).to have_text(translated(meeting.title))
         end
       end
     end
@@ -76,15 +76,15 @@ describe "Meetings in process home" do
       visit resource_locator(participatory_process).path
 
       within("#participatory-process-homepage-highlighted-meetings") do
-        expect(page).to have_content("UPCOMING MEETINGS")
+        expect(page).to have_text("UPCOMING MEETINGS")
         expect(page).to have_css(meetings_selector, count: 3)
 
         past_meetings.each do |meeting|
-          expect(page).to have_no_content(translated(meeting.title))
+          expect(page).to have_no_text(translated(meeting.title))
         end
 
         upcoming_meetings.sort_by { |m| [m.start_time, m.end_time] }.first(3).each do |meeting|
-          expect(page).to have_content(translated(meeting.title))
+          expect(page).to have_text(translated(meeting.title))
         end
       end
     end

@@ -17,8 +17,8 @@ describe "Initiatives Breadcrumb" do
     visit decidim_initiatives.initiative_path(participatory_space, locale: I18n.locale)
 
     within ".menu-bar" do
-      expect(page).to have_content("Initiatives")
-      expect(page).to have_content(translated(participatory_space.title))
+      expect(page).to have_text("Initiatives")
+      expect(page).to have_text(translated(participatory_space.title))
     end
   end
 
@@ -26,9 +26,9 @@ describe "Initiatives Breadcrumb" do
     visit router.root_path
 
     within ".menu-bar" do
-      expect(page).to have_content("Initiatives")
-      expect(page).to have_content(translated(participatory_space.title))
-      expect(page).to have_content(translated(component.name))
+      expect(page).to have_text("Initiatives")
+      expect(page).to have_text(translated(participatory_space.title))
+      expect(page).to have_text(translated(component.name))
     end
   end
 end
