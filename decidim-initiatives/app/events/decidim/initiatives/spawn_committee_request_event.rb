@@ -8,6 +8,7 @@ module Decidim
       def i18n_options
         {
           applicant_nickname:,
+          applicant_name:,
           applicant_profile_url:,
           participatory_space_title:,
           participatory_space_url:,
@@ -22,6 +23,10 @@ module Decidim
 
       def applicant_nickname
         applicant.nickname
+      end
+
+      def applicant_name
+        applicant.name
       end
 
       def applicant_profile_url

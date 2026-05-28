@@ -9,9 +9,9 @@ describe Decidim::ProfileUpdatedEvent do
   let(:resource) { create(:user) }
   let(:author) { resource }
   let(:email_subject) { "#{resource.name} has been officialized" }
-  let(:email_intro) { "Participant #{resource.name} (@#{resource.nickname}) has been officialized." }
+  let(:email_intro) { "Participant #{resource.name} has been officialized." }
   let(:email_outro) { "You have received this notification because you are an administrator of the organization." }
-  let(:notification_title) { "Participant #{resource.name} (@#{resource.nickname}) has been officialized." }
+  let(:notification_title) { "Participant #{resource.name} has been officialized." }
 
   it_behaves_like "a simple event", true
   it_behaves_like "a simple event email"

@@ -205,10 +205,10 @@ en:
           user_followers:
             email_intro: |-
               Hi,
-              %{author_name} %{author_nickname}, who you are following, has created a new debate "%{resource_title}". Check it out and contribute:
-            email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-            email_subject: New debate "%{resource_title}" by %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
+              %{author_name}, who you are following, has created a new debate "%{resource_title}". Check it out and contribute:
+            email_outro: You have received this notification because you are following %{author_name}. You can stop receiving notifications following the previous link.
+            email_subject: New debate "%{resource_title}" by %{author_name}
+            notification_title: <a href="%{author_path}">%{author_name}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
         creation_disabled:
           email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in open debates from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
