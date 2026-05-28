@@ -17,7 +17,7 @@ describe "global engines", type: :system do
 
   it "renders the engine" do
     visit decidim.global_engine_path
-    expect(page).to have_content("DUMMY ENGINE")
+    expect(page).to have_text("DUMMY ENGINE")
   end
 
   it "mounts the engine under a route with its own name" do
@@ -33,7 +33,7 @@ describe "global engines", type: :system do
 
     it "renders the engine" do
       visit decidim.global_engine_path
-      expect(page).to have_content("DUMMY ENGINE")
+      expect(page).to have_text("DUMMY ENGINE")
     end
   end
 end

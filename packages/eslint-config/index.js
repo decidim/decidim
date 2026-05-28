@@ -19,11 +19,59 @@ module.exports = {
     sourceType: "module",
     ecmaVersion: "latest"
   },
+  settings: {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      node: {
+        extensions: [".js"],
+        moduleDirectory: [
+          "decidim-accountability/app/packs/",
+          "decidim-admin/app/packs/",
+          "decidim-ai/app/packs/",
+          "decidim-api/app/packs/",
+          "decidim-assemblies/app/packs/",
+          "decidim-blogs/app/packs/",
+          "decidim-budgets/app/packs/",
+          "decidim-collaborative_texts/app/packs/",
+          "decidim-comments/app/packs/",
+          "decidim-conferences/app/packs/",
+          "decidim-core/app/packs/",
+          "decidim-debates/app/packs/",
+          "decidim-demographics/app/packs/",
+          "decidim-design/app/packs/",
+          "decidim-dev/app/packs/",
+          "decidim-elections/app/packs/",
+          "decidim-forms/app/packs/",
+          "decidim-initiatives/app/packs/",
+          "decidim-meetings/app/packs/",
+          "decidim-pages/app/packs/",
+          "decidim-participatory_processes/app/packs/",
+          "decidim-proposals/app/packs/",
+          "decidim-surveys/app/packs/",
+          "decidim-system/app/packs/",
+          "decidim-templates/app/packs/",
+          "decidim-verifications/app/packs/",
+          "node_modules/",
+          "packages/browserslist-config/node_modules/",
+          "packages/core/node_modules/",
+          "packages/dev/node_modules/",
+          "packages/eslint-config/node_modules/",
+          "packages/prettier-config/node_modules/",
+          "packages/stylelint-config/node_modules/",
+          "packages/webpacker/node_modules/"
+        ]
+      }
+    }
+  },
   plugins: [
     "react",
     "import",
+    "jsdoc",
     "no-relative-import-paths"
   ],
+
   globals: {
     $: false,
     jQuery: false,
@@ -233,7 +281,16 @@ module.exports = {
     "quote-props": "off",
     quotes: ["error", "double", { avoidEscape: true }],
     radix: "error",
-    "require-jsdoc": "error",
+    "jsdoc/require-jsdoc": "error",
+    "jsdoc/require-param": "error",
+    "jsdoc/require-param-type": "error",
+    "jsdoc/require-returns": "error",
+    "jsdoc/require-returns-type": "error",
+    "jsdoc/check-tag-names": ["error", {definedTags: ["jest-environment"]}],
+    "jsdoc/check-alignment": "warn",
+    "jsdoc/require-description": "warn",
+    "jsdoc/require-param-description": "warn",
+    "jsdoc/require-returns-description": "warn",
     "rest-spread-spacing": "error",
     semi: "off",
     "semi-spacing": "error",
@@ -250,7 +307,6 @@ module.exports = {
     "symbol-description": "error",
     "template-curly-spacing": "error",
     "unicode-bom": ["error", "never"],
-    "valid-jsdoc": "error",
     "vars-on-top": "error",
     "wrap-iife": "error",
     "wrap-regex": "error",

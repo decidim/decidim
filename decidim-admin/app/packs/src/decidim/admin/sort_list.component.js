@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 import sortable from "html5sortable/dist/html5sortable.es"
 
 class SortListComponent {

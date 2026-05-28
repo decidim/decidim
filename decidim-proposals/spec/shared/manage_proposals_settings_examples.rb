@@ -21,7 +21,7 @@ shared_examples "manage settings" do
         page.scroll_to(editor)
         expect(page).to have_css(".editor-toolbar")
       end
-      expect(page).to have_content("New proposal body template")
+      expect(page).to have_text("New proposal body template")
     end
   end
 

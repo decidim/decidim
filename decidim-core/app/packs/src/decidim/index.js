@@ -62,7 +62,6 @@ window.Decidim = window.Decidim || {
 
 window.morphdom = morphdom
 
-// eslint-disable-next-line max-params
 const deprecate = (element, targetController, oldSyntax) => {
   if (element.hasAttribute("data-controller") && element.getAttribute("data-controller").includes(targetController)) {
     return;

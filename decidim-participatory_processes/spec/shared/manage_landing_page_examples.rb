@@ -95,7 +95,7 @@ shared_examples "manage landing page examples" do
       click_on "Update"
       sleep 1
 
-      expect(page).to have_content("File resolution is too large")
+      expect(page).to have_text("File resolution is too large")
     end
   end
 end

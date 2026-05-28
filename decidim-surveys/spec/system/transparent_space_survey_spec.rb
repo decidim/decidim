@@ -79,7 +79,7 @@ describe "Transparent Space Respond a survey" do
         accept_confirm { click_on "Submit" }
 
         expect(page).to have_callout("Survey successfully responded.")
-        expect(page).to have_content("You have already responded this form.")
+        expect(page).to have_text("You have already responded this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
     end
@@ -95,8 +95,8 @@ describe "Transparent Space Respond a survey" do
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
-        expect(page).to have_content "The form is available only for members"
-        expect(page).to have_content "Form closed"
+        expect(page).to have_text "The form is available only for members"
+        expect(page).to have_text "Form closed"
 
         expect(page).to have_css(".button[disabled]")
       end

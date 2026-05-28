@@ -43,7 +43,7 @@ describe "Admin manages organization homepage" do
         click_on "Update"
         sleep 1
         visit decidim.root_path
-        expect(page).to have_content("Custom welcome text!")
+        expect(page).to have_text("Custom welcome text!")
         expect(page).to have_link("Custom button!", href: "http://example.org")
       end
 
@@ -66,7 +66,7 @@ describe "Admin manages organization homepage" do
         click_on "Update"
         sleep 1
 
-        expect(page).to have_content("File resolution is too large")
+        expect(page).to have_text("File resolution is too large")
       end
     end
 
@@ -87,8 +87,8 @@ describe "Admin manages organization homepage" do
         click_on "Update"
         sleep 1
         visit decidim.root_path
-        expect(page).to have_content("Custom title text!")
-        expect(page).to have_content("The Short description")
+        expect(page).to have_text("Custom title text!")
+        expect(page).to have_text("The Short description")
         expect(page).to have_link("Custom action subtitle!", href: "http://example.org")
       end
 
@@ -120,7 +120,7 @@ describe "Admin manages organization homepage" do
         click_on "Update"
         sleep 1
 
-        expect(page).to have_content("File resolution is too large")
+        expect(page).to have_text("File resolution is too large")
       end
     end
 
@@ -134,7 +134,7 @@ describe "Admin manages organization homepage" do
         click_on "Update"
         sleep 1
         visit decidim.root_path
-        expect(page).to have_content("Custom HTML text!")
+        expect(page).to have_text("Custom HTML text!")
       end
     end
   end

@@ -12,23 +12,23 @@ describe "Assembly admin accesses admin sections" do
 
   shared_examples "sees menu without members" do
     it "can access all sections" do
-      expect(page).to have_content("Info")
-      expect(page).to have_content("Components")
-      expect(page).to have_content("Attachments")
-      expect(page).to have_content("Assembly admins")
-      expect(page).to have_no_content("Members")
-      expect(page).to have_content("Moderations")
+      expect(page).to have_text("Info")
+      expect(page).to have_text("Components")
+      expect(page).to have_text("Attachments")
+      expect(page).to have_text("Assembly admins")
+      expect(page).to have_no_text("Members")
+      expect(page).to have_text("Moderations")
     end
   end
 
   shared_examples "sees menu with members" do
     it "can access all sections" do
-      expect(page).to have_content("Info")
-      expect(page).to have_content("Components")
-      expect(page).to have_content("Attachments")
-      expect(page).to have_content("Assembly admins")
-      expect(page).to have_content("Members")
-      expect(page).to have_content("Moderations")
+      expect(page).to have_text("Info")
+      expect(page).to have_text("Components")
+      expect(page).to have_text("Attachments")
+      expect(page).to have_text("Assembly admins")
+      expect(page).to have_text("Members")
+      expect(page).to have_text("Moderations")
     end
   end
 

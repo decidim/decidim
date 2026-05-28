@@ -26,7 +26,7 @@ describe "Conference program" do
       visit decidim_conferences.conference_path(conference)
 
       within "aside .conference__nav-container" do
-        expect(page).to have_no_content(translated_attribute(component.name))
+        expect(page).to have_no_text(translated_attribute(component.name))
       end
     end
   end
@@ -53,7 +53,7 @@ describe "Conference program" do
           visit decidim_conferences.conference_path(conference)
 
           within "aside .conference__nav-container" do
-            expect(page).to have_content(translated_attribute(component.name))
+            expect(page).to have_text(translated_attribute(component.name))
             click_on translated_attribute(component.name)
           end
 
@@ -68,7 +68,7 @@ describe "Conference program" do
         end
 
         it "displays the correct title" do
-          expect(page).to have_content("Meeting title")
+          expect(page).to have_text("Meeting title")
         end
       end
     end
@@ -78,14 +78,14 @@ describe "Conference program" do
         expect(page).to have_css("[data-conference-program-title]", count: 3)
 
         meetings.each do |meeting|
-          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))
+          expect(page).to have_text(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))
         end
       end
     end
 
     it "has the taxonomy name" do
       within "[data-conference-program-day]" do
-        expect(page).to have_content(translated_attribute(taxonomy.name))
+        expect(page).to have_text(translated_attribute(taxonomy.name))
       end
     end
   end

@@ -128,7 +128,7 @@ module Decidim::Meetings
       let(:my_cell) { cell("decidim/meetings/meeting_l", meeting, context: { show_space: false }) }
 
       it "does not show the participatory space" do
-        expect(subject).to have_no_content(decidim_escape_translated(meeting.component.participatory_space.title))
+        expect(subject).to have_no_text(decidim_escape_translated(meeting.component.participatory_space.title))
       end
     end
 
@@ -136,7 +136,7 @@ module Decidim::Meetings
       let(:my_cell) { cell("decidim/meetings/meeting_l", meeting, context: { show_space: true }) }
 
       it "shows the participatory space" do
-        expect(subject).to have_content(translated_attribute(meeting.component.participatory_space.title))
+        expect(subject).to have_text(translated_attribute(meeting.component.participatory_space.title))
         expect(subject.to_s).to include(decidim_escape_translated(meeting.component.participatory_space.title).gsub("&quot;", "\""))
       end
     end

@@ -48,7 +48,7 @@ describe "Respond a survey" do
 
       click_on translated_attribute(questionnaire.title)
 
-      expect(page).to have_content("The form is closed and cannot be responded.")
+      expect(page).to have_text("The form is closed and cannot be responded.")
     end
 
     context "when the survey has questions' responses published" do
@@ -142,7 +142,7 @@ describe "Respond a survey" do
     it_behaves_like "accessible page"
 
     it "shows a page" do
-      expect(page).to have_content("Authorization required")
+      expect(page).to have_text("Authorization required")
     end
   end
 
@@ -163,7 +163,7 @@ describe "Respond a survey" do
 
         click_on translated_attribute(questionnaire.title)
 
-        expect(page).to have_content("The form is closed and cannot be responded.")
+        expect(page).to have_text("The form is closed and cannot be responded.")
       end
     end
 
@@ -230,8 +230,8 @@ describe "Respond a survey" do
 
       it "allows to edit the responses" do
         click_on "Edit your responses"
-        expect(page).to have_content(translated_attribute(survey.title))
-        expect(page).to have_content(translated_attribute(question.body))
+        expect(page).to have_text(translated_attribute(survey.title))
+        expect(page).to have_text(translated_attribute(question.body))
       end
     end
   end
@@ -245,7 +245,7 @@ describe "Respond a survey" do
     end
 
     it "displays the announcement in the survey" do
-      expect(page).to have_content("This is a custom announcement.")
+      expect(page).to have_text("This is a custom announcement.")
     end
   end
 
@@ -259,8 +259,8 @@ describe "Respond a survey" do
 
     it "shows action log entry" do
       page.visit decidim.profile_activity_path(nickname: user.nickname)
-      expect(page).to have_content("New survey: #{translated(survey.questionnaire.title)}")
-      expect(page).to have_content(translated(survey.component.participatory_space.title))
+      expect(page).to have_text("New survey: #{translated(survey.questionnaire.title)}")
+      expect(page).to have_text(translated(survey.component.participatory_space.title))
       expect(page).to have_link(translated(survey.questionnaire.title), href: router.survey_path(survey))
     end
   end
