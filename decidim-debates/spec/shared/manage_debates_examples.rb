@@ -320,7 +320,7 @@ RSpec.shared_examples "manage debates" do
       end
     end
 
-    context "when the debate has a pre-existing attachment" do
+    context "when the debate has an attachment" do
       let!(:debate_with_attachment) { create(:debate, component: current_component) }
       let!(:document) { create(:attachment, :with_image, attached_to: debate_with_attachment) }
 
