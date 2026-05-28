@@ -19,7 +19,7 @@ module Decidim::ParticipatoryProcesses
         Admin::ParticipatoryProcessDuplicateForm,
         invalid?: invalid,
         title: { en: "title" },
-        slug: "copied-slug",
+        slug: "duplicated-slug",
         duplicate_steps?: duplicate_steps,
         duplicate_components?: duplicate_components,
         duplicate_landing_page_blocks?: duplicate_landing_page_blocks,
@@ -40,6 +40,27 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
+    context "when there is a trashed process with the same slug" do
+      let!(:trashed_process) { create(:participatory_process, :trashed, :open, slug: "duplicated-slug", organization:) }
+      let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+      let(:form) do
+        Admin::ParticipatoryProcessDuplicateForm.from_params({
+                                                               title: { en: "title" },
+                                                               slug: "duplicated-slug",
+                                                               duplicate_steps?: duplicate_steps,
+                                                               duplicate_components?: duplicate_components,
+                                                               duplicate_landing_page_blocks?: duplicate_landing_page_blocks
+                                                             }).with_context({
+                                                                               current_user:,
+                                                                               current_organization: organization
+                                                                             })
+      end
+
+      it "raises a database error due to the unique constraint including soft-deleted records" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
     context "when everything is ok" do
       it "duplicates a participatory process" do
         expect { subject.call }.to change(Decidim::ParticipatoryProcess, :count).by(1)
@@ -47,7 +68,7 @@ module Decidim::ParticipatoryProcesses
         old_participatory_process = Decidim::ParticipatoryProcess.first
         new_participatory_process = Decidim::ParticipatoryProcess.last
 
-        expect(new_participatory_process.slug).to eq("copied-slug")
+        expect(new_participatory_process.slug).to eq("duplicated-slug")
         expect(new_participatory_process.title["en"]).to eq("title")
         expect(new_participatory_process).not_to be_published
         expect(new_participatory_process.organization).to eq(old_participatory_process.organization)

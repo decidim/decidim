@@ -36,6 +36,26 @@ module Decidim::Assemblies
       end
     end
 
+    context "when there is a trashed process with the same slug" do
+      let!(:trashed_process) { create(:assembly, :trashed, :open, slug: "duplicated-slug", organization:) }
+      let!(:participatory_process) { create(:assembly, organization:) }
+      let(:form) do
+        Admin::AssemblyDuplicateForm.from_params({
+                                                   title: { en: "title" },
+                                                   slug: "duplicated-slug",
+                                                   duplicate_components?: duplicate_components,
+                                                   duplicate_landing_page_blocks?: duplicate_landing_page_blocks
+                                                 }).with_context({
+                                                                   current_user: user,
+                                                                   current_organization: organization
+                                                                 })
+      end
+
+      it "raises a database error due to the unique constraint including soft-deleted records" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
     context "when everything is ok" do
       it "duplicates an assembly" do
         expect { subject.call }.to change(Decidim::Assembly, :count).by(1)
