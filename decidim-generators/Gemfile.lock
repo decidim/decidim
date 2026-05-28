@@ -78,7 +78,7 @@ PATH
       geocoder (~> 1.8)
       hashdiff (>= 0.4.0, < 2.0.0)
       hexapdf (>= 1.1, < 1.9)
-      image_processing (~> 1.2)
+      image_processing (>= 1.2, < 3.0)
       invisible_captcha (>= 0.12, < 3.0)
       kaminari (~> 1.2, >= 1.2.1)
       loofah (~> 2.19, >= 2.19.1)
@@ -423,7 +423,7 @@ GEM
     faraday-net_http (3.4.3)
       net-http (~> 0.5)
     fast-stemmer (1.0.2)
-    ffi (1.17.3-x86_64-linux-gnu)
+    ffi (1.17.4-x86_64-linux-gnu)
     fiber-storage (1.0.1)
     file_validators (3.0.0)
       activemodel (>= 3.2)
@@ -494,9 +494,7 @@ GEM
       logger
       ostruct
     ice_cube (0.17.0)
-    image_processing (1.14.0)
-      mini_magick (>= 4.9.5, < 6)
-      ruby-vips (>= 2.0.17, < 3)
+    image_processing (2.0.1)
     invisible_captcha (2.3.0)
       rails (>= 5.2)
     io-console (0.8.2)
@@ -553,8 +551,6 @@ GEM
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2026.0224)
-    mini_magick (5.3.1)
-      logger
     mini_mime (1.1.5)
     minitest (6.0.6)
       drb (~> 2.0)
