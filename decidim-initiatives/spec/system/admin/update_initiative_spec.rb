@@ -180,6 +180,34 @@ describe "User prints the initiative" do
           end
         end
       end
+
+      context "when the initiative has an attachment" do
+        let!(:initiative_with_attachment) { create(:initiative, organization:, scoped_type: initiative_scope, author:) }
+        let!(:document) { create(:attachment, :with_image, attached_to: initiative_with_attachment) }
+
+        it "can edit an initiative with an attachment" do
+          visit decidim_admin_initiatives.edit_initiative_path(initiative_with_attachment)
+
+          expect(page.html).to include(document.file.blob.filename.to_s)
+
+          fill_in_i18n(
+            :initiative_title,
+            "#initiative-title-tabs",
+            en: "Updated initiative title with attachments"
+          )
+
+          within("[data-content]") do
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_callout "The initiative has been successfully updated."
+
+          visit decidim_admin_initiatives.edit_initiative_path(initiative_with_attachment)
+
+          expect(page.html).to include(document.file.blob.filename.to_s)
+          expect(page).to have_field("initiative_title_en", with: "Updated initiative title with attachments")
+        end
+      end
     end
   end
 end
