@@ -16,7 +16,7 @@ eu:
         document_type: Dokumentu mota
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letraz)
-        document_type: Dokumentuaren mota
+        document_type: Dokumentu mota
         user: Parte-hartzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
       mobile_phone:
@@ -47,7 +47,7 @@ eu:
             confirm: Data horren aurreko baimenak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             confirm_all: Baimen guztiak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
           destroy_nok: Arazo bat izn da baimenak ezeztatzean.
-          destroy_ok: Bat datozen baimen guztiak zuzen ezeztatu dira.
+          destroy_ok: Baimenak ezeztatzen ari dira. Minutu batzuk beharko ditugu hau bukatzeko.
           info: Guztira %{count} parte-hartzaile egiaztatuta daude.
           no_data: Ez dago parte-hartzaile egiaztaturik.
           title: Baimenak ezeztatzea
@@ -182,7 +182,7 @@ eu:
               john.doe@example.org
               jane.doe@example.org
             file: ".csv fitxategia helbide elektronikoen datuekin"
-            info: 'CSV formatudun fitxategia izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
+            info: 'CSV formatudun artxiboa izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
             submit: Igo fitxategia
             title: Igo beste errolda bat
         authorizations:
@@ -202,7 +202,7 @@ eu:
           config:
             edit:
               title: Nortasun agirien konfigurazioa
-              update: eguneratzearen
+              update: Eguneratu
             update:
               error: Arazo bat egon da konfigurazioa eguneratzean.
               success: Ezarpena zuzen eguneratua.
