@@ -44,7 +44,7 @@ module Decidim
         end
 
         def election
-          @election ||= Decidim::Elections::Election.where(component: current_component).find(params[:id])
+          @election ||= Decidim::Elections::Election.where(component: current_component).find(params.expect(:id))
         end
       end
     end

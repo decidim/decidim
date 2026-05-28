@@ -39,11 +39,11 @@ module Decidim
       end
 
       def component
-        @component ||= current_participatory_space.components.find(params[:component_id])
+        @component ||= current_participatory_space.components.find(params.expect(:component_id))
       end
 
       def commentable_filter?
-        params[:id].match?("comments$")
+        params.fetch(:id, "").match?("comments$")
       end
     end
   end

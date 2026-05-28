@@ -26,7 +26,7 @@ describe "Conferences" do
     end
 
     it "the menu link is not shown" do
-      expect(page).to have_no_content("MEDIA")
+      expect(page).to have_no_text("MEDIA")
     end
   end
 
@@ -41,14 +41,14 @@ describe "Conferences" do
       visit decidim_conferences.conference_path(conference)
 
       within "aside .conference__nav-container" do
-        expect(page).to have_content("Media")
+        expect(page).to have_text("Media")
       end
     end
 
     it "shows them" do
       within "#conference-media-links" do
-        expect(page).to have_content("Media and Links")
-        expect(page).to have_content(translated(media_link.title))
+        expect(page).to have_text("Media and Links")
+        expect(page).to have_text(translated(media_link.title))
         expect(page).to have_css("[data-conference-media-links] a")
       end
     end
@@ -65,7 +65,7 @@ describe "Conferences" do
 
     it "shows them" do
       within "#conference-media-documents" do
-        expect(page).to have_content(translated(document.title))
+        expect(page).to have_text(translated(document.title))
       end
 
       within "#conference-media-photos" do

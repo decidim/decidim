@@ -25,8 +25,8 @@ def invite_unregistered_user(name:, email:)
   expect(page).to have_callout("Participant successfully invited to join the meeting.")
 
   within "#meeting-invites table" do
-    expect(page).to have_content(name)
-    expect(page).to have_content(email)
+    expect(page).to have_text(name)
+    expect(page).to have_text(email)
   end
 end
 
@@ -45,8 +45,8 @@ def invite_existing_user(user)
   expect(page).to have_callout("Participant successfully invited to join the meeting.")
 
   within "#meeting-invites table" do
-    expect(page).to have_content(registered_user.name)
-    expect(page).to have_content(registered_user.email)
+    expect(page).to have_text(registered_user.name)
+    expect(page).to have_text(registered_user.email)
   end
 end
 
@@ -60,7 +60,7 @@ shared_examples "manage invites" do
       it "cannot invite people to join a meeting" do
         visit_meeting_invites_page
 
-        expect(page).to have_content("registrations are disabled")
+        expect(page).to have_text("registrations are disabled")
 
         within "form.new_meeting_registration_invite" do
           expect(page).to have_css("button[disabled]", text: "Invite")
@@ -106,7 +106,7 @@ shared_examples "manage invites" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content "declined the invitation successfully"
+          expect(page).to have_text "declined the invitation successfully"
           expect(page).to have_css(".button", text: "Register")
         end
       end
@@ -189,8 +189,8 @@ shared_examples "manage invites" do
 
         within "#meeting-invites table tbody" do
           expect(page).to have_css("tr", count: 1)
-          expect(page).to have_content(invites.first.user.name)
-          expect(page).to have_no_content(invites.last.user.name)
+          expect(page).to have_text(invites.first.user.name)
+          expect(page).to have_no_text(invites.last.user.name)
         end
       end
 
@@ -204,8 +204,8 @@ shared_examples "manage invites" do
 
         within "#meeting-invites table tbody" do
           expect(page).to have_css("tr", count: 1)
-          expect(page).to have_content(accepted_invite.user.name)
-          expect(page).to have_no_content(rejected_invite.user.name)
+          expect(page).to have_text(accepted_invite.user.name)
+          expect(page).to have_no_text(rejected_invite.user.name)
         end
 
         remove_applied_filter("Accepted")
@@ -213,8 +213,8 @@ shared_examples "manage invites" do
 
         within "#meeting-invites table tbody" do
           expect(page).to have_css("tr", count: 1)
-          expect(page).to have_content(rejected_invite.user.name)
-          expect(page).to have_no_content(accepted_invite.user.name)
+          expect(page).to have_text(rejected_invite.user.name)
+          expect(page).to have_no_text(accepted_invite.user.name)
         end
       end
     end

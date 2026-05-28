@@ -9,12 +9,12 @@ shared_examples "import proposals" do
   it "imports proposals from one component to another" do
     fill_form
 
-    expect(page).to have_content("The import process has started. We will let you know once it has finished.")
+    expect(page).to have_text("The import process has started. We will let you know once it has finished.")
     perform_enqueued_jobs
     visit current_path
 
     proposals.each do |proposal|
-      expect(page).to have_content(proposal.title["en"])
+      expect(page).to have_text(proposal.title["en"])
     end
 
     expect(page).to have_current_path(manage_component_path(current_component))
@@ -23,12 +23,12 @@ shared_examples "import proposals" do
   it "imports proposals from one component to another by keeping the authors" do
     fill_form(keep_authors: true)
 
-    expect(page).to have_content("The import process has started. We will let you know once it has finished.")
+    expect(page).to have_text("The import process has started. We will let you know once it has finished.")
     perform_enqueued_jobs
     visit current_path
 
     proposals.each do |proposal|
-      expect(page).to have_content(proposal.title["en"])
+      expect(page).to have_text(proposal.title["en"])
     end
 
     expect(page).to have_current_path(manage_component_path(current_component))
@@ -44,7 +44,7 @@ shared_examples "import proposals" do
       dynamically_attach_file(:import_file, Decidim::Dev.asset("import_proposals.csv"))
       click_on "Import"
 
-      expect(page).to have_content("3 proposals successfully imported")
+      expect(page).to have_text("3 proposals successfully imported")
       expect(page).to have_current_path(manage_component_path(current_component))
     end
 
@@ -53,7 +53,7 @@ shared_examples "import proposals" do
 
       click_on "Import"
 
-      expect(page).to have_content("3 proposals successfully imported")
+      expect(page).to have_text("3 proposals successfully imported")
       expect(page).to have_current_path(manage_component_path(current_component))
     end
 
@@ -62,7 +62,7 @@ shared_examples "import proposals" do
 
       click_on "Import"
 
-      expect(page).to have_content("3 proposals successfully imported")
+      expect(page).to have_text("3 proposals successfully imported")
       expect(page).to have_current_path(manage_component_path(current_component))
     end
   end

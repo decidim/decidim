@@ -17,7 +17,7 @@ module Decidim
     before_action :ensure_user_not_blocked
 
     def show
-      redirect_to profile_activity_path(nickname: params[:nickname].downcase)
+      redirect_to profile_activity_path(nickname: params.expect(:nickname).downcase)
     end
 
     def following
@@ -61,7 +61,7 @@ module Decidim
     def profile_holder
       return if params[:nickname].blank?
 
-      @profile_holder ||= Decidim::UserBaseEntity.find_by("nickname = ? AND decidim_organization_id = ?", params[:nickname].downcase, current_organization.id)
+      @profile_holder ||= Decidim::UserBaseEntity.find_by("nickname = ? AND decidim_organization_id = ?", params.expect(:nickname).downcase, current_organization.id)
     end
   end
 end

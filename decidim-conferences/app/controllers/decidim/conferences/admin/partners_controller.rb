@@ -38,13 +38,13 @@ module Decidim
         end
 
         def edit
-          @partner = collection.find(params[:id])
+          @partner = collection.find(params.expect(:id))
           enforce_permission_to :update, :partner, partner: @partner
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_model(@partner)
         end
 
         def update
-          @partner = collection.find(params[:id])
+          @partner = collection.find(params.expect(:id))
           enforce_permission_to :update, :partner, partner: @partner
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_params(params)
 
@@ -62,7 +62,7 @@ module Decidim
         end
 
         def destroy
-          @partner = collection.find(params[:id])
+          @partner = collection.find(params.expect(:id))
           enforce_permission_to :destroy, :partner, partner: @partner
 
           DestroyPartner.call(@partner, current_user) do

@@ -10,7 +10,7 @@ module Decidim
     end
 
     def destroy
-      notification = notifications.find(params[:id])
+      notification = notifications.find(params.expect(:id))
       enforce_permission_to(:destroy, :notification, notification:)
       notification.destroy
     end

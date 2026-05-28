@@ -60,10 +60,10 @@ describe "Admin manages projects" do
 
     it "selects projects to implementation" do
       within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content("No")
+        expect(page).to have_text("No")
       end
       within "tr[data-id='#{project2.id}']" do
-        expect(page).to have_content("No")
+        expect(page).to have_text("No")
       end
 
       find_by_id("projects_bulk").set(true)
@@ -74,10 +74,10 @@ describe "Admin manages projects" do
 
       expect(page).to have_callout "These projects were successfully selected for implementation"
       within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content("Yes")
+        expect(page).to have_text("Yes")
       end
       within "tr[data-id='#{project2.id}']" do
-        expect(page).to have_content("Yes")
+        expect(page).to have_text("Yes")
       end
       expect(Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
@@ -103,7 +103,7 @@ describe "Admin manages projects" do
         select translated(destination_budget.title), from: "reference_id"
         click_on "Update project's budget"
         within_flash_messages do
-          expect(page).to have_content("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
+          expect(page).to have_text("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
         end
         expect(page).to have_no_css("tr[data-id='#{project.id}']")
         expect(page).to have_no_css("tr[data-id='#{project2.id}']")

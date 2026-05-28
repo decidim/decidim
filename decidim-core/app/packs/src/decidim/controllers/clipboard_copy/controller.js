@@ -252,7 +252,7 @@ export default class extends Controller {
       // Use deprecated execCommand for IE compatibility
       // Modern browsers support the Clipboard API, but IE does not
       success = document.execCommand("copy");
-    } catch (err) {
+    } catch {
       success = false;
     }
 

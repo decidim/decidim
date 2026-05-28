@@ -78,7 +78,7 @@ module Decidim
       private
 
       def user
-        @user ||= collection.find(params[:id])
+        @user ||= collection.find(params.expect(:id))
       end
 
       def collection

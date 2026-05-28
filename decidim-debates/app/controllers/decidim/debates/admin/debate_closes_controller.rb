@@ -34,7 +34,7 @@ module Decidim
         private
 
         def debate
-          @debate ||= Debate.where(component: current_component).find(params[:id])
+          @debate ||= Debate.where(component: current_component).find(params.expect(:id))
         end
       end
     end

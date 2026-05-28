@@ -19,8 +19,8 @@ describe "Budgets Breadcrumb" do
       visit router.root_path(locale: I18n.locale)
 
       within ".menu-bar" do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
       end
     end
   end
@@ -30,9 +30,9 @@ describe "Budgets Breadcrumb" do
       visit router.budget_path(budget, locale: I18n.locale)
 
       within ".menu-bar" do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(budget.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(budget.title))
       end
     end
   end
@@ -42,10 +42,10 @@ describe "Budgets Breadcrumb" do
       visit router.budget_project_path(budget, project, locale: I18n.locale)
 
       within ".menu-bar" do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(budget.title))
-        expect(page).to have_content(translated(project.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(budget.title))
+        expect(page).to have_text(translated(project.title))
       end
     end
   end

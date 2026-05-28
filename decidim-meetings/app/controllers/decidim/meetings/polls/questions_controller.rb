@@ -29,7 +29,7 @@ module Decidim
         private
 
         def question
-          @question ||= questionnaire.questions.find(params[:id]) if questionnaire
+          @question ||= questionnaire.questions.find(params.expect(:id)) if questionnaire
         end
 
         def admin_index_template

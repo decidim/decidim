@@ -74,7 +74,7 @@ module Decidim
         private
 
         def proposal_state
-          @proposal_state ||= proposal_states.find(params[:id])
+          @proposal_state ||= proposal_states.find(params.expect(:id))
         end
 
         def proposal_states

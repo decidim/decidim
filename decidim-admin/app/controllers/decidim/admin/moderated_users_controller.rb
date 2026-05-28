@@ -53,7 +53,7 @@ module Decidim
       end
 
       def reportable
-        @reportable ||= base_query_finder.find(params[:id]).user
+        @reportable ||= base_query_finder.find(params.expect(:id)).user
       end
 
       def reportables
