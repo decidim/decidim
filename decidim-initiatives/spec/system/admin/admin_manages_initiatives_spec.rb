@@ -85,7 +85,7 @@ describe "Admin manages initiatives" do
     it "can be searched by title" do
       search_by_text(translated(open_initiative.title))
 
-      expect(page).to have_content(translated(open_initiative.title))
+      expect(page).to have_text(translated(open_initiative.title))
     end
 
     Decidim::Area.all.each do |area|
@@ -105,19 +105,19 @@ describe "Admin manages initiatives" do
     it "can be searched by description" do
       search_by_text(translated(open_initiative.description))
 
-      expect(page).to have_content(translated(open_initiative.title))
+      expect(page).to have_text(translated(open_initiative.title))
     end
 
     it "can be searched by author name" do
       search_by_text(open_initiative.author.name)
 
-      expect(page).to have_content(translated(open_initiative.title))
+      expect(page).to have_text(translated(open_initiative.title))
     end
 
     it "can be searched by author nickname" do
       search_by_text(open_initiative.author.nickname)
 
-      expect(page).to have_content(translated(open_initiative.title))
+      expect(page).to have_text(translated(open_initiative.title))
     end
 
     it_behaves_like "paginating a collection"

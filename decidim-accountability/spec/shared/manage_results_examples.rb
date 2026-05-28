@@ -18,7 +18,7 @@ shared_examples "manage results" do
     end
 
     it "does not display the proposal picker" do
-      expect(page).to have_no_content "Choose proposals"
+      expect(page).to have_no_text "Choose proposals"
     end
   end
 
@@ -45,12 +45,12 @@ shared_examples "manage results" do
       expect(page).to have_callout("Result successfully updated.")
 
       within "table" do
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated result")
-      expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_text("updated result")
+      expect(page).to have_text(translated(attributes[:title]))
     end
 
     it "creates a new result", :slow do
@@ -70,21 +70,21 @@ shared_examples "manage results" do
       expect(page).to have_callout("Result successfully created.")
 
       within "table" do
-        expect(page).to have_content(translated(attributes[:title]))
-        expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+        expect(page).to have_text(translated(attributes[:title]))
+        expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created result")
-      expect(page).to have_content(attributes[:title]["en"])
+      expect(page).to have_text("created result")
+      expect(page).to have_text(attributes[:title]["en"])
 
       visit decidim.last_activities_path
-      expect(page).to have_content("New result: #{translated(attributes[:title])}")
+      expect(page).to have_text("New result: #{translated(attributes[:title])}")
 
       within "#filters" do
         find("a", class: "filter", text: "Result", match: :first).click
       end
-      expect(page).to have_content("New result: #{translated(attributes[:title])}")
+      expect(page).to have_text("New result: #{translated(attributes[:title])}")
     end
   end
 
@@ -94,8 +94,8 @@ shared_examples "manage results" do
       preview_window = window_opened_by { click_on "Preview" }
 
       within_window preview_window do
-        expect(page).to have_content translated(result.title)
-        expect(page).to have_content "Progress"
+        expect(page).to have_text translated(result.title)
+        expect(page).to have_text "Progress"
       end
     end
   end
@@ -116,7 +116,7 @@ shared_examples "manage results" do
       expect(page).to have_callout("Result successfully deleted.")
 
       within "table" do
-        expect(page).to have_no_content(translated(result2.title))
+        expect(page).to have_no_text(translated(result2.title))
       end
     end
   end

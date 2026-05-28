@@ -23,7 +23,7 @@ describe "Show replies" do
 
   context "when viewing a comment with replies" do
     it "shows the replies button with the correct count" do
-      expect(page).to have_content("3 replies")
+      expect(page).to have_text("3 replies")
     end
 
     it "loads the replies when clicking the button", :slow do
@@ -54,7 +54,7 @@ describe "Show replies" do
     end
 
     it "shows comments after loading more", :slow do
-      expect(page).to have_content("Load more comments")
+      expect(page).to have_text("Load more comments")
 
       click_button "Load more comments"
 
@@ -82,7 +82,7 @@ describe "Show replies" do
 
       click_button "Publish reply"
 
-      expect(page).to have_content("This is my reply")
+      expect(page).to have_text("This is my reply")
     end
   end
 
@@ -96,7 +96,7 @@ describe "Show replies" do
     end
 
     it "shows the replies button in the correct locale" do
-      expect(page).to have_content("3 respuestas")
+      expect(page).to have_text("3 respuestas")
     end
 
     it "loads the replies when clicking the button in the correct locale", :slow do

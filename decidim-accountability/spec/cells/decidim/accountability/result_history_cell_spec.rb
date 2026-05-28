@@ -29,7 +29,7 @@ module Decidim::Accountability
 
         it "shows related proposals" do
           html = cell("decidim/accountability/result_history", result).call
-          expect(html).to have_content("It was included in this proposal:")
+          expect(html).to have_text("It was included in this proposal:")
         end
       end
 
@@ -45,7 +45,7 @@ module Decidim::Accountability
 
         it "shows related projects" do
           html = cell("decidim/accountability/result_history", result).call
-          expect(html).to have_content("It was included in this project:")
+          expect(html).to have_text("It was included in this project:")
         end
       end
 
@@ -61,7 +61,7 @@ module Decidim::Accountability
 
         it "shows related meetings" do
           html = cell("decidim/accountability/result_history", result).call
-          expect(html).to have_content("It was discussed in this meeting:")
+          expect(html).to have_text("It was discussed in this meeting:")
         end
       end
     end

@@ -28,20 +28,20 @@ describe "Admin manages impersonations" do
 
         visit decidim_admin.impersonatable_user_impersonation_logs_path(impersonatable_user_id:)
 
-        expect(page).to have_content("You are not authorized to perform this action.")
+        expect(page).to have_text("You are not authorized to perform this action.")
       end
 
       it "restrict access on conflicts page" do
         visit decidim_admin.conflicts_path
 
-        expect(page).to have_content("You are not authorized to perform this action.")
+        expect(page).to have_text("You are not authorized to perform this action.")
       end
 
       it "restrict access to conflict page" do
         conflict = create(:conflict, managed_user: impersonatable_user)
         visit decidim_admin.edit_conflict_path(conflict)
 
-        expect(page).to have_content("You are not authorized to perform this action.")
+        expect(page).to have_text("You are not authorized to perform this action.")
       end
     end
   end

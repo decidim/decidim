@@ -16,7 +16,7 @@ describe "Admin checks logs" do
   end
 
   it "lists all recent logs" do
-    expect(page).to have_content("Admin log")
+    expect(page).to have_text("Admin log")
 
     within ".logs.table" do
       expect(page).to have_css("div.logs__log", count: 3)
@@ -27,7 +27,7 @@ describe "Admin checks logs" do
     let!(:action_logs) { [] }
 
     it "shows the correct message" do
-      expect(page).to have_content("There are no logs yet.")
+      expect(page).to have_text("There are no logs yet.")
     end
   end
 
@@ -42,7 +42,7 @@ describe "Admin checks logs" do
     it "shows the generic log message" do
       within ".logs.table" do
         expect(page).to have_css("div.logs__log", count: 5)
-        expect(page).to have_content("published")
+        expect(page).to have_text("published")
       end
     end
   end
@@ -58,7 +58,7 @@ describe "Admin checks logs" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("There are no logs with the provided search filters. Try to change them and retry.")
+        expect(page).to have_text("There are no logs with the provided search filters. Try to change them and retry.")
       end
     end
 
@@ -72,7 +72,7 @@ describe "Admin checks logs" do
       it "lists only logs from that participatory space" do
         within ".filters__section" do
           fill_in "participatory_space_search_0", with: search_term
-          expect(page).to have_content(autocomplete_result)
+          expect(page).to have_text(autocomplete_result)
           find(".autoComplete_wrapper li", text: autocomplete_result).click
           find("*[type=submit]").click
         end

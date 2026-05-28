@@ -100,7 +100,7 @@ describe Decidim::AdminLog::UserPresenter, type: :helper do
 
         it "presents a message showing the admin_name and the amount of blocked user" do
           expect(subject).to include(user.name)
-          expect(subject).to have_content("#{user.name} blocked 0 users")
+          expect(subject).to have_text("#{user.name} blocked 0 users")
         end
       end
     end

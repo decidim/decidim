@@ -43,7 +43,7 @@ describe "Admin manages organization homepage" do
       click_on "Update"
       sleep 1
       visit decidim.root_path
-      expect(page).to have_content("Custom welcome text!")
+      expect(page).to have_text("Custom welcome text!")
     end
 
     it "updates the images of the content block" do

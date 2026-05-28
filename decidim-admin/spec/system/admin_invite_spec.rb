@@ -69,7 +69,7 @@ describe "Admin invite" do
         end
 
         within "div.user-password" do
-          expect(page).to have_content "The password is too short."
+          expect(page).to have_text "The password is too short."
         end
       end
     end
@@ -105,7 +105,7 @@ describe "Admin invite" do
         end
 
         within "div.user-password" do
-          expect(page).to have_content "The password is too short."
+          expect(page).to have_text "The password is too short."
         end
       end
     end
@@ -136,11 +136,11 @@ describe "Admin invite" do
     it "displays admin password requirements" do
       visit last_email_link
 
-      expect(page).to have_content("15 characters minimum")
-      expect(page).to have_content("must contain at least 5 different characters")
-      expect(page).to have_content("must not be too common")
-      expect(page).to have_content("must be different from your name, nickname, email, the organization's host")
-      expect(page).to have_content("must be different from your old passwords")
+      expect(page).to have_text("15 characters minimum")
+      expect(page).to have_text("must contain at least 5 different characters")
+      expect(page).to have_text("must not be too common")
+      expect(page).to have_text("must be different from your name, nickname, email, the organization's host")
+      expect(page).to have_text("must be different from your old passwords")
     end
 
     it "rejects passwords that are too short for admin" do
@@ -151,7 +151,7 @@ describe "Admin invite" do
       check :invitation_user_tos_agreement
       click_on "Save"
 
-      expect(page).to have_content("password is too short")
+      expect(page).to have_text("password is too short")
     end
 
     it "rejects passwords containing the user's name" do
@@ -162,7 +162,7 @@ describe "Admin invite" do
       check :invitation_user_tos_agreement
       click_on "Save"
 
-      expect(page).to have_content("is too similar to your name")
+      expect(page).to have_text("is too similar to your name")
     end
 
     it "rejects passwords with less than 5 unique characters" do
@@ -173,7 +173,7 @@ describe "Admin invite" do
       check :invitation_user_tos_agreement
       click_on "Save"
 
-      expect(page).to have_content("does not have enough unique characters")
+      expect(page).to have_text("does not have enough unique characters")
     end
   end
 
@@ -198,11 +198,11 @@ describe "Admin invite" do
       switch_to_host("new-decide.lvh.me")
       visit last_email_link
 
-      expect(page).to have_content("10 characters minimum")
-      expect(page).to have_content("must contain at least 5 different characters")
-      expect(page).to have_content("must not be too common")
-      expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
-      expect(page).to have_no_content("must be different from your old passwords")
+      expect(page).to have_text("10 characters minimum")
+      expect(page).to have_text("must contain at least 5 different characters")
+      expect(page).to have_text("must not be too common")
+      expect(page).to have_text("must be different from your name, nickname, email and the organization's host")
+      expect(page).to have_no_text("must be different from your old passwords")
     end
 
     it "allows accepting invitation with valid user password" do
@@ -214,7 +214,7 @@ describe "Admin invite" do
       check :invitation_user_tos_agreement
       click_on "Save"
 
-      expect(page).to have_content("Invitation accepted successfully. You are now signed in.")
+      expect(page).to have_text("Invitation accepted successfully. You are now signed in.")
       expect(Decidim::User.find_by(email: "invited_user@example.org")).not_to be_admin
     end
   end
@@ -244,10 +244,10 @@ describe "Admin invite" do
       switch_to_host("new-decide.lvh.me")
       visit last_email_link
 
-      expect(page).to have_content("10 characters minimum")
-      expect(page).to have_content("must contain at least 5 different characters")
-      expect(page).to have_content("must be different from your name, nickname, email and the organization's host")
-      expect(page).to have_no_content("must be different from your old passwords")
+      expect(page).to have_text("10 characters minimum")
+      expect(page).to have_text("must contain at least 5 different characters")
+      expect(page).to have_text("must be different from your name, nickname, email and the organization's host")
+      expect(page).to have_no_text("must be different from your old passwords")
     end
   end
 
@@ -255,7 +255,7 @@ describe "Admin invite" do
     it "shows error for invalid token" do
       visit decidim.accept_user_invitation_path(invitation_token: "invalid_token")
 
-      expect(page).to have_content("The invitation token provided is not valid")
+      expect(page).to have_text("The invitation token provided is not valid")
     end
   end
 end
