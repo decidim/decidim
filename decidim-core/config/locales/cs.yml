@@ -1845,6 +1845,7 @@ cs:
         submit_button: Odeslat pozvánku
       no_invitations_remaining: Žádné zbývající pozvánky
       send_instructions: Pozvánka byla odeslána na %{email}.
+      updated_not_active: Pozvánka úspěšně přijata.
     mailer:
       confirmation_instructions:
         action: Potvrďte svůj účet
