@@ -12,6 +12,5 @@ class AddReferenceToDecidimPagesPages < ActiveRecord::Migration[8.0]
     add_column :decidim_pages_pages, :reference, :string
     Page.reset_column_information
     Page.find_each { |page| page.send(:store_reference) }
-    change_column_null :decidim_pages_pages, :reference, false
   end
 end
