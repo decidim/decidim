@@ -111,22 +111,16 @@ lv:
             accept: Pieņemt
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} ir pieņemts, lai piekļūtu kā līdzautors %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ir <strong> pieņemts, lai piekļūtu kā līdzautors</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name} ir atteikta piekļuve kā līdzautoram %{resource_title} sadarbības projektā."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ir <strong> atteikta piekļuve, kā līdzautoram</strong><a href= "%{resource_path}">%{resource_title}</a> sadarbības projektā.
         collaborative_draft_access_requested:
           email_subject: "%{requester_name} pieprasīja piekļuvi, lai līdzdarbotos %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> pieprasīja piekļuvi, lai līdzdarbotos <a href="%{resource_path}"> %{resource_title}</a> sadarbības projektā. Lūdzu, <strong>pieņemiet vai noraidiet pieprasījumu</strong>.
         collaborative_draft_access_requester_accepted:
           email_subject: Jūs pieņēma par %{resource_title} līdzautoru.
           notification_title: Jums <strong>piešķirta piekļuve kā līdzautoram</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
         collaborative_draft_access_requester_rejected:
           email_subject: Jūsu pieteikums kļūt par %{resource_title} līdzautoru ir atteikts.
           notification_title: Jums <strong>atteikta iespēja piekļūt kā līdzautoram</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name} %{author_nickname} atsauca %{resource_title} sadarbības projektu."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a><strong> atsauca </strong><a href="%{resource_path}">%{resource_title}</a> sadarbības projektu.
         creation_enabled:
           email_intro: 'Tagad jūs varat izveidot jaunu priekšlikumu telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
@@ -136,11 +130,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo esat "%{resource_title}" autors.
           email_subject: Jūsu priekšlikums "%{mentioned_proposal_title}" ir pieminēts
           notification_title: Jūsu priekšlikums "%{mentioned_proposal_title}" ir pieminēts <a href="%{resource_path}"> šajā telpā </a> komentāros.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, kam jūs sekojat, ir publicējis jaunu priekšlikumu ar nosaukumu "%{resource_title}". Aplūkojiet to un piedalieties:'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-          email_subject: Jauns %{author_nickname} priekšlikums "%{resource_title}"
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> iniciatīvu publicēja<a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Priekšlikums "%{resource_title}" ir pievienots "%{participatory_space_title}", kam jūs sekojat.
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{participatory_space_title}". Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
