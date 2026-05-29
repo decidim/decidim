@@ -13,7 +13,7 @@
   <body class="meeting-polls__body">
     <%= render partial: "layouts/decidim/timeout_modal" %>
 
-    <header class="meeting-polls__header">
+    <header class="meeting-polls__header" role="banner">
       <div>
         <strong class="text-secondary"><%= current_organization_name %></strong> / <strong><%= present(meeting).title(html_escape: true) %></strong>
       </div>
@@ -30,7 +30,7 @@
       </div>
     </header>
 
-    <main class="meeting-polls__main">
+    <main class="meeting-polls__main" role="main">
       <%= yield %>
     </main>
 
