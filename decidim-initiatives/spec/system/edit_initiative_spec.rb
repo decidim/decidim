@@ -86,7 +86,7 @@ describe "Edit initiative" do
       expect(page).to have_no_xpath("//select[@id='initiative_state']")
     end
 
-    context "when editing an initiative with attachments" do
+    context "when the initiative has an attachment" do
       let!(:initiative) { create(:initiative, :created, author: user, scoped_type:, organization:) }
       let!(:document) { create(:attachment, :with_pdf, attached_to: initiative) }
       let!(:image) { create(:attachment, :with_image, attached_to: initiative) }
