@@ -21,7 +21,7 @@ describe "show" do
 
     it "shows the meeting reference" do
       within ".layout-container__reference" do
-        expect(page).to have_content(meeting.reference)
+        expect(page).to have_text(meeting.reference)
       end
     end
 

@@ -122,7 +122,7 @@ describe "Explore posts" do
 
       it "shows the post reference" do
         within ".layout-container__reference" do
-          expect(page).to have_content(post.reference)
+          expect(page).to have_text(post.reference)
         end
       end
 

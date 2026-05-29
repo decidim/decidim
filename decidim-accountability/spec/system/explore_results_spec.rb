@@ -183,7 +183,7 @@ describe "Explore results", :versioning do
 
       it "shows the result reference" do
         within ".layout-container__reference" do
-          expect(page).to have_content(result.reference)
+          expect(page).to have_text(result.reference)
         end
       end
 

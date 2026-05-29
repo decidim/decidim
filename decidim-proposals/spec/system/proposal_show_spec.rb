@@ -26,7 +26,7 @@ describe "Show a Proposal" do
 
       it "shows the proposal reference" do
         within ".layout-container__reference" do
-          expect(page).to have_content(proposal.reference)
+          expect(page).to have_text(proposal.reference)
         end
       end
 

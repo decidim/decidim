@@ -35,7 +35,7 @@ describe "Show a page" do
 
       it "shows the page reference" do
         within ".layout-container__reference" do
-          expect(page).to have_content(page_component.reference)
+          expect(page).to have_text(page_component.reference)
         end
       end
     end

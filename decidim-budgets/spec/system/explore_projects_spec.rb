@@ -39,7 +39,7 @@ describe "Explore projects", :slow do
 
       it "shows the project reference" do
         within ".layout-container__reference" do
-          expect(page).to have_content(project.reference)
+          expect(page).to have_text(project.reference)
         end
       end
     end

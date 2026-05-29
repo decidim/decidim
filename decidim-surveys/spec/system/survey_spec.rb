@@ -259,7 +259,7 @@ describe "Respond a survey" do
 
     it "shows the survey reference" do
       within ".layout-container__reference" do
-        expect(page).to have_content(survey.reference)
+        expect(page).to have_text(survey.reference)
       end
     end
   end

@@ -40,7 +40,7 @@ describe "CollaborativeTexts Breadcrumb" do
       click_on document.title
 
       within ".layout-container__reference" do
-        expect(page).to have_content(document.reference)
+        expect(page).to have_text(document.reference)
       end
     end
   end

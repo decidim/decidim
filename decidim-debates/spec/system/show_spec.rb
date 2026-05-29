@@ -71,7 +71,7 @@ describe "show" do
 
     it "shows the debate reference" do
       within ".layout-container__reference" do
-        expect(page).to have_content(debate.reference)
+        expect(page).to have_text(debate.reference)
       end
     end
   end
