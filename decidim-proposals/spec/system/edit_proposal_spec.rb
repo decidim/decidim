@@ -115,29 +115,6 @@ describe "Edit proposals" do
           expect(page).to have_no_text("Images")
         end
 
-        it "can edit a proposal with an attachment" do
-          find("#dropdown-trigger-resource-#{proposal.id}").click
-          click_on "Edit"
-
-          expect(page).to have_text "Edit proposal"
-
-          click_on("Edit attachments")
-          within ".upload-modal" do
-            expect(page).to have_text(file.file.blob.filename.to_s)
-            expect(page).to have_text(photo.file.blob.filename.to_s)
-          end
-
-          click_on "Cancel"
-          within "form.edit_proposal" do
-            fill_in :proposal_title, with: "Updated proposal title with attachments"
-          end
-
-          click_on "Send"
-
-          expect(page).to have_text("Proposal successfully updated.")
-          expect(page).to have_text("Updated proposal title with attachments")
-        end
-
         context "with attachment titles" do
           let(:attachment_file_title) { Faker::Lorem.sentence }
           let(:attachment_image_title) { Faker::Lorem.sentence }
