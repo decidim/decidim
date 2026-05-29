@@ -199,13 +199,6 @@ ja:
             email_outro: 参加型スペース %{participatory_space_title} をフォローしているため、この通知を受信しました。通知が不要な場合、上記リンクより停止できます。
             email_subject: '"%{participatory_space_title}" での新しいディベート %{resource_title}'
             notification_title: ディベート <a href="%{resource_path}">%{resource_title}</a> が、 <a href="%{participatory_space_url}">%{participatory_space_title}</a> に作成されました。
-          user_followers:
-            email_intro: |-
-              こんにちは、
-              %{author_name} %{author_nickname}さん、あなたがフォローしている人が新しいディベート「%{resource_title}」を作成しました。チェックして貢献してください：
-            email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-            email_subject: '%{resource_title}による新しいディベート " %{author_nickname}"'
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a> ディベートを作成しました。
         creation_disabled:
           email_intro: 'ディベートの作成は %{participatory_space_title}で行われなくなりました。このページからまだディベートに参加できます：'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
