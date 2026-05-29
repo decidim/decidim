@@ -520,7 +520,7 @@ fi:
               label: Pääsyoikeudet
               options:
                 open: Kaikki voivat nähdä prosessin ja osallistua.
-                restricted: Ainoastaan jäsenet ja hallintakäyttäjät näkevät tämän osallistumistilan ja voivat osallistua sen sisällä.
+                restricted: Vain jäsenet ja hallintakäyttäjät voivat nähdä ja osallistua. Osallistumistila ei näy yleishaussa, rajapinnassa eikä avoimissa datatiedostoissa.
                 transparent: Kaikki voivat nähdä prosessin, mutta ainoastaan jäsenet ja hallintakäyttäjät voivat osallistua.
               set_this_space_as: Aseta tämän tilan pääsyoikeudet
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
