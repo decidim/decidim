@@ -241,7 +241,6 @@ eu:
               label: Sarbidea
               options:
                 open: Edonork ikus dezake batzarra eta parte hartu.
-                restricted: Soilik kideek eta administratzaileek ikusi eta hartu ahal dute parte.
                 transparent: Edonork ikus dezake batzarra, baina soilik kideek eta administratzaileek har dezakete parte.
               set_this_space_as: Partaidetza-espazio hau ondorengo izenarekin ezarri
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
