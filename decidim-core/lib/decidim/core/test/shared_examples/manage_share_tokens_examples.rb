@@ -8,7 +8,7 @@ shared_examples "manage resource share tokens" do
     end
 
     it "displays empty message" do
-      expect(page).to have_content "There are no active access links"
+      expect(page).to have_text "There are no active access links"
     end
 
     it "can create a new token with default options" do
@@ -16,16 +16,16 @@ shared_examples "manage resource share tokens" do
 
       click_on "Create"
 
-      expect(page).to have_content("Access link created successfully")
+      expect(page).to have_text("Access link created successfully")
       expect(page).to have_css("tbody tr", count: 1)
       within "tbody tr:last-child td", text: last_token.token do
-        expect(page).to have_content(last_token.token)
+        expect(page).to have_text(last_token.token)
       end
       within "tbody tr:last-child td:nth-child(2)" do
-        expect(page).to have_content("Never")
+        expect(page).to have_text("Never")
       end
       within "tbody tr:last-child td:nth-child(3)" do
-        expect(page).to have_content("No")
+        expect(page).to have_text("No")
       end
     end
 
@@ -36,23 +36,23 @@ shared_examples "manage resource share tokens" do
       find_by_id("share_token_no_expiration_false").click
       find_by_id("share_token_registered_only_true").click
       click_on "Create"
-      expect(page).to have_content("cannot be blank", count: 2)
+      expect(page).to have_text("cannot be blank", count: 2)
 
       fill_in "share_token_token", with: " custom token "
       fill_in_datepicker :share_token_expires_at_date, with: 1.day.from_now.strftime("%d/%m/%Y")
       fill_in_timepicker :share_token_expires_at_time, with: "00:00"
       click_on "Create"
 
-      expect(page).to have_content("Access link created successfully")
+      expect(page).to have_text("Access link created successfully")
       expect(page).to have_css("tbody tr", count: 1)
       within "tbody tr:last-child td", text: last_token.token do
-        expect(page).to have_content("CUSTOM-TOKEN")
+        expect(page).to have_text("CUSTOM-TOKEN")
       end
       within "tbody tr:last-child td:nth-child(2)" do
-        expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y 00:00"))
+        expect(page).to have_text(1.day.from_now.strftime("%d/%m/%Y 00:00"))
       end
       within "tbody tr:last-child td:nth-child(3)" do
-        expect(page).to have_content("Yes")
+        expect(page).to have_text("Yes")
       end
     end
   end
@@ -74,8 +74,8 @@ shared_examples "manage resource share tokens" do
     it "displays relevant attributes for each token" do
       share_tokens.each do |share_token|
         within ".share_tokens tbody" do
-          expect(page).to have_content share_token.token
-          expect(page).to have_content share_token.expires_at.to_s
+          expect(page).to have_text share_token.token
+          expect(page).to have_text share_token.expires_at.to_s
         end
       end
     end
@@ -113,31 +113,31 @@ shared_examples "manage resource share tokens" do
 
     it "can edit a share token" do
       within "tbody tr", text: last_token.token do
-        expect(page).to have_content("Yes")
+        expect(page).to have_text("Yes")
       end
       within ".share_tokens tbody tr", text: last_token.token do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
-      expect(page).to have_content("Edit access links for: #{resource_name}")
+      expect(page).to have_text("Edit access links for: #{resource_name}")
       find_by_id("share_token_no_expiration_false").click
       find_by_id("share_token_registered_only_false").click
       click_on "Update"
-      expect(page).to have_content("cannot be blank", count: 1)
+      expect(page).to have_text("cannot be blank", count: 1)
 
       fill_in_datepicker :share_token_expires_at_date, with: 1.day.from_now.strftime("%d/%m/%Y")
       fill_in_timepicker :share_token_expires_at_time, with: "00:00"
 
       click_on "Update"
 
-      expect(page).to have_content("Access link updated successfully")
+      expect(page).to have_text("Access link updated successfully")
       expect(page).to have_css("tbody tr", count: 3)
       within "tbody tr", text: last_token.token do
-        expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y 00:00"))
+        expect(page).to have_text(1.day.from_now.strftime("%d/%m/%Y 00:00"))
       end
       within "tbody tr", text: last_token.token do
-        expect(page).to have_content("No")
+        expect(page).to have_text("No")
       end
     end
 
@@ -145,7 +145,7 @@ shared_examples "manage resource share tokens" do
       within ".share_tokens tbody tr", text: last_token.token do
         find("button[data-controller='dropdown']").click
         click_on "Copy link"
-        expect(page).to have_content("copied!")
+        expect(page).to have_text("copied!")
         expect(page).to have_css("[data-clipboard-copy-label]")
         expect(page).to have_css("[data-clipboard-copy-message]")
         expect(page).to have_css("[data-clipboard-content]")

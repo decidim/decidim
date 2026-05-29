@@ -36,7 +36,7 @@ shared_examples "manage assemblies announcements" do
 
     click_on "Update"
 
-    expect(page).to have_content("Active content blocks")
+    expect(page).to have_text("Active content blocks")
     visit decidim_admin_assemblies.assemblies_path
 
     if defined?(parent_assembly) && !parent_assembly.nil?
@@ -53,7 +53,7 @@ shared_examples "manage assemblies announcements" do
     end
 
     page.within_window(new_window) do
-      expect(page).to have_content("An important announcement")
+      expect(page).to have_text("An important announcement")
     end
   end
 end

@@ -74,7 +74,7 @@ describe "Explore projects", :slow do
       it "shows an empty page with a message" do
         visit_budget
 
-        expect(page).to have_content("There are no projects yet")
+        expect(page).to have_text("There are no projects yet")
       end
     end
 
@@ -85,7 +85,7 @@ describe "Explore projects", :slow do
       end
 
       projects.each do |project|
-        expect(page).to have_content(translated(project.title))
+        expect(page).to have_text(translated(project.title))
       end
     end
 
@@ -143,7 +143,7 @@ describe "Explore projects", :slow do
 
         within "#projects" do
           expect(page).to have_css(".card__list", count: 1)
-          expect(page).to have_content(translated(project.title))
+          expect(page).to have_text(translated(project.title))
         end
       end
 
@@ -159,8 +159,8 @@ describe "Explore projects", :slow do
           end
         end
 
-        expect(page).to have_no_content("Another project")
-        expect(page).to have_content("Foobar project")
+        expect(page).to have_no_text("Another project")
+        expect(page).to have_text("Foobar project")
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
@@ -170,23 +170,23 @@ describe "Explore projects", :slow do
         visit_budget
 
         within "#panel-dropdown-menu-taxonomy-#{second_taxonomy_filter.root_taxonomy_id}" do
-          expect(page).to have_content "All"
-          expect(page).to have_content decidim_sanitize_translated(second_taxonomy.name)
+          expect(page).to have_text "All"
+          expect(page).to have_text decidim_sanitize_translated(second_taxonomy.name)
         end
 
         click_on decidim_sanitize_translated(second_taxonomy_filter.root_taxonomy.name)
         click_on decidim_sanitize_translated(taxonomy_filter.root_taxonomy.name)
 
         within ".layout-2col__aside" do
-          expect(page).to have_no_content decidim_sanitize_translated(taxonomy.name)
-          expect(page).to have_no_content decidim_sanitize_translated(second_taxonomy.name)
+          expect(page).to have_no_text decidim_sanitize_translated(taxonomy.name)
+          expect(page).to have_no_text decidim_sanitize_translated(second_taxonomy.name)
         end
 
         click_on decidim_sanitize_translated(second_taxonomy_filter.root_taxonomy.name)
 
         within ".layout-2col__aside" do
-          expect(page).to have_no_content decidim_sanitize_translated(taxonomy.name)
-          expect(page).to have_content decidim_sanitize_translated(second_taxonomy.name)
+          expect(page).to have_no_text decidim_sanitize_translated(taxonomy.name)
+          expect(page).to have_text decidim_sanitize_translated(second_taxonomy.name)
         end
       end
 
@@ -202,7 +202,7 @@ describe "Explore projects", :slow do
 
         within "#projects" do
           expect(page).to have_css(".card__list", count: 1)
-          expect(page).to have_content(translated(project.title))
+          expect(page).to have_text(translated(project.title))
         end
       end
 
@@ -226,8 +226,8 @@ describe "Explore projects", :slow do
 
           within "#projects" do
             expect(page).to have_css(".card__list", count: 1)
-            expect(page).to have_content(translated(project.title))
-            expect(page).to have_content("0 votes")
+            expect(page).to have_text(translated(project.title))
+            expect(page).to have_text("0 votes")
           end
         end
 
@@ -242,7 +242,7 @@ describe "Explore projects", :slow do
             visit_budget
 
             within "#projects" do
-              expect(page).to have_no_content("0 votes")
+              expect(page).to have_no_text("0 votes")
             end
           end
         end
@@ -269,7 +269,7 @@ describe "Explore projects", :slow do
     end
 
     it "shows the project" do
-      expect(page).to have_content(translated_attribute(projects.last.title))
+      expect(page).to have_text(translated_attribute(projects.last.title))
     end
   end
 

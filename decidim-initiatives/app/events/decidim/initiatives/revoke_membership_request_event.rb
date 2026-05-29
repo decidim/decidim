@@ -8,6 +8,7 @@ module Decidim
       def i18n_options
         {
           author_nickname:,
+          author_name:,
           author_profile_url:,
           participatory_space_title:,
           participatory_space_url:,
@@ -22,6 +23,10 @@ module Decidim
 
       def author_nickname
         author.nickname
+      end
+
+      def author_name
+        author.name
       end
 
       def author_profile_url

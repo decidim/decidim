@@ -14,7 +14,7 @@
   ],
   "prettier": "@decidim/prettier-config",
   "scripts": {
-    "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ext .js,.jsx decidim-*",
+    "lint": "eslint -c eslint.config.mjs --no-error-on-unmatched-pattern --ext .js,.jsx decidim-*",
     "markdownlint": "markdownlint '**/*.md'",
     "stylelint": "stylelint decidim-*/**/*.scss",
     "prettier": "prettier --check 'decidim-*/**/*.scss'",
@@ -38,13 +38,13 @@
     "@decidim/eslint-config": "file:packages/eslint-config",
     "@decidim/prettier-config": "file:packages/prettier-config",
     "@decidim/stylelint-config": "file:packages/stylelint-config",
-    "babel-jest": "^30.2.0",
+    "babel-jest": "^30.4.1",
     "concat-stream": "^2.0.0",
     "enzyme": "^3.11.0",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-localstorage-mock": "^2.4.26",
-    "react-test-renderer": "^19.2.4",
+    "react-test-renderer": "^19.2.6",
     "yaml-jest": "^1.2.0"
   }
 }
