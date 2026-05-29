@@ -133,12 +133,10 @@ pl:
           email_intro: "%{author_name} dodał(a) komentarz do %{resource_title}. Możesz przeczytać go na tej stronie:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_name}. Możesz usunąć użytkownika z obserwowanych na jego stronie profilowej.
           email_subject: Jest nowy komentarz dodany przez %{author_name} do %{resource_title}
-          notification_title: Pojawił się nowy komentarz dodany przez <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "Nowy komentarz: %{resource_title}. Możesz go przeczytać na tej stronie:"
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować po kliknięciu w poprzedni link.
           email_subject: Jest nowy komentarz od %{author_name} do %{resource_title}
-          notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Twój komentarz do "%{resource_title}" dostał głos przeciw. Teraz ma %{upvotes} głosów za i %{downvotes} głosów przeciw.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem komentarza.
@@ -153,12 +151,10 @@ pl:
           email_intro: "%{author_name} odpowiedział na Twój komentarz do %{resource_title}. Możesz przeczytać go na tej stronie:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ odpowiedziano na Twój komentarz.
           email_subject: "%{author_name} odpowiedział(a) na Twój komentarz do %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpowiedział(a) na Twój komentarz do <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Wspomniano o Tobie
           email_outro: Otrzymałeś to powiadomienie, ponieważ wspomniano o Tobie w %{resource_title}.
           email_subject: Wspomniano o Tobie w %{resource_title}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wspomniał(a) o Tobie w <a href="%{resource_path}">%{resource_title}</a> 
   errors:
     messages:
       cannot_have_comments: nie może mieć komentarzy
