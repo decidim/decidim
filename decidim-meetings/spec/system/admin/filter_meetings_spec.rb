@@ -136,7 +136,7 @@ describe "Admin filters meetings" do
         click_on "Closed"
       end
 
-      titles = page.all("table tbody tr td:first-child").map(&:text)
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
       closed_indices = [closed_b, closed_d].map { |m| titles.find_index { |t| t.include?(translated(m.title)) } }
       open_indices = [open_a, open_c].map { |m| titles.find_index { |t| t.include?(translated(m.title)) } }
       expect(closed_indices.max).to be < open_indices.min
@@ -166,7 +166,7 @@ describe "Admin filters meetings" do
         click_on "Taxonomies"
       end
 
-      titles = page.all("table tbody tr td:first-child").map(&:text)
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
       expect(titles.find_index { |t| t.include?("Has alpha") }).to be < titles.find_index { |t| t.include?("Has beta") }
       expect(titles.find_index { |t| t.include?("Has beta") }).to be < titles.find_index { |t| t.include?("Has gamma") }
     end
@@ -184,7 +184,7 @@ describe "Admin filters meetings" do
         click_on "Title"
       end
 
-      titles = page.all("table tbody tr td:first-child").map(&:text)
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
       expect(titles.index("Gamma meeting")).to be < titles.index("Beta meeting")
       expect(titles.index("Beta meeting")).to be < titles.index("Alpha meeting")
     end
@@ -195,7 +195,7 @@ describe "Admin filters meetings" do
         click_on "Title"
       end
 
-      titles = page.all("table tbody tr td:first-child").map(&:text)
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
       expect(titles.index("Alpha meeting")).to be < titles.index("Beta meeting")
       expect(titles.index("Beta meeting")).to be < titles.index("Gamma meeting")
     end
