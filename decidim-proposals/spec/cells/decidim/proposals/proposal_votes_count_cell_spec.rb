@@ -57,7 +57,7 @@ module Decidim::Proposals
       end
 
       context "when the space is private and the user is not a member" do
-        let(:participatory_space) { create(:assembly, :private, organization:) }
+        let(:participatory_space) { create(:assembly, :private, :opaque, organization:) }
 
         it "renders nothing" do
           expect(subject).to have_no_css(votes_count_selector)
@@ -66,7 +66,7 @@ module Decidim::Proposals
 
       context "when there is no current user" do
         let(:user) { nil }
-        let(:participatory_space) { create(:assembly, :private, organization:) }
+        let(:participatory_space) { create(:assembly, :private, :opaque, organization:) }
 
         it "renders nothing" do
           expect(subject).to have_no_css(votes_count_selector)
