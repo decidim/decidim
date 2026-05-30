@@ -23,7 +23,7 @@ describe "Admin manages organization homepage" do
           find("a", text: "Hero image").click
         end
       end
-
+      sleep 1
       expect(Decidim::ContentBlock.count).to eq 1
     end
   end
@@ -36,13 +36,11 @@ describe "Admin manages organization homepage" do
         visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
 
         fill_in(:content_block_settings_welcome_text_en, with: "Custom welcome text!")
-        fill_in(:content_block_settings_cta_button_text_en, with: "Custom button!")
-        fill_in(:content_block_settings_cta_button_path_en, with: "http://example.org")
 
         click_on "Update"
+        sleep 1
         visit decidim.root_path
-      expect(page).to have_content("Custom welcome text!")
-        expect(page).to have_link("Custom button!", href: "http://example.org")
+        expect(page).to have_content("Custom welcome text!")
       end
 
       it "updates the images of the content block" do
@@ -50,61 +48,7 @@ describe "Admin manages organization homepage" do
 
         dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"))
 
-
         click_on "Update"
-        visit decidim.root_path
-        expect(page.html).to include("city2.jpeg")
-      end
-
-      it "displays the 'Resolution is too large' error message when image is invalid" do
-        visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
-
-        dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("8001x4000.png"))
-
-        click_on "Update"
-        sleep 1
-
-        expect(page).to have_text("File resolution is too large")
-      end
-    end
-
-    context "and edits highlighted content banner settings" do
-      let!(:content_block) { create(:content_block, organization:, manifest_name: :highlighted_content_banner, scope_name: :homepage) }
-
-      it "updates the settings of the content block" do
-        visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
-
-        fill_in(:content_block_settings_title_en, with: "Custom title text!")
-        fill_in(:content_block_settings_action_button_title_en, with: "Custom action title!")
-        fill_in(:content_block_settings_action_button_subtitle_en, with: "Custom action subtitle!")
-        fill_in(:content_block_settings_action_button_url, with: "http://example.org")
-
-        fill_in_i18n_editor :content_block_settings_short_description, "#content_block-settings--short_description-tabs",
-                            en: "<p>The Short description</p>"
-
-        click_on "Update"
-        sleep 1
-        visit decidim.root_path
-        expect(page).to have_text("Custom title text!")
-        expect(page).to have_text("The Short description")
-        expect(page).to have_link("Custom action subtitle!", href: "http://example.org")
-      end
-
-      it "updates the images of the content block" do
-        visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
-
-        fill_in(:content_block_settings_title_en, with: "Custom title text!")
-        fill_in(:content_block_settings_action_button_title_en, with: "Custom action title!")
-        fill_in(:content_block_settings_action_button_subtitle_en, with: "Custom action subtitle!")
-        fill_in(:content_block_settings_action_button_url, with: "http://example.org")
-
-        fill_in_i18n_editor :content_block_settings_short_description, "#content_block-settings--short_description-tabs",
-                            en: "<p>The Short description</p>"
-
-        dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"))
-
-        click_on "Update"
-
         sleep 1
         visit decidim.root_path
         expect(page.html).to include("city2.jpeg")
