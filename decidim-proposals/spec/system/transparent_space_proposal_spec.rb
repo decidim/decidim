@@ -6,9 +6,9 @@ describe "Transparent Space Proposal" do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
-  let!(:member) { create(:member, user: other_user, participatory_space:) }
+  let!(:member) { create(:assembly_private_user, user: other_user, privatable_to: participatory_space) }
 
-  let!(:participatory_space) { create(:assembly, :published, :transparent, organization:) }
+  let!(:participatory_space) { create(:assembly, :published, :private, :transparent, organization:) }
   let!(:component) { create(:proposal_component, participatory_space:) }
 
   before do
