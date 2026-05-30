@@ -33,7 +33,7 @@ module Decidim
       end
 
       def transparent_space?
-        participatory_space.try(:transparent?)
+        participatory_space.try(:is_transparent?)
       end
 
       def participatory_texts_variant?
