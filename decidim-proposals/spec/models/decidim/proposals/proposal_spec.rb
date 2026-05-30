@@ -360,8 +360,8 @@ module Decidim
           expect(described_class.ransackable_attributes).to include("state_published")
         end
 
-        it "allows sorting by evaluation_assignments_count" do
-          expect(described_class.ransackable_attributes).to include("evaluation_assignments_count")
+        it "allows sorting by valuation_assignments_count" do
+          expect(described_class.ransackable_attributes).to include("valuation_assignments_count")
         end
 
         it "allows sorting by translated_title" do

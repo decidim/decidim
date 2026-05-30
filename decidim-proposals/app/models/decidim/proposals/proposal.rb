@@ -413,7 +413,7 @@ module Decidim
         %w(
           id_string search_text title translated_title body is_emendation
           comments_count proposal_votes_count published_at proposal_notes_count
-          state_published evaluation_assignments_count
+          state_published valuation_assignments_count
         )
       end
 
