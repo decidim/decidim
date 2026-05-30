@@ -873,9 +873,13 @@ eu:
           affected_user:
             email_intro: 'Zuzenketa bat onartu da honako: %{amendable_title}. Orrialde honetatik ikusi dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
+            email_subject: 'Onartu da %{emendation_author_name} parte-hartzailearen aldaketa honetarako: %{amendable_title}'
+            notification_title: 'Onartu da <a href="%{emendation_author_path}">%{emendation_author_name} parte-hartzaileak sortutako <a href="%{emendation_path}">aldaketa honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
           follower:
             email_intro: 'Zuzenketa bat onartu honetarako %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
+            email_subject: 'Onartu da %{emendation_author_name} parte-hartzailearen aldaketa honetarako: %{amendable_title}'
+            notification_title: 'Onartu da </a> <a href="%{emendation_author_path}">%{emendation_author_name}</a> parte-hartzaileek sortutako <a href="%{emendation_path}">aldaketa honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
         amendment_created:
           affected_user:
             email_intro: 'Beste zuzenketa bat sortu da honetarako: %{amendable_title}. Orrialde honetatik ikusi dezakezu:'
@@ -891,6 +895,7 @@ eu:
           affected_user:
             email_intro: ' %{amendable_title} rako ukatutako zuzenketa bat %{amendable_type} berri gisa argitaratu da. Orrialde honetatik ikus dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
+            email_subject: '%{emendation_author_name} parte-hartzailearen aldaketa bat argitaratu da %{amendable_type} berri gisa'
           follower:
             email_intro: '%{amendable_title} rako zuzenketa %{amendable_type} berri gisa argitaratu da. Orrialde honetan ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
