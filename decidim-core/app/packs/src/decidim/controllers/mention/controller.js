@@ -222,7 +222,19 @@ export default class extends Controller {
       suggestionItem.type = "button";
       suggestionItem.classList.add("editor-suggestions-item");
       suggestionItem.dataset.index = index;
-      suggestionItem.textContent = `${item.nickname} (${item.name})`;
+
+      if (item.avatarUrl) {
+        const avatar = document.createElement("img");
+        avatar.classList.add("editor-suggestions-item-avatar");
+        avatar.src = item.avatarUrl;
+        avatar.alt = item.name || item.nickname;
+        suggestionItem.append(avatar);
+      }
+
+      const label = document.createElement("span");
+      label.classList.add("editor-suggestions-item-label");
+      label.textContent = `${item.nickname} (${item.name})`;
+      suggestionItem.append(label);
 
       if (index === this.selectedIndex) {
         suggestionItem.dataset.selected = "true";

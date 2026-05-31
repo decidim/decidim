@@ -14,7 +14,7 @@
   }
 
   .editor-suggestions-item {
-    @apply block w-full text-left py-[0.375rem] px-1.5 border-0 rounded-none truncate text-sm;
+    @apply flex items-center gap-2 w-full text-left py-[0.375rem] px-1.5 border-0 rounded-none text-sm;
 
     &:first-child {
       @apply rounded-t-md;
@@ -27,6 +27,14 @@
     &:hover,
     &[data-selected] {
       @apply bg-[var(--editor-suggestions-selected-highlight-color)];
+    }
+
+    .editor-suggestions-item-avatar {
+      @apply rounded-full w-6 h-6 object-cover flex-none;
+    }
+
+    .editor-suggestions-item-label {
+      @apply truncate;
     }
   }
 

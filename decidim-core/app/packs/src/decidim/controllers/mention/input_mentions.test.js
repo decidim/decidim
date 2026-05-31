@@ -106,7 +106,8 @@ describe("MentionController", () => {
     const items = suggestions.querySelectorAll(".editor-suggestions-item");
 
     expect(items.length).toBe(1);
-    expect(items[0].textContent).toBe("@doe_john (John Doe)");
+    expect(items[0].querySelector(".editor-suggestions-item-avatar")).toBeInstanceOf(HTMLImageElement);
+    expect(items[0].querySelector(".editor-suggestions-item-label").textContent).toBe("@doe_john (John Doe)");
     expect(suggestions.classList.contains("hidden")).toBe(false);
   });
 
