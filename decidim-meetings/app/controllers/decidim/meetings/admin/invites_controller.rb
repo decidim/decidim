@@ -20,9 +20,9 @@ module Decidim
         def create
           enforce_permission_to(:invite_attendee, :meeting, meeting:)
 
+          @invites = filtered_collection
           @form = form(MeetingRegistrationInviteForm).from_params(params)
 
-          @invites = filtered_collection
           InviteUserToJoinMeeting.call(@form, meeting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("invites.create.success", scope: "decidim.meetings.admin")
