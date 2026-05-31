@@ -10,6 +10,7 @@ describe Decidim::Debates::CreateDebate do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:user) { create(:user, organization:) }
   let(:attachments) { [] }
+  let(:description) { "description" }
   let(:taxonomizations) do
     2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
   end
@@ -17,7 +18,7 @@ describe Decidim::Debates::CreateDebate do
     double(
       invalid?: invalid,
       title: "title",
-      description: "description",
+      description:,
       taxonomizations:,
       current_user: user,
       current_component:,
@@ -83,6 +84,17 @@ describe Decidim::Debates::CreateDebate do
     it "sets the description with i18n" do
       subject.call
       expect(debate.description.values.uniq).to eq ["description"]
+    end
+
+    context "when description has a user mention" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:description) { "description mentioning @#{mentioned_user.nickname}" }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+
+        expect(debate.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
     end
 
     it "traces the action", versioning: true do

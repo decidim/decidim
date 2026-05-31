@@ -87,8 +87,9 @@ module Decidim
       # Returns :text_area or :editor based on the organization' settings.
       def text_editor_for_proposal_body(form)
         options = {
+          mentionable: true,
           value: form_presenter.body(strip_tags: !current_organization.rich_text_editor_in_public_views).strip,
-          data: { controller: "character-counter" }
+          data: { controller: "character-counter mention" }
         }
 
         text_editor_for(form, :body, options)

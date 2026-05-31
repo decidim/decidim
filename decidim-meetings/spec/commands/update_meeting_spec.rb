@@ -23,6 +23,7 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
+    let(:description) { "The meeting description text" }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
@@ -30,7 +31,7 @@ module Decidim::Meetings
       double(
         invalid?: invalid,
         title: "The meeting title",
-        description: "The meeting description text",
+        description:,
         location: "The meeting location text",
         location_hints: "The meeting location hint text",
         start_time: 1.day.from_now,
@@ -86,6 +87,17 @@ module Decidim::Meetings
         subject.call
         expect(meeting.latitude).to eq(latitude)
         expect(meeting.longitude).to eq(longitude)
+      end
+
+      context "when description has a user mention" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:) }
+        let(:description) { "The meeting description mentioning @#{mentioned_user.nickname}" }
+
+        it "rewrites the mention to the mentioned user GID" do
+          subject.call
+
+          expect(meeting.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+        end
       end
 
       context "when the author is a user" do

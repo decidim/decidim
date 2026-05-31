@@ -28,6 +28,7 @@ module Decidim::Meetings
     let(:reminder_enabled) { true }
     let(:send_reminders_before_hours) { 50 }
     let(:reminder_message_custom_content) { { "en" => "Custom reminder message", "es" => "Mensaje de recordatorio personalizado", "ca" => "Missatge de recordatori personalitzat" } }
+    let(:description) { { en: "description" } }
     let(:components) { [] }
     let(:services) do
       [
@@ -52,7 +53,7 @@ module Decidim::Meetings
       double(
         invalid?: invalid,
         title: { en: "title" },
-        description: { en: "description" },
+        description:,
         location: { en: "location" },
         location_hints: { en: "location_hints" },
         start_time:,
@@ -149,6 +150,17 @@ module Decidim::Meetings
       it "sets the component" do
         subject.call
         expect(meeting.component).to eq current_component
+      end
+
+      context "when description has a user mention" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:) }
+        let(:description) { { en: "description mentioning @#{mentioned_user.nickname}" } }
+
+        it "rewrites the mention to the mentioned user GID" do
+          subject.call
+
+          expect(meeting.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+        end
       end
 
       it "sets the longitude and latitude" do

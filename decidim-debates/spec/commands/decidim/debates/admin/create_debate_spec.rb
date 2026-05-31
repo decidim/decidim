@@ -11,6 +11,7 @@ describe Decidim::Debates::Admin::CreateDebate do
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:comments_layout) { "single_column" }
   let(:attachments) { [] }
+  let(:description) { { en: "description" } }
   let(:taxonomizations) do
     2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
   end
@@ -18,7 +19,7 @@ describe Decidim::Debates::Admin::CreateDebate do
     double(
       invalid?: invalid,
       title: { en: "title" },
-      description: { en: "description" },
+      description:,
       information_updates: { en: "information updates" },
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
@@ -88,6 +89,17 @@ describe Decidim::Debates::Admin::CreateDebate do
       subject.call
 
       expect(debate.author).to eq(organization)
+    end
+
+    context "when description has a user mention" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:description) { { en: "description mentioning @#{mentioned_user.nickname}" } }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+
+        expect(debate.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
     end
 
     it "traces the action", versioning: true do

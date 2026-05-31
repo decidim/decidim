@@ -74,6 +74,23 @@ module Decidim
             expect(proposal.body[I18n.locale.to_s]).to eq form_params[:body]
           end
 
+          context "when body has a user mention" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:) }
+            let(:form_params) do
+              {
+                title: "A reasonable proposal title",
+                body: "A reasonable proposal body mentioning @#{mentioned_user.nickname}"
+              }
+            end
+
+            it "rewrites the mention to the mentioned user GID" do
+              command.call
+              proposal = Decidim::Proposals::Proposal.last
+
+              expect(proposal.body[I18n.locale.to_s]).to include(mentioned_user.to_global_id.to_s)
+            end
+          end
+
           it "does not create a searchable resource" do
             command.call
 

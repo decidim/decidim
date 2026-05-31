@@ -109,6 +109,18 @@ module Decidim
             expect(proposal.body["en"]).to match(/^#{body}/)
           end
 
+          context "when body has a user mention" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:) }
+            let(:body) { "A reasonable proposal body mentioning @#{mentioned_user.nickname}" }
+
+            it "rewrites the mention to the mentioned user GID" do
+              command.call
+              proposal.reload
+
+              expect(proposal.body["en"]).to include(mentioned_user.to_global_id.to_s)
+            end
+          end
+
           context "with an author" do
             it "sets the author" do
               command.call
