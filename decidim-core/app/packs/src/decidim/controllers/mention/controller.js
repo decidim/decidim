@@ -161,7 +161,9 @@ export default class extends Controller {
         const data = response.data.users || [];
         const sortedData = data.sort((first, second) => first.nickname.localeCompare(second.nickname));
         this.suggestions = sortedData.slice(0, this.options.menuItemLimit);
-        this.selectedIndex = this.suggestions.length > 0 ? 0 : -1;
+        this.selectedIndex = this.suggestions.length > 0
+          ? 0
+          : -1;
         this.renderSuggestions({ showNoResults: true });
       }).
       catch(() => {
@@ -308,7 +310,9 @@ export default class extends Controller {
 
     mirror.style.position = "absolute";
     mirror.style.visibility = "hidden";
-    mirror.style.whiteSpace = element.nodeName === "TEXTAREA" ? "pre-wrap" : "pre";
+    mirror.style.whiteSpace = element.nodeName === "TEXTAREA"
+      ? "pre-wrap"
+      : "pre";
     mirror.style.overflowWrap = "break-word";
     mirror.style.top = "0";
     mirror.style.left = "-9999px";
