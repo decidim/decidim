@@ -991,7 +991,7 @@ shared_examples "comments" do
 
         context "when text finish with a mention" do
           it "shows the tribute container" do
-            expect(page).to have_css(".tribute-container", text: mentioned_user.name, wait: 10)
+            expect(page).to have_css(".editor-suggestions-item", text: "@#{mentioned_user.nickname} (#{mentioned_user.name})", wait: 10)
           end
         end
 
@@ -999,7 +999,7 @@ shared_examples "comments" do
           let(:content) { "A valid user mention: @#{mentioned_user.nickname}." }
 
           it "shows the tribute container" do
-            expect(page).to have_no_css(".tribute-container", text: mentioned_user.name)
+            expect(page).to have_no_css(".editor-suggestions-item", text: "@#{mentioned_user.nickname} (#{mentioned_user.name})")
           end
         end
       end
@@ -1009,7 +1009,7 @@ shared_examples "comments" do
         let(:content) { "A unconfirmed user mention: @#{mentioned_user.nickname}" }
 
         it "do not show the tribute container" do
-          expect(page).to have_no_css(".tribute-container", text: mentioned_user.name)
+          expect(page).to have_no_css(".editor-suggestions-item", text: "@#{mentioned_user.nickname} (#{mentioned_user.name})")
         end
       end
     end
