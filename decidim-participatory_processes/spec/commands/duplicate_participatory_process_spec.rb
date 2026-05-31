@@ -57,8 +57,9 @@ module Decidim::ParticipatoryProcesses
                                                               })
       end
 
-      it "broadcasts invalid when the slug matches a trashed space" do
+      it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 

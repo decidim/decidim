@@ -122,8 +122,9 @@ module Decidim::Assemblies::Admin
                                         })
       end
 
-      it "broadcasts invalid when a trashed space already has the same slug" do
+      it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 

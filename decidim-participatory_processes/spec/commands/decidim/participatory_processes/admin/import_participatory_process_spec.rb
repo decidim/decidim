@@ -131,8 +131,9 @@ module Decidim::ParticipatoryProcesses
                                                            })
       end
 
-      it "broadcasts invalid when a trashed space already uses the imported slug" do
-        expect { described_class.new(form).call }.to broadcast(:invalid)
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 

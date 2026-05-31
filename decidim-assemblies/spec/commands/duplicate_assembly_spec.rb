@@ -51,8 +51,9 @@ module Decidim::Assemblies
                                                   })
       end
 
-      it "broadcasts invalid because the duplicate slug is rejected by validation" do
+      it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 

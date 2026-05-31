@@ -94,6 +94,7 @@ module Decidim::Assemblies
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 

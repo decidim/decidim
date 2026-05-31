@@ -49,8 +49,9 @@ module Decidim::Conferences
                                                     })
       end
 
-      it "broadcasts invalid because the slug is already taken by a trashed space" do
+      it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 

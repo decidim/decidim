@@ -79,8 +79,9 @@ module Decidim::ParticipatoryProcesses
           Admin::ParticipatoryProcessForm.from_params(params.deep_merge(participatory_process: { slug: "slug" })).with_context(context)
         end
 
-        it "is not valid when the slug matches a soft-deleted space" do
+        it "broadcasts invalid" do
           expect { command.call }.to broadcast(:invalid)
+          expect(form.errors[:slug]).not_to be_empty
         end
       end
 
