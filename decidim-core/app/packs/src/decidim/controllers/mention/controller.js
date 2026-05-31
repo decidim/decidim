@@ -1,3 +1,5 @@
+/* eslint max-lines: ["error", 400] */
+
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
