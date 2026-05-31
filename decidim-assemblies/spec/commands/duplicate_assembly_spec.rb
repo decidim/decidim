@@ -40,8 +40,7 @@ module Decidim::Assemblies
         Admin::AssemblyDuplicateForm.from_params({
                                                    title: { en: "title" },
                                                    slug: "duplicated-slug",
-                                                   duplicate_components?: duplicate_components,
-                                                   duplicate_landing_page_blocks?: duplicate_landing_page_blocks
+                                                   duplicate_components?: duplicate_components
                                                  })
                                     .with_context({
                                                     current_user: user,
