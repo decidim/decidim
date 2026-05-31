@@ -45,7 +45,7 @@ export default class extends Controller {
   createSuggestionContainer() {
     this.suggestion = document.createElement("div");
     this.suggestion.classList.add("editor-suggestions", "hidden", "hide");
-    this.element.parentNode.append(this.suggestion);
+    document.body.append(this.suggestion);
     this.suggestion.addEventListener("mousedown", (event) => event.preventDefault());
 
     this.performRemoteSearch = this.debounce(this.performRemoteSearch.bind(this), this.options.debounceDelay);
@@ -208,6 +208,7 @@ export default class extends Controller {
         noResultsItem.classList.add("editor-suggestions-item", "editor-suggestions-item-disabled");
         noResultsItem.textContent = this.options.noDataFoundMessage;
         this.suggestion.append(noResultsItem);
+        this.positionSuggestionMenu();
         this.suggestion.classList.remove("hidden", "hide");
       } else {
         this.suggestion.classList.add("hidden", "hide");
@@ -235,8 +236,85 @@ export default class extends Controller {
       this.suggestion.append(suggestionItem);
     });
 
+    this.positionSuggestionMenu();
     this.isActive = true;
     this.suggestion.classList.remove("hidden", "hide");
+  }
+
+  positionSuggestionMenu() {
+    if (!this.suggestion || this.currentMentionStart === null) {
+      return;
+    }
+
+    const coordinates = this.coordinatesForTextIndex(this.currentMentionStart);
+    if (!coordinates) {
+      return;
+    }
+
+    Object.assign(this.suggestion.style, {
+      position: "absolute",
+      top: `${coordinates.top}px`,
+      left: `${coordinates.left}px`
+    });
+  }
+
+  coordinatesForTextIndex(index) {
+    const element = this.element;
+    const styles = window.getComputedStyle(element);
+    const elementRect = element.getBoundingClientRect();
+    const borderTopWidth = parseFloat(styles.borderTopWidth) || 0;
+    const borderLeftWidth = parseFloat(styles.borderLeftWidth) || 0;
+    const lineHeight = parseFloat(styles.lineHeight) || 16;
+
+    const mirror = document.createElement("div");
+    const mirrorStyles = [
+      "fontFamily",
+      "fontSize",
+      "fontWeight",
+      "fontStyle",
+      "letterSpacing",
+      "textTransform",
+      "wordSpacing",
+      "textIndent",
+      "boxSizing",
+      "width",
+      "paddingTop",
+      "paddingRight",
+      "paddingBottom",
+      "paddingLeft",
+      "borderTopWidth",
+      "borderRightWidth",
+      "borderBottomWidth",
+      "borderLeftWidth",
+      "borderStyle",
+      "lineHeight"
+    ];
+
+    mirrorStyles.forEach((property) => {
+      mirror.style[property] = styles[property];
+    });
+
+    mirror.style.position = "absolute";
+    mirror.style.visibility = "hidden";
+    mirror.style.whiteSpace = element.nodeName === "TEXTAREA" ? "pre-wrap" : "pre";
+    mirror.style.overflowWrap = "break-word";
+    mirror.style.top = "0";
+    mirror.style.left = "-9999px";
+
+    const before = document.createTextNode((element.value || "").slice(0, index));
+    const marker = document.createElement("span");
+    marker.textContent = "@";
+
+    mirror.append(before);
+    mirror.append(marker);
+    document.body.append(mirror);
+
+    const top = elementRect.top + window.scrollY + marker.offsetTop - element.scrollTop + borderTopWidth + lineHeight;
+    const left = elementRect.left + window.scrollX + marker.offsetLeft - element.scrollLeft + borderLeftWidth;
+
+    mirror.remove();
+
+    return { top, left };
   }
 
   updateSelectedIndex(direction) {

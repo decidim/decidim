@@ -75,7 +75,7 @@ describe("MentionController", () => {
     await connectController();
 
     expect(controller.initialized).toBe(true);
-    expect(mockElement.parentNode.querySelector(".editor-suggestions")).toBeInstanceOf(HTMLDivElement);
+    expect(document.querySelector(".editor-suggestions")).toBeInstanceOf(HTMLDivElement);
   });
 
   it("does not initialize when inside editor", async () => {
@@ -102,7 +102,7 @@ describe("MentionController", () => {
 
     await waitForDebounce();
 
-    const suggestions = mockElement.parentNode.querySelector(".editor-suggestions");
+    const suggestions = document.querySelector(".editor-suggestions");
     const items = suggestions.querySelectorAll(".editor-suggestions-item");
 
     expect(items.length).toBe(1);
@@ -119,7 +119,7 @@ describe("MentionController", () => {
 
     await waitForDebounce();
 
-    const suggestions = mockElement.parentNode.querySelector(".editor-suggestions");
+    const suggestions = document.querySelector(".editor-suggestions");
     expect(suggestions.classList.contains("hidden")).toBe(true);
   });
 
@@ -132,11 +132,11 @@ describe("MentionController", () => {
 
     await waitForDebounce();
 
-    const suggestionItem = mockElement.parentNode.querySelector(".editor-suggestions-item");
+    const suggestionItem = document.querySelector(".editor-suggestions-item");
     suggestionItem.click();
 
     expect(mockElement.value).toBe("Hello @doe_john ");
-    expect(mockElement.parentNode.querySelector(".editor-suggestions").classList.contains("hidden")).toBe(true);
+    expect(document.querySelector(".editor-suggestions").classList.contains("hidden")).toBe(true);
   });
 
   it("supports keyboard navigation and enter selection", async () => {
@@ -165,6 +165,21 @@ describe("MentionController", () => {
     expect(mockElement.value).toBe("Hello @bravo ");
   });
 
+  it("positions suggestions near the mention trigger character", async () => {
+    await connectController();
+
+    mockElement.value = "A long text before @do";
+    mockElement.setSelectionRange(mockElement.value.length, mockElement.value.length);
+    mockElement.dispatchEvent(new Event("input", { bubbles: true }));
+    await waitForDebounce();
+
+    const suggestions = document.querySelector(".editor-suggestions");
+
+    expect(suggestions.style.position).toBe("absolute");
+    expect(suggestions.style.top).toMatch(/\d+px/);
+    expect(suggestions.style.left).toMatch(/\d+px/);
+  });
+
   it("shows no results message when API returns empty list", async () => {
     await connectController();
 
@@ -178,7 +193,7 @@ describe("MentionController", () => {
     mockElement.dispatchEvent(new Event("input", { bubbles: true }));
     await waitForDebounce();
 
-    const noResultsItem = mockElement.parentNode.querySelector(".editor-suggestions-item");
+    const noResultsItem = document.querySelector(".editor-suggestions-item");
     expect(noResultsItem).toBeInstanceOf(HTMLButtonElement);
     expect(noResultsItem.textContent).toBe("No users found");
     expect(noResultsItem.disabled).toBe(true);
@@ -194,7 +209,7 @@ describe("MentionController", () => {
 
     mockElement.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
 
-    const suggestions = mockElement.parentNode.querySelector(".editor-suggestions");
+    const suggestions = document.querySelector(".editor-suggestions");
     expect(suggestions.classList.contains("hidden")).toBe(true);
   });
 
