@@ -87,8 +87,11 @@ describe("Mention", () => {
     const items = suggestions.querySelectorAll(".editor-suggestions-item");
     expect(items.length).toEqual(expectedTags.length);
     for (const item of items) {
-      expect(expectedTags.includes(item.textContent)).toBe(true);
+      expect(expectedTags.includes(item.querySelector(".editor-suggestions-item-label").textContent)).toBe(true);
     }
+
+    expect(items[0].querySelector(".editor-suggestions-item-avatar")).toBeInstanceOf(HTMLImageElement);
+    expect(items[0].querySelector(".editor-suggestions-item-avatar").getAttribute("src")).toBe("/avatars/johndoe.jpg");
   });
 
   it("does not display the suggestions when less than two characters are entered", async () => {

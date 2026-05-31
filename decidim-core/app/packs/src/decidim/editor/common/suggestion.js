@@ -87,7 +87,7 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
     suggestion.classList.remove("hidden", "hide");
     suggestion.innerHTML = "";
     items.forEach((rawItem, idx) => {
-      const { label, id, help } = convertItem(rawItem);
+      const { label, id, help, avatarUrl } = convertItem(rawItem);
       const suggestionItem = document.createElement("button");
       suggestionItem.type = "button";
       suggestionItem.classList.add("editor-suggestions-item");
@@ -103,7 +103,19 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       if (help) {
         suggestionItem.disabled = true;
       }
-      suggestionItem.textContent = label;
+
+      if (avatarUrl) {
+        const avatar = document.createElement("img");
+        avatar.classList.add("editor-suggestions-item-avatar");
+        avatar.src = avatarUrl;
+        avatar.alt = label;
+        suggestionItem.append(avatar);
+      }
+
+      const labelElement = document.createElement("span");
+      labelElement.classList.add("editor-suggestions-item-label");
+      labelElement.textContent = label;
+      suggestionItem.append(labelElement);
       suggestion.append(suggestionItem);
 
       suggestionItem.addEventListener("click", (ev) => {

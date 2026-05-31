@@ -51,7 +51,7 @@ export default Mention.extend({
         },
         render: createSuggestionRenderer(this, {
           itemConverter: (user) => {
-            return { id: user.nickname, label: `${user.nickname} (${user.name})` }
+            return { id: user.nickname, label: `${user.nickname} (${user.name})`, avatarUrl: user.avatarUrl }
           }
         })
       }
