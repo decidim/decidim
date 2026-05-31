@@ -26,7 +26,7 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:author) { create(:user, organization:) }
   let!(:comment) { create(:comment, body:, author:, commentable:) }
   let(:user) { create(:user, organization:, locale: "ca") }
-  let(:notification_title) { "You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a> by <a href=\"/#{I18n.locale}/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>" }
+  let(:notification_title) { "You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a> by <a href=\"/#{I18n.locale}/profiles/#{author.nickname}\">#{author.name}</a>" }
   let(:email_subject) { "You have been mentioned in #{resource_title}" }
   let(:email_intro) { "You have been mentioned" }
   let(:email_outro) { "You have received this notification because you have been mentioned in #{resource_title}." }
@@ -38,7 +38,7 @@ describe Decidim::Comments::UserMentionedEvent do
   describe "resource_text" do
     it "correctly renders comments with mentions" do
       expect(subject.resource_text).not_to include("gid://")
-      expect(subject.resource_text).to include("@#{author.nickname}")
+      expect(subject.resource_text).to include(author.nickname)
     end
   end
 

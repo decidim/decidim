@@ -16,7 +16,6 @@ module Decidim
         attribute :slug, String
         attribute :duplicate_steps, Boolean
         attribute :duplicate_components, Boolean
-        attribute :duplicate_landing_page_blocks, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, translatable_presence: true

@@ -15,7 +15,6 @@ module Decidim
 
         attribute :slug, String
         attribute :duplicate_components, Boolean
-        attribute :duplicate_landing_page_blocks, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, translatable_presence: true

@@ -8,7 +8,7 @@
   </div>
 <% end %>
 
-<% form.fields_for :images, form.object.images do |images_fields| %>
+<% form.fields_for :images, content_block.images_container do |images_fields| %>
   <div class="row column">
     <%= images_fields.upload :background_image, label: t("decidim.content_blocks.cta_settings_form.background_image"), button_class: "button button__sm button__transparent-secondary" %>
   </div>
