@@ -63,14 +63,14 @@ module Decidim
         def existing_user
           return @existing_user if defined?(@existing_user)
 
-          if form.existing_user
-            @existing_user = form.user
-          else
-            @existing_user = User.find_by(
-              email: form.email.downcase,
-              organization: member_to.organization
-            )
-          end
+          @existing_user = if form.existing_user
+                             form.user
+                           else
+                             User.find_by(
+                               email: form.email.downcase,
+                               organization: member_to.organization
+                             )
+                           end
 
           InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
 
