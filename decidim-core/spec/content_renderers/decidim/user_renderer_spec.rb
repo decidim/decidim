@@ -62,7 +62,7 @@ module Decidim
     context "when rendering for editor" do
       let(:content) { "This text contains a valid Decidim::User Global ID: #{user.to_global_id}" }
       let(:mention) { "@#{user.nickname}" }
-      let(:label) { "#{mention} (#{CGI.escapeHTML(user.name)})" }
+      let(:label) { mention }
 
       it "renders the mention wrapper for the editor" do
         expect(renderer.render(editor: true)).to eq(

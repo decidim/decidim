@@ -87,7 +87,7 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
     suggestion.classList.remove("hidden", "hide");
     suggestion.innerHTML = "";
     items.forEach((rawItem, idx) => {
-      const { label, id, help, avatarUrl } = convertItem(rawItem);
+      const { label, id, help, avatarUrl, displayLabel } = convertItem(rawItem);
       const suggestionItem = document.createElement("button");
       suggestionItem.type = "button";
       suggestionItem.classList.add("editor-suggestions-item");
@@ -114,7 +114,7 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
 
       const labelElement = document.createElement("span");
       labelElement.classList.add("editor-suggestions-item-label");
-      labelElement.textContent = label;
+      labelElement.textContent = displayLabel || label;
       suggestionItem.append(labelElement);
       suggestion.append(suggestionItem);
 

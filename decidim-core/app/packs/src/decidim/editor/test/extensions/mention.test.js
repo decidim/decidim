@@ -113,10 +113,10 @@ describe("Mention", () => {
     suggestions.querySelector(".editor-suggestions-item").click();
 
     expect(editorElement.innerHTML).toEqual(
-      '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+      '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
     expect(normalizeHTML(editor.getHTML())).toEqual(
-      '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+      '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
   });
 
@@ -127,10 +127,10 @@ describe("Mention", () => {
     editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
 
     expect(editorElement.innerHTML).toEqual(
-      '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+      '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
     expect(normalizeHTML(editor.getHTML())).toEqual(
-      '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+      '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
   });
 });

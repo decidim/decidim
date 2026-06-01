@@ -38,7 +38,7 @@ module Decidim
 
       def render_editor(mentionable)
         mention = render_text(mentionable, editor: true)
-        label = CGI.escapeHTML("#{mention} (#{mentionable.name})")
+        label = CGI.escapeHTML(mention)
         %(<span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
       end
 
