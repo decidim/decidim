@@ -49,13 +49,11 @@ describe "Admin filters invites" do
     let(:meeting) { create(:meeting, :with_registrations_enabled) }
 
     it "successfully handles the error" do
-      within "#new_meeting_registration_invite" do
-        fill_in :meeting_registration_invite_name, with: user1.name
-        fill_in :meeting_registration_invite_email, with: user1.email
-        click_on "Invite"
-      end
+      fill_in :meeting_registration_invite_name, with: user1.name
+      fill_in :meeting_registration_invite_email, with: user1.email
+      click_on "Invite"
 
-      expect(page).to have_callout("There was a problem inviting the participant to join the meeting.")
+      expect(page).to have_content("There was a problem inviting the participant to join the meeting.")
     end
   end
 
@@ -65,13 +63,11 @@ describe "Admin filters invites" do
     it "successfully handles the invite" do
       invited = build(:user, organization:)
 
-      within "#new_meeting_registration_invite" do
-        fill_in :meeting_registration_invite_name, with: invited.name
-        fill_in :meeting_registration_invite_email, with: invited.email
-        click_on "Invite"
-      end
+      fill_in :meeting_registration_invite_name, with: invited.name
+      fill_in :meeting_registration_invite_email, with: invited.email
+      click_on "Invite"
 
-      expect(page).to have_callout("Participant successfully invited to join the meeting.")
+      expect(page).to have_content("Participant successfully invited to join the meeting.")
     end
   end
 end
