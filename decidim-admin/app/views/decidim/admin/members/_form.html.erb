@@ -7,10 +7,6 @@
             <%= form.collection_radio_buttons(:existing_user, [[t(".non_existing_participant"), false], [t(".existing_participant"), true]], :last, :first) %>
           </fieldset>
         </div>
-
-        <div class="row column">
-          <p><%= t(".invite_explanation") %></p>
-        </div>
       <% end %>
 
       <div class="row">
@@ -23,6 +19,7 @@
           </div>
         <% else %>
           <div class="columns member-fields--new-participant">
+            <p><%= t(".invite_explanation") %></p>
             <%= form.text_field :name %>
           </div>
           <div class="columns member-fields--new-participant">
