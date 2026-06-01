@@ -31,6 +31,7 @@
           "decidim-participatory_processes/app/packs/",
           "decidim-proposals/app/packs/",
           "decidim-surveys/app/packs/",
+	  "decidim-sortitions/app/packs/",
           "decidim-system/app/packs/",
           "decidim-templates/app/packs/",
           "decidim-verifications/app/packs/",
