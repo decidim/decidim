@@ -14,10 +14,11 @@ module Decidim
       end
 
       def create
+        return handle_missing_oauth_data! if pending_oauth_data.blank?
+
         form_params = form_params_from_pending_oauth
 
         @form = form(OmniauthRegistrationForm).from_params(form_params)
-        @form.email ||= verified_email
 
         CreateOmniauthRegistration.call(@form, verified_email) do
           on(:ok) do |user|
@@ -83,6 +84,7 @@ module Decidim
         {
           provider: pending_oauth_data[:provider],
           uid: pending_oauth_data[:uid],
+          email: pending_oauth_data[:verified_email],
           name: pending_oauth_data[:name],
           nickname: pending_oauth_data[:nickname],
           oauth_signature: OmniauthRegistrationForm.create_signature(pending_oauth_data[:provider], pending_oauth_data[:uid]),
@@ -152,6 +154,11 @@ module Decidim
         return {} unless raw_hash
 
         raw_hash.deep_symbolize_keys
+      end
+
+      def handle_missing_oauth_data!
+        flash[:alert] = t("devise.failure.timeout")
+        redirect_to decidim.root_path
       end
     end
   end

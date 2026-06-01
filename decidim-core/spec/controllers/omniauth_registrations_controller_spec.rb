@@ -277,6 +277,22 @@ module Decidim
           )
         end
       end
+
+      context "when oauth data is missing and there is no pending state" do
+        before do
+          request.env["omniauth.auth"] = nil
+        end
+
+        it "redirects to root with a timeout alert" do
+          expect do
+            post :create, params: { locale: I18n.locale }
+          end.not_to raise_error
+
+          expect(controller).not_to be_user_signed_in
+          expect(controller).to redirect_to(root_path)
+          expect(flash[:alert]).to eq(I18n.t("devise.failure.timeout"))
+        end
+      end
     end
   end
 end
