@@ -12,7 +12,7 @@ module Decidim
     class BaseRenderer
       include Decidim::ContentProcessor::Common
 
-      ReplacementContext = Struct.new(:placement, :node_name, :attribute_name, :ancestor_names, keyword_init: true) do
+      ReplacementContext = Struct.new(:placement, :node_name, :attribute_name, :ancestor_names) do
         def text?
           placement == :text
         end
