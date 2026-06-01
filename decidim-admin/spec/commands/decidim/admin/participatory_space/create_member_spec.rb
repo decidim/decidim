@@ -13,6 +13,8 @@ module Decidim::Admin::ParticipatorySpace
     let!(:user) { create(:user, email: "my_email@example.org", organization: participatory_space.organization) }
     let!(:current_user) { create(:user, email: "some_email@example.org", organization: participatory_space.organization) }
     let(:role) { generate_localized_title(:role) }
+    let(:existing_user) { false }
+    let(:user_id) { nil }
     let(:form) do
       double(
         invalid?: invalid,
@@ -21,7 +23,10 @@ module Decidim::Admin::ParticipatorySpace
         current_user:,
         name:,
         role:,
-        published:
+        published:,
+        existing_user:,
+        user_id:,
+        user: existing_user ? user : nil
       )
     end
     let(:delete) { false }
@@ -52,10 +57,29 @@ module Decidim::Admin::ParticipatorySpace
 
         expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
 
-        form = double(invalid?: false, email:, current_user:, name:, role:, published: false)
+        form = double(invalid?: false, email:, current_user:, name:, role:, published: false, existing_user: false, user_id: nil, user: nil)
         described_class.new(form, participatory_space, via_csv:).call
 
         expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
+      end
+
+      context "when inviting an existing user by user_id" do
+        let(:existing_user) { true }
+        let(:email) { nil }
+        let(:name) { nil }
+        let(:user_id) { user.id }
+
+        it "creates the member" do
+          expect { subject.call }.to broadcast(:ok)
+
+          members = Decidim::ParticipatorySpace::Member.where(user:)
+
+          expect(members.count).to eq 1
+        end
+
+        it "does not create a new user" do
+          expect { subject.call }.not_to change(Decidim::User, :count)
+        end
       end
 
       it "creates a new user with no application admin privileges" do

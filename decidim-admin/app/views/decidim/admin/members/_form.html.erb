@@ -1,13 +1,41 @@
-<div class="form__wrapper">
+<div class="form__wrapper member-fields">
   <div class="card pt-4">
     <div id="panel-title" class="card-section">
+      <% unless @form.persisted? %>
+        <div class="row column">
+          <fieldset>
+            <%= form.collection_radio_buttons(:existing_user, [[t(".non_existing_participant"), false], [t(".existing_participant"), true]], :last, :first) %>
+          </fieldset>
+        </div>
+
+        <div class="row column">
+          <p><%= t(".invite_explanation") %></p>
+        </div>
+      <% end %>
+
       <div class="row">
-        <div class="columns">
-          <%= form.text_field :name, readonly: @form.persisted? %>
-        </div>
-        <div class="columns">
-          <%= form.email_field :email, readonly: @form.persisted? %>
-        </div>
+        <% if @form.persisted? %>
+          <div class="columns">
+            <%= form.text_field :name, readonly: true %>
+          </div>
+          <div class="columns">
+            <%= form.email_field :email, readonly: true %>
+          </div>
+        <% else %>
+          <div class="columns member-fields--new-participant">
+            <%= form.text_field :name %>
+          </div>
+          <div class="columns member-fields--new-participant">
+            <%= form.email_field :email %>
+          </div>
+
+          <div class="columns member-fields--existing-participant">
+            <% prompt_options = { placeholder: t(".select_user") } %>
+            <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, class: "autocomplete-field--results-inline" }, prompt_options) do |user|
+              { value: user.id, label: "#{user.name} (@#{user.nickname})" }
+            end %>
+          </div>
+        <% end %>
         <div class="columns">
           <%= form.translated :text_field, :role %>
         </div>

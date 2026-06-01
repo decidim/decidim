@@ -607,6 +607,11 @@ en:
         edit:
           title: Edit member
           update: Update
+        form:
+          existing_participant: Existing participant
+          invite_explanation: This participant will be invited to join the space and to the organization as well.
+          non_existing_participant: Non existing participant
+          select_user: Select participant
         index:
           import_via_csv: Import via CSV
           publish_all: Publish all

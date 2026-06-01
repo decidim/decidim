@@ -21,6 +21,7 @@ import "src/decidim/admin/css_preview"
 import "src/decidim/admin/sync_radio_buttons"
 import "src/decidim/admin/text_copy"
 import "src/decidim/admin/taxonomy_filters"
+import "src/decidim/admin/members_form"
 
 // CSS
 import "entrypoints/decidim_admin.scss";

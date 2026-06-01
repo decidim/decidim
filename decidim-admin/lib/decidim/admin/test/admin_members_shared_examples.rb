@@ -24,6 +24,7 @@ shared_examples "manage admin members examples" do
     click_on "New member"
 
     within ".new_member" do
+      choose "Non existing participant", name: "member[existing_user]"
       fill_in :member_name, with: "John Doe"
       fill_in :member_email, with: other_user.email
 
@@ -38,6 +39,35 @@ shared_examples "manage admin members examples" do
 
     visit decidim_admin.root_path
     expect(page).to have_text("invited #{other_user.name} to be a member")
+  end
+
+  it "adds an existing participant as a member" do
+    click_on "New member"
+
+    within ".new_member" do
+      choose "Existing participant", name: "member[existing_user]"
+      page.execute_script(<<~JS)
+        const wrapper = document.querySelector("div[data-autocomplete-for='user_id']");
+        if (wrapper) {
+          const hiddenInput = wrapper.querySelector("input[type='hidden']");
+          if (hiddenInput) { hiddenInput.value = "#{other_user.id}"; }
+          const selectedSpan = wrapper.querySelector(".autocomplete__selected-item.sticky");
+          if (selectedSpan) {
+            selectedSpan.textContent = "#{other_user.name} (@#{other_user.nickname})";
+            selectedSpan.style.display = "block";
+          }
+        }
+      JS
+      expect(page).to have_css(".autocomplete__selected-item", text: "#{other_user.name} (@#{other_user.nickname})")
+
+      find("*[type=submit]").click
+    end
+
+    expect(page).to have_callout("Member access successfully created.")
+
+    within "#members table" do
+      expect(page).to have_text(other_user.email)
+    end
   end
 
   describe "when import a batch of members from csv" do
