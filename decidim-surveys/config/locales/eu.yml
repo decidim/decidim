@@ -43,7 +43,7 @@ eu:
     metrics:
       survey_answers:
         description: Parte-hartzaileek erantzundako inkesta kopurua
-        object: inkestei erantzunak
+        object: inkesten erantzunak
         title: Inkestei erantzunak
     statistics:
       answers_count: Erantzunak
@@ -70,7 +70,7 @@ eu:
           index:
             answers:
               one: "Erantzun bat"
-              other: "%{count} erantzun"
+              other: "Erantzun %{count}"
             description: |-
               Galderen erantzunak argitaratzean, jendaurrean ikusgai jarriko dituzu.
               Argitaratu nahi dituzun erantzunak hauta ditzakezu galdera bakoitzaren ondoan dagoen laukitxoan klik eginez.
@@ -128,7 +128,7 @@ eu:
         export_name: Inkestaren erantzunak
       surveys:
         answer:
-          invalid: Inkesta erantzutean errorea gertatu da.
+          invalid: Arazo bat egon da inkesta erantzutean.
           spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Inkesta ondo bete da.
         count:
