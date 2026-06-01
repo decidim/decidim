@@ -161,7 +161,7 @@ eu:
           amend: Zuzendu
           comment: Iruzkindu
           create: Proposamena sortu
-          endorse: Atxikitu
+          endorse: Atxiki
           vote: Eman babesa
           vote_comment: Bozkatu iruzkina
           withdraw: Kendu
@@ -751,7 +751,7 @@ eu:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Arazoak izan dira zirriborro kolaboratiboa argitaratzean.
+            error: Arazo bat egon da testu kolaboratiboa gordetzen.
             irreversible_action_modal:
               body: Zirriborroa proposamen gisa argitaratu ondoren, jada ez da editagarria izango. Proposamenak ez du beste egile edo ekarpenik onartuko.
               cancel: Utzi
@@ -788,11 +788,11 @@ eu:
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
-          filter_by: 'Honen arabera iragazi:'
+          filter_by: Iragazi honen arabera
           unfold: Zabaldu
         index:
           count:
-            one: "Zirriborro kolaboratibo %{count}"
+            one: "%{count} zirriborro kolaboratibo"
             other: "%{count} zirriborro kolaboratibo"
         name: Zirriborro kolaboratzaileak
         new:
@@ -802,7 +802,7 @@ eu:
         new_collaborative_draft_button:
           new_collaborative_draft: Testu kolaboratibo zirriborro berria
         orders:
-          label: 'Zirriborroak honela ordenatu:'
+          label: 'Ordenatu zirriborroak honen arabera:'
           most_contributed: Bozka gehien jaso duena
           random: Ausazko ordena
           recent: Azkenak
