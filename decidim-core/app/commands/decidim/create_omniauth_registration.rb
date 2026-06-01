@@ -29,6 +29,7 @@ module Decidim
           return broadcast(:ok, @user)
         end
         return broadcast(:invalid) if form.invalid?
+        return broadcast(:add_tos_errors) if requires_tos_acceptance?
 
         transaction do
           create_or_find_user
@@ -37,8 +38,6 @@ module Decidim
         trigger_omniauth_event
 
         broadcast(:ok, @user)
-      rescue NeedTosAcceptance
-        broadcast(:add_tos_errors, @user)
       rescue ActiveRecord::RecordInvalid => e
         broadcast(:error, e.record)
       end
@@ -75,12 +74,17 @@ module Decidim
         attach_avatar(form.avatar_url) if form.avatar_url.present?
         @user.tos_agreement = form.tos_agreement
         @user.accepted_tos_version = Time.current
-        raise NeedTosAcceptance if @user.tos_agreement.blank?
 
         @user.skip_confirmation! if verified_email
         @user.save!
         @user.after_confirmation if verified_email
       end
+    end
+
+    def requires_tos_acceptance?
+      return false if form.tos_agreement.present?
+
+      verified_email.blank? || User.find_by(email: verified_email, organization:).blank?
     end
 
     def attach_avatar(avatar_url)
@@ -146,9 +150,6 @@ module Decidim
         accepted_tos_version: form.current_organization.tos_version
       )
     end
-  end
-
-  class NeedTosAcceptance < StandardError
   end
 
   class InvalidOauthSignature < StandardError
