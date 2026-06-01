@@ -221,6 +221,62 @@ module Decidim
           end
         end
       end
+
+      context "when ToS is missing and user retries without omniauth.auth" do
+        let!(:user) { create(:user, organization:, email: "other@example.org") }
+        let(:raw_data) do
+          {
+            "provider" => provider,
+            "uid" => uid,
+            "info" => {
+              "name" => "Facebook User",
+              "nickname" => "facebook_user",
+              "email" => email
+            },
+            "extra" => {
+              "raw_info" => {
+                "id" => uid,
+                "name" => "Facebook User"
+              }
+            }
+          }
+        end
+
+        before do
+          request.env["omniauth.auth"] = raw_data
+        end
+
+        it "preserves oauth data in pending state and creates the account on retry" do
+          expect do
+            post :create, params: { locale: I18n.locale, user: { tos_agreement: nil } }
+          end.not_to change(User, :count)
+
+          expect(response).to render_template(:new_tos_fields)
+
+          token = session.dig(:omniauth_registration, :token)
+          expect(token).to be_present
+          expect(session.dig(:omniauth_registration, :data, :raw_data)).to eq(raw_data.deep_symbolize_keys)
+
+          request.env["omniauth.auth"] = nil
+          allow(ActiveSupport::Notifications).to receive(:publish).and_call_original
+
+          expect do
+            post :create, params: { locale: I18n.locale, user: { pending_oauth_token: token, tos_agreement: "1" } }
+          end.to change(User, :count).by(1)
+
+          expect(controller).to be_user_signed_in
+          expect(User.find_by(email:)).to be_present
+          expect(ActiveSupport::Notifications).to have_received(:publish).with(
+            "decidim.user.omniauth_registration",
+            hash_including(
+              provider:,
+              uid:,
+              email:,
+              raw_data: raw_data.deep_symbolize_keys
+            )
+          )
+        end
+      end
     end
   end
 end
