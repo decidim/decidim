@@ -293,6 +293,46 @@ module Decidim
           expect(flash[:alert]).to eq(I18n.t("devise.failure.timeout"))
         end
       end
+
+      context "when pending oauth state session keys are strings" do
+        let(:pending_token) { SecureRandom.hex(16) }
+        let(:pending_raw_data) do
+          {
+            provider: provider,
+            uid: uid,
+            info: {
+              name: "Facebook User",
+              nickname: "facebook_user",
+              email: email
+            }
+          }
+        end
+
+        before do
+          request.env["omniauth.auth"] = nil
+          session[:omniauth_registration] = {
+            "token" => pending_token,
+            "data" => {
+              "provider" => provider,
+              "uid" => uid,
+              "name" => "Facebook User",
+              "nickname" => "facebook_user",
+              "avatar_url" => nil,
+              "verified_email" => email,
+              "raw_data" => pending_raw_data
+            }
+          }
+        end
+
+        it "restores the pending state and signs in" do
+          expect do
+            post :create, params: { locale: I18n.locale, user: { pending_oauth_token: pending_token, tos_agreement: "1" } }
+          end.to change(Identity, :count).by(1)
+
+          expect(controller).to be_user_signed_in
+          expect(User.find_by(email:)).to be_present
+        end
+      end
     end
   end
 end

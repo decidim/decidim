@@ -157,7 +157,7 @@ module Decidim
 
       def handle_missing_oauth_data!
         flash[:alert] = t("devise.failure.timeout")
-        redirect_to decidim.root_path
+        redirect_back_or_to(decidim.root_path)
       end
     end
   end
