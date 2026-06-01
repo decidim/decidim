@@ -1408,6 +1408,12 @@ describe "Editor" do
 
       expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john">@doe_john</span> doe</p>))
     end
+
+    it "shows a help message for the first character" do
+      prosemirror.native.send_keys "@d"
+
+      expect(page).to have_css(".editor-suggestions-item", text: "Type to search participants")
+    end
   end
 
   context "with resource mentions" do

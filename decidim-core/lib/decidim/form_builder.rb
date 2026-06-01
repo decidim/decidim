@@ -887,11 +887,19 @@ module Decidim
         upload_dialog_selector: "##{upload_options[:modal_id]}"
       }.transform_keys { |key| key.to_s.camelize(:lower) }
 
-      editor_options[:mention] = options.delete(:mentionable)
+      mentionable = options.delete(:mentionable)
+      editor_options[:mention] = mention_options(mentionable) if mentionable
       editor_options[:emoji] = options.delete(:emojiable)
       @template.append_javascript_pack_tag("decidim_emoji", defer: true) if editor_options[:emoji]
 
       { editor: editor_options, upload: upload_options }
+    end
+
+    def mention_options(mentionable)
+      mention_options = mentionable.is_a?(Hash) ? mentionable.dup : {}
+      mention_options[:searchPromptMessage] ||= I18n.t("decidim.mentions.search_prompt")
+
+      mention_options
     end
 
     # Private: creates an upload modal for the editor that we use to dynamically

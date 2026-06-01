@@ -29,9 +29,11 @@ const searchUsers = async (queryText) => {
 export default Mention.extend({
   addOptions() {
     const parentOptions = this.parent?.();
+    const searchPromptMessage = parentOptions?.searchPromptMessage || "Type to search participants";
 
     return {
       ...parentOptions,
+      searchPromptMessage,
       renderText({ node }) {
         // renderText is used to create the DOM representation
         const label = node.attrs.label ?? node.attrs.id;
@@ -42,7 +44,7 @@ export default Mention.extend({
         allowSpaces: true,
         items: async ({ query }) => {
           if (query.length < 2) {
-            return [];
+            return [{ label: searchPromptMessage, help: true }];
           }
 
           const data = await searchUsers(query);
@@ -51,6 +53,10 @@ export default Mention.extend({
         },
         render: createSuggestionRenderer(this, {
           itemConverter: (user) => {
+            if (user.help) {
+              return { label: user.label, help: true }
+            }
+
             return {
               id: user.nickname,
               label: user.nickname,

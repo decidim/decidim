@@ -37,7 +37,15 @@ module Decidim
 
       # Returns :text_area or :editor based on current_component settings.
       def text_editor_for_debate_description(form)
-        text_editor_for(form, :description, mentionable: true, data: { controller: "mention" })
+        text_editor_for(
+          form,
+          :description,
+          mentionable: true,
+          data: {
+            controller: "mention",
+            searchprompt: t("decidim.mentions.search_prompt")
+          }
+        )
       end
 
       # Returns a TreeNode to be used in the list filters to filter debates by

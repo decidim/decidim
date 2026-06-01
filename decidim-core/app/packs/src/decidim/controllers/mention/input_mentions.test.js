@@ -26,7 +26,7 @@ describe("MentionController", () => {
 
     document.body.innerHTML = `
       <div class="mention-container">
-        <input data-noresults="No users found" data-controller="mention" />
+        <input data-noresults="No users found" data-searchprompt="Type to search participants" data-controller="mention" />
       </div>
     `;
 
@@ -111,17 +111,20 @@ describe("MentionController", () => {
     expect(suggestions.classList.contains("hidden")).toBe(false);
   });
 
-  it("does not show suggestions when fewer than two mention characters", async () => {
+  it("shows search prompt when first mention character is entered", async () => {
     await connectController();
 
     mockElement.value = "Hello @d";
     mockElement.setSelectionRange(mockElement.value.length, mockElement.value.length);
     mockElement.dispatchEvent(new Event("input", { bubbles: true }));
 
-    await waitForDebounce();
-
     const suggestions = document.querySelector(".editor-suggestions");
-    expect(suggestions.classList.contains("hidden")).toBe(true);
+    const promptItem = suggestions.querySelector(".editor-suggestions-item");
+
+    expect(promptItem).toBeInstanceOf(HTMLButtonElement);
+    expect(promptItem.textContent).toBe("Type to search participants");
+    expect(promptItem.disabled).toBe(true);
+    expect(suggestions.classList.contains("hidden")).toBe(false);
   });
 
   it("inserts selected mention on click", async () => {

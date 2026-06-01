@@ -6,6 +6,7 @@ export default class extends Controller {
   connect() {
     this.options = {
       noDataFoundMessage: this.element.getAttribute("data-noresults") || "No results found",
+      searchPromptMessage: this.element.getAttribute("data-searchprompt") || "Type to search participants",
       debounceDelay: 250,
       menuItemLimit: 5
     };
@@ -94,6 +95,12 @@ export default class extends Controller {
     }
 
     this.currentMentionStart = trigger.start;
+
+    if (trigger.query.length < 2) {
+      this.showMessage(this.options.searchPromptMessage);
+      return;
+    }
+
     this.performRemoteSearch(trigger.query);
   }
 
@@ -136,7 +143,7 @@ export default class extends Controller {
     }
 
     const textBeforeCursor = value.slice(0, caretPosition);
-    const mentionMatch = textBeforeCursor.match(/(?:^|\s)@([\w.-]{2,})$/);
+    const mentionMatch = textBeforeCursor.match(/(?:^|\s)@([\w.-]{1,})$/);
     if (!mentionMatch) {
       return null;
     }
@@ -254,6 +261,26 @@ export default class extends Controller {
 
     this.positionSuggestionMenu();
     this.isActive = true;
+    this.suggestion.classList.remove("hidden", "hide");
+  }
+
+  showMessage(message) {
+    if (!this.suggestion || !message) {
+      return;
+    }
+
+    this.suggestion.innerHTML = "";
+    this.isActive = false;
+    this.selectedIndex = -1;
+
+    const item = document.createElement("button");
+    item.type = "button";
+    item.disabled = true;
+    item.classList.add("editor-suggestions-item", "editor-suggestions-item-disabled");
+    item.textContent = message;
+
+    this.suggestion.append(item);
+    this.positionSuggestionMenu();
     this.suggestion.classList.remove("hidden", "hide");
   }
 

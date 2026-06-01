@@ -1700,8 +1700,10 @@ en:
       login_modal:
         please_log_in: Please log in
         sign_up: Create an account
-      mentions_modal:
-        remove_recipient: Remove recipient %{name}
+    mentions_modal:
+      remove_recipient: Remove recipient %{name}
+    mentions:
+      search_prompt: Type to search participants
       progress: Progress
       public_participation:
         public_participation: Show my attendance publicly

@@ -100,9 +100,12 @@ describe("Mention", () => {
 
     const suggestions = document.querySelector(".editor-suggestions");
     expect(suggestions).toBeInstanceOf(HTMLDivElement);
-    expect(suggestions.childNodes.length).toBe(0);
-    expect(suggestions.classList.contains("hidden")).toBe(true);
-    expect(suggestions.classList.contains("hide")).toBe(true);
+    const items = suggestions.querySelectorAll(".editor-suggestions-item");
+    expect(items.length).toBe(1);
+    expect(items[0].textContent).toBe("Type to search participants");
+    expect(items[0].disabled).toBe(true);
+    expect(suggestions.classList.contains("hidden")).toBe(false);
+    expect(suggestions.classList.contains("hide")).toBe(false);
   });
 
   it("allows selecting a mention from the list by clicking it", async () => {

@@ -89,7 +89,10 @@ module Decidim
         options = {
           mentionable: true,
           value: form_presenter.body(strip_tags: !current_organization.rich_text_editor_in_public_views).strip,
-          data: { controller: "character-counter mention" }
+          data: {
+            controller: "character-counter mention",
+            searchprompt: t("decidim.mentions.search_prompt")
+          }
         }
 
         text_editor_for(form, :body, options)
