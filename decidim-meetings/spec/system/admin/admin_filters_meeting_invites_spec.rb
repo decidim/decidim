@@ -53,7 +53,7 @@ describe "Admin filters invites" do
       fill_in :meeting_registration_invite_email, with: user1.email
       click_on "Invite"
 
-      expect(page).to have_callout("There was a problem inviting the participant to join the meeting.")
+      expect(page).to have_content("There was a problem inviting the participant to join the meeting.")
     end
   end
 
@@ -67,7 +67,7 @@ describe "Admin filters invites" do
       fill_in :meeting_registration_invite_email, with: invited.email
       click_on "Invite"
 
-      expect(page).to have_callout("Participant successfully invited to join the meeting.")
+      expect(page).to have_content("Participant successfully invited to join the meeting.")
     end
   end
 end
