@@ -19,7 +19,6 @@ module Decidim
         form_params = form_params_from_pending_oauth
 
         @form = form(OmniauthRegistrationForm).from_params(form_params)
-
         CreateOmniauthRegistration.call(@form, verified_email) do
           on(:ok) do |user|
             clear_pending_oauth_data!
@@ -134,7 +133,7 @@ module Decidim
         token = params.dig(:user, :pending_oauth_token)
         return {} if token.blank?
 
-        state = session[:omniauth_registration]
+        state = session[:omniauth_registration]&.with_indifferent_access
         return {} if state.blank?
 
         stored_token = state[:token].to_s
