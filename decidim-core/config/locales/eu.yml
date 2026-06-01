@@ -771,7 +771,7 @@ eu:
           created_at: Zein datatan eta zein ordutan sortu zen parte-hartzaile pribatu hau
           id: Parte-hartzaile honen identifikatzaile bakarra
           privatable_to: Zein espaziotakoa den parte-hartzaile pribatu hau
-          published: Ea parte-hartzaile pribatu hau argitaratuta dagoen ala ez
+          published: Parte-hartzaile pribatu hau argitaratuta dagoen ala ez
           role: Zein rol duen parte-hartzaile pribatu honek
           updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile pribatu hau
         reports:
