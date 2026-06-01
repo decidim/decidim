@@ -4,7 +4,9 @@
       <% unless @form.persisted? %>
         <div class="row column">
           <fieldset>
-            <%= form.collection_radio_buttons(:existing_user, [[t(".non_existing_participant"), false], [t(".existing_participant"), true]], :last, :first) %>
+            <%= form.collection_radio_buttons(:existing_user, [[t(".non_existing_participant"), false], [t(".existing_participant"), true]], :last, :first) do |builder|
+              builder.label(class: "inline-block mr-4") { builder.radio_button + builder.text }
+            end %>
           </fieldset>
         </div>
       <% end %>
