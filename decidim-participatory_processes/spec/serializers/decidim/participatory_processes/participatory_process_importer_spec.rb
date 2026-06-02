@@ -586,7 +586,7 @@ module Decidim::ParticipatoryProcesses
           end
         end
 
-                context "when attachment collection is defined" do
+        context "when attachment collection is defined" do
           let(:attachment_data) do
             {
               "files" => [
