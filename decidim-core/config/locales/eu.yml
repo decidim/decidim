@@ -906,13 +906,17 @@ eu:
             email_intro: '%{amendable_title} k zuzenketa ukatu egin du. Orrialde honetan ikus dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
             email_subject: '%{emendation_author_name} parte-hartzaileak %{amendable_title} zuzenketa ukatu du'
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_name}</a> egileak sortu duen <a href="%{emendation_path}"> </a>zuzenketa honetarako ukatu da <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Aldaketa ukatu egin da %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
+            email_subject: '%{emendation_author_name} parte-hartzaileak %{amendable_title} zuzenketa ukatu du'
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_name}</a> egileak sortu duen <a href="%{emendation_path}"> </a>zuzenketa honetarako ukatu da <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'Zuzenketa bat argitaratu da honetarako: %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
+            email_subject: '%{emendation_author_name} parte-hartzailearen zuzenketa bat argitaratu da %{amendable_type} berri gisa'
       attachments:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde honetan ikusi dezakezu:'
@@ -962,13 +966,25 @@ eu:
           email_subject: Zure %{resource_type} ezabatu egin da
           notification_title: |-
             Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.</br><i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name} parte-hartzaileari, jarraitzen ari zarenari, %{resource_title}" gustatu zaio, eta zuretzat interesgarria izan daitekeela uste dugu. Egiaztatu eta lagundu:'
+        email_outro: Jakinarazpen hau jaso duzu %{liker_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+        email_subject: "%{liker_name} parte-hartzaileak like berri bat egin du"
+        notification_title: <a href="%{liker_path}">%{liker_name} </a> -k <a href="%{resource_path}">%{resource_title}</a> %{resource_type} atsegin du.
       resources:
         soft_deleted:
           notification_title: Administratzaile batek ezabatu du zure "%{resource_type}" "%{resource_title}".
       users:
+        profile_updated:
+          email_intro: </a> de %{name} profilaren <a href="%{resource_url}"> orria, jarraitzen ari zarena, eguneratu egin da.
+          email_outro: Jakinarazpen hau jaso duzu %{name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+          email_subject: "%{name} parte-hartzaileak bere profila eguneratu du"
+          notification_title: </a> de %{name} profilaren <a href="%{resource_path}"> orria, jarraitzen ari zarena, eguneratu egin da.
         user_officialized:
+          email_intro: '%{name} parte-hartzailea ofizializatu egin da.'
           email_outro: Jakinarazpen hau jaso duzu erakundearen administratzailea zarelako.
           email_subject: "%{name} ofizializatu egin da"
+          notification_title: '%{name} parte-hartzailea ofizializatu egin da.'
     export_mailer:
       download_your_data_export:
         click_button_html: Sakatu hurrengo estekan zure datuak deskargatzeko. <br/> fitxategia eskuragarri egongo da %{date} arte.
