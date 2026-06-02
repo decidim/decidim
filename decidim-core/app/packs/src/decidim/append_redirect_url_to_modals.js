@@ -16,14 +16,9 @@
  * and a data-redirect-url attribute with the URL to redirect
  * the user. If any of this is missing no code will be
  * injected.
- *
- * We use event delegation on document so that [data-dialog-open]
- * elements added dynamically (e.g. via AJAX/Turbo Streams or
- * dynamic_fields.component.js) also receive the click handler.
- *
  */
 document.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-dialog-open]");
+  const target = event.target.closest("a");
 
   if (!target) {
     return;
