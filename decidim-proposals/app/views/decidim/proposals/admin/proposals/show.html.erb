@@ -48,7 +48,7 @@
           <div class="row column">
             <span class="component__show-title"><%= t ".body" %></span>
             <p class="component__show-text">
-              <%= simple_format(present(proposal).body(strip_tags: true)) %>
+              <%= render_proposal_body(proposal) %>
             </p>
           </div>
         </div>
