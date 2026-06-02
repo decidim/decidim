@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage admin members examples" do
-  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
+  let(:other_user) { create(:user, :confirmed, organization:, email: "my_email@example.org") }
 
   let!(:member) { create(:member, user:, participatory_space:) }
 
@@ -46,19 +46,7 @@ shared_examples "manage admin members examples" do
 
     within ".new_member" do
       choose "Existing participant", name: "member[existing_user]"
-      page.execute_script(<<~JS)
-        const wrapper = document.querySelector("div[data-autocomplete-for='user_id']");
-        if (wrapper) {
-          const hiddenInput = wrapper.querySelector("input[type='hidden']");
-          if (hiddenInput) { hiddenInput.value = "#{other_user.id}"; }
-          const selectedSpan = wrapper.querySelector(".autocomplete__selected-item.sticky");
-          if (selectedSpan) {
-            selectedSpan.textContent = "#{other_user.name} (@#{other_user.nickname})";
-            selectedSpan.style.display = "block";
-          }
-        }
-      JS
-      expect(page).to have_css(".autocomplete__selected-item", text: "#{other_user.name} (@#{other_user.nickname})")
+      autocomplete_select "#{other_user.name} (@#{other_user.nickname})", from: :user_id
 
       find("*[type=submit]").click
     end
