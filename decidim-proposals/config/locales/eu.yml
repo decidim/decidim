@@ -318,6 +318,7 @@ eu:
           notification_title: '<strong>Baztertu egin zaituzte, kolaboratzaile gisa, hemen sartzeko: </strong> <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_withdrawn:
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a> ko kolaboratzailea zarelako.
+          notification_title: <a href="%{author_path}">%{author_name}</a> egileak kendu du <a href="%{resource_path}">%{resource_title}</a> zirriborro kolaboratiboa.
         creation_enabled:
           email_intro: 'Orain %{participatory_space_title} proposamen berriak sor ditzakezu! Hasi parte hartzen orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko estekan.
@@ -338,6 +339,11 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
           email_subject: '%{resource_title} proposamena beste batekin batu da'
           notification_title: Administratzaile batek <a href="%{resource_path}">%{resource_title}</a> proposamena beste batekin batu du.
+        proposal_published:
+          email_intro: '%{author_name} egileak, jarraitzen ari zarenak,"%{resource_title}" izeneko proposamena argitaratu du. Begiratu eta lagundu hobetzen:'
+          email_outro: Jakinarazpen hau jaso duzu %{author_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+          email_subject: '%{author_name} parte-hartzaileak proposamen berria egin du: "%{resource_title}"'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name}</a> parte-hartzaileak argitaratu zuen.
         proposal_published_for_space:
           email_intro: '"%{resource_title}" proposamena jarraizten ari zaren ondorengo "%{participatory_space_title}" espazioan erantsi zaizu.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Jarraitzeari uzti ahal diozu aurreko estekan.
