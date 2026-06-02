@@ -84,7 +84,7 @@ describe "Locales" do
       end
 
       it "uses the user's locale" do
-        visit decidim.root_redirect_path
+        visit decidim.root_path
         expect(page).to have_content("Inici")
       end
 
