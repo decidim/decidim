@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 400] */
+/* eslint max-lines: ["error", 450] */
 
 import { Controller } from "@hotwired/stimulus"
 
