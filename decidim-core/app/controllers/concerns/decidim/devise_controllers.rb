@@ -64,7 +64,8 @@ module Decidim
       end
 
       def set_current_locale(&)
-        locale = Decidim::LocaleRouterDetector.new(request, params).locale
+        locale = detect_locale
+        locale = default_locale unless available_locales.include?(locale)
         I18n.with_locale(locale, &)
       end
     end
