@@ -29,9 +29,9 @@ module Decidim
             ParticipatoryProcess.transaction do
               copy_participatory_process
               copy_participatory_process_attachments
+              copy_landing_page_blocks
               copy_participatory_process_steps if @form.copy_steps?
               copy_participatory_process_components if @form.copy_components?
-              copy_landing_page_blocks if @form.copy_landing_page_blocks?
             end
           end
 
