@@ -8,7 +8,7 @@ describe "Blogs component" do # rubocop:disable RSpec/DescribeClass
   let!(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
   describe "stats" do
-    subject { current_stat[1][:data] }
+    subject { current_stat[2] }
 
     let(:raw_stats) do
       Decidim.component_manifests.map do |component_manifest|
@@ -23,7 +23,7 @@ describe "Blogs component" do # rubocop:disable RSpec/DescribeClass
     let!(:post) { create(:post, component:) }
     let!(:another_post) { create(:post, component:) }
 
-    let(:current_stat) { stats.find { |stat| stat[1][:name] == stats_name } }
+    let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
 
     describe "posts_count" do
       let(:stats_name) { :posts_count }
