@@ -298,12 +298,12 @@ module Decidim
         let(:pending_token) { SecureRandom.hex(16) }
         let(:pending_raw_data) do
           {
-            provider: provider,
-            uid: uid,
+            provider:,
+            uid:,
             info: {
               name: "Facebook User",
               nickname: "facebook_user",
-              email: email
+              email:
             }
           }
         end
