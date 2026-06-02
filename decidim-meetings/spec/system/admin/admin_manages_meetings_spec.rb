@@ -808,6 +808,7 @@ describe "Admin manages meetings" do
       end
 
       expect(page).to have_callout("Meeting successfully updated.")
+      expect(page).to have_text("Updated title")
     end
   end
 
