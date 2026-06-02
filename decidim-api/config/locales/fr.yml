@@ -4,9 +4,12 @@ fr:
     api:
       errors:
         introspection_disabled: L'introspection est désactivée pour cette requête
+        invalid_locale: Locale fournie invalide
+        locale_argument_error: Il y a eu une erreur lors du traitement interne des données i18n
         not_found: "%{type} introuvable"
         permission_not_set: La permission n'a pas été définie pour ce %{type}
         recursion_limit_exceeded_error: Trop de récursions détectées dans la requête
         too_many_aliases_error: Trop d'alias utilisés. Vous avez utilisé %{size} alias, mais seulement %{limit} sont autorisés.
         unauthorized_field: Vous ne pouvez pas afficher ou modifier le champ %{field} sur %{type} car vous n'avez pas la permission
+        unauthorized_mutation: Vous n'avez pas la permission d'effectuer cette mutation
         unauthorized_object: Vous ne pouvez pas afficher ou modifier ce %{type} car vous n'avez pas les permissions requises

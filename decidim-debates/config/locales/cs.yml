@@ -204,13 +204,6 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože sledujete participační prostor %{participatory_space_title}. Můžete zrušit příjem oznámení na předchozím odkazu.
             email_subject: Nová debata "%{resource_title}" na %{participatory_space_title}
             notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> byla vytvořena na <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-          user_followers:
-            email_intro: |-
-              Ahoj,
-              %{author_name} %{author_nickname}, kterého sledujete, vytvořil novou debatu "%{resource_title}". Omrkněte ji a přispějte:
-            email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete zrušit přijem oznámení.
-            email_subject: Nová debata "%{resource_title}" od %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil <a href="%{resource_path}">%{resource_title}</a> debatu.
         creation_disabled:
           email_intro: 'Tvorba debaty již není aktivní v %{participatory_space_title}. Na otevřených debatách se můžete stále účastnit z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Na předchozím odkazu můžete přestat přijímat oznámení.

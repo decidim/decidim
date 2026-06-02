@@ -32,7 +32,7 @@ module Decidim
           it "renders the correct title" do
             html = cell("decidim/meetings/meeting_activity", action_log).call
             expect(html).to have_css("[data-activity]")
-            expect(html).to have_content("Meeting updated")
+            expect(html).to have_text("Meeting updated")
           end
         end
 
@@ -42,7 +42,7 @@ module Decidim
           it "renders the correct title" do
             html = cell("decidim/meetings/meeting_activity", action_log).call
             expect(html).to have_css("[data-activity]")
-            expect(html).to have_content("New meeting")
+            expect(html).to have_text("New meeting")
           end
         end
 
@@ -50,7 +50,7 @@ module Decidim
           it "renders the correct title" do
             html = cell("decidim/meetings/meeting_activity", action_log).call
             expect(html).to have_css("[data-activity]")
-            expect(html).to have_content("New meeting")
+            expect(html).to have_text("New meeting")
           end
         end
       end

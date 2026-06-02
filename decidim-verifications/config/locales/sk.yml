@@ -48,7 +48,6 @@ sk:
             confirm: Zrušenie autorizácií pred dátumom nie je možné vrátiť späť. Naozaj chcete pokračovať?
             confirm_all: Zrušenie všetkých autorizácií nie je možné vrátiť späť. Naozaj chcete pokračovať?
           destroy_nok: Pri rušení autorizácií sa vyskytol problém.
-          destroy_ok: Všetky zhodné autorizácie boli úspešne zrušené.
           info: Je tu celkovo %{count} overených účastníkov.
           no_data: Žiadni overení účastníci.
           title: Zrušenie autorizácií

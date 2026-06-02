@@ -9,10 +9,11 @@ This is an example on how to use the `addProposalAnswer` mutation. Please refer 
 - https://nightly.decidim.org/api/docs/input_object/proposalattributes[Proposal Attributes]
 - https://nightly.decidim.org/api/docs/object/proposal[Proposal Type]
 
-```graphql
+[source,graphql]
+----
 mutation addProposalAnswer($componentId: ID!, $proposalId: ID!, $input: AnswerInput!){
   component(id: $componentId) {
-    ...on ProposalsMutation{
+... on ProposalsMutation {
       proposal(id: $proposalId) {
         answer(input: $input) {
           // this is the proposal response
@@ -21,10 +22,12 @@ mutation addProposalAnswer($componentId: ID!, $proposalId: ID!, $input: AnswerIn
     }
   }
 }
-```
+----
 
 Example of submitted variables
-```graphql
+
+[source,json]
+----
 {
   "componentId": 9,
   "proposalId": 2,
@@ -40,18 +43,19 @@ Example of submitted variables
     }
   }
 }
-```
+----
 
 === HTTP Request Example
 
 Using cURL to make the GraphQL request:
 
-```bash
+[source,bash]
+----
 curl -X POST https://your-decidim-instance.org/api \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_TOKEN" \
   -d '{
-    "query": "mutation addProposalAnswer($componentId: ID!, $proposalId: ID!, $input: AnswerInput!){ component(id: $componentId) { ...on ProposalsMutation{ proposal(id: $proposalId) { answer(input: $input) { /* this is the proposal response */  } } } } }",
+    "query": "mutation addProposalAnswer($componentId: ID!, $proposalId: ID!, $input: AnswerInput!){ component(id: $componentId) { ... on ProposalsMutation { proposal(id: $proposalId) { answer(input: $input) { /* this is the proposal response */  } } } } }",
     "variables": {
       "input": {
         "componentId": 9,
@@ -70,7 +74,7 @@ curl -X POST https://your-decidim-instance.org/api \
       }
     }
   }'
-```
+----
 
 === Error Handling
 

@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 class DynamicFieldsComponent {
   constructor(options = {}) {
     this.wrapperSelector = options.wrapperSelector;
@@ -121,7 +121,7 @@ class DynamicFieldsComponent {
     try {
       return cb(event.target);
     } catch (error) {
-      console.error(error); // eslint-disable-line no-console
+      console.error(error);
       return error;
     }
   }

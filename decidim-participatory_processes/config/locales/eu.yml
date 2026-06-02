@@ -32,7 +32,7 @@ eu:
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
-        target: Nork parte hartzen duen
+        target: Nork hartzen du parte
         title: Izenburua
         weight: Ordena
       participatory_process_group:
@@ -79,7 +79,7 @@ eu:
         one: Partaidetza-prozesuaren taldea
         other: Partaidetza-prozesuen taldeak
       decidim/participatory_process_step:
-        one: Step
+        one: Urratsa
         other: Faseak
   decidim:
     admin:
@@ -87,7 +87,7 @@ eu:
         activate: Aktibatu
         confirm_delete_process: Ziur zaude prozesu hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         confirm_destroy: Berretsi ezabatu
-        destroy: ezabatu
+        destroy: Ezabatu
         duplicate: Bikoiztu
         edit: Editatu
         import_process: Inportatu
@@ -98,9 +98,9 @@ eu:
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
-        see_process: Ikusi prozesuak
+        see_process: Prozesua ikusi
         unpublish: Despublikatu
-        view_deleted_processes: Ikusi ezabatutako prozesuak
+        view_deleted_processes: Ezabatutako prozesuak ikusi
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prozesu-taldeen arabera
@@ -124,7 +124,7 @@ eu:
           members: Kideak
           moderations: Moderazioak
           process_admins: Prozesuaren parte-hartzaileak
-          steps: Prozesuaren faseak
+          steps: Urratsak
       models:
         participatory_process:
           fields:
@@ -214,7 +214,7 @@ eu:
           error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
           error: Arazo bat egon da partaidetza-prozesu honan fase hau eguneratzean.
-          success: Partaidetza-prozesuaren fasea behar bezala eguneratu da.
+          success: Prozesu parte-hartzailearen fasea zuzen eguneratua.
       participatory_process_user_roles:
         create:
           error: Arazo bat egon da partaidetza-prozesu honetarako parte-hartzailea gehitzean.
@@ -354,8 +354,8 @@ eu:
         extra_data:
           developer_group: Honek sustatuta
           name: Metadatuak
-          participatory_scope: Erabakitzen dena
-          participatory_structure: Erabakitzeko era
+          participatory_scope: Zer erabakitzen den
+          participatory_structure: Nola erabakitzen den
           target: Nork hartzen du parte
         html:
           name: HTML blokea
@@ -371,7 +371,7 @@ eu:
           active: Partaidetza-prozesu aktiboak
           name: Partaidetza-prozesuak
         stats:
-          name: Jarduera
+          name: Estatistikak
         title:
           meta_scope: Eremua
           participatory_processes:
@@ -519,8 +519,7 @@ eu:
               label: Sarbidea
               options:
                 open: Edonork ikus dezake prozesua eta parte hartu.
-                restricted: Soilik kideek ikus dezakete batzarra eta parte hartu.
-                transparent: Edonork ikus dezake prozesua, baina soilik kideek har dezakete parte.
+                transparent: Edonork ikus dezake prozesua, baina soilik kideek eta administratzaileek har dezakete parte.
               set_this_space_as: Partaidetza-espazio hau ondorengo izenarekin ezarri
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
@@ -566,7 +565,7 @@ eu:
               citizen_influence: Herritarren eragina
               citizen_influence_tooltip: Parte-hartzaileen eragina erabakiak hartzean neurtzen du.
               inclusiveness: Inklusibotasuna
-              inclusiveness_tooltip: Interesatu desberdinek bidezko ordezkaritza duten ebaluatzen du.
+              inclusiveness_tooltip: Hainbat alderdi interesatuk ordezkaritza nahikoa duten ebaluatzen du.
               informativeness: Informatiboa
               informativeness_tooltip: Prozesuaren barruan emandako argitasun- eta informazio-maila neurtzen du.
             name: Autoebaluazioaren metrikak
