@@ -19,7 +19,7 @@ module Decidim::Assemblies
         invalid?: invalid,
         title: { en: "title" },
         slug: "copied-slug",
-        copy_components?: copy_components,
+        copy_components?: copy_components
       )
     end
 
