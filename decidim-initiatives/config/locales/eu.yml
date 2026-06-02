@@ -437,9 +437,20 @@ eu:
         update: Eguneratu
       events:
         approve_membership_request:
+          email_intro: "%{author_name} parte-hartzaileak onartu du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
           email_outro: 'Jakinarazpen hau jaso duzu %{resource_title} ekimenarekin bat egitea eskatu duzulako'
+          email_subject: "%{author_name} parte-hartzaileak onartu du zure eskaera batzorde bultzatzailean parte hartzeko"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> parte-hartzaileak onartu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
+        create_initiative_event:
+          email_intro: "%{author_name} parte-hartzaileak, jarraitzen ari zarenak, beste ekimen bat sortu du, egiaztatu eta lagundu:"
+          email_outro: Jakinarazpen hau jaso duzu %{author_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+          email_subject: '%{author_name} parte-hartzailearen bete ekimen bat'
+          notification_title: '<a href="%{resource_path}">%{resource_title}</a> eztabaida sortu da hemen: <a href="%{author_path}">%{author_name}</a>.'
         revoke_membership_request:
+          email_intro: "%{author_name} parte-hartzaileak ukatu egin du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
           email_outro: 'Jakinarazpen hau jaso duzu eskatu duzulako parte hartzea %{resource_title} ekimenean.'
+          email_subject: "%{author_name} parte-hartzaileak ukatu egin du zure eskaera batzorde bultzatzailean parte hartzeko"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> parte-hartzaileak ukatu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
         spawn_committee_request_event:
           email_outro: 'Jakinarazpen hau jaso duzu %{resource_title} ekimenaren egilea zarelako'
       form:
