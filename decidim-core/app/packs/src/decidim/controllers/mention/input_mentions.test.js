@@ -26,7 +26,7 @@ describe("MentionController", () => {
 
     document.body.innerHTML = `
       <div class="mention-container">
-        <input data-noresults="No users found" data-searchprompt="Type to search participants" data-controller="mention" />
+        <input data-noresults="No users found" data-search_prompt="Type to search participants" data-controller="mention" />
       </div>
     `;
 
