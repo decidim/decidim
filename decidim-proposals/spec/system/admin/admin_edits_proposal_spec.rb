@@ -93,7 +93,7 @@ describe "Admin edits proposals" do
       end
     end
 
-    context "when the proposal has attachment" do
+    context "when the proposal has an attachment" do
       let!(:component) do
         create(:proposal_component,
                :with_creation_enabled,
