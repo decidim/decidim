@@ -99,6 +99,7 @@ breadcrumb
 browserstack
 builder
 bugfixing
+busques
 byebug
 bytesize
 cacatua
@@ -430,6 +431,7 @@ infob
 informables
 Inici
 iniciar
+iniciat
 initialiser
 inodes
 inputdialog
@@ -943,6 +945,7 @@ traslatable
 trashable
 trgm
 trobada
+trobat
 tsearch
 tumblr
 turbolinks
