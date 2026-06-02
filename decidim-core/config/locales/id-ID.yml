@@ -152,9 +152,6 @@ id:
         back: Kembali
         heading: Tinjau amandemennya
         send: Terima amandemen
-      wizard_step_form:
-        steps:
-          '1': Buat amandemen Anda
     anonymous_user: Anonim
     application:
       documents:

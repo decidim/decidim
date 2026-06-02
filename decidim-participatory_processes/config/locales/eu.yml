@@ -34,7 +34,7 @@ eu:
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
-        target: Nork parte hartzen duen
+        target: Nork hartzen du parte
         title: Izenburua
         weight: Ordena
       participatory_process_group:
@@ -82,7 +82,7 @@ eu:
         one: Partaidetza-prozesuaren taldea
         other: Partaidetza-prozesuen taldeak
       decidim/participatory_process_step:
-        one: Step
+        one: Urratsa
         other: Faseak
   decidim:
     admin:
@@ -91,7 +91,7 @@ eu:
         configure: Konfiguratu
         confirm_delete_process: Ziur zaude prozesu hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         confirm_destroy: Berretsi ezabatu
-        destroy: ezabatu
+        destroy: Ezabatu
         duplicate: Bikoiztu
         edit: Editatu
         import_process: Inportatu
@@ -104,9 +104,9 @@ eu:
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
-        see_process: Ikusi prozesuak
+        see_process: Prozesua ikusi
         unpublish: Despublikatu
-        view_deleted_processes: Ikusi ezabatutako prozesuak
+        view_deleted_processes: Ezabatutako prozesuak ikusi
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prozesu-taldeen arabera
@@ -126,7 +126,7 @@ eu:
           moderations: Moderazioak
           private_users: Kideak
           process_admins: Prozesuaren parte-hartzaileak
-          steps: Prozesuaren faseak
+          steps: Urratsak
       models:
         participatory_process:
           fields:
@@ -220,7 +220,7 @@ eu:
           title: Editatu prozesu parte-hartzailearen fasea
           update: Eguneratu
         index:
-          steps_title: Prozesuaren faseak
+          steps_title: Urratsak
         new:
           create: Sortu
           title: Prozesu parte-hartzailearen beste fase bat
@@ -391,8 +391,8 @@ eu:
         extra_data:
           developer_group: Honek sustatuta
           name: Metadatuak
-          participatory_scope: Erabakitzen dena
-          participatory_structure: Erabakitzeko era
+          participatory_scope: Zer erabakitzen den
+          participatory_structure: Nola erabakitzen den
           target: Nork hartzen du parte
         html:
           name: HTML blokea
@@ -408,7 +408,7 @@ eu:
           active: Partaidetza-prozesu aktiboak
           name: Partaidetza-prozesuak
         stats:
-          name: Jarduera
+          name: Estatistikak
         title:
           meta_scope: Eremua
           participatory_processes:

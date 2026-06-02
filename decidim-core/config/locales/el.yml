@@ -272,9 +272,6 @@ el:
       update_draft:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του πρόχειρου τροποποίησης.
         success: Το πρόχειρο τροποποίησης ενημερώθηκε επιτυχώς.
-      wizard_step_form:
-        steps:
-          '1': Δημιουργήστε την τροποποίησή σας
     anonymous_user: Ανώνυμη
     application:
       document:

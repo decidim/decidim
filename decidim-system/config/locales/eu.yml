@@ -116,7 +116,7 @@ eu:
             save_and_invite: Sortu antolatzailea eta gonbidatu administratzailea
           fields:
             content_security_policy: Edukien segurtasun-politika
-            created_at: Tan sortua
+            created_at: Noiz sortua
             file_upload_settings: Fitxategiak igotzearen doikuntzak
             name: Izena
             omniauth_settings: Omniauth doikuntzak

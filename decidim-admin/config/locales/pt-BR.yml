@@ -48,8 +48,8 @@ pt-BR:
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
         comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
-        cta_button_path: Caminho do botão Chamar para Ação
-        cta_button_text: Texto do botão Chamar para Ação
+        cta_button_path: Caminho do botão Chamada para Ação
+        cta_button_text: Texto do botão Chamada para Ação
         customize_welcome_notification: Personalizar notificação de boas-vindas
         default_locale: Idioma padrão
         description: Descrição
@@ -62,11 +62,11 @@ pt-BR:
         force_users_to_authenticate_before_access_organization: Forçar usuários a autenticar antes de acessar organização
         from: Endereço de e-mail do remetente
         github_handler: Manipulador GitHub
-        header_snippets: Snippets de cabeçalho
+        header_snippets: Trecho de cabeçalho
         highlight_alternative_color: Destaque, alternativa
         highlight_color: Destaque
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
-        highlighted_content_banner_action_title: Título do botão Ação
+        highlighted_content_banner_action_title: Título do botão ação
         highlighted_content_banner_action_url: URL do botão de ação
         highlighted_content_banner_enabled: Mostrar o banner de conteúdo destacado
         highlighted_content_banner_image: Imagem
@@ -97,7 +97,7 @@ pt-BR:
         tertiary_color: Terciário
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        twitter_handler: X handler
+        twitter_handler: Manipulador do X
         user_groups_enabled: Ativar grupos de usuários
         users_registration_mode: Modo de registro de usuários
         warning_color: Aviso
@@ -131,16 +131,16 @@ pt-BR:
         slug: Texto curto de URL
         title: Título
         topic_id: Tópico
-        weight: Posição do pedido
+        weight: Ordem de posição
       static_page_topic:
         description: Descrição
         name: Nome do tópico
         show_in_footer: Mostrar no rodapé
         title: Título
-        weight: Posição do pedido
+        weight: Ordem de posição
       taxonomy:
         item_name: Nome do item
-        parent_id: Parente
+        parent_id: Pai
       user_group_csv_verification:
         file: Arquivo
     errors:

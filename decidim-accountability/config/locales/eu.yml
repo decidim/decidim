@@ -5,7 +5,7 @@ eu:
       result:
         decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
-        decidim_scope_id: Eremua
+        decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
         progress: Aurrerapena
@@ -185,10 +185,10 @@ eu:
             success: Egoera zuzen eguneratua.
         timeline_entries:
           create:
-            invalid: Arazoen bat gertatu da sarrera hau sortzean.
-            success: Sarrera ondo sortu da.
+            invalid: Arazo bat egon da sarrera hau sortzean.
+            success: Sarrera zuzen sortua.
           destroy:
-            success: Sarrera ondo ezabatu da.
+            success: Sarrera behar bezala ezabatua.
           edit:
             title: Editatu sarrera
             update: Eguneratu sarrera
@@ -198,8 +198,8 @@ eu:
             create: Sortu sarrera
             title: Beste sarrera bat
           update:
-            invalid: Arazoren bat gertatu da sarrera hau eguneratzean.
-            success: Sarrera ondo sortu da.
+            invalid: Arazo bat egon da sarrera hau eguneratzean.
+            success: Sarrera zuzen eguneratua.
       admin_log:
         result:
           create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"

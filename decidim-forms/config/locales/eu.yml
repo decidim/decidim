@@ -33,7 +33,7 @@ eu:
           id: Erantzunaren identifikatzaile bakarra
           question: Erantzun zen galdera
           questionnaire: Erantzun zen galdetegia
-          user: Inkesta erantzun du parte-hartzailea
+          user: Inkesta erantzun duen parte-hartzailea
       show:
         answers: Esportatu erantzunak
         survey_user_answers: Inkesta parte-hartzaile erantzunak
@@ -140,7 +140,7 @@ eu:
             remove: Kendu
             separator: Bereizlea
           title_and_description:
-            collapse: Tolestu
+            collapse: Kolapsoa
             description: Deskribapena
             expand: Zabaldu
             remove: Kendu
