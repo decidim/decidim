@@ -1,4 +1,4 @@
-<div class="form__wrapper member-fields">
+<div class="form__wrapper" data-member-fields>
   <div class="card pt-4">
     <div id="panel-title" class="card-section">
       <% unless @form.persisted? %>
@@ -20,15 +20,15 @@
             <%= form.email_field :email, readonly: true %>
           </div>
         <% else %>
-          <div class="columns member-fields--new-participant">
+          <div class="columns" data-member-type="new-participant">
             <p><%= t(".invite_explanation") %></p>
             <%= form.text_field :name %>
           </div>
-          <div class="columns member-fields--new-participant">
+          <div class="columns" data-member-type="new-participant">
             <%= form.email_field :email %>
           </div>
 
-          <div class="columns member-fields--existing-participant">
+          <div class="columns" data-member-type="existing-participant">
             <% prompt_options = { placeholder: t(".select_user") } %>
             <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, class: "autocomplete-field--results-inline" }, prompt_options) do |user|
               { value: user.id, label: "#{user.name} (@#{user.nickname})" }

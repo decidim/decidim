@@ -9,8 +9,8 @@ document.addEventListener("turbo:load", () => {
 
   createFieldDependentInputs({
     controllerField: $memberType,
-    wrapperSelector: ".member-fields",
-    dependentFieldsSelector: ".member-fields--new-participant",
+    wrapperSelector: "[data-member-fields]",
+    dependentFieldsSelector: "[data-member-type='new-participant']",
     dependentInputSelector: "input",
     enablingCondition: () => {
       return $("#member_existing_user_false").is(":checked")
@@ -19,8 +19,8 @@ document.addEventListener("turbo:load", () => {
 
   createFieldDependentInputs({
     controllerField: $memberType,
-    wrapperSelector: ".member-fields",
-    dependentFieldsSelector: ".member-fields--existing-participant",
+    wrapperSelector: "[data-member-fields]",
+    dependentFieldsSelector: "[data-member-type='existing-participant']",
     dependentInputSelector: "input",
     enablingCondition: () => {
       return $("#member_existing_user_true").is(":checked")
