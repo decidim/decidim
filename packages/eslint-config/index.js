@@ -5,15 +5,23 @@ module.exports = {
     es6: true,
     es2021: true
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
   parserOptions: {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
       jsx: true
     },
-    sourceType: "module"
+    sourceType: "module",
+    ecmaVersion: "latest"
   },
-  plugins: ["react",
+  plugins: [
+    "react",
+    "import",
     "no-relative-import-paths"
   ],
   globals: {
