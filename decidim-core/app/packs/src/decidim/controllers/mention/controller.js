@@ -5,7 +5,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     this.options = {
-      noDataFoundMessage: this.element.getAttribute("data-noresults") || "No results found",
+      noDataFoundMessage: this.element.getAttribute("data-no_results") || "No results found",
       searchPromptMessage: this.element.getAttribute("data-search_prompt") || "Type to search participants",
       debounceDelay: 250,
       menuItemLimit: 5
