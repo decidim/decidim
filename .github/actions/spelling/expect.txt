@@ -597,7 +597,6 @@ nodoc
 nok
 nombre
 nominatim
-noresults
 normalcase
 notif
 notselected
