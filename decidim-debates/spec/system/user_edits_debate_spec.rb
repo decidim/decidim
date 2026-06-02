@@ -135,5 +135,29 @@ describe "User edits a debate" do
         end
       end
     end
+
+    context "when the debate has an attachment", :slow do
+      let(:attachments_allowed) { true }
+      let(:image_filename) { "city.jpeg" }
+      let(:document_filename) { "Exampledocument.pdf" }
+      let!(:image_attachment) { create(:attachment, :with_image, attached_to: debate) }
+
+      it "retains existing attachments after editing the title" do
+        visit_component
+
+        click_on debate.title.values.first
+        find("#dropdown-trigger-resource-#{debate.id}").click
+        click_on "Edit"
+
+        within ".edit_debate" do
+          fill_in :debate_title, with: "Should every organization use Decidim?"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_text("Debate successfully updated.")
+        expect(page).to have_text("Should every organization use Decidim?")
+        expect(page).to have_css("img[src*='#{image_filename}']")
+      end
+    end
   end
 end
