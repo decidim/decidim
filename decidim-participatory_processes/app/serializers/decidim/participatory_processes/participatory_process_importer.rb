@@ -130,7 +130,7 @@ module Decidim
           end
         end
 
-        unless attachments["attachment_collections"].blank?
+        if attachments["attachment_collections"].present?
           attachments["attachment_collections"]&.map do |collection|
             Decidim.traceability.perform_action!("create", AttachmentCollection, @user) do
               create_attachment_collection(collection)
