@@ -792,6 +792,25 @@ describe "Admin manages meetings" do
     end
   end
 
+  context "when the meeting has an attachment" do
+    let(:attachment_collection) { create(:attachment_collection, collection_for: meeting) }
+    let(:attachment) { create(:attachment, attachable: meeting, organization:, attachment_collection:) }
+
+    it "can edit an meeting while having an attachment within the collection" do
+      within "tr", text: translated(meeting.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      within ".edit_meeting" do
+        fill_in_i18n(:meeting_title, "#meeting-title-tabs", en: "Updated title", ca: "Títol actualitzat", es: "Título actualizado")
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_callout("Meeting successfully updated.")
+    end
+  end
+
   private
 
   def fill_in_services
