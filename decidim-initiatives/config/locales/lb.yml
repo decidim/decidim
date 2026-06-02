@@ -248,25 +248,11 @@ lb:
         update: Aktualiséieren
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee der Initiative %{resource_title} akzeptiert."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}'
-          email_subject: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee akzeptiert"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hat Ihre Anfrage fürs Promoter-Komittee der Initiative <a href="%{resource_url}">%{resource_title}</a> akzeptiert.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat eine neue Initiative erstellt, sehen Sie es sich an und reden Sie mit:"
-          email_outro: Du hues dës Noriicht kritt, well s'du dem %{author_nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-          email_subject: Neue Initiative von %{author_nickname}
-          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erstellt.
         revoke_membership_request:
-          email_intro: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee der Initiative %{resource_title} abgelehnt."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}.'
-          email_subject: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee abgelehnt"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hat Ihre Anfrage für das Promoter-Komittee der Initiative <a href="%{resource_url}">%{resource_title}</a> abgelehnt.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} hat sich fürs Promoter-Komittee Ihrer Initiative %{resource_title} beworben. Um die Anfrage zu akzeptieren oder abzulehnen, besuchen Sie das Bearbeitungsformular Ihrer Initiative."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind'
-          email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Zurück zur Initiative

@@ -288,9 +288,6 @@ zh-TW:
         success: 修正案草稿成功更新。
       withdraw:
         success: 修正案已成功撤回.
-      wizard_step_form:
-        steps:
-          '1': 創建您的修正案
     anonymous_user: 匿名
     application:
       document:
@@ -549,13 +546,9 @@ zh-TW:
           affected_user:
             email_intro: '已接受對於 %{amendable_title} 的修正案。您可以從此頁面中查看：'
             email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
-            email_subject: 已接受對於 %{amendable_title} 的修正案，來自於 %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">修正案</a>由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>創建，已被接受適用於<a href="%{amendable_path}">%{amendable_title}</a>。
           follower:
             email_intro: '已接受對於 %{amendable_title} 的修正案。您可以從此頁面中查看：'
             email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
-            email_subject: 已接受對於 %{amendable_title} 的修正案，來自於 %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">修正案</a>由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>創建，已被接受適用於<a href="%{amendable_path}">%{amendable_title}</a>。
         amendment_created:
           affected_user:
             email_intro: '已為 %{amendable_title} 創建一個新的修正案。您可以從此頁面查看：'
@@ -571,24 +564,16 @@ zh-TW:
           affected_user:
             email_intro: '一個被拒絕的修正案已被發佈為新的 %{amendable_type}，針對 %{amendable_title}。您可以從此頁面查看：'
             email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
-            email_subject: 來自 %{emendation_author_nickname} 的修正案已被發佈為新的 %{amendable_type}
-            notification_title: 一個<a href="%{emendation_path}">被拒絕的修正案</a>已由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>發佈為新的 %{amendable_type}，針對<a href="%{amendable_path}">%{amendable_title}</a>。
           follower:
             email_intro: '一個被拒絕的修正案已被發佈為新的 %{amendable_type}，針對 %{amendable_title}。您可以從此頁面查看：'
             email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
-            email_subject: 來自 %{emendation_author_nickname} 的修正案已被發佈為新的 %{amendable_type}
-            notification_title: 一個<a href="%{emendation_path}">被拒絕的修正案</a>已由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>發佈為新的 %{amendable_type}，針對<a href="%{amendable_path}">%{amendable_title}</a>。
         amendment_rejected:
           affected_user:
             email_intro: '一個修正案已被拒絕，針對 %{amendable_title}。您可以從此頁面查看：'
             email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
-            email_subject: 修正案由 %{emendation_author_nickname} 提交，針對 %{amendable_title}，已被拒絕。
-            notification_title: <a href="%{emendation_path}">%{emendation_author_nickname}</a>創建的<a href="%{emendation_path}">修正案</a>已被拒絕，針對<a href="%{amendable_path}">%{amendable_title}</a>。
           follower:
             email_intro: '一個修正案已被拒絕，針對 %{amendable_title}。您可以從此頁面查看：'
             email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
-            email_subject: 修正案由 %{emendation_author_nickname} 提交，針對 %{amendable_title}，已被拒絕。
-            notification_title: <a href="%{emendation_path}">%{emendation_author_nickname}</a>創建的<a href="%{emendation_path}">修正案</a>已被拒絕，針對<a href="%{amendable_path}">%{amendable_title}</a>。
       attachments:
         attachment_created:
           email_intro: '已新增一個文件至 %{resource_title}。您可以從此頁面查看：'
@@ -625,16 +610,9 @@ zh-TW:
           notification_title: |-
             一位管理員因為 %{report_reasons} 的舉報，移除了您的%{resource_type}。</br> <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: 你正在追蹤的 %{name}(%{nickname}) 的<a href="%{resource_path}">個人資料頁面</a>已被更新。
-          email_outro: 您收到此通知是因為您正在關注 %{nickname}。您可以點擊上方的連結停止接收通知。
-          email_subject: "%{nickname} 更新了他們的個人資料。"
-          notification_title: 你正在追蹤的 %{name}(%{nickname}) 的<a href="%{resource_path}">個人資料頁面</a>已被更新。
         user_officialized:
-          email_intro: 參與者 %{name} (%{nickname}) 已被官方認證。
           email_outro: 您收到此通知是因為您是該組織的管理員。
           email_subject: "%{name} 已被官方認證。"
-          notification_title: 參與者 %{name} (%{nickname}) 已被官方認證。
     export_mailer:
       download_your_data_export:
         download: 下載

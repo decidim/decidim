@@ -4,6 +4,6 @@
   <%= settings_fields.translated :text_field, :description, label: t("decidim.content_blocks.cta_settings_form.description") %>
 <% end %>
 
-<% form.fields_for :images, form.object.images do |images_fields| %>
+<% form.fields_for :images, content_block.images_container do |images_fields| %>
   <%= images_fields.upload :background_image, label: t("decidim.content_blocks.cta_settings_form.background_image") %>
 <% end %>

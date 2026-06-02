@@ -109,7 +109,7 @@ jobs:
           wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
           sudo dpkg -i /tmp/chrome.deb
           rm /tmp/chrome.deb
-      - uses: nanasess/setup-chromedriver@v2
+      - uses: nanasess/setup-chromedriver@v3
         with:
           chromedriver-version: ${{inputs.chrome_version}}
         name: Install Chrome version ${{inputs.chrome_version}}

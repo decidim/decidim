@@ -239,12 +239,6 @@ el:
           choose_html: Θέλω να δημιουργήσω μια πρωτοβουλία <strong>%{title}</strong>
           more_information: (Περισσότερες πληροφορίες)
           select: Θέλω να προωθήσω αυτήν την πρωτοβουλία
-      events:
-        create_initiative_event:
-          email_intro: "Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημιούργησε μια νέα πρωτοβουλία. Δείτε την και συνεισφέρετε:"
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Νέα πρωτοβουλία από τον συντάκτη %{author_nickname}
-          notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία δημιουργήθηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Επιστροφή στην πρωτοβουλία

@@ -28,8 +28,7 @@ describe "Pages component" do # rubocop:disable RSpec/DescribeClass
       Decidim::Assemblies::Admin::AssemblyDuplicateForm.from_params(
         title: { en: "Copied assembly" },
         slug: "copied-assembly",
-        duplicate_components: true,
-        duplicate_landing_page_blocks: false
+        duplicate_components: true
       ).with_context(form_context)
     end
     let(:participatory_space) { create(:assembly, organization:) }
@@ -60,8 +59,7 @@ describe "Pages component" do # rubocop:disable RSpec/DescribeClass
         title: { en: "Copied process" },
         slug: "copied-process",
         duplicate_steps: false,
-        duplicate_components: true,
-        duplicate_landing_page_blocks: false
+        duplicate_components: true
       ).with_context(form_context)
     end
     let(:participatory_space) { create(:participatory_process, organization:) }

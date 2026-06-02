@@ -148,22 +148,16 @@ tr:
             accept: Kabul Et
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name}, %{resource_title} katkı sağlayıcısı olarak erişim için kabul edildi."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> için <strong> katkıda bulunan </strong> olarak erişim için kabul edildi <a href = "%{resource_path}">%{resource_title} </a> ortak çalışma taslağı.
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name}, %{resource_title} ortak çalışma taslağına katkıda bulunan kişi olarak erişimi reddedildi."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> , <a href="%{resource_path}">%{resource_title}</a> işbirlikçi taslağın bir katkıcısı</strong> olarak erişmek için <strong>reddedilmiştir.
         collaborative_draft_access_requested:
           email_subject: "%{requester_name}, %{resource_title} kaynağına katkıda bulunmak için erişim istedi."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a>, <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına katkıda bulunmak için erişim istedi. Lütfen <strong> isteği kabul edin veya reddedin </strong>.
         collaborative_draft_access_requester_accepted:
           email_subject: '%{resource_title} katılımcısı olarak kabul edildiniz.'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına <strong> katkıda bulunan kişi olarak erişmeniz kabul edildi </strong>.
         collaborative_draft_access_requester_rejected:
           email_subject: '%{resource_title} katılımcısı olarak reddedildiniz.'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına <strong> katkıda bulunan olarak erişiminiz reddedildi </strong>.
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name} %{author_nickname}, %{resource_title} ortak çalışma taslağını geri çekti."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} </a> <a href="%{resource_path}">%{resource_title} </a> işbirlikçi taslak öğesini <strong> geri çekti </strong>.
         creation_enabled:
           email_intro: 'Artık %{participatory_space_title} içinde yeni teklifler oluşturabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
@@ -173,11 +167,6 @@ tr:
           email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
           email_subject: '"%{mentioned_proposal_title}" adlı teklifinizden bahsedildi'
           notification_title: <a href="%{resource_path}"> Bu alanda </a> yorumlarda "%{mentioned_proposal_title}" önerinizden bahsedildi.
-        proposal_published:
-          email_intro: 'Takip ettiğiniz %{author_name} %{author_nickname}, "%{resource_title}" adlı yeni bir teklif yayınladı. Kontrol edin ve katkıda bulunun:'
-          email_outro: Bu bildirimi %{author_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
-          email_subject: Yeni teklif "%{resource_title}" %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif <a href="%{author_path}">%{author_name} %{author_nickname}</a>tarafından yayınlandı.
         proposal_published_for_space:
           email_intro: '"%{resource_title}" teklifi takip ettiğiniz "%{participatory_space_title}" listesine eklendi.'
           email_outro: Bu bildirimi, "%{participatory_space_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.

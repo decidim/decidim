@@ -81,22 +81,16 @@ id:
             accept: Menerima
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} telah diterima untuk diakses sebagai kontributor dari %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> telah <strong>diterima untuk mengakses sebagai kontributor</strong> dari <a href="%{resource_path}">%{resource_title}</a> draf kolaboratif.
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name} telah ditolak untuk diakses sebagai kontributor dari %{resource_title} draf kolaboratif."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> telah ditolak <strong>sebagai kontributor</strong> dari <a href="%{resource_path}">%{resource_title}</a> draf kolaboratif.
         collaborative_draft_access_requested:
           email_subject: "%{requester_name} akses yang diminta untuk berkontribusi ke %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> meminta akses untuk berkontribusi</a> draf kolaboratif <a href="%{resource_path}">%{resource_title}</a> . Harap <strong>menerima atau menolak permintaan</strong>.
         collaborative_draft_access_requester_accepted:
           email_subject: Anda telah diterima sebagai kontributor %{resource_title}.
           notification_title: Anda telah <strong>diterima untuk mengakses sebagai kontributor</strong> dari draf kolaboratif <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
           email_subject: Anda telah ditolak sebagai kontributor %{resource_title}.
           notification_title: Anda telah ditolak <strong>untuk mengakses sebagai kontributor</strong> dari draf kolaboratif <a href="%{resource_path}">%{resource_title}</a>.
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name} %{author_nickname} menarik %{resource_title} draf kolaboratif."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>menarik</strong> dari <a href="%{resource_path}">%{resource_title}</a> draft kolaboratif.
         creation_enabled:
           email_intro: 'Anda sekarang dapat membuat proposal baru di %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
@@ -105,11 +99,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
           email_subject: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan
           notification_title: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan <a href="%{resource_path}">dalam ruang</a> di komentar.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, siapa yang Anda ikuti, telah menerbitkan proposal baru yang disebut "%{resource_title}". Lihat dan sumbangkan:'
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-          email_subject: Proposal baru "%{resource_title}" oleh %{author_nickname}
-          notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> diterbitkan oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Proposal "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.

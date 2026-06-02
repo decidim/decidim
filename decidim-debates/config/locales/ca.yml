@@ -205,9 +205,9 @@ ca:
             email_intro: |-
               Hola,
               %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat "%{resource_title}". Consulta i contribueix:
-            email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nou debat "%{resource_title}" de %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{author_name}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat "%{resource_title}" creat per %{author_name}
+            notification_title: <a href="%{author_path}">%{author_name}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara pots participar en debats oberts des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.

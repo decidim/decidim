@@ -33,7 +33,6 @@ import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
 import "src/decidim/results_listing"
 import "src/decidim/data_consent"
-import "src/decidim/sw"
 import "src/decidim/attachments"
 import "src/decidim/callout"
 
