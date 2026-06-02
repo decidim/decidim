@@ -91,7 +91,7 @@ module Decidim
           value: form_presenter.body(strip_tags: !current_organization.rich_text_editor_in_public_views).strip,
           data: {
             controller: "character-counter mention",
-            search_prompt: t("decidim.mentions.search_prompt")
+            search_prompt: t("decidim.shared.mentions.search_prompt")
           }
         }
 

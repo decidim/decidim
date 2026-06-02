@@ -897,7 +897,7 @@ module Decidim
 
     def mention_options(mentionable)
       mention_options = mentionable.is_a?(Hash) ? mentionable.dup : {}
-      mention_options[:searchPromptMessage] ||= I18n.t("decidim.mentions.search_prompt")
+      mention_options[:searchPromptMessage] ||= I18n.t("decidim.shared.mentions.search_prompt")
 
       mention_options
     end

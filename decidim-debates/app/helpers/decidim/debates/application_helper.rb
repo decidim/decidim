@@ -43,7 +43,7 @@ module Decidim
           mentionable: true,
           data: {
             controller: "mention",
-            search_prompt: t("decidim.mentions.search_prompt")
+            search_prompt: t("decidim.shared.mentions.search_prompt")
           }
         )
       end
