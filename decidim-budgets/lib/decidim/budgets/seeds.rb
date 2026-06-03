@@ -134,7 +134,7 @@ module Decidim
           ) do
             order = Decidim::Budgets::Order.create!(user:, budget: project.budget)
             add_projects_to_order!(order:, project:, candidate_projects:)
-            order.update_column(:checked_out_at, Time.current)
+            order.update!(checked_out_at: Time.current) if order.can_checkout?
             order
           end
         end
