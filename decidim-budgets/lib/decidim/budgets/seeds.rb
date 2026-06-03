@@ -121,7 +121,7 @@ module Decidim
         min_budgets_votes_count = config_value(:budgets_votes_count) / 5
         max_budgets_votes_count = config_value(:budgets_votes_count) * 2
 
-        rand(min_budgets_votes_count..max_budgets_votes_count).to_i.times do |n|
+        rand(min_budgets_votes_count..max_budgets_votes_count).times do |n|
           user = find_or_initialize_user_by(email: random_email(suffix: "budget-#{project.id}-vote-#{n}"))
 
           Decidim.traceability.perform_action!(
@@ -131,10 +131,27 @@ module Decidim
             visibility: "private-only"
           ) do
             order = Decidim::Budgets::Order.create!(user:, budget: project.budget)
-            order.projects << project
+            add_projects_to_order!(order:, project:)
             order.update_column(:checked_out_at, Time.current)
             order
           end
+        end
+      end
+
+      def add_projects_to_order!(order:, project:)
+        selected_projects = [project]
+        total_budget = project.budget_amount
+
+        project.budget.projects.where.not(id: project.id).to_a.shuffle.each do |candidate|
+          next if selected_projects.include?(candidate)
+          next if total_budget + candidate.budget_amount > project.budget.total_budget
+
+          selected_projects << candidate
+          total_budget += candidate.budget_amount
+        end
+
+        selected_projects.each do |selected_project|
+          order.projects << selected_project
         end
       end
     end
