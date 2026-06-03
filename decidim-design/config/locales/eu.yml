@@ -98,7 +98,7 @@ eu:
           illogical_heading_paragraph: Orrialde bakoitzak goiburuko ordena logiko bat izan behar du <h1>, <h2>, <h3>, <h4>, <h5> eta <h6> elementuak erabiltzean.
           important_sections_heading: Sail garrantzitsuen goiburuan doa
           important_sections_paragraph: Oso garrantzitsua da orrialdeko atal garrantzitsu bakoitzak sarrera bat izatea, errazago ulertzeko zer atal garrantzitsu dauden orrian bere sarreretan nabigatuz.
-          learn_more_about_html: Irakurri gehiago %{link} (e) ri buruz
+          learn_more_about_html: 'Irakurri gehiago honi buruz: %{link}'
           links_and_buttons: Estekak eta Botoiak
           links_and_buttons_paragraph: Ainguraketa-elementuak (hau da, estekak) orrialde desberdinei lotzeko edo orrialdearen barruan posizioak ainguratzeko erabiltzen dira. Elementuak orri horretan ezkutatutako elementuren bat ireki behar duela uste bada, <button> elementua erabili behar du haren ordez.
           unique_h1: H1 bakarra
