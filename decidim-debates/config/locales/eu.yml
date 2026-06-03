@@ -202,6 +202,13 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} parte hartzeko espazioa jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
             email_subject: '"%{resource_title}" eztabaida berria hemen %{participatory_space_title}'
             notification_title: '<a href="%{resource_path}">%{resource_title}</a> eztabaida sortu da hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+          user_followers:
+            email_intro: |-
+              Kaixo,
+              Jarraitzen ari zaren %{author_name} %{author_nickname} parte-hartzaileak "%{resource_title}" beste eztabaida bat sortu du. Sartu eztabaidan eta zure ekarpena egin:
+            email_outro: Jakinarazpen hau jaso duzu %{author_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+            email_subject: '%{author_name} parte-hartzaileak beste eztabaida bat sortu du hemen: "%{resource_title}"'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu du.
         creation_disabled:
           email_intro: 'Eztabaida sortzea dagoeneko ez dago aktibo %{participatory_space_title}. Oraindik irekita dauden eztabaidetan parte har dezakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
