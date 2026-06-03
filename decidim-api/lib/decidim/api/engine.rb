@@ -47,7 +47,7 @@ module Decidim
         end
 
         # Required for the development environment because otherwise the JWT
-        # authentication stategy would be lost during code reloads.
+        # authentication strategy would be lost during code reloads.
         app.reloader.after_class_unload do
           Decidim::User.include Decidim::Api::UserExtension
         end
