@@ -275,13 +275,17 @@ eu:
             email_intro: '%{author_name} parte-hartzaileak ohar pribatu bat jarri du hemen: %{resources ce_title}. Ikusi hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
             email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
             email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
+            notification_title: '%{author_name} parte-hartzaileak ohar pribatu bat jarri du hemen: %{resources ce_title}</a>. Egiaztatu hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
           proposal_note_mentioned:
+            email_intro: '"%{author_name}" "%{author_nickname}" parte-hartzaileak ohar pribatu batean aipatu zaitu hemen "%{resource_title}". Ikusi hemen <a href="%{admin_proposal_info_url}"> admin. panelean</a>.'
             email_outro: Jakinarazpen hau jaso duzu ohar pribatu batean aipatu zaituztelako.
             email_subject: Norbaitek aipatu zaitu ohar batean %{resource_title} proposamenean.
+            notification_title: '"%{author_name}" "%{author_nickname}" parte-hartzaileak ohar pribatu batean aipatu zaitu hemen "%{resource_title}". Ikusi hemen <a href="%{admin_proposal_info_url}"> admin. panelean</a>.'
           proposal_note_replied:
             email_intro: '%{author_name} parte-hartzaileak zure ohar pribatua erantzun du hemen: %{resource_title}. Ikusi hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
             email_outro: Jakinarazpen hau jaso duzu oharraren egilea zarelako.
             email_subject: "%{author_name} parte-hartzaileak zure ohar pribatua erantzun du hemen: %{resource_title}."
+            notification_title: '%{author_name} parte-hartzaileak ohar pribatu bat jarri du hemen: %{resources ce_title}</a>. Egiaztatu hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> parte-hartzaileak onartu egin du zure gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         coauthor_invited:
@@ -298,14 +302,17 @@ eu:
           email_intro: '%{requester_name} onartu da <a href="%{resource_url}">%{resource_title}</a> zirriborro koloboratiboan laguntzaile gisa sartzeko.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
           email_subject: "%{requester_name} onartu egin da %{resource_title}-an laguntzaile gisa sartezko."
+          notification_title: '%{requester_name} onartu da <a href="%{resource_url}">%{resource_title}</a> zirriborro koloboratiboan laguntzaile gisa sartzeko.'
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} baztertu egin da <a href="%{resource_url}">%{resource_title}</a>-an laguntzaile gisa sartzeko.'
           email_outro: Jakinarazpen hau jaso duzu<a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
           email_subject: "%{requester_name} ez da onartu du kolaboratzaile gisa sartzeko %{resource_title} ziriborro kolaboratiboan."
+          notification_title: '%{requester_name} onartu da <a href="%{resource_url}">%{resource_title}</a> zirriborro koloboratiboan laguntzaile gisa sartzeko.'
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} -k eskatu du laguntzaile gisa sartzeko. <strong>onartu edo baztertu egin dezakezu </strong> <a href="%{resource_url}">%{resource_title}</a> testu kolaboratibo ziriborroan.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
           email_subject: "%{requester_name}-k sarbidea eskatu du %{resource_title}-an aritzeko."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> parte-hartzaileak eskatu du <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan parte hartzeko. Mesedez, onartu edo baztertu eskaera.
         collaborative_draft_access_requester_accepted:
           email_intro: Onartu zaituzte <a href="%{resource_url}">%{resource_title}</a> testu kolaboratiboan laguntzailea izateko.
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ren kolaboratzailea izatea eskatu duzulako.
@@ -317,7 +324,9 @@ eu:
           email_subject: Baztertu egin zaituzte laguntzaile gisa hemen %{resource_title}.
           notification_title: '<strong>Baztertu egin zaituzte, kolaboratzaile gisa, hemen sartzeko: </strong> <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name}</a> egileak kendu du <a href="%{resource_path}">%{resource_title}</a> zirriborro kolaboratiboa.
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a> ko kolaboratzailea zarelako.
+          email_subject: "%{author_name} egileak %{resource_title} zirriborroa kendu du."
           notification_title: <a href="%{author_path}">%{author_name}</a> egileak kendu du <a href="%{resource_path}">%{resource_title}</a> zirriborro kolaboratiboa.
         creation_enabled:
           email_intro: 'Orain %{participatory_space_title} proposamen berriak sor ditzakezu! Hasi parte hartzen orri honetan:'
