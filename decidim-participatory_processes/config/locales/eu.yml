@@ -519,6 +519,7 @@ eu:
               label: Sarbidea
               options:
                 open: Edonork ikus dezake prozesua eta parte hartu.
+                restricted: Kideek eta administratzaileek soilik ikusi eta parte hartu ahal dute. Ez da agertuko bilaketa orokorrean, APIn, ezta datu-fitxategirik ere.
                 transparent: Edonork ikus dezake prozesua, baina soilik kideek eta administratzaileek har dezakete parte.
               set_this_space_as: Partaidetza-espazio hau ondorengo izenarekin ezarri
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
