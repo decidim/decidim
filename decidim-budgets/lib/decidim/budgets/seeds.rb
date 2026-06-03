@@ -25,6 +25,8 @@ module Decidim
 
             create_attachments!(attached_to: project)
 
+            create_project_votes!(project:)
+
             Decidim::Comments::Seed.comments_for(project)
           end
         end
@@ -112,6 +114,27 @@ module Decidim
           admin_user
         ) do
           Decidim::Budgets::Project.create!(params)
+        end
+      end
+
+      def create_project_votes!(project:)
+        min_budgets_votes_count = config_value(:budgets_votes_count) / 5
+        max_budgets_votes_count = config_value(:budgets_votes_count) * 2
+
+        rand(min_budgets_votes_count..max_budgets_votes_count).to_i.times do |n|
+          user = find_or_initialize_user_by(email: random_email(suffix: "budget-#{project.id}-vote-#{n}"))
+
+          Decidim.traceability.perform_action!(
+            "create",
+            Decidim::Budgets::Order,
+            user,
+            visibility: "private-only"
+          ) do
+            order = Decidim::Budgets::Order.create!(user:, budget: project.budget)
+            order.projects << project
+            order.update_column(:checked_out_at, Time.current)
+            order
+          end
         end
       end
     end

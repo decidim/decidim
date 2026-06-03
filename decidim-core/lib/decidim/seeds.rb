@@ -12,6 +12,7 @@ module Decidim
       comments_nested_probability: { slow: 0.5, fast: 0.2 },
       comments_vote_skip_probability: { slow: 0.5, fast: 0.7 },
       comments_votes_count: { slow: 12, fast: 3 },
+      budgets_votes_count: { slow: 200, fast: 10 },
       surveys_responses_count: { slow: 200, fast: 20 },
       surveys_response_options_count: { slow: 3, fast: 2 },
       surveys_matrix_rows_count: { slow: 3, fast: 2 },
@@ -171,6 +172,12 @@ module Decidim
       file_number = format("%03d", rand(1...100))
 
       create_blob!(seeds_file: "avatars/#{file_number}.jpg", filename: "#{file_number}.jpg", content_type: "image/jpeg")
+    end
+
+    def random_email(suffix:)
+      r = SecureRandom.hex(4)
+
+      "#{suffix}-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{r}@example.org"
     end
 
     def create_follow!(user, followable)
