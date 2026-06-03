@@ -37,15 +37,15 @@ module Decidim::Assemblies
     context "when there is a trashed space with the same slug" do
       let!(:trashed_space) { create(:assembly, :trashed, :public, slug: "duplicated-slug", organization:) }
       let(:form) do
-        Admin::AssemblyDuplicateForm.from_params({
-                                                   title: { en: "title" },
-                                                   slug: "duplicated-slug",
-                                                   duplicate_components: duplicate_components
-                                                 })
-                                    .with_context({
-                                                    current_user: user,
-                                                    current_organization: organization
-                                                  })
+        Admin::AssemblyCopyForm.from_params({
+                                              title: { en: "title" },
+                                              slug: "duplicated-slug",
+                                              copy_components: copy_components
+                                            })
+                               .with_context({
+                                               current_user: user,
+                                               current_organization: organization
+                                             })
       end
 
       it "broadcasts invalid" do

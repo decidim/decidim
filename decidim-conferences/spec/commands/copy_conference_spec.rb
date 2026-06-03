@@ -38,15 +38,15 @@ module Decidim::Conferences
       let!(:trashed_space) { create(:conference, :trashed, slug: "duplicated-slug", organization:) }
 
       let(:form) do
-        Admin::ConferenceDuplicateForm.from_params({
-                                                     title: { en: "title" },
-                                                     slug: "duplicated-slug",
-                                                     copy_components: copy_components
-                                                   })
-                                      .with_context({
-                                                      current_user:,
-                                                      current_organization: organization
-                                                    })
+        Admin::ConferenceCopyForm.from_params({
+                                                title: { en: "title" },
+                                                slug: "duplicated-slug",
+                                                copy_components: copy_components
+                                              })
+                                 .with_context({
+                                                 current_user:,
+                                                 current_organization: organization
+                                               })
       end
 
       it "broadcasts invalid" do

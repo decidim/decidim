@@ -42,16 +42,16 @@ module Decidim::ParticipatoryProcesses
       let!(:trashed_space) { create(:participatory_process, :trashed, slug: "duplicated-slug", organization:) }
 
       let(:form) do
-        Admin::ParticipatoryProcessDuplicateForm.from_params({
-                                                               title: { en: "title" },
-                                                               slug: "duplicated-slug",
-                                                               duplicate_steps?: duplicate_steps,
-                                                               duplicate_components?: duplicate_components
-                                                             })
-                                                .with_context({
-                                                                current_user:,
-                                                                current_organization: organization
-                                                              })
+        Admin::ParticipatoryProcessCopyForm.from_params({
+                                                          title: { en: "title" },
+                                                          slug: "duplicated-slug",
+                                                          copy_steps:,
+                                                          copy_components:
+                                                        })
+                                           .with_context({
+                                                           current_user:,
+                                                           current_organization: organization
+                                                         })
       end
 
       it "broadcasts invalid" do
