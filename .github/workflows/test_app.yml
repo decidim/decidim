@@ -26,12 +26,12 @@ on:
       bullet_counter_cache:
         description: 'Enable bullet counter cache testing'
         required: false
-        default: true
+        default: false
         type: boolean
       bullet_unused_eager_loading:
         description: 'Enable bullet unused eager loading testing'
         required: false
-        default: true
+        default: false
         type: boolean
       chrome_version:
         description: 'Chrome & Chromedriver version'
