@@ -51,8 +51,9 @@ module Decidim
      )[0...20]
     end
 
-    def find_or_initialize_user_by(email:)
+    def find_or_initialize_user_by(email:, with_random_avatar: true)
       user = Decidim::User.find_or_initialize_by(email:)
+      avatar = with_random_avatar ? random_avatar : nil
       user.update!(
         name: ::Faker::Name.name,
         nickname: generate_nickname,
@@ -62,7 +63,7 @@ module Decidim
         locale: I18n.default_locale,
         personal_url: ::Faker::Internet.url,
         about: ::Faker::Lorem.paragraph(sentence_count: 2),
-        avatar: random_avatar,
+        avatar:,
         accepted_tos_version: organization.tos_version + 1.hour,
         newsletter_notifications_at: Time.current,
         tos_agreement: true,

@@ -122,7 +122,7 @@ module Decidim
         max_budgets_votes_count = config_value(:budgets_votes_count) * 2
 
         rand(min_budgets_votes_count..max_budgets_votes_count).times do |n|
-          user = find_or_initialize_user_by(email: random_email(suffix: "budget-#{project.id}-vote-#{n}"))
+          user = find_or_initialize_user_by(email: random_email(suffix: "budget-#{project.id}-vote-#{n}"), with_random_avatar: false)
 
           Decidim.traceability.perform_action!(
             "create",
