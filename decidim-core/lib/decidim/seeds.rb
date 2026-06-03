@@ -44,11 +44,10 @@ module Decidim
     end
 
     def generate_nickname
-     (
-       Faker::Internet.username(specifier: nil, separators: ['_', "-"])[0...20] +
-       ['-', '-', ''].sample +
-       rand(100_000).to_s
-     )[0...20]
+      suffix = ["-", "_", ""].sample + rand(100_000).to_s
+      base = Faker::Internet.username(specifier: nil, separators: ["_", "-"])[0...(20 - suffix.length)]
+
+      I18n.transliterate("#{base}#{suffix}").downcase.gsub(/[^a-z0-9_-]/, "_")
     end
 
     def find_or_initialize_user_by(email:, with_random_avatar: true)
