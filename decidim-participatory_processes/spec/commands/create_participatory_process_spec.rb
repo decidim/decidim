@@ -38,6 +38,7 @@ module Decidim::ParticipatoryProcesses
         private_space: false,
         taxonomizations:,
         errors:,
+        weight:,
         related_process_ids:,
         participatory_process_group:,
         announcement: { en: "message" }
