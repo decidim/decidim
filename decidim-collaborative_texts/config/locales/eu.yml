@@ -13,7 +13,7 @@ eu:
           original: Jatorrizko testua
           replace: Ordezkapena
         version:
-          body: Gorputza
+          body: Testua
           draft: Zirriborroa
           version_number: Bertsio zenbakia
   activerecord:
