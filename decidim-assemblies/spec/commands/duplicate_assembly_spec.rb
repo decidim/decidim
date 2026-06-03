@@ -35,12 +35,12 @@ module Decidim::Assemblies
     end
 
     context "when there is a trashed space with the same slug" do
-      let!(:trashed_space) { create(:assembly, :trashed, :open, slug: "duplicated-slug", organization:) }
+      let!(:trashed_space) { create(:assembly, :trashed, :public, slug: "duplicated-slug", organization:) }
       let(:form) do
         Admin::AssemblyDuplicateForm.from_params({
                                                    title: { en: "title" },
                                                    slug: "duplicated-slug",
-                                                   duplicate_components?: duplicate_components
+                                                   duplicate_components: duplicate_components
                                                  })
                                     .with_context({
                                                     current_user: user,
