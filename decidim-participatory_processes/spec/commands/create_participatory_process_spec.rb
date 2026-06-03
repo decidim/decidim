@@ -65,7 +65,7 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when there is a trashed space with the same slug" do
-      let!(:trashed_space) { create(:participatory_process, :trashed, :open, slug: "slug", organization:) }
+      let!(:trashed_space) { create(:participatory_process, :trashed, slug: "slug", organization:) }
 
       let(:form) do
         Admin::ParticipatoryProcessForm.from_params(attributes)

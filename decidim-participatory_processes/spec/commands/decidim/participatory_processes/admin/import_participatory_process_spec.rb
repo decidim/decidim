@@ -19,9 +19,9 @@ module Decidim::ParticipatoryProcesses
       {
         title: { en: "title" },
         slug: "imported-slug",
-        import_steps?: import_steps,
-        import_attachments?: import_attachments,
-        import_components?: import_components,
+        import_steps: import_steps,
+        import_attachments: import_attachments,
+        import_components: import_components,
         document: form_doc,
         document_text: document_file,
         document_type:
@@ -34,6 +34,9 @@ module Decidim::ParticipatoryProcesses
       instance_double(
         Admin::ParticipatoryProcessImportForm,
         **attributes,
+        import_steps?: import_steps,
+        import_attachments?: import_attachments,
+        import_components?: import_components,
         current_user:,
         current_organization: organization,
         invalid?: invalid

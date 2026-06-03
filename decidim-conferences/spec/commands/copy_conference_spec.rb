@@ -41,7 +41,7 @@ module Decidim::Conferences
         Admin::ConferenceDuplicateForm.from_params({
                                                      title: { en: "title" },
                                                      slug: "duplicated-slug",
-                                                     duplicate_components?: duplicate_components
+                                                     duplicate_components: duplicate_components
                                                    })
                                       .with_context({
                                                       current_user:,
