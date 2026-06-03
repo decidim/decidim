@@ -112,7 +112,7 @@ module Decidim::Assemblies::Admin
     end
 
     context "when there is a trashed space with the same slug" do
-      let!(:trashed_space) { create(:assembly, :trashed, :open, slug: "imported-slug", organization:) }
+      let!(:trashed_space) { create(:assembly, :trashed, slug: "imported-slug", organization:) }
       let(:form_doc) do
         ActiveStorage::Blob.create_and_upload!(
           io: File.open(Decidim::Dev.asset(document_name)),
