@@ -118,6 +118,8 @@ module Decidim
       end
 
       def create_project_votes!(project:)
+        candidate_projects = project.budget.projects.where.not(id: project.id).to_a
+
         min_budgets_votes_count = config_value(:budgets_votes_count) / 5
         max_budgets_votes_count = config_value(:budgets_votes_count) * 2
 
@@ -131,18 +133,18 @@ module Decidim
             visibility: "private-only"
           ) do
             order = Decidim::Budgets::Order.create!(user:, budget: project.budget)
-            add_projects_to_order!(order:, project:)
+            add_projects_to_order!(order:, project:, candidate_projects:)
             order.update_column(:checked_out_at, Time.current)
             order
           end
         end
       end
 
-      def add_projects_to_order!(order:, project:)
+      def add_projects_to_order!(order:, project:, candidate_projects:)
         selected_projects = [project]
         total_budget = project.budget_amount
 
-        project.budget.projects.where.not(id: project.id).to_a.shuffle.each do |candidate|
+        candidate_projects.shuffle.each do |candidate|
           next if selected_projects.include?(candidate)
           next if total_budget + candidate.budget_amount > project.budget.total_budget
 
