@@ -34,6 +34,26 @@ module Decidim::Assemblies
       end
     end
 
+    context "when there is a trashed space with the same slug" do
+      let!(:trashed_space) { create(:assembly, :trashed, :open, slug: "duplicated-slug", organization:) }
+      let(:form) do
+        Admin::AssemblyDuplicateForm.from_params({
+                                                   title: { en: "title" },
+                                                   slug: "duplicated-slug",
+                                                   duplicate_components?: duplicate_components
+                                                 })
+                                    .with_context({
+                                                    current_user: user,
+                                                    current_organization: organization
+                                                  })
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
+      end
+    end
+
     context "when everything is ok" do
       it "duplicates an assembly" do
         expect { subject.call }.to change(Decidim::Assembly, :count).by(1)
