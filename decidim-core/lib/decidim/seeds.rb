@@ -43,11 +43,19 @@ module Decidim
       @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
     end
 
+    def generate_nickname
+     (
+       Faker::Internet.username(specifier: nil, separators: ['_', "-"])[0...20] +
+       ['-', '-', ''].sample +
+       rand(100_000).to_s
+     )[0...20]
+    end
+
     def find_or_initialize_user_by(email:)
       user = Decidim::User.find_or_initialize_by(email:)
       user.update!(
         name: ::Faker::Name.name,
-        nickname: "#{::Faker::X.unique.screen_name}-#{rand(10_000)}"[0...20],
+        nickname: generate_nickname,
         password: "decidim123456789",
         organization:,
         confirmed_at: Time.current,
