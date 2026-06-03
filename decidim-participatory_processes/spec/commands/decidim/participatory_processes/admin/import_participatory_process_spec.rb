@@ -117,7 +117,7 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when there is a trashed space with the same slug" do
-      let!(:trashed_space) { create(:participatory_process, :trashed, :open, slug: "imported-slug", organization:) }
+      let!(:trashed_space) { create(:participatory_process, :trashed, slug: "imported-slug", organization:) }
       let(:form_doc) do
         ActiveStorage::Blob.create_and_upload!(
           io: File.open(Decidim::Dev.asset(document_name)),
