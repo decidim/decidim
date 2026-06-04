@@ -2,6 +2,6 @@
   <%= settings_fields.translated :text_field, :welcome_text, label: t(".welcome_text") %>
 <% end %>
 
-<% form.fields_for :images, form.object.images do |images_fields| %>
+<% form.fields_for :images, content_block.images_container do |images_fields| %>
   <%= images_fields.upload :background_image, label: t(".background_image") %>
 <% end %>

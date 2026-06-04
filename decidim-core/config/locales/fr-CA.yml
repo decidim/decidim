@@ -1444,6 +1444,7 @@ fr-CA:
           components: Fonctionnalités
           spaces: Espaces
         metrics:
+          cumulative: Le nombre total de métriques pour ce jour
           day: Le jour de la création de cette métrique
           metric_type: Le type de métrique
           quantity: Le nombre de métriques pour ce jour
