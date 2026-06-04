@@ -28,7 +28,7 @@ fi:
     components:
       surveys:
         actions:
-          respond: Vastaa
+          respond: Vastaaminen
         name: Kyselyt
         settings:
           announcement: Ilmoitus
