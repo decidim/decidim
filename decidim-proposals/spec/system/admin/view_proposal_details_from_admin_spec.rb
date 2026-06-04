@@ -120,6 +120,7 @@ describe "Admin views proposal details from admin" do
       let!(:proposal) { create(:proposal, body: content, component: current_component) }
 
       before do
+        current_component.organization.update(rich_text_editor_in_public_views: false)
         go_to_admin_proposal_page(proposal)
       end
 
