@@ -51,6 +51,14 @@ describe "Conversations" do
 
     it_behaves_like "accessible page"
 
+    it "displays an error pop-up" do
+      recipient.destroy
+      start_conversation("Is this a Ryanair style democracy?")
+
+      expect(page).to have_css(".conversation-error-modal")
+      expect(page).to have_content("Conversation not started. Try again later.")
+    end
+
     it "shows an empty conversation page" do
       expect(page).to have_no_selector(".card--list__item")
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
