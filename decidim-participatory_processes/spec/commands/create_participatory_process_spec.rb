@@ -17,13 +17,10 @@ module Decidim::ParticipatoryProcesses
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
 
-    let(:form) do
-      instance_double(
-        Admin::ParticipatoryProcessForm,
-        invalid?: invalid,
+    let(:attributes) do
+      {
         title: { en: "title" },
         subtitle: { en: "subtitle" },
-        weight:,
         slug: "slug",
         hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
@@ -38,15 +35,24 @@ module Decidim::ParticipatoryProcesses
         end_date: nil,
         description: { en: "description" },
         short_description: { en: "short_description" },
-        current_user:,
-        current_organization: organization,
-        organization:,
         private_space: false,
         taxonomizations:,
         errors:,
+        weight:,
         related_process_ids:,
         participatory_process_group:,
         announcement: { en: "message" }
+      }
+    end
+
+    let(:form) do
+      instance_double(
+        Admin::ParticipatoryProcessForm,
+        **attributes,
+        invalid?: invalid,
+        current_user:,
+        current_organization: organization,
+        organization:
       )
     end
     let(:invalid) { false }
@@ -56,6 +62,23 @@ module Decidim::ParticipatoryProcesses
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "when there is a trashed space with the same slug" do
+      let!(:trashed_space) { create(:participatory_process, :trashed, slug: "slug", organization:) }
+
+      let(:form) do
+        Admin::ParticipatoryProcessForm.from_params(attributes)
+                                       .with_context({
+                                                       current_user:,
+                                                       current_organization: organization
+                                                     })
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 
