@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
     this.options = {
       noDataFoundMessage: this.element.getAttribute("data-no_results") || "No results found",
-      searchPromptMessage: this.element.getAttribute("data-search_prompt") || "Type to search participants",
+      searchPromptMessage: this.element.getAttribute("data-search-prompt") || "Type to search participants",
       debounceDelay: 250,
       menuItemLimit: 5
     };
