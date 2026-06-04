@@ -80,7 +80,7 @@ module Decidim::Budgets
 
         it "renders budgets list" do
           expect(subject).to have_css("#budgets")
-          expect(subject).to have_content("2 budgets")
+          expect(subject).to have_text("2 budgets")
         end
       end
 
@@ -91,7 +91,7 @@ module Decidim::Budgets
 
         it "does not render budgets list" do
           expect(subject).to have_no_css("#budgets")
-          expect(subject).to have_no_content("0 budgets")
+          expect(subject).to have_no_text("0 budgets")
         end
       end
 
@@ -103,7 +103,7 @@ module Decidim::Budgets
 
         it "does not render budgets list" do
           expect(subject).to have_no_css("#budgets")
-          expect(subject).to have_no_content("0 budgets")
+          expect(subject).to have_no_text("0 budgets")
         end
       end
     end

@@ -71,7 +71,7 @@ describe "Import proposals to projects" do
 
       click_on "Import proposals to projects"
 
-      expect(page).to have_content("2 proposals successfully imported")
+      expect(page).to have_text("2 proposals successfully imported")
       expect(Decidim::Budgets::Project.where(budget:).count).to eq(2)
     end
   end
@@ -111,7 +111,7 @@ describe "Import proposals to projects" do
 
         click_on "Import proposals to projects"
 
-        expect(page).to have_content("2 proposals successfully imported")
+        expect(page).to have_text("2 proposals successfully imported")
         expect(Decidim::Budgets::Project.where(budget:).count).to eq(2)
       end
     end
@@ -127,7 +127,7 @@ describe "Import proposals to projects" do
 
         click_on "Import proposals to projects"
 
-        expect(page).to have_content("3 proposals successfully imported")
+        expect(page).to have_text("3 proposals successfully imported")
         expect(Decidim::Budgets::Project.where(budget:).count).to eq(3)
       end
     end

@@ -7,10 +7,10 @@ describe "Organizations" do
 
   shared_examples "form hiding advanced settings" do
     it "hides advanced settings" do
-      expect(page).to have_content "Show advanced settings"
-      expect(page).to have_no_content "SMTP settings"
-      expect(page).to have_no_content "Omniauth settings"
-      expect(page).to have_no_content "File upload settings"
+      expect(page).to have_text "Show advanced settings"
+      expect(page).to have_no_text "SMTP settings"
+      expect(page).to have_no_text "Omniauth settings"
+      expect(page).to have_no_text "File upload settings"
     end
   end
 
@@ -43,7 +43,7 @@ describe "Organizations" do
       it "shows the available locales" do
         Decidim.available_locales.each do |locale|
           expect(page).to have_xpath("//input[@id='organization_available_locales_#{locale}']")
-          expect(page).to have_content("#{I18n.with_locale(locale) { I18n.t("name", scope: "locale") }} (#{locale})")
+          expect(page).to have_text("#{I18n.with_locale(locale) { I18n.t("name", scope: "locale") }} (#{locale})")
         end
       end
 
@@ -62,12 +62,12 @@ describe "Organizations" do
         click_on "Create organization & invite admin"
 
         within ".flash.success" do
-          expect(page).to have_content("Organization successfully created.")
-          expect(page).to have_content("config/environment/production.rb")
-          expect(page).to have_content("config.hosts << \"www.example.org\"")
-          expect(page).to have_content("mayor@example.org")
+          expect(page).to have_text("Organization successfully created.")
+          expect(page).to have_text("config/environment/production.rb")
+          expect(page).to have_text("config.hosts << \"www.example.org\"")
+          expect(page).to have_text("mayor@example.org")
         end
-        expect(page).to have_content("Citizen Corp")
+        expect(page).to have_text("Citizen Corp")
       end
 
       context "with invalid data" do
@@ -75,7 +75,7 @@ describe "Organizations" do
           fill_in "Name", with: "Bad"
           click_on "Create organization & invite admin"
 
-          expect(page).to have_content("There is an error in this field")
+          expect(page).to have_text("There is an error in this field")
         end
       end
 
@@ -92,7 +92,7 @@ describe "Organizations" do
           click_on "Create organization & invite admin"
 
           click_on "Show advanced settings"
-          expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
+          expect(page).to have_text("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
         end
       end
 
@@ -111,7 +111,7 @@ describe "Organizations" do
           click_on "Create organization & invite admin"
 
           within ".flash__message", match: :first do
-            expect(page).to have_content("There was a problem creating a new organization. Review your organization admin name.")
+            expect(page).to have_text("There was a problem creating a new organization. Review your organization admin name.")
           end
         end
       end
@@ -130,7 +130,7 @@ describe "Organizations" do
         it "does not show the button" do
           visit decidim_system.root_path
           expect(organization_admin).not_to be_invitation_pending
-          expect(page).to have_no_content("Resend invitation")
+          expect(page).to have_no_text("Resend invitation")
         end
       end
 
@@ -140,13 +140,13 @@ describe "Organizations" do
         it "resends the invitation" do
           visit decidim_system.root_path
           expect(organization_admin).to be_invitation_pending
-          expect(page).to have_content("Resend invitation")
+          expect(page).to have_text("Resend invitation")
           click_on "Resend invitation"
           within "#confirm-modal-content" do
             click_on "OK"
           end
           within_flash_messages do
-            expect(page).to have_content "Invitation successfully sent"
+            expect(page).to have_text "Invitation successfully sent"
           end
           expect(organization_admin.reload.invitation_token).not_to eq("foo")
           expect(organization_admin.invitation_sent_at).to be_within(2.seconds).of Time.zone.now
@@ -179,7 +179,7 @@ describe "Organizations" do
         click_on "Save"
 
         expect(page).to have_css("div.flash.success")
-        expect(page).to have_content("Citizens Rule!")
+        expect(page).to have_text("Citizens Rule!")
       end
 
       it "edits the data" do
@@ -197,7 +197,7 @@ describe "Organizations" do
         click_on "Save"
 
         expect(page).to have_css("div.flash.success")
-        expect(page).to have_content("Citizens Rule!")
+        expect(page).to have_text("Citizens Rule!")
       end
 
       context "without the secret key defined" do
@@ -211,7 +211,7 @@ describe "Organizations" do
           click_on "Save"
 
           click_on "Show advanced settings"
-          expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
+          expect(page).to have_text("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
         end
       end
 
@@ -366,7 +366,7 @@ describe "Organizations" do
       end
 
       it "displays all the available OmniAuth providers" do
-        expect(page).to have_content("Developer")
+        expect(page).to have_text("Developer")
       end
     end
   end

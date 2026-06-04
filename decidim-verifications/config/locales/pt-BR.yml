@@ -48,7 +48,6 @@ pt-BR:
             confirm: Revogar antes da data as autorizações não podem ser desfeitas. Tem certeza que deseja continuar?
             confirm_all: Revogar todas as autorizações não podem ser desfeito. Tem certeza que deseja continuar?
           destroy_nok: Ocorreu um problema ao revogar as autorizações.
-          destroy_ok: Todas as autorizações correspondentes foram revogadas com sucesso.
           info: Há um total de %{count} participantes verificados.
           no_data: Nenhum participante verificado.
           title: Revogação de Autorizações

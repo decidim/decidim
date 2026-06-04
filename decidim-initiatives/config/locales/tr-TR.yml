@@ -278,12 +278,6 @@ tr:
         reject: Girişimi reddet
         title: Girişimi düzenle
         update: Güncelle
-      events:
-        create_initiative_event:
-          email_intro: "Takip ettiğiniz %{author_name} %{author_nickname} yeni bir girişim oluşturdu, inceleyin ve katkıda bulunun:"
-          email_outro: Bu bildirimi, %{author_nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{author_nickname} tarafından yeni girişim'
-          notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından oluşturuldu.
       initiative_signatures:
         finish:
           back_to_initiative: Girişime geri dön

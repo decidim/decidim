@@ -358,10 +358,10 @@ export default class CommentsComponent {
   }
 
   /**
-  * Adds the behaviour for the drop down order section within comments.
-  * @private
-  * @returns {Void} - Returns nothing
-  */
+   * Adds the behaviour for the drop down order section within comments.
+   * @private
+   * @returns {Void} - Returns nothing
+   */
   _initializeSortDropdown() {
     const desktopOrderSelect = document.querySelector("[data-desktop-order-comment-select]");
     const mobileOrderSelect = document.querySelector("[data-mobile-order-comment-select]");

@@ -15,7 +15,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       end
 
       it "does not show the template selection screen" do
-        expect(page).to have_no_content("Select template")
+        expect(page).to have_no_text("Select template")
       end
     end
 
@@ -33,7 +33,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         end
 
         it "does not show the template selection screen" do
-          expect(page).to have_no_content("Select template")
+          expect(page).to have_no_text("Select template")
         end
       end
 
@@ -50,7 +50,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         end
 
         it "shows the template choosing screen" do
-          expect(page).to have_content("Select template")
+          expect(page).to have_text("Select template")
         end
 
         it "loads the templates in the select" do
@@ -95,7 +95,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       select(template.name["en"], from: "select-template")
 
       within ".questionnaire-template-preview" do
-        expect(page).to have_content(template.templatable.title["en"])
+        expect(page).to have_text(template.templatable.title["en"])
       end
 
       click_on "Continue"

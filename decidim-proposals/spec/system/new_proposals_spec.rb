@@ -36,9 +36,9 @@ describe "Proposals" do
           click_on "Log in"
         end
 
-        expect(page).to have_content "Create your proposal"
-        expect(page).to have_content "Title"
-        expect(page).to have_content "Body"
+        expect(page).to have_text "Create your proposal"
+        expect(page).to have_text "Title"
+        expect(page).to have_text "Body"
       end
     end
 
@@ -65,10 +65,10 @@ describe "Proposals" do
 
           expect(page).to have_css("div.sr-announce")
           within "div.sr-announce" do
-            expect(page).to have_content("There are errors on the form, please correct them to continue.")
+            expect(page).to have_text("There are errors on the form, please correct them to continue.")
           end
 
-          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_text("There is an error in this field.")
           expect(page).to have_no_css("*[type=submit][data-disable='true']")
           expect(find("button[type='submit']")).not_to be_disabled
         end
@@ -96,7 +96,7 @@ describe "Proposals" do
       it "has helper character counter" do
         within "form.new_proposal" do
           within ".editor .input-character-counter__text" do
-            expect(page).to have_content("At least 15 characters", count: 1)
+            expect(page).to have_text("At least 15 characters", count: 1)
           end
         end
       end
@@ -123,7 +123,7 @@ describe "Proposals" do
           expect(find_by_id("proposal_body").value).not_to include("</p>")
           expect(find_by_id("proposal_body").value).not_to include("<strong>")
           expect(find_by_id("proposal_body").value).not_to include("</strong>")
-          expect(find_by_id("proposal_body").value).to have_content("This test has many characters")
+          expect(find_by_id("proposal_body").value).to have_text("This test has many characters")
         end
       end
     end

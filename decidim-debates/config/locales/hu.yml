@@ -132,14 +132,6 @@ hu:
             title: Cím
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              Szia,
-              %{author_name} %{author_nickname}, akit kötvetsz, új vitát hozott létre "%{resource_title}" címmel. Nézzed meg és vegyél részt benne:
-            email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-            email_subject: Új vitát hozott létre "%{resource_title}" címmel %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> létrehozta a <a href="%{resource_path}">%{resource_title}</a> vitát.
         creation_disabled:
           email_intro: 'Vita létrehozása már nem lehetséges itt: %{participatory_space_title}. A nyitott vitákban azonban továbbra is részt vehetsz itt:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'

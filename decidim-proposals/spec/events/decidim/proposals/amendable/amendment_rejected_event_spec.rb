@@ -13,7 +13,7 @@ module Decidim
 
       let(:event_name) { "decidim.events.amendments.amendment_rejected" }
       let(:amendment_type) { "rejected" }
-      let(:email_subject) { "Amendment rejected for #{amendable_title} from #{emendation_author_nickname}" }
+      let(:email_subject) { "Amendment rejected for #{amendable_title} from #{emendation_author_name}" }
 
       include_examples "amendment event"
     end

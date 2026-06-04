@@ -16,11 +16,6 @@ global.Rails = {
   fire: jest.fn()
 };
 
-global.window.location = {
-  protocol: "https:",
-  hostname: "decidim.dev"
-};
-
 describe("FormFilterController - Initiative Filters", () => {
   let application = null;
   let controller = null;
@@ -347,6 +342,8 @@ describe("FormFilterController - Initiative Filters", () => {
     `;
 
     global.window = global.window || {};
+    window.location.href = "https://decidim.dev/";
+
     global.window.Decidim = {
       PopStateHandler: true
     };

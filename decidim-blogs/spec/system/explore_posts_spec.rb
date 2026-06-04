@@ -14,7 +14,7 @@ describe "Explore posts" do
 
       it "shows an empty page with a message" do
         within "main" do
-          expect(page).to have_content "There are no posts yet"
+          expect(page).to have_text "There are no posts yet"
         end
       end
     end
@@ -39,13 +39,13 @@ describe "Explore posts" do
 
       it "shows the correct information in breadcrumb" do
         within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
+          expect(page).to have_text(translated(component.name))
         end
       end
 
       it "shows the component name in the sidebar" do
         within("aside") do
-          expect(page).to have_content(translated(component.name))
+          expect(page).to have_text(translated(component.name))
         end
       end
 
@@ -90,7 +90,7 @@ describe "Explore posts" do
       context "when author is an organization" do
         it "shows 'Official' as the author" do
           within ".author__name" do
-            expect(page).to have_content("Official")
+            expect(page).to have_text("Official")
           end
         end
       end
@@ -100,7 +100,7 @@ describe "Explore posts" do
 
         it "shows user as the author" do
           within ".author__name" do
-            expect(page).to have_content(user.name)
+            expect(page).to have_text(user.name)
           end
         end
 
@@ -108,7 +108,7 @@ describe "Explore posts" do
           let(:author) { create(:user, :deleted, organization: component.organization) }
 
           it "successfully shows the page" do
-            expect(page).to have_content("Deleted participant")
+            expect(page).to have_text("Deleted participant")
           end
         end
       end
@@ -116,8 +116,8 @@ describe "Explore posts" do
       it "show post info" do
         expect(page).to have_i18n_content(post.title)
         expect(page).to have_i18n_content(post.body)
-        expect(page).to have_content(translated(post.author.name))
-        expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M"))
+        expect(page).to have_text(translated(post.author.name))
+        expect(page).to have_text(post.created_at.strftime("%d/%m/%Y %H:%M"))
       end
 
       it_behaves_like "has embedded video in description", :body

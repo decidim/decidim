@@ -28,11 +28,11 @@ describe "Meeting live event" do
   end
 
   it "shows the name of the meeting" do
-    expect(page).to have_content(meeting.title[I18n.locale.to_s])
+    expect(page).to have_text(meeting.title[I18n.locale.to_s])
   end
 
   it "shows a close button" do
-    expect(page).to have_content("close")
+    expect(page).to have_text("close")
 
     click_on "close"
     expect(page).to have_current_path meeting_path
@@ -47,7 +47,7 @@ describe "Meeting live event" do
     it "tells that you need to enable cookies" do
       visit meeting_live_event_path
       expect(page).to have_no_selector("iframe")
-      expect(page).to have_content("You need to enable all cookies in order to see this content")
+      expect(page).to have_text("You need to enable all cookies in order to see this content")
     end
 
     it "can enable all cookies" do
@@ -76,8 +76,8 @@ describe "Meeting live event" do
       it "does not timeout user" do
         travel 5.minutes
         expect(page).to have_css("[aria-label='User account: #{user.name}']")
-        expect(page).to have_no_content("If you continue being inactive", wait: 4)
-        expect(page).to have_no_content("You were inactive for too long")
+        expect(page).to have_no_text("If you continue being inactive", wait: 4)
+        expect(page).to have_no_text("You were inactive for too long")
       end
 
       context "and ends soon" do
@@ -85,9 +85,9 @@ describe "Meeting live event" do
 
         it "logs user out" do
           travel 1.minute
-          expect(page).to have_content("If you continue being inactive", wait: 30)
+          expect(page).to have_text("If you continue being inactive", wait: 30)
           allow(Time).to receive(:current).and_return(1.minute.from_now)
-          expect(page).to have_content("You are not allowed to view this meeting")
+          expect(page).to have_text("You are not allowed to view this meeting")
         end
       end
     end

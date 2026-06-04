@@ -39,7 +39,6 @@ zh-TW:
           destroy:
             confirm: 撤銷在指定日期之前的授權無法撤消。您確定要繼續嗎？
             confirm_all: 撤銷所有授權後無法還原，確定要繼續嗎？
-          destroy_ok: 所有匹配的授權已成功撤銷。
           info: 總共有 %{count} 名已驗證的參與者。
           no_data: 沒有經過驗證的參與者.
           title: 授權撤銷

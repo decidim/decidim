@@ -60,6 +60,13 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 ** API reference by module
 *** Spaces
 *** Components
+**** xref:develop:api/reference/components/accountability.adoc[Accountability]
+***** xref:develop:api/reference/components/accountability/create.adoc[Create Result]
+***** xref:develop:api/reference/components/accountability/delete.adoc[Delete Result]
+***** xref:develop:api/reference/components/accountability/update.adoc[Update Result]
+***** xref:develop:api/reference/components/accountability/milestone/create.adoc[Create Milestone]
+***** xref:develop:api/reference/components/accountability/milestone/update.adoc[Update Milestone]
+***** xref:develop:api/reference/components/accountability/milestone/delete.adoc[Delete Milestone]
 **** xref:develop:api/reference/components/budgets.adoc[Budgets]
 ***** xref:develop:api/reference/components/budgets/create.adoc[Create Budget]
 ***** xref:develop:api/reference/components/budgets/delete.adoc[Delete Budget]

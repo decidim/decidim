@@ -98,8 +98,9 @@ export default OrderedList.extend({
    * For further details, see:
    * https://github.com/tailwindlabs/tailwindcss-typography/issues/296
    *
-   * @param {Object} attributes The attributes object containing the
+   * @param {Object} attrs - The attributes object containing the
    *   `HTMLAttributes` key for the attributes to be rendered
+   * @param {Object} attrs.HTMLAttributes - The HTML attributes to be rendered
    * @returns {Array} The node definition array as defined by TipTap
    */
   renderHTML({ HTMLAttributes }) {

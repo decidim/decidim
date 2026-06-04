@@ -6,7 +6,7 @@ import Dropdowns from "a11y-dropdown-component";
  * Create dropdown from a component
  *
  * @param {HTMLElement} component - The component to be created
- * @return {void}
+ * @returns {void}
  */
 export default class extends Controller {
   connect() {

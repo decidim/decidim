@@ -25,8 +25,8 @@ describe "Participatory texts" do
 
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
     expect(prop_block).to have_link(proposal.comments_count.to_s) if component.settings.comments_enabled
-    expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
-    expect(prop_block).to have_no_content(clean_proposal_body) if proposal.participatory_text_level != "article"
+    expect(prop_block).to have_text(clean_proposal_body) if proposal.participatory_text_level == "article"
+    expect(prop_block).to have_no_text(clean_proposal_body) if proposal.participatory_text_level != "article"
   end
 
   shared_examples_for "lists all the proposals ordered" do
@@ -122,7 +122,7 @@ describe "Participatory texts" do
       include_context "when clicking on the amend button"
 
       it "needs to login" do
-        expect(page).to have_content("Please log in")
+        expect(page).to have_text("Please log in")
       end
     end
 
@@ -133,7 +133,7 @@ describe "Participatory texts" do
         include_context "when clicking on the amend button"
 
         it "cannot perform the action" do
-          expect(page).to have_content("We need to verify your identity")
+          expect(page).to have_text("We need to verify your identity")
         end
       end
 
@@ -143,7 +143,7 @@ describe "Participatory texts" do
         include_context "when clicking on the amend button"
 
         it "can perform the action" do
-          expect(page).to have_content("Create Amendment Draft")
+          expect(page).to have_text("Create Amendment Draft")
         end
       end
     end
@@ -163,7 +163,7 @@ describe "Participatory texts" do
       end
 
       it "renders an alternative title" do
-        expect(page).to have_content("There are no participatory texts at the moment")
+        expect(page).to have_text("There are no participatory texts at the moment")
       end
     end
 
@@ -182,7 +182,7 @@ describe "Participatory texts" do
       it "renders the participatory text title" do
         visit_component
 
-        expect(page).to have_content(translated(participatory_text.title))
+        expect(page).to have_text(translated(participatory_text.title))
       end
 
       context "without existing amendments" do

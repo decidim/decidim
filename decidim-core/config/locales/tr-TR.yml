@@ -197,10 +197,6 @@ tr:
       update_draft:
         error: Değişiklik taslağı güncellenirken bir hata oluştu.
         success: Değişiklik taslağı başarıyla güncellendi.
-      wizard_step_form:
-        steps:
-          '1': Değişikliğinizi oluşturun
-          '2': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       document:
@@ -419,13 +415,9 @@ tr:
           affected_user:
             email_intro: '%{amendable_title}için bir ödeme kabul edildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title}yazarı sizsiniz.
-            email_subject: '%{emendation_author_nickname}%{amendable_title} bir değişiklik kabul edildi'
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından yaratılan <a href="%{emendation_path}">değişiklik</a> <a href="%{amendable_path}">%{amendable_title}</a>için kabul edilmiştir.
           follower:
             email_intro: '%{amendable_title}için bir ödeme kabul edildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-            email_subject: '%{emendation_author_nickname}%{amendable_title} bir değişiklik kabul edildi'
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından yaratılan <a href="%{emendation_path}">değişiklik</a> <a href="%{amendable_path}">%{amendable_title}</a>için kabul edilmiştir.
         amendment_created:
           affected_user:
             email_intro: '%{amendable_title}için yeni bir emendation oluşturuldu. Bu sayfadan görebilirsiniz:'
@@ -441,24 +433,16 @@ tr:
           affected_user:
             email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type} yükseltilmiştir. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title} yazarı sizsiniz.
-            email_subject: '%{emendation_author_nickname} bir değişiklik yeni olarak yayınlandı %{amendable_type}'
-            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a>, yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type} yükseltilmiştir. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-            email_subject: '%{emendation_author_nickname} bir değişiklik yeni olarak yayınlandı %{amendable_type}'
-            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a>, yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Bir emendation %{amendable_title} için reddedildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title} yazarı sizsiniz.
-            email_subject: Bir değişiklik %{emendation_author_nickname}%{amendable_title} için reddedildi
-            notification_title: <a href="%{emendation_path}">değişiklik</a> tarafından oluşturulan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> reddedildi <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Bir emendation %{amendable_title} için reddedildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-            email_subject: Bir değişiklik %{emendation_author_nickname}%{amendable_title} için reddedildi
-            notification_title: <a href="%{emendation_path}">değişiklik</a> tarafından oluşturulan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> reddedildi <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: '%{resource_title} yeni bir belge eklendi. Bu sayfadan görebilirsiniz:'
@@ -489,12 +473,6 @@ tr:
           notification_title: |-
             Bir yönetici, %{resource_type}'nizi %{report_reasons} olarak bildirildiği için kaldırdı. </br>
             <i>%{resource_content} </i>
-      users:
-        profile_updated:
-          email_intro: <a href="%{resource_url}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
-          email_outro: Bu bildirimi, %{nickname} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: "%{nickname} profilini güncelledi"
-          notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
     export_mailer:
       download_your_data_export:
         download: İndir

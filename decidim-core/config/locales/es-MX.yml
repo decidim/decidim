@@ -419,7 +419,7 @@ es-MX:
       withdraw:
         error: Se ha producido un error al retirar la enmienda.
         success: La enmienda se ha retirado correctamente.
-      wizard_step_form:
+      wizard:
         steps:
           '1': Crea tu enmienda
           '2': Publica tu enmienda
@@ -874,13 +874,9 @@ es-MX:
           affected_user:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
-            email_subject: Una enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Una enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verlo desde esta página:'
@@ -896,29 +892,20 @@ es-MX:
           affected_user:
             email_intro: 'Una enmienda rechazada por %{amendable_title} ha sido promovida a %{amendable_type}independiente. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
-            email_subject: Se ha publicado una enmienda de %{emendation_author_nickname} como nuevo %{amendable_type}
-            notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Una enmienda rechazada por %{amendable_title} ha sido promovida a %{amendable_type}independiente. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Se ha publicado una enmienda de %{emendation_author_nickname} como nuevo %{amendable_type}
-            notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
-            email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'Se ha publicado una enmienda para %{amendable_title}. Puedes verla en esta página:'
             email_outro: Has recibido esta notificación porque es autora de %{amendable_title}.
-            email_subject: Una enmienda de %{emendation_author_nickname} se ha publicado como un nuevo %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Se ha agregado un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -969,25 +956,13 @@ es-MX:
           notification_title: |-
             Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_liked:
-        email_intro: '%{liker_name} %{liker_nickname}, a quien sigues, le acaba de gustar: "%{resource_title}", que puede ser interesante para ti, compruébalo y contribuye:'
-        email_outro: Has recibido esta notificación porque estás siguiendo la iniciativa "%{liker_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: "%{liker_nickname} ha realizado un nuevo \"me gusta\""
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} le ha gustado a <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
       users:
-        profile_updated:
-          email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
-          email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: "%{nickname} ha actualizado su perfil"
-          notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
         user_officialized:
-          email_intro: La participante %{name} (%{nickname}) ha sido oficializada.
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
           email_subject: "Se ha oficializado a %{name}"
-          notification_title: La participante %{name} (%{nickname}) ha sido oficializada.
     export_mailer:
       download_your_data_export:
         click_button_html: Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible para su descarga hasta el %{date}.
@@ -1546,8 +1521,8 @@ es-MX:
         members: Miembros
     participatory_spaces:
       show:
-        restricted_space: Este es un espacio restringido. Solo las miembros pueden verlo y participar.
-        transparent_space: Este es un espacio restringido pero transparente. Cualquiera puede ver el contenido, pero solo las miembros pueden participar.
+        restricted_space: Este es un espacio restringido. Solo miembros y administradoras pueden verlo y participar.
+        transparent_space: Este es un espacio transparente. Cualquiera puede ver el contenido, pero solo miembros y administradores pueden participar.
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.

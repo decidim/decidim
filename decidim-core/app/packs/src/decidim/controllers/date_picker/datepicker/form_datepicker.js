@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 import { defineCustomElements } from "wc-datepicker/dist/loader";
 import generateDatePicker from "src/decidim/controllers/date_picker/datepicker/generate_datepicker";
 import generateTimePicker from "src/decidim/controllers/date_picker/datepicker/generate_timepicker";

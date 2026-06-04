@@ -6,14 +6,14 @@ When you want to update a project inside your budget component, you need to rely
 
 [source]
 ----
-• address               (optional) - String
-• budget_amount         (optional) - Integer
-• description           (optional) - JSON
-• latitude              (optional) - Float
-• longitude             (optional) - Float
-• proposal_ids          (optional) - Proposal ids to assign to this project
-• title                 (optional) - JSON
-• taxonomies            (optional) - Taxonomy ids to assign to this project
+• address               (Optional) - String
+• budget_amount         (Optional) - Integer
+• description           (Optional) - JSON
+• latitude              (Optional) - Float
+• longitude             (Optional) - Float
+• proposal_ids          (Optional) - Proposal ids to assign to this project
+• title                 (Optional) - JSON
+• taxonomies            (Optional) - Taxonomy ids to assign to this project
 ----
 
 == Sample request
@@ -22,9 +22,9 @@ The `UpdateProject` mutation allows authenticated administrators to update exist
 
 [source,graphql]
 ----
-mutation updateProject($componentId: ID!, $budgetId: ID!,   $input: UpdateProjectInput!){
+mutation updateProject($componentId: ID!, $budgetId: ID!, $input: UpdateProjectInput!){
    component(id: $componentId){
-    ...on BudgetsMutation{
+    ... on BudgetsMutation {
       budget(id: $budgetId){
       	updateProject(input: $input){
         	id
@@ -102,7 +102,7 @@ Sometimes, you may get a server response like:
   "data": {
     "component": {
       "budget": {
-        "createProject": null
+        "updateProject": null
       }
     }
   }

@@ -52,11 +52,11 @@ describe "Initiative" do
 
       it "shows the details of the given initiative" do
         within "[data-content]" do
-          expect(page).to have_content(translated(initiative.title, locale: :en))
-          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
-          expect(page).to have_content(translated(initiative.type.title, locale: :en))
-          expect(page).to have_content(translated(initiative.scope.name, locale: :en))
-          expect(page).to have_content(initiative.reference)
+          expect(page).to have_text(translated(initiative.title, locale: :en))
+          expect(page).to have_text(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
+          expect(page).to have_text(translated(initiative.type.title, locale: :en))
+          expect(page).to have_text(translated(initiative.scope.name, locale: :en))
+          expect(page).to have_text(initiative.reference)
         end
       end
 
@@ -71,8 +71,8 @@ describe "Initiative" do
 
         it "displays collection period" do
           within ".initiatives__card__grid-metadata-dates" do
-            expect(page).to have_content(1.day.ago.strftime("%d %b"))
-            expect(page).to have_content(1.day.from_now.strftime("%d %b"))
+            expect(page).to have_text(1.day.ago.strftime("%d %b"))
+            expect(page).to have_text(1.day.from_now.strftime("%d %b"))
           end
         end
       end
@@ -120,14 +120,14 @@ describe "Initiative" do
 
         it "does not display comments section" do
           expect(page).to have_no_css(".comments")
-          expect(page).to have_no_content("0 comments")
+          expect(page).to have_no_text("0 comments")
         end
       end
 
       context "when the initiative is published" do
         it "displays comments section" do
           expect(page).to have_css(".comments")
-          expect(page).to have_content("0 comments")
+          expect(page).to have_text("0 comments")
         end
       end
 
@@ -146,7 +146,7 @@ describe "Initiative" do
 
         it "does not have comments" do
           expect(page).to have_no_css(".comments")
-          expect(page).to have_no_content("0 comments")
+          expect(page).to have_no_text("0 comments")
         end
       end
     end
@@ -172,7 +172,7 @@ describe "Initiative" do
           end
 
           it_behaves_like "initiative does not show send to technical validation"
-          it { expect(page).to have_content("Before sending your initiative for technical validation") }
+          it { expect(page).to have_text("Before sending your initiative for technical validation") }
           it { expect(page).to have_link("Edit") }
         end
 
@@ -183,7 +183,7 @@ describe "Initiative" do
           end
 
           it { expect(page).to have_link("Send to technical validation", href: decidim_initiatives.send_to_technical_validation_initiative_path(initiative, locale: I18n.locale)) }
-          it { expect(page).to have_content('If everything looks ok, click on "Send to technical validation" for an administrator to review and publish your initiative') }
+          it { expect(page).to have_text('If everything looks ok, click on "Send to technical validation" for an administrator to review and publish your initiative') }
         end
       end
 
@@ -247,10 +247,10 @@ describe "Initiative" do
 
       it "shows the components" do
         within ".participatory-space__nav-container" do
-          expect(page).to have_content(translated(meetings_component.name))
+          expect(page).to have_text(translated(meetings_component.name))
           expect(page.html).to include(decidim_escape_translated(meetings_component.name).gsub("&quot;", "\""))
-          expect(page).to have_no_content(translated(unpublished_proposals_component.name))
-          expect(page).to have_content(translated(blogs_component.name))
+          expect(page).to have_no_text(translated(unpublished_proposals_component.name))
+          expect(page).to have_text(translated(blogs_component.name))
           expect(page.html).to include(decidim_escape_translated(blogs_component.name).gsub("&quot;", "\""))
         end
       end
@@ -274,7 +274,7 @@ describe "Initiative" do
 
         it "displays the proposals index without errors" do
           expect(page).to have_css('[id^="proposals__proposal"]', count: 1)
-          expect(page).to have_content(translated(proposal.title))
+          expect(page).to have_text(translated(proposal.title))
         end
       end
 
@@ -289,7 +289,7 @@ describe "Initiative" do
 
         it "displays the debates index without errors" do
           expect(page).to have_css('[id^="debates__debate"]', count: 1)
-          expect(page).to have_content(translated(debate.title))
+          expect(page).to have_text(translated(debate.title))
         end
       end
 
@@ -304,7 +304,7 @@ describe "Initiative" do
 
         it "displays the elections index without errors" do
           expect(page).to have_css('[id^="elections__election"]', count: 1)
-          expect(page).to have_content(translated(election.title))
+          expect(page).to have_text(translated(election.title))
         end
       end
     end
@@ -393,7 +393,7 @@ describe "Initiative" do
           click_on translated(blogs_component.name)
         end
 
-        expect(page).to have_content("New post")
+        expect(page).to have_text("New post")
       end
 
       it "has special permissions to create meetings" do
@@ -401,7 +401,7 @@ describe "Initiative" do
           click_on translated(meetings_component.name)
         end
 
-        expect(page).to have_content("New meeting")
+        expect(page).to have_text("New meeting")
       end
     end
   end
