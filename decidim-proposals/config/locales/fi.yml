@@ -275,17 +275,13 @@ fi:
             email_intro: '%{author_name} on luonut yksityisen muistiinpanon kohteeseen %{resource_title}. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen arvioija.
             email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name}</a> on luonut yksityisen muistiinpanon kohteeseen <a href="%{resource_path}">%{resource_title}</a>. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_mentioned:
-            email_intro: Sinut on mainittu yksityisessä muistiinpanossa "%{resource_title}" henkilön "%{author_name}" "%{author_nickname}" toimesta. Tarkista muistiinpano <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu yksityisessä muistiinpanossa.
             email_subject: Sinut on mainittu ehdotuksen %{resource_title} muistiinpanossa.
-            notification_title: Sinut on mainittu yksityisessä muistiinpanossa <a href="%{resource_path}">%{resource_title}</a> henkilön <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta. Tarkista se <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_replied:
             email_intro: '%{author_name} on vastannut yksityiseen muistiinpanoon kohteessa %{resource_title}. Tarkasta muistiinpano <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.'
             email_outro: Sait tämän ilmoituksen, koska olet muistiinpanon laatija.
             email_subject: "%{author_name} on vastannut yksityiseen muistiinpanoon kohteessa %{resource_title}."
-            notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> on vastannut yksityiseen muistiinpanoosi kohteessa <a href="%{resource_path}">%{resource_title}</a>. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> on hyväksynyt kutsusi ehdotuksen <a href="%{resource_path}">%{resource_title}</a> laatijaksi.
         coauthor_invited:
@@ -302,17 +298,14 @@ fi:
           email_intro: '%{requester_name} on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hyväksytty osallistujaksi kohtaan %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksytty osallistujaksi</strong> yheistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: 'Käyttäjän %{requester_name} pyyntö päästä yhteistyöluonnoksen <a href="%{resource_url}">%{resource_title}</a> osallistujaksi on hylätty.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hylätty, jotta hän voi osallistua %{resource_title} yhteistyöhankkeeseen."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>avustajaoikeudet on hylätty</strong> yhteistyöluonnoksesta <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} pyysi pääsyä osallistujaksi. Voit <strong>hyväksyä tai hylätä pyynnön</strong> yhteistyöluonnoksen <a href="%{resource_url}">%{resource_title}</a> sivulta.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} pyysi osallistumisoikeutta kohteeseen %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> pyysi saada osallistua yhteistyöluonnokseen<a href="%{resource_path}">%{resource_title}</a>. <strong>Hyväksy tai hylkää pyyntö</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Sinut on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet pyytänyt pääsyä osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.
@@ -324,10 +317,7 @@ fi:
           email_subject: Sinua ei ole hyväksytty osallistujaksi yhteistyöluonnokseen %{resource_title}.
           notification_title: Sinua <strong>ei ole hyväksytty osallistujaksi</strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> perui yhteistyöluonnoksen <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} perunut yhteistyöluonnoksen %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>perunut</strong>yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Voit nyt luoda uusia ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -348,11 +338,6 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotus %{resource_title} on yhdistetty
           notification_title: Hallintakäyttäjä on yhdistänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, jota seuraat, on julkaissut uuden ehdotuksen "%{resource_title}". Tutustu ehdotukseen ja osallistu:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Uusi ehdotus "%{resource_title}", jonka on luonut %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaistiin tekijän <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta.
         proposal_published_for_space:
           email_intro: Ehdotus "%{resource_title}", jota seuraat, on lisätty kohteeseen "%{participatory_space_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.

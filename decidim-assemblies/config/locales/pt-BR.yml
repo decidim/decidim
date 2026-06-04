@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       assembly:
-        announcement: Avisos
+        announcement: Anúncios
         area_id: Área
         assembly_type: Tipo de assembleia
         assembly_type_other: Outro tipo de assambleia
