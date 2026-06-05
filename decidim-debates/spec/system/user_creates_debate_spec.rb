@@ -98,7 +98,7 @@ describe "User creates debate" do
 
             click_on "Images"
 
-            expect(page).to have_css("img[src*='#{image_filename}']")
+            expect(page).to have_css("img[src*='#{image_filename}']", visible: :all)
 
             click_on "Documents"
 
