@@ -117,7 +117,7 @@ module Decidim
     end
 
     def find_blob_from_url(url)
-      return GlobalID::Locator.locate(url) if url.start_with?("gid://")
+      return GlobalID::Locator.locate(url, only: ActiveStorage::Blob) if url.start_with?("gid://")
 
       find_blob_by_key(url.split("/").second_to_last)
     end
