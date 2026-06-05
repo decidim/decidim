@@ -24,12 +24,12 @@ module Decidim
 
           on(:invalid_invitation) do
             flash.now[:alert] = t("organizations.create.error_invitation", scope: "decidim.system")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
 
           on(:invalid) do
             flash.now[:alert] = t("organizations.create.error", scope: "decidim.system")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -39,12 +39,12 @@ module Decidim
       end
 
       def edit
-        @organization = Organization.find(params[:id])
+        @organization = Organization.find(params.expect(:id))
         @form = form(UpdateOrganizationForm).from_model(@organization)
       end
 
       def update
-        @organization = Organization.find(params[:id])
+        @organization = Organization.find(params.expect(:id))
         @form = form(UpdateOrganizationForm).from_params(params)
 
         UpdateOrganization.call(params[:id], @form) do
@@ -55,13 +55,13 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("organizations.update.error", scope: "decidim.system")
-            render :edit, status: :unprocessable_entity
+            render :edit, status: :unprocessable_content
           end
         end
       end
 
       def resend_invitation
-        organization = Organization.find(params[:id])
+        organization = Organization.find(params.expect(:id))
         InviteUserAgain.call(organization.users.first, "invite_admin") do
           on(:ok) do
             flash[:notice] = t("organizations.resend_invitation.success", scope: "decidim.system")

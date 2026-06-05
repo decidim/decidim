@@ -122,8 +122,8 @@ module Decidim
                 SELECT decidim_components.id FROM decidim_components
                 WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
                 IN
-                  (SELECT CONCAT(decidim_participatory_space_private_users.privatable_to_id, '-', decidim_participatory_space_private_users.privatable_to_type)
-                  FROM decidim_participatory_space_private_users WHERE decidim_participatory_space_private_users.decidim_user_id = ?)
+                  (SELECT CONCAT(decidim_members.participatory_space_id, '-', decidim_members.participatory_space_type)
+                  FROM decidim_members WHERE decidim_members.decidim_user_id = ?)
               )
             "
             if user_role_queries.any?
@@ -377,6 +377,12 @@ module Decidim
         Arel.sql("(start_time > NOW())")
       end
 
+      ransacker :closed do
+        Arel.sql("(closed_at IS NOT NULL)")
+      end
+
+      ransacker_i18n :translated_title, :title
+
       def self.ransackable_scopes(_auth_object = nil)
         [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_taxonomies, :with_any_global_category]
       end
@@ -386,7 +392,7 @@ module Decidim
 
         return base unless auth_object&.admin?
 
-        base + %w(is_upcoming closed_at)
+        base + %w(is_upcoming closed_at closed start_time end_time translated_title)
       end
 
       def self.ransackable_associations(_auth_object = nil)

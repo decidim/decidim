@@ -9,9 +9,6 @@ lv:
         closing_date: Aizvēršanas datums
         closing_date_reason: Aizvēršanas datuma iemesls
         composition: Sastāvs
-        copy_categories: Kopēt kategorijas
-        copy_components: Kopēt komponentus
-        copy_features: Kopēt funkcijas
         created_by: Izveidoja
         created_by_other: Izveidojis cits
         creation_date: Izveidošanas datums
@@ -30,7 +27,6 @@ lv:
         participatory_processes_ids: Saistītie līdzdalības procesi
         participatory_scope: Kas tiek izlemts
         participatory_structure: Kā tas tiek izlemts
-        private_space: Privātā telpa
         promoted: Izcelts
         published_at: Publicēts plkst.
         purpose_of_action: Darbības mērķis
@@ -76,24 +72,12 @@ lv:
         edit:
           update: Atjaunināt
         index:
-          private: Privāts
-          public: Publisks
           published: Publicēts
         new:
           create: Izveidot
-          title: Jauna asambleja
         update:
           error: Šīs asamblejas atjaunināšanas laikā radās problēma.
           success: Asambleja ir veiksmīgi atjaunināta.
-      assemblies_copies:
-        create:
-          error: Šīs asamblejas dublēšanas laikā radās problēma.
-          success: Asamblejas dublēšana ir veiksmīgi pabeigta.
-      assembly_copies:
-        new:
-          copy: Kopēt
-          select: Atlasiet, kurus datus vēlaties dublēt
-          title: Dublēt asambleju
       assembly_publications:
         create:
           error: Šīs asamblejas publicēšanas laikā radās problēma.
@@ -109,8 +93,6 @@ lv:
           success: Administrators ir veiksmīgi noņemts no šīs asamblejas.
         edit:
           update: Atjaunināt
-        index:
-          assembly_admins_title: Asamblejas administratori
         new:
           create: Izveidot
         update:
@@ -129,7 +111,6 @@ lv:
         assembly:
           fields:
             created_at: Izveidots plkst.
-            private: Privāts
             promoted: Izcelts
             published: Publicēts
             title: Nosaukums
@@ -151,9 +132,6 @@ lv:
             admin: Administrators
             collaborator: Līdzizstrādātājs
             moderator: Moderators
-      titles:
-        assemblies: Asambleja
-        assemblies_types: Asambleju veidi
     admin_log:
       assembly:
         create: "%{user_name} izveidoja asambleju %{resource_name}"
@@ -195,9 +173,6 @@ lv:
         filters:
           names:
             all: Visi
-      assembly_members:
-        index:
-          members: Dalībnieki
       content_blocks:
         highlighted_assemblies:
           name: Izceltās asamblejas
@@ -217,16 +192,8 @@ lv:
         working_group: Darba grupa
       index:
         title: Asambleja
-      pages:
-        user_profile:
-          member_of:
-            member_of: Dalībnieks
       show:
         duration: Ilgums
-        private_space: Šī ir privāta asambleja
-    assembly_members:
-      index:
-        title: Dalībnieki
     events:
       assemblies:
         create_assembly_member:
@@ -249,8 +216,6 @@ lv:
       value_types:
         assembly_presenter:
           not_found: 'Asambleja netika atrasta datubāzē (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Asamblejas veids netika atrasts datubāzē (ID: %{id})'
     menu:
       assemblies: Asambleja
     participatory_processes:

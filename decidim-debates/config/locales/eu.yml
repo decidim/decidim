@@ -8,7 +8,7 @@ eu:
         end_time: Bukaera-data
         information_updates: Informazioaren eguneratzeak
         instructions: Parte hartzeko argibideak
-        start_time: Hasi da
+        start_time: Hasiera-data
         title: Izenburua
     models:
       decidim/debates/close_debate_event: Eztabaida itxita
@@ -33,6 +33,7 @@ eu:
           comment: Iruzkina
           create: Sortu eztabaida bat
           like: Atsegin dut
+          vote_comment: Bozkatu iruzkina
         name: Eztabaidak
         settings:
           global:
@@ -78,7 +79,7 @@ eu:
             comments_visualization: Iruzkinak bistaratzea
             comments_warning: Lehen iruzkina argitaratu ondoren, ezin da aldatu aukeratutako bistaratze-aukera.
             debate_type: Eztabaida mota
-            edit_attachments: Editatu eranskinak
+            edit_attachments: Eranskinak editatu
             errors:
               comments_layout_locked: Iruzkinen planoa ezin da aldatu iruzkinak argitaratu ondoren.
             finite: Amaiera (hasiera- eta amaiera-ordua)
@@ -94,7 +95,7 @@ eu:
             title: Beste eztabaida bat
           update:
             invalid: Arazo bat egon da eztabaida hau eguneratzean.
-            success: Debate arrakastaz eguneratu da.
+            success: Eztabaida zuzen eguneratu da.
         exports:
           debate_comments: Iruzkinak
           debates: Eztabaidak
@@ -125,7 +126,7 @@ eu:
             other: "%{count} eztabaida"
         create:
           invalid: Arazo bat egon da eztabaida sortzean.
-          success: Debate sortu da behar bezala.
+          success: Eztabaida zuzen eguneratu da.
         debates:
           empty: Oraindik ez dago eztabaidarik.
           empty_filters: Ez dago irizpide hau duen eztabaidarik.
@@ -137,7 +138,7 @@ eu:
           activity: Nire jarduera
           all: Guztiak
           category: Kategoria
-          category_prompt: Aukeratu kategoria bat
+          category_prompt: Hautatu kategoria bat
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala
@@ -155,8 +156,8 @@ eu:
           create: Sortu
           title: Sortu eztabaida berri bat
         orders:
-          commented: Iruzkin gehien dituztenak
           label: Ordenatu eztabaidak honen arabera
+          most_commented: Iruzkin gehien dutenak
           random: Ausazko ordena
           recent: Berrienetatik zaharrenetara
           updated: Orain dela gutxi eguneratuak
@@ -164,7 +165,7 @@ eu:
           close_debate: Itxi
           closed: Itxita
           debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
-          edit_conclusions: Editatu ondorioak
+          edit_conclusions: Ondorioak editatu
           edit_debate: Editatu
           not_started: Hasi gabe
           ongoing: Abian
@@ -175,15 +176,15 @@ eu:
           success: Eztabaida zuzen eguneratu da.
       last_activity:
         debate_updated: 'Eztabaida eguneratu da:'
-        new_debate: 'Eztabaida berria:'
+        new_debate: 'Beste eztabaida bat:'
       models:
         debate:
           fields:
             end: Amaiera
-            end_time: Amaiera data
-            official_debate: Ofizial eztabaida
+            end_time: Amaiera-data
+            official_debate: Eztabaida ofiziala
             start: Hasi
-            start_time: Hasiera data
+            start_time: Hasiera-data
             taxonomies: Taxonomiak
             title: Izenburua
     download_your_data:
@@ -200,13 +201,6 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} parte hartzeko espazioa jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
             email_subject: '"%{resource_title}" eztabaida berria hemen %{participatory_space_title}'
             notification_title: '<a href="%{resource_path}">%{resource_title}</a> eztabaida sortu da hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-          user_followers:
-            email_intro: |-
-              Kaixo,
-              Jarraitzen ari zaren %{author_name} %{author_nickname} parte-hartzaileak "%{resource_title}" beste eztabaida bat sortu du. Sartu eztabaidan eta zure ekarpena egin:
-            email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-            email_subject: '%{author_nickname} parte-hartzaileak beste eztabaida bat sortu du hemen: "%{resource_title}"'
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu du.
         creation_disabled:
           email_intro: 'Eztabaida sortzea dagoeneko ez dago aktibo %{participatory_space_title}. Oraindik irekita dauden eztabaidetan parte har dezakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
@@ -247,26 +241,26 @@ eu:
           author: Iruzkin hau egin duen parte-hartzailearen izena
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
-          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
-          created_at: Zein datatan sortu zen iruzkin hau
+          commentable_type: Komentagarri mota (emaitza izan bada, proposamena, etab.)
+          created_at: Zein datatan sortu da iruzkin hau
           depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
         debates:
           author: Eztabaida honen egilearen data
-          closed_at: Zein datatan itxi zen eztabaida hau
-          comments: Eztabaida honek duen iruzkin kopurua
+          closed_at: Zein datatan itxi da eztabaida hau
+          comments: Eztabaida honen iruzkin kopurua
           comments_enabled: Eztabaida honek iruzkinak ditu baimenduta edo ez
           component: Emaitzaren osagaia honi dagokio
-          conclusions: Eztabaidaren ondorioak itxita bazegoen
+          conclusions: Eztabaidaren ondorioak itxita dago
           created_at: Zein datatan eta zein ordutan sortu zen eztabaida
           description: Eztabaidaren deskribapena
           end_time: Eztabaida hau amaitzen denean, eztabaida irekia bada eta denbora mugatua badu
           follows_count: Eztabaida honek duen jarraitzaile kopurua
           id: Eztabaidaren identifikatzaile bakarra
           information_updates: Egileak eztabaidari egin dizkion eguneraketak
-          instructions: Jarraibideak eztabaida honetan iruzkina egiteko
+          instructions: Eztabaida honetan iruzkina egiteko jarraibideak
           last_comment_at: Zein datatan aipatu zen eztabaida hau azkenekoz?
           last_comment_by: Eztabaidan egindako azken iruzkinaren datuak
           likes_count: Eztabaida honek duen like kopurua
@@ -275,7 +269,7 @@ eu:
           start_time: Eztabaida hau hasten denean, eztabaida irekia bada eta denbora mugatua badu
           taxonomies: Proiektuaren taxonomiak
           title: Eztabaidearen izenburua
-          updated_at: Eztabaida azken aldiz eguneratu zen eguna
+          updated_at: Eztabaida azken aldiz eguneratu den eguna
           url: Eztabaida hau URL honetan aurki daiteke
     statistics:
       debates_count: Eztabaidak

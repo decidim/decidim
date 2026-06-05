@@ -35,7 +35,6 @@ hu:
       id: ID
       newsletter:
         body: Szöveg
-        send_to_all_users: Küldés az összes felhasználónak
         send_to_followers: Küldés a követőknek
         send_to_participants: Küldés a résztvevőknek
         subject: Tárgy
@@ -49,7 +48,6 @@ hu:
         default_locale: Alapértelmezett hely
         description: Leírás
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
-        enable_participatory_space_filters: A részvételi terek szűrőjének engedélyezése
         facebook_handler: Facebook handler
         favicon: Ikon
         force_authentication: Kényszerített authentikáció
@@ -90,9 +88,6 @@ hu:
         welcome_notification_body: Üdvözlő értesítés szövegtörzse
         welcome_notification_subject: Üdvözlő üzenet tárgya
         youtube_handler: YouTube kezelő
-      participatory_space_private_user:
-        email: Email
-        name: Név
       scope:
         code: Kód
         name: Név
@@ -134,10 +129,6 @@ hu:
           attributes:
             official_img_footer:
               allowed_file_content_types: Érvénytelen képfájl
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Hibás importfájl, kérjük, olvassa el figyelmesen az utasításokat, és győződjön meg róla, hogy a fájl UTF-8 kódolású.
         user_group_csv_verification:
           attributes:
             file:
@@ -172,12 +163,10 @@ hu:
         browse: Böngészés
         configure: Beállítások
         export: Exportálás
-        export-selection: Kiválasztottak exportálása
+        export_all: Összes exportálása
         import: Import
         newsletter:
           new: Új hírlevél
-        participatory_space_private_user:
-          new: Új privát felhasználó a részvételi térben
         per_page: Oldalanként
         send_me_a_test_email: Teszt e-mail küldése
         share: Megosztás
@@ -195,7 +184,6 @@ hu:
           alert: 'Szükséges: Tekintse át admin szolgáltatási feltételeinket'
           callout: Kérjük, szánjon egy percet az adminisztrátori szolgáltatási feltételek áttekintésére. Ellenkező esetben nem lesz képes kezelni a platformot.
           cta: Tekintse át őket most.
-        title: Admin szolgáltatási feltételek
       area_types:
         create:
           error: Hiba történt az új területtípus létrehozásakor.
@@ -237,8 +225,6 @@ hu:
         edit:
           title: Mappa szerkesztése
           update: Frissítés
-        index:
-          attachment_collections_title: Melléklet mappák
         new:
           create: Létrehozás
           title: Új mappa
@@ -254,8 +240,6 @@ hu:
         edit:
           title: Melléklet szerkesztése
           update: Frissítés
-        index:
-          attachments_title: Mellékletek
         new:
           create: Melléklet létrehozása
           title: Új melléklet
@@ -270,7 +254,6 @@ hu:
       block_user:
         new:
           action: Fiók blokkolása és igazolás küldése
-          already_reported_html: Ezt a műveletet folytatva elrejti a résztvevők összes tartalmát is.
           description: Egy felhasználó letiltása használhatatlanná teszi a fiókját. Az indoklásban megadhat bármilyen iránymutatást arra vonatkozóan, hogy miként lehetne feloldani a felhasználó blokkolását.
           justification: Indoklás
           title: '%{name} felhasználó blokkolása'
@@ -303,7 +286,6 @@ hu:
           title: '%{name} nevű elem hozzáadása'
         publish:
           success: Az elem közzététele sikeres volt.
-        title: Elemek
         unpublish:
           success: Az elem közzétételének visszavonása sikeres volt.
         update:
@@ -314,7 +296,6 @@ hu:
         'false': 'Nincs'
         managed_user_name: Kezelt felhasználó
         solved: Megoldva
-        title: Ellenőrzési konfliktusok
         transfer:
           email: Email
           error: Hiba történt a jelenlegi résztvevő kezelt résztvevővé átminősítése során.
@@ -348,7 +329,6 @@ hu:
         form:
           domain_too_short: Túl rövid domain név
         update:
-          error: Nem sikerült frissíteni az engedélyezett külső tartományok listáját
           success: Az engedélyezett külső tartományok listája sikeresen frissült.
       exports:
         export_as: "%{name} mint %{export_format}"
@@ -385,17 +365,6 @@ hu:
           values:
             'false': Hivatalos
             'true': Nem hivatalos
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Meghívás elfogadva
-            values:
-              'false': Nincs elfogadva
-              'true': Elfogadva
-          user_invitation_sent_at_not_null:
-            label: Meghívó kiküldve
-            values:
-              'false': Nincs elküldve
-              'true': Elküldve
         private_space_eq:
           label: Magán
           values:
@@ -458,7 +427,6 @@ hu:
           impersonate: Megszemélyesítés
           impersonate_existing_managed_user: '"%{name}" felhasználó kezelése'
           impersonate_existing_user: '"%{name}" felhasználó kezelése'
-          impersonate_new_managed_user: Új résztvevő kezelése
       imports:
         and: és
         data_errors:
@@ -511,8 +479,11 @@ hu:
         promotions:
           new:
             explanation: A kezelt résztvevők sztenderd résztvevőkké alakíthatóak. Ez azt jelenti, hogy meghívást kapnak az alkalmazáshoz és nem lehet őket újra kezelni. Erről emailben kapnak értesítést.
-            new_managed_user_promotion: Új résztvevő előléptetése
             promote: Előléptetés
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Töltse fel a CSV fájlját
       menu:
         admin_log: Admin tevékenységnapló
         admins: Adminok
@@ -572,8 +543,6 @@ hu:
             sent_to: Címzett
             subject: Tárgy
           name: Hírlevél
-        participatory_space_private_user:
-          name: Részvételi tér privát felhasználó
         scope:
           fields:
             name: Név
@@ -653,7 +622,6 @@ hu:
           title: Hírlevél sablonok
           use_template: Sablon használata
         show:
-          preview: 'Sablon előnézet: %{template_name}'
           use_template: Sablon használata
       newsletters:
         create:
@@ -700,7 +668,6 @@ hu:
         send_to_user:
           sent_successfully: A hírlevél sikeresen kiküldésre került ide %{email}
         show:
-          preview: Előnézet
           select_recipients_to_deliver: Címzettek kiválasztása
           send_me_a_test_email: Teszt e-mail küldése
           subject: Tárgy
@@ -766,39 +733,6 @@ hu:
           up: Fel
         form:
           add: Hozzáadás az engedélyezett listához
-          title: Engedélyezett külső domainek listája
-      participatory_space_private_users:
-        create:
-          error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
-          success: Magán résztvevő részvételi helyhez való hozzáférése biztosítva.
-        destroy:
-          error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
-          success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
-        index:
-          import_via_csv: Importálás CSV -ből
-          title: Részvételi tér privát felhasználója
-        new:
-          create: Létrehozás
-          title: Új részvételi tér privát felhasználója.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Probléma adódott a CSV fájl beolvasásával. Kérjük, győződjön meg róla, hogy követte az utasításokat.
-          success: A CSV fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
-        new:
-          csv_upload:
-            title: Töltse fel a CSV fájlját
-          destroy:
-            button: Az összes privát felhasználó törlése
-            confirm: Biztos, hogy törölni szeretné az összes privát résztvevőt? Ezt a műveletet nem lehet visszacsinálni, nem tudja majd visszaállítani őket.
-            empty: Nincsenek privát résztvevők.
-            explanation: '%{count} privát résztvevője van.'
-            title: Privát felhasználók törlése
-          example_file: 'Példa fájl:'
-          explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, a fájl első oszlopában az e-mail címmel, a fájl utolsó oszlopában pedig a nevével azoknak a felhasználóknak, akiket hozzá szeretne adni a részvételi térhez, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználói névben.'
-          explanation_example: |
-            ohn.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: Feltölt
       reminders:
         create:
           error: Hiba történt a bejegyzés létrehozása során.
@@ -865,7 +799,6 @@ hu:
           title: Új téma
         update:
           error: Hiba történt a téma frissítésekor.
-          success: Téma frissítve sikeresen
       static_pages:
         create:
           error: Hiba történt az új oldal létrehozásakor.
@@ -889,22 +822,11 @@ hu:
           error: Hiba történt az oldal frissítése során.
           success: Az oldal módosítása sikeres.
       titles:
-        admin_log: Admin napló
-        area_types: Terület típusok
         areas: Területek
         authorization_workflows: Ellenőrzési módszerek
-        dashboard: Vezérlőpult
-        edit_external_domains: Engedélyezett külső domainek listája
-        impersonatable_users: Kezelhető résztvevők
-        impersonations: Résztvevők kezelése
         menu: Menü
-        page_topics: Témák
-        pages: Oldalak
         panel: Admin
-        participants: Résztvevők
-        scope_types: Hatáskör típusok
         scopes: Hatáskörök
-        users: Adminisztrátorok
       users:
         create:
           error: Hiba történt a felhasználó adminnak történő meghívása során.
@@ -925,7 +847,6 @@ hu:
           last_day: Utolsó nap
           last_month: Előző hónap
           last_week: Előző hét
-          no_users_count_statistics_yet: Még nincsenek felhasználói statisztikák.
           participants: Résztvevők
     forms:
       errors:

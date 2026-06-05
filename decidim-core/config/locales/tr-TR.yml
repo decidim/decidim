@@ -15,6 +15,8 @@ tr:
         phone: Telefon
       report:
         details: Ek Yorumlar
+      taxonomy:
+        name: Sınıf Adı
       user:
         about: Hakkında
         email: E-posta adresiniz
@@ -115,10 +117,6 @@ tr:
         update: "%{user_name} , %{resource_name} OAuth uygulamasını güncelledi"
       organization:
         update: "%{user_name} kuruluş ayarlarını güncelledi"
-      participatory_space_private_user:
-        create: "%{user_name}, %{resource_name} adlı kullanıcıyı özel katılımcı olması için davet etti"
-        create_via_csv: "%{user_name}, %{resource_name} kaynağını CSV aracılığıyla özel bir katılımcı olması için davet etti"
-        delete: "%{user_name}, katılımcıyı %{resource_name} özel katılımcı özelliğini kaldırdı"
       scope:
         create: "%{user_name}, %{resource_name} kapsamı oluşturdu"
         create_with_parent: "%{user_name}, %{parent_scope} içindeki %{resource_name} kapsamı oluşturdu"
@@ -130,6 +128,8 @@ tr:
         create: "%{user_name} , %{resource_name} statik sayfayı oluşturdu"
         delete: "%{user_name}, %{resource_name} statik sayfayı sildi"
         update: "%{user_name}, %{resource_name} statik sayfayı güncelledi"
+      taxonomy:
+        delete_with_parent: "%{user_name}, %{parent_taxonomy} sınıflaması içindeki %{resource_name} sınıfını sildi"
       user:
         block: "%{user_name}, %{resource_name} kullanıcısını engelledi"
         invite: "%{user_name} katılımcıyı %{resource_name} rolüyle davet etti: %{role}"
@@ -197,10 +197,6 @@ tr:
       update_draft:
         error: Değişiklik taslağı güncellenirken bir hata oluştu.
         success: Değişiklik taslağı başarıyla güncellendi.
-      wizard_step_form:
-        steps:
-          '1': Değişikliğinizi oluşturun
-          '2': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       document:
@@ -226,6 +222,7 @@ tr:
           postal_code: Posta kodu
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
+        explanation: Sahte yetkilendirme iş akışı
         name: Sahte yetkilendirme iş akışı
       errors:
         duplicate_authorization: Bir katılımcı zaten aynı verilerle yetkilendirildi. Bir yönetici, bilgilerinizi doğrulamak için sizinle iletişime geçecektir.
@@ -418,13 +415,9 @@ tr:
           affected_user:
             email_intro: '%{amendable_title}için bir ödeme kabul edildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title}yazarı sizsiniz.
-            email_subject: '%{emendation_author_nickname}%{amendable_title} bir değişiklik kabul edildi'
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından yaratılan <a href="%{emendation_path}">değişiklik</a> <a href="%{amendable_path}">%{amendable_title}</a>için kabul edilmiştir.
           follower:
             email_intro: '%{amendable_title}için bir ödeme kabul edildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-            email_subject: '%{emendation_author_nickname}%{amendable_title} bir değişiklik kabul edildi'
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından yaratılan <a href="%{emendation_path}">değişiklik</a> <a href="%{amendable_path}">%{amendable_title}</a>için kabul edilmiştir.
         amendment_created:
           affected_user:
             email_intro: '%{amendable_title}için yeni bir emendation oluşturuldu. Bu sayfadan görebilirsiniz:'
@@ -440,24 +433,16 @@ tr:
           affected_user:
             email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type} yükseltilmiştir. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title} yazarı sizsiniz.
-            email_subject: '%{emendation_author_nickname} bir değişiklik yeni olarak yayınlandı %{amendable_type}'
-            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a>, yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type} yükseltilmiştir. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-            email_subject: '%{emendation_author_nickname} bir değişiklik yeni olarak yayınlandı %{amendable_type}'
-            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a>, yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Bir emendation %{amendable_title} için reddedildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title} yazarı sizsiniz.
-            email_subject: Bir değişiklik %{emendation_author_nickname}%{amendable_title} için reddedildi
-            notification_title: <a href="%{emendation_path}">değişiklik</a> tarafından oluşturulan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> reddedildi <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Bir emendation %{amendable_title} için reddedildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-            email_subject: Bir değişiklik %{emendation_author_nickname}%{amendable_title} için reddedildi
-            notification_title: <a href="%{emendation_path}">değişiklik</a> tarafından oluşturulan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> reddedildi <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: '%{resource_title} yeni bir belge eklendi. Bu sayfadan görebilirsiniz:'
@@ -488,12 +473,6 @@ tr:
           notification_title: |-
             Bir yönetici, %{resource_type}'nizi %{report_reasons} olarak bildirildiği için kaldırdı. </br>
             <i>%{resource_content} </i>
-      users:
-        profile_updated:
-          email_intro: <a href="%{resource_url}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
-          email_outro: Bu bildirimi, %{nickname} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: "%{nickname} profilini güncelledi"
-          notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
     export_mailer:
       download_your_data_export:
         download: İndir
@@ -594,6 +573,8 @@ tr:
           not_found: 'Veritabanında kapsam bulunamadı (ID: %{id})'
         scope_type_presenter:
           not_found: 'Veritabanında kapsam tipi bulunamadı (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Sınıflandırma veritabanında bulunamadı (ID: %{id})'
     managed_users:
       expired_session: Mevcut kimliğe bürünme oturumunun süresi doldu.
     map:
@@ -604,7 +585,6 @@ tr:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Yardım
       home: Ana Sayfa
     messaging:
       conversation_mailer:
@@ -667,10 +647,8 @@ tr:
       unsubscribe:
         success: Abonelikten başarıyla çıktınız.
         token_error: Bağlantının süresi doldu.
-        unsubscribe: Abonelikten ayrıl
     newsletters_opt_in_mailer:
       notify:
-        body_1: Kişisel verilerin işlenmesi ve korunması, hepimiz için giderek daha önemli hale gelmektedir. 25 Mayıs 2018 tarihli yeni Genel Veri Koruma Yönetmeliği (GDPR) ile bireyler kişisel verileri üzerinde daha iyi bir kontrole sahiptir. Bu nedenle, %{organization_name}faaliyetleri hakkında ilgili bilgileri göndermeye devam etmek için "OK" e ihtiyacımız var.
         body_2: 'Bize onayınızı nasıl verirsiniz? Aşağıdaki düğmeyi tıklamanız yeterlidir:'
         body_3: Bu izinle, platformun hizmetleri hakkında bilgi almaya devam edebileceksiniz. Aksine, sizin tarafınızdan olumlu bir onay almazsak, size mesajlarımızı göndermeyi durduracağız. Bilgilendirilmeye devam etmek istediğinizi onaylarsanız, her zaman istediğiniz zaman iptal etme seçeneğiniz olacaktır.
         button: Evet, alakalı bilgileri almaya devam etmek istiyorum
@@ -679,8 +657,6 @@ tr:
         subject: '%{organization_name} ile ilgili bilgileri almaya devam etmek istiyor musunuz?'
     notifications:
       no_notifications: Henüz bildirim yok.
-      show:
-        moderated: İçerik Denetlendi
     notifications_settings:
       show:
         direct_messages: Herkesten doğrudan mesaj alın
@@ -693,6 +669,13 @@ tr:
       update:
         error: Bildirim ayarlarınız güncellenirken bir hata oluştu.
         success: Bildirim ayarlarınız başarıyla güncellendi.
+    onboarding_action_message:
+      click_link: Tıklayınız
+      cta_html: <a href="%{path}">%{link_text}</a> %{resource_name} içindeki %{action} işlemini gerçekleştirmek için <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Yetkinizin süresi doldu.
+      incomplete_authorization_active_title: Gerekli tüm bilgiler girilmediğinden doğrulama işleminiz tamamlanmadı.
+      pending_authorization_active_message: Bu işlemi gerçekleştirmek için lütfen formu doldurun.
+      pending_authorization_active_title: Kimliğinizi doğrulamamız gerekiyor.
     open_data:
       not_available_yet: Açık Veri dosyaları henüz mevcut değil, lütfen birkaç dakika içinde tekrar deneyin.
     pad_iframe:
@@ -711,17 +694,17 @@ tr:
           proposals_explanation: Öneriler yapın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
         footer_sub_hero:
           footer_sub_hero_headline: '%{organization} katılımcı platformuna hoş geldiniz.'
-          register: Kayıt Ol
         hero:
           participate: Katıl
           welcome: '%{organization} hoşgeldin!'
-        sub_hero:
-          register: Kayıt Ol
       index:
         standalone_pages: Sayfalar
         subheading: '%{name} yardım sayfalarını ziyaret edin'
         title: Yardım
         topics: Başlıklar
+    participatory_space_members:
+      index:
+        members: Üyeler
     profile:
       deleted: Silinmiş kullanıcı
     profiles:
@@ -882,8 +865,6 @@ tr:
         submit_button: Davet gönder
       no_invitations_remaining: Kalan davet yok
       send_instructions: Davet e-postası %{email}gönderildi.
-      updated: Şifreniz başarıyla ayarlandı. Şimdi oturum açtınız.
-      updated_not_active: Şifreniz başarıyla ayarlandı.
     mailer:
       confirmation_instructions:
         action: Hesabımı onayla
@@ -899,10 +880,8 @@ tr:
         decline: Davet reddet
         hello: Merhaba %{email}
         invited_you_as_admin: "%{invited_by} sizi %{application}yönetici olarak davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz."
-        invited_you_as_private_user: "%{invited_by} özel bir kullanıcı olarak davet etti %{application}. Aşağıdaki bağlantıdan kabul edebilirsiniz."
         someone_invited_you: Birisi sizi %{application}davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz.
         someone_invited_you_as_admin: Birisi sizi %{application}yönetici olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
-        someone_invited_you_as_private_user: Birisi sizi %{application}private_user olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
         subject: Davet talimatları
       password_change:
         greeting: Merhaba %{recipient}!
@@ -1005,7 +984,6 @@ tr:
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
-        expire_time_html: Seansınız <b><span class="minutes">%{minutes}</span> dakika</b>bitecek.
       language_chooser:
         choose_language: Dil seçin
       notifications_dashboard:
@@ -1043,7 +1021,6 @@ tr:
     fallback: geçerli değil
     name_included_in_password: adınıza çok benzer
     not_enough_unique_characters: yeterli benzersiz karakter yok
-    password_not_allowed: Müsade edilmez
     password_too_common: çok yaygın
     password_too_long: çok uzun
     password_too_short: çok kısa

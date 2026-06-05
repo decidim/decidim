@@ -38,7 +38,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("users.create.error", scope: "decidim.admin")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -78,7 +78,7 @@ module Decidim
       private
 
       def user
-        @user ||= collection.find(params[:id])
+        @user ||= collection.find(params.expect(:id))
       end
 
       def collection

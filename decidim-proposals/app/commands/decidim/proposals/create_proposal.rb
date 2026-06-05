@@ -83,7 +83,11 @@ module Decidim
 
             proposal.taxonomizations = form.taxonomizations if form.taxonomizations.present?
             proposal.documents = form.documents if form.documents.present?
-            proposal.address = form.address if form.has_address? && !form.geocoded?
+            if form.geocoded?
+              proposal.latitude = form.latitude
+              proposal.longitude = form.longitude
+            end
+            proposal.address = form.address if form.has_address?
             proposal.add_coauthor(@current_user)
             proposal.save!
             @attached_to = proposal

@@ -19,10 +19,10 @@ RSpec.shared_examples "manage child results" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Result successfully updated.")
 
     within "table" do
-      expect(page).to have_content("My new title")
+      expect(page).to have_text("My new title")
     end
   end
 
@@ -32,8 +32,8 @@ RSpec.shared_examples "manage child results" do
       preview_window = window_opened_by { click_on "Preview" }
 
       within_window preview_window do
-        expect(page).to have_content translated(result.title)
-        expect(page).to have_content "Progress"
+        expect(page).to have_text translated(result.title)
+        expect(page).to have_text "Progress"
       end
     end
   end
@@ -63,10 +63,10 @@ RSpec.shared_examples "manage child results" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Result successfully created.")
 
     within "table" do
-      expect(page).to have_content("My result")
+      expect(page).to have_text("My result")
       expect(page).not_to have_css(".button", text: "New result"), "results grandchildren creation is disallowed"
     end
   end
@@ -86,10 +86,10 @@ RSpec.shared_examples "manage child results" do
         accept_confirm { click_on "Move to trash" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Result successfully deleted.")
 
       within "table" do
-        expect(page).to have_no_content(translated(child_result.title))
+        expect(page).to have_no_text(translated(child_result.title))
       end
     end
   end

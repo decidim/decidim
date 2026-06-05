@@ -34,6 +34,16 @@ describe "Authentication" do
     visit decidim.root_path
   end
 
+  around do |example|
+    previous_value = ActionController::Base.allow_forgery_protection
+    ActionController::Base.allow_forgery_protection = true
+    begin
+      example.run
+    ensure
+      ActionController::Base.allow_forgery_protection = previous_value
+    end
+  end
+
   describe "Create an account" do
     around do |example|
       perform_enqueued_jobs { example.run }
@@ -52,7 +62,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("confirmation link")
+        expect(page).to have_text("confirmation link")
       end
     end
 
@@ -75,7 +85,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Se ha enviado un mensaje con un enlace de confirmación")
+        expect(page).to have_text("Se ha enviado un mensaje con un enlace de confirmación")
         expect(last_user.locale).to eq("es")
       end
     end
@@ -94,7 +104,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_no_content("confirmation link")
+        expect(page).to have_no_text("confirmation link")
       end
     end
 
@@ -136,8 +146,9 @@ describe "Authentication" do
           end
           click_on("Keep unchecked")
 
-          expect(page).to have_content("Successfully")
+          expect(page).to have_text("Successfully authenticated from Facebook account.")
           expect_user_logged
+          expect(Decidim::Identity.where(provider: :facebook, uid: "123545").first.user.newsletter_notifications_at).not_to be_present
         end
       end
 
@@ -157,20 +168,20 @@ describe "Authentication" do
         end
 
         within "#notifications" do
-          expect(page).to have_content("thanks for joining #{translated(organization.name)}")
+          expect(page).to have_text("thanks for joining #{translated(organization.name)}")
         end
 
         expect(last_email_body).to include("thanks for joining #{translated(organization.name)}")
       end
 
       context "when user did not fill one of the fields" do
-        let!(:omniauth_hash) do
+        let(:omniauth_hash) do
           OmniAuth::AuthHash.new(
-            provider: "developer",
+            provider: "facebook",
             uid: "123545",
             info: {
-              nickname: "developer_user",
-              name: "Developer User"
+              nickname: "facebook_user",
+              name: "Facebook User"
             }
           )
         end
@@ -181,15 +192,16 @@ describe "Authentication" do
           end
 
           find(".login__omniauth-button.login__omniauth-button--facebook").click
-          expect(page).to have_content("Please complete your profile")
-          expect(page).to have_content("cannot be blank")
+          expect(page).to have_text("Please complete your profile")
+          expect(page).to have_text("cannot be blank")
 
           fill_in "Your email", with: "user@from-developer.com"
           page.find_by_id("registration_user_tos_agreement").check
           page.find_by_id("registration_user_newsletter").check
           click_on "Complete profile"
 
-          expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(page).to have_text("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(Decidim::Identity.where(provider: :facebook, uid: "123545").first.user.newsletter_notifications_at).to be_present
         end
       end
     end
@@ -228,9 +240,9 @@ describe "Authentication" do
 
           find(".login__omniauth-button--x").click
 
-          expect(page).to have_content("Successfully")
-          expect(page).to have_content("Please complete your profile")
-          expect(page).to have_content("Please fill in the following form in order to complete the account creation")
+          expect(page).to have_text("Successfully authenticated from Twitter account.")
+          expect(page).to have_text("Please complete your profile")
+          expect(page).to have_text("Please fill in the following form in order to complete the account creation")
 
           within ".new_user" do
             fill_in :registration_user_email, with: "user@from-twitter.com"
@@ -245,8 +257,8 @@ describe "Authentication" do
 
             find(".login__omniauth-button--x").click
 
-            expect(page).to have_content("Successfully")
-            expect(page).to have_content("Please complete your profile")
+            expect(page).to have_text("Successfully authenticated from Twitter account.")
+            expect(page).to have_text("Please complete your profile")
 
             within ".new_user" do
               fill_in :registration_user_email, with: "user@from-twitter.com"
@@ -255,8 +267,8 @@ describe "Authentication" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("Please complete your profile")
-            expect(page).to have_content("Another account is using the same email address")
+            expect(page).to have_text("Please complete your profile")
+            expect(page).to have_text("Another account is using the same email address")
           end
         end
       end
@@ -291,7 +303,7 @@ describe "Authentication" do
           end
 
           within "#notifications" do
-            expect(page).to have_content("thanks for joining #{translated(organization.name)}")
+            expect(page).to have_text("thanks for joining #{translated(organization.name)}")
           end
 
           expect(last_email_body).to include("thanks for joining #{translated(organization.name)}")
@@ -354,7 +366,7 @@ describe "Authentication" do
         end
 
         within "#notifications" do
-          expect(page).to have_content("thanks for joining #{translated(organization.name)}")
+          expect(page).to have_text("thanks for joining #{translated(organization.name)}")
         end
 
         expect(last_email_body).to include("thanks for joining #{translated(organization.name)}")
@@ -376,7 +388,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("confirmation link")
+        expect(page).to have_text("confirmation link")
         expect(last_user.nickname).to eq("responsible_citize_2")
       end
     end
@@ -386,12 +398,12 @@ describe "Authentication" do
 
       it "redirects to the sign in when accessing the sign up page" do
         visit decidim.new_user_registration_path
-        expect(page).to have_no_content("Create an account")
+        expect(page).to have_no_text("Create an account")
       end
 
       it "do not allow the user to sign up" do
         click_on("Log in", match: :first)
-        expect(page).to have_no_content("Create an account")
+        expect(page).to have_no_text("Create an account")
       end
     end
   end
@@ -402,18 +414,18 @@ describe "Authentication" do
 
       visit last_email_link
 
-      expect(page).to have_content("successfully confirmed")
+      expect(page).to have_callout("Your email address has been successfully confirmed.")
       expect(last_user).to be_confirmed
 
       within_user_menu do
-        expect(page).to have_content("My account")
-        expect(page).to have_content("Log out")
+        expect(page).to have_text("My account")
+        expect(page).to have_text("Log out")
       end
     end
   end
 
   context "when confirming the account" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :malicious, organization:) }
 
     before do
       perform_enqueued_jobs { user.confirm }
@@ -430,7 +442,7 @@ describe "Authentication" do
       end
 
       within "#notifications" do
-        expect(page).to have_content("thanks for joining #{translated(organization.name)}")
+        expect(page).to have_text("thanks for joining #{translated(organization.name)}")
       end
 
       expect(last_email_body).to include("thanks for joining #{translated(organization.name)}")
@@ -451,7 +463,7 @@ describe "Authentication" do
       end
 
       expect(emails.count).to eq(2)
-      expect(page).to have_content("receive an email with instructions")
+      expect(page).to have_text("receive an email with instructions")
     end
   end
 
@@ -468,8 +480,27 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Logged in successfully")
+        expect(page).to have_text("Logged in successfully")
         expect_current_user_to_be(user)
+      end
+
+      context "when CSRF token is invalid" do
+        it "displays a retry error" do
+          click_on("Log in", match: :first)
+          within "#session_new_user" do
+            fill_in :session_user_email, with: user.email
+            fill_in :session_user_password, with: "DfyvHn425mYAy2HL"
+          end
+
+          page.driver.browser.manage.delete_all_cookies
+          expect(page.driver.browser.manage.all_cookies).to be_empty
+
+          within "#session_new_user" do
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_text("Unable to verify your request. Please retry.")
+        end
       end
 
       context "when email validation is triggered in the log in form" do
@@ -537,7 +568,7 @@ describe "Authentication" do
           perform_enqueued_jobs { find("*[type=submit]").click }
         end
 
-        expect(page).to have_content("If your email address exists in our database")
+        expect(page).to have_text("If your email address exists in our database")
         expect(emails.count).to eq(1)
       end
 
@@ -549,7 +580,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("If your email address exists in our database")
+        expect(page).to have_text("If your email address exists in our database")
       end
     end
 
@@ -566,8 +597,8 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Your password has been successfully changed")
-        expect(page).to have_current_path "/"
+        expect(page).to have_text("Your password has been successfully changed")
+        expect(page).to have_current_path decidim.root_path
       end
 
       it "enforces rules when setting a new password for the user" do
@@ -578,10 +609,11 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("10 characters minimum")
-        expect(page).to have_content("must be different from your nickname and your email")
-        expect(page).to have_content("must not be too common")
-        expect(page).to have_current_path "/users/password"
+        expect(page).to have_text("10 characters minimum")
+        expect(page).to have_text("must contain at least 5 different characters")
+        expect(page).to have_text("must not be too common")
+        expect(page).to have_text("must be different from your name, nickname, email and the organization's host")
+        expect(page).to have_current_path decidim.user_password_path
       end
 
       it "enforces the minimum length for the password in the front-end" do
@@ -592,7 +624,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("The password is too short.")
+        expect(page).to have_text("The password is too short.")
       end
     end
 
@@ -609,13 +641,28 @@ describe "Authentication" do
           click_on("Log out")
         end
 
-        expect(page).to have_content("Logged out successfully.")
-        expect(page).to have_no_content(user.name)
+        expect(page).to have_text("Logged out successfully.")
+        expect(page).to have_no_text(user.name)
       end
     end
 
     context "with lockable account" do
-      Devise.maximum_attempts = 3
+      around do |example|
+        original_maximum_attempts = Devise.maximum_attempts
+        original_unlock_strategy = Devise.unlock_strategy
+        original_lock_strategy = Devise.lock_strategy
+
+        Devise.maximum_attempts = 3
+        Devise.unlock_strategy = :email
+        Devise.lock_strategy = :failed_attempts
+
+        example.run
+      ensure
+        Devise.maximum_attempts = original_maximum_attempts
+        Devise.unlock_strategy = original_unlock_strategy
+        Devise.lock_strategy = original_lock_strategy
+      end
+
       let!(:maximum_attempts) { Devise.maximum_attempts }
 
       describe "when attempting to log in with failing password" do
@@ -640,7 +687,7 @@ describe "Authentication" do
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("Invalid")
+            expect(page).to have_text("Invalid")
           end
         end
 
@@ -665,7 +712,7 @@ describe "Authentication" do
               perform_enqueued_jobs { find("*[type=submit]").click }
             end
 
-            expect(page).to have_content("Invalid")
+            expect(page).to have_text("Invalid")
             expect(emails.count).to eq(1)
           end
         end
@@ -684,7 +731,7 @@ describe "Authentication" do
             perform_enqueued_jobs { find("*[type=submit]").click }
           end
 
-          expect(page).to have_content("If your account exists")
+          expect(page).to have_text("If your account exists")
           expect(emails.count).to eq(1)
         end
 
@@ -694,7 +741,7 @@ describe "Authentication" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("If your account exists")
+          expect(page).to have_text("If your account exists")
         end
       end
 
@@ -707,7 +754,7 @@ describe "Authentication" do
         it "unlocks the user account" do
           visit last_email_link
 
-          expect(page).to have_content("Your account has been successfully unlocked. Please log in to continue")
+          expect(page).to have_text("Your account has been successfully unlocked. Please log in to continue")
         end
       end
     end
@@ -748,7 +795,7 @@ describe "Authentication" do
 
         find(".login__omniauth-button.login__omniauth-button--facebook").click
 
-        expect(page).to have_content("Successfully")
+        expect(page).to have_text("Successfully authenticated from Facebook account.")
         expect_current_user_to_be(user)
       end
 
@@ -757,7 +804,7 @@ describe "Authentication" do
 
         it "does not allow the user to sign up" do
           click_on("Log in", match: :first)
-          expect(page).to have_no_content("Create an account")
+          expect(page).to have_no_text("Create an account")
         end
       end
 
@@ -766,12 +813,12 @@ describe "Authentication" do
 
         it "does not allow the user to sign up" do
           click_on("Log in", match: :first)
-          expect(page).to have_no_content("Create an account")
+          expect(page).to have_no_text("Create an account")
         end
 
         it "does not allow the user to sign in as a regular user, only through external accounts" do
           click_on("Log in", match: :first)
-          expect(page).to have_no_content("Email")
+          expect(page).to have_no_text("Email")
           within("div.login__omniauth") do
             expect(page).to have_link("Facebook")
           end
@@ -782,7 +829,7 @@ describe "Authentication" do
 
           find(".login__omniauth-button.login__omniauth-button--facebook").click
 
-          expect(page).to have_content("Successfully")
+          expect(page).to have_text("Successfully authenticated from Facebook account.")
           expect_current_user_to_be(user)
         end
 
@@ -796,7 +843,7 @@ describe "Authentication" do
           it "can log in without being prompted to change the password" do
             click_on("Log in", match: :first)
             click_on "Log in with Facebook"
-            expect(page).to have_content("Successfully")
+            expect(page).to have_text("Successfully authenticated from Facebook account.")
           end
         end
       end
@@ -820,7 +867,7 @@ describe "Authentication" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("confirmation link")
+          expect(page).to have_text("confirmation link")
         end
       end
     end
@@ -863,7 +910,7 @@ describe "Authentication" do
 
           find(".login__omniauth-button.login__omniauth-button--facebook").click
 
-          expect(page).to have_content("Finish creating your account")
+          expect(page).to have_text("Finish creating your account")
 
           check :registration_user_tos_agreement
           check :registration_user_newsletter
@@ -892,9 +939,9 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_text("Logged in successfully")
         expect_current_user_to_be(user)
-        expect(page).to have_no_content("Wrong user")
+        expect(page).to have_no_text("Wrong user")
       end
     end
   end
@@ -904,5 +951,5 @@ def expect_current_user_to_be(user)
   within_user_menu do
     click_on "My public profile"
   end
-  expect(page).to have_content(user.name)
+  expect(page).to have_text(user.name)
 end

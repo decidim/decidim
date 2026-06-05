@@ -90,7 +90,7 @@ module Decidim
 
     # Public: Registers a new item for the menu
     #
-    # @param identifier [String, Symbol] A compulsory label for the menu item
+    # @param item [String, Symbol] A compulsory label for the menu item
     #
     # @example
     #

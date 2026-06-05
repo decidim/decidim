@@ -17,9 +17,9 @@ module Decidim
     end
 
     # Checks if the user can participate in a participatory space
-    # based on its settings related with Decidim::HasPrivateUsers.
-    def can_participate_in_private_space?
-      return true unless current_participatory_space.class.included_modules.include?(HasPrivateUsers)
+    # based on its settings related with Decidim::ParticipatorySpace::HasMembers.
+    def can_participate_in_restricted_space?
+      return true unless current_participatory_space.class.included_modules.include?(Decidim::ParticipatorySpace::HasMembers)
 
       current_participatory_space.can_participate?(current_user)
     end
@@ -61,8 +61,9 @@ module Decidim
     # Checks if the user can accept and reject the emendation
     def allowed_to_accept_and_reject?(emendation)
       return unless emendation.amendment.evaluating?
+      return current_user.admin? if emendation.amendable.respond_to?(:official?) && emendation.amendable.official?
 
-      emendation.amendable.created_by?(current_user) || current_user.admin?
+      emendation.amendable.created_by?(current_user)
     end
 
     # Checks if the user can promote the emendation

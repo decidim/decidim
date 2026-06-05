@@ -197,10 +197,6 @@ hu:
       organization:
         update: "%{user_name} frissítette a szervezet beállításait"
         update_external_domain: "%{user_name} frissítette a szervezet külső domainjeit"
-      participatory_space_private_user:
-        create: "%{user_name} meghívott %{resource_name} privát felhasználónak"
-        create_via_csv: "%{user_name} meghívta %{resource_name} önt, hogy privát résztvevő legyen"
-        delete: "%{user_name} eltávolította a felhasználót %{resource_name} privát felhasználóként"
       scope:
         create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
         create_with_parent: "%{user_name} létrehozta a(z) %{resource_name} hatáskört ezen belül: %{parent_scope}"
@@ -298,9 +294,6 @@ hu:
         success: A módosító javaslat sikeresen frissítve.
       withdraw:
         success: A módosítás visszavonása sikeres.
-      wizard_step_form:
-        steps:
-          '1': Készítse el a módosítását
     anonymous_user: Névtelen
     application:
       document:
@@ -446,8 +439,6 @@ hu:
         description: Leírás
       footer_sub_hero:
         name: Lábléc sub hero banner
-      global_menu:
-        name: Globális menü
       hero:
         name: Hero image és CTA
       hero_settings_form:
@@ -564,7 +555,6 @@ hu:
     errors:
       files:
         file_resolution_too_large: A fájl felbontása túl nagy
-        not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
       internal_server_error:
         copied: Szöveg kimásolva!
         copy_error_message_clarification: A hibaüzenet másolása a vágólapra
@@ -587,13 +577,9 @@ hu:
           affected_user:
             email_intro: 'Módosítást fogadtak el %{amendable_title}. Láthatja ezt erről az oldalról:'
             email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
-            email_subject: Egy módosítás elfogadva %{amendable_title} innen %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítás elfogadott <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Módosítást fogadtak el %{amendable_title}. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title} követi. Leállíthatja az értesítések fogadását az előző link segítségével.
-            email_subject: Egy módosítás elfogadva %{amendable_title} -ra %{emendation_author_nickname}-tól
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítás elfogadásra került. <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Új módosítási javaslat érkezett - %{amendable_title}. Erről az oldalról tudod megnézni:'
@@ -609,24 +595,16 @@ hu:
           affected_user:
             email_intro: 'Ezt az elutasított módosítást %{amendable_title} önálló módosítássá %{amendable_type} emelték. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést azért kapta, mert Ön szerzője a %{amendable_title} dokumentumnak.
-            email_subject: A %{emendation_author_nickname} ból származó módosítást új szövegként tették közzé %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">elutasított módosítás </a> erre<a href="%{amendable_path}">%{amendable_title}</a> újként %{amendable_type} került közzétételre <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'A %{amendable_title} című elutasított módosítást önálló %{amendable_type} módosításra emelték. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést azért kapta, mert a %{amendable_title} követi. Leállíthatja az értesítések fogadását az előző link segítségével.
-            email_subject: A %{emendation_author_nickname} tól származó módosítást új szövegként tették közzé %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">elutasított módosítása </a> a <a href="%{amendable_path}">%{amendable_title}</a> re vonatkozóan újként került közzétételre %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést azért kapta, mert Ön szerzője a %{amendable_title} dokumentumnak.
-            email_subject: Egy módosítás elutasítva %{amendable_title} melynek szerzője %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást elutasították <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Látható ez az oldalról:'
             email_outro: Ezt az értesítést azért kapta, mert a %{amendable_title}-t követi. Leállíthatja az értesítések fogadását az előző link segítségével.
-            email_subject: "A %{emendation_author_nickname} által létrehozott módosítás itt \n%{amendable_title} elutasításra került"
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítás elutasításra került <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Új dokumentumot adtak hozzá a következőhöz: %{resource_title}. Innen érheted el:'
@@ -668,11 +646,6 @@ hu:
             Egy adminisztrátor eltávolította a %{resource_type} -ját mert %{report_reasons}-ként jelentették </br>
             <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: '%{name} (%{nickname}) (akit követsz) <a href="%{resource_url}">profil oldala</a> frissült.'
-          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: "%{nickname} frissítette profilját"
-          notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
         user_officialized:
           email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
           email_subject: "%{name} regisztrációja hivatalossá lett téva"
@@ -817,7 +790,6 @@ hu:
         latlng_text: 'földrajzi szélesség: %{latitude}, földrajzi hosszúság: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Segítség
       home: Kezdőlap
     messaging:
       conversation_mailer:
@@ -893,11 +865,9 @@ hu:
         main_image: Fő kép
     newsletters:
       unsubscribe:
-        check_subscription: Ha szeretné módosítani a beállításokat, akkor a <a href="%{link}" target="_blank">konfigurációs oldalon</a> teheti meg.
         error: Hiba történt a leiratkozás során.
         success: A leiratkozásod sikeres volt.
         token_error: A link sajnos lejárt.
-        unsubscribe: Leiratkozás
     newsletters_opt_in:
       unauthorized: Sajnos ez a link már nem elérhető.
       update:
@@ -905,7 +875,6 @@ hu:
         success: Hírlevél beállításainak frissítése sikeres.
     newsletters_opt_in_mailer:
       notify:
-        body_1: A személyes adatok védelme és feldolgozása egyre fontosabbá válik mindannyiunk számára. A 2018. május 25-én kiadott új általános adatvédelmi rendelet (GDPR) lehetővé teszi, hogy személyes adatainkat jobban ellenőrizhessük. Emiatt van szükségünk a jóváhagyásodra a %{organization_name} nevű szervezettel kapcsolatban.
         body_2: 'Hogyan tudsz beleegyezni? Egyszerűen kattints erre a gombra:'
         body_3: Amennyiben beleegyezel, akkor továbbra is elküldjük neked a platform szolgáltatásaival kapcsolatos fontos információkat. Ha nem értesz egyet, akkor többé nem küldünk ilyen üzeneteket. Jóllehet, miután megerősítetted a szándékod, hogy továbbra is szeretnél tájékoztatást kapni, bármikor visszavonhatod a döntésed.
         button: Igen, továbbra is szeretnék fontos információkat kapni
@@ -983,13 +952,10 @@ hu:
           proposals_explanation: Tegyél javaslatot, támogasd a már meglévőket, legyél Te a változás motorja.
         footer_sub_hero:
           footer_sub_hero_headline: Üdvözöljük a %{organization} részvételi platformján.
-          register: Regisztráció
         hero:
           participate: Részvétel
           participate_title: Részvétel a platform folyamataiban
           welcome: Üdvözöl a(z) %{organization}!
-        sub_hero:
-          register: Regisztráció
       index:
         standalone_pages: Oldalak
         subheading: Navigáljon a %{name} súgó oldalán
@@ -1005,6 +971,9 @@ hu:
           modal_btn_exit: Később tekintem át
           modal_button: Feltételek elutasítása
           modal_title: Tényleg elutasítja az ÁSZF frissített szövegét?
+    participatory_space_members:
+      index:
+        members: Belépés
     profile:
       deleted: Törölt résztvevő
     profiles:
@@ -1202,8 +1171,6 @@ hu:
         submit_button: Küldjön meghívót
       no_invitations_remaining: Nincsenek meghívók
       send_instructions: Meghívó e-mailt küldött %{email}.
-      updated: A jelszó sikeresen be lett állítva. Most bejelentkezett.
-      updated_not_active: A jelszó sikeresen be lett állítva.
     mailer:
       confirmation_instructions:
         action: Fiókom megerősítése
@@ -1223,17 +1190,13 @@ hu:
           Ha nem szeretné elfogadni a meghívást, hagyja figyelmen kívül ezt az e-mailt.<br />
           Fiókját addig nem hozzuk létre, amíg nem használja a fenti hivatkozást, és nem adja meg becenevét és jelszavát.
         invited_you_as_admin: "%{invited_by} meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
-        invited_you_as_private_user: "%{invited_by} meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
         someone_invited_you: 'Valaki meghívott, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         someone_invited_you_as_admin: 'Valaki meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
-        someone_invited_you_as_private_user: 'Valaki meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         subject: Meghívó utasítások
       invite_admin:
         subject: 'Meghívást kapott, hogy ezt kezelje a következő szervezetet: %{organization}'
       invite_collaborator:
         subject: Meghívták együttműködésre a(z) %{organization} szervezetben
-      invite_private_user:
-        subject: Meghívtak egy privát folyamatban való részvételre a (%{organization}) szervezetnél
       organization_admin_invitation_instructions:
         subject: 'Meghívást kapott, hogy kezelje a következő szervezetet: %{organization}'
       password_change:
@@ -1261,8 +1224,6 @@ hu:
         change_my_password: A jelszó megváltoztatása
         confirm_new_password: Erősítse meg az új jelszót
         new_password: Új jelszó
-        password_help: "%{minimum_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
-        password_help_admin: "%{minimum_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől és a régi jelszavaitól."
         title: Jelszó módosítása
       new:
         forgot_your_password: Elfelejtette a jelszavát?
@@ -1487,7 +1448,6 @@ hu:
       impersonation_warning:
         close_session: Munkamenet bezárása
         description_html: <b>%{user_name}</b> felhasználó menedzselése.
-        expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> perc múlva lejár</b>.
       language_chooser:
         choose_language: Válassz nyelvet
       notifications_dashboard:
@@ -1535,7 +1495,6 @@ hu:
     name_included_in_password: túlságosan hasonlít a nevedhez
     nickname_included_in_password: túlságosan hasonlít a becenevéhez
     not_enough_unique_characters: nem tartalmaz elegendő egyedi karaktert
-    password_not_allowed: nem engedélyezett
     password_repeated: korábban már használt jelszó nem megfelelő
     password_too_common: túl gyakori
     password_too_long: túl hosszú

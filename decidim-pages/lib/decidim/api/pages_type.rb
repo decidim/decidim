@@ -15,8 +15,8 @@ module Decidim
         Page.where(component: object).includes(:component)
       end
 
-      def page(**args)
-        Page.where(component: object).find_by(id: args[:id])
+      def page(id:)
+        Decidim::Core::ComponentFinderBase.new(model_class: Page).call(object, { id: }, context)
       end
     end
   end

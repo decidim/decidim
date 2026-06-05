@@ -33,47 +33,37 @@
   }
 }
 
+[data-target="dropdown-menu-main-mobile"] {
+  &[aria-expanded="false"] > span:last-of-type,
+  &[aria-expanded="true"] > span:first-of-type {
+    @apply hidden;
+  }
+
+  &[aria-expanded="true"] > span:last-of-type,
+  &[aria-expanded="false"] > span:first-of-type {
+    @apply block;
+  }
+}
+
+[data-target="dropdown-menu-main-desktop"] {
+  > span:first-of-type,
+  > svg:first-of-type {
+    @apply block;
+  }
+}
+
+[data-target="dropdown-menu-main-desktop"] {
+  > span,
+  > svg {
+    @apply hidden md:block;
+  }
+}
+
 [data-target="dropdown-menu-participatory-space"],
 [data-target="dropdown-menu-order"],
 [data-target="dropdown-menu-resource"],
 [data-target="dropdown-menu-sidebar"] {
   @apply md:hidden;
-}
-
-[data-target="dropdown-menu-language-chooser"] {
-  & > span {
-    @apply block font-semibold text-black text-xs;
-  }
-
-  > svg {
-    @apply w-5 h-6 flex-none text-xs font-normal text-black fill-current;
-  }
-
-  & > ul {
-    @apply w-6 bg-gray;
-
-    > li {
-      @apply w-6 bg-gray;
-    }
-  }
-}
-
-[data-target="dropdown-menu-language-chooser-mobile"] {
-  & > span {
-    @apply block text-black font-normal text-sm;
-  }
-
-  > svg {
-    @apply w-5 h-6 flex-none text-xs font-normal text-black fill-current;
-  }
-
-  & > ul {
-    @apply w-6 bg-gray;
-
-    > li {
-      @apply w-6 bg-gray;
-    }
-  }
 }
 
 .dropdown {
@@ -106,12 +96,9 @@
           @apply text-gray-2 mr-1;
         }
       }
-    }
 
-    &:hover,
-    &-hovered {
-      > .dropdown__button {
-        @apply text-white no-underline;
+      &:hover {
+        @apply text-white no-underline !bg-secondary;
 
         span {
           @apply text-white;
@@ -119,6 +106,26 @@
 
         svg {
           @apply fill-white;
+        }
+      }
+    }
+
+    &-opened {
+      > .dropdown__button {
+        @apply text-secondary no-underline;
+
+        span {
+          @apply text-secondary;
+        }
+
+        svg {
+          fill: rgb(var(--secondary-rgb) / var(--tw-bg-opacity)) !important;
+        }
+
+        &:hover {
+          svg {
+            fill: white !important;
+          }
         }
       }
     }

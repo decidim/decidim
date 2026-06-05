@@ -22,7 +22,7 @@ module Decidim
 
       # Generates the correct URL to the asset with the provided options.
       #
-      # @param options [Hash] The options for the URL that are the normal route
+      # Accepts the options for the URL that are the normal route
       #   options Rails route helpers accept
       # @return [String] The full URL to the asset or when host cannot be
       #   resolved, the asset path.

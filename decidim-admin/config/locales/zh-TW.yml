@@ -46,7 +46,6 @@ zh-TW:
         default_locale: 預設語言
         description: 說明
         enable_omnipresent_banner: 顯示全域廣告
-        enable_participatory_space_filters: 啟用參與空間過濾器
         facebook_handler: Facebook 處理器
         favicon: 圖示
         force_authentication: 強制認證
@@ -85,9 +84,6 @@ zh-TW:
         welcome_notification_body: 歡迎通知內容
         welcome_notification_subject: 歡迎通知主旨
         youtube_handler: YouTube 處理器
-      participatory_space_private_user:
-        email: 電子郵件
-        name: 名稱
       scope:
         code: 代碼
         name: 名稱
@@ -128,10 +124,6 @@ zh-TW:
           attributes:
             official_img_footer:
               allowed_file_content_types: 圖片有誤
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: 匯入檔案格式有誤，請小心閱讀教學並且確認檔案是使用 UTF-8 編碼
         user_group_csv_verification:
           attributes:
             file:
@@ -165,12 +157,10 @@ zh-TW:
           new: 新增附件資料夾
         browse: 瀏覽
         configure: 配置
-        export-selection: 匯出選擇
+        export_all: 全部匯出
         import: 匯入
         newsletter:
           new: 新電子報
-        participatory_space_private_user:
-          new: 新參與空間私有使用者
         per_page: 每頁
         share: 分享
         user:
@@ -187,7 +177,6 @@ zh-TW:
           alert: '必填：請審閱我們的管理者服務條款'
           callout: 請花點時間審閱管理者服務條款，否則將無法管理平台
           cta: 現在審閱
-        title: 管理者服務條款
       area_types:
         create:
           error: 新增區域類型時發生錯誤
@@ -229,8 +218,6 @@ zh-TW:
         edit:
           title: 編輯資料夾
           update: 更新
-        index:
-          attachment_collections_title: 附件資料夾
         new:
           create: 建立
           title: 新資料夾
@@ -246,8 +233,6 @@ zh-TW:
         edit:
           title: 編輯附件
           update: 更新
-        index:
-          attachments_title: 附件
         new:
           create: 建立附件
           title: 新增附件
@@ -294,7 +279,6 @@ zh-TW:
           title: '新增元件： %{name}'
         publish:
           success: 這個元件已經成功發佈
-        title: 元件
         unpublish:
           success: 這個元件已經成功取消發佈
         update:
@@ -305,7 +289,6 @@ zh-TW:
         'false': '否'
         managed_user_name: 管理的使用者
         solved: 已解決
-        title: 驗證衝突
         transfer:
           email: 電子郵件
           name: 名稱
@@ -355,17 +338,6 @@ zh-TW:
           values:
             'false': 官方化
             'true': 非官方化
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: 邀請已接受
-            values:
-              'false': 未接受
-              'true': 已接受
-          user_invitation_sent_at_not_null:
-            label: 已發送邀請
-            values:
-              'false': 未發送
-              'true': 已送出
         private_space_eq:
           label: 私人的
           values:
@@ -428,7 +400,6 @@ zh-TW:
           impersonate: 模擬
           impersonate_existing_managed_user: 管理參與者 "%{name}"
           impersonate_existing_user: 管理參與者 "%{name}"
-          impersonate_new_managed_user: 管理新參與者
       imports:
         and: 和
         data_errors:
@@ -477,8 +448,11 @@ zh-TW:
         promotions:
           new:
             explanation: 受管理的參與者可以晉升為標準參與者。這意味著他們將受邀加入應用程式，您將無法再對其進行管理。被邀請的參與者將收到一封電子郵件，以接受您的邀請。
-            new_managed_user_promotion: 晉升新的受管理參與者
             promote: 推廣
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: 請上傳您的 CSV 檔案。
       menu:
         admin_log: 管理員活動日誌
         admins: 管理員
@@ -536,8 +510,6 @@ zh-TW:
             sent_to: 發送至
             subject: 主旨
           name: 電子報
-        participatory_space_private_user:
-          name: 參與空間私有參與者
         scope:
           fields:
             name: 名稱
@@ -616,7 +588,6 @@ zh-TW:
           title: 通訊範本
           use_template: 使用這個範本
         show:
-          preview: '預覽範本： %{template_name}'
           use_template: 使用這個範本
       newsletters:
         create:
@@ -661,7 +632,6 @@ zh-TW:
         send:
           no_recipients: 沒有選擇收件人.
         show:
-          preview: 預覽
           select_recipients_to_deliver: 選擇要傳送的收件人
           subject: 主旨
         update:
@@ -715,38 +685,6 @@ zh-TW:
         update:
           error: 更新此組織時發生問題。
           success: 組織更新成功
-      participatory_space_private_users:
-        create:
-          error: 在此參與空間中添加私人參與者時出現問題。
-          success: 成功建立參與空間的私人參與者訪問權限。
-        destroy:
-          error: 刪除參與空間的私人參與者時發生問題。
-          success: 成功刪除參與空間的私人參與者訪問權限。
-        index:
-          import_via_csv: 透過 CSV 匯入
-          title: 參與空間私有參與者
-        new:
-          create: 建立
-          title: 新的參與空間私人參與者。
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: 讀取 CSV 檔案時發生問題。請確保您已按照指示進行操作。
-          success: CSV檔案上傳成功，我們正在發送邀請電子郵件給參與者。這可能需要一些時間。
-        new:
-          csv_upload:
-            title: 請上傳您的 CSV 檔案。
-          destroy:
-            button: 刪除所有私人參與者
-            confirm: 您確定要刪除所有私人參與者嗎？此操作無法撤銷，您將無法恢復它們。
-            empty: 您沒有私人參與者。
-            explanation: 您有 %{count} 位私人參與者。
-            title: 刪除私人參與者
-          example_file: '示例文件:'
-          explanation: '請上傳您的 CSV 檔案。檔案的第一欄應為電子郵件，最後一欄應為要添加到參與空間的使用者的名稱，檔案中不應包含標題。請避免在使用者名稱中使用無效字元，例如 <>?%&^*#@()[]=+:;"{}\|。'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: 上傳
       reminders:
         create:
           error: 在創建提醒時遇到問題。
@@ -812,7 +750,6 @@ zh-TW:
           title: 新增主題
         update:
           error: 更新主題時發生問題。
-          success: 主題已成功更新。
       static_pages:
         create:
           error: 創建新頁面時出現問題。
@@ -836,18 +773,10 @@ zh-TW:
           error: 更新此頁面時出現問題。
           success: 頁面已更新成功.
       titles:
-        admin_log: 管理日誌
-        area_types: 區域類型
         areas: 區域
         authorization_workflows: 驗證方式
-        dashboard: 儀表板
-        impersonatable_users: 可管理的參與者
-        impersonations: 參與者管理
         panel: 管理員
-        participants: 參與者
-        scope_types: 範圍類型
         scopes: 範圍
-        users: 管理員
       users:
         create:
           error: 邀請此管理員時出現問題。
@@ -868,7 +797,6 @@ zh-TW:
           last_day: 過去 1 天
           last_month: 上個月
           last_week: 上週
-          no_users_count_statistics_yet: 目前還沒有使用者統計數據。
           participants: 參與者
     forms:
       errors:

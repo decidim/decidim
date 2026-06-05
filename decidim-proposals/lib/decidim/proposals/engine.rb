@@ -28,16 +28,6 @@ module Decidim
             end
           end
         end
-        resources :collaborative_drafts, except: [:destroy] do
-          member do
-            post :request_access, controller: "collaborative_draft_collaborator_requests"
-            post :request_accept, controller: "collaborative_draft_collaborator_requests"
-            post :request_reject, controller: "collaborative_draft_collaborator_requests"
-            post :withdraw
-            post :publish
-          end
-          resources :versions, only: [:show]
-        end
         scope "/proposals" do
           root to: "proposals#index"
         end
@@ -45,22 +35,24 @@ module Decidim
       end
 
       initializer "decidim_proposals.register_icons" do
-        Decidim.icons.register(name: "Decidim::Proposals::CollaborativeDraft", icon: "draft-line", category: "activity",
-                               description: "Collaborative draft", engine: :proposals)
         Decidim.icons.register(name: "Decidim::Proposals::Proposal", icon: "chat-new-line", category: "activity",
                                description: "Proposal", engine: :proposals)
         Decidim.icons.register(name: "participatory_texts_item", icon: "bookmark-line", description: "Index item", category: "participatory_texts",
                                engine: :proposals)
 
         Decidim.icons.register(name: "scan-line", icon: "scan-line", category: "system", description: "", engine: :proposals)
-        Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line",
-                               category: "action", description: "Edit icon for Collaborative Drafts", engine: :proposals)
 
         Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "bar-chart-2-line", icon: "bar-chart-2-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "scales-line", icon: "scales-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "layout-grid-fill", icon: "layout-grid-fill", category: "system", description: "", engine: :proposals)
+      end
+
+      initializer "decidim_proposals.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
       initializer "decidim_proposals.content_processors" do |_app|
@@ -145,7 +137,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_proposals.webpacker.assets_path" do
+      initializer "decidim_proposals.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
@@ -163,6 +155,12 @@ module Decidim
             Decidim::Proposals::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end
+      end
+
+      initializer "decidim_proposals.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Proposals::ProposalsMutationType
+        )
       end
     end
   end

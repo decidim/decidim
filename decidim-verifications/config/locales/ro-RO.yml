@@ -36,7 +36,6 @@ ro:
           before_date_info: Este util dacă procesul a început deja și dorești să revoci drepturile procesului anterior.
           button: Revocați toate autorizările
           button_before: Revocați toate autorizările înainte de data
-          destroy_ok: Toate autorizațiile corelate au fost revocate.
           info: Există un total de %{count} participanți verificați.
           title: Revocarea autorizațiilor
         authorization_workflows: Autorizări
@@ -60,14 +59,17 @@ ro:
             - Marcați scrisoarea ca fiind trimisă.
             - Odată ce marcați scrisoarea ca fiind trimisă, participantul va putea introduce codul și va putea fi verificat.
       csv_census:
+        explanation: Obțineți verificarea folosind recensământul organizației.
         name: Recensământul organizației
       direct: Directă
       help: Ajutor
       id_documents:
+        explanation: Încărcați documentele dumneavoastră de identitate pentru a vă putea verifica identitatea.
         name: Documente de identitate
       multistep: Mai multe etape
       name: Nume
       postal_letter:
+        explanation: Vă vom trimite o scrisoare poștală cu un cod pe care va trebui să îl introduceți pentru a vă putea verifica adresa.
         name: Cod primit prin scrisoare poștală
     verifications:
       authorizations:
@@ -121,7 +123,7 @@ ro:
               success: S-au importat cu succes înregistrări. Noi procesăm datele. Reîmprospătați pagina în câteva minute pentru a vedea modificările.
             edit_record:
               save: Salvați
-              title: Editați înregistrarea recensământului
+              title: Modificați înregistrarea recensământului
             form:
               email: Email
             new_record:
@@ -138,10 +140,6 @@ ro:
               email: Email
               user_authorized: Utilizator autorizat?
             no_authorized: Utilizator neautorizat
-            title: Date de recensământ curente
-          instructions:
-            body: Pentru a face acest lucru, trebuie să introduci administrarea sistemului şi să adaugi autorizaţiile csv_recensământ în organizaţie
-            title: Trebuie să activezi recensământul CSV pentru această organizație
         authorizations:
           new:
             error: Nu am putut verifica contul tău sau nu ești în recensământul organizației.
@@ -170,13 +168,11 @@ ro:
               success: Configurație actualizată cu succes.
           confirmations:
             new:
-              introduce_user_data: Introdu datele din imagine
               reject: Respingeți
               verify: Verificați
           offline_confirmations:
             new:
               cancel: Anulați
-              introduce_user_data: Introdu adresa de e-mail a participantului și datele documentului
               verify: Verificați
           pending_authorizations:
             index:
@@ -193,7 +189,7 @@ ro:
           edit:
             offline: Folosește verificarea offline
             online: Folosește verificarea online
-            send: Cere verificarea din nou
+            send: Solicitați din nou verificarea
           new:
             send: Cere verificare
             title: Încarcă documentul tău de identitate
@@ -211,17 +207,17 @@ ro:
               verification_code: Cod de verificare
         authorizations:
           edit:
-            send: Confirmă
+            send: Confirmați
           new:
             send: Trimiteți-mi o scrisoare
             title: Cere codul tău de verificare
       sms:
         authorizations:
           edit:
-            confirm_destroy: Sigur dorești să resetezi codul de verificare?
-            destroy: Resetează codul de verificare
-            send: Confirmă
-            title: Introdu codul de verificare primit
+            confirm_destroy: Sigur doriți să resetați codul de verificare?
+            destroy: Resetați codul de verificare
+            send: Confirmați
+            title: Introduceți codul de verificare primit
           new:
             send: Trimite-mi un SMS
             title: Solicitați codul de verificare

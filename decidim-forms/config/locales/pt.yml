@@ -15,8 +15,6 @@ pt:
             description: Descrição
             tos: Termos de serviço
         questionnaires:
-          actions:
-            back: Retroceder às perguntas
           display_condition:
             condition_question: Pergunta
             condition_type: Condição
@@ -51,20 +49,16 @@ pt:
             any: Qualquer
             collapse: Colapsar
             description: Descrição
-            down: Abaixo
             expand: Expandir
             question: Questão
             remove: Remover
             statement: Declaração
-            up: Acima
           responses:
             actions:
               show: Mostrar respostas
           separator:
-            down: Abaixo
             remove: Remover
             separator: Separador
-            up: Acima
           update:
             invalid: Ocorreu um problema ao guardar o questionário.
             success: Formulário guardado com êxito
@@ -84,9 +78,6 @@ pt:
           current_step: Passo %{step}
           of_total_steps: de %{total_steps}
           questionnaire_closed:
-            title: Questionário encerrado
-          questionnaire_for_private_users:
-            body: O questionário está disponível apenas para utilizadores privados
             title: Questionário encerrado
           questionnaire_js_disabled:
             body: Algumas características deste questionário serão desativadas. Para melhorar a sua experiência, por favor ative o JavaScript no seu navegador.

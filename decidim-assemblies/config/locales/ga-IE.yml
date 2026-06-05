@@ -3,7 +3,6 @@ ga:
     attributes:
       assembly:
         area_id: Ceantar
-        copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
         decidim_scope_id: Scóip
         domain: Fearann
@@ -38,14 +37,8 @@ ga:
       assemblies:
         edit:
           update: Nuashonraigh
-        index:
-          private: Príobháideach
-          public: Poblach
         new:
           create: Cruthaigh
-      assembly_copies:
-        new:
-          copy: Cóipeáil
       assembly_imports:
         new:
           import: Iompórtáil
@@ -62,7 +55,6 @@ ga:
       models:
         assembly:
           fields:
-            private: Príobháideach
             title: Teideal
           name: Tionól
         assembly_member:
@@ -92,9 +84,6 @@ ga:
         filters:
           names:
             all: Uile
-      assembly_members:
-        index:
-          members: Baill
       created_by:
         others: Eile
         public: Poblach
@@ -103,9 +92,6 @@ ga:
         others: Eile
       show:
         duration: Fad
-    assembly_members:
-      index:
-        title: Baill
   layouts:
     decidim:
       assembly_navigation:

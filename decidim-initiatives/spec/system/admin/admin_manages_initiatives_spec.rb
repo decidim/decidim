@@ -53,15 +53,13 @@ describe "Admin manages initiatives" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_admin_initiatives.initiatives_path
+    visit decidim_admin_initiatives.initiatives_path(locale: I18n.locale)
   end
 
   describe "listing initiatives" do
     STATES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.initiatives.state_eq.values")
-
-      context "when filtering collection by state: #{i18n_state}" do
-        it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
+      context "when filtering collection by state: #{I18n.t(state, scope: "decidim.admin.filters.initiatives.state_eq.values")}" do
+        it_behaves_like "a filtered collection", options: "State", filter: I18n.t(state, scope: "decidim.admin.filters.initiatives.state_eq.values") do
           let(:in_filter) { translated(initiative_with_state(state).title) }
           let(:not_in_filter) { translated(initiative_without_state(state).title) }
         end
@@ -69,16 +67,15 @@ describe "Admin manages initiatives" do
     end
 
     Decidim::InitiativesTypeScope.all.each do |scoped_type|
-      type = scoped_type.type
-      i18n_type = type.title[I18n.locale.to_s]
+      let(:type) { scoped_type.type }
 
-      context "when filtering collection by type: #{i18n_type}" do
+      context "when filtering collection by type: #{scoped_type.type.title[I18n.locale.to_s]}" do
         before do
           create(:initiative, organization:, scoped_type: scoped_type1)
           create(:initiative, organization:, scoped_type: scoped_type2)
         end
 
-        it_behaves_like "a filtered collection", options: "Type", filter: i18n_type do
+        it_behaves_like "a filtered collection", options: "Type", filter: scoped_type.type.title[I18n.locale.to_s] do
           let(:in_filter) { translated(initiative_with_type(type).title) }
           let(:not_in_filter) { translated(initiative_without_type(type).title) }
         end
@@ -88,19 +85,17 @@ describe "Admin manages initiatives" do
     it "can be searched by title" do
       search_by_text(translated(open_initiative.title))
 
-      expect(page).to have_content(translated(open_initiative.title))
+      expect(page).to have_text(translated(open_initiative.title))
     end
 
     Decidim::Area.all.each do |area|
-      i18n_area = area.name[I18n.locale.to_s]
-
-      context "when filtering collection by area: #{i18n_area}" do
+      context "when filtering collection by area: #{area.name[I18n.locale.to_s]}" do
         before do
           create(:initiative, organization:, area: area1)
           create(:initiative, organization:, area: area2)
         end
 
-        it_behaves_like "a filtered collection", options: "Area", filter: i18n_area do
+        it_behaves_like "a filtered collection", options: "Area", filter: area.name[I18n.locale.to_s] do
           let(:in_filter) { translated(initiative_with_area(area).title) }
           let(:not_in_filter) { translated(initiative_without_area(area).title) }
         end
@@ -110,25 +105,19 @@ describe "Admin manages initiatives" do
     it "can be searched by description" do
       search_by_text(translated(open_initiative.description))
 
-      expect(page).to have_content(translated(open_initiative.title))
-    end
-
-    it "can be searched by id" do
-      search_by_text(open_initiative.id)
-
-      expect(page).to have_content(translated(open_initiative.title))
+      expect(page).to have_text(translated(open_initiative.title))
     end
 
     it "can be searched by author name" do
       search_by_text(open_initiative.author.name)
 
-      expect(page).to have_content(translated(open_initiative.title))
+      expect(page).to have_text(translated(open_initiative.title))
     end
 
     it "can be searched by author nickname" do
       search_by_text(open_initiative.author.nickname)
 
-      expect(page).to have_content(translated(open_initiative.title))
+      expect(page).to have_text(translated(open_initiative.title))
     end
 
     it_behaves_like "paginating a collection"

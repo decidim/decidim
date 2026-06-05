@@ -36,8 +36,8 @@ module Decidim
         end
 
         context "when document does not exist" do
-          it "raises an ActiveRecord::RecordNotFound error" do
-            expect { get :show, params: { id: "non-existent" } }.to raise_error(ActiveRecord::RecordNotFound)
+          it "raises an ActionController::RoutingError error" do
+            expect { get :show, params: { id: "non-existent" } }.to raise_error(ActionController::RoutingError)
           end
         end
       end

@@ -49,9 +49,10 @@ fi-pl:
         confirm_delete_project: Haluatko varmasti poistaa tämän projektin?
         deleted_budgets_info: Poistetut budjetit voidaan palauttaa roskakorista.
         edit: Muokkaa
+        edit_projects: Lisää projekteja
         import: Tuo ehdotuksia suunnitelmiin
         new_budget: Uusi budjetti
-        new_project: Uusi projekti
+        new_project: Uusi suunnitelma
         preview: Esikatsele
         send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
@@ -82,8 +83,6 @@ fi-pl:
         exports:
           projects: Suunnitelmat
         models:
-          budget:
-            name: Budjetti
           project:
             name: Suunnitelma
         projects:
@@ -91,7 +90,7 @@ fi-pl:
             invalid: Hankkeen luonti epäonnistui.
             success: Hankkeen luonti onnistui.
           edit:
-            title: Muokkaa suunnitelmaa
+            title: Muokkaa projektia budjetissa %{budget}
             update: Päivitä
           index:
             actions: Toiminnot
@@ -114,7 +113,7 @@ fi-pl:
             title: Poistetut projektit
           new:
             create: Luo
-            title: Uusi suunnitelma
+            title: Uusi projekti budjetille %{budget}
           update:
             invalid: Hankkeen poisto epäonnistui.
             success: Hankkeen päivitys onnistui.
@@ -143,9 +142,10 @@ fi-pl:
           new:
             create: Tuo ehdotuksia suunnitelmiin
             default_budget: Oletusbudjetti
-            import_all_accepted_proposals: Tuo kaikki hyväksytyt ehdotukset
             no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             origin_component_id: Lähdekomponentti
+            proposal_states: Ehdotusten tilat
+            proposal_states_help: Valitse yksi tai useampi ehdotusten tila, joiden perusteella ehdotuksia tuodaan projekteiksi. Mikäli et valitse yhtään tilaa, kaikki julkaistut ehdotukset tuodaan, jos niitä ei ole aikaisemmin tuotu tämän komponentin budjetteihin.
             select_component: Valitse komponentti
             title: Tuo ehdotuksia projekteiksi
         reminders:
@@ -177,6 +177,7 @@ fi-pl:
         cancel_order:
           more_than_one: poista äänesi budjetista %{name} ja aloita alusta
           only_one: poista äänesi ja aloita alusta.
+        completed: Valmistunut
         count:
           one: "%{count} budjetti"
           other: "%{count} budjettia"
@@ -184,6 +185,7 @@ fi-pl:
         finished_message: Olet äänestänyt. Kiitos osallistumisestasi!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
+        incomplete: Keskeneräinen
         orders:
           highest_cost: Kallein ensin
           label: Järjestä budjetit
@@ -191,6 +193,8 @@ fi-pl:
           random: Satunnainen järjestys
         progress: Viimeistele äänestys
         remove_vote: Poista ääni
+        see_projects: Näytä projektit
+        see_results: Näytä tulokset
         show: Näytä projektit
         vote: Äänestä
         voted_budgets: Äänestetyt budjetit
@@ -210,7 +214,6 @@ fi-pl:
             total_budget: Kokonaisbudjetti
         project:
           fields:
-            id: ID
             map: Kartta
             taxonomies: Luokittelut
             title: Otsikko
@@ -239,6 +242,7 @@ fi-pl:
           subject: Olet äänestänyt osallistumistilassa %{space_name}
           voted_on_space: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name}.
       projects:
+        back_to_budgets: Takaisin kaikkiin budjetteihin
         budget_confirm:
           are_you_sure: Jos muutat mieltäsi, voit muuttaa ääntäsi myöhemmin.
           cancel: Peruuta
@@ -282,18 +286,16 @@ fi-pl:
           assigned: Varattu
           budget: Budjetti
           dynamic_help:
-            keep_adding_projects: Jatka projektien valitsemista
             minimum_reached: Olet saavuttanut äänestystä varten vaaditun vähimmäismäärän
-            start_adding_projects: Aloita valitsemalla projekteja
           minimum: Vähintään
           minimum_projects_rule:
-            description: Valitse vähintään %{minimum_number} haluamaasi projektia äänestääksesi mieltymystesi mukaisesti.
+            description: "<b>Valitse vähintään %{minimum_number} haluamaasi projektia</b> äänestääksesi mieltymystesi mukaisesti."
           projects_rule:
-            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi projektia äänestääksesi mieltymystesi mukaisesti.
+            description: "<b>Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi projektia</b> äänestääksesi mieltymystesi mukaisesti."
           projects_rule_maximum_only:
-            description: Valitse enintään %{maximum_number} haluamaasi projektia äänestääksesi mieltymystesi mukaisesti.
+            description: "<b>Valitse enintään %{maximum_number} haluamaasi projektia</b> äänestääksesi mieltymystesi mukaisesti."
           vote_threshold_percent_rule:
-            description: Varaa vähintään %{minimum_budget} projekteille äänestääksesi mieltymystesi mukaisesti.
+            description: "<b>Varaa vähintään %{minimum_budget}</b> projekteille äänestääksesi mieltymystesi mukaisesti."
         orders:
           highest_cost: Kallein ensin
           label: Järjestä suunnitelmat
@@ -321,7 +323,7 @@ fi-pl:
         select_projects: Valitse projektit
         show:
           budget: Budjetti
-        start_voting: Aloita äänestys
+          votes: Äänet
       prompt: Valitse budjetti
       vote_reminder_mailer:
         vote_reminder:
@@ -337,6 +339,7 @@ fi-pl:
         actions:
           comment: Kommentoi
           vote: Äänestä
+          vote_comment: Äänestä kommenttia
         name: Budjetit
         settings:
           global:
@@ -366,6 +369,11 @@ fi-pl:
             vote_selected_projects_maximum: Valittavien suunnitelmien enimmäismäärä
             vote_selected_projects_minimum: Valittavien suunnitelmien vähimmäismäärä
             vote_threshold_percent: Äänestyksen kynnysprosentti
+            voting_rule: Äänestystapa
+            voting_rule_choices:
+              minimum_projects: Valittavien projektien vähimmäismäärä
+              selected_projects: Valittavien projektien enimmäis- ja vähimmäismäärä
+              threshold_percent: Kokonaisbudjetin prosentuaalinen vähimmäismäärä
             workflow: Työnkulku
             workflow_choices:
               all: 'Äänestä kaikissa: sallii osallistujien äänestää kaikissa budjeteissa.'
@@ -396,13 +404,6 @@ fi-pl:
           updated_at: Äänen viimeisimmän päivityksen ajankohta
       show:
         projects: Projektien vienti
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Budjetti %{resource_title} on nyt aktiivinen osallistumistilassa %{participatory_space_title}. Näet sen tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Budjetti %{resource_title} on nyt aktiivinen osallistumistilassa %{participatory_space_title}.
-          notification_title: Budjetti <a href="%{resource_path}">%{resource_title}</a> on nyt aktiivinen osallistumistilassa %{participatory_space_title}.
     open_data:
       help:
         projects:

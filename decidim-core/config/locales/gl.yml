@@ -109,9 +109,6 @@ gl:
         update: "%{user_name} actualizou a aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizou a configuración da organización"
-      participatory_space_private_user:
-        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
-        delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
       scope:
         create: "O %{user_name} creou o alcance %{resource_name}"
         create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
@@ -160,9 +157,6 @@ gl:
         back: De volta
         heading: Revisa a modificación
         send: Aceptar a emenda
-      wizard_step_form:
-        steps:
-          '1': Crea a túa emenda
     anonymous_user: Anónimo
     application:
       documents:
@@ -318,13 +312,9 @@ gl:
           affected_user:
             email_intro: 'A emenda foi aceptada para %{amendable_title}. Podes velo desde esta páxina:'
             email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
-            email_subject: Unha enmenda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">cambio</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'A emenda foi aceptada para %{amendable_title}. Podes velo desde esta páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Unha enmenda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">cambio</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Creouse unha nova emenda para %{amendable_title}. Podes velo desde esta páxina:'
@@ -340,24 +330,16 @@ gl:
           affected_user:
             email_intro: 'Unha enmenda rexeitada para %{amendable_title} foi promovida a unha independente %{amendable_type}. Podes velo desde esta páxina:'
             email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
-            email_subject: Unha emenda de %{emendation_author_nickname} publicouse como un novo %{amendable_type}
-            notification_title: Un <a href="%{emendation_path}">rexeitado cambio</a> para <a href="%{amendable_path}">%{amendable_title}</a> publicouse como unha nova %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Unha enmenda rexeitada para %{amendable_title} foi promovida a unha independente %{amendable_type}. Podes velo desde esta páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Unha emenda de %{emendation_author_nickname} publicouse como un novo %{amendable_type}
-            notification_title: Un <a href="%{emendation_path}">rexeitado cambio</a> para <a href="%{amendable_path}">%{amendable_title}</a> publicouse como unha nova %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Rexeitouse unha modificación para %{amendable_title}. Podes velo desde esta páxina:'
             email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
-            email_subject: Unha enmenda rexeitada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">cambio</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rexeitado por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Rexeitouse unha modificación para %{amendable_title}. Podes velo desde esta páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Unha enmenda rexeitada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">cambio</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rexeitado por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Engadiuse un novo documento a %{resource_title}. Podes velo desde esta páxina:'
@@ -381,16 +363,9 @@ gl:
         level_up:
           email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
       users:
-        profile_updated:
-          email_intro: O <a href="%{resource_url}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
-          email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: "%{nickname} actualizou o seu perfil"
-          notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
         user_officialized:
-          email_intro: O participante %{name} (%{nickname}) foi oficializado.
           email_outro: Recibiches esta notificación por que es administrador da organización.
           email_subject: "%{name} foi oficializado"
-          notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       download_your_data_export:
         download: Descarga
@@ -500,7 +475,6 @@ gl:
     managed_users:
       expired_session: A sesión de suplantación actual caducou.
     menu:
-      help: Axuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -526,10 +500,8 @@ gl:
       unsubscribe:
         success: Estás desubscrito con éxito.
         token_error: A ligazón caducou.
-        unsubscribe: Anular a suscripción
     newsletters_opt_in_mailer:
       notify:
-        body_1: O procesamento de datos persoais ea súa protección é cada vez máis importante para todos. Coa nova norma xeral de protección de datos (GDPR) do 25 de maio de 2018, os individuos teñen un mellor control sobre os seus datos persoais. Por este motivo necesitamos o "OK" para seguir enviando información relevante sobre as actividades do %{organization_name}.
         body_2: 'Como nos pode dar o seu consentimento? Só tes que premer no seguinte botón:'
         body_3: Con este consentimento poderás seguir recibindo información sobre os servizos da plataforma. Se, pola contra, non recibimos unha confirmación positiva da súa parte, deixaremos de enviarlle as nosas mensaxes. Se confirma que quere manter informado, sempre terá a opción de cancelar en calquera momento.
         button: Si, quero seguir recibindo información relevante
@@ -576,17 +548,17 @@ gl:
           proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
         footer_sub_hero:
           footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
-          register: Rexistrarse
         hero:
           participate: Participar
           welcome: Benvido a %{organization}.
-        sub_hero:
-          register: Rexistrarse
       index:
         standalone_pages: Páxinas
         subheading: Navega polas páxinas de axuda de %{name}
         title: Axuda
         topics: Temas
+    participatory_space_members:
+      index:
+        members: Membros
     profile:
       deleted: Usuario eliminado
     profiles:
@@ -692,8 +664,6 @@ gl:
         submit_button: Enviar unha invitación
       no_invitations_remaining: Non hai invitacións restantes
       send_instructions: Enviouse un correo electrónico de invitación a %{email}.
-      updated: O seu contrasinal configurouse con éxito. Agora iniciaches sesión.
-      updated_not_active: O seu contrasinal configurouse con éxito.
     mailer:
       confirmation_instructions:
         action: Confirme a miña conta
@@ -709,10 +679,8 @@ gl:
         decline: Declina a invitación
         hello: Ola %{email},
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
-        invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
-        someone_invited_you_as_private_user: Alguén te convidou como usuario privado de %{application}, podes aceptalo a través da seguinte ligazón.
         subject: Instrucións de invitación
       password_change:
         greeting: Ola %{recipient}!
@@ -801,7 +769,6 @@ gl:
       impersonation_warning:
         close_session: Pechar sesión
         description_html: Estás a suplantar o usuario <b>%{user_name}</b>.
-        expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marca todo como lido
       user_menu:
@@ -827,7 +794,6 @@ gl:
     name_included_in_password: é moi similar ao teu nome
     nickname_included_in_password: é moi semellante ao teu alcume
     not_enough_unique_characters: non ten suficientes caracteres únicos
-    password_not_allowed: non está permitido
     password_too_common: é moi común
     password_too_long: é demasiado longo
     password_too_short: é demasiado curto

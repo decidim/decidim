@@ -4,9 +4,6 @@
       participatory_process:
         announcement: Kunngjøring
         area_id: Område
-        copy_categories: Kopier kategorier
-        copy_components: Kopier komponenter
-        copy_steps: Kopier trinn
         decidim_area_id: Område
         description: Beskrivelse
         developer_group: Promotørgruppe
@@ -23,7 +20,6 @@
         participatory_process_group_id: Prosessgruppe
         participatory_scope: Medvirkningen gjelder
         participatory_structure: Hvordan det blir gjort
-        private_space: Privat prosess
         promoted: Fremhevet
         published_at: Publisert på
         related_process_ids: Relaterte prosesser
@@ -101,15 +97,12 @@
           label: Etter prosessgruppe
       menu:
         participatory_process_groups: Prosessgrupper
-        participatory_process_groups_submenu:
-          info: Informasjon
         participatory_processes: Prosesser
         participatory_processes_submenu:
           attachment_collections: Mapper
           attachment_files: Filer
           attachments: Vedlegg
           components: Komponenter
-          info: Om denne prosessen
           moderations: Moderering
           process_admins: Prosessadministratorer
           steps: Faser
@@ -118,7 +111,6 @@
           fields:
             actions: Handlinger
             created_at: Opprettet på
-            private: Privat
             published: Publisert
             title: Tittel
           name: Deltakende prosess
@@ -146,20 +138,13 @@
           fields:
             invitation_accepted_at: Invitasjon godtatt
             invitation_sent_at: Invitasjonen sendt
-      participatory_process_copies:
-        new:
-          copy: Kopier
-          select: Velg hvilke data du vil kopiere
-          title: Kopier deltakende prosess
       participatory_process_groups:
         destroy:
           success: Prosessgruppen ble slettet.
         edit:
-          title: Rediger prosessgruppe
           update: Oppdater
         new:
           create: Opprett
-          title: Ny prosessgruppe
         update:
           error: Det oppstod et problem med å oppdatere denne prosessgruppen.
           success: Prosessgruppen ble oppdatert.
@@ -170,7 +155,6 @@
         new:
           import: Importer
           select: Velg hvilke data du vil importere
-          title: Importer deltakende prosess
       participatory_process_publications:
         create:
           error: Det oppstod et problem med å publisere denne prosessen.
@@ -193,25 +177,13 @@
             last_step: Kan ikke slette siste fase i en prosess.
           success: Medvirkningsfasen ble slettet.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Å konfigurere CTA gjennom trinnene i en prosess vil bli faset ut i det nye designet.
-              Nå gjøres dette i <b>Landingsside</b>ved hjelp av innholdsblokken <b>Topptekst og bilde</b>.
-              Vi har latt det står igjen her for deg så du kan migrere CTA som du trenger. Feltene <i>Call-to-action-sti</i> og
-              <i>Call-to-action-tekst</i> vil bli fjernet i neste versjon.
-            title: CTA foreldet
-          title: Rediger medvirkningsfase
           update: Oppdater
-        index:
-          steps_title: Faser
         new:
           create: Opprett
-          title: Ny medvirkningsfase
         ordering:
           error: Det oppstod et problem med å omorganisere medvirkningsfasene.
         update:
           error: Det oppstod et problem med å oppdatere denne medvirkningsfasen.
-          success: Medvirkningsfase oppdatert.
       participatory_process_user_roles:
         create:
           error: Det oppstod et problem med å legge til en deltaker for denne prosessen.
@@ -219,13 +191,9 @@
         destroy:
           success: En administrator er slettet fra denne prosessen.
         edit:
-          title: Oppdater administrator for prosess
           update: Oppdater
-        index:
-          process_admins_title: Prosessadministratorer
         new:
           create: Opprett
-          title: Ny prosessadministrator
         update:
           error: Det oppstod et problem med å oppdatere en administrator for denne prosessen.
           success: Admin ble oppdatert for denne prosessen.
@@ -236,28 +204,17 @@
         edit:
           update: Oppdater
         index:
-          private: Privat
-          public: Offentlig
           published: Publisert
           unpublished: Upublisert
         new:
           create: Opprett
-          title: Ny prosess
         update:
           error: Det oppstod et problem med å oppdatere denne prosessen.
           success: Prosessen er oppdatert.
-      participatory_processes_copies:
-        create:
-          error: Det oppstod et problem med å duplisere denne deltaker prosessen.
-          success: Prosessen er kopiert.
       participatory_processes_group:
         create:
           error: Det oppstod et problem med å lage en ny prosessgruppe.
           success: Prosessgruppen ble opprettet.
-      titles:
-        participatory_process_groups: Prosessgrupper
-        participatory_process_types: Prosesstyper
-        participatory_processes: Deltakende prosesser
       users:
         resend_invitation:
           error: Det oppstod et problem med å sende invitasjonen på nytt.
@@ -357,12 +314,8 @@
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
-        participatory_process_steps:
-          form:
-            cta_text_help: Hvis ikke angitt, vil ikke knappen vises.
         participatory_processes:
           form:
-            announcement_help: Teksten du skriver inn her vil vises til brukeren rett under prosessinformasjonen.
             duration: Varighet
             images: Bilder
             metadata: Metadata
@@ -403,7 +356,6 @@
           title: Om denne prosessen
       show:
         belongs_to_group: Denne prosessen tilhører
-        private_space: Dette er en lukket prosess
         related_processes: Relaterte prosesser
     statistics:
       processes_count: Prosesser

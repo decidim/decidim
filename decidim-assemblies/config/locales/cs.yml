@@ -10,9 +10,6 @@ cs:
         closing_date: Datum ukončení
         closing_date_reason: Důvod data ukončení
         composition: Složení
-        copy_categories: Kopírovat kategorie
-        copy_components: Kopírovat komponenty
-        copy_features: Kopírovat vlastnosti
         created_by: Vytvořil
         created_by_other: Vytvořeno jinými
         creation_date: Datum vytvoření
@@ -22,9 +19,13 @@ cs:
         developer_group: Skupina promotérů
         document: Dokument
         domain: Doména
+        duplicate_categories: Duplikovat kategorie
+        duplicate_components: Duplikovat komponenty
+        duplicate_features: Duplikovat funkce
         duration: Doba trvání
         facebook: Facebook
         github: GitHub
+        has_members: Tento prostor má členy
         hero_image: Obrázek na hlavní stránce
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
@@ -39,7 +40,6 @@ cs:
         participatory_processes_ids: Související participativní procesy
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
-        private_space: Soukromý prostor
         promoted: Propagováno
         published_at: Publikováno v
         purpose_of_action: Účel akce
@@ -73,6 +73,8 @@ cs:
           attributes:
             document:
               allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}.'
+              empty: Dokument je prázdný
+              invalid_json: Dokument není platný JSON
   activerecord:
     models:
       decidim/assembly:
@@ -105,27 +107,25 @@ cs:
         edit:
           update: Aktualizace
         index:
-          private: Soukromé
-          public: Veřejné
+          access_modes:
+            open: Otevřený
+            restricted: Omezený
+            transparent: Transparentní
           published: Publikováno
           unpublished: Nezveřejněno
-        manage_trash:
-          title: Smazané shromáždění
         new:
           create: Vytvořit
-          title: Nové shromáždění
         update:
           error: Při aktualizaci tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně aktualizováno.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Při kopírování tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně duplikováno.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Kopírovat
+          duplicate: Duplikovat
           select: Vyberte, která data chcete duplikovat
-          title: Zduplikovat shromáždění
       assembly_imports:
         create:
           error: Při importu tohoto shromáždění došlo k chybě.
@@ -133,7 +133,6 @@ cs:
         new:
           import: Importovat
           select: Vyberte data, která chcete importovat
-          title: Importovat shromáždění
       assembly_publications:
         create:
           error: Při publikování tohoto shromáždění došlo k chybě.
@@ -148,13 +147,9 @@ cs:
         destroy:
           success: Administrátor byl z tohoto shromáždění úspěšně odstraněn.
         edit:
-          title: Aktualizovat administrátora shromáždění
           update: Aktualizace
-        index:
-          assembly_admins_title: Administrátoři shromáždění
         new:
           create: Vytvořit
-          title: Nový administrátor shromáždění
         update:
           error: Při aktualizaci administrátora pro toto shromáždění došlo k chybě.
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
@@ -176,15 +171,15 @@ cs:
           components: Komponenty
           info: O tomto shromáždění
           landing_page: Rozložení vstupní strany
+          members: Členové
           moderations: Moderování
-          private_users: Členové
           see_assembly: Zobrazit shromáždění
       models:
         assembly:
           fields:
+            access_mode: Přístupový režim
             actions: Akce
             created_at: Vytvořeno v
-            private: Soukromé
             promoted: Zvýrazněno
             published: Publikováno
             title: Název
@@ -211,10 +206,6 @@ cs:
       taxonomy_filters:
         space_filter_for:
           assemblies: Všechna shromáždění
-      titles:
-        assemblies: Shromáždění
-        assemblies_deleted: Smazané shromáždění
-        assemblies_types: Typy shromáždění
       tooltips:
         deleted_assemblies_info: Shromáždění může být odstraněno pouze v případě, že je stav "Nezveřejněný".
     admin_log:
@@ -224,9 +215,11 @@ cs:
         export: "%{user_name} exportoval shromáždění %{resource_name}"
         import: "%{user_name} importoval shromáždění %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} shromáždění"
+        publish_all_members: "%{user_name} zveřejnil všechny členy shromáždění %{resource_name}"
         restore: "%{user_name} obnovil shromáždění %{resource_name}"
         soft_delete: "%{user_name} přesunul do koše shromáždění %{resource_name}"
         unpublish: "%{user_name} odebral %{resource_name} shromáždění"
+        unpublish_all_members: "%{user_name} zneveřejnil všechny členy shromáždění %{resource_name}"
         update: "%{user_name} aktualizoval shromáždění %{resource_name}"
       assembly_member:
         create: "%{user_name} vytvořil %{resource_name} člena ve shromáždění %{space_name}"
@@ -247,17 +240,25 @@ cs:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: O tomto shromáždění
           form:
-            announcement_help: Text, který sem vložíte, se uživateli zobrazí přímo pod informacemi o procesu.
+            access:
+              label: Přístup
+              options:
+                open: Každý může vidět shromáždění a zúčastnit.
+                restricted: Pouze členové a administrátoři se mohou podívat a zúčastnit. Neobjeví se v obecném vyhledávání, API ani v otevřených datových souborech.
+                transparent: Každý může shromáždění vidět, ale mohou se účastnit pouze členové a správci.
+              set_this_space_as: Nastavit tento prostor jako
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
+            has_members_help: Budete moci vytvářet a publikovat členy
             images: Obrázky
             included_at_help: Vyberte datum, kdy byla tato sestava přidána na platformu. Nemusí být nutně stejné jako datum vytvoření.
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             other: Ostatní
-            private_notice: Budete moci spravovat soukromé účastníky po nastavení jako soukromé
             select_a_created_by: Vybrat vytvořeno od
             select_parent_assembly: Vybrat nadřazené shromáždění
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -265,23 +266,45 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
-        assembly_copies:
+          index:
+            title: Shromáždění
+          manage_trash:
+            title: Smazané shromáždění
+          new:
+            title: Nové shromáždění
+        assembly_duplicates:
           form:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+          new:
+            title: Duplikovat shromáždění
         assembly_imports:
           form:
+            document_legend: Přidat dokument
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+          new:
+            title: Importovat shromáždění
         assembly_members:
           form:
             explanation: 'Pokyny pro obrázek:'
             image_guide: Je vhodnější obrázek na výšku, který nemá žádný text.
             non_user_avatar_help: Měli byste získat souhlas osob před jejich zveřejněním jako člena.
+        assembly_user_roles:
+          edit:
+            title: Aktualizovat administrátora shromáždění
+          index:
+            title: Administrátoři shromáždění
+          new:
+            title: Nový administrátor shromáždění
         content_blocks:
           highlighted_assemblies:
             max_results: Maximální množství prvků, které chcete zobrazit
+        imports:
+          attachment_error: Přílohu "%{title}" nelze importovat (%{error}).
+          hero_image_error: Obrázek hrdiny nelze importovat (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tato funkce importu umožňuje vytvořit novou sestavu z exportovaného JSON souboru. Můžete exportovat sestavení z jiné organizace nebo ze stejné organizace. Importovaná sestava bude obsahovat jeho nastavení, součásti a přílohy (je-li vybrána).
       assemblies:
         description:
           area_name: Oblast
@@ -305,9 +328,6 @@ cs:
           type: Typ
         show:
           title: O tomto shromáždění
-      assembly_members:
-        index:
-          members: Členové
       content_blocks:
         children_assemblies:
           name: Shromáždění
@@ -342,16 +362,9 @@ cs:
           highlighted_assemblies:
             active_spaces: Aktivní shromáždění
             see_all_spaces: Zobrazit všechna shromáždění
-        user_profile:
-          member_of:
-            member_of: Člen
       show:
         duration: Doba trvání
-        private_space: Toto je soukromé shromáždění
         social_networks_title: Navštivte shromáždění na
-    assembly_members:
-      index:
-        title: Členové
     download_your_data:
       show:
         assemblies: Export shromáždění
@@ -378,18 +391,17 @@ cs:
       value_types:
         assembly_presenter:
           not_found: 'Shromáždění nebylo nalezeno v databázi (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Typ shromáždění nebyl v databázi nalezen (ID: %{id})'
     menu:
       assemblies: Shromáždění
     open_data:
       help:
         assemblies:
-          announcement: Oznámení (vvyhlášení) informací
+          access_mode: Režim přístupu. Zda je shromáždění otevřené, omezené nebo transparentní.
           area: Oblast shromáždění
           assembly_type: Typ shromáždění
           closing_date: Datum ukončení shromáždění
           closing_date_reason: Proč bylo shromáždění uzavřeno
+          component_settings: Nastavení komponenty shromáždění
           composition: Složení shromáždění
           created_at: Datum, kdy byl tento prostor vytvořen
           created_by: Kdo vytvořil toto shromáždění

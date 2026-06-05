@@ -41,7 +41,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conference_invites.create.error", scope: "decidim.conferences.admin")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end

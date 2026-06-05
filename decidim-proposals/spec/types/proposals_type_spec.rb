@@ -58,16 +58,16 @@ module Decidim
         context "when the proposal does not belong to the component" do
           let!(:proposal) { create(:proposal, component: create(:proposal_component)) }
 
-          it "returns null" do
-            expect(response["proposal"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Proposal not found")
           end
         end
 
         context "when the proposal is not published" do
           let!(:proposal) { create(:proposal, :draft, component: model) }
 
-          it "returns null" do
-            expect(response["proposal"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Proposal not found")
           end
         end
       end

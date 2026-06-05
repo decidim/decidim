@@ -14,6 +14,7 @@ fi:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Haluatko varmasti perua tämän kyselyn julkaisun?
         see_survey: Näytä kysely
       admin_log:
         changeset:
@@ -47,6 +48,17 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi kysely kohteessa %{participatory_space_title}
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: Vastauksen sisältö
+          created_at: Vastauksen luontiaika
+          id: Kyselyvastausten yksilöllinen tunniste
+          ip_hash: Vastaajan IP-osoitteen tarkistemerkkijono (IP-osoitetta ei esitetä osallistujien yksityisyyden parantamiseksi)
+          question: Kysymys, johon vastattiin
+          registered: Rekisteröitynyt osallistuja
+          unregistered: Rekisteröimätön osallistuja
+          user_status: Vastaajan käyttäjätilin tila
     statistics:
       responses: 'Vastaukset:'
       responses_count: Vastauksia
@@ -59,6 +71,7 @@ fi:
         manage_questions: Kysymykset
         new_survey: Uusi kysely
         preview: Esikatsele
+        responses: Vastaukset
         responses_alert: Kyselyn vastausten poistaminen julkaisun yhteydessä on otettu käyttöön tälle kyselylle. Kyselyllä on tällä hetkellä %{responses_count} vastausta, jotka poistetaan, mikäli jatkat eteenpäin.
         title: Toiminnot
       admin:
@@ -101,6 +114,8 @@ fi:
             title: Muokkaa kyselyä
           index:
             title: Kyselyt
+          new:
+            title: Uusi kysely
           publish:
             invalid: Kyselyn julkaisu epäonnistui.
             success: Kyselyn julkaisu onnistui.
@@ -126,10 +141,14 @@ fi:
       models:
         survey:
           fields:
+            published: Julkaistu
             questions: Kysymykset
             responses: Vastaukset
             status: Tila
             title: Otsikko
+          published:
+            published: Julkaistu
+            unpublished: Julkaisematon
           status:
             closed: Suljettu
             open: Avoin

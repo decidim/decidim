@@ -1,4 +1,4 @@
-# Decidim::Surveys
+# decidim-surveys
 
 The Surveys module adds one new component to Decidim: defining and responding surveys.
 
@@ -10,7 +10,7 @@ The main features are:
 
 ## Usage
 
-Surveys will be available as a Component for a Participatory Process.
+Surveys will be available as a Component for a Participatory Space.
 
 ## Installation
 

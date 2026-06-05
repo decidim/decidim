@@ -14,20 +14,23 @@ module Decidim
 
       # Items to display in the navigation of an assembly
       def assembly_nav_items(participatory_space)
-        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
+        components = participatory_space
+                     .components
+                     .published.or(Decidim::Component.where(id: try(:current_component)))
+                     .where(visible: true)
 
         [
           *(if participatory_space.members_public_page?
               [{
                 name: t("assembly_member_menu_item", scope: "layouts.decidim.assembly_navigation"),
-                url: decidim_assemblies.assembly_participatory_space_private_users_path(participatory_space),
-                active: is_active_link?(decidim_assemblies.assembly_participatory_space_private_users_path(participatory_space), :inclusive)
+                url: decidim_assemblies.assembly_members_path(participatory_space),
+                active: is_active_link?(decidim_assemblies.assembly_members_path(participatory_space), :inclusive)
               }]
             end
            )
         ] + components.map do |component|
           {
-            name: decidim_escape_translated(component.name),
+            name: translated_attribute(component.name),
             url: main_component_path(component),
             active: is_active_link?(main_component_path(component), :inclusive)
           }

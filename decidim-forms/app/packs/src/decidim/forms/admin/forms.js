@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 
 import AutoButtonsByMinItemsComponent from "src/decidim/forms/admin/auto_buttons_by_min_items.component"
 import AutoSelectOptionsByTotalItemsComponent from "src/decidim/forms/admin/auto_select_options_by_total_items.component"
@@ -7,10 +7,9 @@ import AutoSelectOptionsFromUrl from "src/decidim/forms/admin/auto_select_option
 import createLiveTextUpdateComponent from "src/decidim/forms/admin/live_text_update.component"
 import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_position.component"
 import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
-import createSortList from "src/decidim/admin/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
-import initLanguageChangeSelect from "src/decidim/admin/choose_language"
+import sortable from "html5sortable/dist/html5sortable.es"
 
 export default function createEditableForm() {
   const wrapperSelector = ".questionnaire-questions";
@@ -24,6 +23,7 @@ export default function createEditableForm() {
   const matrixRowRemoveFieldButtonSelector = ".remove-matrix-row";
   const addMatrixRowButtonSelector = ".add-matrix-row";
   const maxChoicesWrapperSelector = ".questionnaire-question-max-choices";
+  const responseOptionFreeTextSelector = ".questionnaire-question-response-option-free-text";
 
   const displayConditionFieldSelector = ".questionnaire-question-display-condition";
   const displayConditionsWrapperSelector = ".questionnaire-question-display-conditions";
@@ -99,16 +99,16 @@ export default function createEditableForm() {
     })
   };
 
-  const createSortableList = () => {
-    createSortList(".questionnaire-questions-list:not(.published)", {
-      handle: ".question-divider",
-      placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
-      forcePlaceholderSize: true,
-      onSortUpdate: () => {
+  // Listen for sortupdate events from html5sortable (initialized by draggable-table.js)
+  const setupSortUpdateListener = () => {
+    const container = document.querySelector(".questionnaire-questions-list:not(.published)");
+    if (container && !container.dataset.sortListenerAttached) {
+      container.addEventListener("sortupdate", () => {
         autoLabelByPosition.run();
         autoButtonsByPosition.run();
-      }
-    });
+      });
+      container.dataset.sortListenerAttached = "true";
+    }
   };
 
   const createDynamicQuestionTitle = (fieldId) => {
@@ -337,7 +337,10 @@ export default function createEditableForm() {
     const dynamicFieldsMatrixRows = dynamicFieldsForMatrixRows[fieldId];
 
     const onQuestionTypeChange = () => {
-      if (isMultipleChoiceOption($fieldQuestionTypeSelect.val())) {
+      const $currentField = $fieldQuestionTypeSelect.parents(fieldSelector);
+      const questionType = $fieldQuestionTypeSelect.val();
+
+      if (isMultipleChoiceOption(questionType)) {
         const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(responseOptionFieldSelector).length;
 
         if (nOptions === 0) {
@@ -353,6 +356,12 @@ export default function createEditableForm() {
           dynamicFieldsMatrixRows._addField();
           dynamicFieldsMatrixRows._addField();
         }
+      }
+
+      if (questionType === "sorting") {
+        $currentField.find(responseOptionFreeTextSelector).addClass("hidden");
+      } else {
+        $currentField.find(responseOptionFreeTextSelector).removeClass("hidden");
       }
     };
 
@@ -386,12 +395,26 @@ export default function createEditableForm() {
     moveDownFieldButtonSelector: ".move-down-question",
     onAddField: ($field) => {
       setupInitialQuestionAttributes($field);
-      createSortableList();
+      setupSortUpdateListener();
 
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
 
-      initLanguageChangeSelect($field.find("select.language-change").toArray());
+      const fieldElement = $field[0];
+      if (fieldElement) {
+        fieldElement.querySelectorAll("select.language-change").forEach((container) => {
+          window.deprecate(container, "language-change", "select.language-change")
+        });
+      }
+
+      const sortableContainer = document.querySelector(".questionnaire-questions-list[data-draggable-table]");
+      if (sortableContainer) {
+        sortable(sortableContainer, {
+          forcePlaceholderSize: true,
+          items: ".questionnaire-question",
+          handle: sortableContainer.dataset.draggableHandle || ".card-divider"
+        });
+      }
 
       // instead of initialize specific stuff, we send an event, with the DOM fragment we wanna update/refresh/bind
       document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $field[0] }));
@@ -422,7 +445,7 @@ export default function createEditableForm() {
     }
   });
 
-  createSortableList();
+  setupSortUpdateListener();
 
   $(fieldSelector).each((idx, el) => {
     const $target = $(el);

@@ -17,6 +17,7 @@ ru:
       actions:
         edit: Редактировать
         import: Внести в проекты позаимствованные предложения
+        new_project: Новый проект
         preview: Предпросмотр
         title: Действия
       admin:
@@ -25,7 +26,6 @@ ru:
             name: Проект
         projects:
           edit:
-            title: Редактировать проект
             update: Обновить
           index:
             finished_orders: Завершенные голосования
@@ -33,7 +33,6 @@ ru:
             title: Проекты
           new:
             create: Создать
-            title: Новый проект
         proposals_imports:
           new:
             create: Внести в проекты позаимствованные предложения

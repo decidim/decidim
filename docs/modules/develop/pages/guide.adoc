@@ -5,6 +5,7 @@
 * xref:develop:guide_commands.adoc[3. Commands]
 * xref:develop:guide_conventions.adoc[4. Conventions]
 * xref:develop:guide_architecture.adoc[5. Architecture]
+* xref:develop:guide_data_migrations.adoc[6. Data Migrations]
 
 == Good to know
 

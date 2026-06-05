@@ -42,7 +42,7 @@ sv:
           components:
             allow_editing_responses: Tillåt registrerade användare att redigera egna enkätsvar
             allow_responses: Tillåt svar
-            allow_unregistered: Tillåt ej registrerade användare att besvara enkäten
+            allow_unregistered: Tillåt oregistrerade användare att svara på enkäten
             allow_unregistered_help: Om aktiv kommer ingen inloggning att krävas för att besvara enkäten. Detta kan leda till dålig eller opålitlig data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Tänk på att en deltagare kunde svara på samma enkät flera gånger, genom att använda olika webbläsare eller "privat surfning" i sin webbläsare.
             announcement: Meddelande
             clean_after_publish: Ta bort svar vid publicering av enkäten
@@ -54,7 +54,7 @@ sv:
             tos: Användarvillkor
         questionnaires:
           actions:
-            back: Tillbaka till frågor
+            back: Tillbaka till svar
             publish_responses: Publicera svar
             show: Svar
           display_condition:
@@ -102,12 +102,10 @@ sv:
             any: Valfritt
             collapse: Dölj
             description: Beskrivning
-            down: Ner
             expand: Visa
             question: Fråga
             remove: Ta bort
             statement: Titel
-            up: Upp
           questions_form:
             already_responded_warning: Formuläret har redan besvarats av en användare, så du kan inte längre redigera frågorna.
             collapse: Dölj alla frågor
@@ -138,19 +136,15 @@ sv:
             show:
               title: 'Svar #%{number}'
           separator:
-            down: Ner
             remove: Ta bort
             separator: Avgränsare
-            up: Upp
           title_and_description:
             collapse: Dölj
             description: Beskrivning
-            down: Ner
             expand: Visa
             remove: Ta bort
             title: Titel
             title_and_description: Titel och beskrivning
-            up: Upp
           update:
             invalid: Det gick inte att spara formuläret.
             success: Formuläret har sparats.
@@ -186,6 +180,7 @@ sv:
         response:
           invalid: Det gick inte att besvara formuläret.
           max_choices_alert: Du har valt för många alternativ
+          spam_detected: Det gick inte att svara på formuläret. Kanske har du varit för snabb, kan du försöka igen?
           success: Formuläret har besvarats.
         show:
           current_step: Steg %{step}
@@ -194,8 +189,8 @@ sv:
           questionnaire_closed:
             body: Formuläret är stängt och kan inte besvaras.
             title: Formuläret är stängt
-          questionnaire_for_private_users:
-            body: Formuläret är endast tillgängligt för privata användare
+          questionnaire_for_members:
+            body: Formuläret är endast tillgängligt för medlemmar
             title: Formuläret är stängt
           questionnaire_js_disabled:
             body: Vissa av formulärets funktioner kommer att inaktiveras. Aktivera JavaScript i webbläsaren för att förbättra upplevelsen.

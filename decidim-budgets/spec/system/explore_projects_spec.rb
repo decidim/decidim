@@ -14,7 +14,11 @@ describe "Explore projects", :slow do
   let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
   let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
-  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
+
+  let(:second_taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
+  let(:second_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: second_taxonomy.parent) }
+  let!(:second_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: second_taxonomy_filter, taxonomy_item: second_taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id, second_taxonomy_filter.id] }
 
   before do
     component_settings = component["settings"]["global"].merge!(taxonomy_filters: taxonomy_filter_ids)
@@ -25,12 +29,41 @@ describe "Explore projects", :slow do
     let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
     let(:project) { create(:project, budget:, description:) }
 
-    before do
-      visit_budget
-      click_on translated(project.title)
+    context "when voting is open" do
+      before do
+        visit_budget
+        click_on translated(project.title)
+      end
+
+      it_behaves_like "has embedded video in description", :description
     end
 
-    it_behaves_like "has embedded video in description", :description
+    context "when voting is finished" do
+      let(:active_step_id) { participatory_process.active_step.id }
+
+      before do
+        component.update!(step_settings: { active_step_id => { votes: :finished, show_votes: } })
+
+        visit_budget
+        click_on translated(project.title)
+      end
+
+      context "when 'show votes' setting is disabled" do
+        let(:show_votes) { false }
+
+        it "does not show the votes" do
+          expect(page).to have_no_css("[data-spec-project-votes]", text: 0)
+        end
+      end
+
+      context "when 'show votes' setting is enabled" do
+        let(:show_votes) { true }
+
+        it "shows the votes" do
+          expect(page).to have_css("[data-spec-project-votes]", text: 0)
+        end
+      end
+    end
   end
 
   describe "index" do
@@ -41,7 +74,7 @@ describe "Explore projects", :slow do
       it "shows an empty page with a message" do
         visit_budget
 
-        expect(page).to have_content("There are no projects yet")
+        expect(page).to have_text("There are no projects yet")
       end
     end
 
@@ -52,7 +85,7 @@ describe "Explore projects", :slow do
       end
 
       projects.each do |project|
-        expect(page).to have_content(translated(project.title))
+        expect(page).to have_text(translated(project.title))
       end
     end
 
@@ -77,7 +110,7 @@ describe "Explore projects", :slow do
             [-142.15275006889419, 33.33377235135252],
             [-55.28745034772282, -35.587843900166945]
           ]
-          Decidim::Budgets::Project.where(budget: budget).geocoded.each_with_index do |project, index|
+          Decidim::Budgets::Project.where(budget:).geocoded.each_with_index do |project, index|
             project.update!(latitude: coordinates[index][0], longitude: coordinates[index][1]) if coordinates[index]
           end
 
@@ -110,7 +143,7 @@ describe "Explore projects", :slow do
 
         within "#projects" do
           expect(page).to have_css(".card__list", count: 1)
-          expect(page).to have_content(translated(project.title))
+          expect(page).to have_text(translated(project.title))
         end
       end
 
@@ -126,11 +159,35 @@ describe "Explore projects", :slow do
           end
         end
 
-        expect(page).to have_no_content("Another project")
-        expect(page).to have_content("Foobar project")
+        expect(page).to have_no_text("Another project")
+        expect(page).to have_text("Foobar project")
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+      end
+
+      it "collapses the accordions on click" do
+        visit_budget
+
+        within "#panel-dropdown-menu-taxonomy-#{second_taxonomy_filter.root_taxonomy_id}" do
+          expect(page).to have_text "All"
+          expect(page).to have_text decidim_sanitize_translated(second_taxonomy.name)
+        end
+
+        click_on decidim_sanitize_translated(second_taxonomy_filter.root_taxonomy.name)
+        click_on decidim_sanitize_translated(taxonomy_filter.root_taxonomy.name)
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_text decidim_sanitize_translated(taxonomy.name)
+          expect(page).to have_no_text decidim_sanitize_translated(second_taxonomy.name)
+        end
+
+        click_on decidim_sanitize_translated(second_taxonomy_filter.root_taxonomy.name)
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_text decidim_sanitize_translated(taxonomy.name)
+          expect(page).to have_text decidim_sanitize_translated(second_taxonomy.name)
+        end
       end
 
       it "allows filtering by taxonomy" do
@@ -145,7 +202,7 @@ describe "Explore projects", :slow do
 
         within "#projects" do
           expect(page).to have_css(".card__list", count: 1)
-          expect(page).to have_content(translated(project.title))
+          expect(page).to have_text(translated(project.title))
         end
       end
 
@@ -169,7 +226,24 @@ describe "Explore projects", :slow do
 
           within "#projects" do
             expect(page).to have_css(".card__list", count: 1)
-            expect(page).to have_content(translated(project.title))
+            expect(page).to have_text(translated(project.title))
+            expect(page).to have_text("0 votes")
+          end
+        end
+
+        context "and votes are not shown" do
+          let(:active_step_id) { component.participatory_space.active_step.id }
+
+          before do
+            component.update!(step_settings: { active_step_id => { show_votes: false } })
+          end
+
+          it "does not show the votes" do
+            visit_budget
+
+            within "#projects" do
+              expect(page).to have_no_text("0 votes")
+            end
           end
         end
       end
@@ -185,6 +259,17 @@ describe "Explore projects", :slow do
       it_behaves_like "a 404 page" do
         let(:target_path) { decidim_budgets.budget_project_path(budget, 99_999_999) }
       end
+    end
+  end
+
+  describe "search" do
+    before do
+      switch_to_host(organization.host)
+      visit decidim.search_path
+    end
+
+    it "shows the project" do
+      expect(page).to have_text(translated_attribute(projects.last.title))
     end
   end
 

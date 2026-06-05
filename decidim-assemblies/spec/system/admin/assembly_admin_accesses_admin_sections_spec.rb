@@ -10,25 +10,25 @@ describe "Assembly admin accesses admin sections" do
     login_as user, scope: :user
   end
 
-  shared_examples "sees public space menu" do
+  shared_examples "sees menu without members" do
     it "can access all sections" do
-      expect(page).to have_content("Info")
-      expect(page).to have_content("Components")
-      expect(page).to have_content("Attachments")
-      expect(page).to have_content("Assembly admins")
-      expect(page).to have_no_content("Members")
-      expect(page).to have_content("Moderations")
+      expect(page).to have_text("Info")
+      expect(page).to have_text("Components")
+      expect(page).to have_text("Attachments")
+      expect(page).to have_text("Assembly admins")
+      expect(page).to have_no_text("Members")
+      expect(page).to have_text("Moderations")
     end
   end
 
-  shared_examples "sees private space menu" do
+  shared_examples "sees menu with members" do
     it "can access all sections" do
-      expect(page).to have_content("Info")
-      expect(page).to have_content("Components")
-      expect(page).to have_content("Attachments")
-      expect(page).to have_content("Assembly admins")
-      expect(page).to have_content("Members")
-      expect(page).to have_content("Moderations")
+      expect(page).to have_text("Info")
+      expect(page).to have_text("Components")
+      expect(page).to have_text("Attachments")
+      expect(page).to have_text("Assembly admins")
+      expect(page).to have_text("Members")
+      expect(page).to have_text("Moderations")
     end
   end
 
@@ -41,14 +41,14 @@ describe "Assembly admin accesses admin sections" do
       end
     end
 
-    context "when is a public assembly" do
-      it_behaves_like "sees public space menu"
+    context "when is an assembly without members" do
+      it_behaves_like "sees menu without members"
     end
 
-    context "when is a private assembly" do
-      let(:assembly) { create(:assembly, organization:, private_space: true) }
+    context "when is an assembly with members" do
+      let(:assembly) { create(:assembly, organization:, has_members: true) }
 
-      it_behaves_like "sees private space menu"
+      it_behaves_like "sees menu with members"
     end
   end
 
@@ -59,14 +59,14 @@ describe "Assembly admin accesses admin sections" do
       visit decidim_admin_assemblies.edit_assembly_path(child_assembly)
     end
 
-    context "when is a public assembly" do
-      it_behaves_like "sees public space menu"
+    context "when is an assembly without" do
+      it_behaves_like "sees menu without members"
     end
 
-    context "when is a private assembly" do
-      let(:child_assembly) { create(:assembly, parent: assembly, organization:, private_space: true) }
+    context "when is an assembly with members" do
+      let(:child_assembly) { create(:assembly, parent: assembly, organization:, has_members: true) }
 
-      it_behaves_like "sees private space menu"
+      it_behaves_like "sees menu with members"
     end
 
     it_behaves_like "assembly admin manage assembly components"

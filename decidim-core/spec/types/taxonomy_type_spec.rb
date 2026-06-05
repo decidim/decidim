@@ -8,7 +8,7 @@ module Decidim
     describe TaxonomyType do
       include_context "with a graphql class type"
 
-      let!(:root_taxonomy) { create(:taxonomy) }
+      let!(:root_taxonomy) { create(:taxonomy, :with_children) }
       let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: root_taxonomy.organization) }
 
       let(:model) { root_taxonomy }
@@ -64,7 +64,7 @@ module Decidim
           let(:query) { "{ children { id } }" }
 
           it "returns its children" do
-            expect(response["children"]).to eq([{ "id" => taxonomy.id.to_s }])
+            expect(response["children"]).to include({ "id" => taxonomy.id.to_s })
           end
         end
 
@@ -73,6 +73,26 @@ module Decidim
 
           it "returns true" do
             expect(response["isRoot"]).to be_truthy
+          end
+        end
+
+        describe "childrenCount" do
+          let(:query) { "{ childrenCount }" }
+
+          it "returns the childrenCount field" do
+            expect(response["childrenCount"]).to eq(4)
+          end
+        end
+
+        describe "taxonomizationsCount" do
+          let(:query) { "{ taxonomizationsCount }" }
+          let(:model) { taxonomy }
+          let(:taxonomizable) { create(:dummy_resource) }
+          let!(:taxonomization) { create(:taxonomization, taxonomy:) }
+          let!(:second_taxonomization) { create(:taxonomization, taxonomy:) }
+
+          it "returns the taxonomizationsCount field" do
+            expect(response["taxonomizationsCount"]).to eq(2)
           end
         end
       end

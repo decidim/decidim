@@ -1,11 +1,14 @@
-<% add_decidim_page_title(t("decidim.admin.titles.initiatives")) %>
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="card" id="initiatives">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
-      <%= t("decidim.admin.titles.initiatives") %>
+      <%= t(".title") %>
 
       <% if allowed_to? :export, :initiatives %>
-        <%= export_dropdowns(query) %>
+        <div class="flex items-center gap-x-4 ml-auto">
+          <%= export_dropdowns(query) %>
+        </div>
       <% end %>
     </h1>
   </div>
@@ -19,7 +22,6 @@
       <table class="table-list">
         <thead>
         <tr>
-          <th><%= t("models.initiatives.fields.id", scope: "decidim.admin") %></th>
           <th class="!text-left"><%= t("models.initiatives.fields.title", scope: "decidim.admin") %></th>
           <th><%= t("models.initiatives.fields.state", scope: "decidim.admin") %></th>
           <th><%= sort_link(query, :supports_count, t("models.initiatives.fields.supports_count", scope: "decidim.admin"), default_order: :desc) %></th>
@@ -31,7 +33,6 @@
         <tbody>
         <% @initiatives.each do |initiative| %>
           <tr>
-            <td data-label="<%= t("models.initiatives.fields.id", scope: "decidim.admin") %>"><%= initiative.id %></td>
             <td class="!text-left" data-label="<%= t("models.initiatives.fields.title", scope: "decidim.admin") %>">
               <% if allowed_to? :edit, :initiative, initiative: initiative %>
                 <%= link_to translated_attribute(initiative.title),
@@ -72,7 +73,7 @@
                   <% else %>
                     <li class="dropdown__item">
                       <div class="dropdown__button-disabled">
-                        <%= with_tooltip(t("actions.cannot_answer", scope: "decidim.admin")) do %>
+                        <%= with_tooltip(t("actions.cannot_answer", scope: "decidim.admin"), class: :left) do %>
                           <%= icon "chat-1-line", class: "text-gray" %>
                           <span><%= t("actions.answer", scope: "decidim.initiatives") %></span>
                         <% end %>
@@ -100,7 +101,7 @@
                     </li>
                   <% end %>
 
-                  <% if allowed_to? :read, :share_tokens, current_participatory_space: initiative %>
+                  <% if allowed_to? :read, :share_token, current_participatory_space: initiative %>
                     <li class="dropdown__item">
                       <%= link_to decidim_admin_initiatives.initiative_share_tokens_path(initiative), class: "dropdown__button" do %>
                         <%= icon "share-line" %>

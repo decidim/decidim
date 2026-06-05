@@ -45,6 +45,8 @@ cs:
               'true': Nevybráno pro implementaci
           taxonomies_part_of_contains:
             label: Taxonomie
+      tooltips:
+        deleted_projects_info: Tento projekt nelze odstranit
     budgets:
       actions:
         confirm_delete_budget: Opravdu chcete odstranit tento rozpočet?
@@ -85,8 +87,6 @@ cs:
         exports:
           projects: Projekty
         models:
-          budget:
-            name: Rozpočet
           project:
             name: Projekt
         projects:
@@ -94,7 +94,7 @@ cs:
             invalid: Při vytváření tohoto projektu došlo k chybě.
             success: Projekt byl úspěšně vytvořen.
           edit:
-            title: Upravit projekt
+            title: Upravit projekt v %{budget}
             update: Aktualizace
           index:
             actions: Akce
@@ -117,7 +117,7 @@ cs:
             title: Smazané projekty
           new:
             create: Vytvořit
-            title: Nový projekt
+            title: Nový projekt v %{budget}
           update:
             invalid: Při aktualizaci tohoto projektu došlo k chybě.
             success: Projekt byl úspěšně aktualizován.
@@ -146,9 +146,10 @@ cs:
           new:
             create: Návrhy na projekty
             default_budget: Výchozí rozpočet
-            import_all_accepted_proposals: Importovat všechny přijaté návrhy
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             origin_component_id: Původ komponenty
+            proposal_states: Stavy návrhu
+            proposal_states_help: Vyberte jeden nebo více stavů návrhů k importu do projektů. Výběrem ničeho importujete všechny publikované návrhy, které již nebyly importovány do jiných rozpočtů z této složky.
             select_component: Vyberte součást
             title: Importovat návrhy do projektů
         reminders:
@@ -182,6 +183,7 @@ cs:
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
           only_one: smazat váš hlas a začít znovu.
+        completed: Dokončeno
         count:
           one: "%{count} rozpočet"
           few: "%{count} rozpočty"
@@ -191,6 +193,7 @@ cs:
         finished_message: Dokončili jste hlasovací proces. Děkujeme za účast!
         highlighted_cta: Hlasovat na %{name}
         if_change_opinion: Pokud jste změnili názor, můžete
+        incomplete: Nedokončené
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit rozpočty podle
@@ -198,6 +201,8 @@ cs:
           random: Náhodné pořadí
         progress: Dokončit hlasování
         remove_vote: Odebrat hlas
+        see_projects: Zobrazit projekty
+        see_results: Zobrazit výsledky
         show: Zobrazit projekty
         vote: Hlasovat
         voted_budgets: Hlasované rozpočty
@@ -217,7 +222,6 @@ cs:
             total_budget: Celkový rozpočet
         project:
           fields:
-            id: ID
             map: Mapa
             taxonomies: Taxonomie
             title: Titul
@@ -252,6 +256,7 @@ cs:
           subject: Hlasovali jste o účastnickém prostoru %{space_name}
           voted_on_space: Hlasovali jste o rozpočtu %{budget_name} pro skupinu %{space_name}.
       projects:
+        back_to_budgets: Zpět do rozpočtů
         budget_confirm:
           are_you_sure: Pokud změníte názor, můžete svůj hlas později změnit.
           cancel: Zrušit
@@ -297,18 +302,16 @@ cs:
           assigned: Přiřazeno
           budget: Rozpočet
           dynamic_help:
-            keep_adding_projects: Pokračovat v přidávání projektů
             minimum_reached: Dosáhli jste minima, abyste mohli hlasovat
-            start_adding_projects: Začít přidávat projekty
           minimum: Minimum
           minimum_projects_rule:
-            description: Vyberte alespoň %{minimum_number} projekty, které chcete a hlasujte podle vašich preferencí.
+            description: "<b>Vyberte alespoň %{minimum_number} projektů</b>, které chcete a hlasujete podle vašich preferencí."
           projects_rule:
-            description: Vyberte alespoň %{minimum_number} a až %{maximum_number} projektů, které chcete a hlasujete podle vašich preferencí.
+            description: "<b>Vyberte alespoň %{minimum_number} a až %{maximum_number} projekty</b>, které chcete a hlasujete podle vašich preferencí."
           projects_rule_maximum_only:
-            description: Vyberte až %{maximum_number} projektů, které chcete a hlasujte podle vašich preferencí.
+            description: "<b>Vyberte až %{maximum_number} projektů</b>, které chcete a hlasujte podle vašich preferencí."
           vote_threshold_percent_rule:
-            description: Přiřaďte alespoň %{minimum_budget} k projektům, které chcete, a hlasujte podle vašich preferencí.
+            description: "<b>Přiřaďte alespoň %{minimum_budget}</b> k projektům, které chcete a hlasujte podle vašich preferencí."
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit projekty podle
@@ -338,7 +341,7 @@ cs:
         select_projects: Přidat projekty
         show:
           budget: Rozpočet
-        start_voting: Zahájit hlasování
+          votes: Hlasy
       prompt: Vybrat rozpočet
       vote_reminder_mailer:
         vote_reminder:
@@ -356,6 +359,7 @@ cs:
         actions:
           comment: Komentář
           vote: Hlasovat
+          vote_comment: Komentář hlasování
         name: Rozpočty
         settings:
           global:
@@ -385,6 +389,11 @@ cs:
             vote_selected_projects_maximum: Maximální počet projektů, které mají být vybrány
             vote_selected_projects_minimum: Minimální počet projektů, které mají být vybrány
             vote_threshold_percent: Prahová hodnota pro hlasování v procentech
+            voting_rule: Pravidla hlasování
+            voting_rule_choices:
+              minimum_projects: Minimální počet projektů, o nichž se má hlasovat
+              selected_projects: Minimální a maximální počet projektů, o nichž se má hlasovat
+              threshold_percent: Minimální procento rozpočtu
             workflow: Pracovní postup
             workflow_choices:
               all: 'Hlasovat všude: umožňuje účastníkům hlasovat ve všech rozpočtech.'
@@ -415,13 +424,6 @@ cs:
           updated_at: Datum a čas, kdy byl pokyn aktualizován
       show:
         projects: Export projektů
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete jej vidět z této stránky:'
-          email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení na předchozím odkazu.
-          email_subject: Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}.
-          notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
     open_data:
       help:
         projects:
@@ -459,5 +461,6 @@ cs:
     statistics:
       orders_count: Podpory
       projects_count: Rozpočty
+      projects_count_tooltip: Počet účastnických projektů rozpočtu a celkový počet hlasů, které k nim byly vloženy.
   index:
     confirmed_orders_count: Počet hlasů

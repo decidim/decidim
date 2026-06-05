@@ -12,7 +12,7 @@ describe "Filter Participatory Processes" do
   shared_examples "listing all processes" do
     it "lists all processes ordered by start_date (closest to current_date)" do
       within "#processes-grid h2" do
-        expect(page).to have_content("6 processes")
+        expect(page).to have_text("6 processes")
       end
 
       within "#processes-grid" do
@@ -36,13 +36,13 @@ describe "Filter Participatory Processes" do
     let(:titles) { page.all(".card__grid-text h3") }
 
     before do
-      visit decidim_participatory_processes.participatory_processes_path
+      visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
     end
 
     context "and choosing 'active' processes" do
       it "lists the active processes ordered by start_date (descendingly)" do
         within "#processes-grid h2" do
-          expect(page).to have_content("2 active processes")
+          expect(page).to have_text("2 active processes")
         end
 
         within "#processes-grid" do
@@ -61,7 +61,7 @@ describe "Filter Participatory Processes" do
 
       it "lists the past processes ordered by end_date (descendingly)" do
         within "#processes-grid h2" do
-          expect(page).to have_content("2 past processes")
+          expect(page).to have_text("2 past processes")
         end
 
         within "#processes-grid" do
@@ -81,7 +81,7 @@ describe "Filter Participatory Processes" do
 
       it "lists the upcoming processes ordered by start_date (ascendingly)" do
         within "#processes-grid h2" do
-          expect(page).to have_content("2")
+          expect(page).to have_text("2")
         end
 
         within "#processes-grid" do
@@ -126,33 +126,55 @@ describe "Filter Participatory Processes" do
 
     context "and choosing a taxonomy" do
       before do
-        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } })
+        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } }, locale: I18n.locale)
       end
 
       it "lists all processes belonging to that taxonomy" do
         within "#processes-grid" do
-          expect(page).to have_content(translated(process_with_taxonomy.title))
-          expect(page).to have_no_content(translated(process_without_taxonomy.title))
+          expect(page).to have_text(translated(process_with_taxonomy.title))
+          expect(page).to have_no_text(translated(process_without_taxonomy.title))
         end
 
-        within "#panel-dropdown-menu-taxonomy" do
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy_filter.root_taxonomy_id}" do
+          click_filter_item "A great taxonomy"
           click_filter_item "Another taxonomy"
           sleep 2
         end
 
         within "#processes-grid" do
-          expect(page).to have_no_content(translated(process_with_taxonomy.title))
-          expect(page).to have_no_content(translated(process_without_taxonomy.title))
+          expect(page).to have_no_text(translated(process_with_taxonomy.title))
+          expect(page).to have_no_text(translated(process_without_taxonomy.title))
         end
 
-        within "#panel-dropdown-menu-taxonomy" do
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy_filter.root_taxonomy_id}" do
           click_filter_item "Another taxonomy"
           sleep 2
         end
 
         within "#processes-grid" do
-          expect(page).to have_content(translated(process_with_taxonomy.title))
-          expect(page).to have_content(translated(process_without_taxonomy.title))
+          expect(page).to have_text(translated(process_with_taxonomy.title))
+          expect(page).to have_text(translated(process_without_taxonomy.title))
+        end
+      end
+
+      it "collapses the accordions on click" do
+        within ".layout-2col__aside" do
+          expect(page).to have_text "Upcoming"
+          expect(page).to have_text "A great taxonomy"
+        end
+
+        click_on "Date"
+        click_on decidim_sanitize_translated taxonomy_filter.root_taxonomy.name
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_text "Upcoming"
+          expect(page).to have_no_text "A great taxonomy"
+        end
+
+        click_on decidim_sanitize_translated taxonomy_filter.root_taxonomy.name
+        within ".layout-2col__aside" do
+          expect(page).to have_no_text "Upcoming"
+          expect(page).to have_text "A great taxonomy"
         end
       end
     end

@@ -58,6 +58,7 @@ module Decidim
 
       def notify_followers
         return unless @attachment.attached_to.is_a?(Decidim::Followable)
+        return if @attachment.attached_to.respond_to?(:published?) && !@attachment.attached_to.published?
 
         Decidim::EventsManager.publish(
           event: "decidim.events.attachments.attachment_created",

@@ -4,15 +4,17 @@ ja:
       participatory_process:
         announcement: お知らせ
         area_id: エリア
-        copy_categories: カテゴリをコピー
-        copy_components: コンポーネントをコピー
-        copy_steps: フェーズをコピー
         decidim_area_id: エリア
         description: 説明
         developer_group: プロモーターグループ
         document: ドキュメント
         domain: ドメイン
+        duplicate_categories: カテゴリを複製
+        duplicate_components: コンポーネントを複製
+        duplicate_landing_page_blocks: ランディングページブロックを複製
+        duplicate_steps: ステップを複製
         end_date: 終了日
+        has_members: このスペースにはメンバーがいます
         hero_image: ホーム画像
         import_attachments: 添付ファイルをインポート
         import_categories: カテゴリをインポート
@@ -23,7 +25,6 @@ ja:
         participatory_process_group_id: 参加型プロセスグループ
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
-        private_space: プライベートプロセス
         promoted: プロモート
         published_at: 公開日時
         related_process_ids: 関連する参加型プロセス
@@ -64,6 +65,8 @@ ja:
           attributes:
             document:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみが許可されています: %{types}'
+              empty: ドキュメントが空です
+              invalid_json: ドキュメントは有効な JSON ではありません
     models:
       decidim/participatory_process_step_activated_event: フェーズ有効化
       decidim/participatory_process_step_changed_event: フェーズ変更
@@ -101,7 +104,6 @@ ja:
       menu:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
-          info: 情報
           landing_page: ランディングページのレイアウト
         participatory_processes: 参加型プロセス
         participatory_processes_submenu:
@@ -109,10 +111,9 @@ ja:
           attachment_files: ファイル
           attachments: 添付ファイル
           components: コンポーネント
-          info: このプロセスについて
           landing_page: ランディングページのレイアウト
+          members: メンバー
           moderations: モデレーション
-          private_users: メンバー
           process_admins: 参加型プロセス管理者
           steps: フェーズ
       models:
@@ -120,7 +121,6 @@ ja:
           fields:
             actions: アクション
             created_at: 作成日時
-            private: プライベート
             published: 公開済み
             title: タイトル
           name: 参加型プロセス
@@ -153,21 +153,18 @@ ja:
             invitation_accepted_at: 招待が承認されました
             invitation_sent_at: 招待状が送信された日時
             published: 公開済み
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: コピー
+          duplicate: 複製
           select: 複製したいデータを選択してください
-          title: 重複した参加型プロセス
       participatory_process_groups:
         destroy:
           error: 参加型プロセスグループを削除する際に問題が発生しました。
           success: 参加型プロセスグループが正常に削除されました。
         edit:
-          title: 参加型プロセスグループを編集
           update: 更新
         new:
           create: 作成
-          title: 新規参加型プロセスグループ
         update:
           error: この参加型プロセスグループの更新に問題がありました。
           success: 参加型プロセスグループが正常に更新されました。
@@ -178,7 +175,6 @@ ja:
         new:
           import: インポート
           select: インポートしたいデータを選択
-          title: 参加型プロセスをインポート
       participatory_process_publications:
         create:
           error: この参加型プロセスを公開する際に問題が発生しました。
@@ -201,24 +197,14 @@ ja:
             last_step: プロセスの最後のフェーズを削除できません。
           success: 参加型プロセスのフェーズが正常に削除されました。
         edit:
-          cta_deprecated:
-            body_html: |-
-              参加プロセスのフェーズを通じてCTAを設定することは、新しいデザインでは非推奨となりました。
-              これは現在、<b>ランディングページ</b>にて、<b>ヒーローと画像</b>のコンテンツブロックを使用して行えます。
-              この機能を残しているのは必要なCTAを移行するためです。<i>コール・トゥ・アクションのパス</i>フィールドと<i>コール・トゥ・アクションのテキスト</i>フィールドは次のバージョンで削除されます。
-            title: CTAは非推奨です
-          title: 参加型プロセスのフェーズを編集
           update: 更新
-        index:
-          steps_title: フェーズ
         new:
           create: 作成
-          title: 新しい参加型プロセスのフェーズ
         ordering:
           error: 参加型プロセスのこれらのフェーズの順序変更に問題がありました。
         update:
           error: 参加型プロセスのこの段階の更新に問題がありました。
-          success: 参加段階が正常に更新されました。
+          success: 参加プロセスフェーズを更新しました。
       participatory_process_user_roles:
         create:
           error: この参加型プロセスに参加者を追加する際に問題が発生しました。
@@ -226,13 +212,9 @@ ja:
         destroy:
           success: 管理者がこの参加型プロセスから削除しました。
         edit:
-          title: 参加型プロセス管理者を更新
           update: 更新
-        index:
-          process_admins_title: 参加型プロセス管理者
         new:
           create: 作成
-          title: 新しい参加型プロセス管理者
         update:
           error: 参加型プロセスの管理者を更新中に問題が発生しました。
           success: 管理者がこの参加プロセスの更新に成功しました。
@@ -243,21 +225,16 @@ ja:
         edit:
           update: 更新
         index:
-          private: プライベート
-          public: 公開
           published: 公開済み
           unpublished: 未公開
-        manage_trash:
-          title: 削除された参加型プロセス
         new:
           create: 作成
-          title: 新しい参加型プロセス
         update:
           error: この参加型プロセスの更新に問題がありました。
           success: 参加型プロセスが正常に更新されました。
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
-          error: この参加型プロセスの複製中に問題が発生しました。
+          error: 参加型プロセスの複製中に問題が発生しました。
           success: 参加型プロセスを複製しました。
       participatory_processes_group:
         create:
@@ -266,11 +243,6 @@ ja:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: すべての参加型プロセス
-      titles:
-        participatory_process_groups: 参加型プロセスグループ
-        participatory_process_types: 参加型プロセス種別
-        participatory_processes: 参加型プロセス
-        participatory_processes_deleted: 削除された参加型プロセス
       tooltips:
         deleted_processes_info: プロセスは、ステータスが "未公開" の場合にのみ削除できます。
       users:
@@ -284,9 +256,11 @@ ja:
         export: "%{user_name} が %{resource_name} の参加プロセスをエクスポートしました"
         import: "%{user_name} が %{resource_name} の参加プロセスをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加型プロセスを公開しました"
+        publish_all_members: "%{user_name} が参加型プロセス %{resource_name} のすべてのメンバーを公開しました"
         restore: "%{user_name} が %{resource_name} 参加型プロセスを復元しました"
         soft_delete: "%{user_name} が %{resource_name} 参加型プロセスをゴミ箱に移動しました"
         unpublish: "%{user_name} が %{resource_name} 参加型プロセスを非公開にしました"
+        unpublish_all_members: "%{user_name} が参加型プロセス %{resource_name} のすべてのメンバーを非公開にしました"
         update: "%{user_name} が %{resource_name} の参加型プロセスを更新しました"
       participatory_process_group:
         create: "%{user_name} が %{resource_name} 参加型プロセスグループを作成しました"
@@ -297,10 +271,6 @@ ja:
         create: "%{user_name} が %{resource_name} の参加型プロセスで %{space_name} フェーズを作成しました"
         delete: "%{user_name} が %{resource_name} の参加型プロセスで %{space_name} フェーズを削除しました"
         update: "%{user_name} が %{resource_name} の参加型プロセスで %{space_name} フェーズを更新しました"
-      participatory_process_type:
-        create: "%{user_name} が参加型プロセス種別 %{resource_name} を作成しました"
-        delete: "%{user_name} が参加者プロセス種別 %{resource_name} を削除しました"
-        update: "%{user_name} が参加型プロセス種別 %{resource_name} を更新しました"
       participatory_process_user_role:
         create: "%{user_name} が参加者 %{resource_name} を %{space_name} 参加型プロセスに招待しました"
         delete: "%{user_name} が参加者 %{resource_name} を %{space_name} 参加型プロセスから削除しました"
@@ -331,17 +301,13 @@ ja:
           contextual: "<p> <strong>参加型プロセス</strong>とは、特定のトピックを定義し、決定することを目的とした一連の参加型活動(例えば、最初にアンケートに記入し、次に提案を行い、対面または仮想会議で議論し、最終的に優先順位をつける)のことです。 </p> <p>参加型プロセスの例としては、委員会メンバーの選出プロセス(最初に立候補者が提示され、議論され、最終的に立候補者が選ばれる)、参加型予算(提案がなされ、経済的に評価され、利用可能な資金で投票される)、戦略的計画プロセス、規制や規範の共同起草、都市空間の設計、公共政策計画の作成などが挙げられます。</p>\n"
           page: "<p> <strong>参加型プロセス</strong>とは、特定のトピックを定義し、決定することを目的とした一連の参加型活動(例えば、最初にアンケートに記入し、次に提案を行い、対面または仮想会議で議論し、最終的に優先順位をつける)のことです。 </p> <p>参加型プロセスの例としては、委員会メンバーの選出プロセス(最初に立候補者が提示され、議論され、最終的に立候補者が選ばれる)、参加型予算(提案がなされ、経済的に評価され、利用可能な資金で投票される)、戦略的計画プロセス、規制や規範の共同起草、都市空間の設計、公共政策計画の作成などが挙げられます。</p>\n"
           title: 参加型プロセスとは何ですか?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'プロセス種別がデータベース上に見つかりませんでした (ID: %{id})。'
     menu:
       processes: 参加型プロセス
     open_data:
       help:
         participatory_processes:
-          announcement: アナウンス（コールアウト）情報
           area: プロセスが行われているエリア
+          component_settings: プロセスのコンポーネント設定
           created_at: このスペースの作成日時
           description: プロセスの詳しい説明
           developer_group: プロセスの開発者グループ。これはプロセスをプロモートしている組織です
@@ -406,20 +372,6 @@ ja:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                legend: そのプロセスは何ヶ国語で伝えられましたか？
-                options:
-                  five: コミュニティで話されている言語の半分以上= 5
-                  one: 1言語 = 1
-                  two_five: コミュニティで話されている言語の半分以下 = 2.5
-              name: アクセシビリティ
-              venue_accessibility:
-                legend: 対面での会議の会場は、移動が困難な方でも利用できるものでしたか？
-                options:
-                  five: はい = 5
-                  two_five: 部分的に = 2.5
-                  zero: いいえ = 0
             announcement:
               body_html: |-
                 <ul>
@@ -428,101 +380,143 @@ ja:
                 </ul>
               title: 'このコンテンツ ブロックには 2 種類の指標が含まれています：'
             citizen_influence:
-              citizen_influence_level:
-                legend: 有効化されている参加手段に基づく、プロセスの影響力の程度 — Sherry Arnstein（1969年）が提唱した「市民参加のはしご」に従った評価です。
+              citizen_decisional_intervention:
+                legend: プロセスのすべてのフェーズ（課題の選定から実行の監督まで）のうち、どのくらいのフェーズで市民が意思決定や実行的な行動を行う権限を持っていますか？
                 options:
-                  five: 市民による運営・意思決定= 5
-                  five_description: 市民がプログラムや機関を完全に運営し、外部からの干渉を受けることなく、方針・リソース・意思決定を管理する、最高レベルの参加形態です。
-                  four: 権限委譲 = 4
-                  four_description: 市民が組織に対して影響を与えたり管理したりするための権限、統制力、または資金を得る参加型プロセスです。
-                  one: 諮問 = 1
-                  one_description: 市民に意見を求める参加型プロセスであり、通常はアンケートや会議を通じて行われますが、その意見が意思決定に反映される保証はありません。
-                  three: パートナーシップ = 3
-                  three_description: 市民や団体が意思決定権を共有する参加型プロセスであり、参加者は交渉・リソース配分・計画への影響を与えることができ、ルールは一方的に変更できないものとなっています。このプロセスは、市民の動員や集団的な行動から生まれることがよくあります。
-                  two: 懐柔 = 2
-                  two_description: 市民が限定的な影響力を与えられる参加型プロセスであり、多くの場合、象徴的な意味合いで委員会や諮問機関などに参加させるものの、実際の権限はなく、意思決定は依然として既存の権力層によって管理されています。
-                  zero: 情報提供 = 0
-                  zero_description: 公的機関から市民への一方向的な情報提供であり、フィードバックの手段も交渉の権限も与えられないものです。
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: このプロセスにおいて、市民はどの程度の意思決定権限を有しているのでしょうか？情報を受け取るだけの段階から、決定に影響力を行使し、資源を管理する段階まで、幅広い範囲についてお聞かせください。
+                options:
+                  five: 参加者は、意思決定やリソースの管理、または実施に関与しました
+                  four: 参加者は、意思決定において決定的に関与しました
+                  one: 参加者は、組織から情報を受け取りました
+                  three: 参加者は、意思決定権を共有する形で関与しました
+                  two: 参加者は、諮問的に意見を求められるか、組織にフィードバックを提供しました
               name: 市民の影響度
             inclusiveness:
-              cultural_origins_participation:
-                legend: 招待した人々のうち、多様な文化的背景を持つ人は何人参加しましたか？
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
               description: 文化的背景および機能的多様性に基づく包摂性。
+              digital_support_offered:
+                legend: デジタルサポートは参加者に提供されていますか？
+                options:
+                  five: 'はい'
+                  two_five: 部分的に
+                  zero: 'いいえ'
               functional_diversity_invited:
-                legend: 機能的多様性のある人々のグループを招待したことはありますか？
+                legend: プロセスにおいて、参照される母集団に対して、関係者および参加者の多様性の程度はどのように評価されますか？
                 options:
-                  five: はい = 5
-                  zero: いいえ = 0
-              functional_diversity_participation:
-                legend: 招待された参加者の中で、機能的な多様性を持つ方は何名いますか？
+                  five: 良い
+                  one: 物足りない
+                  two_five: 十分
+                  zero: なし
+              languages_communicated:
+                legend: このプロセスで使用されている言語は何ヶ国語ですか？
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
-                legend: 移民グループは参加の招待を受けましたか？
+                  five: コミュニティで話されている言語の半分以上
+                  one: 1言語
+                  two_five: コミュニティで話されている言語の半分以下
+              mobility_meeting_access:
+                legend: 対面でのミーティングの会場は、移動が困難な方でも利用できるものでしたか？
                 options:
-                  five: はい = 5
-                  zero: いいえ = 0
+                  five: 'はい'
+                  two_five: 部分的に
+                  zero: 'いいえ'
               name: 包摂性
-            relevance:
-              description: プロセスの結果によって影響の重要度 — 組織の予算、組織の人員、または全人口に対する割合 — およびその影響が現れる時期。
-              name: 関連度合い
-              relevance_percentage:
-                legend: プロセスの結果によって影響を受ける、組織の予算・人員・全人口に対する割合。
+              participation_scheduling_times:
+                legend: 参加セッションは様々な時間(朝、真昼、午後、夕方、週末)に予定されています。
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
+                  five: 'はい'
+                  two_five: 部分的に
+                  zero: 'いいえ'
+            informativeness:
+              information_provided:
+                legend: 参加者が議題に影響を与える能力についての情報は提供されていますか？（プロセスやイニシアチブでの伝達、および各ディベートセッションの冒頭において）
+                options:
+                  five: 常にある
+                  one: ほとんどない
+                  two_five: 通常ある
+                  zero: まったくない
+              name: 情報量
+              published_information_clarity:
+                legend: 公開された情報は、意思決定の仕組みについて明確に示していますか？（例：投票、合意形成、直接交渉）
+                options:
+                  five: 完全に明かされている
+                  one: あまり明かされていない
+                  two_five: 十分に明かされている
+                  zero: まったく明かされていない
           highlighted_processes:
             active: アクティブ
             all: すべて
             max_results: 表示する要素の最大量
             selection_criteria: 選択条件
+        imports:
+          attachment_error: 添付ファイル "%{title}" をインポートできませんでした（%{error}）。
+          hero_image_error: ヒーロー画像をインポートできませんでした（%{error}）。
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+          help_html: このインポート機能を使用すると、エクスポートされた JSON ファイルから新しい参加型プロセスを作成できます。別の組織からプロセスをエクスポートするか、または同じ組織内のプロセスをエクスポートすることが可能です。インポートされるプロセスには、その設定、コンポーネント、および添付ファイルがすべて含まれます（選択されている場合）。
+        participatory_process_duplicates:
           form:
-            slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、このプロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+          new:
+            title: 参加型プロセスを複製
         participatory_process_groups:
+          edit:
+            title: プロセスグループを編集
           form:
             metadata: メタデータ
             title: このプロセスについて
             visibility: 公開範囲
+          index:
+            title: 参加型プロセスグループ
+          new:
+            title: 新しいプロセスグループ
         participatory_process_imports:
           form:
             document_legend: ドキュメントを追加
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+          new:
+            title: 参加型プロセスをインポート
         participatory_process_steps:
-          form:
-            cta_path_help_html: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。 設定されていない場合、ボタンは表示されません。例: %{url}'
-            cta_text_help: 設定されていない場合、ボタンは表示されません。
+          edit:
+            title: 参加型プロセスのフェーズを編集
+          index:
+            title: フェーズ
+          new:
+            title: 新しい参加型プロセスフェーズ
+        participatory_process_user_roles:
+          edit:
+            title: 参加型プロセス管理者を更新
+          index:
+            title: 参加型プロセス管理者
+          new:
+            title: 新しい参加型プロセス管理者
         participatory_processes:
+          edit:
+            title: このプロセスについて
           form:
-            announcement_help: ここに入力したテキストは、参加型プロセス情報のすぐ下にユーザーに表示されます。
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 期間
+            has_members_help: メンバーを作成し、公開することができます
             images: 画像
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            private_notice: プライベートとして設定した後、メンバーを管理することができます
             related_processes: 関連する参加型プロセス
             select_process_group: 参加型プロセス グループを選択
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             taxonomies: タクソノミー
             title: 一般情報
             visibility: 公開範囲
+          index:
+            title: 参加型プロセス
+          manage_trash:
+            title: 削除された参加型プロセス
+          new:
+            title: 新しい参加型プロセス
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -540,20 +534,18 @@ ja:
           global_score:
             description_html: 以下に、この参加型プロセスの民主的質を評価するために用いられる指標セットを示します。各指標の算出方法についての詳細は、<a href="%{info_url}">民主的品質指標に関する説明ページ</a>をご覧ください。
             name: グローバルスコア
-            note: "*評価基準は1から5までの数値で示され、1が最も低い参加品質、5が最も高い参加品質を表します。"
+            note: "*評価基準は1から5までの数値で示され、1が最も低い参加指標、5が最も高い参加指標を表します。"
             tooltip: すべての値の平均値として計算されます
-          name: 参加の品質
+          name: 品質指標
           qualitative_metrics:
             description: これらの指標は、プラットフォーム管理者が回答した自己評価調査の結果から取得されています。
             indicators:
-              accessibility: アクセシビリティ
-              accessibility_tooltip: このプロセスは、地域で話されている言語で周知されており、会場も移動が困難な方に配慮されたものとなっています。
               citizen_influence: 市民の影響
               citizen_influence_tooltip: 参加者の意思決定への影響のレベルを測定します。
               inclusiveness: 包摂性
-              inclusiveness_tooltip: さまざまな利害関係者が公平に代表されているかどうかを評価します
-              relevance: 関連性
-              relevance_tooltip: プロセスの結果によって受ける影響の重要度 — 組織の予算、組織の人員、または全人口に対する割合 — およびその影響が現れる時期を示します。
+              inclusiveness_tooltip: さまざまな利害関係者が公平に代表されているかどうかを評価します。
+              informativeness: 情報量
+              informativeness_tooltip: プロセス内で提供される明確さと情報のレベルを測定します。
             name: 自己評価指標
         extra_data:
           name: フェーズと期間
@@ -609,15 +601,192 @@ ja:
           type: 種別
         show:
           title: このプロセスについて
-      participatory_space_private_users:
-        index:
-          title: メンバー
       show:
         belongs_to_group: このプロセスの所属グループ
-        private_space: これはプライベートな参加型プロセスです
         related_processes: 関連する参加型プロセス
       static_pages:
         democratic_quality_indicators:
+          content: |-
+            <h2>Decidimにおける品質指標を測定するための指標システム</h2>
+
+            <h3>はじめに</h3>
+            <p>民主主義の質は、Decidimの中核的な理念です。この理念を堅持するため、私たちはプラットフォーム上の参加型プロセスの質を評価する指標システムを開発しました。本記事では、これらの指標がどのように算出されるかを解説します。</p>
+
+            <h3>指標の算出方法</h3>
+            <p>品質指標の収集方法として、以下の2つの手法を定義しています：</p>
+
+            <ol>
+            <li><strong>自動計測指標：</strong> Decidimプラットフォームのデータから直接算出される指標です。</li>
+            <li><strong>自己評価質問：</strong> 管理者が記入するフォームに基づいて収集される指標です。</li>
+            </ol>
+
+            <p>各指標は割合（n/総数）で表されます。この割合は、1～5段階のスコアに変換されます：</p>
+
+            <ul>
+            <li>1 = 0～20%</li>
+            <li>2 = 20～40%</li>
+            <li>3 = 40～60%</li>
+            <li>4 = 60～80%</li>
+            <li>5 = 80～100%</li>
+            </ul>
+
+            <br><br>
+            <h3>自動計測指標</h3>
+            <p>これらの指標はDecidim内で利用可能なデータから自動的に算出されます。各参加型プロセスごとに評価され、管理者が公開設定を行うことで、すべての参加者が参照できるようになります。</p>
+
+            <p>以下の4つの主要な指標を定義しています：市民の影響力、ハイブリッド性、応答性、追跡可能性：</p>
+
+            <h3>市民の影響力</h3>
+
+            <p>この指標は、受け入れられた提案やプロセスの成果物に対する市民の影響力の度合いを測定するものです。</p>
+
+            <ul>
+            <li>
+            提案に対する市民の影響力
+            <ul>
+            <li>受け入れられた提案の割合（n/総数）</li>
+            <li>市民提案全体に対する承認された<em>市民</em>提案の割合（承認された提案に対する市民の影響力の合計）</li>
+            <li>承認された提案全体に対する市民提案の承認割合（承認された提案に対する市民の影響力の相対値）</li>
+            </ul>
+            </li>
+            <li>
+            成果物/結果に対する市民の影響力
+            <ul>
+            <li>結果全体のうち、市民提案に紐づく成果物の割合（成果物に対する市民の影響力の合計）</li>
+            </ul>
+            </li>
+            </ul>
+
+            <h3>ハイブリッドの実施状況</h3>
+
+            <p>この指標は、オンライン空間とオフライン空間の融合度合いをプロセス全体を通じて測定するものです。</p>
+
+            <ul>
+            <li>ミーティングコンポーネントは有効化されていますか？（有効＝5点、無効＝0点）</li>
+            <li>対面式のミーティングは実施されていますか？（実施＝5点、未実施＝0点）</li>
+            <li>オンラインミーティングは実施されていますか？（実施＝5点、未実施＝0点）</li>
+            <li>ハイブリッド型ミーティングは実施されていますか？（実施＝5点、未実施＝0点）</li>
+            <li>ミーティングから提案が作成されていますか？（作成あり＝5点、作成なし＝0点）</li>
+            </ul>
+
+            <h3>組織の応答性</h3>
+
+            <p>この指標は、組織が参加者からの意見に対してどの程度迅速かつ適切に対応できているかを測定します。公式な回答や実施された決定事項を通じて、組織の関与度合いを反映します。</p>
+
+            <ul>
+            <li>回答が得られた提案の割合（回答件数/総提案件数） - 組織の制度的応答性指標</li>
+            <li>100%完了した成果物の割合（完了件数/総件数）</li>
+            </ul>
+
+            <h3>追跡可能性</h3>
+
+            <p>この指標は、参加型プロセスの透明性と追跡可能性を測定します。参加者が提案の進捗状況を容易に追跡でき、公開された記録を通じて組織の対応内容を確認できるかどうかを反映します。</p>
+
+            <ul>
+            <li>履歴情報が記録されている提案の件数（履歴あり件数/総件数）</li>
+            <li>提案に紐付けられた成果物の割合（紐付け件数/総件数）</li>
+            <li>議事録が公開されて終了したミーティングの割合（議事録公開件数/総ミーティング件数）</li>
+            <li>オープンデータモジュールの有効化状況（二値：0または5点）</li>
+            <li>予算関連の提案の割合（予算関連件数/総件数）</li>
+            </ul>
+
+            <br><br>
+            <h3>自己評価指標</h3>
+
+            <p>自動生成される指標に加え、各参加型プロセスの質的側面を評価するため、<strong>自己評価フォーム</strong>の活用を提案します。このフォームは各プロセス終了後にプラットフォーム管理者が記入し、その回答内容は指標コンテンツブロック内で公開されます。</p>
+
+            <p>これらの質問は、定量データだけでは評価できない民主的プロセスの質的側面を捉えることを目的としています。なお、この調査への回答はプラットフォーム管理者の主観的な見解に影響を受ける点にご留意ください。</p>
+
+            <br><br>
+            <h3>自己評価質問項目</h3>
+
+            <p>管理者が回答する自己評価フォームの質問内容と、それぞれの回答に付与される評価値を以下に示します。</p>
+
+            <h4>情報の有用性</h4>
+
+            <ol>
+            <li>公開された情報は、意思決定プロセス（投票、合意形成、直接交渉など）の仕組みを明確に説明していますか？
+            <ul>
+            <li>明確性なし = 0点</li>
+            <li>やや明確性に欠ける = 1点</li>
+            <li>十分な明確性がある = 2.5点</li>
+            <li>完全に明確である = 5点</li>
+            </ul>
+            </li>
+            <li>参加者が議論対象のテーマに対して影響を与える能力について、情報が提供されていますか（プロセスの告知や参加依頼時、および各討論セッションの開始時において）？
+            <ul>
+            <li>全く提供されていない = 0点</li>
+            <li>ほとんど提供されていない = 1点</li>
+            <li>通常提供されている = 2.5点</li>
+            <li>常に提供されている = 5点</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>市民の関与度合い</h4>
+
+            <ol>
+            <li>プロセスへの参加度合いの評価
+            <ul>
+            <li>参加者に対して組織から情報提供が行われた。 = 1</li>
+            <li>参加者に対して協議的な形で意見聴取が行われた、または組織に対してフィードバックが提供された。 = 2</li>
+            <li>意思決定権の共有を目的として参加者が関与した。 = 3</li>
+            <li>意思決定プロセスにおいて参加者が決定的に関与した。 = 4</li>
+            <li>参加者が意思決定と資源管理、または実施段階に関与した。 = 5</li>
+            </ul>
+            </li>
+            <li>市民の意思決定介入が行われた段階の割合
+            <p>問題選定から実施監督に至るまでの全プロセス段階のうち、市民が意思決定を行ったり、執行的な行動を取ることができる段階はどの程度ありますか？</p>
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>包括性</h4>
+
+            <ol>
+            <li>プロセスにおける参照対象人口と比較して、関係者および参加者の多様性の度合いはどのように評価されますか？
+            <ul>
+            <li>該当なし = 0</li>
+            <li>低い = 1</li>
+            <li>十分である = 2.5</li>
+            <li>良好である = 5</li>
+            </ul>
+            </li>
+            <li>プロセスのコミュニケーションはどの程度の言語で行われましたか？
+            <ul>
+            <li>単一言語 = 1</li>
+            <li>コミュニティで話されている言語の半数未満 = 2.5</li>
+            <li>コミュニティで話されている言語の半数以上 = 5</li>
+            </ul>
+            </li>
+            <li>対面ミーティングの開催場所は、移動に制限のある人々にとってアクセス可能でしたか？
+            <ul>
+            <li>いいえ = 0</li>
+            <li>部分的に可能 = 2.5</li>
+            <li>可能である = 5</li>
+            </ul>
+            </li>
+            <li>参加セッションは多様な時間帯（午前・昼・午後・夜間・週末）に設定されましたか？
+            <ul>
+            <li>いいえ = 0</li>
+            <li>部分的に可能 = 2.5</li>
+            <li>可能である = 5</li>
+            </ul>
+            </li>
+            <li>参加者に対してデジタルサポートが提供されましたか？
+            <ul>
+            <li>いいえ = 0</li>
+            <li>部分的に提供 = 2.5</li>
+            <li>提供された = 5</li>
+            </ul>
+            </li>
+            </ol>
           title: 民主的品質指標
     statistics:
       processes_count: プロセス
@@ -633,7 +802,7 @@ ja:
         member_menu_item: メンバー
       participatory_processes:
         index:
-          promoted_processes: ハイライトされた参加型プロセス
+          promoted_processes: 注目の参加型プロセス
         participatory_process:
           active_step: '現在のフェーズ:'
           more_info: 詳細情報

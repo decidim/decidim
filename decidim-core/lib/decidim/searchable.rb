@@ -101,7 +101,7 @@ module Decidim
 
       # Public: after_update callback to update index information of the model.
       #
-      def try_update_index_for_search_resource
+      def try_update_index_for_search_resource(current_depth = 0)
         return unless self.class.searchable_resource?(self)
 
         org = self.class.search_resource_fields_mapper.retrieve_organization(self)
@@ -124,13 +124,13 @@ module Decidim
           searchables_in_org.destroy_all
         end
 
-        find_and_update_descendants
+        find_and_update_descendants(current_depth)
       end
 
       private
 
-      def find_and_update_descendants
-        Decidim::FindAndUpdateDescendantsJob.perform_later(self)
+      def find_and_update_descendants(current_depth = 0)
+        Decidim::FindAndUpdateDescendantsJob.perform_later(self, current_depth)
       end
 
       def contents_to_searchable_resource_attributes(fields, locale)

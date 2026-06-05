@@ -26,6 +26,7 @@ en:
         duration: Duration
         facebook: Facebook
         github: GitHub
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -40,7 +41,6 @@ en:
         participatory_processes_ids: Related participatory processes
         participatory_scope: What is decided
         participatory_structure: How is it decided
-        private_space: Private space
         promoted: Highlighted
         published_at: Published at
         purpose_of_action: Purpose of action
@@ -74,6 +74,8 @@ en:
           attributes:
             document:
               allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}.'
+              empty: The document is empty
+              invalid_json: The document is not valid JSON
   activerecord:
     models:
       decidim/assembly:
@@ -100,15 +102,14 @@ en:
         edit:
           update: Update
         index:
-          private: Private
-          public: Public
+          access_modes:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
           published: Published
           unpublished: Unpublished
-        manage_trash:
-          title: Deleted assemblies
         new:
           create: Create
-          title: New assembly
         update:
           error: There was a problem updating this assembly.
           success: Assembly successfully updated.
@@ -120,7 +121,6 @@ en:
         new:
           duplicate: Duplicate
           select: Select which data you would like to duplicate
-          title: Duplicate assembly
       assembly_imports:
         create:
           error: There was a problem importing this assembly.
@@ -128,7 +128,6 @@ en:
         new:
           import: Import
           select: Select which data you would like to import
-          title: Import assembly
       assembly_publications:
         create:
           error: There was a problem publishing this assembly.
@@ -143,13 +142,9 @@ en:
         destroy:
           success: Admin successfully removed from this assembly.
         edit:
-          title: Update assembly admin
           update: Update
-        index:
-          assembly_admins_title: Assembly admins
         new:
           create: Create
-          title: New assembly admin
         update:
           error: There was a problem updating an admin for this assembly.
           success: Admin updated successfully for this assembly.
@@ -171,15 +166,15 @@ en:
           components: Components
           info: About this assembly
           landing_page: Landing page layout
+          members: Members
           moderations: Moderations
-          private_users: Members
           see_assembly: See assembly
       models:
         assembly:
           fields:
+            access_mode: Access mode
             actions: Actions
             created_at: Created at
-            private: Private
             promoted: Highlighted
             published: Published
             title: Title
@@ -206,10 +201,6 @@ en:
       taxonomy_filters:
         space_filter_for:
           assemblies: All assemblies
-      titles:
-        assemblies: Assemblies
-        assemblies_deleted: Deleted assemblies
-        assemblies_types: Assemblies types
       tooltips:
         deleted_assemblies_info: An assembly can only be deleted if status is "Unpublished".
     admin_log:
@@ -219,9 +210,11 @@ en:
         export: "%{user_name} exported the %{resource_name} assembly"
         import: "%{user_name} imported the %{resource_name} assembly"
         publish: "%{user_name} published the %{resource_name} assembly"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} assembly"
         restore: "%{user_name} restored the %{resource_name} assembly"
         soft_delete: "%{user_name} moved to trash the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
       assembly_member:
         create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
@@ -242,17 +235,25 @@ en:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: About this assembly
           form:
-            announcement_help: The text you enter here will be shown to the user right below the assembly information.
+            access:
+              label: Access
+              options:
+                open: Everyone can see the assembly and participate.
+                restricted: Only members and administrators can see and participate. It will not appear in the general search, API, nor open data files.
+                transparent: Everyone can see the assembly, but only members and administrators can participate.
+              set_this_space_as: Set this space as
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            has_members_help: You will be able to create and publish members
             images: Images
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
-            private_notice: You will be able to manage private participants after setting it as private
             select_a_created_by: Select a created by
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -260,23 +261,45 @@ en:
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
+          index:
+            title: Assemblies
+          manage_trash:
+            title: Deleted assemblies
+          new:
+            title: New assembly
         assembly_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Duplicate assembly
         assembly_imports:
           form:
+            document_legend: Add a document
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          new:
+            title: Import assembly
         assembly_members:
           form:
             explanation: 'Guidance for image:'
             image_guide: Preferably a portrait image that does not have any text.
             non_user_avatar_help: You should get the consent of the persons before publishing them as a member.
+        assembly_user_roles:
+          edit:
+            title: Update assembly admin
+          index:
+            title: Assembly admins
+          new:
+            title: New assembly admin
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
+        imports:
+          attachment_error: The attachment "%{title}" could not be imported (%{error}).
+          hero_image_error: The hero image could not be imported (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: This import feature allows you to create a new assembly from an exported JSON file. You can export an assembly from another organization or from this same organization. The imported assembly will include its settings, components, and attachments (if selected).
       assemblies:
         description:
           area_name: Area
@@ -300,9 +323,6 @@ en:
           type: Type
         show:
           title: About this assembly
-      assembly_members:
-        index:
-          members: Members
       content_blocks:
         children_assemblies:
           name: Assemblies
@@ -337,16 +357,9 @@ en:
           highlighted_assemblies:
             active_spaces: Active assemblies
             see_all_spaces: See all assemblies
-        user_profile:
-          member_of:
-            member_of: Member of
       show:
         duration: Duration
-        private_space: This is a private assembly
         social_networks_title: Visit assembly on
-    assembly_members:
-      index:
-        title: Members
     download_your_data:
       show:
         assemblies: Assemblies export
@@ -373,18 +386,17 @@ en:
       value_types:
         assembly_presenter:
           not_found: 'The assembly was not found on the database (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
     open_data:
       help:
         assemblies:
-          announcement: The announcement (callout) information
+          access_mode: Access mode. Whether the assembly is open, restricted, or transparent.
           area: The area of the assembly
           assembly_type: The type of the assembly
           closing_date: The closing date of the assembly
           closing_date_reason: Why the assembly was closed
+          component_settings: The component settings of the assembly
           composition: The composition of the assembly
           created_at: The date this space was created
           created_by: Who has created this assembly

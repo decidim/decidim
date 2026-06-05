@@ -23,7 +23,7 @@ RSpec.shared_examples "manage debates" do
 
       it "does not list the hidden debates" do
         visit current_path
-        expect(page).to have_no_content(translated(my_other_debate.title))
+        expect(page).to have_no_text(translated(my_other_debate.title))
       end
     end
 
@@ -60,14 +60,36 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout "Debate successfully updated"
+      expect(page).to have_callout "Debate successfully updated"
 
       within "table" do
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} debate on the")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} debate on the")
+    end
+
+    it "throws error when submitting with empty mandatory fields" do
+      within ".table-list" do
+        click_link_or_button debate.title["en"].to_s
+      end
+
+      within ".edit_debate" do
+        fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+
+        within "#debate_description_en" do
+          attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+        end
+        within "#debate_instructions_en" do
+          attributes[:instructions]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+        end
+        click_link_or_button "Update"
+      end
+
+      within ".flash__message" do
+        expect(page).to have_text("There was a problem updating this debate.")
+      end
     end
 
     context "when the debate has an author" do
@@ -76,7 +98,7 @@ RSpec.shared_examples "manage debates" do
       it "cannot edit the debate" do
         within "tr", text: translated(debate.title) do
           find("button[data-controller='dropdown']").click
-          expect(page).to have_no_content("Edit")
+          expect(page).to have_no_text("Edit")
         end
       end
     end
@@ -96,7 +118,7 @@ RSpec.shared_examples "manage debates" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("You cannot change the comment layout once comments have been posted")
+        expect(page).to have_text("You cannot change the comment layout once comments have been posted")
 
         debate.reload
         expect(debate.comments_layout).to eq("two_columns")
@@ -115,7 +137,7 @@ RSpec.shared_examples "manage debates" do
 
     it "shows a preview of the debate" do
       visit resource_locator(debate).path
-      expect(page).to have_content(translated(debate.title))
+      expect(page).to have_text(translated(debate.title))
     end
   end
 
@@ -141,22 +163,22 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout "Debate successfully created"
+    expect(page).to have_callout "Debate successfully created"
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_text(translated(attributes[:title]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
+    expect(page).to have_text("created the #{translated(attributes[:title])} debate on the")
 
     visit decidim.last_activities_path
-    expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
+    expect(page).to have_text("New debate: #{decidim_sanitize_translated(attributes[:title])}")
 
     within "#filters" do
       find("a", class: "filter", text: "Debate", match: :first).click
     end
-    expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
+    expect(page).to have_text("New debate: #{decidim_sanitize_translated(attributes[:title])}")
   end
 
   it "creates a new open debate" do
@@ -179,14 +201,14 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout "Debate successfully created"
+    expect(page).to have_callout "Debate successfully created"
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_text(translated(attributes[:title]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
+    expect(page).to have_text("created the #{translated(attributes[:title])} debate on the")
   end
 
   it "creates a new debate with two columns layout" do
@@ -205,10 +227,10 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout "Debate successfully created"
+    expect(page).to have_callout "Debate successfully created"
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_text(translated(attributes[:title]))
     end
   end
 
@@ -245,7 +267,7 @@ RSpec.shared_examples "manage debates" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout "Debate successfully created"
+        expect(page).to have_callout "Debate successfully created"
 
         within "tr[data-id=\"#{Decidim::Debates::Debate.last.id}\"]" do
           find("button[data-controller='dropdown']").click
@@ -253,14 +275,14 @@ RSpec.shared_examples "manage debates" do
         end
 
         expect(page).to have_css("img[src*='#{image_filename}']")
-        expect(page).to have_content(document_filename)
+        expect(page).to have_text(document_filename)
       end
 
       it "shows validation error when format is not accepted" do
         dynamically_attach_file(:debate_documents, invalid_document, keep_modal_open: true) do
-          expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
+          expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
         end
-        expect(page).to have_content("Validation error!")
+        expect(page).to have_text("Validation error!")
       end
     end
 
@@ -286,7 +308,7 @@ RSpec.shared_examples "manage debates" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout "Debate successfully updated"
+        expect(page).to have_callout "Debate successfully updated"
 
         within "tr[data-id=\"#{debate.id}\"]" do
           find("button[data-controller='dropdown']").click
@@ -294,7 +316,7 @@ RSpec.shared_examples "manage debates" do
         end
 
         expect(page).to have_css("img[src*='#{image_filename}']")
-        expect(page).to have_content(document_filename)
+        expect(page).to have_text(document_filename)
       end
     end
 
@@ -324,7 +346,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout "Debate successfully closed"
+      expect(page).to have_callout "Debate successfully closed"
 
       within "table" do
         within "tr", text: translated(debate.title) do
@@ -333,10 +355,10 @@ RSpec.shared_examples "manage debates" do
         end
       end
 
-      expect(page).to have_content(strip_tags(translated(attributes[:conclusions])).strip)
+      expect(page).to have_text(strip_tags(translated(attributes[:conclusions])).strip)
 
       visit decidim_admin.root_path
-      expect(page).to have_content("performed some action on #{translated(debate.title)} in")
+      expect(page).to have_text("performed some action on #{translated(debate.title)} in")
     end
 
     context "when the debate has an author" do
@@ -345,7 +367,7 @@ RSpec.shared_examples "manage debates" do
       it "cannot close the debate" do
         within "tr", text: translated(debate.title) do
           find("button[data-controller='dropdown']").click
-          expect(page).to have_no_content("Close")
+          expect(page).to have_no_text("Close")
         end
       end
     end

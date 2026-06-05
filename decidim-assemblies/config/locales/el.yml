@@ -10,9 +10,6 @@ el:
         closing_date: Ημερομηνία κλεισίματος
         closing_date_reason: Αιτία ημερομηνίας κλεισίματος
         composition: Σύνθεση
-        copy_categories: Αντιγραφή κατηγοριών
-        copy_components: Αντιγραφή στοιχείων
-        copy_features: Αντιγραφή χαρακτηριστικών
         created_by: Δημιουργήθηκε από
         created_by_other: Δημιουργήθηκε από άλλο
         creation_date: Ημερομηνία δημιουργίας
@@ -38,7 +35,6 @@ el:
         participatory_processes_ids: Σχετικές διαδικασίες συμμετοχής
         participatory_scope: Τι αποφασίστηκε
         participatory_structure: Πώς αποφασίζεται
-        private_space: Ιδιωτικός χώρος
         promoted: Επισημάνθηκε
         published_at: Δημοσιεύτηκε στις
         purpose_of_action: Σκοπός της δράσης
@@ -93,24 +89,12 @@ el:
         edit:
           update: Ενημέρωση
         index:
-          private: Ιδιωτικό
-          public: Δημόσιο
           published: Δημοσιεύτηκε
         new:
           create: Δημιουργία
-          title: Νέα συνέλευση
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της συνέλευσης.
           success: Η συνέλευση ενημερώθηκε με επιτυχία.
-      assemblies_copies:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή αυτής της συνέλευσης.
-          success: Η συνέλευση αντιγράφτηκε με επιτυχία.
-      assembly_copies:
-        new:
-          copy: Αντιγραφή
-          select: Επιλέξτε ποια δεδομένα θέλετε να αντιγράψετε
-          title: Αντιγραφή συνέλευσης
       assembly_imports:
         create:
           error: Προέκυψε ένα πρόβλημα κατά την εισαγωγή αυτής της συνέλευσης.
@@ -118,7 +102,6 @@ el:
         new:
           import: Εισαγωγή
           select: Επιλέξετε ποιά δεδομένα θα θέλατε να εισάγετε
-          title: Εισαγωγή συνέλευσης
       assembly_publications:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση αυτής της συνέλευσης.
@@ -134,8 +117,6 @@ el:
           success: Ο διαχειριστής καταργήθηκε με επιτυχία από αυτήν τη συνέλευση.
         edit:
           update: Ενημέρωση
-        index:
-          assembly_admins_title: Διαχειριστές συνέλευσης
         new:
           create: Δημιουργία
         update:
@@ -154,7 +135,6 @@ el:
         assembly:
           fields:
             created_at: Δημιουργήθηκε στις
-            private: Ιδιωτικό
             promoted: Επισημάνθηκε
             published: Δημοσιεύτηκε
             title: Τίτλος
@@ -176,9 +156,6 @@ el:
             admin: Διαχειριστής
             collaborator: Συνεργάτης
             moderator: Επόπτης
-      titles:
-        assemblies: Συνελεύσεις
-        assemblies_types: Τύποι συνέλευσης
     admin_log:
       assembly:
         create: "Ο χρήστης %{user_name} δημιούργησε τη συνέλευση %{resource_name}"
@@ -208,7 +185,6 @@ el:
       admin:
         assemblies:
           form:
-            announcement_help: Το κείμενο που εισάγετε εδώ θα εμφανίζεται στο χρήστη ακριβώς κάτω από τις πληροφορίες συνέλευσης.
             duration: Διάρκεια
             duration_help: Εάν η διάρκεια αυτής της συνέλευσης είναι περιορισμένη, επιλέξτε την ημερομηνία λήξης. Διαφορετικά, θα εμφανίζεται ως απεριόριστη.
             images: Εικόνες
@@ -219,6 +195,9 @@ el:
             select_parent_assembly: Επιλέξτε «Γονική συνέλευση»
             social_handlers: Μέσα κοινωνικής δικτύωσης
             title: Γενικές πληροφορίες
+        assembly_imports:
+          form:
+            document_legend: Προσθήκη εγγράφου
         assembly_members:
           form:
             explanation: 'Οδηγίες για την εικόνα:'
@@ -235,9 +214,6 @@ el:
             all: Όλα
         show:
           title: Σχετικά με τη συνέλευση
-      assembly_members:
-        index:
-          members: Μέλη
       content_blocks:
         highlighted_assemblies:
           name: Επισημασμένες συνελεύσεις
@@ -259,17 +235,9 @@ el:
         title: Συνελεύσεις
       last_activity:
         new_assembly: 'Νέα συνέλευση:'
-      pages:
-        user_profile:
-          member_of:
-            member_of: Μέλος
       show:
         duration: Διάρκεια
-        private_space: Αυτή είναι μια ιδιωτική συνέλευση
         social_networks_title: Επίσκεψη στη συνέλευση στις
-    assembly_members:
-      index:
-        title: Μέλη
     events:
       assemblies:
         create_assembly_member:
@@ -293,8 +261,6 @@ el:
       value_types:
         assembly_presenter:
           not_found: 'Η συνέλευση δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
-        assembly_type_presenter:
-          not_found: 'Ο τύπος συνέλευσης δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
     menu:
       assemblies: Συνελεύσεις
     participatory_processes:

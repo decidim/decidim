@@ -9,9 +9,6 @@ lb:
         closing_date: Einsendeschluss
         closing_date_reason: Schlussdatums Grund
         composition: Zusammensetzung
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
-        copy_features: Funktionen kopieren
         created_by: Erstellt von
         created_by_other: Erstellt von anderen
         creation_date: Datum erstellt
@@ -33,7 +30,6 @@ lb:
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie wird es entschieden?
-        private_space: Privatsphäre
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         purpose_of_action: Zweck der Aktion
@@ -81,24 +77,12 @@ lb:
         edit:
           update: Aktualisieren
         index:
-          private: Privat
-          public: Öffentlich
           published: Veröffentlicht
         new:
           create: Erstellen
-          title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich aktualisiert.
-      assemblies_copies:
-        create:
-          error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich dupliziert.
-      assembly_copies:
-        new:
-          copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelte Montage
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -106,7 +90,6 @@ lb:
         new:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Gremium importieren
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -122,8 +105,6 @@ lb:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
           update: Aktualisieren
-        index:
-          assembly_admins_title: Assembly Benutzer
         new:
           create: Erstellen
         update:
@@ -141,7 +122,6 @@ lb:
         assembly:
           fields:
             created_at: Hergestellt in
-            private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
@@ -159,6 +139,9 @@ lb:
             name: Name
     assemblies:
       admin:
+        assembly_imports:
+          form:
+            document_legend: Dokument hinzufügen
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
@@ -169,9 +152,6 @@ lb:
         filters:
           names:
             all: Alle
-      assembly_members:
-        index:
-          members: Mitglieder
       content_blocks:
         highlighted_assemblies:
           name: Hervorgehobene Gremien
@@ -191,16 +171,8 @@ lb:
         working_group: Arbeitsgruppe
       index:
         title: Gremien
-      pages:
-        user_profile:
-          member_of:
-            member_of: Mitglied von
       show:
         duration: Dauer
-        private_space: Dies ist eine private Versammlung
-    assembly_members:
-      index:
-        title: Mitglieder
     events:
       assemblies:
         create_assembly_member:
@@ -223,8 +195,6 @@ lb:
       value_types:
         assembly_presenter:
           not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
     participatory_processes:

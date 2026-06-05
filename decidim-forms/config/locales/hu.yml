@@ -27,21 +27,17 @@ hu:
             any: Bármilyen
             collapse: Összecsukás
             description: Leírás
-            down: Le
             expand: Kibontás
             question: Kérdés
             remove: Eltávolít
             statement: Nyilatkozat
-            up: Fel
           title_and_description:
             collapse: Összecsuk
             description: Leírás
-            down: Le
             expand: Kibont
             remove: Eltávolít
             title: Cím
             title_and_description: Cím és leírás
-            up: Fel
           update:
             invalid: Hiba történt a kérdőív mentésekor.
       images:
@@ -57,9 +53,6 @@ hu:
           max_choices: 'Max választás: %{n}'
         show:
           questionnaire_closed:
-            title: A kérdőív lezárult
-          questionnaire_for_private_users:
-            body: A kérdőív csak magán felhasználók számára áll rendelkezésre
             title: A kérdőív lezárult
           tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeket
       step_navigation:

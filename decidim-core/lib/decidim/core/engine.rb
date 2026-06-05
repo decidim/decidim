@@ -38,6 +38,7 @@ require "ransack"
 require "wisper"
 require "chartkick"
 require "shakapacker"
+require "data_migrate"
 
 require "decidim/api"
 require "decidim/core/content_blocks/registry_manager"
@@ -45,6 +46,7 @@ require "decidim/core/menu"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
+require "decidim/shakapacker"
 require "decidim/webpacker"
 
 module Decidim
@@ -228,35 +230,22 @@ module Decidim
         Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
       end
 
-      initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
-        ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
+      initializer "decidim_core.data_migrate" do |app|
+        DataMigrate.configure do |config|
+          config.data_migrations_path = [app.root.join("db/data").to_s]
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
-      # Rails 7.0 default is vips, but
-      # The `:mini_magick` option is not deprecated; it is fine to keep using it.
-      # And we are going to use it while migrating rails application
-      initializer "decidim_core.active_storage_variant_processor" do |app|
-        app.config.active_storage.variant_processor = :mini_magick
+      initializer "decidim_core.patch_shakapacker", before: "shakapacker.version_checker" do
+        ENV["SHAKAPACKER_CONFIG"] = Decidim::Shakapacker.configuration.configuration_file
       end
 
       initializer "decidim_core.setup_i18n" do |app|
         app.config.i18n.available_locales = Decidim.available_locales
         app.config.i18n.default_locale = Decidim.default_locale
-      end
-
-      initializer "decidim_core.active_storage_method_patch" do |_app|
-        if Rails::VERSION::MAJOR < 8
-          # This is a manual bugfix of https://github.com/rails/rails/pull/51931
-          module Attachment
-            def named_variants
-              record.attachment_reflections[name]&.named_variants || {}
-            end
-          end
-
-          ActiveSupport.on_load(:active_storage_attachment) { prepend Attachment }
-        else
-          Decidim.deprecator.warn("Remove decidim_core.active_storage_method_patch initializer from #{__FILE__}")
-        end
+        app.config.i18n.fallbacks = true
+        app.config.i18n.raise_on_missing_translations = Rails.env.local?
       end
 
       initializer "decidim_core.action_controller" do |_app|
@@ -353,13 +342,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_core.locales" do |app|
-        app.config.i18n.fallbacks = true
-      end
-
       initializer "decidim_core.graphql_api" do
-        Decidim::Api::QueryType.include Decidim::QueryExtensions
-
         Decidim::Api.add_orphan_type Decidim::Core::UserType
       end
 
@@ -385,10 +368,6 @@ module Decidim
           # this allows to search for an integer inside a column that is an array
           config.add_predicate("contains", arel_predicate: "contains", formatter: array_cast, validator: integer_presence)
         end
-      end
-
-      initializer "decidim_core.i18n_exceptions" do |app|
-        app.config.i18n.raise_on_missing_translations = true unless Rails.env.production?
       end
 
       initializer "decidim_core.geocoding", after: :load_config_initializers do
@@ -462,8 +441,6 @@ module Decidim
       end
 
       initializer "decidim_core.menu" do
-        Decidim::Core::Menu.register_menu!
-        Decidim::Core::Menu.register_mobile_menu!
         Decidim::Core::Menu.register_user_menu!
       end
 
@@ -487,6 +464,7 @@ module Decidim
       end
 
       initializer "decidim_core.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << Rails.root.join("app/views") # for partials
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells/amendable")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
@@ -516,7 +494,7 @@ module Decidim
           # For more information go to
           # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
           default_scopes :profile
-          optional_scopes :user, :"api:read", :"api:write"
+          optional_scopes :user, :"api:read", :"api:write", :"admin:read", :"admin:write"
 
           # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
           # by default in non-development environments). OAuth2 delegates security in

@@ -48,6 +48,75 @@ describe "Admin manages officializations" do
     it_behaves_like "paginating a collection"
   end
 
+  describe "sorting participants by creation date" do
+    let!(:newest_user) { create(:user, :confirmed, name: "Newest user", organization:, created_at: 1.day.from_now) }
+    let!(:old_user) { create(:user, :confirmed, name: "Old user", organization:, created_at: 3.weeks.ago) }
+    let!(:recent_user) { create(:user, :confirmed, name: "Recent user", organization:, created_at: 1.week.ago) }
+
+    before do
+      within_admin_sidebar_menu { click_on "Participants" }
+    end
+
+    it "sorts by created_at descending when 'Created at' is clicked" do
+      within "table thead" do
+        click_on "Created At"
+      end
+
+      names = page.all("table tbody tr td:first-child").map(&:text)
+      expect(names.index("Newest user")).to be < names.index("Recent user")
+      expect(names.index("Recent user")).to be < names.index("Old user")
+    end
+
+    it "sorts by created_at ascending when clicked again" do
+      within "table thead" do
+        click_on "Created At"
+        click_on "Created At"
+      end
+
+      names = page.all("table tbody tr td:first-child").map(&:text)
+      expect(names.index("Old user")).to be < names.index("Recent user")
+      expect(names.index("Recent user")).to be < names.index("Newest user")
+    end
+  end
+
+  describe "sorting participants by report count" do
+    let!(:user_mid) { create(:user, :confirmed, name: "Mid reports", organization:) }
+    let!(:user_no_moderation) { create(:user, :confirmed, name: "No moderation", organization:) }
+    let!(:user_zero) { create(:user, :confirmed, name: "Zero reports", organization:) }
+    let!(:user_high) { create(:user, :confirmed, name: "High reports", organization:) }
+
+    before do
+      create(:user_moderation, user: user_mid, report_count: 1)
+      create(:user_moderation, user: user_zero, report_count: 0)
+      create(:user_moderation, user: user_high, report_count: 10)
+      within_admin_sidebar_menu { click_on "Participants" }
+    end
+
+    it "sorts by report count descending when 'Reports' is clicked" do
+      within "table thead" do
+        click_on "Reports"
+      end
+
+      names = page.all("table tbody tr td:first-child").map(&:text)
+      expect(names.index("High reports")).to be < names.index("Mid reports")
+      expect(names.index("Mid reports")).to be < names.index("Zero reports")
+      expect(names.index("Mid reports")).to be < names.index("No moderation")
+    end
+
+    it "treats users without a moderation row as zero reports" do
+      visit "#{current_path}?q%5Bs%5D=user_moderation_report_count+asc"
+
+      names = page.all("table tbody tr td:first-child").map(&:text)
+      no_moderation_idx = names.index("No moderation")
+      zero_idx = names.index("Zero reports")
+      mid_idx = names.index("Mid reports")
+      high_idx = names.index("High reports")
+
+      expect([no_moderation_idx, zero_idx].max).to be < mid_idx
+      expect(mid_idx).to be < high_idx
+    end
+  end
+
   describe "blocked users" do
     let!(:user) { create(:user, :blocked, organization:) }
 
@@ -62,6 +131,23 @@ describe "Admin manages officializations" do
         within "tr[data-user-id=\"#{user.id}\"]" do
           expect(page).to have_no_link("Officialize")
         end
+      end
+    end
+  end
+
+  describe "when user's nickname is blank" do
+    let!(:user) { create(:user, :managed, organization:, nickname: "") }
+
+    before do
+      within_admin_sidebar_menu do
+        click_on "Participants"
+      end
+    end
+
+    it "has no user link" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        expect(page).to have_text(user.name)
+        expect(page).to have_no_link(user.name)
       end
     end
   end
@@ -84,10 +170,10 @@ describe "Admin manages officializations" do
       it "officializes it with the standard badge" do
         click_on "Officialize"
 
-        expect(page).to have_content("successfully officialized")
+        expect(page).to have_callout("Participant successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          expect(page).to have_content("Officialized")
+          expect(page).to have_text("Officialized")
         end
       end
 
@@ -101,10 +187,10 @@ describe "Admin manages officializations" do
 
         click_on "Officialize"
 
-        expect(page).to have_content("successfully officialized")
+        expect(page).to have_callout("Participant successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          expect(page).to have_content("Officialized").and have_content("Major of Barcelona")
+          expect(page).to have_text("Officialized").and have_text("Major of Barcelona")
         end
       end
     end
@@ -140,10 +226,10 @@ describe "Admin manages officializations" do
         )
         click_on "Officialize"
 
-        expect(page).to have_content("successfully officialized")
+        expect(page).to have_callout("Participant successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          expect(page).to have_content("Officialized").and have_content("Major of Barcelona")
+          expect(page).to have_text("Officialized").and have_text("Major of Barcelona")
         end
       end
     end
@@ -164,10 +250,10 @@ describe "Admin manages officializations" do
     end
 
     it "unofficializes user and goes back to list" do
-      expect(page).to have_content("successfully unofficialized")
+      expect(page).to have_callout("Participant successfully unofficialized")
 
       within "tr[data-user-id=\"#{user.id}\"]" do
-        expect(page).to have_content("Not officialized")
+        expect(page).to have_text("Not officialized")
       end
     end
   end
@@ -205,7 +291,7 @@ describe "Admin manages officializations" do
       end
 
       within "div.profile__details" do
-        expect(page).to have_content(user.name)
+        expect(page).to have_text(user.name)
       end
     end
   end
@@ -225,7 +311,7 @@ describe "Admin manages officializations" do
       end
 
       within "div.profile__details" do
-        expect(page).to have_content(user.name)
+        expect(page).to have_text(user.name)
       end
     end
   end
@@ -247,12 +333,12 @@ describe "Admin manages officializations" do
         end
 
         within "#show-email-modal" do
-          expect(page).to have_content("Show participant's email address")
-          expect(page).to have_no_content(user.email)
+          expect(page).to have_text("Show participant's email address")
+          expect(page).to have_no_text(user.email)
 
           click_on "Show"
 
-          expect(page).to have_content(user.email)
+          expect(page).to have_text(user.email)
 
           find("button[data-dialog-close]").click
         end
@@ -261,7 +347,7 @@ describe "Admin manages officializations" do
       visit decidim_admin.root_path
 
       users.each do |user|
-        expect(page).to have_content("#{admin.name} retrieved the email of the participant #{user.name}")
+        expect(page).to have_text("#{admin.name} retrieved the email of the participant #{user.name}")
       end
     end
   end

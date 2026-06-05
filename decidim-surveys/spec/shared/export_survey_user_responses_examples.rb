@@ -22,7 +22,7 @@ shared_examples "export survey user responses" do
 
     perform_and_wait_for_enqueued_jobs { click_on "CSV" }
 
-    expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+    expect(page).to have_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
@@ -42,7 +42,7 @@ shared_examples "export survey user responses" do
 
     perform_and_wait_for_enqueued_jobs { click_on "JSON" }
 
-    expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+    expect(page).to have_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
@@ -61,7 +61,7 @@ shared_examples "export survey user responses" do
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "PDF" }
-    expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+    expect(page).to have_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
@@ -85,7 +85,7 @@ shared_examples "export survey user responses" do
       perform_and_wait_for_enqueued_jobs { click_on "Export" }
     end
 
-    expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+    expect(page).to have_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
@@ -96,13 +96,13 @@ shared_examples "export survey user responses" do
 
   # There is a chance of a flaky spec here, as sometimes the jobs are not enqueued in the correct order
   # causing user's confirmations to be sent after the export is ready
-  def perform_and_wait_for_enqueued_jobs(only: nil, except: nil, queue: nil, at: nil, &block)
+  def perform_and_wait_for_enqueued_jobs(only: nil, except: nil, queue: nil, at: nil, &)
     while enqueued_jobs.size.positive?
       perform_enqueued_jobs
       sleep 0.5
     end
 
-    perform_enqueued_jobs(only:, except:, queue:, at:, &block)
+    perform_enqueued_jobs(only:, except:, queue:, at:, &)
 
     while enqueued_jobs.size.positive?
       perform_enqueued_jobs

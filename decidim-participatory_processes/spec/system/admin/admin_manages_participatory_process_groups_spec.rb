@@ -46,17 +46,17 @@ describe "Admin manages participatory process groups" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Participatory process group successfully created.")
     expect(page).to have_field(:participatory_process_group_title_en, with: translated(attributes[:title]))
     expect(page).to have_field(:participatory_process_group_group_url, with: "http://example.org")
     expect(page).to have_field(:participatory_process_group_developer_group_en, with: translated(attributes[:developer_group]))
     expect(page).to have_select("Related processes", selected: participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Participatory process group successfully created.")
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} participatory process group")
+    expect(page).to have_text("created the #{translated(attributes[:title])} participatory process group")
   end
 
   context "with existing groups" do
@@ -92,16 +92,16 @@ describe "Admin manages participatory process groups" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Participatory process group successfully updated.")
       expect(page).to have_field(:participatory_process_group_title_en, with: translated(attributes[:title]))
-      expect(page).to have_content(strip_tags(translated(attributes[:description])).strip)
+      expect(page).to have_text(strip_tags(translated(attributes[:description])).strip)
       expect(page).to have_field(:participatory_process_group_group_url, with: "http://new-example.org")
       expect(page).to have_field(:participatory_process_group_developer_group_en, with: translated(attributes[:developer_group]))
       expect(page).to have_select("Related processes", selected: participatory_processes.last.title["en"])
       expect(page).to have_css("img[src*='#{image2_filename}']")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} participatory process group")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} participatory process group")
     end
 
     it "validates the group attributes" do
@@ -122,7 +122,7 @@ describe "Admin manages participatory process groups" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("There was a problem updating this participatory process group")
+      expect(page).to have_text("There was a problem updating this participatory process group")
     end
 
     it "can remove its image" do
@@ -149,10 +149,10 @@ describe "Admin manages participatory process groups" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Participatory process group successfully deleted.")
 
       within "table" do
-        expect(page).to have_no_content(participatory_process_group.title["en"])
+        expect(page).to have_no_text(participatory_process_group.title["en"])
       end
     end
 
@@ -162,10 +162,11 @@ describe "Admin manages participatory process groups" do
         click_on "Edit"
       end
 
-      click_on "Manage"
-      click_on "Landing page"
+      within "#admin-sidebar-menu-settings" do
+        click_on "Landing page"
+      end
 
-      expect(page).to have_content "Active content blocks"
+      expect(page).to have_text "Active content blocks"
     end
   end
 

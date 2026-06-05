@@ -6,6 +6,7 @@ module Decidim
   module Initiatives
     class ApplicationFormPDF
       include Decidim::OrganizationHelper
+
       def initialize(initiative)
         @initiative = initiative
       end

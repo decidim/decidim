@@ -12,8 +12,6 @@ kaa:
         name: Ataması
       organization:
         name: Ataması
-      participatory_space_private_user:
-        email: Elektron pochta
       user_group_csv_verification:
         file: Fayl
   activerecord:
@@ -144,12 +142,6 @@ kaa:
           instagram: Instagram
           url: URL
           youtube: YouTube
-      participatory_space_private_users:
-        new:
-          create: Jaratıw
-      participatory_space_private_users_csv_imports:
-        new:
-          upload: Júklew
       reminders:
         new:
           submit: Jiberiw

@@ -138,7 +138,8 @@ module Decidim
       # Adds a new coauthor to the list of coauthors. The coauthorship is created with
       # current object as coauthorable and `user` param as author.
       #
-      # @param author: The new coauthor.
+      # @param author [Decidim::User] The new coauthor.
+      # @param extra_attributes [Hash{Symbol => Object}]
       # @extra_attrs: Extra
       def add_coauthor(author, extra_attributes = {})
         return if coauthorships.exists?(decidim_author_id: author.id, decidim_author_type: author.class.base_class.name)

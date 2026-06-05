@@ -2,7 +2,7 @@
   @apply flex flex-col min-h-screen;
 
   &__skip {
-    @apply absolute z-10 left-0 -translate-x-full py-1 px-4 bg-primary rounded-br-lg text-white cursor-pointer transition focus:translate-x-0;
+    @apply absolute z-[9999] left-0 -translate-x-full py-1 px-4 bg-primary rounded-br-lg text-white cursor-pointer transition focus:translate-x-0;
   }
 
   [data-content] {

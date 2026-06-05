@@ -18,7 +18,7 @@ module Decidim
       include Decidim::AttachmentsHelper
       include Decidim::SanitizeHelper
 
-      helper_method :meetings, :meeting, :registration, :registration_qr_code_image, :search, :tab_panel_items
+      helper_method :meetings, :meeting, :registration, :registration_qr_code_image, :search, :tab_panel_items, :withdrawn_meetings?
 
       before_action :add_additional_csp_directives, only: [:show]
 
@@ -41,7 +41,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("meetings.create.invalid", scope: "decidim.meetings")
-            render action: "new", status: :unprocessable_entity
+            render action: "new", status: :unprocessable_content
           end
         end
       end
@@ -52,8 +52,7 @@ module Decidim
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
 
         if @past_meetings.result.present?
-          params[:filter] ||= {}
-          params[:filter][:with_any_date] = %w(past)
+          params.fetch(:filter, {}).merge!(with_any_date: %w(past))
           @forced_past_meetings = true
           @search = @past_meetings
         end
@@ -88,7 +87,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("meetings.update.invalid", scope: "decidim.meetings")
-            render :edit, status: :unprocessable_entity
+            render :edit, status: :unprocessable_content
           end
         end
       end
@@ -123,6 +122,12 @@ module Decidim
         @registration ||= meeting.registrations.find_by(user: current_user)
       end
 
+      def withdrawn_meetings?
+        return @withdrawn_meetings if defined?(@withdrawn_meetings)
+
+        @withdrawn_meetings ||= search_base_collection.withdrawn.exists?
+      end
+
       def registration_qr_code_image
         Base64.encode64(
           RQRCode::QRCode.new(registration.validation_code_short_link.short_url).as_png(size: 500).to_s
@@ -130,12 +135,7 @@ module Decidim
       end
 
       def search_collection
-        Meeting
-          .where(component: current_component)
-          .published
-          .not_hidden
-          .or(MeetingLink.find_meetings(component: current_component))
-          .visible_for(current_user)
+        search_base_collection
           .with_availability(
             filter_params[:with_availability]
           )
@@ -143,6 +143,15 @@ module Decidim
             :component,
             attachments: :file_attachment
           )
+      end
+
+      def search_base_collection
+        Meeting
+          .where(component: current_component)
+          .published
+          .not_hidden
+          .or(MeetingLink.find_meetings(component: current_component))
+          .visible_for(current_user)
       end
 
       def meeting_form
@@ -194,12 +203,52 @@ module Decidim
         return @previous_space if @previous_space
         return unless params[:previous_space]
 
-        previous_space_class, previous_space_id = params[:previous_space].split("#")
+        previous_space_class, previous_space_id = params.expect(:previous_space).split("#")
 
         @previous_space = previous_space_class.constantize.find_by(id: previous_space_id)
         @previous_space
       rescue NameError, LoadError
         nil
+      end
+
+      def conference_context?
+        return false unless Decidim.module_installed?(:conferences)
+        return false if current_participatory_space.blank?
+
+        current_participatory_space.is_a?(Decidim::Conference)
+      end
+
+      # Override the add_current_component method when in conference context
+      # to avoid showing "Meetings" breadcrumb and show "Program" instead
+      def add_current_component
+        return {} if conference_context?
+
+        super
+      end
+
+      def add_breadcrumb_item
+        return {} if meeting.blank?
+
+        breadcrumb = {
+          label: translated_attribute(meeting.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting),
+          active: false
+        }
+
+        # If this meeting is being accessed from within a conference program context,
+        # add program breadcrumb to maintain proper navigation hierarchy
+        if conference_context?
+          program_path = decidim_conferences.conference_conference_program_path(current_participatory_space, current_component)
+
+          context_breadcrumb_items << {
+            label: t("conference_program.index.title", scope: "decidim"),
+            url: program_path,
+            active: false,
+            resource: current_component
+          }
+        end
+
+        breadcrumb
       end
     end
   end

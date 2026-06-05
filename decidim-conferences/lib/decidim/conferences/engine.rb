@@ -15,39 +15,47 @@ module Decidim
       isolate_namespace Decidim::Conferences
 
       routes do
-        get "conferences/:conference_id", to: redirect { |params, _request|
-          conference = Decidim::Conference.find(params[:conference_id])
-          conference ? "/conferences/#{conference.slug}" : "/404"
-        }, constraints: { conference_id: /[0-9]+/ }
+        extend Decidim::Routes::LocaleRedirects
 
-        get "/conferences/:conference_id/f/:component_id", to: redirect { |params, _request|
-          conference = Decidim::Conferences.find(params[:conference_id])
-          conference ? "/conferences/#{conference.slug}/f/#{params[:component_id]}" : "/404"
-        }, constraints: { conference_id: /[0-9]+/ }
+        scope "/:locale", **locale_scope_options do
+          get "conferences/:conference_id", to: redirect { |params, _request|
+            conference = Decidim::Conference.find(params[:conference_id])
+            conference ? "/#{params[:locale]}/conferences/#{conference.slug}" : "/404"
+          }, constraints: { conference_id: /[0-9]+/ }
 
-        resources :conferences, only: [:index, :show], param: :slug, path: "conferences" do
-          get :user, to: "conferences#user_diploma"
-          resources :conference_speakers, only: :index, path: "speakers"
-          resources :conference_program, only: :show, path: "program"
-          resources :registration_types, only: :index, path: "registration" do
-            resource :conference_registration, only: [:create, :destroy] do
-              collection do
-                get :create
-                get :decline_invitation
+          get "/conferences/:conference_id/f/:component_id", to: redirect { |params, _request|
+            conference = Decidim::Conferences.find(params[:conference_id])
+            conference ? "/#{params[:locale]}/conferences/#{conference.slug}/f/#{params[:component_id]}" : "/404"
+          }, constraints: { conference_id: /[0-9]+/ }
+
+          resources :conferences, only: [:index, :show], param: :slug, path: "conferences" do
+            get :user, to: "conferences#user_diploma"
+            resources :conference_speakers, only: :index, path: "speakers"
+            resources :conference_program, only: :show, path: "program"
+            resources :registration_types, only: :index, path: "registration" do
+              resource :conference_registration, only: [:create, :destroy] do
+                collection do
+                  get :create
+                  get :decline_invitation
+                end
+              end
+            end
+            resources :media, only: :index
+          end
+          scope "/conferences/:conference_slug/f/:component_id" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.engine
+
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.engine, at: "/", as: "decidim_conference_#{manifest.name}"
               end
             end
           end
-          resources :media, only: :index
         end
-        scope "/conferences/:conference_slug/f/:component_id" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.engine
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.engine, at: "/", as: "decidim_conference_#{manifest.name}"
-            end
-          end
-        end
+        get "/conferences", to: redirect(&locale_redirector("/conferences"))
+
+        get "/conferences/*rest", to: redirect { |params, request| locale_redirector("/conferences/#{params[:rest]}").call(params, request) }
       end
 
       initializer "decidim_conferences.mount_routes" do
@@ -63,6 +71,12 @@ module Decidim
         Decidim.icons.register(name: "film-line", icon: "film-line", category: "system", description: "", engine: :conferences)
         Decidim.icons.register(name: "ticket-line", icon: "ticket-line", category: "system", description: "", engine: :conferences)
         Decidim.icons.register(name: "link-m", icon: "link-m", category: "system", description: "", engine: :conferences)
+      end
+
+      initializer "decidim_conferences.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
       initializer "decidim_conferences.add_cells_view_paths" do
@@ -93,7 +107,7 @@ module Decidim
         Decidim::Api::QueryType.include Decidim::Conferences::QueryExtensions
       end
 
-      initializer "decidim_conferences.webpacker.assets_path" do
+      initializer "decidim_conferences.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end

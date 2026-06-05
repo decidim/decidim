@@ -57,12 +57,12 @@ module Decidim
           end
         end
 
-        context "with a conference of another organization" do
+        context "with an initiative of another organization" do
           let!(:initiative) { create(:initiative) }
           let(:id) { initiative.id }
 
-          it "returns nil" do
-            expect(response["initiative"]).to be_nil
+          it_behaves_like "graphQL not found space" do
+            let(:space_type) { "initiative" }
           end
         end
       end

@@ -16,7 +16,6 @@ ru:
       initiatives_committee_member:
         user: Член рабочей группы
       initiatives_type:
-        banner_image: Изображение баннера
         description: Описание
         title: Название
       organization_data:
@@ -60,9 +59,6 @@ ru:
             created_at: 'Создано:'
             title: Виды починов
           name: Вид почина
-      titles:
-        initiatives: Почины
-        initiatives_types: Виды починов
     events:
       initiatives:
         initiative_extended:
@@ -150,12 +146,6 @@ ru:
         select_initiative_type:
           back: Вернуться
           more_information: (Дополнительные сведения)
-      events:
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, за которым вы следите, создал новый почин. Прочитайте его и внесите свой вклад:"
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: Новый почин от %{author_nickname}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> предложил почин <a href="%{resource_path}">%{resource_title}</a>.
       initiative_votes:
         create:
           error: При попытке подписаться за этот почин произошли ошибки.

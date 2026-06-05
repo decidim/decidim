@@ -17,8 +17,6 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
   participatory_space.query_type = "Decidim::Conferences::ConferenceType"
 
-  participatory_space.breadcrumb_cell = "decidim/conferences/conference_dropdown_metadata"
-
   participatory_space.register_resource(:conference) do |resource|
     resource.model_class_name = "Decidim::Conference"
     resource.card = "decidim/conferences/conference"
@@ -51,10 +49,9 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
   end
 
   participatory_space.exports :conferences do |export|
-    export.collection do
-      Decidim::Conference
-        .public_spaces
-        .includes(:taxonomies, :attachment_collections)
+    export.collection do |participatory_space, user|
+      scope = user.present? ? Decidim::Conference.all : Decidim::Conference.public_spaces
+      scope.includes(:taxonomies, :attachment_collections).where(id: participatory_space)
     end
 
     export.include_in_open_data = true

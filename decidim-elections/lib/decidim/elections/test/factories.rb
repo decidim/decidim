@@ -23,7 +23,7 @@ FactoryBot.define do
     title { generate_localized_title(:election_title, skip_injection:) }
     description { generate_localized_description(:election_description, skip_injection:) }
     start_at { nil }
-    end_at { 30.days.from_now }
+    end_at { 2.days.from_now }
 
     component { create(:elections_component, skip_injection:) }
 
@@ -47,18 +47,13 @@ FactoryBot.define do
       end_at { 2.days.from_now }
     end
 
-    trait :started do
-      start_at { 1.day.ago }
-      end_at { 1.day.from_now }
-    end
-
     trait :ongoing do
       start_at { 1.day.ago }
       end_at { 1.day.from_now }
     end
 
     trait :finished do
-      start_at { 30.days.ago }
+      start_at { 2.days.ago }
       end_at { 1.day.ago }
     end
 
@@ -66,13 +61,16 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
-    trait :results_published do
+    trait :published_results do
+      published_at { 2.days.ago }
+      start_at { 2.days.ago }
+      end_at { 1.day.ago }
       published_results_at { Time.current }
     end
 
     trait :with_questions do
-      after :create do |election, _evaluator|
-        create_list(:election_question, 2, election:)
+      after :create do |election, evaluator|
+        create_list(:election_question, 2, :with_response_options, :voting_enabled, election:, skip_injection: evaluator.skip_injection)
       end
     end
 
@@ -97,15 +95,19 @@ FactoryBot.define do
   end
 
   factory :election_question, class: "Decidim::Elections::Question" do
+    transient do
+      skip_injection { false }
+    end
+
     association :election
-    body { generate_localized_title(:question_body) }
+    body { generate_localized_title(:question_body, skip_injection:) }
     description { generate_localized_description(:question_description) }
     question_type { "multiple_option" }
     sequence(:position) { |n| n }
     published_results_at { nil }
     voting_enabled_at { nil }
 
-    trait :results_published do
+    trait :published_results do
       published_results_at { Time.current }
     end
 
@@ -123,10 +125,30 @@ FactoryBot.define do
   factory :election_response_option, class: "Decidim::Elections::ResponseOption" do
     association :question, factory: :election_question
     body { generate_localized_title(:response_option_body) }
+
+    trait :with_votes do
+      after :create do |response_option, _evaluator|
+        create_list(:election_vote, 2, response_option:, question: response_option.question)
+      end
+    end
+  end
+
+  factory :election_vote, class: "Decidim::Elections::Vote" do
+    association :question, factory: :election_question
+    association :response_option, factory: :election_response_option
+    voter_uid { "voter_#{SecureRandom.hex(4)}" }
   end
 
   factory :election_voter, class: "Decidim::Elections::Voter" do
     association :election
     sequence(:data) { |n| { email: "voter#{n}@example.com", token: "token#{n}" } }
+
+    trait :with_votes do
+      after :create do |voter|
+        voter.election.questions.each do |question|
+          create(:election_vote, question:, response_option: question.response_options.sample)
+        end
+      end
+    end
   end
 end

@@ -39,20 +39,20 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("attachment_collections.create.error", scope: "decidim.admin")
-                render template: "decidim/admin/attachment_collections/new", status: :unprocessable_entity
+                render template: "decidim/admin/attachment_collections/new", status: :unprocessable_content
               end
             end
           end
 
           def edit
-            @attachment_collection = collection.find(params[:id])
+            @attachment_collection = collection.find(params.expect(:id))
             enforce_permission_to :update, :attachment_collection, attachment_collection: @attachment_collection
             @form = form(AttachmentCollectionForm).from_model(@attachment_collection, collection_for:)
             render template: "decidim/admin/attachment_collections/edit"
           end
 
           def update
-            @attachment_collection = collection.find(params[:id])
+            @attachment_collection = collection.find(params.expect(:id))
             enforce_permission_to :update, :attachment_collection, attachment_collection: @attachment_collection
             @form = form(AttachmentCollectionForm).from_params(params, collection_for:)
 
@@ -64,13 +64,13 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("attachment_collections.update.error", scope: "decidim.admin")
-                render template: "decidim/admin/attachment_collections/edit", status: :unprocessable_entity
+                render template: "decidim/admin/attachment_collections/edit", status: :unprocessable_content
               end
             end
           end
 
           def destroy
-            @attachment_collection = collection.find(params[:id])
+            @attachment_collection = collection.find(params.expect(:id))
             enforce_permission_to :destroy, :attachment_collection, attachment_collection: @attachment_collection
 
             Decidim.traceability.perform_action!("delete", @attachment_collection, current_user) do

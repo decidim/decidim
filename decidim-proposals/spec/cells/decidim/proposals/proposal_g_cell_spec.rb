@@ -24,7 +24,7 @@ module Decidim::Proposals
       end
 
       it "renders the proposal title" do
-        expect(subject).to have_content(translated_attribute(proposal.title))
+        expect(subject).to have_text(translated_attribute(proposal.title))
       end
 
       context "when the proposal has an image" do
@@ -36,10 +36,25 @@ module Decidim::Proposals
       end
 
       context "when the proposal has no image" do
-        before { allow(proposal).to receive(:attachments).and_return([]) }
-
         it "renders a placeholder image" do
           expect(subject).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g")
+        end
+      end
+
+      context "when the proposal has a pdf" do
+        let!(:attachment) { create(:attachment, :with_pdf, attached_to: proposal) }
+
+        it "renders the proposal with the placeholder image" do
+          expect(subject).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g")
+        end
+      end
+
+      context "when the proposal has multiple attachments and the first is a pdf" do
+        let!(:pdf_attachment) { create(:attachment, :with_pdf, attached_to: proposal) }
+        let!(:image_attachment) { create(:attachment, :with_image, attached_to: proposal) }
+
+        it "renders the proposal with the attached image" do
+          expect(subject).to have_css("img[src*='city']")
         end
       end
 
@@ -51,7 +66,9 @@ module Decidim::Proposals
         end
 
         it "renders the custom state" do
-          expect(subject).to have_content "Finished"
+          within ".label" do
+            expect(subject).to have_text "Finished"
+          end
         end
       end
     end

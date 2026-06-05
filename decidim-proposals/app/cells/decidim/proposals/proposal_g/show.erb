@@ -2,7 +2,7 @@
 <%= link_to resource_path, class: classes[:default], id: resource_id do %>
   <div class="<%= classes[:img] %>">
     <% if has_image? %>
-      <%= image_tag resource_image_path, alt: alt_title %>
+      <%= image_tag resource_image_path, alt: "" %>
     <% else %>
       <%= external_icon "media/images/proposal-placeholder-card-g.svg", class: "card__proposal-placeholder-g" %>
     <% end %>

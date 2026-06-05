@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 class DynamicFieldsComponent {
   constructor(options = {}) {
     this.wrapperSelector = options.wrapperSelector;
@@ -72,6 +72,7 @@ class DynamicFieldsComponent {
       $template.replaceAttribute("data-tabs-content", placeholder, value);
       $template.replaceAttribute("for", placeholder, value);
       $template.replaceAttribute("tabs_id", placeholder, value);
+      $template.replaceAttribute("aria-controls", placeholder, value);
       $template.replaceAttribute("href", placeholder, value);
       $template.replaceAttribute("value", placeholder, value);
 
@@ -120,7 +121,7 @@ class DynamicFieldsComponent {
     try {
       return cb(event.target);
     } catch (error) {
-      console.error(error); // eslint-disable-line no-console
+      console.error(error);
       return error;
     }
   }
@@ -151,7 +152,6 @@ class DynamicFieldsComponent {
       $template = $wrapper.children(`template, ${templateClass}`);
     }
     const $newField = $($template.html()).template(this.placeholderId, this._getUID());
-    $newField.find("ul.tabs").attr("data-tabs", true);
 
     const $lastQuestion = $container.find(this.fieldSelector).last()
     if ($lastQuestion.length > 0) {
@@ -224,8 +224,6 @@ class DynamicFieldsComponent {
 
     $(this.fieldSelector).each((idx, el) => {
       $(el).template(this.placeholderId, this._getUID());
-
-      $(el).find("ul.tabs").attr("data-tabs", true);
     })
   }
 

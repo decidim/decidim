@@ -120,22 +120,20 @@ zh-CN:
         admin:
           proposal_note_created:
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
+        coauthor_invited:
+          actions:
+            accept: 接受
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name} 在 %{resource_title} 协作草稿中的贡献者被拒绝访问。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 已被 <strong>拒绝以贡献者身份访问</strong> <a href="%{resource_path}">%{resource_title}</a> 合作草稿。
         collaborative_draft_access_requested:
           email_subject: "%{requester_name} 请求访问权限为 %{resource_title} 捐款。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 请求访问权限以便为 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。请 <strong>接受或拒绝请求</strong>
         collaborative_draft_access_requester_accepted:
           email_subject: 您已被接受为 %{resource_title} 的贡献者。
         collaborative_draft_access_requester_rejected:
           email_subject: 您已被拒绝为 %{resource_title} 的贡献者。
           notification_title: 您在 <a href="%{resource_path}">%{resource_title}</a> 协作草稿中的 <strong>被拒绝作为贡献者</strong> 访问。
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name} %{author_nickname} 撤销了 %{resource_title} 协作草稿。"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>撤回</strong> <a href="%{resource_path}">%{resource_title}</a> 协作草稿。
         creation_enabled:
           email_intro: '您现在可以在 %{participatory_space_title}中创建新的建议 ！开始参与这个页面：'
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
@@ -143,11 +141,6 @@ zh-CN:
         proposal_mentioned:
           email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
           email_subject: 您的提议 "%{mentioned_proposal_title}" 已被提到了
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, 你关注的人已经发布了一个叫做"%{resource_title}"的新建议。查看它并做出贡献：'
-          email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
-          email_subject: '%{resource_title}的 %{author_nickname} 新提案'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 发布。
         proposal_published_for_space:
           email_intro: 提议 "%{resource_title}" 已被添加到"%{participatory_space_title}"，您正在关注它。
           email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以停止收到跟随上一个链接的通知。
@@ -273,7 +266,6 @@ zh-CN:
             create: 导入提议
             no_components: 在这个参与性空间中，没有其他提案组成部分可以从中导入。
             select_component: 请选择一个组件
-            select_states: 检查要导入的建议的状态
         proposals_merges:
           create:
             success: 成功地将提案合并为一个新提案。
@@ -305,87 +297,6 @@ zh-CN:
           all: 所有的
           amendments: 修 正 案
           proposals: 建议
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: 发布合作草案时出现问题。
-            irreversible_action_modal:
-              cancel: 取消
-              ok: 发布为提案
-              title: 以下操作是不可逆的
-            success: 合作草案作为一项建议成功发表。
-          withdraw:
-            error: 在结束合作草案时遇到了问题。
-            irreversible_action_modal:
-              cancel: 取消
-              ok: 撤回协作草稿
-              title: 以下操作是不可逆的
-            success: 协作草案已成功撤销。
-        create:
-          success: 协作草稿成功创建。
-        edit:
-          back: 后退
-          send: 发送
-          title: 编辑协作草稿
-        filters:
-          all: 所有的
-          amendment: 修 正 案
-          open: 打开
-          published: 已发布
-          related_to: 关联到
-          search: 搜索
-          state: 状态
-          withdrawn: 取出
-        filters_small_view:
-          close_modal: 关闭模式
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
-        index:
-          count:
-            other: "%{count} 协作草稿"
-        new:
-          send: 继续
-        new_collaborative_draft_button:
-          new_collaborative_draft: 新的协作草稿
-        orders:
-          label: '订单草稿：'
-          most_contributed: 贡献最多的
-          random: 随机播放
-          recent: 最近的
-        requests:
-          accepted_request:
-            error: 无法接受为协作者，请稍后再试。
-          access_requested:
-            error: 您的请求无法完成，请稍后再试。
-          collaboration_requests:
-            accept_request: 接受
-            reject_request: 拒绝
-            title: 协作请求
-          rejected_request:
-            error: 无法以协作者身份拒绝，请稍后再试。
-        show:
-          final_proposal: 最后提案
-          final_proposal_help_text: 这个草稿已完成。查看最后建议
-          hidden_authors_count:
-            other: 和更多 %{count} 人
-          publish: 发布
-          publish_info: 发布此版本的草稿或
-          published_proposal: 已发布的提案
-          request_access: 请求访问
-          requested_access: 访问请求
-          withdraw: 撤回草案
-        states:
-          open: 打开
-          published: 已发布
-          withdrawn: 取出
-        update:
-          error: 保存合作草稿时出现问题。
-          success: 协作草稿已成功更新。
-        wizard_aside:
-          back_from_collaborative_draft: 返回协作草稿
-        wizard_header:
-          title: 创建您的协作草稿
       create:
         error: 保存建议时出现问题。
         success: 建议已成功创建为草稿。
@@ -430,7 +341,6 @@ zh-CN:
           state: 状态
           type: 类型
         index:
-          collaborative_drafts_list: 访问协作草稿
           count:
             other: "%{count} 个提议"
           new_proposal: 新提案
@@ -454,8 +364,8 @@ zh-CN:
           answer: 答案
           changes_at_title: 对"%{title}" 的修正
           estimated_cost: 估计费用
-          link_to_collaborative_draft_help_text: 此建议是协作草稿的结果，请查看历史记录
-          link_to_collaborative_draft_text: 查看协作草稿
+          hidden_likes_count:
+            other: 和更多 %{count} 人
           link_to_promoted_emendation_help_text: 这项建议是一项提倡的修正
           link_to_promoted_emendation_text: 见被拒绝的修正。
           link_to_proposal_from_emendation_help_text: 这是一个被拒绝的修改

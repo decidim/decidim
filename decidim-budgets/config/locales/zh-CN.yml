@@ -19,6 +19,7 @@ zh-CN:
       actions:
         edit: 编辑
         import: 导入提案到项目
+        new_project: 新建项目
         preview: 预览
         title: 行动
       admin:
@@ -32,13 +33,10 @@ zh-CN:
             create: 创建预算
             title: 新预算
         models:
-          budget:
-            name: 三. 预算
           project:
             name: 项目
         projects:
           edit:
-            title: 编辑项目
             update: 更新
           index:
             finished_orders: 完成的投票
@@ -47,7 +45,6 @@ zh-CN:
             title: 项目
           new:
             create: 创建
-            title: 新建项目
         proposals_imports:
           new:
             create: 导入提案到项目
@@ -168,12 +165,5 @@ zh-CN:
             votes_choices:
               disabled: 投票已禁用
               finished: 投票结束
-    events:
-      budgets:
-        budget_published:
-          email_intro: '%{resource_title} 的预算现在为 %{participatory_space_title}激活。您可以从这个页面查看：'
-          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
-          email_subject: '%{resource_title} 的预算现在在 %{participatory_space_title} 处于活动状态。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 预算现在已经在 %{participatory_space_title} 中生效。
   index:
     confirmed_orders_count: 所得票数

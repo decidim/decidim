@@ -13,6 +13,32 @@ shared_examples "comments" do
     expect_no_js_errors
   end
 
+  context "when user name is improperly formatted" do
+    let!(:user) { create(:user, :malicious, :confirmed, organization:) }
+
+    before do
+      # rubocop:disable Rails/SkipsModelValidations
+      comments.each do |comment|
+        comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
+      end
+      # rubocop:enable Rails/SkipsModelValidations
+    end
+
+    it "properly displays the user name" do
+      login_as user, scope: :user
+      visit resource_path
+
+      within "#add-comment-anchor" do
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          expect(page).to have_css("p.comment__as-author-name")
+          within "p.comment__as-author-name" do
+            expect(page).to have_text("user_#{user.id} alert('name')")
+          end
+        end
+      end
+    end
+  end
+
   it "shows the list of comments for the resource" do
     visit resource_path
 
@@ -21,8 +47,8 @@ shared_examples "comments" do
 
     within "#comments" do
       comments.each do |comment|
-        expect(page).to have_content comment.author.name
-        expect(page).to have_content comment.body.values.first
+        expect(page).to have_text decidim_sanitize_translated(comment.author.name).gsub("\n", " ")
+        expect(page).to have_text comment.body.values.first
       end
     end
   end
@@ -33,7 +59,7 @@ shared_examples "comments" do
 
     visit resource_path
 
-    expect(page).to have_no_content("Comments are disabled at this time")
+    expect(page).to have_no_text("Comments are disabled at this time")
 
     expect(page).to have_css(".comment", minimum: 1)
 
@@ -41,7 +67,8 @@ shared_examples "comments" do
       select "Best rated", from: "order"
     end
 
-    expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
+    expect(page).to have_no_css(".loading-comments", visible: :visible)
+    expect(page).to have_css(".comment-threads .comment-thread", text: "Most Rated Comment")
   end
 
   context "when there are comments and replies" do
@@ -50,11 +77,11 @@ shared_examples "comments" do
 
     it "displays the show replies link on comment with reply" do
       visit resource_path
-      expect(page).to have_no_content("Comments are disabled at this time")
+      expect(page).to have_no_text("Comments are disabled at this time")
       expect(page).to have_css(".comment", minimum: 1)
 
-      within("#accordion-#{single_comment.id}") do
-        expect(page).to have_content "1 answer"
+      within("#comment_#{single_comment.id}") do
+        expect(page).to have_text "1 reply"
       end
     end
 
@@ -66,11 +93,11 @@ shared_examples "comments" do
 
       it "displays the show replies link on comment with reply" do
         visit resource_path
-        expect(page).to have_no_content("Comments are disabled at this time")
+        expect(page).to have_no_text("Comments are disabled at this time")
         expect(page).to have_css(".comment", minimum: 1)
 
         within("#accordion-#{single_comment.id}") do
-          expect(page).to have_no_content "Hide reply"
+          expect(page).to have_no_text "Hide reply"
         end
       end
     end
@@ -87,10 +114,10 @@ shared_examples "comments" do
     it "shows only a deletion message for deleted comments" do
       expect(page).to have_css("#comment_#{deleted_comment.id}")
 
-      expect(page).to have_no_content(deleted_comment.author.name)
-      expect(page).to have_no_content(translated(deleted_comment.body))
+      expect(page).to have_no_text(deleted_comment.author.name)
+      expect(page).to have_no_text(translated(deleted_comment.body))
       within "#comment_#{deleted_comment.id}" do
-        expect(page).to have_content("Comment deleted on")
+        expect(page).to have_text("Comment deleted on")
         expect(page).to have_no_css(".comment__header")
       end
     end
@@ -106,11 +133,36 @@ shared_examples "comments" do
         visit resource_path
 
         within "#comment_#{deleted_comment.id}" do
+          click_on "1 reply"
           expect(page).to have_css("#comment-#{deleted_comment.id}-replies")
-          expect(page).to have_content(reply.author.name)
-          expect(page).to have_content(reply.body.values.first)
+          expect(page).to have_text(reply.author.name)
+          expect(page).to have_text(reply.body.values.first)
         end
       end
+    end
+  end
+
+  context "when there are more comments than the default per page" do
+    let(:per_page) { Decidim::Comments::SortedComments::DEFAULT_COMMENTS_LIMIT }
+    let!(:extra_comments) { create_list(:comment, per_page - comments.size + 1, commentable:) }
+    let(:all_comments) { comments + extra_comments }
+
+    it "shows a load more button and loads the next page" do
+      visit resource_path
+
+      visible_comments = all_comments.sort_by(&:created_at).first(per_page)
+      hidden_comment = (all_comments.sort_by(&:created_at) - visible_comments).first
+
+      visible_comments.each do |comment|
+        expect(page).to have_css("#comment_#{comment.id}")
+      end
+      expect(page).to have_no_css("#comment_#{hidden_comment.id}")
+      expect(page).to have_button("Load more comments")
+
+      click_on "Load more comments"
+
+      expect(page).to have_css("#comment_#{hidden_comment.id}")
+      expect(page).to have_no_button("Load more comments")
     end
   end
 
@@ -131,11 +183,11 @@ shared_examples "comments" do
       end
 
       it "does not show the add comment button" do
-        expect(page).to have_no_content("Add comment")
+        expect(page).to have_no_text("Add comment")
       end
 
       it "shows a message so user can Log in or create an account" do
-        expect(page).to have_content("Log in or create an account to add your comment.")
+        expect(page).to have_text("Log in or create an account to add your comment.")
       end
     end
   end
@@ -163,13 +215,13 @@ shared_examples "comments" do
       end
 
       it "does not show the add comment button" do
-        expect(page).to have_no_content("Add comment")
+        expect(page).to have_no_text("Add comment")
       end
 
       it "allows user to comment" do
         find("textarea[name='comment[body]']").set("Test comment with a computer.")
         click_on "Publish comment"
-        expect(page).to have_content("Test comment with a computer.")
+        expect(page).to have_text("Test comment with a computer.")
       end
     end
 
@@ -188,21 +240,21 @@ shared_examples "comments" do
       end
 
       it "does not show a message so user can Log in or create an account" do
-        expect(page).to have_no_content("Log in or create an account to add your comment.")
+        expect(page).to have_no_text("Log in or create an account to add your comment.")
       end
 
       it "shows a modal with the comment form" do
-        expect(page).to have_content("Add comment")
+        expect(page).to have_text("Add comment")
         click_on "Add comment"
 
-        expect(page).to have_content("Add comment")
-        expect(page).to have_content("1000 characters left")
+        expect(page).to have_text("Add comment")
+        expect(page).to have_text("1000 characters left")
         expect(page).to have_css(".add-comment form")
         expect(page).to have_css(".fullscreen")
 
         find("textarea[name='comment[body]']").set("Test comment with a mobile phone.")
         click_on "Publish comment"
-        expect(page).to have_content("Test comment with a mobile phone.")
+        expect(page).to have_text("Test comment with a mobile phone.")
       end
     end
 
@@ -227,13 +279,15 @@ shared_examples "comments" do
 
       it "shows a message indicating that comments are restricted" do
         visit resource_path
-        expect(page).to have_no_content("Comments are disabled at this time")
-        expect(page).to have_content("You need to be verified to comment at this moment")
+        expect(page).to have_no_text("Comments are disabled at this time")
+        expect(page).to have_text("You need to be verified to comment at this moment")
       end
     end
 
     describe "when using emojis" do
       before do
+        skip("This spec does not work in focus mode, since there is no language selector.") if has_selector?(".main-bar--focus-mode-back-button")
+
         within_language_menu do
           click_on "Castellano"
         end
@@ -254,7 +308,7 @@ shared_examples "comments" do
           end
 
           within ".emoji__decidim" do
-            expect(page).to have_content(phrase)
+            expect(page).to have_text(phrase)
             # Since emoji-mart is a React component, we need to use JS to click on an emoji icon
             # as the emoji picker is a shadow DOM element.
             # The script below is trying to find the first emoji in the "Smileys & People" category and simulate
@@ -268,7 +322,7 @@ shared_examples "comments" do
           end
 
           within ".add-comment form" do
-            expect(find("textarea").value.strip).to have_content("😀")
+            expect(find("textarea").value.strip).to have_text("😀")
           end
         end
       end
@@ -284,6 +338,12 @@ shared_examples "comments" do
         let(:locale) { "Català" }
         let(:phrase) { I18n.with_locale(:ca) { I18n.t("emojis.categories.people") } }
 
+        around do |example|
+          I18n.with_locale(:ca) do
+            example.run
+          end
+        end
+
         it_behaves_like "allowing to select emojis"
       end
     end
@@ -291,7 +351,7 @@ shared_examples "comments" do
     context "when no default comments length specified" do
       it "displays the numbers of characters left" do
         within ".add-comment form" do
-          expect(page).to have_content("1000 characters left")
+          expect(page).to have_text("1000 characters left")
         end
       end
     end
@@ -301,7 +361,7 @@ shared_examples "comments" do
 
       it "displays the numbers of characters left" do
         within ".add-comment form" do
-          expect(page).to have_content("2000 characters left")
+          expect(page).to have_text("2000 characters left")
         end
       end
 
@@ -311,7 +371,7 @@ shared_examples "comments" do
           field.set " "
           field.native.send_keys "This is a new comment."
 
-          expect(page).to have_content("1977 characters left")
+          expect(page).to have_text("1977 characters left")
         end
       end
 
@@ -334,20 +394,20 @@ shared_examples "comments" do
             # announce the remaining characters after every keystroke.
             field.native.send_keys " Sending some new text."
             within ".remaining-character-count" do
-              expect(page).to have_content("1955 characters left") # Normal
+              expect(page).to have_text("1955 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("2000 characters left") # Screen reader
+              expect(page).to have_text("2000 characters left") # Screen reader
             end
 
             # After 10% of the total characters is reached, it should be updated
             # to the screen reader section to announce it.
             field.native.send_keys "a" * 155
             within ".remaining-character-count" do
-              expect(page).to have_content("1800 characters left") # Normal
+              expect(page).to have_text("1800 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1800 characters left") # Screen reader
+              expect(page).to have_text("1800 characters left") # Screen reader
             end
 
             # After continuing typing after the announcement, the screen reader
@@ -355,20 +415,20 @@ shared_examples "comments" do
             # interval).
             field.native.send_keys "b"
             within ".remaining-character-count" do
-              expect(page).to have_content("1799 characters left") # Normal
+              expect(page).to have_text("1799 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1800 characters left") # Screen reader
+              expect(page).to have_text("1800 characters left") # Screen reader
             end
 
             # When text is removed at the interval, the screen reader should
             # update back to the previous interval.
             field.native.send_keys [:backspace, :backspace, :backspace, :backspace]
             within ".remaining-character-count" do
-              expect(page).to have_content("1803 characters left") # Normal
+              expect(page).to have_text("1803 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1800 characters left") # Screen reader
+              expect(page).to have_text("1800 characters left") # Screen reader
             end
 
             # After continuing typing after the removal of characters, we should
@@ -378,20 +438,20 @@ shared_examples "comments" do
             # - "1900 characters left" (actual 1802)
             field.native.send_keys "b"
             within ".remaining-character-count" do
-              expect(page).to have_content("1802 characters left") # Normal
+              expect(page).to have_text("1802 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1800 characters left") # Screen reader
+              expect(page).to have_text("1800 characters left") # Screen reader
             end
 
             # After the input is blurred, the screen reader character counter
             # should show the actual amount of characters left.
             page.execute_script("document.getElementById('#{field_id}').blur()")
             within ".remaining-character-count" do
-              expect(page).to have_content("1802 characters left") # Normal
+              expect(page).to have_text("1802 characters left") # Normal
             end
             within ".remaining-character-count-sr" do
-              expect(page).to have_content("1802 characters left") # Screen reader
+              expect(page).to have_text("1802 characters left") # Screen reader
             end
           end
         end
@@ -404,27 +464,27 @@ shared_examples "comments" do
               field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
               field.set "a" * 1989
               within ".remaining-character-count" do
-                expect(page).to have_content("11 characters left") # Normal
+                expect(page).to have_text("11 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               (2..10).reverse_each do |remaining|
                 field.native.send_keys "b"
                 within ".remaining-character-count-sr" do
-                  expect(page).to have_content("#{remaining} characters left")
+                  expect(page).to have_text("#{remaining} characters left")
                 end
               end
 
               field.native.send_keys "b"
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("1 character left")
+                expect(page).to have_text("1 character left")
               end
 
               field.native.send_keys "c"
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left")
+                expect(page).to have_text("0 characters left")
               end
 
               # Test that the SR counter will stick at the last announced
@@ -438,15 +498,15 @@ shared_examples "comments" do
               page.execute_script("document.getElementById('#{field_id}').setSelectionRange(1850, 2000)")
               field.native.send_keys [:backspace]
               within ".remaining-character-count" do
-                expect(page).to have_content("150 characters left") # Normal
+                expect(page).to have_text("150 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left") # Screen reader
+                expect(page).to have_text("0 characters left") # Screen reader
               end
 
               field.native.send_keys "d"
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left")
+                expect(page).to have_text("0 characters left")
               end
             end
           end
@@ -457,10 +517,10 @@ shared_examples "comments" do
             within ".add-comment form" do
               fill_in field_id, with: "a" * 2000
               within ".remaining-character-count" do
-                expect(page).to have_content("0 characters left") # Normal
+                expect(page).to have_text("0 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left") # Screen reader
+                expect(page).to have_text("0 characters left") # Screen reader
               end
 
               # Test that the SR counter updates correctly after hitting the
@@ -468,44 +528,44 @@ shared_examples "comments" do
               page.execute_script("document.getElementById('#{field_id}').setSelectionRange(1800, 2000)")
               field.native.send_keys [:backspace]
               within ".remaining-character-count" do
-                expect(page).to have_content("200 characters left") # Normal
+                expect(page).to have_text("200 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               # The SR counter should stay at the correct boundary.
               field.native.send_keys [:backspace, :backspace]
               within ".remaining-character-count" do
-                expect(page).to have_content("202 characters left") # Normal
+                expect(page).to have_text("202 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               # It stays at the correct boundary when starting to type again.
               field.native.send_keys "b"
               within ".remaining-character-count" do
-                expect(page).to have_content("201 characters left") # Normal
+                expect(page).to have_text("201 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               field.native.send_keys "c"
               within ".remaining-character-count" do
-                expect(page).to have_content("200 characters left") # Normal
+                expect(page).to have_text("200 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
 
               field.native.send_keys "d"
               within ".remaining-character-count" do
-                expect(page).to have_content("199 characters left") # Normal
+                expect(page).to have_text("199 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("200 characters left") # Screen reader
+                expect(page).to have_text("200 characters left") # Screen reader
               end
             end
           end
@@ -519,7 +579,7 @@ shared_examples "comments" do
             visit current_path
 
             within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-              expect(page).to have_content("3000 characters left")
+              expect(page).to have_text("3000 characters left")
             end
           end
         end
@@ -571,7 +631,7 @@ shared_examples "comments" do
           click_on "Publish comment"
         end
 
-        expect(page).to have_content(content)
+        expect(page).to have_text(content)
       end
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
@@ -582,12 +642,12 @@ shared_examples "comments" do
 
       it "shows the entry in last activities" do
         visit decidim.last_activities_path
-        expect(page).to have_content("New comment: #{content}")
+        expect(page).to have_text("New comment: #{content}")
 
         within "#filters" do
           find("a", class: "filter", text: "Comment", match: :first).click
         end
-        expect(page).to have_content("New comment: #{content}")
+        expect(page).to have_text("New comment: #{content}")
       end
     end
 
@@ -615,95 +675,47 @@ shared_examples "comments" do
       end
     end
 
-    context "when the user is writing a new comment while someone else comments" do
-      let(:new_comment_body) { "Hey, I just jumped in the conversation!" }
-      let(:new_comment) { build(:comment, commentable:, body: new_comment_body) }
-      let(:content) { "This is a new comment" }
+    context "when user can show and hide replies on a thread" do
+      let(:thread) { comments.first }
+      let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
+      let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
-      before do
-        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-          field.set " "
-          field.native.send_keys content
+      it "displays a way to display content" do
+        visit resource_path
+        within "#comment_#{thread.id}" do
+          expect(page).to have_text("1 reply")
+          click_on "1 reply"
+          expect(page).to have_text(new_reply_body)
+          click_on "Reply", match: :first
+          expect(page).to have_text("Publish reply")
+          find("textarea[name='comment[body]']").set("Test reply comments.")
+          click_on "Publish reply"
+          expect(page).to have_text("Test reply comments.")
         end
-        new_comment.save!
       end
 
-      it "does not clear the current user's comment" do
-        expect(page).to have_content(new_comment.body.values.first, wait: 20)
-        expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to include(content)
+      it "displays a way to hide content" do
+        visit resource_path
+        within "#comment_#{thread.id}" do
+          expect(page).to have_text("1 reply")
+          click_on "1 reply"
+          expect(page).to have_text(new_reply_body)
+          click_on "1 reply"
+          expect(page).to have_no_text(new_reply_body)
+        end
       end
 
-      context "when user can hide replies on a thread" do
-        let(:thread) { comments.first }
-        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
-        let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+      context "when there are more replies" do
+        let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
-        it "displays a way to to display content" do
-          visit current_path
+        it "displays the load replies button" do
+          visit resource_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("1 answer")
-            click_on "1 answer"
-            expect(page).to have_content(new_reply_body)
-            click_on "Reply", match: :first
-            expect(page).to have_content("Publish reply")
-            find("textarea[name='comment[body]']").set("Test reply comments.")
-            click_on "Publish reply"
-            expect(page).to have_content("Show 2 replies")
-            click_on "Show 2 replies"
-            expect(page).to have_content("Test reply comments.")
+            expect(page).to have_text("3 replies")
+            expect(page).to have_no_text(new_reply_body)
+            click_on "3 replies"
+            expect(page).to have_text(new_reply_body)
           end
-        end
-
-        it "displays a way hide content" do
-          visit current_path
-          within "#comment_#{thread.id}" do
-            expect(page).to have_content("1 answer")
-            click_on "1 answer"
-            expect(page).to have_content("1 answer")
-            click_on "1 answer"
-            expect(page).to have_no_content(new_reply_body)
-          end
-        end
-
-        context "when are more replies" do
-          let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
-
-          it "displays the show button" do
-            visit current_path
-            within "#comment_#{thread.id}" do
-              expect(page).to have_content("3 answers")
-              expect(page).to have_no_content(new_reply_body)
-              click_on "3 answers"
-              expect(page).to have_content(new_reply_body)
-            end
-          end
-        end
-      end
-
-      context "when inside a thread reply form" do
-        let(:thread) { comments.first }
-        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
-        let(:new_reply) { build(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
-        let(:reply_content) { "This is a new reply" }
-
-        before do
-          within "div#comment_#{thread.id}" do
-            find("span", text: "Reply").click
-          end
-
-          within "form#new_comment_for_#{thread.commentable_type.demodulize}_#{thread.id}" do
-            field = find("#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}")
-            field.set " "
-            field.native.send_keys reply_content
-          end
-          new_reply.save!
-        end
-
-        it "does not clear the current user's comment" do
-          expect(page).to have_content(new_reply.body.values.first, wait: 20)
-          expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to include(content)
-          expect(page.find("#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}").value).to include(reply_content)
         end
       end
     end
@@ -749,8 +761,8 @@ shared_examples "comments" do
 
           expect(page).to have_css("#comment_#{comment.id}")
           within "#comment_#{comment.id}" do
-            expect(page).to have_content("Comment deleted on")
-            expect(page).to have_no_content comment_author.name
+            expect(page).to have_text("Comment deleted on")
+            expect(page).to have_no_text comment_author.name
             expect(page).to have_no_css(".comment__header")
           end
           expect(page).to have_css("span.comments-count", text: "3 comments")
@@ -804,14 +816,14 @@ shared_examples "comments" do
 
           it "the comment body changes" do
             within "#comment_#{comment.id}" do
-              expect(page).to have_content("This comment has been fixed")
-              expect(page).to have_no_content(comment_body)
+              expect(page).to have_text("This comment has been fixed")
+              expect(page).to have_no_text(comment_body)
             end
           end
 
           it "the header of the comment displays an edited message" do
             within "#comment_#{comment.id}" do
-              expect(page).to have_content("Edited")
+              expect(page).to have_text("Edited")
             end
           end
 
@@ -869,8 +881,32 @@ shared_examples "comments" do
         visit current_path
 
         within "#comments #comment_#{parent.id}" do
-          expect(page).to have_css("#comment-#{parent.id}-replies")
-          expect(page.find("#comment-#{parent.id}-replies").text).to be_blank
+          expect(page).to have_no_css(".show-replies-button")
+          expect(page).to have_no_css("#comment-#{parent.id}-replies")
+        end
+      end
+
+      context "when admin moderates the comment" do
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
+
+        before do
+          switch_to_host(organization.host)
+          login_as user, scope: :user
+          visit resource_path
+        end
+
+        it "hides the comment" do
+          within "#comment_#{comments.first.id}" do
+            page.find("[id^='dropdown-trigger']").click
+            click_on "Report"
+          end
+
+          within "#flagModalComment#{comments.first.id}" do
+            check "Hide this content"
+            click_on "Hide"
+          end
+
+          expect(page).to have_text("This resource has been hidden.")
         end
       end
     end
@@ -910,6 +946,10 @@ shared_examples "comments" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
             visit current_path
+
+            within "#comment_#{comments[0].id}" do
+              click_on "1 reply"
+            end
             expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/, visible: :all)
             page.find("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
             expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/, visible: :all)
@@ -993,7 +1033,7 @@ shared_examples "comments" do
 
         it "replaces the mention with a link to the user's profile" do
           expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}", wait: 20)
-          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}:#{Capybara.server_port}/profiles/#{mentioned_user.nickname}"
+          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}:#{Capybara.server_port}/en/profiles/#{mentioned_user.nickname}"
         end
       end
 
@@ -1053,8 +1093,8 @@ shared_examples "comments blocked" do
 
       it "shows a message indicating that comments are disabled" do
         visit resource_path
-        expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
-        expect(page).to have_no_content("You need to be verified to comment at this moment")
+        expect(page).to have_text("Comments are currently disabled, only administrators can reply or post new ones.")
+        expect(page).to have_no_text("You need to be verified to comment at this moment")
       end
     end
   end
@@ -1075,7 +1115,7 @@ shared_examples "comments blocked" do
         page.find("a", text: "Comment").click
         find("textarea[name='comment[body]']").set("Test admin commenting in a closed comment.")
         click_on "Publish comment"
-        expect(page).to have_content("Test admin commenting in a closed comment.")
+        expect(page).to have_text("Test admin commenting in a closed comment.")
 
         expect(page).to have_button("Reply")
         first("button", text: "Reply").click
@@ -1084,7 +1124,7 @@ shared_examples "comments blocked" do
           find("textarea[name='comment[body]']").set("Test admin replying a closed comment.")
           click_on "Publish reply"
         end
-        expect(page).to have_content("Test admin replying a closed comment.")
+        expect(page).to have_text("Test admin replying a closed comment.")
       end
     end
 
@@ -1097,8 +1137,8 @@ shared_examples "comments blocked" do
 
       it "shows a message indicating that comments are disabled" do
         visit resource_path
-        expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
-        expect(page).to have_no_content("You need to be verified to comment at this moment")
+        expect(page).to have_text("Comments are currently disabled, only administrators can reply or post new ones.")
+        expect(page).to have_no_text("You need to be verified to comment at this moment")
       end
 
       context "when the user is an administrator" do
@@ -1126,8 +1166,8 @@ shared_examples "comments blocked" do
 
         it "cannot answer" do
           visit resource_path
-          expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
-          expect(page).to have_no_content("You need to be verified to comment at this moment")
+          expect(page).to have_text("Comments are currently disabled, only administrators can reply or post new ones.")
+          expect(page).to have_no_text("You need to be verified to comment at this moment")
           expect(page).to have_no_css("textarea#add-comment-Proposal-1")
         end
       end
@@ -1145,6 +1185,7 @@ shared_examples "comments with two columns" do
   let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
+    switch_to_host(organization.host)
     login_as user, scope: :user
   end
 
@@ -1159,7 +1200,7 @@ shared_examples "comments with two columns" do
       expect(page).to have_css(".comment", count: comments.length)
 
       within(".comments-two-columns") do
-        check_comments_order(".comments-section__in-favor", comments_in_favor)
+        check_comments_order(".comments-section__in-favor", comments_in_favor.reverse)
         check_comments_order(".comments-section__against", comments_against)
       end
     end
@@ -1180,6 +1221,7 @@ shared_examples "comments with two columns" do
 
     context "when commentable is closed" do
       let!(:commentable) { closed_commentable }
+      let!(:comments) { [] }
       let!(:highest_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago, up_votes_count: 15) }
       let!(:high_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 4.days.ago, up_votes_count: 10) }
       let!(:older_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago, up_votes_count: 5) }
@@ -1188,27 +1230,26 @@ shared_examples "comments with two columns" do
       let!(:high_voted_comment_against) { create(:comment, :against, commentable:, created_at: 5.days.ago, up_votes_count: 8) }
       let!(:older_comment_against) { create(:comment, :against, commentable:, created_at: 3.days.ago, up_votes_count: 4) }
 
-      it "shows comments with top comments at the beginning and interleaved order after" do
+      it "shows comments sorted by the selected filter in mobile view" do
         resize_window_to_mobile
         visit resource_path
+        sleep 1
 
         within(".comment-threads") do
-          interleaved_comments = [
-            highest_voted_comment_in_favor,
+          expected_order = [
             highest_voted_comment_against,
-            high_voted_comment_in_favor,
-            high_voted_comment_against,
+            highest_voted_comment_in_favor,
+            older_comment_against,
             older_comment_in_favor,
-            older_comment_against
+            high_voted_comment_in_favor,
+            high_voted_comment_against
           ]
 
           all_comments = all(".comment-thread")
 
-          interleaved_comments.each_with_index do |comment, index|
-            expect(all_comments[index]).to have_content(comment.body["en"])
+          expected_order.each_with_index do |comment, index|
+            expect(all_comments[index]).to have_text(comment.body["en"])
           end
-
-          expect(page).to have_css(".most-upvoted-label", text: "Most upvoted", count: 2)
         end
 
         resize_window_to_desktop
@@ -1226,40 +1267,45 @@ shared_examples "comments with two columns" do
     it "displays only the single comment without columns" do
       expect(page).to have_css("#comments")
       expect(page).to have_css(".comment-thread", count: 1)
-      expect(page).to have_content("This is a single comment")
+      expect(page).to have_text("This is a single comment")
       expect(page).to have_no_css(".comments-two-columns")
-      expect(page).to have_no_content("In Favor")
-      expect(page).to have_no_content("Against")
-      expect(page).to have_no_content("You are viewing only one comment")
+      expect(page).to have_no_text("In Favor")
+      expect(page).to have_no_text("Against")
+      expect(page).to have_no_text("You are viewing only one comment")
     end
   end
 
   context "when commentable is not closed" do
+    let!(:comments) { [] }
     let!(:oldest_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago) }
     let!(:older_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago) }
     let!(:oldest_against_comment) { create(:comment, :against, commentable:, created_at: 4.days.ago) }
     let!(:newer_against_comment) { create(:comment, :against, commentable:, created_at: 1.day.ago) }
 
-    it "shows the comments in two columns sorted by creation date in ascending order" do
+    it "shows the comments in two columns sorted by creation date in descending order" do
+      resize_window_to_desktop
       visit resource_path
 
       within(".comments-two-columns") do
-        check_comments_order(".comments-section__in-favor", [oldest_in_favor_comment, older_in_favor_comment])
-        check_comments_order(".comments-section__against", [oldest_against_comment, newer_against_comment])
+        check_comments_order(".comments-section__in-favor", [older_in_favor_comment, oldest_in_favor_comment])
+        check_comments_order(".comments-section__against", [newer_against_comment, oldest_against_comment])
       end
     end
 
-    it "allows the user to add a new comment at the end of the respective column" do
+    it "allows the user to add a new comment at the top of the respective column" do
+      resize_window_to_desktop
       visit resource_path
 
       add_new_comment("In favor", "This is a new comment in favor")
 
       within(".comments-section__in-favor") do
-        expect(page).to have_content("This is a new comment in favor")
+        expect(page).to have_text("This is a new comment in favor")
+        expect(first(".comment-thread")).to have_text("This is a new comment in favor")
       end
     end
 
     it "disables the publish button until 'in favor' or 'against' is selected" do
+      resize_window_to_desktop
       visit resource_path
 
       expect(page).to have_button("Publish comment", disabled: true)
@@ -1277,14 +1323,21 @@ shared_examples "comments with two columns" do
     it "shows comments sorted by creation date when viewed on a small screen" do
       resize_window_to_mobile
       visit resource_path
+      sleep 1
 
       within(".comment-threads") do
-        comments = all(".comment-thread")
+        expect(page).to have_css(".comment-thread", minimum: 4)
 
-        expect(comments[0]).to have_content(oldest_in_favor_comment.body["en"])
-        expect(comments[1]).to have_content(oldest_against_comment.body["en"])
-        expect(comments[2]).to have_content(older_in_favor_comment.body["en"])
-        expect(comments[3]).to have_content(newer_against_comment.body["en"])
+        expected_order = [
+          newer_against_comment,
+          older_in_favor_comment,
+          oldest_in_favor_comment,
+          oldest_against_comment
+        ]
+
+        expected_order.each_with_index do |comment, index|
+          expect(all(".comment-thread")[index]).to have_text(comment.body["en"])
+        end
       end
 
       resize_window_to_desktop
@@ -1306,25 +1359,26 @@ shared_examples "comments with two columns" do
     let!(:latest_comment_against) { create(:comment, :against, commentable:, created_at: 1.day.ago, up_votes_count: 1) }
 
     before do
+      resize_window_to_desktop
       visit resource_path
     end
 
-    it "shows the top voted comments at the top of each column, followed by comments in ascending chronological order" do
+    it "shows the top voted comments at the top of each column, followed by comments in descending chronological order" do
       within(".comments-two-columns") do
         check_comments_order(".comments-section__in-favor", [
                                highest_voted_comment_in_favor,
-                               high_voted_comment_in_favor,
-                               older_comment_in_favor,
+                               latest_comment_in_favor,
                                recent_comment_in_favor,
-                               latest_comment_in_favor
+                               older_comment_in_favor,
+                               high_voted_comment_in_favor
                              ])
 
         check_comments_order(".comments-section__against", [
                                highest_voted_comment_against,
-                               high_voted_comment_against,
-                               older_comment_against,
+                               latest_comment_against,
                                recent_comment_against,
-                               latest_comment_against
+                               older_comment_against,
+                               high_voted_comment_against
                              ])
       end
     end
@@ -1333,12 +1387,12 @@ shared_examples "comments with two columns" do
       within(".comments-two-columns") do
         within(".comments-section__in-favor") do
           expect(page).to have_css(".most-upvoted-label", text: "Most upvoted")
-          expect(page).to have_content(highest_voted_comment_in_favor.body["en"])
+          expect(page).to have_text(highest_voted_comment_in_favor.body["en"])
         end
 
         within(".comments-section__against") do
           expect(page).to have_css(".most-upvoted-label", text: "Most upvoted")
-          expect(page).to have_content(highest_voted_comment_against.body["en"])
+          expect(page).to have_text(highest_voted_comment_against.body["en"])
         end
       end
     end
@@ -1347,7 +1401,7 @@ shared_examples "comments with two columns" do
   def check_comments_order(section_selector, comments)
     comments_section = all("#{section_selector} .comment-thread")
     comments.each_with_index do |comment, index|
-      expect(comments_section[index]).to have_content(comment.body["en"])
+      expect(comments_section[index]).to have_text(comment.body["en"])
     end
   end
 

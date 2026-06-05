@@ -116,6 +116,33 @@ module Decidim
           expect(other_step.position).to eq 0
         end
       end
+
+      context "when parent process is touched on step update" do
+        let(:participatory_process) { create(:participatory_process) }
+        let(:participatory_process_step) do
+          create(:participatory_process_step, participatory_process:)
+        end
+
+        it "touches the parent process" do
+          original_updated_at = participatory_process.updated_at
+
+          travel_to(1.second.from_now) do
+            participatory_process_step.save
+          end
+
+          expect(participatory_process.reload.updated_at).to be > original_updated_at
+        end
+
+        it "changes the process cache_key when step is updated" do
+          original_cache_key = participatory_process.cache_key_with_version
+
+          travel_to(1.second.from_now) do
+            participatory_process_step.save
+          end
+
+          expect(participatory_process.reload.cache_key_with_version).not_to eq(original_cache_key)
+        end
+      end
     end
   end
 end

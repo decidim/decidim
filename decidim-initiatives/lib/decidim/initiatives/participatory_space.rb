@@ -20,10 +20,8 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
 
   participatory_space.query_type = "Decidim::Initiatives::InitiativeType"
 
-  participatory_space.breadcrumb_cell = "decidim/initiatives/initiative_dropdown_metadata"
-
   participatory_space.register_resource(:initiative) do |resource|
-    resource.actions = %w(comment)
+    resource.actions = %w(comment vote_comment)
     resource.permissions_class_name = "Decidim::Initiatives::Permissions"
     resource.model_class_name = "Decidim::Initiative"
     resource.card = "decidim/initiatives/initiative"
@@ -57,8 +55,9 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   ]
 
   participatory_space.exports :initiatives do |export|
-    export.collection do
-      Decidim::Initiative.public_spaces
+    export.collection do |participatory_space, user|
+      scope = user.present? ? Decidim::Initiative.all : Decidim::Initiative.public_spaces
+      scope.where(id: participatory_space)
     end
 
     export.include_in_open_data = true

@@ -134,14 +134,14 @@ module Decidim
       end
 
       ransacker :confirmed_orders_count do
-        query = <<-SQL.squish
-        (
-            SELECT COUNT(decidim_budgets_line_items.decidim_order_id)
-            FROM decidim_budgets_line_items
-            LEFT JOIN decidim_budgets_orders ON decidim_budgets_orders.id = decidim_budgets_line_items.decidim_order_id
-            WHERE decidim_budgets_orders.checked_out_at IS NOT NULL
-            AND decidim_budgets_projects.id = decidim_budgets_line_items.decidim_project_id
-        )
+        query = <<~SQL.squish
+          (
+              SELECT COUNT(decidim_budgets_line_items.decidim_order_id)
+              FROM decidim_budgets_line_items
+              LEFT JOIN decidim_budgets_orders ON decidim_budgets_orders.id = decidim_budgets_line_items.decidim_order_id
+              WHERE decidim_budgets_orders.checked_out_at IS NOT NULL
+              AND decidim_budgets_projects.id = decidim_budgets_line_items.decidim_project_id
+          )
         SQL
         Arel.sql(query)
       end
@@ -151,11 +151,11 @@ module Decidim
       end
 
       def self.ransackable_attributes(auth_object = nil)
-        base = %w(search_text description title)
+        base = %w(id_string id search_text description title)
 
         return base unless auth_object&.admin?
 
-        base + %w(id_string id selected selected_at confirmed_orders_count)
+        base + %w(selected selected_at confirmed_orders_count)
       end
 
       def self.ransackable_associations(_auth_object = nil)

@@ -180,14 +180,6 @@ module Decidim
           expect(subject.favicon_ico.blob).to be_a(ActiveStorage::Blob)
         end
       end
-
-      context "when the favicon is image/vnd.microsoft.icon" do
-        let(:favicon_path) { Decidim::Dev.asset("icon.ico") }
-
-        it "returns the favicon itself" do
-          expect(subject.favicon_ico).to be(subject.favicon)
-        end
-      end
     end
 
     describe "favicon variants" do
@@ -198,9 +190,8 @@ module Decidim
         end
 
         let(:image) do
-          MiniMagick::Image.open(
-            ActiveStorage::Blob.service.path_for(variant.key),
-            File.extname(variant.filename.to_s)
+          Vips::Image.new_from_file(
+            ActiveStorage::Blob.service.path_for(variant.key)
           )
         end
       end
@@ -216,37 +207,9 @@ module Decidim
         context "with favicon variant" do
           include_context "with processed variant", :favicon
 
-          let(:identified) { image.identify.split("\n") }
-
-          it "creates the correct ICO variant" do
-            expect(variant.content_type).to eq("image/vnd.microsoft.icon")
-            expect(variant.filename.to_s).to eq("#{File.basename(favicon_path, ".*")}.ico")
-          end
-
-          it "converts all ICO sizes" do
-            # Example output:
-            #   /tmp/mini_magick20220101-123456-abcdef.ico[0] ICO 16x16 16x16+0+0 8-bit sRGB 0.020u 0:00.000
-            #   /tmp/mini_magick20220101-123456-abcdef.ico[1] ICO 24x24 24x24+0+0 8-bit sRGB 0.010u 0:00.000
-            #   /tmp/mini_magick20220101-123456-abcdef.ico[2] ICO 32x32 32x32+0+0 8-bit sRGB 0.000u 0:00.000
-            #   /tmp/mini_magick20220101-123456-abcdef.ico[3] ICO 48x48 48x48+0+0 8-bit sRGB 0.000u 0:00.000
-            #   /tmp/mini_magick20220101-123456-abcdef.ico[4] ICO 64x64 64x64+0+0 8-bit sRGB 0.000u 0:00.000
-            #   /tmp/mini_magick20220101-123456-abcdef.ico[5] ICO 72x72 72x72+0+0 8-bit sRGB 0.000u 0:00.000
-            #   /tmp/mini_magick20220101-123456-abcdef.ico[6] ICO 96x96 96x96+0+0 8-bit sRGB 0.000u 0:00.000
-            #   /tmp/mini_magick20220101-123456-abcdef.ico[7] ICO 128x128 128x128+0+0 8-bit sRGB 0.000u 0:00.000
-            #   /tmp/mini_magick20220101-123456-abcdef.ico[8] PNG 256x256 256x256+0+0 8-bit sRGB 179438B 0.000u 0:00.000
-            [
-              /\.ico\[0\] ICO 16x16 16x16\+0\+0 8-bit sRGB 0.[0-9]{3}u 0:[0-9]{2}\.[0-9]{3}$/,
-              /\.ico\[1\] ICO 24x24 24x24\+0\+0 8-bit sRGB 0.[0-9]{3}u 0:[0-9]{2}\.[0-9]{3}$/,
-              /\.ico\[2\] ICO 32x32 32x32\+0\+0 8-bit sRGB 0.[0-9]{3}u 0:[0-9]{2}\.[0-9]{3}$/,
-              /\.ico\[3\] ICO 48x48 48x48\+0\+0 8-bit sRGB 0.[0-9]{3}u 0:[0-9]{2}\.[0-9]{3}$/,
-              /\.ico\[4\] ICO 64x64 64x64\+0\+0 8-bit sRGB 0.[0-9]{3}u 0:[0-9]{2}\.[0-9]{3}$/,
-              /\.ico\[5\] ICO 72x72 72x72\+0\+0 8-bit sRGB 0.[0-9]{3}u 0:[0-9]{2}\.[0-9]{3}$/,
-              /\.ico\[6\] ICO 96x96 96x96\+0\+0 8-bit sRGB 0.[0-9]{3}u 0:[0-9]{2}\.[0-9]{3}$/,
-              /\.ico\[7\] ICO 128x128 128x128\+0\+0 8-bit sRGB 0.[0-9]{3}u 0:[0-9]{2}\.[0-9]{3}$/,
-              /\.ico\[8\] PNG 256x256 256x256\+0\+0 8-bit sRGB 179438B 0.[0-9]{3}u 0:[0-9]{2}\.[0-9]{3}$/
-            ].each_with_index do |regexp, idx|
-              expect(identified[idx]).to match(regexp)
-            end
+          it "creates the correct png variant" do
+            expect(variant.content_type).to eq("image/png")
+            expect(variant.filename.to_s).to eq("#{File.basename(favicon_path, ".*")}.png")
           end
         end
 
@@ -259,21 +222,22 @@ module Decidim
           end
 
           it "converts it the image correct dimensions" do
-            expect(image.dimensions).to eq([32, 32])
+            expect(image.width).to eq(32)
+            expect(image.height).to eq(32)
           end
         end
-      end
 
-      context "with an ICO file" do
-        let(:favicon_path) { Decidim::Dev.asset("icon.ico") }
+        context "with a HEIC format" do
+          let(:favicon_path) { Decidim::Dev.asset("icon.HEIC") }
 
-        it_behaves_like "creates correct favicon variants"
-      end
+          it_behaves_like "creates correct favicon variants"
+        end
 
-      context "with a PNG file" do
-        let(:favicon_path) { Decidim::Dev.asset("icon.png") }
+        context "with a JPEG format" do
+          let(:favicon_path) { Decidim::Dev.asset("avatar.jpeg") }
 
-        it_behaves_like "creates correct favicon variants"
+          it_behaves_like "creates correct favicon variants"
+        end
       end
     end
 

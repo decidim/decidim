@@ -14,12 +14,12 @@ describe "Admin manages assembly soft delete" do
   it_behaves_like "manage trashed resource", "assembly"
 
   context "when a user is collaborator" do
-    let!(:assembly) { create(:assembly, organization: organization) }
-    let!(:collaborator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:assembly) { create(:assembly, organization:) }
+    let!(:collaborator_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:collaborator_role) do
       create(:assembly_user_role,
              user: collaborator_user,
-             assembly: assembly,
+             assembly:,
              role: :collaborator)
     end
 
@@ -30,18 +30,18 @@ describe "Admin manages assembly soft delete" do
     end
 
     it "does not allow collaborators to view deleted assemblies" do
-      expect(page).to have_content("Assemblies")
+      expect(page).to have_text("Assemblies")
       expect(page).to have_no_link("View deleted assemblies", href: /.*assemblies.*trash.*/)
     end
   end
 
   context "when a user is evaluator" do
-    let!(:assembly) { create(:assembly, organization: organization) }
-    let!(:evaluator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:assembly) { create(:assembly, organization:) }
+    let!(:evaluator_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:evaluator_role) do
       create(:assembly_user_role,
              user: evaluator_user,
-             assembly: assembly,
+             assembly:,
              role: :evaluator)
     end
 
@@ -52,18 +52,18 @@ describe "Admin manages assembly soft delete" do
     end
 
     it "does not allow evaluators to view deleted assemblies" do
-      expect(page).to have_content("Assemblies")
+      expect(page).to have_text("Assemblies")
       expect(page).to have_no_link("View deleted assemblies", href: /.*assemblies.*trash.*/)
     end
   end
 
   context "when a user is moderator" do
-    let!(:assembly) { create(:assembly, organization: organization) }
-    let!(:moderator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:assembly) { create(:assembly, organization:) }
+    let!(:moderator_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:moderator_role) do
       create(:assembly_user_role,
              user: moderator_user,
-             assembly: assembly,
+             assembly:,
              role: :moderator)
     end
 
@@ -74,18 +74,18 @@ describe "Admin manages assembly soft delete" do
     end
 
     it "does not allow moderators to view deleted assemblies" do
-      expect(page).to have_content("Assemblies")
+      expect(page).to have_text("Assemblies")
       expect(page).to have_no_link("View deleted assemblies", href: /.*assemblies.*trash.*/)
     end
   end
 
   context "when a user is a space admin" do
-    let!(:assembly) { create(:assembly, organization: organization) }
-    let!(:admin_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:assembly) { create(:assembly, organization:) }
+    let!(:admin_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:admin_role) do
       create(:assembly_user_role,
              user: admin_user,
-             assembly: assembly,
+             assembly:,
              role: :admin)
     end
 
@@ -96,7 +96,7 @@ describe "Admin manages assembly soft delete" do
     end
 
     it "does not allow space admins to view deleted assemblies" do
-      expect(page).to have_content("Assemblies")
+      expect(page).to have_text("Assemblies")
       expect(page).to have_no_link("View deleted assemblies", href: /.*assemblies.*trash.*/)
     end
   end

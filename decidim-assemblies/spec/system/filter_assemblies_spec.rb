@@ -20,6 +20,10 @@ describe "Filter Assemblies" do
     let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
     let!(:another_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: another_taxonomy) }
 
+    let!(:second_taxonomy) { create(:taxonomy, :with_parent, organization:, name: { en: "Another great taxonomy" }) }
+    let(:second_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: second_taxonomy.parent, participatory_space_manifests:) }
+    let!(:second_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: second_taxonomy_filter, taxonomy_item: second_taxonomy) }
+
     context "and choosing a taxonomy" do
       before do
         visit decidim_assemblies.assemblies_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } })
@@ -27,28 +31,50 @@ describe "Filter Assemblies" do
 
       it "lists all assemblies belonging to that taxonomy" do
         within "#assemblies-grid" do
-          expect(page).to have_content(translated(assembly_with_taxonomy.title))
-          expect(page).to have_no_content(translated(assembly_without_taxonomy.title))
+          expect(page).to have_text(translated(assembly_with_taxonomy.title))
+          expect(page).to have_no_text(translated(assembly_without_taxonomy.title))
         end
 
-        within "#panel-dropdown-menu-taxonomy" do
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy_filter.root_taxonomy_id}" do
+          click_filter_item "A great taxonomy"
           click_filter_item "Another taxonomy"
           sleep 2
         end
 
         within "#assemblies-grid" do
-          expect(page).to have_no_content(translated(assembly_with_taxonomy.title))
-          expect(page).to have_no_content(translated(assembly_without_taxonomy.title))
+          expect(page).to have_no_text(translated(assembly_with_taxonomy.title))
+          expect(page).to have_no_text(translated(assembly_without_taxonomy.title))
         end
 
-        within "#panel-dropdown-menu-taxonomy" do
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy_filter.root_taxonomy_id}" do
           click_filter_item "Another taxonomy"
           sleep 2
         end
 
         within "#assemblies-grid" do
-          expect(page).to have_content(translated(assembly_with_taxonomy.title))
-          expect(page).to have_content(translated(assembly_without_taxonomy.title))
+          expect(page).to have_text(translated(assembly_with_taxonomy.title))
+          expect(page).to have_text(translated(assembly_without_taxonomy.title))
+        end
+      end
+
+      it "collapses the accordions on click" do
+        within "#panel-dropdown-menu-taxonomy-#{second_taxonomy_filter.root_taxonomy_id}" do
+          expect(page).to have_text "All"
+          expect(page).to have_text "Another great taxonomy"
+        end
+
+        click_on decidim_sanitize_translated(second_taxonomy_filter.root_taxonomy.name)
+        click_on decidim_sanitize_translated(taxonomy_filter.root_taxonomy.name)
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_text "Another great taxonomy"
+          expect(page).to have_no_text "A great taxonomy"
+        end
+
+        click_on decidim_sanitize_translated(taxonomy_filter.root_taxonomy.name)
+        within ".layout-2col__aside" do
+          expect(page).to have_no_text "Another great taxonomy"
+          expect(page).to have_text "A great taxonomy"
         end
       end
     end

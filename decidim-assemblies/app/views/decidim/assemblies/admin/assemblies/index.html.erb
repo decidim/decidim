@@ -1,4 +1,5 @@
-<% add_decidim_page_title(t("assemblies", scope: "decidim.admin.titles")) %>
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="card" id="assemblies">
 
   <% if parent_assembly && parent_assembly.self_and_ancestors.length %>
@@ -30,7 +31,7 @@
 
   <% if allowed_to? :read, :assembly, trashable_deleted_resource: @assemblies %>
     <div class="mt-4">
-      <%= link_to manage_trash_assemblies_path, class: "flex items-center underline text-secondary" do %>
+      <%= link_to manage_trash_assemblies_path, class: "flex items-center  text-secondary" do %>
         <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
         <%= t("actions.view_deleted_assemblies", scope: "decidim.admin") %>
         <span class="ml-2">

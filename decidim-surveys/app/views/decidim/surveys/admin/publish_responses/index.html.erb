@@ -1,10 +1,10 @@
-
 <% add_decidim_page_title(t(".title")) %>
+
 <div class="item_show__header border-none">
   <div class="w-full">
     <h1 class="item_show__header-title">
       <%= t(".title") %>
-      <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires"), questionnaire_url, class: "button button__sm button__secondary new" %>
+      <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires"), survey_responses_path, class: "button button__sm button__secondary new" %>
     </h1>
   </div>
 </div>
@@ -43,3 +43,4 @@
 </div>
 
 <%= append_javascript_pack_tag "decidim_forms_admin" %>
+<%= append_javascript_pack_tag("decidim_chartkick", defer: true) %>

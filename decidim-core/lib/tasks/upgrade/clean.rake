@@ -148,6 +148,17 @@ namespace :decidim do
         invalid_private_exports.delete_all
       end
 
+      desc "Remove invalid exports from ActiveStorage"
+      task remove_private_exports_attachments: :environment do
+        invalid = ActiveStorage::Attachment.where(record_type: "Decidim::PrivateExport", record_id: 0)
+        logger.info("=== Removing #{invalid.length} invalid PrivateExports attachments")
+        invalid.each(&:purge_later)
+
+        expired = Decidim::PrivateExport.where(expires_at: ..Time.zone.now).collect(&:file).compact_blank
+        logger.info("=== Removing #{expired.length} expired attachments from PrivateExports")
+        expired.each(&:purge_later) if expired.any?
+      end
+
       def logger
         @logger ||= Logger.new($stdout)
       end

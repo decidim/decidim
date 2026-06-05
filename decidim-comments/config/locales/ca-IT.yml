@@ -67,9 +67,6 @@ ca-IT:
         alignment:
           against: En contra
           in_favor: A favor
-        answers:
-          one: "%{count} resposta"
-          other: "%{count} respuestas"
         cancel_reply: Cancel·lar resposta
         comment_label: Comentari %{comment_id}
         comment_label_reply: Comentari %{comment_id} (respon al comentari %{parent_comment_id})
@@ -83,7 +80,11 @@ ca-IT:
         hide_replies:
           one: Amagar resposta
           other: Amagar %{count} respostes
+        load_replies: Carregar les respostes
         moderated_at: Comentari moderat el %{date}
+        replies_count:
+          one: "%{count} respuesta"
+          other: "%{count} respostes"
         reply: Respondre
         report:
           action: Denúncia
@@ -115,7 +116,9 @@ ca-IT:
         blocked_comments_warning: Els comentaris estan deshabilitats en aquests moments, només les administradores poden respondre o publicar-ne de nous.
         comment_details_title: Detalls del comentari
         in_favor: A favor
+        load_more_comments: Carregar més comentaris
         loading: Carregant els comentaris ...
+        no_comments_yet: Encara no hi ha comentaris
         single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>
         single_comment_warning_title: Estàs veient un sol comentari
         title:
@@ -165,12 +168,10 @@ ca-IT:
           email_intro: "%{author_name} ha deixat un comentari a %{resource_title}. Podeu llegir-lo en aquesta pàgina:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint el comentari "%{author_name}". Pots deixar de seguir a aquesta participant des de la seva pàgina de perfil.
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
-          notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "Algú ha deixat un comentari a \"%{resource_title}\". Pots llegir el comentari a través del següent enllaç:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint el comentari "%{resource_title}" o la seva autora. Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
-          notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: El teu comentari a "%{resource_title}" ha rebut un vot negatiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
           email_outro: Has rebut aquesta notificació perquè vas fer aquest comentari.
@@ -185,12 +186,10 @@ ca-IT:
           email_intro: "%{author_name} ha respost el teu comentari a %{resource_title}. Pots llegir-lo en aquesta pàgina:"
           email_outro: Has rebut aquesta notificació perquè s'ha respost el teu comentari.
           email_subject: "%{author_name} ha respost el teu comentari a %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost el teu comentari a <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Has estat esmentada
           email_outro: Has rebut aquesta notificació perquè t'han esmentat al comentari "%{resource_title}".
           email_subject: Has estat esmentada a %{resource_title}
-          notification_title: Has estat esmentada a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: no es poden fer comentaris

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::MeetingsController do
+  include Decidim::Core::Engine.routes.url_helpers
+
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
@@ -135,9 +137,9 @@ describe Decidim::Meetings::MeetingsController do
         end
       end
 
-      context "when user is private user" do
+      context "when user is member" do
         let!(:user) { create(:user, :confirmed, organization:) }
-        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user:, privatable_to: participatory_process) }
+        let!(:member) { create(:member, user:, participatory_space: participatory_process) }
 
         it_behaves_like "having meeting access visibility applied"
       end
@@ -156,7 +158,7 @@ describe Decidim::Meetings::MeetingsController do
       it "redirects to the login page" do
         get(:new)
         expect(response).to have_http_status(:found)
-        expect(response).to redirect_to("/users/sign_in")
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end

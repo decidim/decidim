@@ -118,10 +118,6 @@ lb:
         update: "%{user_name} huet d'OAuth-Applikation %{resource_name} aktualiséiert"
       organization:
         update: "%{user_name} huet d'Organisatiouns-Astellungen aktualiséiert"
-      participatory_space_private_user:
-        create: "%{user_name} huet d' %{resource_name} als privaten Benotzer agelueden"
-        create_via_csv: "%{user_name} huet d'%{resource_name} per CSV als privaten Teilnehmer agelueden"
-        delete: "%{user_name} huet den Benotzer %{resource_name} als privaten Benotzer geläscht"
       scope:
         create: "%{user_name} huet den Beräich %{resource_name} erstallt"
         create_with_parent: "%{user_name} huet den Beräich %{resource_name} am iwwergeuerdenten Beräich %{parent_scope} erstallt"
@@ -201,9 +197,6 @@ lb:
       update_draft:
         error: Et gouf e Problem beim Aktualiséieren vum Ännerungsvirschlag.
         success: Ännerungsvirschlag gouf aktualiséiert.
-      wizard_step_form:
-        steps:
-          '1': Erstell deng Ännerung
     anonymous_user: Anonym
     application:
       document:
@@ -406,13 +399,9 @@ lb:
           affected_user:
             email_intro: 'Eng Ännerung gouf %{amendable_title} akzeptéiert. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum%{amendable_title} bass.
-            email_subject: Akzeptéiert Ännerung %{amendable_title} vum %{emendation_author_nickname}
-            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf ugeholl.
           follower:
             email_intro: 'Eng Ännerung gouf %{amendable_title} akzeptéiert. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-            email_subject: Akzeptéiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
-            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf ugeholl.
         amendment_created:
           affected_user:
             email_intro: 'Eng Ännerung fir %{amendable_title} gouf erstallt. Du kanns dat op dëser Säit gesinn:'
@@ -428,24 +417,16 @@ lb:
           affected_user:
             email_intro: 'Eng refuséiert Ännerung am %{amendable_title} gouf als eng nei ënner %{amendable_type} verëffentlecht. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum %{amendable_title} bass.
-            email_subject: Eng Ännerung vun %{emendation_author_nickname} gouf als nei /n %{amendable_type} verëffentlecht
-            notification_title: D' <a href="%{emendation_path}">refuséiert Ännerung </a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf als nei verëffentlecht %{amendable_type} duerch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Eng refuséiert Ännerung am %{amendable_title} gouf als eng nei ënner %{amendable_type} verëffentlecht. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-            email_subject: Eng Ännerung vun %{emendation_author_nickname} gouf als nei /n %{amendable_type} verëffentlecht
-            notification_title: D' <a href="%{emendation_path}">refuséiert Ännerung </a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf als nei verëffentlecht %{amendable_type} duerch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Eng Ännerung fir %{amendable_title} gouf refuséiert. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum%{amendable_title} bass.
-            email_subject: Refuséiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
-            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf refuséiert.
           follower:
             email_intro: 'Eng Ännerung fir %{amendable_title} gouf refuséiert. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-            email_subject: Refuséiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
-            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf refuséiert.
       attachments:
         attachment_created:
           email_intro: 'En neit Dokument fir %{resource_title} gouf dru gehaange. Du kanns dat op dëser Säit gesinn:'
@@ -475,12 +456,6 @@ lb:
           email_subject: Deng %{resource_type} gouf geläscht
           notification_title: |-
             En Admin huet däin %{resource_type} geläscht, well en als %{report_reasons}.</br><i>%{resource_content}</i> gemellt gouf
-      users:
-        profile_updated:
-          email_intro: D' <a href="%{resource_url}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
-          email_outro: Du hues dës Noriicht kritt, well s'du dem %{nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-          email_subject: "%{nickname} huet säin Profil aktualiséiert"
-          notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
       download_your_data_export:
         download: Eroflueden
@@ -593,7 +568,6 @@ lb:
         latlng_text: 'Breedegrad:%{latitude}, Längegrad:%{longitude}'
         map_service_brand: Stroosse-Kaart opmaachen
     menu:
-      help: Hëllef
       home: Startsäit
     messaging:
       conversation_mailer:
@@ -655,10 +629,8 @@ lb:
       unsubscribe:
         success: Du bass ofgemellt.
         token_error: De Link ass ofgelaf.
-        unsubscribe: Ofbestellen
     newsletters_opt_in_mailer:
       notify:
-        body_1: D'Verschaffen vun perséinlechen Daten an hire Schutz, ginn fir ons all ëmmer méi wichteg. Mat der neier RGPD Reglementatioun hunn Eenzelpersounen eng besser Kontroll iwwer hir perséinlech Daten. Aus dem Grond brauchen mir däin "OK" fir dir weiderhin relevant Informatiounen vun %{organization_name} zoukommen ze loossen.
         body_2: 'Wéi kanns du zoustëmmen? Klick einfach op den Knäppchen hei:'
         body_3: Mat denger Zoustëmmung erhëls du weiderhin Informatiounen iwwert Déngschter vun dëser Plattform. Sollten mir, am Géigenzuch, keng Zoustëmmung vun dir erhalen, wäerten mir dir och keng Noriichten méi schécken. Och am Fall vun enger Zoustëmmung, kanns du zu all Moment dës Optioun ofzewielen.
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
@@ -698,17 +670,17 @@ lb:
           proposals_explanation: Maach Virschléi, ënnerstëtz Virschléi an fërder Verännerungen déi dir wichteg sinn.
         footer_sub_hero:
           footer_sub_hero_headline: Wëllkomm %{organization} op der Participatiouns-Plattform.
-          register: Registréieren
         hero:
           participate: Matmaachen
           welcome: Wëllkomm %{organization}!
-        sub_hero:
-          register: Registréieren
       index:
         standalone_pages: Säiten
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren
         title: Hëllef
         topics: Themen
+    participatory_space_members:
+      index:
+        members: Memberen
     profile:
       deleted: Teilnehmer geläscht
     profiles:
@@ -875,8 +847,6 @@ lb:
         submit_button: Eng Invitatioun verschécken
       no_invitations_remaining: Keng Invitatiounen iwwreg
       send_instructions: Eng Invitatiouns-Email gouf un %{email} geschéckt.
-      updated: Däin Passwuert gouf dir attribuéiert. Du bass elo registréiert.
-      updated_not_active: Däin Passwuert gouf dir attribuéiert.
     mailer:
       confirmation_instructions:
         action: Kont bestätegen
@@ -892,10 +862,8 @@ lb:
         decline: Invitatioun refuséieren
         hello: Moien %{email},
         invited_you_as_admin: "%{invited_by} huet dech als Admin vun %{application} aglueden. Du kanns se unhuelen andeems op den Link ënnen gees."
-        invited_you_as_private_user: "%{invited_by} huet dech als privaten Teilnehmer vun %{application} agelueden. Du déi kanns iwwer den folgenden Link unhuelen."
         someone_invited_you: Et huet een dech fir d' %{application} agelueden. Du kanns dat unhuelen andeems du op op den Link ënnen gees.
         someone_invited_you_as_admin: Et huet een dech als Admin op %{application} agelueden, du kanns dat iwwer den Link ënnen unhuelen.
-        someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
         subject: Instruktiounen fir d'Invitatioun
       password_change:
         greeting: Moien %{recipient}!
@@ -995,7 +963,6 @@ lb:
       impersonation_warning:
         close_session: Sëtzung zoumaachen
         description_html: Du verwalts den Benotzer <b>%{user_name}</b>.
-        expire_time_html: Deng Sëtzung wäert an <b><span class="minutes">%{minutes}</span> Minuten</b>oflafen.
       language_chooser:
         choose_language: Sprooch wielen
       notifications_dashboard:
@@ -1034,7 +1001,6 @@ lb:
     fallback: ongülteg
     name_included_in_password: ze vill Ähnlechkeet mat dengem Numm
     not_enough_unique_characters: huet net genuch eemoleg Zeechen
-    password_not_allowed: ass net erlaabt
     password_too_common: ze allgemeng
     password_too_long: ze laang
     password_too_short: ze kuerz

@@ -249,12 +249,6 @@ uk:
         email_intro: '"%{resource_title}" було оновлено. Ви можете переглянути його на сторінці:'
         email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
         email_subject: Оновлення до %{resource_title}
-      users:
-        profile_updated:
-          email_intro: Сторінка <a href="%{resource_url}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: "%{nickname} оновив свій профіль"
-          notification_title: Сторінка <a href="%{resource_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
     export_mailer:
       download_your_data_export:
         download: Завантажити
@@ -330,10 +324,8 @@ uk:
       unsubscribe:
         success: Ви успішно скасували підписку.
         token_error: Строк дії посилання закінчився.
-        unsubscribe: Скасувати підписку
     newsletters_opt_in_mailer:
       notify:
-        body_1: Обробка особистих даних та їх захист стають дедалі важливішими для всіх нас. За новим "Загальним положенням про захист даних" (GDPR) від 25 травня 2018 року люди мають змогу керувати своїми особистими даними. Тому ми потребуємо вашої згоди, щоб продовжувати надсилати вам свіжі новини про діяльність %{organization_name}.
         body_2: 'Як ви можете дати нам свою згоду? Просто натисніть цю кнопку:'
         body_3: Погодившись, ви зможете продовжувати отримувати відомості про послуги нашого майданчику. Якщо ж ми не отримаємо вашої згоди, ми припинимо надсилати вам наші повідомлення. Якщо ви підтвердите, що хочете продовжувати отримувати новини, ви зможете потім в будь-який момент від них відмовитись.
         button: Так, я хочу продовжувати отримувати новини
@@ -362,12 +354,9 @@ uk:
           proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
         footer_sub_hero:
           footer_sub_hero_headline: Ласкаво просимо до майданчику співучасті %{organization}!
-          register: Зареєструватися
         hero:
           participate: Взяти участь
           welcome: Ласкаво просимо до %{organization}!
-        sub_hero:
-          register: Зареєструватися
     profile:
       deleted: Видалений учасник
     profiles:
@@ -428,10 +417,8 @@ uk:
         decline: Відхилити запрошення
         hello: Доброго дня, %{email}%!
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
-        invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
         someone_invited_you_as_admin: Хтось запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче.
-        someone_invited_you_as_private_user: Хтось запросив вас як приватного учасника %{application}, ви можете прийняти це запрошення за посиланням нижче.
       password_change:
         greeting: Доброго дня, %{recipient}!
         subject: Пароль змінено
@@ -468,7 +455,6 @@ uk:
       impersonation_warning:
         close_session: Завершити сеанс
         description_html: Ви виступаєте в ролі учасника <b>%{user_name}</b>.
-        expire_time_html: Строк дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
         mark_all_as_read: Позначити все як прочитане
       user_menu:
@@ -493,7 +479,6 @@ uk:
     fallback: не дійсний
     name_included_in_password: занадто схожий на ваше ім'я
     not_enough_unique_characters: не містить достатньої кількості унікальних символів
-    password_not_allowed: неприпустимий
     password_too_common: занадто поширений
     password_too_long: занадто довгий
     password_too_short: занадто короткий

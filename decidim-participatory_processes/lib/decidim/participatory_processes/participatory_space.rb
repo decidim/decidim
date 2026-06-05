@@ -15,8 +15,6 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
 
   participatory_space.permissions_class_name = "Decidim::ParticipatoryProcesses::Permissions"
 
-  participatory_space.breadcrumb_cell = "decidim/participatory_processes/process_dropdown_metadata"
-
   participatory_space.register_resource(:participatory_process) do |resource|
     resource.model_class_name = "Decidim::ParticipatoryProcess"
     resource.card = "decidim/participatory_processes/process"
@@ -42,8 +40,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   end
 
   participatory_space.exports :participatory_processes do |export|
-    export.collection do
-      Decidim::ParticipatoryProcess.public_spaces
+    export.collection do |participatory_space, user|
+      Decidim::ParticipatoryProcess.visible_for(user).where(id: participatory_space)
     end
 
     export.include_in_open_data = true

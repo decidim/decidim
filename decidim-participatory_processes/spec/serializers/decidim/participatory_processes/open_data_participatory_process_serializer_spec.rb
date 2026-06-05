@@ -16,13 +16,12 @@ module Decidim::ParticipatoryProcesses
 
         expect(serialized).to include(id: resource.id)
         expect(serialized).to include(title: resource.title)
-        expect(serialized).to include(url: "http://#{resource.organization.host}:#{Capybara.server_port}/processes/#{resource.slug}")
+        expect(serialized).to include(url: "http://#{resource.organization.host}:#{Capybara.server_port}/en/processes/#{resource.slug}")
         expect(serialized).to include(subtitle: resource.subtitle)
         expect(serialized).to include(slug: resource.slug)
         expect(serialized).to include(reference: resource.reference)
         expect(serialized).to include(short_description: resource.short_description)
         expect(serialized).to include(description: resource.description)
-        expect(serialized).to include(announcement: resource.announcement)
         expect(serialized).to include(start_date: resource.start_date)
         expect(serialized).to include(end_date: resource.end_date)
         expect(serialized[:remote_hero_image_url]).to be_blob_url(resource.hero_image.blob)
@@ -55,24 +54,6 @@ module Decidim::ParticipatoryProcesses
 
           expect(serialized_area).to include(id: resource.area.id)
           expect(serialized_area).to include(name: resource.area.name)
-        end
-      end
-
-      context "when process has type" do
-        let(:participatory_process_type) { create(:participatory_process_type, organization: resource.organization) }
-
-        before do
-          resource.participatory_process_type = participatory_process_type
-          resource.save
-        end
-
-        it "includes the participatory process type" do
-          serialized_participatory_process_type = subject.serialize[:participatory_process_type]
-
-          expect(serialized_participatory_process_type).to be_a(Hash)
-
-          expect(serialized_participatory_process_type).to include(id: resource.participatory_process_type.id)
-          expect(serialized_participatory_process_type).to include(title: resource.participatory_process_type.title)
         end
       end
 

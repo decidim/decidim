@@ -8,6 +8,8 @@ module Decidim
     describe ParticipatoryProcessesController do
       routes { Decidim::ParticipatoryProcesses::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:organization) { create(:organization) }
       let!(:unpublished_process) do
         create(
@@ -37,7 +39,7 @@ module Decidim
         end
 
         it "redirects to 404 if there are not any" do
-          expect { get :index }.to raise_error(ActionController::RoutingError)
+          expect { get :index, params: { locale: I18n.locale } }.to raise_error(ActionController::RoutingError)
         end
       end
 
@@ -120,9 +122,9 @@ module Decidim
       describe "GET show" do
         context "when the process is unpublished" do
           it "redirects to sign in path" do
-            get :show, params: { slug: unpublished_process.slug }
+            get :show, params: { slug: unpublished_process.slug, locale: I18n.locale }
 
-            expect(response).to redirect_to("/users/sign_in")
+            expect(response).to redirect_to(new_user_session_path)
           end
 
           context "with signed in user" do
@@ -133,9 +135,9 @@ module Decidim
             end
 
             it "redirects to root path" do
-              get :show, params: { slug: unpublished_process.slug }
+              get :show, params: { slug: unpublished_process.slug, locale: I18n.locale }
 
-              expect(response).to redirect_to("/")
+              expect(response).to redirect_to(root_path)
             end
           end
         end

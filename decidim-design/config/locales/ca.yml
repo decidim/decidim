@@ -14,6 +14,7 @@ ca:
           trigger: Activador
           usage: Ús
           usage_p: Un acordió necessita com a mínim tres elements
+          usage_p_1_html: '1. Un embolcall (wrapper) <code>div</code>, amb l''atribut "data": <code>data-component="accordion"</code>, sobre tots els activadors i panells disponibles.'
           usage_p_2_html: 2. Un element activador, usuària accionable (com un botó), apuntant a l'element plegable a través de <code>data-controls="panel"</code>, on <i>panel</i> és el <code>id</code> del panell.
           usage_p_3_html: 3. Un element ocult, on <code>id</code> coincideix amb el valor dels controls de dades al que es refereix l'activador.
         activities:
@@ -86,26 +87,26 @@ ca:
           adjacent_links_paragraph: Si el mateix recurs té múltiples enllaços adjacents apuntant-hi, això dificulta que les usuàries puguin mirar a través de la pàgina perquè és possible que les hi calgui passar per diversos enllaços per arribar al següent recurs.
           color_contrast: Contrast de color
           color_contrast_paragraph: En crear interfícies d'usuària o modificar els colors, assegura't que no està trencant-se l'accessibilitat amb els teus canvis. Pots fer servir el comprovador de contrast de color per assegurar-se que aquests colors tenen suficients contrasts el color de fons sobre el que es mostren.
-          decidim_follows_html: Decidim segueix les directrius <u>d'Accessibilitat al Contingut Web (WCAG) 2.1</u>
+          decidim_follows_html: Decidim segueix %{link}
           dynamic_changes_header: 'Funció dinàmica: canvia el context de la pàgina de forma poc intuïtiva'
           dynamic_changes_paragraph: Els canvis a les entrades del formulari no haurien de modificar el context de la pàgina automàticament.
           elements_hidden: Elements amagats
           elements_hidden_header: Elements amagats de l'API d'accessibilitat
           elements_hidden_paragraph: Per amagar un element de la tecnologia d'assistència, fes servir l'atribut aria-hidden="true" en aquest.
           heading_on: Encapçalament a seccions importants
-          here_link: aquí
           illogical_heading_order: Ordre d'encapçalament il·lògica
           illogical_heading_paragraph: Totes les pàgines han de tenir un ordre lògic de capçaleres quan facis servir els elements d'encapçalament <h1>, <h2>, <h3>, <h4>, <h5>, i <h6>.
           important_sections_heading: Encapçalament a seccions importants
           important_sections_paragraph: És molt important que cada secció de la pàgina tingui un títol per a facilitar la comprensió de les seccions importants de la pàgina simplement navegant pels seus encapçalaments.
+          learn_more_about_html: Més informació sobre %{link}
           links_and_buttons: Enllaços i botons
           links_and_buttons_paragraph: Els punts d'ancoratge (per exemple enllaços) estan pensant per enllaçar a diferents pàgines o a posicions d'ancoratge dins de la pàgina. Si volem que aquest punt obri, per exemple, algun element amagar en aquella pàgina, hauries de fer servir l'element <button> en el seu lloc.
-          see_further_info_html: Veure més informació %{link}
           unique_h1: H1 únic
           unique_h1_paragraph: Cada pàgina ha de tenir un únic encapçalament H1
           use_aria: Fes servir ARIA
           use_aria_header: Fes servir els atributs ARIA quan sigui possible
           use_aria_paragraph: Molts elements que proporcionen funcionalitat interactiva al lloc web requereixen atributs ARIA per fer-los accessibles.
+          wcag_guidelines: Pautes d'Accessibilitat al Contingut a la Web (WCAG)
         color:
           color_header: Color
           description_p1: Facilitem una paleta base amb pocs colors de manera que és fàcil fer personalitzacions simples. Pots modificar la paleta base, tant des del Taulell d'Administració com des de l'arxiu de configuració Tailwind si necessites una personalització més avançada.
@@ -134,11 +135,11 @@ ca:
           not_required: No és requisit
           properties: Propietats
           right_aside: Al costat dret
-          section_p_breakpoints: 'Per gestionar l''ample màxim dels elements al disseny web adaptatiu depenem de la classe Tailwind predeterminada ''container'', que indica els punts d''interrupció següents:'
+          section_p_breakpoints: 'Per gestionar l''amplada màxima dels elements al disseny web adaptatiu depenem de la classe Tailwind predeterminada ''container'', que indica els punts d''interrupció següents:'
           section_p_code: A l'hora d'implementar nous mòduls, disposes d'alguns ajudants que et proporcionen automàticament el codi necessari per a configurar l'estructura HTML. Hauries de fer servir aquests ajudants, en lloc de fer servir directament elements com <div> amb <class>, mantenint així la consistència.
           section_p_code_html: Pots trobar els dissenys bàsics a %{link_section_code}
           section_p_desktop: El sistema de graella per als ordinadors d'escriptori, es compon de 12 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 48px
-          section_p_mobile: El sistema de graella pel mòbil es compon de 4 columnes flexibles amb un espaiat (canal) entre columnes de 16px i de marge esquerre i dret de 16px. Per a mides inferiors a 320px aquests marges s'estableixen en 8px.
+          section_p_mobile: El sistema de graella per a mòbils, es compon de 4 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 16px.
           section_p_tablet: El sistema de graella per tauletes tàctils, es compon de 8 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 24px
           tablet: Tauleta tàctil
           title: Disseny (maqueta distribució)
@@ -176,7 +177,6 @@ ca:
         card_g: Targeta G
         card_l: Targeta L
         card_s: Targeta S
-        collaborative_draft_l: Esborrany col·laboratiu L
         colors: Colors
         compact: Compacte
         compact_description: Aquesta versió de l'autoria és la forma més comuna d'identificar a la creadora del recurs.
@@ -205,6 +205,7 @@ ca:
         dropdowns_description_html: Els menús desplegables són una característica <i>JavaScript</i> disponible gràcies a una biblioteca externa anomenada %{link}.
         dropdowns_usage_1_description: 2. Un element modal, la <code>id</code> del qual coincideix amb el valor dels controls de dades a què es refereix l'activador.
         dropdowns_usage_description: 'Un menú desplegable requereix dos elements:'
+        dropdowns_usage_description_html: 1. Un element accionable per la participant, amb els atributs de dades <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Descripció del recurs fictici
         dummy_title: Títol del recurs fictici
         follow_button: Botó "Seguir"
@@ -224,7 +225,6 @@ ca:
         list: Llista
         main_colors: Colors principals
         meeting_l: Trobada L
-        meeting_s: Trobada S
         meetings: Trobades
         meetings_html: Emprat a les targetes de <i>Trobades</i>
         metadata_items: Elements de metadades
@@ -254,8 +254,6 @@ ca:
         share_button: Botó de "Compartir"
         share_usage_description_html: Assegura't que el <code>decidim/shared/share_moda</code> està present al DOM. Aquest parcial es col·loca al disseny de l'aplicació.
         sizes: Mides
-        sortition_l: Sorteig L
-        sortitions: Sortejos
         source_code: Codi font
         state: Estat
         tab_panels_context_description: Aquest component del tauler de pestanyes recull tots els continguts relacionats o altres recursos de l'element principal mostrat, per tal d'estalviar espai vertical. Quan feu clic a la pestanya s'activarà el panell creat per mostrar el contingut.
@@ -297,7 +295,7 @@ ca:
         variations: Variacions
         variations_cards_description: Cada targeta es veurà diferent d'acord amb les propietats del recurs que es mostri. Pot anul·lar aquest comportament a la cel·la específica.
         variations_description: Hi ha tres versions diferents d'aquesta cel·la. Cadascuna encaixa millor en el context en què es mostra.
-        variations_text: Pel que fa al tipus d'activitat, la cel·la podria mostrar diferents continguts, informant dels diferents recursos, pertanyin o no a un espai participatiu, tinguin autoria o no.
+        variations_text: Pel que fa al tipus d'activitat, la cel·la podria mostrar diferents continguts, informant dels diferents recursos, pertanyin o no a un espai de participació, tinguin autoria o no.
       home:
         index:
           by_sharing_principles: Compartint els principis, filosofia i els raonaments darrere de les decisions de disseny volem empoderar a la comunitat perquè contribueixin amb consistència per arribar a la millor experiència per a les participants.

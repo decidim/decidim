@@ -57,7 +57,8 @@ module Decidim
         self,
         element_class: "font-semibold underline",
         active_class: "is-active",
-        container_options: { class: "space-y-4 break-inside-avoid", role: :menu },
+        role: false,
+        container_options: { class: "space-y-4 break-inside-avoid" },
         label: t("layouts.decidim.footer.decidim_title")
       )
     end
@@ -68,8 +69,14 @@ module Decidim
       @menu_highlighted_participatory_process ||= (
         # The queries already include the order by weight
         Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization) |
-        Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
-      ).first
+          Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
+      ).select(&:published?).map { |process| remove_restricted_space_if_not_member(process) }&.compact&.first
+    end
+
+    def remove_restricted_space_if_not_member(process)
+      return nil if process.restricted? && !process.can_participate?(current_user)
+
+      process
     end
 
     def home_content_block_menu

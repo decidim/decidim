@@ -123,6 +123,12 @@ describe "Decidim::Api::QueryType" do
     }
   end
 
+  shared_examples "unauthorized Budget" do
+    it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+      expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Budget because you do not have permissions")
+    end
+  end
+
   describe "commentable" do
     let(:component_fragment) { nil }
 
@@ -275,8 +281,33 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor" do
           let!(:current_user) { nil }
 
+          let(:component_fragment) do
+            %(
+      fragment fooComponent on Budgets {
+        budget(id: #{budget.id}) {
+          createdAt
+          description {
+            translation(locale:"#{locale}")
+          }
+          id
+          title {
+            translation(locale:"#{locale}")
+          }
+          total_budget
+          updatedAt
+          url
+          versions {
+            id
+          }
+          versionsCount
+          weight
+        }
+      }
+    )
+          end
+
           it "should be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result.merge("projects" => [nil, nil]))
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
           end
         end
 
@@ -295,16 +326,14 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do
           let!(:current_user) { nil }
 
           it "should not be visible" do
-            expect(response["participatoryProcess"]["components"].first).to be_nil
+            expect(response["participatoryProcess"]["components"]).to be_empty
           end
         end
 
@@ -312,14 +341,14 @@ describe "Decidim::Api::QueryType" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
           it "should not be visible" do
-            expect(response["participatoryProcess"]["components"].first).to be_nil
+            expect(response["participatoryProcess"]["components"]).to be_empty
           end
         end
       end
     end
 
-    context "when space is published but private" do
-      let!(:participatory_process) { create(process_space_factory, :published, :private, :with_steps, organization: current_organization) }
+    context "when space is published but restricted" do
+      let!(:participatory_process) { create(process_space_factory, :published, :restricted, :with_steps, organization: current_organization) }
 
       context "when component is published" do
         let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
@@ -327,25 +356,19 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
       end
 
@@ -355,30 +378,24 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
       end
     end
 
-    context "when space is published, private and transparent" do
+    context "when space is published and transparent" do
       let(:process_space_factory) { :assembly }
       let(:space_type) { "assembly" }
 
@@ -398,7 +415,7 @@ describe "Decidim::Api::QueryType" do
       }
     )
       end
-      let!(:participatory_process) { create(process_space_factory, :published, :private, :transparent, organization: current_organization) }
+      let!(:participatory_process) { create(process_space_factory, :published, :transparent, organization: current_organization) }
 
       context "when component is published" do
         let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
@@ -421,18 +438,42 @@ describe "Decidim::Api::QueryType" do
             end
           end
         end
-
         context "when user is visitor" do
           let!(:current_user) { nil }
 
+          let(:component_fragment) do
+            %(
+      fragment fooComponent on Budgets {
+        budget(id: #{budget.id}) {
+          createdAt
+          description {
+            translation(locale:"#{locale}")
+          }
+          id
+          title {
+            translation(locale:"#{locale}")
+          }
+          total_budget
+          updatedAt
+          url
+          versions {
+            id
+          }
+          versionsCount
+          weight
+        }
+      }
+    )
+          end
+
           it "is visible" do
-            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.merge("projects" => [nil, nil]))
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
           end
         end
 
         context "when user is member" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-          let!(:participatory_space_private_user) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
+          let!(:member) { create(:assembly_member, user: current_user, participatory_space: participatory_process) }
 
           it "is visible" do
             expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
@@ -454,9 +495,7 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "is visible" do
-            expect(response["assembly"]["components"].first[lookout_key]).to be_nil
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         %w(admin collaborator evaluator).each do |role|
@@ -465,16 +504,17 @@ describe "Decidim::Api::QueryType" do
             let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role:) }
 
             it "is visible" do
-              expect(response["assembly"]["components"].first[lookout_key]).to be_nil
+              expect(response["assembly"]["components"]).to be_empty
             end
           end
         end
+
         context "when the user is space moderator" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
           let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role: "moderator") }
 
           it "is visible" do
-            expect(response["assembly"]["components"].first).to be_nil
+            expect(response["assembly"]["components"]).to be_empty
           end
         end
 
@@ -482,15 +522,15 @@ describe "Decidim::Api::QueryType" do
           let!(:current_user) { nil }
 
           it "should not be visible" do
-            expect(response["assembly"]["components"].first).to be_nil
+            expect(response["assembly"]["components"]).to be_empty
           end
 
           context "when user is member" do
             let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-            let!(:participatory_space_private_user) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
+            let!(:member) { create(:assembly_member, user: current_user, participatory_space: participatory_process) }
 
             it "should not be visible" do
-              expect(response["assembly"]["components"].first).to be_nil
+              expect(response["assembly"]["components"]).to be_empty
             end
           end
         end
@@ -499,7 +539,7 @@ describe "Decidim::Api::QueryType" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
           it "should not be visible" do
-            expect(response["assembly"]["components"].first).to be_nil
+            expect(response["assembly"]["components"]).to be_empty
           end
         end
       end
@@ -514,25 +554,19 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
       end
 
@@ -542,25 +576,19 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
       end
     end

@@ -1,4 +1,4 @@
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import html from "src/decidim/editor/utilities/html";
 
 import iconsUrl from "images/decidim/remixicon.symbol.svg";

@@ -15,7 +15,7 @@ shared_examples "manage partners examples" do
 
   it "shows conference partners list" do
     within "#partners table" do
-      expect(page).to have_content(conference_partner.name)
+      expect(page).to have_text(conference_partner.name)
     end
   end
 
@@ -38,15 +38,15 @@ shared_examples "manage partners examples" do
 
         find("*[type=submit]").click
       end
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference partner successfully added.")
       expect(page).to have_current_path decidim_admin_conferences.conference_partners_path(conference)
 
       within "#partners table" do
-        expect(page).to have_content(attributes[:name])
-        expect(page).to have_content("Collaborator")
+        expect(page).to have_text(attributes[:name])
+        expect(page).to have_text("Collaborator")
       end
       visit decidim_admin.root_path
-      expect(page).to have_content("created the partner #{attributes[:name]}")
+      expect(page).to have_text("created the partner #{attributes[:name]}")
     end
 
     it "updates a conference partners", versioning: true do
@@ -66,15 +66,15 @@ shared_examples "manage partners examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference partner successfully updated.")
       expect(page).to have_current_path decidim_admin_conferences.conference_partners_path(conference)
 
       within "#partners table" do
-        expect(page).to have_content(attributes[:name])
-        expect(page).to have_content("Collaborator")
+        expect(page).to have_text(attributes[:name])
+        expect(page).to have_text("Collaborator")
       end
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the partner #{conference_partner.name}")
+      expect(page).to have_text("updated the partner #{conference_partner.name}")
     end
 
     context "when the partner type is already a Collaborator" do
@@ -97,10 +97,10 @@ shared_examples "manage partners examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference partner successfully removed.")
 
       within "#partners table" do
-        expect(page).to have_no_content(conference_partner.name)
+        expect(page).to have_no_text(conference_partner.name)
       end
     end
   end

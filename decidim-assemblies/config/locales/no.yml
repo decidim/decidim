@@ -9,9 +9,6 @@
         closing_date: Lukkings dato
         closing_date_reason: Lukkings dato begrunnelse
         composition: Sammensetning
-        copy_categories: Kopier kategorier
-        copy_components: Kopier komponenter
-        copy_features: Kopier funksjoner
         created_by: Opprettet av
         created_by_other: Opprettet av annet
         creation_date: Dato opprettet
@@ -33,7 +30,6 @@
         participatory_processes_ids: Relaterte deltakerprosesser
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
-        private_space: Privat området
         promoted: Fremhevet
         published_at: Publisert på
         purpose_of_action: Formål
@@ -81,24 +77,12 @@
         edit:
           update: Oppdater
         index:
-          private: Privat
-          public: Offentlig
           published: Publisert
         new:
           create: Opprett
-          title: Ny forsamling
         update:
           error: Det oppstod et problem med å oppdatere denne forsamlingen.
           success: Forsamlingen ble oppdatert.
-      assemblies_copies:
-        create:
-          error: Det oppstod et problem med å publisere denne forsamlingen.
-          success: Forsamlingen ble duplisert.
-      assembly_copies:
-        new:
-          copy: Kopier
-          select: Velg hvilke data du vil duplisere
-          title: Dupliser forsamling
       assembly_imports:
         create:
           error: Det oppstod et problem med å importere denne forsamlingen.
@@ -106,7 +90,6 @@
         new:
           import: Importer
           select: Velg hvilke data du vil importere
-          title: Importer forsamling
       assembly_publications:
         create:
           error: Det oppstod et problem med å publisere denne forsamlingen.
@@ -122,8 +105,6 @@
           success: Admin slettet fra denne forsamlingen.
         edit:
           update: Oppdater
-        index:
-          assembly_admins_title: Forsamlings adminer
         new:
           create: Opprett
         update:
@@ -142,7 +123,6 @@
         assembly:
           fields:
             created_at: Opprettet på
-            private: Privat
             promoted: Fremhevet
             published: Publisert
             title: Tittel
@@ -164,9 +144,6 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
-      titles:
-        assemblies: Forsamlinger
-        assemblies_types: Forsamlingstyper
     admin_log:
       assembly:
         create: "%{user_name} opprettet %{resource_name} forsamlingen"
@@ -193,7 +170,6 @@
       admin:
         assemblies:
           form:
-            announcement_help: Teksten du skriver her vil bli vist til brukeren rett under forsamlingsinformasjonen.
             duration: Varighet
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             images: Bilder
@@ -203,6 +179,9 @@
             select_parent_assembly: Velg foreldre-forsamling
             social_handlers: Sosial
             title: Generell Informasjon
+        assembly_imports:
+          form:
+            document_legend: Legg til et dokument
         assembly_members:
           form:
             explanation: 'Veiledning for bilde:'
@@ -217,9 +196,6 @@
         filters:
           names:
             all: Alle
-      assembly_members:
-        index:
-          members: Medlemmer
       content_blocks:
         highlighted_assemblies:
           name: Fremhevede forsamlinger
@@ -239,16 +215,8 @@
         working_group: Arbeidsgruppe
       index:
         title: Forsamlinger
-      pages:
-        user_profile:
-          member_of:
-            member_of: Medlem av
       show:
         duration: Varighet
-        private_space: Dette er en privat forsamling
-    assembly_members:
-      index:
-        title: Medlemmer
     events:
       assemblies:
         create_assembly_member:
@@ -271,8 +239,6 @@
       value_types:
         assembly_presenter:
           not_found: 'Forsamlingen ble ikke funnet i databasen (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Forsamlingstypen ble ikke funnet i databasen (ID: %{id})'
     menu:
       assemblies: Forsamlinger
     participatory_processes:

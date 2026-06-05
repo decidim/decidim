@@ -150,8 +150,8 @@ describe "Decidim::Api::QueryType" do
       "followsCount" => meeting.follows_count,
       "hasComments" => meeting.comment_threads.size.positive?,
       "id" => meeting.id.to_s,
-      "iframeAccessLevel" => meeting.iframe_access_level,
-      "iframeEmbedType" => meeting.iframe_embed_type,
+      "iframeAccessLevel" => meeting.iframe_access_level.upcase,
+      "iframeEmbedType" => meeting.iframe_embed_type.upcase,
       "location" => { "translation" => meeting.location[locale] },
       "locationHints" => { "translation" => meeting.location_hints[locale] },
       "privateMeeting" => false,
@@ -161,7 +161,7 @@ describe "Decidim::Api::QueryType" do
       "reference" => meeting.reference,
       "registrationForm" => { "id" => meeting.questionnaire.id.to_s },
       "registrationTerms" => { "translation" => meeting.registration_terms[locale] },
-      "registrationType" => meeting.registration_type,
+      "registrationType" => meeting.registration_type.upcase,
       "registrationUrl" => nil,
       "registrationsEnabled" => false,
       "remainingSlots" => 0,
@@ -217,6 +217,35 @@ describe "Decidim::Api::QueryType" do
 
     it do
       expect(response).to eq({ "commentable" => { "__typename" => "Meeting" } })
+    end
+  end
+
+  context "when query exceeds recursion threshold" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Meetings {
+        meeting(id: #{meeting.id}){
+          agenda {
+            items {
+              agenda {
+                items {
+                  agenda {
+                    items { id }
+                  }
+                }
+              }
+            }
+          }
+        }
+        }
+      )
+    end
+
+    it "raises error Decidim::Api::Errors::TooManyRecursionsError" do
+      expect { response }.to raise_error(
+        Decidim::Api::Errors::RecursionLimitExceededError,
+        I18n.t("decidim.api.errors.recursion_limit_exceeded_error")
+      )
     end
   end
 

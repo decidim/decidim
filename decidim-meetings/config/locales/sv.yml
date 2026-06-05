@@ -7,7 +7,7 @@ sv:
         audio_url: Ljud-URL
         closing_report: Protokoll
         closing_visible: Är synlig
-        contributions_count: Antal bidrag
+        contributions_count: Antal inlägg
         proposal_ids: Förslag som skapades på mötet
         video_url: Video-URL
       meeting:
@@ -49,6 +49,8 @@ sv:
       meeting_registration_invite:
         email: E-post
         name: Namn
+      response:
+        add_documents: Lägg till dokument
       validate_registration_code:
         code: Kod
     errors:
@@ -143,23 +145,23 @@ sv:
           success: Mötet har duplicerats.
         new:
           copy: Kopiera
-          title: Duplicera möte
       tooltips:
-        cannot_close_meetings: Kan inte stänga detta möte eftersom det är skapat av en deltagare
-        cannot_duplicate_meetings: Kan inte kopiera detta möte eftersom det är skapat av en deltagare
-        cannot_edit_meetings: Kan inte redigera detta möte eftersom det är skapat av en deltagare
-        cannot_manage_agenda_meetings: Kan inte ändra dagordningen i detta möte eftersom den är skapad av en deltagare
-        cannot_manage_attachments_meetings: Kan inte ändra bilagor i detta möte eftersom det är skapat av en deltagare
-        cannot_manage_poll_meetings: Kan inte ändra omröstningar i detta möte eftersom det är skapat av en deltagare
-        cannot_manage_registrations_meetings: Kan inte ändra registreringar i detta möte eftersom det är skapat av en deltagare, har inaktiverade eller externa registreringar
-        cannot_mark_attendee: Kan inte markera som deltagare därför att den redan är markerad
-        deleted_meetings_info: Kan inte ta bort detta möte eftersom det är skapat av en deltagare.
+        cannot_close_meetings: Det går inte att stänga mötet eftersom det är skapat av en deltagare
+        cannot_duplicate_meetings: Det går inte att kopiera mötet eftersom det är skapat av en deltagare
+        cannot_edit_meetings: Det går inte att redigera mötet eftersom det är skapat av en deltagare
+        cannot_manage_agenda_meetings: Det går inte att ändra dagordningen för mötet eftersom den är skapad av en deltagare
+        cannot_manage_attachments_meetings: Det går inte att redigera bilagor för mötet eftersom det är skapat av en deltagare
+        cannot_manage_poll_meetings: Det går inte att redigera undersökningar för mötet eftersom det är skapat av en deltagare
+        cannot_manage_registrations_meetings: Det går inte att redigera anmälningar för mötet eftersom det är skapat av en deltagare, inte använder anmälningsfunktionen eller använder en extern anmälningsfunktion
+        cannot_mark_attendee: Kan inte markera som deltagare eftersom den redan är markerad
+        deleted_meetings_info: Det går inte att ta bort mötet eftersom det är skapat av en deltagare.
     components:
       meetings:
         actions:
           comment: Kommentera
           join: Gå med
           reply_poll: Svarsenkät
+          vote_comment: Rösta på kommentar
         name: Möten
         settings:
           global:
@@ -169,7 +171,7 @@ sv:
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardanmälan
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             enable_pads_creation: Aktivera gemensamma anteckningar
             maps_enabled: Aktivera visning på karta
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
@@ -184,11 +186,23 @@ sv:
             creation_enabled_for_participants: Låt deltagare skapa möten
     download_your_data:
       help:
+        invites:
+          accepted_at: Datum och tid då inbjudan godkändes
+          created_at: Datum och tid då inbjudan skapades
+          id: Unikt id för inbjudan
+          meeting: Mötet som inbjudan gällde
+          rejected_at: Datum och tid då inbjudan avvisades
+          sent_at: Datum och tid då inbjudan skickades
+          updated_at: Datum och tid då inbjudan senast uppdaterades
         registrations:
           code: Anmälningskod
+          created_at: Datum och tid då registreringen skapades
           id: Unikt id för anmälan
           meeting: Mötet som användaren anmälde sig till
+          public_participation: Om deltagandet visades offentligt
+          updated_at: Datum och tid då registreringen senast uppdaterades
           user: Användaren som anmälde sig
+          validated_at: Datum och tid då registreringen validerades
       show:
         meeting_comments: Export av möteskommentarer
         meetings: Exportera möten
@@ -219,17 +233,17 @@ sv:
           email_subject: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%
           notification_title: De tilldelade platserna för mötet <a href="%{resource_path}">%{resource_title}</a> är över %{percentage}%.
         meeting_updated:
-          email_intro: 'Mötet "%{resource_title}" har uppdaterats med ändringar till %{changed_fields}. Du kan läsa den nya versionen på sidan:'
+          email_intro: 'Mötet "%{resource_title}" har uppdaterats med ändringar av %{changed_fields}. Du kan se den nya versionen på sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
           field_names:
-            address: Adressen
-            end_time: Sluttiden
-            location: Platsen
-            start_time: Starttiden
-          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har uppdaterats med ändringar till %{changed_fields}.
+            address: adressen
+            end_time: sluttiden
+            location: platsen
+            start_time: starttiden
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har uppdaterats med ändringar av %{changed_fields}.
         meeting_waitlist_added:
-          notification_title: Du har lagts till i väntelistan för <a href="%{resource_url}">%{resource_title}</a> mötet.
+          notification_title: Du har lagts till i väntelistan för mötet <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats.
           email_outro: Du har fått det här meddelandet eftersom din anmälningskod till mötet "%{resource_title}" har validerats.
@@ -246,11 +260,11 @@ sv:
           email_subject: Mötet "%{resource_title}" har aktiverat registreringar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har aktiverat registreringar.
         upcoming_meeting:
-          default_body: Mötet "{{meeting_title}}" startar om mindre än {{before_hours}}h.
-          email_intro: Mötet "%{resource_title}" startar om mindre än %{reminders_before_hours}h.
+          default_body: Mötet "{{meeting_title}}" börjar om mindre än {{before_hours}}h.
+          email_intro: Mötet "%{resource_title}" börjar om mindre än %{reminders_before_hours}h.
           email_outro: Du har fått detta meddelande eftersom du följer mötet %{resource_title}. Du kan sluta följa det från föregående länk.
-          email_subject: Mötet "%{resource_title}" startar om mindre än %{reminders_before_hours}h.
-          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar om mindre än %{reminders_before_hours}h.
+          email_subject: Mötet "%{resource_title}" börjar om mindre än %{reminders_before_hours}h.
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> börjar om mindre än %{reminders_before_hours}h.
     forms:
       meetings:
         attendees_count_help_text: Glöm inte att räkna det totala antalet deltagare på mötet, oavsett om det är på plats, digitalt eller ett hybridmöte.
@@ -271,6 +285,7 @@ sv:
         agenda: Dagordning
         close: Avsluta
         confirm_delete_meeting: Är du säker på att du vill radera mötet?
+        confirm_unpublish_meeting: Är du säker på att du vill avpublicera mötet?
         deleted_meetings_info: Borttagna möten kan återställas från papperskorgen.
         edit: Redigera
         invalid_destroy:
@@ -315,6 +330,7 @@ sv:
           update:
             invalid: Det gick inte att uppdatera dagordningen.
             success: Dagordningen har uppdaterats.
+        deprecation_warning_polls_html: "⚠️ <b>Utgår snart.</b> Funktionen för omröstning kommer att tas bort i en framtida version (inte bestämt vilken än). Organisationer som använder mötesomröstningar bör planera för att använda externa röstningsverktyg (till exempel via Jitsi) eller migrera till andra röstningsmekanismer som finns i Decidim, såsom den nya omröstningsmodulen (`decidim-elections`)."
         exports:
           meeting_comments: Kommentarer
           meetings: Möten
@@ -337,7 +353,6 @@ sv:
             non_user: Icke befintlig deltagare
             select_user: Välj deltagare
           index:
-            invite_attendee: Bjud in deltagare
             invites: Inbjudningar
             registrations_disabled: Det går inte att bjuda in deltagare eftersom registreringen är stängd.
         meeting_closes:
@@ -369,12 +384,14 @@ sv:
             select_an_iframe_access_level: Välj vem som får tillgång till iframe
           index:
             linked_meeting_warning_html: Mötet måste redigeras från <br><a href="%{href}">%{name}</a>
+            published: Publicerade
             title: Möten
+            unpublished: Opublicerade
           linked_spaces:
             assign: Tilldela
             link_a_space: Länka en process
             private_meeting_warning: Processer kan inte länkas om mötet är privat eller inte transparent.
-            private_space_warning: Processer kan inte länkas om mötet är privat eller inte transparent.
+            restricted_space_warning: Länkade rum tillämpas inte när mötet tillhör ett begränsat rum.
             select: Välj en process
             table:
               actions: Åtgärder
@@ -389,11 +406,11 @@ sv:
             invalid: Det gick inte att publicera mötet.
             success: Mötet har publicerats.
           reminders:
-            reminder_enabled: Skicka en påminnelse till detta möte
+            reminder_enabled: Skicka en påminnelse om mötet
             reminder_message: Innehåll i påminnelse via e-post
             reminder_message_help_text: Anpassa meddelandet efter behov. Använd {{meeting_title}} för att visa mötesnamnet.
             send_reminder: Schemalagd påminnelse via e-post
-            send_reminder_help_text: Påminnelse om tid i timmar före mötet.
+            send_reminder_help_text: Antal timmar innan mötet som påminnelse ska skickas.
             title: Påminnelser
           service:
             description: Beskrivning
@@ -440,7 +457,6 @@ sv:
               other: Det har gjorts %{count} anmälningar.
             reserved_slots_help: Låt det stå 0 om du inte har bokade platser.
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
-            title: Anmälningar
           update:
             invalid: Det gick inte att spara inställningarna för anmälan.
             success: Inställningarna för anmälan till mötet har sparats.
@@ -609,7 +625,7 @@ sv:
           confirm: Bekräfta
         show:
           attendees: Antal deltagare
-          contributions: Antal bidrag
+          contributions: Antal inlägg
           join: Anmäl dig
           join_waitlist: Gå med i väntelistan
           leave: Dra tillbaka din anmälan
@@ -619,10 +635,10 @@ sv:
           link_available_soon: Länk kommer snart
           link_closed: Länken till mötet kommer finnas tillgänglig några minuter innan det börjar
           live_event: Mötet pågår just nu
-          meeting_minutes: Mötesprotokoll
+          meeting_minutes: Sammanfattning av mötet
           micro_camera_permissions_warning: När du klickar på knappen nedan kommer du att bli ombedd att godkänna att webbplatsen använder din mikrofon och/eller kamera och du kommer att ansluta till videokonferensen
           no_slots_available: Inga platser kvar
-          organizations: Delta i organisationer
+          organizations: Deltagande organisationer
           pending_address: Platsen kommer att meddelas snart.
           redirect_notice: Mötet är en del av ett annat utrymme, så du har flyttats till %{current_space_name}. <br>Om du vill kan du gå tillbaka till <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_and_qr_code: Anmälan och QR-kod
@@ -659,9 +675,9 @@ sv:
           fields:
             closed: Avslutade
             end_time: Slutdatum
-            id: ID
             map: Karta
             official_meeting: Officiellt möte
+            published: Publicerad
             start_time: Startdatum
             taxonomies: Kategorisering
             title: Titel
@@ -712,6 +728,8 @@ sv:
         hidden_participants_count:
           one: och %{count} till person
           other: och %{count} till personer
+        show_less: Visa färre
+        show_more: Visa fler
       read_more: "(läs mer)"
       registration_mailer:
         confirmation:
@@ -756,9 +774,61 @@ sv:
           commentable_type: Vad som kommenterades (resultat, förslag etc)
           comments: Uppgifter om kommentarer från mötet
           created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet för kommentaren
+        meetings:
+          address: Mötets adress om det ett fysiskt möte
+          attachments: Antalet bilagor i detta möte
+          attendees: Antalet personer som deltar i detta möte
+          attending_organizations: De organisationer som deltar i mötet
+          audio_url: Ljudinspelning av mötet
+          author: Uppgifterna för författaren till detta möte
+          available_slots: Antalet platser som finns i ett möte
+          closed_at: Datum då mötet avslutades
+          closing_report: Rapport från det avslutade mötet
+          closing_visible: Mötets synlighet
+          comments: Uppgifter om kommentarer från mötet
+          component: Den komponent som mötet tillhör
+          contributions: Antalet inlägg möte som gjorts av deltagarna
+          created_at: Det datum då mötet skapades
+          customize_registration_email: Möjligheten att tillåta anpassad e-post vid registrering
+          decidim_author_type: Författartyp för mötets författare
+          description: Beskrivning av mötet
+          end_time: Datum och tid då mötet avslutas
+          follows_count: Antalet följande möten har
+          id: Unikt id för mötet
+          iframe_access_level: Åtkomstnivå för iframe till mötet
+          iframe_embed_type: Typ av iframe inbäddad i mötet
+          latitude: Latitud för mötet
+          location: Platsen för mötet
+          location_hints: En beskrivning av platsen där mötet äger rum
+          longitude: Longitud för mötet
+          online_meeting_url: Webbadressen till onlinemötet
+          organizations: De organisationer som deltar i detta möte
+          participatory_space: Utrymmet (deltagandeprocess eller samråd) mötet tillhör
+          private_meeting: För att ange om mötet är privat eller inte
+          published: När mötet har publicerats
+          reference: Unikt id för innehållet på plattformen
+          registration_form_enabled: Om registreringsformuläret har aktiverats eller inte
+          registration_terms: Villkoren för mötesdeltagande
+          registration_type: Typ av registrering för mötet
+          registration_url: URL till mötesregistreringen
+          registrations_enabled: Om registreringar är tillåtna
+          related_proposals: Förslagen från mötet
+          related_results: Resultaten relaterade till detta möte
+          reserved_slots: Antalet reserverade platser mötet har
+          start_time: Datum och tid för detta möte
+          taxonomies: De kategorier som detta möte tillhör
+          title: Titeln på mötet
+          transparent: Mötets synlighet för icke-medlemmar
+          type_of_meeting: Mötestypen
+          updated_at: Den tid då mötet senast uppdaterades
+          url: URL till mötet
+          video_url: Videoinspelning av mötet
+          withdrawn: Om detta möte har dragits tillbaka
+          withdrawn_at: När mötet drogs tillbaka
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten
@@ -774,7 +844,7 @@ sv:
     statistics:
       attendees_count: Mötesdeltagare
       meetings_count: Möten
-      meetings_count_tooltip: Antalet möten som har ägt rum, både online och personligen.
+      meetings_count_tooltip: Antal möten som har ägt rum, digitalt och fysiskt.
       participatory_space_meetings_count: Möten
   devise:
     mailer:

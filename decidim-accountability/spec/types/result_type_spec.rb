@@ -20,6 +20,12 @@ module Decidim
       include_examples "localizable interface"
       include_examples "referable interface"
 
+      shared_examples "unauthorized Result" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Result because you do not have permissions")
+        end
+      end
+
       describe "id" do
         let(:query) { "{ id }" }
 
@@ -91,19 +97,17 @@ module Decidim
         end
       end
 
-      context "when participatory space is private" do
-        let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
+      context "when participatory space is restricted" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :restricted, organization: current_organization) }
         let(:current_component) { create(:accountability_component, participatory_space:) }
         let(:model) { create(:result, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Result"
       end
 
-      context "when participatory space is private but transparent" do
-        let(:participatory_space) { create(:assembly, :private, :transparent, organization: current_organization) }
+      context "when participatory space is transparent" do
+        let(:participatory_space) { create(:assembly, :transparent, organization: current_organization) }
         let(:current_component) { create(:accountability_component, participatory_space:) }
         let(:model) { create(:result, component: current_component) }
         let(:query) { "{ id }" }
@@ -119,9 +123,7 @@ module Decidim
         let(:model) { create(:result, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Result"
       end
 
       context "when component is not published" do
@@ -129,9 +131,7 @@ module Decidim
         let(:model) { create(:result, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Result"
       end
     end
   end

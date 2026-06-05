@@ -29,7 +29,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render json: { error: I18n.t("proposal_votes.create.error", scope: "decidim.proposals") }, status: :unprocessable_entity
+            render json: { error: I18n.t("proposal_votes.create.error", scope: "decidim.proposals") }, status: :unprocessable_content
           end
         end
       end
@@ -56,7 +56,7 @@ module Decidim
       private
 
       def proposal
-        @proposal ||= Proposal.where(component: current_component).find(params[:proposal_id])
+        @proposal ||= Proposal.where(component: current_component).find(params.expect(:proposal_id))
       end
     end
   end

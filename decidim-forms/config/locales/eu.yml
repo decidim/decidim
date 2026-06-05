@@ -14,7 +14,7 @@ eu:
     errors:
       models:
         questionnaire:
-          request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, saiatu berriro.
+          request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, berriro saiatu.
         response:
           attributes:
             add_documents:
@@ -29,7 +29,7 @@ eu:
       help:
         responses:
           id: Erantzunaren identifikatzaile bakarra
-          question: Erantzun zen galdera
+          question: Erantzun den galdera
           questionnaire: Erantzun zen galdetegia
           response: Galderaren erantzuna
           user: Inkesta erantzun duen parte-hartzailea
@@ -42,20 +42,20 @@ eu:
           components:
             allow_editing_responses: Eman aukera erregistratutako parte-hartzaileei inkestako erantzunak editatzeko
             allow_responses: Baimendu erantzunak
-            allow_unregistered: Baimendu erregistratu gabe dauden parte-hartzailei galdetegia erantzutea
-            allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo "nabigazio pribatuaren" aukera erabiliz.
+            allow_unregistered: Ahalbidetu erregistratu gabeko erabiltzaileek inkestari erantzun diezaioten
+            allow_unregistered_help: Aktibatuta badago, ez da beharrezkoa saioa hastea inkesta erantzuteko. Horrek datu txarrak edo fidagarriak ez direnak ekar ditzake, eta eraso automatizatuen aurrean ahulagoa izango da. Kontuz ibili! Kontuan izan parte-hartzaile batek inkesta berari hainbat aldiz erantzun ahal izango liokeela, hainbat nabigatzaile erabiliz edo bere web nabigatzailearen "nabigazio pribatua" ezaugarria erabiliz.
             announcement: Oharra
             clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
             description: Deskribapena
             ends_at: Erantzunak noiz arte onartuta
             ends_at_help: Utzi zuriz data zehatzik ez badago
             starts_at: Erantzunak noiztik onartuta
-            starts_at_help: Utzi zuriz data zehatzik ez badago
+            starts_at_help: Zuriz utzi data zehatzik ez badago
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:
-            back: Itzuli galderetara
-            publish_responses: Argitaratu erantzunak
+            back: Erantzunetara itzuli
+            publish_responses: Erantzunak argitura
             show: Erantzunak
           display_condition:
             condition_question: Galdera
@@ -71,13 +71,13 @@ eu:
             mandatory: Baldintza hau beti bete behar da, beste baldintza batzuen egoera edozein dela ere
             remove: Kendu
             response_option: Erantzuteko aukera
-            save_warning: Gogoratu formularioa gorde behar duzula, bistaratze-baldintzak konfiguratu aurretik
+            save_warning: Gogoratu formularioa gorde behar duzula bistaratzeko baldintzak konfiguratu aurretik
             select_condition_question: Hautatu galdera bat
             select_condition_type: Hautatu baldintza mota bat
             select_response_option: Hautatu erantzuteko aukera
           edit:
             save: Gorde
-            title: Editatu galdetegia
+            title: Galdetegia editau
           edit_questions:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
@@ -95,19 +95,17 @@ eu:
             remove: Kendu
             statement: Adierazpena
           question:
-            add_display_condition: Gehitu bistaratzeko baldintza
+            add_display_condition: Bistaratzeko baldintza gehitu
             add_display_condition_info: Gorde galdetegia bistaratzeko baldintzak konfiguratzeko
             add_matrix_row: Gehitu errenkada
             add_response_option: Erantsi erantzuteko aukera
             any: Edozein
             collapse: Bildu
             description: Deskribapena
-            down: Behera
             expand: Zabaldu
             question: Galdera
             remove: Kendu
             statement: Adierazpena
-            up: Gora
           questions_form:
             already_responded_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
             collapse: Kolapsatu galdera guztiak
@@ -138,19 +136,15 @@ eu:
             show:
               title: '#%{number} erantzun'
           separator:
-            down: Behera
             remove: Kendu
             separator: Bereizlea
-            up: Gora
           title_and_description:
             collapse: Kolapsoa
             description: Deskribapena
-            down: Behera
             expand: Zabaldu
             remove: Kendu
             title: Izenburua
             title_and_description: Izenburua eta deskribapena
-            up: Gora
           update:
             invalid: Arazo bat egon da inprimakia gordetzean.
             success: Galdetegia zuzen gorde da.
@@ -186,6 +180,7 @@ eu:
         response:
           invalid: Arazo bat egon da galdetegia erantzutean.
           max_choices_alert: Aukera gehiegi hautatuta da
+          spam_detected: Arazo bat egon da galdetegiari rantzuten. Agian azkarregi aritu zara, berriro saia zaitezke?
           success: Galdetegia zuzen erantzun da.
         show:
           current_step: '%{step} urratsa'
@@ -194,14 +189,14 @@ eu:
           questionnaire_closed:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
-          questionnaire_for_private_users:
-            body: Galdetegia parte-hartzaile pribatuentzat soilik dago erabilgarri
+          questionnaire_for_members:
+            body: Formularioa bazkideentzat soilik dago eskuragarri
             title: Galdeketa itxia
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
             title: Javascript desaktibatuta dago
           questionnaire_not_published:
-            body: Argitalpen hau oraindik ez da argitaratu.
+            body: Formulario hau ez da oraindik argitaratu.
           questionnaire_responded:
             body: Dagoeneko inkesta hau erantzun duzu.
             title: Dagoeneko erantzunda

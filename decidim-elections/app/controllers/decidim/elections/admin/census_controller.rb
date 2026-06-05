@@ -11,15 +11,15 @@ module Decidim
         before_action :set_census_manifest, only: [:edit, :update]
 
         def edit
-          enforce_permission_to :update, :census, election: election
+          enforce_permission_to(:update, :census, election:)
 
-          @form = form(election.census.admin_form.constantize).from_params(election.census_settings, election: election) if election.census && election.census.admin_form.present?
+          @form = form(election.census.admin_form.constantize).from_params(election.census_settings, election:) if election.census && election.census.admin_form.present?
         end
 
         def update
-          enforce_permission_to :update, :census, election: election
+          enforce_permission_to(:update, :census, election:)
 
-          @form = form(election.census.admin_form.constantize).from_params(params, election: election) if election.census.admin_form.present?
+          @form = form(election.census.admin_form.constantize).from_params(params, election:) if election.census.admin_form.present?
 
           ProcessCensus.call(@form, election) do
             on(:ok) do
@@ -28,7 +28,7 @@ module Decidim
             end
             on(:invalid) do
               flash[:alert] = t("decidim.elections.admin.census.update.error")
-              render :edit, status: :unprocessable_entity
+              render :edit, status: :unprocessable_content
             end
           end
         end
@@ -44,7 +44,7 @@ module Decidim
         end
 
         def election
-          @election ||= Decidim::Elections::Election.where(component: current_component).find(params[:id])
+          @election ||= Decidim::Elections::Election.where(component: current_component).find(params.expect(:id))
         end
       end
     end

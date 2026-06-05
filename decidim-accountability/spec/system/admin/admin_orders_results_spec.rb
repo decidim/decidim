@@ -23,17 +23,6 @@ describe "Admin orders results" do
 
   include_context "when managing a component as an admin"
 
-  it "orders results by ID" do
-    ordered_results = results.sort_by(&:id).reverse
-
-    click_on "ID"
-    rows = page.all("tbody tr")
-
-    rows.each_with_index do |row, i|
-      expect(row).to have_text(translated(ordered_results[i].title))
-    end
-  end
-
   it "orders results by title" do
     ordered_results = results.sort_by { |result| translated(result.title) }
 

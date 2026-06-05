@@ -2,7 +2,6 @@
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
 import "src/decidim/admin/tab_focus"
-import initLanguageChangeSelect from "src/decidim/admin/choose_language"
 import "src/decidim/admin/application"
 import "src/decidim/admin/resources_permissions"
 import "src/decidim/admin/newsletters"
@@ -15,7 +14,6 @@ import "src/decidim/admin/managed_moderated_users"
 import "src/decidim/admin/moderations"
 import "src/decidim/admin/global_moderations"
 import "src/decidim/admin/officializations"
-import "src/decidim/slug_form"
 import "src/decidim/admin/admin_autocomplete"
 import "src/decidim/admin/triadic_color_picker"
 import "src/decidim/admin/participatory_space_search"
@@ -28,5 +26,7 @@ import "src/decidim/admin/taxonomy_filters"
 import "entrypoints/decidim_admin.scss";
 
 document.addEventListener("turbo:load", () => {
-  initLanguageChangeSelect(document.querySelectorAll("select.language-change"));
+  document.querySelectorAll("select.language-change").forEach((container) => {
+    window.deprecate(container, "language-change", "select.language-change")
+  })
 });

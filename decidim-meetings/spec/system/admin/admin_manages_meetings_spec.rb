@@ -42,6 +42,16 @@ describe "Admin manages meetings" do
       expect(page).to have_css("tbody tr:last-child", text: Decidim::Meetings::MeetingPresenter.new(old_meeting).title)
     end
 
+    it "shows the unpublish modal" do
+      visit current_path
+
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
+        click_on "Unpublish"
+        expect(accept_confirm).to eq("Are you sure you want to unpublish this meeting?")
+      end
+    end
+
     it "allows to publish/unpublish meetings" do
       visit current_path
 
@@ -50,31 +60,39 @@ describe "Admin manages meetings" do
         accept_confirm { click_on "Unpublish" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        expect(page).to have_text("Unpublished")
+      end
+
+      expect(page).to have_callout("Meeting successfully unpublished.")
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         find("button[data-controller='dropdown']").click
-        expect(page).to have_content("Publish")
+        expect(page).to have_text("Publish")
       end
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_on "Publish"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        expect(page).to have_text("Published")
+      end
+
+      expect(page).to have_callout("Meeting successfully published.")
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         find("button[data-controller='dropdown']").click
-        expect(page).to have_content("Unpublish")
+        expect(page).to have_text("Unpublish")
       end
 
       visit decidim.last_activities_path
-      expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
+      expect(page).to have_text("New meeting: #{decidim_sanitize_translated(meeting.title)}")
 
       within "#filters" do
         find("a", class: "filter", text: "Meeting", match: :first).click
       end
-      expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
+      expect(page).to have_text("New meeting: #{decidim_sanitize_translated(meeting.title)}")
     end
 
     context "with enriched content" do
@@ -106,9 +124,9 @@ describe "Admin manages meetings" do
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
 
     it "shows help text" do
-      expect(page).to have_content("used by Geocoder to find the location")
-      expect(page).to have_content("message directed to the users implying the spot to meet at")
-      expect(page).to have_content("the floor of the building if it is an in-person meeting")
+      expect(page).to have_text("used by Geocoder to find the location")
+      expect(page).to have_text("message directed to the users implying the spot to meet at")
+      expect(page).to have_text("the floor of the building if it is an in-person meeting")
     end
 
     context "when there are multiple locales" do
@@ -196,10 +214,10 @@ describe "Admin manages meetings" do
       end
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Meeting successfully updated.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_text(translated(attributes[:title]))
     end
 
     email = last_email
@@ -207,10 +225,30 @@ describe "Admin manages meetings" do
     expect(email.subject).to include("updated")
     expect(email.body.encoded).to include(%(The "#{decidim_sanitize_translated(attributes[:title])}" meeting has been updated with changes to the address and the location))
     page.visit decidim.notifications_path
-    expect(page).to have_content("The #{decidim_sanitize_translated(attributes[:title])} meeting has been updated with changes to the address and the location")
+    expect(page).to have_text("The #{decidim_sanitize_translated(attributes[:title])} meeting has been updated with changes to the address and the location")
 
     visit decidim_admin.root_path
-    expect(page).to have_content("updated the #{decidim_sanitize_translated(attributes[:title])} meeting on the")
+    expect(page).to have_text("updated the #{decidim_sanitize_translated(attributes[:title])} meeting on the")
+  end
+
+  it "throws error when submitting with empty mandatory fields" do
+    visit current_path
+
+    within ".table-list" do
+      click_link_or_button meeting.title["en"].to_s
+    end
+
+    within "#edit_meeting_#{meeting.id}" do
+      fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+
+      within "#meeting_description_en" do
+        attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+      end
+      click_link_or_button "Update"
+    end
+    within ".flash__message" do
+      expect(page).to have_text("There was a problem updating this meeting.")
+    end
   end
 
   it "sets registration enabled to true when registration type is on this platform" do
@@ -225,7 +263,7 @@ describe "Admin manages meetings" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Meeting successfully updated.")
     expect(meeting.reload.registrations_enabled).to be true
   end
 
@@ -241,7 +279,7 @@ describe "Admin manages meetings" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Meeting successfully updated.")
     expect(meeting.reload.registrations_enabled).to be false
   end
 
@@ -260,7 +298,7 @@ describe "Admin manages meetings" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Meeting successfully updated.")
 
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       find("button[data-controller='dropdown']").click
@@ -322,9 +360,9 @@ describe "Admin manages meetings" do
     fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
     fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
 
-    expect(page).to have_content("Send a reminder for this meeting")
-    expect(page).to have_content("Scheduled reminder email")
-    expect(page).to have_content("Reminder email content")
+    expect(page).to have_text("Send a reminder for this meeting")
+    expect(page).to have_text("Scheduled reminder email")
+    expect(page).to have_text("Reminder email content")
 
     fill_in :meeting_send_reminders_before_hours, with: 24
     fill_in_i18n(
@@ -341,15 +379,15 @@ describe "Admin manages meetings" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Meeting successfully created.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
-      expect(page).to have_content(translated(taxonomy.name))
+      expect(page).to have_text(translated(attributes[:title]))
+      expect(page).to have_text(translated(taxonomy.name))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} meeting on the")
+    expect(page).to have_text("created the #{translated(attributes[:title])} meeting on the")
   end
 
   context "when the venue has not been decided yet" do
@@ -369,10 +407,9 @@ describe "Admin manages meetings" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.")
 
       new_meeting = Decidim::Meetings::Meeting.last
-      puts "Meeting location: #{new_meeting.location}"
       expect(new_meeting.location.values).to all(be_blank)
       expect(new_meeting.address).to be_empty
     end
@@ -402,17 +439,17 @@ describe "Admin manages meetings" do
       fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
       fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
 
-      expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
+      expect(page).to have_no_text(decidim_sanitize_translated(root_taxonomy.name))
 
       within ".new_meeting" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.")
 
       within "table" do
-        expect(page).to have_content(translated(attributes[:title]))
-        expect(page).to have_no_content(translated(taxonomy.name))
+        expect(page).to have_text(translated(attributes[:title]))
+        expect(page).to have_no_text(translated(taxonomy.name))
       end
     end
   end
@@ -424,6 +461,7 @@ describe "Admin manages meetings" do
       within_selector: ".new_meeting",
       address_field: :meeting_address
     ) do
+      let(:geocoded_success_message) { "Meeting successfully created." }
       let(:geocoded_address_value) { address }
       let(:geocoded_address_coordinates) { [latitude, longitude] }
 
@@ -527,10 +565,10 @@ describe "Admin manages meetings" do
         accept_confirm { click_on "Move to trash" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Meeting successfully deleted.")
 
       within "table" do
-        expect(page).to have_no_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
+        expect(page).to have_no_text(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
       end
     end
 
@@ -566,10 +604,10 @@ describe "Admin manages meetings" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Meeting successfully updated.")
 
       within "table" do
-        expect(page).to have_content("My new title")
+        expect(page).to have_text("My new title")
       end
     end
 
@@ -577,7 +615,7 @@ describe "Admin manages meetings" do
       click_on "New meeting"
 
       within "label[for='meeting_registration_type']" do
-        expect(page).to have_no_content("There is an error in this field.")
+        expect(page).to have_no_text("There is an error in this field.")
       end
     end
 
@@ -630,10 +668,10 @@ describe "Admin manages meetings" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.")
 
       within "table" do
-        expect(page).to have_content("My meeting")
+        expect(page).to have_text("My meeting")
       end
     end
   end
@@ -655,7 +693,7 @@ describe "Admin manages meetings" do
       end
 
       within ".edit_close_meeting" do
-        expect(page).to have_content "Proposals"
+        expect(page).to have_text "Proposals"
 
         fill_in_i18n_editor(
           :close_meeting_closing_report,
@@ -674,10 +712,10 @@ describe "Admin manages meetings" do
         click_on "Close"
       end
 
-      expect(page).to have_admin_callout("Meeting successfully closed")
+      expect(page).to have_callout("Meeting successfully closed")
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        expect(page).to have_content("Yes")
+        expect(page).to have_text("Yes")
       end
 
       meeting.reload
@@ -730,7 +768,7 @@ describe "Admin manages meetings" do
           click_on "Close"
         end
 
-        expect(page).to have_admin_callout("Meeting successfully closed")
+        expect(page).to have_callout("Meeting successfully closed")
       end
     end
 
@@ -745,10 +783,10 @@ describe "Admin manages meetings" do
           click_on "Close"
         end
 
-        expect(page).to have_content "Close meeting"
+        expect(page).to have_text "Close meeting"
 
         within "form.edit_close_meeting" do
-          expect(page).to have_no_content "Proposals"
+          expect(page).to have_no_text "Proposals"
         end
       end
     end

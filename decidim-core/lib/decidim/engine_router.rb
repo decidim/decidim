@@ -25,13 +25,14 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.admin_proxy(target)
-      new(target.mounted_admin_engine, target.mounted_params, target)
+      new(target.mounted_admin_engine, target.mounted_params.except(:locale), target, admin: true)
     end
 
-    def initialize(engine, default_url_options, target = nil)
+    def initialize(engine, default_url_options, target = nil, options = {})
       @engine = engine
       @default_url_options = default_url_options
       @target = target
+      @admin = options.fetch(:admin, false)
     end
 
     def default_url_options
@@ -47,12 +48,34 @@ module Decidim
 
       filter_slug_params!(method_name)
 
-      send(engine).send(method_name, *)
+      result = send(engine).send(method_name, *)
+      admin? ? rewrite_locale_in_admin_path(result, method_name) : result
     end
 
     private
 
     attr_reader :engine, :target
+
+    def admin?
+      @admin
+    end
+
+    # Rewrites the locale segment in an admin path or URL to match the current
+    # I18n.locale. The admin engine routes are mounted under /:locale/admin but
+    # sub-engines mounted inside the admin engine do not have direct access to
+    # the locale segment, so they fall back to Decidim.default_locale. This
+    # method corrects the generated path/URL after the fact.
+    #
+    # For paths:  /en/admin/... -> /ca/admin/...
+    # For URLs:   http://host/en/admin/... -> http://host/ca/admin/...
+    def rewrite_locale_in_admin_path(result, method_name)
+      locale = I18n.locale.to_s
+      if method_name.to_s.end_with?("_url")
+        result.sub(%r{(https?://[^/]+)/[^/]+/}, "\\1/#{locale}/")
+      else
+        result.sub(%r{\A/[^/]+/}, "/#{locale}/")
+      end
+    end
 
     def filter_slug_params!(method_name)
       return if target.nil?
@@ -67,9 +90,11 @@ module Decidim
     end
 
     def configured_default_url_options
-      @configured_default_url_options ||=
-        ActionMailer::Base.default_url_options.presence ||
-        UrlOptionResolver.new.options
+      @configured_default_url_options ||= begin
+        opts = ActionMailer::Base.default_url_options.presence ||
+               UrlOptionResolver.new.options
+        opts
+      end
     end
   end
 end

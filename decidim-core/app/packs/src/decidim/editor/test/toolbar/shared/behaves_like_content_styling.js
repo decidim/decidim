@@ -5,6 +5,10 @@ import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
 export default (ctx) => {
   const { getControl, setContent } = contextHelpers(ctx);
 
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>$/g, "").trim();
+  };
+
   describe("heading", () => {
     const levels = ["2", "3", "4", "5", "6"];
     let selectValue = (value) => {
@@ -21,7 +25,7 @@ export default (ctx) => {
         selectValue(level);
 
         const tag = `h${level}`;
-        expect(ctx.prosemirror.innerHTML).toEqual(`<${tag}>Hello, world!</${tag}>`);
+        expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual(`<${tag}>Hello, world!</${tag}>`);
       });
     });
 
@@ -33,7 +37,7 @@ export default (ctx) => {
 
         selectValue("normal");
 
-        expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>");
+        expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>");
       });
     });
   });

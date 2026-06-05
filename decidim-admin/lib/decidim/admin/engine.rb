@@ -20,7 +20,11 @@ module Decidim
 
       initializer "decidim_admin.mount_routes" do |_app|
         Decidim::Core::Engine.routes do
-          mount Decidim::Admin::Engine => "/admin"
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
+            mount Decidim::Admin::Engine => "/admin"
+          end
         end
       end
 
@@ -44,7 +48,6 @@ module Decidim
         Decidim.icons.register(name: "earth-line", icon: "earth-line", category: "system", description: "Earth line", engine: :admin)
 
         Decidim.icons.register(name: "attachment-2", icon: "attachment-2", category: "system", description: "", engine: :admin)
-        Decidim.icons.register(name: "spy-line", icon: "spy-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "refresh-line", icon: "refresh-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "zoom-in-line", icon: "zoom-in-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "add-line", icon: "add-line", category: "system", description: "", engine: :admin)
@@ -55,6 +58,12 @@ module Decidim
         Decidim.icons.register(name: "attachment-line", icon: "attachment-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "delete-bin-2-line", icon: "delete-bin-2-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "filter-line", icon: "filter-line", category: "system", description: "", engine: :admin)
+      end
+
+      initializer "decidim_admin.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
       initializer "decidim_admin.mime_types" do |_app|
@@ -80,7 +89,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Admin::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim_admin.webpacker.assets_path" do
+      initializer "decidim_admin.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

@@ -6,7 +6,7 @@ shared_examples "manage assemblies" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     let(:assembly_parent_id_options) { page.find_by_id("assembly_parent_id").find_all("option").map(&:value) }
-    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
+    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:) }
 
     before do
       within("tr", text: translated(assembly.title)) do
@@ -18,7 +18,7 @@ shared_examples "manage assemblies" do
     it "updates an assembly" do
       fill_in_i18n(:assembly_title, "#assembly-title-tabs", **attributes[:title].except("machine_translations"))
 
-      dynamically_attach_file(:assembly_banner_image, image3_path, remove_before: true)
+      dynamically_attach_file(:assembly_hero_image, image3_path, remove_before: true)
 
       within ".edit_assembly" do
         expect(assembly_parent_id_options).not_to include(assembly.id)
@@ -28,7 +28,6 @@ shared_examples "manage assemblies" do
         fill_in_i18n_editor(:assembly_purpose_of_action, "#assembly-purpose_of_action-tabs", **attributes[:purpose_of_action].except("machine_translations"))
         fill_in_i18n_editor(:assembly_composition, "#assembly-composition-tabs", **attributes[:composition].except("machine_translations"))
         fill_in_i18n_editor(:assembly_internal_organisation, "#assembly-internal_organisation-tabs", **attributes[:internal_organisation].except("machine_translations"))
-        fill_in_i18n_editor(:assembly_announcement, "#assembly-announcement-tabs", **attributes[:announcement].except("machine_translations"))
         fill_in_i18n_editor(:assembly_closing_date_reason, "#assembly-closing_date_reason-tabs", **attributes[:closing_date_reason].except("machine_translations"))
 
         fill_in_i18n(:assembly_participatory_scope, "#assembly-participatory_scope-tabs", **attributes[:participatory_scope].except("machine_translations"))
@@ -48,7 +47,7 @@ shared_examples "manage assemblies" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Assembly successfully updated.")
 
       within "[data-content]" do
         expect(page).to have_css("input[value='#{translated(attributes[:title])}']")
@@ -60,7 +59,7 @@ shared_examples "manage assemblies" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} assembly")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} assembly")
     end
   end
 
@@ -78,18 +77,12 @@ shared_examples "manage assemblies" do
       end
       click_on "Update"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Assembly successfully updated.")
 
       hero_blob = assembly.hero_image.blob
       within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
         src = page.find("img")["src"]
         expect(src).to be_blob_url(hero_blob)
-      end
-
-      banner_blob = assembly.hero_image.blob
-      within %([data-active-uploads] [data-filename="#{banner_blob.filename}"]) do
-        src = page.find("img")["src"]
-        expect(src).to be_blob_url(banner_blob)
       end
     end
   end
@@ -108,7 +101,7 @@ shared_examples "manage assemblies" do
 
         page.within_window(new_window) do
           within(".participatory-space__container") do
-            expect(page).to have_content(translated(assembly.title))
+            expect(page).to have_text(translated(assembly.title))
           end
         end
       end
@@ -127,7 +120,7 @@ shared_examples "manage assemblies" do
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
-          expect(page).to have_content(translated(assembly.title))
+          expect(page).to have_text(translated(assembly.title))
         end
       end
     end
@@ -152,11 +145,11 @@ shared_examples "manage assemblies" do
         find("a", text: "Publish", visible: true).click
       end
 
-      expect(page).to have_content("successfully published")
+      expect(page).to have_callout("Assembly successfully published.")
 
       within("tr", text: translated_attribute(assembly.title)) do
         find("button[data-controller='dropdown']").click
-        expect(page).to have_content("Unpublish")
+        expect(page).to have_text("Unpublish")
       end
 
       expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
@@ -179,8 +172,8 @@ shared_examples "manage assemblies" do
         find("a", text: "Unpublish", visible: true).click
       end
 
-      expect(page).to have_content("successfully unpublished")
-      expect(page).to have_content("Publish")
+      expect(page).to have_callout("Assembly successfully unpublished.")
+      expect(page).to have_text("Publish")
       expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
 
       assembly.reload
@@ -193,7 +186,7 @@ shared_examples "manage assemblies" do
 
     it "does not let the admin manage assemblies form other organizations" do
       within "table" do
-        expect(page).to have_no_content(external_assembly.title["en"])
+        expect(page).to have_no_text(external_assembly.title["en"])
       end
     end
   end

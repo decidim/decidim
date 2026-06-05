@@ -7,7 +7,8 @@ module Decidim
       huge: 512,
       big: 192,
       medium: 180,
-      small: 32
+      small: 32,
+      favicon: 256
     }.freeze
 
     set_variants do
@@ -16,17 +17,11 @@ module Decidim
           resize_and_pad: [value, value],
           format: :png
         }
-      end.merge(
-        favicon: {
-          resize_and_pad: [256, 256],
-          define: "icon:auto-resize=16,24,32,48,64,72,96,128,256",
-          format: :ico
-        }
-      )
+      end
     end
 
     def extension_allowlist
-      %w(png jpg jpeg webp ico)
+      %w(png jpg jpeg webp)
     end
   end
 end

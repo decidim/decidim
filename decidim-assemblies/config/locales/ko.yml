@@ -13,7 +13,6 @@ ko:
         import_components: 구성요소 가져오기
         instagram: 인스타그램
         local_area: 조직 영역
-        private_space: 비공개 공간
         twitter: X
         youtube: 유튜브
       assembly_member:
@@ -29,9 +28,6 @@ ko:
         role: 역할
   decidim:
     admin:
-      assembly_copies:
-        new:
-          copy: 복사
       assembly_imports:
         new:
           import: 가져오기
@@ -68,9 +64,6 @@ ko:
           duration: 지속 기간
         filters:
           type: 유형
-      assembly_members:
-        index:
-          members: 멤버
   layouts:
     decidim:
       assemblies:

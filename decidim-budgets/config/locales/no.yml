@@ -30,6 +30,7 @@
       actions:
         edit: Editar
         import: Importer forslag til prosjekter
+        new_project: Nytt prosjekt
         preview: Forhåndsvis
         title: Handlinger
       admin:
@@ -49,13 +50,10 @@
         exports:
           projects: Prosjekter
         models:
-          budget:
-            name: Budsjett
           project:
             name: Prosjekt
         projects:
           edit:
-            title: Rediger prosjekt
             update: Oppdater
           index:
             finished_orders: Avsluttede stemmer
@@ -64,7 +62,6 @@
             title: Prosjekter
           new:
             create: Opprett
-            title: Nytt prosjekt
         proposals_imports:
           new:
             create: Importer forslag til prosjekter
@@ -107,7 +104,6 @@
             total_budget: Totalt budsjett
         project:
           fields:
-            id: ID
             title: Tittel
       order:
         status:
@@ -218,13 +214,6 @@
               disabled: Stemmegivning deaktivert
               enabled: Stemming aktivert
               finished: Stemmegivningen er ferdig
-    events:
-      budgets:
-        budget_published:
-          email_intro: '%{resource_title} budsjettet er nå aktivt for %{participatory_space_title}. Du kan se det fra denne siden:'
-          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan avslutte varsler hvis du følger den forrige lenken.
-          email_subject: '%{resource_title} budsjettet er nå aktivt for %{participatory_space_title}.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> budsjettet er nå aktivt for %{participatory_space_title}.
     resource_links:
       included_proposals:
         project_proposal: Forslag inkludert i dette prosjektet

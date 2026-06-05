@@ -13,7 +13,7 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show, :new, :create, :edit, :update, :withdraw] do
+        resources :meetings, only: [:index, :show, :new, :create, :edit, :update] do
           member do
             put :withdraw
           end
@@ -75,6 +75,18 @@ module Decidim
         Decidim.icons.register(name: "calendar-close-line", icon: "calendar-close-line", category: "system", description: "", engine: :meetings)
       end
 
+      initializer "decidim_meetings.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
+      initializer "decidim_meetings.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Meetings::MeetingsMutationType
+        )
+      end
+
       initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:meeting]
@@ -128,7 +140,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_meetings.webpacker.assets_path" do
+      initializer "decidim_meetings.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

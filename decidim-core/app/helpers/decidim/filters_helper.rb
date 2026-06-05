@@ -44,8 +44,6 @@ module Decidim
         I18n.t("decidim/meetings/meeting.other", scope: "activerecord.models")
       when "debates"
         I18n.t("decidim/debates/debate.other", scope: "activerecord.models")
-      when "sortitions"
-        I18n.t("decidim/sortitions/sortition.other", scope: "activerecord.models")
       when "surveys"
         I18n.t("decidim/surveys/survey.other", scope: "activerecord.models")
       when "projects"

@@ -29,9 +29,11 @@ shared_examples "duplicate conferences" do
         click_on "Duplicate"
       end
 
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Duplicate conference")
-      expect(page).to have_content("Unpublished")
+      expect(page).to have_callout("Conference successfully duplicated")
+      expect(page).to have_text("Duplicate conference")
+      within "table" do
+        expect(page).to have_text("Unpublished")
+      end
     end
   end
 
@@ -58,7 +60,7 @@ shared_examples "duplicate conferences" do
       page.check("conference[duplicate_components]")
       click_on "Duplicate"
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Conference successfully duplicated")
 
       within "tr", text: translated(conference.title) do
         find("button[data-controller='dropdown']").click
@@ -71,7 +73,7 @@ shared_examples "duplicate conferences" do
 
       within ".table-list" do
         conference.components.each do |component|
-          expect(page).to have_content(translated(component.name))
+          expect(page).to have_text(translated(component.name))
         end
       end
     end

@@ -10,9 +10,6 @@ fi-pl:
         closing_date: Sulkeutumispäivä
         closing_date_reason: Perustelu sulkemiselle
         composition: Kokoonpano
-        copy_categories: Kopioi aihepiirit
-        copy_components: Kopioi komponentit
-        copy_features: Kopioi ominaisuudet
         created_by: Luonut
         created_by_other: Luotu muualta
         creation_date: Luontipäivämäärä
@@ -22,9 +19,13 @@ fi-pl:
         developer_group: Perustajaryhmä
         document: Asiakirja
         domain: Toimintaympäristö
+        duplicate_categories: Kopioi aihepiirit
+        duplicate_components: Kopioi komponentit
+        duplicate_features: Kopioi ominaisuudet
         duration: Kesto
         facebook: Facebook
         github: GitHub
+        has_members: Tässä tilassa on jäseniä
         hero_image: Etusivun kuva
         import_attachments: Tuo liitteitä
         import_categories: Tuo aihepiirejä
@@ -39,7 +40,6 @@ fi-pl:
         participatory_processes_ids: Liittyvät osallisuusprosessit
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
-        private_space: Yksityinen tila
         promoted: Korostettu
         published_at: Julkaisuaika
         purpose_of_action: Toiminnan tarkoitus
@@ -73,6 +73,8 @@ fi-pl:
           attributes:
             document:
               allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot ovat sallittuja: %{types}.'
+              empty: Asiakirja on tyhjä
+              invalid_json: Asiakirja ei ole kelvollinen JSON
   activerecord:
     models:
       decidim/assembly:
@@ -99,27 +101,25 @@ fi-pl:
         edit:
           update: Päivitä
         index:
-          private: Yksityinen
-          public: Julkinen
+          access_modes:
+            open: Avoimet
+            restricted: Rajoitetut
+            transparent: Läpinäkyvät
           published: Julkaistu
           unpublished: Julkaisematon
-        manage_trash:
-          title: Poistetut ryhmät
         new:
           create: Luo
-          title: Uusi ryhmä
         update:
           error: Ryhmän päivityksessä tapahtui virhe.
           success: Ryhmä päivitettiin onnistuneesti.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
-          error: Virhe kopioitaessa ryhmää.
-          success: Ryhmä kopioitu onnistuneesti.
-      assembly_copies:
+          error: Ryhmän kopioiminen epäonnistui.
+          success: Ryhmän kopioiminen onnistui.
+      assembly_duplicates:
         new:
-          copy: Kopioi
+          duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi ryhmä
       assembly_imports:
         create:
           error: Ryhmän tuonti epäonnistui.
@@ -127,7 +127,6 @@ fi-pl:
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
-          title: Tuo ryhmä
       assembly_publications:
         create:
           error: Ryhmän julkaisussa tapahtui virhe.
@@ -142,13 +141,9 @@ fi-pl:
         destroy:
           success: Käyttäjä poistettiin onnistuneesti ryhmästä.
         edit:
-          title: Päivitä ryhmän hallintakäyttäjän tietoja
           update: Päivitä
-        index:
-          assembly_admins_title: Ryhmän käyttäjät
         new:
           create: Luo
-          title: Uusi ryhmän hallintakäyttäjä
         update:
           error: Ryhmän käyttäjän päivityksessä tapahtui virhe.
           success: Ryhmän käyttäjä päivitetty onnistuneesti.
@@ -170,15 +165,15 @@ fi-pl:
           components: Komponentit
           info: Tietoa tästä ryhmästä
           landing_page: Laskeutumissivun asettelu
+          members: Jäsenet
           moderations: Moderoinnit
-          private_users: Jäsenet
           see_assembly: Näytä ryhmä
       models:
         assembly:
           fields:
+            access_mode: Pääsyoikeuksien tila
             actions: Toiminnot
             created_at: Luonnin ajankohta
-            private: Yksityinen
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
@@ -205,10 +200,6 @@ fi-pl:
       taxonomy_filters:
         space_filter_for:
           assemblies: Kaikki ryhmät
-      titles:
-        assemblies: Ryhmät
-        assemblies_deleted: Poistetut ryhmät
-        assemblies_types: Ryhmien tyypit
       tooltips:
         deleted_assemblies_info: Ryhmä voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
     admin_log:
@@ -218,9 +209,11 @@ fi-pl:
         export: "%{user_name} vei ryhmän %{resource_name}"
         import: "%{user_name} toi ryhmän %{resource_name}"
         publish: "%{user_name} julkaisi %{resource_name} ryhmän"
+        publish_all_members: "%{user_name} julkaisi ryhmän %{resource_name} jäsenet"
         restore: "%{user_name} palautti ryhmän %{resource_name}"
         soft_delete: "%{user_name} siirsi ryhmän %{resource_name} roskakoriin"
         unpublish: "%{user_name} lopetti %{resource_name} ryhmän julkaisemisen"
+        unpublish_all_members: "%{user_name} perui ryhmän %{resource_name} jäsenten julkaisun"
         update: "%{user_name} päivitti %{resource_name} ryhmän"
       assembly_member:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
@@ -241,17 +234,25 @@ fi-pl:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Tietoa tästä ryhmästä
           form:
-            announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti ryhmän tietojen alapuolella.
+            access:
+              label: Pääsyoikeudet
+              options:
+                open: Kaikki voivat nähdä ryhmän ja osallistua.
+                restricted: Vain jäsenet ja hallintakäyttäjät voivat nähdä ja osallistua. Osallistumistila ei näy yleishaussa, rajapinnassa eikä avoimissa datatiedostoissa.
+                transparent: Kaikki voivat nähdä ryhmän, mutta ainoastaan jäsenet ja hallintakäyttäjät voivat osallistua.
+              set_this_space_as: Aseta tämän tilan pääsyoikeudet
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
+            has_members_help: Voit luoda ja julkaista jäseniä
             images: kuvat
             included_at_help: Valitse päivämäärä, jolloin tämä ryhmä lisättiin alustalle. Sen ei välttämättä tarvitse olla sama kuin luontipäivä.
             metadata: metadata
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             other: muut
-            private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             select_a_created_by: Valitse luoja
             select_parent_assembly: Valitse pääryhmä
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
@@ -259,23 +260,45 @@ fi-pl:
             taxonomies: Luokittelut
             title: Yleiset tiedot
             visibility: Näkyvyys
-        assembly_copies:
+          index:
+            title: Ryhmät
+          manage_trash:
+            title: Poistetut ryhmät
+          new:
+            title: Uusi ryhmä
+        assembly_duplicates:
           form:
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+          new:
+            title: Kopioi ryhmä
         assembly_imports:
           form:
+            document_legend: Lisää dokumentti
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+          new:
+            title: Tuo ryhmä
         assembly_members:
           form:
             explanation: 'Kuvan ohjeistus:'
             image_guide: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
             non_user_avatar_help: Sinun pitäisi hankkia henkilöiden suostumus ennen kuin julkaiset heidän jäsenyytensä.
+        assembly_user_roles:
+          edit:
+            title: Päivitä ryhmän hallintakäyttäjän tietoja
+          index:
+            title: Ryhmän käyttäjät
+          new:
+            title: Uusi ryhmän hallintakäyttäjä
         content_blocks:
           highlighted_assemblies:
             max_results: Näytettävien elementtien enimmäismäärä
+        imports:
+          attachment_error: Liitteen "%{title}" tuonti epäonnistui (%{error}).
+          hero_image_error: Pääkuvan tuonti epäonnistui (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tämän tuontiominaisuuden avulla voit luoda uuden ryhmän JSON-tiedostosta. Voit viedä ryhmän toisesta organisaatiosta tai samasta organisaatiosta. Tuotu ryhmä sisältää sen asetukset, komponentit ja liitetiedostot (jos valittu).
       assemblies:
         description:
           area_name: Alue
@@ -299,9 +322,6 @@ fi-pl:
           type: Tyyppi
         show:
           title: Tietoa tästä ryhmästä
-      assembly_members:
-        index:
-          members: Jäsenet
       content_blocks:
         children_assemblies:
           name: Ryhmät
@@ -336,16 +356,9 @@ fi-pl:
           highlighted_assemblies:
             active_spaces: Aktiiviset ryhmät
             see_all_spaces: Näytä kaikki ryhmät
-        user_profile:
-          member_of:
-            member_of: Jäsen ryhmässä
       show:
         duration: Kesto
-        private_space: Tämä on yksityinen ryhmä
         social_networks_title: Vieraile ryhmän sivulla palvelussa
-    assembly_members:
-      index:
-        title: Jäsenet
     download_your_data:
       show:
         assemblies: Ryhmien vienti
@@ -372,18 +385,17 @@ fi-pl:
       value_types:
         assembly_presenter:
           not_found: 'Ryhmää ei löytynyt tietokannasta (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Ryhmätyyppiä ei löytynyt tietokannasta (ID-numero: %{id})'
     menu:
       assemblies: Ryhmät
     open_data:
       help:
         assemblies:
-          announcement: Ilmoituksen sisältö
+          access_mode: Pääsyoikeuksien tila. Tämä määrittää, onko ryhmä avoin, rajattu vai läpinäkyvä.
           area: Ryhmän alue
           assembly_type: Ryhmän tyyppi
           closing_date: Ryhmän sulkemispäivä
           closing_date_reason: Miksi tämä ryhmä suljettiin
+          component_settings: Ryhmän komponenttiasetukset
           composition: Ryhmän kokoonpano
           created_at: Tilan luontiaika
           created_by: Kuka tämän ryhmän on luonut

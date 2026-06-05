@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Conference program" do
   include Decidim::TranslationsHelper
+
   let(:organization) { create(:organization) }
   let(:conference) { create(:conference, organization:) }
   let!(:component) do
@@ -25,7 +26,7 @@ describe "Conference program" do
       visit decidim_conferences.conference_path(conference)
 
       within "aside .conference__nav-container" do
-        expect(page).to have_no_content(translated_attribute(component.name))
+        expect(page).to have_no_text(translated_attribute(component.name))
       end
     end
   end
@@ -39,8 +40,10 @@ describe "Conference program" do
   context "when there are some conference meetings" do
     let!(:conference_speakers) { create_list(:conference_speaker, 3, :with_meeting, conference:, meetings_component: component) }
     let(:meetings) { Decidim::ConferenceMeeting.where(component:) }
+    let(:taxonomy) { create(:taxonomy, parent: create(:taxonomy, organization:), organization:) }
 
     before do
+      meetings.each { |meeting| meeting.update(taxonomies: [taxonomy]) }
       visit decidim_conferences.conference_conference_program_path(conference, component)
     end
 
@@ -50,8 +53,8 @@ describe "Conference program" do
           visit decidim_conferences.conference_path(conference)
 
           within "aside .conference__nav-container" do
-            expect(page).to have_content(decidim_escape_translated(component.name))
-            click_on decidim_escape_translated(component.name)
+            expect(page).to have_text(translated_attribute(component.name))
+            click_on translated_attribute(component.name)
           end
 
           expect(page).to have_current_path decidim_conferences.conference_conference_program_path(conference, component)
@@ -65,7 +68,7 @@ describe "Conference program" do
         end
 
         it "displays the correct title" do
-          expect(page).to have_content("Meeting title")
+          expect(page).to have_text("Meeting title")
         end
       end
     end
@@ -75,8 +78,14 @@ describe "Conference program" do
         expect(page).to have_css("[data-conference-program-title]", count: 3)
 
         meetings.each do |meeting|
-          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))
+          expect(page).to have_text(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))
         end
+      end
+    end
+
+    it "has the taxonomy name" do
+      within "[data-conference-program-day]" do
+        expect(page).to have_text(translated_attribute(taxonomy.name))
       end
     end
   end

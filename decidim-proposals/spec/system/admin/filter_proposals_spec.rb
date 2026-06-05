@@ -56,10 +56,8 @@ describe "Admin filters proposals" do
     before { visit_component_admin }
 
     STATES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")
-
-      context "when filtering proposals by state: #{i18n_state}" do
-        it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
+      context "when filtering proposals by state: #{I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")}" do
+        it_behaves_like "a filtered collection", options: "State", filter: I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values") do
           let(:in_filter) { translated(proposal_with_state(state).title) }
           let(:not_in_filter) { translated(proposal_without_state(state).title) }
         end
@@ -136,23 +134,23 @@ describe "Admin filters proposals" do
       end
 
       it "has a link to remove all filters" do
-        expect(page).to have_content(translated(answered_proposal_with_taxonomy1.title))
-        expect(page).to have_no_content(translated(unanswered_proposal_with_taxonomy1.title))
-        expect(page).to have_no_content(translated(answered_proposal_with_taxonomy2.title))
-        expect(page).to have_no_content(translated(unanswered_proposal_with_taxonomy2.title))
+        expect(page).to have_text(translated(answered_proposal_with_taxonomy1.title))
+        expect(page).to have_no_text(translated(unanswered_proposal_with_taxonomy1.title))
+        expect(page).to have_no_text(translated(answered_proposal_with_taxonomy2.title))
+        expect(page).to have_no_text(translated(unanswered_proposal_with_taxonomy2.title))
 
         within("[data-applied-filters-tags]") do
-          expect(page).to have_content("Remove all")
+          expect(page).to have_text("Remove all")
         end
 
         within("[data-applied-filters-tags]") do
           click_on("Remove all")
         end
 
-        expect(page).to have_content(translated(answered_proposal_with_taxonomy1.title))
-        expect(page).to have_content(translated(unanswered_proposal_with_taxonomy1.title))
-        expect(page).to have_content(translated(answered_proposal_with_taxonomy2.title))
-        expect(page).to have_content(translated(unanswered_proposal_with_taxonomy2.title))
+        expect(page).to have_text(translated(answered_proposal_with_taxonomy1.title))
+        expect(page).to have_text(translated(unanswered_proposal_with_taxonomy1.title))
+        expect(page).to have_text(translated(answered_proposal_with_taxonomy2.title))
+        expect(page).to have_text(translated(unanswered_proposal_with_taxonomy2.title))
         expect(page).to have_css("[data-applied-filters-tags]", exact_text: "")
       end
 
@@ -172,9 +170,9 @@ describe "Admin filters proposals" do
         end
 
         within("[data-applied-filters-tags]") do
-          expect(page).to have_content("Answered: Answered")
-          expect(page).to have_content("Taxonomy: Taxonomy1")
-          expect(page).to have_content("Remove all")
+          expect(page).to have_text("Answered: Answered")
+          expect(page).to have_text("Taxonomy: Taxonomy1")
+          expect(page).to have_text("Remove all")
         end
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -212,7 +210,7 @@ describe "Admin filters proposals" do
     end
   end
 
-  context "when searching by ID or title" do
+  context "when searching by title" do
     let!(:proposal1) { create(:proposal, component:) }
     let!(:proposal2) { create(:proposal, component:) }
     let!(:proposal1_title) { ActionView::Base.full_sanitizer.sanitize(translated(proposal1.title)) }
@@ -220,16 +218,39 @@ describe "Admin filters proposals" do
 
     before { visit_component_admin }
 
-    it "can be searched by ID" do
-      search_by_text(proposal1.id)
-
-      expect(page).to have_content(proposal1_title)
-    end
-
     it "can be searched by title" do
       search_by_text(proposal2_title)
 
-      expect(page).to have_content(proposal2_title)
+      expect(page).to have_text(proposal2_title)
+    end
+  end
+
+  context "when sorting by title" do
+    let!(:beta_proposal) { create(:proposal, component:, title: { en: "Beta proposal" }) }
+    let!(:alpha_proposal) { create(:proposal, component:, title: { en: "Alpha proposal" }) }
+    let!(:gamma_proposal) { create(:proposal, component:, title: { en: "Gamma proposal" }) }
+
+    before { visit_component_admin }
+
+    it "sorts by title ascending when 'Title' is clicked" do
+      within "table thead" do
+        click_on "Title"
+      end
+
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
+      expect(titles.find_index { |t| t.include?("Alpha proposal") }).to be < titles.find_index { |t| t.include?("Beta proposal") }
+      expect(titles.find_index { |t| t.include?("Beta proposal") }).to be < titles.find_index { |t| t.include?("Gamma proposal") }
+    end
+
+    it "sorts by title descending when 'Title' is clicked twice" do
+      within "table thead" do
+        click_on "Title"
+        click_on "Title"
+      end
+
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
+      expect(titles.find_index { |t| t.include?("Gamma proposal") }).to be < titles.find_index { |t| t.include?("Beta proposal") }
+      expect(titles.find_index { |t| t.include?("Beta proposal") }).to be < titles.find_index { |t| t.include?("Alpha proposal") }
     end
   end
 

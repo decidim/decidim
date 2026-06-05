@@ -16,6 +16,11 @@ en:
           body: Body
           draft: Draft
           version_number: Version number
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Collaborative text
+        other: Collaborative texts
   decidim:
     admin:
       tooltips:
@@ -74,6 +79,11 @@ en:
           update_settings:
             invalid: There was a problem updating the document.
             success: Document successfully updated.
+        exports:
+          document_suggestions: Suggestions
+        index:
+          published: Published
+          unpublished: Unpublished
       admin_log:
         document:
           create: "%{user_name} created the %{resource_name} collaborative text in %{space_name}"
@@ -122,6 +132,7 @@ en:
       models:
         collaborative_text:
           fields:
+            published: Published
             suggestions: Accept suggestions
             title: Title
       suggestion:

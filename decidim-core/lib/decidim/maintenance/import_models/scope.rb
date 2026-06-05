@@ -11,7 +11,7 @@ module Decidim
           "Decidim::Budgets::Budget", "Decidim::Budgets::Project",
           "Decidim::Debates::Debate",
           "Decidim::Meetings::Meeting",
-          "Decidim::Proposals::CollaborativeDraft", "Decidim::Proposals::Proposal"
+          "Decidim::Proposals::Proposal"
         ]
         participatory_space_models ["Decidim::Assembly", "Decidim::ParticipatoryProcess", "Decidim::Conference", "Decidim::Initiative"]
 

@@ -79,7 +79,7 @@ module Decidim
       end
 
       def clear_responses!
-        Response.where(questionnaire: questionnaire, user: current_user, session_token: form.context.session_token, ip_hash: form.context.ip_hash).destroy_all
+        Response.where(questionnaire:, user: current_user, session_token: form.context.session_token, ip_hash: form.context.ip_hash).destroy_all
       end
 
       def response_questionnaire

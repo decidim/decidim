@@ -42,7 +42,7 @@ sv:
           taxonomies_part_of_contains:
             label: Kategorisering
       tooltips:
-        deleted_projects_info: Kan inte ta bort detta projekt
+        deleted_projects_info: Det går inte att ta bort projektet
     budgets:
       actions:
         confirm_delete_budget: Är du säker på att du vill ta bort budgeten?
@@ -83,8 +83,6 @@ sv:
         exports:
           projects: Projekt
         models:
-          budget:
-            name: Budget
           project:
             name: Projekt
         projects:
@@ -92,7 +90,6 @@ sv:
             invalid: Det gick inte att skapa projektet.
             success: Projektet har skapats.
           edit:
-            title: Redigera projekt
             update: Uppdatera
           index:
             actions: Åtgärder
@@ -115,7 +112,6 @@ sv:
             title: Raderade projekt
           new:
             create: Skapa
-            title: Nytt projekt
           update:
             invalid: Det gick inte att uppdatera projektet.
             success: Projektet har uppdaterats.
@@ -144,9 +140,10 @@ sv:
           new:
             create: Importera förslag till projekt
             default_budget: Förvald budget
-            import_all_accepted_proposals: Importera alla godkända förslag
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             origin_component_id: Ursprungskomponent
+            proposal_states: Status för förslag
+            proposal_states_help: Välj en eller flera statusar att importera till projekt. Om du inte väljer något importeras alla publicerade förslag som inte redan har importerats till andra budgetar från komponenten.
             select_component: Välj en komponent
             title: Importera förslag till projekt
         reminders:
@@ -178,6 +175,7 @@ sv:
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
           only_one: dra tillbaka din röst och börja om.
+        completed: Avslutade
         count:
           one: "%{count} budget"
           other: "%{count} budgetar"
@@ -185,6 +183,7 @@ sv:
         finished_message: Du har avslutat omröstningen. Tack för ditt deltagande!
         highlighted_cta: Rösta på %{name}
         if_change_opinion: Om du har ändrat dig kan du
+        incomplete: Ej slutförda
         orders:
           highest_cost: Högst kostnad
           label: Sortera budgetar efter
@@ -192,6 +191,8 @@ sv:
           random: Slumpvis ordning
         progress: Avsluta omröstning
         remove_vote: Ta bort röst
+        see_projects: Visa projekt
+        see_results: Visa resultat
         show: Visa projekt
         vote: Rösta
         voted_budgets: Budgetar som röstats i
@@ -211,7 +212,6 @@ sv:
             total_budget: Total budget
         project:
           fields:
-            id: ID
             map: Karta
             taxonomies: Kategorisering
             title: Titel
@@ -229,8 +229,8 @@ sv:
             one: Visa röst
             other: Visa röster
           votes_count:
-            one: Din röst på %{budget_name} har redan registrerats.
-            other: Dina %{count} röster för %{budget_name} har redan registrerats.
+            one: Din röst på %{budget_name} har registrerats.
+            other: Dina %{count} röster för %{budget_name} har registrerats.
       order_pdf:
         text: Du har röstat på följande projekt i %{space_name}
         title: Din röst har tagits emot.
@@ -240,6 +240,7 @@ sv:
           subject: Du har röstat i %{space_name}
           voted_on_space: Du har röstat på budgeten %{budget_name} i %{space_name}.
       projects:
+        back_to_budgets: Tillbaka till budgetar
         budget_confirm:
           are_you_sure: Om du ändrar dig kan du ändra rösten senare.
           cancel: Avbryt
@@ -283,18 +284,16 @@ sv:
           assigned: Valda
           budget: Budget
           dynamic_help:
-            keep_adding_projects: Fortsätt lägga till projekt
             minimum_reached: Du har uppnått den lägsta gränsen för att kunna rösta
-            start_adding_projects: Börja lägga till projekt
           minimum: Minst
           minimum_projects_rule:
-            description: Välj minst %{minimum_number} projekt att rösta på.
+            description: "<b>Välj minst %{minimum_number} projekt</b> att rösta på."
           projects_rule:
-            description: Välj minst %{minimum_number} och som mest %{maximum_number} projekt att rösta på.
+            description: "<b>Välj minst %{minimum_number} och som mest %{maximum_number} projekt</b> att rösta på."
           projects_rule_maximum_only:
-            description: Välj upp till %{maximum_number} projekt att rösta på.
+            description: "<b>Välj upp till %{maximum_number} projekt</b> att rösta på."
           vote_threshold_percent_rule:
-            description: Välj projekt för minst %{minimum_budget} att rösta på.
+            description: "<b>Tilldela minst %{minimum_budget}</b> åt de projekt du vill rösta på inom budgeten."
         orders:
           highest_cost: Högst kostnad
           label: Sortera projekt efter
@@ -322,7 +321,7 @@ sv:
         select_projects: Välj projekt
         show:
           budget: Budget
-        start_voting: Börja rösta
+          votes: Röster
       prompt: Välj budget
       vote_reminder_mailer:
         vote_reminder:
@@ -338,6 +337,7 @@ sv:
         actions:
           comment: Kommentera
           vote: Rösta
+          vote_comment: Rösta på kommentar
         name: Budgetar
         settings:
           global:
@@ -345,7 +345,7 @@ sv:
             clear_all: Återställ
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             form:
               errors:
                 budget_voting_rule_only_one: Endast en röstningsregel kan vara aktiverad.
@@ -367,6 +367,11 @@ sv:
             vote_selected_projects_maximum: Maximalt antal projekt att välja
             vote_selected_projects_minimum: Minsta antal projekt att välja
             vote_threshold_percent: Tröskelvärde för röster i procent
+            voting_rule: Omröstningsregel
+            voting_rule_choices:
+              minimum_projects: Minst antal projekt att rösta på
+              selected_projects: Minsta och högsta antal projekt att rösta på
+              threshold_percent: Lägsta andel av budgeten i procent
             workflow: Arbetsflöde
             workflow_choices:
               all: 'Rösta på alla: låt deltagare att rösta i alla budgetar.'
@@ -397,13 +402,6 @@ sv:
           updated_at: Datum och tid för när omröstningen uppdaterades
       show:
         projects: Projektexport
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Budgeten %{resource_title} för %{participatory_space_title} är nu aktiv. Du kan se den från den här sidan:'
-          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
-          email_subject: Budgeten %{resource_title} för %{participatory_space_title} är nu aktiv.
-          notification_title: Budgeten <a href="%{resource_path}">%{resource_title}</a> för %{participatory_space_title} är nu aktiv.
     open_data:
       help:
         projects:

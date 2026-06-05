@@ -10,7 +10,7 @@ module Decidim
       # Finds a filter by name or creates it if it does not exist.
       #
       # @param name [Symbol] Name of the filter
-      # @param &block [Filter] Registration body of the filter. It is stored to
+      # @param block [Filter] Registration body of the filter. It is stored to
       #                        be evaluated at rendering time
       #
       def register(name, &block)

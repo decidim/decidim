@@ -84,8 +84,6 @@ en:
         exports:
           projects: Projects
         models:
-          budget:
-            name: Budget
           project:
             name: Project
         projects:
@@ -93,7 +91,7 @@ en:
             invalid: There was a problem creating this project.
             success: Project successfully created.
           edit:
-            title: Edit project
+            title: Edit project at %{budget}
             update: Update
           index:
             actions: Actions
@@ -116,7 +114,7 @@ en:
             title: Deleted projects
           new:
             create: Create
-            title: New project
+            title: New project at %{budget}
           update:
             invalid: There was a problem updating this project.
             success: Project successfully updated.
@@ -145,9 +143,10 @@ en:
           new:
             create: Import proposals to projects
             default_budget: Default budget
-            import_all_accepted_proposals: Import all accepted proposals
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             origin_component_id: Origin component
+            proposal_states: Proposal States
+            proposal_states_help: Select one or more proposal states to import into projects. By selecting none, you will import all published proposals that have not already been imported in other budgets from this component.
             select_component: Please select a component
             title: Import proposals to projects
         reminders:
@@ -179,6 +178,7 @@ en:
         cancel_order:
           more_than_one: delete your vote on %{name} and start over
           only_one: delete your vote and start over.
+        completed: Completed
         count:
           one: "%{count} budget"
           other: "%{count} budgets"
@@ -186,6 +186,7 @@ en:
         finished_message: You have finished the voting process. Thanks for participating!
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you have changed your mind, you can
+        incomplete: Incomplete
         orders:
           highest_cost: Highest cost
           label: Order budgets by
@@ -193,6 +194,8 @@ en:
           random: Random order
         progress: Finish voting
         remove_vote: Remove vote
+        see_projects: See projects
+        see_results: See results
         show: See projects
         vote: Vote
         voted_budgets: Voted budgets
@@ -212,7 +215,6 @@ en:
             total_budget: Total budget
         project:
           fields:
-            id: ID
             map: Map
             taxonomies: Taxonomies
             title: Title
@@ -241,6 +243,7 @@ en:
           subject: You have voted on the %{space_name} participatory space
           voted_on_space: You have voted on the %{budget_name} budget for the %{space_name} participatory space.
       projects:
+        back_to_budgets: Back to budgets
         budget_confirm:
           are_you_sure: If you change your mind, you can change your vote later.
           cancel: Cancel
@@ -284,18 +287,16 @@ en:
           assigned: Assigned
           budget: Budget
           dynamic_help:
-            keep_adding_projects: Keep adding projects
             minimum_reached: You have reached the minimum to be able to vote
-            start_adding_projects: Start adding projects
           minimum: Minimum
           minimum_projects_rule:
-            description: Select at least %{minimum_number} projects you want and vote according to your preferences.
+            description: "<b>Select at least %{minimum_number} projects</b> you want and vote according to your preferences."
           projects_rule:
-            description: Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences.
+            description: "<b>Select at least %{minimum_number} and up to %{maximum_number} projects</b> you want and vote according to your preferences."
           projects_rule_maximum_only:
-            description: Select up to %{maximum_number} projects you want and vote according to your preferences.
+            description: "<b>Select up to %{maximum_number} projects</b> you want and vote according to your preferences."
           vote_threshold_percent_rule:
-            description: Assign at least %{minimum_budget} to the projects you want and vote according to your preferences.
+            description: "<b>Assign at least %{minimum_budget}</b> to the projects you want and vote according to your preferences."
         orders:
           highest_cost: Highest cost
           label: Order projects by
@@ -323,7 +324,7 @@ en:
         select_projects: Add projects
         show:
           budget: Budget
-        start_voting: Start voting
+          votes: Votes
       prompt: Select budget
       vote_reminder_mailer:
         vote_reminder:
@@ -339,6 +340,7 @@ en:
         actions:
           comment: Comment
           vote: Vote
+          vote_comment: Vote comment
         name: Budgets
         settings:
           global:
@@ -368,6 +370,11 @@ en:
             vote_selected_projects_maximum: Maximum amount of projects to be selected
             vote_selected_projects_minimum: Minimum amount of projects to be selected
             vote_threshold_percent: Vote threshold percent
+            voting_rule: Voting rule
+            voting_rule_choices:
+              minimum_projects: Minimum number of projects to be voted on
+              selected_projects: Minimum and maximum number of projects to be voted on
+              threshold_percent: Minimum budget percentage
             workflow: Workflow
             workflow_choices:
               all: 'Vote in all: allows participants to vote in all budgets.'
@@ -398,13 +405,6 @@ en:
           updated_at: The date and time when the order was updated
       show:
         projects: Projects export
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'The %{resource_title} budget is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: The %{resource_title} budget is now active for %{participatory_space_title}.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> budget is now active for %{participatory_space_title}.
     open_data:
       help:
         projects:

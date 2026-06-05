@@ -9,7 +9,6 @@ module Decidim
       description "An initiative type"
 
       field :attachments_enabled, GraphQL::Types::Boolean, "Enable attachments on initiative types", null: true
-      field :banner_image, GraphQL::Types::String, "Banner image", null: true
       field :collect_user_extra_fields, GraphQL::Types::Boolean, "Collect participant personal data on signature", null: true
       field :comments_enabled, GraphQL::Types::Boolean, "Enable comments on initiative types", null: true
       field :custom_signature_end_date_enabled, GraphQL::Types::Boolean, "Enable participants to set custom signature end date", null: true
@@ -23,10 +22,6 @@ module Decidim
       field :title, Decidim::Core::TranslatedFieldType, "Initiative type name", null: true
       field :undo_online_signatures_enabled, GraphQL::Types::Boolean, "Enable participants to undo their online signatures", null: true
       field :validate_sms_code_on_votes, GraphQL::Types::Boolean, "Add SMS code validation step to signature process", null: true
-
-      def banner_image
-        object.attached_uploader(:banner_image).url
-      end
     end
   end
 end

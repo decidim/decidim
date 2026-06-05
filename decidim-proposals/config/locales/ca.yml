@@ -52,7 +52,7 @@ ca:
         file: Arxiu
       proposals_import:
         import_proposals: Importar propostes
-        keep_answers: Manté l'estat i les respostes
+        keep_answers: Manté els estats i les respostes
         keep_authors: Mantenir l'autoria original
     errors:
       models:
@@ -145,8 +145,6 @@ ca:
             values:
               state_not_published: Sense resposta
               state_published: Amb resposta
-        search_placeholder:
-          id_string_or_title_cont: Cerca %{collection} per ID o títol
       tooltips:
         cannot_edit_proposal_info: No es pot editar aquesta proposta perquè ha estat creada per un participant o ha rebut algun vot
         deleted_proposal_states_info: No es pot eliminar aquest estat de resposta perquè hi ha propostes assignades a aquest estat
@@ -176,6 +174,7 @@ ca:
             can_accumulate_votes_beyond_threshold: Pot acumular suports més enllà del llindar
             clear_all: Netejar-ho tot
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
+            collaborative_drafts_enabled_help: La funció «Esborranys col·laboratius» s'eliminarà pròximament. Si la feies servir, a partir de la versió 0.32 de Decidim podràs fer servir la funcionalitat de coautoria de propostes.
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             default_sort_order: Ordre de propostes per defecte
@@ -276,17 +275,17 @@ ca:
             email_intro: '%{author_name} ha creat una nota privada a %{resource_title}. La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> ha creat una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
           proposal_note_mentioned:
-            email_intro: '"%{author_name}" "%{author_nickname}" t''ha esmentat a una nota privada a "%{resource_title}". La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
+            email_intro: '"%{author_name}" t''ha esmentat a una nota privada a "%{resource_title}". <a href="%{admin_proposal_info_url}">La pots veure al taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè t'han esmentat a una nota privada.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> t'ha esmentat a una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> t'ha esmentat a una nota privada a "<a href="%{resource_path}">{resource_title}</a>". <a href="%{admin_proposal_info_path}">La pots veure al taulell d'administració</a>.
           proposal_note_replied:
             email_intro: '%{author_name} ha respost la teva nota privada a %{resource_title}. Ho pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè ets l'autora de la nota privada.
             email_subject: "%{author_name} ha respost a la teva nota privada a %{resource_title}."
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost a la teva nota privada a <a href="%{resource_path}">%{resource_title}</a>. Ho pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> ha respost a la teva nota privada a <a href="%{resource_path}">%{resource_title}</a>. <a href="%{admin_proposal_info_path}">Pots veure la resposta des del taulell d'administració</a>.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha acceptat la teva invitació per a ser coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
         coauthor_invited:
@@ -303,17 +302,17 @@ ca:
           email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "S'ha acceptat %{requester_name} per accedir com a contribuidora del %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat <strong>acceptat per accedir com a contribuidora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> ha estat <strong>acceptada per accedir com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: 'S''ha rebutjat que %{requester_name} accedeixi com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "S'ha rebutjat %{requester_name} per accedir com a contribuïdora de l'esborrany col·laboratiu %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a><strong> ha estat rebutjat per accedir com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: '<strong>S''ha rebutjat que <a href="%{requester_path}">%{requester_name}</a> accedeixi com a contribuïdora de l''esborrany col·laboratiu<strong>: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdora. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "%{requester_name} ha demanat accés per contribuir a %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sol·licitat accés per contribuir a l'esborrany col·laboratiu de <a href="%{resource_path}">%{resource_title}</a>. Si us plau, <strong>accepta o rebutja la sol·licitud</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> ha sol·licitat accés per contribuir a l'esborrany col·laboratiu de <a href="%{resource_path}">%{resource_title}</a>. Si us plau, <strong>accepta o rebutja la sol·licitud</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Has estat acceptada com a contribuïdora de l'esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Has rebut aquesta notificació perquè has sol·licitat poder contribuïr a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
@@ -325,10 +324,10 @@ ca:
           email_subject: Has estat rebutjada com a contribuïdora de %{resource_title}.
           notification_title: Has estat rebutjada <strong>per accedir com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> ha retirat l'esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: '<a href="%{author_url}">%{author_name}</a> ha retirat l''esborrany col·laboratiu: <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
-          email_subject: "%{author_name} %{author_nickname} ha retirat l'esborrany col·laboratiu %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirat</strong> l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} ha retirat l'esborrany col·laboratiu: %{resource_title}."
+          notification_title: '<a href="%{author_path}">%{author_name}</a> <strong>ha retirat l''esborrany col·laboratiu</strong>: <a href="%{resource_path}">%{resource_title}</a>.'
         creation_enabled:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}! Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -345,15 +344,15 @@ ca:
           email_subject: S'ha mencionat la teva proposta "%{mentioned_proposal_title}"
           notification_title: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
         proposal_merged:
-          email_intro: 'Una administradora ha fusionat la teva proposta "%{resource title}" amb una altra, ho pots comprovar en aquesta pàgina:'
+          email_intro: 'Una administradora ha fusionat la teva proposta "%{resource_title}" amb una altra, ho pots comprovar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè ets l'autora de la proposta.
           email_subject: La proposta "%{resource_title}" s'ha fusionat amb una altra
           notification_title: Una administradora ha fusionat la proposta "<a href="%{resource_path}">%{resource_title}</a> amb una altra.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, a qui segueixes, ha publicat una nova proposta anomenada "%{resource_title}". Consulta i contribueix:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Nova proposta "%{resource_title}" de %{author_nickname}
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: '%{author_name}, a qui segueixes, ha publicat una nova proposta anomenada "%{resource_title}". Consulta i contribueix:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{author_name}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Nova proposta "%{resource_title}" de %{author_name}
+          notification_title: La proposta "<a href="%{resource_path}">%{resource_title}</a>" va ser publicada per <a href="%{author_path}">%{author_name} </a>.
         proposal_published_for_space:
           email_intro: La proposta "%{resource_title}" s'ha afegit a l'espai "%{participatory_space_title}", que segueixes.
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -368,9 +367,15 @@ ca:
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
           follower:
             email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
             email_subject: Una proposta que segueixes ha canviat el seu estat (%{state})
-            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
+            notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha canviat el seu estat a "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè tens l’autoria de "%{resource_title}".
+            email_subject: La teva proposta ha canviat el seu estat (%{state})
+            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a> ha canviat el seu estat a "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Una administradora ha actualitzat les taxonomies de la teva proposta "%{resource_title}", fes-hi una ullada:'
           email_outro: Has rebut aquesta notificació perquè ets l'autora de la proposta.
@@ -389,7 +394,7 @@ ca:
           conditions:
             - Tria l'espai de participació del teu interès amb la creació de propostes activada
             - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
-          description: Aquest distintiu es concedeix quan participes activament amb noves propostes i aquestes són acceptades.
+          description: Aquesta ensenya es concedeix quan participes activament amb noves propostes i aquestes són acceptades.
           description_another: Aquesta participant ha aconseguit %{score} propostes acceptades.
           description_own: '%{score} de les teves propostes han estat acceptades.'
           name: Propostes acceptades
@@ -411,7 +416,7 @@ ca:
           conditions:
             - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
             - Crea una proposta nova
-          description: Aquest distintiu es concedeix quan participes activament amb noves propostes.
+          description: Aquesta ensenya es concedeix quan participes activament amb noves propostes.
           description_another: Aquesta participant ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
           name: Propostes
@@ -675,6 +680,7 @@ ca:
             related_meetings: Trobades relacionades
             remove_assignment: Desfer assignació
             remove_assignment_confirmation: Segur que vols desfer l'assignació a l'avaluadora d'aquesta proposta?
+            title: Respondre a la proposta
             votes_count: Nombre de suports
           update_taxonomies:
             invalid: 'Aquestes propostes ja tenien les taxonomies %{taxonomies}: %{proposals}.'
@@ -687,9 +693,9 @@ ca:
             success: El procés d'importació ha començat. T'avisarem quan hagi finalitzat.
           new:
             create: Importa propostes
-            no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
+            no_components: No hi ha cap altre component de propostes en aquest espai de participació des d'on importar-les.
             select_component: Escull un component
-            select_states: Consulta els estats de les propostes a importar
+            select_states: Importa només les propostes amb aquests estats. Si no s'ha seleccionat cap estat, s'importaran totes les propostes.
             title: Importar projectes des d'un altre component
         proposals_merges:
           create:
@@ -736,103 +742,6 @@ ca:
           all: Totes
           amendments: Esmenes
           proposals: Propostes
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: S'ha produït un error en publicar l'esborrany col·laboratiu.
-            irreversible_action_modal:
-              body: Després de publicar l'esborrany com a proposta, deixarà de ser editable. La proposta no acceptarà noves autores ni contribucions.
-              cancel: Cancel·lar
-              ok: Publica com a proposta
-              title: La següent acció és irreversible
-            success: L'esborrany col·laboratiu s'ha publicat correctament com a proposta.
-          withdraw:
-            error: S'ha produït un error en tancar l'esborrany col·laboratiu.
-            irreversible_action_modal:
-              body: Després de tancar l'esborrany, ja no serà editable. L'esborrany no acceptarà noves autores ni contribucions.
-              cancel: Cancel·lar
-              ok: Retira l'esborrany col·laboratiu
-              title: La següent acció és irreversible
-            success: L'esborrany col·laboratiu s'ha retirat correctamente.
-        create:
-          error: S'ha produït un error en crear aquest esborrany col·laboratiu.
-          success: Esborrany col·laboratiu creat correctament.
-        edit:
-          attachment_legend: Afegir un document o una imatge
-          back: Torna
-          send: Envia
-          title: Edita l'esborrany col·laboratiu
-        empty: Encara no hi ha cap esborrany col·laboratiu
-        empty_filters: No hi ha cap esborrany col·laboratiu amb aquest criteri
-        filters:
-          all: Tots
-          amendment: Esmenes
-          open: Obert
-          published: Publicat
-          related_to: Relacionat amb
-          search: Cerca
-          state: Estat
-          withdrawn: Retirat
-        filters_small_view:
-          close_modal: Tanca la finestra
-          filter: Filtre
-          filter_by: Filtra per
-          unfold: Desplega
-        index:
-          count:
-            one: "%{count} esborrany de col·laboració"
-            other: "%{count} esborrany de col·laboració"
-        name: Esborranys col·laboratius
-        new:
-          add_file: Afegir fitxer
-          edit_file: Editar el fitxer
-          send: Continua
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nou esborrany col·laboratiu
-        orders:
-          label: 'Ordenar esborranys per:'
-          most_contributed: Amb més contribucions
-          random: Aleatori
-          recent: Recent
-        requests:
-          accepted_request:
-            error: No has pogut ser acceptada com a contribuïdora. Si us plau, torna-ho a provar més tard.
-            success: "S'ha acceptat amb èxit a @%{user} com a col·laboradora."
-          access_requested:
-            error: No s'ha pogut completar la teva sol·licitud, si us plau torna-ho a provar més tard.
-            success: La teva sol·licitud de contribució s'ha enviat correctament.
-          collaboration_requests:
-            accept_request: Accepta
-            reject_request: Rebutja
-            title: Sol·licituds de col·laboració
-          rejected_request:
-            error: No s'ha pogut rebutjar com a contribuïdora, si us plau tornau-ho a provar més tard.
-            success: "S'ha rebutjat amb èxit a @%{user} com a col·laboradora."
-        show:
-          edit: Editar
-          final_proposal: Proposta final
-          final_proposal_help_text: Aquest esborrany està finalitzat. Consulta la proposta final
-          hidden_authors_count:
-            one: i %{count} persona més
-            other: i %{count} persones més
-          info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar les seves autores a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un vegada les autores et donin accés, podràs fer canvis en aquest esborrany.
-          publish: Publica
-          publish_info: Publica aquesta versió de l'esborrany o
-          published_proposal: Proposta publicada
-          request_access: Sol·licitud d'accés
-          requested_access: S'ha sol·licitat l'accés
-          withdraw: retira l'esborrany
-        states:
-          open: Obert
-          published: Publicat
-          withdrawn: Retirat
-        update:
-          error: S'ha produït un error en desar l'esborrany col·laboratiu.
-          success: L'esborrany col·laboratiu s'ha actualitzat correctament.
-        wizard_aside:
-          back_from_collaborative_draft: Tornar a l'esborrany col·laboratiu
-        wizard_header:
-          title: Crea el teu esborrany col·laboratiu
       content_blocks:
         highlighted_proposals:
           name: Propostes
@@ -934,7 +843,6 @@ ca:
           voted: Has donat suport
         index:
           click_here: Veure totes les propostes
-          collaborative_drafts_list: Accedeix a esborranys col·laboratius
           count:
             one: "%{count} proposta"
             other: "%{count} propostes"
@@ -981,8 +889,6 @@ ca:
           hidden_likes_count:
             one: i %{count} persones més
             other: i %{count} persones més
-          link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
-          link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu
           link_to_promoted_emendation_help_text: Aquesta proposta és una esmena promocionada
           link_to_promoted_emendation_text: Veure l'esmena rebutjada.
           link_to_proposal_from_emendation_help_text: Això és una esmena rebutjada

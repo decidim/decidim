@@ -14,21 +14,21 @@ gem "decidim-elections", path: "."
 gem "decidim-initiatives", path: "."
 gem "decidim-templates", path: "."
 
-gem "bootsnap", "~> 1.4"
+gem "bootsnap", "~> 1.24"
 
 gem "puma", ">= 6.3.1"
 
 group :development, :test do
-  gem "byebug", "~> 11.0", platform: :mri
+  gem "byebug", "~> 13.0", platform: :mri
 
   gem "decidim-dev", path: "."
 
-  gem "brakeman", "~> 7.0"
-  gem "parallel_tests", "~> 4.2"
+  gem "brakeman", "~> 8.0"
+  gem "parallel_tests", "~> 5.7"
 end
 
 group :development do
-  gem "letter_opener_web", "~> 2.0"
-  gem "listen", "~> 3.1"
-  gem "web-console", "~> 4.2"
+  gem "letter_opener_web", "~> 3.0"
+  gem "listen", "~> 3.10"
+  gem "web-console", "~> 4.3"
 end

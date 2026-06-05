@@ -16,7 +16,6 @@ uk:
       initiatives_committee_member:
         user: Член робочого гурту
       initiatives_type:
-        banner_image: Банерне зображення
         description: Опис
         title: Назва
       organization_data:
@@ -60,9 +59,6 @@ uk:
             created_at: 'Створено:'
             title: Різновиди починів
           name: Різновид почину
-      titles:
-        initiatives: Почини
-        initiatives_types: Різновиди починів
     events:
       initiatives:
         initiative_extended:
@@ -150,12 +146,6 @@ uk:
         select_initiative_type:
           back: Повернутись
           more_information: (Додаткові відомості)
-      events:
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, зробив новий почин. Прочитайте його та зробіть свій внесок:"
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: Новий почин, започаткований %{author_nickname}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> створив почин <a href="%{resource_path}">%{resource_title}</a>.
       initiative_votes:
         create:
           error: При підписанні цього почину сталися помилки.

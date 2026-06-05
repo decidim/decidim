@@ -52,8 +52,8 @@ describe Decidim::OpenDataExporter do
 
         it "includes the LICENSE content" do
           expect(csv_data).to include("License")
-          expect(csv_data).to include("is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/")
-          expect(csv_data).to include("Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/")
+          expect(csv_data).to include("is made available under the Open Database License: https://opendatacommons.org/licenses/odbl/1.0/")
+          expect(csv_data).to include("Database Contents License: https://opendatacommons.org/licenses/dbcl/1.0/")
         end
       end
     end
@@ -162,6 +162,8 @@ describe Decidim::OpenDataExporter do
       let!(:participatory_process) { create(:participatory_process, :published, organization:) }
       let!(:assembly) { create(:assembly, :published, organization:) }
 
+      let!(:another_tenant_process) { create(:participatory_process, :published) }
+
       before do
         subject.export
       end
@@ -179,18 +181,31 @@ describe Decidim::OpenDataExporter do
         end
       end
 
+      it "includes only one reference por participatory space" do
+        csv_data = zip_contents.glob("*open-data-participatory_processes.csv").first.get_input_stream.read
+        expect(csv_data).to include(participatory_process.title["en"].gsub(/"/, '""')).once
+        csv_data = zip_contents.glob("*open-data-assemblies.csv").first.get_input_stream.read
+        expect(csv_data).to include(assembly.title["en"].gsub(/"/, '""')).once
+      end
+
+      it "does not include data from other tenants" do
+        csv_data = zip_contents.glob("*open-data-participatory_processes.csv").first.get_input_stream.read
+        expect(csv_data).not_to include(another_tenant_process.title["en"].gsub(/"/, '""'))
+        expect(csv_data).to include(participatory_process.title["en"].gsub(/"/, '""')).once
+      end
+
       describe "README content" do
         let(:file_data) { zip_contents.glob("README.md").first.get_input_stream.read }
 
         it "includes the help description for all the entities" do
-          expect(file_data).to include("## users (15 resources)")
+          expect(file_data).to include("## users (17 resources)")
           expect(file_data).to include("## proposals (15 resources)")
           expect(file_data).to include("## proposal_comments (1 resource)")
           expect(file_data).to include("## results (1 resource)")
           expect(file_data).to include("## meetings (1 resource)")
           expect(file_data).to include("## meeting_comments (1 resource)")
-          expect(file_data).to include("## participatory_processes (30 resources)")
-          expect(file_data).to include("## assemblies (6 resources)")
+          expect(file_data).to include("## participatory_processes (5 resources)")
+          expect(file_data).to include("## assemblies (1 resource)")
         end
 
         it "does not have any missing translation" do

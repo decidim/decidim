@@ -7,6 +7,12 @@ module Decidim
 
       paths["db/migrate"] = nil
 
+      initializer "decidim_ai.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_ai.resource_classifiers" do |_app|
         Decidim::Ai::SpamDetection.resource_analyzers.each do |analyzer|
           Decidim::Ai::SpamDetection.resource_registry.register_analyzer(**analyzer)
@@ -106,18 +112,6 @@ module Decidim
                              data.dig(:extra, :event_author), data.dig(:extra, :locale), [:body, :title])
           end
           ActiveSupport::Notifications.subscribe("decidim.proposals.update_proposal:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::GenericSpamAnalyzerJob
-              .set(wait: Decidim::Ai::SpamDetection.spam_detection_delay)
-              .perform_later(data[:resource],
-                             data.dig(:extra, :event_author), data.dig(:extra, :locale), [:body, :title])
-          end
-          ActiveSupport::Notifications.subscribe("decidim.proposals.create_collaborative_draft:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::GenericSpamAnalyzerJob
-              .set(wait: Decidim::Ai::SpamDetection.spam_detection_delay)
-              .perform_later(data[:resource],
-                             data.dig(:extra, :event_author), data.dig(:extra, :locale), [:body, :title])
-          end
-          ActiveSupport::Notifications.subscribe("decidim.proposals.update_collaborative_draft:after") do |_event_name, data|
             Decidim::Ai::SpamDetection::GenericSpamAnalyzerJob
               .set(wait: Decidim::Ai::SpamDetection.spam_detection_delay)
               .perform_later(data[:resource],

@@ -219,10 +219,6 @@ pl:
       organization:
         update: "%{user_name} zaktualizował(a) ustawienia organizacji"
         update_external_domain: "%{user_name} zaktualizował zewnętrzne domeny organizacji"
-      participatory_space_private_user:
-        create: "%{user_name} zaprosił(a) %{resource_name} jako użytkownika prywatnego"
-        create_via_csv: "%{user_name} zaprosił(a) %{resource_name} jako prywatnego użytkownika poprzez CSV"
-        delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
         create: "%{user_name} utworzył(a) zakres %{resource_name}"
         create_with_parent: "%{user_name} utworzył(a) zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
@@ -319,10 +315,6 @@ pl:
         success: Szkic poprawki został pomyślnie zaktualizowany.
       withdraw:
         success: Poprawka została pomyślnie wycofana.
-      wizard_step_form:
-        steps:
-          '1': Utwórz poprawkę
-          '2': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       document:
@@ -476,8 +468,6 @@ pl:
         description: Opis
       footer_sub_hero:
         name: Baner podrzędny stopki
-      global_menu:
-        name: Globalne menu
       hero:
         name: Banner i CTA
       hero_settings_form:
@@ -603,6 +593,16 @@ pl:
     download_your_data:
       export:
         ready: Gotowy
+      help:
+        messaging_conversations:
+          updated_at: Data ostatniej aktualizacji tej rozmowy
+        users:
+          about: Opis profilu tego uczestnika
+          followers_count: Liczba uczestników, którzy obserwują tego użytkownika
+          last_sign_in_at: Data i godzina poprzedniego logowania
+          last_sign_in_ip: Adres IP poprzedniego logowania
+          newsletter_notifications_at: Data i godzina subskrypcji tego uczestnika do newslettera
+          officialized_as: Nazwisko urzędnika (radca, burmistrz itd.)
     editor_images:
       create:
         error: Wystąpił błąd podczas przesyłania obrazu.
@@ -612,7 +612,7 @@ pl:
       files:
         file_cannot_be_processed: Plik nie może zostać przetworzony
         file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
-        not_inside_organization: Plik nie jest dołączony do żadnej organizacji
+        not_inside_organization: Plik nie jest dołączony do żadnej organizacji.
       internal_server_error:
         copied: Tekst skopiowany!
         copy_error_message_clarification: Skopiuj komunikat o błędzie do schowka
@@ -635,13 +635,9 @@ pl:
           affected_user:
             email_intro: 'Poprawka została zaakceptowana dla %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została przyjęta w <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Poprawka została zaakceptowana dla %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
-            email_subject: Poprawka przyjęta w %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została przyjęta w <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Nowa poprawka została utworzona do %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
@@ -657,24 +653,16 @@ pl:
           affected_user:
             email_intro: 'Odrzucona poprawka do %{amendable_title} została opublikowana jako %{amendable_type}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka od %{emendation_author_nickname} została opublikowana jako %{amendable_type}
-            notification_title: <a href="%{emendation_path}">Odrzucona poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> została opublikowana jako %{amendable_type} przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Odrzucona poprawka do %{amendable_title} została opublikowana jako %{amendable_type}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-            email_subject: Poprawka od %{emendation_author_nickname} została opublikowana jako %{amendable_type}
-            notification_title: <a href="%{emendation_path}">Odrzucona poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> została opublikowana jako %{amendable_type} przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona w <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
-            notification_title: <a href="%{emendation_path}">Poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona.
       attachments:
         attachment_created:
           email_intro: 'Nowy dokument został dodany do %{resource_title}. Możesz go zobaczyć na tej stronie:'
@@ -716,16 +704,9 @@ pl:
             Administrator usunął %{resource_type}, ponieważ treść została zgłoszona jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: Zaktualizowano <a href="%{resource_url}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-          email_subject: "%{nickname} zaktualizował(a) swój profil"
-          notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
         user_officialized:
-          email_intro: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
           email_subject: "%{name} zostało oficjalnie zarejestrowane"
-          notification_title: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
     export_mailer:
       download_your_data_export:
         download: Pobieranie
@@ -897,7 +878,6 @@ pl:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Pomoc
       home: Strona główna
     messaging:
       conversation_mailer:
@@ -977,11 +957,9 @@ pl:
         main_image: Obraz główny
     newsletters:
       unsubscribe:
-        check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić na <a href="%{link}" target="_blank">stronie konfiguracji</a>.
         error: Wystąpił błąd podczas anulowania subskrypcji.
         success: Subskrypcja została anulowana.
         token_error: Link wygasł.
-        unsubscribe: Anuluj subskrypcję
     newsletters_opt_in:
       unauthorized: Przepraszamy, ten link nie jest już dostępny.
       update:
@@ -989,7 +967,6 @@ pl:
         success: Ustawienia newslettera zostały pomyślnie zaktualizowane.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
         body_2: 'Jak możesz wyrazić zgodę? Po prostu kliknij poniższy przycisk:'
         body_3: Wyrażając zgodę będziesz mógł nadal otrzymywać informacje o usługach platformy. Jeśli jej jednak nie wyrazisz, przestaniemy wysyłać Ci wiadomości. Jeśli teraz potwierdzisz, że chcesz być na bieżąco informowany, wciąż w dowolnym będziesz mógł anulować zgodę.
         button: Tak, chcę nadal otrzymywać istotne informacje
@@ -1003,11 +980,9 @@ pl:
         same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
         translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
-      action_error: Wystąpił problem z aktualizacją powiadomień.
       no_notifications: Brak powiadomień.
       show:
         missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
-        moderated: Zawartość moderowana
     notifications_digest_mailer:
       header:
         daily: Podsumowanie codziennych powiadomień
@@ -1071,13 +1046,11 @@ pl:
         footer_sub_hero:
           footer_sub_hero_body_html: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
-          register: Zarejestruj się
         hero:
           participate: Weź udział
           participate_title: Weź udział w procesach platformy
           welcome: Witamy w %{organization}!
         sub_hero:
-          register: Zarejestruj się
           register_title: Utwórz konto
       index:
         standalone_pages: Strony
@@ -1101,6 +1074,9 @@ pl:
           alert: Zaktualizowaliśmy nasze warunki świadczenia usługi, prosimy o zapoznanie się z nimi.
           body: Poświęć chwilę na zapoznanie się z naszymi zaktualizowanymi warunkami świadczenia usługi. Inaczej korzystanie z platformy nie będzie możliwe.
           title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
+    participatory_space_members:
+      index:
+        members: Członkowie
     passwords:
       update:
         error: Wystąpił problem podczas aktualizacji hasła.
@@ -1312,8 +1288,6 @@ pl:
         submit_button: Wyślij zaproszenie
       no_invitations_remaining: Brak innych zaproszeń
       send_instructions: Wiadomość e-mail z zaproszeniem została wysłana na adres %{email}.
-      updated: Twoje hasło zostało pomyślnie ustawione. Jesteś teraz zalogowany.
-      updated_not_active: Twoje hasło zostało pomyślnie ustawione.
     mailer:
       confirmation_instructions:
         action: Potwierdź moje konto
@@ -1333,17 +1307,13 @@ pl:
           Jeżeli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail.<br />
            Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
-        invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administratora %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
-        someone_invited_you_as_private_user: Ktoś zaprosił Cię jako prywatnego użytkownika %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         subject: Instrukcje dotyczące zaproszenia
       invite_admin:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy przy %{organization}
-      invite_private_user:
-        subject: Zostałeś zaproszony do uczestnictwa w prywatnym procesie w %{organization}
       organization_admin_invitation_instructions:
         subject: Zaproszono Cię do zarządzania %{organization}
       password_change:
@@ -1372,8 +1342,6 @@ pl:
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
         old_password_help: Aby potwierdzić zmiany na koncie, podaj swoje aktualne hasło.
-        password_help: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
-        password_help_admin: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail, a także Twoich poprzednich haseł."
         title: Zmiana hasła
       new:
         forgot_your_password: Zapomniałeś hasła?
@@ -1615,7 +1583,6 @@ pl:
       impersonation_warning:
         close_session: Zakończ sesję
         description_html: Zarządzasz uczestnikiem <b>%{user_name}</b>.
-        expire_time_html: Sesja wygasa za <b><span class="minutes">%{minutes}</span> minut</b>.
       language_chooser:
         choose_language: Wybierz język
       notifications_dashboard:
@@ -1663,7 +1630,6 @@ pl:
     name_included_in_password: jest zbyt podobne do twojego imienia
     nickname_included_in_password: jest zbyt podobne do twojego nicka
     not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
-    password_not_allowed: nie jest dozwolone
     password_repeated: nie można ustawić ponownie starego hasła
     password_too_common: jest zbyt powszechne
     password_too_long: jest zbyt długie

@@ -3,7 +3,7 @@ on:
     inputs:
       ruby_version:
         description: 'Ruby Version'
-        default: "3.3.4"
+        default: "3.4.7"
         required: false
         type: string
       working-directory:
@@ -36,7 +36,7 @@ on:
       chrome_version:
         description: 'Chrome & Chromedriver version'
         required: false
-        default: "136.0.7103.92"
+        default: "139.0.7258.66"
         type: string
 
 jobs:
@@ -44,16 +44,34 @@ jobs:
     name: Test
     runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
+      PARALLEL_TEST_PROCESSORS: 3
     services:
+      # If you see any inconsistency between CI and local testing environment related to the accessibility validator, the best way of troubleshooting is:
+      # 1. Go to the "Raw log" of the failing action
+      # 2. Search for the version of the validator in the line
+      # > Status: Downloaded newer image for ghcr.io/validator/validator@XXX
+      # Example:
+      # > Status: Downloaded newer image for ghcr.io/validator/validator@sha256:238afea6aed5f057e90c4c3ed2b40fa1e3646d16773cdddfb2f069dc265b111b
+      # 3. Copy the version
+      # 4. Run it with docker locally
+      # ```
+      # docker run --rm -p 8888:8888 ghcr.io/validator/validator@sha256:238afea6aed5f057e90c4c3ed2b40fa1e3646d16773cdddfb2f069dc265b111b
+      # ```
+      # 5. Run the failing spec with the VALIDATOR_HTML_URI environment variable
+      # ```
+      # VALIDATOR_HTML_URI=http://127.0.0.1:8888/ CI=true bin/rspec decidim-proposals/spec/system/proposals_spec.rb -e "accessible page"
+      # ```
+      #
+      # Mind that we could not be using the latest version because there was some problem upstream (new rules, or just a bad release).
       validator:
-        image: ghcr.io/validator/validator:latest
+        image: ${{ vars.ACTION_ACCESSIBILITY_VALIDATOR_VERSION || 'ghcr.io/validator/validator:latest' }}
         ports: ["8888:8888"]
       postgres:
         image: postgres:14
@@ -66,14 +84,18 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1
+      - run: |
+          sudo apt-get update && sudo apt-get install libvips libvips-tools
+        name: Install libvips
+        shell: "bash"
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
           bundler-cache: true
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ inputs.node_version }}
           cache: 'npm'
@@ -87,7 +109,7 @@ jobs:
           wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
           sudo dpkg -i /tmp/chrome.deb
           rm /tmp/chrome.deb
-      - uses: nanasess/setup-chromedriver@v2
+      - uses: nanasess/setup-chromedriver@v3
         with:
           chromedriver-version: ${{inputs.chrome_version}}
         name: Install Chrome version ${{inputs.chrome_version}}
@@ -125,18 +147,18 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-      - uses: qltysh/qlty-action/coverage@v1
+      - uses: qltysh/qlty-action/coverage@v2
         with:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
           files: coverage/coverage.xml
           verbose: true
           add-prefix: ${{ env.DECIDIM_MODULE }}
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v6
         name: Upload coverage
         with:
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: Screenshots of run ${{ github.run_id }}

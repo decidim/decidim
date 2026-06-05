@@ -34,7 +34,7 @@ module Decidim
             resource: meeting,
             affected_users: [registration.user],
             extra: {
-              registration: registration
+              registration:
             }
           )
         end

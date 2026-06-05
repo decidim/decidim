@@ -141,8 +141,6 @@ ru:
         edit:
           title: Редактировать папку
           update: Обновить
-        index:
-          attachment_collections_title: Папки вложений
         new:
           create: Создать
           title: Новая папка
@@ -158,8 +156,6 @@ ru:
         edit:
           title: Изменить прикрепленный файл
           update: Обновить
-        index:
-          attachments_title: Прикрепленные файлы
         new:
           create: Прикрепить файл
           title: Прикрепить файл
@@ -196,7 +192,6 @@ ru:
           title: 'Добавить составляющую: %{name}'
         publish:
           success: Эта составляющая успешно обнародована.
-        title: Составляющие
         unpublish:
           success: Обнародование этой составляющей успешно отменено.
         update:
@@ -248,7 +243,6 @@ ru:
           impersonate: Олицетворить (выступить в роли участника)
           impersonate_existing_managed_user: Выступить в роли управляемого участника "%{name}"
           impersonate_existing_user: Выступить в роли участника "%{name}"
-          impersonate_new_managed_user: Выступить в роли нового управляемого участника
       managed_users:
         promotion:
           error: При повышении управляемого участника произошла ошибка.
@@ -256,8 +250,11 @@ ru:
         promotions:
           new:
             explanation: Управляемых участников можно повышать до обычных участников. Это означает, что они будут приглашены в приложение, и вы не сможете выступать в их роли их снова. Приглашенный участник получит электронное письмо, чтобы принять ваше приглашение.
-            new_managed_user_promotion: Повысить управляемого участника в статусе
             promote: Повысить
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Загрузите ваш CSV файл
       menu:
         admin_log: Журнал деятельности администратора
         admins: Администраторы
@@ -311,8 +308,6 @@ ru:
             sent_to: Отправлено
             subject: Тема
           name: Рассылка новостей
-        participatory_space_private_user:
-          name: Частный участник пространства соучастия
         scope:
           fields:
             name: Имя
@@ -375,7 +370,6 @@ ru:
           participants_help: Отправляет новостную рассылку всем подтвержденным пользователям, которые участвовали в любом из выбранных пространств в списке.
           send_to_all_users: Отправить всем пользователям
         show:
-          preview: Предпросмотр
           subject: Тема
         update:
           error: При попытке обновить эту рассылку новостей произошла ошибка.
@@ -410,21 +404,6 @@ ru:
         update:
           error: При попытке обновить эту организацию произошла ошибка.
           success: Организация успешно обновлена.
-      participatory_space_private_users:
-        create:
-          error: При попытке добавить частного участника в это пространство соучастия произошла ошибка.
-          success: Частным участникам успешно предоставлен доступ к пространству соучастия.
-        destroy:
-          success: Успешно отменен доступ частных участников к пространству соучастия.
-        index:
-          title: Частный участник пространства соучастия
-        new:
-          create: Добавить
-          title: Добавить частного участника пространства соучастия.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Загрузите ваш CSV файл
       resource_permissions:
         edit:
           title: Редактировать права доступа
@@ -473,12 +452,8 @@ ru:
         update:
           error: При попытке обновить эту страницу произошла ошибка.
       titles:
-        admin_log: Журнал администратора
-        area_types: Виды участков
         areas: Участки
         authorization_workflows: Методы подтверждения личности
-        dashboard: Панель управления
-        scope_types: Виды охвата
         scopes: Охваты
       users:
         create:

@@ -127,10 +127,6 @@
         update: "%{user_name} oppdaterte %{resource_name} OAuth applikasjonen"
       organization:
         update: "%{user_name} oppdaterte organisasjonens innstillinger"
-      participatory_space_private_user:
-        create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
-        create_via_csv: "%{user_name} inviterte %{resource_name} via CSV til å være privat deltaker"
-        delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
       scope:
         create: "%{user_name} laget temaet %{resource_name}"
         create_with_parent: "%{user_name} lagde %{resource_name} temaet inni %{parent_scope} temaet"
@@ -208,9 +204,6 @@
       update_draft:
         error: Det oppsto et problem med å oppdatere endrings utkastet.
         success: Endrings utkastet ble oppdatert.
-      wizard_step_form:
-        steps:
-          '1': Opprett endringen din
     anonymous_user: Anonym
     application:
       document:
@@ -415,13 +408,9 @@
           affected_user:
             email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
-            email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt godtatt for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-            email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt godtatt for <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
@@ -437,24 +426,16 @@
           affected_user:
             email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
-            email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
-            notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-            email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
-            notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
-            email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt avvist for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-            email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt avvist for <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Et nytt dokument er blitt lagt til %{resource_title}. Du kan se den fra denne siden:'
@@ -485,12 +466,6 @@
           notification_title: |-
             En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      users:
-        profile_updated:
-          email_intro: <a href="%{resource_url}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
-          email_outro: Du har mottatt denne varslingen fordi du følger %{nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: "%{nickname} oppdaterte profilens sin"
-          notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
       download_your_data_export:
         download: Last ned
@@ -608,7 +583,6 @@
         latlng_text: 'breddegrad: %{latitude}, lengdegrad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hjelp
       home: Hjem
     messaging:
       conversation_mailer:
@@ -670,10 +644,8 @@
       unsubscribe:
         success: Du har avsluttet ditt abonnement.
         token_error: Lenken er utløpt.
-        unsubscribe: Avslutt abonnement
     newsletters_opt_in_mailer:
       notify:
-        body_1: Behandlingen av personopplysninger og deres beskyttelse blir stadig viktigere for oss alle. Med den nye General Data Protection Regulation (GDPR) av 25. mai 2018, har enkeltpersoner bedre kontroll over personopplysningene sine. Av denne grunn trenger vi din "OK" for å fortsette å sende relevant informasjon om aktivitetene til %{organization_name}.
         body_2: 'Hvordan kan du gi oss ditt samtykke? Bare klikk på følgende knapp:'
         body_3: Med dette samtykket vil du kunne fortsette å motta informasjon om tjenestene til plattformen. Hvis vi ikke mottar en positiv bekreftelse fra din side, vil vi slutte å sende deg meldingene våre. Hvis du bekrefter at du ønsker å bli informert, har du alltid muligheten til å kansellere når som helst.
         button: Ja, jeg vil fortsette å motta relevant informasjon
@@ -722,17 +694,17 @@
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
-          register: Registrer deg
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
-        sub_hero:
-          register: Registrer deg
       index:
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}
         title: Hjelp
         topics: Emner
+    participatory_space_members:
+      index:
+        members: Medlemmer
     profile:
       deleted: Slettet deltaker
     profiles:
@@ -899,8 +871,6 @@
         submit_button: Send en invitasjon
       no_invitations_remaining: Ingen invitasjoner igjen
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
-      updated: Passordet ditt ble angitt. Du er nå pålogget.
-      updated_not_active: Passordet ditt ble angitt.
     mailer:
       confirmation_instructions:
         action: Bekreft kontoen min
@@ -916,10 +886,8 @@
         decline: Avvis invitasjon
         hello: Hei %{email},
         invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
-        invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
         someone_invited_you: Noen har invitert deg til %{application}. Du kan godta det via lenken nedenfor.
         someone_invited_you_as_admin: Noen har invitert deg som en administrator av %{application}, du kan godta det via lenken nedenfor.
-        someone_invited_you_as_private_user: Noen har invitert deg som privat deltaker av %{application}, du kan godta det via lenken nedenfor.
         subject: Invitasjonsinstruksjoner
       password_change:
         greeting: Hei %{recipient}!
@@ -1019,7 +987,6 @@
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
-        expire_time_html: Økten din går ut om <b><span class="minutes">%{minutes}</span> minutter</b>.
       language_chooser:
         choose_language: Velg språk
       notifications_dashboard:
@@ -1059,7 +1026,6 @@
     name_included_in_password: er for likt navnet ditt
     nickname_included_in_password: er for likt kallenavnet ditt
     not_enough_unique_characters: har ikke nok unike tegn
-    password_not_allowed: er ikke tillatt
     password_too_common: er for vanlig
     password_too_long: er for lang
     password_too_short: er for kort

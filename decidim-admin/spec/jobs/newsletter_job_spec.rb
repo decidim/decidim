@@ -17,7 +17,7 @@ module Decidim
       let(:send_to_verified_users) { false }
       let(:send_to_followers) { false }
       let(:send_to_participants) { false }
-      let(:send_to_private_members) { false }
+      let(:send_to_members) { false }
       let(:participatory_space_types) { [] }
       let(:verification_types) { [] }
 
@@ -28,7 +28,7 @@ module Decidim
           send_to_followers:,
           send_to_participants:,
           participatory_space_types:,
-          send_to_private_members:,
+          send_to_members:,
           verification_types:
         }
       end
@@ -68,7 +68,7 @@ module Decidim
           "send_to_participants" => false,
           "participatory_space_types" => [],
           "verification_types" => [],
-          "send_to_private_members" => false,
+          "send_to_members" => false,
           "send_to_verified_users" => false
         )
       end

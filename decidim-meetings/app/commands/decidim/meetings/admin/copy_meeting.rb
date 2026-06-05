@@ -44,7 +44,7 @@ module Decidim
           @copied_meeting = Decidim.traceability.create!(
             Meeting,
             form.current_user,
-            taxonomies: form.taxonomies,
+            taxonomizations: form.taxonomizations,
             title: parsed_title,
             description: parsed_description,
             end_time: form.end_time,

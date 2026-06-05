@@ -3,7 +3,6 @@ gl:
     admin:
       menu:
         elections_menu:
-          election_census: Censo
           election_questions: Preguntas
     components:
       elections:
@@ -15,8 +14,6 @@ gl:
         title: Accións
       admin:
         dashboard:
-          census:
-            title: Censo
           main:
             labels:
               description: Descrición
@@ -42,13 +39,25 @@ gl:
           edit_questions:
             new_question: Nova pregunta
             title: Preguntas
+      elections:
+        filters:
+          all: Todas
+          state_values:
+            finished: Finalizada
+        show:
+          vote_button: Votar
+        vote_results:
+          title: Resultados
       models:
         election:
           fields:
-            census: Censo
             title: Título
       status:
         active: Activa
         finished: Finalizada
+        not_started: Sen iniciar
+      votes:
+        question:
+          back: Volver
     statistics:
       elections_count: Eleccións

@@ -31,7 +31,7 @@ module Decidim
         return unless order && order.valid?
 
         @order.with_lock do
-          SendOrderSummaryJob.perform_later(@order)
+          send_order_summary_job(@order)
 
           Decidim.traceability.update!(
             @order,
@@ -42,6 +42,12 @@ module Decidim
         rescue ActiveRecord::RecordInvalid
           false
         end
+      end
+
+      def send_order_summary_job(order)
+        return if order&.user&.email.blank?
+
+        OrderSummaryMailer.order_summary(order).deliver_later
       end
     end
   end

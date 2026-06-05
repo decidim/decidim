@@ -115,6 +115,23 @@ describe "Admin manages global moderations" do
     end
   end
 
+  context "when un-reporting reported participant" do
+    let!(:reported_user) { create(:user, :confirmed, organization:) }
+    let!(:moderation) { create(:user_moderation, user: reported_user, report_count: 1) }
+    let!(:report) { create(:user_report, moderation:, user:, reason: "spam") }
+
+    it "unreports a reported participant" do
+      visit decidim_admin.moderated_users_path
+
+      within "tr[data-id=\"#{moderation.id}\"]" do
+        find("button[data-controller='dropdown']").click
+        click_on "Undo the report"
+      end
+
+      expect(page).to have_callout("Resource successfully unreported.")
+    end
+  end
+
   context "when performing bulk actions" do
     let!(:reportables) { create_list(:dummy_resource, 4, component: current_component) }
     let!(:moderations) do
@@ -135,41 +152,41 @@ describe "Admin manages global moderations" do
       visit decidim_admin.moderations_path
       click_on "Not hidden"
       find_by_id("moderations_bulk").set(true)
-      expect(page).to have_content("Reported content 3")
+      expect(page).to have_text("Reported content 3")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
         click_on "Hide"
       end
-      expect(page).to have_content("Hide selected resources")
+      expect(page).to have_text("Hide selected resources")
       click_on "Hide selected resources"
-      expect(page).to have_content("Resources successfully hidden")
+      expect(page).to have_text("Resources successfully hidden")
     end
 
     it "unreports the selected reported content" do
       visit decidim_admin.moderations_path
       find_by_id("moderations_bulk").set(true)
-      expect(page).to have_content("Reported content 3")
+      expect(page).to have_text("Reported content 3")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
         click_on "Undo the report"
       end
-      expect(page).to have_content("Unreport selected resources")
+      expect(page).to have_text("Unreport selected resources")
       click_on "Unreport selected resources"
-      expect(page).to have_content("Resources successfully unreported")
+      expect(page).to have_text("Resources successfully unreported")
     end
 
     it "unhides the selected reported content" do
       visit decidim_admin.moderations_path
       click_on "Hidden"
       find_by_id("moderations_bulk").set(true)
-      expect(page).to have_content("Reported content 1")
+      expect(page).to have_text("Reported content 1")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
         click_on "Undo the hide"
       end
-      expect(page).to have_content("Unhide selected resources")
+      expect(page).to have_text("Unhide selected resources")
       click_on "Unhide selected resources"
-      expect(page).to have_content("Resources successfully unhidden")
+      expect(page).to have_text("Resources successfully unhidden")
     end
 
     context "when unhides the moderation" do
@@ -190,7 +207,9 @@ describe "Admin manages global moderations" do
             expect(page).to have_no_link("Unhide")
           end
 
-          expect(page).to have_css("div.tooltip", text: "You cannot unhide this resource because its parent is still hidden.", visible: :all)
+          find(".dropdown__button-disabled").hover
+
+          expect(page).to have_css("p", text: "You cannot unhide this resource because its parent is still hidden.", visible: :all)
         end
       end
     end

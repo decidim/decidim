@@ -4,9 +4,6 @@ id:
       participatory_process:
         announcement: Pengumuman
         area_id: Daerah
-        copy_categories: Salin kategori
-        copy_components: Salin komponen
-        copy_steps: Salin langkah
         decidim_area_id: Daerah
         description: Deskripsi
         developer_group: Grup promotor
@@ -85,7 +82,6 @@ id:
         participatory_process:
           fields:
             created_at: Dibuat di
-            private: Pribadi
             published: Diterbitkan
             title: Judul
           name: Proses partisipatif
@@ -111,20 +107,13 @@ id:
           fields:
             invitation_accepted_at: Undangan diterima di
             invitation_sent_at: Undangan dikirim pada
-      participatory_process_copies:
-        new:
-          copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
-          title: Proses partisipatif duplikat
       participatory_process_groups:
         destroy:
           success: Kelompok proses partisipatif berhasil dihapus.
         edit:
-          title: Edit grup proses
           update: Memperbarui
         new:
           create: Membuat
-          title: Grup proses baru
         update:
           error: Terjadi kesalahan saat memutakhirkan grup proses partisipatif ini.
           success: Kelompok proses partisipatif berhasil diperbarui.
@@ -147,18 +136,13 @@ id:
         destroy:
           success: Langkah proses partisipatif berhasil dihapus.
         edit:
-          title: Edit langkah proses partisipatif
           update: Memperbarui
-        index:
-          steps_title: Tangga
         new:
           create: Membuat
-          title: Langkah proses partisipatif baru
         ordering:
           error: Ada kesalahan saat menata ulang langkah-langkah proses partisipatif ini.
         update:
           error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
-          success: Langkah proses partisipatif berhasil diperbarui.
       participatory_process_user_roles:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
@@ -167,8 +151,6 @@ id:
           success: Pengguna berhasil dihapus dari proses partisipatif ini.
         edit:
           update: Memperbarui
-        index:
-          process_admins_title: Pengguna proses partisipatif
         new:
           create: Membuat
         update:
@@ -181,26 +163,16 @@ id:
         edit:
           update: Memperbarui
         index:
-          private: Pribadi
-          public: Publik
           published: Diterbitkan
         new:
           create: Membuat
-          title: Proses partisipatif baru
         update:
           error: Ada kesalahan saat memperbarui proses partisipatif ini.
           success: Proses partisipatif berhasil diperbarui.
-      participatory_processes_copies:
-        create:
-          error: Ada kesalahan saat menduplikasi proses partisipatif ini.
-          success: Proses partisipatif berhasil digandakan.
       participatory_processes_group:
         create:
           error: Terjadi kesalahan saat membuat grup proses partisipatif baru.
           success: Kelompok proses partisipatif berhasil dibuat.
-      titles:
-        participatory_process_groups: Kelompok proses partisipatif
-        participatory_processes: Proses partisipatif
       users:
         resend_invitation:
           error: Terjadi kesalahan saat mengirim ulang undangan.
@@ -254,12 +226,8 @@ id:
         content_blocks:
           highlighted_processes:
             max_results: Jumlah maksimum elemen untuk ditampilkan
-        participatory_process_steps:
-          form:
-            cta_text_help: Jika tidak disetel, tombol tidak akan ditampilkan.
         participatory_processes:
           form:
-            announcement_help: Teks yang Anda masukkan di sini akan ditampilkan kepada pengguna tepat di bawah informasi proses.
             duration: Lamanya
             images: Gambar
             metadata: Metadata
@@ -291,7 +259,6 @@ id:
             upcoming: Mendatang
           see: Lihat
       show:
-        private_space: Ini adalah proses pribadi
         related_processes: Proses terkait
   layouts:
     decidim:

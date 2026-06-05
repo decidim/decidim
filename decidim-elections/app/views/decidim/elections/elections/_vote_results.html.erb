@@ -1,0 +1,16 @@
+<h2 class="h3 flex gap-2 items-bottom mb-4">
+  <%= icon "bar-chart-2-line", class: "fill-tertiary" %>
+  <span><%= t(".title") %></span>
+</h2>
+<div class="mb-4"><%= t(".subtitle.#{election.results_availability}") %></div>
+
+<div data-results-live-update="<%= election_path(election) %>">
+  <div data-questions-container>
+    <% questions.each do |question| %>
+      <%= render "decidim/elections/elections/vote_results_question", question: %>
+    <% end %>
+  </div>
+
+  <%= render "decidim/elections/elections/vote_results_question", question: OpenStruct.new(id: 0, body: {}, response_options: []) %>
+  <%= render "decidim/elections/elections/vote_results_option", option: OpenStruct.new(id: 0, body: {}, votes_count: 0, votes_percent: 0) %>
+</div>

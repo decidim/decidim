@@ -117,14 +117,18 @@ FactoryBot.define do
     end
 
     trait :with_response_options do
-      response_options do
-        Array.new(3).collect { build(:response_option, skip_injection:) }
+      after(:build) do |question, evaluator|
+        question.response_options = Array.new(3).collect do
+          build(:response_option, question:, skip_injection: evaluator.skip_injection)
+        end
       end
     end
 
     trait :conditioned do
-      display_conditions do
-        Array.new(3).collect { build(:display_condition, skip_injection:) }
+      after(:build) do |question, evaluator|
+        question.display_conditions = Array.new(3).collect do
+          build(:display_condition, question:, skip_injection: evaluator.skip_injection)
+        end
       end
     end
 
@@ -194,7 +198,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    condition_question { create(:questionnaire_question, skip_injection:) }
+    condition_question { create(:questionnaire_question, questionnaire: question.questionnaire, skip_injection:) }
     question { create(:questionnaire_question, position: 1, skip_injection:) }
     condition_type { :responded }
     mandatory { true }

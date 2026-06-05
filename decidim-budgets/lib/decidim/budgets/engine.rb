@@ -13,9 +13,6 @@ module Decidim
       routes do
         resources :budgets, only: [:index, :show] do
           resources :projects, only: [:index, :show]
-          namespace :focus do
-            resources :projects, only: [:index, :show]
-          end
           resource :order, only: [:destroy] do
             member do
               post :checkout
@@ -37,6 +34,13 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Budgets::Order", icon: "check-double-fill", description: "Budget voting", category: "activity", engine: :budgets)
 
         Decidim.icons.register(name: "git-pull-request-line", icon: "git-pull-request-line", category: "system", description: "", engine: :budgets)
+        Decidim.icons.register(name: "progress-2-line", icon: "progress-2-line", category: "system", description: "", engine: :budgets)
+      end
+
+      initializer "decidim_budgets.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
       initializer "decidim_budgets.add_cells_view_paths" do
@@ -44,7 +48,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim_budgets.webpacker.assets_path" do
+      initializer "decidim_budgets.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
@@ -73,6 +77,12 @@ module Decidim
             transfer.move_records(Decidim::Budgets::Order, :decidim_user_id)
           end
         end
+      end
+
+      initializer "decidim_budgets.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Budgets::BudgetsMutationType
+        )
       end
     end
   end

@@ -14,6 +14,7 @@ ja:
           trigger: トリガー
           usage: 使い方
           usage_p: アコーディオンには少なくとも3つの要素が必要です
+          usage_p_1_html: 1. すべての利用可能なトリガーとパネルを囲む、<code>data-controller="accordion"</code> というデータ属性を持つラッパーの <code>div</code>。
           usage_p_2_html: <code>data-controls="panel"</code>によって折りたたみ可能となる要素を指定する、（ボタンとして）ユーザー操作可能なトリガー要素。ここで指定されている<i>panel</i>は対象となるパネルの<code>id</code>を指す。
           usage_p_3_html: 3. トリガーが指定するdata-controlsの値と一致する<code>id</code> を持つ非表示要素。
         activities:
@@ -86,26 +87,26 @@ ja:
           adjacent_links_paragraph: 同じリソースに複数の隣接するリンクが指している場合、ユーザーがページを素早く確認するのが困難になることがあります。なぜなら、次のリソースに進むために複数のリンクをたどる必要があるかもしれないためです。
           color_contrast: 色のコントラスト
           color_contrast_paragraph: ユーザーインターフェイスを作成したり、色を変更したりするときは、変更によってアクセシビリティが損なわれていないことを常に確認してください。カラーコントラストチェッカーを使うと、表示色が背景色に対して十分なコントラストがあることを確認できます。
-          decidim_follows_html: Decidim は <u>Web Content Accessibility Guidelines (WCAG) 2.1</u> に準拠しています。
+          decidim_follows_html: Decidimは %{link} に従います
           dynamic_changes_header: 動的な機能は直感に反してページのコンテキストを変更します。
           dynamic_changes_paragraph: フォーム入力の変更は、ページのコンテキストを自動的に変更してはなりません。
           elements_hidden: 要素の非表示
           elements_hidden_header: アクセシビリティAPIから隠す要素
           elements_hidden_paragraph: 支援技術に要素を見せないようにするには、 aria-hidden="true" 属性を使用します。
           heading_on: 重要なセクションの見出し
-          here_link: こちら
           illogical_heading_order: 非論理的な見出しの順序
           illogical_heading_paragraph: <h1>, <h2>, <h3>, <h4>, <h5>, <h6> の見出し要素を使用する場合、すべてのページは論理的な見出し順序を持つ必要があります。
           important_sections_heading: 重要なセクションの見出し
           important_sections_paragraph: ページの重要なセクションごとに見出しがあることが非常に重要です。これにより、見出しを流し読みするだけでページ内にどのような重要なセクションがあるのかが分かりやすくなります。
+          learn_more_about_html: '%{link} についてもっと知る'
           links_and_buttons: リンクとボタン
           links_and_buttons_paragraph: アンカー要素（つまりリンク）は、異なるページへのリンクやページ内の特定の位置へのアンカーとして機能します。例えばその要素がページ上で何か隠された項目を表示するような場合は、<button>要素を使用するべきです。
-          see_further_info_html: 詳しい情報は %{link} を参照してください
           unique_h1: ただ一つのH1
           unique_h1_paragraph: すべてのページには、H1見出しが一つだけ書かれるべきです。
           use_aria: ARIA を使用する
           use_aria_header: 可能な場合はARIA属性を使用する
           use_aria_paragraph: ウェブサイト上でインタラクティブ機能を提供する多くの要素には、それらにアクセシブルにするために ARIA 属性が必要です。
+          wcag_guidelines: Web Content Accessibility Guidelines (WCAG)
         color:
           color_header: 色
           description_p1: シンプルなカスタマイズが簡単にできるように、少数の色で構成される基本パレットを提供しています。より高度なカスタマイズが必要な場合は、管理画面のエリアまたはTailwindの設定ファイルのいずれかで基本パレットを変更することができます。
@@ -134,11 +135,9 @@ ja:
           not_required: 任意
           properties: プロパティ
           right_aside: 右サイド
-          section_p_breakpoints: '要素のレスポンシブなmax-widthを管理するために、デフォルトの`container` Tailwind クラスに依存しています。このクラスは以下のブレークポイントを定めています:'
           section_p_code: 新しいモジュールを実装する際、HTML構造を設定するために必要なコードを自動的に提供するヘルパーがいくつかあります。一貫性を保つために、クラス属性付きのdiv要素を直接使用するのではなく、これらのヘルパーを使用すべきです。
           section_p_code_html: 基本的なレイアウトは %{link_section_code} で確認できます
           section_p_desktop: デスクトップグリッドシステムは、列間に16pxの隙間と、左右に48pxのマージンを持つ12の柔軟な列で構成されています。
-          section_p_mobile: モバイルグリッドシステムは、列間に16pxの隙間と、左右に16pxのマージンを持つ4つの柔軟な列で構成されています。サイズが320px以下の場合、このマージンは8pxに設定されます。
           section_p_tablet: タブレットグリッドシステムは、列間に16pxの隙間と、左右に24pxのマージンを持つ8つの柔軟な列で構成されています。
           tablet: タブレット
           title: レイアウト
@@ -176,7 +175,6 @@ ja:
         card_g: カード G
         card_l: カード L
         card_s: カード S
-        collaborative_draft_l: 共同草案L
         colors: 色
         compact: コンパクト
         compact_description: この著者の形式はリソース作成者を指定する一般的な方法です。
@@ -205,6 +203,7 @@ ja:
         dropdowns_description_html: ドロップダウンは %{link} と呼ばれる外部ライブラリにより利用可能な javascriptの機能です。
         dropdowns_usage_1_description: 2. トリガーが参照するdata-target属性の値と一致する<code>id</code> を持つ非表示要素。
         dropdowns_usage_description: 'ドロップダウンには2つの要素が必要です:'
+        dropdowns_usage_description_html: 1. <code>data-controller="dropdown" data-target="dropdown-menu-element"</code> というデータ属性を持つ、ユーザーが操作可能な要素。
         dummy_description: Dummy resource description
         dummy_title: Dummy resource title
         follow_button: フォローボタン
@@ -224,7 +223,6 @@ ja:
         list: リスト
         main_colors: メインカラー
         meeting_l: ミーティングL
-        meeting_s: ミーティングS
         meetings: ミーティング
         meetings_html: <i>ミーティング</i> カードで使用
         metadata_items: メタデータ項目
@@ -254,8 +252,6 @@ ja:
         share_button: シェアボタン
         share_usage_description_html: <code>decidim/shared/share_modal</code> partialがDOMに存在することを確認してください。このpartialはアプリケーションレイアウトに配置されます。
         sizes: サイズ
-        sortition_l: 並べ替えL
-        sortitions: 並べ替え
         source_code: ソースコード
         state: 状態
         tab_panels_context_description: このタブパネルコンポーネントは、縦方向のスペースを節約するために、表示されているメイン要素の関連コンテンツやその他のリソースをすべて集約します。タブをクリックすると、作成されたパネルがアクティブになり、コンテンツが表示されます。

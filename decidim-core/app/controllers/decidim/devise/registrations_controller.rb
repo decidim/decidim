@@ -23,7 +23,7 @@ module Decidim
       end
 
       def create
-        @form = form(RegistrationForm).from_params(params[:user].merge(current_locale:))
+        @form = form(RegistrationForm).from_params(params.fetch(:user, {}).merge(current_locale:))
 
         CreateRegistration.call(@form) do
           on(:ok) do |user|
@@ -40,7 +40,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("error", scope: "decidim.devise.registrations.create")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end

@@ -51,6 +51,6 @@ describe("Heading", () => {
     editorElement.focus();
     await updateContent(editorElement, "# ");
 
-    expect(editor.getHTML()).toMatchHtml("<h2></h2>");
+    expect(editor.getHTML()).toMatchHtml("<p># </p>");
   });
 });

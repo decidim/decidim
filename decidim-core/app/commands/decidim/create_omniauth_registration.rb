@@ -70,7 +70,7 @@ module Decidim
         @user.email = (verified_email || form.email)
         @user.name = form.name.gsub(REGEXP_SANITIZER, "")
         @user.nickname = form.normalized_nickname
-        @user.newsletter_notifications_at = nil
+        @user.newsletter_notifications_at = form.newsletter_at
         @user.password = SecureRandom.hex
         attach_avatar(form.avatar_url) if form.avatar_url.present?
         @user.tos_agreement = form.tos_agreement

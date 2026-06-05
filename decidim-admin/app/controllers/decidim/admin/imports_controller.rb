@@ -5,6 +5,7 @@ module Decidim
     # This controller allows admins to import resources from a file.
     class ImportsController < Decidim::Admin::ApplicationController
       include Decidim::ComponentPathHelper
+
       before_action :set_import_breadcrumb_item
 
       helper_method :import_manifest
@@ -39,7 +40,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("decidim.admin.imports.error")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -85,7 +86,7 @@ module Decidim
       end
 
       def current_component
-        @current_component ||= current_participatory_space.components.find(params[:component_id])
+        @current_component ||= current_participatory_space.components.find(params.expect(:component_id))
       end
 
       def parent_path

@@ -30,8 +30,7 @@ module Decidim
         translatable_attribute :reminder_message_custom_content, String
 
         validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
-        validates :title, :description, translatable_presence: true
-        validates :title, :description, translated_etiquette: true
+        validates :title, :description, translatable_presence: true, translated_etiquette: true
         validates :registration_type, presence: true
         validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
         validates :type_of_meeting, presence: true
@@ -68,7 +67,7 @@ module Decidim
 
         # linked components
         def components
-          return [] if private_non_transparent_space?
+          return [] if restricted_space?
 
           if private_meeting && !transparent
             []
@@ -77,7 +76,7 @@ module Decidim
           end
         end
 
-        delegate :private_non_transparent_space?, to: :current_component
+        delegate :restricted_space?, to: :current_component
 
         def number_of_services
           services.size

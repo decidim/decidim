@@ -42,7 +42,7 @@ describe "Respond a survey" do
 
       expect(page).to have_no_i18n_content(question.body)
 
-      expect(page).to have_content("The form is closed and cannot be responded.")
+      expect(page).to have_text("The form is closed and cannot be responded.")
     end
   end
 
@@ -72,11 +72,8 @@ describe "Respond a survey" do
 
       accept_confirm { click_on "Submit" }
 
-      within ".success.flash" do
-        expect(page).to have_content("successfully")
-      end
-
-      expect(page).to have_content("You have already responded this form.")
+      expect(page).to have_callout("Survey successfully responded.")
+      expect(page).to have_text("You have already responded this form.")
       expect(page).to have_no_i18n_content(question.body)
 
       expect(questionnaire.responses.last.session_token).not_to be_empty

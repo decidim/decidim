@@ -4,12 +4,13 @@ module Decidim
   module Elections
     class Voter < Elections::ApplicationRecord
       include Decidim::Traceable
+
       belongs_to :election, class_name: "Decidim::Elections::Election"
 
       validates :data, presence: true
 
       def self.bulk_insert(election, values)
-        values.each { |data| create(election:, data:) }
+        values.each { |data| create(election:, data: data.transform_keys(&:to_s)) }
       end
 
       def identifier

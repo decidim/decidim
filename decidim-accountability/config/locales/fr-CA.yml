@@ -254,7 +254,6 @@ fr-CA:
           fields:
             created_at: Créé le
             end_date: Date de fin
-            id: ID
             progress: Avancement
             start_date: Date de début
             status: Statut
@@ -296,6 +295,7 @@ fr-CA:
       accountability:
         actions:
           comment: Commenter
+          vote_comment: Vote sur le commentaire
         name: Suivi
         settings:
           global:

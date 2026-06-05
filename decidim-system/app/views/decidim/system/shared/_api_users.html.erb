@@ -22,7 +22,7 @@
         </td>
         <td>
           <% if fresh_token?(api_user) %>
-            <div class="api-user-secret flex flex-row items-center gap-x-2">
+            <div data-controller="password-toggler" class="flex flex-row items-center gap-x-2">
               <div class="input-group__password">
                 <input type="password" id="<%= "token_#{api_user.id}" %>" value="<%= @secret_user[:secret] %>" class="w-full" autocomplete="off">
               </div>
@@ -33,6 +33,7 @@
                 data-shown-password="<%= t "api_user.shown_secret", scope: "decidim.system.actions" %>">
                 <button type="button"
                       class="button button__sm button__text-primary"
+                      data-controller="clipboard-copy"
                       data-clipboard-copy="<%= "#token_#{api_user.id}" %>"
                       data-clipboard-content="<%= @secret_user[:secret] %>"
                       data-clipboard-copy-label="<%= t("copied", scope: "decidim.system.actions") %>"

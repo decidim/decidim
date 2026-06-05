@@ -175,6 +175,12 @@ Devise.setup do |config|
   # Default: true
   config.allow_insecure_sign_in_after_accept = true
 
+  # Require password when user accepts the invitation.
+  # Disable if you do not want to ask for or enforce setting a password while accepting,
+  # because it is set when the user is invited or will be set later.
+  # Default: true
+  config.require_password_on_accepting = false
+
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
   # their account within 3 days after the mail was sent, but on the fourth day

@@ -6,7 +6,7 @@
   }
 
   .add-comment {
-    @apply mt-12 md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
+    @apply mt-2 mb-4 md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
 
     .new_comment {
       @apply w-full;
@@ -73,7 +73,7 @@
 }
 
 .comment {
-  @apply rounded-lg border-2 border-background-5 p-3 pl-6;
+  @apply rounded-lg border-2 border-background-5 p-3 pl-6 mt-4 md:mt-0;
 
   &.top-comment {
     @apply border-gray-2;
@@ -140,7 +140,7 @@
   }
 
   &-thread {
-    @apply mb-8;
+    @apply mb-4;
 
     .button[aria-expanded="false"] {
       svg:first-of-type {
@@ -175,7 +175,7 @@
     }
 
     &-author-name {
-      @apply text-secondary font-semibold;
+      @apply text-gray-2 font-semibold;
     }
 
     &-author-selected {
@@ -461,8 +461,69 @@
   }
 }
 
+.show-replies-button,
+.load-more-comments {
+  @apply flex items-center justify-center my-2;
+
+  .button {
+    @apply border-0 rounded px-2 py-1 transition-colors;
+
+    &:hover:not(:disabled) {
+      @apply bg-secondary/10 no-underline;
+    }
+
+    &:disabled {
+      @apply opacity-100 bg-transparent text-secondary no-underline;
+    }
+  }
+}
+
+.show-replies-button {
+  @apply my-0 relative z-10 h-0 overflow-visible;
+
+  transform: translateY(calc(0.75rem + 1px));
+
+  .button {
+    @apply bg-white border-0;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+
+    &:hover:not(:disabled) {
+      @apply bg-white no-underline;
+    }
+
+    &:disabled {
+      @apply bg-white opacity-100;
+
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    }
+
+    svg:first-of-type {
+      @apply block;
+    }
+
+    svg:last-of-type {
+      @apply hidden;
+    }
+
+    &[aria-expanded="true"] {
+      svg:first-of-type {
+        @apply hidden;
+      }
+
+      svg:last-of-type {
+        @apply block;
+      }
+    }
+  }
+}
+
 .publish-comment-button {
   @apply ml-auto md:relative fixed inset-x-0 bottom-0 z-30 md:z-0 flex flex-row items-center md:items-end md:justify-end font-semibold justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 h-14 md:h-fit first:[&>button]:py-3;
+}
+
+[data-additional-reply] .comment__form-submit {
+  @apply flex justify-end;
 }
 
 .fullscreen {

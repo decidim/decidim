@@ -2,10 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/demographics/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::Demographics.version
+  version = "0.33.0.dev"
+  s.version = version
   s.authors = ["Alexandru-Emil Lupu"]
   s.email = ["contact@alecslupu.ro"]
   s.license = "AGPL-3.0-or-later"
@@ -17,7 +16,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-demographics"
   s.summary = "A decidim demographics module"
@@ -30,8 +29,8 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Demographics.version
-  s.add_dependency "decidim-forms", Decidim::Demographics.version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-forms", version
 
-  s.add_development_dependency "decidim-dev", Decidim::Demographics.version
+  s.add_development_dependency "decidim-dev", version
 end

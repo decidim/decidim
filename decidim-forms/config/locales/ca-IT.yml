@@ -49,12 +49,12 @@ ca-IT:
             description: Descripció
             ends_at: Respostes acceptades fins a
             ends_at_help: Deixar en blanc si no hi ha cap data específica
-            starts_at: Respostes acceptades fins a
+            starts_at: Respostes acceptades des de
             starts_at_help: Deixar en blanc si no hi ha cap data específica
             tos: Termes del servei
         questionnaires:
           actions:
-            back: Tornar a les preguntes
+            back: Tornar a les respostes
             publish_responses: Publicar les respostes
             show: Respostes
           display_condition:
@@ -102,12 +102,10 @@ ca-IT:
             any: Cap
             collapse: Redueix
             description: Descripció
-            down: Avall
             expand: Expandeix
             question: Pregunta
             remove: Eliminar
             statement: Declaració
-            up: Amunt
           questions_form:
             already_responded_warning: L'enquesta ja està contestada per algunes usuàries i per tant no pots modificar les seves preguntes.
             collapse: Replega totes les preguntes
@@ -138,19 +136,15 @@ ca-IT:
             show:
               title: 'Resposta #%{number}'
           separator:
-            down: Baixar
             remove: Eliminar
             separator: Separador
-            up: Pujar
           title_and_description:
             collapse: Replegar
             description: Descripció
-            down: Baixar
             expand: Expandir
             remove: Esborrar
             title: Títol
             title_and_description: Títol i descripció
-            up: Pujar
           update:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.
@@ -186,6 +180,7 @@ ca-IT:
         response:
           invalid: S'han produït un error en respondre el formulari.
           max_choices_alert: Has seleccionat massa opcions
+          spam_detected: Hi ha hagut un problema responent el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
           success: El formulari s'ha respost correctament.
         show:
           current_step: Pas %{step}
@@ -193,9 +188,9 @@ ca-IT:
           of_total_steps: de %{total_steps}
           questionnaire_closed:
             body: El formulari està tancat i no es pot respondre.
-            title: S'ha tancat el formulari
-          questionnaire_for_private_users:
-            body: El formulari només està disponible per a participants privades
+            title: Formulari tancat
+          questionnaire_for_members:
+            body: El formulari només està disponible per a membres
             title: S'ha tancat el formulari
           questionnaire_js_disabled:
             body: Algunes de les característiques d'aquest formulari es deshabilitaran. Per millorar la teva experiència, si us plau, habilita JavaScript al teu navegador.

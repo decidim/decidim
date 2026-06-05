@@ -1,5 +1,11 @@
 .author {
-  @apply flex items-center [&>*:not(:first-child)]:pl-5 [&>*:not(:last-child)]:pr-6 divide-gray-3 divide-x text-sm text-gray-2;
+  @apply flex items-center divide-gray-3 divide-x text-sm text-gray-2;
+
+  a.author__container {
+    .author__name {
+      @apply underline text-secondary font-bold;
+    }
+  }
 
   &__container {
     @apply flex items-center gap-2.5 first:[&>*]:flex-none;
@@ -14,6 +20,10 @@
 
     &-container {
       @apply rounded-full overflow-hidden inline-block w-6 h-6 align-top;
+
+      &:focus-within {
+        @apply ring-2 ring-primary;
+      }
     }
 
     &-counter {
@@ -27,6 +37,10 @@
 
   &__container.is-compact &__name {
     @apply text-secondary font-semibold;
+  }
+
+  &__badge svg {
+    @apply grid overflow-hidden place-items-center bg-primary rounded-full w-4 h-4 text-white fill-current;
   }
 
   &__metadata {

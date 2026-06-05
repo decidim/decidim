@@ -18,20 +18,20 @@ shared_examples "a version of a hidden object" do
   end
 
   it "shows an error page" do
-    expect(page).to have_content("Changes at")
+    expect(page).to have_text("Changes at")
 
     create(:moderation, reportable: hidden_object, hidden_at: 1.day.ago)
 
     visit current_path
 
-    expect(page).to have_content(ActiveRecord::RecordNotFound)
+    expect(page).to have_text(ActiveRecord::RecordNotFound)
   end
 end
 
 shared_examples "versions controller" do
   let(:base_params) do
     if resource.is_a?(Decidim::Participable)
-      { :"#{resource.model_name.singular_route_key}_slug" => resource.slug }
+      { :"#{resource.model_name.singular_route_key}_slug" => resource.slug, :locale => I18n.locale }
     else
       { :"#{resource.model_name.singular_route_key}_id" => resource.id }
     end

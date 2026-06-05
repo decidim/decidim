@@ -15,30 +15,40 @@ module Decidim
       isolate_namespace Decidim::ParticipatoryProcesses
 
       routes do
-        get "processes/:process_id", to: redirect { |params, _request|
-          process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }
+        extend Decidim::Routes::LocaleRedirects
 
-        get "/processes/:process_id/f/:component_id", to: redirect { |params, _request|
-          process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }
+        scope "/:locale", **locale_scope_options do
+          get "processes/:process_id", to: redirect { |params, _request|
+            process = Decidim::ParticipatoryProcess.find(params[:process_id])
+            process ? "/#{params[:locale]}/processes/#{process.slug}" : "/404"
+          }, constraints: { process_id: /[0-9]+/ }
 
-        resources :participatory_process_groups, only: :show, path: "processes_groups"
-        resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
-          resources :participatory_space_private_users, only: :index, path: "members"
-        end
+          get "/processes/:process_id/f/:component_id", to: redirect { |params, _request|
+            process = Decidim::ParticipatoryProcess.find(params[:process_id])
+            process ? "/#{params[:locale]}/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
+          }, constraints: { process_id: /[0-9]+/ }
 
-        scope "/processes/:participatory_process_slug/f/:component_id" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.engine
+          resources :participatory_process_groups, only: :show, path: "processes_groups"
+          resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
+            resources :members, only: :index, path: "members"
+          end
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.engine, at: "/", as: "decidim_participatory_process_#{manifest.name}"
+          scope "/processes/:participatory_process_slug/f/:component_id" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.engine
+
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.engine, at: "/", as: "decidim_participatory_process_#{manifest.name}"
+              end
             end
           end
         end
+
+        get "/participatory_process_groups/*rest", to: redirect { |params, request| locale_redirector("/processes_groups/#{params[:rest]}").call(params, request) }
+
+        get "/processes", to: redirect(&locale_redirector("/processes"))
+
+        get "/processes/*rest", to: redirect { |params, request| locale_redirector("/processes/#{params[:rest]}").call(params, request) }
       end
 
       initializer "decidim_participatory_processes.mount_routes" do
@@ -57,8 +67,21 @@ module Decidim
         Decidim.icons.register(name: "globe-line", icon: "globe-line", category: "system", description: "", engine: :participatory_process)
       end
 
+      initializer "decidim_participatory_processes.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_participatory_processes.query_extensions" do
         Decidim::Api::QueryType.include Decidim::ParticipatoryProcesses::QueryExtensions
+      end
+
+      initializer "decidim_participatory_processes.extend_component_controllers" do
+        config.to_prepare do
+          # Extend component controllers with participatory process breadcrumb when mounted under participatory processes
+          Decidim::Components::BaseController.include(Decidim::ParticipatoryProcesses::ParticipatoryProcessBreadcrumb)
+        end
       end
 
       initializer "decidim_participatory_processes.add_cells_view_paths" do
@@ -103,8 +126,16 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.webpacker.assets_path" do
+      initializer "decidim_participatory_processes.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_participatory_processes.static_pages" do
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.system.create_organization:after") do |_event_name, data|
+            Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(data[:organization].id)
+          end
+        end
       end
     end
   end

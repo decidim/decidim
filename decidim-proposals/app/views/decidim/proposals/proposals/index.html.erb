@@ -1,7 +1,7 @@
 <% add_decidim_meta_tags(
-  description: translated_attribute(current_participatory_space.short_description),
+  description: translated_attribute(current_participatory_space.try(:short_description) || current_participatory_space.description),
   title: t("decidim.components.pagination.page_title",
-           component_name: component_name,
+           component_name:,
            current_page: @proposals.current_page,
            total_pages: @proposals.total_pages ),
   url: proposals_url,
@@ -18,13 +18,6 @@
       <%= action_authorized_link_to :create, new_proposal_path, permissions_holder: current_component, class: "button button__xl button__secondary w-full", data: { "redirect_url" => new_proposal_path } do %>
         <span><%= t("new_proposal", scope: "decidim.proposals.proposals.index") %></span>
         <%= icon "add-line" %>
-      <% end %>
-    <% end %>
-
-    <% if component_settings.collaborative_drafts_enabled? %>
-      <%= link_to collaborative_drafts_path, class: "button button__sm button__transparent-secondary" do %>
-        <span><%= t("collaborative_drafts_list", scope: "decidim.proposals.proposals.index") %></span>
-        <%= icon "edit-2-line" %>
       <% end %>
     <% end %>
   </div>

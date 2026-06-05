@@ -46,6 +46,11 @@ ga:
           amend: Leasaigh
           comment: Tabhair Trácht
         name: Moltaí
+    events:
+      proposals:
+        coauthor_invited:
+          actions:
+            accept: Glac
     gamification:
       badges:
         proposals:
@@ -103,38 +108,6 @@ ga:
         filter_type_values:
           all: Uile
           proposals: Moltaí
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            irreversible_action_modal:
-              cancel: Cealaigh
-          withdraw:
-            irreversible_action_modal:
-              cancel: Cealaigh
-        edit:
-          back: Ar Ais
-          send: Seol
-        filters:
-          all: Uile
-          open: Oscail
-          search: Cuardaigh
-          state: Stádas
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
-        new:
-          send: Lean ar aghaidh
-        orders:
-          random: Randamach
-          recent: Is Déanaí
-        requests:
-          collaboration_requests:
-            accept_request: Glac
-            reject_request: Diúltaigh
-        show:
-          publish: Foilsigh
-        states:
-          open: Oscail
       models:
         proposal:
           fields:

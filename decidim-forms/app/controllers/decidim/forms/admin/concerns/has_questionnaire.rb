@@ -22,6 +22,7 @@ module Decidim
 
             if defined?(Decidim::Templates::Admin::Concerns::Templatable)
               include Decidim::Templates::Admin::Concerns::Templatable
+
               helper Decidim::DatalistSelectHelper
 
               def templatable_type
@@ -34,7 +35,7 @@ module Decidim
             end
 
             def edit
-              enforce_permission_to(:update, :questionnaire, questionnaire:)
+              enforce_permission_to(:update, permission_subject, questionnaire:)
 
               @form = form(Admin::QuestionnaireForm).from_model(questionnaire)
 
@@ -42,7 +43,7 @@ module Decidim
             end
 
             def update
-              enforce_permission_to(:update, :questionnaire, questionnaire:)
+              enforce_permission_to(:update, permission_subject, questionnaire:)
 
               @form = form(Admin::QuestionnaireForm).from_params(params)
 
@@ -56,12 +57,14 @@ module Decidim
                 on(:invalid) do
                   # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
                   flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
-                  render template: edit_template, status: :unprocessable_entity
+                  render template: edit_template, status: :unprocessable_content
                 end
               end
             end
 
             def edit_questions
+              enforce_permission_to(:update, permission_subject, questionnaire:)
+
               @form = form(Admin::QuestionsForm).from_model(questionnaire)
 
               render template: edit_questions_template
@@ -70,6 +73,8 @@ module Decidim
             # i18n-tasks-use t("decidim.forms.admin.questionnaires.questions_form.update.success")
             # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
             def update_questions
+              enforce_permission_to(:update, permission_subject, questionnaire:)
+
               @form = form(Admin::QuestionsForm).from_params(params)
               Admin::UpdateQuestions.call(@form, questionnaire) do
                 on(:ok) do
@@ -79,7 +84,7 @@ module Decidim
 
                 on(:invalid) do
                   flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
-                  render template: edit_questions_template, status: :unprocessable_entity
+                  render template: edit_questions_template, status: :unprocessable_content
                 end
               end
             end
@@ -180,6 +185,10 @@ module Decidim
               @display_condition_types ||= DisplayCondition.condition_types.keys.map do |condition_type|
                 [condition_type, I18n.t("decidim.forms.admin.questionnaires.display_condition.condition_types.#{condition_type}")]
               end
+            end
+
+            def permission_subject
+              :questionnaire
             end
           end
         end

@@ -15,6 +15,7 @@
           <th><%= t("models.survey.fields.questions", scope: "decidim.surveys") %></th>
           <th><%= t("models.survey.fields.responses", scope: "decidim.surveys") %></th>
           <th><%= t("models.survey.fields.status", scope: "decidim.surveys") %></th>
+          <th><%= t("models.survey.fields.published", scope: "decidim.surveys") %></th>
           <th><%= t("actions.title", scope: "decidim.surveys") %></th>
         </tr>
       </thead>
@@ -22,16 +23,27 @@
         <% surveys.each do |survey| %>
           <tr>
             <td data-label="<%= t("models.survey.fields.title", scope: "decidim.surveys") %>">
-              <%= decidim_sanitize_translated(survey.title) %>
+              <%= link_to decidim_sanitize_translated(survey.title), edit_survey_path(survey) %>
             </td>
             <td data-label="<%= t("models.survey.fields.questions", scope: "decidim.surveys") %>">
-              <%= survey.questionnaire.questions.size %>
+              <%= survey.questionnaire.question_types.size %>
             </td>
             <td data-label="<%= t("models.survey.fields.responses", scope: "decidim.surveys") %>">
               <%= survey.questionnaire.count_participants %>
             </td>
             <td data-label="<%= t("models.survey.fields.status", scope: "decidim.surveys") %>">
               <%= survey.open? ? t("models.survey.status.open", scope: "decidim.surveys") : t("models.survey.status.closed", scope: "decidim.surveys") %>
+            </td>
+            <td data-label="<%= t("models.survey.fields.published", scope: "decidim.surveys") %>">
+              <% if survey.published? %>
+                <span class="label success !text-sm">
+                  <%= t("models.survey.published.published", scope: "decidim.surveys") %>
+                </span>
+              <% else %>
+                <span class="label alert !text-sm">
+                  <%= t("models.survey.published.unpublished", scope: "decidim.surveys") %>
+                </span>
+              <% end %>
             </td>
             <td data-label="<%= t("actions.title", scope: "decidim.surveys") %>" class="table-list__actions">
               <button type="button" data-controller="dropdown" data-target="actions-survey-<%= survey.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: survey.title) %>">
@@ -49,17 +61,25 @@
 
                   <li class="dropdown__item">
                     <%= link_to edit_questions_questions_survey_path(survey), class: "dropdown__button" do %>
-                      <%= icon "survey-line" %>
+                      <%= icon "question-answer-line" %>
                       <%= t("actions.manage_questions", scope: "decidim.surveys") %>
                     <% end %>
                   </li>
+                  <% if survey.questionnaire.responses.any? %>
+                    <li class="dropdown__item">
+                      <%= link_to survey_responses_path(survey), class: "dropdown__button" do %>
+                        <%= icon "draft-line" %>
+                        <%= t("actions.responses", scope: "decidim.surveys") %>
+                      <% end %>
+                    </li>
+                  <% end %>
 
                   <hr>
 
                   <% if allowed_to?(:update, :questionnaire) %>
                     <% if survey.published? %>
                       <li class="dropdown__item">
-                        <%= link_to unpublish_survey_path(survey), method: :put, class: "dropdown__button" do %>
+                        <%= link_to unpublish_survey_path(survey), method: :put, data: { confirm: t("actions.confirm_unpublish_survey", scope: "decidim.admin") }, class: "dropdown__button" do %>
                           <%= icon "close-circle-line" %>
                           <%= t("actions.unpublish", scope: "decidim.admin") %>
                         <% end %>

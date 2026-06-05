@@ -1,9 +1,13 @@
 it:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Elezione
+        other: Elezioni
   decidim:
     admin:
       menu:
         elections_menu:
-          election_census: Censimento
           election_questions: Quesiti
     components:
       elections:
@@ -19,14 +23,13 @@ it:
             announcement: Annuncio
     elections:
       actions:
+        preview: Anteprima
         title: Azioni
       admin:
         census:
           edit:
             created_at: Creato il
         dashboard:
-          census:
-            title: Censimento
           main:
             labels:
               description: Descrizione
@@ -56,16 +59,41 @@ it:
           edit_questions:
             new_question: Nuovo quesito
             title: Quesiti
+      elections:
+        count:
+          elections_count:
+            one: "%{count} elezione"
+            other: "%{count} elezioni"
+        filters:
+          all: Tutti
+          state: Stato
+          state_values:
+            finished: Completata
+            ongoing: In corso
+        orders:
+          recent: Recenti
+        questions:
+          title: Domande elettorali
+        show:
+          vote_button: Vota
+        vote_results:
+          title: Risultati
       models:
         election:
           fields:
-            census: Censimento
             status: Stato
             title: Titolo
       status:
         active: Attiva
         finished: Completata
+        not_started: Non iniziate
         ongoing: In corso
         unpublished: Non pubblicato
+      votes:
+        confirm:
+          title: Conferma il tuo voto
+        question:
+          back: Indietro
+          next: Successivo
     statistics:
       elections_count: Elezioni

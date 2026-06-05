@@ -70,7 +70,7 @@ search:
   ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
   exclude:
     - decidim-dev/lib/decidim/dev/assets/iso-8859-15.md
-    - decidim-dev/lib/decidim/dev/assets/import_participatory_space_private_users_iso8859-1.csv
+    - decidim-dev/lib/decidim/dev/assets/import_members_iso8859-1.csv
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
     - "*.jpeg"
@@ -104,7 +104,6 @@ ignore_missing:
   - email_outro
   - follows.create.participatory_space
   - notification_title
-  - decidim.wizard_step_form_cell.*
   - decidim.proposals.application_helper.activity_filter_values.*
   - decidim.meetings.application_helper.activity_filter_values.*
   - decidim.content_blocks.*_settings_form.show.*
@@ -155,14 +154,13 @@ ignore_unused:
   - decidim.elections.admin_log.election.*
   - decidim.elections.admin_log.question.*
   - decidim.elections.admin.statuses.*
+  - decidim.elections.censuses.internal_users.*
+  - decidim.elections.elections.filters.state_values.*
+  - decidim.elections.elections.orders.*
+  - decidim.elections.elections.show.*
+  - decidim.elections.votes.check_census.*
+  - decidim.elections.votes.question.*
   - decidim.proposals.answers.*
-  - decidim.proposals.collaborative_drafts.show.see_other_versions
-  - decidim.proposals.collaborative_drafts.wizard_aside.back
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_collaborative_draft
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_1
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_2
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_3
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_4
   - decidim.proposals.proposal_likes_helper.likes_count_title
   - decidim.proposals.proposals.orders.*
   - decidim.proposals.proposals.likes_card_row.comments_title
@@ -196,6 +194,8 @@ ignore_unused:
   - decidim.accountability.admin_log.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
+  - decidim.log.value_types.access_mode_presenter.not_found
+  - decidim.log.value_types.access_mode_presenter.access_modes.{open,transparent,restricted}*
   - decidim.admin_log.*
   - decidim.debates.debates.filters.*
   - decidim.debates.admin_log.*
@@ -223,9 +223,6 @@ ignore_unused:
   - decidim.budgets.projects.order_progress.vote_threshold_percent_rule.*
   - decidim.orders.checkout.*
   - decidim.budgets.projects.filters.*
-  - decidim.sortitions.admin_log.*
-  - decidim.sortitions.sortitions.filters.*
-  - decidim.sortitions.sortitions.orders.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
@@ -256,11 +253,6 @@ ignore_unused:
   - decidim.meetings.content_blocks.*.name
   - decidim.blogs.content_blocks.*.name
   - decidim.proposals.content_blocks.*.name
-  - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
-  - decidim.proposals.collaborative_drafts.orders*
-  - decidim.proposals.collaborative_drafts.filters*
-  - decidim.proposals.collaborative_drafts.show.withdraw
-  - decidim.proposals.collaborative_drafts.show.publish
   - decidim.conferences.content_blocks.*.name
   - decidim.conferences.pages.home.highlighted_conferences.*
   - decidim.conferences.conference_speaker.*
@@ -366,6 +358,7 @@ ignore_unused:
   - decidim.meetings.directory.meetings.index.space_type
   - decidim.authorization_modals.content.*
   - decidim.authorization_handlers.admin.{another_dummy_authorization_handler,csv_census,dummy_authorization_handler,ephemeral_dummy_authorization_handler,id_documents,postal_letter,sms}.help
+  - number.currency.format.format
   - time.buttons.*
   - decidim.profiles.show.members
   - decidim.participatory_processes.static_pages.democratic_quality_indicators.*

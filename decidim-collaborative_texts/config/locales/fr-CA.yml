@@ -15,6 +15,11 @@ fr-CA:
           body: Corps de texte
           draft: Brouillon
           version_number: Numéro de version
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Texte collaboratif
+        other: Textes collaboratifs
   decidim:
     admin:
       tooltips:
@@ -35,6 +40,7 @@ fr-CA:
             success: Document créé avec succès.
           draft_options:
             accepting_suggestions: Activer les suggestions dans la prochaine version
+            accepting_suggestions_help: Activer les suggestions démarrera une nouvelle série de suggestions pour ce document. Les suggestions actuelles ne seront pas visibles dans la nouvelle version.
           edit:
             previous_versions: Versions précédentes
             public_version: Version publique
@@ -65,6 +71,11 @@ fr-CA:
           update_settings:
             invalid: Un problème est survenu lors de la mise à jour du document.
             success: Document mis à jour avec succès.
+        exports:
+          document_suggestions: Suggestions
+        index:
+          published: Publié
+          unpublished: Non publié
       admin_log:
         document:
           create: "%{user_name} a créé le texte collaboratif %{resource_name} dans %{space_name}"
@@ -80,9 +91,14 @@ fr-CA:
       document:
         apply: Appliquer
         cancel: Annuler
+        controls_label: Contrôles de suggestion
         index: Index
         restore: Restaurer
+        rollout:
+          invalid: Il y a eu un problème lors de la création d'une nouvelle version du document (%{errors}).
+        save: Suggérer des modifications
         status:
+          accepting_suggestions: Pour suggérer des modifications, sélectionnez ou double-cliquez sur le texte que vous souhaitez modifier, puis cliquez sur le bouton « Suggérer des modifications ».
           not_accepting_suggestions: Les suggestions ne sont pas autorisées pour le moment.
           selection_active: Une sélection est active. Veuillez annuler la sélection actuelle pour en faire une nouvelle.
         suggestions_count: "%{count} suggestions"
@@ -98,6 +114,7 @@ fr-CA:
       models:
         collaborative_text:
           fields:
+            published: Publié
             suggestions: Accepter les suggestions
             title: Titre
       suggestions:

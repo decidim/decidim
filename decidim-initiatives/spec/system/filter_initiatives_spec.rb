@@ -29,12 +29,12 @@ describe "Filter Initiatives", :slow do
       create(:initiative, organization:, scoped_type: scoped_type2)
       create(:initiative, organization:, scoped_type: scoped_type3)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by scope" do
       within "form.new_filter" do
-        expect(page).to have_content(/Scope/i)
+        expect(page).to have_text(/Scope/i)
       end
     end
 
@@ -45,7 +45,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 4)
-        expect(page).to have_content("4 initiatives")
+        expect(page).to have_text("4 initiatives")
       end
     end
 
@@ -56,7 +56,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 1)
-        expect(page).to have_content("1 initiative")
+        expect(page).to have_text("1 initiative")
       end
     end
 
@@ -67,7 +67,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 2)
-        expect(page).to have_content("2 initiatives")
+        expect(page).to have_text("2 initiatives")
       end
 
       it "can be ordered by most commented after filtering" do
@@ -75,11 +75,15 @@ describe "Filter Initiatives", :slow do
           click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
         end
 
+        # Wait for the scope filter to be applied and the page to update
+        expect(page).to have_css(".card__grid", count: 2)
+
         within "#dropdown-menu-order" do
           click_on "Most commented"
         end
 
-        expect(page).to have_css(".card__grid[id^='initiative']", count: 2)
+        # Wait for both filter and ordering to be applied
+        expect(page).to have_css(".card__grid[id^='initiative']", count: 2, wait: 10)
         expect(page).to have_css(".card__grid[id^='initiative']:first-child", text: translated(first_initiative.title))
       end
     end
@@ -93,12 +97,12 @@ describe "Filter Initiatives", :slow do
       create(:initiative, :acceptable, organization:)
       create(:initiative, organization:, answered_at: Time.current)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by state" do
       within "form.new_filter" do
-        expect(page).to have_content(/Status/i)
+        expect(page).to have_text(/Status/i)
       end
     end
 
@@ -111,7 +115,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 11)
-        expect(page).to have_content("11 initiatives")
+        expect(page).to have_text("11 initiatives")
       end
     end
 
@@ -123,7 +127,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 5)
-        expect(page).to have_content("5 initiatives")
+        expect(page).to have_text("5 initiatives")
       end
     end
 
@@ -135,7 +139,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 6)
-        expect(page).to have_content("6 initiatives")
+        expect(page).to have_text("6 initiatives")
       end
     end
 
@@ -148,7 +152,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 3)
-        expect(page).to have_content("3 initiatives")
+        expect(page).to have_text("3 initiatives")
       end
     end
 
@@ -161,7 +165,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 2)
-        expect(page).to have_content("2 initiatives")
+        expect(page).to have_text("2 initiatives")
       end
     end
 
@@ -173,7 +177,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 1)
-        expect(page).to have_content("1 initiative")
+        expect(page).to have_text("1 initiative")
       end
     end
   end
@@ -188,7 +192,7 @@ describe "Filter Initiatives", :slow do
       before do
         create_list(:initiative, 3, organization:, scoped_type: scoped_type1)
 
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "does not display TYPE filter" do
@@ -197,7 +201,7 @@ describe "Filter Initiatives", :slow do
 
       it "lists all initiatives", :slow do
         expect(page).to have_css(".card__grid", count: 3)
-        expect(page).to have_content("3 initiatives")
+        expect(page).to have_text("3 initiatives")
       end
     end
 
@@ -206,12 +210,12 @@ describe "Filter Initiatives", :slow do
         create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
         create(:initiative, organization:, scoped_type: scoped_type2)
 
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "can be filtered by type" do
         within "form.new_filter" do
-          expect(page).to have_content(/Type/i)
+          expect(page).to have_text(/Type/i)
         end
       end
 
@@ -222,7 +226,7 @@ describe "Filter Initiatives", :slow do
           end
 
           expect(page).to have_css(".card__grid", count: 3)
-          expect(page).to have_content("3 initiatives")
+          expect(page).to have_text("3 initiatives")
         end
       end
 
@@ -233,7 +237,7 @@ describe "Filter Initiatives", :slow do
           end
 
           expect(page).to have_css(".card__grid", count: 2)
-          expect(page).to have_content("2 initiatives")
+          expect(page).to have_text("2 initiatives")
         end
       end
     end
@@ -245,12 +249,12 @@ describe "Filter Initiatives", :slow do
       create(:initiative, organization:, area: area2)
       create(:initiative, organization:, area: area3)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by area" do
       within "form.new_filter" do
-        expect(page).to have_content(/Area/i)
+        expect(page).to have_text(/Area/i)
       end
     end
 
@@ -262,7 +266,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 4)
-        expect(page).to have_content("4 initiatives")
+        expect(page).to have_text("4 initiatives")
       end
     end
 
@@ -279,7 +283,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 2)
-        expect(page).to have_content("2 initiatives")
+        expect(page).to have_text("2 initiatives")
       end
     end
 
@@ -290,7 +294,7 @@ describe "Filter Initiatives", :slow do
         end
 
         expect(page).to have_css(".card__grid", count: 3)
-        expect(page).to have_content("3 initiatives")
+        expect(page).to have_text("3 initiatives")
       end
     end
   end

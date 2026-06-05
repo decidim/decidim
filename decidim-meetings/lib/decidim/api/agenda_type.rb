@@ -14,8 +14,6 @@ module Decidim
 
       def self.authorized?(object, context)
         super && object.visible?
-      rescue Decidim::PermissionAction::PermissionNotSetError
-        false
       end
     end
   end

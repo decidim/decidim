@@ -64,6 +64,7 @@ module Decidim
       {
         :host => organization.host,
         :component_id => id,
+        :locale => I18n.locale,
         :"#{participatory_space.underscored_name}_slug" => participatory_space.slug
       }
     end
@@ -100,21 +101,20 @@ module Decidim
     def resource_description; end
 
     def can_participate_in_space?(user)
-      return true unless participatory_space.try(:private_space?)
+      return false unless published?
+      return false unless participatory_space.published?
+
+      return true unless participatory_space.respond_to?(:restricted?) && participatory_space.restricted?
       return false unless user
 
       participatory_space.can_participate?(user)
     end
+    alias can_participate? can_participate_in_space?
 
-    def private_non_transparent_space?
-      return false unless participatory_space.respond_to?(:private_space?)
-      return false unless participatory_space.private_space?
+    def restricted_space?
+      return false unless participatory_space.respond_to?(:restricted?)
 
-      if participatory_space.respond_to?(:is_transparent?)
-        !participatory_space.is_transparent?
-      else
-        true
-      end
+      participatory_space.restricted?
     end
 
     # Public: Public URL for component with given share token as query parameter

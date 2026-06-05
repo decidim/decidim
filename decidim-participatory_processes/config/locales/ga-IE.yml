@@ -3,7 +3,6 @@ ga:
     attributes:
       participatory_process:
         area_id: Ceantar
-        copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
         domain: Fearann
         end_date: Dáta deiridh
@@ -38,8 +37,6 @@ ga:
         publish: Foilsigh
       menu:
         participatory_process_groups: Grúpaí próiseas
-        participatory_process_groups_submenu:
-          info: Eolas
         participatory_processes: Próisis
         participatory_processes_submenu:
           attachment_collections: Fillteáin
@@ -50,7 +47,6 @@ ga:
       models:
         participatory_process:
           fields:
-            private: Príobháideach
             title: Teideal
           name: Próiseas Rannpháirtíochta
         participatory_process_group:
@@ -70,9 +66,6 @@ ga:
           name: Riarachán próisis rannpháirtíochta
           roles:
             admin: Riarthóir
-      participatory_process_copies:
-        new:
-          copy: Cóipeáil
       participatory_process_groups:
         edit:
           update: Nuashonraigh
@@ -85,8 +78,6 @@ ga:
         default_title: Réamhrá
         edit:
           update: Nuashonraigh
-        index:
-          steps_title: Céimeanna
         new:
           create: Cruthaigh
       participatory_process_user_roles:
@@ -97,9 +88,6 @@ ga:
       participatory_processes:
         edit:
           update: Nuashonraigh
-        index:
-          private: Príobháideach
-          public: Poblach
         new:
           create: Cruthaigh
     participatory_process_groups:

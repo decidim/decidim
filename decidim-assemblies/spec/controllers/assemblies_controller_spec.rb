@@ -7,6 +7,8 @@ module Decidim
     describe AssembliesController do
       routes { Decidim::Assemblies::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:organization) { create(:organization) }
 
       let!(:unpublished_assembly) do
@@ -48,7 +50,7 @@ module Decidim
           end
 
           it "redirects to 404" do
-            expect { get :index }.to raise_error(ActionController::RoutingError)
+            expect { get :index, params: { locale: I18n.locale } }.to raise_error(ActionController::RoutingError)
           end
         end
 
@@ -76,7 +78,7 @@ module Decidim
         let(:parsed_response) { JSON.parse(response.body, symbolize_names: true) }
 
         it "includes only published assemblies with their children (two levels)" do
-          get :index, format: :json
+          get :index, params: { locale: I18n.locale }, format: :json
           expect(parsed_response).to contain_exactly({
                                                        name: translated(promoted.title),
                                                        children: []
@@ -110,9 +112,9 @@ module Decidim
       describe "GET show" do
         context "when the assembly is unpublished" do
           it "redirects to sign in path" do
-            get :show, params: { slug: unpublished_assembly.slug }
+            get :show, params: { slug: unpublished_assembly.slug, locale: I18n.locale }
 
-            expect(response).to redirect_to("/users/sign_in")
+            expect(response).to redirect_to(new_user_session_path)
           end
 
           context "with signed in user" do
@@ -123,9 +125,9 @@ module Decidim
             end
 
             it "redirects to root path" do
-              get :show, params: { slug: unpublished_assembly.slug }
+              get :show, params: { slug: unpublished_assembly.slug, locale: I18n.locale }
 
-              expect(response).to redirect_to("/")
+              expect(response).to redirect_to(root_path)
             end
           end
         end

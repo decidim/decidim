@@ -15,7 +15,7 @@ const withOpacity =
       : `rgb(var(${variable}) / ${opacityValue})`;
 
 module.exports = {
-  // This content is generated automatically by decidim:webpacker:install task, it
+  // This content is generated automatically by decidim:shakapacker:install task, it
   // should not be updated manually.
   // The array must contain all the decidim modules active in the application
   content: [<%= tailwind_content_directories %>].flatMap(directory => [
@@ -68,7 +68,7 @@ module.exports = {
       sans: ["Source Sans Pro", "ui-sans-serif", "system-ui", "sans-serif"]
     },
     fontSize: {
-      xs: ["13px", "16px"],
+      xs: ["12px", "16px"],
       sm: ["14px", "18px"],
       md: ["16px", "20px"],
       lg: ["18px", "23px"],
@@ -81,6 +81,9 @@ module.exports = {
     extend: {
       transitionProperty: {
         'top': 'top',
+      },
+      screens: {
+        'xs': '375px'
       }
     }
   },

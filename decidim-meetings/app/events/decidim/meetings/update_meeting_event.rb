@@ -11,9 +11,9 @@ module Decidim
         I18n.t(
           "notification_title",
           scope: i18n_scope,
-          changed_fields: changed_fields,
+          changed_fields:,
           resource_title: translated_attribute(resource.title),
-          resource_path: resource_path
+          resource_path:
         ).html_safe
       end
 

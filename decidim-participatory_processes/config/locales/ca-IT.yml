@@ -4,15 +4,17 @@ ca-IT:
       participatory_process:
         announcement: Avís
         area_id: Àrea
-        copy_categories: Copiar les categories
-        copy_components: Copiar els components
-        copy_steps: Copiar les fases
         decidim_area_id: Àrea
         description: Descripció
         developer_group: Grup promotor
         document: Document
         domain: Àrees municipals
+        duplicate_categories: Duplicar les categories
+        duplicate_components: Duplicar els components
+        duplicate_landing_page_blocks: Duplicar els blocs de contingut de la pàgina d'inici
+        duplicate_steps: Duplicar les fases
         end_date: Data de finalització
+        has_members: Aquest espai de participació té membres
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
         import_categories: Importar categories
@@ -23,7 +25,6 @@ ca-IT:
         participatory_process_group_id: Grup de processos
         participatory_scope: El que es decideix
         participatory_structure: Com es decideix
-        private_space: Procés privat
         promoted: Destacat
         published_at: Publicat el
         related_process_ids: Processos relacionats
@@ -64,6 +65,8 @@ ca-IT:
           attributes:
             document:
               allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}'
+              empty: El document està buit
+              invalid_json: El document no és un JSON vàlid
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: Fase modificada
@@ -101,29 +104,33 @@ ca-IT:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Per grup de processos
+        with_any_access_mode:
+          label: Tipus d'accés
+          values:
+            open: Obert
+            restricted: Restringit
+            transparent: Transparent
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
-          info: Informació
-          landing_page: Disposició de la pàgina de destinació
+          landing_page: Disposició de la pàgina d'inici
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
           components: Components
-          info: Quant a aquest procés
-          landing_page: Disposició de la pàgina de destinació
+          landing_page: Disposició de la pàgina d'inici
+          members: Membres
           moderations: Moderacions
-          private_users: Membres
           process_admins: Administradores del procés
           steps: Fases del procés
       models:
         participatory_process:
           fields:
+            access_mode: Tipus d'accés
             actions: Accions
             created_at: Data de creació
-            private: Privat
             published: Publicat
             title: Títol
           name: Procés participatiu
@@ -156,21 +163,18 @@ ca-IT:
             invitation_accepted_at: Invitació acceptada el
             invitation_sent_at: Invitació enviada el
             published: Publicats
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Còpia
+          duplicate: Duplicar
           select: Selecciona quines dades vols duplicar
-          title: Duplica procés participatiu
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error en eliminar el grup de processos participatius.
           success: El grup de processos participatius s'ha eliminat correctament.
         edit:
-          title: Edita grup de procés
           update: Actualitza
         new:
           create: Crea
-          title: Nou grup de processos
         update:
           error: S'ha produït un error en actualitzar aquest grup de processos participatius.
           success: Grup de processos participatius actualitzat correctament.
@@ -181,7 +185,6 @@ ca-IT:
         new:
           import: Importar
           select: Selecciona quines dades vols importar.
-          title: Importar el procés participatiu
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -204,24 +207,14 @@ ca-IT:
             last_step: No es pot eliminar l'última fase d'un procés.
           success: La fase del procés participatiu s'ha eliminat correctament.
         edit:
-          cta_deprecated:
-            body_html: |-
-              La configuració del CTA a través de la Fase del procés participatiu està obsoleta amb el nou disseny.
-              Ara això es fa a la <b>Página d'inici</b>, fent servir el bloc de contingut <b>Imatges principal i botó d'acció</b>.
-              L'hem deixar aquí per a que migris els CTAs que necessitis. Els camps <i>Ruta del botó d'acció</i> i <i>Text del botó d'acció</i> s'eliminaran a la propera versió.
-            title: CTA obsolet
-          title: Edita fase de procés participatiu
           update: Actualitza
-        index:
-          steps_title: Fases del procés
         new:
           create: Crea
-          title: Nova fase de procés participatiu
         ordering:
           error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha actualitzat correctament.
+          success: La fase del procés participatiu s'ha actualitzat correctament.
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en afegir una participant en aquest procés participatiu.
@@ -229,13 +222,9 @@ ca-IT:
         destroy:
           success: L'administradora s'ha eliminat correctament d'aquest procés participatiu.
         edit:
-          title: Actualitzar administradora de procés participatiu
           update: Actualitza
-        index:
-          process_admins_title: Administradores del procés participatiu
         new:
           create: Crea
-          title: Nova administradora del procés participatiu
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
           success: Administradora actualitzada correctament per a aquest procés participatiu.
@@ -246,21 +235,20 @@ ca-IT:
         edit:
           update: Actualitza
         index:
-          private: Privat
-          public: Públic
+          access_modes:
+            open: Obert
+            restricted: Restringit
+            transparent: Transparent
           published: Publicat
           unpublished: Despublicat
-        manage_trash:
-          title: Processos participatius eliminats
         new:
           create: Crea
-          title: Nou procés participatiu
         update:
           error: S'ha produït un error en actualitzar aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
-          error: S'ha produït un error en duplicar el procés participatiu.
+          error: S'ha produït un error en duplicar aquest procés participatiu.
           success: El procés participatiu ha estat duplicat correctament.
       participatory_processes_group:
         create:
@@ -269,11 +257,6 @@ ca-IT:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Tots els processos participatius
-      titles:
-        participatory_process_groups: Grups de processos participatius
-        participatory_process_types: Tipus de processos participatius
-        participatory_processes: Processos participatius
-        participatory_processes_deleted: Processos participatius eliminats
       tooltips:
         deleted_processes_info: Un procés només es poden eliminar si el seu estat és 'Despublicat'.
       users:
@@ -287,9 +270,11 @@ ca-IT:
         export: "%{user_name} ha exportat el procés participatiu %{resource_name}"
         import: "%{user_name} ha importat el procés participatiu %{resource_name}"
         publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
+        publish_all_members: "%{user_name} va publicar a totes les membres del procés participatiu %{resource_name}"
         restore: "%{user_name} ha restaurat el procés participatiu \"%{resource_name}\""
         soft_delete: "%{user_name} ha enviat a la paperera el procés participatiu \"%{resource_name}\""
         unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
+        unpublish_all_members: "%{user_name} va despublicar a totes les membres del procés participatiu %{resource_name}"
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
       participatory_process_group:
         create: "%{user_name} ha creat el grup de processos participatius %{resource_name}"
@@ -300,10 +285,6 @@ ca-IT:
         create: "%{user_name} ha creat la fase %{resource_name} en el procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la fase %{resource_name} en el procés participatiu %{space_name}"
         update: "%{user_name} ha actualitzat la fase %{resource_name} en el procés participatiu %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} ha creat el tipus de procés participatiu %{resource_name}"
-        delete: "%{user_name} ha esborrat el tipus de procés participatiu %{resource_name}"
-        update: "%{user_name} ha actualitzat el tipus de procés participatiu %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
@@ -334,17 +315,14 @@ ca-IT:
           contextual: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           page: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           title: Què és un procés participatiu?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Aquest tipus de procés no s''ha trobat a la base de dades (ID: %{id}).'
     menu:
       processes: Processos
     open_data:
       help:
         participatory_processes:
-          announcement: La informació de l'anunci/avís (crida)
+          access_mode: 'Tipus d''accés: Si el procés participatiu és obert, restringit o transparent.'
           area: L'àrea a què pertany aquest procés
+          component_settings: Configuració dels components del procés participatiu
           created_at: La data en què es va crear aquest procés participatiu
           description: Una descripció llarga del procés
           developer_group: El grup promotor del procés. Qui està promovent el procés.
@@ -410,20 +388,6 @@ ca-IT:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                legend: En quants idiomes s'ha comunicat el procés?
-                options:
-                  five: Més de la meitat dels idiomes parlats a la comunitat = 5
-                  one: Un idioma = 1
-                  two_five: Més de la meitat dels idiomes parlats a la comunitat = 2,5
-              name: Accessibilitat
-              venue_accessibility:
-                legend: '¿Les sales de les trobades presencials eren accessibles per a les persones amb mobilitat reduïda?'
-                options:
-                  five: Sí = 5
-                  two_five: Parcialment = 2.5
-                  zero: No = 0
             announcement:
               body_html: |-
                 <ul>
@@ -432,101 +396,150 @@ ca-IT:
                 </ul>
               title: 'Aquest bloc de contingut inclou dos tipus de mètriques:'
             citizen_influence:
-              citizen_influence_level:
-                legend: Nivell d'influència del procés tenint en compte els mecanismes de participació habilitats, segons l'escala de participació definida per Satin i Arnstein (1969).
+              citizen_decisional_intervention:
+                legend: De totes les fases del procés (des de la selecció de les propostes fins al seguiment de la seva execució), en quantes ha tingut la ciutadania la capacitat de prendre decisions o emprendre accions executives?
                 options:
-                  five: Control ciutadà = 5
-                  five_description: Un nivell de participació més alt on la ciutadania governa plenament un programa o institució, gestionen polítiques, recursos i presa de decisions sense interferència externa.
-                  four: Competència delegada = 4
-                  four_description: Un procés participatiu en què la ciutadania adquireix autoritat, control o finançament per influir en una organització i gestionar-la.
-                  one: Consultiu = 1
-                  one_description: Un procés participatiu en què es demana a la ciutadania la seva opinió, normalment mitjançant enquestes o reunions, però sense garantia que la seva aportació influeixi en les decisions.
-                  three: Col·laboratiu = 3
-                  three_description: Un procés participatiu en què la ciutadania i el teixit associatiu comparteixen el poder de decisió, cosa que permet a les participants negociar, assignar recursos i influir en la planificació, amb normes que no es poden modificar unilateralment. Sol sorgir de la mobilització ciutadana i l'acció col·lectiva.
-                  two: Participació simbòlica = 2
-                  two_description: Un procés participatiu en què es concedeix a la ciutadania una influència limitada, sovint de manera simbòlica, com ara la inclusió en juntes o comitès, però sense poder real, ja que la presa de decisions continua controlada per l'elit de poder tradicional.
-                  zero: Informatiu = 0
-                  zero_description: El flux d'informació és unidireccional –del personal municipal cap a la ciutadania– sense canal de retroalimentació ni capacitat de negociació.
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: Fins a quin punt la ciutadania té autoritat decisòria en aquest procés, des de la recepció d'informació fins a la influència decisiva en les decisions i en la gestió de recursos?
+                options:
+                  five: Les participants van estar involucrades en la presa de decisions i en la gestió dels recursos o en la implementació
+                  four: Les participants van estar involucrades decisivament en la presa de decisions
+                  one: Les participants van rebre informació de l'organització
+                  three: Les participants van participar per compartir el poder decisió
+                  two: Es va demanar a les participants que donessin la seva opinió de manera consultiva o que proporcionessin comentaris a l'organització
               name: Influència ciutadana
             inclusiveness:
-              cultural_origins_participation:
-                legend: Quantes persones d'orígens culturals diversos han participat al marge dels convidats?
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
               description: Inclusió segons l'origen cultural i la diversitat funcional.
+              digital_support_offered:
+                legend: S'ha ofert suport digital a les participants?
+                options:
+                  five: 'Sí'
+                  two_five: Parcialment
+                  zero: 'No'
               functional_diversity_invited:
-                legend: S'ha convidat a grups de persones amb diversitat funcional a participar?
+                legend: Com s'avalua el grau de diversitat d'agents i participants pel que fa a la població de referència en el procés?
                 options:
-                  five: Sí = 5
-                  zero: No = 0
-              functional_diversity_participation:
-                legend: Quantes persones amb diversitat funcional han participat al marge de les convidades?
+                  five: Bé
+                  one: Baix
+                  two_five: Suficient
+                  zero: Cap
+              languages_communicated:
+                legend: Quants idiomes s'han fet servir en el procés?
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
-                legend: S'ha convidat a participar persones d'orígens diversos?
+                  five: Més de la meitat dels idiomes parlats a la comunitat
+                  one: Un idioma
+                  two_five: Menys de la meitat dels idiomes parlats a la comunitat
+              mobility_meeting_access:
+                legend: '¿Les sales de les trobades presencials eren accessibles per a les persones amb mobilitat reduïda?'
                 options:
-                  five: Sí = 5
-                  zero: No = 0
+                  five: 'Sí'
+                  two_five: Parcialment
+                  zero: 'No'
               name: Inclusió
-            relevance:
-              description: 'Rellevància de l''impacte, com ara: percentatge del pressupost de l''organització, dels recursos humans l''organització implicats, o del total de la població, que es veurà afectada pels resultats del procés, i el temps dedicat per a tal impacte.'
-              name: Rellevància
-              relevance_percentage:
-                legend: Percentatge del pressupost de l'organització, recursos humans l'organització implicats, o el total de la població, que es veurà afectada pels resultats del procés.
+              participation_scheduling_times:
+                legend: Les sessions de participació s'han programat en diferents horaris (matí, migdia, tarda, nit i caps de setmana).
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
+                  five: 'Sí'
+                  two_five: Parcialment
+                  zero: 'No'
+            informativeness:
+              information_provided:
+                legend: S'ha facilitat informació a les participants sobre quina era la capacitat d'influència que tenia en el tema que es debatia? (tant a la comunicació del procés i les invitacions, com a l'inici de cada sessió de debat)
+                options:
+                  five: Sempre
+                  one: Gairebé mai
+                  two_five: De manera general
+                  zero: Mai
+              name: Informatiu
+              published_information_clarity:
+                legend: S'ha facilitat i/o publicat informació clara sobre els mecanismes de presa de decisions? (per exemple, votació, consens, negociacions directes)
+                options:
+                  five: Amb total claredat
+                  one: Amb poca claredat
+                  two_five: Amb prou claredat
+                  zero: Cap mena de claredat
           highlighted_processes:
             active: Actius
             all: Tots
             max_results: Quantitat màxima d'elements que es mostraran
             selection_criteria: Criteris de selecció
+        imports:
+          attachment_error: No s'ha pogut importar l'arxiu adjunt "%{title}" (%{error}).
+          hero_image_error: No s'ha pogut importar la imatge principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+          help_html: Aquesta funció d'importació et permet crear un nou procés participatiu a partir d'un fitxer JSON exportat. Pots exportar un procés participatiu d'una altra organització o de la mateixa organització. El procés participatiu importat inclourà la seva configuració, els components i els fitxers adjunts (si s'han seleccionat).
+        participatory_process_duplicates:
           form:
-            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help_html: 'Els segments d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Duplicar el procés participatiu
         participatory_process_groups:
+          edit:
+            title: Editar el grup de procés
           form:
             metadata: Metadades
             title: Quant a aquest procés
             visibility: Visibilitat
+          index:
+            title: Grups de processos participatius
+          new:
+            title: Nou grup de processos
         participatory_process_imports:
           form:
             document_legend: Afegeix un document
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Importar un procés participatiu
         participatory_process_steps:
-          form:
-            cta_path_help_html: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Si no s''estableix cap ruta, el botó no es mostrarà. Exemple: %{url}'
-            cta_text_help: Si no s'estableix cap ruta el botó no es mostrarà.
+          edit:
+            title: Editar la fase de procés participatiu
+          index:
+            title: Fases del procés
+          new:
+            title: Nova fase del procés participatiu
+        participatory_process_user_roles:
+          edit:
+            title: Actualitzar l'administradora del procés participatiu
+          index:
+            title: Administradores del procés participatiu
+          new:
+            title: Nova administradora del procés participatiu
         participatory_processes:
+          edit:
+            title: Quant a aquest procés
           form:
-            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
+            access:
+              label: Accés
+              options:
+                open: Qualsevol pot veure i participar en el procés participatiu.
+                restricted: Només membres i administradores poden veure aquesta assemblea i participar-hi. No apareixerà a la cerca general, API, ni als arxius de dates oberts.
+                transparent: Qualsevol pot veure el procés participatiu, però només membres i administradores hi poden participar.
+              set_this_space_as: Defineix el tipus d'accés a aquest espai
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
+            has_members_help: Podràs crear i publicar membres
             images: Imatges
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
-            private_notice: Podràs administrar les membres un cop haguis configurar l'espai com a privat
             related_processes: Processos relacionats
             select_process_group: Selecciona un grup de processos
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
+          index:
+            title: Processos participatius
+          manage_trash:
+            title: Processos participatius eliminats
+          new:
+            title: Nou procés participatiu
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -544,20 +557,18 @@ ca-IT:
           global_score:
             description_html: A continuació es mostren un conjunt d'indicadors emprats per avaluar la qualitat democràtica d'aquest procés participatiu. Per a més detalls sobre com es calculen, consulteu la pàgina <a href="%{info_url}">d'informació sobre els indicadors de qualitat democràtica</a>.
             name: Puntuació general
-            note: "*Els indicadors es mesuren en una escala d'1 a 5, on 1 representa la menor i 5 la qualitat de participació més gran."
+            note: "*Els indicadors es mesuren en una escala d'1 a 5, on 1 representa el menor i 5 l'indicador més alt de qualitat de participació."
             tooltip: Basada en la mitjana de totes les dimensions
-          name: Qualitat de la participació
+          name: Indicador de qualitat
           qualitative_metrics:
             description: Aquests indicadors s'obtenen de les respostes a una enquesta d'autoavaluació feta pels responsables del procés participatiu.
             indicators:
-              accessibility: Accessibilitat
-              accessibility_tooltip: El procés ha estat comunicat en els idiomes parlats a la comunitat i els espais utilitzats en les trobades presencials han estat accessibles per a les persones amb mobilitat reduïda.
               citizen_influence: Influència ciutadana
               citizen_influence_tooltip: Es mesura la capacitat d'incidència de les participants a la presa de decisions.
               inclusiveness: Inclusió
-              inclusiveness_tooltip: Avalua si totes les parts interessades estan representades equitativament
-              relevance: Rellevància
-              relevance_tooltip: 'Rellevància de l''impacte, com ara: percentatge del pressupost de l''organització, dels recursos humans l''organització implicats, o del total de la població, que es veurà afectada pels resultats del procés, i el temps dedicat per a tal impacte.'
+              inclusiveness_tooltip: Avalua si totes les parts interessades estan representades equitativament.
+              informativeness: Grau d'informació
+              informativeness_tooltip: Mesura el nivell de claredat i la informació proporcionada dins del procés.
             name: Mètriques de l'autoavaluació
         extra_data:
           name: Fase i durada
@@ -617,12 +628,8 @@ ca-IT:
           type: Tipus
         show:
           title: Quant a aquest procés
-      participatory_space_private_users:
-        index:
-          title: Membres
       show:
         belongs_to_group: Aquest procés pertany a
-        private_space: Aquest és un procés privat
         related_processes: Processos relacionats
       static_pages:
         democratic_quality_indicators:

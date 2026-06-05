@@ -33,6 +33,7 @@ nl:
       actions:
         edit: Bewerk
         import: Voorstellen importeren in projecten
+        new_project: Nieuw project
         preview: Voorbeeld
         title: Acties
       admin:
@@ -52,13 +53,10 @@ nl:
         exports:
           projects: Projecten
         models:
-          budget:
-            name: Budget
           project:
             name: Project
         projects:
           edit:
-            title: Bewerk project
             update: Bijwerken
           index:
             actions: Acties
@@ -70,12 +68,10 @@ nl:
             update: Bijwerken
           new:
             create: Creëren
-            title: Nieuw project
         proposals_imports:
           new:
             create: Voorstellen importeren in projecten
             default_budget: Standaard budget
-            import_all_accepted_proposals: Alle geaccepteerde voorstellen importeren
             no_components: Er zijn geen andere voorstelonderdelen in deze participatieruimte om voorstellen in projecten te kunnen importeren.
             origin_component_id: Oorsprong component
             select_component: Selecteer een component
@@ -116,7 +112,6 @@ nl:
             total_budget: Totale budget
         project:
           fields:
-            id: ID
             title: Titel
       order:
         status:
@@ -229,13 +224,6 @@ nl:
               disabled: Stemmen uitgeschakeld
               enabled: Stemmen ingeschakeld
               finished: Stemmen beëindigd
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
-          email_subject: De stap %{resource_title} budget is nu geactiveerd voor %{participatory_space_title}.
-          notification_title: Budget <a href="%{resource_path}">%{resource_title}</a> is nu geactiveerd in %{participatory_space_title}.
     resource_links:
       included_proposals:
         project_proposal: Voorstellen opgenomen in dit project

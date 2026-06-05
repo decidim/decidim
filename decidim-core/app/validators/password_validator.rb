@@ -55,7 +55,9 @@ class PasswordValidator < ActiveModel::EachValidator
   attr_reader :record, :attribute, :value
 
   def get_message(reason)
-    I18n.t "password_validator.#{reason}"
+    I18n.t! "password_validator.#{reason}"
+  rescue I18n::MissingTranslationData
+    I18n.t "password_validator.fallback"
   end
 
   def organization

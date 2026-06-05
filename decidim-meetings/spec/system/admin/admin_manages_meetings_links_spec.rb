@@ -23,6 +23,20 @@ describe "Admin manages meetings" do
       expect(page).to have_css("tbody tr:first-child", text: Decidim::Meetings::MeetingPresenter.new(other_meeting).title)
       expect(page).to have_css("tbody tr:last-child", text: Decidim::Meetings::MeetingPresenter.new(meeting).title)
     end
+
+    it "redirects to the proper edit meeting page, outside the linked meeting" do
+      expect(resource_locator(meeting).admin_index).to include(current_path)
+
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(other_meeting).title do
+        expect(page).to have_text("This meeting must be edited from")
+        click_on translated(other_participatory_space.title)
+      end
+
+      expect(page).to have_current_path(resource_locator(other_meeting).edit)
+      click_on "Update"
+
+      expect(page).to have_current_path(resource_locator(other_meeting).admin_index)
+    end
   end
 
   describe "linking a meeting" do
@@ -39,11 +53,12 @@ describe "Admin manages meetings" do
       end
 
       within ".js-components" do
-        expect(page).to have_content(other_meeting.component.manifest.name)
+        expect(page).to have_text(other_meeting.component.manifest.name)
       end
 
       expect do
         click_on "Update"
+        sleep 1
       end.to change { meeting.meeting_links.count }.by(1)
     end
   end

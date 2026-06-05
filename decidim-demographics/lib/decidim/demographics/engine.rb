@@ -8,7 +8,7 @@ module Decidim
       isolate_namespace Decidim::Demographics
 
       routes do
-        resource :demographics, only: [:show, :respond, :destroy] do
+        resource :demographics, only: [:show, :destroy] do
           collection do
             post :respond
           end
@@ -18,6 +18,12 @@ module Decidim
       initializer "decidim_demographics.register_admin" do
         Decidim::Core::Engine.routes do
           mount Decidim::Demographics::Engine => "/", :as => :demographics_engine
+        end
+      end
+
+      initializer "decidim_demographics.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
         end
       end
 
@@ -33,7 +39,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_demographics.webpacker.assets_path" do
+      initializer "decidim_demographics.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end

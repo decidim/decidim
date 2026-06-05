@@ -246,10 +246,6 @@ lt:
       organization:
         update: "%{user_name} atnaujino organizacijos nustatymus"
         update_external_domain: "%{user_name} atnaujino organizacijos išorinius domenus"
-      participatory_space_private_user:
-        create: "%{user_name} pakvietė %{resource_name} būti privačiu dalyviu"
-        create_via_csv: "%{user_name} pakvietė %{resource_name} per CSV tapti privačiu dalyviu"
-        delete: "%{user_name} pašalino %{resource_name} dalyvį iš privačių dalyvių"
       scope:
         create: "%{user_name} sukūrė %{resource_name} sritį"
         create_with_parent: "%{user_name} sukūrė %{resource_name} sritį %{parent_scope} srityje"
@@ -350,9 +346,6 @@ lt:
         success: Pataisos juodraštis sėkmingai atnaujintas.
       withdraw:
         success: Pataisa sėkmingai atsiimta.
-      wizard_step_form:
-        steps:
-          '1': Sukurkite savo pataisą
     anonymous_user: Anonimas
     application:
       document:
@@ -502,8 +495,6 @@ lt:
         description: Aprašymas
       footer_sub_hero:
         name: Apatinės dalies reklamjuostė
-      global_menu:
-        name: Globalus meniu
       hero_settings_form:
         background_image: Foninis paveikslėlis
         welcome_text: Pasveikinimo tekstas
@@ -644,13 +635,9 @@ lt:
           affected_user:
             email_intro: 'Pataisa %{amendable_title} buvo priimta. Galite tai pamatyti:'
             email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
-            email_subject: '%{amendable_title} pataisa priimta iš %{emendation_author_nickname}'
-            notification_title: <a href="%{emendation_path}"><a href="%{emendation_path}">Pataisa</a> sukurta <a href="%{emendation_author_path}"><a href="%{emendation_author_path}">%{emendation_author_nickname}</a> buvo priimta <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Pataisa %{amendable_title} buvo priimta. Galite tai pamatyti:'
             email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
-            email_subject: '%{amendable_title} pataisa priimta iš %{emendation_author_nickname}'
-            notification_title: <a href="%{emendation_path}"><a href="%{emendation_path}">Pataisa</a> sukurta <a href="%{emendation_author_path}"><a href="%{emendation_author_path}">%{emendation_author_nickname}</a> buvo priimta <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Nauja pataisa buvo sukurta %{amendable_title}. Galite ją pamatyti šiame puslapyje:'
@@ -666,24 +653,16 @@ lt:
           affected_user:
             email_intro: 'Atmesta pataisa %{amendable_title} buvo paskelbta kaip nauja %{amendable_type}. Galite tai pamatyti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
-            email_subject: '%{emendation_author_nickname} parengtas pakeitimas paskelbtas kaip naujas %{amendable_type}'
-            notification_title: <a href="%{emendation_path}">Atmesta pataisa</a>dėl<a href="%{amendable_path}">%{amendable_title} buvo publikuota kaip nauja%{amendable_type}<a href="%{emendation_author_path}">%{emendation_author_nickname}.
           follower:
             email_intro: 'Atmesta pataisa %{amendable_title} buvo paskelbta kaip nauja %{amendable_type}. Galite tai pamatyti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
-            email_subject: '%{emendation_author_nickname} publikavo naują pataisą kaip %{amendable_type}'
-            notification_title: <a href="%{emendation_path}">Atmesta pataisa</a>dėl<a href="%{amendable_path}">%{amendable_title} buvo publikuota kaip nauja%{amendable_type}<a href="%{emendation_author_path}">%{emendation_author_nickname}.
         amendment_rejected:
           affected_user:
             email_intro: 'Atmesta %{amendable_title} pataisa. Ją galite pamatyti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
-            email_subject: Atmesta %{emendation_author_nickname} parengta %{amendable_title} pataisa
-            notification_title: <a href="%{emendation_path}">Pataisa</a>sukurta<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>buvo atmesta dėl<a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Atmesta %{amendable_title} pataisa. Ją galite pamatyti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
-            email_subject: Atmesta %{emendation_author_nickname} parengta %{amendable_title} pataisa
-            notification_title: <a href="%{emendation_path}">Pataisa</a>sukurta<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>buvo atmesta dėl<a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Prie %{resource_title} pridėtas naujas dokumentas. Jį galite pamatyti šiame puslapyje:'
@@ -722,16 +701,9 @@ lt:
             </br>
             <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: '%{name} (%{nickname}), profilio puslapis, <a href="%{resource_url}">, kurį sekate</a> buvo atnaujintas.'
-          email_outro: Šį pranešimą gavote dėl to, kad sekate %{nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
-          email_subject: "%{nickname} atnaujino savo profilį"
-          notification_title: '%{name} (%{nickname}) profilio puslapis, <a href="%{resource_path}">, kurį sekate</a> buvo atnaujintas.'
         user_officialized:
-          email_intro: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
           email_outro: Šį pranešimą gavote dėl to, kad esate organizacijos administratorius.
           email_subject: "%{name} buvo oficializuotas"
-          notification_title: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
     export_mailer:
       download_your_data_export:
         download: Atsisiųsti
@@ -900,7 +872,6 @@ lt:
         latlng_text: 'platuma: %{latitude}, ilguma: %{longitude}'
         map_service_brand: 'OpenStreetMap: Žemėlapis'
     menu:
-      help: Pagalba
       home: Pagrindinis
     messaging:
       conversation_mailer:
@@ -978,18 +949,15 @@ lt:
         main_image: Pagrindinis atvaizdas
     newsletters:
       unsubscribe:
-        check_subscription: Jei norite pakeisti savo parinktis, galite tai padaryti <a href="%{link}" target="_blank">konfigūracijos puslapyje</a>.
         error: Atsisakant prenumeratos iškilo problema.
         success: Jūs atsisakėte prenumeratos.
         token_error: Nuorodos galiojimo laikas baigėsi.
-        unsubscribe: Atsisakyti prenumeratos
     newsletters_opt_in:
       update:
         error: Išsaugant naujienlaiškių nuostatas iškilo problema.
         success: Naujienlaiškio nuostatos atnaujintos.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Asmens duomenų tvarkymas ir jų apsauga mums visiems tampa vis svarbesni. 2018 m. gegužės 25 d. priėmus naują Bendrąjį duomenų apsaugos reglamentą (BDAR), asmenys geriau kontroliuoja savo asmens duomenis. Dėl šios priežasties jums reikia spustelėti „Gerai“, kad galėtume ir toliau siųsti reikiamą informaciją apie %{organization_name} veiklą.
         body_2: 'Kaip duoti sutikimą? Spustelkite ant šio mygtuko:'
         body_3: Davę šį sutikimą galėsite ir toliau gauti informaciją apie platformos paslaugas. Kita vertus, jeigu negausime Jūsų sutikimo, Jums nebesiųsime pranešimų. Patvirtinę, kad norite ir toliau gauti informaciją, visada turėsite galimybę bet kuriuo metu sutikimą atšaukti.
         button: Taip, aš noriu ir toliau gauti aktualią informaciją
@@ -1066,13 +1034,10 @@ lt:
           proposals_explanation: Teikite pasiūlymus, remkite esamus ir skatinkite pakeitimus, kuriuos norite matyti.
         footer_sub_hero:
           footer_sub_hero_headline: Sveiki atvykę į %{organization} dalyvavimo platformą.
-          register: Registruotis
         hero:
           participate: Dalyvauti
           participate_title: Dalyvauti platformos procesuose
           welcome: Sveiki atvykę į %{organization}!
-        sub_hero:
-          register: Registruotis
       index:
         standalone_pages: Puslapiai
         subheading: Naršyti %{name} pagalbos puslapiuose
@@ -1095,6 +1060,9 @@ lt:
           alert: Mes atnaujinote savo sąlygas, peržiūrėkite jas.
           body: Prašytume peržiūrėti mūsų atnaujintas sąlygas. Priešingu atveju šia platforma naudotis negalėsite.
           title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
+    participatory_space_members:
+      index:
+        members: Nariai
     passwords:
       update:
         error: Atnaujinant slaptažodį iškilo problema.
@@ -1287,8 +1255,6 @@ lt:
         submit_button: Siųsti pakvietimą
       no_invitations_remaining: Kvietimų neliko
       send_instructions: Kvietimo e. laiškas išsiųstas %{email}.
-      updated: Jūsų slaptažodis buvo sėkmingai nustatytas. Dabar esate prisijungę.
-      updated_not_active: Jūsų slaptažodis nustatytas.
     mailer:
       confirmation_instructions:
         action: Patvirtinti mano paskyrą
@@ -1308,17 +1274,13 @@ lt:
           Jei nenorite priimti kvietimo, nekreipkite dėmesio į šį e. laišką. <br />
           jūsų paskyra nebus sukurta tol, kol nespustelėsite pirmiau pateiktos nuorodos ir nenustatysite savo naudotojo vardo ir slaptažodžio.
         invited_you_as_admin: "%{invited_by} pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
-        invited_you_as_private_user: "%{invited_by} pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
         someone_invited_you: Kažkas pakvietė jus į %{application}. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         someone_invited_you_as_admin: Kažkas pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
-        someone_invited_you_as_private_user: Kažkas pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         subject: Kvietimo nurodymai
       invite_admin:
         subject: Esate pakviestas tvarkyti %{organization}
       invite_collaborator:
         subject: Esate pakviesta(-s) bendradarbiauti %{organization}
-      invite_private_user:
-        subject: Esate pakviesta(-s) į %{organization} uždarą dalyvaujamąjį procesą
       organization_admin_invitation_instructions:
         subject: Esate pakviesta(-s) tvarkyti %{organization}
       password_change:
@@ -1553,7 +1515,6 @@ lt:
       impersonation_warning:
         close_session: Uždaryti seansą
         description_html: Jūs administruojate dalyvį <b>%{user_name}</b>.
-        expire_time_html: Jūsų seansas baigsis po <b><span class="minutes">%{minutes}</span> minučių</b>.
       language_chooser:
         choose_language: Pasirinkti kalbą
       notifications_dashboard:
@@ -1598,7 +1559,6 @@ lt:
     name_included_in_password: per daug panašus į jūsų vardą, pavardę
     nickname_included_in_password: yra per daug panašus į jūsų slapyvardį
     not_enough_unique_characters: neturi pakankamai unikalių simbolių
-    password_not_allowed: draudžiama
     password_repeated: seno slaptažodžio naudoti negalima
     password_too_common: per daug įprastas
     password_too_long: per ilgas

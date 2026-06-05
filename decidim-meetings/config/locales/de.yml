@@ -33,7 +33,7 @@ de:
         registration_terms: Registrierungsbedingungen
         registration_type: Registrierungstyp
         registration_url: Registrierungs-URL
-        registrations_enabled: Registrierungen aktiviert
+        registrations_enabled: Anmeldungen aktiviert
         reserved_slots: Reservierte Plätze für diese Veranstaltung
         start_time: Startzeit
         title: Titel
@@ -73,7 +73,7 @@ de:
     models:
       decidim/meetings/close_meeting_event: Veranstaltung abgeschlossen
       decidim/meetings/create_meeting_event: Veranstaltung
-      decidim/meetings/meeting_registrations_enabled_event: Registrierungen aktiviert
+      decidim/meetings/meeting_registrations_enabled_event: Anmeldungen aktiviert
       decidim/meetings/meeting_registrations_over_percentage_event: Anmeldungen über Limit
       decidim/meetings/upcoming_meeting_event: Bevorstehende Veranstaltung
       decidim/meetings/update_meeting_event: Veranstaltung aktualisiert
@@ -145,13 +145,23 @@ de:
           success: Veranstaltung erfolgreich dupliziert.
         new:
           copy: Kopieren
-          title: Veranstaltung duplizieren
+      tooltips:
+        cannot_close_meetings: Diese Veranstaltung kann nicht abgeschlossen werden, da sie von einem Teilnehmenden erstellt wurde
+        cannot_duplicate_meetings: Dieses Meeting kann nicht dupliziert werden, da es von einem Teilnehmenden erstellt wurde
+        cannot_edit_meetings: Diese Veranstaltung kann nicht bearbeitet werden, da sie von einem Teilnehmenden erstellt wurde
+        cannot_manage_agenda_meetings: Die Traktanden dieser Veranstaltung können nicht verwaltet werden, da sie von einem Teilnehmenden erstellt wurden
+        cannot_manage_attachments_meetings: Die Anhänge dieser Veranstaltung können nicht verwaltet werden, da sie von einem Teilnehmenden erstellt wurden
+        cannot_manage_poll_meetings: Die Umfragen in dieser Veranstaltung können nicht verwaltet werden, da sie von einem Teilnehmenden erstellt wurden
+        cannot_manage_registrations_meetings: Anmeldungen zu dieser Veranstaltung können nicht verwaltet werden, da die Veranstaltung entweder von einem Teilnehmenden erstellt wurde oder die Anmeldungen entweder deaktiviert sind oder extern stattfinden.
+        cannot_mark_attendee: Der Teilnehmende konnte nicht ausgewählt werden, weil er bereits zuvor ausgewählt wurde.
+        deleted_meetings_info: Diese Veranstaltung kann nicht gelöscht werden, da sie von einem Teilnehmenden erstellt wurde.
     components:
       meetings:
         actions:
           comment: Kommentieren
           join: Beitreten
           reply_poll: Umfrage beantworten
+          vote_comment: Kommentar bewerten
         name: Veranstaltungen
         settings:
           global:
@@ -200,8 +210,8 @@ de:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Ihre Sitzung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Sitzung "%{resource_title}" organisiert haben.
+            email_intro: 'Ihre Veranstaltung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Veranstaltung "%{resource_title}" organisiert haben.
             email_subject: Die Veranstaltung "%{resource_title}" wurde geschlossen
             notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
           follower:
@@ -218,13 +228,13 @@ de:
         meeting_registration_confirmed:
           notification_title: Ihre Anmeldung zur Veranstaltung <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt. Ihr Registrierungscode ist %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Die Slots der Sitzung "%{resource_title}" sind zu über %{percentage}% belegt.
+          email_intro: Die Plätze der Veranstaltung "%{resource_title}" sind zu über %{percentage}% belegt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Besprechung sind.
-          email_subject: Plätze der Sitzung "%{resource_title}" sind zu %{percentage}% belegt
-          notification_title: Die Slots der Sitzung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
+          email_subject: Die Plätze der Veranstaltung "%{resource_title}" sind zu %{percentage}% belegt
+          notification_title: Die Plätze der Veranstaltung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         meeting_updated:
           email_intro: 'Es gab ein Aktualisierung %{changed_fields} zur Veranstaltung "%{resource_title}". Die aktuellen Angaben finden Sie auf:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
           email_subject: Die Veranstaltung "%{resource_title}" wurde aktualisiert
           field_names:
             address: der Adresse
@@ -245,12 +255,16 @@ de:
           email_subject: Bei Ihrer Anmeldung für die Veranstaltung "%{resource_title}" wurde die Teilnahme bestätigt
           notification_title: Bei Ihrer Anmeldung für die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde Ihre Teilnahme bestätigt.
         registrations_enabled:
-          email_intro: 'Die Veranstaltung "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Veranstaltungsseite registrieren:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Die Veranstaltung "%{resource_title}" hat Registrierungen aktiviert.
-          notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
+          email_intro: 'Die Veranstaltung "%{resource_title}" hat die Anmeldung aktiviert. Sie können sich auf der Veranstaltungsseite anmelden:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
+          email_subject: Die Veranstaltung "%{resource_title}" hat die Anmeldung aktiviert.
+          notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> hat die Anmeldung aktiviert.
         upcoming_meeting:
-          default_body: Die Sitzung "{{meeting_title}}" beginnt in weniger als {{before_hours}} Stunden.
+          default_body: Die Veranstaltung "{{meeting_title}}" beginnt in weniger als {{before_hours}} Stunden.
+          email_intro: Die Veranstaltung "%{resource_title}" beginnt in weniger als %{reminders_before_hours} Stunden.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenenLink.
+          email_subject: Die Veranstaltung "%{resource_title}" beginnt in weniger als %{reminders_before_hours} Stunden.
+          notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als %{reminders_before_hours} Stunden.
     forms:
       meetings:
         attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmenden an Ihrer Veranstaltung anzugeben, egal ob sie persönlich, online oder hybrid stattgefunden hat.
@@ -260,10 +274,10 @@ de:
           conditions:
             - Registrieren Sie sich für die Veranstaltungen, an denen Sie teilnehmen möchten
           description: Dieses Abzeichen wird gewährt, wenn Sie mehrere physisch stattfindende Veranstaltungen besuchen.
-          description_another: Dieser Benutzer hat an %{score} Veranstaltungen teilgenommen.
-          description_own: Sie haben an %{score} Sitzungen teilgenommen.
+          description_another: Dieser Teilnehmende hat an %{score} Veranstaltungen teilgenommen.
+          description_own: Sie haben an %{score} Veranstaltungen teilgenommen.
           name: Besuchte Veranstaltungen
-          next_level_in: Nimm an %{score} weiteren Veranstaltungen teil, um das nächste Level zu erreichen!
+          next_level_in: Nehmen Sie an %{score} weiteren Veranstaltungen teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Teilnehmende hat noch keine Veranstaltungen besucht.
           unearned_own: Sie haben noch keine Veranstaltung besucht.
     meetings:
@@ -271,6 +285,7 @@ de:
         agenda: Agenda
         close: Schließen
         confirm_delete_meeting: Möchten Sie diese Veranstaltung wirklich löschen?
+        confirm_unpublish_meeting: Sind Sie sicher, dass Sie die Veröffentlichung dieser Veranstaltung aufheben möchten?
         deleted_meetings_info: Gelöschte Veranstaltungen können aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
         invalid_destroy:
@@ -315,6 +330,7 @@ de:
           update:
             invalid: Beim Aktualisieren des Traktandums ist ein Problem aufgetreten.
             success: Traktandum erfolgreich aktualisiert.
+        deprecation_warning_polls_html: "⚠️ <b>Warnung zur Entfernung.</b> Die Umfragefunktion bei Veranstaltungen wird in einer zukünftigen, noch zu bestimmenden Version entfernt werden. Organisationen, die Veranstaltungsumfragen nutzen, sollten die Verwendung externer Wahlwerkzeuge planen (zum Beispiel durch Jitsi) oder zu anderen Wahlmechanismen migireren, die in Decidim verfügbar sind, wie zum Beispiel das neue Wahlmodul (`decidim-elections`)."
         exports:
           meeting_comments: Kommentare
           meetings: Veranstaltungen
@@ -337,7 +353,6 @@ de:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
         meeting_closes:
@@ -352,7 +367,7 @@ de:
             unlink: Verlinkung aufheben
           create:
             invalid: Beim Erstellen dieser Veranstaltung ist ein Problem aufgetreten.
-            success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
+            success: Veranstaltung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
           edit:
             title: Veranstaltung bearbeiten
             update: Aktualisieren
@@ -361,7 +376,7 @@ de:
             disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
             iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
-            location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
+            location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude, wenn es eine Veranstaltung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmenden, sich direkt mit Ihrer Veranstaltung zu verbinden'
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte einen Veranstaltungstyp auswählen
@@ -369,12 +384,13 @@ de:
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
           index:
             linked_meeting_warning_html: Diese Veranstaltung muss von <br><a href="%{href}">%{name}</a> bearbeitet werden
+            published: Veröffentlicht
             title: Veranstaltungen
+            unpublished: Unveröffentlicht
           linked_spaces:
             assign: Zuweisen
             link_a_space: Bereich verknüpfen
             private_meeting_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung privat und nicht transparent ist.
-            private_space_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung privat und nicht transparent ist.
             select: Einen Bereich auswählen
             table:
               actions: Aktionen
@@ -388,6 +404,13 @@ de:
           publish:
             invalid: Beim Veröffentlichen dieser Veranstaltung ist ein Fehler aufgetreten.
             success: Veranstaltung erfolgreich veröffentlicht.
+          reminders:
+            reminder_enabled: Eine Erinnerung für diese Veranstaltung senden
+            reminder_message: Erinnerungsnachricht
+            reminder_message_help_text: Passen Sie die Nachricht nach Bedarf an. Verwenden Sie {{meeting_title}}, um den Veranstaltungssnamen anzuzeigen.
+            send_reminder: Geplante Erinnerungs-E-Mail
+            send_reminder_help_text: Erinnerungszeit in Stunden vor der Veranstaltung.
+            title: Erinnerungen
           service:
             description: Beschreibung
             down: Nach unten
@@ -399,11 +422,11 @@ de:
             add_service: Dienst hinzufügen
             services: Dienstleistungen
           unpublish:
-            invalid: Beim Zurückziehen der Veröffentlichung dieser Sitzung ist ein Fehler aufgetreten.
-            success: Veröffentlichung der Sitzung erfolgreich rückgängig gemacht.
+            invalid: Beim Zurückziehen der Veröffentlichung dieser Veranstaltung ist ein Fehler aufgetreten.
+            success: Veröffentlichung der Veranstaltung erfolgreich rückgängig gemacht.
           update:
-            invalid: Beim Aktualisieren dieser Sitzung ist ein Problem aufgetreten.
-            success: Sitzung erfolgreich aktualisiert.
+            invalid: Beim Aktualisieren dieser Veranstaltung ist ein Problem aufgetreten.
+            success: Veranstaltung erfolgreich aktualisiert.
         meetings_poll:
           form:
             title: Fragebogen für %{questionnaire_for} bearbeiten
@@ -433,7 +456,6 @@ de:
               other: Es wurden %{count} Anmeldungen vorgenommen.
             reserved_slots_help: Belassen Sie den Wert auf 0, wenn Sie keine reservierten Slots haben.
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
-            title: Anmeldungen
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
@@ -454,11 +476,11 @@ de:
           deleted: "%{user_name} hat die Einladung von %{attendee_name} zur Veranstaltung %{resource_name} in %{space_name} entfernt"
           update: "%{user_name} hat %{attendee_name} eingeladen, an der Veranstaltung %{resource_name} in %{space_name} teilzunehmen"
         meeting:
-          close: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} geschlossen"
+          close: "%{user_name} hat die Veranstaltung %{resource_name} in %{space_name} geschlossen"
           create: "%{user_name} hat die Veranstaltung %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat die Veranststaltung %{resource_name} aus %{space_name} gelöscht"
-          export_registrations: "%{user_name} hat die Anmeldungen der Sitzung %{resource_name} in %{space_name} exportiert"
-          restore: "%{user_name} hat die Sitzung %{resource_name} des Bereichs %{space_name} wiederhergestellt"
+          export_registrations: "%{user_name} hat die Anmeldungen zur Veranstaltung %{resource_name} in %{space_name} exportiert"
+          restore: "%{user_name} hat die Veranstaltung %{resource_name} in %{space_name} wiederhergestellt"
           soft_delete: "%{user_name} hat die Veranstaltung %{resource_name} in %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} hat die Veranstaltung %{resource_name} in %{space_name} aktualisiert"
           value_types:
@@ -477,8 +499,8 @@ de:
         copy_calendar_url: Kopieren
         copy_calendar_url_clarification: Kalender-URL in Zwischenablage kopieren
         copy_calendar_url_copied: Kopiert!
-        copy_calendar_url_description: Sie können alle veröffentlichten Veranstaltungen in Ihrer Kalenderanwendung oder bei Ihrem Kalender-Anbieter sehen. Kopieren und fügen Sie diese URL mit der Option "Neuen Kalender von einer URL hinzufügen" in Ihren Kalender ein.
-        copy_calendar_url_explanation: Bitte beachten Sie, dass Sie eine Auswahl von Veranstaltungen exportieren, da es aktive Filter gibt. Wenn Sie alle Veranstaltungen exportieren möchten, setzen Sie zuerst alle Filter zurück.
+        copy_calendar_url_description: Sie können alle veröffentlichten Veranstaltungen auf Ihrer Kalenderanwendung anzeigen. Kopieren Sie diese URL und fügen Sie den Kalender mit der Option "Neuen Kalender von einer URL abonnieren" hinzu.
+        copy_calendar_url_explanation: Bitte beachten Sie, dass nur eine Auswahl von Veranstaltungen exportiert wird, weil Filter aktiv sind. Wenn Sie alle Veranstaltungen exportieren möchten, setzen Sie zuerst alle Filter zurück.
         copy_calendar_url_message: Die URL wurde erfolgreich in die Zwischenablage kopiert.
         export_calendar: Kalender exportieren
       close_meeting_reminder_mailer:
@@ -523,7 +545,7 @@ de:
       meeting_closes:
         edit:
           back: Zurück
-          close: Veranstaltung abschliessen
+          close: Veranstaltung beenden
           title: Veranstaltung beenden
       meetings:
         calendar_modal:
@@ -552,7 +574,7 @@ de:
             all: Alle
             past: Vergangene
             upcoming: Bevorstehende
-          my_meetings: Meine Sitzungen
+          my_meetings: Meine Veranstaltungen
           origin: Ursprung
           origin_values:
             all: Alle
@@ -571,7 +593,7 @@ de:
           disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungsdienstes ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
           iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
-          location_hints_help: 'Standorthinweise: Zusätzliche Informationen. Beispiel: die Etage des Gebäudes, wenn es sich um eine persönliche Sitzung oder das Sitzungspasswort, wenn es sich um ein Online-Meeting mit eingeschränktem Zugriff handelt.'
+          location_hints_help: 'Standorthinweise: Zusätzliche Informationen. Beispiel: die Etage des Gebäudes, wenn es sich um eine physische Veranstaltung oder das Passwort, wenn es sich um ein Online-Meeting mit eingeschränktem Zugang handelt.'
           online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrer Veranstaltung zu verbinden'
           registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
           select_a_meeting_type: Bitte eine Veranstaltungsart auswählen
@@ -612,7 +634,7 @@ de:
           link_available_soon: Link in Kürze verfügbar
           link_closed: Der Link, um an der Veranstaltung teilzunehmen, wird einige Minuten vor dem Start verfügbar sein
           live_event: Diese Veranstaltung findet gerade statt
-          meeting_minutes: Sitzungsprotokolle
+          meeting_minutes: Protokoll
           micro_camera_permissions_warning: Wenn Sie auf die Schaltfläche unten klicken, werden Sie nach Mikrofon- und/oder Kamera-Berechtigungen gefragt und Sie werden der Videokonferenz hinzugefügt
           no_slots_available: Keine Plätze verfügbar
           organizations: Teilnahme an Organisationen
@@ -652,9 +674,9 @@ de:
           fields:
             closed: Geschlossen
             end_time: Endtermin
-            id: ID
             map: Karte
             official_meeting: Offizielle Besprechung
+            published: Veröffentlicht
             start_time: Anfangsdatum
             taxonomies: Klassifizierungen
             title: Titel
@@ -705,6 +727,8 @@ de:
         hidden_participants_count:
           one: und %{count} weitere Person
           other: und %{count} weitere Personen
+        show_less: Weniger anzeigen
+        show_more: Mehr anzeigen
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
@@ -771,39 +795,39 @@ de:
           customize_registration_email: Die Möglichkeit, eine benutzerdefinierte E-Mail bei der Registrierung zu erlauben
           decidim_author_type: Autorentyp des Veranstaltungsautors
           description: Die Beschreibung der Veranstaltung
-          end_time: Das Datum und die Uhrzeit dieses Abschlusses der Veranstaltung
+          end_time: Das Datum und die Uhrzeit des Abschlusses dieser Veranstaltung
           follows_count: Die Anzahl der Folgen, die das Meeting hat
-          id: Die eindeutige Bezeichnung der Sitzung
+          id: Die eindeutige Bezeichnung der Veranstaltung
           iframe_access_level: Die iFrame-Zugriffsebene der Veranstaltung
-          iframe_embed_type: Die Art des iFrames, der in diese Veranstaltung eingebettet ist
+          iframe_embed_type: Die Art des iFrames, das in diese Veranstaltung eingebettet ist
           latitude: Der Breitengrad des Veranstaltungsorts
           location: Der Ort der Veranstaltung
           location_hints: Ein Hinweis auf den Ort, an dem die Veranstaltung stattfindet
           longitude: Der Längengrad des Veranstaltungsorts
           online_meeting_url: Die URL der Online-Veranstaltung
           organizations: Die Organisationen, die an dieser Veranstaltung teilnehmen
-          participatory_space: Zu welchem Bereich diese Sitzung gehört (z.B. Partizipationsprozesse oder Gremien)
+          participatory_space: Zu welchem Bereich diese Veranstaltung gehört (z.B. Beteiligungsprozesse oder Gremien)
           private_meeting: Um anzugeben, ob die Veranstaltung privat ist oder nicht
-          published: Wann die Sitzung veröffentlicht wurde
+          published: Wann die Veranstaltung veröffentlicht wurde
           reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
           registration_form_enabled: Ob das Anmeldeformular aktiviert wurde oder nicht
           registration_terms: Die Teilnahmebedingungen, die vor der Veranstaltung angenommen wurden
           registration_type: Die Art der Registrierung der Veranstaltung
           registration_url: URL der Veranstaltungsregistrierung
-          registrations_enabled: Ob Registrierungen erlaubt waren
-          related_proposals: Mit dieser Sitzung verknüpfte Vorschläge
-          related_results: Die mit dieser Sitzung verknüpfte Ergebnisse
+          registrations_enabled: Ob Anmeldungen erlaubt waren
+          related_proposals: Mit dieser Veranstaltung verknüpfte Vorschläge
+          related_results: Die mit dieser Veranstaltung verknüpfte Ergebnisse
           reserved_slots: Die Anzahl der reservierten Plätze für die Veranstaltung
-          start_time: Datum und Uhrzeit des Beginns dieser Sitzung
+          start_time: Datum und Uhrzeit des Beginns dieser Veranstaltung
           taxonomies: Die Klassifizierungen, zu denen diese Veranstaltung gehört
-          title: Der Titel der Sitzung
+          title: Der Titel der Veranstaltung
           transparent: Die Sichtbarkeit der Veranstaltung für Nicht-Teilnehmende
           type_of_meeting: Der Veranstaltungstyp
           updated_at: Das Datum, an dem die Veranstaltung zuletzt aktualisiert wurde
-          url: Die URL der Sitzung
+          url: Die URL der Veranstaltung
           video_url: Videoaufzeichnung der Veranstaltung
           withdrawn: Ob diese Veranstaltung zurückgezogen wurde
-          withdrawn_at: Wann diese Sitzung zurückgezogen wurde
+          withdrawn_at: Wann diese Veranstaltung zurückgezogen wurde
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Veranstaltungen
@@ -817,8 +841,10 @@ de:
         meeting_proposal: 'Ähnliche Vorschläge:'
         proposal_meeting: 'Ähnliche Veranstaltungen:'
     statistics:
-      attendees_count: Sitzungsteilnehmende
-      meetings_count: Sitzungen
+      attendees_count: Verantstaltungsteilnehmende
+      meetings_count: Veranstaltungen
+      meetings_count_tooltip: Die Anzahl der stattgefundenen Veranstaltungen, sowohl online als auch physisch.
+      participatory_space_meetings_count: Veranstaltungen
   devise:
     mailer:
       join_meeting:

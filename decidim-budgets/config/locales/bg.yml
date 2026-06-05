@@ -64,8 +64,6 @@ bg:
         exports:
           projects: Проекти
         models:
-          budget:
-            name: Бюджет
           project:
             name: Проект
         projects:
@@ -73,7 +71,6 @@ bg:
             invalid: Възникна проблем при създаването на този проект.
             success: Проектът беше създаден успешно.
           edit:
-            title: Редактиране на проект
             update: Актуализация
           index:
             actions: Активности
@@ -93,7 +90,6 @@ bg:
             update_budget_button: Актуализирайте бюджета на проекта
           new:
             create: Създаване
-            title: Нов проект
           update:
             invalid: Възникна проблем при актуализирането на този проект.
             success: Проектът беше актуализиран успешно.
@@ -109,7 +105,6 @@ bg:
           new:
             create: Импортиране на предложения в проекти
             default_budget: Бюджет по подразбиране
-            import_all_accepted_proposals: Импортиране на всички приети предложения
             no_components: Няма други компоненти на предложения в това пространство за участие за импортиране на предложенията в проекти.
             origin_component_id: Компонент за произход
             select_component: Моля, изберете компонент
@@ -170,7 +165,6 @@ bg:
             total_budget: Общ бюджет
         project:
           fields:
-            id: ID
             map: Карта
             title: Заглавие
       order:
@@ -226,9 +220,7 @@ bg:
           assigned: Възложен
           budget: Бюджет
           dynamic_help:
-            keep_adding_projects: Продължете да добавяте проекти
             minimum_reached: Достигнахте минимума, за да можете да гласувате
-            start_adding_projects: Започнете да добавяте проекти
           minimum: Минимум
         orders:
           highest_cost: Най-висока стойност
@@ -312,13 +304,6 @@ bg:
               disabled: Гласуването е деактивирано
               enabled: Гласуването е активирано
               finished: Гласуването е приключило
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Бюджетът %{resource_title} вече е активен за %{participatory_space_title}. Можете да го видите от тази страница:'
-          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
-          email_subject: Бюджетът %{resource_title} вече е активен за %{participatory_space_title}.
-          notification_title: Бюджетът <a href="%{resource_path}">%{resource_title}</a> вече е активен за %{participatory_space_title}.
     orders:
       checkout:
         error: Възникна проблем при обработването на Вашия глас.

@@ -32,7 +32,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("decidim.initiatives.admin.initiatives_type_scopes.create.error")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
@@ -56,7 +56,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("decidim.initiatives.admin.initiatives_type_scopes.update.error")
-              render :edit, status: :unprocessable_entity
+              render :edit, status: :unprocessable_content
             end
           end
         end
@@ -95,11 +95,11 @@ module Decidim
         end
 
         def current_initiative_type_scope
-          @current_initiative_type_scope ||= InitiativesTypeScope.joins(:type).where(decidim_initiatives_types: { organization: current_organization }).find(params[:id])
+          @current_initiative_type_scope ||= InitiativesTypeScope.joins(:type).where(decidim_initiatives_types: { organization: current_organization }).find(params.expect(:id))
         end
 
         def current_initiative_type
-          @current_initiative_type ||= InitiativesType.find(params[:initiatives_type_id])
+          @current_initiative_type ||= InitiativesType.find(params.expect(:initiatives_type_id))
         end
 
         def initiative_type_scope_form

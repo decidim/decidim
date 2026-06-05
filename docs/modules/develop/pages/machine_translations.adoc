@@ -42,7 +42,7 @@ config.machine_translation_service = "MyApp::MyOwnTranslationService"
 config.machine_translation_delay = 0.seconds
 ----
 
-The class will need to be implemented, or reuse one from the community. Check the docs on how to implement a machine translation service.
+The class will need to be implemented, or reuse one from the community. Check the docs on xref:services:machine_translations.adoc[how to implement a machine translation service].
 
 == Enabling the integration, organization-wise
 

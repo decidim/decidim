@@ -1,6 +1,6 @@
-# Decidim::CollaborativeTexts
+# decidim-collaborative_texts
 
-The Decidim::CollaborativeTexts is a component that allows users to collaboratively create and amend texts through the use of suggestions and comments.
+The Collaborative Texts is a component that allows users to collaboratively create and amend texts through the use of suggestions and comments.
 
 > **WARNING**
 > This module is under development and is not ready for usage yet.
@@ -13,6 +13,8 @@ To install this module, run in your console:
 
 ```bash
 bundle add decidim-collaborative_texts
+bundle exec rails decidim:upgrade
+bundle exec rails db:migrate
 ```
 
 ## Contributing

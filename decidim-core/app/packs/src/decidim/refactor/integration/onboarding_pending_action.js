@@ -1,0 +1,26 @@
+import Cookies from "js-cookie";
+
+const ONBOARDING_COOKIE_EXPIRY = 365;
+
+// The same key is set in the Decidim::OnboardingManager class to retrieve the data from the cookie and store it in the extended data attribute
+const DATA_KEY = "onboarding";
+
+/**
+ * Sets an onboarding action in a cookie when the element is clicked.
+ *
+ * @param {DOMElement} element Element which provides the information for cookie about action to perform.
+ * @returns {Void} Nothing.
+ */
+export default function setOnboardingAction(element) {
+  // the dialog-open data attribute is stealing the click event
+  element.addEventListener("mousedown", () => {
+    const action = element.dataset.onboardingActionValue;
+    const model = element.dataset.onboardingModelValue;
+    const permissionsHolder = element.dataset.onboardingPermissionsHolderValue;
+    const redirectPath = element.dataset.onboardingRedirectPathValue;
+
+    Cookies.set(DATA_KEY, JSON.stringify({ action, model, permissionsHolder, redirectPath }), {
+      expires: ONBOARDING_COOKIE_EXPIRY
+    });
+  });
+}

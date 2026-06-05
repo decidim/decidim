@@ -14,7 +14,7 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Meeting.not_hidden.where(component: current_component).find(params[:meeting_id])
+        @meeting ||= Meeting.not_hidden.where(component: current_component).find(params.expect(:meeting_id))
       end
 
       def poll

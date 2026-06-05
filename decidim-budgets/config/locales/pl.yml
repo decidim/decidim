@@ -63,8 +63,6 @@ pl:
         exports:
           projects: Projekty
         models:
-          budget:
-            name: Budżet
           project:
             name: Projekt
         projects:
@@ -72,7 +70,6 @@ pl:
             invalid: Podczas tworzenia tego projektu wystąpił błąd.
             success: Projekt został utworzony.
           edit:
-            title: Edytuj projekt
             update: Aktualizuj
           index:
             actions: Działania
@@ -92,7 +89,6 @@ pl:
             update_budget_button: Aktualizuj budżet projektu
           new:
             create: Utwórz
-            title: Nowy projekt
           update:
             invalid: Podczas aktualizacji tego projektu wystąpił błąd.
             success: Zaktualizowano projekt.
@@ -108,7 +104,6 @@ pl:
           new:
             create: Importuj propozycje do projektów
             default_budget: Domyślny budżet
-            import_all_accepted_proposals: Importuj wszystkie zaakceptowane propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
             origin_component_id: Źródłowy komponent
             select_component: Wybierz komponent
@@ -163,7 +158,6 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
-            id: Identyfikator
             map: Mapa
             title: Tytuł
       order:
@@ -223,9 +217,7 @@ pl:
           assigned: Przypisany
           budget: Budżet
           dynamic_help:
-            keep_adding_projects: Kontynuuj dodawanie projektów
             minimum_reached: Osiągnąłeś/aś minimum, aby móc głosować
-            start_adding_projects: Zacznij dodawać projekty
           minimum: Minimum
         orders:
           highest_cost: Najwyższy koszt
@@ -308,13 +300,6 @@ pl:
               disabled: Głosowanie wyłączone
               enabled: Włączone głosowanie
               finished: Głosowanie zakończone
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Budżet %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Budżet %{resource_title} jest teraz aktywny w %{participatory_space_title}.
-          notification_title: Budżet <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
     orders:
       checkout:
         error: Podczas przetwarzania Twojego głosu wystąpił błąd.

@@ -22,7 +22,7 @@ describe "Admin reminds users with pending orders" do
 
   describe "new vote reminder" do
     it "shows how many people are being reminded" do
-      expect(page).to have_content("You are about to send an email reminder to 2 users")
+      expect(page).to have_text("You are about to send an email reminder to 2 users")
     end
   end
 
@@ -35,22 +35,22 @@ describe "Admin reminds users with pending orders" do
 
     it "sends reminders" do
       perform_enqueued_jobs { click_on "Send" }
-      expect(page).to have_content("2 users will be reminded")
+      expect(page).to have_text("2 users will be reminded")
 
       expect(emails.count).to eq(2)
       emails.each do |email|
         expect(email.subject).to eq("You have an unfinished vote in the participatory budgeting vote")
       end
-      expect(last_email_first_link).to eq("http://#{organization.host}:#{Capybara.server_port}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets/#{budget.id}")
-      expect(last_email_link).to eq("http://#{organization.host}:#{Capybara.server_port}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets")
+      expect(last_email_first_link).to eq("http://#{organization.host}:#{Capybara.server_port}/#{I18n.locale}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets/#{budget.id}")
+      expect(last_email_link).to eq("http://#{organization.host}:#{Capybara.server_port}/#{I18n.locale}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets")
     end
 
     it "does not send reminders twice" do
       perform_enqueued_jobs { click_on "Send" }
-      expect(page).to have_content("2 users will be reminded")
+      expect(page).to have_text("2 users will be reminded")
       click_on "Send voting reminders"
       perform_enqueued_jobs { click_on "Send" }
-      expect(page).to have_content("0 users will be reminded")
+      expect(page).to have_text("0 users will be reminded")
     end
   end
 end

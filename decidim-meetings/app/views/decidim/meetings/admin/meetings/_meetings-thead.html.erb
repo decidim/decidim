@@ -1,8 +1,5 @@
 <thead>
 <tr>
-  <th>
-    <%= sort_link(query, :id, t("models.meeting.fields.id", scope: "decidim.meetings"), default_order: :desc ) %>
-  </th>
   <th class="!text-left">
     <%= sort_link(query, :translated_title, t("models.meeting.fields.title", scope: "decidim.meetings"), default_order: :desc ) %>
   </th>
@@ -19,7 +16,10 @@
     <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
   <% end %>
   <th>
-    <%= sort_link(query, :scope_name, t("models.meeting.fields.taxonomies", scope: "decidim.meetings") ) %>
+    <%= sort_link(query, :taxonomies_name, t("models.meeting.fields.taxonomies", scope: "decidim.meetings") ) %>
+  </th>
+  <th>
+    <%= t("models.meeting.fields.published", scope: "decidim.meetings") %>
   </th>
   <th><%= t("actions.title", scope: "decidim.meetings") %></th>
 </tr>

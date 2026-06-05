@@ -27,7 +27,6 @@ ca-IT:
       initiatives_type:
         area_enabled: Permet a les autores triar l'àrea de la seva iniciativa
         attachments_enabled: Habilitat arxius adjunts
-        banner_image: Imatge del bàner
         child_scope_threshold_enabled: Activar signatures per subàmbit
         collect_user_extra_fields: Recopilar les dades personals de la participant amb la signatura
         comments_enabled: Habilitar comentaris
@@ -96,7 +95,7 @@ ca-IT:
           type_id_eq:
             label: Tipus
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria
+          title_or_description_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria
       initiatives_settings:
         update:
           error: S'ha produït un error en actualitzar la configuració de les iniciatives.
@@ -110,15 +109,12 @@ ca-IT:
         initiatives_menu:
           see_initiative: Veure la iniciativa
         initiatives_settings: Configuració
-        initiatives_submenu:
-          info: Quant a aquesta iniciativa
         initiatives_types: Tipus d'iniciatives
         moderations: Moderacions
       models:
         initiatives:
           fields:
             created_at: Data de creació
-            id: ID
             published_at: Publicat el
             state: Estat
             supports_count: Signatures
@@ -157,9 +153,6 @@ ca-IT:
       taxonomy_filters:
         space_filter_for:
           initiatives: Totes les iniciatives
-      titles:
-        initiatives: Iniciatives
-        initiatives_types: Tipus d'iniciatives
     download_your_data:
       show:
         initiatives: Exportar les iniciatives
@@ -203,7 +196,7 @@ ca-IT:
           conditions:
             - Anar a l'espai d'Iniciatives
             - Segueix les passes per crear una nova iniciativa
-          description: Aquest distintiu es concedeix quan promous noves iniciatives, unint-te amb altres per dur-les a terme.
+          description: Aquesta ensenya es concedeix quan promous noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquesta participant ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
@@ -266,6 +259,7 @@ ca-IT:
             reject: Rebutja la iniciativa
             send_to_technical_validation: Enviar a validació tècnica
             success: La iniciativa s'ha enviat a validació tècnica.
+            title: Quant a aquesta iniciativa
             update: Actualitzar
           form:
             attachments_title: Fitxers adjunts
@@ -275,6 +269,7 @@ ca-IT:
             actions_title: Acció
             preview: Vista prèvia
             print: Imprimir
+            title: Iniciatives
           initiative_attachments:
             documents: Documents
             edit: Edita
@@ -291,6 +286,7 @@ ca-IT:
             success: La iniciativa s'ha actualitzat correctament.
         initiatives_settings:
           edit:
+            title: Configuració de la iniciativa
             update: Actualitzar
           form:
             comments: Més comentades
@@ -298,7 +294,6 @@ ca-IT:
             publication_date: Publicada més recentment
             random: Aleatori
             signatures: Més signades
-            title: Configuració d'iniciatives
         initiatives_type_scopes:
           create:
             error: S'ha produït un error en crear un nou àmbit per la iniciativa seleccionada.
@@ -321,12 +316,15 @@ ca-IT:
           destroy:
             success: S'ha eliminat correctament el tipus d'iniciativa.
           edit:
+            title: Editar el tipus d'iniciativa
             update: Actualitza
           form:
             child_scope_threshold_enabled_help_html: 'Aquest ajust de configuració no admet les votacions sense connexió. Aquest habilita els subàmbits i funciona amb un gestor d''autoritzacions que associa un àmbit a la participant. Assegura''t de seleccionar aquesta autorització, més avall a la configuració d''autoritzacions. Per a que funcioni, els àmbits han de configurar-se de forma jerárquica: 1 Pare - N fills. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank"> documentació sobre l''administració d''iniciatives</a>.'
             only_global_scope_enabled_help_html: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentació sobre l'administració d'iniciatives</a>.
             options: Opcions
             signature_workflow_settings: Configuració del procés per a signar
+          index:
+            title: Tipus d'iniciatives
           initiative_type_scopes:
             title: Àmbits del tipus d'iniciativa
           new:
@@ -406,7 +404,7 @@ ca-IT:
           promoters_committee_help_html: Abans d'enviar la teva iniciativa de validació tècnica, necessites afegir al Comissió Promotora a %{committee_members_left} persones més. Actualment hi ha <strong>%{committee_members_count}/%{committee_size}</strong> a la comissió.
           promoters_committee_title: Comissió Promotora
         return_to_initiatives_button:
-          return_initiatives_html: Ometre ara i <a href="%{initiatives path}">tornar a les iniciatives</a>
+          return_initiatives_html: Ometre ara i <a href="%{initiatives_path}">tornar a les iniciatives</a>
         select_initiative_type:
           back: Torna
           choose_html: Vull <strong>%{title}</strong>
@@ -439,25 +437,11 @@ ca-IT:
         update: Actualitzar
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} ha acceptat la teva sol·licitud per formar part de la comissió promotora de la iniciativa %{resource_title}."
           email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa: "%{resource_title}"'
-          email_subject: "%{author_nickname} ha acceptat la teva sol·licitud per formar part de la comissió promotora"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha acceptat la teva sol·licitud per formar part de la comissió promotora per la següent iniciativa <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat una nova iniciativa. Comprova-la i contribueix:"
-          email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Nova iniciativa de %{author_nickname}
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la iniciativa %{resource_title}."
           email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa: "%{resource_title}".'
-          email_subject: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la següent iniciativa <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} ha sol·licitat formar part de la comissió promotora de la teva iniciativa %{resource_title}. Per a acceptar o rebutjar la sol·licitud, vés al formulari d'edició de la teva iniciativa."
           email_outro: 'Has rebut aquesta notificació perquè promous la iniciativa: "%{resource_title}"'
-          email_subject: "%{applicant_nickname} vol unir-se a la teva iniciativa"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha sol·licitat formar part de la comissió promotora de la teva iniciativa <a href="%{resource_url}">%{resource_title}</a>. Per acceptar-ho o rebutjar-ho fes clic <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Afegir fitxer(s) adjunt(s)
         add_image: Afegir imatge
@@ -551,6 +535,7 @@ ca-IT:
           recent: Més recents
           recently_published: Publicada més recentment
         pending_initiatives:
+          description: Aquestes iniciatives no són públiques encara. Si us plau, revisa-les i envieu-les a validació tècnica, si s'escau, per tal que aquestes puguin fer-se públiques.
           title: Esborranys i iniciatives pendents
         print:
           address: Adreça
@@ -687,6 +672,7 @@ ca-IT:
       initiative:
         actions:
           comment: Comentar
+          vote_comment: Votar el comentari
       initiatives_type:
         actions:
           create: Crear una iniciativa

@@ -14,6 +14,7 @@ es-MX:
           trigger: Activador
           usage: Uso
           usage_p: Un acordeón requiere al menos tres elementos
+          usage_p_1_html: '1. Un envoltorio (wrapper) <code>div</code>, con el atributo "data": <code>data-component="accordion"</code>, sobre todos los activadores y paneles disponibles.'
           usage_p_2_html: 2. Un elemento activador, usuaria accionable (como un botón), apuntando al elemento plegable a través de <code>data-controls="panel"</code>, donde <i>panel</i> es la <code>id</code> del panel.
           usage_p_3_html: 3. Un elemento oculto, cuyo <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
         activities:
@@ -86,26 +87,26 @@ es-MX:
           adjacent_links_paragraph: Si el mismo recurso tiene múltiples enlaces adyacentes apuntando a él, hace difícil que las usuarias puedan mirar a través de la página porque tal vez necesiten pasar por varios enlaces para llegar al siguiente recurso.
           color_contrast: Contraste de color
           color_contrast_paragraph: Al crear interfaces de usuaria o modificar los colores, asegúrate siempre de que no se está rompiendo la accesibilidad con estos cambios. Puedes utilizar el comprobador de contraste de color para asegurarte de que estos colores tienen suficiente contraste contra el color de fondo en el que se muestran.
-          decidim_follows_html: Decidim sigue las directrices <u>de Accesibilidad al Contenido Web (WCAG) 2.1</u>
+          decidim_follows_html: Decidim sigue %{link}
           dynamic_changes_header: 'Función dinámica: cambia el contexto de la página de forma poco intuitiva'
           dynamic_changes_paragraph: Los cambios en las entradas del formulario no deberían cambiar el contexto de la página automáticamente.
           elements_hidden: Elementos ocultos
           elements_hidden_header: Elementos ocultos de la API de accesibilidad
           elements_hidden_paragraph: Para ocultar un elemento de las tecnologías de asistencia, utiliza el atributo aria-hidden="true" en él.
           heading_on: Encabezado en secciones importantes
-          here_link: aquí
           illogical_heading_order: Orden de encabezado ilógico
           illogical_heading_paragraph: Cada página debe tener un orden de encabezado lógico cuando utilices los elementos de encabezamiento <h1>, <h2>, <h3>, <h4>, <h5> y <h6>.
           important_sections_heading: Encabezado en secciones importantes
           important_sections_paragraph: Es muy importante que cada sección relevante de la página tenga un título para facilitar la comprensión de las secciones de la página simplemente navegando por sus encabezados.
+          learn_more_about_html: Más información sobre %{link}
           links_and_buttons: Enlaces y botones
           links_and_buttons_paragraph: Los elementos de anclaje (es decir, enlaces) están destinados a enlazar a diferentes páginas o a posiciones de anclaje dentro de la página. Si queremos que el elemento abra, por ejemplo, algún elemento oculto en esa página, deberías utilizar el elemento <button> en su lugar.
-          see_further_info_html: Ver más información %{link}
           unique_h1: H1 único
           unique_h1_paragraph: Cada página debe tener un único encabezado H1
           use_aria: Utiliza ARIA
           use_aria_header: Utiliza los atributos ARIA cuando sea posible
           use_aria_paragraph: Muchos elementos que proporcionan funcionalidad interactiva en el sitio web requieren atributos ARIA para hacerlos accesibles.
+          wcag_guidelines: Pautas de Accesibilidad al Contenido en la Web (WCAG)
         color:
           color_header: Color
           description_p1: Proporcionamos una paleta base con pocos colores para facilitar personalizaciones simples. Puedes modificar la paleta Base ya sea en el área de Administración o en el archivo de configuración Tailwind si necesitas una personalización más avanzada.
@@ -134,11 +135,11 @@ es-MX:
           not_required: No es obligatorio
           properties: Propiedades
           right_aside: En el lado derecho
-          section_p_breakpoints: 'Para gestionar el ancho máximo de los elementos al diseño web adaptativo dependemos de la clase Tailwind predeterminada ''container'', que indica los siguientes puntos de interrupción:'
+          section_p_breakpoints: 'Para gestionar el ancho máximo de los elementos al/en el diseño web adaptativo dependemos de la clase Tailwind predeterminada ''container'', que indica los siguientes puntos de interrupción:'
           section_p_code: Al implementar nuevos módulos, tienes algunos ayudantes que te proporcionan automáticamente el código necesario para configurar la estructura HTML. Deberías usar estos ayudantes en lugar de usar directamente elementos <div> con <class>, manteniendo así la consistencia.
           section_p_code_html: Puedes encontrar los diseños básicos en %{link_section_code}
           section_p_desktop: El sistema de cuadrícula para los ordenadores de escritorio se compone de 12 columnas flexibles con un espaciado (canal) entre columnas de 16px y margen izquierdo y derecho de 48px
-          section_p_mobile: El sistema de cuadrícula para el móvil se compone de 4 columnas flexibles con un espaciado (canal) entre columnas de 16px y de margen izquierdo y derecho de 16px. Para tamaños inferiores a 320px estos márgenes se establecen a 8px.
+          section_p_mobile: El sistema de cuadrícula para móviles se compone de 4 columnas flexibles con un espaciado (canal) entre columnas de 16px y margen izquierdo y derecho de 16px.
           section_p_tablet: El sistema de cuadrícula para tabletas se compone de 8 columnas flexibles con un espaciado (canal) entre columnas de 16px y margen izquierdo y derecho de 24px
           tablet: Tableta
           title: Diseño (maqueta distribución)
@@ -176,7 +177,6 @@ es-MX:
         card_g: Tarjeta G
         card_l: Tarjeta L
         card_s: Tarjeta S
-        collaborative_draft_l: Borrador colaborativo L
         colors: Colores
         compact: Compacto
         compact_description: Esta versión de la autoría es la manera común de identificar a la creadora del recurso.
@@ -205,6 +205,7 @@ es-MX:
         dropdowns_description_html: Los menús desplegables son una característica <i>JavaScript</i> disponible gracias a una biblioteca externa llamada %{link}.
         dropdowns_usage_1_description: 2. Un elemento modal, cuya <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
         dropdowns_usage_description: 'Un menú desplegable requiere dos elementos:'
+        dropdowns_usage_description_html: 1. Un elemento accionable por la participante, con los atributos de datos <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Descripción del recurso ficticio
         dummy_title: Título del recurso ficticio
         follow_button: Botón "Seguir"
@@ -224,7 +225,6 @@ es-MX:
         list: Lista
         main_colors: Colores principales
         meeting_l: Encuentro L
-        meeting_s: Encuentro S
         meetings: Encuentros
         meetings_html: Utilizado por tarjetas de <i>Encuentros</i>
         metadata_items: Elementos de metadatos
@@ -254,8 +254,6 @@ es-MX:
         share_button: Botón "Compartir"
         share_usage_description_html: Asegúrate de que el <code>decidim/shared/share_modal</code> parcial esté presente en el DOM. Este parcial se coloca en el diseño de la aplicación.
         sizes: Tamaños
-        sortition_l: Sorteo L
-        sortitions: Sorteos
         source_code: Código Fuente
         state: Estado
         tab_panels_context_description: Este componente del panel de pestañas recolecta todos los contenidos relacionados u otros recursos del elemento principal mostrado, con el fin de ahorrar espacio vertical. Al hacer clic en la pestaña se activará el panel creado para mostrar el contenido.

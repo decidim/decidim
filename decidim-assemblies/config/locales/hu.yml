@@ -10,9 +10,6 @@ hu:
         closing_date: Határidő
         closing_date_reason: Határidő indoklás
         composition: Összetétel
-        copy_categories: Kategóriák másolása
-        copy_components: Elemek másolása
-        copy_features: Másolási funkciók
         created_by: Készítette
         created_by_other: Más által létrehozott
         creation_date: Létrehozás dátuma
@@ -38,7 +35,6 @@ hu:
         participatory_processes_ids: Kapcsolódó részvételi folyamatok
         participatory_scope: Miről születik döntés
         participatory_structure: Hogyan döntenek
-        private_space: Privát tér
         promoted: Kiemelt
         published_at: Közzétéve
         purpose_of_action: A fellépés célja
@@ -95,25 +91,13 @@ hu:
         edit:
           update: Frissítés
         index:
-          private: Privát
-          public: Nyilvános
           published: Közzétéve
           unpublished: Nem publikált
         new:
           create: Létrehozás
-          title: Új gyűlés
         update:
           error: Hiba történt a gyűlés frissítése során.
           success: Gyűlés frissítése sikeres.
-      assemblies_copies:
-        create:
-          error: Hiba történt a gyűlés duplikációja során.
-          success: Gyűlés duplikációja sikeres.
-      assembly_copies:
-        new:
-          copy: Másolás
-          select: Válaszd ki, mely adatokat szeretnéd duplikálni
-          title: Gyűlés duplikálása
       assembly_imports:
         create:
           error: Hiba történt a gyűlés importálása során.
@@ -121,7 +105,6 @@ hu:
         new:
           import: Importál
           select: Válaszd ki, mely adatokat szeretnéd importálni
-          title: Gyűlés importálása
       assembly_publications:
         create:
           error: Hiba történt a gyűlés közzététele során.
@@ -136,13 +119,9 @@ hu:
         destroy:
           success: Admin eltávolítása a gyűlésből sikeres.
         edit:
-          title: Gyűlés adminjának frissítése
           update: Frissítés
-        index:
-          assembly_admins_title: Gyűlés adminjai
         new:
           create: Létrehozás
-          title: Új gyűlés admin
         update:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
@@ -167,7 +146,6 @@ hu:
           fields:
             actions: Műveletek
             created_at: 'Létrehozva:'
-            private: Privát
             promoted: Kiemelt
             published: Közzétéve
             title: Cím
@@ -189,9 +167,6 @@ hu:
             admin: Adminisztrátor
             collaborator: Közreműködő
             moderator: Moderátor
-      titles:
-        assemblies: Gyűlések
-        assemblies_types: Gyűlés típusa
     admin_log:
       assembly:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlést"
@@ -221,7 +196,6 @@ hu:
       admin:
         assemblies:
           form:
-            announcement_help: Az itt megadott szöveg a gyűlés információs oldalán fog megjelenni a felhasználók számára. 
             duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
             images: képek
@@ -233,6 +207,9 @@ hu:
             social_handlers: Social
             title: Általános információ
             visibility: Láthatóság
+        assembly_imports:
+          form:
+            document_legend: Dokumentum hozzáadása
         assembly_members:
           form:
             explanation: 'Útmutató a képhez:'
@@ -266,9 +243,6 @@ hu:
           type: Típus
         show:
           title: Erről a gyűlésről
-      assembly_members:
-        index:
-          members: Tagok
       content_blocks:
         children_assemblies:
           name: Gyűlések
@@ -303,16 +277,9 @@ hu:
           highlighted_assemblies:
             active_spaces: Aktív gyűlések
             see_all_spaces: Az összes közgyűlés megtekintése
-        user_profile:
-          member_of:
-            member_of: 'Tagja következőnek:'
       show:
         duration: Időtartam
-        private_space: Ez egy privát gyűlés
         social_networks_title: Látogasd meg a gyűlést itt
-    assembly_members:
-      index:
-        title: Tagok
     events:
       assemblies:
         create_assembly_member:
@@ -336,8 +303,6 @@ hu:
       value_types:
         assembly_presenter:
           not_found: 'A gyűlés nem található az adatbázisban (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'A gyűlés típus nem található az adatbázisban (ID: %{id})'
     menu:
       assemblies: Gyűlések
     participatory_processes:

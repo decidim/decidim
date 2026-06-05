@@ -33,9 +33,14 @@ tr:
       help_section:
         content: İçerik
       id: İD
+      member:
+        email: E-posta
+        name: Adı
+      member_csv_import:
+        file: Dosya
       newsletter:
         body: Vücut
-        send_to_all_users: Bütün kullanıcılara gönder
+        send_to_all_users: Bütün katılımcılara gönder
         send_to_followers: Takipçilere gönder
         send_to_participants: Katılımcılara gönder
         subject: konu
@@ -48,8 +53,8 @@ tr:
         customize_welcome_notification: Karşılama bildirimlerini özelleştir
         default_locale: Varsayılan yerel ayar
         description: Açıklama
+        enable_machine_translations: Makine çevirilerini etkinleştirin
         enable_omnipresent_banner: Her yerde banner göster
-        enable_participatory_space_filters: Katılımcı alan filtrelerini etkinleştir
         facebook_handler: Facebook işleyicisi
         favicon: ikon
         force_authentication: Kimlik doğrulamayı zorunlu kıl
@@ -90,11 +95,6 @@ tr:
         welcome_notification_body: Karşılama bildirimi gövdesi
         welcome_notification_subject: Karşılama bildirimi konusu
         youtube_handler: YouTube işleyici
-      participatory_space_private_user:
-        email: E-Posta
-        name: Adı
-      participatory_space_private_user_csv_import:
-        file: Dosya
       scope:
         code: kod
         name: isim
@@ -124,10 +124,16 @@ tr:
         show_in_footer: Altbilgiyi göster
         title: Başlık
         weight: Sıra numarası
+      taxonomy:
+        item_name: Öge adı
       user_group_csv_verification:
         file: Dosya
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: İçe aktarılan dosya hatalı biçimlendirilmiş, lütfen talimatları dikkatlice okuyun ve dosyanın UTF-8 kodlamalı olduğundan emin olun.
         newsletter:
           attributes:
             base:
@@ -136,10 +142,6 @@ tr:
           attributes:
             official_img_footer:
               allowed_file_content_types: Geçersiz resim dosyası
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Bozuk içe aktarım dosyası, lütfen yönergeleri dikkatlice gözden geçirin ve dosyanın UTF-8 ile kodlandığından emin olun.
         user_group_csv_verification:
           attributes:
             file:
@@ -166,11 +168,15 @@ tr:
   decidim:
     admin:
       actions:
+        actions: Eylemler
+        actions_label: '%{resource} için işlemler'
         add: Eklemek
         attachment:
           new: Yeni ek
         attachment_collection:
           new: Yeni ek dosyası
+        attachment_collections: Klasör ekle
+        attachments: Eklenti ekle
         browse: Araştır
         confirm_delete_component: |
           Bu bileşeni silmek istediğinizden emin misiniz? <br>
@@ -180,12 +186,11 @@ tr:
            <li class="font-bold"> %{resources_count} kaynakları </li> 
           </ul>
           Fikrinizi değiştirirseniz daha sonra yeniden yükleyebilirsiniz.
-        export-selection: Seçimi dışa aktar
+        export_all: Tümünü dışa aktar
         import: İçe aktar
+        menu_hidden: Menüden gizle
         newsletter:
           new: Yeni bülten
-        participatory_space_private_user:
-          new: Yeni katılımcı alanı özel kullanıcısı
         per_page: Sayfa başına
         restore: Geri yükle
         send_me_a_test_email: Bana bir test e-postası gönder
@@ -206,7 +211,6 @@ tr:
           alert: 'Gerekli: Yönetici kullanım koşullarımızı inceleyin'
           callout: Lütfen Yönetici Kullanım Koşullarını gözden geçirmek için bir dakikanızı ayırın. Aksi takdirde platformu yönetemezsiniz.
           cta: Şimdi gözden geçirin.
-        title: Yönetici kullanım koşulları
       area_types:
         create:
           error: Yeni alan türü oluştururken bir hata oluştu.
@@ -249,8 +253,6 @@ tr:
         edit:
           title: Klasörü düzenle
           update: Güncelleştirme
-        index:
-          attachment_collections_title: Ek klasörleri
         new:
           create: yaratmak
           title: Yeni dosya
@@ -266,8 +268,6 @@ tr:
         edit:
           title: Eki düzenle
           update: Güncelleştirme
-        index:
-          attachments_title: Ekler
         new:
           create: Ek oluştur
           title: Yeni ek
@@ -282,13 +282,12 @@ tr:
       block_user:
         bulk_new:
           action: Hesapları engelle ve gerekçe gönder.
-          already_reported_html: Bu işleme devam ederek katılımcının tüm içeriklerini de gizlersiniz.
+          already_reported_html: Bu işleme devam ederek katılımcının tüm içeriklerini de gizleyeceksiniz.
           description: Bir kullanıcıyı engellemek, kullanıcının hesabını kullanılamaz hale getirir. Gerekçenizde engeli kaldırmak için gereken yönergeleri ekleyebilirsiniz.
           justification: Gerekçe
           title: Kullanıcıları engelle
         new:
           action: Hesabı engelle ve uyarı mesjı gönder
-          already_reported_html: Bu işleme devam ederek katılımcıların tüm içeriklerini de gizleyebilirsiniz.
           description: Bir kullanıcının engellenmesi, hesabının kullanılamaz hale gelmesine neden olur, gerekçenizde ve kullanıcının engellemesini kaldırmayı düşündüğünüz yollarla ilgili yönergeler sağlayabilirsiniz.
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
@@ -303,6 +302,7 @@ tr:
         create:
           error: Bu bileşeni oluştururken bir hata oluştu.
           success: Bileşen başarıyla oluşturuldu.
+          success_landing_page: Bileşen başarıyla oluşturuldu. Alanın ana sayfasına bu bileşen için bir içerik engeli ekleyebilirsiniz. Yapılandırmak için <a href="%{landing_page_path}">Ana sayfaya</a> gidiniz.
         edit:
           title: Bileşeni düzenle
           update: Güncelleştirme
@@ -326,7 +326,6 @@ tr:
           title: 'Bileşen ekle: %{name}'
         publish:
           success: Bileşen başarıyla yayınlandı.
-        title: Bileşenler
         unpublish:
           success: Bileşen başarıyla yayından kaldırıldı.
         update:
@@ -340,7 +339,6 @@ tr:
         'false': 'Hayır'
         managed_user_name: Yönetilen Kullanıcı
         solved: Çözüldü
-        title: Doğrulamaların çatışmaları
         transfer:
           email: E-Posta
           error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
@@ -378,7 +376,7 @@ tr:
         form:
           domain_too_short: Alan adı çok kısa
         update:
-          error: İzin verilen harici alan adı listesi güncellenemedi
+          error: İzin verilen harici alan adı listesi güncellenemedi.
           success: İzin verilen harici alan adı listesi başarıyla güncellendi.
       exports:
         export_as: "%{name} olarak %{export_format}"
@@ -396,6 +394,7 @@ tr:
             'false': 'Hayır'
             'true': 'Evet'
         last_sign_in_at_present:
+          label: Daha önce giriş yaptınız mı
           values:
             'false': 'Hayır'
             'true': 'Evet'
@@ -414,17 +413,6 @@ tr:
           values:
             'false': resmileştirilmiş
             'true': Resmi değil
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Davet kabul edildi
-            values:
-              'false': Kabul edilmedi
-              'true': Kabul Edildi
-          user_invitation_sent_at_not_null:
-            label: Davet gönderildi
-            values:
-              'false': Gönderilmedi
-              'true': Gönderildi
         private_space_eq:
           label: Kişisel
           values:
@@ -437,6 +425,9 @@ tr:
             'true': Yayından kaldırıldı
         remove_all: Tümünü kaldır
         search_label: Arama
+        search_placeholder:
+          name_or_nickname_or_email_cont: '%{collection}''da e-posta, isim veya takma ad ile ara'
+          user_name_or_user_nickname_or_user_email_cont: '%{collection}''da e-posta, isim veya takma ad ile ara'
         state_eq:
           label: Durum
           values:
@@ -493,7 +484,6 @@ tr:
           impersonate: taklit etmek
           impersonate_existing_managed_user: Yönetilen kullanıcı "%{name}" kimliğine bürün
           impersonate_existing_user: '"%{name}" kullanıcı kimliğine bürün'
-          impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
       imports:
         and: ve
         data_errors:
@@ -511,6 +501,7 @@ tr:
             records:
               detail: Lütfen satırların doğru biçimlendirildiğinden ve geçerli kayıtlar içerdiğinden emin olun.
           missing_headers:
+            detail: Lütfen dosyanın istenen sütunlara sahip olduğundan emin olunuz.
             message:
               one: Eksik sütun %{columns}.
               other: Eksik sütunlar %{columns}.
@@ -523,12 +514,14 @@ tr:
           actions:
             back: Geri
           download_example: Örneği indir
+          download_example_format:
           file_legend: Ayrıştırılmak üzere bir içe aktarma dosyası ekleyin.
           import: İçe aktar
         notice: "%{count} %{resource_name} başarıyla içe aktarıldı."
       logs:
         filters:
           participatory_space: Katılımcı alanı bul
+          text: Kullanıcı e-postası, isim veya kullanıcı adı ile ara
           user: Kullanıcı
         logs_list:
           no_logs_yet: Henüz kayıt yok.
@@ -542,8 +535,19 @@ tr:
         promotions:
           new:
             explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
-            new_managed_user_promotion: Yeni yönetilen kullanıcı tanıtımı
             promote: Desteklemek
+      members:
+        create:
+          error: Bu katılımcı alan için bir üye eklenirken hata oluştu.
+        update:
+          error: Bu katılımcı alan için bir üyeyi güncellerken bir hata oluştu.
+          success: Üye başarıyla güncellendi
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: CSV dosyanızı yükleyin
+          destroy:
+            button: Tüm Üyeleri Sil
       menu:
         admin_log: Yönetici etkinlik günlüğü
         admins: Yöneticiler
@@ -555,6 +559,7 @@ tr:
         content: Şikayet edilmiş içerik
         external_domain_allowlist: İzin verilen harici alan adları
         help_sections: Yardım bölümleri
+        homepage: Ana sayfa düzeni
         impersonations: impersonations
         manage: yönetme
         moderation: Küresel denetimler
@@ -608,8 +613,6 @@ tr:
             sent_to: Gönderilen
             subject: konu
           name: Bülten
-        participatory_space_private_user:
-          name: Katılımcı alan özel kullanıcısı
         scope:
           fields:
             name: isim
@@ -667,7 +670,15 @@ tr:
             does_not_belong: Ait değil
             offensive: Saldırgan
             spam: İstenmeyen
+        tabs:
+          blocked: Engellenmiş
+          unblocked: Engellenmemiş
       moderations:
+        index:
+          actions:
+            actions_dropdown: Eylemler
+            hide:
+              title: Gizle
         report:
           reasons:
             does_not_belong: Ait değil
@@ -688,15 +699,23 @@ tr:
             report_language: Rapor dili
             report_reason: Nedeni
             title: Rapor ayrıntıları
+      new_import:
+        accepted_mime_types:
+          csv: ÖZgeçmiş
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Ön izleme
           title: Bülten Şablonu
           use_template: Bu şablonu kullan
         show:
-          preview: 'Şablon özizlemesi: %{template_name}'
           use_template: Bu şablonu kullan
       newsletters:
+        confirm_recipients:
+          email: E-posta
+          name: Adı
+          title: Alıcıları doğrula
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
         deliver:
@@ -720,6 +739,8 @@ tr:
           segmented_to: '%{subject} bölüme ayrılmış: '
           subscribed_count: 'Abone Olundu:'
           title: Haber bültenleri
+          verification_types: 'Doğrulama Türü: %{types}'
+          verified_users: Doğrulanmış kullanıcılar
         new:
           save: Kayıt etmek
           title: Yeni bülten
@@ -727,11 +748,17 @@ tr:
           all_spaces: Tüm
           all_users_help: Tüm onaylanmış kullanıcılara haber bülteni gönderir.
           confirm_deliver: Bu bülteni sunmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
+          confirm_recipients: Alıcıları onaylayın
           deliver: Bülten sunun
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
           recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
+          select_assemblies: Aktif kurullar
+          select_conferences: Konferans seçin
+          select_initiatives: Aktif girişimler
+          select_participatory_processes: Katılımcı süreçleri seç
           select_spaces: Haber bültenini bölmek için alanları seçin
+          select_users_for_participatory_space: Bir veya daha fazla katılımcı alana bülten gönderin
           send_to_all_users: Tüm kullanıcılara gönder
           title: Teslim etmek için alıcıları seçiniz
           warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
@@ -740,7 +767,6 @@ tr:
         send_to_user:
           sent_successfully: Bülten %{email} adresine başarıyla gönderildi
         show:
-          preview: Ön izleme
           select_recipients_to_deliver: Teslim etmek için alıcıları seçiniz
           send_me_a_test_email: Bana bir test e-postası gönder
           subject: konu
@@ -773,6 +799,7 @@ tr:
           officialized: resmileştirilmiş
           reofficialize: Reofficialize
           reports: Raporlar
+          send_message: Mesaj Gönder
           status: durum
           unofficialize: Unofficialize
         new:
@@ -794,9 +821,17 @@ tr:
           title: Kuruluş düzenle
           update: Güncelleştirme
         form:
+          admin_terms_of_service: Yönetici kullanım koşulları
+          colors:
+            colors_title: Organizasyon renkleri
+            colors_warning_html: Uyarı! Bu renkleri değiştirmek renk kontrastını bozabilir. Seçtiğiniz kontrastı veya diğer benzer araçları <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a>'dan kontrol edebilirsiniz.
+            explanation: Bu araç organizasyonun web sitesinde kullanılacak renk paletinde eşit aralıklarla yerleştirilmiş tonlardan oluşan bir renk düzeni seçmenize yardımcı olur.
+          extra_features: İlave özellikler
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Organizasyon logoları
           rich_text_editor_in_public_views_help: Bazı metin alanlarında, katılımcılar zengin metin düzenleyicisini kullanarak HTML etiketleri ekleyebilecekler.
           social_handlers: Sosyal
           twitter: x
@@ -815,33 +850,6 @@ tr:
           up: Yukarı
         form:
           add: İzin verilenler listesine ekle
-          title: İzin verilen harici alan adları
-      participatory_space_private_users:
-        create:
-          error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
-          success: Katılımcı alan özel kullanıcı erişimi başarıyla oluşturuldu.
-        destroy:
-          error: Bu katılımcı alan için özel bir kullanıcı silinirken bir hata oluştu.
-          success: Katılımcı alan özel kullanıcı erişimi başarıyla yok edildi.
-        edit:
-          title: Katılımcı alanı özel katılımcılarını düzenle.
-          update: Güncelle
-        index:
-          import_via_csv: CSV'den içe aktar
-          publish_all: Tümünü yayımla
-          title: Katılımcı alan özel kullanıcısı
-          unpublish_all: Tümünü yayımdan kaldır
-        new:
-          create: yaratmak
-          title: Yeni Katılımcı Uzay özel kullanıcısı.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: CSV dosyanızı yükleyin
-          destroy:
-            title: Özel Kullanıcıları kaldır
-          example_file: 'Örnek dosya:'
-          upload: Yükle
       reminders:
         new:
           submit: Gönder
@@ -849,6 +857,8 @@ tr:
         edit:
           submit: Gönder
           title: İzinleri düzenle
+        options_form:
+          ephemeral_warning: Bu yetkilendirme yöntemini etkinleştirmek için mevcut tüm yetkilendirmeleri <a href="%{path}">iptal etmeniz</a> gerekir. Bu, doğrulama çakışması riskini en aza indirir. Bu yöntemi ekleyen veya eklendikten sonra yapılandırmasını değiştiren değişiklikler gönderirseniz, bu türdeki tüm yetkilendirmeler kuruluşta otomatik olarak iptal edilecektir.
         update:
           success: İzinler başarıyla güncellendi.
       scope_types:
@@ -870,6 +880,9 @@ tr:
         create:
           error: Yeni kapsam oluştururken bir hata oluştu.
           success: Kapsam başarıyla oluşturuldu.
+        deprecated: Lütfen kapsamların kullanım dışı bırakıldığını ve gelecekteki sürümlerde kaldırılacağını unutmayın. Bunun yerine sınıflandırmaları kullanın. Şu anda kapsamları kullanan tek modül girişimler modülüdür.
+        destroy:
+          success: Hedef başarıyla Kaldırıldı.
         edit:
           title: Kapsamı düzenle
           update: Güncelleştirme
@@ -882,14 +895,25 @@ tr:
           success: Kapsam başarıyla güncellendi
       share_tokens:
         actions:
+          confirm_destroy: Bu erişimi silmek istediğinizden emin misiniz?
+          copy_link: Bağlantıyı kopyala
           destroy: Sil
           edit: Düzenle
           preview: Ön İzleme
+        create:
+          invalid: Erişim linki üretilirken bir hata oluştu.
+          success: Erişim bağlantısı başarıyla oluşturuldu.
+        destroy:
+          error: Erişim bağlantısının kaldırılmasında bir sorun oluştu.
+          success: Erişim bağlantısı başarıyla kaldırıldı.
         edit:
+          title: '%{name} için yeni erişim linki'
           update: Güncelle
         form:
           automatic: Otomatik
           custom: Özel
+          custom_expiration: Özel son kullanma tarihi
+          custom_token: Kelimeyi özelleştir
           expires_at: Son Geçerlilik Tarihi
           'false': 'Hayır'
           never_expire: Asla
@@ -897,10 +921,33 @@ tr:
           token: Erişim anahtarı
           'true': 'Evet'
         index:
+          back_to_share_tokens: Bağlantılara erişim sayfasına geri dön
           copied: Erişim bağlantısı kopyalandı!
+          copy_message: Metin başarıyla panoya kopyalandı.
+          create_new_token: İlk erişim linkini oluştur!
+          empty_html: Şu an aktif olan bir erişim linki yok. %{new_token_link}
+          never: Asla
+          new_share_token_button: Yeni erişim linki
+          share_tokens_help_html: |
+            Diğerlerinin bu yayınlanmamış kaynağı görüntüleyebilmesi için bir erişim linki oluşturun ve paylaşın. 
+            Erişim linkleri sadece kayıtlı kullanıcılar için geçerli olabilir ve gerekirse bir son kullanım tarihi belirlenebilir. 
+            Yeni bir erişim linki paylaşmak için, oluşturduktan sonra "%{clipboard} ikonunu kullanarak linki kopyalayın.
+          title: '%{name} için erişim linkleri'
+        new:
+          create: Oluştur
+          title: '%{name} için yeni erişim linki'
+        update:
+          error: Erişim bilgisini güncellerken bir sorun oluştu.
+          success: Erişim bilgisi Başarıyla güncellendi.
       shared:
+        adjacent_navigation:
+          next: Sonraki
+          next_title: Sonraki öğe
+          previous: Önceki
+          previous_title: Önceki öğe
         gallery:
           add_images: Resim ekle
+          edit_images: Resimleri düzenle
           gallery_legend: Bir resim galerisi ekleyin (İsteğe bağlı)
       static_page_topics:
         create:
@@ -910,42 +957,127 @@ tr:
           title: Konuyu düzenle
           update: Konuyu güncelle
         new:
+          create: Yeni konu
           title: Yeni Konu
         update:
           error: Bu konu güncellenirken bir hata oluştu.
-          success: Konu başarıyla güncellendi
       static_pages:
+        actions:
+          view: Görünüm
         create:
           error: Yeni bir sayfa oluşturulurken bir hata oluştu.
           success: Sayfa başarıyla oluşturuldu.
         destroy:
           success: Sayfa başarıyla yok edildi
         edit:
+          changed_notably_help: Bu seçeneği işaretlemeleri durumunda, katılımcılara yeni hizmet şartlarını kabul etmeleri gerektiği bildirilecektir.
+          last_notable_change: 'Son önemli değişiklik: %{tos_version_formatted}'
           title: Sayfayı düzenle
           update: Güncelleştirme
         form:
           none: Yok
+          slug_help_html: 'Burada tam bağlantıları değil, kısmi yolları kullanınız. Harfleri, sayıları, kesik çizgileri, taksimleri kabul eder ve bir harf ile başlamak zorundadır. Örnek: %{url}'
         index:
           last_notable_change: Son önemli değişiklik
         new:
+          create: Yeni sayfa
           title: Yeni sayfa
         topic:
+          empty: Bu konu altında hiçbir sayfa yok.
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
+          success: Sayfa başarıyla güncellendi.
+      taxonomies:
+        actions:
+          actions: Eylemler
+          destroy: Sil
+          edit: Düzenle
+          filters: Filtreleri uygula
+        breadcrumb:
+          new: Yeni Sınıflandırma
+        count: İlgili kaynaklar
+        create:
+          invalid: Bu sınıflandırmayı oluştururken bir sorun yaşandı.
+          success: Sınıflandırma Başarı ile Tamamlandı.
+        destroy:
+          invalid: Bu sınıflandırmayı kaldırırken bir hata oluştu.
+          success: Sınıflandırma başarıyla kaldırıldı.
+        edit:
+          back: Geri
+          description: Bu kategorideki ögeler katılımcı alanları veya bileşenler gibi kaynakları sınıflandırmak veya filtrelemek için kullanılacaktır. Listeyi yeniden düzenlemek için ögeleri sürükleyerek bırakınız.
+          new_item: Yeni Öğe
+          no_items: Şu anda bu grupta hiçbir öğe bulunmamaktadır. Katılımcı alanlar veya bileşenler gibi kaynakları sınıflandırmak veya filtrelemek için buraya bir öğe listesi oluşturun. Öğeler en fazla üç seviyeye kadar yerleştirilebilir.
+          subtitle: '"%{taxonomy_name}" içindeki öğeler'
+          title: Sınıflandırmayı düzenle "%{taxonomy_name}"
+          update: Güncelleme
+        filters:
+          search_placeholder: Arama
+        index:
+          description: Sınıflandırmalar ve filtreler, yöneticilerin içeriği sıralamasına ve düzenlemesine olanak tanır. Örneğin, şehrin bölgelerini ve mahallelerini içeren bir taksonomi ekleyin ve ardından yalnızca bölgeleri veya belirli bir mahalleyi içeren filtreler oluşturun.
+          new_taxonomy: Yeni Sınıflandırma
+          no_items_found: Arama kriterine uygun Sınıflama bulunamadı.
+        name: Adı
+        new:
+          create: Yeni Sınıf/ Kategori Yarat
+          title: Yeni Sınıflandırma
+        no_taxonomies: Şu anda herhangi bir sınıflandırma bulunmamaktadır. Kaynakları sınıflandırmak veya filtrelemek için buraya bir sınıflandırma listesi oluşturun ve her birinde öğeler tanımlayın.
+        table:
+          to_next_page: Düzenle "%{taxonomy_name}"
+          to_prev_page: Düzenle Önceki Sayfa
+        total_filters: Filtreler
+        update:
+          invalid: Bu sınıflandırma oluşturulurken bir sorun yaşandı.
+          success: Kategori başarıyla güncellendi.
+      taxonomy_filters:
+        breadcrumb:
+          edit: Filtreyi düzenle
+          filters: Filtreler
+          new: Yeni filtre
+        create:
+          error: Bu kategori filtresi oluşturulurken bir hata oluştu.
+          success: Sınıflandırma Başarı ile Tamamlandı.
+        destroy:
+          error: Bu kategori filtresi oluşturulurken bir hata oluştu.
+          success: Kategori filtresi başarıyla kaldırıldı.
+        edit:
+          back: Geri
+          title: Sınıflandırma filtresini düzenle
+          update: Sınıflandırma filtresini Güncelle
+        form:
+          all: Tümü
+          items:
+            one: "%{count} öğe seçildi"
+            other: "%{count} öğe seçildi"
+          name_help: En başta görüntülenecek filtrenin başlığı.
+          no_items: Bu kategori için herhangi bir öge mevcut değil. Kategori içindeki yapılandırma ayarlarından ögeler oluşturabilirsiniz.
+          space_filter: Filtre olarak kullanılabilir
+        table:
+          components_count: Bunu kullanan bileşenler
+          internal_name:
+      taxonomy_filters_selector:
+        new:
+          save:
+      taxonomy_items:
+        edit:
+          title: '%{taxonomy} içindeki öğeyi düzenle'
+          update: Öğeyi Güncelle
+        new:
+          create: Yeni Öğe yarat
+          none: Hiçbiri
+          title: Yeni Öğre
       titles:
-        admin_log: Yönetici günlüğü
-        area_types: Alan türleri
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
-        dashboard: Pano
-        impersonatable_users: Yönetilebilir kullanıcılar
-        impersonations: Kullanıcılar yönetimi
-        pages: Sayfalar
         panel: Yönetici
-        participants: Kullanıcılar
-        scope_types: Kapsam türleri
         scopes: kapsamları
+      tooltips:
+        cannot_edit_taxonomy_filter: Bu kategori filtresi düzenlenemiyor
+        deleted_attachment_collections_info: Bu klasör ek dosyalar içerdiğinden silinemiyor.
+        deleted_component_info: Bu bileşen sadece durumu 'Yayınlanmamış' ise silinebilir.
+      trash_management:
+        restore:
+          invalid: '%{resource_name} geri yüklenirken bir hata oluştu.'
       users:
         create:
           error: Bu kullanıcıyı davet ederken bir hata oluştu.
@@ -959,13 +1091,19 @@ tr:
           role: Rol
         new:
           create: Davet et
+          title: Yeni yönetici davet et
       users_statistics:
         users_count:
           admins: Yöneticiler
           last_day: Son gün
           last_month: Geçen ay
           last_week: Geçen hafta
+          no_users_count_statistics_yet: Henüz katılımcı sayısı istatistiği yok.
           participants: Katılımcılar
+    forms:
+      errors:
+        impersonate_user:
+          reason: Yönetilmeyen bir katılımcıyla ilgili bir işlem yaparken gerekçe belirtilmesi zorunludur.
     moderations:
       actions:
         expand: Genişlet
@@ -975,6 +1113,17 @@ tr:
         title: Eylemler
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Bazı kaynakları gizlerken bir hata oluştu: %{errored}'
+              invalid: Kolaylaştırıcı seçilmedi.
+              success: Kaynaklar başarıyla gizlendi.
+            ignore:
+              invalid: Kullanıcı kolaylaştırıcısı seçilmedi.
+              success: Katılımcıların bildirilmesi başarıyla kaldırıldı.
+            unreport:
+              failed: 'Bazı kaynakların bildirilmesini kaldırırken bir hata oluştu: %{errored}'
+              success: Kaynakların engellenmesi başarıyla kaldırıldı.
           hide:
             invalid: Kaynağı gizleyen bir sorun oluştu.
             success: Kaynak başarıyla gizlendi.
@@ -989,6 +1138,7 @@ tr:
           fields:
             hidden_at: Gizli
             participatory_space: Katılımcı alanı
+            report_count: Bildirilme sayısı
             reportable_type: Türü
             reported_content_url: Raporlanan içerik URL'si
             visit_url: URL'yi ziyaret et

@@ -65,7 +65,7 @@ module Decidim
           double(
             "initiative",
             author:,
-            followers: followers,
+            followers:,
             committee_members: double("committee_members", approved: approved_committee_members)
           )
         end

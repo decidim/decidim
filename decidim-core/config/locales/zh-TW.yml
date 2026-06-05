@@ -195,10 +195,6 @@ zh-TW:
       organization:
         update: "%{user_name} 更新了組織設定"
         update_external_domain: "%{user_name} 更新了組織外部域名"
-      participatory_space_private_user:
-        create: "%{user_name} 邀請了 %{resource_name} 成為私人參與者"
-        create_via_csv: "%{user_name} 透過 CSV 邀請了 %{resource_name} 成為私人參與者"
-        delete: "%{user_name} 將參與者 %{resource_name} 從私人參與者中移除"
       scope:
         create: "%{user_name} 創建了 %{resource_name} 範圍"
         create_with_parent: "%{user_name} 在 %{parent_scope} 範圍內創建了 %{resource_name} 範圍"
@@ -292,9 +288,6 @@ zh-TW:
         success: 修正案草稿成功更新。
       withdraw:
         success: 修正案已成功撤回.
-      wizard_step_form:
-        steps:
-          '1': 創建您的修正案
     anonymous_user: 匿名
     application:
       document:
@@ -553,13 +546,9 @@ zh-TW:
           affected_user:
             email_intro: '已接受對於 %{amendable_title} 的修正案。您可以從此頁面中查看：'
             email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
-            email_subject: 已接受對於 %{amendable_title} 的修正案，來自於 %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">修正案</a>由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>創建，已被接受適用於<a href="%{amendable_path}">%{amendable_title}</a>。
           follower:
             email_intro: '已接受對於 %{amendable_title} 的修正案。您可以從此頁面中查看：'
             email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
-            email_subject: 已接受對於 %{amendable_title} 的修正案，來自於 %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">修正案</a>由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>創建，已被接受適用於<a href="%{amendable_path}">%{amendable_title}</a>。
         amendment_created:
           affected_user:
             email_intro: '已為 %{amendable_title} 創建一個新的修正案。您可以從此頁面查看：'
@@ -575,24 +564,16 @@ zh-TW:
           affected_user:
             email_intro: '一個被拒絕的修正案已被發佈為新的 %{amendable_type}，針對 %{amendable_title}。您可以從此頁面查看：'
             email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
-            email_subject: 來自 %{emendation_author_nickname} 的修正案已被發佈為新的 %{amendable_type}
-            notification_title: 一個<a href="%{emendation_path}">被拒絕的修正案</a>已由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>發佈為新的 %{amendable_type}，針對<a href="%{amendable_path}">%{amendable_title}</a>。
           follower:
             email_intro: '一個被拒絕的修正案已被發佈為新的 %{amendable_type}，針對 %{amendable_title}。您可以從此頁面查看：'
             email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
-            email_subject: 來自 %{emendation_author_nickname} 的修正案已被發佈為新的 %{amendable_type}
-            notification_title: 一個<a href="%{emendation_path}">被拒絕的修正案</a>已由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>發佈為新的 %{amendable_type}，針對<a href="%{amendable_path}">%{amendable_title}</a>。
         amendment_rejected:
           affected_user:
             email_intro: '一個修正案已被拒絕，針對 %{amendable_title}。您可以從此頁面查看：'
             email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
-            email_subject: 修正案由 %{emendation_author_nickname} 提交，針對 %{amendable_title}，已被拒絕。
-            notification_title: <a href="%{emendation_path}">%{emendation_author_nickname}</a>創建的<a href="%{emendation_path}">修正案</a>已被拒絕，針對<a href="%{amendable_path}">%{amendable_title}</a>。
           follower:
             email_intro: '一個修正案已被拒絕，針對 %{amendable_title}。您可以從此頁面查看：'
             email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
-            email_subject: 修正案由 %{emendation_author_nickname} 提交，針對 %{amendable_title}，已被拒絕。
-            notification_title: <a href="%{emendation_path}">%{emendation_author_nickname}</a>創建的<a href="%{emendation_path}">修正案</a>已被拒絕，針對<a href="%{amendable_path}">%{amendable_title}</a>。
       attachments:
         attachment_created:
           email_intro: '已新增一個文件至 %{resource_title}。您可以從此頁面查看：'
@@ -629,16 +610,9 @@ zh-TW:
           notification_title: |-
             一位管理員因為 %{report_reasons} 的舉報，移除了您的%{resource_type}。</br> <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: 你正在追蹤的 %{name}(%{nickname}) 的<a href="%{resource_path}">個人資料頁面</a>已被更新。
-          email_outro: 您收到此通知是因為您正在關注 %{nickname}。您可以點擊上方的連結停止接收通知。
-          email_subject: "%{nickname} 更新了他們的個人資料。"
-          notification_title: 你正在追蹤的 %{name}(%{nickname}) 的<a href="%{resource_path}">個人資料頁面</a>已被更新。
         user_officialized:
-          email_intro: 參與者 %{name} (%{nickname}) 已被官方認證。
           email_outro: 您收到此通知是因為您是該組織的管理員。
           email_subject: "%{name} 已被官方認證。"
-          notification_title: 參與者 %{name} (%{nickname}) 已被官方認證。
     export_mailer:
       download_your_data_export:
         download: 下載
@@ -796,7 +770,6 @@ zh-TW:
         latlng_text: '緯度：%{latitude}，經度：%{longitude}'
         map_service_brand: 開放街圖
     menu:
-      help: 幫助
       home: 首頁
     messaging:
       conversation_mailer:
@@ -868,18 +841,15 @@ zh-TW:
         main_image: 主圖片
     newsletters:
       unsubscribe:
-        check_subscription: 如果您想更改您的偏好設定，您可以在<a href="%{link}" target="_blank">配置頁面</a>進行更改。
         error: 取消訂閱時發生問題.
         success: 你已經成功取消訂閱
         token_error: 該連結已過期。
-        unsubscribe: 取消訂閱
     newsletters_opt_in:
       update:
         error: 儲存通訊設定時出現問題。
         success: 成功更新電子報設定.
     newsletters_opt_in_mailer:
       notify:
-        body_1: 個人資料的處理和保護對我們所有人來說變得越來越重要。隨著2018年5月25日新的《通用數據保護條例》（GDPR）的出台，個人對其個人資料擁有更好的控制權。因此，我們需要您的「確認」，以繼續向您發送有關 %{organization_name} 活動的相關資訊。
         body_2: '您如何給予我們您的同意？只需點擊下面的按鈕：'
         body_3: 通過此同意，您將能夠繼續接收有關平台服務的資訊。如果您沒有給予積極的確認，我們將停止向您發送訊息。如果您確認希望繼續收到資訊，您隨時可以選擇取消訂閱。
         button: 是的，我希望繼續接收相關資訊。
@@ -955,13 +925,10 @@ zh-TW:
           proposals_explanation: 提出建議、支持現有建議並推動您希望看到的變化。
         footer_sub_hero:
           footer_sub_hero_headline: 歡迎來到 %{organization} 的參與平台。
-          register: 註冊
         hero:
           participate: 參與
           participate_title: 參與平台的流程
           welcome: 歡迎來到 %{organization}！
-        sub_hero:
-          register: 註冊
       index:
         standalone_pages: 頁
         subheading: 瀏覽 %{name} 的幫助頁面
@@ -984,6 +951,9 @@ zh-TW:
           alert: 我們已更新我們的服務條款，請您查閱。
           body: 請花一點時間檢閱我們的服務條款更新，否則您將無法使用平台。
           title: '必須：檢閱我們的服務條款更新'
+    participatory_space_members:
+      index:
+        members: 成員
     passwords:
       update:
         error: 密碼更新時發生問題.
@@ -1172,8 +1142,6 @@ zh-TW:
         submit_button: 發送一個邀請
       no_invitations_remaining: 沒有待處理的邀請
       send_instructions: 已向 %{email} 發送了一封邀請郵件。
-      updated: 您的密碼已成功設定。您現在已登入。
-      updated_not_active: 您的密碼已成功設定。
     mailer:
       confirmation_instructions:
         action: 確認我的帳戶
@@ -1192,17 +1160,13 @@ zh-TW:
         ignore: |-
           如果您不想接受邀請，請忽略此電子郵件。<br />在您使用上述連結設置您的暱稱和密碼之前，您的帳戶不會被創建。
         invited_you_as_admin: "%{invited_by} 邀請您成為 %{application} 的管理員。您可以通過下面的連結接受邀請。"
-        invited_you_as_private_user: "%{invited_by} 邀請您成為 %{application} 的私密參與者。您可以通過下面的連結接受邀請。"
         someone_invited_you: 有人邀請您加入 %{application}。您可以通過下面的連結接受邀請。
         someone_invited_you_as_admin: 有人邀請您成為 %{application} 的管理員，您可以通過下面的連結接受邀請。
-        someone_invited_you_as_private_user: 有人邀請您成為 %{application} 的私人參與者，您可以通過下面的連結接受邀請。
         subject: 邀請說明
       invite_admin:
         subject: 你已經被邀請成為 %{organization} 的管理者
       invite_collaborator:
         subject: 你已獲邀成為 %{organization} 的協作者
-      invite_private_user:
-        subject: 您已被邀請參加 %{organization} 的私密參與過程。
       organization_admin_invitation_instructions:
         subject: 你已經被邀請成為 %{organization} 的管理者
       password_change:
@@ -1371,7 +1335,6 @@ zh-TW:
       impersonation_warning:
         close_session: 關閉階段
         description_html: 您正在管理參與者 <b>%{user_name}</b>。
-        expire_time_html: 您的會話將在 <b><span class="minutes">%{minutes}</span> 分鐘內過期</b>。
       language_chooser:
         choose_language: 選擇語言
       notifications_dashboard:
@@ -1414,7 +1377,6 @@ zh-TW:
     name_included_in_password: 與您的名字太相似
     nickname_included_in_password: 與您的暱稱太相似
     not_enough_unique_characters: 沒有足夠的獨特字符
-    password_not_allowed: 不被允許
     password_repeated: 不能重複使用舊密碼
     password_too_common: 太常見了
     password_too_long: 太長

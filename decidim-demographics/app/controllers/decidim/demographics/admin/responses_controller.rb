@@ -5,6 +5,7 @@ module Decidim
     module Admin
       class ResponsesController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireResponses
+
         helper_method :questionnaire_for, :questionnaire
 
         def index

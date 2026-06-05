@@ -10,9 +10,6 @@ fr-CA:
         closing_date: Date de clôture
         closing_date_reason: Raison de la date de clôture
         composition: Composition
-        copy_categories: Copier les catégories
-        copy_components: Copier les fonctionnalités
-        copy_features: Copier les fonctionnalités
         created_by: Créé par
         created_by_other: Si "autres", précisez
         creation_date: Date de création
@@ -22,9 +19,13 @@ fr-CA:
         developer_group: Organisateur
         document: Document
         domain: Domaine
+        duplicate_categories: Dupliquer les catégories
+        duplicate_components: Dupliquer les composants
+        duplicate_features: Dupliquer les fonctionnalités
         duration: Durée
         facebook: Facebook
         github: GitHub
+        has_members: Cet espace a des membres
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
         import_categories: Importer les catégories
@@ -39,7 +40,6 @@ fr-CA:
         participatory_processes_ids: Concertations associées
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
-        private_space: Espace privé
         promoted: Mise en avant
         published_at: Publiée à
         purpose_of_action: But de l'action
@@ -73,6 +73,8 @@ fr-CA:
           attributes:
             document:
               allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}.'
+              empty: Le document est vide
+              invalid_json: Le document n'est pas un JSON valide
   activerecord:
     models:
       decidim/assembly:
@@ -99,27 +101,25 @@ fr-CA:
         edit:
           update: Mettre à jour
         index:
-          private: Privée
-          public: Publique
+          access_modes:
+            open: Ouverte
+            restricted: Restreinte
+            transparent: Transparente
           published: Publiée
           unpublished: Non publié
-        manage_trash:
-          title: Assemblées supprimées
         new:
           create: Créer
-          title: Nouvelle assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette assemblée.
           success: Assemblée mise à jour avec succès.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Une erreur s'est produite lors de la duplication de cette assemblée.
           success: L'assemblée a été dupliquée avec succès.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Copier
+          duplicate: Dupliquer
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer l'assemblée
       assembly_imports:
         create:
           error: Un problème est survenu lors de l'importation de cette assemblée.
@@ -127,7 +127,6 @@ fr-CA:
         new:
           import: Importation
           select: Sélectionnez les données que vous souhaitez importer
-          title: Importer un assemblage
       assembly_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette assemblée.
@@ -142,13 +141,9 @@ fr-CA:
         destroy:
           success: Utilisateur supprimé avec succès de cette assemblée.
         edit:
-          title: Mettre à jour l'administrateur de l'assemblée
           update: Mettre à jour
-        index:
-          assembly_admins_title: Administrateurs de l'assemblée
         new:
           create: Créer
-          title: Nouvel administrateur de l'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
           success: Utilisateur mis à jour avec succès pour cette assemblée.
@@ -169,15 +164,15 @@ fr-CA:
           attachments: Documents liés
           components: Composants
           info: À propos de cette assemblée
+          members: Membres
           moderations: Modérations
-          private_users: Membres
           see_assembly: Voir l'assemblée
       models:
         assembly:
           fields:
+            access_mode: Mode d'accès
             actions: Actions
             created_at: Créée le
-            private: Privée
             promoted: Mise en avant
             published: Publiée
             title: Titre
@@ -204,10 +199,6 @@ fr-CA:
       taxonomy_filters:
         space_filter_for:
           assemblies: Toutes les assemblées
-      titles:
-        assemblies: Assemblées
-        assemblies_deleted: Assemblées supprimées
-        assemblies_types: Types d'assemblée
       tooltips:
         deleted_assemblies_info: Une assemblée ne peut être supprimée que si son statut est "non publiée".
     admin_log:
@@ -217,9 +208,11 @@ fr-CA:
         export: "%{user_name} a exporté l'assemblée %{resource_name}"
         import: "%{user_name} a importé l'assemblée %{resource_name}"
         publish: "%{user_name} a publié l'assemblée %{resource_name}"
+        publish_all_members: "%{user_name} a publié tous les membres de l'assemblée %{resource_name}"
         restore: "%{user_name} a restauré l'assemblée %{resource_name}"
         soft_delete: "%{user_name} a déplacé dans la corbeille l'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
+        unpublish_all_members: "%{user_name} a dépublié tous les membres de l'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
       assembly_member:
         create: "%{user_name} a créé le membre %{resource_name} membre dans l'assemblée %{space_name}"
@@ -241,16 +234,22 @@ fr-CA:
       admin:
         assemblies:
           form:
-            announcement_help: Le texte que vous saisissez ici sera affiché aux utilisateurs juste en dessous des informations de l'assemblée.
+            access:
+              label: Accès
+              options:
+                open: Tout le monde peut voir l'assemblée et participer.
+                restricted: Seuls les membres et les administrateurs peuvent voir et participer. Cela n'apparaîtra pas dans la recherche générale, ni dans l'API, ni dans les fichiers de données ouvertes.
+                transparent: Tout le monde peut voir l'assemblée, mais seuls les membres et les administrateurs peuvent y participer.
+              set_this_space_as: Définir cet espace comme
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
+            has_members_help: Vous pourrez créer et publier des membres
             images: Images
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à la plateforme. Elle ne doit pas nécessairement être identique à la date de création.
             metadata: Métadonnées
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             other: Autre
-            private_notice: Vous serez en mesure de gérer les participants privés après l'avoir défini comme privé
             select_a_created_by: Sélectionnez un créateur
             select_parent_assembly: Sélectionnez l'assemblée parente
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
@@ -258,23 +257,45 @@ fr-CA:
             taxonomies: Taxonomies
             title: Informations générales
             visibility: Visibilité
-        assembly_copies:
+          index:
+            title: Assemblées
+          manage_trash:
+            title: Assemblées supprimées
+          new:
+            title: Nouvelle assemblée
+        assembly_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+          new:
+            title: Dupliquer l'assemblée
         assembly_imports:
           form:
+            document_legend: Ajouter un document
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+          new:
+            title: Importer l'assemblée
         assembly_members:
           form:
             explanation: 'Instruction concernant l’image:'
             image_guide: De préférence une image au format portrait ne contenant pas de texte.
             non_user_avatar_help: Vous devriez obtenir le consentement des personnes avant de les publier en tant que membre.
+        assembly_user_roles:
+          edit:
+            title: Mettre à jour l'administrateur de l'assemblée
+          index:
+            title: Administrateurs de l'assemblée
+          new:
+            title: Nouvel administrateur de l'assemblée
         content_blocks:
           highlighted_assemblies:
             max_results: Quantité maximale d'éléments à afficher
+        imports:
+          attachment_error: La pièce jointe «%{title}» n’a pas pu être importée (%{error}).
+          hero_image_error: L'image principale n'a pas pu être importée (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Cette fonction d'importation vous permet de créer une nouvelle assemblée à partir d'un fichier JSON exporté. Vous pouvez exporter une assemblée depuis une autre organisation ou depuis cette même organisation. L'assemblée importée inclura ses paramètres, composants et pièces jointes (si sélectionnés).
       assemblies:
         description:
           area_name: Périmètre d'assemblée
@@ -298,9 +319,6 @@ fr-CA:
           type: Type
         show:
           title: À propos de cette assemblée
-      assembly_members:
-        index:
-          members: Membres
       content_blocks:
         children_assemblies:
           name: Assemblées
@@ -335,16 +353,9 @@ fr-CA:
           highlighted_assemblies:
             active_spaces: Assemblées actives
             see_all_spaces: Voir toutes les assemblées
-        user_profile:
-          member_of:
-            member_of: Membre de
       show:
         duration: Durée
-        private_space: Ceci est une assemblée privée
         social_networks_title: Visiter l'assemblée sur
-    assembly_members:
-      index:
-        title: Membres
     download_your_data:
       show:
         assemblies: Export des assemblées
@@ -371,20 +382,34 @@ fr-CA:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Le type d''assemblée n''a pas été trouvé sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
     open_data:
       help:
         assemblies:
-          announcement: Information sur l'annonce (callout)
+          access_mode: Mode d'accès. Définir si l'assemblée est ouverte, restreinte ou transparente.
           assembly_type: Le type de l'assemblée
           closing_date: La date de clôture de l'assemblée
           closing_date_reason: Pourquoi l'assemblée a été clôturée
+          component_settings: Les paramètres de fonctionnalité d'assemblée
           composition: La composition de l'assemblée
           created_at: La date de création de cet espace
           created_by: Qui a créé cette assemblée
+          created_by_other: Autre créateur de l'assemblée
+          description: Une description longue de l'assemblée
+          duration: La durée de l'assemblée
+          follows_count: Le nombre d'utilisateurs suivant cet espace
+          id: L'identifiant unique de cette assemblée
+          internal_organisation: L'organisation interne de cette assemblée
+          is_transparent: Si l'assemblée est transparente ou non
+          local_area: La zone locale de cette assemblée
+          promoted: Si l'assemblée est promue ou non
+          published_at: La date à laquelle cet espace a été publié
+          purpose_of_action: Le but de l'action de l'assemblée
+          short_description: Une courte description de l'assemblée
+          subtitle: Le sous-titre de l'assemblée
+          target: La cible de l'assemblée
+          title: Le titre de l'assemblée
     participatory_processes:
       show:
         related_assemblies: Assemblées associées

@@ -62,7 +62,7 @@ module Decidim
             |    :user_name      => Decidim::Env.new("SMTP_USERNAME").to_s,
             |    :password       => Decidim::Env.new("SMTP_PASSWORD").to_s,
             |    :domain         => Decidim::Env.new("SMTP_DOMAIN").to_s,
-            |    :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
+            |    :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO", true).present?,
             |    :openssl_verify_mode => 'none'
             |  }
           HERE
@@ -75,7 +75,7 @@ module Decidim
         remove_file "Gemfile"
       end
 
-      def install_decidim_webpacker
+      def install_decidim_shakapacker
         # Copy CSS file
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
 
@@ -87,16 +87,17 @@ module Decidim
         # Add a .keep file so directory is included in git when committing
         create_file "app/packs/images/.keep"
 
-        # Regenerate webpacker binstubs
+        # Regenerate shakapacker binstubs
         remove_file "bin/yarn"
         bundle_install
-        rails "shakapacker:binstubs"
 
         # Copy package.json
         copy_file "package.json", "package.json"
 
-        # Run Decidim custom webpacker installation
-        rails "decidim:webpacker:install"
+        rails "shakapacker:binstubs"
+
+        # Run Decidim custom shakapacker installation
+        rails "decidim:shakapacker:install"
 
         # Run Decidim custom procfile installation
         rails "decidim:procfile:install"

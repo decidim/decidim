@@ -23,7 +23,7 @@
       </div>
 
     <div class="row">
-      <div class="columns slug">
+      <div class="columns" data-controller="slug">
         <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url(:conferences, form.object.slug)) %>
       </div>
       </div>
@@ -119,7 +119,7 @@
 
     <div id="panel-registrations" class="card-section">
       <div class="row column">
-        <%= form.check_box :registrations_enabled, "data-toggle": "registrations_enabled_details" %>
+        <%= form.check_box :registrations_enabled, data: { controller: :toggle, "toggle-toggle-value": "registrations_enabled_details" } %>
       </div>
 
       <div id="registrations_enabled_details" <%= form.object.registrations_enabled ? nil : "hidden" %>>

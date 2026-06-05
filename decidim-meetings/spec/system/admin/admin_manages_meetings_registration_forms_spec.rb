@@ -2,13 +2,19 @@
 
 require "spec_helper"
 
+require "decidim/forms/test/shared_examples/questionnaire_admin_access"
+
 describe "Admin manages meetings registration forms" do
   let(:manifest_name) { "meetings" }
+  let(:callout_success) { "Form successfully saved." }
+  let(:callout_failure) { "There was a problem saving" }
 
   let!(:questionnaire) { create(:questionnaire) }
   let!(:meeting) { create(:meeting, scope:, component: current_component, questionnaire:, registrations_enabled: true, registration_form_enabled: true) }
 
   include_context "when managing a component as an admin"
+
+  it_behaves_like "questionnaire admin access", denied_error: 404
 
   it_behaves_like "manage questionnaires"
 
@@ -45,7 +51,7 @@ describe "Admin manages meetings registration forms" do
       visit registrations_edit_path
       find_by_id("meeting_customize_registration_email").click
 
-      expect(page).to have_content "This text will appear in the middle of the registration confirmation email"
+      expect(page).to have_text "This text will appear in the middle of the registration confirmation email"
       fill_in_i18n_editor(
         :meeting_registration_email_custom_content,
         "#meeting-registration_email_custom_content-tabs",

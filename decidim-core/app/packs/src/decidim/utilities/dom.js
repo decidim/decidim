@@ -1,5 +1,5 @@
 import confirmAction from "src/decidim/confirm"
-import { getMessages } from "src/decidim/i18n"
+import { getMessages } from "src/decidim/refactor/moved/i18n"
 
 const { Rails } = window;
 

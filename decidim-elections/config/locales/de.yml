@@ -1,4 +1,9 @@
 de:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Wahl
+        other: Wahlen
   decidim:
     admin:
       menu:
@@ -19,6 +24,7 @@ de:
             announcement: Ankündigung
     elections:
       actions:
+        preview: Vorschau
         title: Aktionen
       admin:
         census:
@@ -30,6 +36,7 @@ de:
           main:
             labels:
               description: Beschreibung
+              title: Titel
           questions:
             labels:
               answers: Antworten
@@ -39,17 +46,35 @@ de:
             votes: Stimmen
           results:
             publish_button: Resultate veröffentlichen
+            results_availability:
+              real_time: Ergebnisse werden laufend während der Wahl angezeigt.
+            start_question_button: Abstimmung aktivieren
             title: Resultate
           status:
+            census: 'Erhebung:'
             title: Wahlstatus
         elections:
           edit:
             title: Wahl bearbeiten
           form:
             add_images: Bilder hinzufügen
+            basic_title: Hauptinformation
+            calendar: Kalender
+            calendar_description: Überprüfen Sie, ob die Zeitzone in den Organisationseinstellungen korrekt ist. Die aktuelle Konfiguration ist %{timezone}.
+            edit_attachments: Anhänge bearbeiten
+            end_at: Ende
+            manual_start: Manueller Start
             publish: Veröffentlichen
+            results_availability:
+              per_question: Frage nach Frage
+              real_time: In Echtzeit
+              title: Verfügbarkeit der Ergebnisse
+            save: Speichern und fortfahren
+            start_at: Startzeit
           index:
             title: Wahlen
+          manage_trash:
+            title: Gelöschte Wahlen
           new:
             title: Neue Wahl
         questions:
@@ -59,6 +84,28 @@ de:
         statuses:
           publish_results:
             invalid: Beim Veröffentlichen der Ergebnisse ist ein Fehler aufgetreten.
+      censuses:
+        token_csv_form:
+          email: E-Mail
+      elections:
+        count:
+          elections_count:
+            one: "%{count} Wahlen"
+            other: "%{count} Wahlen"
+        filters:
+          all: Alle
+          state: Status
+          state_values:
+            finished: Abgeschlossen
+            ongoing: Aktuell
+        orders:
+          recent: Kürzlich hinzugefügt
+        questions:
+          title: Wahlfragen
+        show:
+          vote_button: Abstimmung
+        vote_results:
+          title: Resultate
       models:
         election:
           fields:
@@ -68,7 +115,21 @@ de:
       status:
         active: Aktiv
         finished: Abgeschlossen
+        not_started: Nicht begonnen
         ongoing: Aktuell
         unpublished: Nicht veröffentlicht
+      votes:
+        confirm:
+          title: Bestätige deine Stimme
+        question:
+          back: Zurück
+          next: Weiter
     statistics:
       elections_count: Wahlen
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Schliessen
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y, %-I:%M %p"

@@ -27,7 +27,6 @@ pl:
       initiatives_type:
         area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
-        banner_image: Baner
         child_scope_threshold_enabled: Włącz podpisy dla elementów podrzędnych
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
         comments_enabled: Włącz komentarze
@@ -109,15 +108,12 @@ pl:
         initiatives_menu:
           see_initiative: Zobacz inicjatywę
         initiatives_settings: Ustawienia
-        initiatives_submenu:
-          info: O tej inicjatywie
         initiatives_types: Typy inicjatyw
         moderations: Moderacja
       models:
         initiatives:
           fields:
             created_at: Utworzono
-            id: ID
             published_at: Opublikowano
             state: Stan
             supports_count: Podpisy
@@ -145,9 +141,6 @@ pl:
             name_and_surname: Imię i nazwisko
             postal_code: Kod pocztowy
             timestamp: Znacznik czasu
-      titles:
-        initiatives: Inicjatywy
-        initiatives_types: Typy inicjatyw
     events:
       initiatives:
         admin:
@@ -271,7 +264,6 @@ pl:
             publication_date: Ostatnio opublikowane
             random: Losowo
             signatures: Najczęściej podpisane
-            title: Ustawienia dla inicjatyw
         initiatives_type_scopes:
           create:
             success: Utworzono nowy zakres dla danego typu inicjatywy.
@@ -372,25 +364,11 @@ pl:
         update: Aktualizuj
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
           email_outro: 'Otrzymałeś to powiadomienie, ponieważ zgłosiłeś się do inicjatywy %{resource_title}'
-          email_subject: "%{author_nickname} zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "Użytkownik %{author_name} %{author_nickname}, którego obserwujesz, utworzył nową inicjatywę, sprawdź ją i przyłącz się:"
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Nowa inicjatywa autorstwa %{author_nickname}
-          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
           email_outro: 'Otrzymałeś to powiadomienie, ponieważ zgłosiłeś się do inicjatywy %{resource_title}.'
-          email_subject: "%{author_nickname} odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy %{resource_title}. Aby zaakceptować lub odrzucić zgłoszenie przejdź do formularza edycji swojej inicjatywy."
           email_outro: 'Otrzymałeś to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}'
-          email_subject: "%{applicant_nickname} chce dołączyć do Twojej inicjatywy"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
       form:
         add_image: Dodaj obraz
         edit_image: Edytuj obraz

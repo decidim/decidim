@@ -87,7 +87,6 @@ gl:
           fields:
             created_at: Creado
             end_date: Data de finalización
-            id: ID
             progress: Progreso
             start_date: Data de inicio
             status: Estado

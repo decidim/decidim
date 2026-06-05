@@ -91,7 +91,6 @@
           fields:
             created_at: Opprettet
             end_date: Sluttdato
-            id: ID
             progress: Framgang
             start_date: Startdato
             status: Status

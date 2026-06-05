@@ -9,7 +9,7 @@ shared_examples "export meetings" do
 
   context "with query" do
     before do
-      fill_in "q[id_string_or_title_cont]", with: translated(meetings.last.title)
+      fill_in "q[title_cont]", with: translated(meetings.last.title)
       find("button[aria-label='Search']").click
     end
 
@@ -30,7 +30,7 @@ shared_examples "export as CSV" do
       sleep 1
     end
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "meetings" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("meetings")
@@ -47,7 +47,7 @@ shared_examples "export as JSON" do
       sleep 1
     end
 
-    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
+    expect(page).to have_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "meetings" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("meetings")

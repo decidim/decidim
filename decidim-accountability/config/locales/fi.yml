@@ -40,6 +40,8 @@ fi:
   decidim:
     accountability:
       actions:
+        add_milestone: Lisää välitavoite
+        add_result: Lisää tulos
         confirm_delete_result: Haluatko varmasti poistaa tämän tuloksen?
         confirm_destroy: Oletko varma, että haluat poistaa tämän kohteen nimeltä "%{name}"?
         deleted_results_info: Poistetut tulokset voidaan palauttaa roskakorista.
@@ -251,7 +253,6 @@ fi:
           fields:
             created_at: Luontiaika
             end_date: Päättymispäivä
-            id: ID
             progress: Edistyminen
             start_date: Alkamispäivä
             status: Tila
@@ -276,7 +277,7 @@ fi:
         root_taxonomies:
           title: 'Näytä luokittelun mukaan:'
         search:
-          search: Hae toimintoja
+          search: Hae toimenpiteitä
         show:
           stats:
             back_to_resource: Palaa tulokseen
@@ -293,6 +294,7 @@ fi:
       accountability:
         actions:
           comment: Kommentoi
+          vote_comment: Äänestä kommenttia
         name: Vastuullisuus
         settings:
           global:

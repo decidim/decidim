@@ -14,9 +14,9 @@ module Decidim
 
     private
 
-    def enqueue_jobs(users, action, *args)
+    def enqueue_jobs(users, action, *)
       users.find_each do |user|
-        ProcessInactiveParticipantJob.perform_later(user.id, action, *args)
+        ProcessInactiveParticipantJob.perform_later(user.id, action, *)
       end
     end
 

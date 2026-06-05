@@ -79,7 +79,7 @@ module Decidim
       Decidim.participatory_space_manifests.map do |manifest|
         klass = manifest.model_class_name.constantize
 
-        condition = if klass.include?(Decidim::HasPrivateUsers)
+        condition = if klass.include?(Decidim::ParticipatorySpace::HasMembers)
                       Arel.sql(
                         <<~SQL.squish
                           (

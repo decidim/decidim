@@ -9,7 +9,7 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
+                        active: %r{^/#{current_locale}/(initiatives|create_initiative)},
                         if: Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).any?
         end
       end
@@ -20,7 +20,7 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
+                        active: %r{^/#{current_locale}/(initiatives|create_initiative)},
                         if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
       end
@@ -76,7 +76,7 @@ module Decidim
       def self.register_admin_initiative_menu!
         Decidim.menu :admin_initiative_menu do |menu|
           menu.add_item :edit_initiative,
-                        I18n.t("menu.information", scope: "decidim.admin"),
+                        I18n.t("title", scope: "decidim.initiatives.admin.initiatives.edit"),
                         decidim_admin_initiatives.edit_initiative_path(current_participatory_space),
                         icon_name: "information-line",
                         if: allowed_to?(:edit, :initiative, initiative: current_participatory_space)
@@ -113,7 +113,7 @@ module Decidim
                         decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space)),
                         icon_name: "share-line",
-                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
+                        if: allowed_to?(:read, :share_token, current_participatory_space:)
         end
       end
 

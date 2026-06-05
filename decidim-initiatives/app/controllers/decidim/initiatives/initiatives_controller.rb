@@ -22,6 +22,7 @@ module Decidim
       include InitiativeSlug
       include FilterResource
       include Paginable
+      include Decidim::AttachmentsHelper
       include Decidim::FormFactory
       include Decidim::Initiatives::Orderable
       include TypeSelectorOptions
@@ -30,7 +31,7 @@ module Decidim
       include SingleInitiativeType
       include Decidim::IconHelper
 
-      helper_method :collection, :initiatives, :pending_initiatives, :filter, :stats, :tabs, :panels
+      helper_method :collection, :initiatives, :pending_initiatives, :filter, :stats, :tab_panel_items
       helper_method :initiative_type, :available_initiative_types
 
       before_action :authorize_participatory_space, only: [:show]
@@ -44,8 +45,7 @@ module Decidim
         @closed_initiatives ||= search_with(filter_params.merge(with_any_state: %w(closed)))
 
         if @closed_initiatives.result.present?
-          params[:filter] ||= {}
-          params[:filter][:with_any_state] = %w(closed)
+          params.fetch(:filter, {}).merge!(with_any_state: %w(closed))
           @forced_closed_initiatives = true
 
           @search = @closed_initiatives
@@ -104,7 +104,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("error", scope: "decidim.initiatives.update")
-            render :edit, layout: "decidim/initiative", status: :unprocessable_entity
+            render :edit, layout: "decidim/initiative", status: :unprocessable_content
           end
         end
       end
@@ -135,7 +135,7 @@ module Decidim
       def current_participatory_space
         return unless params["slug"]
 
-        @current_participatory_space ||= Initiative.find(id_from_slug(params[:slug]))
+        @current_participatory_space ||= Initiative.find(id_from_slug(params.expect(:slug)))
       end
 
       def current_participatory_space_manifest
@@ -176,33 +176,8 @@ module Decidim
         @stats ||= InitiativeStatsPresenter.new(initiative: current_initiative)
       end
 
-      def tabs
-        @tabs ||= items.map { |item| item.slice(:id, :text, :icon) }
-      end
-
-      def panels
-        @panels ||= items.map { |item| item.slice(:id, :method, :args) }
-      end
-
-      def items
-        @items ||= [
-          {
-            enabled: @current_initiative.photos.present?,
-            id: "images",
-            text: t("decidim.application.photos.photos"),
-            icon: resource_type_icon_key("images"),
-            method: :cell,
-            args: ["decidim/images_panel", @current_initiative]
-          },
-          {
-            enabled: @current_initiative.documents.present?,
-            id: "documents",
-            text: t("decidim.application.documents.documents"),
-            icon: resource_type_icon_key("documents"),
-            method: :cell,
-            args: ["decidim/documents_panel", @current_initiative]
-          }
-        ].select { |item| item[:enabled] }
+      def tab_panel_items
+        @tab_panel_items ||= attachments_tab_panel_items(@current_initiative)
       end
     end
   end

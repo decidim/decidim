@@ -4,6 +4,7 @@ module Decidim
   module Surveys
     class SurveyConfirmationMailer < ApplicationMailer
       include TranslatableAttributes
+
       helper Decidim::SanitizeHelper
 
       def confirmation(user, questionnaire, responses)

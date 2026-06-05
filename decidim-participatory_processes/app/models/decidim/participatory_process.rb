@@ -16,7 +16,7 @@ module Decidim
     include Decidim::Followable
     include Decidim::HasReference
     include Decidim::Traceable
-    include Decidim::HasPrivateUsers
+    include Decidim::ParticipatorySpace::HasMembers
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Searchable
@@ -59,10 +59,6 @@ module Decidim
                foreign_key: "decidim_scope_type_id",
                class_name: "Decidim::ScopeType",
                optional: true
-    belongs_to :participatory_process_type,
-               foreign_key: "decidim_participatory_process_type_id",
-               class_name: "Decidim::ParticipatoryProcessType",
-               optional: true
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
@@ -71,12 +67,21 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
 
+    # Access modes are consistent across participatory spaces (assemblies and processes)
+    # open: visible and accessible for all
+    # transparent: visible for all but the actions require to be a member of the space
+    # restricted: visible and accessible only for members fo the space
+    ACCESS_MODES = { open: 0, transparent: 1, restricted: 2 }.freeze
+    enum :access_mode, ACCESS_MODES
+
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
     scope :past, -> { where(arel_table[:end_date].lt(Date.current)) }
     scope :upcoming, -> { where(arel_table[:start_date].gt(Date.current)) }
     scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gteq(Date.current).or(arel_table[:end_date].eq(nil)))) }
+
+    scope_search_multi :with_any_access_mode, ACCESS_MODES.keys
 
     scope :with_date, lambda { |date_key|
       case date_key
@@ -209,18 +214,18 @@ module Decidim
     ransacker_i18n :title
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_date, :with_any_taxonomies]
+      [:with_date, :with_any_taxonomies, :with_any_access_mode]
     end
 
     def self.ransackable_attributes(auth_object = nil)
       base = %w(title short_description description id)
       return base unless auth_object&.admin?
 
-      base + %w(private_space published_at decidim_participatory_process_group_id)
+      base + %w(published_at created_at decidim_participatory_process_group_id access_mode)
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(participatory_process_type participatory_process_group taxonomies)
+      %w(participatory_process_group taxonomies)
     end
   end
 end

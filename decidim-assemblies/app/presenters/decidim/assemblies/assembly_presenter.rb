@@ -9,10 +9,6 @@ module Decidim
         assembly.attached_uploader(:hero_image).url
       end
 
-      def banner_image_url
-        assembly.attached_uploader(:banner_image).url
-      end
-
       def area_name
         return if assembly.area.blank?
 

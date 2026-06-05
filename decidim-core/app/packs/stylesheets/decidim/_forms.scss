@@ -1,9 +1,13 @@
 #form-search-mobile {
-  @apply py-1.5 px-4 bg-gray-5 rounded-lg border border-gray outline outline-1 outline-transparent;
+  @apply py-1.5 px-4 pr-8 bg-gray-5 rounded-lg border border-gray outline outline-1 outline-transparent;
 
   input[type="text"] {
     @apply bg-gray-5;
   }
+}
+
+#input-search-page {
+  @apply w-full px-4 pr-8;
 }
 
 .form-defaults {

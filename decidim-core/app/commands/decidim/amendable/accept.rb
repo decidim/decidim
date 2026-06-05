@@ -61,7 +61,7 @@ module Decidim
           @amendable.save!
           @amendable
         end
-        @amendable.add_coauthor(@amender)
+        @amendable.add_coauthor(@amender) if @amendable.is_a?(Decidim::Coauthorable)
       end
 
       def notify_emendation_state_change!

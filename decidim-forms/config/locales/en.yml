@@ -43,8 +43,8 @@ en:
           components:
             allow_editing_responses: Allow registered users to edit own survey responses
             allow_responses: Allow responses
-            allow_unregistered: Allow unregistered users to response the survey
-            allow_unregistered_help: If active, no login will be required in order to response the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could response the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
+            allow_unregistered: Allow unregistered users to respond to the survey
+            allow_unregistered_help: If active, no login will be required in order to respond to the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could response the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
             announcement: Announcement
             clean_after_publish: Delete responses when publishing the survey
             description: Description
@@ -55,7 +55,7 @@ en:
             tos: Terms of service
         questionnaires:
           actions:
-            back: Back to questions
+            back: Back to responses
             publish_responses: Publish responses
             show: Responses
           display_condition:
@@ -103,12 +103,10 @@ en:
             any: Any
             collapse: Collapse
             description: Description
-            down: Down
             expand: Expand
             question: Question
             remove: Remove
             statement: Statement
-            up: Up
           questions_form:
             already_responded_warning: The form is already responded by some users so you cannot modify its questions.
             collapse: Collapse all questions
@@ -139,19 +137,15 @@ en:
             show:
               title: 'Response #%{number}'
           separator:
-            down: Down
             remove: Remove
             separator: Separator
-            up: Up
           title_and_description:
             collapse: Collapse
             description: Description
-            down: Down
             expand: Expand
             remove: Remove
             title: Title
             title_and_description: Title and description
-            up: Up
           update:
             invalid: There was a problem saving the form.
             success: Form successfully saved.
@@ -187,6 +181,7 @@ en:
         response:
           invalid: There was a problem responding the form.
           max_choices_alert: There are too many choices selected
+          spam_detected: There was a problem responding the form. Maybe you have been too quick, can you try again?
           success: Form successfully responded.
         show:
           current_step: Step %{step}
@@ -195,8 +190,8 @@ en:
           questionnaire_closed:
             body: The form is closed and cannot be responded.
             title: Form closed
-          questionnaire_for_private_users:
-            body: The form is available only for private users
+          questionnaire_for_members:
+            body: The form is available only for members
             title: Form closed
           questionnaire_js_disabled:
             body: Some of this form's features will be disabled. To improve your experience, please enable JavaScript in your browser.

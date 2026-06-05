@@ -1,14 +1,42 @@
-<div class="menu-bar__breadcrumb-desktop__dropdown-wrapper" onmouseenter="document.getElementById('main-dropdown-menu').classList.remove('no-animation')">
-  <%= link_to decidim.root_url, class: "menu-bar__breadcrumb-desktop__dropdown-trigger", onmouseenter: "document.getElementById('main-dropdown-summary').click()" do %>
-    <%= icon "home-2-line", class: "pointer-events-none" %><span class="sr-only"><%= t("decidim.menu.home") %></span>
+<%= link_to decidim.root_url, class: "menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger" do %>
+  <span><%= t("decidim.menu.home") %></span>
+<% end %>
+<% truncatable_items = breadcrumb_items.compact_blank.drop(1) %>
+<% breadcrumb_items.each do |item| %>
+  <% next if item.blank? %>
+
+  <% item_label = translated_attribute(item[:label]) %>
+  <% truncatable = truncatable_items.include?(item) %>
+  <% trigger_classes = ["menu-bar__breadcrumb-desktop__dropdown-trigger"] %>
+  <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
+    <% trigger_classes.unshift("menu-bar__breadcrumb-desktop__dropdown-wrapper") %>
   <% end %>
-  <button id="main-dropdown-summary" class="menu-bar__breadcrumb-desktop__dropdown-trigger" data-controller="dropdown" data-hover="true" data-target="main-dropdown-menu">
-    <%= icon "arrow-drop-down-line" %><span class="sr-only"><%= t("layouts.decidim.header.main_menu") %></span>
-  </button>
-</div>
+  <% if truncatable %>
+    <% trigger_classes << "menu-bar__breadcrumb-desktop__dropdown-trigger--truncatable" %>
+  <% end %>
+  <span aria-hidden="true"><%= icon "arrow-right-s-line", class: "fill-white" %></span>
+  <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
+    <%= link_to item[:url], class: trigger_classes.join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), "aria-current": (item[:active] ? "page" : nil) do %>
+      <% if truncatable %>
+        <span class="menu-bar__breadcrumb-desktop__label--truncatable">
+          <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= item_label %></span>
+        </span>
+      <% else %>
+        <span><%= item_label %></span>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%# This block is executed if the condition is false %>
+    <%= content_tag :span, class: [*trigger_classes, "no-interactive"].join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), "aria-current": (item[:active] ? "page" : nil) do %>
+      <% if truncatable %>
+        <span class="menu-bar__breadcrumb-desktop__label--truncatable">
+          <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= item_label %></span>
+        </span>
+      <% else %>
+        <span><%= item_label %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
 
-<div id="main-dropdown-menu" class="menu-bar__breadcrumb-desktop__dropdown-content no-animation" aria-hidden="true">
-  <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown_desktop", locals: { id: "breadcrumb-main-dropdown-desktop" } %>
-</div>
-
-<%= render partial: "layouts/decidim/header/menu_breadcrumb_items" %>
+<%= render partial: "layouts/decidim/schema_org_breadcrumb_list", locals: { breadcrumb_items: } %>

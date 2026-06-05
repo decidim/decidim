@@ -33,6 +33,7 @@ el:
       actions:
         edit: Επεξεργασία
         import: Εισαγωγή προτάσεων σε έργα
+        new_project: Νέο έργο
         preview: Προεπισκόπηση
         send_voting_reminders: Αποστολή υπενθυμίσεων ψήφου
         title: Ενέργειες
@@ -59,8 +60,6 @@ el:
         exports:
           projects: Έργα
         models:
-          budget:
-            name: Προϋπολογισμός
           project:
             name: Έργο
         projects:
@@ -68,7 +67,6 @@ el:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του έργου.
             success: Το έργο δημιουργήθηκε επιτυχώς.
           edit:
-            title: Επεξεργασία έργου
             update: Ενημέρωση
           index:
             actions: Ενέργειες
@@ -83,7 +81,6 @@ el:
             update: Ενημέρωση
           new:
             create: Δημιουργία
-            title: Νέο έργο
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του έργου.
             success: Το έργο ενημερώθηκε με επιτυχία.
@@ -97,7 +94,6 @@ el:
           new:
             create: Εισαγωγή προτάσεων σε έργα
             default_budget: Προεπιλεγμένος προϋπολογισμός
-            import_all_accepted_proposals: Εισαγωγή όλων των αποδεχθείσων προτάσεων
             no_components: Δεν υπάρχουν άλλα στοιχεία προτάσεων σε αυτόν τον χώρο συμμετοχής για εισαγωγή των προτάσεων σε έργα.
             origin_component_id: Στοιχείο καταγωγής
             select_component: Επιλέξτε ένα στοιχείο
@@ -144,7 +140,6 @@ el:
             total_budget: Συνολικός προϋπολογισμός
         project:
           fields:
-            id: ID
             title: Τίτλος
       order:
         status:
@@ -268,13 +263,6 @@ el:
               disabled: Απενεργοποιημένη ψηφοφορία
               enabled: Η ψηφοφορία ενεργοποιήθηκε
               finished: Η ψηφοφορία ολοκληρώθηκε
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Ο προϋπολογισμός %{resource_title} είναι τώρα ενεργός για το %{participatory_space_title}. Μπορείτε να τον δείτε από αυτή τη σελίδα:'
-          email_outro: Λάβατε αυτή την ειδοποίηση επειδή ακολουθείτε το %{participatory_space_title}. Μπορείτε να σταματήσετε να λαμβάνετε ειδοποιήσεις ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Ο προϋπολογισμός %{resource_title} είναι τώρα ενεργός για το %{participatory_space_title}.
-          notification_title: Ο προϋπολογισμός <a href="%{resource_path}">%{resource_title}</a> είναι τώρα ενεργός για το %{participatory_space_title}.
     orders:
       checkout:
         error: Υπήρξε ένα πρόβλημα κατά την επεξεργασία της ψήφου σας.

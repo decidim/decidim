@@ -167,6 +167,19 @@ module Decidim::Maintenance
         end
       end
 
+      context "when component has existing settings" do
+        before do
+          component.update!(settings: { comments_enabled: false })
+        end
+
+        it "preserves existing settings when assigning taxonomy filters" do
+          expect(component.reload.settings.comments_enabled).to be(false)
+          subject.import!
+          expect(component.reload.settings[:taxonomy_filters]).to eq([filter.id.to_s])
+          expect(component.settings.comments_enabled).to be(false)
+        end
+      end
+
       context "when a filter already exists" do
         let!(:root_taxonomy) { create(:taxonomy, organization:, name: { organization.default_locale => "New root taxonomy" }) }
         let!(:filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: ["participatory_processes"]) }

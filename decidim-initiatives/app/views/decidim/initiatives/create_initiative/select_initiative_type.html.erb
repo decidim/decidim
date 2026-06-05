@@ -11,7 +11,7 @@
 <h3 class="title-decorator text-2xl mt-8"><%= t(".subtitle") %></h3>
 
 <div class="initiatives__selection" id="select-initiative-type">
-  <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path, method: :put, html: { id: "new_initiative_form", class: "form-defaults " }) do |f| %>
+  <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path(), method: :put, html: { id: "new_initiative_form", class: "form-defaults " }) do |f| %>
     <% initiative_types_each do |type| %>
       <% is_allowed = allowed_to?(:create, :initiative, { initiative_type: type }) %>
 

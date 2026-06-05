@@ -27,11 +27,9 @@ ar:
           question:
             any: أي
             description: وصف
-            down: أسفل
             question: سؤال
             remove: إزالة
             statement: بيان
-            up: فوق
           title_and_description:
             description: الوصف
           update:
@@ -45,9 +43,6 @@ ar:
           max_choices: 'خيارات ماكس: %{n}'
         show:
           questionnaire_closed:
-            title: شكل مغلق
-          questionnaire_for_private_users:
-            body: النموذج متاح فقط للمستخدمين من القطاع الخاص
             title: شكل مغلق
           tos_agreement: من خلال المشاركة ، فإنك تقبل شروط الخدمة
       step_navigation:

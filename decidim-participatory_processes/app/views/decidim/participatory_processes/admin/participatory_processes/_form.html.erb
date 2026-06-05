@@ -22,7 +22,7 @@
       </div>
 
       <div class="row">
-        <div class="columns slug">
+        <div class="columns" data-controller="slug">
           <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url(:processes, form.object.slug)) %>
         </div>
       </div>
@@ -35,9 +35,6 @@
         <%= form.translated :editor, :description, resource_mentionable: true, aria: { label: :description } %>
       </div>
 
-      <div class="row column">
-        <%= form.translated :editor, :announcement, help_text: t(".announcement_help") %>
-      </div>
     </div>
   </div>
 
@@ -149,6 +146,45 @@
     </div>
   </div>
 
+  <div class="card" data-controller="accordion access-mode" id="accordion-access">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-access" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="access">
+          <%= t("label", scope: "decidim.participatory_processes.admin.participatory_processes.form.access") %>
+        </h2>
+      </button>
+    </div>
+    <div id="panel-access" class="card-section">
+      <div class="row column" id="has_members">
+        <%= form.check_box :has_members, help_text: t(".has_members_help") %>
+      </div>
+
+      <fieldset class="row column" id="access_mode">
+        <legend>
+          <%= t("access.set_this_space_as", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </legend>
+        <div class="radio-group">
+          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.open") %>
+          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.restricted") %>
+          <%# i18n-tasks-use t("decidim.participatory_processes.admin.participatory_processes.form.access.options.transparent") %>
+          <%= form.collection_radio_buttons :access_mode,
+                                            Decidim::ParticipatoryProcess::ACCESS_MODES.keys,
+                                            ->(mode) { mode },
+                                            ->(mode) { t(mode, scope: "decidim.admin.participatory_processes.index.access_modes") } do |builder| %>
+            <%= builder.label(for: nil, class: "form__wrapper-checkbox-label") do %>
+              <%= builder.radio_button(id: nil, label: false) %>
+              <span>
+                <strong class="font-semibold"><%= builder.text %></strong>
+                <%= t(builder.value, scope: "decidim.participatory_processes.admin.participatory_processes.form.access.options") %>
+              </span>
+            <% end %>
+          <% end %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
   <div class="card" data-controller="accordion" id="accordion-visibility">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-visibility" type="button">
@@ -167,10 +203,6 @@
         <% end %>
       </div>
 
-      <div class="row column">
-        <%= form.check_box :private_space %>
-        <p class="help-text"><%= t(".private_notice") %></p>
-      </div>
       <div class="row column">
         <%= form.check_box :promoted %>
       </div>

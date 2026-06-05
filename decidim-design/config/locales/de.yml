@@ -14,6 +14,7 @@ de:
           trigger: Auslöser
           usage: Nutzung
           usage_p: Ein Akkordeon benötigt mindestens drei Elemente
+          usage_p_1_html: 1. Ein Wrapper <code>div</code>, mit dem Data-Attribut <code>data-controller="accordion"</code>, über alle verfügbaren Trigger und Panels.
           usage_p_2_html: 2. Ein Triggerelement, fremdbedienbar (als Button), das auf das zusammenklappbare Element durch <code>data-controls="Panel"</code>zeigt, wobei das <i>panel</i> durch die <code>id</code> des Panels angesteuert wird.
           usage_p_3_html: 3. Ein versteckbares Element, dessen <code>id</code> mit dem Wert der Datensteuerung übereinstimmt, auf den sich der Trigger bezieht.
         activities:
@@ -86,21 +87,18 @@ de:
           adjacent_links_paragraph: Wenn die selbe Ressource mehrere angrenzende Links hat, die auf sie verweisen es erschwert solchen Benutzern, durch die Seite zu schauen, da sie unter Umständen mehrere Links durchlaufen müssen, um zur nächsten Ressource zu gelangen.
           color_contrast: Farbkontrast
           color_contrast_paragraph: Wenn Sie die Benutzeroberfläche erstellen oder die Farben ändern, stellen Sie immer sicher, dass Sie mit Ihren Änderungen nicht die Barrierefreiheit verletzen. Sie können mit der Farbkontrastprüfung sicherstellen, dass Ihre Textfarben ausreichend Kontrast zur Hintergrundfarbe haben, auf der sie angezeigt werden.
-          decidim_follows_html: Decidim folgt bei Barrierefreiheit den Richtlinien für <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
           dynamic_changes_header: Dynamische Funktionalität ändert den Seitenkontext unintuitiv
           dynamic_changes_paragraph: Änderungen in den Formulareingaben sollten den Kontext der Seite nicht automatisch ändern.
           elements_hidden: Elemente versteckt
           elements_hidden_header: Elemente aus der Barrierefreiheit-API versteckt
           elements_hidden_paragraph: Um ein Element vor unterstützenden Technologien zu verstecken, verwenden Sie das Attribut aria-hidden="true".
           heading_on: Überschrift zu wichtigen Abschnitten
-          here_link: hier
           illogical_heading_order: Unlogische Überschriftenreihenfolge
           illogical_heading_paragraph: Jede Seite sollte eine logische Überschriftenreihenfolge haben, wenn die Überschriften <h1>, <h2>, <h3>, <h4>, <h5> und <h6> verwendet werden.
           important_sections_heading: Überschrift zu wichtigen Abschnitten
           important_sections_paragraph: Es ist sehr wichtig, dass jeder wichtige Abschnitt der Seite eine Überschrift hat, die es einfacher macht zu verstehen, welche wichtigen Abschnitte auf der Seite nur durch das Durchsuchen der Rubriken.
           links_and_buttons: Links und Tasten
           links_and_buttons_paragraph: Die Ankerelemente (z.B. Links) sollen auf andere Seiten verlinken oder Positionen innerhalb der Seite verankert werden. Wenn das Element z.B. ein verstecktes Element auf dieser Seite öffnen soll, sollten Sie stattdessen das Element <button> verwenden.
-          see_further_info_html: Siehe weitere Informationen
           unique_h1: Eindeutige H1
           unique_h1_paragraph: Jede Seite sollte eine eindeutige H1-Überschrift haben
           use_aria: Benutze ARIA
@@ -134,11 +132,9 @@ de:
           not_required: Nicht erforderlich
           properties: Eigenschaften
           right_aside: Seitlich rechts
-          section_p_breakpoints: 'Um die Responsive Max-Breite von Elementen zu verwalten, verlassen wir uns auf die Standard `container` Schliffwind-Klasse, die folgende Haltepunkte angibt:'
           section_p_code: Wenn Sie neue Module implementieren, haben Sie einige Helfer, die Ihnen automatisch den Code zur Verfügung stellen, um die HTML-Struktur einzurichten. Du solltest diese Helfer verwenden, anstatt direkt div Elemente mit Klassen zu verwenden, damit du die Konsistenz aufrechterhalten kannst.
           section_p_code_html: Sie finden die Grundlayouts in %{link_section_code}
           section_p_desktop: Desktop-Rastersystem besteht aus 12 flexiblen Spalten mit einem Raster zwischen 16px und linken und rechten Rändern von 48px
-          section_p_mobile: Mobiles Rastersystem besteht aus 4 flexiblen Spalten mit einem Raster zwischen 16px und 16px und rechts. Für Größen unter 320px sind diese Ränder auf 8px gesetzt.
           section_p_tablet: Desktop-Rastersystem besteht aus 8 flexiblen Spalten mit einem Raster zwischen 16px und linken und rechten Rändern von 48px.
           tablet: Tablet
           title: Layout
@@ -176,7 +172,6 @@ de:
         card_g: Karte G
         card_l: Karte L
         card_s: Karte S
-        collaborative_draft_l: Gemeinsamer Entwurf L
         colors: Farben
         compact: Kompakt
         compact_description: Diese Autorenversion ist der übliche Weg, um den Ressourcen-Ersteller zu identifizieren.
@@ -205,6 +200,7 @@ de:
         dropdowns_description_html: Dropdowns sind eine Javascript-Funktion, die dank einer externen Bibliothek namens %{link} verfügbar ist.
         dropdowns_usage_1_description: 2. Ein versteckbares Element, dessen <code>ID</code> mit dem Datenzielwert übereinstimmt, auf den der Trigger verweist.
         dropdowns_usage_description: 'Ein Dropdown erfordert zwei Elemente:'
+        dropdowns_usage_description_html: 1. Ein benutzerdefinierbares Element, mit den Datenattributen <code>data-controller="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Beschreibung der Dummy Ressource
         dummy_title: Dummy Ressourcentitel
         follow_button: Folgen-Button
@@ -223,9 +219,8 @@ de:
         initiatives: Initiativen
         list: Liste
         main_colors: Hauptfarben
-        meeting_l: Sitzung L
-        meeting_s: Sitzung S
-        meetings: Sitzung
+        meeting_l: Veranstaltung L
+        meetings: Veranstaltungen
         meetings_html: Wird von <i>Meetings</i>-Karten verwendet
         metadata_items: Metadaten-Elemente
         metadata_text: Jede Ressource definiert eigene Metadaten
@@ -254,8 +249,6 @@ de:
         share_button: Schaltfläche "Teilen"
         share_usage_description_html: Stellen Sie sicher, dass die partielle <code>Dezimal/Shared/share_modal</code> im DOM-Archiv vorhanden ist. Dieser Teil im Anwendungslayout platziert.
         sizes: Grössen
-        sortition_l: Sortierung_I
-        sortitions: Sortierungen
         source_code: Quellcode
         state: Status
         tab_panels_context_description: Diese Tab-Panel-Komponente sammelt alle zugehörigen Inhalte oder andere Ressourcen des angezeigten Hauptelements, um vertikalen Speicherplatz zu sparen. Wenn Sie auf den Tab klicken, wird das erstellte Fenster aktiviert, um den Inhalt anzuzeigen.

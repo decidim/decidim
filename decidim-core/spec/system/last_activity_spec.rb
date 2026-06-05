@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "Last activity" do
   let(:organization) { create(:organization) }
-  let!(:proposal_component) { create(:proposal_component) }
-  let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposal_component) }
+  let!(:proposal_component) { create(:proposal_component, :published) }
+  let!(:withdrawn_proposal) { create(:proposal, :published, :withdrawn, component: proposal_component) }
   let!(:proposal) { create(:proposal, :published, component: proposal_component) }
-  let(:commentable) { create(:dummy_resource, component:) }
+  let(:commentable) { create(:dummy_resource, :published, component:) }
   let(:comment) { create(:comment, commentable:) }
   let!(:action_log) do
     create(:action_log,
@@ -45,9 +45,9 @@ describe "Last activity" do
     create(:component, :published, organization:)
   end
   let(:resource) do
-    create(:dummy_resource, component:, published_at: Time.current)
+    create(:dummy_resource, :published, component:)
   end
-  let(:second_commentable) { create(:dummy_resource, component:) }
+  let(:second_commentable) { create(:dummy_resource, :published, component:) }
 
   before do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
@@ -77,9 +77,9 @@ describe "Last activity" do
     end
 
     it "shows activities long comment shorten text" do
-      expect(page).to have_content(long_body_comment[0..79])
-      expect(page).to have_no_content(another_comment.translated_body)
-      expect(page).to have_no_content(withdrawn_proposal.title)
+      expect(page).to have_text(long_body_comment[0..79])
+      expect(page).to have_no_text(another_comment.translated_body)
+      expect(page).to have_no_text(withdrawn_proposal.title)
     end
 
     context "when there is a deleted comment" do
@@ -87,7 +87,7 @@ describe "Last activity" do
 
       it "is not shown" do
         within "#last_activity" do
-          expect(page).to have_no_content("This is deleted")
+          expect(page).to have_no_text("This is deleted")
         end
       end
     end
@@ -101,11 +101,11 @@ describe "Last activity" do
 
       it "shows all activities" do
         expect(page).to have_css("[data-activity]", count: 4)
-        expect(page).to have_content(translated(resource.title))
-        expect(page).to have_content(translated(comment.commentable.title))
-        expect(page).to have_content(translated(another_comment.commentable.title))
-        expect(page).to have_content(translated(proposal.title))
-        expect(page).to have_no_content(translated(withdrawn_proposal.title))
+        expect(page).to have_text(translated(resource.title))
+        expect(page).to have_text(translated(comment.commentable.title))
+        expect(page).to have_text(translated(another_comment.commentable.title))
+        expect(page).to have_text(translated(proposal.title))
+        expect(page).to have_no_text(translated(withdrawn_proposal.title))
       end
 
       it "shows the activities in correct order" do
@@ -119,9 +119,9 @@ describe "Last activity" do
           click_on("Comment")
         end
 
-        expect(page).to have_content(translated(comment.commentable.title))
-        expect(page).to have_content(translated(another_comment.commentable.title))
-        expect(page).to have_no_content(translated(resource.title))
+        expect(page).to have_text(translated(comment.commentable.title))
+        expect(page).to have_text(translated(another_comment.commentable.title))
+        expect(page).to have_no_text(translated(resource.title))
         expect(page).to have_css("[data-activity]", count: 2)
       end
 
@@ -144,25 +144,25 @@ describe "Last activity" do
         end
 
         it "does not show the old activities at the top of the list" do
-          expect(page).to have_no_content(translated(old_comment.commentable.title))
+          expect(page).to have_no_text(translated(old_comment.commentable.title))
         end
       end
 
-      context "when there are activities from private spaces" do
+      context "when there are activities from restricted spaces" do
         before do
-          comment.update(body: { es: "this is a private comment" })
-          another_comment.update(body: { es: "this is another private comment" })
+          comment.update(body: { es: "this is a restricted comment" })
+          another_comment.update(body: { es: "this is another restricted comment" })
 
-          component.participatory_space.update(private_space: true)
-          comment.participatory_space.update(private_space: true)
-          another_comment.participatory_space.update(private_space: true)
+          component.participatory_space.update(access_mode: :restricted)
+          comment.participatory_space.update(access_mode: :restricted)
+          another_comment.participatory_space.update(access_mode: :restricted)
 
           visit current_path
         end
 
         it "does not show the activities" do
           expect(page).to have_css("[data-activity]", count: 0)
-          expect(page).to have_content "There are no entries to show for this activity type."
+          expect(page).to have_text "There are no entries to show for this activity type."
         end
       end
 

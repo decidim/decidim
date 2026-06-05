@@ -7,7 +7,7 @@ module Decidim
       def show
         return unless amendments_enabled? && model.amendable?
         return unless current_component.current_settings.amendment_creation_enabled
-        return unless can_participate_in_private_space?
+        return unless can_participate_in_restricted_space?
 
         render
       end

@@ -48,7 +48,7 @@ describe "Admin filters, searches, and paginates projects" do
     end
   end
 
-  context "when searching by ID or title" do
+  context "when searching by title" do
     let!(:project1) { create(:project, budget:) }
     let!(:project2) { create(:project, budget:) }
     let!(:project1_title) { translated(project1.title) }
@@ -56,16 +56,10 @@ describe "Admin filters, searches, and paginates projects" do
 
     before { visit current_path }
 
-    it "can be searched by ID" do
-      search_by_text(project1.id)
-
-      expect(page).to have_content(project1_title)
-    end
-
     it "can be searched by title" do
       search_by_text(project2_title)
 
-      expect(page).to have_content(project2_title)
+      expect(page).to have_text(project2_title)
     end
   end
 

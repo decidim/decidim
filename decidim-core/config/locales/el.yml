@@ -187,9 +187,6 @@ el:
         update: "Ο χρήστης %{user_name} ενημέρωσε την εφαρμογή OAuth %{resource_name}"
       organization:
         update: "Ο χρήστης %{user_name} ενημέρωσε τις ρυθμίσεις του οργανισμού"
-      participatory_space_private_user:
-        create: "Ο χρήστης %{user_name} προσκάλεσε τον χρήστη %{resource_name} να γίνει ιδιωτικός συμμετέχων"
-        delete: "Ο χρήστης %{user_name} κατάργησε τον συμμετέχοντα %{resource_name} ως ιδιωτικό συμμετέχων"
       scope:
         create: "Ο χρήστης %{user_name} δημιούργησε το πεδίο εφαρμογής %{resource_name}"
         create_with_parent: "Ο χρήστης %{user_name} δημιούργησε το πεδίο εφαρμογής %{resource_name} μέσα στο πεδίο εφαρμογής %{parent_scope}"
@@ -260,9 +257,6 @@ el:
       update_draft:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του πρόχειρου τροποποίησης.
         success: Το πρόχειρο τροποποίησης ενημερώθηκε επιτυχώς.
-      wizard_step_form:
-        steps:
-          '1': Δημιουργήστε την τροποποίησή σας
     anonymous_user: Ανώνυμη
     application:
       document:
@@ -496,13 +490,9 @@ el:
           affected_user:
             email_intro: 'Μια τροποποίηση έγινε δεκτή για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
-            email_subject: Αποδεκτή τροποποίηση για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
-            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> έγινε δεκτή για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Μια τροποποίηση έγινε δεκτή για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-            email_subject: Αποδεκτή τροποποίηση για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
-            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> έγινε δεκτή για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Μια νέα τροποποίηση δημιουργήθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
@@ -518,24 +508,16 @@ el:
           affected_user:
             email_intro: 'Μια τροποποίηση που απορρίφθηκε για %{amendable_title} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
-            email_subject: Μια τροποποίηση από τον συντάκτη %{emendation_author_nickname} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}
-            notification_title: Μια <a href="%{emendation_path}">τροποποίηση που απορρίφθηκε</a> για <a href="%{amendable_path}">%{amendable_title}</a> δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type} από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Μια τροποποίηση που απορρίφθηκε για %{amendable_title} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-            email_subject: Μια τροποποίηση από τον συντάκτη %{emendation_author_nickname} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}
-            notification_title: Μια <a href="%{emendation_path}">τροποποίηση που απορρίφθηκε</a> για <a href="%{amendable_path}">%{amendable_title}</a> δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type} από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Μια τροποποίηση απορρίφθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
-            email_subject: Η τροποποίηση απορρίφθηκε για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
-            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> απορρίφθηκε για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Μια τροποποίηση απορρίφθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-            email_subject: Η τροποποίηση απορρίφθηκε για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
-            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> απορρίφθηκε για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Ένα νέο έγγραφο προστέθηκε στο στοιχείο %{resource_title}. Μπορείτε να το δείτε από αυτήν τη σελίδα:'
@@ -558,12 +540,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
         level_up:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
-      users:
-        profile_updated:
-          email_intro: Η <a href="%{resource_url}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον/την %{nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: "Ο/η %{nickname} ενημέρωσε το προφίλ του/της"
-          notification_title: Η <a href="%{resource_path}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
     export_mailer:
       download_your_data_export:
         download: Λήψη
@@ -698,7 +674,6 @@ el:
         latlng_text: 'γεωγραφικό πλάτος: %{latitude}, γεωγραφικό μήκος: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Βοήθεια
       home: Αρχική σελίδα
     messaging:
       conversation_mailer:
@@ -754,10 +729,8 @@ el:
       unsubscribe:
         success: Καταργήσατε την εγγραφή σας με επιτυχία.
         token_error: Ο σύνδεσμος έχει λήξει.
-        unsubscribe: Κατάργηση εγγραφής
     newsletters_opt_in_mailer:
       notify:
-        body_1: Η επεξεργασία των προσωπικών δεδομένων και η προστασία τους καθίστανται όλο και πιο σημαντικές για όλους μας. Με τον νέο Γενικό Κανονισμό για την Προστασία Δεδομένων (ΓΚΠΔ) της 25ης Μαΐου 2018, τα άτομα έχουν καλύτερο έλεγχο των προσωπικών τους δεδομένων. Για αυτόν τον λόγο, χρειαζόμαστε τη συγκατάθεσή σας για να συνεχίσουμε να στέλνουμε σχετικές πληροφορίες σχετικά με τις δραστηριότητες του οργανισμού %{organization_name}.
         body_2: 'Πώς μπορείτε να μας παρέχετε τη συγκατάθεσή σας; Απλώς κάντε κλικ στο παρακάτω κουμπί:'
         body_3: Με αυτήν τη συγκατάθεση, θα μπορείτε να συνεχίσετε να λαμβάνετε πληροφορίες σχετικά με τις υπηρεσίες της πλατφόρμας. Εάν, αντίθετα, δεν λάβουμε θετική επιβεβαίωση εκ μέρους σας, θα σταματήσουμε να σας στέλνουμε τα μηνύματά μας. Εάν επιβεβαιώσετε ότι θέλετε να συνεχίσετε να ενημερώνεστε, θα έχετε πάντα την επιλογή να ακυρώσετε τη συγκατάθεσή σας ανά πάσα στιγμή.
         button: Ναι, θέλω να συνεχίσω να λαμβάνω σχετικές πληροφορίες
@@ -805,13 +778,10 @@ el:
           proposals_explanation: Διατυπώστε προτάσεις, υποστηρίξτε υπάρχουσες και αναβαθμίστε τις αλλαγές που θέλετε να δείτε.
         footer_sub_hero:
           footer_sub_hero_headline: Καλώς ορίσατε στην πλατφόρμα συμμετοχής του οργανισμού %{organization}.
-          register: Εγγραφή
         hero:
           participate: Συμμετοχή
           participate_title: Συμμετάσχετε στις διαδικασίες της πλατφόρμας
           welcome: Καλώς ορίσατε στον οργανισμό %{organization}!
-        sub_hero:
-          register: Εγγραφή
       index:
         standalone_pages: Σελίδες
         subheading: Περιηγηθείτε στις σελίδες βοήθειας του %{name}
@@ -834,6 +804,9 @@ el:
           alert: Έχουμε ενημερώσει τους Όρους της Υπηρεσίας μας, παρακαλούμε να τους εξετάσετε.
           body: Αφιερώστε λίγο χρόνο για να διαβάσετε τους επικαιροποιημένους όρους παροχής υπηρεσιών μας. Διαφορετικά, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα.
           title: 'Απαιτείται: Διαβάστε τις ενημερώσεις στους όρους παροχής υπηρεσιών μας'
+    participatory_space_members:
+      index:
+        members: Μέλη
     passwords:
       update:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του κωδικού πρόσβασης.
@@ -979,8 +952,6 @@ el:
         submit_button: Στείλτε μια πρόσκληση
       no_invitations_remaining: Δεν απομένουν προσκλήσεις
       send_instructions: Στάλθηκε ένα email πρόσκλησης στη διεύθυνση %{email}.
-      updated: Ο κωδικός πρόσβασης ορίστηκε με επιτυχία. Έχετε συνδεθεί.
-      updated_not_active: Ο κωδικός πρόσβασης ορίστηκε με επιτυχία.
     mailer:
       confirmation_instructions:
         action: Επιβεβαίωση του λογαριασμού μου
@@ -996,10 +967,8 @@ el:
         decline: Απόρριψη πρόσκλησης
         hello: Γεια σας %{email},
         invited_you_as_admin: "Ο χρήστης %{invited_by} σάς προσκάλεσε ως διαχειριστή της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
-        invited_you_as_private_user: "Ο χρήστης %{invited_by} σάς προσκάλεσε ως ιδιωτικό συμμετέχοντα της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
         someone_invited_you: Κάποιος σάς προσκάλεσε στην εφαρμογή %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
         someone_invited_you_as_admin: Κάποιος σάς προσκάλεσε ως διαχειριστή της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
-        someone_invited_you_as_private_user: Κάποιος σάς προσκάλεσε ως ιδιωτικό συμμετέχοντα της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
         subject: Οδηγίες πρόσκλησης
       password_change:
         greeting: Γεια σας %{recipient}!
@@ -1090,10 +1059,10 @@ el:
         made_with_open_source: Ο ιστότοπος δημιουργήθηκε με <a target="_blank" href="https://github.com/decidim/decidim">δωρεάν λογισμικό</a>.
       header:
         log_in: Σύνδεση
+        mobile_account_greeting: Γεια σου, %{user_name}
       impersonation_warning:
         close_session: Κλείσιμο συνεδρίας
         description_html: Διαχειρίζεστε τον συμμετέχοντα <b>%{user_name}</b>.
-        expire_time_html: Η συνεδρία σας θα λήξει σε <b><span class="minutes">%{minutes}</span> λεπτά</b>.
       language_chooser:
         choose_language: Επιλογή γλώσσας
       notifications_dashboard:
@@ -1127,7 +1096,6 @@ el:
     fallback: δεν είναι έγκυρη
     name_included_in_password: είναι πολύ παρόμοιο με το όνομά σας
     not_enough_unique_characters: δεν έχει αρκετούς μοναδικούς χαρακτήρες
-    password_not_allowed: δεν επιτρέπεται
     password_too_common: είναι πολύ κοινό
     password_too_long: είναι πολύ μεγάλο
     password_too_short: είναι πολύ μικρό

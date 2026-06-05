@@ -25,7 +25,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("managed_users.promotion.error", scope: "decidim.admin")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
@@ -33,7 +33,7 @@ module Decidim
         private
 
         def user
-          @user ||= current_organization.users.managed.find(params[:impersonatable_user_id])
+          @user ||= current_organization.users.managed.find(params.expect(:impersonatable_user_id))
         end
       end
     end

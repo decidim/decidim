@@ -6,11 +6,10 @@ module Decidim
 
     included do
       include Decidim::NeedsOrganization
+
       skip_before_action :verify_organization
 
       before_action :check_organization!,
-                    :check_authenticated!,
-                    :check_user_belongs_to_organization,
                     :validate_direct_upload
     end
 
@@ -20,14 +19,14 @@ module Decidim
       # We skip the validation if we are in system panel. `current_admin` refers to the main system admin user.
       return if current_admin.present?
 
-      head :unprocessable_entity unless [
+      head :unprocessable_content unless [
         maximum_allowed_size.try(:to_i) >= blob_args[:byte_size].try(:to_i),
         content_types.any? { |pattern| pattern.match?(blob_args[:content_type]) },
         content_types.any? { |pattern| pattern.match?(MiniMime.lookup_by_extension(extension)&.content_type) },
         allowed_extensions.any? { |pattern| pattern.match?(extension) }
       ].all?
     rescue NoMethodError
-      head :unprocessable_entity
+      head :unprocessable_content
     end
 
     def extension
@@ -40,16 +39,6 @@ module Decidim
 
     def check_organization!
       head :unauthorized if current_organization.blank? && current_admin.blank?
-    end
-
-    def check_authenticated!
-      head :unauthorized if current_user.blank? && current_admin.blank?
-    end
-
-    def check_user_belongs_to_organization
-      return if current_admin.present?
-
-      head :unauthorized unless current_organization == current_user.organization
     end
 
     def allowed_extensions
@@ -71,6 +60,8 @@ module Decidim
     private
 
     def user_has_elevated_role?
+      return false if current_user.blank? || current_organization.blank? || current_user.organization != current_organization
+
       [
         current_user&.admin?,
         defined?(Decidim::Assemblies::AssembliesWithUserRole) && Decidim::Assemblies::AssembliesWithUserRole.for(current_user).any?,

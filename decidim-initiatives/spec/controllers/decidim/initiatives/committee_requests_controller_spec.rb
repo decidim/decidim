@@ -33,17 +33,17 @@ module Decidim
         context "and created initiative" do
           it "Membership request is created" do
             expect do
-              get :spawn, params: { initiative_slug: initiative.slug }
+              get :spawn, params: { initiative_slug: initiative.slug, locale: I18n.locale }
             end.to change(InitiativesCommitteeMember, :count).by(1)
           end
 
           it "Duplicated requests finish with an error" do
             expect do
-              get :spawn, params: { initiative_slug: initiative.slug }
+              get :spawn, params: { initiative_slug: initiative.slug, locale: I18n.locale }
             end.to change(InitiativesCommitteeMember, :count).by(1)
 
             expect do
-              get :spawn, params: { initiative_slug: initiative.slug }
+              get :spawn, params: { initiative_slug: initiative.slug, locale: I18n.locale }
             end.not_to change(InitiativesCommitteeMember, :count)
           end
         end
@@ -53,7 +53,7 @@ module Decidim
 
           it "Membership request is not created" do
             expect do
-              get :spawn, params: { initiative_slug: published_initiative.slug }
+              get :spawn, params: { initiative_slug: published_initiative.slug, locale: I18n.locale }
             end.not_to change(InitiativesCommitteeMember, :count)
           end
         end
@@ -68,7 +68,7 @@ module Decidim
           end
 
           it "request gets approved" do
-            get :approve, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param }
+            get :approve, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param, locale: I18n.locale }
             membership_request.reload
             expect(membership_request).to be_accepted
           end
@@ -83,7 +83,7 @@ module Decidim
           end
 
           it "Action is denied" do
-            get :approve, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param }
+            get :approve, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param, locale: I18n.locale }
             expect(flash[:alert]).not_to be_empty
             expect(response).to have_http_status(:found)
           end
@@ -95,7 +95,7 @@ module Decidim
           end
 
           it "request gets approved" do
-            get :approve, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param }
+            get :approve, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param, locale: I18n.locale }
             membership_request.reload
             expect(membership_request).to be_accepted
           end
@@ -111,7 +111,7 @@ module Decidim
           end
 
           it "request gets approved" do
-            delete :revoke, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param }
+            delete :revoke, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param, locale: I18n.locale }
             membership_request.reload
             expect(membership_request).to be_rejected
           end
@@ -126,7 +126,7 @@ module Decidim
           end
 
           it "Action is denied" do
-            delete :revoke, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param }
+            delete :revoke, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param, locale: I18n.locale }
             expect(flash[:alert]).not_to be_empty
             expect(response).to have_http_status(:found)
           end
@@ -138,7 +138,7 @@ module Decidim
           end
 
           it "request gets approved" do
-            delete :revoke, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param }
+            delete :revoke, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param, locale: I18n.locale }
             membership_request.reload
             expect(membership_request).to be_rejected
           end

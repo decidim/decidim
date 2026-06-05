@@ -10,8 +10,7 @@ describe "Decidim::Api::QueryType" do
   let(:locale) { "en" }
 
   let!(:taxonomy) { create(:taxonomy, :with_parent, organization: current_organization) }
-  let!(:assembly) { create(:assembly, organization: current_organization, assembly_type:, taxonomies: [taxonomy]) }
-  let(:assembly_type) { create(:assemblies_type, organization: current_organization) }
+  let!(:assembly) { create(:assembly, organization: current_organization, taxonomies: [taxonomy]) }
   let!(:follows) { create_list(:follow, 3, followable: assembly) }
   let(:assembly_data) do
     {
@@ -38,7 +37,7 @@ describe "Decidim::Api::QueryType" do
       "includedAt" => assembly.included_at.iso8601,
       "instagramHandler" => assembly.instagram_handler,
       "internalOrganisation" => { "translation" => assembly.internal_organisation[locale] },
-      "isTransparent" => assembly.is_transparent?,
+      "accessMode" => assembly.access_mode.upcase,
       "linkedParticipatorySpaces" => [],
       "localArea" => { "translation" => assembly.local_area[locale] },
       "metaScope" => { "translation" => assembly.meta_scope[locale] },
@@ -46,7 +45,6 @@ describe "Decidim::Api::QueryType" do
       "parentsPath" => assembly.parents_path.to_s,
       "participatoryScope" => { "translation" => assembly.participatory_scope[locale] },
       "participatoryStructure" => { "translation" => assembly.participatory_structure[locale] },
-      "privateSpace" => assembly.private_space?,
       "promoted" => assembly.promoted?,
       "publishedAt" => assembly.published_at.to_time.iso8601,
       "purposeOfAction" => { "translation" => assembly.purpose_of_action[locale] },
@@ -69,6 +67,7 @@ describe "Decidim::Api::QueryType" do
   let(:assemblies) do
     %(
       assemblies{
+        accessMode
         attachments {
           thumbnail
         }
@@ -77,7 +76,6 @@ describe "Decidim::Api::QueryType" do
             translation(locale:"#{locale}")
           }
         }
-        bannerImage
         categories {
           id
         }
@@ -118,7 +116,6 @@ describe "Decidim::Api::QueryType" do
         internalOrganisation {
           translation(locale:"#{locale}")
         }
-        isTransparent
         linkedParticipatorySpaces {
           id
         }
@@ -138,7 +135,6 @@ describe "Decidim::Api::QueryType" do
         participatoryStructure {
           translation(locale:"#{locale}")
         }
-        privateSpace
         promoted
         publishedAt
         purposeOfAction {
@@ -191,6 +187,7 @@ describe "Decidim::Api::QueryType" do
     )
   end
 
+  include_examples "when the introspection is disabled"
   describe "valid query" do
     it "executes successfully" do
       expect { response }.not_to raise_error
@@ -199,7 +196,6 @@ describe "Decidim::Api::QueryType" do
     it "returns the correct response" do
       data = response["assemblies"].first
       expect(data).to include(assembly_data)
-      expect(data["bannerImage"]).to be_blob_url(assembly.banner_image.blob)
       expect(data["heroImage"]).to be_blob_url(assembly.hero_image.blob)
     end
 
@@ -222,6 +218,7 @@ describe "Decidim::Api::QueryType" do
     let(:assemblies) do
       %(
       assembly(id: #{assembly.id}){
+        accessMode
         attachments {
           thumbnail
         }
@@ -230,7 +227,6 @@ describe "Decidim::Api::QueryType" do
             translation(locale:"#{locale}")
           }
         }
-        bannerImage
         categories {
           id
         }
@@ -271,7 +267,6 @@ describe "Decidim::Api::QueryType" do
         internalOrganisation {
           translation(locale:"#{locale}")
         }
-        isTransparent
         linkedParticipatorySpaces {
           id
         }
@@ -291,7 +286,6 @@ describe "Decidim::Api::QueryType" do
         participatoryStructure {
           translation(locale:"#{locale}")
         }
-        privateSpace
         promoted
         publishedAt
         purposeOfAction {
@@ -343,7 +337,6 @@ describe "Decidim::Api::QueryType" do
     it "returns the correct response" do
       data = response["assembly"]
       expect(data).to include(assembly_data)
-      expect(data["bannerImage"]).to be_blob_url(assembly.banner_image.blob)
       expect(data["heroImage"]).to be_blob_url(assembly.hero_image.blob)
     end
 

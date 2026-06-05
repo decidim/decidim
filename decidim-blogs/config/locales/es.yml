@@ -107,6 +107,7 @@ es:
           destroy: Borrar
           like: '"Me gusta"'
           update: Actualizar
+          vote_comment: Votar el comentario
         name: Blog
         settings:
           global:

@@ -54,7 +54,7 @@ module Decidim
 
     def form_object_class
       @form_object_class ||= begin
-        form_class.constantize if form_class.present?
+        form_class.presence&.constantize
       rescue NameError
         nil
       end

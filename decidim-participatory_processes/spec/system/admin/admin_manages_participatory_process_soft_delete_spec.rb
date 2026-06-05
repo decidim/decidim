@@ -14,12 +14,12 @@ describe "Admin manages participatory process soft delete" do
   it_behaves_like "manage trashed resource", "participatory process"
 
   context "when a user is collaborator" do
-    let!(:participatory_process) { create(:participatory_process, organization: organization) }
-    let!(:collaborator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:participatory_process) { create(:participatory_process, organization:) }
+    let!(:collaborator_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:collaborator_role) do
       create(:participatory_process_user_role,
              user: collaborator_user,
-             participatory_process: participatory_process,
+             participatory_process:,
              role: :collaborator)
     end
 
@@ -30,18 +30,18 @@ describe "Admin manages participatory process soft delete" do
     end
 
     it "does not allow collaborators to view deleted processes" do
-      expect(page).to have_content("Processes")
+      expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
     end
   end
 
   context "when a user is evaluator" do
-    let!(:participatory_process) { create(:participatory_process, organization: organization) }
-    let!(:evaluator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:participatory_process) { create(:participatory_process, organization:) }
+    let!(:evaluator_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:evaluator_role) do
       create(:participatory_process_user_role,
              user: evaluator_user,
-             participatory_process: participatory_process,
+             participatory_process:,
              role: :evaluator)
     end
 
@@ -52,18 +52,18 @@ describe "Admin manages participatory process soft delete" do
     end
 
     it "does not allow evaluators to view deleted processes" do
-      expect(page).to have_content("Processes")
+      expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
     end
   end
 
   context "when a user is moderator" do
-    let!(:participatory_process) { create(:participatory_process, organization: organization) }
-    let!(:moderator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:participatory_process) { create(:participatory_process, organization:) }
+    let!(:moderator_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:moderator_role) do
       create(:participatory_process_user_role,
              user: moderator_user,
-             participatory_process: participatory_process,
+             participatory_process:,
              role: :moderator)
     end
 
@@ -74,18 +74,18 @@ describe "Admin manages participatory process soft delete" do
     end
 
     it "does not allow moderators to view deleted processes" do
-      expect(page).to have_content("Processes")
+      expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
     end
   end
 
   context "when a user is a space admin" do
-    let!(:participatory_process) { create(:participatory_process, organization: organization) }
-    let!(:admin_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:participatory_process) { create(:participatory_process, organization:) }
+    let!(:admin_user) { create(:user, :admin_terms_accepted, :confirmed, organization:) }
     let!(:admin_role) do
       create(:participatory_process_user_role,
              user: admin_user,
-             participatory_process: participatory_process,
+             participatory_process:,
              role: :admin)
     end
 
@@ -96,7 +96,7 @@ describe "Admin manages participatory process soft delete" do
     end
 
     it "does not allow space admins to view deleted processes" do
-      expect(page).to have_content("Processes")
+      expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
     end
   end

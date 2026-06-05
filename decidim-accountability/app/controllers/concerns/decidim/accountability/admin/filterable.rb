@@ -23,10 +23,6 @@ module Decidim
             collection.includes(:taxonomies).joins(:taxonomies)
           end
 
-          def search_field_predicate
-            :id_string_or_title_cont
-          end
-
           def filters
             [
               :taxonomies_part_of_contains,
@@ -48,7 +44,7 @@ module Decidim
           end
 
           def status_ids_hash(statuses)
-            statuses.each_with_object({}) { |status, hash| hash[status.id] = status.id }
+            statuses.to_h { |status| [status.id, status.id] }
           end
 
           def translated_status_id_eq(id)

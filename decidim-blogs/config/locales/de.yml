@@ -18,6 +18,8 @@ de:
       admin_log:
         changeset:
           posts: Beiträge
+      tooltips:
+        deleted_posts_info: Dieser Beitrag kann nicht gelöscht werden
     blogs:
       actions:
         author_id: Beitrag erstellen als
@@ -105,6 +107,7 @@ de:
           destroy: Löschen
           like: Like
           update: Aktualisieren
+          vote_comment: Kommentar bewerten
         name: Blog
         settings:
           global:

@@ -28,7 +28,6 @@ pt:
       id: ID
       newsletter:
         body: Corpo
-        send_to_all_users: Enviar para todas as pessoas utilizadoras
         subject: Assunto
       organization:
         alert_color: Alerta
@@ -39,7 +38,6 @@ pt:
         default_locale: Idioma por defeito
         description: Descrição
         enable_omnipresent_banner: Mostrar faixa omnipresente
-        enable_participatory_space_filters: Activar filtros do espaço participativo
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
         force_authentication: Forçar autenticação
@@ -136,12 +134,10 @@ pt:
         browse: Explorar
         configure: Configurar
         export: Exportar
-        export-selection: Exportar selecção
+        export_all: Exportar tudo
         import: Importar
         newsletter:
           new: Novo boletim informativo
-        participatory_space_private_user:
-          new: Novo utilizador privado do espaço participativo
         per_page: Por página
         share: Partilhar
       area_types:
@@ -180,8 +176,6 @@ pt:
         edit:
           title: Editar pasta
           update: Atualizar
-        index:
-          attachment_collections_title: Pastas de anexos
         new:
           create: Criar
           title: Nova pasta
@@ -197,8 +191,6 @@ pt:
         edit:
           title: Editar anexo
           update: Actualizar
-        index:
-          attachments_title: Anexos
         new:
           create: Criar anexo
           title: Novo anexo
@@ -210,7 +202,6 @@ pt:
       block_user:
         bulk_new:
           action: Bloquear conta e enviar justificação
-          already_reported_html: Com essa ação todos os conteúdos dos participantes bloqueados serão ocultados.
           description: Bloquear um participante torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o participante.
           justification: Justificação
           title: Bloquear participantes
@@ -248,7 +239,6 @@ pt:
           title: 'Adicionar componente: %{name}'
         publish:
           success: O componente foi publicado corretamente.
-        title: Componentes
         unpublish:
           success: O componente deixou de estar publicado corretamente.
         update:
@@ -259,7 +249,6 @@ pt:
         'false': 'Não'
         managed_user_name: Utilizador gerido
         solved: Resolvido
-        title: Conflitos de verificação
         transfer:
           email: e-Mail
           name: Nome
@@ -298,17 +287,6 @@ pt:
           values:
             'false': Oficializado
             'true': Não oficializado
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Convite aceite
-            values:
-              'false': Não aceite
-              'true': Aceite
-          user_invitation_sent_at_not_null:
-            label: Convite enviado
-            values:
-              'false': Não enviado
-              'true': Enviado
         private_space_eq:
           label: Privado
           values:
@@ -370,7 +348,6 @@ pt:
           impersonate: Personificar
           impersonate_existing_managed_user: Gerir participante "%{name}"
           impersonate_existing_user: Gerir participante "%{name}"
-          impersonate_new_managed_user: Gerir novo participante
       imports:
         new:
           accepted_mime_types:
@@ -390,8 +367,11 @@ pt:
         promotions:
           new:
             explanation: Os participantes geridos podem ser promovidos para participantes padrão. Isto significa que eles serão convidados para a aplicação e não poderá geri-los novamente. O participante convidado receberá um e-mail para aceitar o seu convite.
-            new_managed_user_promotion: Nova promoção de usuário participante gerido
             promote: Destacar
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Envie o seu ficheiro CSV
       menu:
         admin_log: Registo de atividade de administração
         admins: Administradores
@@ -448,8 +428,6 @@ pt:
             sent_to: Enviado para
             subject: Assunto
           name: Boletim Informativo
-        participatory_space_private_user:
-          name: Participante privado de espaço participativo
         scope:
           fields:
             name: Nome
@@ -535,7 +513,6 @@ pt:
           title: Modelos de Boletim Informativo
           use_template: Utilizar este modelo
         show:
-          preview: 'Pré-visualizar modelo: %{template_name}'
           use_template: Utilizar este modelo
       newsletters:
         create:
@@ -578,7 +555,6 @@ pt:
           title: Selecione os destinatários
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         show:
-          preview: Pré-visualização
           select_recipients_to_deliver: Selecione os destinatários
           subject: Assunto
         update:
@@ -624,24 +600,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta organização.
           success: Organização atualizada corretamente.
-      participatory_space_private_users:
-        create:
-          error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.
-          success: Acesso ao espaço participativo de participante privado criado corretamente.
-        destroy:
-          error: Houve um problema ao eliminar um participante privado deste espaço participativo.
-          success: Espaço participativo acesso de usuário privado destruído com sucesso.
-        index:
-          import_via_csv: Importar via CSV
-          title: Espaço participativo de participante privado
-        new:
-          create: Criar
-          title: Novo participante privado do Espaço Participativo.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Envie o seu ficheiro CSV
-          upload: Carregar
       resource_permissions:
         edit:
           submit: Submeter
@@ -695,7 +653,6 @@ pt:
           title: Novo tópico
         update:
           error: Ocorreu um problema ao atualizar este tópico.
-          success: Tópico atualizado com sucesso
       static_pages:
         create:
           error: Ocorreu um problema ao criar uma nova página.
@@ -716,16 +673,9 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta página.
       titles:
-        admin_log: Registo de administrador
-        area_types: Tipos de área
         areas: Áreas
         authorization_workflows: Métodos de verificação
-        dashboard: Painel de Controlo
-        impersonatable_users: Participantes geríveis
-        impersonations: Gestão de participantes
         panel: Administrador
-        participants: Participantes
-        scope_types: Tipos de âmbito
         scopes: Âmbitos
       users:
         create:

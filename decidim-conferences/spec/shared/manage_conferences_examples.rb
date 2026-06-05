@@ -44,16 +44,16 @@ shared_examples "manage conferences" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference successfully created.")
       expect(last_conference.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_conferences.conferences_path
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} conference")
+      expect(page).to have_text("created the #{translated(attributes[:title])} conference")
     end
   end
 
@@ -82,7 +82,7 @@ shared_examples "manage conferences" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference successfully updated.")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
       expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(conference.reload.taxonomies).to contain_exactly(taxonomy)
@@ -93,7 +93,7 @@ shared_examples "manage conferences" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} conference")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} conference")
     end
   end
 
@@ -116,7 +116,7 @@ shared_examples "manage conferences" do
       end
       click_on "Update"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference successfully updated.")
 
       hero_blob = conference.hero_image.blob
       within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
@@ -142,7 +142,7 @@ shared_examples "manage conferences" do
           click_on "Preview"
         end
 
-        expect(page).to have_content(translated(conference.title))
+        expect(page).to have_text(translated(conference.title))
       end
     end
 
@@ -159,7 +159,7 @@ shared_examples "manage conferences" do
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_conferences.conference_path(conference)
-          expect(page).to have_content(translated(conference.title))
+          expect(page).to have_text(translated(conference.title))
         end
       end
     end
@@ -184,11 +184,11 @@ shared_examples "manage conferences" do
         find("a", text: "Publish", visible: true).click
       end
 
-      expect(page).to have_content("successfully published")
+      expect(page).to have_callout("Conference successfully published.")
 
       within("tr", text: translated_attribute(conference.title)) do
         find("button[data-controller='dropdown']").click
-        expect(page).to have_content("Unpublish")
+        expect(page).to have_text("Unpublish")
       end
 
       expect(page).to have_current_path decidim_admin_conferences.conferences_path
@@ -211,8 +211,8 @@ shared_examples "manage conferences" do
         find("a", text: "Unpublish", visible: true).click
       end
 
-      expect(page).to have_content("successfully unpublished")
-      expect(page).to have_content("Publish")
+      expect(page).to have_callout("Conference successfully unpublished.")
+      expect(page).to have_text("Publish")
       expect(page).to have_current_path decidim_admin_conferences.conferences_path
 
       conference.reload
@@ -225,7 +225,7 @@ shared_examples "manage conferences" do
 
     it "does not let the admin manage conferences form other organizations" do
       within "table" do
-        expect(page).to have_no_content(external_conference.title["en"])
+        expect(page).to have_no_text(external_conference.title["en"])
       end
     end
   end

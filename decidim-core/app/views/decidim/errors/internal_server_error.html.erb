@@ -22,6 +22,7 @@
       <textarea id="referenceData" class="reset-defaults" hidden><%= @plain_info %></textarea>
 
       <button class="button button__lg button__secondary"
+        data-controller="clipboard-copy"
         data-clipboard-copy="#referenceData"
         data-clipboard-copy-label="<%= t("copied", scope: "decidim.errors.internal_server_error") %>"
         aria-label="<%= t("copy_error_message_clarification", scope: "decidim.errors.internal_server_error") %>">

@@ -1,9 +1,6 @@
 <% show_only_added ||= params.dig(:filter, :addition_type) == "added" %>
-<% hide_vote_button = !@focus_mode %>
 
 <%= card_for project, render_extra_data: true,
                       link_whole_card: false,
                       wrapper_class: "project-item",
-                      show_only_added:,
-                      hide_vote_button:,
-                      focus_mode: true %>
+                      show_only_added: %>

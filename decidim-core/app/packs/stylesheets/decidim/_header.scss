@@ -28,25 +28,25 @@ header {
     #flash-messages-container {
       @apply mt-40 md:mt-0;
     }
-
-    #menu-bar-container {
-      @apply mt-[140px] md:mt-0;
-    }
   }
 
-  #sticky-header-container {
-    @apply fixed w-full top-0 shadow-lg z-40 bg-white md:relative transition-top duration-300;
+  #header-container {
+    @apply w-full z-40 bg-white;
   }
 
   .main-bar {
-    @apply container grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center py-5 h-24;
+    @apply container flex justify-between gap-4 items-center py-5 h-20;
 
     &--focus-mode-back-button {
       @apply h-16 lg:h-24;
+
+      .main-bar__links-desktop__item {
+        @apply flex-row;
+      }
     }
 
     &__container {
-      @apply relative w-full;
+      @apply relative w-full flex justify-between;
     }
 
     &__logo {
@@ -65,15 +65,23 @@ header {
       @apply hidden md:block col-span-2 col-start-5 xl:col-start-4;
 
       form {
-        @apply block relative rounded text-md bg-background;
+        @apply block relative rounded text-md border border-neutral-200 outline outline-1 outline-transparent rounded bg-background-2 leading-none;
       }
 
       input[type="text"] {
-        @apply block bg-transparent w-full px-4 py-1.5;
+        @apply block bg-transparent w-full pl-4 pr-10 py-2 h-full;
+
+        &::placeholder {
+          @apply text-neutral-500 text-sm ltr:pl-0 rtl:pr-0;
+        }
       }
 
       button[type="submit"] {
-        @apply absolute ltr:right-2 rtl:left-2 inset-y-2 text-secondary;
+        @apply absolute rtl:left-2 ltr:right-2 inset-y-0 text-secondary px-2;
+
+        svg {
+          @apply fill-neutral-500;
+        }
       }
     }
 
@@ -86,19 +94,23 @@ header {
     }
 
     &__menu-mobile {
-      @apply lg:hidden flex flex-row-reverse items-center;
+      @apply lg:hidden flex flex-row-reverse items-center gap-x-3;
     }
 
     &__links-desktop,
     > *:last-child:not(.main-bar__back-button) {
-      @apply col-span-1 md:col-start-8 lg:col-start-8 lg:col-span-5 justify-self-end;
+      @apply col-span-1 lg:col-start-8 lg:col-start-8 lg:col-span-5 justify-self-end;
     }
 
     &__links-desktop {
       @apply hidden lg:flex items-center justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-4 xl:[&>*]:px-6 first:[&>*]:pl-0 last:[&>*]:pr-0;
 
       &__item {
-        @apply flex flex-col items-center text-secondary px-2 py-1 rounded hover:underline hover:bg-background;
+        @apply flex items-center gap-x-2 text-secondary px-2 py-1 rounded;
+
+        &:hover {
+          @apply bg-secondary rounded-[4px] text-white;
+        }
 
         &-wrapper {
           @apply flex gap-x-4 xl:gap-x-6;
@@ -109,17 +121,76 @@ header {
         }
       }
 
+      .card__highlight-img {
+        svg {
+          @apply w-full h-full;
+        }
+      }
+
+      &__dropdown {
+        @apply flex items-end absolute top-0 right-0 bg-[rgba(0,0,0,0.25)] transition duration-300 z-30 h-screen cursor-auto;
+
+        .menu-bar {
+          &__main-dropdown {
+            @apply hidden sm:flex flex-col h-full sm:p-8;
+
+            &__left {
+              @apply w-full;
+            }
+          }
+
+          &__dropdown-menu {
+            @apply w-full;
+
+            li {
+              @apply py-3 sm:py-3.5 border-b border-t-0 last:border-0 border-gray-3 #{!important};
+
+              a {
+                @apply no-underline;
+              }
+            }
+          }
+        }
+
+        #main-dropdown-summary-desktop-close {
+          @apply self-end;
+        }
+      }
+
+      &__trigger {
+        @apply text-secondary cursor-pointer py-1 px-2 text-md leading-[22px] w-fit flex items-center gap-x-2;
+
+        span {
+          @apply text-secondary;
+        }
+
+        &:hover {
+          @apply bg-secondary rounded-[4px] text-white;
+
+          svg,
+          span {
+            @apply text-white;
+          }
+        }
+
+        &[aria-expended="true"] {
+          #content {
+            @apply bg-[rgb(0_0_0_/_0.5)];
+          }
+        }
+      }
+
       /* overwrite default dropdown styles */
       [data-target*="dropdown"] > span:only-of-type {
         @apply gap-0;
       }
 
       svg {
-        @apply w-5 h-5 fill-current;
+        @apply w-4 h-5 fill-current;
       }
 
       svg + span {
-        @apply text-sm first-letter:uppercase;
+        @apply text-md leading-[22px] first-letter:uppercase font-semibold whitespace-nowrap;
       }
     }
 
@@ -127,23 +198,28 @@ header {
       @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-between text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
       &__trigger {
-        @apply flex flex-col items-center text-secondary cursor-pointer md:pl-4 md:border-l border-gray-3;
+        @apply flex items-center text-secondary cursor-pointer justify-evenly gap-x-1 px-2 py-1;
 
         svg {
           @apply w-6 h-6 fill-current;
         }
 
         span {
-          @apply text-sm first-letter:uppercase;
+          @apply text-secondary;
+        }
+
+        &:hover {
+          @apply bg-secondary rounded-[4px] text-white;
+
+          svg,
+          span {
+            @apply text-white;
+          }
         }
       }
 
       &__dropdown {
         @apply absolute top-full left-0 z-30 bg-white;
-      }
-
-      &__dropdown-before {
-        @apply before:block before:absolute before:-top-10 before:right-12 before:content-[""] before:bg-white before:w-24 before:h-12 before:-mt-8;
       }
 
       &__account {
@@ -159,10 +235,6 @@ header {
 
         .dropdown__item {
           @apply text-md;
-        }
-
-        .main-bar {
-          @apply border-b border-gray;
         }
 
         .main-bar__avatar {
@@ -194,7 +266,7 @@ header {
         }
 
         svg + span {
-          @apply text-sm first-letter:uppercase w-auto;
+          @apply w-auto text-md leading-[22px] first-letter:uppercase font-semibold;
 
           flex-shrink: 0;
         }
@@ -242,23 +314,39 @@ header {
       @apply py-0 mx-0 w-full;
 
       &[aria-hidden="true"] {
-        @apply md:hidden;
+        @apply sm:hidden;
       }
     }
   }
 
   .menu-bar {
-    @apply container h-full flex justify-between items-center lg:relative last-of-type:[&>svg]:hidden;
+    @apply container h-full flex justify-between items-center sm:relative last-of-type:[&>svg]:hidden;
+
+    &__breadcrumb-text {
+      @apply block min-w-0 max-w-full overflow-hidden whitespace-nowrap text-ellipsis;
+    }
 
     &__container {
-      @apply bg-primary relative h-14;
+      @apply bg-primary relative h-14 flex justify-between;
     }
 
     &__breadcrumb-desktop {
-      @apply hidden lg:flex justify-between items-center gap-2.5 [&>*]:text-lg [&>*]:text-white;
+      @apply hidden lg:flex flex-1 min-w-0 overflow-hidden items-center [&>*]:text-md [&>*]:text-white gap-x-2;
+
+      > * {
+        @apply min-w-0;
+      }
+
+      .no-interactive {
+        @apply font-normal px-0 min-w-0;
+      }
 
       &__dropdown-trigger {
-        @apply flex rounded px-2 py-1 z-20;
+        @apply flex flex-none rounded py-1 z-20 font-semibold;
+
+        &--truncatable {
+          @apply min-w-0 overflow-hidden;
+        }
 
         &:hover {
           @apply z-10 relative before:content-[''] before:absolute before:w-[calc(100%+3rem+1px)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
@@ -270,7 +358,11 @@ header {
       }
 
       &__dropdown-wrapper {
-        @apply flex items-center cursor-pointer rounded hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
+        @apply flex flex-none items-center cursor-pointer underline;
+      }
+
+      &__label--truncatable {
+        @apply block w-full min-w-0 max-w-full overflow-hidden;
       }
 
       &__dropdown-content {
@@ -341,14 +433,31 @@ header {
     }
 
     &__breadcrumb-mobile {
-      @apply block lg:hidden w-full z-20;
+      @apply block lg:hidden w-full min-w-0 z-20;
 
       &__dropdown-trigger {
-        @apply flex items-center justify-between text-white;
+        @apply flex min-w-0 items-center justify-between text-white;
+
+        .menu-bar__breadcrumb-item {
+          @apply min-w-0;
+        }
 
         svg {
+          @apply flex-none;
           @apply w-6 h-6 fill-current;
         }
+      }
+
+      &__label-wrapper {
+        @apply block min-w-0 flex-1 overflow-hidden;
+      }
+
+      &__label {
+        @apply flex w-full items-center gap-x-2 min-w-0 overflow-hidden;
+      }
+
+      .menu-bar__breadcrumb-item {
+        @apply block flex-1 min-w-0 overflow-hidden whitespace-nowrap text-ellipsis font-semibold underline;
       }
 
       /* overwrite default dropdown styles */
@@ -377,19 +486,15 @@ header {
       }
     }
 
-    &__language-chooser {
-      @apply absolute top-full left-0 bg-white rounded w-full bg-gray-5;
-    }
-
     &__dropdown-menu {
-      @apply w-full md:w-1/4 bg-primary px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-white;
+      @apply w-full sm:w-1/4 px-4 sm:px-0 pt-0 pb-3 sm:py-3 divide-y divide-gray-3 text-[var(--secondary)];
 
       > * {
-        @apply py-3 md:py-3.5;
+        @apply py-3 sm:py-3.5 sm:px-2;
       }
 
       a {
-        @apply flex items-center justify-start gap-1 font-semibold text-lg text-white;
+        @apply flex items-center justify-start gap-1 font-semibold text-xl text-[var(--secondary)] underline;
 
         span {
           @apply min-w-0 truncate;
@@ -399,13 +504,21 @@ header {
           @apply flex-none fill-current;
         }
       }
+
+      li:hover {
+        @apply bg-[var(--secondary)] rounded-[4px];
+
+        a {
+          @apply text-white;
+        }
+      }
     }
 
     &__main-dropdown {
-      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full lg:w-[1280px] h-screen md:h-auto;
+      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full lg:w-[530px] h-screen lg:h-auto;
 
       &__left {
-        @apply flex flex-col justify-between p-4 md:p-8 space-y-5 hidden md:block md:w-3/4;
+        @apply p-4 sm:py-8 sm:px-0 space-y-5 hidden sm:block sm:w-3/4;
 
         &-top {
           @apply border-b-4 border-gray-3 pb-3;
@@ -416,14 +529,14 @@ header {
         @apply w-full px-4;
 
         &-menu {
-          @apply w-full md:w-[100%] mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
+          @apply w-full lg:w-[100%] mt-0 grid lg:grid-cols-2 gap-x-6 text-secondary;
 
           > * {
-            @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
+            @apply py-3 lg:py-3.5 border-b last:border-0 border-gray-3;
 
             /* since the grid has 2 columns, remove the border for these last 2 columns */
             &:nth-last-child(-n + 2) {
-              @apply md:border-0;
+              @apply lg:border-0;
             }
           }
 
@@ -442,7 +555,7 @@ header {
       }
 
       &__bottom {
-        @apply hidden md:flex;
+        @apply hidden lg:flex;
 
         &-right {
           @apply mr-2 mb-2;
@@ -459,6 +572,28 @@ header {
 
       &__subtitle {
         @apply hidden text-md md:flex md:text-lg text-gray-2 mt-5;
+      }
+    }
+
+    &__dropdown-desktop {
+      .card__highlight {
+        @apply flex-col ring-transparent rounded-lg shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)];
+
+        &-img {
+          @apply w-full aspect-[21/9] rounded-none rounded-tl-lg rounded-tr-lg;
+
+          svg {
+            @apply fill-primary;
+          }
+        }
+
+        &-text {
+          @apply w-full items-start text-start bg-background-2 rounded-bl-lg rounded-br-lg;
+
+          h3 {
+            @apply font-bold;
+          }
+        }
       }
     }
 

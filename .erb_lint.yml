@@ -24,6 +24,17 @@ linters:
       - text/template
       - application/ld+json
 
+  AdminPageTitleLinter:
+    enabled: true
+    exclude:
+      - decidim-admin/app/views/decidim/admin/shared/landing_page_content_blocks/edit.html.erb
+      - decidim-admin/app/views/decidim/admin/shared/landing_page/edit.html.erb
+      - decidim-admin/app/views/decidim/admin/imports/new.html.erb
+      - decidim-meetings/app/views/decidim/meetings/admin/poll/edit.html.erb
+
+  PartialPath:
+    enabled: true
+
   DeprecatedClasses:
     enabled: true
     exclude:
@@ -36,11 +47,13 @@ linters:
         suggestion: "Foundation classes are deprecated."
       - suggestion: "Please use the new class instead"
         deprecated:
+          - responsive-tab-block
           - CodeMirror-fullscreen
           - CodeMirror-placeholder
           - CodeMirror-rtl
           - CodeMirror-rulers
           - CodeMirror-sided
+          - callout
           - Select
           - Select--multi
           - Select--rtl
@@ -124,7 +137,6 @@ linters:
           - author-data__extra
           - author-data__main
           - author__avatar--small
-          - author__badge
           - author__date
           - author__name--container
           - author__nickname

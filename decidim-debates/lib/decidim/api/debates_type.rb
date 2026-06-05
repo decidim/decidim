@@ -15,8 +15,8 @@ module Decidim
         Debate.where(component: object).includes(:component)
       end
 
-      def debate(**args)
-        Debate.where(component: object).find_by(id: args[:id])
+      def debate(id:)
+        Decidim::Core::ComponentFinderBase.new(model_class: Debate).call(object, { id: }, context)
       end
     end
   end

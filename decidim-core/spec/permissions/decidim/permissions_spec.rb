@@ -197,9 +197,11 @@ describe Decidim::Permissions do
   context "when an amend action" do
     let(:component) { create(:component, :published, organization: user.organization, settings:) }
     let(:settings) { { amendments_enabled: } }
-    let(:amendment) { create(:amendment) }
-    let(:user) { amendment.amender }
-    let(:context) { { current_component: component } }
+    let(:amendable) { build(:dummy_resource, component:) }
+    let(:emendation) { build(:dummy_resource, component:) }
+    let(:amendment) { create(:amendment, emendation:, amendable:, amender: user) }
+    let(:user) { create(:user) }
+    let(:context) { { amendable: amendment.amendable, current_component: component } }
     let(:action_name) { nil }
     let(:action) do
       { scope: :public, action: action_name, subject: :amendment }
@@ -217,13 +219,49 @@ describe Decidim::Permissions do
       context "with a accept action" do
         let(:action_name) { :accept }
 
-        it { is_expected.to be true }
+        it { is_expected.to be false }
+
+        context "when the amendable is authored by the user" do
+          before { amendment.amendable.update!(author: user) }
+
+          it { is_expected.to be true }
+        end
+
+        context "with an official amendable" do
+          let(:amendable) { build(:dummy_resource, component:, author: component.organization) }
+
+          it { is_expected.to be false }
+
+          context "and the user is an admin" do
+            let(:user) { create(:user, :confirmed, :admin) }
+
+            it { is_expected.to be true }
+          end
+        end
       end
 
       context "with a reject action" do
         let(:action_name) { :reject }
 
-        it { is_expected.to be true }
+        it { is_expected.to be false }
+
+        context "when the amendable is authored by the user" do
+          before { amendment.amendable.update!(author: user) }
+
+          it { is_expected.to be true }
+        end
+
+        context "with an official amendable" do
+          let(:amendable) { build(:dummy_resource, component:, author: component.organization) }
+
+          it { is_expected.to be false }
+
+          context "and the user is an admin" do
+            let(:user) { create(:user, :confirmed, :admin) }
+
+            it { is_expected.to be true }
+          end
+        end
       end
 
       context "with a promote action" do

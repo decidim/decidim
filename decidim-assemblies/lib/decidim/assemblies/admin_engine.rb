@@ -16,6 +16,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        extend Decidim::Routes::LocaleRedirects
+
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
           resources :assemblies, param: :slug, except: [:show, :destroy] do
             resource :publish, controller: "assembly_publications", only: [:create, :destroy]
@@ -81,12 +83,12 @@ module Decidim
               resources :reports, controller: "moderations/reports", only: [:index, :show]
             end
 
-            resources :participatory_space_private_users, controller: "participatory_space_private_users" do
+            resources :members, controller: "members" do
               member do
-                post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
+                post :resend_invitation, to: "members#resend_invitation"
               end
               collection do
-                resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
+                resource :members_csv_imports, only: [:new, :create], path: "csv_import" do
                   delete :destroy_all
                 end
                 post :publish_all
@@ -111,7 +113,11 @@ module Decidim
 
       initializer "decidim_assemblies_admin.mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::Assemblies::AdminEngine, at: "/admin", as: "decidim_admin_assemblies"
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
+            mount Decidim::Assemblies::AdminEngine, at: "/admin", as: "decidim_admin_assemblies"
+          end
         end
       end
 

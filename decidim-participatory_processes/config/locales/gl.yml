@@ -4,9 +4,6 @@ gl:
       participatory_process:
         announcement: Anuncio
         area_id: Área
-        copy_categories: Copiar categorías
-        copy_components: Copiar compoñentes
-        copy_steps: Copiar os pasos
         decidim_area_id: Área
         description: Descrición
         developer_group: Grupo promotor
@@ -82,8 +79,6 @@ gl:
         unpublish: Non publicar
       menu:
         participatory_process_groups: Grupos de procesos
-        participatory_process_groups_submenu:
-          info: Información
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -97,7 +92,6 @@ gl:
         participatory_process:
           fields:
             created_at: Creado en
-            private: Privado
             published: Publicado
             title: Título
           name: Proceso participativo
@@ -125,20 +119,13 @@ gl:
           fields:
             invitation_accepted_at: Invitación aceptada no
             invitation_sent_at: Invitación enviada a
-      participatory_process_copies:
-        new:
-          copy: Copiar
-          select: Seleccione os datos que desexa duplicar
-          title: Duplicar o proceso participativo
       participatory_process_groups:
         destroy:
           success: Grupo de proceso participativo eliminado con éxito.
         edit:
-          title: Editar o grupo de procesos
           update: Actualización
         new:
           create: Crear
-          title: Novo grupo de procesos
         update:
           error: Produciuse un erro ao actualizar este grupo de procesos participativo.
           success: Grupo de proceso participativo actualizado con éxito.
@@ -164,18 +151,13 @@ gl:
         destroy:
           success: Paso de proceso participativo eliminado con éxito.
         edit:
-          title: Edita paso de proceso participativo
           update: Actualización
-        index:
-          steps_title: Pasos
         new:
           create: Crear
-          title: Novo paso de proceso participativo
         ordering:
           error: Produciuse un erro ao reordenar estes pasos de proceso participativo.
         update:
           error: Produciuse un erro ao actualizar este paso de proceso participativo.
-          success: Paso de proceso participativo actualizado con éxito.
       participatory_process_user_roles:
         create:
           error: Houbo un erro engadindo un usuario a este proceso participativo.
@@ -184,11 +166,8 @@ gl:
           success: Usuario eliminado con éxito deste proceso participativo.
         edit:
           update: Actualización
-        index:
-          process_admins_title: Usuarios de procesos participativos
         new:
           create: Crear
-          title: Novo/a administrador/a do proceso participativo
         update:
           error: Houbo un erro actualizado por un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
@@ -199,26 +178,16 @@ gl:
         edit:
           update: Actualización
         index:
-          private: Privado
-          public: Público
           published: Publicado
         new:
           create: Crear
-          title: Novo proceso participativo
         update:
           error: Produciuse un erro ao actualizar este proceso participativo.
           success: Proceso participativo actualizado con éxito.
-      participatory_processes_copies:
-        create:
-          error: Produciuse un erro ao duplicar este proceso participativo.
-          success: O proceso participativo duplicouse con éxito.
       participatory_processes_group:
         create:
           error: Produciuse un erro ao crear un novo grupo de procesos participativos.
           success: Grupo de proceso participativo creouse con éxito.
-      titles:
-        participatory_process_groups: Grupos de procesos participativos
-        participatory_processes: Procesos participativos
       users:
         resend_invitation:
           error: Produciuse un erro ao reenviar a invitación.
@@ -297,12 +266,8 @@ gl:
         participatory_process_imports:
           form:
             document_legend: Engadir un documento
-        participatory_process_steps:
-          form:
-            cta_text_help: Se non está establecido, non se mostrará o botón.
         participatory_processes:
           form:
-            announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
             duration: Duración
             images: Imaxes
             metadata: Metadatos
@@ -341,7 +306,6 @@ gl:
           title: Sobre este proceso
       show:
         belongs_to_group: Este proceso pertence a
-        private_space: Este é un proceso privado
         related_processes: Procesos relacionados
     statistics:
       processes_count: Procesos

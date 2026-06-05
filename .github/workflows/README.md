@@ -1,46 +1,41 @@
 # Decidim GitHub Actions workflows
 
-We use GitHub Actions as CI.
+We use GitHub Actions as CI with two key optimizations: **workflow splitting** and **composite actions**.
 
-- `lint_code.yml`: runs the linters for Ruby, JS and ERB files.
-- `ci_main.yml`: runs the tests for the main folder
-- `ci_core.yml`: runs the tests for the `decidim-core` module. The remaining workflows (except noted) are based on this one.
+## Architecture
 
-Individual workflows with changes:
+### Composite Actions
 
-- `ci_generators.yml`: `decidim-generators` does not need to create the test_app, so this command is removed. Screenshots uploads and chromedriver setup steps are also not needed for this module and thus removed. We also customize the gems path after running `bundle install`:
+- `test_app.yml`: [Reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows) that provides all common CI setup (Ruby, Node.js, database, Chrome, etc.)
+- All `ci_*.yml` workflows use this composite action via `uses: ./.github/workflows/test_app.yml`
+- Reduces duplication and simplifies maintenance
 
-```yml
-# ci_generators.yml
-- run: bundle install --path vendor/bundle --jobs 4 --retry 3
-  name: Install Ruby deps
-- run: cp -R vendor/bundle decidim-generators
-- run: bundle exec rspec
-  name: RSpec
-  working-directory: ${{ env.DECIDIM_MODULE }}
-```
+### Workflow Splitting
 
-- `ci_javascript.yml`: Runs tests for the JS files. Tests must run from the project root folder. You will need to install NodeJS and the JS dependencies:
+Large test suites are split into [parallel workflows](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) to reduce execution time:
 
-```yml
-- uses: actions/setup-node@v4
-  with:
-    node-version: ${{ env.NODE_VERSION }}
-- run: npm ci
-  name: Install JS deps
-- run: npm run test
-  name: Test JS files
-```
+## Core Workflows
 
-- Some specs are split in three workflows, so if we need to retry this particular workflow we do not need to retry all the module suite. For instance proposals:
+- `lint_code.yml`: Lints Ruby, JS, and ERB files
+- `ci_main.yml`: Tests for main folder
+- `ci_core.yml`: Base template for module testing using `test_app.yml`
 
-  - `ci_proposals_system_admin.yml`: Runs the system specs for the admin section
-  - `ci_proposals_system_public.yml`: Runs the system specs for the public section
-  - `ci_proposals_unit_tests.yml`: Runs the unit tests
+## Special Cases
 
-- `ci_performance_metrics_monitoring.yml`: Runs Lighthouse metrics expectations against the app to detect any performance regression. The expectations can be found in `lighthouse_budget.json`, where a time is defined for each metric:
+- `ci_generators.yml`: No test app needed, uses custom gem path setup
+- `ci_javascript.yml`: Runs JS tests from project root with Node.js setup
 
-  - [First Contentful Paint](https://web.dev/first-contentful-paint/): 2 seconds
-  - [Speed Index](https://web.dev/speed-index/): 4 seconds
-  - [Time to Interactive](https://web.dev/interactive/): 5 seconds
-  - [Largest Contentful Paint](https://web.dev/lcp/): 2.5 seconds
+## Split Workflows (Parallel Execution)
+
+Modules with large test suites are split across multiple workflows:
+
+- Proposals: `ci_proposals_system_admin.yml`, `ci_proposals_system_public.yml`, `ci_proposals_unit_tests.yml`
+- Similar patterns for other large modules
+
+## Performance Monitoring
+
+- `ci_performance_metrics_monitoring.yml`: Lighthouse CI with budgets:
+  - [First Contentful Paint](https://web.dev/first-contentful-paint/): 2s
+  - [Speed Index](https://web.dev/speed-index/): 4s
+  - [Time to Interactive](https://web.dev/interactive/): 5s
+  - [Largest Contentful Paint](https://web.dev/lcp/): 2.5s

@@ -1,4 +1,9 @@
 "no":
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Valg
+        other: Valg
   decidim:
     admin:
       menu:
@@ -16,6 +21,7 @@
             announcement: Kunngjøring
     elections:
       actions:
+        preview: Forhåndsvis
         title: Handlinger
       admin:
         dashboard:
@@ -45,6 +51,25 @@
           edit_questions:
             new_question: Nytt spørsmål
             title: Spørsmål
+      elections:
+        count:
+          elections_count:
+            one: "%{count} valg"
+            other: "%{count} valg"
+        filters:
+          all: Alt
+          state_values:
+            finished: Fullført
+        show:
+          vote_button: Stem
+        vote_results:
+          title: Resultater
       status:
         active: Aktiv
         finished: Fullført
+        not_started: Ikke påbegynt
+      votes:
+        confirm:
+          title: Bekreft stemmen din
+        question:
+          next: Neste

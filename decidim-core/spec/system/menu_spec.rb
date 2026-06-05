@@ -12,7 +12,7 @@ describe "Menu" do
 
   context "when clicking on a menu entry" do
     before do
-      click_on("Help", match: :first)
+      visit decidim.pages_path(locale: I18n.locale)
     end
 
     it "switches the active option" do
@@ -47,9 +47,7 @@ describe "Menu" do
       click_on(id: "main-dropdown-summary-mobile")
 
       within "#breadcrumb-main-dropdown-mobile" do
-        expect(page).to have_link("Home", href: "/")
-        expect(page).to have_link("Processes", href: "/processes")
-        expect(page).to have_link("Help", href: "/pages")
+        expect(page).to have_link("Processes", href: "/#{I18n.locale}/processes")
       end
     end
   end
@@ -70,32 +68,35 @@ describe "Menu" do
     end
   end
 
-  describe "header message in desktop" do
+  describe "when there are special characters (', &) in the nav links" do
+    let(:component_name) { "People's Budget & Ideas" }
     let(:participatory_space) { create(:participatory_process, organization:) }
-    let(:component) { create(:proposal_component, participatory_space:) }
-    let(:proposal) { create(:proposal, component:) }
+    let(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
+    let(:proposal) { create(:proposal, component: proposal_component) }
     let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 
-    before do
-      visit proposal_path
-      find_by_id("main-dropdown-summary").hover
-    end
-
-    context "when the organization does not have a description" do
-      let(:organization) { create(:organization, description: { en: nil }) }
-
-      it "shows the default message" do
-        within "#breadcrumb-main-dropdown-desktop" do
-          expect(page).to have_text("Let's build a more open, transparent and collaborative society.")
+    context "when it is a desktop device" do
+      it "renders the component name correctly" do
+        visit proposal_path
+        within ".menu-bar__breadcrumb-desktop" do
+          expect(page).to have_text(component_name)
+          expect(page).to have_no_text("&#39;")
+          expect(page).to have_no_text("&amp;#39;")
         end
       end
     end
 
-    context "when the organization has a description" do
-      it "shows the organization description" do
-        within "#breadcrumb-main-dropdown-desktop" do
-          expect(page).to have_no_text("Let's build a more open, transparent and collaborative society.")
-          expect(page).to have_text(strip_tags(translated(organization.description)))
+    context "when it is a mobile device" do
+      before do
+        driven_by(:iphone)
+      end
+
+      it "renders the component name correctly" do
+        visit proposal_path
+        within ".menu-bar__breadcrumb-mobile" do
+          expect(page).to have_text(component_name)
+          expect(page).to have_no_text("&#39;")
+          expect(page).to have_no_text("&amp;#39;")
         end
       end
     end
@@ -114,7 +115,7 @@ describe "Menu" do
     end
 
     it "includes the statistics item" do
-      expect(page).to have_content("Statistics")
+      expect(page).to have_text("Statistics")
       expect(page).to have_css(".statistic__dashboard-container")
     end
   end

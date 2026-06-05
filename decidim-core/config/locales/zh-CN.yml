@@ -108,9 +108,6 @@ zh-CN:
         update: "%{user_name} 更新了 %{resource_name} OAuth 应用程序"
       organization:
         update: "%{user_name} 更新了组织设置"
-      participatory_space_private_user:
-        create: "%{user_name} 邀請了 %{resource_name} 作为私人参与者"
-        delete: "%{user_name} 移除了参与者 %{resource_name} 作为私人参与者"
       scope:
         create: "%{user_name} 创建了 %{resource_name} 范围"
         create_with_parent: "%{user_name} 在 %{parent_scope} 范围内创建了 %{resource_name} 范围"
@@ -175,9 +172,6 @@ zh-CN:
       update_draft:
         error: 更新修正草案时遇到问题。
         success: 修正草稿已成功更新。
-      wizard_step_form:
-        steps:
-          '1': 创建您的修改
     anonymous_user: 匿名的
     application:
       document:
@@ -354,13 +348,9 @@ zh-CN:
           affected_user:
             email_intro: '%{amendable_title}的修改已被接受。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您是 %{amendable_title} 的作者。
-            email_subject: 接受来自 %{amendable_title} 的 %{emendation_author_nickname} 修正案
-            notification_title: 由 <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> 创建的 <a href="%{emendation_path}">修正</a> 已被接受 <a href="%{amendable_path}">%{amendable_title}</a>。
           follower:
             email_intro: '%{amendable_title}的修改已被接受。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您正在关注 %{amendable_title}。您可以停止收到跟随上一个链接的通知。
-            email_subject: 接受来自 %{amendable_title} 的 %{emendation_author_nickname} 修正案
-            notification_title: 由 <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> 创建的 <a href="%{emendation_path}">修正</a> 已被接受 <a href="%{amendable_path}">%{amendable_title}</a>。
         amendment_created:
           affected_user:
             email_intro: '已经为 %{amendable_title}创建了一个新的版本。您可以从这个页面查看它：'
@@ -376,22 +366,16 @@ zh-CN:
           affected_user:
             email_intro: '%{amendable_title} 的被拒绝的修订已经发布为新的 %{amendable_type}。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您是 %{amendable_title} 的作者。
-            email_subject: 来自 %{emendation_author_nickname} 的修订已经发布为新的 %{amendable_type}
           follower:
             email_intro: '%{amendable_title} 的被拒绝的修订已经发布为新的 %{amendable_type}。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您正在关注 %{amendable_title}。您可以停止收到跟随上一个链接的通知。
-            email_subject: 来自 %{emendation_author_nickname} 的修订已经发布为新的 %{amendable_type}
         amendment_rejected:
           affected_user:
             email_intro: '%{amendable_title}的修订已被拒绝。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您是 %{amendable_title} 的作者。
-            email_subject: '%{amendable_title} 的 %{emendation_author_nickname} 修正案被拒绝'
-            notification_title: 由 <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> 创建的 <a href="%{emendation_path}">项修正</a> 已被 <a href="%{amendable_path}">%{amendable_title}</a> 拒绝。
           follower:
             email_intro: '%{amendable_title}的修订已被拒绝。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您正在关注 %{amendable_title}。您可以停止收到跟随上一个链接的通知。
-            email_subject: '%{amendable_title} 的 %{emendation_author_nickname} 修正案被拒绝'
-            notification_title: 由 <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> 创建的 <a href="%{emendation_path}">项修正</a> 已被 <a href="%{amendable_path}">%{amendable_title}</a> 拒绝。
       attachments:
         attachment_created:
           email_intro: '一个新文档已添加到 %{resource_title}。您可以从这个页面查看：'
@@ -414,12 +398,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
         level_up:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-      users:
-        profile_updated:
-          email_intro: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_url}">个人资料页面</a> 已经更新。
-          email_outro: 您收到此通知是因为您正在关注 %{nickname}。您可以停止收到跟随上一个链接的通知。
-          email_subject: "%{nickname} 更新了他们的个人资料"
-          notification_title: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_path}">个人资料页面</a> 已经更新。
     export_mailer:
       download_your_data_export:
         download: 下载
@@ -526,7 +504,6 @@ zh-CN:
         latlng_text: '纬度: %{latitude}, 经度: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: 帮助
       home: 首页
     messaging:
       conversation_mailer:
@@ -587,10 +564,8 @@ zh-CN:
       unsubscribe:
         success: 您已成功取消订阅。
         token_error: 链接已过期。
-        unsubscribe: 取消订阅
     newsletters_opt_in_mailer:
       notify:
-        body_1: 个人数据的处理和对数据的保护对我们大家都越来越重要。 根据2018年5月25日新的《一般数据保护条例》，个人可以更好地控制自己的个人数据。 为此原因，我们需要您的“确定”继续发送有关 %{organization_name} 活动的信息。
         body_2: '你如何能够给予我们同意？只需点击下面的按钮：'
         body_3: 如果您同意，您将能够继续接收有关平台服务的信息。 相反，如果我们没有得到你的肯定确认，我们将停止向你发送我们的信息。 如果您确认要随时收到通知，您将随时有取消的选项。
         button: 是的，我想继续收到相关信息
@@ -629,17 +604,17 @@ zh-CN:
           proposals_explanation: 提出建议、支持现有建议并促进你想要看到的更改。
         footer_sub_hero:
           footer_sub_hero_headline: 欢迎使用 %{organization} 参与式平台。
-          register: 注册
         hero:
           participate: 参与
           welcome: 欢迎使用 %{organization}！
-        sub_hero:
-          register: 注册
       index:
         standalone_pages: 页 次
         subheading: 浏览 %{name} 的帮助页面
         title: 帮助
         topics: 主题
+    participatory_space_members:
+      index:
+        members: 成员
     profile:
       deleted: 删除参与者
     profiles:
@@ -777,8 +752,6 @@ zh-CN:
         submit_button: 发送邀请
       no_invitations_remaining: 没有剩余邀请
       send_instructions: 邀请邮件已发送至 %{email}。
-      updated: 您的密码设置成功。您现在已登录。
-      updated_not_active: 您的密码设置成功。
     mailer:
       confirmation_instructions:
         action: 确认我的帐户
@@ -794,10 +767,8 @@ zh-CN:
         decline: 拒绝邀请
         hello: 您好 %{email}，
         invited_you_as_admin: "%{invited_by} 邀请您担任了 %{application}的管理员。您可以通过下面的链接接受它。"
-        invited_you_as_private_user: "%{invited_by} 邀请您作为私有参与者 %{application}。您可以通过下面的链接接受它。"
         someone_invited_you: 有人邀请您访问 %{application}。您可以通过下面的链接接受它。
         someone_invited_you_as_admin: 有人邀请您作为 %{application}的管理员，您可以通过下面的链接接受它。
-        someone_invited_you_as_private_user: 有人邀请您作为私有参与者 %{application}，您可以通过下面的链接接受它。
         subject: 邀请说明
       password_change:
         greeting: 你好 %{recipient}！
@@ -883,7 +854,6 @@ zh-CN:
       impersonation_warning:
         close_session: 关闭会话
         description_html: 您正在管理参与者 <b>%{user_name}</b>
-        expire_time_html: 您的会话将在 <b><span class="minutes">%{minutes}</span> 分钟</b> 中过期。
       language_chooser:
         choose_language: 选择语言
       notifications_dashboard:
@@ -917,7 +887,6 @@ zh-CN:
     fallback: 无效
     name_included_in_password: 与您的名字太近了
     not_enough_unique_characters: 没有足够的唯一字符
-    password_not_allowed: 不允许
     password_too_common: 太常见了
     password_too_long: 太长
     password_too_short: 太短了

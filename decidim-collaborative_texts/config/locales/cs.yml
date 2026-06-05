@@ -16,11 +16,15 @@ cs:
           draft: Koncept
           version_number: Číslo verze
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Tento dokument nelze odstranit
     collaborative_texts:
       actions:
         confirm_delete_document: Opravdu chcete odstranit tento dokument?
         deleted_document_info: Odstraněný dokument může být obnoven z koše.
         edit: Upravit
+        manage: Konfigurace
         new: Nový text
         title: Akce
         view_deleted_documents: Zobrazit odstraněné dokumenty
@@ -67,6 +71,9 @@ cs:
           update_settings:
             invalid: Při aktualizaci dokumentu došlo k chybě.
             success: Dokument byl úspěšně aktualizován.
+        index:
+          published: Zveřejněno
+          unpublished: Zneveřejněno
       admin_log:
         document:
           create: "%{user_name} vytvořil kolaborativní text %{resource_name} v %{space_name}"
@@ -83,6 +90,7 @@ cs:
           new: Navrhnout novou verzi
         save: Navrhnout změny
         status:
+          draft: Tento dokument je v současné době přezkoumáván správci. Návrhy nejsou v tuto chvíli povoleny, ale můžete zobrazit návrhy jiných účastníků.
           not_accepting_suggestions: Návrhy nejsou v tuto chvíli povoleny.
         suggestions_count: "%{count} návrhů"
         toggle: Zobrazit/skrýt návrhy
@@ -94,8 +102,13 @@ cs:
       models:
         collaborative_text:
           fields:
+            published: Zveřejněno
             suggestions: Přijmout návrhy
             title: Název
+      suggestion:
+        add_html: <span class="type">Přidat:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Odstranit:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Nahradit:</span> <span class="text">%{text}</span>
       suggestions:
         create:
           invalid: Při vytváření návrhu došlo k chybě.
@@ -105,6 +118,10 @@ cs:
           invalid_nodes: Neplatné vybrané uzly.
     components:
       collaborative_texts:
+        actions:
+          create: Vytvořit
+          destroy: Vymazat
+          update: Aktualizovat
         name: Kolaborativní texty
         settings:
           global:

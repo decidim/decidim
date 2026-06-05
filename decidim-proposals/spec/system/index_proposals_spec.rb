@@ -12,7 +12,7 @@ describe "Index proposals" do
     it "does not display empty message" do
       visit_component
 
-      expect(page).to have_no_content("There is no proposal yet")
+      expect(page).to have_no_text("There is no proposal yet")
     end
   end
 
@@ -23,11 +23,11 @@ describe "Index proposals" do
       visit_component
 
       within "main" do
-        expect(page).to have_content("50 proposals")
+        expect(page).to have_text("50 proposals")
       end
 
       within "main nav" do
-        expect(page).to have_content("Next")
+        expect(page).to have_text("Next")
       end
     end
   end
@@ -36,16 +36,10 @@ describe "Index proposals" do
     context "when there are no withdrawn proposals" do
       let!(:proposals) { create_list(:proposal, 3, component:) }
 
-      before do
+      it "does not show the withdrawn link" do
         visit_component
-        click_on "See all withdrawn proposals"
-      end
 
-      it "shows an empty page with a message" do
-        expect(page).to have_content("There are no proposals with this criteria.")
-        within ".flash.warning" do
-          expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors.")
-        end
+        expect(page).to have_no_link("See all withdrawn proposals")
       end
     end
 
@@ -61,7 +55,7 @@ describe "Index proposals" do
       it "shows all the withdrawn proposals" do
         expect(page).to have_css(".card__list span.alert", count: 3)
         within ".flash.warning" do
-          expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors.")
+          expect(page).to have_text("You are viewing the list of proposals withdrawn by their authors.")
         end
       end
     end
@@ -72,7 +66,7 @@ describe "Index proposals" do
       it "shows generic empty message" do
         visit_component
 
-        expect(page).to have_content("There are no proposals yet.")
+        expect(page).to have_text("There are no proposals yet.")
       end
     end
 
@@ -84,7 +78,7 @@ describe "Index proposals" do
 
         uncheck "Accepted"
 
-        expect(page).to have_content("There are no proposals with this criteria.")
+        expect(page).to have_text("There are no proposals with this criteria.")
       end
     end
   end

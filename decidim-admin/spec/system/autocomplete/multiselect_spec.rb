@@ -5,8 +5,7 @@ require "spec_helper"
 describe "Autocomplete multiselect" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:path) { URI.parse(decidim_admin.users_organization_url).path }
-  let(:url) { "http://#{organization.host}:#{Capybara.current_session.server.port}#{path}" }
+  let(:api_path) { "/api" }
   let(:selected) { '""' }
 
   before do
@@ -34,7 +33,6 @@ describe "Autocomplete multiselect" do
             "mode": "multi",
             "options":[],
             "placeholder":"Select user",
-            "searchURL":"#{url}",
             "selected":#{selected}
           }'
           data-autocomplete-for="user_id" data-plugin="autocomplete">
@@ -42,7 +40,9 @@ describe "Autocomplete multiselect" do
       )
     end
 
-    let(:html_head) { "" }
+    let(:html_head) do
+      %(<script>window.Decidim = { config: { get: (key) => key === "api_path" ? "#{api_path}" : null } };</script>)
+    end
     let(:html_document) do
       head_extra = html_head
       body_extra = autocomplete_multifield_select
@@ -53,14 +53,15 @@ describe "Autocomplete multiselect" do
           <head>
             <title>Autocomplete multiselect Test</title>
             #{stylesheet_pack_tag "decidim_core"}
-            #{javascript_pack_tag "decidim_core", "decidim_admin", defer: false}
+            #{javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_admin", defer: false}
             #{head_extra}
           </head>
           <body>
             <h1>Hello world</h1>
             <label for="trustees_participatory_space_user_id">
             User
-            <span title="Required field" data-tooltip="true" data-disable-hover="false" data-keep-on-hover="true" class="label-required">
+            <span title="Required field" data-controller="tooltip" data-tooltip-tooltip-value="<p class=&quot;top&quot; role=&quot;tooltip&quot; aria-hidden=&quot;true&quot;>Required field</p>"
+                  data-disable-hover="false" data-keep-on-hover="true" class="label-required">
             <span aria-hidden="true">*</span><span>Required field</span></span></label>
             #{body_extra}
             <div class="foo"></div>
@@ -97,31 +98,21 @@ describe "Autocomplete multiselect" do
         it "shows selected participant and creates hidden input" do
           find("input[type='text']").fill_in with: participant.name.slice(0..2)
           find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first, wait: 2).click
-          expect(page).to have_content(participant.name)
+          expect(page).to have_text(participant.name)
           hidden_input = find("input[type='hidden']", visible: false)
           expect(hidden_input.value).to eq(participant.id.to_s)
           text_input = find("input[type='text']")
           expect(text_input.value).to eq("")
-        end
-
-        context "when the URL has extra parameters in it" do
-          let(:url) { "http://#{organization.host}:#{Capybara.current_session.server.port}#{path}?locale=ca" }
-
-          it "shows selected participant" do
-            find("input[type='text']").fill_in with: participant.name.slice(0..2)
-            find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first, wait: 2).click
-            expect(page).to have_content(participant.name)
-          end
         end
       end
 
       describe "remove selected item" do
         it "selects and removes item" do
           autocomplete_select participant.name, from: :user_id
-          expect(page).to have_content(participant.name)
+          expect(page).to have_text(participant.name)
           expect(page).to have_css(%(input[value="#{participant.id}"]), visible: :hidden)
           find(".clear-multi-selection").click
-          expect(page).to have_no_content(participant.name)
+          expect(page).to have_no_text(participant.name)
           expect(page).to have_no_css(%(input[value="#{participant.id}"]), visible: :hidden)
         end
       end
@@ -130,9 +121,9 @@ describe "Autocomplete multiselect" do
         it "shows selected participants and creates hidden inputs" do
           autocomplete_select participant.name, from: :user_id
           autocomplete_select participant2.name, from: :user_id
-          expect(page).to have_content(participant.name)
-          expect(page).to have_content(participant2.name)
-          expect(page).to have_no_content(participant3.name)
+          expect(page).to have_text(participant.name)
+          expect(page).to have_text(participant2.name)
+          expect(page).to have_no_text(participant3.name)
           expect(page).to have_css(%(input[value="#{participant.id}"]), visible: :hidden)
           expect(page).to have_css(%(input[value="#{participant2.id}"]), visible: :hidden)
           expect(page).to have_no_css(%(input[value="#{participant3.id}"]), visible: :hidden)
@@ -143,9 +134,9 @@ describe "Autocomplete multiselect" do
         let(:selected) { %([{"value": "#{participant2.id}", "label": "#{participant2.name}"}, {"value": "#{participant3.id}", "label": "#{participant3.name}"}]) }
 
         it "shows preselected value" do
-          expect(page).to have_no_content(participant.name)
-          expect(page).to have_content(participant2.name)
-          expect(page).to have_content(participant3.name)
+          expect(page).to have_no_text(participant.name)
+          expect(page).to have_text(participant2.name)
+          expect(page).to have_text(participant3.name)
           expect(page).to have_no_css(%(input[value="#{participant.id}"]), visible: :hidden)
           expect(page).to have_css(%(input[value="#{participant2.id}"]), visible: :hidden)
           expect(page).to have_css(%(input[value="#{participant3.id}"]), visible: :hidden)

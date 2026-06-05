@@ -1,9 +1,13 @@
 nl:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Verkiezing
+        other: Verkiezingen
   decidim:
     admin:
       menu:
         elections_menu:
-          election_census: Kiezerslijst
           election_questions: vragen
     components:
       elections:
@@ -19,14 +23,13 @@ nl:
             announcement: Mededeling
     elections:
       actions:
+        preview: Voorvertoning
         title: acties
       admin:
         census:
           edit:
             created_at: Aangemaakt op
         dashboard:
-          census:
-            title: Kiezerslijst
           main:
             labels:
               description: Beschrijving
@@ -55,11 +58,29 @@ nl:
           edit_questions:
             new_question: Nieuwe vraag
             title: vragen
+      elections:
+        count:
+          elections_count:
+            one: "%{count} verkiezing"
+            other: "%{count} verkiezingen"
+        filters:
+          state: Status
+        show:
+          vote_button: Stemming
+        vote_results:
+          title: Resultaten
       models:
         election:
           fields:
-            census: Kiezerslijst
             status: Status
             title: Aanspreektitel
+      status:
+        not_started: Niet begonnen
+      votes:
+        confirm:
+          title: Bevestig uw stem
+        question:
+          back: Terug
+          next: Volgende
     statistics:
       elections_count: Verkiezingen

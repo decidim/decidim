@@ -48,7 +48,6 @@ cs:
             confirm: Zrušení před datem autorizace nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
             confirm_all: Zrušení všech autorizací nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
           destroy_nok: Při odebírání autorizací došlo k chybě.
-          destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny.
           info: Celkem je %{count} ověřených účastníků.
           no_data: Žádní ověření účastníci.
           title: Zrušení autorizace
@@ -200,10 +199,6 @@ cs:
               user_authorized: Uživatel autorizován?
             import_csv: Importovat CSV
             no_authorized: Uživatel neautorizován
-            title: Aktuální údaje o členech organizace
-          instructions:
-            body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
-            title: Musíte aktivovat CSV s kontakty členů organizace
         authorizations:
           new:
             error: Váš účet nebyl ověřen, nebo nejste členem organizace.
@@ -238,7 +233,6 @@ cs:
               error: Ověření neodpovídá. Ověřte znovu nebo odmítněte ověření, aby jej uživatel mohl změnit.
               success: Uživatel byl úspěšně ověřen.
             new:
-              introduce_user_data: Vložte data do obrázku
               reject: Odmítnout
               verify: Ověřte
           offline_confirmations:
@@ -247,7 +241,6 @@ cs:
               success: Uživatel byl úspěšně ověřen.
             new:
               cancel: Zrušit
-              introduce_user_data: Zadejte e-mail uživatele a data dokumentu
               verify: Ověřte
           pending_authorizations:
             index:
@@ -288,6 +281,7 @@ cs:
           pending_authorizations:
             index:
               address: Adresa
+              already_sent: Poštovní dopis již byl odeslán a nemůže být znovu označen jako odeslaný.
               letter_sent_at: Dopis zaslaný na
               mark_as_sent: Označit jako odesláno
               not_yet_sent: Dosud nebyla odeslána

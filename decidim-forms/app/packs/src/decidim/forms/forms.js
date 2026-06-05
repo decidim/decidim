@@ -1,5 +1,3 @@
-/* eslint-disable require-jsdoc */
-
 /**
  * Since the ["drag-on-drop"](https://github.com/schne324/dragon-drop) dependency is just an A11Y wrapper,
  * its core is actually using the ["dragula"](https://github.com/bevacqua/dragula) resource,
@@ -35,10 +33,32 @@ document.addEventListener("turbo:load", () => {
     }
   });
 
-  document.querySelectorAll(".js-sortable-check-box-collection").forEach((el) => new DragonDrop(el, {
-    handle: false,
-    item: ".js-collection-input"
-  }));
+  document.querySelectorAll(".js-sortable-check-box-collection").forEach((el) =>  {
+
+    /**
+     * Due to a bug reported in https://github.com/decidim/decidim/issues/15191
+     * we have to listen to the `drag` event and prevent the scrolling
+     * and enabling it back again after it.
+     * @param {Event} event - Event being fired
+     */
+
+    let preventScroll = function(event) {
+      event.preventDefault();
+    }
+
+    el.addEventListener("touchmove", (event) => {
+      preventScroll(event);
+    }, { passive: false });
+
+    el.addEventListener("touchend", () => {
+      el.removeEventListener("touchmove", preventScroll)
+    });
+
+    return new DragonDrop(el, {
+      handle: false,
+      item: ".js-collection-input"
+    });
+  });
 
   $(".response-questionnaire .question[data-conditioned='true']").each((idx, el) => {
     createDisplayConditions({

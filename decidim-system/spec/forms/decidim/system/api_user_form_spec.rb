@@ -13,7 +13,7 @@ module Decidim
 
       let(:attributes) do
         {
-          name: name,
+          name:,
           organization: organization_id
         }
       end
@@ -29,7 +29,7 @@ module Decidim
       end
 
       context "when name is already exist" do
-        let!(:api_user) { create(:api_user, organization: organization, name: name) }
+        let!(:api_user) { create(:api_user, organization:, name:) }
 
         it { is_expected.not_to be_valid }
       end

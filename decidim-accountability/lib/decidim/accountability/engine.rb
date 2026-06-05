@@ -31,9 +31,21 @@ module Decidim
         Decidim.icons.register(name: "briefcase-2-line", icon: "briefcase-2-line", category: "system", description: "", engine: :accountability)
       end
 
+      initializer "decidim_accountability.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Accountability::AccountabilityMutationType
+        )
+      end
+
       initializer "decidim_accountability.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
           view_context.cell("decidim/accountability/highlighted_results", view_context.current_participatory_space)
+        end
+      end
+
+      initializer "decidim_accountability.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
         end
       end
 
@@ -42,7 +54,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Accountability::Engine.root}/app/views")
       end
 
-      initializer "decidim_accountability.webpacker.assets_path" do
+      initializer "decidim_accountability.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end

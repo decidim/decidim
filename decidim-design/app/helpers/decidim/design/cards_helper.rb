@@ -171,7 +171,6 @@ module Decidim
         contents += debates_items
         contents += meetings_items
         contents += proposals_items
-        contents += sortitions_items
         contents += assemblies_items
         contents += conferences_items
         contents += initiatives_items
@@ -336,18 +335,6 @@ module Decidim
                 'cell("decidim/meetings/meeting_l", _RESOURCE_)'
               ]
             }
-          ),
-          cell_table_item(
-            t("decidim.design.helpers.meeting_s"),
-            {
-              cell: "decidim/meetings/meeting_s",
-              args: [resource],
-              call_string: [
-                "card_for(_RESOURCE_, size: :s)",
-                'cell("decidim/meetings/meeting", _RESOURCE_, size: :s)',
-                'cell("decidim/meetings/meeting_s", _RESOURCE_)'
-              ]
-            }
           )
         ]
       end
@@ -357,9 +344,8 @@ module Decidim
         return items unless Decidim.module_installed?(:proposals)
 
         proposal_resource = Decidim::Proposals::Proposal.last
-        collaborative_draft_resource = Decidim::Proposals::CollaborativeDraft.last
 
-        items << { values: section_subtitle(title: t("decidim.design.helpers.proposals")) } if [proposal_resource, collaborative_draft_resource].any?(&:present?)
+        items << { values: section_subtitle(title: t("decidim.design.helpers.proposals")) } if [proposal_resource].any?(&:present?)
 
         if (resource = proposal_resource).present?
           items += [
@@ -392,44 +378,7 @@ module Decidim
           ]
         end
 
-        if (resource = collaborative_draft_resource).present?
-          items += [
-            cell_table_item(
-              t("decidim.design.helpers.collaborative_draft_l"),
-              {
-                cell: "decidim/proposals/collaborative_draft_l",
-                args: [resource],
-                call_string: [
-                  "card_for(_RESOURCE_)",
-                  'cell("decidim/proposals/collaborative_draft", _RESOURCE_)',
-                  'cell("decidim/proposals/collaborative_draft_l", _RESOURCE_)'
-                ]
-              }
-            )
-          ]
-        end
-
         items
-      end
-
-      def sortitions_items
-        return [] unless Decidim.module_installed?(:sortitions) && (resource = Decidim::Sortitions::Sortition.last).present?
-
-        [
-          { values: section_subtitle(title: t("decidim.design.helpers.sortitions")) },
-          cell_table_item(
-            t("decidim.design.helpers.sortition_l"),
-            {
-              cell: "decidim/sortitions/sortition_l",
-              args: [resource],
-              call_string: [
-                "card_for(_RESOURCE_)",
-                'cell("decidim/sortitions/sortition", _RESOURCE_)',
-                'cell("decidim/sortitions/sortition_l", _RESOURCE_)'
-              ]
-            }
-          )
-        ]
       end
 
       def assemblies_items

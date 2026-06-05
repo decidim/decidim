@@ -1,11 +1,14 @@
 <div id="desktopContainer" class="comments-two-columns card__grid-grid hidden md:grid">
-  <%= render_column(@top_comment_in_favor, @sorted_comments_in_favor, "thumb-up-line", t("decidim.components.comments.in_favor")) %>
-  <%= render_column(@top_comment_against, @sorted_comments_against, "thumb-down-line", t("decidim.components.comments.against")) %>
+  <%= render_column(@top_comment_in_favor, @sorted_comments_in_favor, "thumb-up-line", t("decidim.components.comments.in_favor"), 1, @has_more_in_favor) %>
+  <%= render_column(@top_comment_against, @sorted_comments_against, "thumb-down-line", t("decidim.components.comments.against"), -1, @has_more_against) %>
 </div>
 
 <div id="mobileContainer" class="comment-threads block md:hidden" aria-live="polite">
   <%= comments_loading %>
-  <% @interleaved_comments.each do |comment| %>
-    <%= cell("decidim/comments/comment_thread", comment, order:, top_comment: (comment == @top_comment_in_favor || comment == @top_comment_against)) %>
+  <% @mobile_comments.each do |comment| %>
+    <%= cell("decidim/comments/comment_thread", comment, order:) %>
+  <% end %>
+  <% if @has_more_mobile %>
+    <%= controller.view_context.render partial: "decidim/comments/comments/load_more_comments", locals: { commentable: model, order:, offset: @mobile_comments.size } %>
   <% end %>
 </div>

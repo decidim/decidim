@@ -96,9 +96,6 @@ id:
         update: "%{user_name} memperbarui aplikasi %{resource_name} OAuth"
       organization:
         update: "%{user_name} memperbarui pengaturan organisasi"
-      participatory_space_private_user:
-        create: "%{user_name} diundang %{resource_name} untuk menjadi pengguna pribadi"
-        delete: "%{user_name} menghapus pengguna %{resource_name} sebagai pengguna pribadi"
       scope:
         create: "%{user_name} menciptakan %{resource_name} ruang lingkup"
         create_with_parent: "%{user_name} menciptakan %{resource_name} ruang lingkup di dalam %{parent_scope} ruang lingkup"
@@ -147,9 +144,6 @@ id:
         back: Kembali
         heading: Tinjau amandemennya
         send: Terima amandemen
-      wizard_step_form:
-        steps:
-          '1': Buat amandemen Anda
     anonymous_user: Anonim
     application:
       documents:
@@ -300,13 +294,9 @@ id:
           affected_user:
             email_intro: 'Amendemen telah diterima untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
-            email_subject: Amandemen diterima untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">amendemen</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah diterima untuk <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Amendemen telah diterima untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-            email_subject: Amandemen diterima untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">amendemen</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah diterima untuk <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Sebuah perubahan baru telah dibuat untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
@@ -322,24 +312,16 @@ id:
           affected_user:
             email_intro: 'Suatu emendasi yang ditolak untuk %{amendable_title} telah dipromosikan menjadi independen %{amendable_type}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
-            email_subject: Amandemen dari %{emendation_author_nickname} telah diterbitkan sebagai %{amendable_type}baru
-            notification_title: Amandemen</a> <a href="%{emendation_path}">ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> telah dipublikasikan sebagai %{amendable_type} baru oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>
           follower:
             email_intro: 'Suatu emendasi yang ditolak untuk %{amendable_title} telah dipromosikan menjadi independen %{amendable_type}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-            email_subject: Amandemen dari %{emendation_author_nickname} telah diterbitkan sebagai %{amendable_type}baru
-            notification_title: Amandemen</a> <a href="%{emendation_path}">ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> telah dipublikasikan sebagai %{amendable_type} baru oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>
         amendment_rejected:
           affected_user:
             email_intro: 'Amendemen telah ditolak untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
-            email_subject: Amandemen ditolak untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">amendemen</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Amendemen telah ditolak untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-            email_subject: Amandemen ditolak untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">amendemen</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Dokumen baru telah ditambahkan ke %{resource_title}. Anda dapat melihatnya dari halaman ini:'
@@ -362,12 +344,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
         level_up:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
-      users:
-        profile_updated:
-          email_intro: Halaman <a href="%{resource_url}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-          email_subject: "%{nickname} memperbarui profil mereka"
-          notification_title: Halaman <a href="%{resource_path}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
     export_mailer:
       download_your_data_export:
         download: Unduh
@@ -450,7 +426,6 @@ id:
     managed_users:
       expired_session: Sesi peniruan saat ini telah kedaluwarsa.
     menu:
-      help: Membantu
       home: Rumah
     messaging:
       conversation_mailer:
@@ -476,10 +451,8 @@ id:
       unsubscribe:
         success: Anda berhasil berhenti berlangganan.
         token_error: Tautan telah kedaluwarsa.
-        unsubscribe: Berhenti berlangganan
     newsletters_opt_in_mailer:
       notify:
-        body_1: Pengolahan data pribadi dan perlindungannya menjadi semakin penting bagi kita semua. Dengan Peraturan Perlindungan Data Umum yang baru (GDPR) 25 Mei 2018, individu memiliki kontrol yang lebih baik atas data pribadi mereka. Untuk alasan ini kami memerlukan "OK" Anda untuk terus mengirim informasi yang relevan tentang kegiatan %{organization_name}.
         body_2: 'Bagaimana Anda bisa memberi kami persetujuan Anda? Cukup klik tombol berikut:'
         body_3: Dengan persetujuan ini Anda akan dapat terus menerima informasi tentang layanan platform. Jika, sebaliknya, kami tidak menerima konfirmasi positif dari pihak Anda, kami akan berhenti mengirimi Anda pesan kami. Jika Anda mengonfirmasi bahwa Anda ingin terus mendapat informasi, Anda akan selalu memiliki opsi untuk membatalkan kapan saja.
         button: Ya, saya ingin terus menerima informasi yang relevan
@@ -517,17 +490,17 @@ id:
           proposals_explanation: Buat proposal, dukung yang sudah ada dan promosikan perubahan yang ingin Anda lihat.
         footer_sub_hero:
           footer_sub_hero_headline: Selamat datang di %{organization} platform partisipatif.
-          register: Daftar
         hero:
           participate: Ikut
           welcome: Selamat datang di %{organization}!
-        sub_hero:
-          register: Daftar
       index:
         standalone_pages: Halaman
         subheading: Menavigasi melalui halaman bantuan %{name}
         title: Membantu
         topics: Topik
+    participatory_space_members:
+      index:
+        members: Anggota
     profile:
       deleted: Pengguna yang dihapus
     profiles:
@@ -615,8 +588,6 @@ id:
         submit_button: Kirim undangan
       no_invitations_remaining: Tidak ada undangan yang tersisa
       send_instructions: Email undangan telah dikirim ke %{email}.
-      updated: Kata sandi Anda berhasil ditetapkan. Anda sekarang masuk.
-      updated_not_active: Kata sandi Anda berhasil ditetapkan.
     mailer:
       confirmation_instructions:
         action: Konfirmasikan akun saya
@@ -632,10 +603,8 @@ id:
         decline: Tolak undangan
         hello: Halo %{email},
         invited_you_as_admin: "%{invited_by} telah mengundang Anda sebagai admin %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
-        invited_you_as_private_user: "%{invited_by} telah mengundang Anda sebagai pengguna pribadi dari %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         someone_invited_you: Seseorang telah mengundang Anda ke %{application}. Anda dapat menerimanya melalui tautan di bawah ini.
         someone_invited_you_as_admin: Seseorang telah mengundang Anda sebagai admin %{application}, Anda dapat menerimanya melalui tautan di bawah.
-        someone_invited_you_as_private_user: Seseorang telah mengundang Anda sebagai pengguna pribadi %{application}, Anda dapat menerimanya melalui tautan di bawah ini.
         subject: Instruksi undangan
       password_change:
         greeting: Halo %{recipient}!
@@ -716,7 +685,6 @@ id:
       impersonation_warning:
         close_session: Tutup sesi
         description_html: Anda meniru identitas pengguna <b>%{user_name}</b>.
-        expire_time_html: Sesi Anda akan berakhir dalam <b><span class="minutes">%{minutes}</span> menit</b>.
       notifications_dashboard:
         mark_all_as_read: tandai semua telah dibaca
       user_menu:
@@ -741,7 +709,6 @@ id:
     fallback: tidak valid
     name_included_in_password: terlalu mirip dengan nama Anda
     not_enough_unique_characters: tidak memiliki karakter unik yang cukup
-    password_not_allowed: tidak diizinkan
     password_too_common: terlalu umum
     password_too_long: terlalu panjang
     password_too_short: terlalu pendek

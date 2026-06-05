@@ -91,7 +91,6 @@ nl:
           fields:
             created_at: Aangemaakt
             end_date: Einddatum
-            id: ID
             progress: Vooruitgang
             start_date: Startdatum
             status: Status

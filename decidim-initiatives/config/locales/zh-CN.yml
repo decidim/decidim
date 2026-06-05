@@ -20,7 +20,6 @@ zh-CN:
       initiatives_type:
         area_enabled: 使作者能够选择他们倡议的区域
         attachments_enabled: 启用附件
-        banner_image: 横幅图像
         child_scope_threshold_enabled: 启用子范围签名
         collect_user_extra_fields: 在签名时收集参与者个人数据
         custom_signature_end_date_enabled: 允许作者选择签名收集期的结束
@@ -80,7 +79,6 @@ zh-CN:
         initiatives:
           fields:
             created_at: 创建于
-            id: ID
             published_at: 发布于
             state: 状态
             supports_count: 签名
@@ -108,9 +106,6 @@ zh-CN:
             name_and_surname: 姓名：
             postal_code: 邮政编码
             timestamp: 时间戳
-      titles:
-        initiatives: 倡议
-        initiatives_types: 倡议类型
     events:
       initiatives:
         admin:
@@ -261,12 +256,6 @@ zh-CN:
           choose_html: 我想要创建 <strong>%{title}</strong>
           more_information: (更多信息)
           select: 我想促进这项倡议
-      events:
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}，您正在关注这个问题，已经创建了一个新的倡议，查看它并做出贡献："
-          email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
-          email_subject: '%{author_nickname} 的新举措'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议是由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 创建的。
       initiative_signatures:
         finish:
           back_to_initiative: 回到倡议

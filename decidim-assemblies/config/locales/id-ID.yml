@@ -9,9 +9,6 @@ id:
         closing_date: Tanggal Penutupan
         closing_date_reason: Alasan tanggal penutupan
         composition: Komposisi
-        copy_categories: Salin kategori
-        copy_components: Salin komponen
-        copy_features: Salin fitur
         created_by: Dibuat oleh
         created_by_other: Dibuat oleh lainnya
         creation_date: Tanggal Diciptakan
@@ -33,7 +30,6 @@ id:
         participatory_processes_ids: Proses Partisipatif Terkait
         participatory_scope: Apa yang diputuskan
         participatory_structure: Bagaimana cara memutuskannya
-        private_space: Ruang pribadi
         promoted: Dipromosikan
         published_at: Diterbitkan di
         purpose_of_action: Tujuan tindakan
@@ -74,24 +70,12 @@ id:
         edit:
           update: Memperbarui
         index:
-          private: Pribadi
-          public: Publik
           published: Diterbitkan
         new:
           create: Membuat
-          title: Perakitan baru
         update:
           error: Ada kesalahan saat memperbarui perakitan ini.
           success: Majelis berhasil diperbarui.
-      assemblies_copies:
-        create:
-          error: Ada kesalahan saat menduplikasi majelis ini.
-          success: Majelis berhasil digandakan.
-      assembly_copies:
-        new:
-          copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
-          title: Rakitan duplikat
       assembly_publications:
         create:
           error: Terjadi kesalahan saat mempublikasikan perakitan ini.
@@ -107,8 +91,6 @@ id:
           success: Pengguna berhasil dihapus dari rakitan ini.
         edit:
           update: Memperbarui
-        index:
-          assembly_admins_title: Pengguna majelis
         new:
           create: Membuat
         update:
@@ -127,7 +109,6 @@ id:
         assembly:
           fields:
             created_at: Dibuat di
-            private: Pribadi
             promoted: Disorot
             published: Diterbitkan
             title: Judul
@@ -149,8 +130,6 @@ id:
             admin: Administrator
             collaborator: Kolaborator
             moderator: Moderator
-      titles:
-        assemblies: Assemblies
     admin_log:
       assembly:
         create: "%{user_name} menciptakan perakitan %{resource_name}"
@@ -185,9 +164,6 @@ id:
         filters:
           names:
             all: Semua
-      assembly_members:
-        index:
-          members: Anggota
       content_blocks:
         highlighted_assemblies:
           name: Majelis yang disorot
@@ -206,16 +182,8 @@ id:
         working_group: Kelompok kerja
       index:
         title: Assemblies
-      pages:
-        user_profile:
-          member_of:
-            member_of: Anggota dari
       show:
         duration: Lamanya
-        private_space: Ini adalah pertemuan pribadi
-    assembly_members:
-      index:
-        title: Anggota
     help:
       participatory_spaces:
         assemblies:

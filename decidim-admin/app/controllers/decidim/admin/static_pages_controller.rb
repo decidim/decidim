@@ -62,7 +62,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("static_pages.create.error", scope: "decidim.admin")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -73,7 +73,7 @@ module Decidim
       end
 
       def update
-        @page = collection.find(params[:id])
+        @page = collection.find(params.expect(:id))
         enforce_permission_to :update, :static_page, static_page: page
         @form = form(StaticPageForm).from_params(form_params)
 
@@ -85,7 +85,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("static_pages.update.error", scope: "decidim.admin")
-            render :edit, status: :unprocessable_entity
+            render :edit, status: :unprocessable_content
           end
         end
       end

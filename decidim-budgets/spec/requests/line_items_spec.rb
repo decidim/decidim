@@ -35,7 +35,7 @@ RSpec.describe "Project search" do
         expect(response).to have_http_status(:ok)
 
         post(request_path, xhr: true, params: { project_id: project.id }, headers:)
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
 
         expect(Decidim::Budgets::Order.count).to eq(1)
         expect(Decidim::Budgets::LineItem.count).to eq(1)

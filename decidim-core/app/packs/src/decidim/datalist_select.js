@@ -11,7 +11,7 @@ export const datalistSelect = (target, callback) => {
     return;
   }
 
-  const input = target.querySelector("input[type='hidden'");
+  const input = target.querySelector("input[type='hidden']");
   const textInput = target.querySelector("input[type='text']");
   const items = target.querySelector("datalist").children;
 

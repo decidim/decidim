@@ -5,6 +5,7 @@ module Decidim
     # A form object to create or update areas.
     class TaxonomyFilterForm < Form
       include TranslatableAttributes
+
       Item = Struct.new(:name, :value, :children)
       Manifest = Struct.new(:id, :name)
 

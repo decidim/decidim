@@ -10,9 +10,6 @@ he:
         closing_date: תאריך סגירה
         closing_date_reason: סיבת תאריך סגירה
         composition: הרכב
-        copy_categories: העתקת קטגוריה
-        copy_components: העתקת רכיבים
-        copy_features: העתקת מאפיינים
         created_by: נוצר ע"י
         created_by_other: נוצר על ידי אחרים
         creation_date: תאריך יצירה
@@ -38,7 +35,6 @@ he:
         participatory_processes_ids: תהליך השתתפותי מקושר
         participatory_scope: מה הוחלט
         participatory_structure: איך זה מוחלט
-        private_space: מרחב פרטי
         promoted: הודגש
         published_at: פורסם בתאריך
         purpose_of_action: מטרת הפעולה
@@ -98,26 +94,13 @@ he:
         edit:
           update: עדכון
         index:
-          private: פרטי
-          public: ציבורי
           published: מפורסם
           unpublished: לא מפורסם
-        manage_trash:
-          title: אסיפות מחוקות
         new:
           create: יצירה
-          title: אסיפה חדשה
         update:
           error: יש בעיה בעדכון אסיפה זו.
           success: האסיפה עודכנה בהצלחה.
-      assemblies_copies:
-        create:
-          error: יש בעיה בשכפול אסיפה זו.
-          success: אסיפה השתכפלה בהצלחה.
-      assembly_copies:
-        new:
-          copy: העתקה
-          title: שכפל אסיפה
       assembly_imports:
         create:
           error: הייתה בעיה בייבוא ​​אסיפה זו.
@@ -125,7 +108,6 @@ he:
         new:
           import: ייבוא
           select: בחירת הנתונים לייבוא
-          title: ייבוא אסיפה
       assembly_publications:
         create:
           error: הייתה בעיה בפרסום ​​אסיפה זו.
@@ -137,13 +119,9 @@ he:
         create:
           error: הייתה בעיה בהוספת מנהל.ת עבור אסיפה זו.
         edit:
-          title: עדכון מנהל אסיפה
           update: עדכון
-        index:
-          assembly_admins_title: מנהלי אסיפה
         new:
           create: יצירה
-          title: מנהל אסיפה חדש
       filters:
         ceased_date_not_null:
           label: הסתיימו
@@ -162,14 +140,12 @@ he:
           components: רכיבים
           info: אודות האסיפה
           moderations: שינויים
-          private_users: חברים
           see_assembly: ראה אסיפה
       models:
         assembly:
           fields:
             actions: פעולות
             created_at: נוצרו ב
-            private: פרטי
             promoted: מודגשים
             published: פורסמו
             title: כותרת
@@ -191,10 +167,6 @@ he:
             admin: מנהל
             collaborator: שותף
             moderator: פקח
-      titles:
-        assemblies: אסיפות
-        assemblies_deleted: אסיפות מחוקות
-        assemblies_types: סוגי אסיפות
     assemblies:
       admin:
         assemblies:

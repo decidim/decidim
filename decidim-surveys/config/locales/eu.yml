@@ -14,7 +14,8 @@ eu:
   decidim:
     admin:
       actions:
-        see_survey: Ikusi inkesta
+        confirm_unpublish_survey: Ziur zaude inkesta hau despublikatu nahi duzula?
+        see_survey: Inkesta ikusi
       admin_log:
         changeset:
           surveys: inkestak
@@ -47,6 +48,17 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: Beste inkesta bat %{participatory_space_title} izeneko espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan irekita dago.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: Erantzunaren edukia
+          created_at: Erantzun hau noiz sortu zen
+          id: Identifikatzaile bakarra inkestaren erantzunerako
+          ip_hash: Elkarrizketatuaren IP helbidea pribatutasunagatik
+          question: Erantzun zen galdera
+          registered: Parte-hartzaile erregistratua
+          unregistered: Erregistratu gabeko parte-hartzailea
+          user_status: Erantzuna aurkeztu duen parte-hartzailearen egoera
     statistics:
       responses: 'Erantzunak:'
       responses_count: Erantzunak
@@ -59,6 +71,7 @@ eu:
         manage_questions: Galderak
         new_survey: Beste inkesta bat
         preview: Aurreikusi
+        responses: Erantzunak
         responses_alert: Erantzunak ezabatzea argitalpenean aktibatuta dago inkesta honetarako. Une honetan, erantzunen %{responses_count} suntsitu egingo dira, jarraitzen baduzu.
         title: Ekintzak
       admin:
@@ -71,7 +84,7 @@ eu:
               Argitaratu nahi dituzun erantzunak hauta ditzakezu galdera bakoitzaren ondoan dagoen laukitxoan klik eginez.
               Galdera mota hauek baino ezin dira argitaratu: "Aukera bakarra", "Aukera anitza", "Matrizea (aukera bakarra)", "Matrizea (aukera anitza)" eta "Sailkapena".
             responses:
-              one: "%{count} erantzun"
+              one: "Erantzun %{count}"
               other: "%{count} erantzun"
             status:
               not_published: Argitaratu gabe
@@ -101,6 +114,8 @@ eu:
             title: Editatu inkesta
           index:
             title: Inkestak
+          new:
+            title: Beste inkesta bat
           publish:
             invalid: Arazo bat egon da inkesta hau argitaratzean.
             success: Inkesta zuzen argitaratua.
@@ -126,10 +141,14 @@ eu:
       models:
         survey:
           fields:
+            published: Argitaratua
             questions: Galderak
             responses: Erantzunak
             status: Egoera
             title: Izenburua
+          published:
+            published: Argitaratua
+            unpublished: Desargitaratua
           status:
             closed: Itxita
             open: Zabaldu

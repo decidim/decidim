@@ -1,4 +1,10 @@
 lv:
+  activerecord:
+    models:
+      decidim/elections/election:
+        zero: Vēlēšanas
+        one: Vēlēšanas
+        other: Vēlēšanas
   decidim:
     admin:
       menu:
@@ -16,6 +22,7 @@ lv:
             announcement: Paziņojums
     elections:
       actions:
+        preview: Priekšskatīt
         title: Darbības
       admin:
         dashboard:

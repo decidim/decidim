@@ -18,13 +18,13 @@ module Decidim
           if @form.block?
             redirect_to decidim_admin.new_user_block_path(user_id: reportable.id, hide: form.hide?)
           else
-            redirect_back fallback_location: root_path
+            redirect_back_or_to(root_path)
           end
         end
 
         on(:invalid) do
           flash[:alert] = I18n.t("decidim.reports.create.error")
-          redirect_back fallback_location: root_path
+          redirect_back_or_to(root_path)
         end
       end
     end

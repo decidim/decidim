@@ -21,7 +21,7 @@ module Decidim
           :menu_hidden,
           component,
           current_user,
-          visibility: "all"
+          visibility: "admin-only"
         ) do
           component.update!(visible: false)
         end

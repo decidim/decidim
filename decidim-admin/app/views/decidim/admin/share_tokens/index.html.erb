@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t(".title", name: resource_title)) %>
+
 <div class="card share_tokens">
   <div class="item_show__header">
     <h2 class="item_show__header-title">
@@ -61,6 +63,7 @@
                       <%= link_to "#",
                                   class: "dropdown__button",
                                   data: {
+                                    "controller": "clipboard-copy",
                                     "clipboard-copy": "#js-token-#{share_token.id}",
                                     "clipboard-content": share_token.url,
                                     "clipboard-copy-label": t(".copied"),

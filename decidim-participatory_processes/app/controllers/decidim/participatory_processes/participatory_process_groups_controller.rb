@@ -6,7 +6,7 @@ module Decidim
       helper Decidim::SanitizeHelper
       helper_method :participatory_processes, :group, :active_content_blocks
 
-      before_action :set_group
+      before_action :set_group, :set_controller_breadcrumb
 
       def index
         enforce_permission_to :list, :process_group
@@ -29,7 +29,7 @@ module Decidim
       end
 
       def set_group
-        @group = Decidim::ParticipatoryProcessGroup.where(organization: current_organization).find(params[:id])
+        @group = Decidim::ParticipatoryProcessGroup.where(organization: current_organization).find(params.expect(:id))
       end
 
       def active_content_blocks
@@ -46,6 +46,19 @@ module Decidim
       end
 
       attr_reader :group
+
+      def context_breadcrumb_items
+        @context_breadcrumb_items ||= []
+      end
+
+      def set_controller_breadcrumb
+        context_breadcrumb_items << {
+          label: translated_attribute(group.title),
+          url: participatory_process_group_path(group),
+          active: true,
+          resource: group
+        }
+      end
     end
   end
 end

@@ -9,9 +9,6 @@ sl:
         closing_date: Datum zaprtja
         closing_date_reason: Razlog za datum zaprtja
         composition: Sestava
-        copy_categories: Kopiraj kategorije
-        copy_components: Kopiraj sestavni del
-        copy_features: Kopiraj značilnosti
         created_by: Ustvaril
         creation_date: Datum nastanka
         decidim_area_id: Področje
@@ -30,7 +27,6 @@ sl:
         participatory_processes_ids: Povezani participativni procesi
         participatory_scope: Kar je bilo odločeno
         participatory_structure: Kot je bilo odločeno
-        private_space: Zasebni prostor
         promoted: Poudarjeno
         published_at: Objavljeno
         purpose_of_action: Namen ukrepanja
@@ -80,24 +76,12 @@ sl:
         edit:
           update: Posodobi
         index:
-          private: Zasebno
-          public: Javno
           published: Objavljeno
         new:
           create: Ustvari
-          title: Nova združba
         update:
           error: Pojavila se je težava pri urejanju združbe.
           success: Združba uspešno posodobljena.
-      assemblies_copies:
-        create:
-          error: Pojavila se je težava pri podvajanju združbe.
-          success: Združba uspešno podvojena.
-      assembly_copies:
-        new:
-          copy: Kopiraj
-          select: Izberi, katere podatke želiš podvojiti
-          title: Podvoji združbo
       assembly_imports:
         create:
           error: Pojavila se je težava pri uvozu te združbe.
@@ -105,7 +89,6 @@ sl:
         new:
           import: Uvozi
           select: Izberi, katere podatke želiš uvoziti
-          title: Uvozi združbo
       menu:
         assemblies: Združbe
         assemblies_submenu:
@@ -114,9 +97,6 @@ sl:
           attachment_files: Datoteke
           attachments: Priponke
           components: Komponente
-      titles:
-        assemblies: Združbe
-        assemblies_types: Vrste združb
     admin_log:
       assembly_setting:
         update: "%{user_name} je uredil nastavitve za združbe"
@@ -129,13 +109,13 @@ sl:
             metadata: Meta podatki
             other: Drugo
             select_parent_assembly: Izberi matično združbo
+        assembly_imports:
+          form:
+            document_legend: Dodaj dokument
       assemblies:
         filters:
           names:
             all: Vsi
-      assembly_members:
-        index:
-          members: Člani
       content_blocks:
         highlighted_assemblies:
           name: Poudarjene združbe

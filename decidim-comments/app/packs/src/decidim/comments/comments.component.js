@@ -12,7 +12,6 @@
 // This is necessary for testing purposes
 const $ = window.$;
 
-import changeReportFormBehavior from "src/decidim/change_report_form_behavior";
 import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
 
 export default class CommentsComponent {
@@ -23,7 +22,6 @@ export default class CommentsComponent {
     this.rootDepth = config.rootDepth;
     this.order = config.order;
     this.lastCommentId = config.lastCommentId;
-    this.pollingInterval = config.pollingInterval || 15000;
     this.singleComment = config.singleComment;
     this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
@@ -60,7 +58,6 @@ export default class CommentsComponent {
   unmountComponent() {
     if (this.mounted) {
       this.mounted = false;
-      this._stopPolling();
       this.lastCommentId = null;
 
       $(".add-comment [data-opinion-toggle] button", this.$element).off("click.decidim-comments");
@@ -158,23 +155,16 @@ export default class CommentsComponent {
       $opinionButtons.on("click.decidim-comments", this._onToggleOpinion);
       $text.on("input.decidim-comments", this._onTextInput);
 
-      document.dispatchEvent(new CustomEvent("attach-mentions-element", { detail: $text.get(0) }));
-
       $form.on("submit.decidim-comments", () => {
         const $submit = $("button[type='submit']", $form);
 
         $submit.attr("disabled", "disabled");
-        this._stopPolling();
       });
-
-      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container));
 
       const $dropdown = $add.find("[data-comments-dropdown]");
       if ($dropdown.length > 0) {
         initializeCommentsDropdown($dropdown[0]);
       }
-
-      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
       if ($text.length && $text.get(0) !== null) {
         // Attach event to the DOM node, instead of the jQuery object
@@ -232,22 +222,6 @@ export default class CommentsComponent {
         }
       });
     }
-
-    // Restart the polling
-    this._pollComments();
-  }
-
-  /**
-   * Sets a timeout to poll new comments.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
-  _pollComments() {
-    this._stopPolling();
-
-    this.pollTimeout = setTimeout(() => {
-      this._fetchComments();
-    }, this.pollingInterval);
   }
 
   reloadAllComments() {
@@ -272,27 +246,14 @@ export default class CommentsComponent {
         "root_depth": this.rootDepth,
         "order": this.order,
         // From here, the rest of properties are optional
-        ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations }),
-        ...(this.lastCommentId && { "after": this.lastCommentId })
+        ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations })
       }),
       success: () => {
         if (successCallback) {
           successCallback();
         }
-        this._pollComments();
       }
     });
-  }
-
-  /**
-   * Stops polling for new comments.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
-  _stopPolling() {
-    if (this.pollTimeout) {
-      clearTimeout(this.pollTimeout);
-    }
   }
 
   /**
@@ -304,16 +265,6 @@ export default class CommentsComponent {
     const $container = $("> #comments", this.$element);
     $("> .comments", $container).addClass("hidden");
     $("> .loading-comments", $container).removeClass("hidden");
-  }
-
-  /**
-   * Event listener for the ordering links.
-   * @private
-   * @returns {Void} - Returns nothing
-   */
-  _onInitOrder() {
-    this._stopPolling();
-    this._setLoading();
   }
 
   /**
@@ -407,10 +358,10 @@ export default class CommentsComponent {
   }
 
   /**
-  * Adds the behaviour for the drop down order section within comments.
-  * @private
-  * @returns {Void} - Returns nothing
-  */
+   * Adds the behaviour for the drop down order section within comments.
+   * @private
+   * @returns {Void} - Returns nothing
+   */
   _initializeSortDropdown() {
     const desktopOrderSelect = document.querySelector("[data-desktop-order-comment-select]");
     const mobileOrderSelect = document.querySelector("[data-mobile-order-comment-select]");
@@ -433,7 +384,20 @@ export default class CommentsComponent {
       });
     });
 
+    mobileOrderSelect.addEventListener("focus", function () {
+      const olderOption = mobileOrderSelect.querySelector('option[value="older"]');
+      if (!mobileOrderSelect.value) {
+        olderOption.style.fontWeight = "bold"
+      }
+    });
+
     mobileOrderSelect.addEventListener("change", function(event) {
+      const olderOption = mobileOrderSelect.querySelector('option[value="older"]');
+
+      if (!olderOption.selected) {
+        olderOption.style.fontWeight = "normal"
+      }
+
       const selectedOption = mobileOrderSelect.querySelector(`[value=${event.target.value}]`);
       const orderUrl = selectedOption.dataset.orderCommentUrl;
 

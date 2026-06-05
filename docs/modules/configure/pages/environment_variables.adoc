@@ -170,21 +170,9 @@ Also, be sure to add the line `gem "aws-sdk-s3", require: false` in your Gemfile
 |
 |No
 
-|*AZURE_STORAGE_ACCESS_KEY*
-|If STORAGE_PROVIDER is set to `azure`, define here your AZURE ACCESS KEY with permissions to access the container for the application. Needs to be encoded in Base64.
-
-Also, be sure to add the line `gem "azure-storage-blob", require: false` in your Gemfile.
-|
-|No
-
-|*AZURE_STORAGE_ACCOUNT_NAME*
-|If STORAGE_PROVIDER is set to `azure`, define here your AZURE ACCOUNT NAME with permissions to access the container for the application.
-|
-|No
-
-|*AZURE_CONTAINER*
-|If STORAGE_PROVIDER is set to `azure`, define here your AZURE CONTAINER used for uploading files and images.
-|
+|*AWS_PUBLIC*
+|Whether the AWS assets to be public or not. Default is true, which means that no credential strings would be attached to your AWS stored assets, making it easier for components to be cached. If you set this to `false` you may have cache issues (like changing an image and not seeing the change immediately).
+|true
 |No
 
 |*GCS_PROJECT*
@@ -249,6 +237,11 @@ Also, be sure to add the line `gem "google-cloud-storage", "~> 1.11", require: f
 |GCS_CLIENT_X509_CERT_URL
 |If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD X509 CERT URI (if needed)
 |
+|No
+
+|*GCS_PUBLIC*
+|Whether the Google Cloud Service assets to be public or not. Default is true, which means that no credential strings would be attached to your CGS stored assets, making it easier for components to be cached. If you set this to `false` you may have cache issues (like changing an image and not seeing the change immediately).
+|true
 |No
 
 |===
@@ -675,13 +668,13 @@ A content processor is a concept to refer to a set of two classes:
 
 |*DECIDIM_ENABLE_MACHINE_TRANSLATION*
 | Whether the Decidim attempt to automatically translate missing translations.
-Read more about this at xref:services:machine_translation.adoc[Machine Translation] service page.
+Read more about this at xref:services:machine_translations.adoc[Machine Translations] service page.
 | false
 | No
 
 |*DECIDIM_MACHINE_TRANSLATION_SERVICE*
 | The name of the class to translate user content.
-Read more about this at xref:services:machine_translation.adoc[Machine Translation] service page.
+Read more about this at xref:services:machine_translations.adoc[Machine Translations] service page.
 | nil
 | No
 
@@ -762,8 +755,18 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |No
 
 | DECIDIM_API_DISCLOSE_SYSTEM_VERSION
-| This Environment variable instructs decidim whether to display or not the exact version of the application. By default, this is set to false to avoid explicit exposure of Decidim version.
+| Instructs the system whether to display or not the exact version of the application. By default, this is set to false to avoid explicit exposure of Decidim version.
 | false
+| No
+
+| DECIDIM_API_ENABLE_ANONYMOUS_INTROSPECTION
+| Allows the system to accept introspection queries, which can lead to a security issue. We recommend avoiding enabling this variable in production environments. When it is disabled, only organization admin users will be able to run introspection queries.
+| false
+| No
+
+| API_SCHEMA_MAX_ALIASES
+| This Environment variable instructs Decidim how many aliases should be allowed in a GraphQL query
+| 5
 | No
 
 |PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT

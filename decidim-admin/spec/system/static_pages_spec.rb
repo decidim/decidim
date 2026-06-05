@@ -29,7 +29,7 @@ describe "Content pages" do
         decidim_pages.each do |decidim_page|
           topic_title = decidim_page.topic.title[I18n.locale.to_s]
 
-          expect(page).to have_content(topic_title)
+          expect(page).to have_text(topic_title)
         end
       end
 
@@ -81,7 +81,7 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Topic created successfully.")
         expect(page).to have_css(".table-stacked", text: "General")
       end
     end
@@ -119,7 +119,7 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Topic updated successfully.")
         expect(page).to have_css(".table-stacked", text: "New title")
       end
     end
@@ -140,7 +140,7 @@ describe "Content pages" do
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Topic successfully destroyed.")
 
         expect(page).to have_no_css(".table-stacked")
       end
@@ -187,14 +187,14 @@ describe "Content pages" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Page created successfully.")
 
       within ".card", text: topic.title[I18n.locale.to_s] do
         expect(page).to have_css("tr", text: translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} static page")
+      expect(page).to have_text("created the #{translated(attributes[:title])} static page")
     end
 
     context "with existing pages" do
@@ -237,14 +237,14 @@ describe "Content pages" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Page updated successfully.")
 
         within ".card", text: topic.title[I18n.locale.to_s] do
           expect(page).to have_css("tr", text: translated(attributes[:title]))
         end
 
         visit decidim_admin.root_path
-        expect(page).to have_content("updated the #{translated(attributes[:title])} static page")
+        expect(page).to have_text("updated the #{translated(attributes[:title])} static page")
       end
 
       it "can delete them" do
@@ -253,10 +253,10 @@ describe "Content pages" do
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Page successfully destroyed")
 
         within "table" do
-          expect(page).to have_no_content(translated(decidim_page.title))
+          expect(page).to have_no_text(translated(decidim_page.title))
         end
       end
 
@@ -269,8 +269,8 @@ describe "Content pages" do
         end
 
         page.within_window(new_window) do
-          expect(page).to have_content(translated(decidim_page.title))
-          expect(page).to have_content(strip_tags(translated(decidim_page.content)))
+          expect(page).to have_text(translated(decidim_page.title))
+          expect(page).to have_text(strip_tags(translated(decidim_page.content)))
           expect(page).to have_current_path(/#{decidim_page.slug}/)
         end
       end

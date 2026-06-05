@@ -43,5 +43,15 @@ module Decidim
         expect(html).to have_text("My announcement")
       end
     end
+
+    context "when passing a translations hash with some empty locales" do
+      let(:announcement) { { en: "My announcement", ca: "" } }
+
+      it "renders the card" do
+        html = cell("decidim/announcement", announcement).call
+        expect(html).to have_css("div.flash[data-announcement]")
+        expect(html).to have_text("My announcement")
+      end
+    end
   end
 end

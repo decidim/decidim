@@ -49,7 +49,6 @@ is-IS:
         admin:
           confirmations:
             new:
-              introduce_user_data: Kynntu gögnin á myndinni
               reject: Hafna
               verify: Staðfestu
           pending_authorizations:

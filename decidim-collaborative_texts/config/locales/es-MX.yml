@@ -16,6 +16,11 @@ es-MX:
           body: Cuerpo del texto
           draft: Borrador
           version_number: Número de versión
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Texto colaborativo
+        other: Textos colaborativos
   decidim:
     admin:
       tooltips:
@@ -74,6 +79,11 @@ es-MX:
           update_settings:
             invalid: Se ha producido un error al actualizar el documento.
             success: Documento actualizado correctamente.
+        exports:
+          document_suggestions: Sugerencias
+        index:
+          published: Publicado
+          unpublished: Despublicado
       admin_log:
         document:
           create: "%{user_name} creó el texto colaborativo \"%{resource_name}\" en %{space_name}"
@@ -122,6 +132,7 @@ es-MX:
       models:
         collaborative_text:
           fields:
+            published: Publicado
             suggestions: Aceptar la(s) sugerencia(s)
             title: Título
       suggestion:

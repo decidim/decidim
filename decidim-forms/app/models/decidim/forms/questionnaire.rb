@@ -48,6 +48,11 @@ module Decidim
         Decidim::Forms::QuestionnaireParticipants.new(self).count_participants
       end
 
+      # Public: Returns only the actual question types (excludes separators and title_and_description)
+      def question_types
+        questions.not_separator.not_title_and_description
+      end
+
       private
 
       # salt is used to generate secure hash in anonymous responses

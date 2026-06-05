@@ -11,12 +11,9 @@ module Decidim
 
       # Initializes the map utility.
       #
-      # @param options [Hash] The options for the map utility
-      # @option options [Decidim::Organization] :organization The organization
-      #   where the map functionality is used
-      # @option options [String] :config The configuration hash specific to the
-      #   utility
-      # @option options [String] :locale The locale to use for the queries
+      # @param organization [Decidim::Organization] The organization where the map functionality is used
+      # @param config [String] The configuration hash specific to the utility
+      # @param locale [String] The locale to use for the queries
       def initialize(organization:, config:, locale: I18n.locale.to_s)
         @organization = organization
         @locale = locale

@@ -9,9 +9,9 @@ module Decidim
         subject { described_class.new(form, meeting) }
 
         let(:organization) { create(:organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
-        let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
         let(:meeting) { create(:meeting, :published, component: current_component, **meeting_attributes) }
 
         let(:meeting_attributes) do
@@ -31,7 +31,7 @@ module Decidim
             invalid?: false,
             current_user: user,
             current_organization: organization,
-            taxonomies: [],
+            taxonomizations: [],
             title: { "en" => "Copied Meeting" },
             description: { "en" => "Copied description" },
             end_time: 2.hours.from_now,

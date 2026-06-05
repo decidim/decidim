@@ -19,7 +19,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless @reportable.reported?
+        return broadcast(:invalid) unless @reportable.reported? || @reportable.user_moderation
 
         unreport!
         broadcast(:ok, @reportable)

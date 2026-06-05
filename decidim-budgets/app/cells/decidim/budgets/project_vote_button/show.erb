@@ -6,7 +6,7 @@
                                 class: "button #{vote_button_classes}",
                                 id: "project-vote-button-#{model.id}",
                                 data: {
-                                  add: !resource_added?,
+                                  add: !resource_added?(model),
                                   disable: true,
                                   budget: model.budget_amount,
                                   allocation: resource_allocation,
@@ -15,7 +15,7 @@
                                 },
                                 disabled: vote_button_disabled?,
                                 title: vote_button_label do %>
-  <% if resource_added? %>
+  <% if resource_added?(model) %>
      <%= t("added", scope: "decidim.budgets.projects.project_budget_button") %>
      <%= icon "checkbox-circle-line", class: "inline-block" %>
   <% else %>

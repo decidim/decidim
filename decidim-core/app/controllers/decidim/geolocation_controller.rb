@@ -8,7 +8,7 @@ module Decidim
       enforce_permission_to :locate, :geolocation
 
       unless Decidim::Map.configured?
-        return render(json: { message: I18n.t("not_configured", scope: "decidim.application.geocoding"), found: false }, status: :unprocessable_entity)
+        return render(json: { message: I18n.t("not_configured", scope: "decidim.application.geocoding"), found: false }, status: :unprocessable_content)
       end
 
       geocoder = Decidim::Map.utility(:geocoding, organization: current_organization)

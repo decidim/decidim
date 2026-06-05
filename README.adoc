@@ -29,10 +29,10 @@ image:https://img.shields.io/gem/dt/decidim.svg[Gem,link=https://rubygems.org/ge
 image:https://img.shields.io/github/contributors/decidim/decidim.svg[GitHub contributors,link=https://github.com/decidim/decidim/graphs/contributors]
 image:https://img.shields.io/matrix/decidimdevs:matrix.org[Matrix,link=https://matrix.to/#/#decidimdevs:matrix.org]
 image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim]
-image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability]
-image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim]
+image:https://qlty.sh/gh/decidim/projects/decidim/maintainability.svg[Maintainability,link=https://qlty.sh/gh/decidim/projects/decidim]
 image:https://opencollective.com/decidim/tiers/badge.svg[https://opencollective.com/decidim]
 image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/develop]
+image:https://img.shields.io/badge/Verified-DPG-3333AB?logo=data:image/svg%2bxml;base64,PHN2ZyB3aWR0aD0iMzEiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAzMSAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE0LjIwMDggMjEuMzY3OEwxMC4xNzM2IDE4LjAxMjRMMTEuNTIxOSAxNi40MDAzTDEzLjk5MjggMTguNDU5TDE5LjYyNjkgMTIuMjExMUwyMS4xOTA5IDEzLjYxNkwxNC4yMDA4IDIxLjM2NzhaTTI0LjYyNDEgOS4zNTEyN0wyNC44MDcxIDMuMDcyOTdMMTguODgxIDUuMTg2NjJMMTUuMzMxNCAtMi4zMzA4MmUtMDVMMTEuNzgyMSA1LjE4NjYyTDUuODU2MDEgMy4wNzI5N0w2LjAzOTA2IDkuMzUxMjdMMCAxMS4xMTc3TDMuODQ1MjEgMTYuMDg5NUwwIDIxLjA2MTJMNi4wMzkwNiAyMi44Mjc3TDUuODU2MDEgMjkuMTA2TDExLjc4MjEgMjYuOTkyM0wxNS4zMzE0IDMyLjE3OUwxOC44ODEgMjYuOTkyM0wyNC44MDcxIDI5LjEwNkwyNC42MjQxIDIyLjgyNzdMMzAuNjYzMSAyMS4wNjEyTDI2LjgxNzYgMTYuMDg5NUwzMC42NjMxIDExLjExNzdMMjQuNjI0MSA5LjM1MTI3WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==[DPG Badge,link=https://digitalpublicgoods.net/r/decidim]
 
 ++++
 <p align="center">

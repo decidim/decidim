@@ -204,10 +204,6 @@ it:
       organization:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
         update_external_domain: "%{user_name} ha aggiornato i domini esterni dell'organizzazione"
-      participatory_space_private_user:
-        create: "%{user_name} invitato %{resource_name} a essere un utente privato"
-        create_via_csv: "%{user_name} ha invitato %{resource_name} tramite csv a unirsi come partecipante privato"
-        delete: "%{user_name} rimosso l'utente %{resource_name} come utente privato"
       scope:
         create: "%{user_name} ha creato l'ambito %{resource_name}"
         create_with_parent: "%{user_name} ha creato l'ambito %{resource_name} all'interno dell'ambito %{parent_scope}"
@@ -325,9 +321,9 @@ it:
       update_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
         success: Bozza emendamento aggiornata correttamente.
-      wizard_step_form:
+      wizard:
         steps:
-          '1': Crea il tuo emendamento
+          '2': Pubblica la tua rettifica
     anonymous_user: Anonimo
     application:
       document:
@@ -497,6 +493,7 @@ it:
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:
         new:
+          are_you_new?: Non sei ancora registrato?
           register: Crea un account
       shared:
         newsletter_modal:
@@ -521,6 +518,9 @@ it:
     download_your_data:
       export:
         ready: Pronto
+      help:
+        users:
+          notifications_sending_frequency: La frequenza delle notifiche che questo utente riceve
     editor_images:
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
     errors:
@@ -535,13 +535,9 @@ it:
           affected_user:
             email_intro: 'Un''emendamento è stato accettato per %{amendable_title}. Puoi vederlo da questa pagina:'
             email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
-            email_subject: Un emendamento accettato per %{amendable_title} %{emendation_author_nickname}
-            notification_title: Il <a href="%{emendation_path}">modifica</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stato accettato per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Un''emendamento è stato accettato per %{amendable_title}. Puoi vederlo da questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
-            email_subject: Un emendamento accettato per %{amendable_title} %{emendation_author_nickname}
-            notification_title: Il <a href="%{emendation_path}">modifica</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stato accettato per <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Una nuova emendazione è stata creata per %{amendable_title}. Puoi vederlo da questa pagina:'
@@ -557,24 +553,16 @@ it:
           affected_user:
             email_intro: 'Un emendamento respinto per %{amendable_title} è stato promosso a un indipendente %{amendable_type}. Puoi vederlo da questa pagina:'
             email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
-            email_subject: Un emendamento da %{emendation_author_nickname} è stato pubblicato come nuovo %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">respinto modifica</a> per <a href="%{amendable_path}">%{amendable_title}</a> è stato pubblicato come nuovo %{amendable_type} da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Un emendamento respinto per %{amendable_title} è stato promosso a un indipendente %{amendable_type}. Puoi vederlo da questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
-            email_subject: Un emendamento da %{emendation_author_nickname} è stato pubblicato come nuovo %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">respinto modifica</a> per <a href="%{amendable_path}">%{amendable_title}</a> è stato pubblicato come nuovo %{amendable_type} da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Un''emissione è stata rifiutata per %{amendable_title}. Puoi vederlo da questa pagina:'
             email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
-            email_subject: Un emendamento respinto per %{amendable_title} %{emendation_author_nickname}
-            notification_title: Il <a href="%{emendation_path}">modifica</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stata rifiutata per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Un''emissione è stata rifiutata per %{amendable_title}. Puoi vederlo da questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
-            email_subject: Un emendamento respinto per %{amendable_title} %{emendation_author_nickname}
-            notification_title: Il <a href="%{emendation_path}">modifica</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stata rifiutata per <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Un nuovo documento è stato aggiunto a %{resource_title}. Puoi vederlo da questa pagina:'
@@ -606,11 +594,6 @@ it:
             Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.</br>
             <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: La pagina <a href="%{resource_url}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: "%{nickname} ha aggiornato il proprio profilo"
-          notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
         user_officialized:
           email_subject: ""
     export_mailer:
@@ -728,7 +711,6 @@ it:
         latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
         map_service_brand: Mappa OpenStreet
     menu:
-      help: Aiuto
       home: Home
     messaging:
       conversation_mailer:
@@ -790,10 +772,8 @@ it:
       unsubscribe:
         success: Hai annullato l'iscrizione.
         token_error: Il link è scaduto.
-        unsubscribe: Annulla l'iscrizione
     newsletters_opt_in_mailer:
       notify:
-        body_1: Il trattamento dei dati personali e la sua protezione stanno diventando sempre più importanti per tutti noi. Con il nuovo regolamento generale sulla protezione dei dati (GDPR) del 25 maggio 2018, gli individui hanno un migliore controllo sui propri dati personali. Per questo motivo abbiamo bisogno del tuo "OK" per continuare a inviare informazioni rilevanti sulle attività di %{organization_name}.
         body_2: 'Come puoi darci il tuo consenso? Basta fare clic sul seguente pulsante:'
         body_3: Con questo consenso sarai in grado di continuare a ricevere informazioni sui servizi della piattaforma. Se, al contrario, non riceviamo una conferma positiva da parte vostra, smetteremo di inviarti i nostri messaggi. Se confermi di voler essere informato, avrai sempre la possibilità di annullare in qualsiasi momento.
         button: Sì, voglio continuare a ricevere informazioni pertinenti
@@ -812,6 +792,12 @@ it:
         everything_followed: Tutto ciò che seguo
         newsletter_notifications: Voglio ricevere le newsletter
         newsletters: Le Newsletter
+        notifications_sending_frequencies:
+          daily: Quotidiana
+          none: Non voglio ricevere mail
+          real_time: Tempo reale
+          weekly: Settimanale
+        notifications_sending_frequency: Con che frequenza vuoi ricevere notifiche via mail?
         own_activity: La mia attività personale, come quando qualcuno commenta la mia proposta o mi menziona
         receive_notifications_about: Voglio ricevere le notifiche
         update_notifications_settings: Salva le modifiche
@@ -839,17 +825,17 @@ it:
           proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
         footer_sub_hero:
           footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
-          register: Registrati
         hero:
           participate: Partecipa
           welcome: Benvenuto su %{organization}!
-        sub_hero:
-          register: Registrati
       index:
         standalone_pages: pagine
         subheading: Naviga attraverso le pagine di aiuto di %{name}
         title: Aiuto
         topics: Temi
+    participatory_space_members:
+      index:
+        members: Utenti
     profile:
       deleted: Utente eliminato
     profiles:
@@ -1019,8 +1005,6 @@ it:
         submit_button: Invia un invito
       no_invitations_remaining: Nessun invito rimanente
       send_instructions: Una email di invito è stata inviata a %{email}.
-      updated: La tua password è stata impostata correttamente. Ora hai effettuato l'accesso.
-      updated_not_active: La tua password è stata impostata correttamente.
     mailer:
       confirmation_instructions:
         action: Conferma il mio account
@@ -1036,10 +1020,8 @@ it:
         decline: Rifiuta l'invito
         hello: Ciao %{email},
         invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante."
-        invited_you_as_private_user: "%{invited_by} ti ha invitato come utente privato di %{application}. Puoi accettarlo tramite il link sottostante."
         someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
         someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
-        someone_invited_you_as_private_user: Qualcuno ti ha invitato come private_user di %{application}, puoi accettarlo tramite il link sottostante.
         subject: Istruzioni di invito
       password_change:
         greeting: Ciao %{recipient}!
@@ -1140,7 +1122,6 @@ it:
       impersonation_warning:
         close_session: Chiudere la sessione
         description_html: Stai impersonando l'utente <b>%{user_name}</b>.
-        expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minuti</b>.
       language_chooser:
         choose_language: Scegli la lingua
       notifications_dashboard:
@@ -1180,7 +1161,6 @@ it:
     name_included_in_password: è troppo simile al tuo nome
     nickname_included_in_password: è troppo simile al tuo nickname
     not_enough_unique_characters: non ha abbastanza caratteri unici
-    password_not_allowed: non è permesso
     password_too_common: è troppo comune
     password_too_long: è troppo lungo
     password_too_short: è troppo corto

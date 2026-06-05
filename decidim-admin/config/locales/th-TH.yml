@@ -45,9 +45,6 @@ th:
         welcome_notification_body: ยินดีต้อนรับเนื้อหาการแจ้งเตือน
         welcome_notification_subject: ยินดีต้อนรับเรื่องการแจ้งเตือน
         youtube_handler: ตัวจัดการ YouTube
-      participatory_space_private_user:
-        email: อีเมล
-        name: ชื่อ
       scope:
         code: รหัส
         name: ชื่อ

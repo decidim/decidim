@@ -91,12 +91,47 @@ module Decidim
         end
 
         describe "GET #dashboard" do
-          let!(:election) { create(:election, :with_token_csv_census, component:) }
-          let!(:election_question) { create(:election_question, election:) }
+          let!(:election) { create(:election, :published, :with_token_csv_census, component:) }
+          let!(:election_question) { create(:election_question, :with_response_options, election:) }
 
           it "renders dashboard page" do
             get :dashboard, params: { id: election.id }
             expect(response).to render_template(:dashboard)
+          end
+
+          it "returns the election as JSON" do
+            get :dashboard, params: { id: election.id, format: :json }
+            expect(response).to have_http_status(:ok)
+            expect(response.parsed_body).to include(
+              "id" => election.id,
+              "title" => translated_attribute(election.title),
+              "description" => translated_attribute(election.description),
+              "start_date" => nil,
+              "end_date" => election.end_at.iso8601,
+              "ongoing" => false,
+              "status" => "scheduled",
+              "questions" => [
+                {
+                  "id" => election_question.id,
+                  "body" => translated_attribute(election_question.body),
+                  "position" => election_question.position,
+                  "voting_enabled" => false,
+                  "published_results" => false,
+                  "total_votes" => 0,
+                  "total_votes_text" => "0 votes",
+                  "response_options" => election_question.response_options.map do |ro|
+                    {
+                      "id" => ro.id,
+                      "body" => translated_attribute(ro.body),
+                      "votes_count" => 0,
+                      "votes_count_text" => "0 votes",
+                      "votes_percent" => 0,
+                      "votes_percent_text" => "0.0%"
+                    }
+                  end
+                }
+              ]
+            )
           end
         end
 
@@ -138,6 +173,34 @@ module Decidim
             expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).elections_path)
             expect(flash[:notice]).to be_present
             expect(election.reload.published_at).to be_nil
+          end
+        end
+
+        describe "PATCH #toggle_census_check" do
+          it "updates the setting and returns JSON" do
+            expect(election.allow_census_check_before_start).to be(false)
+
+            patch :toggle_census_check, params: { id: election.id, allow_census_check_before_start: true }, format: :json
+
+            expect(response).to have_http_status(:ok)
+            expect(response.parsed_body).to include(
+              "success" => true,
+              "allow_census_check_before_start" => true
+            )
+            expect(election.reload.allow_census_check_before_start).to be(true)
+          end
+
+          it "returns error on invalid update" do
+            allow(controller).to receive(:election).and_return(election)
+            allow(election).to receive(:update!).and_raise(StandardError)
+
+            patch :toggle_census_check, params: { id: election.id, allow_census_check_before_start: true }, format: :json
+
+            expect(response).to have_http_status(:unprocessable_content)
+            expect(response.parsed_body).to include(
+              "success" => false,
+              "error" => I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin")
+            )
           end
         end
 

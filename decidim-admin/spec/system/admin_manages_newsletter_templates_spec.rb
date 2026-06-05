@@ -17,8 +17,8 @@ describe "Admin manages newsletter templates" do
 
       find(".button.new").click
 
-      expect(page).to have_content("Basic (only text)")
-      expect(page).to have_content("Image, text and Call To Action button")
+      expect(page).to have_text("Basic (only text)")
+      expect(page).to have_text("Image, text and Call To Action button")
     end
   end
 
@@ -32,10 +32,10 @@ describe "Admin manages newsletter templates" do
         click_on "Preview"
       end
 
-      expect(page).to have_content("Preview template: Basic (only text)")
+      expect(page).to have_text("Preview template: Basic (only text)")
 
       within_frame do
-        expect(page).to have_content("Dummy text for body")
+        expect(page).to have_text("Dummy text for body")
       end
     end
 
@@ -50,7 +50,7 @@ describe "Admin manages newsletter templates" do
 
       click_on "Use this template"
 
-      expect(page).to have_content("New newsletter")
+      expect(page).to have_text("New newsletter")
     end
   end
 

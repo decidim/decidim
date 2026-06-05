@@ -18,17 +18,17 @@ describe "UserRedirect" do
       end
 
       it "does not redirect to login page" do
-        expect(page).to have_no_content("Log in")
+        expect(page).to have_no_text("Log in")
       end
 
       it "renders a JSON with the manifest" do
-        expect(page).to have_content("\"display\": \"standalone\"")
+        expect(page).to have_text("\"display\": \"standalone\"")
       end
     end
 
     context "when logging for the first time" do
       before do
-        visit decidim.pages_path
+        visit decidim.pages_path(locale: I18n.locale)
 
         within "form.new_user" do
           fill_in :session_user_email, with: user.email

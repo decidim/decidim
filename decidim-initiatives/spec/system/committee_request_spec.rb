@@ -14,8 +14,8 @@ describe "Decidim::Initiatives::CommitteeRequestController" do
         create(:authorization, user: initiative.author)
         login_as initiative.author, scope: :user
 
-        visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param)
-        expect(page).to have_content("You are not authorized to perform this action")
+        visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param, locale: I18n.locale)
+        expect(page).to have_text("You are not authorized to perform this action")
       end
     end
 
@@ -27,8 +27,8 @@ describe "Decidim::Initiatives::CommitteeRequestController" do
         create(:authorization, user:)
         login_as user, scope: :user
 
-        visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param)
-        expect(page).to have_content("You are about to request becoming a member of the promoter committee of this initiative")
+        visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param, locale: I18n.locale)
+        expect(page).to have_text("You are about to request becoming a member of the promoter committee of this initiative")
       end
     end
 
@@ -41,26 +41,26 @@ describe "Decidim::Initiatives::CommitteeRequestController" do
       end
 
       it "are not allowed to request membership" do
-        visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param)
-        expect(page).to have_content("You are not authorized to perform this action")
+        visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param, locale: I18n.locale)
+        expect(page).to have_text("You are not authorized to perform this action")
       end
     end
 
     context "and user is not connected" do
       before do
         switch_to_host(organization.host)
-        visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param)
+        visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param, locale: I18n.locale)
       end
 
       it "are allowed to request membership" do
-        expect(page).to have_current_path decidim_initiatives.new_initiative_committee_request_path(initiative.to_param)
-        expect(page).to have_content("You are about to request becoming a member of the promoter committee of this initiative")
+        expect(page).to have_current_path decidim_initiatives.new_initiative_committee_request_path(initiative.to_param, locale: I18n.locale)
+        expect(page).to have_text("You are about to request becoming a member of the promoter committee of this initiative")
       end
 
       context "when requesting membership" do
         it "an authentication modal is opened" do
           click_on "Continue"
-          expect(page).to have_content("Please log in")
+          expect(page).to have_text("Please log in")
         end
       end
     end

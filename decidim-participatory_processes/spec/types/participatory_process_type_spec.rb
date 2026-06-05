@@ -170,11 +170,11 @@ module Decidim
         end
       end
 
-      describe "announcement" do
-        let(:query) { '{ announcement { translation(locale: "en")}}' }
+      describe "accessMode" do
+        let(:query) { "{ accessMode }" }
 
-        it "returns all the required fields" do
-          expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
+        it "returns the accessMode field" do
+          expect(response["accessMode"]).to eq(model.access_mode.upcase)
         end
       end
 

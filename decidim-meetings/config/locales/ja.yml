@@ -142,7 +142,6 @@ ja:
           success: ミーティングを複製しました。
         new:
           copy: コピー
-          title: ミーティングを複製
       tooltips:
         cannot_close_meetings: 参加者によって作成されたため、このミーティングを閉じることはできません
         cannot_duplicate_meetings: 参加者によって作成されたため、このミーティングは複製できません
@@ -159,6 +158,7 @@ ja:
           comment: コメント
           join: 参加する
           reply_poll: 投票
+          vote_comment: コメントに投票
         name: ミーティング
         settings:
           global:
@@ -282,6 +282,7 @@ ja:
         agenda: 予定
         close: 閉じる
         confirm_delete_meeting: このミーティングを削除してもよろしいですか？
+        confirm_unpublish_meeting: このミーティングを非公開にしてもよろしいですか？
         deleted_meetings_info: 削除されたミーティングはゴミ箱から復元できます。
         edit: 編集
         invalid_destroy:
@@ -325,6 +326,7 @@ ja:
           update:
             invalid: アジェンダの更新に問題がありました。
             success: アジェンダが正常に更新されました。
+        deprecation_warning_polls_html: "⚠️ <b>非推奨通知</b>: 投票機能は将来のバージョンで削除される予定です（時期は未定）。会議用投票機能をご利用の組織は、Jitsiなどの外部投票ツールを使用するか、Decidimの新しい選挙モジュール（`decidim-elections`）などの代替投票システムへの移行を計画してください。"
         exports:
           meeting_comments: コメント
           meetings: ミーティング
@@ -347,13 +349,16 @@ ja:
             non_user: 非参加者
             select_user: 参加者を選択
           index:
-            invite_attendee: 参加者を招待
             invites: 招待
             registrations_disabled: 登録が無効になっているため、参加者を招待することはできません。
+            title: 参加者を招待
         meeting_closes:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
+        meeting_copies:
+          new:
+            title: ミーティングを複製
         meetings:
           close:
             invalid: このミーティングを終了する際に問題が発生しました。
@@ -379,12 +384,13 @@ ja:
             select_an_iframe_access_level: Iframeアクセスレベルを選択してください
           index:
             linked_meeting_warning_html: このミーティングは <br><a href="%{href}">%{name}</a> から編集する必要があります．
+            published: 公開済み
             title: ミーティング
+            unpublished: 未公開
           linked_spaces:
             assign: 割り当て
             link_a_space: スペースをリンク
             private_meeting_warning: ミーティングが非公開で透明性のない場合、リンクされたスペースは適用されません。
-            private_space_warning: ミーティングが非透明なスペースに属している場合、リンクされたスペースは適用されません。
             select: スペースを選択
             table:
               actions: アクション
@@ -428,15 +434,21 @@ ja:
             invalid: このミーティングの投票の更新に問題がありました．
             success: ミーティングの投票を更新しました。
         poll:
+          edit:
+            title: 投票を編集
           form:
             announcement_html:
               - 質問が回答を受信または公開/閉鎖した場合は、編集できなくなります。
               - 質問はいつでも追加できます。
               - 作成されたすべての質問の結果が公開されると、投票は終了します。
               - 質問を送信し、結果を公開するには、 <a href='%{admin_link}'>投票管理ページ</a> にアクセスしてください。
+        registration_form:
+          edit_questions:
+            title: 質問を編集
         registrations:
           edit:
             save: 保存
+            title: 登録
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
@@ -449,7 +461,6 @@ ja:
               other: '%{count} 件の登録がありました。'
             reserved_slots_help: 予約スロットがない場合は0にしておいてください。
             reserved_slots_less_than: '%{count} 以下にしてください'
-            title: 登録
           update:
             invalid: 登録設定の保存中に問題が発生しました。
             success: ミーティングの登録設定を保存しました。
@@ -666,9 +677,9 @@ ja:
           fields:
             closed: クローズ済み
             end_time: 終了日
-            id: ID
             map: 地図
             official_meeting: 公式ミーティング
+            published: 公開済み
             start_time: 開始日
             taxonomies: タクソノミー
             title: タイトル
@@ -718,6 +729,8 @@ ja:
         attending_participants: 参加する
         hidden_participants_count:
           other: 他 %{count} 人
+        show_less: 一部のみ表示
+        show_more: すべて表示
       read_more: "(続きを読む)"
       registration_mailer:
         confirmation:
@@ -788,7 +801,7 @@ ja:
           follows_count: ミーティングのフォロー数
           id: ミーティングの固有ID
           iframe_access_level: ミーティングのiframeアクセスレベル
-          iframe_embed_type: ミーティングに埋め込まれた iframe のタイプ
+          iframe_embed_type: ミーティングに埋め込まれたiframeの種類
           latitude: ミーティングの緯度
           location: ミーティングの場所
           location_hints: ミーティングが行われている場所のヒント

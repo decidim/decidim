@@ -12,12 +12,12 @@
   &__content {
     @apply col-span-2 md:col-span-1 order-first md:order-none space-y-2;
 
-    > span:first-child {
-      span {
-        @apply text-gray-2 text-sm;
+    > div:first-child {
+      p {
+        @apply text-gray-2 text-sm inline-block;
 
         svg {
-          @apply text-gray fill-current;
+          @apply text-gray fill-current inline;
         }
       }
 

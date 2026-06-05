@@ -22,7 +22,6 @@ module Decidim::ParticipatoryProcesses
         slug: "copied-slug",
         duplicate_steps?: duplicate_steps,
         duplicate_components?: duplicate_components,
-        duplicate_landing_page_blocks?: duplicate_landing_page_blocks,
         current_user:
       )
     end
@@ -30,7 +29,6 @@ module Decidim::ParticipatoryProcesses
     let(:invalid) { false }
     let(:duplicate_steps) { false }
     let(:duplicate_components) { false }
-    let(:duplicate_landing_page_blocks) { false }
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -62,7 +60,7 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process.meta_scope).to eq(old_participatory_process.meta_scope)
         expect(new_participatory_process.end_date).to eq(old_participatory_process.end_date)
         expect(new_participatory_process.participatory_process_group).to eq(old_participatory_process.participatory_process_group)
-        expect(new_participatory_process.private_space).to eq(old_participatory_process.private_space)
+        expect(new_participatory_process.access_mode).to eq(old_participatory_process.access_mode)
         expect(new_participatory_process.taxonomies).to eq(old_participatory_process.taxonomies)
       end
 
@@ -79,6 +77,34 @@ module Decidim::ParticipatoryProcesses
         action_log = Decidim::ActionLog.last
         expect(action_log.action).to eq("duplicate")
         expect(action_log.version).to be_present
+      end
+
+      describe "landing page content blocks" do
+        let(:original_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+
+        before do
+          content_block.images_container.background_image.purge
+          content_block.images_container.background_image = original_image
+          content_block.save
+          content_block.reload
+        end
+
+        it "duplicates a participatory_process and the content_block with its attachments" do
+          expect { subject.call }.to change(Decidim::ContentBlock, :count).by(1)
+
+          old_block = Decidim::ContentBlock.unscoped.first
+          new_block = Decidim::ContentBlock.unscoped.last
+          last_process = Decidim::ParticipatoryProcess.last
+
+          expect(new_block.scope_name).to eq(old_block.scope_name)
+          expect(new_block.manifest_name).to eq(old_block.manifest_name)
+          # published_at is set in content_block factory
+          expect(new_block.published_at).not_to be_nil
+          expect(new_block.scoped_resource_id).to eq(last_process.id)
+          expect(new_block.attachments.length).to eq(1)
+          expect(new_block.attachments.first.name).to eq("background_image")
+          expect(new_block.images_container.attached_uploader(:background_image).url).not_to be_nil
+        end
       end
     end
 
@@ -118,40 +144,6 @@ module Decidim::ParticipatoryProcesses
         expect(last_component.settings.attributes["dummy_global_translatable_text"]).to include(component.settings.attributes["dummy_global_translatable_text"])
         expect(last_component.step_settings.keys).not_to eq(component.step_settings.keys)
         expect(last_component.step_settings.values).not_to eq(component.step_settings.values)
-      end
-    end
-
-    context "when duplicate_landing_page_blocks exists" do
-      let(:duplicate_landing_page_blocks) { true }
-      let(:original_image) do
-        Rack::Test::UploadedFile.new(
-          Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-          "image/jpeg"
-        )
-      end
-
-      before do
-        content_block.images_container.background_image.purge
-        content_block.images_container.background_image = original_image
-        content_block.save
-        content_block.reload
-      end
-
-      it "duplicates a participatory_process and the content_block with its attachments" do
-        expect { subject.call }.to change(Decidim::ContentBlock, :count).by(1)
-
-        old_block = Decidim::ContentBlock.unscoped.first
-        new_block = Decidim::ContentBlock.unscoped.last
-        last_process = Decidim::ParticipatoryProcess.last
-
-        expect(new_block.scope_name).to eq(old_block.scope_name)
-        expect(new_block.manifest_name).to eq(old_block.manifest_name)
-        # published_at is set in content_block factory
-        expect(new_block.published_at).not_to be_nil
-        expect(new_block.scoped_resource_id).to eq(last_process.id)
-        expect(new_block.attachments.length).to eq(1)
-        expect(new_block.attachments.first.name).to eq("background_image")
-        expect(new_block.images_container.attached_uploader(:background_image).url).not_to be_nil
       end
     end
   end

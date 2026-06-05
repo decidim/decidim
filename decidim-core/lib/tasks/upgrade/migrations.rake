@@ -24,7 +24,6 @@ namespace :decidim do
         "pages" => "Pages",
         "participatory_processes" => "ParticipatoryProcesses",
         "proposals" => "Proposals",
-        "sortitions" => "Sortitions",
         "surveys" => "Surveys",
         "system" => "System",
         "templates" => "Templates",

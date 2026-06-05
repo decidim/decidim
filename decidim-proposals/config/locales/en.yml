@@ -53,7 +53,7 @@ en:
         file: File
       proposals_import:
         import_proposals: Import proposals
-        keep_answers: Keep state and answers
+        keep_answers: Keep statuses and answers
         keep_authors: Keep original authors
     errors:
       models:
@@ -146,8 +146,6 @@ en:
             values:
               state_not_published: Not answered
               state_published: Answered
-        search_placeholder:
-          id_string_or_title_cont: Search %{collection} by ID or title
       tooltips:
         cannot_edit_proposal_info: Cannot edit this proposal as it is created by a participant or it has received any vote
         deleted_proposal_states_info: Cannot delete this proposal state because there are proposals assigned to it
@@ -177,6 +175,7 @@ en:
             can_accumulate_votes_beyond_threshold: Can accumulate votes beyond threshold
             clear_all: Clear all
             collaborative_drafts_enabled: Collaborative drafts enabled
+            collaborative_drafts_enabled_help: The Collaborative Drafts feature will be removed in Decidim v0.32. Organizations using it can switch to the new proposal co-authorship feature.
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             default_sort_order: Default proposal sorting
@@ -277,17 +276,17 @@ en:
             email_intro: '%{author_name} has created a private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
             email_outro: You have received this notification because you can evaluate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has created a private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> has created a private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_mentioned:
-            email_intro: You have been mentioned in a private note in "%{resource_title}" by "%{author_name}" "%{author_nickname}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
+            email_intro: You have been mentioned in a private note in "%{resource_title}" by "%{author_name}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
             email_outro: You have received this notification because you have been mentioned in a private note.
             email_subject: Someone mentioned you in a note on the proposal %{resource_title}.
-            notification_title: You have been mentioned in a private note in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+            notification_title: You have been mentioned in a private note in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_replied:
             email_intro: '%{author_name} has replied your private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
             email_outro: You have received this notification because you are the author of the note.
             email_subject: "%{author_name} has replied your private note in %{resource_title}."
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has replied your private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> has replied your private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> has accepted your invitation to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
@@ -304,17 +303,17 @@ en:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} has been accepted to access as a contributor of the %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} has been rejected to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} has been rejected to access as a contributor of the %{resource_title} collaborative draft."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_url}">%{resource_title}</a> collaborative draft page.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} requested access to contribute to %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: You have been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
           email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
@@ -326,10 +325,10 @@ en:
           email_subject: You have been rejected as a contributor of %{resource_title}.
           notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
+          email_intro: <a href="%{author_url}">%{author_name}</a> has withdrawn the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} withdrawn the %{resource_title} collaborative draft."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_subject: "%{author_name} has withdrawn the %{resource_title} collaborative draft."
+          notification_title: <a href="%{author_path}">%{author_name}</a> has <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         creation_enabled:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -351,10 +350,10 @@ en:
           email_subject: The %{resource_title} proposal has been merged
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been merged by an admin.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, who you are following, has published a new proposal called "%{resource_title}". Check it out and contribute:'
-          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: New proposal "%{resource_title}" by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was published by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: '%{author_name}, who you are following, has published a new proposal called "%{resource_title}". Check it out and contribute:'
+          email_outro: You have received this notification because you are following %{author_name}. You can stop receiving notifications following the previous link.
+          email_subject: New proposal "%{resource_title}" by %{author_name}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was published by <a href="%{author_path}">%{author_name}</a>.
         proposal_published_for_space:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.
@@ -372,6 +371,12 @@ en:
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you are following has changed its state (%{state})
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has changed its state to "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'The proposal "%{resource_title}" has changed its state to "%{state}". You can read the answer in this page:'
+            email_outro: You have received this notification because you are an author of "%{resource_title}".
+            email_subject: Your proposal has changed its state (%{state})
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has changed its state to "%{state}".
         proposal_update_taxonomies:
           email_intro: 'An admin has updated the taxonomies of your proposal "%{resource_title}", check it out in this page:'
           email_outro: You have received this notification because you are the author of the proposal.
@@ -676,6 +681,7 @@ en:
             related_meetings: Related meetings
             remove_assignment: Remove assignment
             remove_assignment_confirmation: Are you sure you want to remove the evaluator from this proposal?
+            title: Answer proposal
             votes_count: Votes count
           update_taxonomies:
             invalid: 'These proposals already had the %{taxonomies} taxonomies: %{proposals}.'
@@ -690,7 +696,7 @@ en:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
-            select_states: Check the status of the proposals to import
+            select_states: Import only proposals with these statuses. If none are selected, all proposals will be imported.
             title: Import proposals from another component
         proposals_merges:
           create:
@@ -737,103 +743,6 @@ en:
           all: All
           amendments: Amendments
           proposals: Proposals
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: There was a problem publishing the collaborative draft.
-            irreversible_action_modal:
-              body: After publishing the draft as a proposal, it will not be editable anymore. The proposal will not accept new authors or contributions.
-              cancel: Cancel
-              ok: Publish as a Proposal
-              title: The following action is irreversible
-            success: Collaborative draft published successfully as a proposal.
-          withdraw:
-            error: There was a problem closing the collaborative draft.
-            irreversible_action_modal:
-              body: After closing the draft, it will not be editable anymore. The draft will not accept new authors or contributions.
-              cancel: Cancel
-              ok: Withdraw the collaborative draft
-              title: The following action is irreversible
-            success: Collaborative draft withdrawn successfully.
-        create:
-          error: There was a problem creating this collaborative draft.
-          success: Collaborative draft successfully created.
-        edit:
-          attachment_legend: Add a document or an image
-          back: Back
-          send: Send
-          title: Edit collaborative draft
-        empty: There are no collaborative drafts yet
-        empty_filters: There is no collaborative draft with this criteria
-        filters:
-          all: All
-          amendment: Amendments
-          open: Open
-          published: Published
-          related_to: Related to
-          search: Search
-          state: Status
-          withdrawn: Withdrawn
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
-        index:
-          count:
-            one: "%{count} collaborative draft"
-            other: "%{count} collaborative drafts"
-        name: Collaborative drafts
-        new:
-          add_file: Add file
-          edit_file: Edit file
-          send: Continue
-        new_collaborative_draft_button:
-          new_collaborative_draft: New collaborative draft
-        orders:
-          label: 'Order drafts by:'
-          most_contributed: Most contributed
-          random: Random
-          recent: Recent
-        requests:
-          accepted_request:
-            error: Could not be accepted as a collaborator, please try again later.
-            success: "@%{user} has been accepted as a collaborator successfully."
-          access_requested:
-            error: Your request could not be completed, please try again later.
-            success: Your request to collaborate has been successfully sent.
-          collaboration_requests:
-            accept_request: Accept
-            reject_request: Reject
-            title: Collaboration requests
-          rejected_request:
-            error: Could not be rejected as a collaborator, please try again later.
-            success: "@%{user} has been successfully rejected as a collaborator."
-        show:
-          edit: Edit
-          final_proposal: Final proposal
-          final_proposal_help_text: This draft is finished. Check out the final proposal
-          hidden_authors_count:
-            one: and %{count} more person
-            other: and %{count} more people
-          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you will be able to make changes to this draft.
-          publish: Publish
-          publish_info: Publish this version of the draft or
-          published_proposal: Published proposal
-          request_access: Request access
-          requested_access: Access requested
-          withdraw: withdraw the draft
-        states:
-          open: Open
-          published: Published
-          withdrawn: Withdrawn
-        update:
-          error: There was a problem saving the collaborative draft.
-          success: Collaborative draft successfully updated.
-        wizard_aside:
-          back_from_collaborative_draft: Back to collaborative drafts
-        wizard_header:
-          title: Create your collaborative draft
       content_blocks:
         highlighted_proposals:
           name: Proposals
@@ -935,7 +844,6 @@ en:
           voted: Voted
         index:
           click_here: See all proposals
-          collaborative_drafts_list: Access collaborative drafts
           count:
             one: "%{count} proposal"
             other: "%{count} proposals"
@@ -982,8 +890,6 @@ en:
           hidden_likes_count:
             one: and %{count} more person
             other: and %{count} more people
-          link_to_collaborative_draft_help_text: This proposal is the result of a collaborative draft. Review the history
-          link_to_collaborative_draft_text: See the collaborative draft
           link_to_promoted_emendation_help_text: This proposal is a promoted emendation
           link_to_promoted_emendation_text: See the rejected emendation.
           link_to_proposal_from_emendation_help_text: This is a rejected emendation

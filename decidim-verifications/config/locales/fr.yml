@@ -48,7 +48,7 @@ fr:
             confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
             confirm_all: La révocation des autorisations ne peut être annulée. Êtes-vous sur de vouloir continuer?
           destroy_nok: Une erreur s'est produite lors de la révocation des autorisations.
-          destroy_ok: Toutes les autorisations correspondantes ont été révoquées avec succès.
+          destroy_ok: La révocation des autorisations est en cours. Cela peut prendre quelques minutes.
           info: Il y a un total de %{count} participants vérifiés.
           no_data: Aucun participant vérifié.
           title: Révocation des autorisations
@@ -164,11 +164,22 @@ fr:
           census:
             new_import:
               submit: Déposer un fichier
+          census_records:
+            edit_record:
+              save: Sauvegarder
+            form:
+              email: Email
+            new_record:
+              save: Sauvegarder
           index:
-            title: Données de recensement actuelles
-          instructions:
-            body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
-            title: Vous devez activer le recensement CSV pour cette organisation
+            add_new_record_button: Ajouter un nouvel enregistrement
+            authorized: Utilisateur autorisé
+            fields:
+              actions: Actions
+              email: Email
+              user_authorized: Utilisateur autorisé ?
+            import_csv: Importer un CSV
+            no_authorized: Utilisateur non autorisé
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
@@ -181,6 +192,8 @@ fr:
           user_postal_codes:
             one: La participation est réservée aux participants avec le code postal %{postal_codes}, et votre code postal est %{user_postal_code}.
             other: 'La participation est réservée aux participants avec l''un des codes postaux suivants : %{postal_codes}. Votre code postal est %{user_postal_code}.'
+      errors:
+        no_emails: Le fichier doit contenir des emails
       id_documents:
         admin:
           config:
@@ -195,7 +208,6 @@ fr:
               error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier.
               success: Utilisateur vérifié avec succès.
             new:
-              introduce_user_data: Introduire les données dans l'image
               reject: Rejeter
               verify: Vérifier
           offline_confirmations:
@@ -204,7 +216,6 @@ fr:
               success: Utilisateur vérifié avec succès.
             new:
               cancel: Annuler
-              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
               verify: Vérifier
           pending_authorizations:
             index:

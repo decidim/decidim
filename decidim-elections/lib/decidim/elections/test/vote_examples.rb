@@ -1,0 +1,219 @@
+# frozen_string_literal: true
+
+shared_examples "shows questions in an election" do
+  it "shows all the questions" do
+    expect(page).to have_text(translated_attribute(election.title))
+
+    within ".questions-list" do
+      election.questions.each do |question|
+        expect(page).to have_text(translated_attribute(question.body))
+        question.response_options.each do |option|
+          expect(page).to have_no_text(translated_attribute(option.body))
+        end
+        click_on translated_attribute(question.body)
+        question.response_options.each do |option|
+          expect(page).to have_text(translated_attribute(option.body))
+        end
+      end
+    end
+  end
+end
+
+def fill_in_votes
+  expect(page).to have_current_path(election_vote_path(election.questions.first))
+  expect(page).to have_text(translated_attribute(election.questions.first.body))
+  expect(page).to have_text(strip_tags(translated_attribute(election.questions.first.description)))
+  choose translated_attribute(election.questions.first.response_options.first.body)
+  click_on "Next"
+  expect(page).to have_current_path(election_vote_path(election.questions.second))
+  expect(page).to have_text(translated_attribute(election.questions.second.body))
+  expect(page).to have_text(strip_tags(translated_attribute(election.questions.second.description)))
+  check translated_attribute(election.questions.second.response_options.first.body)
+  check translated_attribute(election.questions.second.response_options.second.body)
+  click_on "Next"
+  expect(page).to have_current_path(confirm_election_votes_path)
+  expect(page).to have_text("Confirm your vote")
+  expect(page).to have_text(translated_attribute(election.questions.first.body))
+  expect(page).to have_text(translated_attribute(election.questions.first.response_options.first.body))
+  expect(page).to have_no_text(translated_attribute(election.questions.first.response_options.second.body))
+  expect(page).to have_text(translated_attribute(election.questions.second.body))
+  expect(page).to have_text(translated_attribute(election.questions.second.response_options.first.body))
+  expect(page).to have_text(translated_attribute(election.questions.second.response_options.second.body))
+  click_on "Cast vote"
+  expect(page).to have_text("Your vote has been successfully cast.")
+  click_on "Exit the voting booth"
+  expect(page).to have_current_path(election_path)
+  expect(page).to have_text("You have already voted.")
+  expect(election.votes.where(voter_uid:).size).to eq(3)
+end
+
+shared_examples "a votable election" do
+  it "allows the user to vote" do
+    click_on "Vote"
+
+    fill_in_votes
+    click_on "Edit vote"
+    expect(page).to have_current_path(election_vote_path(election.questions.first))
+  end
+end
+
+shared_examples "an internal users authentication voter form" do
+  it "allows the user to log in" do
+    expect(page).to have_current_path(election_path)
+    click_on "Vote"
+    expect(page).to have_current_path(new_election_vote_path)
+    expect(page).to have_text("Verify your identity")
+    expect(page).to have_button("Log in")
+    expect(page).to have_link("Create an account")
+    click_on "Log in"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "decidim123456789"
+    click_on "Log in"
+    fill_in_votes
+  end
+
+  it "allows the user to create an account" do
+    expect(page).to have_current_path(election_path)
+    click_on "Vote"
+    expect(page).to have_current_path(new_election_vote_path)
+    expect(page).to have_text("Verify your identity")
+    expect(page).to have_button("Log in")
+    expect(page).to have_link("Create an account")
+    click_on "Create an account"
+    within "#registration_new_user" do
+      fill_in "Your name", with: "John Doe"
+      fill_in "Your email", with: "john@example.org"
+      fill_in "Password", with: "decidim123456789"
+      check "By signing up you agree to the terms of service."
+      check "Receive an occasional newsletter with relevant information"
+      click_on "Create an account"
+    end
+    expect(page).to have_text("A message with a confirmation link has been sent to your email address.")
+  end
+end
+
+shared_examples "an internal users verification voter form" do
+  it "allows the user to verify their identity" do
+    expect(page).to have_current_path(election_path)
+    click_on "Vote"
+    expect(page).to have_current_path(new_election_vote_path)
+    expect(page).to have_text("Verify your identity")
+    click_on "Verify with Example authorization"
+    fill_in "Document number", with: "12345678X"
+    fill_in "Postal code", with: "08002"
+    click_on "Send"
+    fill_in_votes
+  end
+
+  it "denies voting if the user does not fulfills the authorization requirements" do
+    expect(page).to have_current_path(election_path)
+    click_on "Vote"
+    expect(page).to have_current_path(new_election_vote_path)
+    expect(page).to have_text("Verify your identity")
+    click_on "Verify with Example authorization"
+    fill_in "Document number", with: "12345678X"
+    fill_in "Postal code", with: "08003"
+    click_on "Send"
+    expect(page).to have_text("You are not authorized to vote in this election.")
+  end
+end
+
+shared_examples "a csv token votable election" do
+  it "allows the user to vote" do
+    click_on "Vote"
+    expect(page).to have_current_path(new_election_vote_path)
+    expect(page).to have_text("Verify your identity")
+    fill_in "Email", with: "bob@example.org"
+    fill_in "Token", with: "123456"
+    click_on "Access"
+    expect(page).to have_text("The email or token is not valid.")
+    fill_in "Email", with: election.voters.first.data["email"]
+    fill_in "Token", with: election.voters.first.data["token"]
+    click_on "Access"
+    fill_in_votes
+    click_on "Edit vote"
+    expect(page).to have_current_path(new_election_vote_path)
+    fill_in "Email", with: election.voters.first.data["email"]
+    fill_in "Token", with: election.voters.first.data["token"]
+    click_on "Access"
+    expect(page).to have_current_path(election_vote_path(election.questions.first))
+    expect(find("input[value='#{election.questions.first.response_options.first.id}']")).to be_checked
+    expect(find("input[value='#{election.questions.first.response_options.second.id}']")).not_to be_checked
+    choose translated_attribute(election.questions.first.response_options.second.body)
+    click_on "Next"
+    expect(find("input[value='#{election.questions.second.response_options.first.id}']")).to be_checked
+    expect(find("input[value='#{election.questions.second.response_options.second.id}']")).to be_checked
+    uncheck translated_attribute(election.questions.second.response_options.first.body)
+    uncheck translated_attribute(election.questions.second.response_options.second.body)
+    click_on "Next"
+    expect(page).to have_current_path(confirm_election_votes_path)
+    click_on "Cast vote"
+    expect(page).to have_text("There was a problem casting your vote.")
+    click_on "Edit your vote"
+    expect(page).to have_current_path(election_vote_path(election.questions.first))
+    expect(find("input[value='#{election.questions.first.response_options.first.id}']")).not_to be_checked
+    expect(find("input[value='#{election.questions.first.response_options.second.id}']")).to be_checked
+    click_on "Next"
+    expect(find("input[value='#{election.questions.second.response_options.first.id}']")).not_to be_checked
+    expect(find("input[value='#{election.questions.second.response_options.second.id}']")).not_to be_checked
+    check translated_attribute(election.questions.second.response_options.first.body)
+    click_on "Next"
+    click_on "Cast vote"
+    expect(page).to have_text("Your vote has been successfully cast.")
+    click_on "Exit the voting booth"
+    expect(page).to have_current_path(election_path)
+    expect(page).to have_text("You have already voted.")
+    expect(election.votes.where(voter_uid:).size).to eq(2)
+  end
+end
+
+shared_examples "an editable votable election" do
+  it "Allows the user to edit the vote" do
+    expect(page).to have_link("Edit vote")
+    click_on "Edit vote"
+    expect(page).to have_current_path(election_vote_path(election.questions.first))
+    expect(find("input[value='#{election.questions.first.response_options.first.id}']")).to be_checked
+    expect(find("input[value='#{election.questions.first.response_options.second.id}']")).not_to be_checked
+    choose translated_attribute(election.questions.first.response_options.second.body)
+    click_on "Next"
+    expect(find("input[value='#{election.questions.second.response_options.first.id}']")).to be_checked
+    expect(find("input[value='#{election.questions.second.response_options.second.id}']")).not_to be_checked
+    check translated_attribute(election.questions.second.response_options.second.body)
+    click_on "Next"
+    expect(page).to have_current_path(confirm_election_votes_path)
+    click_on "Cast vote"
+    expect(page).to have_text("Your vote has been successfully cast.")
+    click_on "Exit the voting booth"
+    expect(page).to have_current_path(election_path)
+    expect(page).to have_text("You have already voted.")
+    expect(election.votes.where(voter_uid:).size).to eq(3)
+  end
+end
+
+shared_examples "a csv token editable votable election" do
+  it "Allows the user to edit the vote" do
+    expect(page).to have_link("Vote")
+    click_on "Vote"
+    expect(page).to have_current_path(new_election_vote_path)
+    expect(page).to have_text("Verify your identity")
+    fill_in "Email", with: election.voters.first.data["email"]
+    fill_in "Token", with: election.voters.first.data["token"]
+    click_on "Access"
+    expect(page).to have_current_path(election_vote_path(election.questions.first))
+    expect(find("input[value='#{election.questions.first.response_options.first.id}']")).to be_checked
+    expect(find("input[value='#{election.questions.first.response_options.second.id}']")).not_to be_checked
+    choose translated_attribute(election.questions.first.response_options.second.body)
+    click_on "Next"
+    expect(find("input[value='#{election.questions.second.response_options.first.id}']")).to be_checked
+    expect(find("input[value='#{election.questions.second.response_options.second.id}']")).not_to be_checked
+    check translated_attribute(election.questions.second.response_options.second.body)
+    click_on "Next"
+    expect(page).to have_current_path(confirm_election_votes_path)
+    click_on "Cast vote"
+    expect(page).to have_text("Your vote has been successfully cast.")
+    click_on "Exit the voting booth"
+    expect(page).to have_current_path(election_path)
+    expect(page).to have_text("You have already voted.")
+    expect(election.votes.where(voter_uid:).size).to eq(3)
+  end
+end

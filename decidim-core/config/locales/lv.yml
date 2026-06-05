@@ -110,9 +110,6 @@ lv:
         update: "%{user_name} atjaunināja %{resource_name} OAuth lietojumprogrammu"
       organization:
         update: "%{user_name} atjaunināja organizācijas iestatījumus"
-      participatory_space_private_user:
-        create: "%{user_name} uzaicināja %{resource_name} par privāto dalībnieku"
-        delete: "%{user_name} noņēma %{resource_name} kā privāto dalībnieku"
       scope:
         create: "%{user_name} izveidoja darbības tvērumu %{resource_name}"
         create_with_parent: "%{user_name} izveidoja darbības tvērumu %{resource_name} darbības tvērumā %{parent_scope}"
@@ -181,9 +178,6 @@ lv:
       update_draft:
         error: Grozījuma melnraksta atjaunināšanas laikā radās kļūda.
         success: Grozījuma melnraksts ir veiksmīgi atjaunināts.
-      wizard_step_form:
-        steps:
-          '1': Izveidot savu grozījumu
     anonymous_user: Anonīms
     application:
       document:
@@ -355,13 +349,9 @@ lv:
           affected_user:
             email_intro: '%{amendable_title} ir pieņemts grozījums. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo esat %{amendable_title} autors.
-            email_subject: Pieņemts grozījums %{amendable_title} no %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> Grozījums </a>, ko izveidoja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>, ir pieņemts <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: '%{amendable_title} ir pieņemts grozījums. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{amendable_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-            email_subject: Pieņemts grozījums %{amendable_title} no %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> Grozījums </a>, ko izveidoja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>, ir pieņemts <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: '%{amendable_title} ir izveidots jauns grozījums. To var redzēt šajā lapā.'
@@ -377,24 +367,16 @@ lv:
           affected_user:
             email_intro: 'Noraidītais %{amendable_title} grozījums ir publicēts kā jauns %{amendable_type}. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo esat %{amendable_title} autors.
-            email_subject: '%{emendation_author_nickname} grozījums ir publicēts kā jauns %{amendable_type}'
-            notification_title: <a href="%{emendation_path}">noraidītais grozījums<a href="%{amendable_path}">%{amendable_title}</a> ir publicēts kā jauns %{amendable_type}, to publicēja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Noraidītais %{amendable_title} grozījums ir publicēts kā jauns %{amendable_type}. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{amendable_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-            email_subject: '%{emendation_author_nickname} grozījums ir publicēts kā jauns %{amendable_type}'
-            notification_title: <a href="%{emendation_path}">noraidītais grozījums<a href="%{amendable_path}">%{amendable_title}</a> ir publicēts kā jauns %{amendable_type}, to publicēja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: '%{amendable_title} ir noraidīts grozījums. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo esat %{amendable_title} autors.
-            email_subject: Noraidīts grozījums %{amendable_title} no %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> grozījums </a>, ko izveidoja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>, ir noraidīts <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: '%{amendable_title} ir noraidīts grozījums. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{amendable_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-            email_subject: Noraidīts grozījums %{amendable_title} no %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> grozījums </a>, ko izveidoja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>, ir noraidīts <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: '%{resource_title} ir pievienots jauns dokuments. Jūs to varat redzēt šajā lapā:'
@@ -417,12 +399,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
         level_up:
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
-      users:
-        profile_updated:
-          email_intro: '%{name} (%{nickname}) <a href="%{resource_url}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-          email_subject: "%{nickname} atjaunināja savu profilu"
-          notification_title: '%{name} (%{nickname}) <a href="%{resource_path}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
     export_mailer:
       download_your_data_export:
         download: Lejupielādēt
@@ -509,7 +485,6 @@ lv:
     managed_users:
       expired_session: Pašreizējā dalībnieka administratora sesija ir beigusies.
     menu:
-      help: Palīdzība
       home: Sākums
     messaging:
       conversation_mailer:
@@ -564,10 +539,8 @@ lv:
       unsubscribe:
         success: Jūsu abonements ir veiksmīgi anulēts.
         token_error: Saitei ir beidzies derīguma termiņš.
-        unsubscribe: Anulēt abonementu
     newsletters_opt_in_mailer:
       notify:
-        body_1: Personas datu apstrāde un to aizsardzība kļūst arvien nozīmīgāka mums visiem. Ievērojot jauno Vispārīgo datu aizsardzības regulu (VDAR) (2018. gada 25. maijs), indivīdi var efektīvāk kontrolēt savu personas datu izmantošanu. Šī iemesla dēļ mums ir nepieciešams jūsu „OK”, lai turpinātu sūtīt būtisku informāciju par %{organisation_name} darbībām.
         body_2: 'Kā jūs varat dot mums savu piekrišanu? Vienkārši noklikšķiniet uz šīs pogas:'
         body_3: Piekrītot jūs varēsiet turpināt saņemt informāciju par platformas pakalpojumiem. Pretējā gadījumā, ja mēs nesaņemsim no jums pozitīvu apstiprinājumu, mēs pārtrauksim jums sūtīt ziņas. Ja jūs apstiprināsiet, ka vēlaties saņemt informāciju, jums vienmēr būs iespēja šo piekrišanu atcelt jebkurā laikā.
         button: Jā, es vēlos turpināt saņemt būtisku informāciju
@@ -604,17 +577,17 @@ lv:
           proposals_explanation: Iesniedziet jaunus priekšlikumus, atbalstiet esošos un veiciniet vēlamās izmaiņas.
         footer_sub_hero:
           footer_sub_hero_headline: Laipni lūdzam %{organization} līdzdalības platformā.
-          register: Reģistrēties
         hero:
           participate: Piedalīties
           welcome: Laipni lūdzam %{organization}!
-        sub_hero:
-          register: Reģistrēties
       index:
         standalone_pages: Lapas
         subheading: Pārvietojieties %{name} palīdzības lapās
         title: Palīdzība
         topics: Tēmas
+    participatory_space_members:
+      index:
+        members: Dalībnieki
     profile:
       deleted: Dzēsts dalībnieks
     profiles:
@@ -725,8 +698,6 @@ lv:
         submit_button: Nosūtiet ielūgumu
       no_invitations_remaining: Neviens ielūgums nav atlicis
       send_instructions: Ielūguma e-pasts ir nosūtīts uz adresi %{email}.
-      updated: Jūsu parole tika veiksmīgi iestatīta. Tagad esat pierakstīts.
-      updated_not_active: Jūsu parole tika veiksmīgi iestatīta.
     mailer:
       confirmation_instructions:
         action: Apstiprināt manu kontu
@@ -742,10 +713,8 @@ lv:
         decline: Noraidīt ielūgumu
         hello: Sveiki, %{email}!
         invited_you_as_admin: "%{invited_by} uzaicināja jūs kā %{application} administratoru. Jūs varat ielūgumu pieņemt, izmantojot turpmāk esošo saiti."
-        invited_you_as_private_user: "%{invited_by} uzaicināja jūs kā %{application} privātu dalībnieku. Jūs varat ielūgumu pieņemt, izmantojot zemāk esošo saiti."
         someone_invited_you: Kāds jūs ir uzaicinājis uz %{application}. Jūs varat ielūgumu pieņemt, izmantojot turpmāk esošo saiti.
         someone_invited_you_as_admin: Kāds ir uzaicinājis jūs kā %{application} administratoru. Jūs varat ielūgumu pieņemt, izmantojot zemāk esošo saiti.
-        someone_invited_you_as_private_user: Kāds ir uzaicinājis jūs kā %{application} privātu dalībnieku. Jūs varat ielūgumu pieņemt, izmantojot zemāk esošo saiti.
         subject: Ielūgumu norādījumi
       password_change:
         greeting: Sveiki, %{recipient}!
@@ -834,7 +803,6 @@ lv:
       impersonation_warning:
         close_session: Aizvērt sesiju
         description_html: Jūs pārvaldāt dalībnieku <b>%{user_name}</b>.
-        expire_time_html: Jūsu sesija beigsies pēc <b><span class="minutes">%{minutes}</span> minūtēm</b>.
       notifications_dashboard:
         mark_all_as_read: Atzīmēt visu kā izlasītu
       user_menu:
@@ -859,7 +827,6 @@ lv:
     fallback: nav derīga.
     name_included_in_password: ir pārāk līdzīga jūsu vārdam
     not_enough_unique_characters: nav pietiekami daudz unikālu rakstzīmju
-    password_not_allowed: nav atļauta
     password_too_common: ir pārāk izplatīta
     password_too_long: ir pārāk gara
     password_too_short: ir pārāk īsa

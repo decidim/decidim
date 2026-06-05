@@ -63,8 +63,18 @@ describe Decidim::UploadModalCell, type: :cell do
       expect(subject).to have_css("input[name='dummy[#{attribute}_validation]']", visible: :hidden)
     end
 
+    it "renders the hidden checkbox with the correct ID for Foundation Abide" do
+      expect(subject).to have_css("input##{attribute}_validation", visible: :hidden)
+    end
+
     it "renders the required field indicator" do
       expect(subject).to have_css("label .label-required", text: "Required field")
+    end
+
+    it "does not render error or help text inside the modal" do
+      # Error and help text should be rendered outside the modal by the form builder
+      expect(subject).to have_no_css(".form-error")
+      expect(subject).to have_no_css(".help-text")
     end
   end
 
@@ -85,6 +95,24 @@ describe Decidim::UploadModalCell, type: :cell do
       it "renders preview" do
         expect(subject.find("img")["src"]).to match(%r{/city.jpeg$})
       end
+
+      context "when attachment is an id document verification image" do
+        let(:user) { create(:user, :confirmed) }
+        let(:authorization) do
+          create(
+            :authorization,
+            :pending,
+            name: "id_documents",
+            user:,
+            verification_attachment: Decidim::Dev.test_file("id.jpg", "image/jpeg")
+          )
+        end
+        let(:attachments) { [authorization.verification_attachment] }
+
+        it "renders the preview from private downloads URL" do
+          expect(subject).to have_css("img[src*='/private_downloads/']")
+        end
+      end
     end
 
     context "when attachment is titled" do
@@ -102,7 +130,7 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(subject).to have_css("[data-filename='#{filename}']")
 
         details = subject.find(".attachment-details")
-        expect(details).to have_content(decidim_sanitize_translated(attachments[0].title).to_s)
+        expect(details).to have_text(decidim_sanitize_translated(attachments[0].title).to_s)
       end
     end
 
@@ -114,11 +142,11 @@ describe Decidim::UploadModalCell, type: :cell do
       end
 
       it "escapes the truncated filename" do
-        expect(my_cell.send(:truncated_file_name_for, attachments.first)).to eq("&lt;svg onload=alert(&#39;ALERT&#39;)&gt;.pdf")
+        expect(my_cell.send(:truncated_file_name_for, attachments.first)).to eq("-svg onload=alert(&#39;ALERT&#39;)-.pdf")
       end
 
       it "escapes the filename" do
-        expect(my_cell.send(:file_name_for, attachments.first)).to eq("&lt;svg onload=alert(&#39;ALERT&#39;)&gt;.pdf")
+        expect(my_cell.send(:file_name_for, attachments.first)).to eq("-svg onload=alert(&#39;ALERT&#39;)-.pdf")
       end
     end
   end
@@ -165,7 +193,7 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(subject).to have_css("[data-filename='#{filename1}']")
 
         details = subject.find(".attachment-details", match: :first)
-        expect(details).to have_content(decidim_sanitize_translated(attachments[0].title).to_s)
+        expect(details).to have_text(decidim_sanitize_translated(attachments[0].title).to_s)
       end
     end
 
@@ -184,14 +212,14 @@ describe Decidim::UploadModalCell, type: :cell do
 
       it "renders the title" do
         expect(subject).to have_css(".attachment-details")
-        expect(subject).to have_content("An image title")
+        expect(subject).to have_text("An image title")
       end
 
       context "when there is rich content in the title" do
         let(:title) { "An image <script>alert(\"ALERT\")</script>" }
 
         it "renders the title" do
-          expect(subject).to have_content("An image alert(\"ALERT\")")
+          expect(subject).to have_text("An image alert(\"ALERT\")")
         end
 
         it "escapes the title" do

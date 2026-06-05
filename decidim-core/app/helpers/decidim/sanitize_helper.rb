@@ -131,6 +131,7 @@ module Decidim
     # @param method [Symbol] Method name
     #
     # @return ActiveSupport::SafeBuffer
+    # @param [Object, nil] presenter_class
     def render_sanitized_content(resource, method, presenter_class: nil)
       content = present(resource, presenter_class:).send(method, links: true, strip_tags: !try(:safe_content?))
 

@@ -27,7 +27,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("decidim.admin.reminders.create.error")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -54,7 +54,7 @@ module Decidim
       end
 
       def current_component
-        @current_component ||= current_participatory_space.components.find(params[:component_id])
+        @current_component ||= current_participatory_space.components.find(params.expect(:component_id))
       end
     end
   end

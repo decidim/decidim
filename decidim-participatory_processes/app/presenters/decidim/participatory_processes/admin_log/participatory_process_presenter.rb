@@ -17,6 +17,7 @@ module Decidim
 
         def diff_fields_mapping
           {
+            access_mode: :access_mode,
             description: :i18n,
             developer_group: :i18n,
             decidim_area_id: :area,
@@ -30,14 +31,24 @@ module Decidim
             slug: :string,
             subtitle: :i18n,
             target: :i18n,
-            title: :i18n,
-            decidim_participatory_process_type_id: :participatory_process_type
+            title: :i18n
           }
         end
 
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.create")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.publish")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.unpublish")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.update")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.import")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.export")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.duplicate")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.soft_delete")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.restore")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.publish_all_members")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.unpublish_all_members")
         def action_string
           case action
-          when "create", "publish", "unpublish", "update", "import", "export", "duplicate", "soft_delete", "restore"
+          when "create", "publish", "unpublish", "update", "import", "export", "duplicate", "soft_delete", "restore", "publish_all_members", "unpublish_all_members"
             "decidim.admin_log.participatory_process.#{action}"
           else
             super

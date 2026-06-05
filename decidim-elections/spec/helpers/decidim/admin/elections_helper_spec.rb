@@ -69,7 +69,31 @@ module Decidim
             html = helper.election_status_with_label(election)
 
             expect(html).to include("Ongoing")
-            expect(html).to include("ongoing label")
+            expect(html).to include("warning label")
+          end
+
+          it "renders unpublished status with correct CSS class" do
+            allow(election).to receive(:status).and_return(:unpublished)
+            html = helper.election_status_with_label(election)
+
+            expect(html).to include("Unpublished")
+            expect(html).to include("alert label")
+          end
+
+          it "renders scheduled status with correct CSS class" do
+            allow(election).to receive(:status).and_return(:scheduled)
+            html = helper.election_status_with_label(election)
+
+            expect(html).to include("Scheduled")
+            expect(html).to include("reverse label")
+          end
+
+          it "renders finished status with correct CSS class" do
+            allow(election).to receive(:status).and_return(:finished)
+            html = helper.election_status_with_label(election)
+
+            expect(html).to include("Finished")
+            expect(html).to include("success label")
           end
         end
 
@@ -165,7 +189,7 @@ module Decidim
               html = helper.publish_question_button(question)
 
               expect(html).to include("status-label")
-              expect(html).to include(I18n.t("decidim.elections.status.results_published"))
+              expect(html).to include(I18n.t("decidim.elections.status.published_results"))
             end
           end
         end

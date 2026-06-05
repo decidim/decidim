@@ -12,7 +12,7 @@ module Decidim
       end
 
       def show
-        @oauth_application = collection.find(params[:id])
+        @oauth_application = collection.find(params.expect(:id))
       end
 
       def new
@@ -30,18 +30,18 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("oauth_applications.create.error", scope: "decidim.system")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
 
       def edit
-        @oauth_application = collection.find(params[:id])
+        @oauth_application = collection.find(params.expect(:id))
         @form = form(OAuthApplicationForm).from_model(@oauth_application)
       end
 
       def update
-        @oauth_application = collection.find(params[:id])
+        @oauth_application = collection.find(params.expect(:id))
         @form = form(OAuthApplicationForm)
                 .from_params(params.to_unsafe_h)
                 .with_context(current_organization: @oauth_application.organization)
@@ -55,13 +55,13 @@ module Decidim
           on(:invalid) do |application|
             @oauth_application = application
             flash.now[:error] = I18n.t("oauth_applications.update.error", scope: "decidim.system")
-            render action: :edit, status: :unprocessable_entity
+            render action: :edit, status: :unprocessable_content
           end
         end
       end
 
       def destroy
-        @oauth_application = collection.find(params[:id])
+        @oauth_application = collection.find(params.expect(:id))
 
         DestroyOAuthApplication.call(@oauth_application, current_user) do
           on(:ok) do

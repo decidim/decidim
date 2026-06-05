@@ -32,12 +32,12 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: "decidim.proposals.admin")
-              render action: "new_import", status: :unprocessable_entity
+              render action: "new_import", status: :unprocessable_content
             end
 
             on(:invalid_file) do
               flash.now[:alert] = I18n.t("participatory_texts.import.invalid_file", scope: "decidim.proposals.admin")
-              render action: "new_import", status: :unprocessable_entity
+              render action: "new_import", status: :unprocessable_content
             end
           end
         end
@@ -62,7 +62,7 @@ module Decidim
                 failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
                 flash.now[:alert] = alert_msg.join("<br/>").html_safe
                 index
-                render action: "index", status: :unprocessable_entity
+                render action: "index", status: :unprocessable_content
               end
             end
           else
@@ -77,7 +77,7 @@ module Decidim
                 failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
                 flash.now[:alert] = alert_msg.join("<br/>").html_safe
                 index
-                render action: "index", status: :unprocessable_entity
+                render action: "index", status: :unprocessable_content
               end
             end
           end

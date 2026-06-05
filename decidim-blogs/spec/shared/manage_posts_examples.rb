@@ -29,17 +29,17 @@ shared_examples "manage posts" do |audit_check: true|
     end
     sleep(2)
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Post successfully saved.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
-      expect(page).to have_content("Post title 2")
-      expect(page).to have_content(translated(author.name))
+      expect(page).to have_text(translated(attributes[:title]))
+      expect(page).to have_text("Post title 2")
+      expect(page).to have_text(translated(author.name))
     end
 
     if audit_check == true
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} blog post")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} blog post")
     end
   end
 
@@ -53,28 +53,28 @@ shared_examples "manage posts" do |audit_check: true|
       perform_enqueued_jobs { find("*[type=submit]").click }
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Post successfully created.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
-      expect(page).to have_content("Post title 1")
-      expect(page).to have_content("Post title 2")
+      expect(page).to have_text(translated(attributes[:title]))
+      expect(page).to have_text("Post title 1")
+      expect(page).to have_text("Post title 2")
     end
 
     if audit_check == true
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} blog post")
+      expect(page).to have_text("created the #{translated(attributes[:title])} blog post")
     end
 
     perform_enqueued_jobs
 
     visit decidim.last_activities_path
-    expect(page).to have_content("New post: #{translated(attributes[:title])}")
+    expect(page).to have_text("New post: #{translated(attributes[:title])}")
 
     within "#filters" do
       find("a", class: "filter", text: "Post", match: :first).click
     end
-    expect(page).to have_content("New post: #{translated(attributes[:title])}")
+    expect(page).to have_text("New post: #{translated(attributes[:title])}")
   end
 
   describe "deleting a post" do
@@ -88,11 +88,11 @@ shared_examples "manage posts" do |audit_check: true|
         accept_confirm { click_on "Move to trash" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Post successfully deleted.")
 
       within "table" do
-        expect(page).to have_no_content(translated(post1.title))
-        expect(page).to have_content(translated(post2.title))
+        expect(page).to have_no_text(translated(post1.title))
+        expect(page).to have_text(translated(post2.title))
       end
     end
   end
@@ -125,13 +125,13 @@ shared_examples "manage posts" do |audit_check: true|
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Post successfully created.")
 
       within "table" do
-        expect(page).to have_content(translated(organization.name))
-        expect(page).to have_content("My post")
-        expect(page).to have_content("Post title 1")
-        expect(page).to have_content("Post title 2")
+        expect(page).to have_text(translated(organization.name))
+        expect(page).to have_text("My post")
+        expect(page).to have_text("Post title 1")
+        expect(page).to have_text("Post title 2")
       end
     end
 
@@ -146,10 +146,10 @@ shared_examples "manage posts" do |audit_check: true|
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Post successfully saved.")
 
       within "tr", text: translated(post1.title) do
-        expect(page).to have_content(translated(organization.name))
+        expect(page).to have_text(translated(organization.name))
       end
     end
   end
@@ -182,13 +182,13 @@ shared_examples "manage posts" do |audit_check: true|
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Post successfully created.")
 
       within "table" do
-        expect(page).to have_content(author.name)
-        expect(page).to have_content("My post")
-        expect(page).to have_content("Post title 1")
-        expect(page).to have_content("Post title 2")
+        expect(page).to have_text(author.name)
+        expect(page).to have_text("My post")
+        expect(page).to have_text("Post title 1")
+        expect(page).to have_text("Post title 2")
       end
     end
 
@@ -203,10 +203,10 @@ shared_examples "manage posts" do |audit_check: true|
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Post successfully saved.")
 
       within "tr", text: translated(post1.title) do
-        expect(page).to have_content(author.name)
+        expect(page).to have_text(author.name)
       end
     end
 
@@ -224,8 +224,8 @@ shared_examples "manage posts" do |audit_check: true|
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
-      expect(page).to have_content("01/01/2022 00:00")
+      expect(page).to have_callout("Post successfully saved.")
+      expect(page).to have_text("01/01/2022 00:00")
     end
   end
 end

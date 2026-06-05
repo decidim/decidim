@@ -7,6 +7,7 @@ module Decidim
     #
     class ComponentsController < Decidim::Admin::ApplicationController
       include Decidim::Admin::HasTrashableResources
+
       helper_method :manifest
 
       def index
@@ -47,20 +48,20 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("components.create.error", scope: "decidim.admin")
-            render action: "new", status: :unprocessable_entity
+            render action: "new", status: :unprocessable_content
           end
         end
       end
 
       def edit
-        @component = query_scope.find(params[:id])
+        @component = query_scope.find(params.expect(:id))
         enforce_permission_to :update, :component, component: @component
 
         @form = form(@component.form_class).from_model(@component)
       end
 
       def update
-        @component = query_scope.find(params[:id])
+        @component = query_scope.find(params.expect(:id))
         @form = form(@component.form_class).from_params(component_params)
         enforce_permission_to :update, :component, component: @component
 
@@ -74,7 +75,7 @@ module Decidim
 
           on(:invalid) do
             flash[:alert] = I18n.t("components.update.error", scope: "decidim.admin")
-            render action: :edit, status: :unprocessable_entity
+            render action: :edit, status: :unprocessable_content
           end
         end
       end
@@ -99,7 +100,7 @@ module Decidim
       end
 
       def publish
-        @component = query_scope.find(params[:id])
+        @component = query_scope.find(params.expect(:id))
         enforce_permission_to :publish, :component, component: @component
 
         PublishComponent.call(@component, current_user) do
@@ -111,7 +112,7 @@ module Decidim
       end
 
       def unpublish
-        @component = query_scope.find(params[:id])
+        @component = query_scope.find(params.expect(:id))
         enforce_permission_to :unpublish, :component, component: @component
 
         UnpublishComponent.call(@component, current_user) do
@@ -123,7 +124,7 @@ module Decidim
       end
 
       def hide
-        @component = query_scope.find(params[:id])
+        @component = query_scope.find(params.expect(:id))
         enforce_permission_to :publish, :component, component: @component
 
         HideMenuComponent.call(@component, current_user) do
@@ -135,7 +136,7 @@ module Decidim
       end
 
       def share
-        @component = query_scope.find(params[:id])
+        @component = query_scope.find(params.expect(:id))
         share_token = @component.share_tokens.create!(user: current_user, organization: current_organization)
 
         redirect_to share_token.url
@@ -174,7 +175,7 @@ module Decidim
       def component_params
         new_settings = proc { |name, data| Component.build_settings(manifest, name, data, current_organization) }
 
-        params[:component].permit!.tap do |hsh|
+        params.fetch(:component, {}).to_unsafe_h.tap do |hsh|
           hsh[:id] = params[:id]
           hsh[:manifest] = manifest
           hsh[:participatory_space] = current_participatory_space

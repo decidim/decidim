@@ -12,8 +12,8 @@ module Decidim
       it_behaves_like "a component query type"
 
       describe "surveys" do
-        let!(:component_surveys) { create_list(:survey, 2, component: model) }
-        let!(:other_surveys) { create_list(:survey, 2) }
+        let!(:component_surveys) { create_list(:survey, 2, :published, component: model) }
+        let!(:other_surveys) { create_list(:survey, 2, :published) }
 
         let(:query) { "{ surveys { edges { node { id } } } }" }
 
@@ -29,7 +29,7 @@ module Decidim
         let(:variables) { { id: survey.id.to_s } }
 
         context "when the survey belongs to the component" do
-          let!(:survey) { create(:survey, component: model) }
+          let!(:survey) { create(:survey, :published, component: model) }
 
           it "finds the survey" do
             expect(response["survey"]["id"]).to eq(survey.id.to_s)
@@ -37,10 +37,10 @@ module Decidim
         end
 
         context "when the survey does not belong to the component" do
-          let!(:survey) { create(:survey, component: create(:surveys_component)) }
+          let!(:survey) { create(:survey, :published, component: create(:surveys_component)) }
 
-          it "returns null" do
-            expect(response["survey"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Survey not found")
           end
         end
       end

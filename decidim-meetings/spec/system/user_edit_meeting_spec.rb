@@ -28,12 +28,88 @@ describe "User edit meeting" do
     stub_geocoding(meeting.address, [latitude, longitude])
   end
 
+  describe "editing meeting with empty description" do
+    before do
+      login_as user, scope: :user
+      organization.update(rich_text_editor_in_public_views: true)
+    end
+
+    it "when WYSIWYG is active" do
+      new_description = "Dummy description"
+      visit_component
+      click_on translated(meeting.title)
+      find("#dropdown-trigger-resource-#{meeting.id}").click
+      click_on "Edit"
+
+      expect(page).to have_text "Edit Your Meeting"
+
+      within "form.meetings_form" do
+        fill_in :meeting_title, with: "Dummy title2"
+        first(".tiptap.ProseMirror").set(new_description)
+        select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+
+        click_on "Update"
+      end
+
+      within ".flash__message" do
+        expect(page).to have_text("You have updated the meeting successfully.")
+      end
+
+      expect(page).to have_text("Dummy title2")
+      expect(page).to have_text(new_description)
+
+      find("#dropdown-trigger-resource-#{meeting.id}").click
+      click_on "Edit"
+
+      expect(page).to have_text "Edit Your Meeting"
+
+      within "form.meetings_form" do
+        fill_in :meeting_title, with: "Dummy title3"
+        new_description.length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+        select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+
+        click_on "Update"
+      end
+
+      within ".flash__message" do
+        expect(page).to have_text("There was a problem updating the meeting")
+      end
+    end
+  end
+
   describe "editing my own meeting" do
     let(:new_title) { "This is my meeting new title" }
     let(:new_description) { "This is my meeting new body" }
 
     before do
       login_as user, scope: :user
+    end
+
+    context "and empties the form" do
+      it "allows submission and show errors" do
+        visit_component
+
+        click_on translated(meeting.title)
+        find("#dropdown-trigger-resource-#{meeting.id}").click
+        click_on "Edit"
+
+        expect(page).to have_no_css("*[type=submit][data-disable='true']")
+
+        fill_in :meeting_title, with: ""
+
+        within ".meetings_form" do
+          find("*[type=submit]").click
+
+          expect(page).to have_css("div.sr-announce")
+          within "div.sr-announce" do
+            expect(page).to have_text("There are errors on the form, please correct them to continue.")
+          end
+
+          expect(page).to have_text("There is an error in this field.")
+          expect(page).to have_no_css("*[type=submit][data-disable='true']")
+          expect(find("button[type='submit']")).not_to be_disabled
+        end
+      end
     end
 
     it "can be updated" do
@@ -43,7 +119,7 @@ describe "User edit meeting" do
       find("#dropdown-trigger-resource-#{meeting.id}").click
       click_on "Edit"
 
-      expect(page).to have_content "Edit Your Meeting"
+      expect(page).to have_text "Edit Your Meeting"
 
       within "form.meetings_form" do
         fill_in :meeting_title, with: new_title
@@ -53,9 +129,9 @@ describe "User edit meeting" do
         click_on "Update"
       end
 
-      expect(page).to have_content(new_title)
-      expect(page).to have_content(new_description)
-      expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+      expect(page).to have_text(new_title)
+      expect(page).to have_text(new_description)
+      expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
     end
 
     context "when using the front-end geocoder" do
@@ -65,6 +141,7 @@ describe "User edit meeting" do
         within_selector: "form.meetings_form",
         address_field: :meeting_address
       ) do
+        let(:geocoded_success_message) { "You have updated the meeting successfully." }
         let(:geocoded_address_value) { meeting.address }
         let(:geocoded_address_coordinates) { [latitude, longitude] }
 
@@ -77,7 +154,7 @@ describe "User edit meeting" do
           find("#dropdown-trigger-resource-#{meeting.id}").click
           click_on "Edit"
 
-          expect(page).to have_content "Edit Your Meeting"
+          expect(page).to have_text "Edit Your Meeting"
         end
       end
     end
@@ -90,14 +167,14 @@ describe "User edit meeting" do
         find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Edit"
 
-        expect(page).to have_content "Edit Your Meeting"
+        expect(page).to have_text "Edit Your Meeting"
 
         within "form.meetings_form" do
           fill_in :meeting_description, with: " "
           click_on "Update"
         end
 
-        expect(page).to have_content("problem updating")
+        expect(page).to have_text("There is an error in this field.")
       end
     end
 
@@ -111,15 +188,15 @@ describe "User edit meeting" do
         find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Edit"
 
-        expect(page).to have_content "Edit Your Meeting"
+        expect(page).to have_text "Edit Your Meeting"
 
         within "form.meetings_form" do
           expect(page).to have_no_css("div.editor-input")
         end
 
         within "textarea#meeting_description" do
-          expect(page).to have_content translated(meeting.description)
-          expect(page).to have_no_content '<div class="editor-input">'
+          expect(page).to have_text translated(meeting.description)
+          expect(page).to have_no_text '<div class="editor-input">'
         end
       end
     end
@@ -134,10 +211,10 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
-      expect(page).to have_no_content("Edit meeting")
+      expect(page).to have_no_text("Edit meeting")
       visit "#{current_path}/edit"
 
-      expect(page).to have_content("not authorized")
+      expect(page).to have_text("not authorized")
     end
   end
 end

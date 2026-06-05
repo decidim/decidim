@@ -124,7 +124,6 @@ module Decidim
       decidim-pages
       decidim-participatory_processes
       decidim-proposals
-      decidim-sortitions
       decidim-surveys
       decidim-system
       decidim-templates

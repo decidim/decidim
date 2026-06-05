@@ -1,8 +1,9 @@
-<% add_decidim_page_title(t("decidim.admin.titles.scope_types")) %>
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="card" id="scope-types">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
-      <%= t "decidim.admin.titles.scope_types" %>
+      <%= t ".title" %>
 
       <% if allowed_to? :create, :scope_type %>
         <%= link_to t("actions.add", scope: "decidim.admin"), [:new, :scope_type], class: "button button__sm button__secondary new" %>
@@ -10,7 +11,7 @@
     </h1>
   </div>
 
-<div class="callout warning"><%= t("scopes.deprecated", scope: "decidim.admin") %></div>
+<div class="flash warning"><%= t("scopes.deprecated", scope: "decidim.admin") %></div>
 
   <div class="table-stacked">
     <table class="table-list">

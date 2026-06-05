@@ -9,6 +9,18 @@ Decidim.register_component(:collaborative_texts) do |component|
 
   component.query_type = "Decidim::CollaborativeTexts::DocumentsType"
 
+  component.on(:publish) do |instance|
+    Decidim::CollaborativeTexts::Document.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::CollaborativeTexts::Document.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
+    end
+  end
+
   component.register_stat :collaborative_texts_count,
                           primary: true,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
@@ -44,7 +56,19 @@ Decidim.register_component(:collaborative_texts) do |component|
     resource.searchable = true
   end
 
-  # component.exports ...
+  component.exports :document_suggestions do |exports|
+    exports.collection do |component, _user, resource_id|
+      documents_constraint = { decidim_component_id: component.id }
+      documents_constraint[:id] = resource_id if resource_id.present?
+
+      Decidim::CollaborativeTexts::Suggestion
+        .joins(:document)
+        .where(decidim_collaborative_texts_documents: documents_constraint)
+        .includes(:document_version, document: [:component])
+    end
+
+    exports.serializer Decidim::CollaborativeTexts::SuggestionSerializer
+  end
 
   component.seeds do |participatory_space|
     require "decidim/collaborative_texts/seeds"

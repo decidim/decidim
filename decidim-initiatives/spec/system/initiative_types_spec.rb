@@ -8,43 +8,23 @@ describe "Initiatives" do
   let(:base_initiative) do
     create(:initiative, organization:)
   end
-  let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
 
   before do
     switch_to_host(organization.host)
   end
 
   context "when initiative types and scopes have not been created" do
-    it "does not show the menu link" do
-      visit decidim.root_path
-
-      within "#home__menu" do
-        expect(page).to have_no_content("Initiatives")
-      end
-    end
-
     it "does not let access to the initiatives" do
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
 
       expect(page).to have_current_path(decidim.root_path)
-      expect(page).to have_content("Initiatives are not yet configured by an administrator")
+      expect(page).to have_text("Initiatives are not yet configured by an administrator")
     end
   end
 
   context "when initiative types and scopes have been created" do
     let(:base_initiative) do
       create(:initiative, organization:)
-    end
-
-    it "shows the menu link" do
-      type = create(:initiatives_type, organization:)
-      create(:initiatives_type_scope, type:)
-
-      visit decidim.root_path
-
-      within "#home__menu" do
-        expect(page).to have_content("Initiatives")
-      end
     end
 
     context "when there are some published initiatives" do
@@ -58,49 +38,46 @@ describe "Initiatives" do
       end
 
       it_behaves_like "shows contextual help" do
-        let(:index_path) { decidim_initiatives.initiatives_path }
+        let(:index_path) { decidim_initiatives.initiatives_path(locale: I18n.locale) }
         let(:manifest_name) { :initiatives }
       end
 
       it_behaves_like "editable content for admins" do
-        let(:target_path) { decidim_initiatives.initiatives_path }
+        let(:target_path) { decidim_initiatives.initiatives_path(locale: I18n.locale) }
       end
 
       context "when requesting the initiatives path" do
         before do
-          visit decidim_initiatives.initiatives_path
+          visit decidim_initiatives.initiatives_path(locale: I18n.locale)
         end
 
         context "when accessing from the homepage" do
           it "the menu link is shown" do
-            visit decidim_initiatives.initiatives_path
+            visit decidim_initiatives.initiatives_path(locale: I18n.locale)
 
-            find_by_id("main-dropdown-summary").hover
-            within ".menu-bar__dropdown-menu" do
-              expect(page).to have_content("Initiatives")
-              click_on "Initiatives"
+            within "#menu-bar" do
+              expect(page).to have_text("Initiatives")
             end
-
-            expect(page).to have_current_path(decidim_initiatives.initiatives_path)
+            expect(page).to have_current_path(decidim_initiatives.initiatives_path(locale: I18n.locale))
           end
         end
 
         it "lists all the initiatives" do
           within "#initiatives" do
-            expect(page).to have_content("1")
-            expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).to have_no_content(translated(unpublished_initiative.title, locale: :en))
+            expect(page).to have_text("1")
+            expect(page).to have_text(translated(initiative.title, locale: :en))
+            expect(page).to have_no_text(translated(unpublished_initiative.title, locale: :en))
           end
         end
 
         it "links to the individual initiative page" do
           click_on(translated(initiative.title, locale: :en))
-          expect(page).to have_current_path(decidim_initiatives.initiative_path(initiative))
+          expect(page).to have_current_path(decidim_initiatives.initiative_path(initiative, locale: I18n.locale))
         end
 
         it "displays the filter initiative type filter" do
           within ".new_filter[action$='/initiatives']" do
-            expect(page).to have_content(/Type/i)
+            expect(page).to have_text(/Type/i)
           end
         end
 
@@ -109,7 +86,7 @@ describe "Initiatives" do
 
           it "does not display the initiative type filter" do
             within ".new_filter[action$='/initiatives']" do
-              expect(page).to have_no_content(/Type/i)
+              expect(page).to have_no_text(/Type/i)
             end
           end
         end
@@ -121,16 +98,16 @@ describe "Initiatives" do
           let(:base_initiative) { nil }
 
           before do
-            visit decidim_initiatives.initiatives_path
+            visit decidim_initiatives.initiatives_path(locale: I18n.locale)
           end
 
           it "displays a warning" do
-            expect(page).to have_content("Currently, there are no open initiatives, but here you can find all the closed initiatives listed.")
+            expect(page).to have_text("Currently, there are no open initiatives, but here you can find all the closed initiatives listed.")
           end
 
           it "shows closed initiatives" do
             within "#initiatives" do
-              expect(page).to have_content(translated(closed_initiative.title, locale: :en))
+              expect(page).to have_text(translated(closed_initiative.title, locale: :en))
             end
           end
         end
@@ -143,14 +120,14 @@ describe "Initiatives" do
           initiative.attachments.each do |attachment|
             attachment.file.purge
           end
-          visit decidim_initiatives.initiatives_path
+          visit decidim_initiatives.initiatives_path(locale: I18n.locale)
         end
 
         it "lists all the initiatives without errors" do
           within "#initiatives" do
-            expect(page).to have_content("1")
-            expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).to have_no_content(translated(unpublished_initiative.title, locale: :en))
+            expect(page).to have_text("1")
+            expect(page).to have_text(translated(initiative.title, locale: :en))
+            expect(page).to have_no_text(translated(unpublished_initiative.title, locale: :en))
           end
         end
       end
@@ -162,7 +139,7 @@ describe "Initiatives" do
 
           create(:attachment, attached_to: initiative)
 
-          visit decidim_initiatives.initiatives_path
+          visit decidim_initiatives.initiatives_path(locale: I18n.locale)
         end
 
         it "shows the card image" do
@@ -176,11 +153,11 @@ describe "Initiatives" do
     context "when there are more than 20 initiatives" do
       before do
         create_list(:initiative, 21, organization:)
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "shows the correct initiatives count" do
-        expect(page).to have_content("21")
+        expect(page).to have_text("21")
       end
     end
   end

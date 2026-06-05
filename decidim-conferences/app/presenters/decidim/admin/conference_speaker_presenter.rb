@@ -8,10 +8,18 @@ module Decidim
     class ConferenceSpeakerPresenter < SimpleDelegator
       def name
         if user
-          "#{user.name} (#{Decidim::UserPresenter.new(user).nickname})"
+          "#{user.name} (#{user.nickname})"
         else
           full_name
         end
+      end
+
+      private
+
+      def user
+        @user ||= if (user = __getobj__.user.presence)
+                    Decidim::UserPresenter.new(user)
+                  end
       end
     end
   end

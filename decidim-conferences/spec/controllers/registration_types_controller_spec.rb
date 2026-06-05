@@ -29,8 +29,8 @@ module Decidim
       describe "index" do
         context "when registration_types is present" do
           it "does not raise an error" do
-            get :index, params: { conference_slug: conference.slug }
-            assert_response :success
+            get :index, params: { conference_slug: conference.slug, locale: I18n.locale }
+            expect(response).to have_http_status(:success)
           end
         end
 
@@ -39,7 +39,7 @@ module Decidim
 
           context "and current_participatory_space registrations is enabled" do
             it "does raise an error" do
-              expect { get :index, params: { conference_slug: conference.slug } }
+              expect { get :index, params: { conference_slug: conference.slug, locale: I18n.locale } }
                 .to raise_error(ActionController::RoutingError)
             end
           end
@@ -48,8 +48,8 @@ module Decidim
             let(:registrations_enabled) { false }
 
             it "does not raise an error" do
-              get :index, params: { conference_slug: conference.slug }
-              assert_response :success
+              get :index, params: { conference_slug: conference.slug, locale: I18n.locale }
+              expect(response).to have_http_status(:success)
             end
           end
         end

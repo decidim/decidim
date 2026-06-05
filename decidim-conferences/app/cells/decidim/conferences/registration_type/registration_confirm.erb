@@ -4,7 +4,7 @@
     <div class="font-semibold text-black text-2xl" id="dialog-title-conference-registration-confirm-<%= model.id %>"><%= I18n.t("registration", scope: "decidim.conferences.conference.show") %></div>
   </div>
 
-  <div id="dialog-desc-conference-registration-confirm-<%= model.id %>" class="text-gray-2 text-xl mt-9">
+  <div id="dialog-desc-conference-registration-confirm-<%= model.id %>" class="text-gray-2 text-xl mt-9 prose">
     <%= decidim_sanitize_editor translated_attribute(conference.registration_terms) %>
   </div>
 
