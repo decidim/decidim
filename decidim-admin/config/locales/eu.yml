@@ -844,6 +844,7 @@ eu:
             invalid: Arazo bat izan da parte-hartzaileak desblokeatzean.
             success: Parte-hartzaileak zuzen desblokeatuta.
         create:
+          no_user_found: Parte-hartzailea ez da aurkitu.
           success: Pate-hartzailea zuzen ofizializatua.
         destroy:
           success: Parte-hartzailearen ofizializazioa behar bezala desgaitua.
