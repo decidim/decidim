@@ -382,9 +382,9 @@ GEM
       nokogiri (~> 1.19)
       rubyzip (~> 3.2)
     docile (1.4.1)
-    doorkeeper (5.9.1)
+    doorkeeper (5.9.2)
       railties (>= 5)
-    doorkeeper-i18n (5.2.8)
+    doorkeeper-i18n (5.2.9)
       doorkeeper (>= 5.2)
     drb (2.2.3)
     dry-auto_inject (1.1.0)
@@ -652,7 +652,7 @@ GEM
       premailer (~> 1.7, >= 1.7.9)
     prettyprint (0.2.0)
     prism (1.9.0)
-    psych (5.3.1)
+    psych (5.4.0)
       date
       stringio
     public_suffix (7.0.5)
@@ -932,7 +932,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yard (0.9.44)
-    zeitwerk (2.8.1)
+    zeitwerk (2.8.2)
 
 PLATFORMS
   arm64-darwin-23
