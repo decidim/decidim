@@ -8,7 +8,7 @@ The `DeleteBudget` mutation allows authenticated administrators to soft-delete b
 ----
 mutation deleteBudget($componentId: ID!, $budgetId: ID!){
   component(id: $componentId){
-    ...on BudgetsMutation{
+    ... on BudgetsMutation {
       budget(id: $budgetId){
         delete(id: $budgetId) {
           id

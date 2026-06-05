@@ -32,12 +32,12 @@ describe "Amendment Wizard" do
       end
 
       it "shows the new amendment form" do
-        expect(page).to have_content("Create Amendment Draft")
+        expect(page).to have_text("Create Amendment Draft")
 
         within ".new_amendment" do
           fill_in :amendment_emendation_params_title, with: title
           fill_in :amendment_emendation_params_body, with: body
-          expect(page).to have_content("Create")
+          expect(page).to have_text("Create")
           find("*[type=submit]").click
         end
       end
@@ -48,7 +48,7 @@ describe "Amendment Wizard" do
         end
 
         it "redirects to the proposal page" do
-          expect(page).to have_content(translated(proposal.title))
+          expect(page).to have_text(translated(proposal.title))
           find("#dropdown-trigger-resource-#{proposal.id}").click
           expect(page).to have_css("#amend-button")
         end
@@ -72,10 +72,10 @@ describe "Amendment Wizard" do
       end
 
       it "shows a preview before publishing" do
-        expect(page).to have_content("Publish Amendment Draft")
-        expect(page).to have_content(title)
-        expect(page).to have_content(user.name)
-        expect(page).to have_content(body)
+        expect(page).to have_text("Publish Amendment Draft")
+        expect(page).to have_text(title)
+        expect(page).to have_text(user.name)
+        expect(page).to have_text(body)
         expect(page).to have_button(text: "Publish")
         expect(page).to have_css("a", text: "Modify")
       end
@@ -89,7 +89,7 @@ describe "Amendment Wizard" do
           expect(page).to have_css(".flash[data-announcement]", text: "This amendment for the proposal #{translated(proposal.title)} is being evaluated.")
 
           within "[data-alert-box].success" do
-            expect(page).to have_content("Amendment successfully published.")
+            expect(page).to have_text("Amendment successfully published.")
           end
         end
       end
@@ -109,12 +109,12 @@ describe "Amendment Wizard" do
 
       it "is NOT shown the amendment draft in the amendments list" do
         within("#amendments") do
-          expect(page).to have_content("1 amendment")
+          expect(page).to have_text("1 amendment")
         end
 
         within "#amendment-list" do
-          expect(page).to have_content(translated(emendation.title))
-          expect(page).to have_no_content(translated(emendation_draft.title))
+          expect(page).to have_text(translated(emendation.title))
+          expect(page).to have_no_text(translated(emendation_draft.title))
         end
       end
     end

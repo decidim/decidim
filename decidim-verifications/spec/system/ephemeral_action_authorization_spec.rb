@@ -59,12 +59,12 @@ describe "ephemeral action authorization" do
         end
 
         it "redirects to ephemeral verification form" do
-          expect(page).to have_content("Please verify your identity to proceed")
+          expect(page).to have_text("Please verify your identity to proceed")
           expect(page).to have_css("h1", text: "Verify with Ephemeral example authorization")
         end
 
         it "displays a tos acceptance item" do
-          expect(page).to have_content("By verifying your identity you accept the terms of service.")
+          expect(page).to have_text("By verifying your identity you accept the terms of service.")
         end
       end
 
@@ -85,10 +85,10 @@ describe "ephemeral action authorization" do
           it "prevents submission of form" do
             click_on "Send"
 
-            expect(page).to have_content("There was a problem creating the authorization.")
+            expect(page).to have_text("There was a problem creating the authorization.")
 
             within "#card__tos" do
-              expect(page).to have_content("must be accepted")
+              expect(page).to have_text("must be accepted")
             end
           end
         end
@@ -101,8 +101,8 @@ describe "ephemeral action authorization" do
 
           context "when data matches the authorization criteria" do
             it "the user is authorized and redirected to the action" do
-              expect(page).to have_content "You have been successfully authorized"
-              expect(page).to have_content "You have started a guest session, you can now participate"
+              expect(page).to have_text "You have been successfully authorized"
+              expect(page).to have_text "You have started a guest session, you can now participate"
 
               expect(page).to have_css "h1", text: "Create new proposal"
             end
@@ -112,7 +112,7 @@ describe "ephemeral action authorization" do
               fill_in :proposal_body, with: "The proposal includes a lot of ideas"
               click_on "Continue"
 
-              expect(page).to have_content "Proposal successfully created. Saved as a Draft."
+              expect(page).to have_text "Proposal successfully created. Saved as a Draft."
 
               accept_confirm do
                 find("#main-bar [data-close]").click
@@ -128,7 +128,7 @@ describe "ephemeral action authorization" do
               check :authorization_handler_tos_agreement
               click_on "Send"
 
-              expect(page).to have_content "Edit proposal draft"
+              expect(page).to have_text "Edit proposal draft"
 
               expect(page).to have_field :proposal_title, with: "This is a new proposal"
               expect(page).to have_field :proposal_body, with: "The proposal includes a lot of ideas"
@@ -140,9 +140,9 @@ describe "ephemeral action authorization" do
             let(:valid_postal_code) { "1234" }
 
             it "the user is not allowed to perform the action and signed out" do
-              expect(page).to have_no_content "You have been successfully authorized, now you can create a proposal in the component"
-              expect(page).to have_content "You are not authorized to perform this action."
-              expect(page).to have_content "Your guest session has finished"
+              expect(page).to have_no_text "You have been successfully authorized, now you can create a proposal in the component"
+              expect(page).to have_text "You are not authorized to perform this action."
+              expect(page).to have_text "Your guest session has finished"
               expect(page).to have_link "Log in"
             end
 
@@ -157,8 +157,8 @@ describe "ephemeral action authorization" do
               check :authorization_handler_tos_agreement
               click_on "Send"
 
-              expect(page).to have_content "You are not authorized to perform this action."
-              expect(page).to have_content "Your guest session has finished"
+              expect(page).to have_text "You are not authorized to perform this action."
+              expect(page).to have_text "Your guest session has finished"
               expect(page).to have_link "Log in"
             end
 
@@ -172,8 +172,8 @@ describe "ephemeral action authorization" do
               fill_in_datepicker :authorization_handler_birthday_date, with: birthdate
               check :authorization_handler_tos_agreement
               click_on "Send"
-              expect(page).to have_content "You have been successfully authorized"
-              expect(page).to have_content "You have started a guest session, you can now participate"
+              expect(page).to have_text "You have been successfully authorized"
+              expect(page).to have_text "You have started a guest session, you can now participate"
 
               expect(page).to have_css "h1", text: "Create new proposal"
             end
@@ -201,9 +201,9 @@ describe "ephemeral action authorization" do
         visit main_component_path(component)
         expect { click_on "New proposal" }.not_to change(Decidim::User, :count)
 
-        expect(page).to have_no_content("Verify with Example authorization")
+        expect(page).to have_no_text("Verify with Example authorization")
         expect(page).to have_css("#loginModal", visible: :visible)
-        expect(page).to have_content("Please log in")
+        expect(page).to have_text("Please log in")
       end
     end
   end
@@ -239,7 +239,7 @@ describe "ephemeral action authorization" do
       end
 
       it "redirects to ephemeral verification form" do
-        expect(page).to have_content("We need to verify your identity")
+        expect(page).to have_text("We need to verify your identity")
         expect(page).to have_css("h1", text: "Verify with Ephemeral example authorization")
       end
 

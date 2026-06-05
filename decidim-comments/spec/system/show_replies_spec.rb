@@ -14,6 +14,7 @@ describe "Show replies" do
   before do
     switch_to_host(organization.host)
     visit resource_path
+    expect(page).to have_text(translated_attribute(commentable.title))
   end
 
   after do
@@ -22,7 +23,7 @@ describe "Show replies" do
 
   context "when viewing a comment with replies" do
     it "shows the replies button with the correct count" do
-      expect(page).to have_content("3 replies")
+      expect(page).to have_text("3 replies")
     end
 
     it "loads the replies when clicking the button", :slow do
@@ -45,6 +46,7 @@ describe "Show replies" do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit resource_path
+      expect(page).to have_button(id: "trigger-dropdown-account")
     end
 
     after do
@@ -52,7 +54,7 @@ describe "Show replies" do
     end
 
     it "shows comments after loading more", :slow do
-      expect(page).to have_content("Load more comments")
+      expect(page).to have_text("Load more comments")
 
       click_button "Load more comments"
 
@@ -80,21 +82,21 @@ describe "Show replies" do
 
       click_button "Publish reply"
 
-      expect(page).to have_content("This is my reply")
+      expect(page).to have_text("This is my reply")
     end
   end
 
   context "when the locale is different than English" do
     before do
-      visit resource_path
-
       within_language_menu do
         click_on "Castellano"
       end
+
+      expect(page).to have_css(%(html[lang="es"]))
     end
 
     it "shows the replies button in the correct locale" do
-      expect(page).to have_content("3 respuestas")
+      expect(page).to have_text("3 respuestas")
     end
 
     it "loads the replies when clicking the button in the correct locale", :slow do

@@ -197,9 +197,6 @@ pt:
       update_draft:
         error: Ocorreu um problema ao atualizar o rascunho da modificação.
         success: Rascunho da modificação atualizado corretamente.
-      wizard_step_form:
-        steps:
-          '1': Criar a sua modificação
     anonymous_user: Anônimo
     application:
       document:
@@ -402,13 +399,9 @@ pt:
           affected_user:
             email_intro: 'Uma modificação foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Modificação aceite para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emenda</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Uma modificação foi aceite para %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações a partir da hiperligação anterior.
-            email_subject: Modificação aceite para %{amendable_title} por %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">modificação</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Uma nova modificação foi criada para %{amendable_title}. Pode vê-la a partir desta página:'
@@ -424,24 +417,16 @@ pt:
           affected_user:
             email_intro: 'Uma modificação rejeitada por %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Uma modificação de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
-            notification_title: Uma <a href="%{emendation_path}">modificação rejeitada</a> para <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Uma modificação rejeitada de %{amendable_title} foi publicada como um novo %{amendable_type}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-            email_subject: Uma modificação de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
-            notification_title: Uma <a href="%{emendation_path}">modificação rejeitada</a> de <a href="%{amendable_path}">%{amendable_title}</a> foi publicada como um novo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Uma modificação foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação por ser um autor de %{amendable_title}.
-            email_subject: Modificação de %{amendable_title} rejeitada por %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">modificação</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Uma modificação foi rejeitada por %{amendable_title}. Pode vê-la a partir desta página:'
             email_outro: Recebeu esta notificação porque segue %{amendable_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-            email_subject: Modificação de %{amendable_title} rejeitada por %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">modificação</a> criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitada por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Um novo documento foi adicionado a %{resource_title}. Pode vê-lo a partir desta página:'
@@ -472,12 +457,6 @@ pt:
           notification_title: |-
             Um administrador removeu o seu %{resource_type} porque foi denunciado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      users:
-        profile_updated:
-          email_intro: A <a href="%{resource_url}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
-          email_outro: Recebeu esta notificação porque segue %{nickname}. Pode parar de receber notificações seguindo a hiperligação anterior.
-          email_subject: "%{nickname} atualizaram seu perfil"
-          notification_title: A <a href="%{resource_path}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
     export_mailer:
       download_your_data_export:
         download: Transferir

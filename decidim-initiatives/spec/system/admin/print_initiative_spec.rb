@@ -18,7 +18,7 @@ describe "User prints the initiative" do
 
         it "redirects to the login page" do
           expect(page).to have_current_path(decidim.new_user_session_path)
-          expect(page).to have_content("You are not authorized to perform this action.")
+          expect(page).to have_text("You are not authorized to perform this action.")
         end
       end
 
@@ -47,7 +47,7 @@ describe "User prints the initiative" do
 
         it "redirects to the home page" do
           expect(page).to have_current_path(decidim.root_path)
-          expect(page).to have_content("You are not authorized to perform this action.")
+          expect(page).to have_text("You are not authorized to perform this action.")
         end
       end
 
@@ -151,7 +151,7 @@ describe "User prints the initiative" do
         it "does not show the print link" do
           within("tr", text: translated(initiative.title)) do
             find("button[data-controller='dropdown']").click
-            expect(page).to have_no_content("Print")
+            expect(page).to have_no_text("Print")
           end
         end
       end

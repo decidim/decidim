@@ -5,7 +5,7 @@ shared_examples "accessing the component in a participatory space" do
     let(:user) { nil }
 
     it "shows the unauthenticated message" do
-      expect(page).to have_content "You need to log in or create an account before continuing."
+      expect(page).to have_text "You need to log in or create an account before continuing."
     end
   end
 
@@ -30,7 +30,7 @@ shared_examples "accessing the component in a participatory space" do
     end
 
     it "access the index page" do
-      expect(page).to have_content(title)
+      expect(page).to have_text(title)
     end
   end
 end

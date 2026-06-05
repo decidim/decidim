@@ -11,7 +11,7 @@ module Decidim::Meetings
     context "when rendering" do
       it "renders the meeting's description" do
         html = cell("decidim/reported_content", meeting).call
-        expect(html).to have_content("the meeting's description")
+        expect(html).to have_text("the meeting's description")
       end
     end
   end

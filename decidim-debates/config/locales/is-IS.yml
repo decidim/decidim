@@ -63,9 +63,6 @@ is-IS:
             title: Titill
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
         creation_disabled:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Umræða um stofnun fatlaður í %{participatory_space_title}

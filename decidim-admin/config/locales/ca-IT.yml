@@ -899,6 +899,7 @@ ca-IT:
       officializations:
         block:
           error: Hi ha hagut un problema en bloquejar a la participant.
+          no_user: No s'ha trobat cap usuària
           success: Participant bloquejada correctament.
         bulk_action:
           block:
@@ -934,6 +935,7 @@ ca-IT:
           officialize: Oficialitza
           title: Oficialitza la participant "%{name}"
         show_email:
+          no_user: No s'ha trobat cap usuària
           title: Mostra el correu electrònic
         show_email_modal:
           description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció es registrarà.

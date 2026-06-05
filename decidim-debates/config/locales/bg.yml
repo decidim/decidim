@@ -147,13 +147,6 @@ bg:
             email_outro: Получихте това известие, защото следвате %{participatory_space_title} пространство за участие. Можете да спрете да получавате известия, като следвате предишната връзка.
             email_subject: Нов дебат „%{resource_title}“ на %{participatory_space_title}
             notification_title: Дебатът <a href="%{resource_path}">%{resource_title}</a> беше създаден на <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-          user_followers:
-            email_intro: |-
-              Здравейте,
-              участниът %{author_name} %{author_nickname}, когото следвате, създаде нов дебат „%{resource_title}“. Вижте го и допринесете:
-            email_outro: Получихте това известие, защото следвате %{author_nickname}. Можете да спрете да получавате известия, като последвате предходния линк.
-            email_subject: Нов дебат „%{resource_title}“ от %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> създаде дебата <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Създаването на дебати вече не е активно в(ъв) %{participatory_space_title}. Все още можете да участвате в отворени дебати от следната страница:'
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.

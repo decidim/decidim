@@ -131,6 +131,9 @@ fr-CA:
           save: Enregistrer
           title: Modifier l'application
         form:
+          scopes_explanation:
+            "admin:read": Permet à un utilisateur d'effectuer des opérations de requête relatives à l'administration à travers l'API GraphQL.
+            "admin:write": Permet à l'utilisateur d'effectuer des opérations de mutation relatives à l'administration à travers l'API GraphQL.
           select_organization: Sélectionnez une organisation
         index:
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
