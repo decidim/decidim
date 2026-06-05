@@ -18,7 +18,7 @@ eu:
         answer: Erantzuna
         answered_at: '-k erantzuna'
         automatic_hashtags: Traola automatikoki gehitu da
-        body: Gorputza
+        body: Testua
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Eremua
         has_address: Helbidea du
@@ -669,7 +669,7 @@ eu:
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
-            body: Gorputza
+            body: Testua
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
             endorsements_count: Atxikimendu kopurua
