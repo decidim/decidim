@@ -118,7 +118,10 @@ describe "User edits a debate" do
 
         expect(page).to have_text("Debate successfully updated.")
         expect(page).to have_css("[data-author]", text: user.name)
-        expect(page).to have_css("img[src*='#{image_filename}']")
+
+        click_on "Images"
+
+        expect(page).to have_css("img[src*='#{image_filename}']", visible: :all)
 
         click_on "Documents"
 
