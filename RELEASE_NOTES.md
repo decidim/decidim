@@ -46,6 +46,12 @@ bin/rails data:migrate
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
+### 2.2. Generator: add missing gem for GCS storage setups
+
+Applications generated with `--storage gcs` (or combinations including `gcs`) now include `multi_json` in the Gemfile.
+
+This prevents boot-time errors in production configuration checks where Active Storage resolves the GCS adapter and its transitive dependencies.
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.

@@ -830,6 +830,7 @@ shared_examples_for "an application with cloud storage gems" do
     expect(File.read("#{test_app}/Gemfile"))
       .to match(/gem ["']+aws-sdk-s3["']+/)
       .and match(/gem ["']+google-cloud-storage["']+/)
+      .and match(/gem ["']+multi_json["']+/)
 
     services.each do |service|
       current = rails_value("Rails.application.config.active_storage.service", test_app, storage_envs.merge({ "STORAGE_PROVIDER" => service }))

@@ -218,10 +218,8 @@ module Decidim
 
         add_production_gems do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
-          if providers.include?("gcs")
-            gem "google-cloud-storage", "~> 1.11", require: false
-            gem "multi_json"
-          end
+          gem "google-cloud-storage", "~> 1.11", require: false if providers.include?("gcs")
+          gem "multi_json", require: false if providers.include?("gcs")
         end
       end
 
