@@ -12,7 +12,7 @@ class ChangeUsersInActionLogsProposals < ActiveRecord::Migration[7.2]
   end
 
   def up
-    ActionLog.where(resource_type: "Decidim::Proposals::Proposal").find_each do |action_log|
+    ActionLog.includes(:resource, :user).where(resource_type: "Decidim::Proposals::Proposal").find_each do |action_log|
       next unless action_log.resource
 
       author = action_log.resource.creator_author
