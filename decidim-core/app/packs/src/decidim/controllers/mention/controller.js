@@ -97,7 +97,8 @@ export default class extends Controller {
     this.currentMentionStart = trigger.start;
 
     if (trigger.query.length < 2) {
-      this.requestId += 1; // Invalidate any pending debounced searches
+      // Invalidate any pending debounced searches
+      this.requestId += 1;
       this.showMessage(this.options.searchPromptMessage);
       return;
     }
