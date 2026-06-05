@@ -168,7 +168,7 @@ module Decidim
       end
 
       def bundle_install
-        run "bundle install"
+        Bundler.with_original_env { run "bundle install" }
       end
 
       def copy_migrations
