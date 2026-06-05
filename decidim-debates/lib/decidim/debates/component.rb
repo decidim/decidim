@@ -85,7 +85,7 @@ Decidim.register_component(:debates) do |component|
       Decidim::Debates::Debate
         .not_hidden
         .where(component: component_instance)
-        .includes(:taxonomies, component: { participatory_space: :organization })
+        .includes(:author, :taxonomies, component: { participatory_space: :organization })
     end
 
     exports.include_in_open_data = true

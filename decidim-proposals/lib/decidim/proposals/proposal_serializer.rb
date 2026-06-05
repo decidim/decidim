@@ -90,7 +90,7 @@ module Decidim
       end
 
       def user_likes
-        proposal.likes.for_listing.map { |identity| identity.author&.name }
+        proposal.likes.includes(:author).for_listing.map { |identity| identity.author&.name }
       end
 
       def original_proposal_url
