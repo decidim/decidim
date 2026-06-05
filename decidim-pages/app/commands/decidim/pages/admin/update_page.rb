@@ -8,6 +8,7 @@ module Decidim
       class UpdatePage < Decidim::Command
         include ::Decidim::MultipleAttachmentsMethods
         include ::Decidim::GalleryMethods
+
         # Initializes a UpdatePage Command.
         #
         # form - The form from which to get the data.

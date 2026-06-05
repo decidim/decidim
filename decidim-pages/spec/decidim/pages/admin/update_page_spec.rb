@@ -7,7 +7,7 @@ describe Decidim::Pages::Admin::UpdatePage do
 
   let(:component) { create(:page_component) }
   let(:organization) { component.organization }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:attachment_params) { nil }
   let(:uploaded_photos) { [] }
 
@@ -22,7 +22,7 @@ describe Decidim::Pages::Admin::UpdatePage do
     )
   end
 
-  let!(:page) { create(:page, component: component) }
+  let!(:page) { create(:page, component:) }
 
   describe "call" do
     let(:form_params) do
