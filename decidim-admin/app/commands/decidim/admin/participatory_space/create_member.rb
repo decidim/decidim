@@ -70,7 +70,7 @@ module Decidim
 
           if @existing_user&.invitation_pending?
             InviteUserAgain.call(@existing_user, invitation_instructions)
-          else
+          elsif @existing_user.present?
             Decidim::EventsManager.publish(
               event: "decidim.events.participatory_space.member_added",
               event_class: Decidim::ParticipatorySpace::MemberAddedEvent,
