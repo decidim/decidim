@@ -909,6 +909,7 @@ es:
             invalid: Se ha producido un error al desbloquear a las participantes.
             success: Participantes desbloqueadas correctamente.
         create:
+          no_user_found: No se ha encontrado a esta participante.
           success: Participante oficializada correctamente.
         destroy:
           success: Se ha retirado correctamente la oficialización de la participante.
