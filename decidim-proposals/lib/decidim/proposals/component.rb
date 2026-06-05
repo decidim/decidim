@@ -174,7 +174,7 @@ Decidim.register_component(:proposals) do |component|
                    .published
                    .not_hidden
                    .where(component: component_instance)
-                   .includes(:taxonomies, :amendable,  component: { participatory_space: :organization })
+                   .includes(:taxonomies, :amendable, component: { participatory_space: :organization })
 
       if space.user_roles(:evaluator).where(user:).any?
         collection.with_evaluation_assigned_to(user, space)

@@ -14,6 +14,11 @@ describe "Admin reminds users with pending orders" do
   let!(:order2) { create(:order, budget:, user: user2, created_at: 3.days.ago) }
 
   before do
+    # We do not optimize n+1 here, as the n+1 comes from the enqueue mechanism, which is calling various jobs where the user is required.
+    # Does not make sense to optimize the enqueuer just for tests
+    Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Reminder", :association => :user
+    Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Reminder", :association => :component
+
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
