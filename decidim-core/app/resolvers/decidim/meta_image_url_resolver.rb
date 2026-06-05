@@ -79,7 +79,7 @@ module Decidim
         image_url = image_element["src"]
         next if image_url.blank?
 
-        blob = find_blob_by_key(image_url.split("/").second_to_last)
+        blob = find_blob_from_url(image_url)
         return blob if blob.present?
       end
 
@@ -114,6 +114,12 @@ module Decidim
       end
 
       nil
+    end
+
+    def find_blob_from_url(url)
+      return GlobalID::Locator.locate(url) if url.start_with?("gid://")
+
+      find_blob_by_key(url.split("/").second_to_last)
     end
 
     def find_blob_by_key(blob_key)

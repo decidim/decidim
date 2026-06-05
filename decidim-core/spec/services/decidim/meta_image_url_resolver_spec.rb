@@ -89,6 +89,16 @@ describe Decidim::MetaImageUrlResolver do
     it { is_expected.to end_with("/description_image.jpg") }
   end
 
+  context "when no attachments and description image is present as GlobalID" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:body) do
+      { en: "<p><img src=\"#{description_image.to_global_id}\"></p>" }
+    end
+
+    it { is_expected.to end_with("/description_image.jpg") }
+  end
+
   context "when no previous images and belongs to a participatory space" do
     let(:resource) { proposal }
     let(:attachment) { nil }
