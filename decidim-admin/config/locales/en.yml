@@ -910,6 +910,7 @@ en:
             invalid: There was a problem unblocking the participants.
             success: Participants successfully unblocked.
         create:
+          no_user_found: Participant was not found.
           success: Participant successfully officialized.
         destroy:
           success: Participant successfully unofficialized.
