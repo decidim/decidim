@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Pages::Admin::PageForm do
   subject do
     described_class.from_params(attributes).with_context(
-      current_organization: current_organization
+      current_organization:
     )
   end
 
@@ -25,8 +25,8 @@ describe Decidim::Pages::Admin::PageForm do
   let(:attributes) do
     {
       page: {
-        body: body,
-        commentable: commentable,
+        body:,
+        commentable:,
         attachment: attachment_params
       }
     }

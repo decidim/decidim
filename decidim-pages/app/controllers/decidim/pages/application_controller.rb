@@ -9,6 +9,7 @@ module Decidim
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
       include ::Decidim::AttachmentsHelper
+
       helper_method :tab_panel_items
 
       def show
