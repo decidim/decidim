@@ -54,8 +54,9 @@ module Decidim
           context "and is an admin with expired password and only omniauth is enabled" do
             before do
               organization.update(users_registration_mode: :existing)
-              user.update(password_updated_at: 93.days.ago)
             end
+
+            let(:user) { build(:user, :admin, password_updated_at: 93.days.ago, sign_in_count: 1, organization:) }
 
             it { is_expected.not_to eq controller.decidim.change_password_path }
           end
@@ -65,7 +66,7 @@ module Decidim
               organization.update(users_registration_mode: :enabled)
             end
 
-            let(:user) { build(:user, :admin, password_updated_at: 93.days.ago, sign_in_count: 1) }
+            let(:user) { build(:user, :admin, password_updated_at: 93.days.ago, sign_in_count: 1, organization:) }
 
             it { is_expected.to eq controller.decidim.change_password_path }
           end
