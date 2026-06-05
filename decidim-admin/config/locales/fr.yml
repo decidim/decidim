@@ -887,6 +887,7 @@ fr:
             invalid: Une erreur s'est produite lors du déblocage des participants.
             success: Participants débloqués avec succès.
         create:
+          no_user_found: Le participant n'a pas été trouvé.
           success: Utilisateur validé avec succès.
         destroy:
           success: Validation de l'utilisateur retirée avec succès.
