@@ -189,6 +189,8 @@ ca:
           application_type_help_html: 'El tipus de client OAuth definit per <a href="%{client_type_link}" target="_blank">RFC 6749 Secció 2.1</a>. Els clients públics han d''implementar el flux PKCE segons el que defineix <a href="%{pkce_link}" target="_blank">RFC 7636</a>.'
           refresh_tokens_help_html: 'Els autentificadors (tokens) d''actualització són útils en cas que l''autentificador necessiti una vida útil més llarga que l''assignada a l''autentificador d''accés.'
           scopes_explanation:
+            "admin:read": Permet a una usuària fer consultes relacionades amb les activitats d'administració a través de l'API de GraphQL.
+            "admin:write": Permet a la usuària fer operacions de modificació de dades d'administració a través de l'API de GraphQL.
             "api:read": Permet a la usuària fer operacions de consulta a través de l'API GraphQL.
             "api:write": Permet a la usuària fer operacions de mutació a través de l'API GraphQL.
             profile: Proporciona accés als detalls del perfil de la usuària. Aquest àmbit només és necessari si l'aplicació OAuth només s'utilitza com a proveïdor d'identitat o servei d'autenticació.

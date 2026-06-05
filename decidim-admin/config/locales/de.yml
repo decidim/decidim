@@ -265,6 +265,8 @@ de:
         edit:
           title: Ordner bearbeiten
           update: Aktualisieren
+        index:
+          title: Ordner für Anhänge
         new:
           create: Erstellen
           title: Neuer Ordner
@@ -280,6 +282,8 @@ de:
         edit:
           title: Anhang bearbeiten
           update: Aktualisieren
+        index:
+          title: Anhänge
         new:
           create: Anhang erstellen
           title: Neuer Anhang

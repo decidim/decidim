@@ -130,14 +130,6 @@ zh-TW:
             title: 標題
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              嗨，
-              你正在追蹤的 %{author_name} %{author_nickname} 創建了一個新辯論主題 "%{resource_title}"。點擊下方連結查看並參與辯論：
-            email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
-            email_subject: 新辯論主題「%{resource_title}」，由 %{author_nickname} 建立
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 建立了 <a href="%{resource_path}">%{resource_title}</a> 辯論。
         creation_disabled:
           email_intro: '在 %{participatory_space_title} 中不再開放建立辯論。您仍可在此頁面參與開放辯論：'
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。

@@ -150,22 +150,16 @@ hu:
             accept: Elfogad
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} jóváhagyva, mint közreműködő ebben: %{resource_title}."
-          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> jóváhagyva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name} elutasítva, mint közreműködő ebben a közösen szerkesztett vázlatban: %{resource_title}."
-          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> elutasítva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requested:
           email_subject: "%{requester_name} közreműködési hozzáférést kért ehhez: %{resource_title}."
-          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> közreműködése hozzáférést kért a következő közös vázlathoz: <a href="%{resource_path}">%{resource_title}</a>. Kérlek, <strong>fogadd el vagy utasítsd el a kérelmet</strong>.'
         collaborative_draft_access_requester_accepted:
           email_subject: 'Jóváhagyták közreműködési kérelmedet itt: %{resource_title}.'
           notification_title: 'Közreműködési kérelmedet <strong>jóváhagyták</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requester_rejected:
           email_subject: 'Közreműködési kérelmedet elutasították itt: %{resource_title}.'
           notification_title: 'Közreműködési kérelmedet <strong>elutasították</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name} %{author_nickname} visszavonta a(z) %{resource_title} közös vázlatot."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>visszavonta</strong> a(z) <a href="%{resource_path}">%{resource_title}</a> közös vázlatot.
         creation_enabled:
           email_intro: 'Mostantól új javaslatokat készíthetsz itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
@@ -176,11 +170,6 @@ hu:
           email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
           email_subject: '"%{mentioned_proposal_title}" című javaslatod említésre került'
           notification_title: '"%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_path}">egy megjegyzésben</a>.'
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, aki követi, egy új javaslatot tett közzé a "%{resource_title}" -nek. Nézze meg és járuljon hozzá:'
-          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: Új javaslat "%{resource_title}" szerint %{author_nickname}
-          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat közzétéve általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         proposal_published_for_space:
           email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'

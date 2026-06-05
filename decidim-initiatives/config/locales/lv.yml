@@ -240,12 +240,6 @@ lv:
           choose_html: Es vēlos izveidot <strong>%{title}</strong>
           more_information: (Papildu informācija)
           select: Es vēlos veicināt šo iniciatīvu
-      events:
-        create_initiative_event:
-          email_intro: "{author_name}%{author_nickname}, kam jūs sekojat, ir izveidojis jaunu iniciatīvu \"%{resource_title}\". Aplūkojiet to un piedalieties:"
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-          email_subject: '%{author_nickname} ir jauna iniciatīva'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> izveidoja iniciatīvu <a href="%{resource_path}">%{resource_title}</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Atpakaļ pie iniciatīvas

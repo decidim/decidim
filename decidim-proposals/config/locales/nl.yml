@@ -146,22 +146,16 @@ nl:
             accept: Aanvaarden
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen als een bijdrager van de %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong> aanvaard om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp toegang te krijgen.
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name} is afgewezen om toegang te krijgen als bijdrager van de %{resource_title} gezamenlijk ontwerp."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         collaborative_draft_access_requested:
           email_subject: "%{requester_name} vroeg om toegang om bij te dragen aan %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> verzocht om toegang om bij te dragen aan de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp. Gelieve <strong>accepteren of het verzoek af te wijzen</strong>.
         collaborative_draft_access_requester_accepted:
           email_subject: Je bent geaccepteerd als een bijdrager van %{resource_title}.
           notification_title: U bent <strong>geaccepteerd om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp toegang te krijgen.
         collaborative_draft_access_requester_rejected:
           email_subject: Je bent afgewezen als een bijdrager van %{resource_title}.
           notification_title: U bent <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke ontwerp.
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name} %{author_nickname} de %{resource_title} gezamenlijk ontwerp ingetrokken."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>teruggetrokken</strong> de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         creation_enabled:
           email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze link:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
@@ -171,11 +165,6 @@ nl:
           email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
           email_subject: Jouw voorstel "%{mentioned_proposal_title}" is vernoemd
           notification_title: Je voorstel '%{mentioned_proposal_title}' werd in de reacties van <a href="%{resource_path}"> deze </a> vernoemd.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, wie u volgt, heeft een nieuw voorstel gepubliceerd met de naam "%{resource_title}". Bekijk het en draag bij:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
-          email_subject: Nieuw voorstel "%{resource_title}" door %{author_nickname}
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel werd gepubliceerd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door op bovenstaande link te klikken en te stoppen met volgen.
