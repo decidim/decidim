@@ -3,7 +3,7 @@
     <h2 tabindex="-1" data-dialog-title><%= error %></h2>
     <div class="mt-4">
       <p><%= t(".intro") %></p>
-      <p><%= messages.join("<br>") %></p>
+      <p><%= safe_join(messages, tag.br) %></p>
       <p><%= t(".correct_errors") %></p>
     </div>
     <div data-dialog-actions>

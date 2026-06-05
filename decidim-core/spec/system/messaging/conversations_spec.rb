@@ -51,10 +51,11 @@ describe "Conversations" do
 
     it_behaves_like "accessible page"
 
-    it "displays an error pop-up" do
+    it "displays an error pop-up", :slow do
       recipient.destroy
       start_conversation("Is this a Ryanair style democracy?")
 
+      expect(page).to have_css("#messageErrorModal[aria-hidden='false']")
       expect(page).to have_css(".conversation-error-modal")
       expect(page).to have_text("Conversation not started. Try again later.")
     end

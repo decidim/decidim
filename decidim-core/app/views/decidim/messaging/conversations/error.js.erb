@@ -5,9 +5,11 @@ if (messageError) {
 }
 document.body.insertAdjacentHTML("beforeend", "<%= j(render "error_modal", error:, messages:).html_safe %>");
 
-var messageError = document.getElementById("messageErrorModal")
-window.createDialog(messageError);
+messageError = document.getElementById("messageErrorModal")
+if (messageError) {
+  window.createDialog(messageError);
 
-if (Decidim.currentDialogs.messageErrorModal) {
-  window.Decidim.currentDialogs.messageErrorModal.open();
+  if (Decidim.currentDialogs.messageErrorModal) {
+    window.Decidim.currentDialogs.messageErrorModal.open();
+  }
 }
