@@ -24,6 +24,7 @@ module Decidim
                             .not_title_and_description
                             .joins(:question)
                             .where(questionnaire: @questionnaire)
+                            .includes(:question, :user, :questionnaire)
 
         responses.sort_by { |response| response.question.position.to_i }.group_by { |a| a.user || a.session_token }.values
       end

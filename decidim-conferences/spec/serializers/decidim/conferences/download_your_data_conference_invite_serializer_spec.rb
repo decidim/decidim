@@ -4,7 +4,8 @@ require "spec_helper"
 
 module Decidim::Conferences
   describe DownloadYourDataConferenceInviteSerializer do
-    let(:resource) { build_stubbed(:conference_invite) }
+    let(:invite) { create(:conference_invite) }
+    let(:resource) { invite.class.includes(conference: :organization).find(invite.id) }
 
     subject { described_class.new(resource) }
 
