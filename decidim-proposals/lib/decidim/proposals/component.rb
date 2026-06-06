@@ -175,7 +175,6 @@ Decidim.register_component(:proposals) do |component|
                    .not_hidden
                    .where(component: component_instance)
 
-
       if space.user_roles(:evaluator).where(user:).any?
         collection.includes(:taxonomies, :amendable).with_evaluation_assigned_to(user, space)
       else
