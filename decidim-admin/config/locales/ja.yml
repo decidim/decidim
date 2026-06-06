@@ -829,6 +829,7 @@ ja:
       officializations:
         block:
           error: 参加者のブロック中に問題が発生しました。
+          no_user: ユーザーが見つかりません
           success: 参加者をブロックしました。
         bulk_action:
           block:
@@ -838,6 +839,7 @@ ja:
             invalid: 参加者のブロック解除中に問題が発生しました。
             success: 参加者のブロックを解除しました。
         create:
+          no_user_found: 参加者が見つかりません。
           success: 参加者が公式化されました。
         destroy:
           success: 参加者が非公式化されました。
@@ -862,6 +864,8 @@ ja:
           badge: 公式バッジ
           officialize: 公式化
           title: 参加者 "%{name} " を正規化
+        show_email:
+          no_user: ユーザーが見つかりません
         show_email_modal:
           description: 直接参加者に連絡する必要がある場合、彼らの電子メールアドレスを見るために表示ボタンをクリックしてください。このアクションは記録されます。
           email_address: メールアドレス
