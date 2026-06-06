@@ -407,6 +407,10 @@ ja:
       withdraw:
         error: 修正案の取り消し中に問題がありました。
         success: 修正を撤回しました。
+      wizard_step_form:
+        steps:
+          '1': 修正内容を作成する
+          '2': 修正内容を公開
     anonymous_user: 匿名です
     application:
       document:
@@ -1318,6 +1322,7 @@ ja:
         own_activity: 誰かが私の提案にコメントしたり、私に言及したりした時など、自分自身の活動
         push_notifications: プッシュ通知
         push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
+        push_notifications_unsupported_browser: お使いのブラウザはサポートされていません。
         receive_notifications_about: 受け取りたい通知
         update_notifications_settings: 変更を保存
       update:
@@ -1797,6 +1802,7 @@ ja:
         nickname_help: ニックネームは %{organization} です。英文字、数字、'-' および '_' のみ使用できます。
         submit_button: 保存
         subtitle: 招待を受け入れる場合は、アカウントIDとパスワードを設定してください。
+        subtitle_no_password: 招待を受け入れる場合は、ニックネームを設定してください。
       invitation_removed: 招待が削除されました。
       invitation_token_invalid: 指定された招待トークンは無効です！
       new:
@@ -1804,6 +1810,8 @@ ja:
         submit_button: 招待状を送信
       no_invitations_remaining: 招待状は残っていません
       send_instructions: '%{email} に招待メールが送信されました。'
+      updated: 招待が承認されました。サインインしています。
+      updated_not_active: 招待が承認されました。
     mailer:
       confirmation_instructions:
         action: アカウントを確認する
