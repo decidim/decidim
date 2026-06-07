@@ -10,6 +10,6 @@ css_class = case columns
             end
 %>
 
-<%= content_tag main_tag, class: "layout-1col #{css_class}" do %>
+<%= content_tag main_tag, class: "layout-1col #{css_class}", role: (main_enabled ? "main" : nil)  do %>
   <%= yield %>
 <% end %>

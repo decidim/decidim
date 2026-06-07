@@ -31,11 +31,8 @@ module Decidim::Conferences
     let(:related_processes_ids) { [participatory_processes.map(&:id)] }
     let(:related_assemblies_ids) { [assemblies.map(&:id)] }
 
-    let(:form) do
-      instance_double(
-        Admin::ConferenceForm,
-        current_user:,
-        invalid?: invalid,
+    let(:attributes) do
+      {
         title: { en: "title" },
         slogan: { en: "slogan" },
         weight: 1,
@@ -46,8 +43,6 @@ module Decidim::Conferences
         promoted: nil,
         description: { en: "description" },
         short_description: { en: "short_description" },
-        current_organization: organization,
-        organization:,
         taxonomizations:,
         errors:,
         show_statistics: false,
@@ -59,6 +54,17 @@ module Decidim::Conferences
         registration_terms: { en: "registrations terms" },
         participatory_processes_ids: related_processes_ids,
         assemblies_ids: related_assemblies_ids
+      }
+    end
+
+    let(:form) do
+      instance_double(
+        Admin::ConferenceForm,
+        **attributes,
+        current_user:,
+        organization:,
+        current_organization: organization,
+        invalid?: invalid
       )
     end
     let(:invalid) { false }
@@ -68,6 +74,23 @@ module Decidim::Conferences
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "when there is a trashed space with the same slug" do
+      let!(:trashed_space) { create(:conference, :trashed, slug: "slug", organization:) }
+
+      let(:form) do
+        Admin::ConferenceForm.from_params(attributes)
+                             .with_context({
+                                             current_user:,
+                                             current_organization: organization
+                                           })
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 

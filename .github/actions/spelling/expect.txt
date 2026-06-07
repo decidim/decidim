@@ -94,6 +94,8 @@ Brakus
 breadcrumb
 browserstack
 bugfixing
+busques
+Butlletins
 byebug
 bytesize
 cacatua
@@ -408,6 +410,7 @@ infob
 informables
 Inici
 iniciar
+iniciat
 inodes
 inputdialog
 inputname
@@ -883,6 +886,7 @@ trashable
 traslatable
 trgm
 trobada
+trobat
 tsearch
 turbolinks
 Twilio

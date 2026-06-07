@@ -182,9 +182,6 @@ lv:
       update_draft:
         error: Grozījuma melnraksta atjaunināšanas laikā radās kļūda.
         success: Grozījuma melnraksts ir veiksmīgi atjaunināts.
-      wizard_step_form:
-        steps:
-          '1': Izveidot savu grozījumu
     anonymous_user: Anonīms
     application:
       document:
