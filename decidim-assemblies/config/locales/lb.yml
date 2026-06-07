@@ -30,7 +30,6 @@ lb:
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie wird es entschieden?
-        private_space: Privatsphäre
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         purpose_of_action: Zweck der Aktion
@@ -78,12 +77,9 @@ lb:
         edit:
           update: Aktualisieren
         index:
-          private: Privat
-          public: Öffentlich
           published: Veröffentlicht
         new:
           create: Erstellen
-          title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich aktualisiert.
@@ -94,7 +90,6 @@ lb:
         new:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
-          title: Gremium importieren
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -110,8 +105,6 @@ lb:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
           update: Aktualisieren
-        index:
-          assembly_admins_title: Assembly Benutzer
         new:
           create: Erstellen
         update:
@@ -129,7 +122,6 @@ lb:
         assembly:
           fields:
             created_at: Hergestellt in
-            private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
@@ -160,9 +152,6 @@ lb:
         filters:
           names:
             all: Alle
-      assembly_members:
-        index:
-          members: Mitglieder
       content_blocks:
         highlighted_assemblies:
           name: Hervorgehobene Gremien
@@ -182,16 +171,8 @@ lb:
         working_group: Arbeitsgruppe
       index:
         title: Gremien
-      pages:
-        user_profile:
-          member_of:
-            member_of: Mitglied von
       show:
         duration: Dauer
-        private_space: Dies ist eine private Versammlung
-    assembly_members:
-      index:
-        title: Mitglieder
     events:
       assemblies:
         create_assembly_member:
@@ -214,8 +195,6 @@ lb:
       value_types:
         assembly_presenter:
           not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
     participatory_processes:

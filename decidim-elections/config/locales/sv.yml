@@ -63,7 +63,7 @@ sv:
             end_at: 'Sluttid:'
             end_election: Avsluta omröstning
             manual_start: Manuell
-            published_results_at: Resultat publicerade vid
+            published_results_at: Resultaten publicerades
             start_at: 'Starttid:'
             start_election: Börja omröstning
             title: Kalender
@@ -142,18 +142,18 @@ sv:
           manage_trash:
             title: Borttagna omröstningar
           new:
-            title: Nytt val
+            title: Ny omröstning
           publish:
-            invalid: Det gick inte att publicera valet.
-            success: Valet publicerades.
+            invalid: Det gick inte att publicera omröstningen.
+            success: Omröstningen publicerades.
           toggle_census_check:
             error: Det gick inte att aktivera kontrollen av röstlängden.
           unpublish:
-            invalid: Det gick inte att ta bort valet.
-            success: Valet togs bort.
+            invalid: Det gick inte att avpublicera omröstningen.
+            success: Omröstningen avpublicerades.
           update:
-            invalid: Det gick inte att uppdatera valet.
-            success: Val uppdaterades.
+            invalid: Det gick inte att uppdatera omröstningen.
+            success: Omröstningen har uppdaterats.
         questions:
           edit_questions:
             new_question: Ny fråga
@@ -181,12 +181,12 @@ sv:
           unknown: Okänd status
       admin_log:
         election:
-          create: "%{user_name} Skapade valet %{resource_name} i %{space_name}"
-          publish: "%{user_name} Publicerade valet %{resource_name} i %{space_name}"
-          restore: "%{user_name} Återställde valet %{resource_name} i %{space_name}"
-          soft_delete: "%{user_name} Flyttade valet %{resource_name} i %{space_name} till papperskorgen"
-          unpublish: "%{user_name} Tog bort valet %{resource_name} i %{space_name}"
-          update: "%{user_name} Uppdaterade valet %{resource_name} i %{space_name}"
+          create: "%{user_name} Skapade omröstningen %{resource_name} i %{space_name}"
+          publish: "%{user_name} publicerade omröstningen %{resource_name} i %{space_name}"
+          restore: "%{user_name} återställde omröstningen %{resource_name} i %{space_name}"
+          soft_delete: "%{user_name} flyttade omröstningen %{resource_name} i %{space_name} till papperskorgen"
+          unpublish: "%{user_name} avpublicerade omröstningen %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade omröstningen %{resource_name} i %{space_name}"
         question:
           update: "%{user_name} uppdaterade frågor för omröstningen %{resource_name}"
       census_checks:
@@ -223,24 +223,24 @@ sv:
           info_html: |
             Måste vara en fil i CSV-format med två kolumner, en med e-postadressen och en annan med värdet av en token som användaren måste visa för att kunna rösta.
             De måste separeras med en semikolon (;)
-          label: Oregistrerade deltagare med tokens (fixerade)
+          label: Oregistrerade deltagare med tokens (fast)
           remove_before_upload: Om du vill ladda upp en ny röstlängd måste du först ta bort den befintliga.
           upload_file: Ladda upp fil
           upload_new_census: Ladda upp en CSV-fil
         token_csv_form:
           email: E-post
-          email_placeholder: Ange väljarens e-postadress
-          invalid: E-postadress eller lösenord är ogiltigt. Kontrollera detaljerna och försök igen.
-          token: Lösenord
-          token_placeholder: Ange väljarens lösenord
+          email_placeholder: Ange den röstandes e-postadress
+          invalid: E-postadress eller lösenord är ogiltigt. Kontrollera uppgifterna och försök igen.
+          token: Token
+          token_placeholder: Ange den röstandes token
       elections:
         count:
           elections_count:
             one: "%{count} val"
             other: "%{count} val"
         elections:
-          empty: Det finns inga val.
-          empty_filters: Det finns inga val som matchar dina filter.
+          empty: Det finns inga omröstningar.
+          empty_filters: Det finns inga omröstningar som matchar dina filter.
         filters:
           all: Allt
           state: Status
@@ -250,29 +250,29 @@ sv:
             scheduled: Kommande
         orders:
           end_at: Slutdatum
-          label: Sortera efter
+          label: Sortera
           recent: Senaste
           start_at: Startdatum
         questions:
-          subtitle: 'Detta är frågorna för denna omröstningsprocess:'
+          subtitle: 'Det här är frågorna för omröstningen:'
         show:
-          active_voting_until: 'Aktiv röstning till: %{end_date}'
-          check_census_button: Kontrollera om jag kan rösta
-          check_census_explanation: Detta val har ännu inte börjat, men du kan kontrollera om du är med i folkräkningen.
-          edit_vote_button: Redigera röst
+          active_voting_until: 'Omröstning aktiv till: %{end_date}'
+          check_census_button: Kontrollera om jag får rösta
+          check_census_explanation: Omröstningen har inte börjat, men du kan kontrollera om du är med i röstlängden.
+          edit_vote_button: Ändra röst
           vote_button: Rösta
           voted: Du har redan röstat. Om du röstar igen kommer bara den senaste rösten att räknas.
           votes_count:
             one: 1 röst
             other: "%{count} röster"
-          voting_began: 'Omröstningen började den: %{start_date}'
+          voting_began: 'Omröstningen började: %{start_date}'
         vote_results:
           subtitle:
-            after_end: Valet har avslutats. Du kan nu se resultatet.
-            per_question: Resultat finns tillgängliga per fråga. Du kan se resultaten för varje fråga efter att röstning har aktiverats och resultaten är publicerade.
-            real_time: Resultaten är tillgängliga i realtid. Du kan se resultaten medan omröstningen pågår.
+            after_end: Omröstningen har avslutats. Du kan nu visa resultatet.
+            per_question: Resultatet finns tillgängliga per fråga. Du kan se resultaten för varje fråga efter att omröstningen har aktiverats och resultaten är publicerade.
+            real_time: Resultaten är tillgängliga i realtid. Du kan visa resultaten medan omröstningen pågår.
           title: Resultat
-          total: 'TOTAL:'
+          total: 'TOTALT:'
           total_votes:
             one: 1 röst
             other: "%{count} röster"
@@ -286,8 +286,8 @@ sv:
             title: Titel
       per_question_votes:
         waiting:
-          description: Du kan vänta här tills nästa fråga är tillgänglig. Du kommer automatiskt att omdirigeras till nästa fråga när den är klar.
-          edit_vote: Redigera din röst
+          description: Du kan vänta här tills nästa fråga är tillgänglig. Du kommer automatiskt skickas till nästa fråga när den är klar.
+          edit_vote: Ändra din röst
           exit_button: Lämna väntrummet
           title: Väntar på nästa fråga
       status:
@@ -304,28 +304,28 @@ sv:
           success: Din röst har tagits emot.
         check_census:
           access: Åtkomst
-          election_not_open: Valet är inte öppet ännu. Kontrollera datumen och försök igen.
-          failed: Din identitet kunde inte verifieras. Kontrollera informationen du angav och försök igen.
+          election_not_open: Omröstningen har inte börjat. Kontrollera datumen och försök igen.
+          failed: Dina användaruppgifter kunde inte verifieras. Kontrollera informationen du angav och försök igen.
           form_title: Verifiera din identitet
-          invalid: Användaren hittades inte i folkräkningen.
+          invalid: Användaren hittades inte i röstlängden.
         confirm:
           cast_vote: Rösta
-          edit_vote: Redigera din röst
+          edit_vote: Ändra din röst
           not_answered: Du har inte besvarat frågan.
           title: Bekräfta din röst
-        not_authorized: Du har inte behörighet att rösta i detta val.
+        not_authorized: Du har inte behörighet att rösta i den här omröstningen.
         question:
           back: Tillbaka
           cast_vote: Rösta
-          max_choices: 'Max val: %{count}'
+          max_choices: 'Högst antal alternativ: %{count}'
           max_choices_alert: Du har valt för många alternativ. Avmarkera några för att fortsätta.
-          max_choices_exceeded: Du kan inte välja mer än %{max} alternativ. Gå tillbaka och justera ditt val.
+          max_choices_exceeded: Du kan inte välja fler än %{max} alternativ. Gå tillbaka och justera ditt val.
           next: Nästa
         receipt:
-          description: Du kan rösta igen så länge omröstningsperioden pågår. En ny omröstning kommer att skriva över den gamla.
-          edit_vote: Redigera din röst
-          exit_button: Lämna valbåset
-          title: Tack, din röst är mottagen
+          description: Du kan rösta igen så länge omröstningsperioden pågår. En ny röst kommer att skriva över den gamla.
+          edit_vote: Ändra din röst
+          exit_button: Lämna röstningsbåset
+          title: Dina röst är mottagen
     metadata:
       progress:
         published_results: 'Resultaten publicerades: %{end_date}'

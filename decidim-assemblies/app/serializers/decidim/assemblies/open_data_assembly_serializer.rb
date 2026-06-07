@@ -37,18 +37,14 @@ module Decidim
             creation_date: resource.creation_date,
             closing_date_reason: resource.closing_date_reason,
             internal_organisation: resource.internal_organisation,
-            is_transparent: resource.is_transparent,
+            access_mode: resource.access_mode,
             special_features: resource.special_features,
             twitter_handler: resource.twitter_handler,
             instagram_handler: resource.instagram_handler,
             facebook_handler: resource.facebook_handler,
             youtube_handler: resource.youtube_handler,
             github_handler: resource.github_handler,
-            created_by_other: resource.created_by_other,
-            assembly_type: {
-              id: resource.assembly_type.try(:id),
-              title: resource.assembly_type.try(:title) || empty_translatable
-            }
+            created_by_other: resource.created_by_other
           }
         )
       end

@@ -10,36 +10,36 @@ module Decidim
       let(:assembly) { create(:assembly, organization:) }
       let(:export_manifest) { assembly.manifest.export_manifests.find { |m| m.name == :assemblies } }
 
-      describe "with private non-transparent assemblies" do
-        let!(:private_assembly) { create(:assembly, :private, :opaque, organization:) }
+      describe "with restricted assemblies" do
+        let!(:restricted_assembly) { create(:assembly, :restricted, organization:) }
 
         context "when user is an admin" do
-          it "includes private non-transparent assemblies" do
-            collection = export_manifest.collection.call(private_assembly, admin)
-            expect(collection).to include(private_assembly)
+          it "includes restricted assemblies" do
+            collection = export_manifest.collection.call(restricted_assembly, admin)
+            expect(collection).to include(restricted_assembly)
           end
         end
 
         context "when user is nil (open data)" do
-          it "excludes private non-transparent assemblies" do
-            collection = export_manifest.collection.call(private_assembly, nil)
-            expect(collection).not_to include(private_assembly)
+          it "excludes restricted assemblies" do
+            collection = export_manifest.collection.call(restricted_assembly, nil)
+            expect(collection).not_to include(restricted_assembly)
           end
         end
       end
 
-      describe "with private transparent assemblies" do
-        let!(:transparent_assembly) { create(:assembly, :private, :transparent, organization:) }
+      describe "with transparent assemblies" do
+        let!(:transparent_assembly) { create(:assembly, :transparent, organization:) }
 
         context "when user is an admin" do
-          it "includes private transparent assemblies" do
+          it "includes transparent assemblies" do
             collection = export_manifest.collection.call(transparent_assembly, admin)
             expect(collection).to include(transparent_assembly)
           end
         end
 
         context "when user is nil (open data)" do
-          it "includes private transparent assemblies" do
+          it "includes transparent assemblies" do
             collection = export_manifest.collection.call(transparent_assembly, nil)
             expect(collection).to include(transparent_assembly)
           end

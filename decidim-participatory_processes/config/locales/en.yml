@@ -26,7 +26,6 @@ en:
         participatory_process_group_id: Processes group
         participatory_scope: What is decided
         participatory_structure: How is it decided
-        private_space: Private process
         promoted: Promoted
         published_at: Published at
         related_process_ids: Related processes
@@ -106,6 +105,12 @@ en:
       filters:
         decidim_participatory_process_group_id_eq:
           label: By process group
+        with_any_access_mode:
+          label: Access mode
+          values:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
@@ -124,9 +129,9 @@ en:
       models:
         participatory_process:
           fields:
+            access_mode: Access mode
             actions: Actions
             created_at: Created at
-            private: Private
             published: Published
             title: Title
           name: Participatory process
@@ -231,8 +236,10 @@ en:
         edit:
           update: Update
         index:
-          private: Private
-          public: Public
+          access_modes:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
           published: Published
           unpublished: Unpublished
         new:
@@ -251,8 +258,6 @@ en:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: All participatory processes
-      titles:
-        participatory_process_types: Participatory process types
       tooltips:
         deleted_processes_info: A process can only be deleted if status is "Unpublished".
       users:
@@ -281,10 +286,6 @@ en:
         create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
         delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name} participatory process"
         update: "%{user_name} updated the %{resource_name} phase in the %{space_name} participatory process"
-      participatory_process_type:
-        create: "%{user_name} created the %{resource_name} participatory process type"
-        delete: "%{user_name} deleted the %{resource_name} participatory process type"
-        update: "%{user_name} updated the %{resource_name} participatory process type"
       participatory_process_user_role:
         create: "%{user_name} invited the participant %{resource_name} to the %{space_name} participatory process"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} participatory process"
@@ -315,15 +316,12 @@ en:
           contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
           page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
           title: What is a participatory process?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'The process type was not found on the database (ID: %{id}).'
     menu:
       processes: Processes
     open_data:
       help:
         participatory_processes:
+          access_mode: Access mode. Wheter the process is open, restricted or transparent.
           area: The area where the process is taking place
           component_settings: The component settings of the process
           created_at: The date this space was created
@@ -518,13 +516,19 @@ en:
           edit:
             title: About this process
           form:
+            access:
+              label: Access
+              options:
+                open: Everyone can see the process and participate.
+                restricted: Only members and administrators can see and participate. It will not appear in the general search, API, nor open data files.
+                transparent: Everyone can see the process, but only members and administrators can participate.
+              set_this_space_as: Set this space as
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             has_members_help: You will be able to create and publish members
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
             related_processes: Related processes
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -627,7 +631,6 @@ en:
           title: About this process
       show:
         belongs_to_group: This process belongs to
-        private_space: This is a private process
         related_processes: Related processes
       static_pages:
         democratic_quality_indicators:

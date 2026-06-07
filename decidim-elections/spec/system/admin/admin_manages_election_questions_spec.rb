@@ -2,6 +2,8 @@
 
 require "spec_helper"
 
+require "decidim/forms/test/shared_examples/questionnaire_admin_access"
+
 describe "Admin manages elections questions" do
   let(:current_organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: current_organization) }
@@ -11,9 +13,11 @@ describe "Admin manages elections questions" do
 
   include_context "when managing a component as an admin"
 
+  it_behaves_like "questionnaire admin access", denied_error: 404
+
   it "opens a questions tab" do
     visit questions_edit_path
-    expect(page).to have_content("Question must have at least two answers in order go to the next step.")
+    expect(page).to have_text("Question must have at least two answers in order go to the next step.")
   end
 
   context "when an admin user add a question" do
@@ -62,7 +66,7 @@ describe "Admin manages elections questions" do
       expand_all_questions
 
       expect(page).to have_css("input[value='This is the first question']")
-      expect(page).to have_content("This is the first question description")
+      expect(page).to have_text("This is the first question description")
       expect(page).to have_css("input[value='This is the Q1 first option']")
       expect(page).to have_css("input[value='This is the Q1 second option']")
       expect(page).to have_css("input[value='This is the Q1 third option']")
@@ -232,7 +236,7 @@ describe "Admin manages elections questions" do
     it "denies access to the questions edit page" do
       visit Decidim::EngineRouter.admin_proxy(current_component).edit_questions_election_path(started_election)
 
-      expect(page).to have_content("You are not authorized to perform this action")
+      expect(page).to have_text("You are not authorized to perform this action")
     end
   end
 
@@ -324,5 +328,9 @@ describe "Admin manages elections questions" do
 
   def questions_edit_path
     Decidim::EngineRouter.admin_proxy(current_component).edit_questions_election_path(election)
+  end
+
+  def manage_questions_path
+    questions_edit_path
   end
 end

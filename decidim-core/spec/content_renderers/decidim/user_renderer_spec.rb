@@ -7,7 +7,7 @@ module Decidim
     let(:user) { create(:user, :confirmed) }
     let(:renderer) { described_class.new(content) }
     let(:presenter) { Decidim::UserPresenter.new(user) }
-    let(:profile_url) { "http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}" }
+    let(:profile_url) { "http://#{user.organization.host}:#{Capybara.server_port}/en/profiles/#{user.nickname}" }
 
     context "when content has a valid Decidim::User Global ID" do
       let(:content) { "This text contains a valid Decidim::User Global ID: #{user.to_global_id}" }
@@ -68,6 +68,32 @@ module Decidim
         expect(renderer.render(editor: true)).to eq(
           %(This text contains a valid Decidim::User Global ID: <span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
         )
+      end
+    end
+
+    context "when user GID is inside an anchor tag" do
+      let(:content) { "<a href=\"#{user.to_global_id}\">Link to user</a>" }
+      let(:profile_path) { Decidim::UserPresenter.new(user).profile_path }
+
+      it "transforms user GID in href to profile path" do
+        fragment = Loofah.fragment(renderer.render)
+        link = fragment.at_css("a")
+
+        expect(link["href"]).to eq(profile_path)
+        expect(link.text).to eq("Link to user")
+      end
+    end
+
+    context "when user GID is inside an anchor tag in editor mode" do
+      let(:content) { "<a href=\"#{user.to_global_id}\">Link to user</a>" }
+      let(:profile_path) { Decidim::UserPresenter.new(user).profile_path }
+
+      it "transforms user GID in href to profile path in editor mode" do
+        fragment = Loofah.fragment(renderer.render(editor: true))
+        link = fragment.at_css("a")
+
+        expect(link["href"]).to eq(profile_path)
+        expect(link.text).to eq("Link to user")
       end
     end
   end

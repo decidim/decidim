@@ -17,19 +17,19 @@ describe "Content pages" do
     let(:decidim_page) { decidim_pages.first }
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim.pages_path(locale: I18n.locale) }
+      let(:target_path) { decidim.pages_path }
     end
 
     context "when requesting the pages path" do
       before do
-        visit decidim.pages_path(locale: I18n.locale)
+        visit decidim.pages_path
       end
 
       it "shows the list of topics" do
         decidim_pages.each do |decidim_page|
           topic_title = decidim_page.topic.title[I18n.locale.to_s]
 
-          expect(page).to have_content(topic_title)
+          expect(page).to have_text(topic_title)
         end
       end
 
@@ -41,7 +41,7 @@ describe "Content pages" do
           find("button[role=button]").click
 
           expect(page).to have_css(
-            "a[href=\"#{decidim.page_path(decidim_page, locale: I18n.locale)}\"]",
+            "a[href=\"#{decidim.page_path(decidim_page)}\"]",
             text: page_title
           )
         end
@@ -194,7 +194,7 @@ describe "Content pages" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} static page")
+      expect(page).to have_text("created the #{translated(attributes[:title])} static page")
     end
 
     context "with existing pages" do
@@ -244,7 +244,7 @@ describe "Content pages" do
         end
 
         visit decidim_admin.root_path
-        expect(page).to have_content("updated the #{translated(attributes[:title])} static page")
+        expect(page).to have_text("updated the #{translated(attributes[:title])} static page")
       end
 
       it "can delete them" do
@@ -256,7 +256,7 @@ describe "Content pages" do
         expect(page).to have_callout("Page successfully destroyed")
 
         within "table" do
-          expect(page).to have_no_content(translated(decidim_page.title))
+          expect(page).to have_no_text(translated(decidim_page.title))
         end
       end
 
@@ -269,8 +269,8 @@ describe "Content pages" do
         end
 
         page.within_window(new_window) do
-          expect(page).to have_content(translated(decidim_page.title))
-          expect(page).to have_content(strip_tags(translated(decidim_page.content)))
+          expect(page).to have_text(translated(decidim_page.title))
+          expect(page).to have_text(strip_tags(translated(decidim_page.content)))
           expect(page).to have_current_path(/#{decidim_page.slug}/)
         end
       end

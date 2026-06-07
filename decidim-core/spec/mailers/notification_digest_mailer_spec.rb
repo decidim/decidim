@@ -69,17 +69,17 @@ module Decidim
           end
         end
 
-        context "when the space is private" do
+        context "when the space is restricted" do
           it "hides the notification" do
-            component.participatory_space.update(private_space: true)
+            component.participatory_space.update(access_mode: :restricted)
             expect(subject.body).not_to include(test_content)
             expect(subject.to).to be_nil
           end
         end
       end
 
-      context "when the space is private and user has access" do
-        let!(:participatory_space) { create(:participatory_process, :private, organization:) }
+      context "when the space is restricted and user has access" do
+        let!(:participatory_space) { create(:participatory_process, :restricted, organization:) }
         let(:component) { create(:component, :published, manifest_name: "dummy", participatory_space:) }
         let!(:member) { create(:member, participatory_space:, user:) }
 
@@ -90,7 +90,7 @@ module Decidim
       end
 
       context "when the space is transparent and user has access" do
-        let!(:participatory_space) { create(:assembly, :transparent, :private, organization:) }
+        let!(:participatory_space) { create(:assembly, :transparent, organization:) }
         let(:component) { create(:component, :published, manifest_name: "dummy", participatory_space:) }
         let!(:member) { create(:member, participatory_space:, user:) }
 

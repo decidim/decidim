@@ -7,7 +7,7 @@ export default class extends Controller {
    * Create accordion from a component
    *
    * @param {HTMLElement} component - The component to be created
-   * @return {void}
+   * @returns {void}
    */
   connect() {
     this.toggleButton = this.element.querySelector("[data-controls]");
@@ -38,6 +38,8 @@ export default class extends Controller {
     }
 
     Accordions.render(this.element.id, accordionOptions);
+
+    this.fixPanelRole();
 
     this.expandIfNeeded();
 
@@ -86,6 +88,28 @@ export default class extends Controller {
   }
   expandToggle() {
     this.previouslyExpanded = this.toggleButton.getAttribute("aria-expanded");
+  }
+
+  fixPanelRole() {
+    const panelRole = this.element.dataset.panelRole;
+    if (!panelRole) {
+      return;
+    }
+
+    const panels = this.element.querySelectorAll("[data-controls]");
+    panels.forEach((trigger) => {
+      const panelId = trigger.dataset.controls;
+      const panel = document.getElementById(panelId);
+      if (!panel) {
+        return;
+      }
+
+      if (panelRole === "none") {
+        panel.removeAttribute("role");
+      } else {
+        panel.setAttribute("role", panelRole);
+      }
+    });
   }
 
   /**

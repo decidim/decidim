@@ -97,8 +97,7 @@ ja:
       conference_duplicates:
         new:
           duplicate: 複製
-          select:
-          title: カンファレンスを複製
+          select: 複製したいデータを選択してください
       conference_publications:
         create:
           error: このカンファレンスを公開する際に問題が発生しました。
@@ -117,13 +116,9 @@ ja:
         destroy:
           success: カンファレンススピーカーを削除しました。
         edit:
-          title: カンファレンススピーカーを更新
           update: 更新
-        index:
-          conference_speakers_title: カンファレンススピーカー
         new:
           create: 作成
-          title: 新しいカンファレンススピーカー
         publish:
           invalid: このスピーカーを公開中に問題が発生しました。
           success: カンファレンスのスピーカーを公開しました。
@@ -140,13 +135,9 @@ ja:
         destroy:
           success: カンファレンス管理者を削除しました。
         edit:
-          title: カンファレンス管理者を更新
           update: 更新
-        index:
-          conference_admins_title: カンファレンス管理者
         new:
           create: 作成
-          title: 新しいカンファレンス管理者
         update:
           error: カンファレンス管理者の更新中に問題が発生しました。
           success: カンファレンス管理者が正常に更新されました。
@@ -169,11 +160,8 @@ ja:
         index:
           published: 公開済み
           unpublished: 未公開
-        manage_trash:
-          title: 削除されたカンファレンス
         new:
           create: 作成
-          title: 新しいカンファレンス
         update:
           error: このカンファレンスの更新に問題がありました。
           success: カンファレンスを更新しました。
@@ -188,13 +176,9 @@ ja:
         destroy:
           success: メディアリンクを削除しました。
         edit:
-          title: メディア リンクを更新
           update: 更新
-        index:
-          media_links_title: メディアリンク
         new:
           create: 作成
-          title: メディアリンクを作成
         update:
           error: このメディア リンクの更新中に問題が発生しました。
           success: メディアリンクを更新しました。
@@ -209,7 +193,6 @@ ja:
           conference_invites: 招待
           conference_speakers: スピーカー
           diploma: 参加証明書
-          info: このカンファレンスについて
           media_links: メディアリンク
           moderations: モデレーション
           partners: パートナー
@@ -277,11 +260,9 @@ ja:
         destroy:
           success: カンファレンスパートナーを削除しました。
         edit:
-          title: パートナーを更新
           update: 更新
         new:
           create: 作成
-          title: 新しいパートナー
         update:
           error: このカンファレンスのパートナーの更新中に問題が発生しました。
           success: カンファレンスパートナーが正常に更新されました。
@@ -299,25 +280,21 @@ ja:
         destroy:
           success: カンファレンスの登録種別を削除しました。
         edit:
-          title: 登録種別を更新
           update: 更新
         new:
           create: 作成
-          title: 新規登録種別
         update:
           error: このカンファレンスの登録種別の更新に問題がありました。
           success: カンファレンスの登録種別を更新しました。
       taxonomy_filters:
         space_filter_for:
           conferences: すべてのカンファレンス
-      titles:
-        conferences: カンファレンス
-        conferences_deleted: 削除されたカンファレンス
       tooltips:
         deleted_conferences_info: カンファレンスは、ステータスが "未公開" の場合にのみ削除できます。
     admin_log:
       conference:
         create: "%{user_name} が %{resource_name} カンファレンスを作成しました"
+        duplicate: "%{user_name} が %{resource_name} カンファレンスを複製しました"
         publish: "%{user_name} が %{resource_name} カンファレンスを公開しました"
         restore: "%{user_name} が %{resource_name} カンファレンスを復元しました"
         send_conference_diplomas: "%{user_name} が %{resource_name} カンファレンスに出席証明書を送信しました"
@@ -361,6 +338,8 @@ ja:
         conference_duplicates:
           form:
             slug_help_html: 'URLスラグは、このカンファレンスを表すURLを生成するために使用されます。 利用できる文字は英字、数字、ハイフンのみで、先頭は英字で始める必要があります。例: %{url}'
+          new:
+            title: カンファレンスを複製
         conference_invites:
           create:
             error: 参加者をカンファレンスに招待する際に問題が発生しました。
@@ -373,15 +352,17 @@ ja:
             select_user: 参加者を選択
           index:
             invite_attendee: 参加者の招待
-            invites: 招待
+            title: 招待
           new:
             explanation: 参加者はカンファレンスに参加するように招待されます。参加者のメールアドレスが組織に登録されていない場合は、組織にも招待されます。
             invite: 招待
-            new_invite: 参加者の招待
+            title: 参加者を招待
         conference_registrations:
           index:
-            registrations: 登録
+            title: 登録
         conference_speakers:
+          edit:
+            title: カンファレンススピーカーを更新
           form:
             existing_user: 既存の参加者
             non_user: 非参加者
@@ -389,7 +370,19 @@ ja:
             user_type: 参加者の種類
           index:
             search: 検索
+            title: カンファレンススピーカー
+          new:
+            title: 新しいカンファレンススピーカー
+        conference_user_roles:
+          edit:
+            title: カンファレンス管理者を更新
+          index:
+            title: カンファレンス管理者
+          new:
+            title: 新しいカンファレンス管理者
         conferences:
+          edit:
+            title: このカンファレンスについて
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
@@ -398,6 +391,12 @@ ja:
               other: '%{count} 件の登録がありました。'
             slug_help_html: 'URLスラグは、このカンファレンスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             taxonomies: タクソノミー
+          index:
+            title: カンファレンス
+          manage_trash:
+            title: 削除されたカンファレンス
+          new:
+            title: 新しいカンファレンス
         content_blocks:
           highlighted_conferences:
             max_results: 表示する要素の最大数
@@ -411,14 +410,29 @@ ja:
             invited_existing_user_to_join_a_conference: "%{invited_by} が %{application}であなたをカンファレンスに招待しました。以下のリンクから拒否または承認できます。"
             invited_user_to_join_a_conference: "%{invited_by} があなたを %{application} のカンファレンスに招待しました。以下のリンクから受付ができます。"
             registration: '''%{conference_title} '' の登録'
+        media_links:
+          edit:
+            title: メディア リンクを更新
+          index:
+            title: メディアリンク
+          new:
+            title: 新しいメディア リンク
         partners:
+          edit:
+            title: パートナーを更新
           index:
             title: パートナー
+          new:
+            title: 新しいパートナー
         registration_types:
+          edit:
+            title: 登録種別を更新
           form:
             select_conference_meetings: カンファレンスミーティングの選択
           index:
             title: 登録種別
+          new:
+            title: 新規登録種別
         send_conference_diploma_mailer:
           diploma:
             diploma_html: 添付ファイルに、カンファレンス <a href="%{url}">%{title}</a> の出席証明書があります。

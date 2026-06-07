@@ -207,6 +207,9 @@ cs:
         user:
           new: Nový administrátor
         view_deleted_components: Zobrazit odstraněné komponenty
+      admin_terms:
+        show:
+          title: Administrátorské podmínky použití
       admin_terms_of_service:
         accept:
           error: Při přijímání podmínek služby administrátora došlo k chybě.
@@ -220,7 +223,6 @@ cs:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
           callout: Věnujte prosím chvíli a zkontrolujte podmínky používání administrátora. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
-        title: Administrátorské podmínky použití
       area_types:
         create:
           error: Při vytváření nového typu oblasti došlo k chybě.
@@ -230,6 +232,8 @@ cs:
         edit:
           title: Upravit typ oblasti
           update: Aktualizace
+        index:
+          title: Typy oblasti
         new:
           create: Vytvořit typ oblasti
           title: Nový typ oblasti
@@ -247,6 +251,8 @@ cs:
         edit:
           title: Upravit oblast
           update: Aktualizace
+        index:
+          title: Oblasti
         new:
           create: Vytvořit oblast
           title: Nová oblast
@@ -264,7 +270,7 @@ cs:
           title: Upravit složku
           update: Aktualizace
         index:
-          attachment_collections_title: Složky přílohy
+          title: Složky příloh
         new:
           create: Vytvořit
           title: Nová složka
@@ -281,7 +287,7 @@ cs:
           title: Upravit přílohu
           update: Aktualizace
         index:
-          attachments_title: Přílohy
+          title: Přílohy
         new:
           create: Vytvořit přílohu
           title: Nová příloha
@@ -290,6 +296,9 @@ cs:
           success: Příloha byla úspěšně aktualizována.
       attachments_privacy_warning:
         message: Buďte opatrní při práci s přílohami v soukromém prostoru. Každý účastník by mohl sdílet tento dokument s ostatními.
+      authorization_workflows:
+        index:
+          title: Metody ověřování
       autocomplete:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte alespoň tři znaky pro vyhledávání.
@@ -334,6 +343,7 @@ cs:
             name: Název komponenty
             type: Typ komponenty
             visibility: Viditelnost
+          title: Komponenty
         manage_trash:
           title: Smazané komponenty
         new:
@@ -341,7 +351,6 @@ cs:
           title: 'Přidat komponentu: %{name}'
         publish:
           success: Komponenta byla úspěšně publikována.
-        title: Komponenty
         unpublish:
           success: Komponenta byla úspěšně zrušena.
         update:
@@ -353,12 +362,14 @@ cs:
           unpublished: Nezveřejněno
       conflicts:
         attempts: Pokusy
+        edit:
+          title: Převést uživatele
         'false': 'Ne'
         index:
           text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky
+          title: Konflikty ověření
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
-        title: Konflikty ověření
         transfer:
           email: E-mail
           error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
@@ -393,6 +404,7 @@ cs:
           title: Čekající moderování
         show:
           dropdown: Rozbalovací nabídka
+          title: Ovládací panel
           view_more_logs: Zobrazit další protokoly
       domain_allowlist:
         form:
@@ -489,6 +501,8 @@ cs:
         form:
           save: Uložit
         success: Sekce nápovědy byly úspěšně aktualizovány.
+        update:
+          title: Sekce nápovědy
       impersonatable_users:
         index:
           filter:
@@ -504,6 +518,7 @@ cs:
           promote: Podporovat
           search: Vyhledávání
           status: Stav
+          title: Spravovatelní účastníci
           view_logs: Zobrazení protokolů
       impersonations:
         close_session:
@@ -520,7 +535,7 @@ cs:
           impersonate: V zastoupení
           impersonate_existing_managed_user: Spravovat účastníka "%{name}"
           impersonate_existing_user: Spravovat účastníka "%{name}"
-          impersonate_new_managed_user: Spravovat nového účastníka
+          title: Účastníci v zastoupení
       imports:
         and: a
         data_errors:
@@ -578,13 +593,15 @@ cs:
       manage_trash:
         deleted_items_warning: Momentálně zobrazujete odstraněné položky. Chcete-li provést úpravy nebo změny, musíte je nejprve obnovit.
       managed_users:
+        impersonation_logs:
+          index:
+            title: V zastoupení
         promotion:
           error: Při propagaci spravovaného účastníka se vyskytl problém.
           success: Spravovaný uživatel byl úspěšně podporován.
         promotions:
           new:
             explanation: Spravovaní uživatelé mohou být povýšeni na standardní uživatele. Znamená to, že budou pozváni do aplikace a nebudete je moci znovu předstírat. Pozvaný uživatel obdrží e-mail, ve kterém přijme vaši pozvánku.
-            new_managed_user_promotion: Nová spravovaná podpora pro uživatele
             promote: Podporovat
       members:
         create:
@@ -814,7 +831,6 @@ cs:
           title: Šablony zpravodaje
           use_template: Použít tuto šablonu
         show:
-          preview: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
         confirm_recipients:
@@ -840,9 +856,9 @@ cs:
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
+          members: 'členové '
           not_sent: Neodesláno
           participants: 'účastníci '
-          private_members: 'soukromí členové '
           segmented_to: 'Rozděleno na %{subject}: '
           subscribed_count: 'Přihlášeno:'
           title: Zpravodaje
@@ -858,8 +874,8 @@ cs:
           confirm_recipients: Potvrdit příjemce
           deliver: Doručit zpravodaj
           followers_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
+          members_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří byli přidáni do vybraných participačních prostorů jako členové.
           participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
-          private_members_help: Odešle newsletter všem potvrzeným uživatelům, kteří byli přidáni do vybraných soukromých participačních prostor.
           recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
           select_assemblies: Vybrat shromáždění
           select_conferences: Vybrat konference
@@ -879,16 +895,17 @@ cs:
         send_to_user:
           sent_successfully: Zpravodaj byl úspěšně odeslán na %{email}
         show:
-          preview: Náhled
           select_recipients_to_deliver: Vybrat příjemce k doručení
           send_me_a_test_email: Pošlete mi testovací e-mail
           subject: Předmět
+          title: Náhled
         update:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       officializations:
         block:
           error: Při blokování účastníka došlo k chybě.
+          no_user: Nebyl nalezen žádný uživatel
           success: Účastník byl úspěšně zablokován.
         bulk_action:
           block:
@@ -916,12 +933,16 @@ cs:
           send_message: Odeslat zprávu
           show_email: Zobrazit e-mail
           status: Stav
+          title: Účastníci
           unblock: Odblokovat
           unofficialize: Zrušit ověření
         new:
           badge: Odznak ověření
           officialize: Ověřit
           title: Oficializovat účastníka "%{name}"
+        show_email:
+          no_user: Nebyl nalezen žádný uživatel
+          title: Zobrazit e-mail
         show_email_modal:
           description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
           email_address: E-mailová adresa
@@ -966,6 +987,7 @@ cs:
           success: Organizace byla úspěšně aktualizována.
       organization_external_domain_allowlist:
         edit:
+          title: Seznam povolených externích domén
           update: Aktualizovat
         external_domain:
           down: Dolů
@@ -974,7 +996,6 @@ cs:
           up: Nahoru
         form:
           add: Přidat na Seznam povolených
-          title: Seznam povolených externích domén
       reminders:
         create:
           error: Při vytváření připomenutí došlo k chybě.
@@ -985,6 +1006,7 @@ cs:
             other: "%{count} uživatelů bude upozorněno."
         new:
           submit: Odeslat
+          title: Odeslat připomenutí
       resource_permissions:
         edit:
           submit: Předložit
@@ -1002,6 +1024,8 @@ cs:
         edit:
           title: Upravit typ oblasti působnosti
           update: Aktualizace
+        index:
+          title: Typy oblastí působnosti
         new:
           create: Vytvořit typ oblasti působnosti
           title: Nová oblast působnosti
@@ -1018,6 +1042,8 @@ cs:
         edit:
           title: Upravit oblast působnosti
           update: Aktualizace
+        index:
+          title: Oblasti působnosti
         new:
           create: Vytvořit oblast působnosti
           title: Nová oblast působnosti
@@ -1090,6 +1116,8 @@ cs:
         edit:
           title: Upravit téma
           update: Aktualizovat téma
+        index:
+          title: Témata
         new:
           create: Nové téma
           title: Nové téma
@@ -1114,6 +1142,7 @@ cs:
           slug_help_html: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední významná změna
+          title: Stránky
         new:
           create: Nová stránka
           title: Nová stránka
@@ -1123,6 +1152,9 @@ cs:
         update:
           error: Při aktualizaci této stránky došlo k chybě.
           success: Stránka byla úspěšně aktualizována.
+      statistics:
+        index:
+          title: Statistiky
       taxonomies:
         actions:
           actions: Akce
@@ -1153,6 +1185,7 @@ cs:
           description: Taxonomie a filtry umožňují správcům třídit a organizovat obsah. Přidejte například taxonomii s městskými okresy a čtvrti a pak vytvořte filtry pouze s okresy nebo pro konkrétní čtvrť.
           new_taxonomy: Nová taxonomie
           no_items_found: Nebyly nalezeny žádné taxonomie odpovídající kritériím vyhledávání.
+          title: Taxonomie
         name: Název
         new:
           create: Vytvořit taxonomii
@@ -1199,6 +1232,7 @@ cs:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
           new_filter: Nový filtr
+          title: Filtry taxonomie pro "%{taxonomy}"
         new:
           back: Zpět
           create: Vytvořit filtr taxonomie
@@ -1215,13 +1249,17 @@ cs:
           error: Při aktualizaci tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně aktualizován.
       taxonomy_filters_selector:
+        index:
+          title: Filtry taxonomie
         new:
           add_new_items_html: Pokud potřebujete nastavit nový filtr nebo položku, proveďte to prostřednictvím nastavení konfigurace nebo kliknutím <a href="%{url}">zde</a>.
           items_count: "%{count} položek"
           save: Uložit
+          title: Výběr nového taxonomického filtru
         show:
           items_count: "%{count} položek"
           remove: Odebrat
+          title: Výběr taxonomického filtru
         taxonomies_select:
           filters: Filtry
           select_filter: Vyberte filtr
@@ -1236,25 +1274,12 @@ cs:
           none: Žádné
           title: Nová položka v %{taxonomy}
       titles:
-        admin_log: Správce protokolu
-        area_types: Typy oblastí
         areas: Oblasti
         authorization_workflows: Metody ověření
-        dashboard: Ovládací panel
-        edit_external_domains: Seznam povolených externích domén
-        impersonatable_users: Spravovatelní účastníci
-        impersonations: Správa účastníků
         menu: Nabídka
-        page_topics: Témata
-        pages: Stránky
         panel: Admin
-        participants: Uživatelé
-        scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
         statistics: Statistiky
-        taxonomies: Taxonomie
-        taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
-        users: Administrátoři
       tooltips:
         cannot_destroy_taxonomy_filter: Nelze zničit tento filtr taxonomie
         cannot_edit_taxonomy_filter: Nelze upravit tento filtr taxonomie
@@ -1278,6 +1303,8 @@ cs:
           email: E-mail
           name: Jméno
           role: Role
+        index:
+          title: Administrátoři
         new:
           create: Pozvat
           title: Pozvat nového administrátora
@@ -1289,6 +1316,10 @@ cs:
           last_week: Minulý týden
           no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu účastníků.
           participants: Účastníci
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Výběr taxonomických filtrů bude možný po vytvoření komponenty.
     forms:
       errors:
         impersonate_user:

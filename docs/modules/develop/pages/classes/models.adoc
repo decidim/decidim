@@ -87,7 +87,6 @@ Most commonly used concerns are:
 - `Decidim::Forms::HasQuestionnaire`
 - `Decidim::Initiatives::HasArea`
 - `Decidim::Initiatives::InitiativeSlug`
-- `Decidim::Proposals::CommentableCollaborativeDraft`
 - `Decidim::Proposals::CommentableProposal`
 - `Decidim::Proposals::ParticipatoryTextSection`
 - `Decidim::Proposals::Evaluable`

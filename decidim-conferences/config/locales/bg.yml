@@ -108,8 +108,6 @@ bg:
           success: Говорителят на конференцията беше изтрит успешно.
         edit:
           update: Актуализация
-        index:
-          conference_speakers_title: Говорители на конференция
         new:
           create: Създаване
         publish:
@@ -129,8 +127,6 @@ bg:
           success: Администраторът на конференцията беше премахнат успешно.
         edit:
           update: Актуализация
-        index:
-          conference_admins_title: Администратори на конференция
         new:
           create: Създаване
         update:
@@ -174,7 +170,6 @@ bg:
           conference_admins: Администратори на конференция
           conference_invites: Покани
           conference_speakers: Говорители
-          info: Относно тази конференция
           moderations: Модерации
           partners: Партньори
           registrations: Регистрации
@@ -234,7 +229,6 @@ bg:
           update: Актуализация
         new:
           create: Създаване
-          title: Нов партньор
         update:
           error: Възникна проблем при актуализирането на партньор за тази конференция.
           success: Партньорът за конференцията беше актуализиран успешно.
@@ -255,12 +249,9 @@ bg:
           update: Актуализация
         new:
           create: Създаване
-          title: Нов тип регистрация
         update:
           error: Възникна проблем при актуализирането на тип регистрация за тази конференция.
           success: Типът регистрация за конференцията беше актуализиран успешно.
-      titles:
-        conferences: Конференции
     admin_log:
       conference:
         create: "%{user_name} създаде конференцията %{resource_name}"
@@ -314,14 +305,9 @@ bg:
             select_user: Избор на участник
           index:
             invite_attendee: Покани участник
-            invites: Покани
           new:
             explanation: Участникът ще бъде поканен да се присъедини към конференция. Ако техният имейл не е регистриран, те също ще бъдат поканени в организацията.
             invite: Покани
-            new_invite: Покани участник
-        conference_registrations:
-          index:
-            registrations: Регистрации
         conference_speakers:
           form:
             existing_user: Съществуващ участник

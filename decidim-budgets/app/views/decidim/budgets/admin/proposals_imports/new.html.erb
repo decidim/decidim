@@ -1,4 +1,5 @@
 <% add_decidim_page_title(t(".title")) %>
+<%= append_javascript_pack_tag "decidim_proposals_admin" %>
 
 <div class="item_show__header">
   <h1 class="item_show__header-title">
@@ -13,24 +14,19 @@
         <div class="form__wrapper">
           <div class="card">
             <div class="card-divider"></div>
-            <div class="card-section">
+            <div class="card-section" data-controller="import-proposals" data-import-proposals-states-url-value="<%= component_states_proposals_import_path %>">
               <div class="row column">
-                <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component"), label: t(".origin_component_id") %>
+                <%= f.select :origin_component_id, @form.origin_components_collection, { prompt: t(".select_component") }, { label: t(".origin_component_id"), data: { import_proposals_target: "select", action: "change->import-proposals#onSelectChange" } } %>
               </div>
               <div class="row column">
                 <%= f.number_field :default_budget, label: t(".default_budget") %>
               </div>
-              <% if @form.available_states.any? %>
                 <label class="ml-4"><%= t(".proposal_states") %></label>
+                <div id="states-container"
+                  data-import-proposals-target="container"
+                  data-import-proposals-selected-states-value="<%= @form.states.to_json %>"></div>
                 <span class="help-text ml-4"><%= t(".proposal_states_help") %></span>
-                <div class="row column">
-                  <%= f.collection_check_boxes :internal_states, @form.available_states, :token, ->(a) { translated_attribute(a.title) } do |builder| %>
-                  <div>
-                    <%= builder.label { builder.check_box + builder.text } %>
-                  </div>
-                  <% end %>
-                </div>
-              <% end %>
+
             </div>
           </div>
         </div>

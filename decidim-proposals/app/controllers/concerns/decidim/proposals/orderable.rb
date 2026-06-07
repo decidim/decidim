@@ -24,7 +24,7 @@ module Decidim
             possible_orders << "most_voted" if most_voted_order_available?
             possible_orders << "most_liked" if most_liked_order_available?
             possible_orders << "most_commented" if most_commented_order_available?
-            possible_orders << "most_followed"
+            possible_orders << "most_followed" # always shown, as the author automatically follows their proposals
             possible_orders << "with_more_authors" if with_more_authors_order_available?
             possible_orders
           end

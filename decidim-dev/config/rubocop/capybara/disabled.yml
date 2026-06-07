@@ -1,6 +1,6 @@
 # Disabled capybara configurations
 
-Capybara/NegationMatcherAfterVisit:
+Capybara/RSpec/NegationMatcherAfterVisit:
   Enabled: false
 
 Capybara/FindAllFirst:

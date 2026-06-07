@@ -12,7 +12,7 @@ module Decidim::Admin
     let(:send_to_followers) { false }
     let(:send_to_participants) { false }
     let(:send_to_verified_users) { false }
-    let(:send_to_private_members) { false }
+    let(:send_to_members) { false }
     let(:participatory_space_types) { [] }
     let(:verification_types) { [] }
 
@@ -22,7 +22,7 @@ module Decidim::Admin
         send_to_followers:,
         send_to_participants:,
         send_to_verified_users:,
-        send_to_private_members:,
+        send_to_members:,
         participatory_space_types:,
         verification_types:
       }
@@ -148,11 +148,11 @@ module Decidim::Admin
         end
       end
 
-      context "when sending to private members" do
+      context "when sending to members" do
         let(:send_to_all_users) { false }
-        let(:send_to_private_members) { true }
+        let(:send_to_members) { true }
         let!(:recipients) { create_list(:user, 3, :confirmed, newsletter_notifications_at: Time.current, organization:) }
-        let(:participatory_process) { create(:participatory_process, organization:, private_space: true) }
+        let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
         let(:participatory_space_types) do
           [
             { "id" => nil,
@@ -167,7 +167,7 @@ module Decidim::Admin
           end
         end
 
-        it "returns private members only" do
+        it "returns members only" do
           expect(subject.query).to match_array recipients
           expect(recipients.count).to eq 3
         end

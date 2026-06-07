@@ -98,8 +98,6 @@ zh-TW:
           success: 會議講者已成功刪除。
         edit:
           update: 更新
-        index:
-          conference_speakers_title: 會議講者
         new:
           create: 建立
         update:
@@ -113,8 +111,6 @@ zh-TW:
           success: 會議管理員已成功刪除。
         edit:
           update: 更新
-        index:
-          conference_admins_title: 會議管理員
         new:
           create: 創建
         update:
@@ -215,7 +211,6 @@ zh-TW:
           update: 更新
         new:
           create: 創建
-          title: 新合夥人
         update:
           error: 在此會議中更新合作夥伴時出現問題。
           success: 成功更新會議夥伴。
@@ -236,12 +231,9 @@ zh-TW:
           update: 更新
         new:
           create: 創建
-          title: 新的註冊類型
         update:
           error: 更新會議註冊類型時發生問題。
           success: 會議註冊類型已成功更新。
-      titles:
-        conferences: 研討會
     admin_log:
       conference:
         create: "%{user_name} 建立了 %{resource_name} 會議。"
@@ -295,14 +287,9 @@ zh-TW:
             select_user: 選擇參與者
           index:
             invite_attendee: 邀請參與者
-            invites: 邀請
           new:
             explanation: 參加者將被邀請加入會議。如果他們的電子郵件尚未註冊，他們也會被邀請加入該組織。
             invite: 邀請
-            new_invite: 邀請參與者
-        conference_registrations:
-          index:
-            registrations: 註冊
         conference_speakers:
           form:
             existing_user: 現有參與者

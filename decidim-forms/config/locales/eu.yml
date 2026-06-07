@@ -139,7 +139,7 @@ eu:
             remove: Kendu
             separator: Bereizlea
           title_and_description:
-            collapse: Tolestu
+            collapse: Kolapsoa
             description: Deskribapena
             expand: Zabaldu
             remove: Kendu
@@ -180,6 +180,7 @@ eu:
         response:
           invalid: Arazo bat egon da galdetegia erantzutean.
           max_choices_alert: Aukera gehiegi hautatuta da
+          spam_detected: Arazo bat egon da galdetegiari rantzuten. Agian azkarregi aritu zara, berriro saia zaitezke?
           success: Galdetegia zuzen erantzun da.
         show:
           current_step: '%{step} urratsa'

@@ -41,7 +41,7 @@ describe "Respond a survey" do
 
       expect(page).to have_no_i18n_content(question.body)
 
-      expect(page).to have_content("The form is closed and cannot be responded.")
+      expect(page).to have_text("The form is closed and cannot be responded.")
     end
   end
 
@@ -85,12 +85,12 @@ describe "Respond a survey" do
       end
 
       it "restricts the change of an response when editing is disabled" do
-        expect(page).to have_content("Already responded")
+        expect(page).to have_text("Already responded")
       end
 
       it "hides the form when on edit page" do
         visit Decidim::EngineRouter.main_proxy(survey.component).edit_survey_path(survey)
-        expect(page).to have_content("Already responded")
+        expect(page).to have_text("Already responded")
       end
     end
     # rubocop:enable Naming/VariableNumber
@@ -111,7 +111,7 @@ describe "Respond a survey" do
       expect(page).to have_callout("Survey successfully responded.")
 
       # Unregistered users are tracked with their session_id so they will not be allowed to repeat easily
-      expect(page).to have_content("You have already responded this form.")
+      expect(page).to have_text("You have already responded this form.")
       expect(page).to have_no_i18n_content(question.body)
 
       expect(last_response.session_token).not_to be_empty
@@ -130,7 +130,7 @@ describe "Respond a survey" do
         accept_confirm { click_on "Submit" }
 
         within ".alert.flash", wait: 5 do
-          expect(page).to have_content("problem")
+          expect(page).to have_text("problem")
         end
       end
     end

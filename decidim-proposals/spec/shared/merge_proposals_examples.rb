@@ -62,9 +62,9 @@ shared_examples "merge proposals" do
                 es: "Descripción más larga",
                 ca: "Descripció més llarga"
               )
-              expect(page).to have_content("This proposal comes from a meeting")
+              expect(page).to have_text("This proposal comes from a meeting")
               check "proposals_merge_created_in_meeting"
-              expect(page).to have_content("Select a meeting")
+              expect(page).to have_text("Select a meeting")
               select translated(meetings.first.title), from: :proposals_merge_meeting_id
             end
             expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
@@ -72,7 +72,7 @@ shared_examples "merge proposals" do
           end
 
           it "creates a new proposal" do
-            expect(page).to have_content("Successfully merged the proposals into a new one")
+            expect(page).to have_text("Successfully merged the proposals into a new one")
             expect(page).to have_css(".table-list tbody tr", count: 1)
             expect(page).to have_current_path(manage_component_path(target_component))
           end
@@ -91,14 +91,14 @@ shared_examples "merge proposals" do
             context "when result proposal comes from a meeting" do
               it "shows meeting as the first author" do
                 expect(page).to have_css(".main-bar__logo")
-                expect(page).to have_content("Official proposal")
-                expect(page).to have_content("It was discussed in this meeting")
+                expect(page).to have_text("Official proposal")
+                expect(page).to have_text("It was discussed in this meeting")
               end
 
               it "shows the result proposal with history panel" do
-                expect(page).to have_content("History")
+                expect(page).to have_text("History")
                 expect(page).to have_css(".resource_history__item_icon")
-                expect(page).to have_content("This proposal was created")
+                expect(page).to have_text("This proposal was created")
               end
             end
           end
@@ -112,12 +112,12 @@ shared_examples "merge proposals" do
 
               it "does not create a new proposal and displays a validation fail message" do
                 expect(page).to have_css(".table-list tbody tr", count: 3)
-                expect(page).to have_content("Have received votes or likes")
+                expect(page).to have_text("Have received votes or likes")
               end
             end
 
             it "creates a new proposal and withdraw the other ones" do
-              expect(page).to have_content("Successfully merged the proposals into a new one")
+              expect(page).to have_text("Successfully merged the proposals into a new one")
               expect(page).to have_css(".table-list tbody tr", count: 4)
               expect(page).to have_current_path(manage_component_path(current_component))
 
@@ -128,12 +128,12 @@ shared_examples "merge proposals" do
 
             it "shows withdrawn status in the original proposals" do
               expect(page).to have_css(".table-list tbody tr", count: 4)
-              expect(page).to have_content("Withdrawn", count: 3)
+              expect(page).to have_text("Withdrawn", count: 3)
             end
 
             it "shows the recorded action in the admin log" do
               click_on "Admin activity log"
-              expect(page).to have_content("created the proposal My result merge proposal from the merging of")
+              expect(page).to have_text("created the proposal My result merge proposal from the merging of")
             end
           end
         end
@@ -168,12 +168,12 @@ shared_examples "merge proposals" do
           end
 
           it "creates a new proposal" do
-            expect(page).to have_content("Address")
-            expect(page).to have_content("Add attachments")
-            expect(page).to have_content("Add a document or an image")
+            expect(page).to have_text("Address")
+            expect(page).to have_text("Add attachments")
+            expect(page).to have_text("Add a document or an image")
             expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
             click_on(id: "js-submit-merge-proposals")
-            expect(page).to have_content("Successfully merged the proposals into a new one")
+            expect(page).to have_text("Successfully merged the proposals into a new one")
             expect(page).to have_css(".table-list tbody tr", count: 1)
             expect(page).to have_current_path(manage_component_path(target_component))
           end
@@ -188,13 +188,13 @@ shared_examples "merge proposals" do
 
             it "shows official proposal as the first author" do
               expect(page).to have_css(".main-bar__logo")
-              expect(page).to have_content("Official proposal")
+              expect(page).to have_text("Official proposal")
             end
 
             it "shows the result proposal with history panel" do
-              expect(page).to have_content("History")
+              expect(page).to have_text("History")
               expect(page).to have_css(".resource_history__item_icon")
-              expect(page).to have_content("This proposal was created")
+              expect(page).to have_text("This proposal was created")
             end
           end
         end

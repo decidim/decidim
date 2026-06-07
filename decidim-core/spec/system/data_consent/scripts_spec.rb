@@ -28,7 +28,7 @@ describe "Data consent scripts" do
           <title>Accessibility Test</title>
           #{stylesheet_pack_tag "decidim_core"}
           #{stylesheet_pack_tag "decidim_dev"}
-          #{javascript_pack_tag "decidim_core", "decidim_dev", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_dev", defer: false}
         </head>
         <!-- Add some line breaks so that the "WAI WCAG" notification does not block screenshots -->
         <br><br><br><br><br>
@@ -97,18 +97,18 @@ describe "Data consent scripts" do
       let(:marketing_cookies_accepted) { "marketing cookies accepted" }
 
       it "does not run scripts" do
-        expect(page).to have_content("Hello cookies")
-        expect(page).to have_no_content("cookies accepted")
+        expect(page).to have_text("Hello cookies")
+        expect(page).to have_no_text("cookies accepted")
       end
 
       context "when accept all cookies" do
         before { data_consent(true) }
 
         it "runs scripts" do
-          expect(page).to have_content(essential_cookies_accepted)
-          expect(page).to have_content(preferences_cookies_accepted)
-          expect(page).to have_content(analytics_cookies_accepted)
-          expect(page).to have_content(marketing_cookies_accepted)
+          expect(page).to have_text(essential_cookies_accepted)
+          expect(page).to have_text(preferences_cookies_accepted)
+          expect(page).to have_text(analytics_cookies_accepted)
+          expect(page).to have_text(marketing_cookies_accepted)
         end
       end
 
@@ -116,10 +116,10 @@ describe "Data consent scripts" do
         before { data_consent(false) }
 
         it "runs scripts" do
-          expect(page).to have_content(essential_cookies_accepted)
-          expect(page).to have_no_content(preferences_cookies_accepted)
-          expect(page).to have_no_content(analytics_cookies_accepted)
-          expect(page).to have_no_content(marketing_cookies_accepted)
+          expect(page).to have_text(essential_cookies_accepted)
+          expect(page).to have_no_text(preferences_cookies_accepted)
+          expect(page).to have_no_text(analytics_cookies_accepted)
+          expect(page).to have_no_text(marketing_cookies_accepted)
         end
       end
 
@@ -127,10 +127,10 @@ describe "Data consent scripts" do
         before { data_consent(%w(analytics)) }
 
         it "runs analytics scripts" do
-          expect(page).to have_content(essential_cookies_accepted)
-          expect(page).to have_no_content(preferences_cookies_accepted)
-          expect(page).to have_content(analytics_cookies_accepted)
-          expect(page).to have_no_content(marketing_cookies_accepted)
+          expect(page).to have_text(essential_cookies_accepted)
+          expect(page).to have_no_text(preferences_cookies_accepted)
+          expect(page).to have_text(analytics_cookies_accepted)
+          expect(page).to have_no_text(marketing_cookies_accepted)
         end
       end
     end

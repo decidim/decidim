@@ -110,4 +110,4 @@ bg:
   layouts:
     decidim:
       election_votes_header:
-        exit: Затвори
+        exit: Затваряне

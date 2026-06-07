@@ -100,6 +100,8 @@ Brakus
 breadcrumb
 browserstack
 bugfixing
+busques
+Butlletins
 byebug
 bytesize
 cacatua
@@ -112,6 +114,7 @@ camelization
 cami
 Capfile
 carolromero
+Cargar
 Carrer
 carryforward
 catala
@@ -144,6 +147,7 @@ coderabbit
 codespace
 codeql
 coditramuntana
+comentarios
 commentables
 commentaire
 commenters
@@ -293,6 +297,7 @@ EXISTINGCITY
 faketoken
 Fal
 fcell
+fcm
 FEDER
 felipe
 fhtagn
@@ -417,6 +422,7 @@ infoa
 infob
 informables
 iniciar
+iniciat
 inodes
 inputdialog
 inputname
@@ -515,6 +521,7 @@ markercluster
 marydoe
 Massot
 matrixmultiple
+mattr
 matutes
 maxtimeout
 mcdoggo
@@ -553,6 +560,7 @@ modqule
 mongoid
 morphdom
 Mostrar
+mozilla
 mpassid
 mrc
 mri
@@ -750,6 +758,7 @@ reportables
 reportat
 resourcable
 resourceable
+respuestas
 Returs
 Riera
 Rigoberto
@@ -764,6 +773,7 @@ rqrcode
 rroe
 rsefa
 rsimplecov
+rspack
 Rubo
 rubycw
 rumany
@@ -896,6 +906,8 @@ traslatable
 trashable
 trgm
 trobada
+truncatable
+trobat
 tsearch
 turbolinks
 Twilio

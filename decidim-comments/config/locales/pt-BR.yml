@@ -67,9 +67,6 @@ pt-BR:
         alignment:
           against: Contra
           in_favor: A favor
-        answers:
-          one: "%{count} resposta"
-          other: "%{count} respostas"
         cancel_reply: Cancelar resposta
         comment_label: Comentário %{comment_id}
         comment_label_reply: Comentário %{comment_id} (responder ao comentário %{parent_comment_id})
@@ -83,7 +80,11 @@ pt-BR:
         hide_replies:
           one: Ocultar resposta
           other: Ocultar {count} respostas
+        load_replies: Carregar respostas
         moderated_at: Comentário moderado em %{date}
+        replies_count:
+          one: "%{count} responder"
+          other: "%{count} respostas"
         reply: Resposta
         report:
           action: Relatório
@@ -115,7 +116,9 @@ pt-BR:
         blocked_comments_warning: Comentários estão atualmente desativados, somente administradores podem responder ou postar novos.
         comment_details_title: Detalhes do comentário
         in_favor: A favor
+        load_more_comments: Carregar mais comentários
         loading: Carregando comentários ...
+        no_comments_yet: Nenhum comentário ainda
         single_comment_warning: <a href="%{url}">Ver todos os comentários</a>
         single_comment_warning_title: Você está vendo um único comentário
         title:
@@ -165,12 +168,10 @@ pt-BR:
           email_intro: "%{author_name} deixou um comentário em %{resource_title}. Você pode lê-lo nesta página:"
           email_outro: Você recebeu esta notificação porque está seguindo %{author_name}. Você pode deixar de seguir esse usuário em sua página de perfil.
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
-          notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} foi comentado. Você pode ler o comentário nesta página:"
           email_outro: Você recebeu esta notificação porque você está seguindo "%{resource_title}" ou seu autor. Você pode ignorá-lo do link anterior.
           email_subject: Há um novo comentário de %{author_name} em %{resource_title}
-          notification_title: Há um novo comentário de <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Seu comentário em%{resource_title}" foi negado. Agora tem um total de %{upvotes} votos positivos e %{downvotes} votos negativos.
           email_outro: Você recebeu esta notificação porque é o autor deste comentário.
@@ -185,12 +186,10 @@ pt-BR:
           email_intro: "%{author_name} respondeu seu comentário em %{resource_title}. Você pode lê-lo nesta página:"
           email_outro: Você recebeu esta notificação porque o seu comentário foi respondido.
           email_subject: "%{author_name} respondeu seu comentário em %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> respondeu seu comentário em <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Você foi mencionado
           email_outro: Você recebeu esta notificação porque você foi mencionado em %{resource_title}.
           email_subject: Você foi mencionado em %{resource_title}
-          notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: não pode ter comentários

@@ -35,7 +35,6 @@ pl:
         participatory_processes_ids: Powiązane procesy partycypacyjne
         participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
-        private_space: Przestrzeń prywatna
         promoted: Wyróżniony
         published_at: Opublikowano
         purpose_of_action: Cel działania
@@ -98,13 +97,10 @@ pl:
         edit:
           update: Aktualizuj
         index:
-          private: Prywatny
-          public: Publiczny
           published: Opublikowany
           unpublished: Nieopublikowane
         new:
           create: Utwórz
-          title: Nowy zespół
         update:
           error: Podczas aktualizowania tego zespołu wystąpił błąd.
           success: Zespół został zaktualizowany.
@@ -115,7 +111,6 @@ pl:
         new:
           import: Importuj
           select: Wybierz dane, które chcesz zaimportować
-          title: Importuj zespół
       assembly_publications:
         create:
           error: Podczas publikowania tego zespołu wystąpił błąd.
@@ -130,13 +125,9 @@ pl:
         destroy:
           success: Administrator został usunięty pomyślnie z tego zespołu.
         edit:
-          title: Aktualizuj administratora zgromadzenia
           update: Aktualizuj
-        index:
-          assembly_admins_title: Administratorzy zespołu
         new:
           create: Utwórz
-          title: Nowy administrator zgromadzenia
         update:
           error: Wystąpił błąd podczas aktualizacji administratora tego zespołu.
           success: Administrator zespołu został zaktualizowany pomyślnie.
@@ -164,7 +155,6 @@ pl:
           fields:
             actions: Działania
             created_at: Utworzono
-            private: Prywatny
             promoted: Wyróżniony
             published: Opublikowany
             title: Tytuł
@@ -186,9 +176,6 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-      titles:
-        assemblies: Zespoły
-        assemblies_types: Typy zespołów
     admin_log:
       assembly:
         create: "%{user_name} utworzył(a) zespół %{resource_name}"
@@ -268,9 +255,6 @@ pl:
           type: Typ
         show:
           title: O tym zgromadzeniu
-      assembly_members:
-        index:
-          members: Członkowie
       content_blocks:
         children_assemblies:
           name: Zgromadzenia
@@ -305,16 +289,9 @@ pl:
           highlighted_assemblies:
             active_spaces: Aktywne zespoły
             see_all_spaces: Zobacz wszystkie zespoły
-        user_profile:
-          member_of:
-            member_of: Członek
       show:
         duration: Czas trwania
-        private_space: To jest prywatny zespół
         social_networks_title: Odwiedź zespół na
-    assembly_members:
-      index:
-        title: Członkowie
     events:
       assemblies:
         create_assembly_member:
@@ -338,8 +315,6 @@ pl:
       value_types:
         assembly_presenter:
           not_found: 'Zespół nie został znaleziony w bazie danych (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Nie znaleziono typu zespołu w bazie danych (ID: %{id})'
     menu:
       assemblies: Zespoły
     participatory_processes:

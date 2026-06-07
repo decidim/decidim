@@ -25,7 +25,6 @@ fi:
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
-        private_space: Yksityinen prosessi
         promoted: Korostettu
         published_at: Julkaisuaika
         related_process_ids: Liittyvät prosessit
@@ -66,6 +65,8 @@ fi:
           attributes:
             document:
               allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
+              empty: Asiakirja on tyhjä
+              invalid_json: Asiakirja ei ole kelvollinen JSON
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoitu
       decidim/participatory_process_step_changed_event: Vaihe muutettu
@@ -103,6 +104,12 @@ fi:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prosessiryhmä
+        with_any_access_mode:
+          label: Pääsyoikeuksien tila
+          values:
+            open: Avoimet
+            restricted: Rajoitetut
+            transparent: Läpinäkyvät
       menu:
         participatory_process_groups: Prosessiryhmät
         participatory_process_groups_submenu:
@@ -113,7 +120,6 @@ fi:
           attachment_files: Tiedostot
           attachments: Liitteet
           components: Komponentit
-          info: Tietoa tästä prosessista
           landing_page: Laskeutumissivun asettelu
           members: Jäsenet
           moderations: Moderoinnit
@@ -122,9 +128,9 @@ fi:
       models:
         participatory_process:
           fields:
+            access_mode: Pääsyoikeuksien tila
             actions: Toiminnot
             created_at: Luonnin ajankohta
-            private: Yksityinen
             published: Julkaistu
             title: Otsikko
           name: Osallistumisprosessi
@@ -161,17 +167,14 @@ fi:
         new:
           duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
           error: Osallistumistilojen ryhmän poisto epäonnistui.
           success: Osallistumisprosessien ryhmän poisto onnistui.
         edit:
-          title: Muokkaa prosessiryhmää
           update: Päivitä
         new:
           create: Luo
-          title: Uusi prosessiryhmä
         update:
           error: Osallistumisprosessien ryhmän päivitys epäonnistui.
           success: Osallistumisprosessien ryhmän päivitys onnistui.
@@ -182,7 +185,6 @@ fi:
         new:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
-          title: Tuo osallistumisprosessi
       participatory_process_publications:
         create:
           error: Osallistumisprosessin julkaisu epäonnistui.
@@ -205,17 +207,14 @@ fi:
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
           success: Osallistumisprosessin vaiheen poisto onnistui.
         edit:
-          title: Muokkaa osallistumisprosessin vaihetta
           update: Päivitä
-        index:
-          steps_title: Vaiheet
         new:
           create: Luo
-          title: Uusi osallistumisprosessin vaihe
         ordering:
           error: Osallistumisprosessin vaiheiden järjestäminen epäonnistui.
         update:
           error: Osallistumisprosessin vaiheen päivitys epäonnistui.
+          success: Osallistumisprosessin vaiheen päivitys onnistui.
       participatory_process_user_roles:
         create:
           error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
@@ -223,13 +222,9 @@ fi:
         destroy:
           success: Käyttäjä poisto tästä osallistumisprosessista onnistui.
         edit:
-          title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä
-        index:
-          process_admins_title: Osallistumisprosessin hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi osallistumisprosessin hallintakäyttäjä
         update:
           error: Tämän osallistumisprosessin hallintakäyttäjän päivitys epäonnistui.
           success: Osallistumisprosessin hallintakäyttäjän päivitys onnistui.
@@ -240,15 +235,14 @@ fi:
         edit:
           update: Päivitä
         index:
-          private: Yksityinen
-          public: Julkinen
+          access_modes:
+            open: Avoimet
+            restricted: Rajoitetut
+            transparent: Läpinäkyvät
           published: Julkaistu
           unpublished: Julkaisematon
-        manage_trash:
-          title: Poistetut osallistumisprosessit
         new:
           create: Luo
-          title: Uusi osallistumisprosessi
         update:
           error: Osallistumisprosessin päivitys epäonnistui.
           success: Osallistumisprosessin päivitys onnistui.
@@ -263,11 +257,6 @@ fi:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Kaikki osallistumisprosessit
-      titles:
-        participatory_process_groups: Osallistumisprosessiryhmät
-        participatory_process_types: Osallistumisprosessien tyypit
-        participatory_processes: Osallistumisprosessit
-        participatory_processes_deleted: Poistetut osallistumisprosessit
       tooltips:
         deleted_processes_info: Prosessi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
       users:
@@ -296,10 +285,6 @@ fi:
         create: "%{user_name} loi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
         delete: "%{user_name} poisti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
         update: "%{user_name} päivitti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} loi prosessityypin %{resource_name}"
-        delete: "%{user_name} poisti prosessityypin %{resource_name}"
-        update: "%{user_name} päivitti prosessityyppiä %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} kutsui käyttäjän %{resource_name} osallistumisprosessiin %{space_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} osallistumisprosessista %{space_name}"
@@ -330,15 +315,12 @@ fi:
           contextual: "<p><strong>Osallistumisprosessi</strong> on osallistumistoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
           page: "<p><strong>Osallistumisprosessi</strong> on osallistumistoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
           title: Mikä on osallistumisprosessi?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Prosessityyppiä ei löytynyt tietokannasta (ID: %{id}).'
     menu:
       processes: Prosessit
     open_data:
       help:
         participatory_processes:
+          access_mode: Pääsyoikeuksien tila. Tämä määrittää, onko prosessi avoin, rajattu vai läpinäkyvä.
           area: Alue, jota prosessi koskee
           component_settings: Prosessin komponenttiasetukset
           created_at: Tilan luontiaika
@@ -486,36 +468,78 @@ fi:
             all: Kaikki
             max_results: Näytettävien elementtien enimmäismäärä
             selection_criteria: Valintakriteerit
+        imports:
+          attachment_error: Liitteen "%{title}" tuonti epäonnistui (%{error}).
+          hero_image_error: Pääkuvan tuonti epäonnistui (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tämän tuontiominaisuuden avulla voit luoda uuden osallistumisprosessin JSON-tiedostosta. Voit viedä prosessin toisesta organisaatiosta tai samasta organisaatiosta. Tuotu prosessi sisältää sen asetukset, komponentit ja liitetiedostot (jos valittu).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+          new:
+            title: Kopioi osallistumisprosessi
         participatory_process_groups:
+          edit:
+            title: Muokkaa prosessiryhmää
           form:
             metadata: Metatiedot
             title: Tietoa tästä prosessista
             visibility: Näkyvyys
+          index:
+            title: Osallistumisprosessien ryhmät
+          new:
+            title: Uusi prosessiryhmä
         participatory_process_imports:
           form:
             document_legend: Lisää asiakirja
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+          new:
+            title: Tuo osallistumisprosessi
+        participatory_process_steps:
+          edit:
+            title: Muokkaa osallistumisprosessin vaihetta
+          index:
+            title: Vaiheet
+          new:
+            title: Uusi osallistumisprosessin vaihe
+        participatory_process_user_roles:
+          edit:
+            title: Päivitä osallistumisprosessin hallintakäyttäjän tietoja
+          index:
+            title: Osallistumisprosessin hallintakäyttäjät
+          new:
+            title: Uusi osallistumisprosessin hallintakäyttäjä
         participatory_processes:
+          edit:
+            title: Tietoa tästä prosessista
           form:
+            access:
+              label: Pääsyoikeudet
+              options:
+                open: Kaikki voivat nähdä prosessin ja osallistua.
+                restricted: Vain jäsenet ja hallintakäyttäjät voivat nähdä ja osallistua. Osallistumistila ei näy yleishaussa, rajapinnassa eikä avoimissa datatiedostoissa.
+                transparent: Kaikki voivat nähdä prosessin, mutta ainoastaan jäsenet ja hallintakäyttäjät voivat osallistua.
+              set_this_space_as: Aseta tämän tilan pääsyoikeudet
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             has_members_help: Voit luoda ja julkaista jäseniä
             images: Kuvat
             metadata: Metatiedot
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            private_notice: Piilottaa osallistumistilan verkkosivuston vierailijoiden näkyvistä (ellei osallistumistila ole myös läpinäkyvä)
             related_processes: Liittyvät prosessit
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             taxonomies: Luokittelut
             title: Yleistä tietoa
             visibility: Näkyvyys
+          index:
+            title: Osallistumisprosessit
+          manage_trash:
+            title: Poistetut osallistumisprosessit
+          new:
+            title: Uusi osallistumisprosessi
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -558,9 +582,6 @@ fi:
         title: Osallistumisprosessit
       last_activity:
         new_participatory_process: 'Uusi osallistumisprosessi:'
-      members:
-        index:
-          title: Jäsenet
       pages:
         home:
           highlighted_processes:
@@ -609,7 +630,6 @@ fi:
           title: Tietoa tästä prosessista
       show:
         belongs_to_group: Tämä prosessi kuuluu ryhmään
-        private_space: Tämä on yksityinen prosessi
         related_processes: Liittyvät prosessit
       static_pages:
         democratic_quality_indicators:

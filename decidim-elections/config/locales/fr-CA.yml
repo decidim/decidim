@@ -50,6 +50,7 @@ fr-CA:
             choose_census: Choisissez le type de recensement que vous souhaitez utiliser pour cette élection
             created_at: Créée le
             identifier: Identifiant de l'utilisateur
+            title: Modifier l'élection
           preview:
             title:
               one: La liste de prévisualisation est limitée à %{count} enregistrement.

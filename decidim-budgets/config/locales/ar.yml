@@ -23,6 +23,7 @@ ar:
       actions:
         edit: تعديل
         import: استيراد مقترحات للمشاريع
+        new_project: مشروع جديد
         preview: معاينة
         title: أفعال
       admin:
@@ -37,7 +38,6 @@ ar:
             name: مشروع
         projects:
           edit:
-            title: تحرير المشروع
             update: تحديث
           index:
             actions: الإجراءات
@@ -52,7 +52,6 @@ ar:
             update_budget_button: تحديث ميزانية المشروع
           new:
             create: إنشاء
-            title: مشروع جديد
         proposals_imports:
           new:
             create: استيراد مقترحات للمشاريع

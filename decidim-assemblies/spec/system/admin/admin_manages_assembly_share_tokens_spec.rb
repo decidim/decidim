@@ -3,9 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages assembly share tokens" do
-  let!(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:organization) { create(:organization) }
-  let!(:assembly) { create(:assembly, organization:, private_space: true) }
+  include_context "when admin administrating an assembly"
   let(:participatory_space) { assembly }
   let(:participatory_space_path) { decidim_admin_assemblies.edit_assembly_path(assembly) }
   let(:participatory_spaces_path) { decidim_admin_assemblies.assemblies_path }

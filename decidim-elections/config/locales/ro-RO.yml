@@ -53,9 +53,6 @@ ro:
           edit_questions:
             new_question: Întrebare nouă
             title: Întrebări
-      censuses:
-        token_csv_form:
-          email: E-mail
       elections:
         count:
           elections_count:
@@ -90,7 +87,3 @@ ro:
           next: Următoarea
     statistics:
       elections_count: Alegeri
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Inchide

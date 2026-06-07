@@ -19,7 +19,7 @@ describe "Admin imports assembly" do
     end
 
     it "displays the import help text" do
-      expect(page).to have_content("This import feature allows you to create a new assembly from an exported JSON file")
+      expect(page).to have_text("This import feature allows you to create a new assembly from an exported JSON file")
     end
   end
 
@@ -59,9 +59,9 @@ describe "Admin imports assembly" do
 
     it "imports the json document" do
       expect(page).to have_callout("Assembly successfully imported.")
-      expect(page).to have_content("Import assembly")
+      expect(page).to have_text("Import assembly")
       within "table" do
-        expect(page).to have_content("Unpublished")
+        expect(page).to have_text("Unpublished")
       end
 
       within "tr", text: "Import assembly" do
@@ -75,7 +75,7 @@ describe "Admin imports assembly" do
       expect(Decidim::Assembly.last.components.size).to eq(8)
       within ".table-list" do
         Decidim::Assembly.last.components.each do |component|
-          expect(page).to have_content(translated(component.name))
+          expect(page).to have_text(translated(component.name))
         end
       end
 
@@ -85,7 +85,7 @@ describe "Admin imports assembly" do
       if Decidim::Assembly.last.attachments.any?
         within ".table-list" do
           Decidim::Assembly.last.attachments.each do |attachment|
-            expect(page).to have_content(translated(attachment.title))
+            expect(page).to have_text(translated(attachment.title))
           end
         end
       end
@@ -101,7 +101,7 @@ describe "Admin imports assembly" do
       end
     end
     let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+      Decidim::Dev.uploaded_file(json_file.path, "application/json")
     end
 
     before do
@@ -136,7 +136,7 @@ describe "Admin imports assembly" do
       expect(page).to have_callout("Import assembly with 404 hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_text(/The hero image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -150,7 +150,7 @@ describe "Admin imports assembly" do
       end
     end
     let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+      Decidim::Dev.uploaded_file(json_file.path, "application/json")
     end
     let(:hero_image_url) { "http://example.com/#{"a" * 5000}.jpg" }
 
@@ -186,7 +186,7 @@ describe "Admin imports assembly" do
       expect(page).to have_callout("Import assembly with long 404 images")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_text(/The hero image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -200,7 +200,7 @@ describe "Admin imports assembly" do
       end
     end
     let(:uploaded_file) do
-      Rack::Test::UploadedFile.new(json_file.path, "application/json")
+      Decidim::Dev.uploaded_file(json_file.path, "application/json")
     end
 
     before do
@@ -238,10 +238,10 @@ describe "Admin imports assembly" do
 
     it "imports successfully and shows a warning about missing attachments" do
       expect(page).to have_callout("Assembly successfully imported.")
-      expect(page).to have_content("Import assembly with 404 attachments")
+      expect(page).to have_text("Import assembly with 404 attachments")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The attachment ".+" could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_text(/The attachment ".+" could not be imported \(404 Not Found\)\./i)
       end
     end
   end

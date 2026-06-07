@@ -48,7 +48,6 @@ pt-BR:
             confirm: Revogar antes da data as autorizações não podem ser desfeitas. Tem certeza que deseja continuar?
             confirm_all: Revogar todas as autorizações não podem ser desfeito. Tem certeza que deseja continuar?
           destroy_nok: Ocorreu um problema ao revogar as autorizações.
-          destroy_ok: Todas as autorizações correspondentes foram revogadas com sucesso.
           info: Há um total de %{count} participantes verificados.
           no_data: Nenhum participante verificado.
           title: Revogação de Autorizações
@@ -220,10 +219,6 @@ pt-BR:
               user_authorized: Usuário autorizado?
             import_csv: Importar CSV
             no_authorized: Usuário não autorizado
-            title: Dados do censo atual
-          instructions:
-            body: Para fazer isso, você deve entrar na administração do sistema e adicionar as autorizações csv_census à organização
-            title: Você precisa ativar o censo CSV para esta organização
         authorizations:
           new:
             error: Não foi possível confirmar sua conta ou você não está no censo da organização.
@@ -254,8 +249,8 @@ pt-BR:
               error: A verificação não corresponde. Tente novamente ou rejeite a verificação para que o participante possa corrigi-la.
               success: Participante verificado com sucesso.
             new:
-              introduce_user_data: Introduza os dados na imagem
               reject: Rejeitar
+              title: Introduza os dados na imagem
               verify: Verificar
           offline_confirmations:
             create:
@@ -263,7 +258,7 @@ pt-BR:
               success: Participante verificado com sucesso.
             new:
               cancel: Cancelar
-              introduce_user_data: Introduzir o email do usuário e os dados do documento
+              title: Introduzir o email do usuário e os dados do documento
               verify: Verificar
           pending_authorizations:
             index:

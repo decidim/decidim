@@ -171,23 +171,6 @@ FactoryBot.define do
       end
     end
 
-    trait :with_collaborative_drafts_enabled do
-      settings do
-        {
-          collaborative_drafts_enabled: true
-        }
-      end
-    end
-
-    trait :with_attachments_allowed_and_collaborative_drafts_enabled do
-      settings do
-        {
-          attachments_allowed: true,
-          collaborative_drafts_enabled: true
-        }
-      end
-    end
-
     trait :with_minimum_votes_per_user do
       transient do
         minimum_votes_per_user { 3 }
@@ -479,49 +462,6 @@ FactoryBot.define do
     end
     proposal { build(:proposal, skip_injection:) }
     author { build(:user, organization: proposal.organization, skip_injection:) }
-  end
-
-  factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
-    transient do
-      skip_injection { false }
-      users { nil }
-    end
-
-    title { generate_localized_title(:collaborative_draft_title, skip_injection:)["en"] }
-    body { generate_localized_description(:collaborative_draft_body, skip_injection:)["en"] }
-    component { create(:proposal_component, skip_injection:) }
-    address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
-    state { "open" }
-
-    after(:build) do |collaborative_draft, evaluator|
-      if collaborative_draft.component
-        users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
-        users.each do |user|
-          collaborative_draft.coauthorships.build(author: user)
-        end
-      end
-    end
-
-    trait :participant_author do
-      after :build do |draft, evaluator|
-        draft.coauthorships.target.clear
-        user = build(:user, organization: draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
-        draft.coauthorships.build(author: user)
-      end
-    end
-
-    trait :published do
-      state { "published" }
-      published_at { Time.current }
-    end
-
-    trait :open do
-      state { "open" }
-    end
-
-    trait :withdrawn do
-      state { "withdrawn" }
-    end
   end
 
   factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do

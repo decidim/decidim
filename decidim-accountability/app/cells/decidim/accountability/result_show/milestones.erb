@@ -13,7 +13,7 @@
         </div>
         <% if translated_attribute(milestone.description).present? %>
           <div class="editor-content">
-            <%= decidim_sanitize_translated(milestone.description) %>
+            <%= decidim_sanitize_admin(translated_attribute(milestone.description)) %>
           </div>
         <% end %>
       </div>

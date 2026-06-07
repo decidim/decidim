@@ -309,7 +309,7 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} aplikaci OAuth"
         update: "%{user_name} aktualizovala %{resource_name} aplikaci OAuth"
       organization:
-        update: "%{user_name} aktualizovala nastavení organizace"
+        update: "%{user_name} aktualizoval nastavení organizace"
         update_external_domain: "%{user_name} aktualizoval externí domény organizace"
       scope:
         create: "%{user_name} vytvořil oblast působnosti %{resource_name}"
@@ -445,10 +445,6 @@ cs:
       withdraw:
         error: Při stahování pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh byl úspěšně stažen.
-      wizard_step_form:
-        steps:
-          '1': Vytvořte svůj pozměňovací návrh
-          '2': Publikovat svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       document:
@@ -622,7 +618,7 @@ cs:
       footer_sub_hero:
         name: Zápatí pod hlavním pruhem
       hero:
-        name: Obrázek hrdiny a CTA
+        name: Obrázek hrdiny a výzva k akci
       hero_settings_form:
         background_image: Obrázek pozadí
         cta_button_path: URL tlačítka Výzvy k akci
@@ -834,6 +830,7 @@ cs:
           delete_reason: Důvod pro odstranění tohoto uživatele
           deleted_at: Datum a čas, kdy byl tento uživatel odstraněn
           email: E-mailová adresa tohoto uživatele
+          followers_count: Počet účastníků, kteří sledují tohoto uživatele
           following_count: Počet účastníků, které tento uživatel sleduje
           id: Jedinečný identifikátor tohoto uživatele
           invitation_accepted_at: Datum a čas, kdy byla pozvánka přijata
@@ -911,13 +908,9 @@ cs:
           affected_user:
             email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Pozměňovací návrh přijatý pro %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">pozměňovací návrh</a> vytvořený <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
-            email_subject: Pozměňovací návrh přijatý k %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Pozměňovací návrh</a> vytvořený od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl přijat.
         amendment_created:
           affected_user:
             email_intro: 'Nová změna byla vytvořena pro %{amendable_title}. Můžete ji vidět z této stránky:'
@@ -933,29 +926,20 @@ cs:
           affected_user:
             email_intro: 'Zamítnutý pozměňovací návrh pro %{amendable_title} byl publikován jako nový %{amendable_type}. Můžete ho vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Pozměňovací návrh od %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
-            notification_title: <a href="%{emendation_path}">Odmítnutý pozměňovací návrh</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl publikován jako nový %{amendable_type} od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Označení odmítnuté pro číslo %{amendable_title} bylo povýšeno na nezávislý %{amendable_type}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-            email_subject: Pozměňovací návrh od %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
-            notification_title: <a href="%{emendation_path}">Odmítnutý pozměňovací návrh</a> k <a href="%{amendable_path}">%{amendable_title}</a> byla publikován jako nový %{amendable_type} od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Oznámení bylo zamítnuto za %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Pozměňovací návrh k %{amendable_title} byl zamítnut od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Pozměňovací návrh</a> vytvořen od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl odmítnut.
           follower:
             email_intro: 'Oznámení bylo zamítnuto za %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-            email_subject: Pozměňovací návrh k %{amendable_title} byl zamítnut od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Pozměňovací návrh</a> vytvořen od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl odmítnut.
         emendation_promoted:
           follower:
             email_intro: 'Byla zveřejněna oprava pro %{amendable_title}. Můžete si ji prohlédnout na této stránce:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Doplněk z %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Do dokumentu %{resource_title} byl přidán nový dokument. Můžete jej vidět z této stránky:'
@@ -999,22 +983,15 @@ cs:
           notification_title: |-
             Administrátor odstranil váš %{resource_type}, protože byl nahlášen jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_liked:
-        email_outro: Toto oznámení jste obdrželi, protože sledujete %{liker_nickname}. Můžete přestat přijímat oznámení na předchozím odkazu.
       resources:
         soft_deleted:
           notification_title: Administrátor odstranil váš "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
-          email_intro: <a href="%{resource_url}">Profilová stránka</a> od %{name} (%{nickname}), kterého sledujete, byla aktualizována.
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
-          email_subject: "%{nickname} aktualizoval svůj profil"
-          notification_title: <a href="%{resource_path}">Profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
+          email_subject: "%{name} aktualizoval svůj profil"
         user_officialized:
-          email_intro: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
           email_outro: Obdrželi jste toto oznámení, protože jste správcem organizace.
           email_subject: "%{name} byl oficializován"
-          notification_title: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
     export_mailer:
       download_your_data_export:
         click_button_html: Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici ke stažení do %{date}.
@@ -1139,7 +1116,7 @@ cs:
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
-      title: Jaké jsou odznaky?
+      title: Co jsou odznaky?
     groups:
       roles:
         admin: Správce
@@ -1181,6 +1158,7 @@ cs:
         create_with_space: "%{user_name} vytvořil %{resource_name} v %{space_name}"
         delete: "%{user_name} odstraněno %{resource_name}"
         delete_with_space: "%{user_name} smazán %{resource_name} v %{space_name}"
+        publish: "%{user_name} publikoval %{resource_name}"
         publish_with_space: "%{user_name} publikoval %{resource_name} v %{space_name}"
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
         unknown_action_with_space: "%{user_name} provedlo nějakou akci na %{resource_name} v %{space_name}"
@@ -1191,6 +1169,10 @@ cs:
         update_permissions_with_space: "%{user_name} aktualizoval oprávnění k %{resource_name} v %{space_name}"
         update_with_space: "%{user_name} aktualizováno %{resource_name} v %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            restricted: Omezený
+            transparent: Transparentní
         area_presenter:
           not_found: 'Oblast nebyla nalezena v databázi (ID: %{id})'
         area_type_presenter:
@@ -1551,6 +1533,9 @@ cs:
           %{organization_name}
         hello: Dobrý den %{username},
         subject: Neaktivní účet byl smazán
+    participatory_space_members:
+      index:
+        members: Členové
     passwords:
       update:
         error: Došlo k problému s aktualizací hesla.
@@ -1843,8 +1828,7 @@ cs:
         submit_button: Odeslat pozvánku
       no_invitations_remaining: Žádné zbývající pozvánky
       send_instructions: Pozvánka byla odeslána na %{email}.
-      updated: Vaše heslo bylo úspěšně nastaveno. Nyní jste přihlášeni.
-      updated_not_active: Vaše heslo bylo úspěšně nastaveno.
+      updated_not_active: Pozvánka úspěšně přijata.
     mailer:
       confirmation_instructions:
         action: Potvrďte svůj účet
@@ -1904,8 +1888,6 @@ cs:
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
         old_password_help: Chcete-li potvrdit změny vašeho účtu, zadejte prosím své aktuální heslo.
-        password_help: "minimální počet znaků je %{minimum_characters}, nesmí být příliš obvyklý (např. 123456) a musí se lišit od vašeho uživatelského jména a e-mailu."
-        password_help_admin: "minimální počet znaků je %{minimum_characters}, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
         title: Změna hesla
       new:
         forgot_your_password: Zapomněli jste heslo?
@@ -2155,6 +2137,7 @@ cs:
         confirm_title_close_ephemeral_session: Před opuštěním této stránky…
         log_in: Přihlásit
         main_menu: Hlavní menu
+        mobile_account_greeting: Dobrý den %{user_name}
         user_menu: Uživatelské Menu
       impersonation_warning:
         close_session: Zavřít sezení

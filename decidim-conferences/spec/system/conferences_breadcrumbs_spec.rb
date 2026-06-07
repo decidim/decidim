@@ -14,11 +14,11 @@ describe "Conferences Breadcrumb" do
   end
 
   scenario "shows breadcrumb with only conference" do
-    visit decidim_conferences.conference_path(participatory_space, locale: I18n.locale)
+    visit decidim_conferences.conference_path(participatory_space)
 
     within ".menu-bar" do
-      expect(page).to have_content("Conferences")
-      expect(page).to have_content(translated(participatory_space.title))
+      expect(page).to have_text("Conferences")
+      expect(page).to have_text(translated(participatory_space.title))
     end
   end
 
@@ -26,9 +26,9 @@ describe "Conferences Breadcrumb" do
     visit router.root_path
 
     within ".menu-bar" do
-      expect(page).to have_content("Conferences")
-      expect(page).to have_content(translated(participatory_space.title))
-      expect(page).to have_content(translated(component.name))
+      expect(page).to have_text("Conferences")
+      expect(page).to have_text(translated(participatory_space.title))
+      expect(page).to have_text(translated(component.name))
     end
   end
 
@@ -52,24 +52,24 @@ describe "Conferences Breadcrumb" do
     end
 
     scenario "shows breadcrumb with conference and program" do
-      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component, locale: I18n.locale)
+      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component)
 
       within ".menu-bar" do
-        expect(page).to have_content("Conferences")
-        expect(page).to have_content(translated(participatory_space.title))
-        expect(page).to have_content("Program")
+        expect(page).to have_text("Conferences")
+        expect(page).to have_text(translated(participatory_space.title))
+        expect(page).to have_text("Program")
       end
     end
 
     scenario "shows breadcrumb with conference, program, and meeting" do
-      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component, locale: I18n.locale)
+      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component)
       click_on decidim_sanitize_translated(meeting.title)
 
       within ".menu-bar" do
-        expect(page).to have_content("Conferences")
-        expect(page).to have_content(translated(participatory_space.title))
-        expect(page).to have_content("Program")
-        expect(page).to have_content(translated_attribute(meeting.title))
+        expect(page).to have_text("Conferences")
+        expect(page).to have_text(translated(participatory_space.title))
+        expect(page).to have_text("Program")
+        expect(page).to have_text(translated_attribute(meeting.title))
       end
     end
   end

@@ -3,7 +3,7 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 Gem::Specification.new do |s|
-  version = "0.32.0.dev"
+  version = "0.33.0.dev"
   s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
@@ -45,7 +45,7 @@ Gem::Specification.new do |s|
   s.add_dependency "i18n-tasks", "~> 1.0"
   s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
   s.add_dependency "parallel_tests", ">= 4.2", "< 6.0"
-  s.add_dependency "puma", ">= 6.5", "< 8.0"
+  s.add_dependency "puma", ">= 6.5", "< 9.0"
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec", "~> 3.12"
   s.add_dependency "rspec-cells", "~> 0.3.7"
@@ -53,17 +53,17 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
   s.add_dependency "rspec-rails", ">= 6", "< 9"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", ">= 1.78", "< 1.86"
-  s.add_dependency "rubocop-capybara", "~> 2.22.0", ">= 2.22.1"
+  s.add_dependency "rubocop", ">= 1.78", "< 1.88"
+  s.add_dependency "rubocop-capybara", ">= 2.22.1", "< 2.24"
   s.add_dependency "rubocop-factory_bot", ">= 2.27", "< 2.29"
   s.add_dependency "rubocop-faker", "~> 1.3", ">= 1.3.0"
   s.add_dependency "rubocop-graphql", "~> 1.5", ">= 1.5.6"
   s.add_dependency "rubocop-performance", "~> 1.25", ">= 1.25.0"
-  s.add_dependency "rubocop-rails", ">= 2.32", "< 2.35"
+  s.add_dependency "rubocop-rails", ">= 2.32", "< 2.36"
   s.add_dependency "rubocop-rspec", "~> 3.0", ">= 3.6.0"
   s.add_dependency "rubocop-rspec_rails", ">= 2.31", "< 2.33"
   s.add_dependency "rubocop-rubycw", "~> 0.2.0"
-  s.add_dependency "rubocop-yard", ">= 1.0", "< 1.2"
+  s.add_dependency "rubocop-yard", ">= 1.0", "< 1.3"
   s.add_dependency "selenium-webdriver", "~> 4.9"
   s.add_dependency "simplecov", "~> 0.22.0"
   s.add_dependency "simplecov-cobertura", "~> 3.1.0"

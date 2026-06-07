@@ -29,10 +29,10 @@ module Decidim
         it_behaves_like "unauthorized Comment"
       end
 
-      context "when participatory space is private and transparent" do
-        let(:participatory_space) { create(:assembly, :published, :transparent, :private) }
-        let(:current_component) { create(:dummy_component, :published, participatory_space:) }
-        let(:commentable) { create(:dummy_resource, :published, component: current_component) }
+      context "when participatory space is transparent" do
+        let(:participatory_space) { create(:assembly, :transparent) }
+        let(:component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, :published, component:) }
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }
 
@@ -41,10 +41,10 @@ module Decidim
         end
       end
 
-      context "when participatory space is private" do
-        let(:participatory_space) { create(:assembly, :published, :private, :opaque) }
-        let(:current_component) { create(:dummy_component, :published, participatory_space:) }
-        let(:commentable) { create(:dummy_resource, :published, component: current_component) }
+      context "when participatory space is restricted" do
+        let(:participatory_space) { create(:assembly, :published, :restricted) }
+        let(:component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, :published, component:) }
 
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }

@@ -75,11 +75,11 @@ module Decidim
         end
 
         def milestone
-          @milestone ||= milestones.find(params[:id])
+          @milestone ||= milestones.find(params.expect(:id))
         end
 
         def result
-          @result ||= Result.where(component: current_component).find(params[:result_id])
+          @result ||= Result.where(component: current_component).find(params.expect(:result_id))
         end
       end
     end

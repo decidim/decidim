@@ -18,7 +18,7 @@ module Decidim
       def edit
         enforce_permission_to :index, :impersonatable_user
 
-        conflict = Decidim::Verifications::Conflict.find(params[:id])
+        conflict = Decidim::Verifications::Conflict.find(params.expect(:id))
 
         @form = form(TransferUserForm).from_params(
           user: conflict.current_user,
@@ -30,7 +30,7 @@ module Decidim
       def update
         enforce_permission_to :index, :impersonatable_user
 
-        conflict = Decidim::Verifications::Conflict.find(params[:id])
+        conflict = Decidim::Verifications::Conflict.find(params.expect(:id))
 
         @form = form(TransferUserForm).from_params(
           current_user:,

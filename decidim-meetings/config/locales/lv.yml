@@ -52,7 +52,6 @@ lv:
           success: Sanāksme veiksmīgi dublēta.
         new:
           copy: Kopēt
-          title: Dublēt sanāksmi
     components:
       meetings:
         actions:
@@ -169,7 +168,6 @@ lv:
             non_user: Neeksistējošs dalībnieks
             select_user: Izvēlieties dalībnieku
           index:
-            invite_attendee: Uzaicināt apmeklētāju
             invites: Ielūgumi
         meeting_closes:
           edit:
@@ -209,7 +207,6 @@ lv:
               one: Ir notikusi %{count} reģistrācija.
               other: Ir notikušas %{count} reģistrācijas.
             reserved_slots_less_than: Jābūt mazāk vai vienādam ar %{count}
-            title: Reģistrācija
           update:
             invalid: Saglabājot reģistrācijas iestatījumus, radās problēma.
             success: Sanāksmes reģistrācijas iestatījumi ir veiksmīgi saglabāti.

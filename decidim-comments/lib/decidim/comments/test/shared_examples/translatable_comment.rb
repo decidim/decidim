@@ -12,6 +12,7 @@ shared_examples_for "a translated comment event" do
     let(:comment) { create(:comment, body:, commentable:) }
     let(:en_version) { "<div><p>#{comment.body["en"]}</p></div>" }
     let(:machine_translated) { "<div><p>#{comment.body["machine_translations"]["ca"]}</p></div>" }
+    let(:untranslated_content) { en_version }
 
     it_behaves_like "a translated event"
   end

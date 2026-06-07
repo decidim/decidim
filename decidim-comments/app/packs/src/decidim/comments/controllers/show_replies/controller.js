@@ -92,14 +92,19 @@ export default class extends Controller {
    * @returns {string} The URL with query parameters
    */
   buildUrl() {
+    const locale = document.documentElement.getAttribute("lang") || "en";
     const params = new URLSearchParams({
       "commentable_gid": this.commentGidValue,
       "order": this.orderValue,
       "offset": 0,
+      "locale": locale,
       "load_more": 1
     });
 
-    return `${this.urlValue}?${params.toString()}`;
+    const separator = this.urlValue.includes("?")
+      ? "&"
+      : "?";
+    return `${this.urlValue}${separator}${params.toString()}`;
   }
 
   /**

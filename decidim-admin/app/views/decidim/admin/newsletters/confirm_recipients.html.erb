@@ -37,7 +37,7 @@
             <%= hidden_field_tag "newsletter[send_to_verified_users]", params.dig(:newsletter, :send_to_verified_users) %>
             <%= hidden_field_tag "newsletter[send_to_participants]", params.dig(:newsletter, :send_to_participants) %>
             <%= hidden_field_tag "newsletter[send_to_followers]", params.dig(:newsletter, :send_to_followers) %>
-            <%= hidden_field_tag "newsletter[send_to_private_members]", params.dig(:newsletter, :send_to_private_members) %>
+            <%= hidden_field_tag "newsletter[send_to_members]", params.dig(:newsletter, :send_to_members) %>
 
             <% @form.participatory_space_types.each do |space_type| %>
               <%= hidden_field_tag "newsletter[participatory_space_types][#{space_type.manifest_name}][manifest_name]", space_type.manifest_name %>

@@ -9,8 +9,10 @@ module Decidim
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"
     autoload :RequiredScopes, "decidim/api/required_scopes"
-    autoload :GraphqlPermissions, "decidim/api/graphql_permissions"
     autoload :ComponentMutationType, "decidim/api/component_mutation_type"
+    autoload :GraphqlPermissions, "decidim/api/graphql_permissions"
+    autoload :SoftDeleteResourceType, "decidim/api/soft_delete_resource_type"
+    autoload :DestroyResourceType, "decidim/api/destroy_resource_type"
 
     module Errors
       autoload :IntrospectionDisabledError, "decidim/api/errors/introspection_disabled_error"
@@ -37,6 +39,8 @@ module Decidim
       autoload :BaseObject, "decidim/api/types/base_object"
       autoload :BaseScalar, "decidim/api/types/base_scalar"
       autoload :BaseUnion, "decidim/api/types/base_union"
+
+      autoload :AccessModeEnum, "decidim/api/types/access_mode_enum"
     end
   end
 end

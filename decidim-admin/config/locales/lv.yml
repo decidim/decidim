@@ -142,8 +142,6 @@ lv:
         edit:
           title: Rediģēt mapi
           update: Atjaunināt
-        index:
-          attachment_collections_title: Pielikumu mapes
         new:
           create: Izveidot
           title: Jauna mape
@@ -159,8 +157,6 @@ lv:
         edit:
           title: Rediģēt pielikumu
           update: Atjaunināt
-        index:
-          attachments_title: Pielikumi
         new:
           create: Izveidot pielikumu
           title: Jauns pielikums
@@ -198,7 +194,6 @@ lv:
           title: 'Pievienot komponentu: %{name}'
         publish:
           success: Komponents ir veiksmīgi publicēts.
-        title: Komponenti
         unpublish:
           success: Komponenta publicēšana ir veiksmīgi atcelta.
         update:
@@ -264,7 +259,6 @@ lv:
           impersonate: Uzdoties par
           impersonate_existing_managed_user: Pārvaldīt dalībnieku "%{name}"
           impersonate_existing_user: Pārvaldīt dalībnieku "%{name}"
-          impersonate_new_managed_user: Pārvaldīt jaunu dalībnieku
       managed_users:
         promotion:
           error: Pārvaldītā dalībnieka paaugstināšanas laikā radās problēma.
@@ -272,7 +266,6 @@ lv:
         promotions:
           new:
             explanation: Pārvaldītos dalībniekus var paaugstināt par standarta dalībniekiem. Tas nozīmē, ka viņi tiks uzaicināti uz lietojumprogrammu un jūs viņus vairs nevarēsiet pārvaldīt. Uzaicinātais dalībnieks saņems e-pastu ar jūsu ielūgumu.
-            new_managed_user_promotion: Jauna pārvaldīta dalībnieka paaugstināšana
             promote: Paaugstināt
       members_csv_imports:
         new:
@@ -364,7 +357,6 @@ lv:
           title: Informatīvo biļetenu veidnes
           use_template: Izmantot šo veidni
         show:
-          preview: 'Priekšskatīt veidni: %{template_name}'
           use_template: Izmantot šo veidni
       newsletters:
         create:
@@ -406,7 +398,6 @@ lv:
           title: Izvēlieties adresātus, kuriem nosūtīt
           warning: "<strong>Uzmanību:</strong> šis informatīvais biļetens tiks nosūtīts tikai tiem lietotājiem, kuri savos paziņojumu iestatījumos ir aktivizējuši <em>Vēlos saņemt informatīvos biļetenus</em>."
         show:
-          preview: Priekšskatīt
           select_recipients_to_deliver: Izvēlieties adresātus, kuriem nosūtīt
           subject: Temats
         update:
@@ -514,15 +505,8 @@ lv:
         update:
           error: Šīs lapas atjaunināšanas laikā radās problēma.
       titles:
-        admin_log: Administratora žurnāls
-        area_types: Jomu veidi
         areas: Jomas
         authorization_workflows: Verifikācijas metodes
-        dashboard: Informācijas panelis
-        impersonatable_users: Pārvaldāmie dalībnieki
-        impersonations: Dalībnieku pārvaldība
-        participants: Dalībnieki
-        scope_types: Tvēruma veidi
         scopes: Darbības tvērums
       users:
         create:

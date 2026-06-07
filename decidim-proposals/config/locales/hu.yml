@@ -145,24 +145,21 @@ hu:
         admin:
           proposal_note_created:
             email_subject: Valaki egy jegyzetet írt a(z) "%{resource_title}" javaslathoz.
+        coauthor_invited:
+          actions:
+            accept: Elfogad
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} jóváhagyva, mint közreműködő ebben: %{resource_title}."
-          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> jóváhagyva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name} elutasítva, mint közreműködő ebben a közösen szerkesztett vázlatban: %{resource_title}."
-          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> elutasítva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requested:
           email_subject: "%{requester_name} közreműködési hozzáférést kért ehhez: %{resource_title}."
-          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> közreműködése hozzáférést kért a következő közös vázlathoz: <a href="%{resource_path}">%{resource_title}</a>. Kérlek, <strong>fogadd el vagy utasítsd el a kérelmet</strong>.'
         collaborative_draft_access_requester_accepted:
           email_subject: 'Jóváhagyták közreműködési kérelmedet itt: %{resource_title}.'
           notification_title: 'Közreműködési kérelmedet <strong>jóváhagyták</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requester_rejected:
           email_subject: 'Közreműködési kérelmedet elutasították itt: %{resource_title}.'
           notification_title: 'Közreműködési kérelmedet <strong>elutasították</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name} %{author_nickname} visszavonta a(z) %{resource_title} közös vázlatot."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>visszavonta</strong> a(z) <a href="%{resource_path}">%{resource_title}</a> közös vázlatot.
         creation_enabled:
           email_intro: 'Mostantól új javaslatokat készíthetsz itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
@@ -173,11 +170,6 @@ hu:
           email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
           email_subject: '"%{mentioned_proposal_title}" című javaslatod említésre került'
           notification_title: '"%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_path}">egy megjegyzésben</a>.'
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, aki követi, egy új javaslatot tett közzé a "%{resource_title}" -nek. Nézze meg és járuljon hozzá:'
-          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: Új javaslat "%{resource_title}" szerint %{author_nickname}
-          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat közzétéve általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         proposal_published_for_space:
           email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
@@ -368,89 +360,6 @@ hu:
           all: Minden
           amendments: Módosítások
           proposals: Javaslatok
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Hiba történt a közösen szerkesztett vázlat közzététele során.
-            irreversible_action_modal:
-              cancel: Mégse
-              ok: Közzététel javaslatként
-              title: A következő művelet visszavonhatatlan
-            success: A közös vázlat javaslatként való közzététele sikeres volt.
-          withdraw:
-            error: Hiba történt a közösen szerkesztett vázlat lezárásakor.
-            irreversible_action_modal:
-              cancel: Mégse
-              ok: Közös vázlat visszavonása
-              title: A következő művelet visszavonhatatlan
-            success: Közös vázlat visszavonása sikeres.
-        create:
-          success: Közös vázlat létrehozása sikeres.
-        edit:
-          back: Vissza
-          send: Küldés
-          title: Közös vázlat szerkesztése
-        filters:
-          all: Összes
-          amendment: Módosítások
-          open: Megnyitás
-          published: Közzétéve
-          related_to: Kapcsolódó
-          search: Keresés
-          state: Állapot
-          withdrawn: Visszavonva
-        filters_small_view:
-          close_modal: Modal bezárása
-          filter: Szűrés
-          filter_by: 'Szűrés ez alapján:'
-          unfold: Kibont
-        index:
-          count:
-            one: "%{count} közös vázlat"
-            other: "%{count} együttműködési tervezet"
-        new:
-          add_file: Fájl hozzáadása
-          edit_file: Fájl szerkesztése
-          send: Tovább
-        new_collaborative_draft_button:
-          new_collaborative_draft: Új közös vázlat
-        orders:
-          label: 'Vázlatok rendezése:'
-          most_contributed: Legtöbbeket bevonó
-          random: Véletlenszerű
-          recent: Legutóbbi
-        requests:
-          accepted_request:
-            error: Nem lehetsz közreműködő partner, próbáld újra később.
-          access_requested:
-            error: Nem sikerült befejezni a műveletet, próbáld újra később.
-          collaboration_requests:
-            accept_request: Elfogad
-            reject_request: Elutasít
-            title: Közreműködési kérelmek
-          rejected_request:
-            error: Nem lehetett elutasítani a közreműködőt, próbálkozz később.
-        show:
-          final_proposal: végleges javaslat
-          final_proposal_help_text: Ez a vázlat készen áll. Nézd meg a javaslat végső verzióját
-          hidden_authors_count:
-            one: és még %{count} személy
-            other: és még %{count} személy
-          publish: Közzétesz
-          publish_info: Vázlat jelen verziójának közzététele vagy
-          published_proposal: közzétett javaslat
-          request_access: Hozzáférés kérése
-          requested_access: Hozzáférés megkérve
-          withdraw: tervezet visszavonása
-        states:
-          open: Megnyitás
-          published: Közzétéve
-          withdrawn: Visszavonva
-        update:
-          error: Hiba történt a közösen szerkesztett vázlat mentése során.
-          success: Közös vázlat frissítése sikeres.
-        wizard_header:
-          title: Hozd létre a közös vázlatod
       content_blocks:
         highlighted_proposals:
           name: Javaslatok
@@ -500,7 +409,6 @@ hu:
           voted: Szavazott
         index:
           click_here: Összes javaslat megtekintése
-          collaborative_drafts_list: Hozzáférés közös vázlatokhoz
           count:
             one: "%{count} javaslat"
             other: "%{count} javaslatot"
@@ -527,8 +435,9 @@ hu:
           answer: Válasz
           changes_at_title: A (z) "%{title}" módosítása
           estimated_cost: Becsült költség
-          link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
-          link_to_collaborative_draft_text: Közös vázlat megtekintése
+          hidden_likes_count:
+            one: és még %{count} személy
+            other: és még %{count} személy
           link_to_promoted_emendation_help_text: Ez a javaslat egy támogatott helyreigazítás
           link_to_promoted_emendation_text: Elutasított helyreigazítás megtekintése.
           link_to_proposal_from_emendation_help_text: Ez egy elutasított helyreigazítás

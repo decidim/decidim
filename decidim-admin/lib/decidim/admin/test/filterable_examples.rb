@@ -46,14 +46,14 @@ shared_context "with filterable context" do
   def page_has_content(text)
     text = [text] unless text.is_a?(Array)
     text.each do |t|
-      expect(page).to have_content(t)
+      expect(page).to have_text(t)
     end
   end
 
   def page_has_no_content(text)
     text = [text] unless text.is_a?(Array)
     text.each do |t|
-      expect(page).to have_no_content(t)
+      expect(page).to have_no_text(t)
     end
   end
 
@@ -148,27 +148,36 @@ shared_examples "filtering collection by published/unpublished" do
   it_behaves_like "paginating a collection"
 end
 
-shared_examples "filtering collection by private/public" do
+shared_examples "filtering collection by open/restricted/transparent" do
   include_context "with filterable context"
 
   unless block_given?
-    let!(:public_space) do
-      create(factory_name, private_space: false, organization:)
+    let!(:open_space) do
+      create(factory_name, :open, organization:)
     end
 
-    let!(:private_space) do
-      create(factory_name, private_space: true, organization:)
+    let!(:restricted_space) do
+      create(factory_name, :restricted, organization:)
+    end
+
+    let!(:transparent_space) do
+      create(factory_name, :transparent, organization:)
     end
   end
 
-  it_behaves_like "a filtered collection", options: "Private", filter: "Public" do
-    let(:in_filter) { translated(public_space.title) }
-    let(:not_in_filter) { translated(private_space.title) }
+  it_behaves_like "a filtered collection", options: "Access mode", filter: "Open" do
+    let(:in_filter) { translated(open_space.title) }
+    let(:not_in_filter) { [translated(restricted_space.title), translated(transparent_space.title)] }
   end
 
-  it_behaves_like "a filtered collection", options: "Private", filter: "Private" do
-    let(:in_filter) { translated(private_space.title) }
-    let(:not_in_filter) { translated(public_space.title) }
+  it_behaves_like "a filtered collection", options: "Access mode", filter: "Restricted" do
+    let(:in_filter) { translated(restricted_space.title) }
+    let(:not_in_filter) { [translated(open_space.title), translated(transparent_space.title)] }
+  end
+
+  it_behaves_like "a filtered collection", options: "Access mode", filter: "Transparent" do
+    let(:in_filter) { translated(transparent_space.title) }
+    let(:not_in_filter) { [translated(open_space.title), translated(restricted_space.title)] }
   end
 
   it_behaves_like "paginating a collection"

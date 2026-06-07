@@ -56,6 +56,7 @@ module Decidim
 
           on(:invalid) do |newsletter|
             @newsletter = newsletter
+            @form.images = content_block.images_container
             flash.now[:error] = I18n.t("newsletters.create.error", scope: "decidim.admin")
             render action: :new, status: :unprocessable_content
           end
@@ -156,7 +157,7 @@ module Decidim
           :send_to_verified_users,
           :send_to_followers,
           :send_to_participants,
-          :send_to_private_members,
+          :send_to_members,
           verification_types: [],
           participatory_space_types: {
             assemblies: [:manifest_name, { ids: [] }],

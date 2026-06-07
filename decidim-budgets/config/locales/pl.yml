@@ -70,7 +70,6 @@ pl:
             invalid: Podczas tworzenia tego projektu wystąpił błąd.
             success: Projekt został utworzony.
           edit:
-            title: Edytuj projekt
             update: Aktualizuj
           index:
             actions: Działania
@@ -90,7 +89,6 @@ pl:
             update_budget_button: Aktualizuj budżet projektu
           new:
             create: Utwórz
-            title: Nowy projekt
           update:
             invalid: Podczas aktualizacji tego projektu wystąpił błąd.
             success: Zaktualizowano projekt.

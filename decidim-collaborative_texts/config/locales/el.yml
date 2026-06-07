@@ -16,6 +16,9 @@ el:
           draft: Πρόχειρο
           version_number: Αριθμός έκδοσης
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Αδυναμία διαγραφής αυτού του εγγράφου
     collaborative_texts:
       actions:
         confirm_delete_document: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έγγραφο;
@@ -39,5 +42,27 @@ el:
             update: Ενημέρωση
           edit_settings:
             update: Ενημέρωση
+          manage_trash:
+            title: Διαγραμμένα έγγραφα
           new:
             create: Δημιουργία
+          non_draft_options:
+            enable_suggestions: Ενεργοποίηση προτάσεων
+            enable_suggestions_help: Η ενεργοποίηση προτάσεων θα επιτρέψει στους συμμετέχοντες να κάνουν προτάσεις σε αυτή την έκδοση.
+          publish:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση αυτού του εγγράφου.
+            success: Το έγγραφο δημοσιεύτηκε επιτυχώς
+          unpublish:
+            success: Το έγγραφο αποσύρθηκε επιτυχώς.
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του εγγράφου.
+            success: Το έγγραφο ενημερώθηκε επιτυχώς.
+          update_settings:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του εγγράφου.
+            success: Το έγγραφο ενημερώθηκε επιτυχώς.
+        index:
+          published: Δημοσιεύθηκε
+          unpublished: Αδημοσίευτο
+      document:
+        index: Ευρετήριο
+        restore: Επαναφορά

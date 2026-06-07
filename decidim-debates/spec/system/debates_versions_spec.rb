@@ -14,7 +14,7 @@ describe "Explore versions", versioning: true do
     end
 
     it "has only one version" do
-      expect(page).to have_content("Version number 1 (of 1)")
+      expect(page).to have_text("Version number 1 (of 1)")
     end
 
     it "shows the versions index" do
@@ -54,26 +54,26 @@ describe "Explore versions", versioning: true do
 
     it "shows the creation date" do
       within ".version__author" do
-        expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
+        expect(page).to have_text(Time.zone.today.strftime("%d/%m/%Y"))
       end
     end
 
     it "shows the changed attributes" do
-      expect(page).to have_content("Changes at")
+      expect(page).to have_text("Changes at")
 
       within "#diff-for-title-english" do
-        expect(page).to have_content("Title")
+        expect(page).to have_text("Title")
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(debate.title["en"])
+          expect(page).to have_text(debate.title["en"])
         end
       end
 
       within "#diff-for-description-english" do
-        expect(page).to have_content("Description")
+        expect(page).to have_text("Description")
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(debate.description["en"])
+          expect(page).to have_text(debate.description["en"])
         end
       end
     end

@@ -113,8 +113,20 @@ el:
         milestones:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του ορόσημου.
+            success: Το ορόσημο δημιουργήθηκε επιτυχώς.
+          destroy:
+            success: Το ορόσημο διαγράφηκε επιτυχώς.
+          edit:
+            title: Επεξεργασία ορόσημου
+            update: Ενημέρωση ορόσημου
           index:
             title: Ορόσημα
+          new:
+            create: Δημιουργία ορόσημου
+            title: Νέο ορόσημο
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του ορόσημου.
+            success: Το ορόσημο ενημερώθηκε επιτυχώς.
         models:
           result:
             name: Αποτέλεσμα
@@ -136,6 +148,8 @@ el:
               status: Κατάσταση
             submit_buttons:
               cancel: Ακύρωση
+            taxonomies_form:
+              change_taxonomies: Αλλαγή ταξινομιών
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του αποτελέσματος.
             success: Το αποτέλεσμα δημιουργήθηκε με επιτυχία.
@@ -161,6 +175,7 @@ el:
             success: Η κατάσταση των αποτελεσμάτων ενημερώθηκε με επιτυχία
           update_taxonomies:
             select_a_result: Επέλεξε ένα αποτέλεσμα
+            select_a_taxonomy: Επιλέξτε μια ταξινόμηση
         shared:
           subnav:
             statuses: Καταστάσεις
@@ -232,6 +247,7 @@ el:
             progress: Πρόοδος
             start_date: Ημερομηνία έναρξης
             status: Κατάσταση
+            taxonomies: Ταξινομίες
             title: Τίτλος
         status:
           fields:
@@ -246,6 +262,8 @@ el:
             other: "%{count} αποτελέσματα"
         home_header:
           global_status: Κατάσταση καθολικής εκτέλεσης
+        milestones:
+          title: Ορόσημα
         no_results: Δεν υπάρχει κανένα πρότζεκτ.
         root_taxonomies:
           title: 'Προβολή από:'
@@ -259,6 +277,8 @@ el:
         results:
           status_id_eq:
             label: Κατάσταση
+          taxonomies_part_of_contains:
+            label: Ταξινομία
       tooltips:
         deleted_results_info: Αδυναμία διαγραφής αυτού του αποτελέσματος
     components:
@@ -276,6 +296,7 @@ el:
             display_progress_enabled: Εμφάνιση προόδου
             geocoding_enabled: Χάρτες ενεργοποιημένοι
             intro: Εισαγωγή
+            no_taxonomy_filters_found: Δεν βρέθηκαν φίλτρα ταξινομίας.
             taxonomy_filters: Επιλογή φίλτρων για το στοιχείο
             taxonomy_filters_add: Προσθήκη φίλτρου
           step:
@@ -312,6 +333,7 @@ el:
           component: Το στοιχείο στο οποίο ανήκει το αποτέλεσμα
           created_at: Η ημερομηνία δημιουργίας του αποτελέσματος
           description: Η περιγραφή του αποτελέσματος
+          end_date: Η ημερομηνία κατά την οποία το αποτέλεσμα τελειώνει την εκτέλεση και έχει ολοκληρωθεί
           id: Ο μοναδικός αναγνωριστικός κωδικός του αποτελέσματος
           latitude: Το γεωγραφικό πλάτος του αποτελέσματος σε περίπτωση που έχει φυσική θέση
           longitude: Το γεωγραφικό μήκος του αποτελέσματος σε περίπτωση που έχει φυσική θέση

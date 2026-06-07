@@ -18,8 +18,8 @@ module Decidim
     #
     # @see BaseRenderer Examples of how to use a content renderer
     class BlobRenderer < BaseRenderer
-      # Matches a global id representing a Decidim::User
-      GLOBAL_ID_REGEX = %r{(gid://[\w-]+/ActiveStorage::Blob/\d+)(/([\w=-]+))?}
+      # Matches a global id representing an ActiveStorage::Blob (optionally with a variant key)
+      GLOBAL_ID_REGEX = %r{(gid://[\w-]+/ActiveStorage::Blob/\d+)(/([\w=-]+))?(?:[^\s"'<>]*)}
 
       # Replaces found Global IDs matching an existing blob with a URL to
       # that blob. The Global IDs representing an invalid ActiveStorage::Blob
@@ -33,11 +33,10 @@ module Decidim
       protected
 
       def replace_pattern(text, pattern)
-        return text unless text.respond_to?(:gsub)
-
-        text.gsub(pattern) do
-          blob_gid = Regexp.last_match(1)
-          variation_key = Regexp.last_match(3)
+        replace_pattern_by_context(text, pattern) do |match, _context|
+          match_data = match.match(GLOBAL_ID_REGEX)
+          blob_gid = match_data[1]
+          variation_key = match_data[3]
 
           blob = GlobalID::Locator.locate(blob_gid)
           if variation_key
@@ -50,8 +49,6 @@ module Decidim
           else
             blob_url(blob)
           end
-        rescue ActiveRecord::RecordNotFound => _e
-          ""
         end
       end
 

@@ -68,7 +68,6 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
-    settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
     settings.attribute :participatory_texts_enabled,
                        type: :boolean, default: false,
                        readonly: ->(context) { Decidim::Proposals::Proposal.where(component: context[:component]).any? }
@@ -112,12 +111,6 @@ Decidim.register_component(:proposals) do |component|
     resource.reported_content_cell = "decidim/proposals/reported_content"
     resource.actions = %w(like vote amend comment vote_comment)
     resource.searchable = true
-  end
-
-  component.register_resource(:collaborative_draft) do |resource|
-    resource.model_class_name = "Decidim::Proposals::CollaborativeDraft"
-    resource.card = "decidim/proposals/collaborative_draft"
-    resource.reported_content_cell = "decidim/proposals/collaborative_drafts/reported_content"
   end
 
   component.register_stat :proposals_count,

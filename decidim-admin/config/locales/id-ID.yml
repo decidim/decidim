@@ -135,8 +135,6 @@ id:
         edit:
           title: Edit folder
           update: Memperbarui
-        index:
-          attachment_collections_title: Folder lampiran
         new:
           create: Membuat
           title: Folder baru
@@ -152,8 +150,6 @@ id:
         edit:
           title: Edit lampiran
           update: Memperbarui
-        index:
-          attachments_title: Lampiran
         new:
           create: Buat lampiran
           title: Lampiran baru
@@ -190,7 +186,6 @@ id:
           title: 'Tambahkan komponen: %{name}'
         publish:
           success: Komponen telah berhasil dipublikasikan.
-        title: Komponen
         unpublish:
           success: Komponen telah berhasil tidak dipublikasikan.
         update:
@@ -242,7 +237,6 @@ id:
           impersonate: Menirukan
           impersonate_existing_managed_user: Meniru pengguna terkelola "%{name}"
           impersonate_existing_user: Meniru pengguna "%{name}"
-          impersonate_new_managed_user: Meniru pengguna yang dikelola baru
       managed_users:
         promotion:
           error: Terjadi kesalahan saat mempromosikan pengguna yang dikelola.
@@ -250,7 +244,6 @@ id:
         promotions:
           new:
             explanation: Pengguna yang dikelola dapat dipromosikan ke pengguna standar. Ini berarti mereka akan diundang ke aplikasi dan Anda tidak akan dapat meniru mereka lagi. Pengguna yang diundang akan menerima email untuk menerima undangan Anda.
-            new_managed_user_promotion: Promosi pengguna terkelola baru
             promote: Memajukan
       members_csv_imports:
         new:
@@ -361,7 +354,6 @@ id:
           confirm_deliver: Anda yakin ingin menyampaikan buletin ini? Tindakan ini tidak bisa dibatalkan.
           deliver: Kirimkan buletin
         show:
-          preview: Preview
           subject: Subyek
         update:
           error: Terjadi kesalahan saat memperbarui buletin ini.
@@ -462,15 +454,8 @@ id:
         update:
           error: Terjadi kesalahan saat memperbarui halaman ini.
       titles:
-        admin_log: Log admin
-        area_types: Tipe area
         areas: Area
         authorization_workflows: Metode verifikasi
-        dashboard: Dasbor
-        impersonatable_users: Pengguna yang dikelola
-        impersonations: Manajemen pengguna
-        participants: Pengguna
-        scope_types: Tipe lingkup
         scopes: Scopes
       users:
         create:

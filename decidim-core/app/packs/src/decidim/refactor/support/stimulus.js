@@ -24,6 +24,7 @@ const definitionForModuleAndIdentifier = function(module, identifier) {
 
 const definitionForModuleWithContextAndKey = function(context, key) {
   const identifier = identifierForContextKey(key);
+
   if (identifier) {
     return definitionForModuleAndIdentifier(context(key), identifier);
   }

@@ -8,17 +8,30 @@ sv:
       decidim/surveys/survey:
         one: Enkät
         other: Enkäter
+      decidim/surveys/survey_response:
+        one: Svar
+        other: Svar
   decidim:
     admin:
       actions:
-        confirm_unpublish_survey: Är du säker på att du vill avpublisera denna enkät?
-        see_survey: Se enkät
+        confirm_unpublish_survey: Är du säker på att du vill avpublicera enkäten?
+        see_survey: Visa enkät
+      admin_log:
+        changeset:
+          surveys: enkäter
+      menu:
+        surveys_menu:
+          main: Enkäter
+          questions: Frågor
+          responses: Svar
+          settings: Inställningar
     components:
       surveys:
         actions:
-          respond: Besvara
+          respond: Svara
         name: Enkäter
         settings:
+          announcement: Meddelande
           global:
             announcement: Meddelande
           step:
@@ -38,8 +51,8 @@ sv:
     open_data:
       help:
         published_survey_user_responses:
-          body:
-          created_at: Datum då resultatet skapades
+          body: Innehållet i svaret
+          created_at: Tidsstämpel när svaret skapades
           id: Unik identifierare för enkätsvar
           ip_hash: Hashad IP-adress åt respondenten för sekretess
           question: Frågan som besvarades
@@ -48,28 +61,102 @@ sv:
           user_status: Status för användaren som skickade svaret
     statistics:
       responses: 'Svar:'
+      responses_count: Svar
       surveys_count_tooltip: Antalet enkäter och svar som samlats in.
     surveys:
       actions:
+        confirm_destroy: Är du säker på att du vill radera?
+        destroy: Ta bort
+        edit: Redigera
+        manage_questions: Frågor
+        new_survey: Ny enkät
+        preview: Förhandsgranska
         responses: Svar
+        responses_alert: Ta bort svar vid publicering är aktivt för enkäten. Det finns %{responses_count} svar som kommer att tas bort om du fortsätter.
+        title: Åtgärder
       admin:
+        exports:
+          survey_user_responses: Svar från deltagarna
+        publish_responses:
+          index:
+            description: |-
+              Genom att publicera svaren blir de synliga för alla besökare.
+              Du kan välja de svar du vill publicera genom att klicka på kryssrutan bredvid varje fråga.
+              Du kan bara publicera följande frågetyper: "Ett alternativ, "Flera alternativ", "Matris (ett alternativ)", "Matris (flera alternativ)" och "Sortering".
+            responses:
+              one: "%{count} svar"
+              other: "%{count} svar"
+            status:
+              not_published: Ej publicerad
+              published: Publicerad
+            title: Publicera svar
+        questions:
+          surveys:
+            edit:
+              title: Frågor
+        responses:
+          index:
+            no_responses: Det finns inga svar ännu
+            title: "%{total} svar totalt"
+          show:
+            title: 'Svar #%{number}'
+        settings:
+          surveys:
+            edit:
+              title: Inställningar
         surveys:
+          create:
+            invalid: Det gick inte att spara enkäten.
+            success: Enkäten har skapats.
+          destroy:
+            success: Enkäten har tagits bort.
           edit:
             title: Redigera enkät
+          index:
+            title: Enkäter
           new:
-            title: Ny undersökning
+            title: Ny enkät
+          publish:
+            invalid: Det gick inte att publicera enkäten.
+            success: Enkäten har publicerats.
+          unpublish:
+            invalid: Det gick inte att avpublicera enkäten.
+            success: Enkäten har avpublicerats.
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.
+      admin_log:
+        survey:
+          create: "%{user_name} skapade enkäten %{resource_name} i utrymmet %{space_name}"
+          delete: "%{user_name} raderade enkäten %{resource_name} i utrymmet %{space_name}"
+          publish: "%{user_name} publicerade enkäten %{resource_name} i utrymmet %{space_name}"
+          unpublish: "%{user_name} avpublicerade enkäten %{resource_name} från utrymmet %{space_name}"
+          update: "%{user_name} uppdaterade enkäten %{resource_name} i utrymmet %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Enkäter
       last_activity:
         new_survey: 'Ny enkät:'
       models:
         survey:
           fields:
-            published: Publicerad
+            published: Publicerade
+            questions: Frågor
+            responses: Svar
+            status: Status
+            title: Titel
           published:
             published: Publicerad
-            unpublished: Avpublicerad
+            unpublished: Opublicerad
+          status:
+            closed: Stängd
+            open: Öppen
+      survey_confirmation_mailer:
+        confirmation:
+          body: Du har besvarat enkäten %{questionnaire_title} för %{participatory_space}
+          subject: Svarsbekräftelse för formuläret %{questionnaire_title}
+        export_name: Enkätsvar
       surveys:
         count:
           surveys_count:
@@ -81,6 +168,10 @@ sv:
             closed: Stängda
             open: Öppna
         no_surveys_warning: Inga enkäter matchar dina sökkriterier eller så finns det inte några aktiva enkäter.
+        response:
+          invalid: Det gick inte att besvara enkäten.
+          spam_detected: Det gick inte att svara på formuläret. Kanske har du varit för snabb, kan du försöka igen?
+          success: Enkäten har besvarats.
         show:
           closed: Stängd
           open: Öppen

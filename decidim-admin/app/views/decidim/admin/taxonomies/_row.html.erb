@@ -28,7 +28,7 @@
 
       <li class="taxonomy-list__actions">
         <span class="md:hidden !ml-0"><%= t("decidim.admin.taxonomies.actions.actions") %>: </span>
-        <%= render "taxonomy_actions", taxonomy: %>
+        <%= render "decidim/admin/taxonomies/taxonomy_actions", taxonomy: %>
       </li>
     </ul>
     <% if with_children && taxonomy.children.any? %>

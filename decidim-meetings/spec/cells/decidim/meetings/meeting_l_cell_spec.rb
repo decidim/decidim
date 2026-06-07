@@ -94,6 +94,22 @@ module Decidim::Meetings
       end
     end
 
+    context "when meeting spans multiple years" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 12, 15, 10, 0, 0, 0), end_time: Time.new(2021, 1, 17, 12, 0, 0, 0)) }
+
+      it "shows the start year" do
+        expect(subject).to have_css(".card__calendar-year", text: "2020")
+      end
+
+      it "shows the end year" do
+        expect(subject).to have_css(".card__calendar-year", text: "2021")
+      end
+
+      it "shows the separator" do
+        expect(subject).to have_css(".card__calendar-separator")
+      end
+    end
+
     context "when title contains special html entities" do
       let!(:original_title) { meeting.title["en"] }
 
@@ -112,7 +128,7 @@ module Decidim::Meetings
       let(:my_cell) { cell("decidim/meetings/meeting_l", meeting, context: { show_space: false }) }
 
       it "does not show the participatory space" do
-        expect(subject).to have_no_content(decidim_escape_translated(meeting.component.participatory_space.title))
+        expect(subject).to have_no_text(decidim_escape_translated(meeting.component.participatory_space.title))
       end
     end
 
@@ -120,7 +136,65 @@ module Decidim::Meetings
       let(:my_cell) { cell("decidim/meetings/meeting_l", meeting, context: { show_space: true }) }
 
       it "shows the participatory space" do
-        expect(subject).to have_content(decidim_escape_translated(meeting.component.participatory_space.title))
+        expect(subject).to have_text(translated_attribute(meeting.component.participatory_space.title))
+        expect(subject.to_s).to include(decidim_escape_translated(meeting.component.participatory_space.title).gsub("&quot;", "\""))
+      end
+    end
+
+    describe "#same_month?" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: nil) }
+      let(:my_cell) { cell("decidim/meetings/meeting_l", meeting) }
+
+      it "returns true when end_time is blank" do
+        expect(my_cell.send(:same_month?)).to be true
+      end
+
+      it "returns true when same month" do
+        meeting.update!(end_time: Time.new(2020, 10, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_month?)).to be true
+      end
+
+      it "returns false when different months" do
+        meeting.update!(end_time: Time.new(2020, 11, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_month?)).to be false
+      end
+    end
+
+    describe "#same_day?" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: nil) }
+      let(:my_cell) { cell("decidim/meetings/meeting_l", meeting) }
+
+      it "returns true when end_time is blank" do
+        expect(my_cell.send(:same_day?)).to be true
+      end
+
+      it "returns true when same day" do
+        meeting.update!(end_time: Time.new(2020, 10, 15, 18, 0, 0, 0))
+        expect(my_cell.send(:same_day?)).to be true
+      end
+
+      it "returns false when different days" do
+        meeting.update!(end_time: Time.new(2020, 10, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_day?)).to be false
+      end
+    end
+
+    describe "#same_year?" do
+      let!(:meeting) { create(:meeting, :published, start_time: Time.new(2020, 10, 15, 10, 0, 0, 0), end_time: nil) }
+      let(:my_cell) { cell("decidim/meetings/meeting_l", meeting) }
+
+      it "returns true when end_time is blank" do
+        expect(my_cell.send(:same_year?)).to be true
+      end
+
+      it "returns true when same year" do
+        meeting.update!(end_time: Time.new(2020, 12, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_year?)).to be true
+      end
+
+      it "returns false when different years" do
+        meeting.update!(end_time: Time.new(2021, 1, 20, 12, 0, 0, 0))
+        expect(my_cell.send(:same_year?)).to be false
       end
     end
   end

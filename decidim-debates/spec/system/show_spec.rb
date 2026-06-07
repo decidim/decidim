@@ -59,14 +59,14 @@ describe "show" do
       let!(:debate) { create(:debate, component:, author:) }
 
       it "successfully shows the page" do
-        expect(page).to have_content("Deleted participant")
+        expect(page).to have_text("Deleted participant")
       end
     end
   end
 
   context "when shows the debate component" do
     it "shows the debate title" do
-      expect(page).to have_content(translated(debate.title))
+      expect(page).to have_text(translated(debate.title))
     end
   end
 
@@ -74,7 +74,7 @@ describe "show" do
     context "when there are no comments" do
       it "shows default values" do
         within "#comments" do
-          expect(page).to have_content("0 comments")
+          expect(page).to have_text("0 comments")
         end
       end
     end
@@ -91,7 +91,7 @@ describe "show" do
 
       it "shows the number of participants" do
         within ".layout-item__aside" do
-          expect(page).to have_content("Participants\n2")
+          expect(page).to have_text("Participants\n2")
         end
       end
     end

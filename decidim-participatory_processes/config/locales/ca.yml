@@ -25,7 +25,6 @@ ca:
         participatory_process_group_id: Grup de processos
         participatory_scope: El que es decideix
         participatory_structure: Com es decideix
-        private_space: Procés privat
         promoted: Destacat
         published_at: Publicat el
         related_process_ids: Processos relacionats
@@ -105,29 +104,33 @@ ca:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Per grup de processos
+        with_any_access_mode:
+          label: Tipus d'accés
+          values:
+            open: Obert
+            restricted: Restringit
+            transparent: Transparent
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
-          info: Quant a aquest grup de processos
-          landing_page: Disposició de la pàgina de destinació
+          landing_page: Disposició de la pàgina d'inici
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
           components: Components
-          info: Quant a aquest procés
-          landing_page: Disposició de la pàgina de destinació
-          members:
+          landing_page: Disposició de la pàgina d'inici
+          members: Membres
           moderations: Moderacions
           process_admins: Administradores del procés
           steps: Fases del procés
       models:
         participatory_process:
           fields:
+            access_mode: Tipus d'accés
             actions: Accions
             created_at: Data de creació
-            private: Privat
             published: Publicat
             title: Títol
           name: Procés participatiu
@@ -164,17 +167,14 @@ ca:
         new:
           duplicate: Duplicar
           select: Selecciona quines dades vols duplicar
-          title: Duplicar el procés participatiu
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error en eliminar el grup de processos participatius.
           success: El grup de processos participatius s'ha eliminat correctament.
         edit:
-          title: Edita grup de procés
           update: Actualitza
         new:
           create: Crea
-          title: Nou grup de processos
         update:
           error: S'ha produït un error en actualitzar aquest grup de processos participatius.
           success: Grup de processos participatius actualitzat correctament.
@@ -185,7 +185,6 @@ ca:
         new:
           import: Importar
           select: Selecciona quines dades vols importar.
-          title: Importar el procés participatiu
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -208,13 +207,9 @@ ca:
             last_step: No es pot eliminar l'última fase d'un procés.
           success: La fase del procés participatiu s'ha eliminat correctament.
         edit:
-          title: Edita fase de procés participatiu
           update: Actualitza
-        index:
-          steps_title: Fases del procés
         new:
           create: Crea
-          title: Nova fase de procés participatiu
         ordering:
           error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
         update:
@@ -227,13 +222,9 @@ ca:
         destroy:
           success: L'administradora s'ha eliminat correctament d'aquest procés participatiu.
         edit:
-          title: Actualitzar administradora de procés participatiu
           update: Actualitza
-        index:
-          process_admins_title: Administradores del procés participatiu
         new:
           create: Crea
-          title: Nova administradora del procés participatiu
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
           success: Administradora actualitzada correctament per a aquest procés participatiu.
@@ -244,15 +235,14 @@ ca:
         edit:
           update: Actualitza
         index:
-          private: Privat
-          public: Públic
+          access_modes:
+            open: Obert
+            restricted: Restringit
+            transparent: Transparent
           published: Publicat
           unpublished: Despublicat
-        manage_trash:
-          title: Processos participatius eliminats
         new:
           create: Crea
-          title: Nou procés participatiu
         update:
           error: S'ha produït un error en actualitzar aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
@@ -267,11 +257,6 @@ ca:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Tots els processos participatius
-      titles:
-        participatory_process_groups: Grups de processos participatius
-        participatory_process_types: Tipus de processos participatius
-        participatory_processes: Processos participatius
-        participatory_processes_deleted: Processos participatius eliminats
       tooltips:
         deleted_processes_info: Un procés només es poden eliminar si el seu estat és 'Despublicat'.
       users:
@@ -300,10 +285,6 @@ ca:
         create: "%{user_name} ha creat la fase %{resource_name} en el procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la fase %{resource_name} en el procés participatiu %{space_name}"
         update: "%{user_name} ha actualitzat la fase %{resource_name} en el procés participatiu %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} ha creat el tipus de procés participatiu %{resource_name}"
-        delete: "%{user_name} ha esborrat el tipus de procés participatiu %{resource_name}"
-        update: "%{user_name} ha actualitzat el tipus de procés participatiu %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
@@ -334,15 +315,12 @@ ca:
           contextual: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           page: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           title: Què és un procés participatiu?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Aquest tipus de procés no s''ha trobat a la base de dades (ID: %{id}).'
     menu:
       processes: Processos
     open_data:
       help:
         participatory_processes:
+          access_mode: 'Tipus d''accés: Si el procés participatiu és obert, restringit o transparent.'
           area: L'àrea a què pertany aquest procés
           component_settings: Configuració dels components del procés participatiu
           created_at: La data en què es va crear aquest procés participatiu
@@ -500,30 +478,68 @@ ca:
         participatory_process_duplicates:
           form:
             slug_help_html: 'Els segments d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Duplicar el procés participatiu
         participatory_process_groups:
+          edit:
+            title: Editar el grup de procés
           form:
             metadata: Metadades
             title: Quant a aquest procés
             visibility: Visibilitat
+          index:
+            title: Grups de processos participatius
+          new:
+            title: Nou grup de processos
         participatory_process_imports:
           form:
             document_legend: Afegeix un document
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          new:
+            title: Importar un procés participatiu
+        participatory_process_steps:
+          edit:
+            title: Editar la fase de procés participatiu
+          index:
+            title: Fases del procés
+          new:
+            title: Nova fase del procés participatiu
+        participatory_process_user_roles:
+          edit:
+            title: Actualitzar l'administradora del procés participatiu
+          index:
+            title: Administradores del procés participatiu
+          new:
+            title: Nova administradora del procés participatiu
         participatory_processes:
+          edit:
+            title: Quant a aquest procés
           form:
+            access:
+              label: Accés
+              options:
+                open: Qualsevol pot veure i participar en el procés participatiu.
+                restricted: Només membres i administradores poden veure aquesta assemblea i participar-hi. No apareixerà a la cerca general, API, ni als arxius de dates oberts.
+                transparent: Qualsevol pot veure el procés participatiu, però només membres i administradores hi poden participar.
+              set_this_space_as: Defineix el tipus d'accés a aquest espai
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             has_members_help: Podràs crear i publicar membres
             images: Imatges
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
-            private_notice: Fa que l'espai de participació no sigui visible per a les visitants i només ho sigui per a les usuàries membre (a no ser que també sigui transparent)
             related_processes: Processos relacionats
             select_process_group: Selecciona un grup de processos
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
+          index:
+            title: Processos participatius
+          manage_trash:
+            title: Processos participatius eliminats
+          new:
+            title: Nou procés participatiu
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -566,9 +582,6 @@ ca:
         title: Processos participatius
       last_activity:
         new_participatory_process: 'Nou procés participatiu:'
-      members:
-        index:
-          title: Membres
       pages:
         home:
           highlighted_processes:
@@ -617,7 +630,6 @@ ca:
           title: Quant a aquest procés
       show:
         belongs_to_group: Aquest procés pertany a
-        private_space: Aquest és un procés privat
         related_processes: Processos relacionats
       static_pages:
         democratic_quality_indicators:

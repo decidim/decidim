@@ -416,7 +416,7 @@ ca-IT:
       withdraw:
         error: Hi ha hagut un problema en retirar l'esmena.
         success: L'esmena s'ha retirat correctament.
-      wizard_step_form:
+      wizard:
         steps:
           '1': Crea la teva esmena
           '2': Publica la teva esmena
@@ -871,13 +871,9 @@ ca-IT:
           affected_user:
             email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè s'ha acceptat una esmena presentada a l'apartat "%{amendable_title}" que administres.
-            email_subject: Esmena acceptada per %{amendable_title} a %{emendation_author_nickname}
-            notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat acceptada per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho en aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè estàs seguint l'esmena "%{amendable_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
-            notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat acceptada per <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
@@ -893,29 +889,20 @@ ca-IT:
           affected_user:
             email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat publicada com una nova %{amendable_type}. La pots veure des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè s'ha promogut una esmena a l'apartat "%{amendable_title}" que administres.
-            email_subject: Una nova esmena feta per %{emendation_author_nickname} s'ha publicat com a nova %{amendable_type}
-            notification_title: Una <a href="%{emendation_path}">esmena rebutjada</a> per <a href="%{amendable_path}">%{amendable_title}</a> ha estat publicada com un nou %{amendable_type} per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat publicada com una nova %{amendable_type}. Pots veure-ho des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: S'ha publicat una esmena feta per %{emendation_author_nickname} com a nova %{amendable_type}
-            notification_title: Una <a href="%{emendation_path}">esmena rebutjada</a> per <a href="%{amendable_path}">%{amendable_title}</a> ha estat publicada com un nou %{amendable_type} per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Una esmena s''ha rebutjat per %{amendable_title}. La pots veure des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè s'ha rebutjat una esmena a l'apartat "%{amendable_title}" que administres.
-            email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
-            notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'S''ha rebutjat una esmena per %{amendable_title}. La pots veure des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
-            notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'S''ha publicat una esmena per a %{amendable_title}. La pots veure en aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè és autora de %{amendable_title}.
-            email_subject: Una esmena de %{emendation_author_nickname} s'ha publicat com un nou %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure''l des d''aquesta pàgina:'
@@ -966,25 +953,13 @@ ca-IT:
           notification_title: |-
             Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}..</br>
             <i>%{resource_content}</i>
-      resource_liked:
-        email_intro: '%{liker_name} %{liker_nickname}, a qui segueixes, li acaba d''agradar: "%{resource_title}", que et pot resultar interessant, revisa-la i contribueix:'
-        email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{liker_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-        email_subject: "%{liker_nickname} ha realitzat un nou \"m'agrada\""
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} li ha agradat a <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
       users:
-        profile_updated:
-          email_intro: La pàgina <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
-          email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "%{nickname} ha actualitzat el seu perfil"
-          notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
         user_officialized:
-          email_intro: La participant %{name} (%{nickname}) ha estat oficialitzada.
           email_outro: Has rebut aquesta notificació perquè administres la plataforma.
           email_subject: "S'ha oficialitzat a %{name}"
-          notification_title: La participant %{name} (%{nickname}) ha estat oficialitzada.
     export_mailer:
       download_your_data_export:
         click_button_html: Clica a l'enllaç següent per a descarregar les teves dades.<br/>El fitxer estarà disponible per a la seva descàrrega fins al %{date}.
@@ -1161,6 +1136,12 @@ ca-IT:
         update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
         update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Oberta
+            restricted: Restringida
+            transparent: Transparent
+          not_found: No s'ha trobat el tipus d'accéso %{id}
         area_presenter:
           not_found: 'L''àrea no s''ha trobat a la base de dades (ID: %{id})'
         area_type_presenter:
@@ -1334,6 +1315,7 @@ ca-IT:
         own_activity: La meva pròpia activitat, com quan algú fa comentaris a la meva proposta o em menciona
         push_notifications: Notificacions emergents
         push_notifications_reminder: Per rebre notificacions de la plataforma, primer les has de permetre a la configuració del teu navegador.
+        push_notifications_unsupported_browser: El navegador no és compatible.
         receive_notifications_about: Vull rebre notificacions
         update_notifications_settings: Guardar canvis
       update:
@@ -1418,7 +1400,7 @@ ca-IT:
         download:
           components: Components
           core: Nucli
-          spaces: Espai participatiu
+          spaces: Espais de participació
           title: Descarregar recursos
         download_open_data: Descarrega tots els fitxers de dades obertes
         download_resource: Descarregar "%{resource_name}" en format CSV
@@ -1526,6 +1508,18 @@ ca-IT:
           %{organization_name}
         hello: Benvolgut/da %{username},
         subject: Avís de compte inactiu
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Membre de
+    participatory_space_members:
+      index:
+        members: Membres
+    participatory_spaces:
+      show:
+        restricted_space: Aquest és un espai restringit. Només membres i administradores el poden veure i participar-hi.
+        transparent_space: Aquest és un espai restringit però transparent. Qualsevol pot veure'n el contingut, però només les membres i administradores hi poden participar.
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
@@ -1815,6 +1809,7 @@ ca-IT:
         nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' i '_'.
         submit_button: Desa
         subtitle: Si acceptes la invitació, si us plau, estableix el teu àlies i contrasenya.
+        subtitle_no_password: Si acceptes la invitació, si us plau, estableix el teu àlies o sobrenom.
       invitation_removed: S'ha eliminat la teva invitació.
       invitation_token_invalid: El token de invitació proporcionat no és vàlid!
       new:
@@ -1822,8 +1817,8 @@ ca-IT:
         submit_button: Enviar una invitació
       no_invitations_remaining: No queden invitacions
       send_instructions: S'ha enviat una invitació via correu electrònic a %{email}.
-      updated: La teva contrasenya s'ha establert correctament. Ja has iniciat sessió.
-      updated_not_active: La teva contrasenya s'ha establert correctament.
+      updated: La invitació s'ha acceptat correctament. S'ha iniciat la teva sessió.
+      updated_not_active: La invitació s'ha acceptat correctament.
     mailer:
       confirmation_instructions:
         action: Confirma el meu compte
@@ -1882,8 +1877,8 @@ ca-IT:
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
         old_password_help: Per tal de confirmar els canvis al teu compte, si us plau, proporciona'ns la teva contrasenya actual.
-        password_help: "%{minimum_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu àlies i la teva adreça de correu electrònic."
-        password_help_admin: "%{minimum_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu àlies, del teu correu electrònic i de les teves antigues contrasenyes."
+        password_help: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic i del domini de la plataforma."
+        password_help_admin: "La contrasenya ha de tenir com a mínim %{minimum_characters} caràcters, d'aquests, almenys 5 caràcters han de ser diferents, no han de ser massa comuns (p. ex. 123456) i ha de ser diferent del número, sobrenom, correu electrònic, domini de la plataforma o contrasenyes antigues."
         title: Canvi de contrasenya
       new:
         forgot_your_password: Has oblidat la teva contrasenya?

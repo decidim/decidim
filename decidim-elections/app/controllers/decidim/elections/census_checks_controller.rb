@@ -41,7 +41,7 @@ module Decidim
       def election
         @election ||= Election.where(component: current_component)
                               .then { |scope| current_user&.admin? ? scope : scope.published }
-                              .find(params[:election_id])
+                              .find(params.expect(:election_id))
       end
 
       def redirect_if_authenticated

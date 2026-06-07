@@ -17,20 +17,20 @@ module Decidim
     autoload :UserResponsesSerializer, "decidim/meetings/user_responses_serializer"
     autoload :SchemaOrgEventMeetingSerializer, "decidim/meetings/schema_org_event_meeting_serializer"
 
-    include ActiveSupport::Configurable
+    class << self
+      def config = self
+
+      def configure
+        yield self
+      end
+    end
 
     # Public Setting that defines the interval when the upcoming meeting will be sent
-    config_accessor :upcoming_meeting_notification do
-      Decidim::Env.new("MEETINGS_UPCOMING_MEETING_NOTIFICATION", 2).to_i.days
-    end
+    mattr_accessor :upcoming_meeting_notification, default: Decidim::Env.new("MEETINGS_UPCOMING_MEETING_NOTIFICATION", 2).to_i.days
 
-    config_accessor :embeddable_services do
-      Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES", "www.youtube.com www.twitch.tv meet.jit.si").to_array(separator: " ")
-    end
+    mattr_accessor :embeddable_services, default: Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES", "www.youtube.com www.twitch.tv meet.jit.si").to_array(separator: " ")
 
-    config_accessor :waiting_list_enabled do
-      Decidim::Env.new("MEETINGS_WAITING_LIST_ENABLED", true).present?
-    end
+    mattr_accessor :waiting_list_enabled, default: Decidim::Env.new("MEETINGS_WAITING_LIST_ENABLED", true).present?
   end
 
   module ContentParsers

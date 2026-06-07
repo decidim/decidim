@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-process-env, no-undef */
+/* eslint-disable no-process-env, no-undef */
 
 document.addEventListener("turbo:load", () => {
   if (!console) {

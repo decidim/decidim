@@ -1,12 +1,12 @@
-publiccodeYmlVersion: "0.4"
+publiccodeYmlVersion: "0.5"
 
 name: Decidim
 url: "https://github.com/decidim/decidim.git"
 platforms:
   - web
 developmentStatus: stable
-softwareVersion: "0.29.2"
-releaseDate: "2025-02-12"
+softwareVersion: "0.31.2"
+releaseDate: "2025-02-26"
 logo: "https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/logo.svg"
 softwareType: "library"
 
@@ -44,7 +44,7 @@ description:
       - "Result: Ensure accountability in your participatory processes by converting proposals into results and tracking their implementation with the level of detail you prefer."
       - "Post: Don’t forget to blog about your activities and share your learnings."
     documentation: "https://docs.decidim.org"
-    apiDocumentation: "https://meta.decidim.org/api"
+    apiDocumentation: "https://meta.decidim.org/api/docs"
     awards:
       - Sharing & Reuse Awards by European Commission (2019)
       - Innovation in Politics Awards (2021)
@@ -54,7 +54,6 @@ description:
 legal:
   license: AGPL-3.0-or-later
   mainCopyrightOwner: Associació de Software Lliure Decidim
-  repoOwner: Associació de Software Lliure Decidim
 
 maintenance:
   type: "internal"

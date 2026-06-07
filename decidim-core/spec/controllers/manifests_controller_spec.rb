@@ -21,7 +21,8 @@ module Decidim
 
         expect(response).to be_successful
 
-        manifest = JSON.parse(response.body)
+        # this is already json, so we cannot use parsed_body
+        manifest = JSON.parse(response.body) # rubocop:disable Rails/ResponseParsedBody
         expect(manifest["name"]).to eq(translated(organization.name))
         expect(manifest["lang"]).to eq(organization.default_locale)
         expect(manifest["description"]).to eq(ActionView::Base.full_sanitizer.sanitize(translated(organization.description)))

@@ -30,8 +30,8 @@ module Decidim
         attribute :related_process_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
+        attribute :access_mode, String, default: :open
         attribute :has_members, Boolean
-        attribute :private_space, Boolean
         attribute :promoted, Boolean
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
@@ -49,6 +49,9 @@ module Decidim
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
 
         validates :weight, presence: true
+
+        validates :access_mode, presence: true, inclusion: { in: Decidim::ParticipatoryProcess.access_modes.keys }
+        validate :ensure_access_mode_for_has_members
 
         validates :start_date, date: { before: :end_date, allow_blank: true, if: proc { |obj| obj.end_date.present? } }
         validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }
@@ -84,10 +87,15 @@ module Decidim
         def slug_uniqueness
           return unless organization_participatory_processes
                         .where(slug:)
+                        .with_deleted
                         .where.not(id: context[:process_id])
                         .any?
 
           errors.add(:slug, :taken)
+        end
+
+        def ensure_access_mode_for_has_members
+          self.access_mode = :open if has_members == false
         end
       end
     end

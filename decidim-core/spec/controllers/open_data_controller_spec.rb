@@ -19,7 +19,7 @@ module Decidim
     describe "GET download" do
       before do
         OpenDataJob.perform_now(organization) if generate_file
-        get :download
+        get :download, params: { locale: I18n.default_locale }
       end
 
       context "when the open data file exists" do
@@ -39,7 +39,7 @@ module Decidim
         end
 
         it "warns the user" do
-          expect(controller.flash.alert).to have_content("not yet available")
+          expect(controller.flash.alert).to have_text("not yet available")
         end
 
         it "schedules a generation" do

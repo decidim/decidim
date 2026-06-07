@@ -16,8 +16,8 @@ describe "Meetings Breadcrumb" do
   describe "index" do
     it "shows the correct information in breadcrumb (space, component)" do
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
       end
     end
   end
@@ -26,9 +26,9 @@ describe "Meetings Breadcrumb" do
     it "shows the correct information in breadcrumb (space, component, meeting)" do
       click_on meeting.title[I18n.locale.to_s]
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(meeting.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(meeting.title))
       end
     end
   end
@@ -38,7 +38,6 @@ describe "Meetings Breadcrumb" do
       decidim_participatory_process_meetings.meeting_path(
         participatory_process_slug: participatory_process.slug,
         component_id: component.id,
-        locale: I18n.locale,
         id: meeting.id
       )
     end
@@ -56,9 +55,9 @@ describe "Meetings Breadcrumb" do
 
     it "shows the correct information in breadcrumb (space, component, meeting)" do
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(meeting.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(meeting.title))
       end
     end
   end

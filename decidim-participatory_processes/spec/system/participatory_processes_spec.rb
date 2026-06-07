@@ -83,7 +83,7 @@ describe "Participatory Processes" do
 
         it "lists all the highlighted processes" do
           within "#highlighted-processes" do
-            expect(page).to have_content(translated(promoted_process.title, locale: :en))
+            expect(page).to have_text(translated(promoted_process.title, locale: :en))
             expect(page).to have_css("[id^='participatory_process_highlight']", count: 1)
           end
         end
@@ -92,18 +92,18 @@ describe "Participatory Processes" do
       it "lists the active processes" do
         within "#processes-grid" do
           within "#processes-grid h2" do
-            expect(page).to have_content("3 active processes")
+            expect(page).to have_text("3 active processes")
           end
 
-          expect(page).to have_content(translated(participatory_process.title, locale: :en))
-          expect(page).to have_content(translated(promoted_process.title, locale: :en))
-          expect(page).to have_content(translated(group.title, locale: :en))
+          expect(page).to have_text(translated(participatory_process.title, locale: :en))
+          expect(page).to have_text(translated(promoted_process.title, locale: :en))
+          expect(page).to have_text(translated(group.title, locale: :en))
           expect(page).to have_css("a.card__grid", count: 3)
 
-          expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
-          expect(page).to have_no_content(translated(past_process.title, locale: :en))
-          expect(page).to have_no_content(translated(upcoming_process.title, locale: :en))
-          expect(page).to have_no_content(translated(grouped_process.title, locale: :en))
+          expect(page).to have_no_text(translated(unpublished_process.title, locale: :en))
+          expect(page).to have_no_text(translated(past_process.title, locale: :en))
+          expect(page).to have_no_text(translated(upcoming_process.title, locale: :en))
+          expect(page).to have_no_text(translated(grouped_process.title, locale: :en))
         end
       end
 
@@ -127,7 +127,7 @@ describe "Participatory Processes" do
 
           within "#processes-grid .card__grid", text: translated(participatory_process.title) do
             within ".card__grid-metadata" do
-              expect(page).to have_content("Active step")
+              expect(page).to have_text("Active step")
             end
           end
         end
@@ -144,7 +144,7 @@ describe "Participatory Processes" do
         end
 
         it "shows a highlighted processes section" do
-          expect(page).to have_content("Highlighted processes")
+          expect(page).to have_text("Highlighted processes")
         end
 
         it "lists only promoted groups" do
@@ -154,7 +154,7 @@ describe "Participatory Processes" do
 
         it "lists all the highlighted process groups" do
           within "#highlighted-processes" do
-            expect(page).to have_content(translated(promoted_group.title, locale: :en))
+            expect(page).to have_text(translated(promoted_group.title, locale: :en))
             expect(page).to have_css("[id^='participatory_process_highlight']", count: 1)
             expect(page).to have_css("[id^='participatory_process_group_highlight']", count: 1)
           end
@@ -208,19 +208,19 @@ describe "Participatory Processes" do
 
           it "shows the details of the given process" do
             within "[data-content]" do
-              expect(page).to have_content("About this process")
-              expect(page).to have_content(translated(participatory_process.title, locale: :en))
-              expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
-              expect(page).to have_content(translated(participatory_process.description, locale: :en))
-              expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
-              expect(page).to have_content(translated(participatory_process.meta_scope, locale: :en))
-              expect(page).to have_content(translated(participatory_process.developer_group, locale: :en))
-              expect(page).to have_content(translated(participatory_process.local_area, locale: :en))
-              expect(page).to have_content(translated(participatory_process.target, locale: :en))
-              expect(page).to have_content(translated(participatory_process.participatory_scope, locale: :en))
-              expect(page).to have_content(translated(participatory_process.participatory_structure, locale: :en))
-              expect(page).to have_content(I18n.l(participatory_process.start_date, format: :decidim_short_with_month_name_short))
-              expect(page).to have_content(I18n.l(participatory_process.end_date, format: :decidim_short_with_month_name_short))
+              expect(page).to have_text("About this process")
+              expect(page).to have_text(translated(participatory_process.title, locale: :en))
+              expect(page).to have_text(translated(participatory_process.subtitle, locale: :en))
+              expect(page).to have_text(translated(participatory_process.description, locale: :en))
+              expect(page).to have_text(translated(participatory_process.short_description, locale: :en))
+              expect(page).to have_text(translated(participatory_process.meta_scope, locale: :en))
+              expect(page).to have_text(translated(participatory_process.developer_group, locale: :en))
+              expect(page).to have_text(translated(participatory_process.local_area, locale: :en))
+              expect(page).to have_text(translated(participatory_process.target, locale: :en))
+              expect(page).to have_text(translated(participatory_process.participatory_scope, locale: :en))
+              expect(page).to have_text(translated(participatory_process.participatory_structure, locale: :en))
+              expect(page).to have_text(I18n.l(participatory_process.start_date, format: :decidim_short_with_month_name_short))
+              expect(page).to have_text(I18n.l(participatory_process.end_date, format: :decidim_short_with_month_name_short))
             end
           end
 
@@ -264,18 +264,36 @@ describe "Participatory Processes" do
                 "related_processes"
               )
             visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
-            expect(page).to have_content(translated(published_process.title))
-            expect(page).to have_no_content(translated(unpublished_process.title))
+            expect(page).to have_text(translated(published_process.title))
+            expect(page).to have_no_text(translated(unpublished_process.title))
           end
         end
 
         context "and the process has some components" do
-          let(:blocks_manifests) { [:main_data] }
+          let(:blocks_manifests) { [:hero, :main_data] }
 
           it "shows the components" do
             within ".participatory-space__nav-container" do
-              expect(page).to have_content(decidim_escape_translated(proposals_component.name))
-              expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
+              expect(page).to have_text(translated(proposals_component.name))
+              expect(page).to have_no_text(translated(meetings_component.name))
+              expect(page.html).to include decidim_escape_translated(proposals_component.name).gsub("&quot;", "\"")
+            end
+          end
+
+          it_behaves_like "accessible page"
+
+          describe "when there are special characters (', &) in the nav links" do
+            let(:participatory_space) { participatory_process }
+            let(:component_name) { "People's Budget & Ideas" }
+            let!(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
+
+            it "renders the component name correctly" do
+              visit current_path
+              within ".participatory-space__nav-container" do
+                expect(page).to have_text(component_name)
+                expect(page).to have_no_text("&#39;")
+                expect(page).to have_no_text("&amp;#39;")
+              end
             end
           end
 
@@ -303,26 +321,43 @@ describe "Participatory Processes" do
         context "when assemblies are linked to participatory process" do
           let!(:published_assembly) { create(:assembly, :published, organization:) }
           let!(:unpublished_assembly) { create(:assembly, :unpublished, organization:) }
-          let!(:private_assembly) { create(:assembly, :published, :private, :opaque, organization:) }
-          let!(:transparent_assembly) { create(:assembly, :published, :private, :transparent, organization:) }
+          let!(:restricted_assembly) { create(:assembly, :published, :restricted, organization:) }
+          let!(:transparent_assembly) { create(:assembly, :published, :transparent, organization:) }
           let(:blocks_manifests) { [:related_assemblies] }
 
           before do
             published_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
             unpublished_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
-            private_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
+            restricted_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
             transparent_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
             visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
           end
 
           it "display related assemblies" do
-            expect(page).to have_content("Related assemblies")
-            expect(page).to have_content(translated(published_assembly.title))
-            expect(page).to have_content(translated(transparent_assembly.title))
-            expect(page).to have_no_content(translated(unpublished_assembly.title))
-            expect(page).to have_no_content(translated(private_assembly.title))
+            expect(page).to have_text("Related assemblies")
+            expect(page).to have_text(translated(published_assembly.title))
+            expect(page).to have_text(translated(transparent_assembly.title))
+            expect(page).to have_no_text(translated(unpublished_assembly.title))
+            expect(page).to have_no_text(translated(restricted_assembly.title))
           end
         end
+      end
+    end
+
+    context "when the participatory process is restricted" do
+      let(:blocks_manifests) { [:related_documents, :related_images] }
+      let!(:participatory_process) { create(:participatory_process, :published, :restricted, :with_content_blocks, blocks_manifests:, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:member) { create(:member, :published, user:, participatory_space: participatory_process) }
+      let!(:document) { create(:attachment, :with_pdf, attached_to: participatory_process) }
+
+      before do
+        login_as user, scope: :user
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
+      end
+
+      it "shows the document extension in the metadata" do
+        expect(all("[data-content] .documents__container").first).to have_css(".card__list-metadata", text: "pdf")
       end
     end
   end

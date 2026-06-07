@@ -4,7 +4,7 @@ $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 Gem::Specification.new do |s|
   s.name = "decidim-core"
-  version = "0.32.0.dev"
+  version = "0.33.0.dev"
   s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
@@ -50,8 +50,8 @@ Gem::Specification.new do |s|
   s.add_dependency "fog-local", "~> 0.6"
   s.add_dependency "geocoder", "~> 1.8"
   s.add_dependency "hashdiff", ">= 0.4.0", "< 2.0.0"
-  s.add_dependency "hexapdf", ">= 1.1", "< 1.7"
-  s.add_dependency "image_processing", "~> 1.2"
+  s.add_dependency "hexapdf", ">= 1.1", "< 1.9"
+  s.add_dependency "image_processing", ">= 1.2", "< 3.0"
   s.add_dependency "invisible_captcha", ">= 0.12", "< 3.0"
   s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"
   s.add_dependency "loofah", "~> 2.19", ">= 2.19.1"
@@ -78,8 +78,8 @@ Gem::Specification.new do |s|
   s.add_dependency "rqrcode", ">= 2.2", "< 3.3"
   s.add_dependency "ruby-vips", "~> 2.2"
   s.add_dependency "rubyXL", "~> 3.4"
-  s.add_dependency "rubyzip", "~> 2.0"
-  s.add_dependency "shakapacker", "~> 8.3.0"
+  s.add_dependency "rubyzip", ">= 2", "< 4"
+  s.add_dependency "shakapacker", "~> 9.7.0"
   s.add_dependency "valid_email2", "~> 7.0"
   s.add_dependency "web-push", "~> 3.0"
   s.add_dependency "wisper", "~> 3.0"

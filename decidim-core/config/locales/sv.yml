@@ -418,10 +418,10 @@ sv:
       withdraw:
         error: Det gick inte att dra tillbaka ändringsförslaget.
         success: Ändringsförslaget har dragits tillbaka.
-      wizard_step_form:
+      wizard:
         steps:
-          '1': Skapa ändringsförslag
-          '2': Publicera ditt ändringsförslag
+          '1': Skapa din korrigering
+          '2': Publicera din korrigering
     anonymous_user: Anonym
     application:
       document:
@@ -471,7 +471,7 @@ sv:
           allowed_postal_codes: Tillåtna postnummer (separerade med kommatecken)
           document_number: Dokumentnummer
           postal_code: Postnummer
-        name: Tillfällig exempel-verifiering
+        name: Exempel-verifiering för tillfälliga användare
       errors:
         duplicate_authorization: En deltagare är redan auktoriserad med samma data. En administratör kommer att kontakta dig för att verifiera dina uppgifter.
       expired_at: Förföll vid %{timestamp}
@@ -873,13 +873,13 @@ sv:
           affected_user:
             email_intro: 'Ett ändringsförslag har godkänts för %{amendable_title}. Visa det från den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare av %{amendable_title}.
-            email_subject: Bifallet ändringsförslag till %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> från av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> till <a href="%{amendable_path}">%{amendable_title}</a> har bifallits.
+            email_subject: Accepterad förbättring av %{amendable_title} från %{emendation_author_name}
+            notification_title: <a href="%{emendation_path}">Förbättringen</a> gjord av <a href="%{emendation_author_path}">%{emendation_author_name}</a> accepterades för <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Ett ändringsförslag har bifallits för %{amendable_title}. Läs det på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta att ta emot meddelanden genom att följa föregående länk.
-            email_subject: Bifallet ändringsförslag till %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> från av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> till <a href="%{amendable_path}">%{amendable_title}</a> har bifallits.
+            email_subject: Accepterad förbättring av %{amendable_title} från %{emendation_author_name}
+            notification_title: <a href="%{emendation_path}">Förbättringen</a> gjord av <a href="%{emendation_author_path}">%{emendation_author_name}</a> accepterades för <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Ett nytt ändringsförslag har skapats för %{amendable_title}. Du kan se det från den här sidan:'
@@ -895,29 +895,20 @@ sv:
           affected_user:
             email_intro: 'Ett avslaget ändringsförslag till %{amendable_title} har publicerats som en ny %{amendable_type}. Du kan se det på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare av %{amendable_title}.
-            email_subject: Ett ändringsförslag från %{emendation_author_nickname} har publicerats som ett nytt %{amendable_type}
-            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> till <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'En avslaget ändringsförslag till %{amendable_title} har lagts fram som ett nytt %{amendable_type}. Du kan se det på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta att ta emot meddelanden via föregående länk.
-            email_subject: Ett ändringsförslag från %{emendation_author_nickname} har lagts fram som ett nytt %{amendable_type}
-            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> till <a href="%{amendable_path}">%{amendable_title}</a> har lagts fram som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'En ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare till %{amendable_title}.
-            email_subject: Avslaget ändringsförslag till %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> för <a href="%{amendable_path}">%{amendable_title}</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits.
           follower:
             email_intro: 'Ett ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden via föregående länk.
-            email_subject: Ändringsförslaget till %{amendable_title} från %{emendation_author_nickname} avslogs
-            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> till <a href="%{amendable_path}">%{amendable_title}</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits.
         emendation_promoted:
           follower:
             email_intro: 'Ett ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare till %{amendable_title}.
-            email_subject: Ett ändringsförslag från %{emendation_author_nickname} har publicerats som ett nytt %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till i %{resource_title}. Du kan se det från den här sidan:'
@@ -969,25 +960,13 @@ sv:
             En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
             </br>
             <i>%{resource_content}</i>
-      resource_liked:
-        email_intro: '%{liker_name} %{liker_nickname}, som du följer, gillar "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
-        email_outro: Du har fått det här meddelandet eftersom du följer %{liker_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
-        email_subject: "%{liker_nickname} har gillat något"
-        notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> gillar %{resource_type} <a href="%{resource_path}">%{resource_title}</a>.
       resources:
         soft_deleted:
           notification_title: En administratör har tagit bort ditt "%{resource_type}" "%{resource_title}".
       users:
-        profile_updated:
-          email_intro: <a href="%{resource_url}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
-          email_outro: Du har fått det här meddelandet eftersom du följer %{nickname}. Du kan sluta att ta emot meddelanden genom att följa föregående länk.
-          email_subject: "%{nickname} uppdaterade sin profil"
-          notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
         user_officialized:
-          email_intro: Deltagaren %{name} (%{nickname}) har fått officiell status.
           email_outro: Du har fått detta meddelande eftersom du är administratör i organisationen.
           email_subject: "%{name} har fått officiell status"
-          notification_title: Deltagaren %{name} (%{nickname}) har fått officiell status.
     export_mailer:
       download_your_data_export:
         click_button_html: Klicka på nästa länk för att ladda ner dina data.<br/>Filen kommer att finnas tillgänglig för nedladdning fram till %{date}.
@@ -1164,6 +1143,12 @@ sv:
         update_permissions_with_space: "%{user_name} uppdaterade behörigheterna för %{resource_name} i %{space_name}"
         update_with_space: "%{user_name} uppdaterade %{resource_name} i %{space_name}"
       value_types:
+        access_mode_presenter:
+          access_modes:
+            open: Öppen
+            restricted: Begränsad
+            transparent: Transparent
+          not_found: Åtkomstläge %{id} hittades inte
         area_presenter:
           not_found: 'Området hittades inte i databasen (ID: %{id})'
         area_type_presenter:
@@ -1337,6 +1322,7 @@ sv:
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
         push_notifications: Push-meddelanden
         push_notifications_reminder: För att få aviseringar från plattformen måste du först tillåta dem i webbläsarens inställningar.
+        push_notifications_unsupported_browser: Din webbläsare stöds inte.
         receive_notifications_about: Jag vill få notiser om
         update_notifications_settings: Spara ändringar
       update:
@@ -1529,6 +1515,14 @@ sv:
           %{organization_name}
         hello: Hej %{username},
         subject: Inaktivt konto raderat
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Medlem av
+    participatory_space_members:
+      index:
+        members: Medlemmar
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.
@@ -1815,6 +1809,7 @@ sv:
         nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
+        subtitle_no_password: Om du accepterar inbjudan var vänlig ange ditt alias.
       invitation_removed: Din inbjudan har tagits bort.
       invitation_token_invalid: Ogiltig token för inbjudan!
       new:
@@ -1822,8 +1817,8 @@ sv:
         submit_button: Skicka en inbjudan
       no_invitations_remaining: Inga inbjudningar kvar
       send_instructions: Ett e-brev med inbjudan har skickats till %{email}.
-      updated: Lösenordet har nu ställts in. Du är nu inloggad.
-      updated_not_active: Ditt lösenord har ställts in.
+      updated: Inbjudan godtogs. Du är nu inloggad.
+      updated_not_active: Inbjudan godtogs.
     mailer:
       confirmation_instructions:
         action: Bekräfta mitt konto
@@ -1883,8 +1878,8 @@ sv:
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         old_password_help: För att bekräfta ändringarna av ditt konto, vänligen ange ditt nuvarande lösenord.
-        password_help: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
-        password_help_admin: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
+        password_help: "Minst %{minimum_characters} tecken. Måste innehålla minst 5 olika tecken, får inte vara för vanligt (t.ex. 123456) och måste skilja sig från ditt namn, användarnamn, e-post och webbplatsens namn."
+        password_help_admin: "Minst %{minimum_characters} tecken. Måste innehålla minst 5 olika tecken, får inte vara för vanligt (t.ex. 123456) och måste skilja sig från ditt namn, användarnamn, e-post, webbplatsens namn och dina tidigare lösenord."
         title: Ändra lösenord
       new:
         forgot_your_password: Glömt ditt lösenord?
@@ -2129,7 +2124,7 @@ sv:
         confirm_title_close_ephemeral_session: Innan du lämnar sidan…
         log_in: Logga in
         main_menu: Huvudmeny
-        mobile_account_greeting: Hej, %{user_name}
+        mobile_account_greeting: Hej %{user_name}
         user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session

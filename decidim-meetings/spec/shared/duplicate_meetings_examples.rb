@@ -28,7 +28,7 @@ shared_examples "duplicate meetings" do
     end
     click_on "Copy"
 
-    expect(page).to have_content("Meeting successfully duplicated.")
+    expect(page).to have_text("Meeting successfully duplicated.")
   end
 
   it "allows to edit the registration form of the duplicated meeting" do
@@ -38,6 +38,6 @@ shared_examples "duplicate meetings" do
     fill_in_i18n_editor(:questionnaire_tos, "#questionnaire-tos-tabs", en: "ToS", ca: "ToS", es: "ToS")
     click_on "Save"
 
-    expect(page).to have_content("Form successfully saved.")
+    expect(page).to have_text("Form successfully saved.")
   end
 end

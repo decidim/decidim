@@ -165,8 +165,6 @@ sq:
       attachments:
         edit:
           update: Përditëso
-        index:
-          attachments_title: Skedat e bashkëlidhura
         new:
           create: Krijo bashkangjitje
       autocomplete:
@@ -189,7 +187,6 @@ sq:
         index:
           headers:
             actions: Veprimet
-        title: Komponentet
       conflicts:
         attempts: Tentativa
         'false': 'Jo'
@@ -406,7 +403,6 @@ sq:
           deliver: Dërgo buletinin
           send_to_all_users: Dërgo të gjithë përdoruesve
         show:
-          preview: Parapamje
           subject: Tema
       officializations:
         index:
@@ -442,13 +438,8 @@ sq:
           title: Përpuno faqen
           update: Përditëso
       titles:
-        dashboard: Paneli
         menu: Menu
-        page_topics: Temat
-        pages: Faqet
         panel: Administrator
-        participants: Pjesëmarrësit
-        users: Administratorët
       users:
         form:
           email: Email

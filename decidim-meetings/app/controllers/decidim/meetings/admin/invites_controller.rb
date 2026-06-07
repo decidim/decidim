@@ -20,6 +20,7 @@ module Decidim
         def create
           enforce_permission_to(:invite_attendee, :meeting, meeting:)
 
+          @invites = filtered_collection
           @form = form(MeetingRegistrationInviteForm).from_params(params)
 
           InviteUserToJoinMeeting.call(@form, meeting, current_user) do
@@ -38,7 +39,7 @@ module Decidim
         private
 
         def meeting
-          @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
+          @meeting ||= Meeting.where(component: current_component).find(params.expect(:meeting_id))
         end
 
         def collection

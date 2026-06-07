@@ -33,7 +33,7 @@ module Decidim::ParticipatoryProcesses
           "meta_scope" => Decidim::Faker::Localized.sentence(word_count: 3),
           "start_date" => "2022-08-01",
           "end_date" => "2023-08-01",
-          "private_space" => false,
+          "access_mode" => "open",
           "participatory_process_group" => group_data
         }
       end
@@ -61,7 +61,7 @@ module Decidim::ParticipatoryProcesses
         expect(subject.meta_scope).to eq(import_data["meta_scope"])
         expect(subject.start_date).to eq(Date.parse(import_data["start_date"]))
         expect(subject.end_date).to eq(Date.parse(import_data["end_date"]))
-        expect(subject.private_space).to eq(import_data["private_space"])
+        expect(subject.access_mode).to eq(import_data["access_mode"])
         expect(subject.participatory_process_group).to be_a(Decidim::ParticipatoryProcessGroup)
       end
 
@@ -113,6 +113,48 @@ module Decidim::ParticipatoryProcesses
         end
       end
 
+      context "when handling legacy access fields" do
+        context "with private_space true" do
+          let(:import_data) do
+            super().merge("access_mode" => nil, "private_space" => true)
+          end
+
+          it "maps to restricted access mode" do
+            expect(subject.access_mode).to eq("restricted")
+          end
+        end
+
+        context "with private_space true and is_transparent true" do
+          let(:import_data) do
+            super().merge("access_mode" => nil, "private_space" => true, "is_transparent" => true)
+          end
+
+          it "prioritizes access_mode to transparent" do
+            expect(subject.access_mode).to eq("transparent")
+          end
+        end
+
+        context "with private_space false and is_transparent false" do
+          let(:import_data) do
+            super().merge("access_mode" => nil, "private_space" => false, "is_transparent" => false)
+          end
+
+          it "defaults to open access mode" do
+            expect(subject.access_mode).to eq("open")
+          end
+        end
+
+        context "with modern access_mode present" do
+          let(:import_data) do
+            super().merge("access_mode" => "restricted", "private_space" => false)
+          end
+
+          it "uses the modern access_mode field" do
+            expect(subject.access_mode).to eq("restricted")
+          end
+        end
+      end
+
       context "when hero image URL is present and accessible" do
         let(:import_data) do
           base_data.merge("remote_hero_image_url" => hero_image_url)
@@ -131,7 +173,6 @@ module Decidim::ParticipatoryProcesses
             "meta_scope" => Decidim::Faker::Localized.sentence(word_count: 3),
             "start_date" => "2022-08-01",
             "end_date" => "2023-08-01",
-            "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
             "private_space" => false,
             "participatory_process_group" => group_data
           }
@@ -171,8 +212,6 @@ module Decidim::ParticipatoryProcesses
             "meta_scope" => Decidim::Faker::Localized.sentence(word_count: 3),
             "start_date" => "2022-08-01",
             "end_date" => "2023-08-01",
-            "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
-            "private_space" => false,
             "participatory_process_group" => group_data,
             "remote_hero_image_url" => hero_image_url
           }
@@ -216,8 +255,6 @@ module Decidim::ParticipatoryProcesses
             "meta_scope" => Decidim::Faker::Localized.sentence(word_count: 3),
             "start_date" => "2022-08-01",
             "end_date" => "2023-08-01",
-            "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
-            "private_space" => false,
             "participatory_process_group" => group_data,
             "remote_hero_image_url" => hero_image_url
           }
@@ -261,8 +298,6 @@ module Decidim::ParticipatoryProcesses
             "meta_scope" => Decidim::Faker::Localized.sentence(word_count: 3),
             "start_date" => "2022-08-01",
             "end_date" => "2023-08-01",
-            "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
-            "private_space" => false,
             "participatory_process_group" => group_data,
             "remote_hero_image_url" => nil
           }
@@ -493,6 +528,109 @@ module Decidim::ParticipatoryProcesses
           it "does not create any attachments" do
             expect { importer.import_folders_and_attachments(attachments_data) }
               .not_to change(Decidim::Attachment, :count)
+          end
+        end
+
+        context "when the attachment collection is not defined" do
+          let(:attachments_data) do
+            {
+              "files" => [
+                {
+                  "title" => { "en" => "Test File" },
+                  "description" => { "en" => "Test Description" },
+                  "weight" => 1,
+                  "remote_file_url" => remote_file_url
+                }
+              ]
+            }
+          end
+
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "application/pdf" })
+            stub_request(:get, remote_file_url)
+              .to_return(status: 200, body: File.read(Decidim::Dev.asset("Exampledocument.pdf")))
+          end
+
+          it "does not create any attachments collections" do
+            expect { importer.import_folders_and_attachments(attachments_data) }
+              .not_to change(Decidim::AttachmentCollection, :count)
+          end
+        end
+
+        context "when the attachment collection is nil" do
+          let(:attachments_data) do
+            {
+              "files" => [
+                {
+                  "title" => { "en" => "Test File" },
+                  "description" => { "en" => "Test Description" },
+                  "weight" => 1,
+                  "remote_file_url" => remote_file_url
+                }
+              ],
+              "attachment_collections" => nil
+            }
+          end
+
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "application/pdf" })
+            stub_request(:get, remote_file_url)
+              .to_return(status: 200, body: File.read(Decidim::Dev.asset("Exampledocument.pdf")))
+          end
+
+          it "does not create any attachments collections" do
+            expect { importer.import_folders_and_attachments(attachments_data) }
+              .not_to change(Decidim::AttachmentCollection, :count)
+          end
+        end
+
+        context "when attachment collection is defined" do
+          let(:attachment_data) do
+            {
+              "files" => [
+                {
+                  "title" => { "en" => "Test File" },
+                  "description" => { "en" => "Test Description" },
+                  "weight" => 1,
+                  "remote_file_url" => remote_file_url,
+                  "attachment_collections" => {
+                    "name" => {
+                      "en" => "Collection name"
+                    },
+                    "weight" => 0,
+                    "description" => {
+                      "en" => "Collection description"
+                    }
+                  }
+                }
+              ],
+              "attachment_collections" => [
+                {
+                  "name" => {
+                    "en" => "Collection name"
+                  },
+                  "weight" => 0,
+                  "description" => {
+                    "en" => "Collection description"
+                  }
+                }
+              ]
+            }
+          end
+
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "application/pdf" })
+            stub_request(:get, remote_file_url)
+              .to_return(status: 200, body: File.read(Decidim::Dev.asset("Exampledocument.pdf")))
+          end
+
+          it "creates the attachment and the collection" do
+            expect { importer.import_folders_and_attachments(attachment_data) }
+              .to change(Decidim::Attachment, :count).by(1)
+              .and change(Decidim::AttachmentCollection, :count).by(1)
           end
         end
       end

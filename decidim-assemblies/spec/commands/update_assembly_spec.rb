@@ -55,7 +55,7 @@ module Decidim::Assemblies
             closing_date: my_assembly.closing_date,
             closing_date_reason: my_assembly.closing_date_reason,
             internal_organisation: my_assembly.internal_organisation,
-            is_transparent: my_assembly.is_transparent,
+            access_mode: my_assembly.access_mode,
             special_features: my_assembly.special_features,
             twitter_handler: my_assembly.twitter_handler,
             facebook_handler: my_assembly.facebook_handler,
@@ -97,6 +97,19 @@ module Decidim::Assemblies
           my_assembly.reload
 
           expect(my_assembly.title["en"]).not_to eq("Foo title")
+        end
+      end
+
+      context "when there is a trashed space with the same slug" do
+        let!(:trashed_space) { create(:assembly, :trashed, slug: "slug", organization:) }
+
+        let(:form) do
+          Admin::AssemblyForm.from_params(params.deep_merge(assembly: { slug: "slug" })).with_context(context)
+        end
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:invalid)
+          expect(form.errors[:slug]).not_to be_empty
         end
       end
 

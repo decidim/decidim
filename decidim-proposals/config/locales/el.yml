@@ -168,21 +168,21 @@ el:
         admin:
           proposal_note_created:
             email_subject: Κάποιος άφησε μια σημείωση στην πρόταση %{resource_title}.
+        coauthor_invited:
+          actions:
+            accept: Αποδοχή
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} έχει γίνει δεκτή η πρόσβαση ως συνεισφέρων του <a href="%{resource_url}">%{resource_title}</a> συνεργατικού σχεδίου.'
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} έγινε δεκτός για πρόσβαση ως συμβάλλων για το στοιχείο %{resource_title}."
-          notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> έγινε <strong>δεκτός για πρόσβαση ως συμβάλλων</strong> στο <a href="%{resource_path}">%{resource_title}</a> προσχέδιο συνεργασίας.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} έχει απορριφθεί για πρόσβαση ως συνεισφέρων του <a href="%{resource_url}">%{resource_title}</a> συνεργατικού σχεδίου.'
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} απορρίφθηκε για πρόσβαση ως συμβάλλων στο προσχέδιο συνεργασίας %{resource_title}."
-          notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>απορρίφθηκε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: 'Ο/Η %{requester_name} ζήτησε πρόσβαση ως συνεισφέρων. Μπορείτε να <strong>αποδεχτείτε ή να απορρίψετε το αίτημα</strong> από τη σελίδα του συνεργατικού προσχεδίου <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} ζήτησε πρόσβαση για να συνεισφέρει στο στοιχείο %{resource_title}."
-          notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ζήτησε πρόσβαση για να συνεισφέρει στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>. <strong>Αποδεχτείτε ή απορρίψτε το αίτημα</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Έχετε γίνει δεκτός να έχετε πρόσβαση ως συνεισφέρων του συνεργατικού σχεδίου <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή ζητήσατε να γίνετε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
@@ -194,10 +194,7 @@ el:
           email_subject: Απορριφθήκατε ως συμβάλλων για το στοιχείο %{resource_title}.
           notification_title: <strong>Απορριφθήκατε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> απέσυρε το <a href="%{resource_url}">%{resource_title}</a> συνεργατικό προσχέδιο.
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "Ο συντάκτης %{author_name} %{author_nickname} απέσυρε το προσχέδιο συνεργασίας %{resource_title}."
-          notification_title: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>απέσυρε</strong> το προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Τώρα μπορείτε να δημιουργήσετε νέες προτάσεις στον χώρο συμμετοχής %{participatory_space_title}! Ξεκινήστε να συμμετέχετε σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
@@ -208,11 +205,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
           email_subject: Έγινε αναφορά στην πρότασή σας «%{mentioned_proposal_title}»
           notification_title: Η πρότασή σας «%{mentioned_proposal_title}» αναφέρθηκε <a href="%{resource_path}">σε αυτόν τον χώρο</a> στα σχόλια.
-        proposal_published:
-          email_intro: 'Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημοσίευση μια νέα πρόταση με τον τίτλο «%{resource_title}». Δείτε την και συνεισφέρετε:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Νέα πρόταση «%{resource_title}» από τον συντάκτη %{author_nickname}
-          notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> δημοσιεύτηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Η πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής «%{participatory_space_title}» που ακολουθείτε.
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
@@ -401,98 +393,6 @@ el:
           all: Όλα
           amendments: Τροποποιήσεις
           proposals: Προτάσεις
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση του προσχεδίου συνεργασίας.
-            irreversible_action_modal:
-              body: Μετά τη δημοσίευση του προσχεδίου ως πρόταση, το προσχέδιο δεν θα είναι πλέον επεξεργάσιμο. Η πρόταση δεν θα δεχτεί νέους συντάκτες ή συνεισφορές.
-              cancel: Ακύρωση
-              ok: Δημοσίευση ως πρόταση
-              title: Η ακόλουθη ενέργεια είναι μη αναστρέψιμη
-            success: Το προσχέδιο συνεργασίας δημοσιεύτηκε με επιτυχία ως πρόταση.
-          withdraw:
-            error: Υπήρξε ένα πρόβλημα κατά το κλείσιμο του προσχεδίου συνεργασίας.
-            irreversible_action_modal:
-              body: Μετά το κλείσιμο του προσχεδίου, το προσχέδιο δεν θα είναι πλέον επεξεργάσιμο. Το προσχέδιο δεν θα δεχτεί νέους συντάκτες ή συνεισφορές.
-              cancel: Ακύρωση
-              ok: Απόσυρση του προσχεδίου συνεργασίας
-              title: Η ακόλουθη ενέργεια είναι μη αναστρέψιμη
-            success: Το προσχέδιο συνεργασίας αποσύρθηκε με επιτυχία.
-        create:
-          error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία του συνεργατικού προσχεδίου.
-          success: Το προσχέδιο συνεργασίας δημιουργήθηκε με επιτυχία.
-        edit:
-          back: Πίσω
-          send: Αποστολή
-          title: Επεξεργασία προσχεδίου συνεργασίας
-        filters:
-          all: Όλα
-          amendment: Τροποποιήσεις
-          open: Ανοιχτή
-          published: Δημοσιεύτηκε
-          related_to: Σχετίζεται με
-          search: Αναζήτηση
-          state: Κατάσταση
-          withdrawn: Αποσύρθηκε
-        filters_small_view:
-          close_modal: Κλείσιμο βοηθητικού στοιχείου
-          filter: Φίλτρο
-          filter_by: Φιλτράρισμα κατά
-          unfold: Αποκάλυψη
-        index:
-          count:
-            one: "%{count} προσχέδιο συνεργασίας"
-            other: "%{count} προσχέδια συνεργασίας"
-        new:
-          add_file: Προσθήκη αρχείου
-          edit_file: Επεξερφασία αρχείου
-          send: Συνέχεια
-        new_collaborative_draft_button:
-          new_collaborative_draft: Νέο προσχέδιο συνεργασίας
-        orders:
-          label: 'Ταξινόμηση προσχεδίων κατά:'
-          most_contributed: Με τις περισσότερες συνεισφορές
-          random: Τυχαία
-          recent: Πρόσφατα
-        requests:
-          accepted_request:
-            error: Δεν ήταν δυνατή η αποδοχή ως συνεργάτη. Δοκιμάστε ξανά αργότερα.
-            success: "Ο χρήστης @%{user} έγινε δεκτός ως συνεργάτης με επιτυχία."
-          access_requested:
-            error: Δεν ήταν δυνατή η ολοκλήρωση του αιτήματός σας. Δοκιμάστε ξανά αργότερα.
-            success: Το αίτημά σας για συνεργασία έχει σταλεί με επιτυχία.
-          collaboration_requests:
-            accept_request: Αποδοχή
-            reject_request: Απόρριψη
-            title: Αιτήματα συνεργασίας
-          rejected_request:
-            error: Δεν ήταν δυνατή η απόρριψη ως συνεργάτη. Δοκιμάστε ξανά αργότερα.
-            success: "@%{user} έχει απορριφθεί με επιτυχία ως συνεργάτης."
-        show:
-          final_proposal: τελική πρόταση
-          final_proposal_help_text: Αυτό το προσχέδιο ολοκληρώθηκε. Δείτε την τελική πρόταση
-          hidden_authors_count:
-            one: και %{count} ακόμη άτομο
-            other: και %{count} ακόμη άτομα
-          info-message: Αυτό είναι ένα <strong>προσχέδιο συνεργασίας</strong> για μια πρόταση. Αυτό σημαίνει ότι μπορείτε να βοηθήσετε τους συντάκτες τους να διαμορφώσουν την πρόταση χρησιμοποιώντας την παρακάτω ενότητα σχολίων ή να την βελτιώσετε απευθείας ζητώντας πρόσβαση για να την επεξεργαστείτε. Μόλις οι συντάκτες σάς παραχωρήσουν πρόσβαση, θα μπορείτε να κάνετε αλλαγές σε αυτό το προσχέδιο.
-          publish: Δημοσίευση
-          publish_info: Δημοσίευση αυτής της έκδοσης του προσχεδίου ή
-          published_proposal: δημοσιευμένη πρόταση
-          request_access: Αίτημα πρόσβασης
-          requested_access: Ζητήθηκε πρόσβαση
-          withdraw: απόσυρση του προσχεδίου
-        states:
-          open: Ανοιχτή
-          published: Δημοσιεύτηκε
-          withdrawn: Αποσύρθηκε
-        update:
-          error: Υπήρξε ένα πρόβλημα κατά την αποθήκευση του προσχεδίου συνεργασίας.
-          success: Το προσχέδιο συνεργασίας ενημερώθηκε με επιτυχία.
-        wizard_aside:
-          back_from_collaborative_draft: Πίσω στα συνεργατικά προσχέδια
-        wizard_header:
-          title: Δημιουργήστε το προσχέδιο συνεργασίας σας
       create:
         error: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της πρότασης.
         success: Η πρόταση δημιουργήθηκε με επιτυχία. Αποθηκεύτηκε ως Προσχέδιο.
@@ -546,7 +446,6 @@ el:
           type: Τύπος
         index:
           click_here: Δείτε όλες τις προτάσεις
-          collaborative_drafts_list: Πρόσβαση σε προσχέδια συνεργασίας
           count:
             one: "%{count} πρόταση"
             other: "%{count} προτάσεις"
@@ -581,8 +480,9 @@ el:
           answer: Απάντηση
           changes_at_title: Τροποποίηση σε «%{title}»
           estimated_cost: Εκτιμώμενο κόστος
-          link_to_collaborative_draft_help_text: Αυτή η πρόταση είναι το αποτέλεσμα ενός προσχεδίου συνεργασίας. Δείτε το ιστορικό
-          link_to_collaborative_draft_text: Δείτε το προσχέδιο συνεργασίας
+          hidden_likes_count:
+            one: και %{count} ακόμη άτομο
+            other: και %{count} ακόμη άτομα
           link_to_promoted_emendation_help_text: Αυτή η πρόταση είναι μια αναβαθμισμένη διόρθωση
           link_to_promoted_emendation_text: Δείτε τη διόρθωση που απορρίφθηκε.
           link_to_proposal_from_emendation_help_text: Αυτή είναι μια διόρθωση που απορρίφθηκε

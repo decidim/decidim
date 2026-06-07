@@ -12,7 +12,7 @@ module Decidim
         # Adds a random amount of comments for a given resource.
         #
         # @param resource [Object] - the Decidim resource to add the comments to.
-        #                            examples: Decidim::Proposals::CollaborativeDraft, Decidim::Proposals::Proposal,
+        #                            examples: Decidim::Proposals::Proposal
         #
         # @return nil
         def comments_for(resource)

@@ -30,9 +30,9 @@ shared_examples "duplicate conferences" do
       end
 
       expect(page).to have_callout("Conference successfully duplicated")
-      expect(page).to have_content("Duplicate conference")
+      expect(page).to have_text("Duplicate conference")
       within "table" do
-        expect(page).to have_content("Unpublished")
+        expect(page).to have_text("Unpublished")
       end
     end
   end
@@ -73,7 +73,7 @@ shared_examples "duplicate conferences" do
 
       within ".table-list" do
         conference.components.each do |component|
-          expect(page).to have_content(translated(component.name))
+          expect(page).to have_text(translated(component.name))
         end
       end
     end

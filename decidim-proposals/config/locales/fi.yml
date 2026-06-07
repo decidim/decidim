@@ -52,6 +52,7 @@ fi:
         file: Tiedosto
       proposals_import:
         import_proposals: Tuo ehdotuksia
+        keep_answers: Säilytä tilat ja vastaukset ennallaan
         keep_authors: Säilytä alkuperäiset laatijat
     errors:
       models:
@@ -274,17 +275,13 @@ fi:
             email_intro: '%{author_name} on luonut yksityisen muistiinpanon kohteeseen %{resource_title}. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen arvioija.
             email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name}</a> on luonut yksityisen muistiinpanon kohteeseen <a href="%{resource_path}">%{resource_title}</a>. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_mentioned:
-            email_intro: Sinut on mainittu yksityisessä muistiinpanossa "%{resource_title}" henkilön "%{author_name}" "%{author_nickname}" toimesta. Tarkista muistiinpano <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu yksityisessä muistiinpanossa.
             email_subject: Sinut on mainittu ehdotuksen %{resource_title} muistiinpanossa.
-            notification_title: Sinut on mainittu yksityisessä muistiinpanossa <a href="%{resource_path}">%{resource_title}</a> henkilön <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta. Tarkista se <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_replied:
             email_intro: '%{author_name} on vastannut yksityiseen muistiinpanoon kohteessa %{resource_title}. Tarkasta muistiinpano <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.'
             email_outro: Sait tämän ilmoituksen, koska olet muistiinpanon laatija.
             email_subject: "%{author_name} on vastannut yksityiseen muistiinpanoon kohteessa %{resource_title}."
-            notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> on vastannut yksityiseen muistiinpanoosi kohteessa <a href="%{resource_path}">%{resource_title}</a>. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> on hyväksynyt kutsusi ehdotuksen <a href="%{resource_path}">%{resource_title}</a> laatijaksi.
         coauthor_invited:
@@ -301,17 +298,14 @@ fi:
           email_intro: '%{requester_name} on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hyväksytty osallistujaksi kohtaan %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksytty osallistujaksi</strong> yheistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: 'Käyttäjän %{requester_name} pyyntö päästä yhteistyöluonnoksen <a href="%{resource_url}">%{resource_title}</a> osallistujaksi on hylätty.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hylätty, jotta hän voi osallistua %{resource_title} yhteistyöhankkeeseen."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>avustajaoikeudet on hylätty</strong> yhteistyöluonnoksesta <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} pyysi pääsyä osallistujaksi. Voit <strong>hyväksyä tai hylätä pyynnön</strong> yhteistyöluonnoksen <a href="%{resource_url}">%{resource_title}</a> sivulta.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} pyysi osallistumisoikeutta kohteeseen %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> pyysi saada osallistua yhteistyöluonnokseen<a href="%{resource_path}">%{resource_title}</a>. <strong>Hyväksy tai hylkää pyyntö</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Sinut on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet pyytänyt pääsyä osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.
@@ -323,10 +317,7 @@ fi:
           email_subject: Sinua ei ole hyväksytty osallistujaksi yhteistyöluonnokseen %{resource_title}.
           notification_title: Sinua <strong>ei ole hyväksytty osallistujaksi</strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> perui yhteistyöluonnoksen <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} perunut yhteistyöluonnoksen %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>perunut</strong>yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Voit nyt luoda uusia ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -347,11 +338,6 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotus %{resource_title} on yhdistetty
           notification_title: Hallintakäyttäjä on yhdistänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, jota seuraat, on julkaissut uuden ehdotuksen "%{resource_title}". Tutustu ehdotukseen ja osallistu:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Uusi ehdotus "%{resource_title}", jonka on luonut %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaistiin tekijän <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta.
         proposal_published_for_space:
           email_intro: Ehdotus "%{resource_title}", jota seuraat, on lisätty kohteeseen "%{participatory_space_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
@@ -369,6 +355,12 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotuksen tila on muuttunut (%{state})
             notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'Ehdotuksesi "%{resource_title}" tilaksi on muutettu "%{state}". Voit lukea vastauksen täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
+            email_subject: Ehdotuksesi tila on muuttunut (%{state})
+            notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Hallintakäyttäjä on muuttanut ehdotuksesi "%{resource_title}" luokitteluja, voit tarkastaa muutoksen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
@@ -491,7 +483,6 @@ fi:
           deleted_proposals_info: Poistetut ehdotukset voidaan palauttaa roskakorista.
           preview: Esikatsele
           view_deleted_proposals: Näytä poistetut ehdotukset
-        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Poistamisilmoitus</b> Yhteistyöluonnokset-ominaisuus poistetaan Decidim-alustan versiossa 0.32. Organisaatioiden, jotka käyttävät tätä ominaisuutta, tulisi siirtyä käyttämään ehdotusten laatijat-ominaisuutta."
         evaluation_assignments:
           create:
             invalid: Arvioijan määritys ehdotuksille epäonnistui.
@@ -674,6 +665,7 @@ fi:
             related_meetings: Liittyvät tapaamiset
             remove_assignment: Poista tehtävä arvioijalta
             remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tästä ehdotuksesta?
+            title: Vastaa ehdotukseen
             votes_count: Äänten määrä
           update_taxonomies:
             invalid: 'Seuraavat ehdotukset oli jo määritetty %{taxonomies} luokitteluihin: %{proposals}.'
@@ -688,6 +680,7 @@ fi:
             create: Tuo ehdotuksia
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
+            select_states: Tuo ainoastaan ehdotukset, joilla on nämä tilat. Jos yhtään tilaa ei ole valittuna, kaikki ehdotukset tuodaan.
             title: Tuo ehdotuksia toisesta komponentista
         proposals_merges:
           create:
@@ -734,103 +727,6 @@ fi:
           all: Kaikki
           amendments: Muutokset
           proposals: Ehdotukset
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Yhteistyöluonnoksen julkaiseminen epäonnistui.
-            irreversible_action_modal:
-              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Uusia tekijöitä tai muutoksia ehdotukseen ei enää hyväksytä tämän jälkeen.
-              cancel: Peruuta
-              ok: Julkaise ehdotuksena
-              title: Seuraavia toimenpiteitä ei voi perua
-            success: Yhteistyöluonnoksen julkaisu ehdotuksena onnistui.
-          withdraw:
-            error: Yhteistyöluonnoksen sulkeminen epäonnistui.
-            irreversible_action_modal:
-              body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai osallistumisia.
-              cancel: Peruuta
-              ok: Peru yhteistyöluonnos
-              title: Seuraavia toimenpiteitä ei voi perua
-            success: Yhteistyöluonnoksen peruminen onnistui.
-        create:
-          error: Yhteistyöluonnoksen luominen epäonnistui.
-          success: Yhteistyöluonnoksen luonti onnistui.
-        edit:
-          attachment_legend: Lisää asiakirja tai kuva
-          back: Takaisin
-          send: Lähetä
-          title: Muokkaa yhteistyöluonnosta
-        empty: Yhteistyöluonnoksia ei ole vielä
-        empty_filters: Haluehdoilla ei löytynyt yhtään yhteistyöluonnosta
-        filters:
-          all: Kaikki
-          amendment: Muutokset
-          open: Avaa
-          published: Julkaistu
-          related_to: Liittyy
-          search: Hae
-          state: Tila
-          withdrawn: Peruttu
-        filters_small_view:
-          close_modal: Sulje modaalinen
-          filter: Rajaa
-          filter_by: Rajaa hakua
-          unfold: Avaa
-        index:
-          count:
-            one: "%{count} yhteistyöluonnos"
-            other: "%{count} yhteistyöluonnosta"
-        name: Yhteistyöluonnokset
-        new:
-          add_file: Lisää tiedosto
-          edit_file: Muokkaa tiedostoa
-          send: Jatka
-        new_collaborative_draft_button:
-          new_collaborative_draft: Uusi yhteistyöluonnos
-        orders:
-          label: 'Järjestä luonnokset:'
-          most_contributed: Eniten osallistumisia
-          random: Satunnainen
-          recent: Viimeisimmät
-        requests:
-          accepted_request:
-            error: Osallistujaa ei voitu hyväksyä, yritä myöhemmin uudestaan.
-            success: "Käyttäjän @%{user} hyväksyminen muokkaajaksi onnistui."
-          access_requested:
-            error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudestaan.
-            success: Osallistumispyyntösi lähetys onnistui.
-          collaboration_requests:
-            accept_request: Hyväksy
-            reject_request: Hylkää
-            title: Yhteistyöpyynnöt
-          rejected_request:
-            error: Osallistujaa ei voitu hylätä, yritä myöhemmin uudestaan.
-            success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui."
-        show:
-          edit: Muokkaa
-          final_proposal: Lopullinen ehdotus
-          final_proposal_help_text: Tämä luonnos on valmis. Tutustu lopulliseen ehdotukseen
-          hidden_authors_count:
-            one: ja %{count} muu henkilö
-            other: ja %{count} muuta henkilöä
-          info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa laatijoita muodostamaan ehdotuksen alhaalta löytyvän kommentointitoiminnon avulla tai parantaa sitä suoraan pyytämällä muokkausoikeutta ehdotukseen. Kun laatijat antavat sinulle muokkausoikeuden, voit tehdä muutoksia tähän luonnokseen.
-          publish: Julkaise
-          publish_info: Julkaise tämän luonnosversio tai
-          published_proposal: Julkaistu ehdotus
-          request_access: Pyydä käyttöoikeutta
-          requested_access: Käyttöoikeutta pyydetty
-          withdraw: peru luonnos
-        states:
-          open: Avaa
-          published: Julkaistu
-          withdrawn: Peruttu
-        update:
-          error: Yhteistyöluonnoksen tallennus epäonnistui.
-          success: Yhteistyöluonnoksen päivitys onnistui.
-        wizard_aside:
-          back_from_collaborative_draft: Takaisin yhteistyöluonnoksiin
-        wizard_header:
-          title: Luo yhteistyöluonnoksesi
       content_blocks:
         highlighted_proposals:
           name: Ehdotukset
@@ -932,7 +828,6 @@ fi:
           voted: Äänestetty
         index:
           click_here: Näytä kaikki ehdotukset
-          collaborative_drafts_list: Mene yhteistyöluonnoksiin
           count:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
@@ -979,8 +874,6 @@ fi:
           hidden_likes_count:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
-          link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
-          link_to_collaborative_draft_text: Katso yhteistyöluonnosta
           link_to_promoted_emendation_help_text: Tämä ehdotus on peräisin toisen ehdotuksen muutoksesta
           link_to_promoted_emendation_text: Näytä hylätty muutos.
           link_to_proposal_from_emendation_help_text: Tämä on hylätty muutos
