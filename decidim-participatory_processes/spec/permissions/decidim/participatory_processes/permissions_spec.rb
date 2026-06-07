@@ -467,4 +467,120 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       end
     end
   end
+
+  context "with a deleted process" do
+    let(:process) { create(:participatory_process, :trashed, organization:) }
+    let(:context) { { current_participatory_space: process } }
+
+    context "when user is a process admin" do
+      let(:process_admin_user) { create(:user, organization:) }
+      let!(:process_admin_role) do
+        create(:participatory_process_user_role,
+               user: process_admin_user,
+               participatory_process: process,
+               role: :admin)
+      end
+      let(:user) { process_admin_user }
+
+      context "when reading the process" do
+        let(:action) do
+          { scope: :admin, action: :read, subject: :process }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when updating the process" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :process }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating an attachment" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :attachment }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating a component" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :component }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when performing restore action" do
+        let(:action) do
+          { scope: :admin, action: :restore, subject: :process }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when performing manage_trash action" do
+        let(:action) do
+          { scope: :admin, action: :manage_trash, subject: :process }
+        end
+
+        it { is_expected.to be true }
+      end
+    end
+
+    context "when user is an org admin" do
+      let(:user) { create(:user, :admin, organization:) }
+
+      context "when reading the process" do
+        let(:action) do
+          { scope: :admin, action: :read, subject: :process }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when updating the process" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :process }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating an attachment" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :attachment }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating a component" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :component }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when performing restore action" do
+        let(:action) do
+          { scope: :admin, action: :restore, subject: :process }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when performing manage_trash action" do
+        let(:action) do
+          { scope: :admin, action: :manage_trash, subject: :process }
+        end
+
+        it { is_expected.to be true }
+      end
+    end
+  end
 end

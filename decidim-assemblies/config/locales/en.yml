@@ -111,6 +111,7 @@ en:
         new:
           create: Create
         update:
+          deleted: You cannot edit deleted assemblies. Please restore the assembly first.
           error: There was a problem updating this assembly.
           success: Assembly successfully updated.
       assemblies_duplicates:

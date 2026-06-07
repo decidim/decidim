@@ -4,7 +4,7 @@
       <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
     <% end %>
 
-    <% if allowed_to? :update, :conference, conference: conference %>
+    <% if allowed_to? :read, :conference, conference: conference %>
       <%= link_to translated_attribute(conference.title), edit_conference_path(conference) %><br>
     <% elsif allowed_to? :read, :component, conference: conference %>
       <%= link_to translated_attribute(conference.title), components_path(conference) %><br>

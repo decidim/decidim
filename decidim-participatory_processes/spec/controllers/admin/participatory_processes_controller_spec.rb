@@ -45,6 +45,24 @@ module Decidim
 
             expect(response).to redirect_to(edit_participatory_process_path(participatory_process.slug))
           end
+
+          context "when participatory process is deleted" do
+            let!(:participatory_process) do
+              create(
+                :participatory_process,
+                :published,
+                :trashed,
+                organization:
+              )
+            end
+
+            it "shows a flash error and redirects to edit" do
+              patch :update, params: { slug: participatory_process.id, participatory_process: participatory_process_params }
+
+              expect(flash[:alert]).to eq("You cannot edit deleted participatory processes. Please restore the participatory process first.")
+              expect(response).to redirect_to(edit_participatory_process_path(participatory_process.slug))
+            end
+          end
         end
 
         it_behaves_like "a soft-deletable space",

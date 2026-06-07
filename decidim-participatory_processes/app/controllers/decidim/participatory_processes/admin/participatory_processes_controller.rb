@@ -48,12 +48,18 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :process, process: current_participatory_process
+          enforce_permission_to :read, :participatory_space, current_participatory_space: current_participatory_process
           @form = form(ParticipatoryProcessForm).from_model(current_participatory_process)
           render layout: "decidim/admin/participatory_process"
         end
 
         def update
+          if current_participatory_process.deleted?
+            flash[:alert] = I18n.t("participatory_processes.update.deleted", scope: "decidim.admin")
+            redirect_to edit_participatory_process_path(current_participatory_process.slug)
+            return
+          end
+
           enforce_permission_to :update, :process, process: current_participatory_process
           @form = form(ParticipatoryProcessForm).from_params(
             participatory_process_params,

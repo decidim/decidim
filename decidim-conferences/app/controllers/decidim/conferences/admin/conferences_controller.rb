@@ -41,12 +41,18 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :conference, conference: current_conference
+          enforce_permission_to :read, :participatory_space, current_participatory_space: current_conference
           @form = form(ConferenceForm).from_model(current_conference)
           render layout: "decidim/admin/conference"
         end
 
         def update
+          if current_conference.deleted?
+            flash[:alert] = I18n.t("conferences.update.deleted", scope: "decidim.admin")
+            redirect_to edit_conference_path(current_conference.slug)
+            return
+          end
+
           enforce_permission_to :update, :conference, conference: current_conference
           @form = form(ConferenceForm).from_params(
             conference_params,

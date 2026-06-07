@@ -626,4 +626,120 @@ describe Decidim::Assemblies::Permissions do
       end
     end
   end
+
+  context "with a deleted assembly" do
+    let(:assembly) { create(:assembly, :trashed, organization:) }
+    let(:context) { { current_participatory_space: assembly } }
+
+    context "when user is an assembly admin" do
+      let(:assembly_admin_user) { create(:user, organization:) }
+      let!(:assembly_admin_role) do
+        create(:assembly_user_role,
+               user: assembly_admin_user,
+               assembly: assembly,
+               role: :admin)
+      end
+      let(:user) { assembly_admin_user }
+
+      context "when reading the assembly" do
+        let(:action) do
+          { scope: :admin, action: :read, subject: :assembly }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when updating the assembly" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :assembly }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating an attachment" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :attachment }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating a component" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :component }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when performing restore action" do
+        let(:action) do
+          { scope: :admin, action: :restore, subject: :assembly }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when performing manage_trash action" do
+        let(:action) do
+          { scope: :admin, action: :manage_trash, subject: :assembly }
+        end
+
+        it { is_expected.to be true }
+      end
+    end
+
+    context "when user is an org admin" do
+      let(:user) { create(:user, :admin, organization:) }
+
+      context "when reading the assembly" do
+        let(:action) do
+          { scope: :admin, action: :read, subject: :assembly }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when updating the assembly" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :assembly }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating an attachment" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :attachment }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating a component" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :component }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when performing restore action" do
+        let(:action) do
+          { scope: :admin, action: :restore, subject: :assembly }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when performing manage_trash action" do
+        let(:action) do
+          { scope: :admin, action: :manage_trash, subject: :assembly }
+        end
+
+        it { is_expected.to be true }
+      end
+    end
+  end
 end

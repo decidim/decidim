@@ -45,6 +45,24 @@ module Decidim
 
             expect(response).to redirect_to(edit_assembly_path(assembly.slug))
           end
+
+          context "when assembly is deleted" do
+            let!(:assembly) do
+              create(
+                :assembly,
+                :published,
+                :trashed,
+                organization:
+              )
+            end
+
+            it "shows a flash error and redirects to edit" do
+              patch :update, params: { slug: assembly.id, assembly: assembly_params }
+
+              expect(flash[:alert]).to eq("You cannot edit deleted assemblies. Please restore the assembly first.")
+              expect(response).to redirect_to(edit_assembly_path(assembly.slug))
+            end
+          end
         end
 
         it_behaves_like "a soft-deletable space",

@@ -167,6 +167,7 @@ en:
         new:
           create: Create
         update:
+          deleted: You cannot edit deleted conferences. Please restore the conference first.
           error: There was a problem updating this conference.
           success: Conference successfully updated.
       conferences_duplicates:

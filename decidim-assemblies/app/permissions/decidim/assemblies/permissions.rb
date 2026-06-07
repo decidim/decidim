@@ -22,7 +22,7 @@ module Decidim
 
         return permission_action unless user
 
-        if !has_manageable_assemblies? && !user.admin?
+        if !has_manageable_assemblies? && !user.admin? && !assembly&.deleted?
           disallow!
           return permission_action
         end
@@ -139,7 +139,7 @@ module Decidim
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :assemblies
 
-        toggle_allow(user.admin? || has_manageable_assemblies?)
+        toggle_allow(user.admin? || has_manageable_assemblies? || assembly&.deleted?)
       end
 
       # Checks if the permission_action is to read in the admin or not.
@@ -183,7 +183,7 @@ module Decidim
       def user_can_read_assembly_list?
         return unless read_assembly_list_permission_action?
 
-        toggle_allow(user.admin? || has_manageable_assemblies?)
+        toggle_allow(user.admin? || has_manageable_assemblies? || assembly&.deleted?)
       end
 
       # Checks whether the user can list the current given assembly or not.
@@ -208,7 +208,11 @@ module Decidim
         return unless read_assembly_list_permission_action?
         return if permission_action.subject == :assembly_list
 
-        toggle_allow(user.admin? || can_manage_assembly? || admin_assembly?)
+        if assembly&.deleted?
+          toggle_allow(user.admin? || assembly_admin_for_deleted_assembly?)
+        else
+          toggle_allow(user.admin? || can_manage_assembly? || admin_assembly?)
+        end
       end
 
       # A moderator needs to be able to read the assembly they are assigned to,
@@ -238,7 +242,6 @@ module Decidim
       # Process admins can perform everything *inside* that assembly. They cannot
       # perform actions on assembly groups or other assemblies.
       def assembly_admin_action?
-        return unless can_manage_assembly?(role: :admin)
         return if user.admin?
 
         is_allowed = [
@@ -253,7 +256,28 @@ module Decidim
           :share_token,
           :import
         ].include?(permission_action.subject)
-        allow! if is_allowed
+        return unless is_allowed
+
+        if assembly&.deleted?
+          allowed_actions = [:read, :enter, :restore, :manage_trash]
+          return disallow! unless permission_action.action.in?(allowed_actions)
+
+          return disallow! unless assembly_admin_for_deleted_assembly?
+
+          return allow!
+        end
+
+        return unless can_manage_assembly?(role: :admin)
+
+        allow!
+      end
+
+      def assembly_admin_for_deleted_assembly?
+        Decidim::AssemblyUserRole.exists?(user:,
+                                          decidim_assembly_id: assembly.id,
+                                          role: :admin)
+      rescue StandardError
+        false
       end
 
       def org_admin_action?
@@ -271,7 +295,14 @@ module Decidim
           :share_token,
           :import
         ].include?(permission_action.subject)
-        allow! if is_allowed
+        return unless is_allowed
+
+        if assembly&.deleted?
+          allowed_actions = [:read, :enter, :restore, :manage_trash]
+          return disallow! unless permission_action.action.in?(allowed_actions)
+        end
+
+        allow!
       end
 
       def user_can_preview_space?

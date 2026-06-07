@@ -245,6 +245,7 @@ en:
         new:
           create: Create
         update:
+          deleted: You cannot edit deleted participatory processes. Please restore the participatory process first.
           error: There was a problem updating this participatory process.
           success: Participatory process successfully updated.
       participatory_processes_duplicates:

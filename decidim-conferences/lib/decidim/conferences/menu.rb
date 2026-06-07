@@ -79,7 +79,7 @@ module Decidim
                         I18n.t("diploma", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.edit_conference_diploma_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.edit_conference_diploma_path(current_participatory_space)),
-                        if: allowed_to?(:update, :conference, conference: current_participatory_space)
+                        if: allowed_to?(:read, :conference, conference: current_participatory_space)
         end
       end
 
@@ -108,7 +108,7 @@ module Decidim
                         decidim_admin_conferences.edit_conference_path(current_participatory_space),
                         position: 1,
                         icon_name: "information-line",
-                        if: allowed_to?(:update, :conference, conference: current_participatory_space)
+                        if: allowed_to?(:read, :conference, conference: current_participatory_space)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.conferences_submenu"),

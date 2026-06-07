@@ -43,12 +43,18 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :assembly, assembly: current_assembly
+          enforce_permission_to :read, :participatory_space, current_participatory_space: current_assembly
           @form = form(AssemblyForm).from_model(current_assembly)
           render layout: "decidim/admin/assembly"
         end
 
         def update
+          if current_assembly.deleted?
+            flash[:alert] = I18n.t("assemblies.update.deleted", scope: "decidim.admin")
+            redirect_to edit_assembly_path(current_assembly.slug)
+            return
+          end
+
           enforce_permission_to :update, :assembly, assembly: current_assembly
           @form = form(AssemblyForm).from_params(
             assembly_params,
@@ -92,7 +98,7 @@ module Decidim
 
         def current_assembly
           @current_assembly ||= collection.with_deleted.where(slug: params[:slug]).or(
-            collection.where(id: params[:slug])
+            collection.with_deleted.where(id: params[:slug])
           ).first
         end
 

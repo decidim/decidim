@@ -25,7 +25,7 @@ module Decidim
 
         return permission_action unless user
 
-        if !has_manageable_processes? && !user.admin?
+        if !has_manageable_processes? && !user.admin? && !process&.deleted?
           disallow!
           return permission_action
         end
@@ -154,7 +154,7 @@ module Decidim
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :processes
 
-        toggle_allow(user.admin? || has_manageable_processes?)
+        toggle_allow(user.admin? || has_manageable_processes? || process&.deleted?)
       end
 
       # Only organization admins can manage process groups.
@@ -191,14 +191,18 @@ module Decidim
       def user_can_read_process_list?
         return unless read_process_list_permission_action?
 
-        toggle_allow(user.admin? || has_manageable_processes?)
+        toggle_allow(user.admin? || has_manageable_processes? || process&.deleted?)
       end
 
       def user_can_read_current_process?
         return unless read_process_list_permission_action?
         return if permission_action.subject == :process_list
 
-        toggle_allow(user.admin? || can_manage_process?)
+        if process&.deleted?
+          toggle_allow(user.admin? || process_admin_for_deleted_process?)
+        else
+          toggle_allow(user.admin? || can_manage_process?)
+        end
       end
 
       # A moderator needs to be able to read the process they are assigned to,
@@ -229,7 +233,6 @@ module Decidim
       # create a process or perform actions on process groups or other
       # processes.
       def process_admin_action?
-        return unless can_manage_process?(role: :admin)
         return if user.admin?
         return disallow! if permission_action.action == :create &&
                             permission_action.subject == :process
@@ -247,7 +250,28 @@ module Decidim
           :share_token,
           :import
         ].include?(permission_action.subject)
-        allow! if is_allowed
+        return unless is_allowed
+
+        if process&.deleted?
+          allowed_actions = [:read, :enter, :restore, :manage_trash]
+          return disallow! unless permission_action.action.in?(allowed_actions)
+
+          return disallow! unless process_admin_for_deleted_process?
+
+          return allow!
+        end
+
+        return unless can_manage_process?(role: :admin)
+
+        allow!
+      end
+
+      def process_admin_for_deleted_process?
+        Decidim::ParticipatoryProcessUserRole.exists?(user:,
+                                                      decidim_participatory_process_id: process.id,
+                                                      role: :admin)
+      rescue StandardError
+        false
       end
 
       def org_admin_action?
@@ -266,7 +290,14 @@ module Decidim
           :share_token,
           :import
         ].include?(permission_action.subject)
-        allow! if is_allowed
+        return unless is_allowed
+
+        if process&.deleted?
+          allowed_actions = [:read, :enter, :restore, :manage_trash]
+          return disallow! unless permission_action.action.in?(allowed_actions)
+        end
+
+        allow!
       end
 
       def user_can_preview_space?

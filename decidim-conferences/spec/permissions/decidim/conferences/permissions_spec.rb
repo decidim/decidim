@@ -449,4 +449,120 @@ describe Decidim::Conferences::Permissions do
       it_behaves_like "allows any action on subject", :conference_user_role
     end
   end
+
+  context "with a deleted conference" do
+    let(:conference) { create(:conference, :trashed, organization:) }
+    let(:context) { { current_participatory_space: conference } }
+
+    context "when user is a conference admin" do
+      let(:conference_admin_user) { create(:user, organization:) }
+      let!(:conference_admin_role) do
+        create(:conference_user_role,
+               user: conference_admin_user,
+               conference: conference,
+               role: :admin)
+      end
+      let(:user) { conference_admin_user }
+
+      context "when reading the conference" do
+        let(:action) do
+          { scope: :admin, action: :read, subject: :conference }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when updating the conference" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :conference }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating an attachment" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :attachment }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating a component" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :component }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when performing restore action" do
+        let(:action) do
+          { scope: :admin, action: :restore, subject: :conference }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when performing manage_trash action" do
+        let(:action) do
+          { scope: :admin, action: :manage_trash, subject: :conference }
+        end
+
+        it { is_expected.to be true }
+      end
+    end
+
+    context "when user is an org admin" do
+      let(:user) { create(:user, :admin, organization:) }
+
+      context "when reading the conference" do
+        let(:action) do
+          { scope: :admin, action: :read, subject: :conference }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when updating the conference" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :conference }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating an attachment" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :attachment }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when updating a component" do
+        let(:action) do
+          { scope: :admin, action: :update, subject: :component }
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when performing restore action" do
+        let(:action) do
+          { scope: :admin, action: :restore, subject: :conference }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when performing manage_trash action" do
+        let(:action) do
+          { scope: :admin, action: :manage_trash, subject: :conference }
+        end
+
+        it { is_expected.to be true }
+      end
+    end
+  end
 end

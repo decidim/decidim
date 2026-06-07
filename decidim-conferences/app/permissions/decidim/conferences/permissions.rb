@@ -30,7 +30,7 @@ module Decidim
 
         return permission_action unless user
 
-        if !has_manageable_conferences? && !user.admin?
+        if !has_manageable_conferences? && !user.admin? && !conference&.deleted?
           disallow!
           return permission_action
         end
@@ -170,7 +170,7 @@ module Decidim
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :conferences
 
-        toggle_allow(user.admin? || has_manageable_conferences?)
+        toggle_allow(user.admin? || has_manageable_conferences? || conference&.deleted?)
       end
 
       # Checks if the permission_action is to read in the admin or not.
@@ -223,14 +223,18 @@ module Decidim
       def user_can_read_conference_list?
         return unless read_conference_list_permission_action?
 
-        toggle_allow(user.admin? || has_manageable_conferences?)
+        toggle_allow(user.admin? || has_manageable_conferences? || conference&.deleted?)
       end
 
       def user_can_read_current_conference?
         return unless read_conference_list_permission_action?
         return if permission_action.subject == :conference_list
 
-        toggle_allow(user.admin? || can_manage_conference?)
+        if conference&.deleted?
+          toggle_allow(user.admin? || conference_admin_for_deleted_conference?)
+        else
+          toggle_allow(user.admin? || can_manage_conference?)
+        end
       end
 
       # A moderator needs to be able to read the conference they are assigned to,
@@ -260,7 +264,6 @@ module Decidim
       # create a conference or perform actions on conference groups or other
       # conferences.
       def conference_admin_action?
-        return unless can_manage_conference?(role: :admin)
         return if user.admin?
         return disallow! if permission_action.action == :create &&
                             permission_action.subject == :conference
@@ -280,7 +283,28 @@ module Decidim
           :conference_invite,
           :share_token
         ].include?(permission_action.subject)
-        allow! if is_allowed
+        return unless is_allowed
+
+        if conference&.deleted?
+          allowed_actions = [:read, :enter, :restore, :manage_trash]
+          return disallow! unless permission_action.action.in?(allowed_actions)
+
+          return disallow! unless conference_admin_for_deleted_conference?
+
+          return allow!
+        end
+
+        return unless can_manage_conference?(role: :admin)
+
+        allow!
+      end
+
+      def conference_admin_for_deleted_conference?
+        Decidim::ConferenceUserRole.exists?(user:,
+                                            decidim_conference_id: conference.id,
+                                            role: :admin)
+      rescue StandardError
+        false
       end
 
       def org_admin_action?
@@ -303,7 +327,14 @@ module Decidim
           :export_conference_registrations,
           :share_token
         ].include?(permission_action.subject)
-        allow! if is_allowed
+        return unless is_allowed
+
+        if conference&.deleted?
+          allowed_actions = [:read, :enter, :restore, :manage_trash]
+          return disallow! unless permission_action.action.in?(allowed_actions)
+        end
+
+        allow!
       end
 
       def user_can_preview_space?

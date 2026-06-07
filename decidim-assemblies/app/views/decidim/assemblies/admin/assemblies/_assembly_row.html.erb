@@ -12,7 +12,7 @@
     <% end %>
 
     <span class="table-list__title-ellipsis">
-      <% if allowed_to? :update, :assembly, assembly: assembly %>
+      <% if allowed_to? :read, :assembly, assembly: assembly %>
         <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
       <% elsif allowed_to? :read, :component, assembly: assembly %>
         <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>

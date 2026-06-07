@@ -48,6 +48,24 @@ module Decidim
 
           expect(response).to redirect_to edit_conference_path(conference)
         end
+
+        context "when conference is deleted" do
+          let!(:conference) do
+            create(
+              :conference,
+              :published,
+              :trashed,
+              organization:
+            )
+          end
+
+          it "shows a flash error and redirects to edit" do
+            patch :update, params: { slug: conference.id, conference: conference_params }
+
+            expect(flash[:alert]).to eq("You cannot edit deleted conferences. Please restore the conference first.")
+            expect(response).to redirect_to(edit_conference_path(conference.slug))
+          end
+        end
       end
 
       it_behaves_like "a soft-deletable space",
