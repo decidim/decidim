@@ -168,7 +168,7 @@ describe "Respond a survey" do
     end
 
     it "renders the inline authorization page with a verification call to action" do
-      expect(page).to have_content("Authorization required")
+      expect(page).to have_text("Authorization required")
       expect(page).to have_link(text: /Authorize with/)
     end
 
