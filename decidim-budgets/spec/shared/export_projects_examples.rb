@@ -91,7 +91,7 @@ shared_examples "export as Pabulib" do
   before do
     click_on export_type
     click_on "Voting results as Pabulib"
-    expect(page).to have_content("Export voting results for #{translated_attribute(budget.title)} to Pabulib format")
+    expect(page).to have_text("Export voting results for #{translated_attribute(budget.title)} to Pabulib format")
   end
 
   it "sets the initial general details correctly" do

@@ -20,6 +20,7 @@ describe Decidim::Budgets::Pabulib::Exporter do
       num_votes: 1,
       budget: 1_000_000,
       vote_type: "approval",
+      rule: "greedy",
       min_length: 0,
       max_length: 5,
       min_sum_cost: 0,
@@ -73,8 +74,8 @@ describe Decidim::Budgets::Pabulib::Exporter do
           num_projects;#{metadata.num_projects}
           num_votes;#{metadata.num_votes}
           budget;#{metadata.budget}
-          rule;greedy
           vote_type;#{metadata.vote_type}
+          rule;#{metadata.rule}
           min_length;#{metadata.min_length}
           max_length;#{metadata.max_length}
           min_sum_cost;#{metadata.min_sum_cost}

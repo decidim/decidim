@@ -69,6 +69,7 @@ module Decidim
             num_votes: budget.orders.finished.count,
             budget: budget.total_budget,
             vote_type: config.vote_type,
+            rule: config.rule,
             min_length: config.min_length.presence || 1,
             max_length: config.max_length.presence || budget.projects.count,
             min_sum_cost: config.min_sum_cost,
@@ -92,8 +93,8 @@ module Decidim
         #
         # @param project [Decidim::Budgets::Project] The project to convert
         # @param votes_by_project [Hash{Integer => Integer}] A hash containing
-        #   the project IDs for the budget as keys and their amount of confirmed
-        #   votes as the values
+        #   the project IDs for the project as keys and their amount of
+        #   confirmed votes as the values
         # @return [Decidim::Budgets::Pabulib::Project] The created pabulib
         #   project instance
         def convert_project(project, votes_by_project)
@@ -109,6 +110,9 @@ module Decidim
         # Converts an order model to pabulib order instance.
         #
         # @param order [Decidim::Budgets::Order] The order to convert
+        # @param projects_by_vote [Hash{Integer => Array<Integer>}] A hash
+        #   containing the selected project IDs for each vote, with the order
+        #   IDs as keys and array of selected project IDs as values
         # @return [Decidim::Budgets::Pabulib::Vote] The created pabulib
         #   vote instance
         def convert_vote(order, projects_by_vote)

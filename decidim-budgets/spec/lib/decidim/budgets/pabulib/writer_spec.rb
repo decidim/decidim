@@ -20,6 +20,7 @@ describe Decidim::Budgets::Pabulib::Writer do
       num_votes: 5,
       budget: 1_000_000,
       vote_type:,
+      rule:,
       min_length: 0,
       max_length: 5,
       date_begin:,
@@ -41,6 +42,7 @@ describe Decidim::Budgets::Pabulib::Writer do
     )
   end
   let(:vote_type) { "approval" }
+  let(:rule) { "greedy" }
   let(:date_begin) { 14.days.ago }
   let(:date_end) { 7.days.from_now }
 
@@ -62,8 +64,8 @@ describe Decidim::Budgets::Pabulib::Writer do
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
             budget;#{metadata.budget}
-            rule;greedy
             vote_type;#{metadata.vote_type}
+            rule;#{metadata.rule}
             min_length;#{metadata.min_length}
             max_length;#{metadata.max_length}
             min_sum_cost;#{metadata.min_sum_cost}
@@ -92,8 +94,8 @@ describe Decidim::Budgets::Pabulib::Writer do
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
             budget;#{metadata.budget}
-            rule;greedy
             vote_type;#{metadata.vote_type}
+            rule;#{metadata.rule}
             min_length;#{metadata.min_length}
             max_length;#{metadata.max_length}
             scoring_fn;#{metadata.scoring_fn}
@@ -121,8 +123,8 @@ describe Decidim::Budgets::Pabulib::Writer do
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
             budget;#{metadata.budget}
-            rule;greedy
             vote_type;#{metadata.vote_type}
+            rule;#{metadata.rule}
             min_length;#{metadata.min_length}
             max_length;#{metadata.max_length}
             min_points;#{metadata.min_points}
@@ -153,8 +155,8 @@ describe Decidim::Budgets::Pabulib::Writer do
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
             budget;#{metadata.budget}
-            rule;greedy
             vote_type;#{metadata.vote_type}
+            rule;#{metadata.rule}
             min_length;#{metadata.min_length}
             max_length;#{metadata.max_length}
             min_points;#{metadata.min_points}

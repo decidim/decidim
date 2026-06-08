@@ -51,7 +51,8 @@ namespace :decidim do
           instance: budget.created_at.strftime("%Y"),
           min_length: 1,
           max_length: budget.projects.count,
-          vote_type: "approval"
+          vote_type: "approval",
+          rule: "greedy"
         }
         args.extras.each do |configdef|
           key, value = configdef.split("=", 2)

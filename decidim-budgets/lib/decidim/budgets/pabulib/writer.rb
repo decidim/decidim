@@ -31,8 +31,8 @@ module Decidim
           write(num_projects: metadata.num_projects)
           write(num_votes: metadata.num_votes)
           write(budget: metadata.budget)
-          write(rule: "greedy") # no other rules defined at this point
           write(vote_type: metadata.vote_type)
+          write(rule: metadata.rule)
 
           write_attributes(metadata, :min_length, :max_length)
           write_type_attributes

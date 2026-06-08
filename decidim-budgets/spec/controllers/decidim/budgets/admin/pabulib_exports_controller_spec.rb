@@ -27,6 +27,11 @@ module Decidim
 
         describe "POST create" do
           context "when the form is valid" do
+            let!(:order) do
+              create(:order, :with_projects, user: current_user, budget:).tap do |ord|
+                ord.update!(checked_out_at: Time.zone.today)
+              end
+            end
             let(:export_params) do
               {
                 description: "City PB voting",
@@ -34,6 +39,7 @@ module Decidim
                 unit: "Southern region",
                 instance: "2026",
                 vote_type: "approval",
+                rule: "greedy",
                 min_length: 1,
                 max_length: 5
               }
@@ -48,6 +54,18 @@ module Decidim
               expect(response.headers["Content-Disposition"]).to match(/\Aattachment; filename="decidim-budget-#{budget.id}-results-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}.pb"\z/)
               expect(response.headers["Cache-Control"]).to eq("no-cache, no-store")
               expect(Time.zone.parse(response.headers["Last-Modified"])).to be_between(2.seconds.ago, Time.current)
+            end
+
+            context "with no orders" do
+              let!(:order) { nil }
+
+              it "returns the correct status code" do
+                post :create, params: { budget_id: budget.id }
+
+                expect(response).to have_http_status(:unprocessable_content)
+                expect(response.content_type).to eq("text/html; charset=utf-8")
+                expect(flash[:alert]).not_to be_empty
+              end
             end
           end
 

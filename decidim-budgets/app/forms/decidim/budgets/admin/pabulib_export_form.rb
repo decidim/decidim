@@ -18,6 +18,9 @@ module Decidim
         attribute :vote_type, String
         validates :vote_type, presence: true, inclusion: { in: ->(_form) { Decidim::Budgets::Pabulib::VOTE_TYPES } }
 
+        attribute :rule
+        validates :rule, presence: true, inclusion: { in: ->(_form) { Decidim::Budgets::Pabulib::RULES } }
+
         attribute :min_length, Integer
         attribute :max_length, Integer
 

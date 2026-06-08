@@ -8,6 +8,18 @@ module Decidim
 
       # For the structs and constants below, see https://pabulib.org/format.
       VOTE_TYPES = %w(approval ordinal cumulative scoring).freeze
+      RULES = %w(
+        greedy
+        greedy-no-skip
+        greedy-threshold
+        greedy-exclusive
+        greedy-custom
+        equalshares
+        equalshares-comparison
+        equalshares/add1
+        equalshares/add1-comparison
+        unknown
+      ).freeze
       SCORING_FNS = %w(Borda).freeze
       Metadata = Struct.new(
         :description,
@@ -18,6 +30,7 @@ module Decidim
         :num_votes,
         :budget,
         :vote_type,
+        :rule,
         :min_length,
         :max_length,
         :min_sum_cost,

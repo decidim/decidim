@@ -67,8 +67,8 @@ describe "Executing Pabulib export tasks" do
           num_projects;#{projects.count}
           num_votes;#{orders.count}
           budget;#{budget.total_budget}
-          rule;greedy
           vote_type;approval
+          rule;greedy
           min_length;1
           max_length;#{projects.count}
           date_begin;#{orders.map(&:created_at).min.strftime("%d.%m.%Y")}

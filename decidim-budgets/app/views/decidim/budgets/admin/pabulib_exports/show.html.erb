@@ -72,6 +72,18 @@
             </div>
 
             <div class="row column">
+              <%= f.select :rule, pabulib_rule_options, label: t(".fields.rule.label", field: "rule"), help_text: t(".fields.rule.help") %>
+
+              <% Decidim::Budgets::Pabulib::RULES.each do |rule| %>
+                <div data-controller="selective-display" data-selective-display-selector-value="#pabulib_export_rule" data-selective-display-triggers-value="<%= rule %>" class="hide">
+                  <div class="help-text">
+                    <%= t("#{rule.gsub("-", "_")}.help", scope: "activemodel.attributes.pabulib_rules") %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="row column">
               <%= f.number_field :min_length, label: t(".fields.min_length.label", field: "min_length"), help_text: t(".fields.min_length.help", default_value: 1) %>
             </div>
             <div class="row column">

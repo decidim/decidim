@@ -6,7 +6,7 @@ module Decidim
       # This controller allows an admin to export projects from a budget to
       # Pabulib format as defined at: https://pabulib.org/format
       class PabulibExportsController < Admin::ApplicationController
-        helper_method :pabulib_vote_type_options, :pabulib_scoring_fn_options
+        helper_method :pabulib_vote_type_options, :pabulib_rule_options, :pabulib_scoring_fn_options
 
         # Initializes the show view.
         def show
@@ -17,7 +17,8 @@ module Decidim
             instance: budget.created_at.strftime("%Y"),
             min_length: 1,
             max_length: budget.projects.count,
-            vote_type: "approval"
+            vote_type: "approval",
+            rule: "greedy"
           )
         end
 
@@ -58,6 +59,12 @@ module Decidim
         def pabulib_vote_type_options
           Pabulib::VOTE_TYPES.map do |type|
             [t(type, scope: "activemodel.attributes.pabulib_vote_types", type:), type]
+          end
+        end
+
+        def pabulib_rule_options
+          Pabulib::RULES.map do |rule|
+            [t("#{rule.gsub("-", "_")}.label", scope: "activemodel.attributes.pabulib_rules", rule:), rule]
           end
         end
 

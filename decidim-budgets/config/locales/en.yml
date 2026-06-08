@@ -7,6 +7,37 @@ en:
         title: Title
         total_budget: Total budget
         weight: Order position
+      pabulib_rules:
+        equalshares:
+          help: Method of Equal Shares (MES) without completion. In MES, each voter starts with an equal virtual share of the budget, and a project is selected when its supporters can jointly afford it.
+          label: Method of Equal Shares (%{rule})
+        equalshares/add1:
+          help: Use basic equalshares, but if it stops too early, keep increasing each voter's virtual budget by 1 unit at a time (Add1) and recompute, as long as the final selected projects still fit into the real budget.
+          label: Method of Equal Shares, add1 (%{rule})
+        equalshares/add1_comparison:
+          help: Use equalshares/add1, and then apply the same comparison step as above.
+          label: Method of Equal Shares, add1 comparison (%{rule})
+        equalshares_comparison:
+          help: 'Use basic equalshares, and then add one extra step: compare its outcome with a greedy benchmark, and switch only if more voters prefer the greedy outcome.'
+          label: Method of Equal Shares, comparison (%{rule})
+        greedy:
+          help: The standard Knapsack-style approximation approach. Projects are sorted by vote count (descending). The algorithm iterates through the list, selecting projects that fit into the remaining budget. If a project is too expensive for the current remaining funds, it is skipped, and the algorithm continues to the next project to see if it fits.
+          label: Greedy (%{rule})
+        greedy_custom:
+          help: Used for special cases that do not fit the standard algorithms, such as manual budget reallocations or complex hybrid rules.
+          label: Greedy, custom (%{rule})
+        greedy_exclusive:
+          help: Handles conflicting project groups. It functions as standard greedy, but if multiple 'winning' projects conflict (e.g., are in the same exclusive zone or category), a hierarchy rule is applied (e.g., district-level projects might take precedence over city-wide ones, or vice-versa) rather than relying solely on vote count.
+          label: Greedy, exclusive (%{rule})
+        greedy_no_skip:
+          help: Projects are sorted by vote count (descending). The algorithm selects projects that fit into the remaining budget but stops immediately at the first project that does not fit. No subsequent projects are considered, even if they would fit.
+          label: Greedy, no skip (%{rule})
+        greedy_threshold:
+          help: Behaves like standard greedy, but projects are only considered if they meet a defined min_project_score_threshold.
+          label: Greedy, threshold (%{rule})
+        unknown:
+          help: Either the information is not available, or there were multiple possibilities, and it is unclear which one applies.
+          label: Unknown (%{rule})
       pabulib_vote_types:
         approval: Approval (%{type})
         cumulative: Cumulative (%{type})
@@ -150,6 +181,9 @@ en:
               min_sum_points:
                 help: 'Minimum sum of the assigned points for each project (default: %{default_value}).'
                 label: Minimum sum points (%{field})
+              rule:
+                help: The algorithm used to select winning projects based on the votes.
+                label: Rule (%{field})
               scoring_fn:
                 help: 'Scoring function for the ordinal type voting (default: %{default_value}).'
                 label: Scoring function (%{field})
