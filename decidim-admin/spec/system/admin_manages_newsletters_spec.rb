@@ -29,7 +29,7 @@ describe "Admin manages newsletters" do
   end
 
   describe "creates and previews a newsletter" do
-    it "allows a newsletter to be created" do
+    before do
       visit decidim_admin.newsletters_path
 
       find(".button.new").click
@@ -73,7 +73,9 @@ describe "Admin manages newsletters" do
           ca: "Hola, %{name}! Contingut rellevant."
         )
       end
+    end
 
+    it "allows a newsletter to be created" do
       dynamically_attach_file(:newsletter_images_main_image, Decidim::Dev.asset("city2.jpeg"))
 
       within ".new_newsletter" do
@@ -85,6 +87,16 @@ describe "Admin manages newsletters" do
 
       visit decidim_admin.root_path
       expect(page).to have_text("created the #{translated(attributes[:subject])} newsletter")
+    end
+
+    it "displays the 'Resolution is too large' error message when image is invalid" do
+      dynamically_attach_file(:newsletter_images_main_image, Decidim::Dev.asset("8001x4000.png"))
+
+      within ".new_newsletter" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_text("File resolution is too large")
     end
   end
 

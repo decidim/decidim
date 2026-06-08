@@ -241,8 +241,6 @@ de:
               label: Zugriff
               options:
                 open: Jeder kann die Versammlung sehen und teilnehmen.
-                restricted: Nur Mitglieder können sehen und teilnehmen.
-                transparent: Jeder kann die Versammlung sehen, aber nur die Mitglieder können teilnehmen.
               set_this_space_as: Setze diesen Bereich als
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis

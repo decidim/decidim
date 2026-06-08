@@ -431,25 +431,11 @@ sv:
         update: Uppdatera
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} accepterade din ansökan att ingå i kampanjgruppen för initiativet %{resource_title}."
           email_outro: 'Du har fått det här meddelandet eftersom du är författaren av initiativet %{resource_title}'
-          email_subject: "%{author_nickname} godkände din ansökan till kampanjgruppen"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> godkände din ansökan att ingå i kampanjgruppen för följande initiativ <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, som du följer, har skapat ett nytt initiativ. Ta en titt och bidra:"
-          email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
-          email_subject: Nytt initiativ från %{author_nickname}
-          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} avslog din ansökan om att ingå i kampanjgruppen för följande initiativ %{resource_title}."
           email_outro: 'Du har fått det här meddelandet eftersom du är författaren av initiativet %{resource_title}.'
-          email_subject: "%{author_nickname} avvisade din ansökan till kampanjgruppen"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> avvisade din ansökan att ingå i kampanjgruppen för följande initiativ <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} ansökte om att bli kampanjmedlem för %{resource_title}. För att acceptera eller avvisa ansökan går du till redigeringsformuläret för ditt initiativ."
           email_outro: 'Du fick detta meddelande eftersom du är författare till detta initiativ: %{resource_title}'
-          email_subject: "%{applicant_nickname} vill gå med i ditt initiativ"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ansökte om att gå med i kampanjgruppen för ditt initiativ <a href="%{resource_url}">%{resource_title}</a>. För att acceptera eller avvisa klickar du <a href="%{resource_url}/edit">här</a>.
       form:
         add_attachments: Lägg till bilagor
         add_image: Lägg till bild

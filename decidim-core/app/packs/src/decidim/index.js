@@ -33,7 +33,6 @@ import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
 import "src/decidim/results_listing"
 import "src/decidim/data_consent"
-import "src/decidim/sw"
 import "src/decidim/attachments"
 import "src/decidim/callout"
 
@@ -237,8 +236,7 @@ const initializer = (element = document) => {
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
 
-// If no jQuery is used the Tribute feature used in comments to autocomplete
-// mentions stops working
+// Keep this under jQuery ready to support components initialized on legacy templates
 $(() => initializer());
 
 // Run initializer action over the new DOM elements
@@ -261,4 +259,3 @@ document.addEventListener("comments:loaded", (event) => {
     });
   }
 });
-

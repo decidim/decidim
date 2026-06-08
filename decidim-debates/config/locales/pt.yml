@@ -188,13 +188,6 @@ pt:
             email_outro: Recebeu esta notificação porque segue o espaço de participação %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
             email_subject: Novo debate "%{resource_title}" no %{participatory_space_title}
             notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate fou criado em <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-          user_followers:
-            email_intro: |-
-              Olá,
-              %{author_name} %{author_nickname}, que você segue, criou um novo debate "%{resource_title}". Confira e contribua:
-            email_outro: Recebeu esta notificação porque segue %{author_nickname}. Pode parar de receber notificações seguindo a hiperligação anterior.
-            email_subject: Novo debate "%{resource_title}" por %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> criou o debate <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'A criação de debate já não está ativa em %{participatory_space_title}. Ainda pode participar nos debates abertos nesta página:'
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
