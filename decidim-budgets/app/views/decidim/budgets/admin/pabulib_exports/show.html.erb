@@ -27,12 +27,13 @@
         <div class="card">
           <div class="card-divider"></div>
           <div class="row column">
-            <%= t(
-              ".explanation_html",
-              format_link:,
-              equal_shares_link: link_to(t(".explanation_link_label_equal_shares"), "https://equalshares.net/", target: "_blank", rel: "noopener noreferrer"),
-              tool_link: link_to(t(".explanation_link_label_equal_shares_tool"), "https://equalshares.net/tools/compute/", target: "_blank", rel: "noopener noreferrer")
-            ) %>
+            <div class="prose prose-a:text-secondary max-w-full">
+              <%= t(
+                ".explanation_html",
+                format_link:,
+                tool_link: link_to(t(".explanation_link_label_equal_shares_tool"), "https://equalshares.net/tools/compute/", target: "_blank", rel: "noopener noreferrer")
+              ) %>
+            </div>
           </div>
         </div>
         <div class="card">
@@ -61,7 +62,9 @@
           <div class="card-section">
             <div class="row column">
               <h2><%= t(".export_details_data") %></h2>
-              <p><%= t(".format_info_html", link: format_link) %></p>
+              <div class="prose prose-a:text-secondary max-w-full">
+                <p><%= t(".format_info_html", link: format_link) %></p>
+              </div>
             </div>
 
             <div class="row column">
@@ -119,7 +122,6 @@
 
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
-          <%= link_to t(".cancel"), budget_projects_path(budget), class: "button button__sm button__secondary" %>
           <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
         </div>
       </div>

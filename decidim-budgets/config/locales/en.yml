@@ -105,9 +105,6 @@ en:
                 This view will create a %{format_link} export for the participatory budgeting voting results.
               </p>
               <p>
-                This export can be used to create a voting result for the participatory budgeting voting using the %{equal_shares_link}.
-              </p>
-              <p>
                 In order to calculate the voting result using this method, you can use the %{tool_link}.
               </p>
             explanation_link_label_equal_shares: Method of Equal Shares
