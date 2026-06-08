@@ -146,6 +146,42 @@ describe "Answer a survey" do
     end
   end
 
+  context "when the survey requires an ephemeral authorization to be responded" do
+    let!(:organization) do
+      create(:organization, available_authorizations: %w(ephemeral_dummy_authorization_handler dummy_authorization_handler))
+    end
+
+    before do
+      permissions = {
+        answer: {
+          authorization_handlers: {
+            "ephemeral_dummy_authorization_handler" => { "options" => { "allowed_postal_codes" => "1234, 4567" } }
+          }
+        }
+      }
+
+      component.update!(permissions:)
+      survey.update!(allow_responses: true, starts_at: 1.week.ago, ends_at: 1.day.from_now)
+      visit_component
+      choose "All"
+      click_on translated_attribute(questionnaire.title)
+    end
+
+    it "renders the inline authorization page with a verification call to action" do
+      expect(page).to have_text("Authorization required")
+      expect(page).to have_link(text: /Authorize with/)
+    end
+
+    it "lets an unregistered user verify their identity without signing in" do
+      expect do
+        click_on "Authorize with \"Ephemeral example authorization\""
+      end.to change { Decidim::User.ephemeral.count }.by(1)
+
+      expect(page).to have_css("h1", text: "Verify with Ephemeral example authorization")
+      expect(page).to have_no_css("#loginModal", visible: :visible)
+    end
+  end
+
   context "when the survey allow answers" do
     context "when the survey is closed by start and end dates" do
       before do
