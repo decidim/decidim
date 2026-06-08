@@ -41,7 +41,7 @@ describe "User creates meeting" do
                settings: { creation_enabled_for_participants: true, taxonomy_filters: [taxonomy_filter.id] })
       end
 
-      it "displays the new post button" do
+      it "displays the new meeting button" do
         visit_component
         expect(page).to have_text("New meeting")
       end
