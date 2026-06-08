@@ -9,7 +9,7 @@ def visit_meeting_invites_page
   click_on "Invitations"
 end
 
-def invite_unregistered_user(name:, email:)
+def invite_unregistered_user(email:)
   visit_meeting_invites_page
 
   within "form.new_meeting_registration_invite" do
@@ -24,7 +24,6 @@ def invite_unregistered_user(name:, email:)
   expect(page).to have_callout("Participant successfully invited to join the meeting.")
 
   within "#meeting-invites table" do
-    expect(page).to have_text(name)
     expect(page).to have_text(email)
   end
 end
@@ -72,7 +71,7 @@ shared_examples "manage invites" do
 
       context "when inviting a unregistered user" do
         it "the invited user sign up into the application and joins the meeting" do
-          invite_unregistered_user name: "Foo", email: "foo@example.org"
+          invite_unregistered_user email: "foo@example.org"
 
           logout :user
           perform_enqueued_jobs
@@ -91,7 +90,7 @@ shared_examples "manage invites" do
         end
 
         it "the invited user sign up into the application and declines the invitation" do
-          invite_unregistered_user name: "Foo", email: "foo@example.org"
+          invite_unregistered_user email: "foo@example.org"
 
           logout :user
           perform_enqueued_jobs
@@ -140,7 +139,7 @@ shared_examples "manage invites" do
         let!(:registered_user) { create(:user, :confirmed, organization:) }
 
         it "the invited user joins the meeting" do
-          invite_unregistered_user name: registered_user.name, email: registered_user.email
+          invite_unregistered_user email: registered_user.email
 
           relogin_as registered_user
           perform_enqueued_jobs
@@ -151,7 +150,7 @@ shared_examples "manage invites" do
         end
 
         it "the invited user declines the invitation" do
-          invite_unregistered_user name: registered_user.name, email: registered_user.email
+          invite_unregistered_user email: registered_user.email
 
           relogin_as registered_user
 
