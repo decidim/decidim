@@ -10,6 +10,7 @@ module Decidim
 
         # Initializes the show view.
         def show
+          enforce_permission_to(:export, :component_data, component: current_component)
           @form = form(PabulibExportForm).from_params(
             description: "#{translated_attribute(current_organization.name)} - #{translated_attribute(current_component.name)} - #{translated_attribute(budget.title)}",
             unit: translated_attribute(budget.title),
@@ -22,6 +23,8 @@ module Decidim
 
         # Handles the form submission.
         def create
+          enforce_permission_to(:export, :component_data, component: current_component)
+
           @form = form(PabulibExportForm).from_params(params)
           unless @form.valid?
             flash.now[:alert] = I18n.t("pabulib_exports.create.invalid", scope: "decidim.budgets.admin")
