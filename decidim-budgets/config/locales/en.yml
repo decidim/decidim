@@ -130,17 +130,11 @@ en:
             invalid: Please correct the errors on the form.
             no_votes: There are no votes yet to export.
           show:
-            cancel: Cancel
             create: Export
             explanation_html: |
               <p>
                 This view will create a %{format_link} export for the participatory budgeting voting results.
               </p>
-              <p>
-                In order to calculate the voting result using this method, you can use the %{tool_link}.
-              </p>
-            explanation_link_label_equal_shares: Method of Equal Shares
-            explanation_link_label_equal_shares_tool: online computation tool
             explanation_link_label_format: Pabulib format
             export_details_data: Data attributes
             export_details_general: General details
