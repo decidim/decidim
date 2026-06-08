@@ -14,7 +14,7 @@ gem "decidim-elections", path: "."
 gem "decidim-initiatives", path: "."
 gem "decidim-templates", path: "."
 
-gem "bootsnap", "~> 1.23"
+gem "bootsnap", "~> 1.24"
 
 gem "puma", ">= 6.3.1"
 
@@ -24,7 +24,7 @@ group :development, :test do
   gem "decidim-dev", path: "."
 
   gem "brakeman", "~> 8.0"
-  gem "parallel_tests", "~> 5.6"
+  gem "parallel_tests", "~> 5.7"
 end
 
 group :development do

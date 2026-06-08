@@ -25,8 +25,8 @@ describe "Admin exports initiatives" do
     it "shows the export dropdown" do
       visit decidim_admin_initiatives.initiatives_path
 
-      expect(page).to have_content("Export")
-      expect(page).to have_no_content("Export selection")
+      expect(page).to have_text("Export")
+      expect(page).to have_no_text("Export selection")
     end
   end
 
@@ -38,8 +38,8 @@ describe "Admin exports initiatives" do
     it "shows the export formats" do
       click_on "Export"
 
-      expect(page).to have_content("Initiatives as CSV")
-      expect(page).to have_content("Initiatives as JSON")
+      expect(page).to have_text("Initiatives as CSV")
+      expect(page).to have_text("Initiatives as JSON")
     end
   end
 
@@ -52,7 +52,7 @@ describe "Admin exports initiatives" do
     it "displays success message" do
       click_on "Initiatives as JSON"
 
-      expect(page).to have_content("Your export is currently in progress. You will receive an email when it is complete.")
+      expect(page).to have_text("Your export is currently in progress. You will receive an email when it is complete.")
     end
   end
 
@@ -62,8 +62,8 @@ describe "Admin exports initiatives" do
         visit decidim_admin_initiatives.initiatives_path
         apply_filter("State", "Drafted")
 
-        expect(page).to have_content("Export")
-        expect(page).to have_content("Export selection")
+        expect(page).to have_text("Export")
+        expect(page).to have_text("Export selection")
       end
     end
 
@@ -76,8 +76,8 @@ describe "Admin exports initiatives" do
       it "shows the export formats" do
         click_on "Export selection"
 
-        expect(page).to have_content("Initiatives as CSV")
-        expect(page).to have_content("Initiatives as JSON")
+        expect(page).to have_text("Initiatives as CSV")
+        expect(page).to have_text("Initiatives as JSON")
       end
     end
 
@@ -91,7 +91,7 @@ describe "Admin exports initiatives" do
       it "displays success message" do
         click_on "Initiatives as JSON"
 
-        expect(page).to have_content("Your export is currently in progress. You will receive an email when it is complete.")
+        expect(page).to have_text("Your export is currently in progress. You will receive an email when it is complete.")
       end
     end
   end

@@ -25,12 +25,12 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
     let(:model) { title_and_description }
 
     it "renders the title-and-description body" do
-      expect(subject.call).to have_content(translated(model.body))
+      expect(subject.call).to have_text(translated(model.body))
     end
 
     it "renders the title-and-description type" do
       translated_question_type = I18n.t(model.question_type, scope: "decidim.forms.question_types")
-      expect(subject.call).to have_content(translated_question_type)
+      expect(subject.call).to have_text(translated_question_type)
     end
 
     it "does not render the element with the response idx attribute" do
@@ -40,12 +40,12 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
 
   context "when using a question" do
     it "renders the question body" do
-      expect(subject.call).to have_content(translated(question.body))
+      expect(subject.call).to have_text(translated(question.body))
     end
 
     it "renders the question type" do
       translated_question_type = I18n.t(model.question_type, scope: "decidim.forms.question_types")
-      expect(subject.call).to have_content(translated_question_type)
+      expect(subject.call).to have_text(translated_question_type)
     end
 
     it "renders the element with the response idx attribute with the correct position" do

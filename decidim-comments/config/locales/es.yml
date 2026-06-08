@@ -168,12 +168,12 @@ es:
           email_intro: "%{author_name} ha dejado un comentario en %{resource_title}. Puedes leerlo en esta página:"
           email_outro: Has recibido esta notificación porque sigues a "%{author_name}". Puedes dejar de seguir a esta participante desde su página de perfil.
           email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
-          notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "Alguien ha dejado un comentario en \"%{resource_title}\". Puedes leer el comentario a través del siguiente enlace:"
           email_outro: Has recibido esta notificación porque estás siguiendo el comentario "%{resource_title}" o a su autora. Puedes dejar de seguirla desde el enlace anterior.
           email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
-          notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name}</a> en <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Tu comentario en "%{resource_title}" ha sido votado negativamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
           email_outro: Has recibido esta notificación porque hiciste este comentario.
@@ -188,12 +188,12 @@ es:
           email_intro: "%{author_name} ha respondido a tu comentario en %{resource_title}. Puedes leerlo en esta página:"
           email_outro: Has recibido esta notificación porque han respondido a tu comentario.
           email_subject: "%{author_name} ha respondido a tu comentario en %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido a tu comentario en <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: <a href="%{author_path}">%{author_name}</a> ha respondido a tu comentario en <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Has sido mencionada
           email_outro: Has recibido esta notificación porque te han mencionado en el comentario "%{resource_title}".
           email_subject: Has sido mencionada en %{resource_title}
-          notification_title: Has sido mencionada en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          notification_title: Has sido mencionada por <a href="%{author_path}">%{author_name}</a> en <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: no se pueden hacer comentarios

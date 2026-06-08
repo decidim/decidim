@@ -22,11 +22,11 @@ RSpec.shared_examples "manage statuses" do
     expect(page).to have_callout("Status successfully updated.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("updated the #{translated(attributes[:name])} status")
+    expect(page).to have_text("updated the #{translated(attributes[:name])} status")
   end
 
   it "creates a new status" do
@@ -46,12 +46,12 @@ RSpec.shared_examples "manage statuses" do
     expect(page).to have_callout("Status successfully created.")
 
     within "table" do
-      expect(page).to have_content("status_key_1")
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text("status_key_1")
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:name])} status")
+    expect(page).to have_text("created the #{translated(attributes[:name])} status")
   end
 
   describe "deleting a result" do
@@ -70,7 +70,7 @@ RSpec.shared_examples "manage statuses" do
       expect(page).to have_callout("Status successfully deleted.")
 
       within "table" do
-        expect(page).to have_no_content(status2.key)
+        expect(page).to have_no_text(status2.key)
       end
     end
   end
@@ -92,9 +92,9 @@ RSpec.shared_examples "manage statuses" do
       Decidim::Accountability::Status.where(component: current_component).destroy_all
       statuses
 
-      expect(page).to have_content("Statuses")
+      expect(page).to have_text("Statuses")
       visit current_path
-      expect(page).to have_content("status_106")
+      expect(page).to have_text("status_106")
     end
 
     it "sorts by progress by default" do
