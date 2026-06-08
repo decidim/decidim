@@ -44,7 +44,7 @@ describe "AdminAccess" do
   end
 
   context "when assembly is restricted" do
-    let(:participatory_space) { create(:assembly, organization:, title: { en: "My restricted space" }, access_mode: :restricted) }
+    let(:participatory_space) { create(:assembly, organization:, title: { en: "My space" }, access_mode: :restricted) }
 
     context "with participatory space admin" do
       let(:role) { create(:assembly_admin, :confirmed, organization:, assembly: participatory_space) }
