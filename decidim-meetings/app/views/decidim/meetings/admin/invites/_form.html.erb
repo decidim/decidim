@@ -31,7 +31,7 @@
       <div class="mt-4">
         <div class="attendee-fields--name hidden">
           <% prompt_options = { placeholder: t(".select_user") } %>
-          <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, class: "autocomplete-field--results-inline" }, prompt_options) do |user|
+          <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, label: t(".name_or_nickname"), class: "autocomplete-field--results-inline" }, prompt_options) do |user|
             { value: user.id, label: "#{user.name} (@#{user.nickname})" }
           end %>
         </div>
