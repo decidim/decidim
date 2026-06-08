@@ -138,7 +138,6 @@ module Decidim::Meetings
 
       context "when a user does not exist for the given email with dots" do
         let(:email) { "john.doe@example.org" }
-        let(:attendee_name) { "john.doe" }
 
         it "sets name and nickname from email local part" do
           subject.call
@@ -150,7 +149,6 @@ module Decidim::Meetings
 
       context "when a user does not exist for the given email with plus sign" do
         let(:email) { "john.doe+richard@example.org" }
-        let(:attendee_name) { "john.doe" }
 
         it "sets name and nickname from email local part" do
           subject.call
