@@ -29,11 +29,22 @@ module Decidim
             .where.not(decidim_budgets_orders: { checked_out_at: nil })
             .group(:decidim_project_id)
             .count
+          projects_by_vote =
+            Decidim::Budgets::LineItem
+            .joins(:order)
+            .where(decidim_project_id: budget.projects.select(:id))
+            .where.not(decidim_budgets_orders: { checked_out_at: nil })
+            .group(:decidim_order_id)
+            .pluck(
+              :decidim_order_id,
+              Arel.sql(%(array_agg("decidim_budgets_line_items"."decidim_project_id")))
+            )
+            .to_h
 
           writer = Pabulib::Writer.new(io, create_metadata_for(budget))
           writer.write_metadata
           writer.write_projects(budget.projects.order(:id)) { |project| convert_project(project, votes_by_project) }
-          writer.write_votes(budget.orders.finished.order(:checked_out_at)) { |order| convert_vote(order) }
+          writer.write_votes(budget.orders.finished.order(:checked_out_at)) { |order| convert_vote(order, projects_by_vote) }
 
           nil
         end
@@ -100,13 +111,13 @@ module Decidim
         # @param order [Decidim::Budgets::Order] The order to convert
         # @return [Decidim::Budgets::Pabulib::Vote] The created pabulib
         #   vote instance
-        def convert_vote(order)
+        def convert_vote(order, projects_by_vote)
           # Note that the voter ID is anonymized on purpose according to the
           # order ID. The ID of the user could expose their identity e.g.
           # through the API.
           Pabulib::Vote.new(
             voter_id: order.id,
-            vote: order.projects.order(:id).pluck(:id).join(",")
+            vote: projects_by_vote.fetch(order.id, []).sort.join(",")
           )
         end
       end
