@@ -14,14 +14,14 @@
 
       <div class="grid grid-cols-2 gap-4">
         <%= label_tag :meeting_registration_invite_attendee_type_name, class: "attendee-type-card p-4 block border border-background rounded-lg cursor-pointer has-[:checked]:border-secondary has-[:checked]:border-2" do %>
-          <%= radio_button_tag "meeting_registration_invite[attendee_type]", "name", form.object.attendee_type == "name", id: "meeting_registration_invite_attendee_type_name", class: "hidden peer", disabled: %>
+          <%= radio_button_tag "meeting_registration_invite[attendee_type]", "name", form.object.attendee_type == "name", id: "meeting_registration_invite_attendee_type_name", class: "hidden peer !m-0", disabled: %>
           <span class="text-lg font-normal">
             <%= t(".name_or_nickname") %>
           </span>
         <% end %>
 
         <%= label_tag :meeting_registration_invite_attendee_type_email, class: "attendee-type-card p-4 block border border-background rounded-lg cursor-pointer has-[:checked]:border-secondary has-[:checked]:border-2" do %>
-          <%= radio_button_tag "meeting_registration_invite[attendee_type]", "email", form.object.attendee_type == "email", id: "meeting_registration_invite_attendee_type_email", class: "hidden peer", disabled: %>
+          <%= radio_button_tag "meeting_registration_invite[attendee_type]", "email", form.object.attendee_type == "email", id: "meeting_registration_invite_attendee_type_email", class: "hidden peer !m-0", disabled: %>
           <span class="text-lg font-normal">
             <%= t(".email") %>
           </span>
