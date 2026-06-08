@@ -5,6 +5,8 @@ module Decidim
   class Like < ApplicationRecord
     include Decidim::Authorable
 
+    acts_as_paranoid
+
     belongs_to :resource,
                polymorphic: true,
                counter_cache: true

@@ -4,6 +4,8 @@ module Decidim
   class Coauthorship < ApplicationRecord
     include Decidim::Authorable
 
+    acts_as_paranoid
+
     belongs_to :coauthorable, polymorphic: true, counter_cache: true
 
     after_commit :author_is_follower, on: [:create]
