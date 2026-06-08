@@ -30,7 +30,7 @@ describe "Access Mode Transparent Assemblies" do
       end
 
       it "can access the transparent assembly" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
+        expect(page).to have_text(translated(transparent_participatory_space.title))
       end
     end
 
@@ -43,7 +43,7 @@ describe "Access Mode Transparent Assemblies" do
       end
 
       it "can access the transparent assembly" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
+        expect(page).to have_text(translated(transparent_participatory_space.title))
       end
     end
 
@@ -56,7 +56,7 @@ describe "Access Mode Transparent Assemblies" do
       end
 
       it "can access the transparent assembly" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
+        expect(page).to have_text(translated(transparent_participatory_space.title))
       end
     end
 
@@ -69,7 +69,7 @@ describe "Access Mode Transparent Assemblies" do
       end
 
       it "can access the transparent assembly" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
+        expect(page).to have_text(translated(transparent_participatory_space.title))
       end
     end
 
@@ -83,7 +83,7 @@ describe "Access Mode Transparent Assemblies" do
       end
 
       it "can access the transparent assembly" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
+        expect(page).to have_text(translated(transparent_participatory_space.title))
       end
     end
   end

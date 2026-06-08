@@ -84,7 +84,7 @@ describe "AdminAccess" do
   end
 
   context "when assembly is transparent" do
-    let(:participatory_space) { create(:assembly, organization:, title: { en: "My transparent space" }, access_mode: :transparent) }
+    let(:participatory_space) { create(:assembly, organization:, title: { en: "My space" }, access_mode: :transparent) }
 
     context "with participatory space admin" do
       let(:role) { create(:assembly_admin, :confirmed, organization:, assembly: participatory_space) }

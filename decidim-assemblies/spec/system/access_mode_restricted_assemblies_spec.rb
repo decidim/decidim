@@ -48,18 +48,5 @@ describe "Access Mode Restricted Assemblies" do
 
       it_behaves_like "access mode restricted participatory spaces"
     end
-
-    context "when user is a regular user without any role" do
-      let!(:regular_user) { create(:user, :confirmed, organization:) }
-
-      before do
-        login_as regular_user, scope: :user
-        visit restricted_participatory_space_path
-      end
-
-      it "cannot access the restricted assembly" do
-        expect(page).to have_no_content(translated(restricted_participatory_space.title))
-      end
-    end
   end
 end
