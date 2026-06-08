@@ -24,67 +24,32 @@ describe "Access Mode Transparent Participatory Processes" do
     context "when user is a space admin" do
       let!(:space_admin) { create(:process_admin, :confirmed, participatory_process: transparent_participatory_space) }
 
-      before do
-        login_as space_admin, scope: :user
-        visit transparent_participatory_space_path
-      end
-
-      it "can access the transparent process" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a space collaborator" do
       let!(:space_collaborator) { create(:process_collaborator, :confirmed, participatory_process: transparent_participatory_space) }
 
-      before do
-        login_as space_collaborator, scope: :user
-        visit transparent_participatory_space_path
-      end
-
-      it "can access the transparent process" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a space moderator" do
       let!(:space_moderator) { create(:process_moderator, :confirmed, participatory_process: transparent_participatory_space) }
 
-      before do
-        login_as space_moderator, scope: :user
-        visit transparent_participatory_space_path
-      end
-
-      it "can access the transparent process" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a space evaluator" do
       let!(:space_evaluator) { create(:process_evaluator, :confirmed, participatory_process: transparent_participatory_space) }
 
-      before do
-        login_as space_evaluator, scope: :user
-        visit transparent_participatory_space_path
-      end
-
-      it "can access the transparent process" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a member" do
       let!(:member_user) { create(:user, :confirmed, organization:) }
       let!(:member) { create(:member, user: member_user, participatory_space: transparent_participatory_space) }
 
-      before do
-        login_as member_user, scope: :user
-        visit transparent_participatory_space_path
-      end
-
-      it "can access the transparent process" do
-        expect(page).to have_content(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
   end
 end

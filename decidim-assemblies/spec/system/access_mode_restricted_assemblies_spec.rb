@@ -20,49 +20,22 @@ describe "Access Mode Restricted Assemblies" do
   it_behaves_like "access mode restricted participatory spaces comments"
 
   context "when accessing restricted assembly as elevated space roles" do
-    let(:organization) { create(:organization) }
-
-    before do
-      switch_to_host(organization.host)
-    end
-
     context "when user is a space admin" do
       let!(:space_admin) { create(:assembly_admin, :confirmed, assembly: restricted_participatory_space) }
 
-      before do
-        login_as space_admin, scope: :user
-        visit restricted_participatory_space_path
-      end
-
-      it "can access the restricted assembly" do
-        expect(page).to have_content(translated(restricted_participatory_space.title))
-      end
+      it_behaves_like "access mode restricted participatory spaces"
     end
 
     context "when user is a space collaborator" do
       let!(:space_collaborator) { create(:assembly_collaborator, :confirmed, assembly: restricted_participatory_space) }
 
-      before do
-        login_as space_collaborator, scope: :user
-        visit restricted_participatory_space_path
-      end
-
-      it "can access the restricted assembly" do
-        expect(page).to have_content(translated(restricted_participatory_space.title))
-      end
+      it_behaves_like "access mode restricted participatory spaces"
     end
 
     context "when user is a space moderator" do
       let!(:space_moderator) { create(:assembly_moderator, :confirmed, assembly: restricted_participatory_space) }
 
-      before do
-        login_as space_moderator, scope: :user
-        visit restricted_participatory_space_path
-      end
-
-      it "can access the restricted assembly" do
-        expect(page).to have_content(translated(restricted_participatory_space.title))
-      end
+      it_behaves_like "access mode restricted participatory spaces"
     end
 
     context "when user is a space evaluator" do
@@ -73,9 +46,7 @@ describe "Access Mode Restricted Assemblies" do
         visit restricted_participatory_space_path
       end
 
-      it "can access the restricted assembly" do
-        expect(page).to have_content(translated(restricted_participatory_space.title))
-      end
+      it_behaves_like "access mode restricted participatory spaces"
     end
 
     context "when user is a regular user without any role" do

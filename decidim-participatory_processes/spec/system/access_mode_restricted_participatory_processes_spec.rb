@@ -21,75 +21,34 @@ describe "Access Mode Restricted Participatory Processes" do
   it_behaves_like "access mode restricted participatory spaces comments"
 
   context "when accessing restricted process with elevated space roles" do
-    let(:organization) { create(:organization) }
-
-    before do
-      switch_to_host(organization.host)
-    end
-
     context "when user is a space admin" do
       let!(:space_admin) { create(:process_admin, :confirmed, participatory_process: restricted_participatory_space) }
 
-      before do
-        login_as space_admin, scope: :user
-        visit restricted_participatory_space_path
-      end
-
-      it "can access the restricted process" do
-        expect(page).to have_content(translated(restricted_participatory_space.title))
-      end
+      it_behaves_like "access mode restricted participatory spaces"
     end
 
     context "when user is a space collaborator" do
       let!(:space_collaborator) { create(:process_collaborator, :confirmed, participatory_process: restricted_participatory_space) }
 
-      before do
-        login_as space_collaborator, scope: :user
-        visit restricted_participatory_space_path
-      end
-
-      it "can access the restricted process" do
-        expect(page).to have_content(translated(restricted_participatory_space.title))
-      end
+      it_behaves_like "access mode restricted participatory spaces"
     end
 
     context "when user is a space moderator" do
       let!(:space_moderator) { create(:process_moderator, :confirmed, participatory_process: restricted_participatory_space) }
 
-      before do
-        login_as space_moderator, scope: :user
-        visit restricted_participatory_space_path
-      end
-
-      it "can access the restricted process" do
-        expect(page).to have_content(translated(restricted_participatory_space.title))
-      end
+      it_behaves_like "access mode restricted participatory spaces"
     end
 
     context "when user is a space evaluator" do
       let!(:space_evaluator) { create(:process_evaluator, :confirmed, participatory_process: restricted_participatory_space) }
 
-      before do
-        login_as space_evaluator, scope: :user
-        visit restricted_participatory_space_path
-      end
-
-      it "can access the restricted process" do
-        expect(page).to have_content(translated(restricted_participatory_space.title))
-      end
+      it_behaves_like "access mode restricted participatory spaces"
     end
 
     context "when user is a regular user without any role" do
       let!(:regular_user) { create(:user, :confirmed, organization:) }
 
-      before do
-        login_as regular_user, scope: :user
-        visit restricted_participatory_space_path
-      end
-
-      it "cannot access the restricted process" do
-        expect(page).to have_no_content(translated(restricted_participatory_space.title))
-      end
+      it_behaves_like "access mode restricted participatory spaces"
     end
   end
 end
