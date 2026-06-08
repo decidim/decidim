@@ -27,10 +27,12 @@
 
           <% if status.data[:action].present? %>
             <%= action_authorized_link_to(
-                  :respond,
+                  :answer,
                   t(
                     "#{status.code}.#{status.data[:action]}",
                     authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers"),
+                    scope: "decidim.authorization_modals.content"
+                  ),
                     scope: "decidim.authorization_modals.content"
                   ),
                   survey_path(questionnaire_for),

@@ -161,7 +161,7 @@ describe "Answer a survey" do
       }
 
       component.update!(permissions:)
-      survey.update!(allow_responses: true, starts_at: 1.week.ago, ends_at: 1.day.from_now)
+      survey.update!(allow_answers: true, starts_at: 1.week.ago, ends_at: 1.day.from_now)
       visit_component
       choose "All"
       click_on translated_attribute(questionnaire.title)
