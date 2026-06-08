@@ -25,9 +25,16 @@ module Decidim
         def create
           enforce_permission_to(:export, :component_data, component: current_component)
 
+          if budget.orders.finished.none?
+            flash.now[:alert] = I18n.t("pabulib_exports.create.no_votes", scope: "decidim.budgets.admin")
+            show
+            return render :show, status: :unprocessable_content
+          end
+
           @form = form(PabulibExportForm).from_params(params)
           unless @form.valid?
             flash.now[:alert] = I18n.t("pabulib_exports.create.invalid", scope: "decidim.budgets.admin")
+            show
             return render :show, status: :unprocessable_content
           end
 

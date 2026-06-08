@@ -97,6 +97,7 @@ en:
         pabulib_exports:
           create:
             invalid: Please correct the errors on the form.
+            no_votes: There are no votes yet to export.
           show:
             cancel: Cancel
             create: Export
