@@ -854,6 +854,7 @@ ja:
             invalid: 参加者のブロック解除中に問題が発生しました。
             success: 参加者のブロックを解除しました。
         create:
+          no_user_found: 参加者が見つかりません。
           success: 参加者が公式化されました。
         destroy:
           success: 参加者が非公式化されました。
