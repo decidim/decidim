@@ -859,6 +859,7 @@ ca:
             invalid: Hi ha hagut un problema en desbloquejar a les participants.
             success: Participants desbloquejades correctament.
         create:
+          no_user_found: No s'ha trobat aquesta participant.
           success: Participant oficialitzada correctament.
         destroy:
           success: S'ha retirat correctament l'oficialització de la participant.
