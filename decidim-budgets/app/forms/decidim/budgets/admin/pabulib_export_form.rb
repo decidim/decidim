@@ -10,6 +10,8 @@ module Decidim
         validates :description, presence: true
 
         attribute :country, String
+        validates :country, presence: true
+
         attribute :unit, String
         attribute :instance, String
 
