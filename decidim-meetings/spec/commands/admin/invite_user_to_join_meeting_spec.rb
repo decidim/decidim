@@ -157,6 +157,22 @@ module Decidim::Meetings
           expect(Decidim::User.last.nickname).to eq("john_doe_richard")
         end
       end
+
+      context "when a user does not exist for the given email with leading dots" do
+        let(:email) { ".john.doe@example.org" }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+      end
+
+      context "when a user does not exist for the given email with trailing dots" do
+        let(:email) { "john.doe.@example.org" }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+      end
     end
 
     context "when the form is not valid" do
