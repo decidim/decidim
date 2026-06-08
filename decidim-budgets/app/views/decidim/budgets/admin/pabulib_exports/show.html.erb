@@ -115,7 +115,7 @@
                 <%= f.number_field :min_points, label: t(".fields.min_points.label", field: "min_points"), help_text: t(".fields.min_points.help", default_value: 0) %>
               </div>
               <div class="row column">
-                <%= f.number_field :max_points, label: t(".fields.max_points.label", field: "max_points"), help_text: t(".fields.max_points.help", default_value: "max_sum_points") %>
+                <%= f.number_field :max_points, label: t(".fields.max_points.label", field: "max_points"), help_text: t(".fields.max_points.help", default_value: t(".fields.max_points.help_default_value")) %>
               </div>
             </div>
 

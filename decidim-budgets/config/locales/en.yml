@@ -156,6 +156,7 @@ en:
                 label: Maximum length (%{field})
               max_points:
                 help: 'Maximum points assigned to the selected projects (default: %{default_value}).'
+                help_default_value: for cumulative vote type value of max_sum_points, for scoring vote type ∞
                 label: Maximum points (%{field})
               max_sum_cost:
                 help: 'Maximum sum for the cost of a project (default: %{default_value}).'
