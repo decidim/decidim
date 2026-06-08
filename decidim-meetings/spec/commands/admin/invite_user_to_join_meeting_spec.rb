@@ -144,7 +144,7 @@ module Decidim::Meetings
           subject.call
 
           expect(Decidim::User.last.name).to eq("john.doe")
-          expect(Decidim::User.last.nickname).to eq("john.doe")
+          expect(Decidim::User.last.nickname).to eq("john_doe")
         end
       end
     end
