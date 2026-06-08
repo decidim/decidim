@@ -147,6 +147,18 @@ module Decidim::Meetings
           expect(Decidim::User.last.nickname).to eq("john_doe")
         end
       end
+
+      context "when a user does not exist for the given email with plus sign" do
+        let(:email) { "john.doe+richard@example.org" }
+        let(:attendee_name) { "john.doe" }
+
+        it "sets name and nickname from email local part" do
+          subject.call
+
+          expect(Decidim::User.last.name).to eq("john.doe+richard")
+          expect(Decidim::User.last.nickname).to eq("john_doe_richard")
+        end
+      end
     end
 
     context "when the form is not valid" do
