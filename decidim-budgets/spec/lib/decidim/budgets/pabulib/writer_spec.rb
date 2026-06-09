@@ -16,7 +16,7 @@ describe Decidim::Budgets::Pabulib::Writer do
       country: "Finland",
       unit: "Helsinki",
       district: "Southern",
-      subunit: "Lauttasaari",
+      subunit: "District",
       instance: "2026",
       num_projects: 12,
       num_votes: 5,
