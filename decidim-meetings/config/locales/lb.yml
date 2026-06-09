@@ -151,10 +151,8 @@ lb:
             success: Der Benutzer wurde erfolgreich zum Meeting eingeladen.
           form:
             attendee_type: Teilnehmertyp
-            existing_user: Existierender Benutzer
             invite: Einladen
             invite_explanation: Der Benutzer wird eingeladen, dem Meeting und der Organisation beizutreten.
-            non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
             invites: Lädt ein
