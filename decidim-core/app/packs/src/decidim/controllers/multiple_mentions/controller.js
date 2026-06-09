@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import AutoComplete from "src/decidim/refactor/moved/autocomplete";
+import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 import icon from "src/decidim/refactor/moved/icon";
 
 export default class extends Controller {
@@ -16,20 +16,6 @@ export default class extends Controller {
 
     this.initializeEmptyFocusElement();
     this.initializeAutoComplete();
-    this.setupSelectionListener();
-  }
-
-  /**
-   * Setup the selection event listener
-   * @returns {void}
-   */
-  setupSelectionListener() {
-    this.selectionHandler = (event) => {
-      const feedback = event.detail;
-      const selection = feedback.selection;
-      this.handleSelection(selection);
-    };
-    this.searchInput.addEventListener("selection", this.selectionHandler);
   }
 
   /*
@@ -37,8 +23,8 @@ export default class extends Controller {
    * @returns {void}
    */
   disconnect() {
-    if (this.searchInput && this.selectionHandler) {
-      this.searchInput.removeEventListener("selection", this.selectionHandler);
+    if (this.tomSelect) {
+      this.tomSelect.destroy();
     }
   }
 
@@ -80,11 +66,56 @@ export default class extends Controller {
    * @returns {void}
    */
   initializeAutoComplete() {
-    this.autoComplete = new AutoComplete(this.searchInput, {
-      dataMatchKeys: ["name", "nickname"],
-      dataSource: this.getDataSource.bind(this),
-      dataFilter: this.filterResults.bind(this),
-      modifyResult: this.modifyResult.bind(this)
+    this.tomSelect = new TomSelect(this.searchInput, {
+      maxItems: 1,
+      valueField: "id",
+      labelField: "name",
+      searchField: ["name", "nickname"],
+      loadThrottle: 200,
+      loadingClass: "loading",
+      preload: false,
+      highlight: true,
+      load: (query, callback) => {
+        if (!query || query.length < 2) {
+          callback();
+          return;
+        }
+        this.getDataSource(query, (results) => {
+          const filtered = this.filterResults(results);
+          filtered.forEach((item) => {
+            if (item.directMessagesEnabled === "false") {
+              item.disabled = true;
+            }
+          });
+          callback(filtered);
+        });
+      },
+      render: {
+        option: (data) => {
+          const isDisabled = data.directMessagesEnabled === "false";
+          const className = isDisabled
+            ? "disabled"
+            : "";
+          const disabledMsg = isDisabled
+            ? `<small>${this.searchInput.dataset.directMessagesDisabled}</small>`
+            : "";
+          return `<div class="${className}">
+            <img src="${data.avatarUrl}" alt="${data.name}">
+            <span>${data.nickname}</span>
+            <small>${data.name}</small>
+            ${disabledMsg}
+          </div>`;
+        },
+        "no_results": () => `<div class="no-results">${this.searchInput.dataset.noresults || ""}</div>`
+      },
+      onChange: (value) => {
+        if (value) {
+          const option = this.tomSelect.options[value];
+          this.handleSelection({ value: option });
+          this.tomSelect.clear();
+          this.tomSelect.clearOptions();
+        }
+      }
     });
   }
 
@@ -129,7 +160,7 @@ export default class extends Controller {
    */
   filterResults(list) {
     return list.filter(
-      (item) => !this.selected.includes(item.value.id)
+      (item) => !this.selected.includes(item.id)
     );
   }
 
@@ -161,18 +192,12 @@ export default class extends Controller {
    */
   handleSelection(selection) {
     const id = selection.value.id;
-    // Check if we have reached the maximum limit or if direct messages are disabled
     if (this.isMaxLimitReached() || selection.value.directMessagesEnabled === "false") {
       return;
     }
 
     this.addSelectedUser(selection, id);
-    this.autoComplete.setInput("");
     this.selected.push(id);
-
-    if (this.autoComplete && this.autoComplete.autocomplete) {
-      this.autoComplete.autocomplete.close();
-    }
   }
 
   /**
