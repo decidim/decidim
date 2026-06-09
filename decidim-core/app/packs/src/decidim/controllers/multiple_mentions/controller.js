@@ -91,18 +91,18 @@ export default class extends Controller {
         });
       },
       render: {
-        option: (data) => {
+        option: (data, escape) => {
           const isDisabled = data.directMessagesEnabled === "false";
           const className = isDisabled
             ? "disabled"
             : "";
           const disabledMsg = isDisabled
-            ? `<small>${this.searchInput.dataset.directMessagesDisabled}</small>`
+            ? `<small>${escape(this.searchInput.dataset.directMessagesDisabled)}</small>`
             : "";
           return `<div class="${className}">
-            <img src="${data.avatarUrl}" alt="${data.name}">
-            <span>${data.nickname}</span>
-            <small>${data.name}</small>
+            <img src="${escape(data.avatarUrl)}" alt="${escape(data.name)}">
+            <span>${escape(data.nickname)}</span>
+            <small>${escape(data.name)}</small>
             ${disabledMsg}
           </div>`;
         },
