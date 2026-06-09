@@ -197,10 +197,8 @@ pt:
             success: O participante foi convidado a aderir à reunião corretamente.
           form:
             attendee_type: Tipo de participante
-            existing_user: Participante existente
             invite: Convidar
             invite_explanation: O participante será convidado a aderir à reunião e também à organização.
-            non_user: Participante inexistente
             select_user: Selecione o participante
           index:
             invites: Convites
