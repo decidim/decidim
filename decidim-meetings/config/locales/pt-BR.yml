@@ -347,10 +347,8 @@ pt-BR:
             success: O usuário foi convidado para participar da reunião.
           form:
             attendee_type: Tipo de participante
-            existing_user: Usuário existente
             invite: Convite
             invite_explanation: O usuário será convidado a participar do encontro e da organização.
-            non_user: Usuário inexistente
             select_user: Selecionar usuário
           index:
             invites: Convites
