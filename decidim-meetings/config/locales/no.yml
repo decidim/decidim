@@ -196,10 +196,8 @@
             success: Deltakeren ble invitert til å delta møtet.
           form:
             attendee_type: Deltakertype
-            existing_user: Eksisterende deltaker
             invite: Inviter
             invite_explanation: Deltakeren vil bli invitert til å delta på møtet og i organisasjonen også.
-            non_user: Ikke eksisterende deltaker
             select_user: Velg deltaker
           index:
             invites: Invitasjoner
