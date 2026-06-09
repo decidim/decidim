@@ -237,10 +237,8 @@ ar:
             success: تمت دعوة المشارك بنجاح للانضمام إلى الاجتماع.
           form:
             attendee_type: نوع الحضور
-            existing_user: المشارك الحالي
             invite: دعا
             invite_explanation: سيتم دعوة المشارك للانضمام إلى الاجتماع وإلى المنظمة أيضًا.
-            non_user: مشارك غير موجود
             select_user: اختر المشارك
           index:
             invites: تدعو
