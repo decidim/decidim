@@ -348,10 +348,8 @@ cs:
             success: Uživatel úspěšně byl pozván k účasti na schůzce.
           form:
             attendee_type: Typ účastníka
-            existing_user: Existující uživatel
             invite: Pozvat
             invite_explanation: Uživatel bude pozván, aby se připojil ke schůzce i organizaci.
-            non_user: Neexistující uživatel
             select_user: Vyberte uživatele
           index:
             invites: Pozvánky
