@@ -347,10 +347,10 @@ fi-pl:
             success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
           form:
             attendee_type: Osallistujatyyppi
-            existing_user: Olemassa oleva käyttäjä
+            email: Sähköposti
             invite: Kutsu
             invite_explanation: Käyttäjä tullaan kutsumaan mukaan tapahtumaan. Käyttäjä kutsutaan myös organisaatioon.
-            non_user: Käyttäjää ei ole olemassa
+            name_or_nickname: Nimi tai nimimerkki
             select_user: Valitse käyttäjä
           index:
             invites: Kutsut
