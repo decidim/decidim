@@ -198,10 +198,8 @@ it:
             success: L'utente è stato invitato a partecipare alla riunione.
           form:
             attendee_type: Tipo di partecipante
-            existing_user: Utente esistente
             invite: Invita
             invite_explanation: L'utente sarà invitato a partecipare alla riunione e all'organizzazione.
-            non_user: Utente non esistente
             select_user: Seleziona utente
           index:
             invites: Inviti
