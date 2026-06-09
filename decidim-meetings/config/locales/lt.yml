@@ -257,10 +257,8 @@ lt:
             success: Dalyvis pakviestas dalyvauti susirinkime.
           form:
             attendee_type: Dalyvio tipas
-            existing_user: Egzistuojantis dalyvis
             invite: Pakviesti
             invite_explanation: Dalyvis bus pakviestas dalyvauti ne tik susirinkime, bet ir organizacijoje.
-            non_user: Neegzistuojantis dalyvis
             select_user: Pasirinkti dalyvį
           index:
             invites: Pakvietimai
