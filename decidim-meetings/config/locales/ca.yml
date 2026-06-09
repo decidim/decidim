@@ -347,10 +347,10 @@ ca:
             success: S'ha convidat correctament a la participant a unir-se a la trobada.
           form:
             attendee_type: Tipus d'assistent
-            existing_user: Participant existent
+            email: Correu electrònic
             invite: Convidar
             invite_explanation: La participant serà convidada a unir-se a la trobada i també a l'organització.
-            non_user: Participant no existent
+            name_or_nickname: Nom o pseudònim
             select_user: Selecciona la participant
           index:
             invites: Invitacions
