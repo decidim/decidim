@@ -273,10 +273,8 @@ ro:
             success: Participantul a fost invitat cu succes să se alăture ședinței.
           form:
             attendee_type: Tip de participant
-            existing_user: Participant existent
             invite: Invită
             invite_explanation: Participantul va fi invitat să se alăture întâlnirii şi organizaţiei.
-            non_user: Participant neexistent
             select_user: Selecteză un participant
           index:
             invites: Invitații
