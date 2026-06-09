@@ -243,10 +243,8 @@ zh-TW:
             success: 已成功邀請參與者加入會議。
           form:
             attendee_type: 參與者類型
-            existing_user: 現有參與者
             invite: 邀請
             invite_explanation: 參與者將被邀請加入會議和組織。
-            non_user: 不存在的參與者。
             select_user: 選擇參與者
           index:
             invites: 邀請
