@@ -62,7 +62,8 @@ describe "Executing Pabulib export tasks" do
           META
           key;value
           #{CSV.generate_line(["description", "#{translated_attribute(organization.name)} - #{translated_attribute(component.name)} - #{translated_attribute(budget.title)}"], col_sep: ";").strip}
-          #{CSV.generate_line(["unit", translated_attribute(budget.title)], col_sep: ";").strip}
+          #{CSV.generate_line(["unit", translated_attribute(organization.name)], col_sep: ";").strip}
+          #{CSV.generate_line(["subunit", translated_attribute(budget.title)], col_sep: ";").strip}
           instance;#{budget.created_at.strftime("%Y")}
           num_projects;#{projects.count}
           num_votes;#{orders.count}

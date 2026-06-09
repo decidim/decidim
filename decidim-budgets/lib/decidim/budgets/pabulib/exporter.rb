@@ -64,6 +64,8 @@ module Decidim
             description: config.description,
             country: config.country,
             unit: config.unit,
+            subunit: config.subunit,
+            district: config.district,
             instance: config.instance,
             num_projects: budget.projects.count,
             num_votes: budget.orders.finished.count,

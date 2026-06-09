@@ -27,7 +27,7 @@ module Decidim
           write("META")
           write(key: "value")
           write(description: metadata.description)
-          write_attributes(metadata, :country, :unit, :instance)
+          write_attributes(metadata, :country, :unit, :subunit, :district, :instance)
           write(num_projects: metadata.num_projects)
           write(num_votes: metadata.num_votes)
           write(budget: metadata.budget)

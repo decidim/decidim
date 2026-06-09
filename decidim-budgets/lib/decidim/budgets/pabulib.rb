@@ -25,6 +25,8 @@ module Decidim
         :description,
         :country,
         :unit,
+        :subunit,
+        :district,
         :instance,
         :num_projects,
         :num_votes,

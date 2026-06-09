@@ -15,6 +15,8 @@ describe Decidim::Budgets::Pabulib::Writer do
       description: %(Example description "with quotes"\nand another line),
       country: "Finland",
       unit: "Helsinki",
+      subunit: "Lauttasaari",
+      district: "Southern",
       instance: "2026",
       num_projects: 12,
       num_votes: 5,
@@ -60,6 +62,8 @@ describe Decidim::Budgets::Pabulib::Writer do
             #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
+            subunit;#{metadata.subunit}
+            district;#{metadata.district}
             instance;#{metadata.instance}
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
@@ -90,6 +94,8 @@ describe Decidim::Budgets::Pabulib::Writer do
             #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
+            subunit;#{metadata.subunit}
+            district;#{metadata.district}
             instance;#{metadata.instance}
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
@@ -119,6 +125,8 @@ describe Decidim::Budgets::Pabulib::Writer do
             #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
+            subunit;#{metadata.subunit}
+            district;#{metadata.district}
             instance;#{metadata.instance}
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
@@ -151,6 +159,8 @@ describe Decidim::Budgets::Pabulib::Writer do
             #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
+            subunit;#{metadata.subunit}
+            district;#{metadata.district}
             instance;#{metadata.instance}
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}

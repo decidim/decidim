@@ -47,7 +47,8 @@ namespace :decidim do
         component = budget.component
         config = {
           description: "#{translated_attribute.call(organization.name)} - #{translated_attribute.call(component.name)} - #{translated_attribute.call(budget.title)}",
-          unit: translated_attribute.call(budget.title),
+          unit: translated_attribute.call(organization.name),
+          subunit: translated_attribute.call(budget.title),
           instance: budget.created_at.strftime("%Y"),
           min_length: 1,
           max_length: budget.projects.count,

@@ -13,7 +13,8 @@ module Decidim
           enforce_permission_to(:export, :component_data, component: current_component)
           @form = form(PabulibExportForm).from_params(
             description: "#{translated_attribute(current_organization.name)} - #{translated_attribute(current_component.name)} - #{translated_attribute(budget.title)}",
-            unit: translated_attribute(budget.title),
+            unit: translated_attribute(current_organization.name),
+            subunit: translated_attribute(budget.title),
             instance: budget.created_at.strftime("%Y"),
             min_length: 1,
             max_length: budget.projects.count,

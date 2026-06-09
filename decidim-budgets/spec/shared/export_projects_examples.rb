@@ -72,8 +72,9 @@ shared_examples "export as Pabulib" do
           META
           key;value
           #{CSV.generate_line(["description", find("input#pabulib_export_description").value], col_sep: ";").strip}
-          country;#{find("input#pabulib_export_country").value}
+          #{CSV.generate_line(["country", find("input#pabulib_export_country").value], col_sep: ";").strip}
           #{CSV.generate_line(["unit", find("input#pabulib_export_unit").value], col_sep: ";").strip}
+          #{CSV.generate_line(["subunit", find("input#pabulib_export_subunit").value], col_sep: ";").strip}
           instance;#{find("input#pabulib_export_instance").value}
           num_projects;#{budget.projects.count}
           num_votes;1
@@ -115,7 +116,9 @@ shared_examples "export as Pabulib" do
 
   it "sets the initial general details correctly" do
     expect(find("input#pabulib_export_description").value).to eq("#{translated_attribute(organization.name)} - #{translated_attribute(component.name)} - #{translated_attribute(budget.title)}")
-    expect(find("input#pabulib_export_unit").value).to eq(translated_attribute(budget.title))
+    expect(find("input#pabulib_export_unit").value).to eq(translated_attribute(organization.name))
+    expect(find("input#pabulib_export_subunit").value).to eq(translated_attribute(budget.title))
+    expect(find("input#pabulib_export_district").value).to eq("")
     expect(find("select#pabulib_export_vote_type").value).to eq("approval")
     expect(find("input#pabulib_export_instance").value).to eq(budget.created_at.strftime("%Y"))
   end

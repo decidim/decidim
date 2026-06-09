@@ -36,7 +36,8 @@ module Decidim
               {
                 description: "City PB voting",
                 country: "Finland",
-                unit: "Southern region",
+                unit: "Helsinki",
+                subunit: "Southern region",
                 instance: "2026",
                 vote_type: "approval",
                 rule: "greedy",

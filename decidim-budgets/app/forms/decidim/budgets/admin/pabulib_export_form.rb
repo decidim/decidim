@@ -13,6 +13,8 @@ module Decidim
         validates :country, presence: true
 
         attribute :unit, String
+        attribute :subunit, String
+        attribute :district, String
         attribute :instance, String
 
         attribute :vote_type, String

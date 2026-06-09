@@ -148,6 +148,9 @@ en:
               description:
                 help: Description of the voting describing what was voted on.
                 label: Description (%{field})
+              district:
+                help: The voting district within the voting. For example, if you use neighbourhoods as subunits, you can map them to districts using this field.
+                label: District (%{field})
               instance:
                 help: The instance of the voting, for example, for yearly recurring votings would be the year of voting.
                 label: Instance (%{field})
@@ -182,8 +185,11 @@ en:
               scoring_fn:
                 help: 'Scoring function for the ordinal type voting (default: %{default_value}).'
                 label: Scoring function (%{field})
+              subunit:
+                help: The voting subunit within the voting, for example, an area within the city or municipality.
+                label: Subunit (%{field})
               unit:
-                help: The voting unit within the voting, for example, an area.
+                help: The voting unit within the voting, for example, the city or municipality name.
                 label: Unit (%{field})
               vote_type:
                 help: How are the voting results evaluated (see the documentation for more information).
