@@ -347,10 +347,10 @@ es:
             success: La participante ha sido invitada a unirse al encuentro correctamente.
           form:
             attendee_type: Tipo de Asistente
-            existing_user: Participante existente
+            email: Correo electrónico
             invite: Invitar
             invite_explanation: La participante será invitada a unirse al encuentro y también a la organización.
-            non_user: Participante no existente
+            name_or_nickname: Nombre o apodo
             select_user: Seleccionar participante
           index:
             invites: Invitaciones
