@@ -163,10 +163,8 @@ zh-CN:
             success: 成功邀请与会者加入会议。
           form:
             attendee_type: 参与者类型
-            existing_user: 现有参与者
             invite: 邀请
             invite_explanation: 与会者将应邀参加会议，也将应邀参加本组织。
-            non_user: 非现有参与者
             select_user: 选择参与者
           index:
             invites: 邀请
