@@ -175,10 +175,8 @@ tr:
             success: Katılımcı başarıyla toplantıya katılmaya davet edildi.
           form:
             attendee_type: Katılımcı Tipi
-            existing_user: Mevcut katılımcı
             invite: Davet et
             invite_explanation: Katılımcı toplantıya ve organizasyona katılmaya davet edilecektir.
-            non_user: Mevcut olmayan katılımcı
             select_user: Katılımcı seç
           index:
             invites: Davetler
