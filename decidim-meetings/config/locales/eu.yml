@@ -347,10 +347,10 @@ eu:
             success: Parte-hartzailea behar bezala gonbidatu da topaketa batera.
           form:
             attendee_type: Parte-hartzaile mota
-            existing_user: Parte-hartzailea badago
+            email: Helbide elektronikoa
             invite: Gonbidatu
             invite_explanation: Parte-hartzaile topaketaan eta erakundean sartzeko gonbidatuko da.
-            non_user: Parte-hartzailea ez dago
+            name_or_nickname: Izena edo ezizena
             select_user: Hautatu parte-hartzailea
           index:
             invites: Gonbidapenak
