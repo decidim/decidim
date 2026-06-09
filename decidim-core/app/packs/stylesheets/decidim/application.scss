@@ -55,7 +55,7 @@
   @include meta.load-css("stylesheets/decidim/metadata");
   @include meta.load-css("stylesheets/decidim/modal");
   @include meta.load-css("stylesheets/decidim/modal_share");
-  @include meta.load-css("stylesheets/decidim/modal_error");
+  @include meta.load-css("stylesheets/decidim/conversation_error_modal");
   @include meta.load-css("stylesheets/decidim/modal_flag");
   @include meta.load-css("stylesheets/decidim/modal_authorization");
   @include meta.load-css("stylesheets/decidim/modal_update");
