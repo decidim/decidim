@@ -343,10 +343,8 @@ ja:
             success: 参加者がミーティングに参加するように招待されました。
           form:
             attendee_type: 参加者の種類
-            existing_user: 既存の参加者
             invite: 招待
             invite_explanation: 参加者は、ミーティングや組織にも招待されます。
-            non_user: 非参加者
             select_user: 参加者を選択
           index:
             invites: 招待
