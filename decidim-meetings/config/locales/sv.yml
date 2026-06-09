@@ -347,10 +347,8 @@ sv:
             success: Deltagaren har bjudits in att delta i mötet.
           form:
             attendee_type: Typ av deltagare
-            existing_user: Befintlig deltagare
             invite: Inbjudan
             invite_explanation: Deltagaren kommer att bli inbjuden att delta i mötet och även till organisationen.
-            non_user: Icke befintlig deltagare
             select_user: Välj deltagare
           index:
             invites: Inbjudningar
