@@ -347,10 +347,10 @@ es-PY:
             success: El usuario ha sido invitado con éxito a unirse al encuentro.
           form:
             attendee_type: Tipo de asistente
-            existing_user: Usuario existente
+            email: Correo electrónico
             invite: Invitar
             invite_explanation: El usuario será invitado a unirse a la reunión y también a la organización.
-            non_user: Usuario no existente
+            name_or_nickname: Nombre o apodo
             select_user: Selecciona un usuario
           index:
             invites: Invitaciones
