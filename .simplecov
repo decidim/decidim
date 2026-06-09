@@ -26,7 +26,6 @@ if ENV["SIMPLECOV"]
   SimpleCov.merge_timeout 1800
 
   if ENV["CI"]
-    require "simplecov-cobertura"
-    SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+    SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
   end
 end
