@@ -12,8 +12,12 @@
   &-dropdown {
     @apply text-md text-gray-2 font-normal;
 
+    .option img {
+      @apply inline;
+    }
+
     .active {
-      @apply text-white bg-secondary;
+      @apply bg-gray-3;
     }
   }
 }
