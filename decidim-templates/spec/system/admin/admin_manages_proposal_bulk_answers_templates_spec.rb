@@ -25,7 +25,7 @@ describe "Admin manages bulk proposal answer templates" do
     # We do not optimize n+1 here, as the n+1 comes from the enqueue mechanism, which is calling various jobs where the user is required.
     # Does not make sense to optimize the enqueuer just for tests
     %w(amendable amended component coauthorships).each do |association|
-      Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Proposals::Proposal", association:
+      Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Proposals::Proposal", :association => association
     end
 
     switch_to_host(organization.host)
