@@ -98,7 +98,7 @@ describe "Admin manages participatory process group landing page" do
 
       content_block.reload
 
-      expect(content_block.settings.to_json).to match(/Custom button text!/)
+      expect(content_block.settings.to_json).to include("Custom button text!")
     end
 
     it "shows settings of the hero" do
