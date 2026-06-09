@@ -206,10 +206,8 @@ hu:
             success: Felhasználó meghívása a találkozóra sikeres.
           form:
             attendee_type: Résztvevő típusa
-            existing_user: Létező felhasználó
             invite: Meghívás
             invite_explanation: A felhasználó meghívást kap a találkozóra és a szervezethez való csatlakozásra.
-            non_user: Nemlétező felhasználó
             select_user: Felhasználó kiválasztása
           index:
             invites: Meghívottak
