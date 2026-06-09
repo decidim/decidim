@@ -347,10 +347,8 @@ de:
             success: Der Benutzende wurde erfolgreich zur Veranstaltung eingeladen.
           form:
             attendee_type: Teilnehmertyp
-            existing_user: Existierender Benutzer
             invite: Einladen
             invite_explanation: Der Benutzende wird eingeladen, der Veranstaltung und der Organisation beizutreten.
-            non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
             invites: Lädt ein
