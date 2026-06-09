@@ -29,6 +29,7 @@ module Decidim
 
           ActiveRecord::Base.transaction do
             @user ||= existing_user || new_user
+            send_notification_for_existing_user if @existing_user
             create_member
           end
 
@@ -61,16 +62,16 @@ module Decidim
         end
 
         def existing_user
-          return @existing_user if defined?(@existing_user)
-
-          @existing_user = User.find_by(
+          @existing_user ||= User.find_by(
             email: form.email.downcase,
             organization: member_to.organization
           )
+        end
 
-          if @existing_user&.invitation_pending?
+        def send_notification_for_existing_user
+          if @existing_user.invitation_pending?
             InviteUserAgain.call(@existing_user, invitation_instructions)
-          elsif @existing_user.present?
+          else
             Decidim::EventsManager.publish(
               event: "decidim.events.participatory_space.member_added",
               event_class: Decidim::ParticipatorySpace::MemberAddedEvent,
@@ -80,8 +81,6 @@ module Decidim
               extra: { force_email: true }
             )
           end
-
-          @existing_user
         end
 
         def new_user
