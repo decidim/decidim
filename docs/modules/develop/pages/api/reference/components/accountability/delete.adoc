@@ -8,7 +8,7 @@ The `deleteResult` mutation allows authenticated administrators to delete result
 ----
 mutation deleteResult($componentId: ID!, $resultId: ID!){
   component(id: $componentId){
-    ...on AccountabilityMutation{
+    ... on AccountabilityMutation {
       result(id: $resultId){
         delete(id: $resultId) {
           id

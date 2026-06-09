@@ -7,7 +7,7 @@
     <%= yield :aside %>
   </aside>
   <% main_tag = main_enabled ? :main : :div %>
-  <%= content_tag main_tag, class: "layout-2col__main" do %>
+  <%= content_tag main_tag, class: "layout-2col__main", role: (main_enabled ? "main" : nil) do %>
     <%= content_for :flash_messages %>
     <%= yield %>
   <% end %>

@@ -46,6 +46,7 @@ module Decidim
 
         attributes[:title] = attributes.to_h.fetch(:title, {})
         attributes[:description] = attributes.to_h.fetch(:description, {})
+        attributes[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: attributes[:taxonomies]).pluck(:id) if attributes[:taxonomies]
 
         attributes
       end

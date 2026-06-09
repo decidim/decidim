@@ -23,16 +23,16 @@ describe "UserTosAcceptance" do
     context "when a user starts a session, has to accept and review them" do
       it "redirects to the TOS page" do
         expect(page).to have_current_path(decidim.page_path(tos_page, locale: I18n.locale))
-        expect(page).to have_content translated(tos_page.title)
-        expect(page.find("div.editor-content", obscured: false)).to have_content strip_tags(translated(tos_page.content))
+        expect(page).to have_text translated(tos_page.title)
+        expect(page.find("div.editor-content", obscured: false)).to have_text strip_tags(translated(tos_page.content))
       end
 
       it "renders an announcement requiring to review the TOS" do
-        expect(page).to have_content("Required: Review updates to our terms of service")
+        expect(page).to have_text("Required: Review updates to our terms of service")
       end
 
       it "renders an announcement advising that TOS has been updated" do
-        expect(page).to have_content("We have updated our Terms of Service, please review them.")
+        expect(page).to have_text("We have updated our Terms of Service, please review them.")
       end
 
       it "shows a button to Agree the updated Terms" do
@@ -50,7 +50,7 @@ describe "UserTosAcceptance" do
       end
 
       it "renders a success announcement" do
-        expect(page).to have_content("Great! You have accepted the terms of service.")
+        expect(page).to have_text("Great! You have accepted the terms of service.")
         expect(page).to have_css(".flash.success")
       end
     end
@@ -62,7 +62,7 @@ describe "UserTosAcceptance" do
 
       it "renders a modal" do
         expect(page).to have_css("#tos-refuse-modal")
-        expect(page).to have_content("Do you really refuse the updated terms of service?")
+        expect(page).to have_text("Do you really refuse the updated terms of service?")
       end
 
       context "with the refuse modal has different options" do

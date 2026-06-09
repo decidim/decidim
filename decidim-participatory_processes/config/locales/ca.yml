@@ -113,14 +113,14 @@ ca:
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
-          landing_page: Disposició de la pàgina de destinació
+          landing_page: Disposició de la pàgina d'inici
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
           components: Components
-          landing_page: Disposició de la pàgina de destinació
+          landing_page: Disposició de la pàgina d'inici
           members: Membres
           moderations: Moderacions
           process_admins: Administradores del procés
@@ -519,8 +519,8 @@ ca:
               label: Accés
               options:
                 open: Qualsevol pot veure i participar en el procés participatiu.
-                restricted: Només les membres poden veure i participar en el procés participatiu.
-                transparent: Qualsevol pot veure el procés participatiu, però només les membres hi poden participar.
+                restricted: Només membres i administradores poden veure aquesta assemblea i participar-hi. No apareixerà a la cerca general, API, ni als arxius de dates oberts.
+                transparent: Qualsevol pot veure el procés participatiu, però només membres i administradores hi poden participar.
               set_this_space_as: Defineix el tipus d'accés a aquest espai
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada

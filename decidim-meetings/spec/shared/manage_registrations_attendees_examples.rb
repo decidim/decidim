@@ -25,7 +25,7 @@ shared_examples "manage registrations attendees" do
 
       it "shows the registration as not attended" do
         within "tr", text: registration.user.email do
-          expect(page).to have_content "Not attended"
+          expect(page).to have_text "Not attended"
         end
       end
 
@@ -37,7 +37,7 @@ shared_examples "manage registrations attendees" do
 
         expect(page).to have_callout("Registration code successfully validated")
         within "tr", text: registration.user.email do
-          expect(page).to have_content "Attended"
+          expect(page).to have_text "Attended"
         end
         expect(registration.reload).to be_validated
       end
@@ -61,7 +61,7 @@ shared_examples "manage registrations attendees" do
 
       it "can mark user as attendee" do
         within "tr", text: registration.user.email do
-          expect(page).to have_content "Not attended"
+          expect(page).to have_text "Not attended"
           find("button[data-controller='dropdown']").click
           click_on "Mark as attendee"
         end
@@ -69,7 +69,7 @@ shared_examples "manage registrations attendees" do
         expect(page).to have_callout("Registration marked as attended successfully")
 
         within "tr", text: registration.user.email do
-          expect(page).to have_content "Attended"
+          expect(page).to have_text "Attended"
         end
         expect(registration.reload).to be_validated
       end
@@ -83,7 +83,7 @@ shared_examples "manage registrations attendees" do
 
         expect(page).to have_callout("Registration marked as attended successfully")
         within "tr", text: registration.user.email do
-          expect(page).to have_content "Attended"
+          expect(page).to have_text "Attended"
         end
 
         expect(registration.reload).to be_validated

@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 
 import AutoButtonsByMinItemsComponent from "src/decidim/forms/admin/auto_buttons_by_min_items.component"
 import AutoSelectOptionsByTotalItemsComponent from "src/decidim/forms/admin/auto_select_options_by_total_items.component"

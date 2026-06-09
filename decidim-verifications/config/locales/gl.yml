@@ -30,7 +30,6 @@ gl:
           before_date_info: Útil se o proceso ten comezado e queres rexeitar os permisos do proceso anterior.
           button: Rexeitar todo
           button_before: Rexeitar antes da data
-          destroy_ok: Todas as autorizacións coincidentes foron revogadas con éxito.
           info: Hai un total de %{count} participantes verificados.
           title: Revogación de autorización
         authorization_workflows: Autorizacións

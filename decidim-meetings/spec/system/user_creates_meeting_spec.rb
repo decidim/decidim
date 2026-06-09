@@ -33,6 +33,72 @@ describe "User creates meeting" do
     switch_to_host(organization.host)
   end
 
+  context "when the user is not logged in" do
+    context "when creation is enabled" do
+      let!(:component) do
+        create(:meeting_component,
+               participatory_space: participatory_process,
+               settings: { creation_enabled_for_participants: true, taxonomy_filters: [taxonomy_filter.id] })
+      end
+
+      it "displays the new meeting button" do
+        visit_component
+        expect(page).to have_text("New meeting")
+      end
+
+      it "redirects to login page when visiting new page" do
+        visit Decidim::EngineRouter.main_proxy(component).new_meeting_path
+        expect(page).to have_text("You need to log in or create an account before continuing.")
+        expect(page).to have_current_path(decidim.new_user_session_path)
+      end
+    end
+
+    context "when creation is disabled" do
+      let!(:component) do
+        create(:meeting_component,
+               participatory_space: participatory_process,
+               settings: { taxonomy_filters: [taxonomy_filter.id] })
+      end
+
+      it "hides the new meeting button" do
+        visit_component
+        expect(page).to have_no_text("New meeting")
+      end
+    end
+  end
+
+  context "when the user is logged in" do
+    before do
+      login_as user, scope: :user
+    end
+
+    context "when creation is enabled" do
+      let!(:component) do
+        create(:meeting_component,
+               participatory_space: participatory_process,
+               settings: { creation_enabled_for_participants: true, taxonomy_filters: [taxonomy_filter.id] })
+      end
+
+      it "displays the new post button" do
+        visit_component
+        expect(page).to have_text("New meeting")
+      end
+    end
+
+    context "when creation is disabled" do
+      let!(:component) do
+        create(:meeting_component,
+               participatory_space: participatory_process,
+               settings: { taxonomy_filters: [taxonomy_filter.id] })
+      end
+
+      it "hides the new meeting button" do
+        visit_component
+        expect(page).to have_no_text("New meeting")
+      end
+    end
+  end
+
   context "when creating a new meeting" do
     let(:user) { create(:user, :confirmed, organization:) }
 
@@ -90,7 +156,7 @@ describe "User creates meeting" do
 
             expect(page).to have_css("div.sr-announce")
             within "div.sr-announce" do
-              expect(page).to have_content("There are errors on the form, please correct them to continue.")
+              expect(page).to have_text("There are errors on the form, please correct them to continue.")
             end
           end
 
@@ -105,10 +171,10 @@ describe "User creates meeting" do
 
               expect(page).to have_css("div.sr-announce")
               within "div.sr-announce" do
-                expect(page).to have_content("There are errors on the form, please correct them to continue.")
+                expect(page).to have_text("There are errors on the form, please correct them to continue.")
               end
 
-              expect(page).to have_content("There is an error in this field.", count: 6)
+              expect(page).to have_text("There is an error in this field.", count: 6)
 
               expect(page).to have_no_css("*[type=submit][data-disable='true']")
               expect(find("button[type='submit']")).not_to be_disabled
@@ -151,25 +217,25 @@ describe "User creates meeting" do
           end
 
           expect(page).to have_callout("You have created the meeting successfully.")
-          expect(page).to have_content(meeting_title)
-          expect(page).to have_content(meeting_description)
-          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
-          expect(page).to have_content(meeting_address)
-          expect(page).to have_content("#{start_month.upcase}\n-\n#{end_month.upcase}")
-          expect(page).to have_content(start_day)
-          expect(page).to have_content(end_day)
-          expect(page).to have_content(meeting_start_time)
-          expect(page).to have_content(meeting_end_time)
+          expect(page).to have_text(meeting_title)
+          expect(page).to have_text(meeting_description)
+          expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
+          expect(page).to have_text(meeting_address)
+          expect(page).to have_text("#{start_month.upcase}\n-\n#{end_month.upcase}")
+          expect(page).to have_text(start_day)
+          expect(page).to have_text(end_day)
+          expect(page).to have_text(meeting_start_time)
+          expect(page).to have_text(meeting_end_time)
           expect(page).to have_css("[data-author]", text: user.name)
 
           visit decidim.last_activities_path
-          expect(page).to have_content("New meeting: #{meeting_title}")
+          expect(page).to have_text("New meeting: #{meeting_title}")
 
           within "#filters" do
             find("a", class: "filter", text: "Meeting", match: :first).click
           end
 
-          expect(page).to have_content("New meeting: #{meeting_title}")
+          expect(page).to have_text("New meeting: #{meeting_title}")
         end
 
         context "when using the front-end geocoder" do
@@ -222,8 +288,8 @@ describe "User creates meeting" do
               visit_component
               click_on "New meeting"
 
-              expect(page).to have_content("We need to verify your identity")
-              expect(page).to have_content("Verify with Example authorization")
+              expect(page).to have_text("We need to verify your identity")
+              expect(page).to have_text("Verify with Example authorization")
             end
           end
 
@@ -245,7 +311,7 @@ describe "User creates meeting" do
               visit_component
               click_on "New meeting"
 
-              expect(page).to have_content("You are almost ready to create")
+              expect(page).to have_text("You are almost ready to create")
               expect(page).to have_css("a[data-verification]", count: 2)
             end
           end
