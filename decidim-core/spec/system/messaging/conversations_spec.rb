@@ -313,7 +313,7 @@ describe "Conversations" do
           expect(page).to have_css(".conversation__modal-results li", count: 1)
           expect(page).to have_text("Maria")
           expect(page).to have_no_css(".ts-dropdown .option", visible: :visible)
-          expect(find("#add_conversation_users", visible: false).value).to eq("")
+          expect(find_by_id("add_conversation_users", visible: false).value).to eq("")
         end
       end
     end
