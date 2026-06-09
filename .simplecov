@@ -25,7 +25,5 @@ if ENV["SIMPLECOV"]
 
   SimpleCov.merge_timeout 1800
 
-  if ENV["CI"]
-    SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
-  end
+  SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter if ENV["CI"]
 end
