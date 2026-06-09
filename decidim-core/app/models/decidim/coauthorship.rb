@@ -9,6 +9,13 @@ module Decidim
     belongs_to :coauthorable, polymorphic: true, counter_cache: true
 
     after_commit :author_is_follower, on: [:create]
+    after_restore :reset_coauthorable_counter
+
+    def reset_coauthorable_counter
+      return unless coauthorable
+
+      coauthorable.class.unscoped.reset_counters(coauthorable.id, :coauthorships)
+    end
 
     def identity
       author

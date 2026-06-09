@@ -37,7 +37,7 @@ module Decidim
           resource,
           current_user
         ) do
-          resource.restore
+          resource.restore(recursive: true)
         end
       end
     end

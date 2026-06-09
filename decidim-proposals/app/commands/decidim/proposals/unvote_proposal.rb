@@ -23,7 +23,7 @@ module Decidim
           ProposalVote.where(
             author: @current_user,
             proposal: @proposal
-          ).destroy_all
+          ).really_destroy!
 
           update_temporary_votes
         end

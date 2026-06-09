@@ -15,6 +15,7 @@ module Decidim
 
       after_save :update_proposal_votes_count
       after_destroy :update_proposal_votes_count
+      after_restore :update_proposal_votes_count
 
       # Temporary votes are used when a minimum amount of votes is configured in
       # a component. They are not taken into account unless the amount of votes
