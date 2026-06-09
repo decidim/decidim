@@ -15,8 +15,8 @@ describe Decidim::Budgets::Pabulib::Writer do
       description: %(Example description "with quotes"\nand another line),
       country: "Finland",
       unit: "Helsinki",
-      subunit: "Lauttasaari",
       district: "Southern",
+      subunit: "Lauttasaari",
       instance: "2026",
       num_projects: 12,
       num_votes: 5,
@@ -62,20 +62,20 @@ describe Decidim::Budgets::Pabulib::Writer do
             #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
-            subunit;#{metadata.subunit}
             district;#{metadata.district}
+            subunit;#{metadata.subunit}
             instance;#{metadata.instance}
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
             budget;#{metadata.budget}
             vote_type;#{metadata.vote_type}
             rule;#{metadata.rule}
+            date_begin;#{metadata.date_begin.strftime("%d.%m.%Y")}
+            date_end;#{metadata.date_end.strftime("%d.%m.%Y")}
             min_length;#{metadata.min_length}
             max_length;#{metadata.max_length}
             min_sum_cost;#{metadata.min_sum_cost}
             max_sum_cost;#{metadata.max_sum_cost}
-            date_begin;#{metadata.date_begin.strftime("%d.%m.%Y")}
-            date_end;#{metadata.date_end.strftime("%d.%m.%Y")}
           OUT
         )
       end
@@ -94,19 +94,19 @@ describe Decidim::Budgets::Pabulib::Writer do
             #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
-            subunit;#{metadata.subunit}
             district;#{metadata.district}
+            subunit;#{metadata.subunit}
             instance;#{metadata.instance}
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
             budget;#{metadata.budget}
             vote_type;#{metadata.vote_type}
             rule;#{metadata.rule}
+            date_begin;#{metadata.date_begin.strftime("%d.%m.%Y")}
+            date_end;#{metadata.date_end.strftime("%d.%m.%Y")}
             min_length;#{metadata.min_length}
             max_length;#{metadata.max_length}
             scoring_fn;#{metadata.scoring_fn}
-            date_begin;#{metadata.date_begin.strftime("%d.%m.%Y")}
-            date_end;#{metadata.date_end.strftime("%d.%m.%Y")}
           OUT
         )
       end
@@ -125,22 +125,22 @@ describe Decidim::Budgets::Pabulib::Writer do
             #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
-            subunit;#{metadata.subunit}
             district;#{metadata.district}
+            subunit;#{metadata.subunit}
             instance;#{metadata.instance}
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
             budget;#{metadata.budget}
             vote_type;#{metadata.vote_type}
             rule;#{metadata.rule}
+            date_begin;#{metadata.date_begin.strftime("%d.%m.%Y")}
+            date_end;#{metadata.date_end.strftime("%d.%m.%Y")}
             min_length;#{metadata.min_length}
             max_length;#{metadata.max_length}
             min_points;#{metadata.min_points}
             max_points;#{metadata.max_points}
             min_sum_points;#{metadata.min_sum_points}
             max_sum_points;#{metadata.max_sum_points}
-            date_begin;#{metadata.date_begin.strftime("%d.%m.%Y")}
-            date_end;#{metadata.date_end.strftime("%d.%m.%Y")}
           OUT
         )
       end
@@ -159,21 +159,21 @@ describe Decidim::Budgets::Pabulib::Writer do
             #{CSV.generate_line(["description", metadata.description], col_sep: ";").strip}
             country;#{metadata.country}
             unit;#{metadata.unit}
-            subunit;#{metadata.subunit}
             district;#{metadata.district}
+            subunit;#{metadata.subunit}
             instance;#{metadata.instance}
             num_projects;#{metadata.num_projects}
             num_votes;#{metadata.num_votes}
             budget;#{metadata.budget}
             vote_type;#{metadata.vote_type}
             rule;#{metadata.rule}
+            date_begin;#{metadata.date_begin.strftime("%d.%m.%Y")}
+            date_end;#{metadata.date_end.strftime("%d.%m.%Y")}
             min_length;#{metadata.min_length}
             max_length;#{metadata.max_length}
             min_points;#{metadata.min_points}
             max_points;#{metadata.max_points}
             default_score;#{metadata.default_score}
-            date_begin;#{metadata.date_begin.strftime("%d.%m.%Y")}
-            date_end;#{metadata.date_end.strftime("%d.%m.%Y")}
           OUT
         )
       end
@@ -218,8 +218,8 @@ describe Decidim::Budgets::Pabulib::Writer do
       expect(output).to eq(
         <<~OUT
           PROJECTS
-          project_id;name;cost;votes;selected
-          #{projects.map { |pr| CSV.generate_line([pr.id, pr.title["en"], pr.budget_amount, pr.id * 5, pr.selected? ? 1 : 0], col_sep: ";") }.join.strip}
+          project_id;cost;votes;name;selected
+          #{projects.map { |pr| CSV.generate_line([pr.id, pr.budget_amount, pr.id * 5, pr.title["en"], pr.selected? ? 1 : 0], col_sep: ";") }.join.strip}
         OUT
       )
     end

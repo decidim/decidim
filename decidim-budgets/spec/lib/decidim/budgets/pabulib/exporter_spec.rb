@@ -76,15 +76,15 @@ describe Decidim::Budgets::Pabulib::Exporter do
           budget;#{metadata.budget}
           vote_type;#{metadata.vote_type}
           rule;#{metadata.rule}
+          date_begin;#{order.created_at.strftime("%d.%m.%Y")}
+          date_end;#{order.created_at.strftime("%d.%m.%Y")}
           min_length;#{metadata.min_length}
           max_length;#{metadata.max_length}
           min_sum_cost;#{metadata.min_sum_cost}
           max_sum_cost;#{metadata.max_sum_cost}
-          date_begin;#{order.created_at.strftime("%d.%m.%Y")}
-          date_end;#{order.created_at.strftime("%d.%m.%Y")}
           PROJECTS
-          project_id;name;cost;votes;selected
-          #{budget.projects.order(:id).map { |pr| "#{pr.id};#{pr.title["en"]};#{pr.budget_amount};#{calculate_votes.call(pr)};#{pr.selected? ? 1 : 0}" }.join("\n")}
+          project_id;cost;votes;name;selected
+          #{budget.projects.order(:id).map { |pr| "#{pr.id};#{pr.budget_amount};#{calculate_votes.call(pr)};#{pr.title["en"]};#{pr.selected? ? 1 : 0}" }.join("\n")}
           VOTES
           voter_id;vote
           #{order.id};#{order.projects.pluck(:id).join(",")}

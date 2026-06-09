@@ -27,20 +27,20 @@ module Decidim
           write("META")
           write(key: "value")
           write(description: metadata.description)
-          write_attributes(metadata, :country, :unit, :subunit, :district, :instance)
+          write_attributes(metadata, :country, :unit, :district, :subunit, :instance)
           write(num_projects: metadata.num_projects)
           write(num_votes: metadata.num_votes)
           write(budget: metadata.budget)
           write(vote_type: metadata.vote_type)
           write(rule: metadata.rule)
 
-          write_attributes(metadata, :min_length, :max_length)
-          write_type_attributes
-
           if metadata.date_begin && metadata.date_end
             write(date_begin: metadata.date_begin.strftime("%d.%m.%Y"))
             write(date_end: metadata.date_end.strftime("%d.%m.%Y"))
           end
+
+          write_attributes(metadata, :min_length, :max_length)
+          write_type_attributes
 
           nil
         end

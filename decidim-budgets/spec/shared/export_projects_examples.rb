@@ -82,9 +82,10 @@ shared_examples "export as Pabulib" do
           #{vote_type_data}
           date_begin;#{budget.orders.finished.map(&:created_at).min.strftime("%d.%m.%Y")}
           date_end;#{budget.orders.finished.map(&:created_at).max.strftime("%d.%m.%Y")}
+          #{vote_type_details}
           PROJECTS
-          project_id;name;cost;votes;selected
-          #{budget.projects.order(:id).map { |pr| CSV.generate_line([pr.id, pr.title["en"], pr.budget_amount, votes_by_project.fetch(pr.id, 0), pr.selected? ? 1 : 0], col_sep: ";") }.join.strip}
+          project_id;cost;votes;name;selected
+          #{budget.projects.order(:id).map { |pr| CSV.generate_line([pr.id, pr.budget_amount, votes_by_project.fetch(pr.id, 0), pr.title["en"], pr.selected? ? 1 : 0], col_sep: ";") }.join.strip}
           VOTES
           voter_id;vote
           #{budget.orders.finished.map { |ord| CSV.generate_line([ord.id, ord.projects.pluck(:id).join(",")], col_sep: ";") }.join.strip}
@@ -133,6 +134,10 @@ shared_examples "export as Pabulib" do
         <<~DATA.strip
           vote_type;approval
           rule;greedy
+        DATA
+      end
+      let(:vote_type_details) do
+        <<~DATA.strip
           min_length;#{find("input#pabulib_export_min_length").value}
           max_length;#{find("input#pabulib_export_max_length").value}
         DATA
@@ -169,6 +174,10 @@ shared_examples "export as Pabulib" do
         <<~DATA.strip
           vote_type;ordinal
           rule;greedy
+        DATA
+      end
+      let(:vote_type_details) do
+        <<~DATA.strip
           min_length;#{find("input#pabulib_export_min_length").value}
           max_length;#{find("input#pabulib_export_max_length").value}
           scoring_fn;#{find("select#pabulib_export_scoring_fn").value}
@@ -205,6 +214,10 @@ shared_examples "export as Pabulib" do
         <<~DATA.strip
           vote_type;cumulative
           rule;greedy
+        DATA
+      end
+      let(:vote_type_details) do
+        <<~DATA.strip
           min_length;#{find("input#pabulib_export_min_length").value}
           max_length;#{find("input#pabulib_export_max_length").value}
         DATA
@@ -243,6 +256,10 @@ shared_examples "export as Pabulib" do
         <<~DATA.strip
           vote_type;scoring
           rule;greedy
+        DATA
+      end
+      let(:vote_type_details) do
+        <<~DATA.strip
           min_length;#{find("input#pabulib_export_min_length").value}
           max_length;#{find("input#pabulib_export_max_length").value}
         DATA

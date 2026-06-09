@@ -70,13 +70,13 @@ describe "Executing Pabulib export tasks" do
           budget;#{budget.total_budget}
           vote_type;approval
           rule;greedy
-          min_length;1
-          max_length;#{projects.count}
           date_begin;#{orders.map(&:created_at).min.strftime("%d.%m.%Y")}
           date_end;#{orders.map(&:created_at).max.strftime("%d.%m.%Y")}
+          min_length;1
+          max_length;#{projects.count}
           PROJECTS
-          project_id;name;cost;votes;selected
-          #{budget.projects.order(:id).map { |pr| CSV.generate_line([pr.id, pr.title["en"], pr.budget_amount, calculate_votes.call(pr), pr.selected? ? 1 : 0], col_sep: ";") }.join.strip}
+          project_id;cost;votes;name;selected
+          #{budget.projects.order(:id).map { |pr| CSV.generate_line([pr.id, pr.budget_amount, calculate_votes.call(pr), pr.title["en"], pr.selected? ? 1 : 0], col_sep: ";") }.join.strip}
           VOTES
           voter_id;vote
           #{orders.map { |ord| "#{ord.id};#{ord.projects.order(:id).pluck(:id).join(",")}" }.join("\n")}

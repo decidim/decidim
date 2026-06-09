@@ -25,14 +25,16 @@ module Decidim
         :description,
         :country,
         :unit,
-        :subunit,
         :district,
+        :subunit,
         :instance,
         :num_projects,
         :num_votes,
         :budget,
         :vote_type,
         :rule,
+        :date_begin,
+        :date_end,
         :min_length,
         :max_length,
         :min_sum_cost,
@@ -42,11 +44,9 @@ module Decidim
         :max_points,
         :min_sum_points,
         :max_sum_points,
-        :default_score,
-        :date_begin,
-        :date_end
+        :default_score
       )
-      Project = Struct.new(:project_id, :name, :cost, :votes, :selected)
+      Project = Struct.new(:project_id, :cost, :votes, :name, :selected)
       Vote = Struct.new(:voter_id, :vote)
     end
   end
