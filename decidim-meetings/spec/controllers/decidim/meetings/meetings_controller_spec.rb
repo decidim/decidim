@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::MeetingsController do
+  include Decidim::Core::Engine.routes.url_helpers
+
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
