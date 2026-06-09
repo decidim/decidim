@@ -355,10 +355,10 @@ sk:
             success: Užívateľ úspešne bol pozvaný k účasti na schôdzke.
           form:
             attendee_type: Typ účastníka
-            existing_user: Existujúci užívateľ
+            email: E-mail
             invite: Pozvať
             invite_explanation: Užívateľ bude pozvaný, aby sa pripojil k schôdzke i organizáciu.
-            non_user: Neexistujúca užívateľ
+            name_or_nickname: Meno alebo prezývka
             select_user: Vyberte používateľa
           index:
             invites: Pozvánky
