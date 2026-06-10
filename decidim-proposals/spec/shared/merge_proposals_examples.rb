@@ -6,6 +6,7 @@ shared_examples "merge proposals" do
   let!(:target_component) { target_component_minimal }
   let!(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
   let!(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
+
   include Decidim::ComponentPathHelper
 
   before do

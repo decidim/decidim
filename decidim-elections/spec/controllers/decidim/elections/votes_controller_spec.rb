@@ -114,7 +114,7 @@ module Decidim
               )
 
               expect(response).to have_http_status(:ok)
-              expect(flash[:alert]).to match(/cannot select more than 2/)
+              expect(flash[:alert]).to include("cannot select more than 2")
               expect(subject).to render_template(:show)
             end
 

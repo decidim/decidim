@@ -1222,7 +1222,6 @@ en:
         create:
           error: Conversation not started. Try again later.
         error_modal:
-          close: Close modal
           correct_errors: Please correct the errors and try again.
           intro: 'There were the following errors with your message:'
           ok: OK
