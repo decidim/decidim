@@ -1198,7 +1198,6 @@ ja:
         create:
           error: 会話が開始されませんでした。後ほど改めてお試しください。
         error_modal:
-          close: ウィンドウを閉じる
           correct_errors: エラーを修正して、再度お試しください
           intro: 'あなたのメッセージには次のエラーがありました:'
           ok: OK
