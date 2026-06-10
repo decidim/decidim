@@ -95,10 +95,10 @@ document.addEventListener("turbo:load", () => {
 
       $transparent.find("input[type='checkbox']").attr("disabled", "disabled");
       $warning?.toggleClass("hidden", !enabledPrivateSpace || enabledTransparent);
-      $assign?.attr("disabled", enabledPrivateSpace && !enabledTransparent);
+      $assign?.prop("disabled", enabledPrivateSpace && !enabledTransparent);
 
       if (enabledPrivateSpace) {
-        $transparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
+        $transparent.find("input[type='checkbox']").prop("disabled", !enabledPrivateSpace);
       }
     };
 

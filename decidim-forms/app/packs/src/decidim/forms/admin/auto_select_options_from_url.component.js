@@ -23,7 +23,7 @@ export default class AutoSelectOptionsFromUrl {
       data.forEach((option) => {
         let optionElement = $(`<option value="${option.id}">${option.body}</option>`).appendTo(select);
         if (option.id === selectedValue) {
-          optionElement.attr("selected", true);
+          optionElement.prop("selected", true);
         }
       });
 
