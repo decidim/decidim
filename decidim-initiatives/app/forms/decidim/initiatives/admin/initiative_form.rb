@@ -72,8 +72,8 @@ module Decidim
 
         # Private: set the in-person signatures to zero for every scope
         def zero_offline_votes_with_scopes_names(model)
-          model.votable_initiative_type_scopes.each_with_object({}) do |initiative_scope_type, all_votes|
-            all_votes[initiative_scope_type.decidim_scopes_id || "global"] = [0, initiative_scope_type.scope_name]
+          model.votable_initiative_type_scopes.to_h do |initiative_scope_type|
+            [initiative_scope_type.decidim_scopes_id || "global", [0, initiative_scope_type.scope_name]]
           end
         end
 

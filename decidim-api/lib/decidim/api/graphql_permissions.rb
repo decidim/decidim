@@ -17,8 +17,8 @@ module Decidim
           subject = determine_subject_name(object)
           context[subject] = object
 
-          chain.unshift(allowed_to?(:read, :participatory_space, object, context)) if object.respond_to?(:participatory_space)
-          chain.unshift(allowed_to?(:read, :component, object, context)) if object.respond_to?(:component) && object.component.present?
+          chain.unshift(allowed_to?(:read, :participatory_space, object.participatory_space, context)) if object.respond_to?(:participatory_space)
+          chain.unshift(allowed_to?(:read, :component, object.component, context)) if object.respond_to?(:component) && object.component.present?
 
           super && chain.all?
         end
@@ -35,13 +35,13 @@ module Decidim
         #
         # @return Boolean
         # @param [Symbol] scope
-        def allowed_to?(action, subject, object, context, scope: :public)
+        def allowed_to?(action, subject, object, context)
           unless subject.is_a?(::Symbol)
             subject = determine_subject_name(object)
             context[subject] = object
           end
 
-          permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
+          permission_action = Decidim::PermissionAction.new(scope: api_scope, action:, subject:)
 
           permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|
             permission_context = local_user_context(object, context)
@@ -63,8 +63,13 @@ module Decidim
         #
         # @return Hash
         def local_context(object, context)
-          context[:current_participatory_space] = object.participatory_space if object.respond_to?(:participatory_space)
-          context[:current_component] =
+          context[:current_participatory_space] ||=
+            if object.respond_to?(:participatory_space)
+              object.participatory_space
+            elsif object.is_a?(Decidim::Participable)
+              object
+            end
+          context[:current_component] ||=
             if object.is_a?(Decidim::Component)
               object
             elsif object.respond_to?(:component)
@@ -101,7 +106,9 @@ module Decidim
             Decidim::Permissions
           ]
 
-          if object.is_a?(Decidim::Component)
+          if object.is_a?(Decidim::Participable)
+            permissions.unshift(object.manifest.permissions_class)
+          elsif object.is_a?(Decidim::Component)
             permissions.unshift(object.participatory_space.manifest.permissions_class)
             permissions.unshift(object.manifest.permissions_class)
           else
@@ -111,11 +118,24 @@ module Decidim
 
           permissions
         end
+
+        def user_can_perform_admin_actions?(user)
+          Decidim::Admin::Permissions.new(
+            user,
+            Decidim::PermissionAction.new(scope: :admin, action: :read, subject: :admin_dashboard)
+          ).permissions.allowed?
+        end
+
+        def api_scope
+          return :admin if determine_required_scopes.present? && determine_required_scopes.map { |scope| scope.split(":").first }.include?("admin")
+
+          :public
+        end
       end
 
       private
 
-      delegate :allowed_to?, to: :class
+      delegate :allowed_to?, :user_can_perform_admin_actions?, :api_scope, to: :class
 
       attr_reader :action
     end

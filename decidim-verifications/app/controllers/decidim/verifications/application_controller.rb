@@ -27,9 +27,8 @@ module Decidim
       def confirmed_user
         return true if !current_user || (current_user && current_user.verifiable?)
 
-        redirect_back(
-          fallback_location: root_path,
-          alert: t(
+        redirect_back_or_to(
+          root_path, alert: t(
             "authorizations.create.unconfirmed",
             scope: "decidim.verifications"
           )

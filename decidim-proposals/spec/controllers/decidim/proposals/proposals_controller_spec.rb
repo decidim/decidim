@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ProposalsController do
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:user) { create(:user, :confirmed, organization: component.organization) }
 
       let(:proposal_params) do
@@ -109,7 +111,7 @@ module Decidim
         it "redirects to the login page" do
           get(:new)
           expect(response).to have_http_status(:found)
-          expect(response).to redirect_to("/users/sign_in")
+          expect(response).to redirect_to(new_user_session_path)
         end
       end
 
@@ -187,7 +189,7 @@ module Decidim
               patch(:update, params:)
 
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(:unprocessable_entity)
+              expect(response).to have_http_status(:unprocessable_content)
               expect(subject).to render_template(:edit)
               expect(response.body).to include("There was a problem saving")
             end

@@ -17,7 +17,7 @@ module Decidim
 
         Decidim::Proposals.create_default_states!(component, admin_user)
 
-        number_of_records = slow_seeds? ? 10 : rand(25..50)
+        number_of_records = slow_seeds? ? rand(25..50) : rand(5..10)
 
         (5..number_of_records).to_a.sample.times do |n|
           proposal = create_proposal!(component:)
@@ -36,11 +36,7 @@ module Decidim
           end
 
           Decidim::Comments::Seed.comments_for(proposal)
-
-          create_collaborative_draft!(component:)
         end
-
-        update_traceability!(component:)
 
         create_report!(reportable: Decidim::Proposals::Proposal.take, current_user: Decidim::User.take)
         hide_report!(reportable: Decidim::Proposals::Proposal.take)
@@ -74,7 +70,6 @@ module Decidim
             can_accumulate_votes_beyond_threshold: [true, false].sample,
             attachments_allowed: [true, false].sample,
             amendments_enabled: participatory_space.id.odd?,
-            collaborative_drafts_enabled: true,
             geocoding_enabled: [true, false].sample
           },
           step_settings:
@@ -175,12 +170,6 @@ module Decidim
         "#{::Faker::X.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
       end
 
-      def random_email(suffix:)
-        r = SecureRandom.hex(4)
-
-        "#{suffix}-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{r}@example.org"
-      end
-
       def create_emendation!(proposal:)
         author = find_or_initialize_user_by(email: random_email(suffix: "amendment"))
 
@@ -228,54 +217,6 @@ module Decidim
         Decidim::Proposals::ProposalNote.create!(
           proposal:,
           author: author_admin,
-          body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
-        )
-      end
-
-      def create_collaborative_draft!(component:)
-        n = rand(5)
-        state = if n > 3
-                  "published"
-                elsif n > 2
-                  "withdrawn"
-                else
-                  "open"
-                end
-        author = Decidim::User.where(organization:).all.sample
-
-        draft = Decidim.traceability.perform_action!("create", Decidim::Proposals::CollaborativeDraft, author) do
-          draft = Decidim::Proposals::CollaborativeDraft.new(
-            component:,
-            title: ::Faker::Lorem.sentence(word_count: 2),
-            body: ::Faker::Lorem.paragraphs(number: 2).join("\n"),
-            state:,
-            published_at: Time.current
-          )
-          draft.coauthorships.build(author: participatory_space.organization)
-          draft.save!
-          draft
-        end
-
-        case n
-        when 2
-          authors = Decidim::User.where(organization:).all.sample(5)
-          authors.each do |local_author|
-            Decidim::Coauthorship.create(coauthorable: draft, author: local_author)
-          end
-        when 3
-          author2 = Decidim::User.where(organization:).all.sample
-          Decidim::Coauthorship.create(coauthorable: draft, author: author2)
-        end
-
-        Decidim::Comments::Seed.comments_for(draft)
-      end
-
-      def update_traceability!(component:)
-        Decidim.traceability.update!(
-          Decidim::Proposals::CollaborativeDraft.all.sample,
-          Decidim::User.where(organization:).all.sample,
-          component:,
-          title: ::Faker::Lorem.sentence(word_count: 2),
           body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
         )
       end

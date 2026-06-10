@@ -181,6 +181,7 @@ en:
         response:
           invalid: There was a problem responding the form.
           max_choices_alert: There are too many choices selected
+          spam_detected: There was a problem responding the form. Maybe you have been too quick, can you try again?
           success: Form successfully responded.
         show:
           current_step: Step %{step}

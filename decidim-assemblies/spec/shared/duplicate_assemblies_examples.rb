@@ -29,9 +29,11 @@ shared_examples "duplicate assemblies" do
         click_on "Duplicate"
       end
 
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Duplicate assembly")
-      expect(page).to have_content("Unpublished")
+      expect(page).to have_callout("Assembly successfully duplicated.")
+      expect(page).to have_text("Duplicate assembly")
+      within "table" do
+        expect(page).to have_text("Unpublished")
+      end
     end
   end
 
@@ -58,7 +60,7 @@ shared_examples "duplicate assemblies" do
       page.check("assembly[duplicate_components]")
       click_on "Duplicate"
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("Assembly successfully duplicated.")
 
       within "tr", text: "Duplicate assembly" do
         find("button[data-controller='dropdown']").click
@@ -70,7 +72,7 @@ shared_examples "duplicate assemblies" do
 
       within ".table-list" do
         assembly.components.each do |component|
-          expect(page).to have_content(translated(component.name))
+          expect(page).to have_text(translated(component.name))
         end
       end
     end
@@ -100,9 +102,11 @@ shared_examples "duplicate assemblies" do
         click_on "Duplicate"
       end
 
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Duplicate assembly")
-      expect(page).to have_content("Unpublished")
+      expect(page).to have_callout("Assembly successfully duplicated.")
+      expect(page).to have_text("Duplicate assembly")
+      within "table" do
+        expect(page).to have_text("Unpublished")
+      end
     end
   end
 end

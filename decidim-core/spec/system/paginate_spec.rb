@@ -23,10 +23,10 @@ describe "Paginate specs" do
       page_params = { filter: { with_resource_type: "Decidim::Proposals::Proposal" }, host: organization.host, port: Capybara.server_port }
       visit decidim.search_path(per_page:, **page_params)
 
-      expect(page).to have_content("Results per page:")
+      expect(page).to have_text("Results per page:")
       within("details") do
         within("summary") do
-          expect(page).to have_content(per_page.to_s)
+          expect(page).to have_text(per_page.to_s)
         end
 
         within("ul", visible: :all) do
@@ -55,10 +55,10 @@ describe "Paginate specs" do
       page_params = { filter: { with_resource_type: "Decidim::Proposals::Proposal" }, host: organization.host, port: Capybara.server_port }
       visit decidim.search_path(**page_params)
 
-      expect(page).to have_content("Results per page:")
+      expect(page).to have_text("Results per page:")
       within("details") do
         within("summary") do
-          expect(page).to have_content(25)
+          expect(page).to have_text(25)
         end
 
         within("ul", visible: :all) do

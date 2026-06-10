@@ -34,7 +34,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("scope_types.create.error", scope: "decidim.admin")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -56,7 +56,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("scope_types.update.error", scope: "decidim.admin")
-            render :edit, status: :unprocessable_entity
+            render :edit, status: :unprocessable_content
           end
         end
       end
@@ -77,7 +77,7 @@ module Decidim
       def tab_menu_name = :admin_scopes_menu
 
       def scope_type
-        @scope_type ||= scope_types.find(params[:id])
+        @scope_type ||= scope_types.find(params.expect(:id))
       end
 
       def scope_types

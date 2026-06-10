@@ -2,8 +2,7 @@
 
 module Decidim
   module Proposals
-    # A module with all the gallery common methods for proposals
-    # and collaborative draft commands.
+    # A module with all the gallery common methods for proposals commands.
     # Allows to create several image attachments at once
     module GalleryMethods
       include ::Decidim::GalleryMethods

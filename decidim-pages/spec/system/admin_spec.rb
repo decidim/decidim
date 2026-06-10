@@ -30,14 +30,14 @@ describe "Edit a page" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Page successfully saved.")
 
       visit_component
 
-      expect(page).to have_content(translated(component.name))
+      expect(page).to have_text(translated(component.name))
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(component.name)} page")
+      expect(page).to have_text("updated the #{translated(component.name)} page")
     end
   end
 

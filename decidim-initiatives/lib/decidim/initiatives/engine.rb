@@ -16,7 +16,9 @@ module Decidim
       isolate_namespace Decidim::Initiatives
 
       routes do
-        scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
+        extend Decidim::Routes::LocaleRedirects
+
+        scope "/:locale", **locale_scope_options do
           get "/initiative_types/search", to: "initiative_types#search", as: :initiative_types_search
           get "/initiative_type_scopes/search", to: "initiatives_type_scopes#search", as: :initiative_type_scopes_search
           get "/initiative_type_signature_types/search", to: "initiatives_type_signature_types#search", as: :initiative_type_signature_types_search
@@ -89,33 +91,16 @@ module Decidim
           end
         end
 
-        get "/initiatives", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-          "/#{locale}/initiatives"
-        }
+        get "/initiatives", to: redirect(&locale_redirector("/initiatives"))
 
-        get "/initiatives/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
+        get "/initiatives/*rest", to: redirect { |params, request| locale_redirector("/initiatives/#{params[:rest]}").call(params, request) }
 
-          "/#{locale}/initiatives/#{params[:rest]}"
-        }
+        get "/initiative_types/*rest", to: redirect { |params, request| locale_redirector("/initiative_types/#{params[:rest]}").call(params, request) }
 
-        get "/initiative_types/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-
-          "/#{locale}/initiative_types/#{params[:rest]}"
-        }
-
-        get "/initiative_type_scopes/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-
-          "/#{locale}/initiative_type_scopes/#{params[:rest]}"
-        }
+        get "/initiative_type_scopes/*rest", to: redirect { |params, request| locale_redirector("/initiative_type_scopes/#{params[:rest]}").call(params, request) }
 
         get "/initiative_type_signature_types/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-
-          "/#{locale}/initiative_type_signature_types/#{params[:rest]}"
+          locale_redirector("/initiative_type_signature_types/#{params[:rest]}").call(params, request)
         }
       end
 

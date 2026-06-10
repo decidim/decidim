@@ -7,6 +7,7 @@ module Decidim
       # organization.
       class InitiativesTypesController < Decidim::Initiatives::Admin::ApplicationController
         include Decidim::TranslatableAttributes
+
         before_action :set_controller_breadcrumb, except: [:index, :new, :create]
 
         add_breadcrumb_item_from_menu :admin_initiatives_menu
@@ -40,7 +41,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("decidim.initiatives.admin.initiatives_types.create.error")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
@@ -68,7 +69,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("decidim.initiatives.admin.initiatives_types.update.error")
-              render :edit, status: :unprocessable_entity
+              render :edit, status: :unprocessable_content
             end
           end
         end
@@ -98,7 +99,7 @@ module Decidim
         end
 
         def current_initiative_type
-          @current_initiative_type ||= InitiativesType.where(organization: current_organization).find(params[:id])
+          @current_initiative_type ||= InitiativesType.where(organization: current_organization).find(params.expect(:id))
         end
 
         def initiative_type_form

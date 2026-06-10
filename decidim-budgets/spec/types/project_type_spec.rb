@@ -64,7 +64,8 @@ module Decidim
 
         it "returns the proposal urls" do
           expect(response["relatedProposals"].length).to eq(2)
-          expect(response["relatedProposals"]).to eq(proposals.collect { |proposal| { "id" => proposal.id.to_s } })
+          expect(response["relatedProposals"]).to include({ "id" => proposals.first.id.to_s })
+          expect(response["relatedProposals"]).to include({ "id" => proposals.last.id.to_s })
         end
       end
 
@@ -141,8 +142,8 @@ module Decidim
         end
       end
 
-      context "when participatory space is private and transparent" do
-        let(:participatory_space) { create(:assembly, :published, :transparent, :private) }
+      context "when participatory space is transparent" do
+        let(:participatory_space) { create(:assembly, :published, :transparent) }
         let(:component) { create(:budgets_component, :published, participatory_space:) }
         let(:budget) { create(:budget, component:) }
         let(:model) { create(:project, budget:) }
@@ -154,8 +155,8 @@ module Decidim
         end
       end
 
-      context "when participatory space is private" do
-        let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
+      context "when participatory space is restricted" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :restricted, organization: current_organization) }
         let(:component) { create(:budgets_component, participatory_space:) }
         let(:budget) { create(:budget, component:) }
         let(:model) { create(:project, budget:) }

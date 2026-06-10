@@ -79,9 +79,6 @@ ru:
         proposal_mentioned:
           email_subject: Ваше предложение "%{mentioned_proposal_title}"было упомянуто
           notification_title: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.
-        proposal_published:
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> обнародовал предложение <a href="%{resource_path}">%{resource_title}</a>.
         proposal_published_for_space:
           email_intro: В "%{participatory_space_title}", за которым вы следите, добавлено предложение "%{resource_title}".
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
@@ -126,7 +123,6 @@ ru:
             create: Позаимствовать предложения
             no_components: В этом пространстве соучастия нет других составляющих предложений, из которых можно было бы позаимствовать предложения.
             select_component: Пожалуйста, выберите составляющую
-            select_states: Проверьте состояние предложений, которые вы хотите позаимствовать
       admin_log:
         proposal:
           answer: "%{user_name} ответил на предложение %{resource_name} в пространстве %{space_name}"

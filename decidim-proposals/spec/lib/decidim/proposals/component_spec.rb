@@ -146,14 +146,14 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
         it "does not allow creating new proposals with the proposal form" do
           expect(page.find(".creation_enabled_container")[:class]).to include("readonly")
-          expect(page).to have_content("This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.")
+          expect(page).to have_text("This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.")
         end
       end
 
       context "when there are no proposals for the component" do
         it "allows to check the setting" do
           expect(participatory_texts_enabled_container[:class]).not_to include("readonly")
-          expect(page).to have_no_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
+          expect(page).to have_no_text("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
         end
 
         it "changes the setting value after updating" do
@@ -173,7 +173,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
         it "does not allow to check the setting" do
           expect(participatory_texts_enabled_container[:class]).to include("readonly")
-          expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
+          expect(page).to have_text("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
         end
 
         it "does not change the setting value after updating" do
@@ -201,7 +201,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
       it "does not show the amendments dependent settings" do
         fields.each do |field|
-          expect(page).to have_no_content(field)
+          expect(page).to have_no_text(field)
           expect(page).to have_css(".#{field.parameterize.underscore}_container", visible: :all)
         end
       end
@@ -213,9 +213,54 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
         it "shows the amendments dependent settings" do
           fields.each do |field|
-            expect(page).to have_content(field)
+            expect(page).to have_text(field)
             expect(page).to have_css(".#{field.parameterize.underscore}_container", visible: :visible)
           end
+        end
+      end
+    end
+
+    describe "default_sort_order choices" do
+      let(:default_sort_order_container) { page.all(".default_sort_order_container").first }
+
+      before do
+        visit edit_component_path
+      end
+
+      context "when there are no proposals with coauthors" do
+        it "does not include with_more_authors" do
+          expect(default_sort_order_container).to have_no_text("With more authors")
+        end
+      end
+
+      context "when there are proposals with coauthors" do
+        let!(:proposal_with_coauthors) { create(:proposal, component:) }
+        let!(:coauthorships) { create_list(:coauthorship, 2, coauthorable: proposal_with_coauthors) }
+
+        before do
+          visit edit_component_path
+        end
+
+        it "includes with_more_authors" do
+          expect(default_sort_order_container).to have_text("With more authors")
+        end
+      end
+
+      context "when there are no proposals with comments" do
+        it "does not include most_commented" do
+          expect(default_sort_order_container).to have_no_text("Most commented")
+        end
+      end
+
+      context "when there are proposals with comments" do
+        let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
+
+        before do
+          visit edit_component_path
+        end
+
+        it "includes most_commented" do
+          expect(default_sort_order_container).to have_text("Most commented")
         end
       end
     end

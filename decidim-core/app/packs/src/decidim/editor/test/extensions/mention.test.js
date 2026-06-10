@@ -64,6 +64,10 @@ describe("Mention", () => {
   let editor = null;
   let editorElement = null;
 
+  const normalizeHTML = (html) => {
+    return html.replace(/\s*data-mention-suggestion-char="[^"]*"/g, "");
+  };
+
   beforeEach(() => {
     document.body.innerHTML = "";
 
@@ -73,7 +77,7 @@ describe("Mention", () => {
 
   it("creates the mention suggestions when suggestion key is entered", async () => {
     editorElement.focus();
-    await updateContent(editorElement, "@jo");
+    await updateContent(editorElement, "@jo", editor);
 
     const suggestions = document.querySelector(".editor-suggestions");
     expect(suggestions).toBeInstanceOf(HTMLDivElement);
@@ -89,7 +93,7 @@ describe("Mention", () => {
 
   it("does not display the suggestions when less than two characters are entered", async () => {
     editorElement.focus();
-    await updateContent(editorElement, "@j");
+    await updateContent(editorElement, "@j", editor);
 
     const suggestions = document.querySelector(".editor-suggestions");
     expect(suggestions).toBeInstanceOf(HTMLDivElement);
@@ -100,7 +104,7 @@ describe("Mention", () => {
 
   it("allows selecting a mention from the list by clicking it", async () => {
     editorElement.focus();
-    await updateContent(editorElement, "@joh");
+    await updateContent(editorElement, "@joh", editor);
 
     const suggestions = document.querySelector(".editor-suggestions");
     suggestions.querySelector(".editor-suggestions-item").click();
@@ -108,21 +112,21 @@ describe("Mention", () => {
     expect(editorElement.innerHTML).toEqual(
       '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
     );
-    expect(editor.getHTML()).toEqual(
+    expect(normalizeHTML(editor.getHTML())).toEqual(
       '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
     );
   });
 
   it("allows selecting a mention from the list by clicking the Enter key", async () => {
     editorElement.focus();
-    await updateContent(editorElement, "@joh");
+    await updateContent(editorElement, "@joh", editor);
 
     editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
 
     expect(editorElement.innerHTML).toEqual(
       '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
     );
-    expect(editor.getHTML()).toEqual(
+    expect(normalizeHTML(editor.getHTML())).toEqual(
       '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
     );
   });

@@ -10,8 +10,8 @@ module Decidim
       let(:root_klass) { ProposalMutationType }
       let(:organization) { create(:organization, available_locales: [:en]) }
       let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
-      let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
-      let!(:model) { create(:proposal, component: proposal_component) }
+      let(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
+      let!(:model) { create(:proposal, component: current_component) }
       let(:state) { %w(accepted evaluating rejected).sample }
       let(:answer_content) { Decidim::Faker::Localized.sentence(word_count: 3) }
       let(:proposal_answering_enabled) { false }
@@ -63,8 +63,8 @@ module Decidim
 
       shared_examples "manage proposal answer mutation examples" do
         context "when proposal answering disabled" do
-          it "throws Decidim::Api::Errors::UnauthorizedFieldError" do
-            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, "You cannot view or edit answer field on Answer because you do not have permission")
+          it "throws Decidim::Api::Errors::MutationNotAuthorizedError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
           end
         end
 
@@ -118,23 +118,7 @@ module Decidim
         end
       end
 
-      context "with admin user" do
-        it_behaves_like "manage proposal answer mutation examples" do
-          let!(:user_type) { :admin }
-        end
-      end
-
-      context "with normal user" do
-        it "throws Decidim::Api::Errors::UnauthorizedFieldError" do
-          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, "You cannot view or edit answer field on Answer because you do not have permission")
-        end
-      end
-
-      context "with api_user" do
-        it_behaves_like "manage proposal answer mutation examples" do
-          let!(:user_type) { :api_user }
-        end
-      end
+      it_behaves_like "admin API access checks", "manage proposal answer mutation examples"
     end
   end
 end

@@ -3,10 +3,13 @@ ca:
   decidim:
     api:
       errors:
+        introspection_disabled: La introspecció està desactivada per a aquesta sol·licitud
         invalid_locale: La configuració regional que s'ha facilitat no és vàlida
         locale_argument_error: S'ha produït un error mentre es gestionaven internament les dades i18n
         not_found: "%{type} no trobat"
         permission_not_set: No s'ha establert el permís per aquest %{type}
+        recursion_limit_exceeded_error: S'han detectat massa consultes recurrents
+        too_many_aliases_error: S'han fet servir massa àlies (nicknames). Has fet servir %{size} àlies, però es permet un màxim de %{limit}.
         unauthorized_field: No pots veure o editar el camp %{field} a %{type} perquè no tens permisos per fer-ho
         unauthorized_mutation: No tens permís per realitzar aquesta mutació
         unauthorized_object: No pots veure i editar aquest %{type} perquè no tens permisos per fer-ho

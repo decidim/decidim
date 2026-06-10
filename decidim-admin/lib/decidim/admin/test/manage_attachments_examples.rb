@@ -3,6 +3,7 @@
 shared_examples "manage attachments examples" do
   context "when processing attachments" do
     let!(:attachment) { create(:attachment, attached_to:, attachment_collection:) }
+    let!(:attachment_with_link) { create(:attachment, :with_link, attached_to:, attachment_collection:) }
 
     before do
       visit current_path
@@ -10,10 +11,10 @@ shared_examples "manage attachments examples" do
 
     it "lists all the attachments for the process" do
       within "#attachments table" do
-        expect(page).to have_content(translated(attachment.title, locale: :en))
-        expect(page).to have_content(translated(attachment_collection.name, locale: :en))
-        expect(page).to have_content(attachment.file_type)
-        expect(page).to have_content(attachment_file_size(attachment))
+        expect(page).to have_text(translated(attachment.title, locale: :en))
+        expect(page).to have_text(translated(attachment_collection.name, locale: :en))
+        expect(page).to have_text(attachment.file_type)
+        expect(page).to have_text(attachment_file_size(attachment))
       end
     end
 
@@ -69,7 +70,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Attachment created successfully.")
 
       within "#attachments table" do
         expect(page).to have_text("Very Important Document")
@@ -105,7 +106,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Attachment created successfully.")
 
       within "#attachments table" do
         expect(page).to have_text("Very Important Document")
@@ -141,7 +142,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Attachment created successfully.")
 
       within "#attachments table" do
         expect(page).to have_text("Document inside a collection")
@@ -177,9 +178,20 @@ shared_examples "manage attachments examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Attachment destroyed successfully.")
 
-      expect(page).to have_no_content(translated(attachment.title, locale: :en))
+      expect(page).to have_no_text(translated(attachment.title, locale: :en))
+    end
+
+    it "can delete an attachment with a link" do
+      within "tr", text: translated(attachment_with_link.title) do
+        find("button[data-controller='dropdown']").click
+        accept_confirm { click_on "Delete" }
+      end
+
+      expect(page).to have_callout("Attachment destroyed successfully")
+
+      expect(page).to have_no_text(translated(attachment_with_link.title, locale: :en))
     end
 
     it "can update an attachment" do
@@ -202,7 +214,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Attachment updated successfully.")
 
       within "#attachments table" do
         expect(page).to have_text("This is a nice photo")

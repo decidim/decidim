@@ -48,7 +48,6 @@ de:
             confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
           destroy_nok: Beim Entziehen der Berechtigungen ist ein Fehler aufgetreten.
-          destroy_ok: Alle übereinstimmenden Berechtigungen wurden erfolgreich entzogen.
           info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
           no_data: Keine verifizierten Teilnehmer.
           title: Berechtigungen widerrufen
@@ -220,10 +219,6 @@ de:
               user_authorized: Mitglied berechtigt?
             import_csv: CSV importieren
             no_authorized: Mitglied nicht berechtigt
-            title: Aktuelle Erhebungsdaten
-          instructions:
-            body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
-            title: Sie müssen die CSV Erhebung für diese Organisation aktivieren
         authorizations:
           new:
             error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Erhebung der Organisation.
@@ -254,7 +249,6 @@ de:
               error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Teilnehmer sie ändern kann.
               success: Teilnehmer erfolgreich überprüft.
             new:
-              introduce_user_data: Stellen Sie die Daten in das Bild ein
               reject: Ablehnen
               verify: Überprüfen
           offline_confirmations:
@@ -263,7 +257,6 @@ de:
               success: Benutzer erfolgreich überprüft.
             new:
               cancel: Abbrechen
-              introduce_user_data: Geben Sie die Benutzer-E-Mail und die Dokumentdaten ein
               verify: Überprüfen
           pending_authorizations:
             index:

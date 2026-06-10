@@ -35,7 +35,6 @@ zh-TW:
         participatory_processes_ids: 相關參與程序
         participatory_scope: 決定了什麼
         participatory_structure: 如何決定
-        private_space: 私人空間
         promoted: 重點顯示
         published_at: 發佈於
         purpose_of_action: 行動目的
@@ -87,12 +86,9 @@ zh-TW:
         edit:
           update: 更新
         index:
-          private: 不公開
-          public: 公開
           published: 已發佈
         new:
           create: 創建
-          title: 新集會
         update:
           error: 更新此大會時出現問題
           success: 此大會成功更新
@@ -103,7 +99,6 @@ zh-TW:
         new:
           import: 匯入
           select: 請選擇您想匯入的資料
-          title: 匯入大會
       assembly_publications:
         create:
           error: 發布此大會時出現問題。
@@ -119,8 +114,6 @@ zh-TW:
           success: 管理員已成功從此大會中刪除
         edit:
           update: 更新
-        index:
-          assembly_admins_title: 大會管理員
         new:
           create: 建立
         update:
@@ -139,7 +132,6 @@ zh-TW:
         assembly:
           fields:
             created_at: 建立於
-            private: 不公開
             promoted: 重點顯示
             published: 已發佈
             title: 標題
@@ -161,9 +153,6 @@ zh-TW:
             admin: 管理員
             collaborator: 合作者
             moderator: 版主
-      titles:
-        assemblies: 大會
-        assemblies_types: 大會類型
     admin_log:
       assembly:
         create: "%{user_name} 建立了 %{resource_name} 大會"
@@ -193,7 +182,6 @@ zh-TW:
       admin:
         assemblies:
           form:
-            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方大會信息
             duration: 持續時間
             duration_help: 如果此大會的持續時間有限，請選擇結束日期。 否則，它將顯示為不確定。
             images: 圖片
@@ -204,6 +192,9 @@ zh-TW:
             select_parent_assembly: 選擇父組件
             social_handlers: 社群
             title: 基本資訊
+        assembly_imports:
+          form:
+            document_legend: 添加文檔
         assembly_members:
           form:
             explanation: '圖像的指導'
@@ -220,9 +211,6 @@ zh-TW:
             all: 全部
         show:
           title: 關於這個大會
-      assembly_members:
-        index:
-          members: 成員
       content_blocks:
         highlighted_assemblies:
           name: 關注的大會
@@ -244,17 +232,9 @@ zh-TW:
         title: 大會
       last_activity:
         new_assembly: '新大會:'
-      pages:
-        user_profile:
-          member_of:
-            member_of: 的成員
       show:
         duration: 持續時間
-        private_space: 這是一個私人大會
         social_networks_title: 訪問大會
-    assembly_members:
-      index:
-        title: 成員
     events:
       assemblies:
         create_assembly_member:
@@ -278,8 +258,6 @@ zh-TW:
       value_types:
         assembly_presenter:
           not_found: '在資料庫中找不到該大會 (ID: %{id})'
-        assembly_type_presenter:
-          not_found: '在資料庫中找不到該大會類型 (ID: %{id})'
     menu:
       assemblies: 大會
     participatory_processes:

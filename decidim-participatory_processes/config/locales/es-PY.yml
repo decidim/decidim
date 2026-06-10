@@ -14,6 +14,7 @@ es-PY:
         duplicate_landing_page_blocks: Duplicar los bloques de contenido de la página de inicio
         duplicate_steps: Duplicar las fases
         end_date: Fecha de finalización
+        has_members: Este espacio de participación tiene miembros
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -24,7 +25,6 @@ es-PY:
         participatory_process_group_id: Grupo de procesos
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
-        private_space: Proceso privado
         promoted: Destacado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
@@ -65,6 +65,8 @@ es-PY:
           attributes:
             document:
               allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}'
+              empty: El documento está vacío
+              invalid_json: El documento no es JSON válido
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: La fase ha cambiado
@@ -102,19 +104,23 @@ es-PY:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Por grupo de procesos
+        with_any_access_mode:
+          label: Tipo de acceso
+          values:
+            open: Abierto
+            restricted: Restringido
+            transparent: Transparente
       menu:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
-          info: Información
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
           components: Componentes
-          info: Acerca de este proceso
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
           members: Miembros
           moderations: Moderaciones
           process_admins: Usuarios del proceso
@@ -122,9 +128,9 @@ es-PY:
       models:
         participatory_process:
           fields:
+            access_mode: Tipo de acceso
             actions: Acciones
             created_at: Fecha de creación
-            private: Privado
             published: Publicada
             title: Título
           name: Proceso participativo
@@ -161,17 +167,14 @@ es-PY:
         new:
           duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
-          title: Duplicar el proceso participativo
       participatory_process_groups:
         destroy:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.
           success: El grupo de proceso participativo se eliminó con éxito.
         edit:
-          title: Editar grupo de procesos
           update: Actualizar
         new:
           create: Crear
-          title: Nuevo grupo de procesos
         update:
           error: Se ha producido un error actualizando este grupo.
           success: Grupo actualizado correctamente.
@@ -182,7 +185,6 @@ es-PY:
         new:
           import: Importar
           select: Selecciona qué datos quieres importar
-          title: Importar proceso participativo
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -205,18 +207,14 @@ es-PY:
             last_step: No se puede eliminar la última fase de un proceso.
           success: Fase de proceso participativo eliminada con éxito.
         edit:
-          title: Editar fase de proceso participativo
           update: Actualizar
-        index:
-          steps_title: Fases del proceso
         new:
           create: Crear
-          title: Nuevo fase de proceso participativo
         ordering:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
-          success: La fase de proceso participativo se ha actualizado correctamente.
+          success: La fase del proceso participativo se ha actualizado correctamente.
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
@@ -224,13 +222,9 @@ es-PY:
         destroy:
           success: Usuario eliminado con éxito de este proceso participativo.
         edit:
-          title: Actualitzar administradora del proceso particiaptivo
           update: Actualizar
-        index:
-          process_admins_title: Usuarios del proceso
         new:
           create: Crear
-          title: Nueva administradora del proceso participativo
         update:
           error: Ha habido un error al actualizar un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
@@ -241,15 +235,14 @@ es-PY:
         edit:
           update: Actualizar
         index:
-          private: Privado
-          public: Público
+          access_modes:
+            open: Abierto
+            restricted: Restringido
+            transparent: Transparente
           published: Publicada
           unpublished: Despublicado
-        manage_trash:
-          title: Procesos participativos eliminados
         new:
           create: Crear
-          title: Nuevo proceso participativo
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
@@ -264,11 +257,6 @@ es-PY:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Todos los procesos participativos
-      titles:
-        participatory_process_groups: Grupos de procesos participativos
-        participatory_process_types: Tipos de procesos participativos
-        participatory_processes: Procesos participativos
-        participatory_processes_deleted: Procesos participativos eliminados
       tooltips:
         deleted_processes_info: Un proceso solo se pueden eliminar si su estado es 'Despublicado'.
       users:
@@ -297,10 +285,6 @@ es-PY:
         create: "%{user_name} creó la fase %{resource_name} en el proceso participativo %{space_name}"
         delete: "%{user_name} eliminó la fase %{resource_name} en el proceso participativo %{space_name}"
         update: "%{user_name} actualizó la fase %{resource_name} en el proceso participativo %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} ha creado el tipo de proceso participativo %{resource_name}"
-        delete: "%{user_name} ha borrado el tipo de proceso participativo %{resource_name}"
-        update: "%{user_name} ha actualizado el tipo de proceso participativo %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} invitó al usuario %{resource_name} al proceso participativo %{space_name}"
         delete: "%{user_name} eliminó al usuario %{resource_name} del proceso participativo %{space_name}"
@@ -331,16 +315,12 @@ es-PY:
           contextual: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
           page: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
           title: '¿Qué es un proceso participativo?'
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id}).'
     menu:
       processes: Procesos
     open_data:
       help:
         participatory_processes:
-          announcement: La información del anuncio/aviso (llamada)
+          access_mode: Tipos de acceso. Si el proceso es abierto, restringido o transparente.
           area: El área a la que pertenece el proceso
           component_settings: Configuración de los componentes del proceso participativo
           created_at: La fecha en la que se creó este proceso participativo
@@ -488,26 +468,63 @@ es-PY:
             all: Todos
             max_results: Cantidad máxima de elementos para mostrar
             selection_criteria: Criterios de selección
+        imports:
+          attachment_error: No se ha podido importar el archivo adjunto "%{title}" (%{error}).
+          hero_image_error: No se ha podrido importar la imagen principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Esta función de importación te permite crear un nuevo proceso participativo a partir de un archivo JSON exportado. Puedes exportar un proceso particpativo desde otra organización o desde esta misma organización. El proceso participativo importado incluirá sus ajustes, componentes y archivos adjuntos (si se seleccionan).
         participatory_process_duplicates:
           form:
             slug_help_html: 'Los segmentos de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          new:
+            title: Duplicar el proceso participativo
         participatory_process_groups:
+          edit:
+            title: Editar el grupo de procesos
           form:
             metadata: Metadatos
             title: Acerca de este proceso
             visibility: Visibilidad
+          index:
+            title: Grupos de procesos participativos
+          new:
+            title: Nuevo grupo de procesos
         participatory_process_imports:
           form:
             document_legend: Añadir un documento
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          new:
+            title: Importar un proceso participativo
+        participatory_process_steps:
+          edit:
+            title: Editar la fase del proceso participativo
+          index:
+            title: Fases del proceso
+          new:
+            title: Nueva fase del proceso participativo
+        participatory_process_user_roles:
+          edit:
+            title: Actualizar la administradora del proceso participativo
+          index:
+            title: Administradoras del proceso participativo
+          new:
+            title: Nueva administradora del proceso participativo
         participatory_processes:
+          edit:
+            title: Acerca de este proceso
           form:
-            announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
+            access:
+              label: Acceso
+              options:
+                open: Cualquiera puede ver y participar en el proceso participativo.
+                restricted: Solo miembros y administradoras pueden ver y participar. No aparecerá en la búsqueda general, API, ni en los archivos de datos abiertos.
+                transparent: Cualquiera puede ver el proceso participativo, pero solo miembros y administradoras pueden participar.
+              set_this_space_as: Define el tipo de acceso a este espacio
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
+            has_members_help: Podrás crear y publicar miembros
             images: Imágenes
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
@@ -517,6 +534,12 @@ es-PY:
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
+          index:
+            title: Procesos participativos
+          manage_trash:
+            title: Procesos participativos eliminados
+          new:
+            title: Nuevo proceso participativo
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -559,9 +582,6 @@ es-PY:
         title: Procesos participativos
       last_activity:
         new_participatory_process: 'Nuevo proceso participativo:'
-      members:
-        index:
-          title: Miembros
       pages:
         home:
           highlighted_processes:
@@ -610,7 +630,6 @@ es-PY:
           title: Acerca de este proceso
       show:
         belongs_to_group: Este proceso pertenece a
-        private_space: Este es un proceso privado
         related_processes: Procesos relacionados
       static_pages:
         democratic_quality_indicators:

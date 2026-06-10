@@ -17,7 +17,6 @@ ar:
       initiatives_committee_member:
         user: عضو لجنة
       initiatives_type:
-        banner_image: صورة بانر
         collect_user_extra_fields: جمع البيانات الشخصية للمشاركين عند التوقيع
         description: وصف
         extra_fields_legal_information: معلومات قانونية حول جمع البيانات الشخصية
@@ -60,8 +59,6 @@ ar:
         information: معلومات
         initiatives: المبادرات
         initiatives_settings: الإعدادات
-        initiatives_submenu:
-          info: عن هذه المبادرة
         initiatives_types: أنواع المبادرة
         moderations: الإشراف
       models:
@@ -95,9 +92,6 @@ ar:
             nickname: الاسم المستعار
             postal_code: الكود البريدى
             timestamp: الطابع الزمني
-      titles:
-        initiatives: المبادرات
-        initiatives_types: أنواع المبادرة
     events:
       initiatives:
         initiative_extended:
@@ -225,12 +219,6 @@ ar:
           choose_html: أريد إنشاء <strong>%{title}</strong>
           more_information: (معلومات اكثر)
           select: أريد أن أشجع هذه المبادرة
-      events:
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}، الذي تتابعه ، بإنشاء مبادرة جديدة والتحقق منها والمساهمة فيها:"
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: مبادرة جديدة بنسبة %{author_nickname}
-          notification_title: تم إنشاء مبادرة <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       form:
         add_attachments: إضافة مرفقات
         attachment_legend: إضافة مستند أو صورة

@@ -15,7 +15,7 @@ shared_examples "manage registration types examples" do
 
   it "shows conference registration types list" do
     within "#registration_types table" do
-      expect(page).to have_content(translated(registration_type.title))
+      expect(page).to have_text(translated(registration_type.title))
     end
   end
 
@@ -36,15 +36,15 @@ shared_examples "manage registration types examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference registration type successfully added.")
       expect(page).to have_current_path decidim_admin_conferences.conference_registration_types_path(conference)
 
       within "#registration_types table" do
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} registration type")
+      expect(page).to have_text("created the #{translated(attributes[:title])} registration type")
     end
 
     it "updates a conference registration types" do
@@ -60,15 +60,15 @@ shared_examples "manage registration types examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference registration type successfully updated.")
       expect(page).to have_current_path decidim_admin_conferences.conference_registration_types_path(conference)
 
       within "#registration_types table" do
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(registration_type.title)} registration type")
+      expect(page).to have_text("updated the #{translated(registration_type.title)} registration type")
     end
 
     it "deletes the conference registration type" do
@@ -77,10 +77,10 @@ shared_examples "manage registration types examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference registration type successfully removed.")
 
       within "#registration_types table" do
-        expect(page).to have_no_content(translated(registration_type.title))
+        expect(page).to have_no_text(translated(registration_type.title))
       end
     end
   end

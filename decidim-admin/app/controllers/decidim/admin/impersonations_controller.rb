@@ -46,7 +46,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("impersonations.create.error", scope: "decidim.admin")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -71,7 +71,7 @@ module Decidim
         @user ||= if creating_managed_user?
                     existing_managed_user || new_managed_user
                   else
-                    current_organization.users.find(params[:impersonatable_user_id])
+                    current_organization.users.find(params.expect(:impersonatable_user_id))
                   end
       end
 

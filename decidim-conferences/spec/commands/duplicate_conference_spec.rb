@@ -7,6 +7,7 @@ module Decidim::Conferences
     subject { described_class.new(form, conference) }
 
     let(:organization) { create(:organization) }
+    let(:current_user) { create(:user, organization:) }
     let(:errors) { double.as_null_object }
     let!(:conference) { create(:conference, organization:, taxonomies: [taxonomy]) }
     let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
@@ -17,7 +18,8 @@ module Decidim::Conferences
         invalid?: invalid,
         title: { en: "title" },
         slug: "duplicated-slug",
-        duplicate_components?: duplicate_components
+        duplicate_components?: duplicate_components,
+        current_user:
       )
     end
 
@@ -29,6 +31,27 @@ module Decidim::Conferences
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "when there is a trashed space with the same slug" do
+      let!(:trashed_space) { create(:conference, :trashed, slug: "duplicated-slug", organization:) }
+
+      let(:form) do
+        Admin::ConferenceDuplicateForm.from_params({
+                                                     title: { en: "title" },
+                                                     slug: "duplicated-slug",
+                                                     duplicate_components?: duplicate_components
+                                                   })
+                                      .with_context({
+                                                      current_user:,
+                                                      current_organization: organization
+                                                    })
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 
@@ -55,6 +78,20 @@ module Decidim::Conferences
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("duplicate", conference, current_user)
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+
+        expect(action_log.action).to eq("duplicate")
+        expect(action_log.resource).to eq(conference)
+        expect(action_log.version).to be_present
       end
     end
 

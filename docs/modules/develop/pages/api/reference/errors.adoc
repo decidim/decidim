@@ -2,7 +2,13 @@
 
 Currently, in Decidim we are using some exceptions to handle API responses, aiming to serve both input (receiving data through API) and output (sending data through API).
 
-At the moment there are 3 categories of exceptions that are being handled:
+At the moment there are 4 categories of exceptions that are being handled:
+
+== System Errors
+
+* xref:develop:api/reference/errors/too_many_aliases_error.adoc[Too many aliases error - TOO_MANY_ALIASES_ERROR] - is triggered when your query uses too many aliases.
+* xref:develop:api/reference/errors/recursion_limit_exceeded_error.adoc[Recursion limit error - RECURSION_LIMIT_EXCEEDED_ERROR] - is triggered when your query uses a GraphQL circular reference for more than two times.
+* xref:develop:api/reference/errors/introspection_disabled_error.adoc[Introspection disabled error - INTROSPECTION_DISABLED_ERROR] - is triggered when a user attempts to run introspection and they do not have the required permissions.
 
 == Authorization errors
 
@@ -12,6 +18,7 @@ At the moment there are 3 categories of exceptions that are being handled:
 * xref:develop:api/reference/errors/unauthorized_mutation.adoc[Unauthorized Mutation Error - MUTATION_NOT_AUTHORIZED_ERROR], is triggered when the requesting user tries to access a mutation that cannot be accessed.
 
 == Validation errors
+
 * xref:develop:api/reference/errors/not_found.adoc[Not Found Error - NOT_FOUND_ERROR], is triggered when the requested record does not exist in database, or is in a state where you should not have access to it (moderated, belongs to an unpublished component, belongs to a private process where the requesting user does not have access)
 * xref:develop:api/reference/errors/validation_error.adoc[Validation Error - VALIDATION_ERROR], is triggered when the requesting user performs an action that contains an error. This is equivalent to the flash messages displayed on the Website.
 * xref:develop:api/reference/errors/attribute_validation_error.adoc[Attribute Validation Error - ATTRIBUTE_VALIDATION_ERROR], is triggered when the requesting user submits a request to alter a resource that has an error. This is equivalent to the validation errors in the HTTP forms.

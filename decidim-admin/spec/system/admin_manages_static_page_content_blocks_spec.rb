@@ -14,7 +14,7 @@ describe "Admin manages static page content blocks" do
 
   context "when editing a non-persisted content block" do
     it "creates the content block to the db before editing it" do
-      visit decidim_admin.edit_static_page_path(tos_page, locale: I18n.locale)
+      visit decidim_admin.edit_static_page_path(tos_page)
 
       expect(Decidim::ContentBlock.count).to eq 0
 
@@ -54,9 +54,9 @@ describe "Admin manages static page content blocks" do
     let!(:content_block2) { create(:content_block, organization:, manifest_name: :section, scope_name: :static_page, scoped_resource_id: tos_page.id, settings: { content_en: content2 }) }
 
     it "shows all of them" do
-      visit decidim.page_path(tos_page, locale: I18n.locale)
-      expect(page).to have_content(content1)
-      expect(page).to have_content(content2)
+      visit decidim.page_path(tos_page)
+      expect(page).to have_text(content1)
+      expect(page).to have_text(content2)
     end
   end
 
@@ -73,10 +73,10 @@ describe "Admin manages static page content blocks" do
         end
       end
 
-      expect(page).to have_content("Content block successfully deleted")
+      expect(page).to have_text("Content block successfully deleted")
 
-      visit decidim.page_path(tos_page, locale: I18n.locale)
-      expect(page).to have_no_content(content)
+      visit decidim.page_path(tos_page)
+      expect(page).to have_no_text(content)
     end
   end
 
@@ -91,12 +91,12 @@ describe "Admin manages static page content blocks" do
                           en: "<p>Custom privacy policy summary text!</p>"
 
       click_on "Update"
-      visit decidim.page_path(tos_page, locale: I18n.locale)
-      expect(page).to have_content("Custom privacy policy summary text!")
+      visit decidim.page_path(tos_page)
+      expect(page).to have_text("Custom privacy policy summary text!")
 
       logout
       visit decidim.new_user_registration_path
-      expect(page).to have_content("Custom privacy policy summary text!")
+      expect(page).to have_text("Custom privacy policy summary text!")
     end
   end
 end

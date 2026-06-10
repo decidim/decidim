@@ -12,7 +12,7 @@ fi:
     models:
       decidim/blogs/post:
         one: Artikkeli
-        other: Artikkelia
+        other: Artikkelit
   decidim:
     admin:
       admin_log:

@@ -13,7 +13,7 @@ module Decidim
 
         def show
           enforce_permission_to :read, authorization_scope
-          @report = reports.find(params[:id])
+          @report = reports.find(params.expect(:id))
         end
 
         private
@@ -23,7 +23,7 @@ module Decidim
         end
 
         def moderation
-          @moderation ||= participatory_space_moderations.find(params[:moderation_id])
+          @moderation ||= participatory_space_moderations.find(params.expect(:moderation_id))
         end
 
         def participatory_space_moderations

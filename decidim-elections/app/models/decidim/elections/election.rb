@@ -42,11 +42,13 @@ module Decidim
       scope :ongoing, -> { published.where(start_at: ..Time.current, end_at: Time.current..) }
       scope :finished, -> { published.where(end_at: ..Time.current) }
 
-      searchable_fields(
-        A: :title,
-        D: :description,
-        participatory_space: { component: :participatory_space }
-      )
+      searchable_fields({
+                          A: :title,
+                          D: :description,
+                          participatory_space: { component: :participatory_space }
+                        },
+                        index_on_create: ->(election) { election.visible? },
+                        index_on_update: ->(election) { election.visible? })
 
       def presenter
         Decidim::Elections::ElectionPresenter.new(self)

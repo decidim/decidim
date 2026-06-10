@@ -48,13 +48,13 @@ shared_examples "manage conference components" do
     end
 
     it "is successfully created" do
-      expect(page).to have_admin_callout("successfully")
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_callout("Component created successfully.")
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     it "has a successful admin log" do
       visit decidim_admin.root_path
-      expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(conference.title)}")
+      expect(page).to have_text("created #{translated(attributes[:name])} in #{translated(conference.title)}")
     end
 
     context "and then edit it" do
@@ -78,7 +78,7 @@ shared_examples "manage conference components" do
       it "successfully edits it" do
         click_on "Update"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("The component was updated successfully.")
       end
     end
   end
@@ -124,8 +124,8 @@ shared_examples "manage conference components" do
         click_on "Update"
       end
 
-      expect(page).to have_admin_callout("successfully")
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_callout("The component was updated successfully.")
+      expect(page).to have_text(translated(attributes[:name]))
 
       within "tr", text: translated(attributes[:name]) do
         find("button[data-controller='dropdown']").click
@@ -141,7 +141,7 @@ shared_examples "manage conference components" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated #{translated(attributes[:name])} in #{translated(conference.title)}")
+      expect(page).to have_text("updated #{translated(attributes[:name])} in #{translated(conference.title)}")
     end
   end
 
@@ -196,6 +196,11 @@ shared_examples "manage conference components" do
       let(:published_at) { Time.current }
 
       it "hides the component from the menu" do
+        visit decidim_conferences.conference_path(conference)
+        expect(page).to have_text translated_attribute(component.name)
+
+        visit decidim_admin_conferences.components_path(conference)
+
         within ".component-#{component.id}" do
           find("button[data-controller='dropdown']").click
           click_on "Hide"
@@ -205,6 +210,9 @@ shared_examples "manage conference components" do
           find("button[data-controller='dropdown']").click
           expect(page).to have_css("a", text: "Unpublish")
         end
+
+        visit decidim_conferences.conference_path(conference)
+        expect(page).to have_no_text translated_attribute(component.name)
       end
     end
 

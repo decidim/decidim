@@ -19,6 +19,7 @@ activelog
 activemodel
 activerecord
 activestorage
+actualitzar
 actualizado
 addlabel
 Adeu
@@ -99,6 +100,8 @@ Brakus
 breadcrumb
 browserstack
 bugfixing
+busques
+Butlletins
 byebug
 bytesize
 cacatua
@@ -111,6 +114,7 @@ camelization
 cami
 Capfile
 carolromero
+Cargar
 Carrer
 carryforward
 catala
@@ -139,8 +143,11 @@ cobertura
 codecov
 codefor
 CODEOWNERS
+coderabbit
+codespace
 codeql
 coditramuntana
+comentarios
 commentables
 commentaire
 commenters
@@ -175,6 +182,7 @@ cuenta
 Cugat
 customise
 Customising
+CVEs
 cweek
 cyclomatic
 danline
@@ -222,10 +230,12 @@ doesnot
 doggotrainer
 Dokku
 Dota
+dotfiles
 douban
 downvoted
 downvotes
 downvoting
+DPG
 draggables
 dragula
 drinkform
@@ -275,6 +285,7 @@ erblint
 Errbit
 Esa
 espa
+estar
 estat
 etherpad
 evanfuture
@@ -286,6 +297,7 @@ EXISTINGCITY
 faketoken
 Fal
 fcell
+fcm
 FEDER
 felipe
 fhtagn
@@ -402,6 +414,7 @@ Ijkl
 ilike
 illgotten
 impersonatable
+importmap
 inbox
 includeurl
 Indicacions
@@ -409,6 +422,7 @@ infoa
 infob
 informables
 iniciar
+iniciat
 inodes
 inputdialog
 inputname
@@ -419,6 +433,7 @@ isbn
 iseq
 isready
 Italiano
+itemabcd
 ivan
 Jaskolski
 Jaume
@@ -467,6 +482,7 @@ libpq
 libreadline
 libreoffice
 libretranslate
+libvips
 libyaml
 Liddel
 lighthouserc
@@ -484,6 +500,7 @@ Llobregat
 lng
 Localret
 localvars
+lockfiles
 loggable
 lon
 LOPD
@@ -504,6 +521,7 @@ markercluster
 marydoe
 Massot
 matrixmultiple
+mattr
 matutes
 maxtimeout
 mcdoggo
@@ -532,6 +550,7 @@ misogi
 mlat
 mlon
 Mobi
+moby
 modals
 modernizrrc
 modestbranding
@@ -541,6 +560,7 @@ modqule
 mongoid
 morphdom
 Mostrar
+mozilla
 mpassid
 mrc
 mri
@@ -657,6 +677,7 @@ PGVERSION
 Phargo
 phoe
 pinterest
+pids
 Placeholdit
 plantuml
 plataforma
@@ -737,6 +758,7 @@ reportables
 reportat
 resourcable
 resourceable
+respuestas
 Returs
 Riera
 Rigoberto
@@ -751,6 +773,7 @@ rqrcode
 rroe
 rsefa
 rsimplecov
+rspack
 Rubo
 rubycw
 rumany
@@ -868,6 +891,7 @@ timeouter
 timestamped
 tiptap
 Tmpname
+tms
 TLDR
 todos
 Tomorrowland
@@ -882,6 +906,8 @@ traslatable
 trashable
 trgm
 trobada
+truncatable
+trobat
 tsearch
 turbolinks
 Twilio

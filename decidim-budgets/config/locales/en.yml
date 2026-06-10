@@ -91,7 +91,7 @@ en:
             invalid: There was a problem creating this project.
             success: Project successfully created.
           edit:
-            title: Edit project
+            title: Edit project at %{budget}
             update: Update
           index:
             actions: Actions
@@ -114,7 +114,7 @@ en:
             title: Deleted projects
           new:
             create: Create
-            title: New project
+            title: New project at %{budget}
           update:
             invalid: There was a problem updating this project.
             success: Project successfully updated.

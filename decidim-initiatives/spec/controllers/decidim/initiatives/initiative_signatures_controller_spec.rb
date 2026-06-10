@@ -7,6 +7,8 @@ module Decidim
     describe InitiativeSignaturesController do
       routes { Decidim::Initiatives::Engine.routes }
 
+      include Decidim::Core::Engine.routes.url_helpers
+
       let(:organization) { create(:organization) }
       let(:initiative_with_user_extra_fields) { create(:initiative, :with_user_extra_fields_collection, organization:) }
       let(:initiative_without_user_extra_fields) { create(:initiative, organization:) }
@@ -22,7 +24,7 @@ module Decidim
             it "cannot vote" do
               sign_in initiative_with_user_extra_fields.author, scope: :user
               post :create, params: { initiative_slug: initiative_with_user_extra_fields.slug, locale: I18n.locale, format: :js }
-              expect(response).to have_http_status(:unprocessable_entity)
+              expect(response).to have_http_status(:unprocessable_content)
               expect(response.content_type).to eq("text/javascript; charset=utf-8")
             end
           end
@@ -69,7 +71,7 @@ module Decidim
         context "and initiative without user extra fields required" do
           it "action is unavailable" do
             sign_in initiative_without_user_extra_fields.author, scope: :user
-            expect(get(:fill_personal_data, params: { initiative_slug: initiative_without_user_extra_fields.slug, locale: I18n.locale })).to redirect_to("/")
+            expect(get(:fill_personal_data, params: { initiative_slug: initiative_without_user_extra_fields.slug, locale: I18n.locale })).to redirect_to(root_path)
           end
         end
       end

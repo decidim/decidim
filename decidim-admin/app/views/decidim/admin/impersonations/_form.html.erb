@@ -28,7 +28,7 @@
         <div class="row column">
           <div id="authorization-handler-<%= f.object.handler_name %>"
                  class="authorization-handler">
-            <%= render "handler_form", handler_form: f %>
+            <%= render "decidim/admin/impersonations/handler_form", handler_form: f %>
           </div>
         </div>
       <% end %>
@@ -40,7 +40,7 @@
               <div id="authorization-handler-<%= authorization.handler_name %>"
                    class="authorization-handler"
                    style="display:none">
-                <%= render "handler_form", handler_form: f %>
+                <%= render "decidim/admin/impersonations/handler_form", handler_form: f %>
               </div>
             </div>
           <% end %>

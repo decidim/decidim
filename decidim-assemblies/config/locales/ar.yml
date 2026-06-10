@@ -35,7 +35,6 @@ ar:
         participatory_processes_ids: العمليات التشاركية ذات الصلة
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
-        private_space: مساحة خاصة
         promoted: سلط الضوء
         published_at: نشرت في
         purpose_of_action: الغرض من العمل
@@ -97,12 +96,9 @@ ar:
         edit:
           update: تحديث
         index:
-          private: خاص
-          public: عامة
           published: نشرت
         new:
           create: إنشاء
-          title: جمعية جديدة
         update:
           error: حدثت مشكلة أثناء تحديث هذه الجمعية.
           success: تم تحديث الجمعية بنجاح.
@@ -113,7 +109,6 @@ ar:
         new:
           import: استيراد
           select: اختر البيانات التي ترغب في استيرادها
-          title: استيراد الجمعية
       assembly_publications:
         create:
           error: حدثت مشكلة في نشر هذا التجميع.
@@ -129,8 +124,6 @@ ar:
           success: تمت إزالة المشرف بنجاح من هذا التجميع.
         edit:
           update: تحديث
-        index:
-          assembly_admins_title: مدراء الجمعية
         new:
           create: إنشاء
         update:
@@ -150,7 +143,6 @@ ar:
           fields:
             actions: الإجراءات
             created_at: تاريخ الإنشاء
-            private: خاص
             promoted: سلط الضوء
             published: نشرت
             title: العنوان
@@ -172,9 +164,6 @@ ar:
             admin: مدير
             collaborator: متعاون
             moderator: مُشرف
-      titles:
-        assemblies: الجمعيات
-        assemblies_types: أنواع التجمّعات
     admin_log:
       assembly:
         create: "%{user_name} أنشأ الجمعية %{resource_name}"
@@ -204,7 +193,6 @@ ar:
       admin:
         assemblies:
           form:
-            announcement_help: سيظهر النص الذي أدخلته هنا للمستخدم مباشرة تحت معلومات الجمعية.
             duration: المدة الزمنية
             duration_help: إذا كانت مدة هذه الجمعية محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
             images: الصور
@@ -215,6 +203,9 @@ ar:
             select_parent_assembly: حدد الجمعية الأصلية
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
+        assembly_imports:
+          form:
+            document_legend: إضافة وثيقة
         assembly_members:
           form:
             explanation: 'إرشادات للصورة:'
@@ -231,9 +222,6 @@ ar:
             all: الكل
         show:
           title: حول الجمعية
-      assembly_members:
-        index:
-          members: الأعضاء
       content_blocks:
         children_assemblies:
           name: جمعيات
@@ -257,17 +245,9 @@ ar:
         title: الجمعيات
       last_activity:
         new_assembly: 'جمعية جديدة:'
-      pages:
-        user_profile:
-          member_of:
-            member_of: عضو في
       show:
         duration: المدة الزمنية
-        private_space: هذه جمعية خاصة
         social_networks_title: زيارة التجمع على
-    assembly_members:
-      index:
-        title: الأعضاء
     events:
       assemblies:
         create_assembly_member:
@@ -291,8 +271,6 @@ ar:
       value_types:
         assembly_presenter:
           not_found: 'لم يتم العثور على التجميع في قاعدة البيانات (المعرف: %{id})'
-        assembly_type_presenter:
-          not_found: 'لم يتم العثور على نوع التجمع في قاعدة البيانات (الرقم-المُعرف: %{id})'
     menu:
       assemblies: الجمعيات
     participatory_processes:

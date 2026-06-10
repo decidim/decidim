@@ -1,1 +1,79 @@
+---
 ro:
+  decidim:
+    demographics:
+      actions:
+        title: Acțiuni
+      admin:
+        demographics:
+          tabs_menu:
+            title: Demografice
+        demographics_menu:
+          questions: Întrebări
+          responses: Răspunsuri
+          settings: Setări
+        publish_responses:
+          index:
+            description: Descriere
+            title: Afișați răspunsurile
+        questions:
+          edit:
+            save: Salvaţi
+            title: Întrebări
+          questions_form:
+            add_question: Adăugați o întrebare
+            collapse: Restrângeți toate întrebările
+            expand: Extindeți toate întrebările
+        responses:
+          index:
+            publish_responses: Afișați răspunsurile
+            title: "%{total} răspunsuri în total"
+        settings:
+          show:
+            collect_data: Permiteți colectarea datelor demografice
+            collect_data_help: Activarea acestei opțiuni va permite participanților să își doneze datele către platformă.
+            save: Salvați
+            title: Setări
+          update:
+            invalid: A apărut o eroare la salvarea datelor demografice
+            success: Date demografice salvate cu succes
+        title: Date demografice
+      demographics:
+        questionnaire:
+          delete_my_data: Ștergeți datele
+          modal_close: Anulați
+          modal_ok: Ok
+          modal_question: Toate datele demografice vor fi eliminate.
+          modal_title: Ștergeți datele
+          submit: Salvați datele
+          terms_of_service: condițiile de utilizare
+          tos_agreement: Prin participarea dumneavoastră acceptați %{link}.
+        show:
+          page_title: Informații demografice
+      destroy:
+        error: A apărut o eroare la eliminarea datelor demografice
+        success: Datele demografice au fost eliminate cu succes
+      name: Informații demografice
+      questions:
+        age:
+          options:
+          - 15 - 29 ani
+          - 30 - 44 ani
+          - 45 - 64 ani
+          - 65 ani şi peste
+          question: Care este vârsta dumneavoastră?
+        gender:
+          options:
+          - Bărbat
+          - Femeie
+          - Non-binar
+          - Sexul meu nu este listat
+          - Prefer să nu spun
+          question: Care dintre următoarele opțiuni descriu cel mai bine sexul dumneavoastră?
+        postal:
+          question: Care este codul poștal de acasă?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Furnizând aceste informații, contribuiți la analiza statistică ce contribuie la îmbunătățirea indicatorului de calitate. Datele dumneavoastră vor fi agregate și utilizate numai în scopuri de cercetare.

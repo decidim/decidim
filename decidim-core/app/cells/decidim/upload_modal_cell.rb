@@ -30,6 +30,10 @@ module Decidim
       form.send(:custom_label, attribute, options[:label], { required: required?, for: nil })
     end
 
+    def paragraph
+      form.send(:custom_paragraph, attribute, options[:label], { required: required? })
+    end
+
     def button_label
       return button_edit_label if attachments.count.positive?
 
@@ -71,13 +75,16 @@ module Decidim
     end
 
     # By default FoundationRailsHelper adds form errors next to input, but since input is in the modal
-    # and modal is hidden by default, we need to add an additional validation field to the form.
+    # and modal is hidden by default, we add a hidden checkbox field to handle HTML5 validation.
     # This should only be necessary when file is required by the form.
+    # Note: Validation errors are now displayed in the main form area, not inside the modal.
     def input_validation_field
       object_name = form.object.present? ? "#{form.object.model_name.param_key}[#{add_attribute}_validation]" : "#{add_attribute}_validation"
-      input = check_box_tag object_name, 1, attachments.present?, class: "reset-defaults", hidden: true, label: false, required: required?
-      message = form.send(:abide_error_element, add_attribute) + form.send(:error_and_help_text, add_attribute)
-      input + message
+      check_box_tag object_name, 1, attachments.present?, class: "reset-defaults", hidden: true, label: false, required: required?, id: validation_field_id
+    end
+
+    def validation_field_id
+      "#{attribute}_validation"
     end
 
     def explanation
@@ -121,7 +128,16 @@ module Decidim
       @attachments = begin
         attachments = options[:attachments] || form.object.send(attribute)
         attachments = Array(attachments).compact_blank
-        attachments.map { |attachment| attachment.is_a?(String) ? ActiveStorage::Blob.find_signed(attachment) : attachment }
+        attachments.map do |attachment|
+          case attachment
+          when String
+            ActiveStorage::Blob.find_signed(attachment)
+          when Integer
+            Decidim::Attachment.find_by(id: attachment)
+          else
+            attachment
+          end
+        end.compact
       end
     end
 
@@ -161,6 +177,11 @@ module Decidim
 
     def file_attachment_path(attachment)
       return unless attachment
+
+      if attachment.respond_to?(:record) && attachment.record.is_a?(Decidim::Authorization) && attachment.name.to_s == "verification_attachment"
+        return decidim.private_download_path(Decidim::PrivateDownload.for(attachment.record, attachment_name: attachment.name).token)
+      end
+
       return Rails.application.routes.url_helpers.rails_blob_url(attachment, only_path: true) if attachment.is_a? ActiveStorage::Blob
 
       if attachment.try(:attached?)

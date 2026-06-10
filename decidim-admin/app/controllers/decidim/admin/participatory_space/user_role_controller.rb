@@ -21,7 +21,7 @@ module Decidim
         end
 
         def edit
-          @user_role = collection.find(params[:id])
+          @user_role = collection.find(params.expect(:id))
           enforce_permission_to :update, authorization_scope, user_role: @user_role
           @form = resource_form.from_model(@user_role.user)
         end
@@ -38,13 +38,13 @@ module Decidim
 
             on(:invalid) do
               flash[:alert] = I18n.t("create.error", scope: i18n_scope)
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
 
         def update
-          @user_role = collection.find(params[:id])
+          @user_role = collection.find(params.expect(:id))
           enforce_permission_to :update, authorization_scope, user_role: @user_role
           @form = resource_form.from_params(params)
 
@@ -56,13 +56,13 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("update.error", scope: i18n_scope)
-              render :edit, status: :unprocessable_entity
+              render :edit, status: :unprocessable_content
             end
           end
         end
 
         def destroy
-          @user_role = collection.find(params[:id])
+          @user_role = collection.find(params.expect(:id))
           enforce_permission_to :destroy, authorization_scope, user_role: @user_role
 
           destroy_command.call(@user_role, current_user) do
@@ -74,7 +74,7 @@ module Decidim
         end
 
         def resend_invitation
-          @user_role = collection.find(params[:id])
+          @user_role = collection.find(params.expect(:id))
           enforce_permission_to :invite, authorization_scope, user_role: @user_role
 
           InviteUserAgain.call(@user_role.user, "invite_admin") do

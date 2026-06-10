@@ -12,14 +12,11 @@ module Decidim
         return {} if current_participatory_space.blank?
         return super unless current_participatory_space.is_a?(Decidim::Assembly)
 
-        dropdown_cell = current_participatory_space_manifest.breadcrumb_cell
-
         items = current_participatory_space.ancestors.map do |participatory_space|
           {
             label: participatory_space.title,
             url: Decidim::ResourceLocatorPresenter.new(participatory_space).path,
             active: false,
-            dropdown_cell:,
             resource: participatory_space
           }
         end

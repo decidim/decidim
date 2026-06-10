@@ -14,6 +14,8 @@ module Decidim
 
       delegate :email, :name, to: :user
 
+      validates :user, uniqueness: { scope: [:participatory_space_id, :participatory_space_type] }
+
       scope :by_participatory_space, ->(participatory_space) { where(participatory_space_id: participatory_space.id, participatory_space_type: participatory_space.class.to_s) }
       scope :published, -> { where(published: true) }
 
@@ -40,7 +42,7 @@ module Decidim
       def self.ransackable_attributes(auth_object = nil)
         return [] unless auth_object&.admin?
 
-        %w(name nickname email invitation_accepted_at last_sign_in_at invitation_sent_at role)
+        %w(name nickname email invitation_accepted_at last_sign_in_at invitation_sent_at role published)
       end
 
       def self.ransackable_associations(_auth_object = nil)

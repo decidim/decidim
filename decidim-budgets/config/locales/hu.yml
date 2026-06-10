@@ -68,7 +68,6 @@ hu:
             invalid: Probléma történt a projekt létrehozása során.
             success: Projekt létrehozása sikeres.
           edit:
-            title: Projekt szerkesztése
             update: Frissítés
           index:
             actions: Műveletek
@@ -87,7 +86,6 @@ hu:
             update_budget_button: A projekt költségvetésének frissítése
           new:
             create: Létrehozás
-            title: Új projekt
           update:
             invalid: Probléma történt a projekt frissítése során.
             success: Projekt frissítése sikeres.
@@ -103,7 +101,6 @@ hu:
           new:
             create: Javaslatok importálása projektekbe
             default_budget: Alapértelmezett költségvetés
-            import_all_accepted_proposals: Minden elfogadott javaslat importálása
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
             origin_component_id: A komponens származása
             select_component: Válassz ki egy elemet

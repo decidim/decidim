@@ -30,7 +30,7 @@ module Decidim
         context "when registration_types is present" do
           it "does not raise an error" do
             get :index, params: { conference_slug: conference.slug, locale: I18n.locale }
-            assert_response :success
+            expect(response).to have_http_status(:success)
           end
         end
 
@@ -49,7 +49,7 @@ module Decidim
 
             it "does not raise an error" do
               get :index, params: { conference_slug: conference.slug, locale: I18n.locale }
-              assert_response :success
+              expect(response).to have_http_status(:success)
             end
           end
         end

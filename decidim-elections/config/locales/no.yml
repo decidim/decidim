@@ -1,4 +1,9 @@
 "no":
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Valg
+        other: Valg
   decidim:
     admin:
       menu:
@@ -68,7 +73,3 @@
           title: Bekreft stemmen din
         question:
           next: Neste
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Lukk

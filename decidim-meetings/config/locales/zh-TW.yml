@@ -110,7 +110,6 @@ zh-TW:
           success: 成功複製會議。
         new:
           copy: 複製
-          title: 複製會議
     components:
       meetings:
         actions:
@@ -250,7 +249,6 @@ zh-TW:
             non_user: 不存在的參與者。
             select_user: 選擇參與者
           index:
-            invite_attendee: 邀請的與會者
             invites: 邀請
             registrations_disabled: 你無法邀請參加者，因為註冊已被禁用。
         meeting_closes:
@@ -321,7 +319,6 @@ zh-TW:
               other: 已有 %{count} 個註冊。
             reserved_slots_help: 若您沒有保留名額，請將其設為0。
             reserved_slots_less_than: 必須小於或等於 %{count}
-            title: 註冊
           update:
             invalid: 儲存註冊設定時出現問題。
             success: 會議註冊設定已成功保存。

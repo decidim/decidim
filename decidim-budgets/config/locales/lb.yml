@@ -17,6 +17,7 @@ lb:
       actions:
         edit: Bearbeiten
         import: Vorschläge in Projekte importieren
+        new_project: Neues Projekt
         preview: Vorschau
         title: Aktionen
       admin:
@@ -40,7 +41,6 @@ lb:
             name: Projekt
         projects:
           edit:
-            title: Projekt bearbeiten
             update: Aktualisieren
           index:
             finished_orders: Abgeschlossene Stimmen
@@ -49,7 +49,6 @@ lb:
             title: Projekte
           new:
             create: Erstellen
-            title: Neues Projekt
         proposals_imports:
           new:
             create: Importieren Sie Vorschläge in Projekte

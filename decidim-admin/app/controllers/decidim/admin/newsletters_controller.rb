@@ -7,6 +7,7 @@ module Decidim
       include Decidim::NewslettersHelper
       include Decidim::Admin::NewslettersHelper
       include Paginable
+
       helper_method :newsletter, :recipients_count_query, :content_block, :selected_options, :newsletter_params
 
       def index
@@ -31,7 +32,7 @@ module Decidim
         NewsletterMailer.newsletter(current_user, newsletter).deliver_later
         flash[:notice] = I18n.t("newsletters.send_to_user.sent_successfully", scope: "decidim.admin", email: current_user.email)
 
-        redirect_back fallback_location: newsletters_path
+        redirect_back_or_to(newsletters_path)
       end
 
       def preview
@@ -44,7 +45,7 @@ module Decidim
 
       def create
         enforce_permission_to :create, :newsletter
-        @form = form(NewsletterForm).from_params(params)
+        @form = form(NewsletterForm).from_params(params, content_block:)
         @form.images = images_block_context unless has_images_block_context?
 
         CreateNewsletter.call(@form, content_block) do
@@ -55,8 +56,9 @@ module Decidim
 
           on(:invalid) do |newsletter|
             @newsletter = newsletter
+            @form.images = content_block.images_container
             flash.now[:error] = I18n.t("newsletters.create.error", scope: "decidim.admin")
-            render action: :new, status: :unprocessable_entity
+            render action: :new, status: :unprocessable_content
           end
         end
       end
@@ -68,7 +70,7 @@ module Decidim
 
       def update
         enforce_permission_to(:update, :newsletter, newsletter:)
-        @form = form(NewsletterForm).from_params(params)
+        @form = form(NewsletterForm).from_params(params, content_block:)
         @form.images = images_block_context unless has_images_block_context?
 
         UpdateNewsletter.call(newsletter, @form) do
@@ -80,7 +82,7 @@ module Decidim
           on(:invalid) do |newsletter|
             @newsletter = newsletter
             flash.now[:error] = I18n.t("newsletters.update.error", scope: "decidim.admin")
-            render action: :edit, status: :unprocessable_entity
+            render action: :edit, status: :unprocessable_content
           end
         end
       end
@@ -128,12 +130,12 @@ module Decidim
 
           on(:invalid) do
             flash.now[:error] = I18n.t("newsletters.deliver.error", scope: "decidim.admin")
-            render action: :select_recipients_to_deliver, status: :unprocessable_entity
+            render action: :select_recipients_to_deliver, status: :unprocessable_content
           end
 
           on(:no_recipients) do
             flash.now[:error] = I18n.t("newsletters.send.no_recipients", scope: "decidim.admin")
-            render action: :select_recipients_to_deliver, status: :unprocessable_entity
+            render action: :select_recipients_to_deliver, status: :unprocessable_content
           end
         end
       end
@@ -155,7 +157,7 @@ module Decidim
           :send_to_verified_users,
           :send_to_followers,
           :send_to_participants,
-          :send_to_private_members,
+          :send_to_members,
           verification_types: [],
           participatory_space_types: {
             assemblies: [:manifest_name, { ids: [] }],

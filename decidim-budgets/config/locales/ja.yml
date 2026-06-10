@@ -88,7 +88,7 @@ ja:
             invalid: プロジェクトの作成中に問題が発生しました。
             success: プロジェクトが正常に作成されました。
           edit:
-            title: プロジェクトを編集
+            title: '%{budget} のプロジェクトを編集'
             update: 更新
           index:
             actions: アクション
@@ -111,7 +111,7 @@ ja:
             title: 削除されたプロジェクト
           new:
             create: 作成
-            title: 新規プロジェクト
+            title: '%{budget} の新規プロジェクト'
           update:
             invalid: プロジェクトの更新中に問題が発生しました。
             success: プロジェクトを更新しました。
@@ -140,9 +140,10 @@ ja:
           new:
             create: プロジェクトへの提案をインポート
             default_budget: 既定の予算
-            import_all_accepted_proposals: すべての承認済みの提案をインポート
             no_components: この参加型スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
             origin_component_id: 元のコンポーネント
+            proposal_states: 提案状態
+            proposal_states_help: プロジェクトにインポートする提案状態を1つ以上選択してください。何も選択しない場合、このコンポーネントの提案のうち、公開済みかつ他の予算にインポートされていないすべての提案をインポートします。
             select_component: コンポーネントを選択してください
             title: プロジェクトに提案をインポート
         reminders:

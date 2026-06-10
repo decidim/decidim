@@ -13,8 +13,8 @@ describe "Conference partners" do
 
   context "when there are no partners" do
     it "the menu link is not shown" do
-      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
-      expect(page).to have_no_content("Partners")
+      visit decidim_conferences.conference_path(conference)
+      expect(page).to have_no_text("Partners")
     end
   end
 
@@ -23,32 +23,32 @@ describe "Conference partners" do
     let!(:collaborators) { create_list(:partner, 2, :collaborator, conference:) }
 
     it "the menu link is shown" do
-      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_path(conference)
 
       within "aside .conference__nav-container" do
-        expect(page).to have_content("Partners")
+        expect(page).to have_text("Partners")
         click_on "Partners"
       end
     end
 
     it "lists all conference partners" do
-      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_path(conference)
 
       within "#conference-partners-main_promotor" do
-        expect(page).to have_content("Organizers")
+        expect(page).to have_text("Organizers")
         expect(page).to have_css(".conference__grid-item", count: 2)
 
         main_promotors.each do |collaborator|
-          expect(page).to have_content(collaborator.name)
+          expect(page).to have_text(collaborator.name)
         end
       end
 
       within "#conference-partners-collaborator" do
-        expect(page).to have_content("Partners")
+        expect(page).to have_text("Partners")
         expect(page).to have_css(".conference__grid-item", count: 2)
 
         collaborators.each do |collaborator|
-          expect(page).to have_content(collaborator.name)
+          expect(page).to have_text(collaborator.name)
         end
       end
     end

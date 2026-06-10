@@ -30,7 +30,7 @@ module Decidim
           end
 
           describe "#message" do
-            it { expect(subject.message).to eq("is too short (under 15 characters), is too long") }
+            it { expect(subject.message).to eq("body: is too short (under 15 characters), title: is too long") }
           end
         end
 

@@ -37,7 +37,7 @@ module Decidim
       DownloadYourDataExportJob.perform_later(current_user)
 
       flash[:notice] = t("decidim.account.download_your_data_export.notice")
-      redirect_back(fallback_location: download_your_data_path)
+      redirect_back_or_to(download_your_data_path)
     end
 
     def download_file
@@ -50,7 +50,7 @@ module Decidim
         flash[:error] = t("decidim.account.download_your_data_export.export_expired")
         redirect_to download_your_data_path
       elsif private_export.file.attached?
-        redirect_to Rails.application.routes.url_helpers.rails_blob_url(private_export.file.blob, only_path: true)
+        redirect_to private_download_path(Decidim::PrivateDownload.for(private_export, attachment_name: :file).token)
       else
         flash[:error] = t("decidim.account.download_your_data_export.file_no_exists")
         redirect_to download_your_data_path

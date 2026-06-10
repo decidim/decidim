@@ -2,31 +2,79 @@ sk:
   activemodel:
     attributes:
       oauth_application:
+        name: Názov aplikácie OAuth
         organization_logo: Logo organizácie (štvorec)
+        organization_name: Organizácia
         organization_url: Odkaz na stránku organizácie 
         redirect_uri: Presmerovať URI
+        refresh_tokens: Obnovovacie tokeny
+        refresh_tokens_enabled: Obnovovacie tokeny povolené
+        scopes: Dostupné rozsahy
       organization:
         address: SMTP hostname
+        from_email: E-mailová adresa
+        from_label: Štítok
         password: Heslo
         port: Port
         user_name: Používateľské meno
+      organization_file_uploads:
+        allowed_content_types:
+          admin: MIME typy pre administrátora
+          default: Predvolené MIME typy
+        allowed_file_extensions:
+          admin: Prípony súborov pre administrátora
+          default: Predvolené prípony súborov
+          image: Prípony obrázkových súborov
+        maximum_file_size:
+          avatar: Veľkosť súboru avatara
+          default: Predvolená veľkosť súboru
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Presmerovacie URI musí byť SSL URI
+        organization:
+          attributes:
+            host:
+              invalid: je neplatný
+            password:
+              secret_key: Aby ste mohli uložiť toto pole, musíte definovať premennú prostredia SECRET_KEY_BASE
+            secondary_hosts:
+              invalid: je neplatný
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: Tajný kľúč je skrytý
+          hide_secret: Skryť tajný kľúč
+          secret_can_not_be_shown: tajný kľúč API je možné vidieť alebo skopírovať iba po vytvorení
+          show_secret: Zobraziť tajný kľúč
+          shown_secret: Tajný kľúč je zobrazený
+        api_users:
+          create: Vytvoriť
+          new: Nový používateľ API
+          remove: Odstrániť používateľa
         confirm_destroy: Naozaj chcete odstrániť?
+        confirm_refresh_api_secret: Naozaj chcete obnoviť tajný kľúč pre tohto používateľa API? Po obnovení bude starý tajný kľúč neplatný a už ho nebude možné použiť.
+        confirm_remove_api_user: Naozaj chcete odstrániť tohto používateľa API?
+        copied: Skopírované
+        copy_secret: Kopírovať tajný kľúč
+        copy_secret_clarification: Kopírovať tajný kľúč do schránky
         destroy: Odstrániť
         edit: Upraviť
+        new_admin: Nový administrátor
+        new_oauth_application: Nová aplikácia OAUTH
+        new_organization: Nová organizácia
+        refresh_secret: Obnoviť tajný kľúč
         save: Uložit
         title: Akcie
       admins:
         create:
           error: Pri tvorbe nového správcu nastala chyba.
+          success: Administrátor bol úspešne vytvorený.
+        destroy:
+          success: Administrátor bol úspešne odstránený.
         edit:
           title: Upraviť správcu
           update: Aktualizovať
@@ -37,13 +85,57 @@ sk:
           title: Nový správca
         update:
           error: Pri aktualizácii správcu nastala chyba.
+          success: Administrátor bol úspešne aktualizovaný.
+      api_user:
+        create:
+          error: Vytvorenie používateľa API zlyhalo.
+          success: Používateľ API bol úspešne vytvorený. Tajný kľúč pre používateľa je viditeľný iba po vytvorení. Pred opustením tejto stránky si ho skopírujte a bezpečne uložte!
+        destroy:
+          success: Používateľ API bol úspešne odstránený.
+        refresh:
+          error: Niečo sa pokazilo! Skúste to znova neskôr.
+          success: Tajný kľúč bol úspešne obnovený. Tajný kľúč pre používateľa je viditeľný iba po vytvorení. Pred opustením tejto stránky si ho skopírujte a bezpečne uložte!
+      api_users:
+        index:
+          explanation_html: |
+            <p>Používatelia API umožňujú vývojárom integrácií pridať do systému administratívne strojové používateľské účty. Títo strojoví používatelia môžu na platforme pôsobiť ako administrátori a vykonávať aktualizácie, ktoré by bežní administrátori vykonávali prostredníctvom administračného panela. Typickým prípadom použitia je externá platforma na správu, kde by automatizovaný skript vykonával administratívne úlohy s platformou bez toho, aby sa skutočný používateľ musel autentifikovať do systému. Napríklad automatizačný systém môže chcieť posielať odpovede na návrhy, v takom prípade potrebujeme integračného používateľa na vykonanie tejto úlohy v rámci tejto platformy.</p>
+            <p>Hlavným rozdielom medzi týmito účtami a bežnými účtami administrátorov je, že títo používatelia sú určení na používanie strojmi, a preto sú ich požiadavky na heslo odlišné. Títo používatelia nemusia pravidelne aktualizovať svoje heslo a zmena hesla účtu môže v prípade potreby prebehnúť riadeným spôsobom.</p>
+            <p>Tieto poverenia sú určené na používanie strojmi. Aplikácie určené pre účastníkov by mali byť integrované s <a href="%{oauth_link}">aplikáciami OAuth</a>.</p>
+          manage: Spravovať používateľov API
+        new:
+          select_organization: Vyberte svoju organizáciu
+          title: Vytvoriť nového používateľa API
+      dashboard:
+        show:
+          admins: Administrátori
+          current_organizations: Aktuálne organizácie
+          system_checks: Systémové kontroly
       default_pages:
         placeholders:
           content: Prosíme pridajte zmysluplný obsah na statickú stránku %{page} na paneli správcu.
+          summary: Pridajte zmysluplné zhrnutie na statickú stránku %{page} na paneli administrátora.
           title: Predvolený názov pre %{page}
+        terms-of-service: Podmienky služby
+      devise:
+        passwords:
+          edit:
+            change_your_password: Zmeniť heslo
+            minimum_characters: "(minimálne %{minimum} znakov)"
+          new:
+            forgot_your_password: Zabudli ste heslo
+            send_me_reset_password_instructions: Pošlite mi pokyny na obnovenie hesla
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Nedostali ste pokyny na potvrdenie?
+            did_not_receive_unlock_instructions?: Nedostali ste pokyny na odomknutie?
+            forgot_your_password?: Zabudli ste heslo?
+            log_in: Prihlásiť sa
+            sign_up: Vytvoriť účet
       menu:
         admins: Administrátori
+        api_credentials: Poverenia API
         dashboard: Hlavný panel
+        oauth_applications: Aplikácie OAuth
         organizations: Organizácie
       models:
         admin:
@@ -52,22 +144,162 @@ sk:
             email: E-mail
           validations:
             email_uniqueness: správca s touto e-mailovou adresou už existuje
+        api_user:
+          fields:
+            created_at: Vytvorené
+            key: Kľúč
+            name: Názov
+            organization: Organizácia
+            secret: Tajný kľúč
+          validations:
+            name_uniqueness: Používateľ API s týmto názvom už existuje.
+        oauth_application:
+          fields:
+            created_at: Vytvorené
+            name: Názov aplikácie OAuth
+            organization_name: Organizácia
         organization:
           actions:
             save_and_invite: Vytvoriť organizáciu a pozvať správcu
           fields:
+            content_security_policy: Zásady zabezpečenia obsahu
             created_at: Vytvorené
+            file_upload_settings: Nastavenia nahrávania súborov
             name: Meno
             omniauth_settings: Nastavenia Omniauth
             smtp_settings: Nastavenie SMTP
+      oauth_applications:
+        create:
+          error: Pri vytváraní tejto aplikácie sa vyskytol problém.
+          success: Aplikácia bola úspešne vytvorená.
+        destroy:
+          error: Pri odstraňovaní tejto aplikácie sa vyskytol problém.
+          success: Aplikácia bola úspešne odstránená.
+        edit:
+          save: Uložiť
+          title: Upraviť aplikáciu
+        form:
+          application_type:
+            confidential:
+              explanation: Aplikácie, ktoré sa dokážu bezpečne autentifikovať na autorizačnom serveri, napríklad tým, že dokážu udržať v tajnosti svoje zaregistrované klientske tajomstvo. Zvyčajne ide o aplikáciu bežiacu na serveri, kde je uložené klientske tajomstvo.
+              name: Dôverné
+            public:
+              explanation: Aplikácie, ktoré nemôžu používať zaregistrované klientske tajomstvá, ako napríklad aplikácie bežiace v prehliadači alebo na mobilnom zariadení.
+              name: Verejné
+          application_type_help_html: 'Typ klienta OAuth, ako je definovaný v <a href="%{client_type_link}" target="_blank">RFC 6749, časť 2.1</a>. Verejní klienti musia implementovať tok PKCE, ako je definovaný v <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
+          refresh_tokens_help_html: 'Obnovovacie tokeny (refresh tokens) sú užitočné v prípade, že token potrebuje dlhšiu životnosť, než aká je priradená prístupovému tokenu. Upozorňujeme, že <strong>obnovovacie tokeny by sa mali používať opatrne</strong>, pretože môžu oslabiť bezpečnosť vašich používateľov. '
+          scopes_explanation:
+            "api:read": Umožňuje používateľovi vykonávať operácie dopytovania (query) prostredníctvom GraphQL API.
+            "api:write": Umožňuje používateľovi vykonávať operácie mutácií (mutation) prostredníctvom GraphQL API.
+            profile: Poskytuje prístup k údajom vlastného profilu používateľa. Tento rozsah (scope) je potrebný len v prípade, že sa aplikácia OAuth používa iba ako poskytovateľ identity alebo autentifikačná služba.
+            user: Schopnosť konať ako prihlásený používateľ s daným tokenom počas volaní GraphQL API. Toto je potrebné pre všetky operácie api:write alebo api:read, ktoré vyžadujú informácie o aktuálnom používateľovi.
+          scopes_help_html: |
+            Vybrané rozsahy (scopes) budú k dispozícii pre pripojené aplikácie na vyžiadanie počas procesu autorizácie. Používateľovi sa pri prihlásení pomocou OAuth zobrazia podrobnosti o žiadosti o autorizáciu.
+            <br>
+            Rôzne rozsahy poskytujú rôzne funkcie pre autentifikovaného používateľa pomocou udelených prístupových tokenov.
+            <br>
+            <strong>Poznámka:</strong> Ak potrebujete iba autentifikovať používateľov vo vašich externých aplikáciách, potrebujete iba rozsah <strong>profile</strong>. Aplikácie interagujúce s Decidim API vyžadujú aj iné rozsahy.
+          select_organization: Vyberte organizáciu
+        index:
+          confirm_delete: Naozaj chcete odstrániť túto aplikáciu?
+          title: Aplikácie OAuth
+        new:
+          save: Uložiť
+          title: Nová aplikácia
+        update:
+          error: Pri aktualizácii tejto aplikácie sa vyskytol problém.
+          success: Aplikácia bola úspešne aktualizovaná.
       organizations:
+        advanced_settings:
+          hide: Skryť pokročilé nastavenia
+          show: Zobraziť pokročilé nastavenia
         create:
           error: Pri vytváraní novej organizácie došlo k chybe.
+          error_invitation: Pri vytváraní novej organizácie sa vyskytol problém. Skontrolujte meno administrátora organizácie.
+          success_html: |
+            <p>
+              Organizácia bola úspešne vytvorená.
+            </p>
+            <ol>
+              <li>Možno budete musieť aktualizovať kód vašej aplikácie, aby ste povolili požiadavky na %{host}, musíte pridať nasledujúce do vašej
+              konfigurácie prostredia (napr. <code>config/environment/production.rb</code>) alebo do vášho <code>config/application.rb</code>:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                Po dokončení budete mať prístup k vašej platforme cez <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                Na adresu <b>%{email}</b> sme poslali e-mail, ktorý musíte potvrdiť.
+              </li>
+            </ol>
+        csp_settings:
+          connect_src: Connect src
+          connect_src_hint: |
+            Smernica connect-src obmedzuje adresy URL, ktoré je možné načítať pomocou prvkov <script>.
+            Platforma pridá 'self', ale umožňuje vám pridať ďalšie. Ak si nie ste istí, nechajte pole prázdne.
+          default_src: Default src
+          default_src_hint: |
+            Smernica default-src je predvolená politika pre načítanie obsahu, ako sú JavaScript, obrázky, CSS, písma, požiadavky AJAX, rámce, médiá HTML5.
+            Platforma pridá "'self' 'unsafe-inline'", ale umožňuje vám pridať ďalšie. Ak si nie ste istí, nechajte pole prázdne.
+          font_src: Font src
+          font_src_hint: |
+            Smernica font-src obmedzuje adresy URL, ktoré je možné načítať pomocou @font-face.
+            Platforma pridá 'self', ale umožňuje vám pridať ďalšie. Ak si nie ste istí, nechajte pole prázdne.
+          frame_src: Frame src
+          frame_src_hint: |
+            Smernica frame-src obmedzuje adresy URL, ktoré je možné načítať pomocou prvkov <frame>, <iframe> a <object>.
+            Platforma pridá 'self', ale umožňuje vám pridať ďalšie. Ak si nie ste istí, nechajte pole prázdne.
+          img_src: Img src
+          img_src_hint: |
+            Smernica img-src obmedzuje adresy URL, ktoré je možné načítať pomocou prvkov <img>, <image>, <picture> a <svg>.
+            Platforma pridá 'self', ale umožňuje vám pridať ďalšie. Ak si nie ste istí, nechajte pole prázdne.
+          media_src: Media src
+          media_src_hint: |
+            Smernica media-src obmedzuje adresy URL, ktoré je možné načítať pomocou prvkov <video>, <audio> a <source>.
+            Platforma pridá 'self', ale umožňuje vám pridať ďalšie. Ak si nie ste istí, nechajte pole prázdne.
+          script_src: Script src
+          script_src_hint: |
+            Smernica script-src obmedzuje adresy URL, ktoré je možné načítať pomocou prvkov <script>.
+            Platforma pridá "'self' 'unsafe-inline' 'unsafe-eval'", ale umožňuje vám pridať ďalšie. Ak si nie ste istí, nechajte pole prázdne.
+          style_src: Style src
+          style_src_hint: |
+            Smernica style-src obmedzuje adresy URL, ktoré je možné načítať pomocou prvkov <style>.
+            Platforma pridá "'self' 'unsafe-inline'", ale umožňuje vám pridať ďalšie. Ak si nie ste istí, nechajte pole prázdne.
         edit:
+          confirm_resend_invitation: Naozaj chcete znova odoslať pozvánku?
+          resend_invitation: Znova odoslať pozvánku
           secondary_hosts_hint: Zadajte každý host na nový riadok
+          short_name_hint: Krátky názov používaný pre progresívnu webovú aplikáciu (PWA). Môže mať maximálne 12 znakov.
+          title: Upraviť organizáciu
+        file_upload_settings:
+          content_types:
+            admin_hint: Tieto typy MIME sú povolené pre nahrávanie v sekcii administrátora. Administrátori by si mali byť vedomí rizík spojených s nahrávaním niektorých formátov dokumentov, takže sa dá očakávať, že budú pri nahrávaní súborov opatrnejší.
+            default_hint: Tieto typy MIME sú predvolene povolené pre všetkých používateľov.
+            intro_html: Pre typy MIME môžete pridať zástupné znaky pomocou hviezdičky, napr. <code>image/*</code>.
+            title: Povolené typy MIME
+          file_extensions:
+            admin_hint: Tieto prípony súborov sú povolené pre nahrávanie v sekcii administrátora. Administrátori by si mali byť vedomí rizík spojených s nahrávaním niektorých formátov dokumentov, takže sa dá očakávať, že budú pri nahrávaní súborov opatrnejší.
+            default_hint: Tieto prípony súborov sú predvolene povolené pre všetkých používateľov.
+            image_hint: Tieto prípony súborov sú povolené pre akýkoľvek druh nahrávania obrázkov.
+            title: Povolené prípony súborov
+          file_sizes:
+            avatar_hint: Megabajty (MB). Tento limit veľkosti súboru sa používa na nahrávanie obrázkov avatarov.
+            default_hint: Megabajty (MB). Tento limit veľkosti súboru je predvolený a používa sa pre všetky nahrávania súborov, pokiaľ nie je uvedené inak.
+            title: Maximálne veľkosti súborov
+          intro: |
+            Pri zvažovaní zmeny týchto nastavení buďte mimoriadne opatrní. Čím menej povolíte, tým lepšie.
+            Povolenie konkrétnych prípon súborov alebo typov MIME môže vystaviť používateľov systému bezpečnostným rizikám a môže tiež ovplyvniť prístupnosť webovej stránky.
+        header_snippets_help_html: Toto pole použite na pridanie prvkov do hlavičky HTML (head). Najčastejšie sa používa na integráciu služieb tretích strán, ktoré vyžadujú dodatočný JavaScript alebo CSS. Môžete ho tiež použiť na pridanie ďalších meta značiek do HTML. Upozorňujeme, že toto sa vykreslí iba na verejných stránkach, nie v sekcii administrátora. Ak kód interaguje s externými API alebo nie je v súlade s bezpečnostnými pokynmi aplikácie, bude potrebné zmeniť politiku zabezpečenia obsahu (Content Security Policy). Prečítajte si viac <a href="https://docs.decidim.org/en/develop/customize/content_security_policy">na stránke dokumentácie</a> .
         index:
           title: Organizácie
         new:
+          default: Predvolené?
+          enabled: Povolené
+          locale: Jazyk
+          organization_admin_email_hint: Na túto adresu pošleme e-mail, aby ste ju mohli potvrdiť a nastaviť si heslo.
+          reference_prefix_hint: Referenčná predpona sa používa na jedinečnú identifikáciu zdrojov v celej organizácii.
+          secondary_hosts_hint: Každý z nich zadajte do nového riadka.
+          short_name_hint: Krátky názov používaný pre progresívnu webovú aplikáciu (PWA). Môže mať maximálne 12 znakov.
           title: Nová organizácia
         omniauth_settings:
           decidim:
@@ -87,14 +319,44 @@ sk:
           twitter:
             api_key: API kľúč
             api_secret: Tajný kľúč API
+        resend_invitation:
+          error: Pri odosielaní pozvánky sa vyskytol problém.
+          success: Pozvánka bola úspešne odoslaná.
+        smtp_settings:
+          fieldsets:
+            sender: Odosielateľ
+          instructions:
+            from_label: 'Odosielateľ e-mailu bude: "názov-vašej-organizácie <vasa-organizacia@example.org>". Nechajte prázdne, ak chcete použiť rovnaký názov, aký je definovaný pre organizáciu.'
+          placeholder:
+            from_email: vasa-organizacia@example.org
+            from_label: názov-vašej-organizácie
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
           success: Organizácia úspešne aktualizovaná.
         users_registration_mode:
           disabled: Môžete pristupovať iba pomocou externého účtu
+          enabled: Povoliť účastníkom vytvoriť si účet a prihlásiť sa
+          existing: Nepovoliť účastníkom vytvoriť si účet, ale povoliť prihlásenie existujúcim účastníkom
       shared:
         notices:
           no_organization_warning_html: Musíte vytvoriť organizáciu, aby ste mohli začať. Prečítajte si %{guide}, než začnete.
           our_getting_started_guide: našeho sprievodcu Ako začať
+        organizations_list:
+          confirm_resend_invitation: Naozaj chcete znova odoslať pozvánku?
+          resend_invitation: Znova odoslať pozvánku
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Dokumentácia Decidim
+          error: Fronta ActiveJob nie je nakonfigurovaná. Toto nie je odporúčané nastavenie pre produkciu. Prečítajte si viac na %{error_extra}.
+          success: Fronta ActiveJob je správne nakonfigurovaná.
+        secret_key:
+          error: 'Tajný kľúč nie je správne definovaný. Uložte ho do premennej prostredia SECRET_KEY_BASE a reštartujte server: %{error_extra}'
+          success: Tajný kľúč je správne nakonfigurovaný.
       titles:
         dashboard: Hlavný panel
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Odhlásiť sa

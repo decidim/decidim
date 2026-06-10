@@ -11,10 +11,11 @@ shared_examples "manage projects" do
     it_behaves_like "having a rich text editor", "new_project", "full"
 
     it "displays the proposals picker" do
-      expect(page).to have_content("Proposals")
+      expect(page).to have_text("Proposals")
     end
 
     context "when geocoding is enabled" do
+      let(:geocoded_success_message) { "Project successfully created." }
       let(:address) { "Some address" }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
@@ -34,12 +35,12 @@ shared_examples "manage projects" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Project successfully created.")
 
         within "table" do
           project = Decidim::Budgets::Project.last
 
-          expect(page).to have_content("Make decidim great again")
+          expect(page).to have_text("Make decidim great again")
           expect(translated(project.description)).to eq("<p>Decidim is great but it can be better</p>")
         end
       end
@@ -73,7 +74,7 @@ shared_examples "manage projects" do
       end
 
       it "does not display the proposal picker" do
-        expect(page).to have_no_content "Choose proposals"
+        expect(page).to have_no_text "Choose proposals"
       end
     end
   end
@@ -96,10 +97,10 @@ shared_examples "manage projects" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Project successfully updated.")
 
     within "table" do
-      expect(page).to have_content("My new title")
+      expect(page).to have_text("My new title")
     end
   end
 
@@ -134,8 +135,8 @@ shared_examples "manage projects" do
 
     it "shows the order count" do
       visit current_path
-      expect(page).to have_content("Finished votes: 10")
-      expect(page).to have_content("Pending votes: 5")
+      expect(page).to have_text("Finished votes: 10")
+      expect(page).to have_text("Pending votes: 5")
     end
   end
 
@@ -156,14 +157,14 @@ shared_examples "manage projects" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Project successfully created.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
-      expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+      expect(page).to have_text(translated(attributes[:title]))
+      expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
     end
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} project")
+    expect(page).to have_text("created the #{translated(attributes[:title])} project")
   end
 
   context "when soft deleting a project" do
@@ -179,10 +180,10 @@ shared_examples "manage projects" do
         accept_confirm { click_on "Move to trash" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Project successfully deleted.")
 
       within "table" do
-        expect(page).to have_no_content(translated(project2.title))
+        expect(page).to have_no_text(translated(project2.title))
       end
     end
   end
@@ -207,14 +208,14 @@ shared_examples "manage projects" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Project successfully updated.")
 
       within "table" do
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} project")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} project")
     end
 
     it "removes proposals from project", :slow do
@@ -233,7 +234,7 @@ shared_examples "manage projects" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Project successfully updated.")
       expect(project.linked_resources(:proposals, "included_proposals").count).to eq(1)
       expect(project.linked_resources(:proposals, "included_proposals").first.title).to eq(not_removed_projects_title)
     end
@@ -267,11 +268,11 @@ shared_examples "manage projects" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Project successfully created.")
 
       within "table" do
-        expect(page).to have_content("My project")
-        expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+        expect(page).to have_text("My project")
+        expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
       end
     end
   end

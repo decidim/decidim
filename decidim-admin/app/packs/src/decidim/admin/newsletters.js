@@ -9,7 +9,7 @@ document.addEventListener("turbo:load", () => {
     sendToVerifiedUsers: document.querySelector("#newsletter_send_to_verified_users"),
     sendToParticipants: document.querySelector("#newsletter_send_to_participants"),
     sendToFollowers: document.querySelector("#newsletter_send_to_followers"),
-    sendToPrivateMembers: document.querySelector("#newsletter_send_to_private_members"),
+    sendToMembers: document.querySelector("#newsletter_send_to_members"),
     verificationTypesSelect: document.querySelector("#verification_types_for_select"),
     participatorySpacesForSelect: document.querySelector("#participatory_spaces_for_select"),
     deliverButton: document.querySelector("#deliver-button"),
@@ -24,7 +24,7 @@ document.addEventListener("turbo:load", () => {
     checkboxes: [
       selectors.sendToParticipants,
       selectors.sendToFollowers,
-      selectors.sendToPrivateMembers
+      selectors.sendToMembers
     ].filter(Boolean)
   };
 

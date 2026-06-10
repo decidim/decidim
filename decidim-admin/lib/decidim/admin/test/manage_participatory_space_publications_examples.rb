@@ -20,11 +20,11 @@ shared_examples "manage participatory space publications" do
     end
 
     it "publishes it" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout(publish_callout_message)
 
       visit public_collection_path
 
-      expect(page).to have_content(translated_attribute(participatory_space.title))
+      expect(page).to have_text(translated_attribute(participatory_space.title))
     end
   end
 
@@ -50,11 +50,11 @@ shared_examples "manage participatory space publications" do
         click_on "Unpublish"
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout(unpublish_callout_message)
 
       visit public_collection_path
 
-      expect(page).to have_content("The page you are looking for cannot be found")
+      expect(page).to have_text("The page you are looking for cannot be found")
     end
   end
 end

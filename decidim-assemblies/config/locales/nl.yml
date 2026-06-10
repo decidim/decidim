@@ -30,7 +30,6 @@ nl:
         participatory_processes_ids: Verwante inspraakprocessen
         participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
-        private_space: Privé ruimte
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         purpose_of_action: Doelstelling
@@ -78,12 +77,9 @@ nl:
         edit:
           update: Bijwerken
         index:
-          private: Privé
-          public: Openbaar
           published: Gepubliceerd
         new:
           create: creëren
-          title: Nieuwe bijeenkomst
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze groep.
           success: Groep is succesvol bijgewerkt.
@@ -94,7 +90,6 @@ nl:
         new:
           import: Importeren
           select: Selecteer welke gegevens u wilt importeren
-          title: Importeer assemblage
       assembly_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze groep.
@@ -110,8 +105,6 @@ nl:
           success: Gebruiker is met succes uit deze groep verwijderd.
         edit:
           update: Bijwerken
-        index:
-          assembly_admins_title: Groep-admins
         new:
           create: Aanmaken
         update:
@@ -130,7 +123,6 @@ nl:
         assembly:
           fields:
             created_at: Aangemaakt op
-            private: Privaat
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
@@ -152,9 +144,6 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
-      titles:
-        assemblies: Groepen
-        assemblies_types: Groepstype
     admin_log:
       assembly:
         create: "%{user_name} heeft de groep %{resource_name} gemaakt"
@@ -184,7 +173,6 @@ nl:
       admin:
         assemblies:
           form:
-            announcement_help: De tekst die je hier invoert, wordt direct onder de groepsinformatie aan de gebruiker getoond.
             duration: Duur
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
             images: Afbeeldingen
@@ -195,6 +183,9 @@ nl:
             select_parent_assembly: Selecteer de hoofdgroep
             social_handlers: sociaal
             title: Algemene informatie
+        assembly_imports:
+          form:
+            document_legend: Document toevoegen
         assembly_members:
           form:
             explanation: 'Eigenschappen afbeelding:'
@@ -211,9 +202,6 @@ nl:
             all: Alle
         show:
           title: Over deze groep
-      assembly_members:
-        index:
-          members: Leden
       content_blocks:
         highlighted_assemblies:
           name: Gemarkeerde groepen
@@ -233,17 +221,9 @@ nl:
         working_group: Werkgroep
       index:
         title: Groepen
-      pages:
-        user_profile:
-          member_of:
-            member_of: Lid van
       show:
         duration: Duur
-        private_space: Dit is een privé event
         social_networks_title: Bezoek groep op
-    assembly_members:
-      index:
-        title: Leden
     events:
       assemblies:
         create_assembly_member:
@@ -267,8 +247,6 @@ nl:
       value_types:
         assembly_presenter:
           not_found: 'De groep is niet gevonden in de database (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Dit type groep is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Groepen
     participatory_processes:

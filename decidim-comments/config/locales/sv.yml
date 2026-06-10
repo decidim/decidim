@@ -27,7 +27,7 @@ sv:
             end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
       comment_thread:
-        accessibility_label: Kommentartråden startad av %{full_name} den %{date}
+        accessibility_label: Kommentartråd startad av %{full_name}, %{date}
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
@@ -48,7 +48,7 @@ sv:
         form:
           body:
             label: Kommentera
-            placeholder: Vad tycker du om detta?
+            placeholder: Vad tycker du?
           form_error: Texten är obligatorisk och får inte vara längre än %{length} tecken.
           submit_reply: Publicera svar
           submit_root_comment: Publicera kommentar
@@ -67,9 +67,6 @@ sv:
         alignment:
           against: Mot
           in_favor: För
-        answers:
-          one: "%{count} svar"
-          other: "%{count} svar"
         cancel_reply: Avbryt svar
         comment_label: Kommentar %{comment_id}
         comment_label_reply: Kommentar %{comment_id} (svar på kommentar %{parent_comment_id})
@@ -103,7 +100,7 @@ sv:
         sort_by: 'Sortera efter: '
       comment_order_selector:
         order:
-          best_rated: Bästa betyg
+          best_rated: Högst betyg
           most_discussed: Mest diskuterade
           older: Äldsta
           recent: Senaste
@@ -123,6 +120,9 @@ sv:
           other: "%{count} kommentarer"
         top_comment_label: Mest stöd
       down_vote_button:
+        label:
+          one: Ogilla-knapp. %{count} ogillar
+          other: Ogilla-knapp. %{count} ogillar
         text: Jag instämmer inte i denna kommentar
       edit_comment_modal_form:
         close: Stäng
@@ -133,6 +133,9 @@ sv:
           submit: Skicka
         title: Redigera din kommentar
       up_vote_button:
+        label:
+          one: Gilla-knapp. %{count} gillar
+          other: Gilla-knapp. %{count} gillar
         text: Jag instämmer i denna kommentar
     download_your_data:
       help:
@@ -159,12 +162,12 @@ sv:
           email_intro: "%{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått den här notisen eftersom du följer %{author_name}. Du kan avfölja den här användaren från deras profilsida.
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
-          notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} har kommenterats. Du kan läsa kommentaren på den här sidan:"
           email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan avfölja det från föregående länk.
           email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
-          notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name}</a> i <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Din kommentar i "%{resource_title}" har blivit nedröstad. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
           email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
@@ -179,12 +182,12 @@ sv:
           email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.
           email_subject: "%{author_name} har svarat din kommentar i %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat din kommentar i <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: <a href="%{author_path}">%{author_name}</a> besvarade din kommentar i <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Du har nämnts
           email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
-          notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name}</a>
   errors:
     messages:
       cannot_have_comments: kan inte ha kommentarer

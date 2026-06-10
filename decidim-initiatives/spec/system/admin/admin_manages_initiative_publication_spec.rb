@@ -45,11 +45,11 @@ describe "Admin manages initiative publication" do
           click_on "OK"
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_callout("The initiative has been successfully published.")
 
         visit public_collection_path
 
-        expect(page).to have_content title
+        expect(page).to have_text title
       end
     end
 
@@ -76,11 +76,11 @@ describe "Admin manages initiative publication" do
           click_on "OK"
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_callout("The initiative has been successfully unpublished.")
 
         visit public_collection_path
 
-        expect(page).to have_no_content title
+        expect(page).to have_no_text title
       end
     end
   end
@@ -98,11 +98,11 @@ describe "Admin manages initiative publication" do
     end
 
     visit decidim.last_activities_path
-    expect(page).to have_content("New initiative: #{title}")
+    expect(page).to have_text("New initiative: #{title}")
 
     within "#filters" do
       find("a", class: "filter", text: "Initiative", match: :first).click
     end
-    expect(page).to have_content("New initiative: #{title}")
+    expect(page).to have_text("New initiative: #{title}")
   end
 end

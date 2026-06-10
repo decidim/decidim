@@ -5,13 +5,17 @@ import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
 export default (ctx) => {
   const { getControl, setContent } = contextHelpers(ctx);
 
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>$/g, "").trim();
+  };
+
   describe("codeBlock", () => {
     it("creates a new code block", async () => {
       await setContent("Hello, world!");
       selectContent(ctx.prosemirror);
       getControl("codeBlock").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<pre><code>Hello, world!</code></pre>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<pre><code>Hello, world!</code></pre>");
     });
 
     it("makes existing code block content as normal text", async () => {
@@ -20,7 +24,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "pre code");
       getControl("codeBlock").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>");
     });
   });
 
@@ -30,7 +34,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror);
       getControl("blockquote").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<blockquote><p>Hello, world!</p></blockquote>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<blockquote><p>Hello, world!</p></blockquote>");
     });
 
     it("makes existing blockquote content as normal text", async () => {
@@ -39,7 +43,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "blockquote p");
       getControl("blockquote").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>");
     });
   });
 };

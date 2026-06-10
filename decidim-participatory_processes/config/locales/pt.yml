@@ -82,15 +82,12 @@ pt:
         unpublish: Remover publicação
       menu:
         participatory_process_groups: Grupos do processo
-        participatory_process_groups_submenu:
-          info: Informação
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
           attachment_files: Ficheiros
           attachments: Anexos
           components: Componentes
-          info: Sobre este processo
           moderations: Moderações
           process_admins: Administradores de processo
           steps: Fases
@@ -98,7 +95,6 @@ pt:
         participatory_process:
           fields:
             created_at: Criado em
-            private: Privado
             published: Publicado
             title: Título
           name: Processo participativo
@@ -130,11 +126,9 @@ pt:
         destroy:
           success: Grupo do processo participativo eliminado corretamente.
         edit:
-          title: Editar grupo do processo
           update: Atualizar
         new:
           create: Criar
-          title: Novo grupo do processo
         update:
           error: Ocorreu um problema ao atualizar este grupo do processo participativo.
           success: Grupo do processo participativo atualizado corretamente.
@@ -145,7 +139,6 @@ pt:
         new:
           import: Importar
           select: Selecione os dados que pretende importar
-          title: Importar processo participativo
       participatory_process_publications:
         create:
           error: Ocorreu um problema ao publicar este processo participativo.
@@ -165,18 +158,13 @@ pt:
         destroy:
           success: Fase do processo participativo eliminada corretamente.
         edit:
-          title: Editar a fase do processo participativo
           update: Atualizar
-        index:
-          steps_title: Fases
         new:
           create: Criar
-          title: Nova fase de processo participativo
         ordering:
           error: Ocorreu um problema ao reordenar estas fases do processo participativo.
         update:
           error: Ocorreu um problema ao atualizar esta fase do processo participativo.
-          success: Fase participativa atualizada corretamente.
       participatory_process_user_roles:
         create:
           error: Ocorreu um problema ao adicionar um participante para este processo participativo.
@@ -184,13 +172,9 @@ pt:
         destroy:
           success: Administrador removido corretamente deste processo participativo.
         edit:
-          title: Atualizar administrador do processo participativo
           update: Atualizar
-        index:
-          process_admins_title: Administradores do processo participativo
         new:
           create: Criar
-          title: Novo administrador do processo participativo
         update:
           error: Ocorreu um problema ao atualizar um administrador para este processo participativo.
           success: Administrador atualizado corretamente neste processo participativo.
@@ -201,12 +185,9 @@ pt:
         edit:
           update: Atualizar
         index:
-          private: Privado
-          public: Público
           published: Publicado
         new:
           create: Criar
-          title: Novo processo participativo
         update:
           error: Ocorreu um problema ao atualizar este processo participativo.
           success: Processo participativo atualizado corretamente.
@@ -214,9 +195,6 @@ pt:
         create:
           error: Ocorreu um problema ao criar um novo grupo de processo participativo.
           success: Grupo de processo participativo criado corretamente.
-      titles:
-        participatory_process_groups: Grupos do processo participativo
-        participatory_processes: Processos participativos
       users:
         resend_invitation:
           error: Ocorreu um problema ao reenviar o convite.
@@ -304,7 +282,6 @@ pt:
             document_legend: Adicionar um documento
         participatory_processes:
           form:
-            announcement_help: O texto que insere aqui será mostrado ao utilizador logo abaixo das informações do processo.
             duration: Duração
             images: Imagens
             metadata: Metadados
@@ -345,7 +322,6 @@ pt:
           title: Sobre este processo
       show:
         belongs_to_group: Este processo pertence a
-        private_space: Este é um processo privado
         related_processes: Processos relacionados
     statistics:
       processes_count: Processos

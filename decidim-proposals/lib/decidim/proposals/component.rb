@@ -7,10 +7,6 @@ Decidim.register_component(:proposals) do |component|
   component.icon = "media/images/decidim_proposals.svg"
   component.icon_key = "chat-new-line"
 
-  component.on(:before_destroy) do |instance|
-    raise "Cannot destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
-  end
-
   component.on(:create) do |instance|
     admin_user = GlobalID::Locator.locate(instance.versions.first.whodunnit)
     Decidim::Proposals.create_default_states!(instance, admin_user)
@@ -39,6 +35,20 @@ Decidim.register_component(:proposals) do |component|
   component.permissions_class_name = "Decidim::Proposals::Permissions"
 
   POSSIBLE_SORT_ORDERS = %w(automatic random recent most_liked most_voted most_commented most_followed with_more_authors).freeze
+  WITH_MORE_AUTHORS_ORDER = "with_more_authors"
+  MOST_COMMENTED_ORDER = "most_commented"
+  MOST_LIKED_ORDER = "most_liked"
+
+  sort_order_choices = lambda do |context|
+    component = context[:component]
+    orders = POSSIBLE_SORT_ORDERS.dup
+
+    orders = orders.excluding(WITH_MORE_AUTHORS_ORDER) unless component && Decidim::Proposals::Proposal.with_more_authors_available?(component)
+    orders = orders.excluding(MOST_COMMENTED_ORDER) unless component && Decidim::Proposals::Proposal.most_commented_available?(component)
+    orders = orders.excluding(MOST_LIKED_ORDER) unless component && Decidim::Proposals::Proposal.most_liked_available?(component)
+
+    orders
+  end
 
   component.settings(:global) do |settings|
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
@@ -51,14 +61,13 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :threshold_per_proposal, type: :integer, default: 0, required: true
     settings.attribute :can_accumulate_votes_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
-    settings.attribute :default_sort_order, type: :select, default: "automatic", choices: ->(_context) { POSSIBLE_SORT_ORDERS }
+    settings.attribute :default_sort_order, type: :select, default: "automatic", choices: ->(context) { sort_order_choices.call(context) }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
-    settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
     settings.attribute :participatory_texts_enabled,
                        type: :boolean, default: false,
                        readonly: ->(context) { Decidim::Proposals::Proposal.where(component: context[:component]).any? }
@@ -85,7 +94,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :publish_answers_immediately, type: :boolean, default: true
     settings.attribute :answers_with_costs, type: :boolean, default: false
-    settings.attribute :default_sort_order, type: :select, include_blank: true, choices: ->(_context) { POSSIBLE_SORT_ORDERS }
+    settings.attribute :default_sort_order, type: :select, include_blank: true, choices: ->(context) { sort_order_choices.call(context) }
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
@@ -102,12 +111,6 @@ Decidim.register_component(:proposals) do |component|
     resource.reported_content_cell = "decidim/proposals/reported_content"
     resource.actions = %w(like vote amend comment vote_comment)
     resource.searchable = true
-  end
-
-  component.register_resource(:collaborative_draft) do |resource|
-    resource.model_class_name = "Decidim::Proposals::CollaborativeDraft"
-    resource.card = "decidim/proposals/collaborative_draft"
-    resource.reported_content_cell = "decidim/proposals/collaborative_drafts/reported_content"
   end
 
   component.register_stat :proposals_count,

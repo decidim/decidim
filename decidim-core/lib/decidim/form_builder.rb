@@ -45,14 +45,6 @@ module Decidim
     end
     # rubocop:enable Metrics/ParameterLists
 
-    def create_language_selector(locales, tabs_id, name)
-      if locales.count > 4
-        language_selector_select(locales, tabs_id, name)
-      else
-        language_tabs(locales, tabs_id, name)
-      end
-    end
-
     # Public: Generates a form field for each locale.
     #
     # type - The form field's type, like `text_area` or `text_field`
@@ -65,23 +57,11 @@ module Decidim
 
       tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
-      label_tabs = content_tag(:div, class: "label--tabs") do
-        field_label = label_i18n(name, options[:label] || label_for(name), required: options[:required])
+      error_on_locale = locales.find { |locale| error?(name_with_locale(name, locale)) }
 
-        language_selector = "".html_safe
-        language_selector = create_language_selector(locales, tabs_id, name) if options[:label] != false
+      label_tabs = translated_labels(name, options, tabs_id, error_on_locale)
 
-        safe_join [field_label, language_selector]
-      end
-
-      tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
-        locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-          tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
-          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id, "aria-hidden": tab_attr_aria_hidden_for(index)) do
-            send(type, name_with_locale(name, locale), options.merge(label: false))
-          end
-        end
-      end
+      tabs_content = translated_tabs(type, name, options, tabs_id, error_on_locale)
 
       safe_join [label_tabs, tabs_content]
     end
@@ -132,7 +112,7 @@ module Decidim
 
         tabs_panels = "".html_safe
         if options[:label] != false
-          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
+          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { controller: "tabs" }) do
             handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
                 title = I18n.t(".#{handler}", scope: "activemodel.attributes.#{object_name}")
@@ -366,11 +346,17 @@ module Decidim
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
-      ::Decidim::ViewModel.cell(
+      upload_cell = ::Decidim::ViewModel.cell(
         "decidim/upload_modal",
         self,
         options
       ).call
+
+      options_without_help = options.dup
+      options_without_help.delete(:help)
+      options_without_help.delete(:help_text)
+
+      upload_cell + error_and_help_text(attribute, options_without_help) + (options[:required] ? abide_error_element(attribute, for: "#{attribute}_validation") : "")
     end
 
     def max_file_size(record, attribute)
@@ -445,6 +431,44 @@ module Decidim
     end
 
     private
+
+    def translated_tabs(type, name, options, tabs_id, error_on_locale = nil)
+      content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
+        locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
+          tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
+
+          aria_hidden = (error_on_locale.present? ? !locale.eql?(error_on_locale) : index.positive?).to_s
+          css_class = if error_on_locale.present?
+                        tab_element_class_for("panel", locale.eql?(error_on_locale) ? 0 : 1)
+                      else
+                        tab_element_class_for("panel", index)
+                      end
+
+          string + content_tag(:div, class: css_class, id: tab_content_id, "aria-hidden": aria_hidden) do
+            send(type, name_with_locale(name, locale), options.merge(label: false))
+          end
+        end
+      end
+    end
+
+    def create_language_selector(locales, tabs_id, name, error_on_locale = nil)
+      if locales.count > 4
+        language_selector_select(locales, tabs_id, name, error_on_locale)
+      else
+        language_tabs(locales, tabs_id, name, error_on_locale)
+      end
+    end
+
+    def translated_labels(name, options, tabs_id, error_on_locale = nil)
+      content_tag(:div, class: "label--tabs") do
+        field_label = label_i18n(name, options[:label] || label_for(name), required: options[:required])
+
+        language_selector = "".html_safe
+        language_selector = create_language_selector(locales, tabs_id, name, error_on_locale) if options[:label] != false
+
+        safe_join [field_label, language_selector]
+      end
+    end
 
     def editor_hidden_options(name, options)
       hidden_options = extract_validations(name, options).merge(options)
@@ -615,8 +639,32 @@ module Decidim
              else
                text
              end
-
       label(attribute, text, options || {})
+    end
+
+    # render p tag instead of label for proposals "add a document"
+    def custom_paragraph(attribute, text, options, field_before_label: false, show_required: true)
+      return "".html_safe if text == false
+
+      required = options.is_a?(Hash) && options.delete(:required)
+      text = default_label_text(object, attribute) if text.nil? || text == true
+      if show_required
+        text +=
+          if required
+            required_indicator
+          else
+            required_for_attribute(attribute)
+          end
+      end
+
+      text = if field_before_label && block_given?
+               safe_join([yield, text.html_safe])
+             elsif block_given?
+               safe_join([text.html_safe, yield])
+             else
+               text
+             end
+      content_tag(:p, text.html_safe, class: "text-lg font-semibold")
     end
     # rubocop:enable Metrics/PerceivedComplexity
     # rubocop:enable Metrics/CyclomaticComplexity
@@ -626,19 +674,23 @@ module Decidim
     # does it.
     #
     # attribute - The name of the attribute of the field.
+    # options - A Hash of options:
+    #           :for - The ID of the input field this error is for (adds data-form-error-for attribute)
     #
     # Returns a String.
-    def abide_error_element(attribute)
+    def abide_error_element(attribute, options = {})
       defaults = []
       defaults << :"decidim.forms.errors.#{object.class.model_name.i18n_key}.#{attribute}"
       defaults << :"decidim.forms.errors.#{attribute}"
       defaults << :"forms.errors.#{attribute}"
       defaults << :"decidim.forms.errors.error"
 
-      options = { count: 1, default: defaults }
+      i18n_options = { count: 1, default: defaults }
 
-      text = I18n.t(defaults.shift, **options)
-      content_tag(:span, text, class: "form-error")
+      text = I18n.t(defaults.shift, **i18n_options)
+      tag_options = { class: "form-error" }
+      tag_options[:"data-form-error-for"] = options[:for] if options[:for]
+      content_tag(:span, text, tag_options)
     end
 
     def tab_element_class_for(type, index)
@@ -648,9 +700,7 @@ module Decidim
     end
 
     def tab_attr_aria_hidden_for(index)
-      return "false" if index.zero?
-
-      "true"
+      index.positive?.to_s
     end
 
     def locales
@@ -765,31 +815,38 @@ module Decidim
                   class: "columns")
     end
 
-    def language_selector_select(locales, tabs_id, name)
+    # i18n-tasks-use t('locale.name_with_error')
+    # i18n-tasks-use t('locale.name')
+    def language_selector_select(locales, tabs_id, name, error_on_locale = nil)
       content_tag(:div) do
-        content_tag(:select, id: tabs_id, class: "language-change") do
+        content_tag(:select, id: tabs_id, class: "language-change", data: { controller: "language-change" }) do
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-            title = if error?(name_with_locale(name, locale))
-                      I18n.with_locale(locale) { I18n.t("name_with_error", scope: "locale") }
-                    else
-                      I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
-                    end
+            title = locale.eql?(error_on_locale) ? "name_with_error" : "name"
+            title = I18n.with_locale(locale) { I18n.t(title, scope: "locale") }
             tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-            string + content_tag(:option, title, value: "##{tab_content_id}")
+            string + content_tag(:option, title, value: "##{tab_content_id}", selected: locale.eql?(error_on_locale))
           end
         end
       end
     end
 
-    def language_tabs(locales, tabs_id, name)
-      content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
+    def language_tabs(locales, tabs_id, name, error_on_locale = nil)
+      content_tag(:ul, class: "tabs tabs--lang", role: "tablist", id: tabs_id, data: { controller: "tabs" }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-          string + content_tag(:li, class: tab_element_class_for("title", index)) do
+          display = if error_on_locale.nil?
+                      index
+                    else
+                      locale.eql?(error_on_locale) ? 0 : 1
+                    end
+
+          css_class = tab_element_class_for("title", display)
+          string + content_tag(:li, class: css_class, role: "presentation") do
             title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
             element_class = nil
-            element_class = "is-tab-error" if error?(name_with_locale(name, locale))
+            element_class = "is-tab-error" if locale.eql?(error_on_locale)
             tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-            content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
+            content_tag(:a, title, href: "##{tab_content_id}", class: element_class, role: "tab", aria: { selected: display.zero? ? "true" : "false", controls: tab_content_id },
+                                   tabindex: display.zero? ? 0 : -1)
           end
         end
       end
@@ -832,6 +889,7 @@ module Decidim
 
       editor_options[:mention] = options.delete(:mentionable)
       editor_options[:emoji] = options.delete(:emojiable)
+      @template.append_javascript_pack_tag("decidim_emoji", defer: true) if editor_options[:emoji]
 
       { editor: editor_options, upload: upload_options }
     end

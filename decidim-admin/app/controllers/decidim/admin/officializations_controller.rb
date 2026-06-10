@@ -22,6 +22,8 @@ module Decidim
       def new
         enforce_permission_to :create, :officialization
 
+        return redirect_to(officializations_path, alert: I18n.t("officializations.create.no_user_found", scope: "decidim.admin")) unless user
+
         @form = form(OfficializationForm).from_model(user)
       end
 

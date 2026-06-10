@@ -18,23 +18,18 @@ module Decidim::Assemblies
     end
     let(:related_process_ids) { [participatory_processes.map(&:id)] }
     let(:hero_image) { nil }
-    let(:banner_image) { nil }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
 
-    let(:form) do
-      instance_double(
-        Admin::AssemblyForm,
-        current_user:,
-        invalid?: invalid,
+    let(:attributes) do
+      {
         title: { en: "title" },
         subtitle: { en: "subtitle" },
         weight: 1,
         slug: "slug",
         meta_scope: { en: "meta scope" },
         hero_image:,
-        banner_image:,
         promoted: nil,
         developer_group: { en: "developer group" },
         local_area: { en: "local" },
@@ -47,7 +42,7 @@ module Decidim::Assemblies
         taxonomizations:,
         parent: nil,
         has_members: false,
-        private_space: false,
+        access_mode: :open,
         errors:,
         participatory_processes_ids: related_process_ids,
         purpose_of_action: { en: "purpose of action" },
@@ -60,14 +55,21 @@ module Decidim::Assemblies
         closing_date: 5.days.from_now,
         closing_date_reason: { en: "closing date reason" },
         internal_organisation: { en: "internal organisation" },
-        is_transparent: true,
         special_features: { en: "special features" },
         twitter_handler: "lorem",
         facebook_handler: "lorem",
         instagram_handler: "lorem",
         youtube_handler: "lorem",
-        github_handler: "lorem",
-        announcement: { en: "announcement_lorem" }
+        github_handler: "lorem"
+      }
+    end
+
+    let(:form) do
+      instance_double(
+        Admin::AssemblyForm,
+        **attributes,
+        current_user:,
+        invalid?: invalid
       )
     end
     let(:invalid) { false }
@@ -80,6 +82,22 @@ module Decidim::Assemblies
       end
     end
 
+    context "when there is a trashed space with the same slug" do
+      let!(:trashed_space) { create(:assembly, :trashed, slug: "slug", organization:) }
+      let(:form) do
+        Admin::AssemblyForm.from_params(attributes)
+                           .with_context({
+                                           current_user:,
+                                           current_organization: organization
+                                         })
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
+      end
+    end
+
     context "when the assembly is not persisted" do
       let(:hero_image) do
         ActiveStorage::Blob.create_and_upload!(
@@ -88,7 +106,6 @@ module Decidim::Assemblies
           content_type: "image/jpeg"
         )
       end
-      let(:banner_image) { hero_image }
 
       before do
         allow(Decidim::ActionLogger).to receive(:log).and_return(true)
@@ -100,7 +117,6 @@ module Decidim::Assemblies
 
       it "adds errors to the form" do
         expect(errors).to receive(:add).with(:hero_image, "File resolution is too large")
-        expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
         subject.call
       end
     end
@@ -113,14 +129,12 @@ module Decidim::Assemblies
           content_type: "image/png"
         )
       end
-      let(:banner_image) { nil }
       let(:form) do
         Admin::AssemblyForm.from_params(
           title: { en: "title" },
           subtitle: { en: "subtitle" },
           slug: "slug",
           hero_image:,
-          banner_image:,
           description: { en: "description" },
           short_description: { en: "short_description" },
           organization:

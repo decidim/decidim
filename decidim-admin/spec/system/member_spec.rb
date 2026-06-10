@@ -8,7 +8,7 @@ describe "Admin checks pagination on members" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:assembly) { create(:assembly, organization:, has_members: true) }
 
-  let!(:members) { create_list(:assembly_member, 26, participatory_space: assembly, user: create(:user, organization: assembly.organization)) }
+  let!(:members) { create_list(:assembly_member, 26, participatory_space: assembly, organization: assembly.organization) }
 
   before do
     switch_to_host(organization.host)

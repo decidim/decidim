@@ -79,7 +79,7 @@ module Decidim
 
       class_option :storage, type: :string,
                              default: "local",
-                             desc: "Setup the Gemfile with the appropriate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure"
+                             desc: "Setup the Gemfile with the appropriate gem to handle a storage provider. Supported options are: local (default), s3, gcs"
 
       class_option :queue, type: :string,
                            default: "",
@@ -119,13 +119,14 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
+      def patch_production_file
+        gsub_file "config/environments/production.rb", /config\.action_mailer\.default_url_options = { host: "example.com" }$/,
+                  "# config.action_mailer.default_url_options = { host: \"example.com\" }"
+      end
+
       def patch_test_file
-        gsub_file "config/environments/test.rb", /config\.action_mailer\.default_url_options = { host: "www.example.com" }$/,
-                  "# config.action_mailer.default_url_options = { host: \"www.example.com\" }"
-        gsub_file "config/environments/test.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
-                  "# config.action_controller.raise_on_missing_callback_actions = false"
-        gsub_file "config/environments/development.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
-                  "# config.action_controller.raise_on_missing_callback_actions = false"
+        gsub_file "config/environments/test.rb", /config\.action_mailer\.default_url_options = { host: "example.com" }$/,
+                  "# config.action_mailer.default_url_options = { host: \"example.com\" }"
       end
 
       def disable_annotate_rendered_view_on_development
@@ -210,15 +211,17 @@ module Decidim
 
         providers = options[:storage].split(",")
 
-        abort("#{providers} is not supported as storage provider, please use local, s3, gcs or azure") unless (providers - %w(local s3 gcs azure)).empty?
+        abort("#{providers} is not supported as storage provider, please use local, s3 or gcs") unless (providers - %w(local s3 gcs)).empty?
         gsub_file "config/environments/production.rb",
                   /config.active_storage.service = :local/,
                   %{config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s}
 
         add_production_gems do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
-          gem "azure-storage-blob", require: false if providers.include?("azure")
-          gem "google-cloud-storage", "~> 1.11", require: false if providers.include?("gcs")
+          if providers.include?("gcs")
+            gem "google-cloud-storage", "~> 1.11", require: false
+            gem "multi_json"
+          end
         end
       end
 
@@ -345,18 +348,10 @@ module Decidim
 
       def production_environment
         gsub_file "config/environments/production.rb",
-                  /config.log_level = :info/,
-                  "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :info"
-
-        gsub_file "config/environments/production.rb",
                   %r{# config.asset_host = "http://assets.example.com"},
                   "config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
-        gsub_file "config/environments/production.rb", /# Log to STDOUT by default\n((.*)\n){3}/, <<~CONFIG
-          if ENV["RAILS_LOG_TO_STDOUT"].present?
-            config.logger = ActiveSupport::Logger.new(STDOUT)
-              .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-              .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
-          end
+        gsub_file "config/environments/production.rb", /config\.logger\s*=\s*ActiveSupport::TaggedLogging\.logger\(STDOUT\)/, <<~CONFIG
+          config.logger   = ActiveSupport::TaggedLogging.logger(STDOUT) if ENV["RAILS_LOG_TO_STDOUT"].present?
         CONFIG
       end
 
@@ -378,6 +373,10 @@ module Decidim
             end
           end
         CONFIG
+      end
+
+      def patch_controller
+        gsub_file "app/controllers/application_controller.rb", /\n  stale_when_importmap_changes/, ""
       end
 
       def authorization_handler

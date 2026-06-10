@@ -10,19 +10,24 @@ is the last version with the old design. This marks 18 months since the release
 of v0.28, giving ample time for organizations to upgrade to newer versions that
 include the latest design and features.
 
-| Version  | Supported          |
-|----------|--------------------|
-| 0.31.x   | :white_check_mark: |
-| 0.30.x   | :white_check_mark: |
-|  \<= 0.29.x   | :x:                |
+| Version       | Supported          |
+|---------------|--------------------|
+| 0.31.x        | :white_check_mark: |
+| 0.30.x        | :white_check_mark: |
+| \<= 0.29.x    | :x:                |
 
 ## Reporting a Vulnerability
 
 Security is very important to us.
 
 If you have any issue regarding security, please disclose the information
-responsibly by sending an email to security [at] decidim [dot] org and not by
-creating a github/metadecidim issue.
+responsibly through any of the following ways:
+
+1. Creating a new advisory through the [GitHub Security Advisory][GitHub Security Advisory]
+
+2. Sending an email to security [at] decidim [dot] org
+
+Please do not create a public github/metadecidim issue for security vulnerabilities.
 
 We appreciate your effort to make Decidim more secure.
 
@@ -53,3 +58,5 @@ be extended to 4 months.
 
 By adhering to this security policy, we aim to address security concerns
 effectively and responsibly in our open source software project.
+
+[GitHub Security Advisory]: https://github.com/decidim/decidim/security/advisories/new

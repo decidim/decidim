@@ -1,14 +1,23 @@
 cs:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Maximální počet možností
       token_csv:
         file: Soubor
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Volby
+        few: Voleb
+        many: Voleb
+        other: Volby
   decidim:
     admin:
       menu:
         elections_menu:
           basic_elections: Hlavní
-          election_census: Seznam obyvatel
+          election_census: Rejstřík obyvatel
           election_dashboard: Ovládací panel
           election_questions: Otázky
     components:
@@ -36,6 +45,7 @@ cs:
         census:
           edit:
             created_at: Vytvořeno v
+            identifier: Identifikátor uživatele
         dashboard:
           calendar:
             end_at: 'Čas ukončení:'
@@ -46,7 +56,7 @@ cs:
             start_election: Zahájit volbu
             title: Kalendář
           census:
-            title: Seznam obyvatel
+            title: Rejstřík obyvatel
           main:
             labels:
               calendar: Kalendář
@@ -64,13 +74,27 @@ cs:
           questions_table:
             answer: Odpovědi
             percentage: Procenta
+            total: Celkem
             votes: Hlasy
+            votes_count:
+              one: 1 hlas
+              few: "%{count} hlasy"
+              many: "%{count} hlasů"
+              other: "%{count} hlasů"
           results:
             not_started: Volba ještě nezačala.
+            per_question_waiting: Hlasování ještě není povoleno pro žádné otázky. Účastníci uvidí zprávu "Čekání na další otázku", dokud se neaktivujete alespoň jednou.
             publish_button: Publikovat výsledky
+            results_availability:
+              after_end: Všechny výsledky můžete publikovat po ukončení voleb. Výsledky zůstanou skryté, dokud je nezveřejníte ručně.
+              per_question: Musíte povolit hlasování a ručně publikovat výsledky pro každou otázku jednotlivě.
             start_question_button: Povolit hlasování
             title: Výsledky
           status:
+            allow_census_check_before_start: Povolit uživatelům zkontrolovat, zda mohou hlasovat před zahájením voleb
+            census: 'Registr obyvatel:'
+            results_availability:
+              real_time: Výsledky jsou dostupné v reálném čase
             title: Stav voleb
         elections:
           create:
@@ -112,10 +136,26 @@ cs:
         questions:
           edit_questions:
             new_question: Nová otázka
+            remove_question_confirm: Opravdu chcete odstranit tuto otázku?
             title: Otázky
+          form:
+            errors:
+              at_least_one_question: Je vyžadována alespoň jedna otázka.
+            form_description: Otázka musí mít alespoň dvě odpovědi, aby mohla jít k dalšímu kroku.
+          update:
+            invalid: Při aktualizaci otázek došlo k chybě.
+            success: Otázky byly úspěšně aktualizovány.
         statuses:
+          enable_voting:
+            invalid: Při povolování hlasování došlo k chybě.
+            success: Hlasování bylo úspěšně aktivováno.
+          end:
+            invalid: Vyskytl se problém s ukončením voleb.
           publish_results:
             invalid: Při publikování výsledků došlo k chybě.
+            success: Výsledky byly úspěšně zveřejněny.
+          start:
+            invalid: Vyskytl se problém při zahájení voleb.
           unknown: Neznámý stav
       admin_log:
         election:
@@ -123,6 +163,9 @@ cs:
           publish: "%{user_name} zveřejnil volby %{resource_name} v %{space_name}"
           restore: "%{user_name} obnovil volby %{resource_name} v %{space_name}"
           update: "%{user_name} aktualizoval volby %{resource_name} v %{space_name}"
+      census_checks:
+        show:
+          title: Byl jste úspěšně ověřen
       censuses:
         internal_users:
           already_have_an_account?: Již máte účet?
@@ -176,15 +219,18 @@ cs:
         questions:
           title: Volební otázky
         show:
+          check_census_button: Zkontrolujte, zda mohu hlasovat
           vote_button: Hlasovat
+          voted: Již jste hlasovali. Můžete hlasovat znovu, pouze vaše poslední hlasování bude započítáno.
         vote_results:
           subtitle:
             per_question: Výsledky jsou k dispozici na jednu otázku. Výsledky pro každou otázku můžete vidět po povolení hlasování a po zveřejnění výsledků.
           title: Výsledky
+          total: 'CELKEM:'
       models:
         election:
           fields:
-            census: Seznam obyvatel
+            census: Rejstřík obyvatel
             end_at: Čas ukončení
             start_at: Čas zahájení
             status: Stav
@@ -225,4 +271,4 @@ cs:
   layouts:
     decidim:
       election_votes_header:
-        exit: Zavřít
+        exit: Zavřít‏

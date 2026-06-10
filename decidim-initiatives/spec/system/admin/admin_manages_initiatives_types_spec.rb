@@ -38,14 +38,12 @@ describe "Admin manages initiatives types" do
 
       select("Online", from: "Signature type")
 
-      dynamically_attach_file(:initiatives_type_banner_image, Decidim::Dev.asset("city2.jpeg"))
-
       click_on "Create"
 
-      expect(page).to have_admin_callout("A new initiative type has been successfully created")
+      expect(page).to have_callout("A new initiative type has been successfully created")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} initiatives type")
+      expect(page).to have_text("created the #{translated(attributes[:title])} initiatives type")
     end
   end
 
@@ -76,10 +74,10 @@ describe "Admin manages initiatives types" do
 
       click_on "Update"
 
-      expect(page).to have_admin_callout("The initiative type has been successfully updated")
+      expect(page).to have_callout("The initiative type has been successfully updated")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} initiatives type")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} initiatives type")
     end
   end
 
@@ -92,7 +90,7 @@ describe "Admin manages initiatives types" do
         end
       end
 
-      expect(page).to have_admin_callout("The initiative type has been successfully removed")
+      expect(page).to have_callout("The initiative type has been successfully removed")
     end
   end
 end

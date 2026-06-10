@@ -2,12 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
-require "decidim/dev/version"
-
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.version = Decidim::Dev.version
+  version = "0.33.0.dev"
+  s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0-or-later"
@@ -33,43 +30,43 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "capybara", "~> 3.39"
-  s.add_dependency "decidim-admin", Decidim::Dev.version
-  s.add_dependency "decidim-api", Decidim::Dev.version
-  s.add_dependency "decidim-comments", Decidim::Dev.version
-  s.add_dependency "decidim-core", Decidim::Dev.version
-  s.add_dependency "decidim-generators", Decidim::Dev.version
-  s.add_dependency "decidim-verifications", Decidim::Dev.version
+  s.add_dependency "decidim-admin", version
+  s.add_dependency "decidim-api", version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-generators", version
+  s.add_dependency "decidim-verifications", version
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"
 
-  s.add_dependency "bullet", "~> 8.0.0"
-  s.add_dependency "byebug", "~> 11.0"
-  s.add_dependency "erb_lint", "~> 0.8.0"
+  s.add_dependency "bullet", "~> 8.1.0"
+  s.add_dependency "byebug", ">= 11", "< 14"
+  s.add_dependency "erb_lint", ">= 0.8", "< 0.10"
   s.add_dependency "i18n-tasks", "~> 1.0"
   s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
-  s.add_dependency "parallel_tests", "~> 4.2"
-  s.add_dependency "puma", "~> 6.5"
+  s.add_dependency "parallel_tests", ">= 4.2", "< 6.0"
+  s.add_dependency "puma", ">= 6.5", "< 9.0"
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec", "~> 3.12"
   s.add_dependency "rspec-cells", "~> 0.3.7"
   s.add_dependency "rspec-html-matchers", "~> 0.10"
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
-  s.add_dependency "rspec-rails", "~> 6.0"
+  s.add_dependency "rspec-rails", ">= 6", "< 9"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", "~> 1.78.0"
-  s.add_dependency "rubocop-capybara", "~> 2.22.0", ">= 2.22.1"
-  s.add_dependency "rubocop-factory_bot", "~> 2.27.0"
+  s.add_dependency "rubocop", ">= 1.78", "< 1.88"
+  s.add_dependency "rubocop-capybara", ">= 2.22.1", "< 2.24"
+  s.add_dependency "rubocop-factory_bot", ">= 2.27", "< 2.29"
   s.add_dependency "rubocop-faker", "~> 1.3", ">= 1.3.0"
   s.add_dependency "rubocop-graphql", "~> 1.5", ">= 1.5.6"
   s.add_dependency "rubocop-performance", "~> 1.25", ">= 1.25.0"
-  s.add_dependency "rubocop-rails", "~> 2.32.0", ">= 2.32.0"
+  s.add_dependency "rubocop-rails", ">= 2.32", "< 2.36"
   s.add_dependency "rubocop-rspec", "~> 3.0", ">= 3.6.0"
-  s.add_dependency "rubocop-rspec_rails", "~> 2.31.0"
+  s.add_dependency "rubocop-rspec_rails", ">= 2.31", "< 2.33"
   s.add_dependency "rubocop-rubycw", "~> 0.2.0"
-  s.add_dependency "rubocop-yard", "~> 1.0.0"
+  s.add_dependency "rubocop-yard", ">= 1.0", "< 1.3"
   s.add_dependency "selenium-webdriver", "~> 4.9"
   s.add_dependency "simplecov", "~> 0.22.0"
-  s.add_dependency "simplecov-cobertura", "~> 2.1.0"
+  s.add_dependency "simplecov-cobertura", "~> 3.1.0"
   s.add_dependency "spring", "~> 4.0"
   s.add_dependency "spring-watcher-listen", "~> 2.0"
   s.add_dependency "w3c_rspec_validators", "~> 0.3.0"

@@ -33,7 +33,7 @@ module Decidim::ParticipatoryProcesses
             current_organization: organization,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            private_space: my_process.private_space,
+            access_mode: my_process.access_mode,
             taxonomies: [taxonomy.id, taxonomies.first.id]
           }.merge(attachment_params)
         }
@@ -69,6 +69,19 @@ module Decidim::ParticipatoryProcesses
           my_process.reload
 
           expect(my_process.title["en"]).not_to eq("Foo title")
+        end
+      end
+
+      context "when there is a trashed space with the same slug" do
+        let!(:trashed_space) { create(:participatory_process, :trashed, :open, slug: "slug", organization:) }
+
+        let(:form) do
+          Admin::ParticipatoryProcessForm.from_params(params.deep_merge(participatory_process: { slug: "slug" })).with_context(context)
+        end
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:invalid)
+          expect(form.errors[:slug]).not_to be_empty
         end
       end
 

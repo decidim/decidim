@@ -19,7 +19,7 @@ module Decidim::Admin
       let(:verification_types) { [] }
       let(:send_to_followers) { false }
       let(:send_to_participants) { false }
-      let(:send_to_private_members) { false }
+      let(:send_to_members) { false }
       let(:participatory_space_types) { [] }
       let(:form_params) do
         {
@@ -28,7 +28,7 @@ module Decidim::Admin
           verification_types:,
           send_to_followers:,
           send_to_participants:,
-          send_to_private_members:,
+          send_to_members:,
           participatory_space_types:
         }
       end
@@ -303,8 +303,8 @@ module Decidim::Admin
         it_behaves_like "selective newsletter"
       end
 
-      context "when sending to private members" do
-        let(:send_to_private_members) { true }
+      context "when sending to members" do
+        let(:send_to_members) { true }
 
         context "when no spaces selected" do
           it "is not valid" do
@@ -313,7 +313,7 @@ module Decidim::Admin
         end
 
         context "when spaces selected" do
-          let!(:participatory_process) { create(:participatory_process, organization:, private_space: true) }
+          let!(:participatory_process) { create(:participatory_process, organization:) }
           let!(:component) { create(:dummy_component, organization:, participatory_space: participatory_process) }
           let!(:members) do
             create_list(:member, 30) do |member|

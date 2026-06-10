@@ -30,7 +30,7 @@ if ! gem list foreman -i --silent; then
   gem install foreman
 fi
 
-exec foreman start -f Procfile.dev "$@")
+exec foreman start -f Procfile.dev "$@"), force: true
 
       actions :chmod, "bin/dev", 0o755
     end

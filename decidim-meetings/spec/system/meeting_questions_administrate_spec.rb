@@ -29,8 +29,7 @@ describe "Meeting poll administration" do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
-      id: meeting.id,
-      locale: I18n.locale
+      id: meeting.id
     )
   end
   let(:body_multiple_option_question) do
@@ -71,13 +70,13 @@ describe "Meeting poll administration" do
     end
 
     it "shows the status of each question" do
-      expect(page).to have_content("Pending to be sent", count: 2)
+      expect(page).to have_text("Pending to be sent", count: 2)
     end
 
     it "allows to edit a question in the administrator" do
       open_first_question
 
-      expect(page).to have_content("This is the first question")
+      expect(page).to have_text("This is the first question")
       new_window = window_opened_by { click_on "Edit in the admin" }
 
       within_window new_window do
@@ -91,8 +90,8 @@ describe "Meeting poll administration" do
 
       within ".meeting-polls__admin-action-question" do
         click_on "Send"
-        expect(page).to have_content("Sent")
-        expect(page).to have_content("0 received responses")
+        expect(page).to have_text("Sent")
+        expect(page).to have_text("0 received responses")
       end
       expect(page).to have_css("[data-question='#{question_multiple_option.id}']", text: "Sent (open)")
     end
@@ -119,12 +118,12 @@ describe "Meeting poll administration" do
     it "allows to see question responses" do
       open_first_question
 
-      expect(page).to have_content("0%")
-      expect(page).to have_content("100%")
+      expect(page).to have_text("0%")
+      expect(page).to have_text("100%")
     end
 
     it "shows the status of each question" do
-      expect(page).to have_content("Sent (open)", count: 1)
+      expect(page).to have_text("Sent (open)", count: 1)
     end
 
     it "allows to close a published question" do
@@ -133,7 +132,7 @@ describe "Meeting poll administration" do
 
       within ".meeting-polls__admin-action-results" do
         click_on "Send"
-        expect(page).to have_content("Sent")
+        expect(page).to have_text("Sent")
       end
 
       question_multiple_option.reload

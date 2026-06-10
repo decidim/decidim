@@ -454,7 +454,7 @@ module Decidim::Meetings
       let!(:proposals) do
         proposals = build_list(:proposal, 5, component: proposal_component)
         proposals.each do |proposal|
-          proposal.coauthorships.clear
+          proposal.coauthorships.target.clear
           proposal.coauthorships.build(author: meeting)
           proposal.save!
         end
@@ -476,6 +476,56 @@ module Decidim::Meetings
           expect(Decidim::Proposals::Proposal).not_to receive(:where)
           expect(subject.authored_proposals).to eq([])
         end
+      end
+    end
+
+    describe "search index updates with linked meetings" do
+      let(:organization) { create(:organization, available_locales: [:en]) }
+      let(:space_a) { create(:participatory_process, organization:) }
+      let(:space_b) { create(:participatory_process, organization:) }
+      let(:component_a) { create(:meeting_component, participatory_space: space_a) }
+      let(:component_b) { create(:meeting_component, participatory_space: space_b) }
+      let!(:meeting_a) { create(:meeting, :published, component: component_a, title: { en: "Meeting A" }) }
+      let!(:meeting_b) { create(:meeting, :published, component: component_b, title: { en: "Meeting B" }) }
+
+      before do
+        create(:meeting_link, meeting: meeting_a, component: component_b)
+        create(:meeting_link, meeting: meeting_b, component: component_a)
+      end
+
+      it "does not enqueue descendants indexing indefinitely" do
+        clear_enqueued_jobs
+        clear_performed_jobs
+
+        perform_enqueued_jobs(only: [Decidim::FindAndUpdateDescendantsJob, Decidim::UpdateSearchIndexesJob]) do
+          meeting_a.update!(title: { en: "Updated meeting A" })
+        end
+
+        find_jobs = performed_jobs.count { |job| job[:job] == Decidim::FindAndUpdateDescendantsJob }
+        update_jobs = performed_jobs.count { |job| job[:job] == Decidim::UpdateSearchIndexesJob }
+
+        expect(find_jobs).to be <= Decidim::FindAndUpdateDescendantsJob::MAX_DEPTH + 1
+        expect(update_jobs).to be <= Decidim::FindAndUpdateDescendantsJob::MAX_DEPTH
+      end
+    end
+
+    describe ".ransackable_attributes" do
+      let(:admin) { build(:user, :admin, :confirmed) }
+
+      it "allows admins to sort by start_time" do
+        expect(described_class.ransackable_attributes(admin)).to include("start_time")
+      end
+
+      it "allows admins to sort by end_time" do
+        expect(described_class.ransackable_attributes(admin)).to include("end_time")
+      end
+
+      it "allows admins to sort by closed" do
+        expect(described_class.ransackable_attributes(admin)).to include("closed")
+      end
+
+      it "allows admins to sort by translated_title" do
+        expect(described_class.ransackable_attributes(admin)).to include("translated_title")
       end
     end
   end

@@ -35,7 +35,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conferences.create.error", scope: "decidim.admin")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
@@ -61,7 +61,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conferences.update.error", scope: "decidim.admin")
-              render :edit, layout: "decidim/admin/conference", status: :unprocessable_entity
+              render :edit, layout: "decidim/admin/conference", status: :unprocessable_content
             end
           end
         end
@@ -97,7 +97,7 @@ module Decidim
         end
 
         def conference_params
-          { id: params[:slug] }.merge(params[:conference].to_unsafe_h)
+          { id: params[:slug] }.merge(params.fetch(:conference, {}).to_unsafe_h)
         end
       end
     end

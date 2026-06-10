@@ -33,7 +33,7 @@
         <tbody>
           <% localized_locales.each do |locale| %>
             <tr>
-              <td><%= locale.name %></td>
+              <td><%= locale.name %> (<%= locale.id %>)</td>
               <td><%= check_box_tag "organization[available_locales][#{locale.id}]", locale.id, @form.available_locales.include?(locale.id), class: "!m-0" %></td>
               <td><%= radio_button_tag "organization[default_locale]", locale.id, @form.default_locale == locale.id, class: "!m-0" %></td>
             </tr>

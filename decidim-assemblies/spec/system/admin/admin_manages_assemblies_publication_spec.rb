@@ -6,9 +6,11 @@ describe "Admin manages assembly publication" do
   include_context "when admin administrating an assembly"
 
   let(:admin_page_path) { decidim_admin_assemblies.assemblies_path }
-  let(:public_collection_path) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
+  let(:public_collection_path) { decidim_assemblies.assemblies_path }
   let(:title) { "My space" }
   let!(:participatory_space) { assembly }
+  let(:publish_callout_message) { "Assembly successfully published." }
+  let(:unpublish_callout_message) { "Assembly successfully unpublished." }
 
   it_behaves_like "manage participatory space publications"
 
@@ -29,11 +31,11 @@ describe "Admin manages assembly publication" do
     visit decidim.root_path
     visit decidim.last_activities_path
 
-    expect(page).to have_content("New assembly: #{title}")
+    expect(page).to have_text("New assembly: #{title}")
 
     within "#filters" do
       find("a", class: "filter", text: "Assembly", match: :first).click
     end
-    expect(page).to have_content("New assembly: #{title}")
+    expect(page).to have_text("New assembly: #{title}")
   end
 end

@@ -30,7 +30,7 @@ describe "Admin adds display condition to template's questionnaire question" do
     select "Equal", from: "questions[questions][#{question_two.id}][display_conditions][questionnaire-display-condition-id][condition_type]"
     # validate we have the 2 response options from question one in the select
     select = find("#questions_questions_#{question_two.id}_display_conditions_questionnaire-display-condition-id_decidim_response_option_id")
-    expect(select).to have_content(translated(question_one.response_options.first.body))
-    expect(select).to have_content(translated(question_one.response_options.last.body))
+    expect(select).to have_text(translated(question_one.response_options.first.body))
+    expect(select).to have_text(translated(question_one.response_options.last.body))
   end
 end

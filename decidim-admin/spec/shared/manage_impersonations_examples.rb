@@ -19,7 +19,7 @@ shared_examples "manage impersonations examples" do
     it "the managed users page displays a warning and creation is disabled" do
       navigate_to_impersonations_page
 
-      expect(page).to have_content("You need at least one authorization enabled for this organization.")
+      expect(page).to have_text("You need at least one authorization enabled for this organization.")
     end
   end
 
@@ -35,15 +35,15 @@ shared_examples "manage impersonations examples" do
     end
 
     it "shows a success message" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("The managed participant has been successfully created.")
     end
 
     context "when no name is provided" do
       let(:name) { "" }
 
       it "shows a validation error message" do
-        expect(page).to have_no_content("successfully")
-        expect(page).to have_content("There is an error in this field")
+        expect(page).to have_no_text("successfully")
+        expect(page).to have_text("There is an error in this field")
       end
     end
 
@@ -62,8 +62,8 @@ shared_examples "manage impersonations examples" do
 
   shared_examples_for "impersonating a user" do
     it "can impersonate the user filling in the correct authorization" do
-      expect(page).to have_content("You are managing the participant #{impersonated_user.name}")
-      expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
+      expect(page).to have_text("You are managing the participant #{impersonated_user.name}")
+      expect(page).to have_text("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
     end
 
     context "when performing an authorized action" do
@@ -108,8 +108,8 @@ shared_examples "manage impersonations examples" do
         let(:authorization_handler) { "another_dummy_authorization_handler" }
 
         it "redirects to the authorization form" do
-          expect(page).to have_content("We need to verify your identity")
-          expect(page).to have_content("Verify with Another example authorization")
+          expect(page).to have_text("We need to verify your identity")
+          expect(page).to have_text("Verify with Another example authorization")
         end
       end
     end
@@ -117,7 +117,7 @@ shared_examples "manage impersonations examples" do
     it "closes the current session and check the logs" do
       click_on "Close session"
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("The current impersonation session has been successfully ended.")
 
       check_impersonation_logs
     end
@@ -127,7 +127,7 @@ shared_examples "manage impersonations examples" do
 
       visit decidim.root_path
 
-      expect(page).to have_content("expired")
+      expect(page).to have_text("expired")
 
       check_impersonation_logs
     end
@@ -138,7 +138,7 @@ shared_examples "manage impersonations examples" do
       visit current_path
       travel (Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2) + 1.second
       visit current_path
-      expect(page).to have_content("expired")
+      expect(page).to have_text("expired")
 
       within "tr", text: impersonated_user.name do
         find("button[data-controller='dropdown']").click
@@ -223,7 +223,7 @@ shared_examples "manage impersonations examples" do
 
         context "and no reason is provided" do
           it "prevents submissions and shows an error" do
-            expect(page).to have_content("You need to provide a reason when managing a non-managed participant")
+            expect(page).to have_text("You need to provide a reason when managing a non-managed participant")
           end
         end
 
@@ -236,10 +236,10 @@ shared_examples "manage impersonations examples" do
 
           it "saves the reason in the impersonation logs" do
             click_on "Close session"
-            expect(page).to have_content("successfully")
+            expect(page).to have_callout("The current impersonation session has been successfully ended.")
 
             check_impersonation_logs
-            expect(page).to have_content("We are on a meeting and want to do a collaborative session in the pope's name.")
+            expect(page).to have_text("We are on a meeting and want to do a collaborative session in the pope's name.")
           end
         end
       end
@@ -266,8 +266,8 @@ shared_examples "manage impersonations examples" do
 
       perform_enqueued_jobs { click_on "Promote" }
 
-      expect(page).to have_content("successfully")
-      expect(page).to have_content(managed_user.name)
+      expect(page).to have_callout("The managed participant has been successfully promoted.")
+      expect(page).to have_text(managed_user.name)
 
       logout :user
 
@@ -279,12 +279,12 @@ shared_examples "manage impersonations examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout(I18n.t("updated", scope: "devise.invitations"))
       within_user_menu do
         click_on "My public profile"
       end
 
-      expect(page).to have_content(managed_user.name)
+      expect(page).to have_text(managed_user.name)
 
       relogin_as user
 
@@ -309,7 +309,7 @@ shared_examples "manage impersonations examples" do
           click_on "Verification conflicts"
         end
 
-        expect(page).to have_content("Rigoberto")
+        expect(page).to have_text("Rigoberto")
       end
     end
 
@@ -325,7 +325,7 @@ shared_examples "manage impersonations examples" do
           click_on "Verification conflicts"
         end
 
-        expect(page).to have_no_content("Rigoberto")
+        expect(page).to have_no_text("Rigoberto")
       end
     end
   end

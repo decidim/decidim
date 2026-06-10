@@ -15,7 +15,7 @@ module Decidim
 
         flash[:notice] = t("decidim.admin.exports.notice")
 
-        redirect_back(fallback_location: manage_component_path(component))
+        redirect_back_or_to(manage_component_path(component))
       end
 
       private
@@ -39,11 +39,11 @@ module Decidim
       end
 
       def component
-        @component ||= current_participatory_space.components.find(params[:component_id])
+        @component ||= current_participatory_space.components.find(params.expect(:component_id))
       end
 
       def commentable_filter?
-        params[:id].match?("comments$")
+        params.fetch(:id, "").match?("comments$")
       end
     end
   end

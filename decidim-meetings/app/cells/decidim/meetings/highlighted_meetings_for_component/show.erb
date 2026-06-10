@@ -20,13 +20,6 @@
   </div>
 <% end %>
 <div class="meeting-list__block-list">
-  <% if show_calendar? %>
-    <div class="meeting-list__block-list-aside">
-      <% calendar_months.each do |start_date| %>
-        <%= cell "decidim/meetings/meeting_month", collection, start_date: %>
-      <% end %>
-    </div>
-  <% end %>
   <div class="card__list-list">
     <span class="meeting-list__block-list-title"><%= title %></span>
     <% collection.includes(:component).each do |meeting| %>

@@ -24,7 +24,7 @@ module Decidim
           on(:invalid) do
             message = [I18n.t("suggestions.create.invalid", scope: "decidim.collaborative_texts")]
             message.push(@form.errors.full_messages.join(", ")) if @form.errors.any?
-            render json: { message: message.join(" ") }, status: :unprocessable_entity
+            render json: { message: message.join(" ") }, status: :unprocessable_content
           end
         end
       end
@@ -40,7 +40,7 @@ module Decidim
       end
 
       def document
-        @document ||= documents.find(params[:document_id])
+        @document ||= documents.find(params.expect(:document_id))
       end
 
       def documents

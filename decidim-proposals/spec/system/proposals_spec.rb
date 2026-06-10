@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Proposals" do
   include ActionView::Helpers::TextHelper
+
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -52,7 +53,7 @@ describe "Proposals" do
       visit_component
 
       within("aside") do
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.name))
       end
     end
 
@@ -61,11 +62,11 @@ describe "Proposals" do
 
       click_on proposal_title
 
-      expect(page).to have_content(proposal_title)
-      expect(page).to have_content(strip_tags(translated(proposal.body)).strip)
+      expect(page).to have_text(proposal_title)
+      expect(page).to have_text(strip_tags(translated(proposal.body)).strip)
       expect(page).to have_author(proposal.creator_author.name)
-      expect(page).to have_content(proposal.reference)
-      expect(page).to have_content(proposal.published_at.strftime("%d/%m/%Y %H:%M"))
+      expect(page).to have_text(proposal.reference)
+      expect(page).to have_text(proposal.published_at.strftime("%d/%m/%Y %H:%M"))
     end
 
     context "when proposal has a taxonomies" do
@@ -74,7 +75,7 @@ describe "Proposals" do
       it "can be filtered by taxonomy" do
         visit_component
         click_on proposal_title
-        expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+        expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
       end
     end
 
@@ -89,7 +90,7 @@ describe "Proposals" do
       end
 
       it "shows the author as official" do
-        expect(page).to have_content("Official proposal")
+        expect(page).to have_text("Official proposal")
       end
 
       it_behaves_like "rendering safe content", ".editor-content"
@@ -128,7 +129,7 @@ describe "Proposals" do
       end
 
       it "shows the author as meeting" do
-        expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(proposal.authors.first.title)))
+        expect(page).to have_text(ActionView::Base.full_sanitizer.sanitize(translated(proposal.authors.first.title)))
       end
 
       it_behaves_like "rendering safe content", ".editor-content"
@@ -144,7 +145,7 @@ describe "Proposals" do
         click_on proposal_title
 
         comments.each do |comment|
-          expect(page).to have_content(comment.body.values.first)
+          expect(page).to have_text(comment.body.values.first)
         end
       end
     end
@@ -222,9 +223,9 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_content("20,000.00")
-        expect(page).to have_content("MY EXECUTION PERIOD")
-        expect(page).to have_content("My cost report")
+        expect(page).to have_text("20,000.00")
+        expect(page).to have_text("MY EXECUTION PERIOD")
+        expect(page).to have_text("My cost report")
       end
     end
 
@@ -273,10 +274,10 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_content("Evaluating")
+        expect(page).to have_text("Evaluating")
 
         within ".flash[data-announcement]", style: proposal.proposal_state.css_style do
-          expect(page).to have_content("This proposal is being evaluated")
+          expect(page).to have_text("This proposal is being evaluated")
           expect(page).to have_i18n_content(proposal.answer)
         end
       end
@@ -293,10 +294,10 @@ describe "Proposals" do
         page.find_link(proposal_title, wait: 30)
         click_on proposal_title
 
-        expect(page).to have_content("Rejected")
+        expect(page).to have_text("Rejected")
 
         within ".flash[data-announcement]", style: proposal.proposal_state.css_style do
-          expect(page).to have_content("This proposal has been rejected")
+          expect(page).to have_text("This proposal has been rejected")
           expect(page).to have_i18n_content(proposal.answer)
         end
       end
@@ -309,10 +310,10 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_content("Accepted")
+        expect(page).to have_text("Accepted")
 
         within ".flash[data-announcement]", style: proposal.proposal_state.css_style do
-          expect(page).to have_content("This proposal has been accepted")
+          expect(page).to have_text("This proposal has been accepted")
           expect(page).to have_i18n_content(proposal.answer)
         end
       end
@@ -326,9 +327,9 @@ describe "Proposals" do
         click_on proposal_title
 
         within ".layout-author", match: :first do
-          expect(page).to have_no_content("Accepted")
+          expect(page).to have_no_text("Accepted")
         end
-        expect(page).to have_no_content("This proposal has been accepted")
+        expect(page).to have_no_text("This proposal has been accepted")
         expect(page).not_to have_i18n_content(proposal.answer)
       end
     end
@@ -345,7 +346,7 @@ describe "Proposals" do
 
         click_on proposal_title
 
-        expect(page).to have_content("Deleted participant")
+        expect(page).to have_text("Deleted participant")
       end
     end
   end
@@ -496,7 +497,7 @@ describe "Proposals" do
         expect(page).to have_css("a", text: "Most voted")
         expect(page).to have_css("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
         within all("[id^='proposals__proposal']").last do
-          expect(page).to have_content(less_voted_proposal_title)
+          expect(page).to have_text(less_voted_proposal_title)
         end
       end
     end
@@ -544,6 +545,7 @@ describe "Proposals" do
     shared_examples "ordering proposals by selected option" do |selected_option|
       let(:first_proposal_title) { translated(first_proposal.title) }
       let(:last_proposal_title) { translated(last_proposal.title) }
+
       before do
         visit_component
         within ".order-by" do
@@ -648,6 +650,54 @@ describe "Proposals" do
       end
     end
 
+    context "when there are no proposals with coauthors" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'with_more_authors' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_text("With more authors")
+        end
+      end
+    end
+
+    context "when there are no proposals with comments" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'most_commented' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_text("Most commented")
+        end
+      end
+    end
+
+    context "when there are no proposals with likes" do
+      let!(:proposals) { create_list(:proposal, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'most_liked' ordering option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_text("Most liked")
+        end
+      end
+    end
+
     context "when searching proposals" do
       let!(:proposals) do
         [
@@ -667,7 +717,7 @@ describe "Proposals" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Lorem ipsum dolor sit amet")
+        expect(page).to have_text("Lorem ipsum dolor sit amet")
       end
     end
 
@@ -774,8 +824,8 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_no_content("History")
-        expect(page).to have_no_content("This proposal was created")
+        expect(page).to have_no_text("History")
+        expect(page).to have_no_text("This proposal was created")
       end
     end
 
@@ -794,8 +844,8 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_content("History")
-        expect(page).to have_content("This proposal was created")
+        expect(page).to have_text("History")
+        expect(page).to have_text("This proposal was created")
       end
     end
   end

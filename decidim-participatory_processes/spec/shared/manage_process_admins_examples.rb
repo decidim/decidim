@@ -22,7 +22,7 @@ shared_examples "manage process admins examples" do
 
   it "shows process admin list" do
     within "#process_admins table" do
-      expect(page).to have_content(process_admin.email)
+      expect(page).to have_text(process_admin.email)
     end
   end
 
@@ -37,14 +37,14 @@ shared_examples "manage process admins examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Admin successfully added to this participatory process.")
 
     within "#process_admins table" do
-      expect(page).to have_content(other_user.email)
+      expect(page).to have_text(other_user.email)
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("invited the participant #{other_user.name} to the #{translated(participatory_process.title)} participatory process")
+    expect(page).to have_text("invited the participant #{other_user.name} to the #{translated(participatory_process.title)} participatory process")
   end
 
   describe "when managing different users" do
@@ -68,14 +68,14 @@ shared_examples "manage process admins examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Admin successfully updated for this participatory process.")
 
       within "#process_admins table" do
-        expect(page).to have_content("Administrator")
+        expect(page).to have_text("Administrator")
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("changed the role of the participant #{other_user.name} in the #{translated(participatory_process.title)} participatory process")
+      expect(page).to have_text("changed the role of the participant #{other_user.name} in the #{translated(participatory_process.title)} participatory process")
     end
 
     it "deletes a participatory_process_user_role" do
@@ -84,10 +84,10 @@ shared_examples "manage process admins examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Admin successfully removed from this participatory process.")
 
       within "#process_admins table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).to have_no_text(other_user.email)
       end
     end
 
@@ -116,7 +116,7 @@ shared_examples "manage process admins examples" do
           click_on "Resend invitation"
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Invitation successfully resent.")
       end
     end
   end

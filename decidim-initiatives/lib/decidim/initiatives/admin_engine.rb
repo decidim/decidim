@@ -15,6 +15,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        extend Decidim::Routes::LocaleRedirects
+
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
           resources :initiatives_types, except: :show do
             resource :permissions, controller: "initiatives_types_permissions"
@@ -70,6 +72,9 @@ module Decidim
               end
               resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
               resources :exports, only: :create
+              resources :imports, only: [:new, :create] do
+                get :example, on: :collection
+              end
               resources :reminders, only: [:new, :create]
             end
 
@@ -100,7 +105,11 @@ module Decidim
 
       initializer "decidim_initiatives_admin.mount_routes" do |_app|
         Decidim::Core::Engine.routes do
-          mount Decidim::Initiatives::AdminEngine, at: "/admin", as: "decidim_admin_initiatives"
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
+            mount Decidim::Initiatives::AdminEngine, at: "/admin", as: "decidim_admin_initiatives"
+          end
         end
       end
 

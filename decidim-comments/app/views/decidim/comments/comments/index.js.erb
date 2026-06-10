@@ -1,35 +1,70 @@
 (function() {
-  var rootCommentableId = <%== "comments-for-#{commentable.commentable_type.demodulize}-#{commentable.id}".to_json %>;
+  <% root_resource = commentable.is_a?(Decidim::Comments::Comment) ? commentable.root_commentable : commentable %>
 
-  var $comments = $("#" + rootCommentableId);
+  var commentsContainer = document.getElementById(<%== "comments-for-#{root_resource.commentable_type.demodulize}-#{root_resource.id}".to_json %>);
+  var $comments = $(commentsContainer);
   var component = $comments.data("comments");
 
-  $(".loading-comments").addClass("hidden");
+  // Find target container: desktop column, mobile container, or standard single-column
+  <% if alignment.present? %>
+    var targetContainer = commentsContainer.querySelector(<%== ".comments-section__#{alignment == 1 ? "in-favor" : "against"}".to_json %>);
+  <% else %>
+    var targetContainer = commentsContainer.querySelector("#mobileContainer") || commentsContainer.querySelector(".comment-threads");
+  <% end %>
 
-  var commentsIds = [];
-<% @comments.each do |comment| %>
-  var commentId = <%= comment.id.to_json %>;
-  commentsIds.push(commentId);
-  var commentHtml = '<%== j(render comment).strip %>';
-  var inReplyTo = <%== (reply?(comment) ? comment.commentable.id : nil).to_json %>;
+  var loadingElement = commentsContainer.querySelector(".loading-comments");
+  var commentsElement = commentsContainer.querySelector(".comments");
+  if (loadingElement) { loadingElement.classList.add("hidden"); }
+  if (commentsElement) { commentsElement.classList.remove("hidden"); }
 
-  var $comment = $("#comment_" + commentId);
-  if (1 > $comment.length) {
-    if (inReplyTo) {
-      component.addReply(inReplyTo, commentHtml);
-    } else {
-      component.addThread(commentHtml);
+  <% unless alignment.present? %>
+    if (targetContainer) {
+      targetContainer.querySelectorAll(".comment-thread").forEach(function(el) { el.remove(); });
+      var existingLoadMore = targetContainer.querySelector("[data-load-more-comments-wrapper]");
+      if (existingLoadMore) { existingLoadMore.remove(); }
     }
-  }
-<% end %>
+  <% end %>
+
+  // Insert comments
+  var commentsIds = [];
+  <% @comments.each do |comment| %>
+    (function() {
+      var commentId = <%= comment.id.to_json %>;
+      var commentHtml = '<%== j(render comment).strip %>';
+      var inReplyTo = <%== (reply?(comment) ? comment.commentable.id : nil).to_json %>;
+
+      commentsIds.push(commentId);
+      if (targetContainer && !targetContainer.querySelector("#comment_" + commentId)) {
+        if (inReplyTo) {
+          component.addReply(inReplyTo, commentHtml);
+        } else {
+          component.addThread(commentHtml, <%= alignment.presence || "null" %>);
+        }
+      }
+    })();
+  <% end %>
+
   if (commentsIds.length) {
     component.lastCommentId = <%= @comments.last&.id || 0 %>;
-
-    Rails.fire(document, "comments:loaded", {
-      commentsIds: commentsIds
-    });
+    Rails.fire(document, "comments:loaded", { commentsIds: commentsIds });
   }
 
-  // Update the comments count
-  $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+  // Update comments count
+  var countElement = commentsContainer.querySelector(".comments-count");
+  if (countElement) {
+    countElement.textContent = <%== t("decidim.components.comments.title", count: @comments_count).to_json %>;
+  }
+
+  // Handle load more button
+  <% if @has_more_comments %>
+  if (targetContainer && !targetContainer.querySelector("[data-load-more-comments-wrapper]")) {
+    var loadMoreHtml = '<%== j(render partial: "decidim/comments/comments/load_more_comments", locals: { commentable:, order:, offset: @comments.size, alignment: alignment.presence }).strip %>';
+    targetContainer.insertAdjacentHTML("beforeend", loadMoreHtml);
+  }
+  <% else %>
+  if (targetContainer) {
+    var loadMoreToRemove = targetContainer.querySelector("[data-load-more-comments-wrapper]");
+    if (loadMoreToRemove) { loadMoreToRemove.remove(); }
+  }
+  <% end %>
 }());

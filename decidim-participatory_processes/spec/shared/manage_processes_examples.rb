@@ -18,13 +18,13 @@ shared_examples "manage processes examples" do
     it "allows the user to filter processes by process_group" do
       filter_by_group(translated(process_group.title))
 
-      expect(page).to have_content(translated(process_with_group.title))
-      expect(page).to have_no_content(translated(process_without_group.title))
+      expect(page).to have_text(translated(process_with_group.title))
+      expect(page).to have_no_text(translated(process_without_group.title))
     end
 
     describe "listing processes" do
       it_behaves_like "filtering collection by published/unpublished"
-      it_behaves_like "filtering collection by private/public"
+      it_behaves_like "filtering collection by open/restricted/transparent"
     end
 
     context "when processes are filtered by process_group" do
@@ -36,9 +36,10 @@ shared_examples "manage processes examples" do
           let!(:unpublished_space) { create(:participatory_process, :unpublished, organization:, participatory_process_group: process_group) }
         end
 
-        it_behaves_like "filtering collection by private/public" do
-          let!(:public_space) { process_with_group }
-          let!(:private_space) { create(:participatory_process, :private, organization:, participatory_process_group: process_group) }
+        it_behaves_like "filtering collection by open/restricted/transparent" do
+          let!(:open_space) { process_with_group }
+          let!(:restricted_space) { create(:participatory_process, :restricted, organization:, participatory_process_group: process_group) }
+          let!(:transparent_space) { create(:participatory_process, :transparent, organization:, participatory_process_group: process_group) }
         end
       end
     end
@@ -58,7 +59,7 @@ shared_examples "manage processes examples" do
 
         page.within_window(new_window) do
           expect(page).to have_css(".participatory-space__container")
-          expect(page).to have_content(translated(participatory_process.title))
+          expect(page).to have_text(translated(participatory_process.title))
         end
       end
     end
@@ -76,7 +77,7 @@ shared_examples "manage processes examples" do
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
-          expect(page).to have_content(translated(participatory_process.title))
+          expect(page).to have_text(translated(participatory_process.title))
         end
       end
     end
@@ -108,7 +109,6 @@ shared_examples "manage processes examples" do
       fill_in_i18n(:participatory_process_subtitle, "#participatory_process-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
       fill_in_i18n_editor(:participatory_process_short_description, "#participatory_process-short_description-tabs", **attributes[:short_description].except("machine_translations"))
       fill_in_i18n_editor(:participatory_process_description, "#participatory_process-description-tabs", **attributes[:description].except("machine_translations"))
-      fill_in_i18n_editor(:participatory_process_announcement, "#participatory_process-announcement-tabs", **attributes[:announcement].except("machine_translations"))
       fill_in_i18n(:participatory_process_developer_group, "#participatory_process-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
       fill_in_i18n(:participatory_process_local_area, "#participatory_process-local_area-tabs", **attributes[:local_area].except("machine_translations"))
       fill_in_i18n(:participatory_process_meta_scope, "#participatory_process-meta_scope-tabs", **attributes[:meta_scope].except("machine_translations"))
@@ -124,7 +124,7 @@ shared_examples "manage processes examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Participatory process successfully updated.")
 
       within "[data-content]" do
         expect(page).to have_css("input[value='#{translated(attributes[:title])}']")
@@ -132,7 +132,7 @@ shared_examples "manage processes examples" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} participatory process")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} participatory process")
     end
   end
 
@@ -149,11 +149,11 @@ shared_examples "manage processes examples" do
         find("a", text: "Publish", visible: true).click
       end
 
-      expect(page).to have_content("successfully published")
+      expect(page).to have_callout("Participatory process successfully published.")
 
       within("tr", text: translated_attribute(participatory_process.title)) do
         find("button[data-controller='dropdown']").click
-        expect(page).to have_content("Unpublish")
+        expect(page).to have_text("Unpublish")
       end
 
       expect(page).to have_current_path decidim_admin_participatory_processes.participatory_processes_path
@@ -176,8 +176,8 @@ shared_examples "manage processes examples" do
         find("a", text: "Unpublish", visible: true).click
       end
 
-      expect(page).to have_content("successfully unpublished")
-      expect(page).to have_content("Publish")
+      expect(page).to have_callout("Participatory process successfully unpublished.")
+      expect(page).to have_text("Publish")
       expect(page).to have_current_path decidim_admin_participatory_processes.participatory_processes_path
 
       participatory_process.reload
@@ -194,7 +194,7 @@ shared_examples "manage processes examples" do
 
     it "does not let the admin manage processes form other organizations" do
       within "table" do
-        expect(page).to have_no_content(external_participatory_process.title["en"])
+        expect(page).to have_no_text(external_participatory_process.title["en"])
       end
     end
   end

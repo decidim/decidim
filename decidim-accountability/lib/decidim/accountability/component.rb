@@ -11,8 +11,16 @@ Decidim.register_component(:accountability) do |component|
   component.permissions_class_name = "Decidim::Accountability::Permissions"
   component.query_type = "Decidim::Accountability::AccountabilityType"
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Accountability::Result.where(component: instance).any?
+  component.on(:publish) do |instance|
+    Decidim::Accountability::Result.where(component: instance).find_each do |result|
+      Decidim::UpdateSearchIndexesJob.perform_later([result])
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Accountability::Result.where(component: instance).find_each do |result|
+      Decidim::RemoveSearchIndexesJob.perform_later([result])
+    end
   end
 
   # These actions permissions can be configured in the admin panel
@@ -22,7 +30,7 @@ Decidim.register_component(:accountability) do |component|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
     resource.card = "decidim/accountability/result"
-    resource.searchable = false
+    resource.searchable = true
     resource.actions = %w(comment vote_comment)
   end
 
@@ -51,7 +59,7 @@ Decidim.register_component(:accountability) do |component|
                           icon_name: "chat-1-line",
                           tooltip_key: "comments_count",
                           tag: :comments do |components, _start_at, _end_at|
-    Decidim::Accountability::Result.where(component: components).count
+    Decidim::Accountability::Result.where(component: components).sum(:comments_count)
   end
 
   component.settings(:step) do |settings|

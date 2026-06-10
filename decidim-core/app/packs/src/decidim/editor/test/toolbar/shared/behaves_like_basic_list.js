@@ -5,13 +5,17 @@ import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
 export default (ctx) => {
   const { getControl, setContent } = contextHelpers(ctx);
 
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>$/g, "").trim();
+  };
+
   describe("orderedList", () => {
     it("creates a new ordered list", async () => {
       await setContent("Hello, world!");
       ctx.prosemirror.focus();
       getControl("orderedList").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<ol><li><p>Hello, world!</p></li></ol>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<ol><li><p>Hello, world!</p></li></ol>");
     });
 
     it("makes existing ordered list as normal text", async () => {
@@ -21,7 +25,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "ol li p");
       getControl("orderedList").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>");
     });
   });
 
@@ -31,7 +35,7 @@ export default (ctx) => {
       ctx.prosemirror.focus();
       getControl("bulletList").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<ul><li><p>Hello, world!</p></li></ul>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<ul><li><p>Hello, world!</p></li></ul>");
     });
 
     it("makes existing bullet list as normal text", async () => {
@@ -41,7 +45,7 @@ export default (ctx) => {
       selectContent(ctx.prosemirror, "ul li p");
       getControl("bulletList").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual("<p>Hello, world!</p>");
+      expect(normalizeHTML(ctx.prosemirror.innerHTML)).toEqual("<p>Hello, world!</p>");
     });
   });
 };

@@ -55,8 +55,8 @@ module Decidim
         end
       end
 
-      context "when participatory space is private" do
-        let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
+      context "when participatory space is restricted" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :restricted, organization: current_organization) }
         let(:current_component) { create(:post_component, participatory_space:) }
         let(:model) { create(:post, component: current_component) }
         let(:query) { "{ id }" }
@@ -64,8 +64,8 @@ module Decidim
         it_behaves_like "unauthorized Post"
       end
 
-      context "when participatory space is private but transparent" do
-        let(:participatory_space) { create(:assembly, :private, :transparent, organization: current_organization) }
+      context "when participatory space is transparent" do
+        let(:participatory_space) { create(:assembly, :transparent, organization: current_organization) }
         let(:current_component) { create(:post_component, participatory_space:) }
         let(:model) { create(:post, component: current_component) }
         let(:query) { "{ id }" }

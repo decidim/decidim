@@ -38,7 +38,7 @@ module Decidim
                           D: :body,
                           datetime: :created_at
                         },
-                        index_on_create: true,
+                        index_on_create: ->(post) { post.visible? },
                         index_on_update: ->(post) { post.visible? })
 
       class << self

@@ -16,10 +16,7 @@ describe "Decidim::Api::QueryType" do
   let(:participatory_process_query) do
     %(
       participatoryProcess {
-        announcement{
-          translation(locale: "#{locale}")
-          locales
-        }
+        accessMode
         attachments{
           url
           type
@@ -111,7 +108,6 @@ describe "Decidim::Api::QueryType" do
         participatoryStructure {
           translation(locale: "#{locale}")
         }
-        privateSpace
         promoted
         publishedAt
         reference
@@ -170,13 +166,7 @@ describe "Decidim::Api::QueryType" do
   let(:components) { [] }
   let!(:participatory_process_response) do
     {
-      "announcement" => {
-        "locales" => (
-          participatory_process.announcement.keys.excluding("machine_translations") +
-          participatory_process.announcement["machine_translations"].keys
-        ).sort,
-        "translation" => participatory_process.announcement[locale]
-      },
+      "accessMode" => participatory_process.access_mode.upcase,
       "attachments" => [],
       "categories" => [],
       "components" => components,
@@ -206,7 +196,6 @@ describe "Decidim::Api::QueryType" do
       },
       "participatoryScope" => { "translation" => participatory_process.participatory_scope[locale] },
       "participatoryStructure" => { "translation" => participatory_process.participatory_structure[locale] },
-      "privateSpace" => participatory_process.private_space?,
       "promoted" => false,
       "publishedAt" => participatory_process.published_at.to_time.iso8601,
       "reference" => participatory_process.reference,
@@ -271,21 +260,21 @@ describe "Decidim::Api::QueryType" do
       let(:stats_response) { response["participatoryProcess"]["stats"] }
     end
 
-    context "with private spaces" do
+    context "with restricted and transparent spaces" do
       let!(:participatory_process2) { create(:participatory_process, organization: current_organization) }
       let!(:participatory_process3) { create(:participatory_process, organization: current_organization) }
-      let!(:private_process) { create(:participatory_process, :private, organization: current_organization) }
+      let!(:restricted_process) { create(:participatory_process, :restricted, organization: current_organization) }
 
       let(:participatory_process_query) { "participatoryProcesses { id }" }
 
-      it "returns only the public spaces for normal participants" do
+      it "returns only the transparent spaces for normal participants" do
         expect(response["participatoryProcesses"]).to include(
           { "id" => participatory_process.id.to_s },
           { "id" => participatory_process2.id.to_s },
           { "id" => participatory_process3.id.to_s }
         )
         expect(response["participatoryProcesses"]).not_to include(
-          { "id" => private_process.id.to_s }
+          { "id" => restricted_process.id.to_s }
         )
       end
 
@@ -299,7 +288,7 @@ describe "Decidim::Api::QueryType" do
             { "id" => participatory_process3.id.to_s }
           )
           expect(response["participatoryProcesses"]).not_to include(
-            { "id" => private_process.id.to_s }
+            { "id" => restricted_process.id.to_s }
           )
         end
       end
@@ -312,20 +301,20 @@ describe "Decidim::Api::QueryType" do
             { "id" => participatory_process.id.to_s },
             { "id" => participatory_process2.id.to_s },
             { "id" => participatory_process3.id.to_s },
-            { "id" => private_process.id.to_s }
+            { "id" => restricted_process.id.to_s }
           )
         end
       end
 
       context "when the current user is a member" do
-        let!(:member) { create(:member, participatory_space: private_process, user: current_user) }
+        let!(:member) { create(:member, participatory_space: restricted_process, user: current_user) }
 
         it "returns all spaces" do
           expect(response["participatoryProcesses"]).to include(
             { "id" => participatory_process.id.to_s },
             { "id" => participatory_process2.id.to_s },
             { "id" => participatory_process3.id.to_s },
-            { "id" => private_process.id.to_s }
+            { "id" => restricted_process.id.to_s }
           )
         end
       end

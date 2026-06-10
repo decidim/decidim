@@ -1,5 +1,3 @@
-/* eslint-disable no-invalid-this */
-
 import Configuration from "src/decidim/refactor/implementation/configuration"
 
 
@@ -7,15 +5,14 @@ import toggleNav from "src/decidim/admin/toggle_nav";
 import createSortList from "src/decidim/admin/sort_list.component";
 import managedUsersForm from "src/decidim/admin/managed_users";
 
-import "chartkick/chart.js";
-
 window.Decidim = window.Decidim || {};
 window.Decidim.managedUsersForm = managedUsersForm;
 window.Decidim.config = new Configuration();
 
-
-const context = require.context("./controllers", true, /controller\.js$/)
-window.Stimulus.load(window.definitionsFromContext(context))
+document.addEventListener("stimulus:load", () => {
+  const context = require.context("./controllers", true, /controller\.js$/)
+  window.Stimulus.load(window.definitionsFromContext(context))
+}, { once: true });
 
 
 // REDESIGN_PENDING: deprecated

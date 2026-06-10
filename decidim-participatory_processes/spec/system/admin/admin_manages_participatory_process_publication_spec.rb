@@ -9,6 +9,8 @@ describe "Admin manages participatory process publication" do |_options|
   let(:public_collection_path) { decidim_participatory_processes.participatory_processes_path(locale: I18n.locale) }
   let(:title) { "My space" }
   let!(:participatory_space) { participatory_process }
+  let(:publish_callout_message) { "Participatory process successfully published." }
+  let(:unpublish_callout_message) { "Participatory process successfully unpublished." }
 
   it_behaves_like "manage participatory space publications"
 
@@ -29,11 +31,11 @@ describe "Admin manages participatory process publication" do |_options|
     visit decidim.root_path
     visit decidim.last_activities_path
 
-    expect(page).to have_content("New participatory process: #{title}")
+    expect(page).to have_text("New participatory process: #{title}")
 
     within "#filters" do
       find("a", class: "filter", text: "Participatory process", match: :first).click
     end
-    expect(page).to have_content("New participatory process: #{title}")
+    expect(page).to have_text("New participatory process: #{title}")
   end
 end

@@ -100,6 +100,24 @@ module Decidim::Budgets
       it { is_expected.not_to be_valid }
     end
 
+    describe "when budget_amount is negative" do
+      let(:budget_amount) { -1 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when budget_amount is too large" do
+      let(:budget_amount) { 9_223_372_036_854_775_808 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when budget_amount is at the maximum allowed value" do
+      let(:budget_amount) { 9_223_372_036_854_775_807 }
+
+      it { is_expected.to be_valid }
+    end
+
     context "with proposals" do
       subject { described_class.from_model(project).with_context(context) }
 

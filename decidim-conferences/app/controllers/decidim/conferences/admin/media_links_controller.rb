@@ -31,19 +31,19 @@ module Decidim
 
             on(:invalid) do
               flash[:alert] = I18n.t("media_links.create.error", scope: "decidim.admin")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
 
         def edit
-          @media_link = collection.find(params[:id])
+          @media_link = collection.find(params.expect(:id))
           enforce_permission_to :update, :media_link, speaker: @media_link
           @form = form(MediaLinkForm).from_model(@media_link)
         end
 
         def update
-          @media_link = collection.find(params[:id])
+          @media_link = collection.find(params.expect(:id))
           enforce_permission_to :update, :media_link, speaker: @media_link
           @form = form(MediaLinkForm).from_params(params)
 
@@ -55,13 +55,13 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("media_links.update.error", scope: "decidim.admin")
-              render :edit, status: :unprocessable_entity
+              render :edit, status: :unprocessable_content
             end
           end
         end
 
         def destroy
-          @media_link = collection.find(params[:id])
+          @media_link = collection.find(params.expect(:id))
           enforce_permission_to :destroy, :media_link, speaker: @media_link
 
           DestroyMediaLink.call(@media_link, current_user) do

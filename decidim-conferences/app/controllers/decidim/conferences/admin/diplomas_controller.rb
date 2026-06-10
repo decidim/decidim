@@ -28,7 +28,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conferences.update.error", scope: "decidim.admin")
-              render :edit, status: :unprocessable_entity
+              render :edit, status: :unprocessable_content
             end
           end
         end
@@ -54,7 +54,7 @@ module Decidim
         def diploma_params
           {
             id: params[:slug]
-          }.merge(params[:conference].to_unsafe_h)
+          }.merge(params.fetch(:conference, {}).to_unsafe_h)
         end
       end
     end

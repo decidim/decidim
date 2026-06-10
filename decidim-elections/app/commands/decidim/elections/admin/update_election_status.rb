@@ -5,7 +5,7 @@ module Decidim
     module Admin
       class UpdateElectionStatus < Decidim::Command
         def initialize(action, election)
-          @action = action.to_sym
+          @action = action.try(:to_sym)
           @election = election
         end
 

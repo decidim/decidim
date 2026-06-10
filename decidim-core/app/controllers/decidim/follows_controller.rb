@@ -3,6 +3,7 @@
 module Decidim
   class FollowsController < Decidim::ApplicationController
     include FormFactory
+
     before_action :authenticate_user!
     helper_method :resource, :button_cell, :button_cell_mobile
 
@@ -16,7 +17,7 @@ module Decidim
         end
 
         on(:invalid) do
-          render json: { error: I18n.t("follows.destroy.error", scope: "decidim") }, status: :unprocessable_entity
+          render json: { error: I18n.t("follows.destroy.error", scope: "decidim") }, status: :unprocessable_content
         end
       end
     end
@@ -31,7 +32,7 @@ module Decidim
         end
 
         on(:invalid) do
-          render json: { error: I18n.t("follows.create.error", scope: "decidim") }, status: :unprocessable_entity
+          render json: { error: I18n.t("follows.create.error", scope: "decidim") }, status: :unprocessable_content
         end
       end
     end
@@ -43,7 +44,7 @@ module Decidim
     end
 
     def button_options
-      params.require(:follow).permit(:button_classes).to_h.symbolize_keys
+      params.expect(follow: [:button_classes]).to_h.symbolize_keys
     end
 
     def button_cell_mobile

@@ -31,7 +31,7 @@ module Decidim
         on(:invalid) do |password|
           fetch_entered_password(password)
           flash[:alert] = t("account.update.error", scope: "decidim")
-          render action: :show, status: :unprocessable_entity
+          render action: :show, status: :unprocessable_content
         end
       end
     end
@@ -105,7 +105,7 @@ module Decidim
     end
 
     def account_params
-      params[:user].to_unsafe_h
+      params.fetch(:user, {}).to_unsafe_h
     end
 
     def fetch_entered_password(password)

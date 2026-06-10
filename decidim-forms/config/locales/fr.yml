@@ -177,6 +177,7 @@ fr:
           max_choices: 'Choix maximum: %{n}'
         response:
           max_choices_alert: Il y a trop de choix sélectionnés
+          spam_detected: Il y a eu un problème lors de votre réponse au questionnaire. Peut-être avez-vous été trop rapide, pouvez-vous réessayer ?
         show:
           current_step: Étape %{step}
           empty: Aucune question configurée pour ce formulaire pour le moment.

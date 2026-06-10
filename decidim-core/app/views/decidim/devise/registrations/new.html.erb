@@ -34,6 +34,7 @@
       <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
 
       <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
+      <span class="sr-only"><%= t("placeholder_email", scope: "decidim.devise.shared") %></span>
 
       <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
     </div>

@@ -31,7 +31,7 @@ describe "Explore debates" do
       visit_component
 
       within("aside") do
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.name))
       end
     end
 
@@ -41,7 +41,7 @@ describe "Explore debates" do
       expect(page).to have_css("a.card__list", count: debates_count)
 
       debates.each do |debate|
-        expect(page).to have_content(translated(debate.title))
+        expect(page).to have_text(translated(debate.title))
       end
     end
 
@@ -52,7 +52,7 @@ describe "Explore debates" do
         visit_component
 
         within "main.layout-2col__main" do
-          expect(page).to have_content "There are no debates yet"
+          expect(page).to have_text "There are no debates yet"
         end
       end
 
@@ -65,7 +65,7 @@ describe "Explore debates" do
           end
 
           within "main.layout-2col__main" do
-            expect(page).to have_content("There are no debates with this criteria")
+            expect(page).to have_text("There are no debates with this criteria")
           end
         end
       end
@@ -86,6 +86,80 @@ describe "Explore debates" do
         expect(page).to have_css("[data-pages] [data-page][aria-current='page']", text: "2")
 
         expect(page).to have_css("a.card__list", count: 5)
+      end
+    end
+
+    context "when there are no debates with comments" do
+      let!(:debates) { create_list(:debate, 3, component:) }
+
+      before do
+        visit_component
+      end
+
+      it "does not show 'most_commented' sorting option" do
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          expect(page).to have_no_text("Most commented")
+        end
+      end
+    end
+
+    shared_examples "ordering debates by selected option" do |selected_option|
+      let(:first_debate_title) { translated(first_debate.title) }
+      let(:last_debate_title) { translated(last_debate.title) }
+
+      before do
+        visit_component
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          click_on(selected_option)
+        end
+      end
+
+      it "lists the debates ordered by selected option" do
+        expect(page).to have_css("[id^='debate']:first-child", text: first_debate_title)
+        expect(page).to have_css("[id^='debate']:last-child", text: last_debate_title)
+      end
+    end
+
+    context "when ordering by 'recent'" do
+      let!(:old_debate) { create(:debate, component:, created_at: 1.day.ago) }
+      let!(:new_debate) { create(:debate, component:, created_at: Time.current) }
+      let(:first_debate) { new_debate }
+      let(:last_debate) { old_debate }
+
+      it_behaves_like "ordering debates by selected option", "Most recent"
+    end
+
+    context "when ordering by 'updated'" do
+      let!(:old_debate) { create(:debate, component:, updated_at: 1.day.ago) }
+      let!(:new_debate) { create(:debate, component:, updated_at: Time.current) }
+      let(:first_debate) { new_debate }
+      let(:last_debate) { old_debate }
+
+      it_behaves_like "ordering debates by selected option", "Recently updated"
+    end
+
+    context "when ordering by 'most_commented'" do
+      let!(:debate_without_comments) { create(:debate, component:, comments_count: 0) }
+      let!(:debate_with_comments) { create(:debate, component:, comments_count: 5) }
+      let(:first_debate) { debate_with_comments }
+      let(:last_debate) { debate_without_comments }
+
+      before do
+        visit_component
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          click_on("Most commented")
+        end
+      end
+
+      it "lists the debates ordered by selected option" do
+        expect(page).to have_css("[id^='debate']:first-child", text: translated(debate_with_comments.title))
+        expect(page).to have_css("[id^='debate']:last-child", text: translated(debate_without_comments.title))
       end
     end
 
@@ -135,21 +209,21 @@ describe "Explore debates" do
       it "the card informs their status" do
         visit_component
         within "#debates__debate_#{open_debate.id}" do
-          expect(page).to have_content "Ongoing"
+          expect(page).to have_text "Ongoing"
         end
 
         within "#debates__debate_#{not_started_debate.id}" do
-          expect(page).to have_content "Not started"
+          expect(page).to have_text "Not started"
         end
         within "#debates__debate_#{ongoing_debate.id}" do
-          expect(page).to have_content "Ongoing"
+          expect(page).to have_text "Ongoing"
         end
         within "#debates__debate_#{finished_debate.id}" do
-          expect(page).to have_content "Closed"
+          expect(page).to have_text "Closed"
         end
 
         within "#debates__debate_#{closed_debate.id}" do
-          expect(page).to have_content "Closed"
+          expect(page).to have_text "Closed"
         end
       end
     end
@@ -166,7 +240,7 @@ describe "Explore debates" do
         end
 
         it "shows the announcement" do
-          expect(page).to have_content("Important announcement")
+          expect(page).to have_text("Important announcement")
         end
       end
 
@@ -183,7 +257,7 @@ describe "Explore debates" do
         end
 
         it "shows the announcement" do
-          expect(page).to have_content("Important announcement")
+          expect(page).to have_text("Important announcement")
         end
       end
     end
@@ -202,8 +276,8 @@ describe "Explore debates" do
             end
           end
 
-          expect(page).to have_no_content("Another debate")
-          expect(page).to have_content("Foobar debate")
+          expect(page).to have_no_text("Another debate")
+          expect(page).to have_text("Foobar debate")
 
           filter_params = CGI.parse(URI.parse(page.current_url).query)
           expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
@@ -265,8 +339,8 @@ describe "Explore debates" do
 
         it "collapses the accordions on click" do
           within ".layout-2col__aside" do
-            expect(page).to have_content "Ongoing"
-            expect(page).to have_content "Official"
+            expect(page).to have_text "Ongoing"
+            expect(page).to have_text "Official"
           end
 
           click_on "Status"
@@ -274,15 +348,15 @@ describe "Explore debates" do
           click_on "Origin"
 
           within ".layout-2col__aside" do
-            expect(page).to have_no_content "Ongoing"
-            expect(page).to have_no_content "Official"
+            expect(page).to have_no_text "Ongoing"
+            expect(page).to have_no_text "Official"
           end
 
           click_on "Origin"
 
           within ".layout-2col__aside" do
-            expect(page).to have_no_content "Ongoing"
-            expect(page).to have_content "Official"
+            expect(page).to have_no_text "Ongoing"
+            expect(page).to have_text "Official"
           end
         end
       end
@@ -298,7 +372,7 @@ describe "Explore debates" do
 
       it "does not list the hidden debates" do
         expect(page).to have_css("a.card__list", count: debates_count - 1)
-        expect(page).to have_no_content(translated(debate.title))
+        expect(page).to have_no_text(translated(debate.title))
       end
     end
 
@@ -310,7 +384,7 @@ describe "Explore debates" do
         visit_component
 
         within ".card__list-metadata [data-comments-count]" do
-          expect(page).to have_content("1")
+          expect(page).to have_text("1")
         end
       end
     end
@@ -353,9 +427,9 @@ describe "Explore debates" do
       expect(page).to have_i18n_content(debate.instructions, strip_tags: true)
 
       within ".layout-item__aside" do
-        expect(page).to have_content(13)
-        expect(page).to have_content(/Dec/i)
-        expect(page).to have_content(/14:15 → 16:17/)
+        expect(page).to have_text(13)
+        expect(page).to have_text(/Dec/i)
+        expect(page).to have_text(/14:15 → 16:17/)
       end
     end
 
@@ -372,7 +446,7 @@ describe "Explore debates" do
         expect(page).to have_css("[data-tags]")
 
         within "[data-tags]" do
-          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+          expect(page).to have_text(decidim_sanitize_translated(taxonomy.name))
         end
       end
     end

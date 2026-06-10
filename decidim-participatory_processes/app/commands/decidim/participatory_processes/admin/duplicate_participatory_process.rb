@@ -29,9 +29,9 @@ module Decidim
             ParticipatoryProcess.transaction do
               duplicate_participatory_process
               duplicate_participatory_process_attachments
+              duplicate_landing_page_blocks
               duplicate_participatory_process_steps if @form.duplicate_steps?
               duplicate_participatory_process_components if @form.duplicate_components?
-              duplicate_landing_page_blocks if @form.duplicate_landing_page_blocks?
             end
           end
 
@@ -60,7 +60,7 @@ module Decidim
             start_date: @participatory_process.start_date,
             end_date: @participatory_process.end_date,
             participatory_process_group: @participatory_process.participatory_process_group,
-            private_space: @participatory_process.private_space,
+            access_mode: @participatory_process.access_mode,
             taxonomies: @participatory_process.taxonomies
           )
         end

@@ -4,6 +4,7 @@ require "spec_helper"
 
 require "decidim/forms/test/shared_examples/manage_questionnaires/add_questions"
 require "decidim/forms/test/shared_examples/manage_questionnaires/update_questions"
+require "decidim/forms/test/shared_examples/questionnaire_admin_access"
 
 describe "Admin manages demographic questions" do
   let(:organization) { create(:organization) }
@@ -38,6 +39,8 @@ describe "Admin manages demographic questions" do
   it_behaves_like "needs admin TOS accepted" do
     let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
   end
+
+  it_behaves_like "questionnaire admin access", allow_process_admin: false, denied_error: 403
 
   shared_examples_for "add questions" do
     shared_examples_for "updating the max choices selector according to the configured options" do
@@ -90,7 +93,7 @@ describe "Admin manages demographic questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Survey questions successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -124,7 +127,7 @@ describe "Admin manages demographic questions" do
         end
       end
 
-      expect(page).to have_no_content "Add response option"
+      expect(page).to have_no_text "Add response option"
 
       page.all(".questionnaire-question").each do |question|
         within question do
@@ -143,7 +146,7 @@ describe "Admin manages demographic questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Survey questions successfully saved.")
 
       visit_manage_questions_and_expand_all
 
@@ -371,7 +374,7 @@ describe "Admin manages demographic questions" do
 
         expect(page).to have_nested_field("body_en", with: "Bye")
         expect(page).to have_no_selector(nested_form_field_selector("body_ca"))
-        expect(page).to have_no_content("Adeu")
+        expect(page).to have_no_text("Adeu")
       end
     end
 
@@ -388,7 +391,7 @@ describe "Admin manages demographic questions" do
           fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
         end
 
-        expect(page).to have_no_content "Add response option"
+        expect(page).to have_no_text "Add response option"
         expect(page).to have_no_select("Maximum number of choices")
       end
 
@@ -420,8 +423,8 @@ describe "Admin manages demographic questions" do
           fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
         end
 
-        expect(page).to have_no_content "Add response option"
-        expect(page).to have_no_content "Add row"
+        expect(page).to have_no_text "Add response option"
+        expect(page).to have_no_text "Add row"
         expect(page).to have_no_select("Maximum number of choices")
       end
 
@@ -461,7 +464,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -476,7 +479,7 @@ describe "Admin manages demographic questions" do
         expand_all_questions
 
         within ".questionnaire-question" do
-          expect(page).to have_content("Statement*")
+          expect(page).to have_text("Statement*")
           fill_in "questions_questions_#{question.id}_body_en", with: ""
           fill_in "questions_questions_#{question.id}_max_characters", with: -3
           check "Mandatory"
@@ -487,9 +490,9 @@ describe "Admin manages demographic questions" do
         click_on "Save"
         expand_all_questions
 
-        expect(page).to have_admin_callout("There was a problem saving")
-        expect(page).to have_content("cannot be blank", count: 5)
-        expect(page).to have_content("must be greater than or equal to 0", count: 1)
+        expect(page).to have_callout("There was a problem saving")
+        expect(page).to have_text("cannot be blank", count: 5)
+        expect(page).to have_text("must be greater than or equal to 0", count: 1)
 
         expect(page).to have_css("input[value='']")
         expect(page).to have_no_css("input[value='This is the first question']")
@@ -523,7 +526,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         click_on "Questions"
 
@@ -558,7 +561,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -577,8 +580,8 @@ describe "Admin manages demographic questions" do
 
         expand_all_questions
 
-        expect(page).to have_admin_callout("There was a problem saving")
-        expect(page).to have_content("cannot be blank", count: 1)
+        expect(page).to have_callout("There was a problem saving")
+        expect(page).to have_text("cannot be blank", count: 1)
         expect(page).to have_css("input[value='']")
         expect(page).to have_no_css("input[value='This is the first title and description']")
       end
@@ -607,7 +610,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         click_on "Questions"
 
@@ -677,7 +680,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -740,7 +743,7 @@ describe "Admin manages demographic questions" do
 
         click_on "Save"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Survey questions successfully saved.")
 
         visit_manage_questions_and_expand_all
 
@@ -861,7 +864,7 @@ describe "Admin manages demographic questions" do
 
         context "when submitting a new question with an error" do
           before do
-            expect(page).to have_content("Add question")
+            expect(page).to have_text("Add question")
             click_on "Add question"
             click_on "Save"
 
@@ -1033,7 +1036,7 @@ describe "Admin manages demographic questions" do
           sleep 0.5
 
           click_on "Save"
-          expect(page).to have_admin_callout("successfully")
+          expect(page).to have_callout("Survey questions successfully saved.")
 
           visit_manage_questions_and_expand_all
 
@@ -1071,7 +1074,7 @@ describe "Admin manages demographic questions" do
 
   def expand_all_questions
     sleep(1)
-    expect(page).to have_content("Expand all questions")
+    expect(page).to have_text("Expand all questions")
     click_on "Expand all questions"
   end
 
@@ -1098,5 +1101,9 @@ describe "Admin manages demographic questions" do
 
   def nested_form_field_selector(attribute)
     "[id$=#{attribute}]"
+  end
+
+  def manage_questions_path
+    decidim_admin_demographics.edit_questions_questions_path
   end
 end

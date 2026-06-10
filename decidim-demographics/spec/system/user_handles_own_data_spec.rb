@@ -21,11 +21,11 @@ describe "user submits demographic data" do
   end
 
   it "displays the warning" do
-    expect(page).to have_content(I18n.t("layouts.decidim.shared.layout_center.alert"))
+    expect(page).to have_text(I18n.t("layouts.decidim.shared.layout_center.alert"))
   end
 
   it "displays page title" do
-    expect(page).to have_content("Demographic data donation")
+    expect(page).to have_text("Demographic data donation")
   end
 
   it "hides delete my data button" do
@@ -42,9 +42,7 @@ describe "user submits demographic data" do
       expect(page).to have_button("Save", class: "button__secondary", disabled: false)
       click_on "Save data"
 
-      within ".success.flash" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_callout("Form successfully responded.")
 
       expect(page).to have_button("Delete data")
     end
@@ -56,9 +54,7 @@ describe "user submits demographic data" do
       check "questionnaire_tos_agreement"
       click_on "Save data"
 
-      within ".success.flash" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_callout("Form successfully responded.")
       sleep(1)
 
       expect(questionnaire.reload).to be_responded_by(user)
@@ -66,14 +62,14 @@ describe "user submits demographic data" do
       expect(page).to have_button("Delete data")
       click_on("Delete data")
 
-      expect(page).to have_content("All your demographic data will be removed.")
-      expect(page).to have_content("Delete data")
+      expect(page).to have_text("All your demographic data will be removed.")
+      expect(page).to have_text("Delete data")
       expect(page).to have_button("Cancel")
       expect(page).to have_button("Ok")
 
       click_on("Ok")
 
-      expect(page).to have_content("Successfully removed your donated data")
+      expect(page).to have_text("Successfully removed your donated data")
       expect(questionnaire.reload).not_to be_responded_by(user)
     end
 
@@ -83,10 +79,10 @@ describe "user submits demographic data" do
       expect(page).to have_button("Save data", class: "button__secondary", disabled: false)
       click_on "Save data"
 
-      expect(page).to have_content("must be accepted")
+      expect(page).to have_text("must be accepted")
 
       within ".alert.flash" do
-        expect(page).to have_content("There was a problem responding the form.")
+        expect(page).to have_text("There was a problem responding the form.")
       end
     end
   end

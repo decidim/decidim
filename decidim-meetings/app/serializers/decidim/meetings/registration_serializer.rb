@@ -4,6 +4,7 @@ module Decidim
   module Meetings
     class RegistrationSerializer < Decidim::Exporters::Serializer
       include Decidim::TranslationsHelper
+
       # Serializes a registration
       def serialize
         {

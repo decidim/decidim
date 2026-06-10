@@ -25,7 +25,6 @@ fr-CA:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
-        private_space: Processus privé
         promoted: Mise en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
@@ -66,6 +65,8 @@ fr-CA:
           attributes:
             document:
               allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
+              empty: Le document est vide
+              invalid_json: Le document n'est pas un JSON valide
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
@@ -103,17 +104,20 @@ fr-CA:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Par groupe de concertations
+        with_any_access_mode:
+          label: Mode d'accès
+          values:
+            open: Ouvert
+            restricted: Restreint
+            transparent: Transparent
       menu:
         participatory_process_groups: Groupes de concertations
-        participatory_process_groups_submenu:
-          info: Information
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
           components: Fonctionnalités
-          info: A propos de cette concertation
           members:
           moderations: Modérations
           process_admins: Administrateurs de la concertation
@@ -121,9 +125,9 @@ fr-CA:
       models:
         participatory_process:
           fields:
+            access_mode: Mode d'accès
             actions: Actions
             created_at: Créée le
-            private: Privée
             published: Publiée
             title: Titre
           name: Concertation
@@ -160,17 +164,14 @@ fr-CA:
         new:
           duplicate: Dupliquer
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.
           success: Groupe de concertations supprimé avec succès.
         edit:
-          title: Modifier le groupe de concertations
           update: Mettre à jour
         new:
           create: Créer
-          title: Nouveau groupe de concertations
         update:
           error: Il y a eu une erreur lors de la mise à jour de ce groupe de concertations.
           success: Groupe de concertations mis à jour avec succès.
@@ -181,7 +182,6 @@ fr-CA:
         new:
           import: Importer
           select: Sélectionnez les données que vous souhaitez importer
-          title: Importer une concertation
       participatory_process_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette concertation.
@@ -204,18 +204,14 @@ fr-CA:
             last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
-          title: Modifier l'étape de la concertation
           update: Mettre à jour
-        index:
-          steps_title: Étapes
         new:
           create: Créer
-          title: Nouvelle étape de la concertation
         ordering:
           error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
-          success: Étape de la concertation mise à jour avec succès.
+          success: Étape du processus participatif mise à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
@@ -223,13 +219,9 @@ fr-CA:
         destroy:
           success: Utilisateur supprimé avec succès de cette concertation.
         edit:
-          title: Mettre à jour l'administrateur du processus participatif
           update: Mettre à jour
-        index:
-          process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
-          title: Nouvel administrateur du processus participatif
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
           success: L'utilisateur a été mis à jour avec succès pour cette concertation.
@@ -240,15 +232,14 @@ fr-CA:
         edit:
           update: Mettre à jour
         index:
-          private: Privée
-          public: Publique
+          access_modes:
+            open: Ouvert
+            restricted: Restreint
+            transparent: Transparent
           published: Publiée
           unpublished: Non publié
-        manage_trash:
-          title: Processus participatifs supprimés
         new:
           create: Créer
-          title: Nouvelle concertation
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette concertation.
           success: Concertation mise à jour avec succès.
@@ -263,11 +254,6 @@ fr-CA:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Tous les processus participatifs
-      titles:
-        participatory_process_groups: Groupes de concertations
-        participatory_process_types: Types de concertation
-        participatory_processes: Concertations
-        participatory_processes_deleted: Processus participatifs supprimés
       tooltips:
         deleted_processes_info: Un processus ne peut être supprimé que si son statut est "non publié".
       users:
@@ -294,10 +280,6 @@ fr-CA:
         create: "%{user_name} a créé l'étape %{resource_name} dans la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'étape %{resource_name} de la concertation %{space_name}"
         update: "%{user_name} a mis à jour l'étape %{resource_name} de la concertation %{space_name}"
-      participatory_process_type:
-        create: "%{user_name} a créé le type de concertation %{resource_name}"
-        delete: "%{user_name} a supprimé le type de concertation %{resource_name}"
-        update: "%{user_name} a mis à jour le type de concertation %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de la concertation %{space_name}"
@@ -328,15 +310,12 @@ fr-CA:
           contextual: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
           page: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
           title: Qu'est-ce qu'une concertation ?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Le type de concertation n''a pas été trouvé dans la base de données (ID: %{id}).'
     menu:
       processes: Concertations
     open_data:
       help:
         participatory_processes:
+          access_mode: Mode d'accès. Définit si le processus est ouvert, restreint ou transparent.
           component_settings: Les paramètres de fonctionnalité de la concertation
           updated_at: La dernière date de mise à jour de cet espace
           url: L'URL de l'espace
@@ -441,37 +420,78 @@ fr-CA:
             all: Tout
             max_results: Quantité maximale d'éléments à afficher
             selection_criteria: Critères de sélection
+        imports:
+          attachment_error: La pièce jointe «%{title}» n’a pas pu être importée (%{error}).
+          hero_image_error: L'image principale n'a pas pu être importée (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Cette fonction d'importation vous permet de créer un nouveau processus participatif à partir d'un fichier JSON exporté. Vous pouvez exporter un processus depuis une autre organisation ou depuis cette même organisation. Le processus importé inclura ses paramètres, composants et pièces jointes (si sélectionnés).
         participatory_process_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+          new:
+            title: Dupliquer le processus participatif
         participatory_process_groups:
+          edit:
+            title: Modifier le groupe de processus
           form:
             metadata: Métadonnées
             title: A propos de cette concertation
             visibility: Visibilité
+          index:
+            title: Groupes de processus participatifs
+          new:
+            title: Nouveau groupe de processus
         participatory_process_imports:
           form:
             document_legend: Ajouter un document
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+          new:
+            title: Importer un processus participatif
+        participatory_process_steps:
+          edit:
+            title: Modifier l'étape du processus participatif
+          index:
+            title: Étapes
+          new:
+            title: Nouvelle étape du processus participatif
+        participatory_process_user_roles:
+          edit:
+            title: Mettre à jour l'administrateur du processus participatif
+          index:
+            title: Administrateurs du processus participatif
+          new:
+            title: Nouvel administrateur du processus participatif
         participatory_processes:
+          edit:
+            title: À propos de ce processus
           form:
-            announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
+            access:
+              label: Accès
+              options:
+                open: Tout le monde peut voir le processus et y participer.
+                restricted: Seuls les membres et les administrateurs peuvent voir et participer. Cela n'apparaîtra pas dans la recherche générale, ni dans l'API, ni dans les fichiers de données ouvertes.
+                transparent: Tout le monde peut voir le processus, mais seuls les membres et les administrateurs peuvent participer.
+              set_this_space_as: Définir cet espace comme
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             has_members_help: Vous pourrez créer et publier des membres
             images: Images
             metadata: Métadonnées
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
-            private_notice: Rend l'espace non visible pour les visiteurs et visible seulement pour les membres (sauf s'il est également transparent)
             related_processes: Concertations liées
             select_process_group: Sélectionnez un groupe de concertations
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             taxonomies: Taxonomies
             title: Informations générales
             visibility: Visibilité
+          index:
+            title: Processus participatifs
+          manage_trash:
+            title: Processus participatifs supprimés
+          new:
+            title: Nouveau processus participatif
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -497,9 +517,6 @@ fr-CA:
         title: Concertations
       last_activity:
         new_participatory_process: 'Nouveau processus participatif:'
-      members:
-        index:
-          title: Membres
       pages:
         home:
           highlighted_processes:
@@ -548,7 +565,6 @@ fr-CA:
           title: A propos de cette concertation
       show:
         belongs_to_group: Cette concertation appartient à
-        private_space: Ceci est une concertation privée
         related_processes: Concertations liées
       static_pages:
         democratic_quality_indicators:

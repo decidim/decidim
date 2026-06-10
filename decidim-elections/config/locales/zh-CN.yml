@@ -1,4 +1,8 @@
 zh-CN:
+  activerecord:
+    models:
+      decidim/elections/election:
+        other: 选举
   decidim:
     admin:
       menu:
@@ -66,7 +70,3 @@ zh-CN:
           title: 确认您的投票
         question:
           next: 下一个
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: 关闭

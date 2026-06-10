@@ -17,7 +17,6 @@ describe "Meeting poll response" do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
-      locale: I18n.locale,
       id: meeting.id
     )
   end
@@ -43,7 +42,7 @@ describe "Meeting poll response" do
       login_as user, scope: :user
       visit meeting_path
 
-      expect(page).to have_no_content("Reply poll")
+      expect(page).to have_no_text("Reply poll")
     end
   end
 
@@ -61,7 +60,7 @@ describe "Meeting poll response" do
 
     it "does not list any question" do
       expect(page.all(".meeting-polls__question--admin").size).to eq(0)
-      expect(page).to have_content("some questions will be sent")
+      expect(page).to have_text("some questions will be sent")
     end
   end
 
@@ -84,7 +83,7 @@ describe "Meeting poll response" do
       check question_multiple_option.response_options.first.body["en"]
       click_on "Reply question"
 
-      expect(page).to have_content("Question replied")
+      expect(page).to have_text("Question replied")
     end
 
     it "does not allow selecting two single options" do
@@ -111,7 +110,7 @@ describe "Meeting poll response" do
       check question_multiple_option.response_options.third.body["en"]
 
       click_on "Reply question"
-      expect(page).to have_content("You can choose a maximum of 2.")
+      expect(page).to have_text("You can choose a maximum of 2.")
     end
   end
 
@@ -131,8 +130,8 @@ describe "Meeting poll response" do
     it "shows the responses" do
       open_first_question
 
-      expect(page).to have_content("0%")
-      expect(page).to have_content("100%")
+      expect(page).to have_text("0%")
+      expect(page).to have_text("100%")
     end
   end
 

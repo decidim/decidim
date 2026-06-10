@@ -16,7 +16,7 @@ module Decidim
       include Paginable
       include Decidim::AttachmentsHelper
 
-      helper_method :proposal_presenter, :form_presenter, :tab_panel_items
+      helper_method :proposal_presenter, :form_presenter, :tab_panel_items, :withdrawn_proposals?
 
       before_action :authenticate_user!, only: [:new, :create]
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
@@ -79,7 +79,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -101,7 +101,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-            render :edit_draft, status: :unprocessable_entity
+            render :edit_draft, status: :unprocessable_content
           end
         end
       end
@@ -124,7 +124,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
-            render :edit_draft, status: :unprocessable_entity
+            render :edit_draft, status: :unprocessable_content
           end
         end
       end
@@ -140,7 +140,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.destroy_draft.error", scope: "decidim")
-            render :edit_draft, status: :unprocessable_entity
+            render :edit_draft, status: :unprocessable_content
           end
         end
       end
@@ -161,7 +161,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            render :edit, status: :unprocessable_entity
+            render :edit, status: :unprocessable_content
           end
         end
       end
@@ -184,7 +184,7 @@ module Decidim
       private
 
       def search_collection
-        Proposal.where(component: current_component).published.not_hidden.with_availability(params[:filter].try(:[], :with_availability))
+        Proposal.where(component: current_component).published.not_hidden.with_availability(params.fetch(:filter, {}).fetch(:with_availability, {}))
       end
 
       def default_filter_params
@@ -212,7 +212,7 @@ module Decidim
       end
 
       def ensure_is_draft
-        @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
+        @proposal = Proposal.not_hidden.where(component: current_component).find(params.expect(:id))
         redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path unless @proposal.draft?
       end
 
@@ -231,6 +231,12 @@ module Decidim
 
       def proposal_presenter
         @proposal_presenter ||= present(@proposal)
+      end
+
+      def withdrawn_proposals?
+        return @withdrawn_proposals if defined?(@withdrawn_proposals)
+
+        @withdrawn_proposals = Proposal.where(component: current_component).published.not_hidden.withdrawn.exists?
       end
 
       def form_proposal_params
@@ -265,7 +271,7 @@ module Decidim
       end
 
       def proposal_creation_params
-        params[:proposal].merge(body_template: translated_proposal_body_template)
+        params.fetch(:proposal, {}).merge(body_template: translated_proposal_body_template)
       end
 
       def tab_panel_items

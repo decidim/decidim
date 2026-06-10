@@ -131,8 +131,8 @@ describe Decidim::Initiatives::InitiativesController do
         put :update,
             params: {
               slug: created_initiative.to_param,
-              initiative: valid_attributes,
-              locale: I18n.locale
+              locale: I18n.locale,
+              initiative: valid_attributes
             }
         expect(flash[:alert]).to be_nil
         expect(response).to have_http_status(:found)
@@ -146,12 +146,12 @@ describe Decidim::Initiatives::InitiativesController do
         put :update,
             params: {
               slug: created_initiative.to_param,
-              initiative: invalid_attributes,
-              locale: I18n.locale
+              locale: I18n.locale,
+              initiative: invalid_attributes
             }
 
         expect(flash[:alert]).not_to be_empty
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
 
       context "when the existing initiative has attachments and there are other errors on the form" do
@@ -177,12 +177,12 @@ describe Decidim::Initiatives::InitiativesController do
           it "displays the editing form with errors" do
             put :update, params: {
               slug: created_initiative.to_param,
-              initiative: invalid_attributes,
-              locale: I18n.locale
+              locale: I18n.locale,
+              initiative: invalid_attributes
             }
 
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(:unprocessable_entity)
+            expect(response).to have_http_status(:unprocessable_content)
             expect(subject).to render_template(:edit)
             expect(response.body).to include("There was a problem updating the initiative.")
           end

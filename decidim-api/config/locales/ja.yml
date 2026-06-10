@@ -3,7 +3,13 @@ ja:
   decidim:
     api:
       errors:
+        introspection_disabled: このリクエストのイントロスペクションは無効です
+        invalid_locale: 無効なロケールが指定されました
+        locale_argument_error: I18n データの内部処理中にエラーが発生しました
         not_found: "%{type} が見つかりません"
         permission_not_set: この %{type} の権限が設定されていません
+        recursion_limit_exceeded_error: クエリで再帰が検出された回数が多すぎます
+        too_many_aliases_error: エイリアスが多すぎます。 %{size} 件のエイリアスを使用していますが、許可されているのは %{limit} 件までです。
         unauthorized_field: 権限がないため、 %{field} の %{type} フィールドを表示または編集することはできません
+        unauthorized_mutation: この変更を実行する権限がありません
         unauthorized_object: 権限がないため、この %{type} を表示または編集できません

@@ -22,15 +22,18 @@ module Decidim
     let(:image_representation_path) { routes.rails_representation_path(image_variant, only_path: true) }
     let(:image_variant_processed_representation_path) { routes.rails_representation_path(image_variant_processed, only_path: true) }
     let(:image_blob_url) { routes.rails_disk_service_url(image_blob.signed_id, image_blob.filename, host: asset_host) }
-    let(:document_blob_url) { routes.rails_disk_service_url(document_blob.signed_id, image_blob.filename, host: asset_host) }
+    let(:document_blob_url) { routes.rails_disk_service_url(document_blob.signed_id, document_blob.filename, host: asset_host) }
+    let(:invalid_blob_url) { image_blob.to_global_id.to_s.gsub("Blob/", "Blob/123") }
+    let(:suffix) { "" }
 
     let(:content) do
       <<~HTML.squish
-        <p><img src="#{image_blob.to_global_id}/#{image_variant_encoded}" alt="Representation image"></p>
-        <p><img src="#{image_blob.to_global_id}/#{image_variant_processed_encoded}" alt="Representation image processed"></p>
-        <p><img src='#{image_blob.to_global_id}' alt="Blob image"></p>
-        <p><a href='#{document_blob.to_global_id}'>Link to document</a></p>
-        <p class="document-url">#{document_blob.to_global_id}</p>
+        <p><img src="#{image_blob.to_global_id}/#{image_variant_encoded}#{suffix}" alt="Representation image"></p>
+        <p><img src="#{image_blob.to_global_id}/#{image_variant_processed_encoded}#{suffix}" alt="Representation image processed"></p>
+        <p><img src='#{image_blob.to_global_id}#{suffix}' alt="Blob image"></p>
+        <p><a href='#{document_blob.to_global_id}#{suffix}'>Link to document</a></p>
+        <p class="document-url">#{document_blob.to_global_id}#{suffix}</p>
+        <p><img src="#{invalid_blob_url}" alt="Invalid blob"></p>
       HTML
     end
 
@@ -50,6 +53,9 @@ module Decidim
           expect(doc.at("img[alt='Blob image']").attr(:src)).to be_blob_url(image_blob)
           expect(doc.at("a").attr(:href)).to be_blob_url(document_blob)
           expect(doc.at("p.document-url").inner_html).to be_blob_url(document_blob)
+          # Note, the invalid blob URL is replaced with an empty string,
+          # This might change in the future if we decide to keep the invalid URL instead of removing it
+          expect(doc.at("img[alt='Invalid blob']").attr(:src)).to be_blank
         end
       end
 
@@ -57,6 +63,78 @@ module Decidim
 
       context "when current host is not set" do
         let(:current_host) { nil }
+
+        it_behaves_like "correctly rendered blob URLs"
+      end
+
+      context "when blob GID is inside a code tag" do
+        let(:content) do
+          <<~HTML.squish
+            <p><code>#{image_blob.to_global_id}</code></p>
+          HTML
+        end
+
+        it "does not replace blob GID inside code tags" do
+          rendered = Loofah.fragment(subject)
+          code = rendered.at_css("code")
+
+          expect(code.text).to eq(image_blob.to_global_id.to_s)
+        end
+      end
+
+      context "when blob GID is inside a pre tag" do
+        let(:content) do
+          <<~HTML.squish
+            <pre>Image URL: #{image_blob.to_global_id}</pre>
+          HTML
+        end
+
+        it "does not replace blob GID inside pre tags" do
+          rendered = Loofah.fragment(subject)
+          pre = rendered.at_css("pre")
+
+          expect(pre.text).to include(image_blob.to_global_id.to_s)
+        end
+      end
+
+      context "when blob GID is inside a script tag" do
+        let(:content) do
+          <<~HTML.squish
+            <script>var blobId = "#{image_blob.to_global_id}";</script>
+          HTML
+        end
+
+        it "does not replace blob GID inside script tags" do
+          rendered = Loofah.fragment(subject)
+          script = rendered.at_css("script")
+
+          expect(script.text).to include(image_blob.to_global_id.to_s)
+        end
+      end
+
+      context "when blob GID is inside a style tag" do
+        let(:content) do
+          <<~HTML.squish
+            <style>.bg { background: url('#{image_blob.to_global_id}'); }</style>
+          HTML
+        end
+
+        it "does not replace blob GID inside style tags" do
+          rendered = Loofah.fragment(subject)
+          style = rendered.at_css("style")
+
+          expect(style.text).to include(image_blob.to_global_id.to_s)
+        end
+      end
+
+      context "when there is a query string after the gid" do
+        let(:suffix) { "?some=strange&suffix=after" }
+
+        it_behaves_like "correctly rendered blob URLs"
+      end
+
+      context "when there is some strange suffix after the gid" do
+        let(:suffix) { "%something" }
 
         it_behaves_like "correctly rendered blob URLs"
       end

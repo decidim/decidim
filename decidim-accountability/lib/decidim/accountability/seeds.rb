@@ -43,7 +43,7 @@ module Decidim
       end
 
       def create_statuses!(component:)
-        5.times do |i|
+        config_value(:accountability_statuses_count).times do |i|
           Decidim::Accountability::Status.create!(
             component:,
             name: Decidim::Faker::Localized.word,
@@ -61,7 +61,7 @@ module Decidim
         parent_taxonomy = root_taxonomy.children.sample || create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: root_taxonomy)
         taxonomies = [parent_taxonomy]
 
-        2.times do
+        config_value(:accountability_taxonomies_count).times do
           taxonomies << if parent_taxonomy.children.count > 1
                           parent_taxonomy.children.sample
                         else

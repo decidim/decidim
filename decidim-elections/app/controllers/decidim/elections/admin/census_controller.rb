@@ -28,7 +28,7 @@ module Decidim
             end
             on(:invalid) do
               flash[:alert] = t("decidim.elections.admin.census.update.error")
-              render :edit, status: :unprocessable_entity
+              render :edit, status: :unprocessable_content
             end
           end
         end
@@ -44,7 +44,7 @@ module Decidim
         end
 
         def election
-          @election ||= Decidim::Elections::Election.where(component: current_component).find(params[:id])
+          @election ||= Decidim::Elections::Election.where(component: current_component).find(params.expect(:id))
         end
       end
     end

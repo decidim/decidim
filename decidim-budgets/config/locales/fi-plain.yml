@@ -52,7 +52,7 @@ fi-pl:
         edit_projects: Lisää projekteja
         import: Tuo ehdotuksia suunnitelmiin
         new_budget: Uusi budjetti
-        new_project: Uusi projekti
+        new_project: Uusi suunnitelma
         preview: Esikatsele
         send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
@@ -90,7 +90,7 @@ fi-pl:
             invalid: Hankkeen luonti epäonnistui.
             success: Hankkeen luonti onnistui.
           edit:
-            title: Muokkaa suunnitelmaa
+            title: Muokkaa projektia budjetissa %{budget}
             update: Päivitä
           index:
             actions: Toiminnot
@@ -113,7 +113,7 @@ fi-pl:
             title: Poistetut projektit
           new:
             create: Luo
-            title: Uusi suunnitelma
+            title: Uusi projekti budjetille %{budget}
           update:
             invalid: Hankkeen poisto epäonnistui.
             success: Hankkeen päivitys onnistui.
@@ -142,9 +142,10 @@ fi-pl:
           new:
             create: Tuo ehdotuksia suunnitelmiin
             default_budget: Oletusbudjetti
-            import_all_accepted_proposals: Tuo kaikki hyväksytyt ehdotukset
             no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             origin_component_id: Lähdekomponentti
+            proposal_states: Ehdotusten tilat
+            proposal_states_help: Valitse yksi tai useampi ehdotusten tila, joiden perusteella ehdotuksia tuodaan projekteiksi. Mikäli et valitse yhtään tilaa, kaikki julkaistut ehdotukset tuodaan, jos niitä ei ole aikaisemmin tuotu tämän komponentin budjetteihin.
             select_component: Valitse komponentti
             title: Tuo ehdotuksia projekteiksi
         reminders:

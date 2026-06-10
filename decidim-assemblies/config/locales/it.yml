@@ -36,7 +36,6 @@ it:
         participatory_processes_ids: Processi partecipativi correlati
         participatory_scope: Che cosa si decide
         participatory_structure: Come si decide
-        private_space: Spazio privato
         promoted: In evidenza
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
@@ -96,15 +95,10 @@ it:
         edit:
           update: Aggiorna
         index:
-          private: Privato
-          public: Pubblico
           published: Pubblicato
           unpublished: Non pubblicato
-        manage_trash:
-          title: Assemblee eliminate
         new:
           create: Crea
-          title: Nuova assemblea
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa assemblea.
           success: L'assemblea è stata aggiornata correttamente.
@@ -115,7 +109,6 @@ it:
         new:
           import: Importa
           select: Seleziona quali dati vuoi importare
-          title: Importa assemblea
       assembly_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questa assemblea.
@@ -130,13 +123,9 @@ it:
         destroy:
           success: Utente rimosso con successo da questa assemblea.
         edit:
-          title: Aggiorna gli amministratori dell'assemblea
           update: Aggiorna
-        index:
-          assembly_admins_title: Amministratori dell'assemblea
         new:
           create: Crea
-          title: Nuovo amministratore dello spazio
         update:
           error: Si è verificato un errore durante l'aggiornamento di un amministratore per questa assemblea.
           success: Admin aggiornato correttamente per questa assemblea.
@@ -165,7 +154,6 @@ it:
           fields:
             actions: Azioni
             created_at: Data/ora di creazione
-            private: Privato
             promoted: In evidenza
             published: Pubblicato
             title: Nome
@@ -192,10 +180,6 @@ it:
       taxonomy_filters:
         space_filter_for:
           assemblies: Assemblee
-      titles:
-        assemblies: Assemblee
-        assemblies_deleted: Assemblee eliminate
-        assemblies_types: Tipi di assemblea
       tooltips:
         deleted_assemblies_info: Un'assemblea può essere eliminata solo se lo stato è "Non pubblicato".
     admin_log:
@@ -229,7 +213,6 @@ it:
       admin:
         assemblies:
           form:
-            announcement_help: Il testo che inserisci qui verrà mostrato all'utente proprio sotto le informazioni dell'assemblea.
             define_taxonomy_filters: Si prega di definire alcuni filtri per questo spazio partecipativo prima di utilizzare questa impostazione.
             duration: Durata
             duration_help: Se la durata di questa assemblea è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinita.
@@ -247,6 +230,7 @@ it:
             visibility: Visibilità
         assembly_imports:
           form:
+            document_legend: Aggiungere un documento
             slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_members:
           form:
@@ -282,9 +266,6 @@ it:
           type: Tipo
         show:
           title: Su questa assemblea
-      assembly_members:
-        index:
-          members: Utenti
       content_blocks:
         children_assemblies:
           name: Assemblee
@@ -319,16 +300,9 @@ it:
           highlighted_assemblies:
             active_spaces: Assemblee attive
             see_all_spaces: Vedi tutte le assemblee
-        user_profile:
-          member_of:
-            member_of: Membro di
       show:
         duration: Durata
-        private_space: Questa è un'assemblea privata
         social_networks_title: Vai alla pagina
-    assembly_members:
-      index:
-        title: Utenti
     download_your_data:
       show:
         assemblies: Esportazione assemblee
@@ -355,14 +329,11 @@ it:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblea non è stata trovata nel database (ID: %{id})'
-        assembly_type_presenter:
-          not_found: 'Il tipo di assemblea non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: Assemblee
     open_data:
       help:
         assemblies:
-          announcement: Informazioni sull'annuncio (callout)
           area: L'area dell'assemblea
           assembly_type: Il tipo di assemblea
           closing_date: La data di chiusura dell'assemblea

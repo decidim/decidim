@@ -7,6 +7,20 @@ module Decidim
     let(:presenter) { described_class.new(user) }
     let(:user) { build(:user) }
 
+    describe "name" do
+      subject { presenter.name }
+
+      context "when is valid" do
+        it { is_expected.to eq(user.name) }
+      end
+
+      context "when is not valid" do
+        let(:user) { build(:user, name: "John\r<script>alert('name')</script>") }
+
+        it { is_expected.to eq("John\ralert('name')") }
+      end
+    end
+
     describe "#nickname" do
       subject { presenter.nickname }
 
@@ -44,7 +58,7 @@ module Decidim
     describe "#profile_url" do
       subject { described_class.new(user).profile_url }
 
-      it { is_expected.to eq("http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}") }
+      it { is_expected.to eq("http://#{user.organization.host}:#{Capybara.server_port}/en/profiles/#{user.nickname}") }
     end
 
     describe "#avatar_url" do
@@ -81,7 +95,7 @@ module Decidim
     describe "#profile_path" do
       subject { presenter.profile_path }
 
-      it { is_expected.to eq("/profiles/#{user.nickname}") }
+      it { is_expected.to eq("/en/profiles/#{user.nickname}") }
     end
 
     context "when user is deleted" do
@@ -98,7 +112,7 @@ module Decidim
       subject { presenter.display_mention }
 
       it do
-        expect(subject).to have_link(user.nickname, href: "http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}")
+        expect(subject).to have_link(user.nickname, href: "http://#{user.organization.host}:#{Capybara.server_port}/en/profiles/#{user.nickname}")
       end
     end
 

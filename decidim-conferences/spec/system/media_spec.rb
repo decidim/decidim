@@ -7,7 +7,7 @@ describe "Conferences" do
   let!(:conference) { create(:conference, organization:) }
 
   def visit_conference
-    visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+    visit decidim_conferences.conference_path(conference)
   end
 
   before do
@@ -16,7 +16,7 @@ describe "Conferences" do
 
   context "when there are no attachments and media links" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_conferences.conference_media_path(conference, locale: I18n.locale) }
+      let(:target_path) { decidim_conferences.conference_media_path(conference) }
     end
   end
 
@@ -26,7 +26,7 @@ describe "Conferences" do
     end
 
     it "the menu link is not shown" do
-      expect(page).to have_no_content("MEDIA")
+      expect(page).to have_no_text("MEDIA")
     end
   end
 
@@ -34,21 +34,21 @@ describe "Conferences" do
     let!(:media_link) { create(:media_link, conference:) }
 
     before do
-      visit decidim_conferences.conference_media_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_media_path(conference)
     end
 
     it "the menu link is shown" do
-      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_path(conference)
 
       within "aside .conference__nav-container" do
-        expect(page).to have_content("Media")
+        expect(page).to have_text("Media")
       end
     end
 
     it "shows them" do
       within "#conference-media-links" do
-        expect(page).to have_content("Media and Links")
-        expect(page).to have_content(translated(media_link.title))
+        expect(page).to have_text("Media and Links")
+        expect(page).to have_text(translated(media_link.title))
         expect(page).to have_css("[data-conference-media-links] a")
       end
     end
@@ -60,12 +60,12 @@ describe "Conferences" do
     let!(:image) { create(:attachment, attached_to: conference) }
 
     before do
-      visit decidim_conferences.conference_media_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_media_path(conference)
     end
 
     it "shows them" do
       within "#conference-media-documents" do
-        expect(page).to have_content(translated(document.title))
+        expect(page).to have_text(translated(document.title))
       end
 
       within "#conference-media-photos" do
@@ -81,7 +81,7 @@ describe "Conferences" do
     let!(:fist_image) { create(:attachment, attached_to: conference, weight: 1) }
 
     before do
-      visit decidim_conferences.conference_media_path(conference, locale: I18n.locale)
+      visit decidim_conferences.conference_media_path(conference)
     end
 
     it "shows them ordered" do

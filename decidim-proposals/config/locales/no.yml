@@ -28,7 +28,6 @@
         origin_component_id: Komponent å kopiere forslagene fra
       proposals_import:
         import_proposals: Importer forslag
-        keep_answers: Behold status og svar
         keep_authors: Behold originale forfattere
     errors:
       models:
@@ -153,24 +152,21 @@
             publish_answers_immediately: Publiser svar på forslag umiddelbart
     events:
       proposals:
+        coauthor_invited:
+          actions:
+            accept: Aksepter
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>akseptert tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name} har blitt avslått tilgang som bidragsyter til %{resource_title} samarbeids utkastet."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>avvist tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         collaborative_draft_access_requested:
           email_subject: "%{requester_name} ba om tilgang som bidragsyter til %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> forespurte om tilgang til å bidra til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet. Vennligst <strong>godta eller avslå forespørselen</strong>.
         collaborative_draft_access_requester_accepted:
           email_subject: Du er blitt akseptert som en bidragsgiver av %{resource_title}.
           notification_title: Du har blitt <strong>akseptert tilgang som bidragsgiver</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         collaborative_draft_access_requester_rejected:
           email_subject: Du er blitt avvist som en bidragsgiver av %{resource_title}.
           notification_title: Du har blitt <strong>avvist tilgang som bidragsgiver</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>trakk</strong> <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         creation_enabled:
           email_intro: 'Du kan nå lage nye forslag i %{participatory_space_title}! Begynn å delta på denne siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
@@ -179,11 +175,6 @@
           email_outro: Du har mottatt denne varslingen fordi du er en forfatter av "%{resource_title}".
           email_subject: Forslaget ditt "%{mentioned_proposal_title}" er blitt nevnt
           notification_title: Forslaget ditt "%{mentioned_proposal_title}" har blitt nevnt <a href="%{resource_path}">i dette området</a> i kommentarene.
-        proposal_published:
-          email_intro: '%{author_name}%{author_nickname}, som du følger, har publisert et nytt forslag kalt "%{resource_title}". Sjekk det ut og bidra:'
-          email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: Nytt forslag "%{resource_title}" av %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget var publisert av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Forslaget "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å motta varsler hvis du følger den forrige lenken.
@@ -322,7 +313,6 @@
             create: Importer forslag
             no_components: Det er ingen andre forslags komponetner i dette deltaker området å importere forslagene fra.
             select_component: Velg en komponent
-            select_states: Sjekk statusen til forslagene som skal importeres
         proposals_merges:
           create:
             success: Slo sammen forslagene til et nytt ett.
@@ -353,87 +343,6 @@
           all: Alle
           amendments: Endringer
           proposals: Forslag
-      collaborative_drafts:
-        collaborative_draft:
-          publish:
-            error: Det oppsto et problem med å publisere samarbeids utkastet.
-            irreversible_action_modal:
-              cancel: Avbryt
-              ok: Publiser som et Forslag
-              title: Følgende handling kan ikke gjøres om
-            success: Samarbeids utkastet publisert som et forslag.
-          withdraw:
-            error: Det oppsto et problem med å lukke samarbeids utkastet.
-            irreversible_action_modal:
-              cancel: Avbryt
-              ok: Trakk tilbake samarbeids utkastet
-              title: Følgende handling kan ikke gjøres om
-            success: Samarbeids utkast trukket.
-        create:
-          success: Samarbeids utkast opprettet.
-        edit:
-          back: Tilbake
-          send: Send
-          title: Rediger samarbeids utkastet
-        filters:
-          all: Alle
-          amendment: Endringer
-          open: Åpen
-          published: Publisert
-          related_to: Relatert til
-          search: Søk
-          state: Status
-          withdrawn: Trukket tilbake
-        filters_small_view:
-          close_modal: Lukk modal
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
-        index:
-          count:
-            one: "%{count} samarbeids utkast"
-            other: "%{count} samarbeids utkaster"
-        new:
-          send: Fortsett
-        new_collaborative_draft_button:
-          new_collaborative_draft: Nytt samarbeids utkast
-        orders:
-          label: 'Bestill utkast av:'
-          most_contributed: Mest bidratt
-          random: Tilfeldig
-          recent: Nylig
-        requests:
-          accepted_request:
-            error: Kunne ikke aksepteres som en samarbeidspartner, Prøv igjen senere.
-          access_requested:
-            error: Forespørselen din kunne ikke fullføres. Prøv igjen senere.
-          collaboration_requests:
-            accept_request: Aksepter
-            reject_request: Avvis
-            title: Forespørsler om samarbeid
-          rejected_request:
-            error: Kunne ikke bli avvist som en samarbeidspartner, Prøv igjen senere.
-        show:
-          final_proposal: endelig forslag
-          final_proposal_help_text: Dette utkastet er ferdig. Sjekk ut det endelige forslaget
-          hidden_authors_count:
-            one: og %{count} til person
-            other: og %{count} flere personer
-          publish: Publiser
-          publish_info: Publiser denne versjonen av utkastet eller
-          published_proposal: publisert forslag
-          request_access: Be om tilgang
-          requested_access: Tilgang forespurt
-          withdraw: trekk tilbake utkastet
-        states:
-          open: Åpen
-          published: Publisert
-          withdrawn: Trukket tilbake
-        update:
-          error: Det oppstod et problem med å lagre samarbeids utkastet.
-          success: Samarbeids utkast oppdatert.
-        wizard_header:
-          title: Opprett ditt samarbeids utkast
       create:
         error: Det oppstod et problem med å lagre forslaget.
         success: Forslag opprettet. Lagret som et utkast.
@@ -477,7 +386,6 @@
           state: Status
           type: Type
         index:
-          collaborative_drafts_list: Lag utkast sammen med andre
           count:
             one: "%{count} forslag"
             other: "%{count} forslag"
@@ -509,8 +417,9 @@
           answer: Svar
           changes_at_title: Endring til "%{title}"
           estimated_cost: Estimert kostnad
-          link_to_collaborative_draft_help_text: Dette forslaget er resultatet av et samarbeids utkast. Gå gjennom historien
-          link_to_collaborative_draft_text: Se samarbeids utkastet
+          hidden_likes_count:
+            one: og %{count} til person
+            other: og %{count} flere personer
           link_to_promoted_emendation_help_text: Dette forslaget er en forfremmet emendasjon
           link_to_promoted_emendation_text: Se den avviste emendasjonen.
           link_to_proposal_from_emendation_help_text: Dette er en avvist emendasjon

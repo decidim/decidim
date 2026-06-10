@@ -241,33 +241,11 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Shakapacker.configuration.configuration_file
       end
 
-      # Rails 7.0 default is vips, but
-      # The `:mini_magick` option is not deprecated; it is fine to keep using it.
-      # And we are going to use it while migrating rails application
-      initializer "decidim_core.active_storage_variant_processor" do |app|
-        app.config.active_storage.variant_processor = :mini_magick
-      end
-
       initializer "decidim_core.setup_i18n" do |app|
         app.config.i18n.available_locales = Decidim.available_locales
         app.config.i18n.default_locale = Decidim.default_locale
         app.config.i18n.fallbacks = true
         app.config.i18n.raise_on_missing_translations = Rails.env.local?
-      end
-
-      initializer "decidim_core.active_storage_method_patch" do |_app|
-        if Rails::VERSION::MAJOR < 8
-          # This is a manual bugfix of https://github.com/rails/rails/pull/51931
-          module Attachment
-            def named_variants
-              record.attachment_reflections[name]&.named_variants || {}
-            end
-          end
-
-          ActiveSupport.on_load(:active_storage_attachment) { prepend Attachment }
-        else
-          Decidim.deprecator.warn("Remove decidim_core.active_storage_method_patch initializer from #{__FILE__}")
-        end
       end
 
       initializer "decidim_core.action_controller" do |_app|
@@ -516,7 +494,7 @@ module Decidim
           # For more information go to
           # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
           default_scopes :profile
-          optional_scopes :user, :"api:read", :"api:write"
+          optional_scopes :user, :"api:read", :"api:write", :"admin:read", :"admin:write"
 
           # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
           # by default in non-development environments). OAuth2 delegates security in

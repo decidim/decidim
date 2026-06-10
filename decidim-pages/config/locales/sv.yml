@@ -16,6 +16,17 @@ sv:
             announcement: Meddelande
           step:
             announcement: Meddelande
+    open_data:
+      help:
+        pages:
+          body: Innehåll
+          component: Komponenten som sidan tillhör
+          created_at: Datum den här sidan skapades
+          id: Unikt id för sidan
+          participatory_space: Vilket utrymme (deltagandeprocess eller samråd) sidan tillhör
+          title: Sidans titel
+          updated_at: Senaste datum när sidan uppdaterades
+          url: Sidans URL
     pages:
       admin:
         models:

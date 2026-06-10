@@ -7,6 +7,7 @@ module Decidim
       # one component to another.
       class MergeProposals < Decidim::Command
         include ::Decidim::MultipleAttachmentsMethods
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.

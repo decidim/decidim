@@ -146,7 +146,6 @@ en:
           success: Meeting successfully duplicated.
         new:
           copy: Copy
-          title: Duplicate meeting
       tooltips:
         cannot_close_meetings: Cannot close this meeting as it is created by a participant
         cannot_duplicate_meetings: Cannot duplicate this meeting as it is created by a participant
@@ -349,19 +348,22 @@ en:
             success: Participant successfully invited to join the meeting.
           form:
             attendee_type: Attendee type
-            existing_user: Existing participant
+            email: Email
             invite: Invite
             invite_explanation: The participant will be invited to join the meeting and to the organization as well.
-            non_user: Non existing participant
+            name_or_nickname: Name or nickname
             select_user: Select participant
           index:
-            invite_attendee: Invite attendee
             invites: Invites
             registrations_disabled: You cannot invite an attendee because the registrations are disabled.
+            title: Invite attendee
         meeting_closes:
           edit:
             close: Close
             title: Close meeting
+        meeting_copies:
+          new:
+            title: Duplicate meeting
         meetings:
           close:
             invalid: There was a problem closing this meeting.
@@ -394,7 +396,7 @@ en:
             assign: Assign
             link_a_space: Link a space
             private_meeting_warning: Linked spaces will not be applied if the meeting is private and non transparent.
-            private_space_warning: Linked spaces will not be applied when the meeting belongs to a private non transparent space.
+            restricted_space_warning: Linked spaces will not be applied when the meeting belongs to a restricted space.
             select: Select a space
             table:
               actions: Actions
@@ -438,15 +440,21 @@ en:
             invalid: There was a problem updating this meeting poll.
             success: Meeting poll successfully updated.
         poll:
+          edit:
+            title: Edit poll
           form:
             announcement_html:
             - When a question receives responses or is published/closed, it can no longer be edited.
             - You can add a question at any time.
             - The poll will be closed when the results of all created questions have been published.
             - Visit the <a href='%{admin_link}'>poll administration page</a> to send questions and publish results.
+        registration_form:
+          edit_questions:
+            title: Edit questions
         registrations:
           edit:
             save: Save
+            title: Registrations
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
@@ -460,7 +468,6 @@ en:
               other: There has been %{count} registrations.
             reserved_slots_help: Leave it to 0 if you do not have reserved slots.
             reserved_slots_less_than: Must be less than or equal to %{count}
-            title: Registrations
           update:
             invalid: There was a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
@@ -732,6 +739,8 @@ en:
         hidden_participants_count:
           one: and %{count} more person
           other: and %{count} more people
+        show_less: Show less
+        show_more: Show more
       read_more: "(read more)"
       registration_mailer:
         confirmation:

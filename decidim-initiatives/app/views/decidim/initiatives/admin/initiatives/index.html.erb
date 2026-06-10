@@ -1,11 +1,14 @@
-<% add_decidim_page_title(t("decidim.admin.titles.initiatives")) %>
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="card" id="initiatives">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
-      <%= t("decidim.admin.titles.initiatives") %>
+      <%= t(".title") %>
 
       <% if allowed_to? :export, :initiatives %>
-        <%= export_dropdowns(query) %>
+        <div class="flex items-center gap-x-4 ml-auto">
+          <%= export_dropdowns(query) %>
+        </div>
       <% end %>
     </h1>
   </div>
@@ -70,7 +73,7 @@
                   <% else %>
                     <li class="dropdown__item">
                       <div class="dropdown__button-disabled">
-                        <%= with_tooltip(t("actions.cannot_answer", scope: "decidim.admin")) do %>
+                        <%= with_tooltip(t("actions.cannot_answer", scope: "decidim.admin"), class: :left) do %>
                           <%= icon "chat-1-line", class: "text-gray" %>
                           <span><%= t("actions.answer", scope: "decidim.initiatives") %></span>
                         <% end %>
@@ -80,7 +83,7 @@
 
                   <% if allowed_to? :print, :initiative, initiative: initiative %>
                     <li class="dropdown__item">
-                      <%= link_to decidim_initiatives.print_initiative_path(initiative, locale: current_locale), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
+                      <%= link_to decidim_initiatives.print_initiative_path(initiative), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
                         <%= icon "printer-line" %>
                         <%= t(".print") %>
                       <% end %>
@@ -91,7 +94,7 @@
 
                   <% if allowed_to? :preview, :initiative, initiative: initiative %>
                     <li class="dropdown__item">
-                      <%= link_to decidim_initiatives.initiative_path(initiative.to_param, locale: current_locale), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
+                      <%= link_to decidim_initiatives.initiative_path(initiative.to_param), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
                         <%= icon "eye-line" %>
                         <%= t(".preview") %>
                       <% end %>

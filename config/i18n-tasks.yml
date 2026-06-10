@@ -104,7 +104,6 @@ ignore_missing:
   - email_outro
   - follows.create.participatory_space
   - notification_title
-  - decidim.wizard_step_form_cell.*
   - decidim.proposals.application_helper.activity_filter_values.*
   - decidim.meetings.application_helper.activity_filter_values.*
   - decidim.content_blocks.*_settings_form.show.*
@@ -162,13 +161,6 @@ ignore_unused:
   - decidim.elections.votes.check_census.*
   - decidim.elections.votes.question.*
   - decidim.proposals.answers.*
-  - decidim.proposals.collaborative_drafts.show.see_other_versions
-  - decidim.proposals.collaborative_drafts.wizard_aside.back
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_collaborative_draft
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_1
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_2
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_3
-  - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_4
   - decidim.proposals.proposal_likes_helper.likes_count_title
   - decidim.proposals.proposals.orders.*
   - decidim.proposals.proposals.likes_card_row.comments_title
@@ -202,6 +194,8 @@ ignore_unused:
   - decidim.accountability.admin_log.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
+  - decidim.log.value_types.access_mode_presenter.not_found
+  - decidim.log.value_types.access_mode_presenter.access_modes.{open,transparent,restricted}*
   - decidim.admin_log.*
   - decidim.debates.debates.filters.*
   - decidim.debates.admin_log.*
@@ -259,11 +253,6 @@ ignore_unused:
   - decidim.meetings.content_blocks.*.name
   - decidim.blogs.content_blocks.*.name
   - decidim.proposals.content_blocks.*.name
-  - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
-  - decidim.proposals.collaborative_drafts.orders*
-  - decidim.proposals.collaborative_drafts.filters*
-  - decidim.proposals.collaborative_drafts.show.withdraw
-  - decidim.proposals.collaborative_drafts.show.publish
   - decidim.conferences.content_blocks.*.name
   - decidim.conferences.pages.home.highlighted_conferences.*
   - decidim.conferences.conference_speaker.*

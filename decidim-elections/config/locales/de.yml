@@ -1,4 +1,9 @@
 de:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Wahl
+        other: Wahlen
   decidim:
     admin:
       menu:
@@ -124,7 +129,7 @@ de:
   layouts:
     decidim:
       election_votes_header:
-        exit: Schließen
+        exit: Schliessen
   time:
     formats:
       short_with_time: "%b %-d, %Y, %-I:%M %p"

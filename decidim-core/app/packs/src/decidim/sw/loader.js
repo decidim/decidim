@@ -1,8 +1,12 @@
 // check if the browser supports serviceWorker at all
-window.addEventListener("load", async () => {
+const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
-    await navigator.serviceWorker.register("/sw.js", { scope: "/" });
-
+    try {
+      await navigator.serviceWorker.register("/sw.js", { scope: "/" });
+    } catch (error) {
+      console.error("Service Worker registration failed:", error);
+      return;
+    }
     const mandatoryElements = document.querySelector(".js-sw-mandatory");
     // Opera uses Opera for versions <= 12 and OPR for versions > 12
     const isOperaMini =
@@ -15,4 +19,10 @@ window.addEventListener("load", async () => {
   } else {
     console.log("Your browser does not support service workers 🤷‍♀️");
   }
-});
+};
+
+if (document.readyState === "complete") {
+  registerServiceWorker();
+} else {
+  window.addEventListener("load", registerServiceWorker, { once: true });
+}

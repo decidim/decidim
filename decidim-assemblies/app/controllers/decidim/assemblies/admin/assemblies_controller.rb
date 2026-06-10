@@ -37,7 +37,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("assemblies.create.error", scope: "decidim.admin")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
@@ -63,7 +63,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("assemblies.update.error", scope: "decidim.admin")
-              render :edit, layout: "decidim/admin/assembly", status: :unprocessable_entity
+              render :edit, layout: "decidim/admin/assembly", status: :unprocessable_content
             end
           end
         end
@@ -118,7 +118,7 @@ module Decidim
         end
 
         def assembly_params
-          { id: params[:slug] }.merge(params[:assembly].to_unsafe_h)
+          { id: params.expect(:slug) }.merge(params.fetch(:assembly, {}).to_unsafe_h)
         end
       end
     end

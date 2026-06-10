@@ -155,7 +155,6 @@ FactoryBot.define do
       }
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
-    enable_participatory_space_filters { true }
     content_security_policy do
       {
         "default-src" => "localhost:* #{host}:*",
@@ -209,6 +208,14 @@ FactoryBot.define do
     password_updated_at { Time.current }
     previous_passwords { [] }
     extended_data { {} }
+
+    trait :malicious do
+      after :create do |user|
+        # rubocop:disable Rails/SkipsModelValidations
+        user.update_column(:name, "user_#{user.id}\n<script>alert('name')</script>")
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+    end
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -303,9 +310,10 @@ FactoryBot.define do
   factory :assembly_member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
+      organization { create(:organization, skip_injection:) }
     end
-    user
-    participatory_space { create(:assembly, organization: user.organization, skip_injection:) }
+    user { create(:user, :confirmed, organization:, skip_injection:) }
+    participatory_space { create(:assembly, organization:, skip_injection:) }
   end
 
   factory :identity, class: "Decidim::Identity" do
@@ -823,8 +831,8 @@ FactoryBot.define do
 
     user { create(:user) }
     organization { user.organization }
-    user_id { user.id }
-    user_type { user.class.name }
+    user_id { user.try(:id) }
+    user_type { user.try(:class).try(:name) }
     participatory_space { build(:participatory_process, organization:, skip_injection:) }
     component { build(:component, participatory_space:, skip_injection:) }
     resource { build(:dummy_resource, component:, skip_injection:) }

@@ -10,7 +10,7 @@ module Decidim
         include Decidim::ParticipatoryProcesses::Admin::Filterable
         include Decidim::Admin::HasTrashableResources
 
-        add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :show
+        add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :edit
 
         participatory_space_admin_layout only: [:edit]
 
@@ -42,7 +42,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_processes.create.error", scope: "decidim.admin")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
@@ -68,7 +68,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_processes.update.error", scope: "decidim.admin")
-              render :edit, layout: "decidim/admin/participatory_process", status: :unprocessable_entity
+              render :edit, layout: "decidim/admin/participatory_process", status: :unprocessable_content
             end
           end
         end
@@ -108,7 +108,7 @@ module Decidim
         alias current_participatory_space current_participatory_process
 
         def participatory_process_params
-          { id: params[:slug] }.merge(params[:participatory_process].to_unsafe_h)
+          { id: params.fetch(:slug) }.merge(params.fetch(:participatory_process).to_unsafe_h)
         end
       end
     end

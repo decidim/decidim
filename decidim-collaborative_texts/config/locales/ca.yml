@@ -16,6 +16,11 @@ ca:
           body: Cos del text
           draft: Esborrany
           version_number: Número de versió
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Text col·laboratiu
+        other: Textos col·laboratius
   decidim:
     admin:
       tooltips:
@@ -74,6 +79,8 @@ ca:
           update_settings:
             invalid: S'ha produït un error en actualitzar el document.
             success: Document actualitzat correctament.
+        exports:
+          document_suggestions: Suggeriments
         index:
           published: Publicat
           unpublished: Despublicat

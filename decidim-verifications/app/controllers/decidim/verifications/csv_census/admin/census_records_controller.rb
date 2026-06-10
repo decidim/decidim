@@ -10,10 +10,14 @@ module Decidim
           helper_method :csv_census_data
 
           def new_record
+            enforce_permission_to :create, :authorization
+
             @form = form(Admin::CensusForm).instance
           end
 
           def create_record
+            enforce_permission_to :create, :authorization
+
             @form = form(Admin::CensusForm).from_params(params)
             Admin::CreateCensusRecord.call(@form) do
               on(:ok) do
@@ -22,16 +26,20 @@ module Decidim
               end
 
               on(:invalid) do
-                render :new_record, status: :unprocessable_entity
+                render :new_record, status: :unprocessable_content
               end
             end
           end
 
           def edit_record
+            enforce_permission_to :update, :authorization
+
             @form = form(Admin::CensusForm).from_model(census_data)
           end
 
           def update_record
+            enforce_permission_to :update, :authorization
+
             @form = form(Admin::CensusForm).from_params(params)
 
             Admin::UpdateCensusRecord.call(@form, census_data) do
@@ -42,7 +50,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("census_records.update_record.invalid", scope: "decidim.verifications.csv_census.admin")
-                render action: "edit_record", status: :unprocessable_entity
+                render action: "edit_record", status: :unprocessable_content
               end
             end
           end

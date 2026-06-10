@@ -47,7 +47,7 @@ module Decidim
 
         it "shows the correct error" do
           expect(subject.valid?).to be(false)
-          expect(subject.errors[:file]).to contain_exactly("File cannot be processed")
+          expect(subject.errors[:file]).to contain_exactly("File resolution is too large")
         end
       end
     end
@@ -64,6 +64,17 @@ module Decidim
 
         it "returns the file extension" do
           expect(subject.file_type).to eq("jpeg")
+        end
+      end
+
+      context "when the attachment requires a private download" do
+        let(:organization) { create(:organization) }
+        let(:restricted_process) { create(:participatory_process, :published, :restricted, organization:) }
+
+        subject { create(:attachment, :with_pdf, attached_to: restricted_process) }
+
+        it "returns the file extension" do
+          expect(subject.file_type).to eq("pdf")
         end
       end
     end
@@ -113,7 +124,27 @@ module Decidim
     end
 
     context "when it has a document" do
-      subject { build(:attachment, :with_pdf) }
+      subject { create(:attachment, :with_pdf) }
+
+      describe "url" do
+        context "when attached to an open space" do
+          it "returns the ActiveStorage URL" do
+            expect(subject.url).to include("/rails/active_storage/")
+          end
+        end
+
+        context "when attached to a restricted space" do
+          let(:restricted_process) { create(:participatory_process, :restricted, :published, organization: subject.organization) }
+
+          before do
+            subject.attached_to = restricted_process
+          end
+
+          it "returns the private download URL" do
+            expect(subject.url).to include("/private_downloads/")
+          end
+        end
+      end
 
       it "does not have a thumbnail" do
         expect(subject.thumbnail_url).to be_nil

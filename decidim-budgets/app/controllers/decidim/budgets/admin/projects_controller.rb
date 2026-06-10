@@ -9,6 +9,7 @@ module Decidim
         include Decidim::Admin::HasTrashableResources
         include Decidim::Admin::ComponentTaxonomiesHelper
         include Decidim::Budgets::Admin::Filterable
+
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
         helper Decidim::Budgets::ProjectsHelper
 
@@ -39,7 +40,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("projects.create.invalid", scope: "decidim.budgets.admin")
-              render action: "new", status: :unprocessable_entity
+              render action: "new", status: :unprocessable_content
             end
           end
         end
@@ -62,7 +63,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("projects.update.invalid", scope: "decidim.budgets.admin")
-              render action: "edit", status: :unprocessable_entity
+              render action: "edit", status: :unprocessable_content
             end
           end
         end
@@ -189,7 +190,7 @@ module Decidim
         def reference_budget
           return unless params[:reference_id]
 
-          Budget.find(params[:reference_id])
+          Budget.find(params.expect(:reference_id))
         end
 
         def pending_orders

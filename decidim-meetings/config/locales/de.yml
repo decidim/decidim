@@ -145,7 +145,6 @@ de:
           success: Veranstaltung erfolgreich dupliziert.
         new:
           copy: Kopieren
-          title: Veranstaltung duplizieren
       tooltips:
         cannot_close_meetings: Diese Veranstaltung kann nicht abgeschlossen werden, da sie von einem Teilnehmenden erstellt wurde
         cannot_duplicate_meetings: Dieses Meeting kann nicht dupliziert werden, da es von einem Teilnehmenden erstellt wurde
@@ -162,6 +161,7 @@ de:
           comment: Kommentieren
           join: Beitreten
           reply_poll: Umfrage beantworten
+          vote_comment: Kommentar bewerten
         name: Veranstaltungen
         settings:
           global:
@@ -330,6 +330,7 @@ de:
           update:
             invalid: Beim Aktualisieren des Traktandums ist ein Problem aufgetreten.
             success: Traktandum erfolgreich aktualisiert.
+        deprecation_warning_polls_html: "⚠️ <b>Warnung zur Entfernung.</b> Die Umfragefunktion bei Veranstaltungen wird in einer zukünftigen, noch zu bestimmenden Version entfernt werden. Organisationen, die Veranstaltungsumfragen nutzen, sollten die Verwendung externer Wahlwerkzeuge planen (zum Beispiel durch Jitsi) oder zu anderen Wahlmechanismen migireren, die in Decidim verfügbar sind, wie zum Beispiel das neue Wahlmodul (`decidim-elections`)."
         exports:
           meeting_comments: Kommentare
           meetings: Veranstaltungen
@@ -352,7 +353,6 @@ de:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
         meeting_closes:
@@ -391,7 +391,6 @@ de:
             assign: Zuweisen
             link_a_space: Bereich verknüpfen
             private_meeting_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung privat und nicht transparent ist.
-            private_space_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung privat und nicht transparent ist.
             select: Einen Bereich auswählen
             table:
               actions: Aktionen
@@ -457,7 +456,6 @@ de:
               other: Es wurden %{count} Anmeldungen vorgenommen.
             reserved_slots_help: Belassen Sie den Wert auf 0, wenn Sie keine reservierten Slots haben.
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
-            title: Anmeldungen
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
@@ -729,6 +727,8 @@ de:
         hidden_participants_count:
           one: und %{count} weitere Person
           other: und %{count} weitere Personen
+        show_less: Weniger anzeigen
+        show_more: Mehr anzeigen
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
@@ -799,7 +799,7 @@ de:
           follows_count: Die Anzahl der Folgen, die das Meeting hat
           id: Die eindeutige Bezeichnung der Veranstaltung
           iframe_access_level: Die iFrame-Zugriffsebene der Veranstaltung
-          iframe_embed_type: Die Art des iFrames, der in diese Veranstaltung eingebettet ist
+          iframe_embed_type: Die Art des iFrames, das in diese Veranstaltung eingebettet ist
           latitude: Der Breitengrad des Veranstaltungsorts
           location: Der Ort der Veranstaltung
           location_hints: Ein Hinweis auf den Ort, an dem die Veranstaltung stattfindet

@@ -32,19 +32,19 @@ module Decidim
 
             on(:invalid) do
               flash[:alert] = I18n.t("partners.create.error", scope: "decidim.admin")
-              render :new, status: :unprocessable_entity
+              render :new, status: :unprocessable_content
             end
           end
         end
 
         def edit
-          @partner = collection.find(params[:id])
+          @partner = collection.find(params.expect(:id))
           enforce_permission_to :update, :partner, partner: @partner
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_model(@partner)
         end
 
         def update
-          @partner = collection.find(params[:id])
+          @partner = collection.find(params.expect(:id))
           enforce_permission_to :update, :partner, partner: @partner
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_params(params)
 
@@ -56,13 +56,13 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("partners.update.error", scope: "decidim.admin")
-              render :edit, status: :unprocessable_entity
+              render :edit, status: :unprocessable_content
             end
           end
         end
 
         def destroy
-          @partner = collection.find(params[:id])
+          @partner = collection.find(params.expect(:id))
           enforce_permission_to :destroy, :partner, partner: @partner
 
           DestroyPartner.call(@partner, current_user) do

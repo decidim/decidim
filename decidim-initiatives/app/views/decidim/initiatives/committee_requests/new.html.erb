@@ -2,10 +2,8 @@
                            image_url: resolve_meta_image_url(current_initiative),
                            description: translated_attribute(current_initiative.description),
                            title: translated_attribute(current_initiative.title),
-                           url: initiative_url(current_initiative.id, locale: current_locale)
+                           url: initiative_url(current_initiative.id)
                          }) %>
-
-<% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).url %>
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
@@ -25,7 +23,7 @@
     <%= cell("decidim/announcement", t("decidim.initiatives.committee_requests.new.help_text"), callout_class: "secondary") %>
 
     <div class="form__wrapper-block">
-      <%= logged_link_to t("continue", scope: "decidim.initiatives.committee_requests.new"), spawn_initiative_committee_requests_path(current_initiative, locale: current_locale), class: "button button__sm md:button__lg button__secondary", data: current_user.blank? ? { dialog_open: "loginModal" } : {} %>
+      <%= logged_link_to t("continue", scope: "decidim.initiatives.committee_requests.new"), spawn_initiative_committee_requests_path(current_initiative), class: "button button__sm md:button__lg button__secondary", data: current_user.blank? ? { dialog_open: "loginModal" } : {} %>
     </div>
   </div>
 <% end %>

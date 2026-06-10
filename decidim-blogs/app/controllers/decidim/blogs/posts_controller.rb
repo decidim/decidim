@@ -12,6 +12,7 @@ module Decidim
       include Decidim::FormFactory
 
       helper_method :posts, :post, :post_presenter, :paginate_posts, :posts_most_commented, :tabs, :panels
+      before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
       def index; end
 
@@ -36,7 +37,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("posts.create.invalid", scope: "decidim.blogs.admin")
-            render action: "new", status: :unprocessable_entity
+            render action: "new", status: :unprocessable_content
           end
         end
       end
@@ -58,7 +59,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("posts.update.invalid", scope: "decidim.blogs.admin")
-            render action: "edit", status: :unprocessable_entity
+            render action: "edit", status: :unprocessable_content
           end
         end
       end
@@ -97,11 +98,8 @@ module Decidim
                    end
       end
 
-      # PROVISIONAL if we implement counter cache
       def posts_most_commented
-        @posts_most_commented ||= posts.joins(:comments).group(:id)
-                                       .select("count(decidim_comments_comments.id) as counter")
-                                       .select("decidim_blogs_posts.*").order("counter DESC").published_at_desc.limit(7)
+        @posts_most_commented ||= posts.order(comments_count: :desc).published_at_desc.limit(7)
       end
 
       def add_breadcrumb_item

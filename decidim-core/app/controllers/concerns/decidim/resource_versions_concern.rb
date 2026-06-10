@@ -23,9 +23,9 @@ module Decidim
       end
 
       def current_version
-        return nil unless params[:id].to_i.positive?
+        return nil unless params.expect(:id).to_i.positive?
 
-        @current_version ||= versioned_resource.versions[params[:id].to_i - 1]
+        @current_version ||= versioned_resource.versions[params.expect(:id).to_i - 1]
       end
     end
   end

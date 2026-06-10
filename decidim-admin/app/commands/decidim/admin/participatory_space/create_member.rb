@@ -52,12 +52,11 @@ module Decidim
               title: user.name
             }
           ) do
-            Decidim::ParticipatorySpace::Member.find_or_create_by!(
-              user:,
-              participatory_space: @member_to,
-              role: form.role,
-              published: form.published
-            )
+            member = Decidim::ParticipatorySpace::Member.where(user:, participatory_space: @member_to).first_or_initialize
+            member.role = form.role
+            member.published = form.published
+            member.save!
+            member
           end
         end
 

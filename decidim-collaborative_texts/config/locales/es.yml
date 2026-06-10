@@ -16,6 +16,11 @@ es:
           body: Cuerpo del texto
           draft: Borrador
           version_number: Número de versión
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Texto colaborativo
+        other: Textos colaborativos
   decidim:
     admin:
       tooltips:
@@ -74,6 +79,8 @@ es:
           update_settings:
             invalid: Se ha producido un error al actualizar el documento.
             success: Documento actualizado correctamente.
+        exports:
+          document_suggestions: Sugerencias
         index:
           published: Publicado
           unpublished: Despublicado

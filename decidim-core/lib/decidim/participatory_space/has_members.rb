@@ -8,6 +8,7 @@ module Decidim
     # members
     module HasMembers
       extend ActiveSupport::Concern
+      include Decidim::UserRoleChecker
 
       included do
         has_many :members,
@@ -26,8 +27,8 @@ module Decidim
             where(
               id: public_spaces +
                   private_spaces
-                    .joins(:members)
-                    .where(decidim_members: { decidim_user_id: user.id })
+                  .joins(:members)
+                  .where(decidim_members: { decidim_user_id: user.id })
             )
           else
             public_spaces
@@ -40,18 +41,19 @@ module Decidim
 
         def can_participate?(user)
           return false unless published?
-          return true unless private_space?
+          return true if open?
+          return true if user_has_any_role?(user, self)
           return false unless user
 
           members.exists?(decidim_user_id: user.id)
         end
 
         def self.public_spaces
-          where(private_space: false).published
+          where(access_mode: [:open, :transparent]).published
         end
 
         def self.private_spaces
-          where(private_space: true)
+          where(access_mode: [:restricted, :transparent]).published
         end
       end
     end

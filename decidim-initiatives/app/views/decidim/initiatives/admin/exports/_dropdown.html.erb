@@ -2,9 +2,9 @@
 <div class="relative">
   <button class="button button__sm button__transparent-secondary" data-controller="dropdown" data-target="dropdown-exports-<%= menu_id %>-<%= dropdown_id(collection_ids) %>">
     <% if collection_ids.present? %>
-      <%= t("actions.export-selection", scope: "decidim.admin") %>
+      <%= t("actions.export_selection", scope: "decidim.admin") %>
     <% else %>
-      <%= t("actions.export", scope: "decidim.admin") %>
+      <%= t("actions.export_all", scope: "decidim.admin") %>
     <% end %>
     <%= icon "arrow-down-s-line" %>
     <%= icon "arrow-down-s-line" %>

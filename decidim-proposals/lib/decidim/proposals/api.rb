@@ -16,5 +16,6 @@ module Decidim
     autoload :VoteProposalType, "decidim/api/mutations/vote_proposal_type"
     autoload :UnvoteProposalType, "decidim/api/mutations/unvote_proposal_type"
     autoload :WithdrawProposalType, "decidim/api/mutations/withdraw_proposal_type"
+    autoload :UpdateProposalType, "decidim/api/mutations/update_proposal_type"
   end
 end

@@ -22,7 +22,7 @@ shared_examples "export survey user responses" do
 
     perform_and_wait_for_enqueued_jobs { click_on "CSV" }
 
-    expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+    expect(page).to have_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
@@ -42,7 +42,7 @@ shared_examples "export survey user responses" do
 
     perform_and_wait_for_enqueued_jobs { click_on "JSON" }
 
-    expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+    expect(page).to have_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
@@ -61,7 +61,7 @@ shared_examples "export survey user responses" do
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "PDF" }
-    expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+    expect(page).to have_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
@@ -85,7 +85,7 @@ shared_examples "export survey user responses" do
       perform_and_wait_for_enqueued_jobs { click_on "Export" }
     end
 
-    expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+    expect(page).to have_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)

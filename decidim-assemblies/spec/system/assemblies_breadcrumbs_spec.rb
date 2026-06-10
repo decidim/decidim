@@ -17,12 +17,12 @@ describe "Assemblies Breadcrumb" do
 
   context "when viewing a child assembly page" do
     scenario "shows breadcrumb with parent assembly and child assembly" do
-      visit decidim_assemblies.assembly_path(child_assembly, locale: I18n.locale)
+      visit decidim_assemblies.assembly_path(child_assembly)
 
       within ".menu-bar" do
-        expect(page).to have_content("Assemblies")
-        expect(page).to have_content(translated(parent_assembly.title))
-        expect(page).to have_content(translated(child_assembly.title))
+        expect(page).to have_text("Assemblies")
+        expect(page).to have_text(translated(parent_assembly.title))
+        expect(page).to have_text(translated(child_assembly.title))
       end
     end
   end
@@ -32,10 +32,10 @@ describe "Assemblies Breadcrumb" do
       visit router.root_path
 
       within ".menu-bar" do
-        expect(page).to have_content("Assemblies")
-        expect(page).to have_content(translated(parent_assembly.title))
-        expect(page).to have_content(translated(child_assembly.title))
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text("Assemblies")
+        expect(page).to have_text(translated(parent_assembly.title))
+        expect(page).to have_text(translated(child_assembly.title))
+        expect(page).to have_text(translated(component.name))
       end
     end
 
@@ -43,22 +43,22 @@ describe "Assemblies Breadcrumb" do
       visit router.proposal_path(proposal)
 
       within ".menu-bar" do
-        expect(page).to have_content("Assemblies")
-        expect(page).to have_content(translated(parent_assembly.title))
-        expect(page).to have_content(translated(child_assembly.title))
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text("Assemblies")
+        expect(page).to have_text(translated(parent_assembly.title))
+        expect(page).to have_text(translated(child_assembly.title))
+        expect(page).to have_text(translated(component.name))
       end
     end
   end
 
   context "when viewing a parent assembly page" do
     scenario "shows breadcrumb with only parent assembly" do
-      visit decidim_assemblies.assembly_path(parent_assembly, locale: I18n.locale)
+      visit decidim_assemblies.assembly_path(parent_assembly)
 
       within ".menu-bar" do
-        expect(page).to have_content("Assemblies")
-        expect(page).to have_content(translated(parent_assembly.title))
-        expect(page).to have_no_content(translated(child_assembly.title))
+        expect(page).to have_text("Assemblies")
+        expect(page).to have_text(translated(parent_assembly.title))
+        expect(page).to have_no_text(translated(child_assembly.title))
       end
     end
   end
@@ -71,10 +71,10 @@ describe "Assemblies Breadcrumb" do
       visit router.root_path
 
       within ".menu-bar" do
-        expect(page).to have_content("Assemblies")
-        expect(page).to have_content(translated(parent_assembly.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_no_content(translated(child_assembly.title))
+        expect(page).to have_text("Assemblies")
+        expect(page).to have_text(translated(parent_assembly.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_no_text(translated(child_assembly.title))
       end
     end
   end
@@ -84,12 +84,12 @@ describe "Assemblies Breadcrumb" do
     let(:component) { create(:component, manifest_name: "proposals", participatory_space: standalone_assembly) }
 
     scenario "shows breadcrumb with only assembly" do
-      visit decidim_assemblies.assembly_path(standalone_assembly, locale: I18n.locale)
+      visit decidim_assemblies.assembly_path(standalone_assembly)
 
       within ".menu-bar" do
-        expect(page).to have_content("Assemblies")
-        expect(page).to have_content(translated(standalone_assembly.title))
-        expect(page).to have_no_content(translated(parent_assembly.title))
+        expect(page).to have_text("Assemblies")
+        expect(page).to have_text(translated(standalone_assembly.title))
+        expect(page).to have_no_text(translated(parent_assembly.title))
       end
     end
 
@@ -97,10 +97,10 @@ describe "Assemblies Breadcrumb" do
       visit router.root_path
 
       within ".menu-bar" do
-        expect(page).to have_content("Assemblies")
-        expect(page).to have_content(translated(standalone_assembly.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_no_content(translated(parent_assembly.title))
+        expect(page).to have_text("Assemblies")
+        expect(page).to have_text(translated(standalone_assembly.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_no_text(translated(parent_assembly.title))
       end
     end
   end

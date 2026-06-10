@@ -80,13 +80,23 @@ sv:
             select_template: Välj ett mallsvar
         questionnaire_templates:
           choose:
+            continue: Fortsätt
+            description: Du kan skapa ett nytt frågeformulär eller så kan du välja en fördefinierad mall och ändra den senare. Välj ett alternativ.
             label: Välj mall
+            options:
+              create_new_form: Skapa nytt formulär
+              select_template: Välj mall
             placeholder: Välj mall
           edit:
             edit: Redigera
             empty: Det finns inga frågor ännu.
+            manage_questions: Frågor
             questionnaire: Enkät
             title: Redigera enkätmall
+          edit_questions:
+            add_question: Lägg till fråga
+            add_separator: Lägg till avgränsare
+            add_title_and_description: Lägg till titel och beskrivning
           form:
             title: Mall för enkät %{questionnaire_for}
           index:

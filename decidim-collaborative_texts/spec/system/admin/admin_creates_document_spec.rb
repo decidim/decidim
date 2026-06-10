@@ -19,7 +19,7 @@ describe "Admin creates documents" do
     fill_in_editor :document_body, with: body
     click_on "Create"
 
-    expect(page).to have_admin_callout "Document successfully created"
+    expect(page).to have_callout "Document successfully created"
     expect(page).to have_css(".table-list tbody tr", count: 1)
   end
 
@@ -32,8 +32,8 @@ describe "Admin creates documents" do
     end
 
     it "displays an error message" do
-      expect(page).to have_admin_callout "There was a problem creating the document"
-      expect(page).to have_admin_callout "must start with a capital letter"
+      expect(page).to have_callout "There was a problem creating the document"
+      expect(page).to have_callout "must start with a capital letter"
     end
   end
 end

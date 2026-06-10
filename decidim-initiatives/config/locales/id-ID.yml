@@ -17,7 +17,6 @@ id:
       initiatives_committee_member:
         user: anggota Komite
       initiatives_type:
-        banner_image: Gambar spanduk
         collect_user_extra_fields: Kumpulkan data pribadi pengguna pada tanda tangan
         description: Deskripsi
         extra_fields_legal_information: Informasi hukum tentang pengumpulan data pribadi
@@ -79,9 +78,6 @@ id:
             name_and_surname: Nama dan nama keluarga
             postal_code: Kode Pos
             timestamp: Stempel waktu
-      titles:
-        initiatives: Inisiatif
-        initiatives_types: Jenis inisiatif
     events:
       initiatives:
         initiative_extended:
@@ -205,12 +201,6 @@ id:
           choose_html: Saya ingin membuat <strong>%{title}</strong>
           more_information: (Informasi lebih lanjut)
           select: Saya ingin mempromosikan inisiatif ini
-      events:
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, siapa yang Anda ikuti, telah membuat inisiatif baru, lihat dan sumbangkan:"
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-          email_subject: Inisiatif baru dengan %{author_nickname}
-          notification_title: Inisiatif <a href="%{resource_path}">%{resource_title}</a> dibuat oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Kembali ke inisiatif

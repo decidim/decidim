@@ -32,14 +32,14 @@ describe "Organization Areas" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Area created successfully.")
 
       within "table" do
-        expect(page).to have_content(translated(attributes[:name]))
+        expect(page).to have_text(translated(attributes[:name]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:name])} area")
+      expect(page).to have_text("created the #{translated(attributes[:name])} area")
     end
 
     context "with existing areas" do
@@ -51,8 +51,8 @@ describe "Organization Areas" do
 
       it "lists all the areas for the organization" do
         within "#areas table" do
-          expect(page).to have_content(translated(area.name, locale: :en))
-          expect(page).to have_content(translated(area.area_type.name, locale: :en))
+          expect(page).to have_text(translated(area.name, locale: :en))
+          expect(page).to have_text(translated(area.area_type.name, locale: :en))
         end
       end
 
@@ -67,23 +67,23 @@ describe "Organization Areas" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Area updated successfully.")
 
         within "table" do
-          expect(page).to have_content(translated(attributes[:name]))
+          expect(page).to have_text(translated(attributes[:name]))
         end
 
         visit decidim_admin.root_path
-        expect(page).to have_content("updated the #{translated(attributes[:name])} area")
+        expect(page).to have_text("updated the #{translated(attributes[:name])} area")
       end
 
       it "can delete them" do
         click_delete_area
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Area successfully destroyed.")
 
         within "#areas" do
-          expect(page).to have_no_content(translated(area.name))
+          expect(page).to have_no_text(translated(area.name))
         end
       end
 
@@ -93,7 +93,7 @@ describe "Organization Areas" do
         it "cannot be deleted" do
           click_delete_area
           expect(area.reload.destroyed?).to be false
-          expect(page).to have_admin_callout("This area has dependent spaces")
+          expect(page).to have_callout("This area has dependent spaces")
         end
       end
     end

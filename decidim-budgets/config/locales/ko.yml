@@ -22,12 +22,13 @@ ko:
           selected_at_null:
             label: 선택됨
     budgets:
+      actions:
+        new_project: 새 프로젝트
       admin:
         projects:
           create:
             success: 프로젝트가 성공적으로 생성되었습니다.
           edit:
-            title: 프로젝트 수정
             update: 업데이트
           index:
             actions: 작업
@@ -36,7 +37,6 @@ ko:
             update: 업데이트
           new:
             create: 생성하기
-            title: 새 프로젝트
           update:
             invalid: 이 프로젝트를 업데이트하는 동안 문제가 발생했습니다.
             success: 프로젝트가 성공적으로 업데이트되었습니다.

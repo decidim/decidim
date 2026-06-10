@@ -7,7 +7,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path(locale: current_locale),
+                        decidim_conferences.conferences_path,
                         position: 2.8,
                         if: Decidim::Conference.where(organization: current_organization).published.any?,
                         active: :inclusive
@@ -18,7 +18,7 @@ module Decidim
         Decidim.menu :mobile_menu do |menu|
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path(locale: current_locale),
+                        decidim_conferences.conferences_path,
                         position: 2.8,
                         if: Decidim::Conference.where(organization: current_organization).published.any?,
                         active: :inclusive
@@ -29,7 +29,7 @@ module Decidim
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path(locale: current_locale),
+                        decidim_conferences.conferences_path,
                         position: 50,
                         if: Decidim::Conference.where(organization: current_organization).published.any?,
                         active: :inclusive
@@ -104,7 +104,7 @@ module Decidim
       def self.register_conference_admin_menu!
         Decidim.menu :conference_admin_menu do |menu|
           menu.add_item :edit_conference,
-                        I18n.t("info", scope: "decidim.admin.menu.conferences_submenu"),
+                        I18n.t("title", scope: "decidim.conferences.admin.conferences.edit"),
                         decidim_admin_conferences.edit_conference_path(current_participatory_space),
                         position: 1,
                         icon_name: "information-line",

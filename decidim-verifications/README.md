@@ -155,7 +155,7 @@ In order to setup Decidim with SMS verification you need to:
 Keep in mind that Decidim will not store a free text version of the mobile phone, only a hashed
 version so we can avoid duplicates and guarantee the users' privacy.
 
-You can find an example [here][example SMS gateway].
+You can find an example in the [example SMS gateway implementation][example SMS gateway].
 
 ## Authorization options
 

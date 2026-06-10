@@ -9,5 +9,6 @@ require "decidim/collaborative_texts/component"
 module Decidim
   # Base module for the collaborative_texts engine.
   module CollaborativeTexts
+    autoload :SuggestionSerializer, "decidim/collaborative_texts/suggestion_serializer"
   end
 end

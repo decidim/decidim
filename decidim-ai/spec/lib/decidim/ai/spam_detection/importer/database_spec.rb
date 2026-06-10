@@ -20,6 +20,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let(:reporting_user) { author }
     let(:spam_count) { 2 }
     let!(:parent) { create(:report, reason: "parent_hidden", user: reporting_user, moderation: create(:moderation, :hidden, reportable: resources.last)) }
+
     Decidim::Report::REASONS.excluding("parent_hidden").each do |reason|
       let!(:report) { create(:report, reason:, user: reporting_user, moderation: create(:moderation, :hidden, reportable:)) }
 
@@ -98,18 +99,6 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let!(:reportable) { create(:proposal, :published, component:, users: [author], title: { en: "Hidden resource" }) }
     let!(:resources) { create_list(:proposal, 3, :published, component:, users: [author]) }
     let(:resource_models) { { "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal" } }
-
-    include_examples "resource is being indexed"
-    include_examples "some resources are being spam"
-  end
-
-  context "when trained model is Decidim::Proposals::CollaborativeDraft" do
-    let(:manifest_name) { "proposals" }
-    let(:training) { 8 }
-
-    let!(:reportable) { create(:collaborative_draft, component:, users: [author], title: "Hidden resource") }
-    let!(:resources) { create_list(:collaborative_draft, 3, component:, users: [author]) }
-    let(:resource_models) { { "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" } }
 
     include_examples "resource is being indexed"
     include_examples "some resources are being spam"

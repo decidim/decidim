@@ -23,18 +23,18 @@ describe "GraphiQL" do
     end
 
     it "forces the user to log in" do
-      expect(page).to have_current_path("/users/sign_in")
-      expect(page).to have_content("Please, log in with your account before access")
+      expect(page).to have_current_path decidim.new_user_session_path
+      expect(page).to have_text("Please, log in with your account before access")
     end
   end
 
   it "is able to execute the default query" do
     # Wait for the page to finish loading and the GraphiQL interface to start
     # before clicking the button for it to actually work.
-    expect(page).to have_content("participatoryProcesses {")
+    expect(page).to have_text("participatoryProcesses {")
     find(".graphiql-execute-button").click
     within ".result-window" do
-      expect(page).to have_content("\"id\": \"#{participatory_process.id}\"")
+      expect(page).to have_text("\"id\": \"#{participatory_process.id}\"")
     end
   end
 
@@ -45,8 +45,8 @@ describe "GraphiQL" do
     end
 
     it "forces the user to log in" do
-      expect(page).to have_current_path("/users/sign_in")
-      expect(page).to have_content("Please, log in with your account before access")
+      expect(page).to have_current_path decidim.new_user_session_path
+      expect(page).to have_text("Please, log in with your account before access")
     end
   end
 end

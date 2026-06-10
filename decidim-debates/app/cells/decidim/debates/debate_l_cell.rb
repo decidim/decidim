@@ -8,6 +8,7 @@ module Decidim
     # for a given instance of a Debate
     class DebateLCell < Decidim::CardLCell
       include Decidim::SanitizeHelper
+
       delegate :component_settings, to: :controller
 
       alias debate model

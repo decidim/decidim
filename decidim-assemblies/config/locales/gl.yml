@@ -30,7 +30,6 @@ gl:
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: O que se decide
         participatory_structure: Como se decide
-        private_space: Espazo privado
         promoted: Promocionado
         published_at: Publicado en
         purpose_of_action: Propósito da acción
@@ -78,12 +77,9 @@ gl:
         edit:
           update: Actualización
         index:
-          private: Privado
-          public: Público
           published: Publicado
         new:
           create: Crear
-          title: Nova montaxe
         update:
           error: Produciuse un erro ao actualizar este conxunto.
           success: Asemblea actualizouse con éxito.
@@ -94,7 +90,6 @@ gl:
         new:
           import: Importar
           select: Selecciona que tipo de datos desexas importar
-          title: Importar xuntanza
       assembly_publications:
         create:
           error: Produciuse un erro ao publicar esta asemblea.
@@ -110,8 +105,6 @@ gl:
           success: O usuario eliminouse con éxito deste conxunto.
         edit:
           update: Actualización
-        index:
-          assembly_admins_title: Usuarios da asemblea
         new:
           create: Crear
         update:
@@ -130,7 +123,6 @@ gl:
         assembly:
           fields:
             created_at: Creado en
-            private: Privado
             promoted: Destacado
             published: Publicado
             title: Título
@@ -152,9 +144,6 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-      titles:
-        assemblies: Asembleas
-        assemblies_types: Tipo de xuntanzas
     admin_log:
       assembly:
         create: "%{user_name} creou o conxunto %{resource_name}"
@@ -181,7 +170,6 @@ gl:
       admin:
         assemblies:
           form:
-            announcement_help: O texto que insires aquí amosarase ao participante xusto debaixo da información da xuntanza.
             duration: Duración
             duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
             images: Imaxes
@@ -192,6 +180,9 @@ gl:
             select_parent_assembly: Seleccione o conxunto primario
             social_handlers: Social
             title: Información xeral
+        assembly_imports:
+          form:
+            document_legend: Engadir un documento
         assembly_members:
           form:
             explanation: 'Instrucións para a imaxe:'
@@ -208,9 +199,6 @@ gl:
             all: Todo
         show:
           title: Sobre esta xuntanza
-      assembly_members:
-        index:
-          members: Membros
       content_blocks:
         highlighted_assemblies:
           name: Asembleas destacadas
@@ -230,16 +218,8 @@ gl:
         working_group: Grupo de traballo
       index:
         title: Asembleas
-      pages:
-        user_profile:
-          member_of:
-            member_of: Membro de
       show:
         duration: Duración
-        private_space: Esta é unha asemblea privada
-    assembly_members:
-      index:
-        title: Membros
     events:
       assemblies:
         create_assembly_member:

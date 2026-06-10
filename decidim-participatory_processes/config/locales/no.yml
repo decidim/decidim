@@ -20,7 +20,6 @@
         participatory_process_group_id: Prosessgruppe
         participatory_scope: Medvirkningen gjelder
         participatory_structure: Hvordan det blir gjort
-        private_space: Privat prosess
         promoted: Fremhevet
         published_at: Publisert på
         related_process_ids: Relaterte prosesser
@@ -98,15 +97,12 @@
           label: Etter prosessgruppe
       menu:
         participatory_process_groups: Prosessgrupper
-        participatory_process_groups_submenu:
-          info: Informasjon
         participatory_processes: Prosesser
         participatory_processes_submenu:
           attachment_collections: Mapper
           attachment_files: Filer
           attachments: Vedlegg
           components: Komponenter
-          info: Om denne prosessen
           moderations: Moderering
           process_admins: Prosessadministratorer
           steps: Faser
@@ -115,7 +111,6 @@
           fields:
             actions: Handlinger
             created_at: Opprettet på
-            private: Privat
             published: Publisert
             title: Tittel
           name: Deltakende prosess
@@ -147,11 +142,9 @@
         destroy:
           success: Prosessgruppen ble slettet.
         edit:
-          title: Rediger prosessgruppe
           update: Oppdater
         new:
           create: Opprett
-          title: Ny prosessgruppe
         update:
           error: Det oppstod et problem med å oppdatere denne prosessgruppen.
           success: Prosessgruppen ble oppdatert.
@@ -162,7 +155,6 @@
         new:
           import: Importer
           select: Velg hvilke data du vil importere
-          title: Importer deltakende prosess
       participatory_process_publications:
         create:
           error: Det oppstod et problem med å publisere denne prosessen.
@@ -185,18 +177,13 @@
             last_step: Kan ikke slette siste fase i en prosess.
           success: Medvirkningsfasen ble slettet.
         edit:
-          title: Rediger medvirkningsfase
           update: Oppdater
-        index:
-          steps_title: Faser
         new:
           create: Opprett
-          title: Ny medvirkningsfase
         ordering:
           error: Det oppstod et problem med å omorganisere medvirkningsfasene.
         update:
           error: Det oppstod et problem med å oppdatere denne medvirkningsfasen.
-          success: Medvirkningsfase oppdatert.
       participatory_process_user_roles:
         create:
           error: Det oppstod et problem med å legge til en deltaker for denne prosessen.
@@ -204,13 +191,9 @@
         destroy:
           success: En administrator er slettet fra denne prosessen.
         edit:
-          title: Oppdater administrator for prosess
           update: Oppdater
-        index:
-          process_admins_title: Prosessadministratorer
         new:
           create: Opprett
-          title: Ny prosessadministrator
         update:
           error: Det oppstod et problem med å oppdatere en administrator for denne prosessen.
           success: Admin ble oppdatert for denne prosessen.
@@ -221,13 +204,10 @@
         edit:
           update: Oppdater
         index:
-          private: Privat
-          public: Offentlig
           published: Publisert
           unpublished: Upublisert
         new:
           create: Opprett
-          title: Ny prosess
         update:
           error: Det oppstod et problem med å oppdatere denne prosessen.
           success: Prosessen er oppdatert.
@@ -235,10 +215,6 @@
         create:
           error: Det oppstod et problem med å lage en ny prosessgruppe.
           success: Prosessgruppen ble opprettet.
-      titles:
-        participatory_process_groups: Prosessgrupper
-        participatory_process_types: Prosesstyper
-        participatory_processes: Deltakende prosesser
       users:
         resend_invitation:
           error: Det oppstod et problem med å sende invitasjonen på nytt.
@@ -340,7 +316,6 @@
             document_legend: Legg til et dokumentet
         participatory_processes:
           form:
-            announcement_help: Teksten du skriver inn her vil vises til brukeren rett under prosessinformasjonen.
             duration: Varighet
             images: Bilder
             metadata: Metadata
@@ -381,7 +356,6 @@
           title: Om denne prosessen
       show:
         belongs_to_group: Denne prosessen tilhører
-        private_space: Dette er en lukket prosess
         related_processes: Relaterte prosesser
     statistics:
       processes_count: Prosesser

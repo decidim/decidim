@@ -9,6 +9,7 @@ module Decidim
     let(:record) do
       Class.new(Decidim::Form) do
         include TranslatableAttributes
+
         mimic :participatory_process
         attribute :url, String
       end.from_params(url:)

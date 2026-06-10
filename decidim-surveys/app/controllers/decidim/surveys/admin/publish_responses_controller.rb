@@ -24,7 +24,7 @@ module Decidim
             end
 
             on(:invalid) do
-              render json: {}, status: :unprocessable_entity
+              render json: {}, status: :unprocessable_content
             end
           end
         end
@@ -38,7 +38,7 @@ module Decidim
             end
 
             on(:invalid) do
-              render json: {}, status: :unprocessable_entity
+              render json: {}, status: :unprocessable_content
             end
           end
         end
@@ -58,7 +58,7 @@ module Decidim
         private
 
         def survey
-          @survey ||= Survey.where(component: current_component).find(params[:survey_id])
+          @survey ||= Survey.where(component: current_component).find(params.expect(:survey_id))
         end
       end
     end

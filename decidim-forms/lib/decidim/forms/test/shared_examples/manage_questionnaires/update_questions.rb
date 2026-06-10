@@ -21,7 +21,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout(callout_success)
 
       visit_manage_questions_and_expand_all
 
@@ -36,7 +36,7 @@ shared_examples_for "update questions" do
       expand_all_questions
 
       within ".questionnaire-question" do
-        expect(page).to have_content("Statement*")
+        expect(page).to have_text("Statement*")
         fill_in "questions_questions_#{question.id}_body_en", with: ""
         fill_in "questions_questions_#{question.id}_max_characters", with: -3
         check "Mandatory"
@@ -47,9 +47,9 @@ shared_examples_for "update questions" do
       click_on "Save"
       click_on "Expand all questions"
 
-      expect(page).to have_admin_callout("There was a problem saving")
-      expect(page).to have_content("cannot be blank", count: 5)
-      expect(page).to have_content("must be greater than or equal to 0", count: 1)
+      expect(page).to have_callout(callout_failure)
+      expect(page).to have_text("cannot be blank", count: 5)
+      expect(page).to have_text("must be greater than or equal to 0", count: 1)
 
       expect(page).to have_css("input[value='']")
       expect(page).to have_no_css("input[value='This is the first question']")
@@ -83,7 +83,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout(callout_success)
 
       click_on "Questions"
 
@@ -118,7 +118,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout(callout_success)
 
       visit_manage_questions_and_expand_all
 
@@ -137,8 +137,8 @@ shared_examples_for "update questions" do
 
       expand_all_questions
 
-      expect(page).to have_admin_callout("There was a problem saving")
-      expect(page).to have_content("cannot be blank", count: 1)
+      expect(page).to have_callout(callout_failure)
+      expect(page).to have_text("cannot be blank", count: 1)
       expect(page).to have_css("input[value='']")
       expect(page).to have_no_css("input[value='This is the first title and description']")
     end
@@ -167,7 +167,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout(callout_success)
 
       click_on "Questions"
 
@@ -237,7 +237,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout(callout_success)
 
       visit_manage_questions_and_expand_all
 
@@ -300,7 +300,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout(callout_success)
 
       visit_manage_questions_and_expand_all
 
@@ -592,7 +592,7 @@ shared_examples_for "update questions" do
         sleep 0.5
 
         click_on "Save"
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout(callout_success)
 
         visit_manage_questions_and_expand_all
 

@@ -27,7 +27,6 @@ cs:
       initiatives_type:
         area_enabled: Povolit autorům vybrat tematickou oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
-        banner_image: Obrázek banneru
         child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
         collect_user_extra_fields: Shromažďovat osobní údaje účastníků při podpisu
         comments_enabled: Povolit komentáře
@@ -101,6 +100,8 @@ cs:
               validating: Technické ověření
           type_id_eq:
             label: Typ
+        search_placeholder:
+          title_or_description_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, nebo jména autora
       initiatives_settings:
         update:
           error: Při aktualizaci nastavení iniciativ došlo k chybě.
@@ -114,8 +115,6 @@ cs:
         initiatives_menu:
           see_initiative: Zobrazit iniciativu
         initiatives_settings: Nastavení
-        initiatives_submenu:
-          info: O této iniciativě
         initiatives_types: Typy iniciativ
         moderations: Moderování
       models:
@@ -160,9 +159,6 @@ cs:
       taxonomy_filters:
         space_filter_for:
           initiatives: Všechny iniciativy
-      titles:
-        initiatives: Iniciativy
-        initiatives_types: Typy iniciativ
     download_your_data:
       show:
         initiatives: Export iniciativ
@@ -269,6 +265,7 @@ cs:
             reject: Odmítnout iniciativu
             send_to_technical_validation: Odeslání k technickému ověření
             success: Iniciativa byla odeslána na technické potvrzení.
+            title: O této iniciativě
             update: Aktualizovat
           form:
             attachments_title: Přílohy
@@ -278,6 +275,7 @@ cs:
             actions_title: Akce
             preview: Náhled
             print: Tisk
+            title: Iniciativy
           initiative_attachments:
             documents: Dokumenty
             edit: Upravit
@@ -294,6 +292,7 @@ cs:
             success: Tato iniciativa byla úspěšně aktualizována.
         initiatives_settings:
           edit:
+            title: Nastavení iniciativy
             update: Aktualizovat
           form:
             comments: Nejvíce komentované
@@ -301,7 +300,6 @@ cs:
             publication_date: Nedávno publikované
             random: Náhodně
             signatures: S nejvíce podpisy
-            title: Nastavení pro iniciativy
         initiatives_type_scopes:
           create:
             error: Při vytváření nového rozsahu pro danou iniciativu došlo k chybě.
@@ -324,12 +322,15 @@ cs:
           destroy:
             success: Druh iniciativy byl úspěšně odstraněn.
           edit:
+            title: Upravit typ iniciativy
             update: Aktualizovat
           form:
             child_scope_threshold_enabled_help_html: 'Tento příznak konfigurace nepodporuje offline hlasování. Umožňuje podřazené rozsahy a pracuje s autorizačním handlerem, který přiřazuje rozsah k uživateli. Ujistěte se, že jste zvolili toto autorizaci, níže v nastavení autorizace. Aby fungoval, je třeba nastavit rozsahy hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete v <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">administrátorské dokumentaci</a>.'
             only_global_scope_enabled_help_html: Zaškrtněte tento příznak, pokud jste povolili "Podřazený rozsah" a nakonfigurovali globální rozsah jako váš nadřazený rozsah. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak funguje tato konfigurace, naleznete v tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.
             options: Možnosti
             signature_workflow_settings: Nastavení pracovního postupu podpisu
+          index:
+            title: Typy iniciativ
           initiative_type_scopes:
             title: Oblasti působnosti pro tento druh iniciativ
           new:
@@ -442,25 +443,11 @@ cs:
         update: Aktualizovat
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} přijal vaši žádost, aby se stal součástí propagačního výboru pro iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}'
-          email_subject: "Uživatel %{author_nickname} přijal vaši nabídku k propagačnímu výboru"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> přijal vaši nabídku k členství v propagačním výboru pro iniciativu <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, kterého sledujete, vytvořil novou iniciativu, omrkněte ji a přispějte:"
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Nová iniciativa od %{author_nickname}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil Iniciativu <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} odmítl vaši nabídku k členství funkcionáře ve výboru propagace pro tuto iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
-          email_subject: "%{author_nickname} odmítl vaši nabídku na funkcionáře výboru propagace"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> odmítl vaši nabídku k členství v propagačním výboru pro následující iniciativu <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} požádal o funkci ve výboru vaší iniciativy %{resource_title}. Chcete-li přijmout nebo zamítnout žádost, přejděte na editační formulář vaší iniciativy."
           email_outro: 'Obdrželi jste toto oznámení, protože jste autorem této iniciativy: %{resource_title}'
-          email_subject: "%{applicant_nickname} se chce připojit k vaší iniciativě"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požádal o funkci ve výboru vaší iniciativy <a href="%{resource_url}">%{resource_title}</a>. Chcete-li přijmout nebo odmítnout <a href="%{resource_url}/edit">, klepněte zde</a>.
       form:
         add_attachments: Přidat přílohy
         add_image: Přidat obrázek
@@ -557,6 +544,7 @@ cs:
           recent: Nejnovější
           recently_published: Nedávno publikované
         pending_initiatives:
+          description: Tyto iniciativy ještě nejsou veřejné. Prosím zkontrolujte je a odešlete je k technickému ověření, aby mohly být zveřejněny.
           title: Návrhy a čekající iniciativy
         print:
           address: Adresa
@@ -651,6 +639,7 @@ cs:
             description: Podpis, který ověřuje pouze telefonní číslo, které vyhledává existující autorizaci a kontroluje SMS kód
             name: Zpracovatel podpisu pouze s SMS
           legacy_signature_handler:
+            description: Zpracovatel podpisu založený na starém podpisu, včetně shromáždění osobních dat, SMS kroku a ověření autorizace pomocí dummy_authorization_handler. Upravte libovolný parametr pro přizpůsobení se použité konfiguraci
             name: Zastaralý zpracovatel podpisu
       states:
         accepted: Přijato

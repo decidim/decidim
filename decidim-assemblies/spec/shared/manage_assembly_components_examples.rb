@@ -48,13 +48,13 @@ shared_examples "manage assembly components" do
     end
 
     it "is successfully created" do
-      expect(page).to have_admin_callout("successfully")
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_callout("Component created successfully.")
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     it "has a successful admin log" do
       visit decidim_admin.root_path
-      expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(assembly.title)}")
+      expect(page).to have_text("created #{translated(attributes[:name])} in #{translated(assembly.title)}")
     end
 
     context "and then edit it" do
@@ -78,7 +78,7 @@ shared_examples "manage assembly components" do
       it "successfully edits it" do
         click_on "Update"
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("The component was updated successfully.")
       end
     end
   end
@@ -124,8 +124,8 @@ shared_examples "manage assembly components" do
         click_on "Update"
       end
 
-      expect(page).to have_admin_callout("successfully")
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_callout("The component was updated successfully.")
+      expect(page).to have_text(translated(attributes[:name]))
 
       within "tr", text: translated(attributes[:name]) do
         find("button[data-controller='dropdown']").click
@@ -141,7 +141,7 @@ shared_examples "manage assembly components" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated #{translated(attributes[:name])} in #{translated(assembly.title)}")
+      expect(page).to have_text("updated #{translated(attributes[:name])} in #{translated(assembly.title)}")
     end
   end
 
@@ -195,7 +195,17 @@ shared_examples "manage assembly components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
+      before do
+        create(:content_block, organization:, scope_name: :assembly_homepage, manifest_name: :main_data, scoped_resource_id: assembly.id)
+      end
+
       it "hides the component from the menu" do
+        visit decidim_assemblies.assembly_path(assembly)
+        expect(page).to have_text translated(component.name)
+        expect(page.html).to include decidim_escape_translated(component.name).gsub("&quot;", "\"")
+
+        visit decidim_admin_assemblies.components_path(assembly)
+
         within ".component-#{component.id}" do
           find("button[data-controller='dropdown']").click
           click_on "Hide"
@@ -205,6 +215,9 @@ shared_examples "manage assembly components" do
           find("button[data-controller='dropdown']").click
           expect(page).to have_css("a", text: "Unpublish")
         end
+
+        visit decidim_assemblies.assembly_path(assembly)
+        expect(page).to have_no_text translated(component.name)
       end
     end
 

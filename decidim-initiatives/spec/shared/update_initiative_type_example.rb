@@ -35,7 +35,6 @@ shared_examples "update an initiative type" do
         comments_enabled: true,
         promoting_committee_enabled: true,
         minimum_committee_members: 7,
-        banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"),
         collect_user_extra_fields: false,
         extra_fields_legal_information: Decidim::Faker::Localized.sentence(word_count: 25).except("machine_translations"),
         document_number_authorization_handler: "",

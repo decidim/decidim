@@ -51,7 +51,7 @@ module Decidim
 
           on(:invalid) do
             flash[:error] = I18n.t("api_user.create.error", scope: "decidim.system")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -65,11 +65,11 @@ module Decidim
       def api_user
         return unless params[:id]
 
-        @api_user ||= ::Decidim::Api::ApiUser.find(params[:id])
+        @api_user ||= ::Decidim::Api::ApiUser.find(params.expect(:id))
       end
 
       def organization
-        ::Decidim::Organization.find(params[:admin][:organization])
+        ::Decidim::Organization.find(params.expect(admin: [:organization])[:organization])
       end
     end
   end

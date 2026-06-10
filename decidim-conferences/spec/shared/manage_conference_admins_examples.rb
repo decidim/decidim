@@ -22,7 +22,7 @@ shared_examples "manage conference admins examples" do
 
   it "shows conference admin list" do
     within "#conference_admins table" do
-      expect(page).to have_content(conference_admin.email)
+      expect(page).to have_text(conference_admin.email)
     end
   end
 
@@ -37,13 +37,13 @@ shared_examples "manage conference admins examples" do
       find("*[type=submit]").click
     end
 
-    expect(page).to have_admin_callout("successfully")
+    expect(page).to have_callout("Conference admin successfully added.")
 
     within "#conference_admins table" do
-      expect(page).to have_content(other_user.email)
+      expect(page).to have_text(other_user.email)
     end
     visit decidim_admin.root_path
-    expect(page).to have_content("invited #{other_user.name} to the #{translated(conference.title)} conference")
+    expect(page).to have_text("invited #{other_user.name} to the #{translated(conference.title)} conference")
   end
 
   describe "when managing different users" do
@@ -66,13 +66,13 @@ shared_examples "manage conference admins examples" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference admin successfully updated.")
 
       within "#conference_admins table" do
-        expect(page).to have_content("Collaborator")
+        expect(page).to have_text("Collaborator")
       end
       visit decidim_admin.root_path
-      expect(page).to have_content("changed the role of #{other_user.name} in the #{translated(conference.title)} conference")
+      expect(page).to have_text("changed the role of #{other_user.name} in the #{translated(conference.title)} conference")
     end
 
     it "deletes a conference_user_role" do
@@ -81,10 +81,10 @@ shared_examples "manage conference admins examples" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_callout("Conference admin successfully removed.")
 
       within "#conference_admins table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).to have_no_text(other_user.email)
       end
     end
 
@@ -113,7 +113,7 @@ shared_examples "manage conference admins examples" do
           click_on "Resend invitation"
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_callout("Invitation successfully resent")
       end
     end
   end

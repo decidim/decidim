@@ -82,6 +82,11 @@ module Decidim
         def actions_for_comment(_comment, _current_user)
           []
         end
+
+        # Public: Returns the visible (not hidden, not deleted) descendant replies for this comment.
+        def replies
+          descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted
+        end
       end
     end
   end

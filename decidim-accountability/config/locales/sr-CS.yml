@@ -3,16 +3,18 @@ sr:
     attributes:
       milestone:
         description: Opis
-        title: Naslov
+        entry_date: Datum
+        title: Naziv
       result:
         decidim_accountability_status_id: Stanje
         decidim_category_id: Kategorija
         decidim_scope_id: Opseg
         description: Opis
-        end_date: Krajnji datum
+        end_date: Datum završetka
         progress: Naprеdak
         start_date: Datum početka
-        title: Naslov
+        subresults: Podrezultati
+        title: Naziv
         updated_at: Ažurirano u
       status:
         description: Opis
@@ -24,6 +26,14 @@ sr:
       decidim/accountability/result_progress_updated_event: Rezultati napretka ažurirani
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Ovaj rezultat %{link} je uvršten
+            meetings_ids: 'Razmatrano je na ovom sastanku: %{link}'
+            project_ids: 'Uvršteno je u ovaj projekat: %{link}'
+            proposal_ids: 'Uvršteno je u ovaj predlog: %{link}'
+            text: 'Dodato je ovom rezultatu: %{link}'
       decidim/accountability/result:
         one: Rezultat
         few: Rezultati
@@ -31,10 +41,12 @@ sr:
   decidim:
     accountability:
       actions:
+        add_milestone: Dodaj prekretnicu
         confirm_delete_result: Da li ste sigurni da želite da obrišete ovaj rezultat?
         confirm_destroy: Da li ste sigurni da želite da obrišete ovo %{name}?
         destroy: Obriši
         edit: Izmeni
+        new_milestone: Nova prekretnica
         preview: Pregled
         title: Akcije
       admin:
@@ -43,6 +55,23 @@ sr:
         import_results:
           new:
             title: Uvezi rezultate iz CSV datoteke
+        milestones:
+          create:
+            invalid: Došlo je do problema prilikom kreiranja ove prekretnice.
+            success: Prekretnica je uspešno kreirana.
+          destroy:
+            success: Prekretnica je uspešno obrisana.
+          edit:
+            title: Izmeni prekretnicu
+            update: Ažuriraj prekretnicu
+          index:
+            title: Prekretnice
+          new:
+            create: Kreiraj prekretnicu
+            title: Nova prekretnica
+          update:
+            invalid: Došlo je do problema prilikom ažuriranja ove prekretnice.
+            success: Prekretnica je uspešno ažurirana.
         models:
           result:
             name: Rezultat
@@ -70,6 +99,10 @@ sr:
             create: Stvori status
             title: Novi status
       admin_log:
+        milestones:
+          create: "%{user_name} je kreirao %{resource_name} prekretnicu"
+          delete: "%{user_name} je obrisao %{resource_name} prekretnicu"
+          update: "%{user_name} je ažurirao %{resource_name} prekretnicu"
         result:
           create: "%{user_name} je stvorio rezultat %{resource_name} u %{space_name}"
           delete: "%{user_name} je obrisao %{resource_name} u %{space_name}"
@@ -78,13 +111,17 @@ sr:
           parent_presenter:
             not_found: 'Ovaj roditelj nije pronađen u bazi podataka (ID: %{id})'
       models:
+        milestone:
+          fields:
+            entry_date: Datum
+            title: Naziv
         result:
           fields:
-            end_date: Krajnji datum
+            end_date: Datum završetka
             progress: Napredak
             start_date: Datum početka
             status: Stanje
-            title: Naslov
+            title: Naziv
         status:
           fields:
             description: Opis
@@ -99,6 +136,8 @@ sr:
             other: "%{count} rezultata"
         home_header:
           global_status: Sveopšte stanje izvršenja
+        milestones:
+          title: Prekretnice
         search:
           search: Potraga za akcijama
         show:

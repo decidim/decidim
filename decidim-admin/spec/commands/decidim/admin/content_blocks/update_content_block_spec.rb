@@ -37,7 +37,10 @@ module Decidim::Admin::ContentBlocks
       }
     end
     let(:form) do
-      form_klass.from_params(form_params)
+      form_klass.from_params(form_params).with_context(
+        current_organization: content_block.organization,
+        content_block:
+      )
     end
 
     context "when the form is not valid" do
@@ -114,6 +117,17 @@ module Decidim::Admin::ContentBlocks
             {
               "remove_background_image" => "1"
             }.with_indifferent_access
+          end
+
+          it "purges the background image attachment" do
+            attachment = content_block.images_container.background_image
+
+            expect(attachment).to receive(:purge).and_call_original
+
+            subject.call
+            content_block.reload
+
+            expect(content_block.images_container.background_image.attached?).to be false
           end
 
           it "deletes the attachment" do

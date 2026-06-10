@@ -44,7 +44,7 @@ module Decidim
       end
 
       def organization
-        user.organization if user.present?
+        user.presence&.organization
         questionnaire&.questionnaire_for.try(:organization)
       end
 

@@ -6,7 +6,8 @@ describe "Assembly moderator manages assembly moderations" do
   include_context "when assembly moderator administrating an assembly"
 
   let(:current_component) { create(:component, participatory_space: assembly) }
-  let!(:reportables) { create_list(:dummy_resource, 2, component: current_component) }
+  let(:author) { create(:user, :malicious, :confirmed, organization: current_component.organization) }
+  let!(:reportables) { create_list(:dummy_resource, 2, author:, component: current_component) }
   let(:participatory_space_path) do
     decidim_admin_assemblies.moderations_path(assembly)
   end

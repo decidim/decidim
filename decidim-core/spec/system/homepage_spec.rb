@@ -10,7 +10,7 @@ describe "Homepage" do
 
     it "redirects to system UI and shows a warning" do
       expect(page).to have_current_path(decidim_system.new_admin_session_path)
-      expect(page).to have_content("You must create an organization to get started")
+      expect(page).to have_text("You must create an organization to get started")
     end
   end
 
@@ -19,12 +19,32 @@ describe "Homepage" do
     let(:organization) do
       create(:organization, official_url:)
     end
+    let!(:participatory_process) { create(:participatory_process, :promoted, organization:) }
+    let!(:assembly) { create(:assembly, :promoted, organization:) }
+    let!(:meeting_component) { create(:component, manifest_name: :meetings, organization:) }
+    let!(:meeting) { create(:meeting, :published, component: meeting_component) }
+
+    let(:highlighted_content_banner_settings) do
+      {
+        "title_en" => "Hello world",
+        "short_description_en" => "Bye world",
+        "action_button_title_en" => "Go!",
+        "action_button_subtitle_en" => "Now",
+        "action_button_url" => "https://example.org"
+      }
+    end
 
     before do
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero, weight: 10)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero, weight: 20)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate, weight: 30)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats, weight: 40)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero, weight: 50)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner, weight: 60, settings: highlighted_content_banner_settings)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_processes, weight: 70)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_assemblies, weight: 80)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :upcoming_meetings, weight: 90)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :html, weight: 100, settings: { html_content: { en: "<div class=\"custom-html\">Custom HTML Content</div>" } })
 
       switch_to_host(organization.host)
     end
@@ -93,6 +113,11 @@ describe "Homepage" do
         let(:snippet) { "<meta data-hello=\"This is the organization header_snippet field\">" }
         let(:organization) { create(:organization, official_url:, header_snippets: snippet) }
 
+        before do
+          allow(Decidim).to receive(:enable_html_header_snippets).and_return(false)
+          visit decidim.root_path
+        end
+
         it "does not include the header snippets" do
           expect(page).to have_no_selector("meta[data-hello]", visible: :all)
         end
@@ -110,7 +135,7 @@ describe "Homepage" do
       end
 
       it "welcomes the user" do
-        expect(page).to have_content(translated(organization.name))
+        expect(page).to have_text(translated(organization.name))
       end
 
       context "when there are static pages" do
@@ -125,10 +150,10 @@ describe "Homepage" do
         it "includes links to them" do
           within "footer" do
             [static_page1, static_page2].each do |static_page|
-              expect(page).to have_content(static_page.topic.title["en"])
+              expect(page).to have_text(static_page.topic.title["en"])
             end
 
-            expect(page).to have_no_content(static_page3.title["en"])
+            expect(page).to have_no_text(static_page3.title["en"])
           end
 
           click_on static_page1.topic.title["en"]
@@ -141,7 +166,7 @@ describe "Homepage" do
           expect(page).to have_css("#footer_sub_hero")
 
           within "#footer_sub_hero" do
-            expect(page).to have_content(translated(organization.name))
+            expect(page).to have_text(translated(organization.name))
           end
         end
 
@@ -190,13 +215,13 @@ describe "Homepage" do
 
           it "displays only publicly accessible pages and topics with pages configured to be shown in the footer" do
             within "footer" do
-              expect(page).to have_content(static_page1.topic.title["en"])
-              expect(page).to have_no_content(static_page3.title["en"])
-              expect(page).to have_content(static_page_topic1.topic.title["en"])
-              expect(page).to have_no_content(static_page_topic1_page1.title["en"])
-              expect(page).to have_content(static_page_topic1_page2.topic.title["en"])
-              expect(page).to have_no_content(static_page_topic2.title["en"])
-              expect(page).to have_no_content(static_page_topic3.title["en"])
+              expect(page).to have_text(static_page1.topic.title["en"])
+              expect(page).to have_no_text(static_page3.title["en"])
+              expect(page).to have_text(static_page_topic1.topic.title["en"])
+              expect(page).to have_no_text(static_page_topic1_page1.title["en"])
+              expect(page).to have_text(static_page_topic1_page2.topic.title["en"])
+              expect(page).to have_no_text(static_page_topic2.title["en"])
+              expect(page).to have_no_text(static_page_topic3.title["en"])
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
@@ -215,16 +240,16 @@ describe "Homepage" do
             it_behaves_like "accessible page"
 
             it "displays all pages and topics with pages in footer that are configured to display in footer" do
-              expect(page).to have_content(static_page1.topic.title["en"])
-              expect(page).to have_content(static_page2.topic.title["en"])
-              expect(page).to have_no_content(static_page3.title["en"])
-              expect(page).to have_content(static_page_topic1.topic.title["en"])
-              expect(page).to have_content(static_page_topic1_page1.topic.title["en"])
-              expect(page).to have_content(static_page_topic1_page2.topic.title["en"])
-              expect(page).to have_content(static_page_topic2.topic.title["en"])
-              expect(page).to have_content(static_page_topic2_page1.topic.title["en"])
-              expect(page).to have_no_content(static_page_topic2_page2.title["en"])
-              expect(page).to have_no_content(static_page_topic3.title["en"])
+              expect(page).to have_text(static_page1.topic.title["en"])
+              expect(page).to have_text(static_page2.topic.title["en"])
+              expect(page).to have_no_text(static_page3.title["en"])
+              expect(page).to have_text(static_page_topic1.topic.title["en"])
+              expect(page).to have_text(static_page_topic1_page1.topic.title["en"])
+              expect(page).to have_text(static_page_topic1_page2.topic.title["en"])
+              expect(page).to have_text(static_page_topic2.topic.title["en"])
+              expect(page).to have_text(static_page_topic2_page1.topic.title["en"])
+              expect(page).to have_no_text(static_page_topic2_page2.title["en"])
+              expect(page).to have_no_text(static_page_topic3.title["en"])
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
@@ -272,7 +297,7 @@ describe "Homepage" do
           end
 
           it "does not show last activity section on menu bar main dropdown" do
-            expect(page).to have_no_content(translated(comment.body))
+            expect(page).to have_no_text(translated(comment.body))
             expect(page).to have_no_link("New comment")
             expect(page).to have_no_link("Last activity")
           end
@@ -287,7 +312,7 @@ describe "Homepage" do
           end
 
           it "does not show last activity section on menu bar main dropdown" do
-            expect(page).to have_no_content(title[:en])
+            expect(page).to have_no_text(title[:en])
           end
         end
       end
@@ -305,38 +330,25 @@ describe "Homepage" do
           )
         end
 
-        context "when organization does not have the stats content block" do
-          let(:organization) { create(:organization) }
+        before do
+          visit current_path
+        end
 
-          it "does not show the statistics block" do
-            expect(page).to have_no_content("Current state of #{translated(organization.name)}")
+        it "shows the statistics block" do
+          within "#statistics" do
+            expect(page).to have_text("Statistics")
+            expect(page).to have_text("Processes")
+            expect(page).to have_text("Participants")
           end
         end
 
-        context "when organization has the stats content block" do
-          let(:organization) { create(:organization) }
-
-          before do
-            create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats)
-            visit current_path
+        it "has the correct values for the statistics" do
+          within ".users_count" do
+            expect(page).to have_text("4")
           end
 
-          it "shows the statistics block" do
-            within "#statistics" do
-              expect(page).to have_content("Statistics")
-              expect(page).to have_content("Processes")
-              expect(page).to have_content("Participants")
-            end
-          end
-
-          it "has the correct values for the statistics" do
-            within ".users_count" do
-              expect(page).to have_content("4")
-            end
-
-            within ".processes_count" do
-              expect(page).to have_content("2")
-            end
+          within ".processes_count" do
+            expect(page).to have_text("3")
           end
         end
       end
@@ -393,6 +405,57 @@ describe "Homepage" do
               expect(page).to have_text(strip_tags(translated(organization.description)))
             end
           end
+        end
+      end
+
+      describe "content blocks" do
+        it "renders all content blocks on the homepage" do
+          expect(page).to have_css("section.hero__container")
+          expect(page).to have_css("#sub_hero")
+          expect(page).to have_css("#how_to_participate")
+          expect(page).to have_css("#statistics")
+          expect(page).to have_css("#footer_sub_hero")
+          expect(page).to have_css("#highlighted_content_banner")
+          expect(page).to have_css("#highlighted-processes")
+          expect(page).to have_css("#highlighted-assemblies")
+          expect(page).to have_css("[id^=meetings]")
+          expect(page).to have_css(".custom-html")
+        end
+
+        it "renders content blocks in the correct order by weight" do
+          expect(%(class="hero__container")).to appear_before(%(id="sub_hero"))
+          expect(%(id="sub_hero")).to appear_before(%(id="how_to_participate"))
+          expect(%(id="how_to_participate")).to appear_before(%(id="statistics"))
+          expect(%(id="statistics")).to appear_before(%(id="footer_sub_hero"))
+          expect(%(id="footer_sub_hero")).to appear_before(%(id="highlighted_content_banner"))
+          expect(%(id="highlighted_content_banner")).to appear_before(%(id="highlighted-processes"))
+          expect(%(id="highlighted-processes")).to appear_before(%(id="highlighted-assemblies"))
+          expect(%(id="highlighted-assemblies")).to appear_before(%(id="homepage-upcoming-meetings"))
+          expect(%(id="homepage-upcoming-meetings")).to appear_before(%(id="html-block-html"))
+        end
+
+        it "renders each content block with its corresponding cell content" do
+          expect(page).to have_css("section.hero__container")
+          within "section.hero__container" do
+            expect(page).to have_text("Welcome")
+          end
+
+          expect(page).to have_css("#how_to_participate")
+          expect(page).to have_text("How do I take part in a process?")
+
+          expect(page).to have_css("#statistics")
+          expect(page).to have_text("Statistics")
+
+          expect(page).to have_css("#footer_sub_hero")
+
+          expect(page).to have_css("#highlighted_content_banner")
+
+          expect(page).to have_css("#highlighted-processes")
+          expect(page).to have_css("#highlighted-assemblies")
+          expect(page).to have_css("[id^=meetings]")
+
+          expect(page).to have_css(".custom-html")
+          expect(page).to have_text("Custom HTML Content")
         end
       end
     end

@@ -26,7 +26,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("debates.close.invalid", scope: "decidim.debates")
-              render action: "edit", status: :unprocessable_entity
+              render action: "edit", status: :unprocessable_content
             end
           end
         end
@@ -34,7 +34,7 @@ module Decidim
         private
 
         def debate
-          @debate ||= Debate.where(component: current_component).find(params[:id])
+          @debate ||= Debate.where(component: current_component).find(params.expect(:id))
         end
       end
     end

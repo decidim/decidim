@@ -87,7 +87,7 @@ module Decidim
 
         context "when the author is a user" do
           it "includes the name of the author and a link to their profile" do
-            expect(mail).to have_link(author.name, href: decidim.profile_url(author.nickname, host: organization.host))
+            expect(mail).to have_link(author.name, href: decidim.profile_url(author.nickname, locale: I18n.locale, host: organization.host))
           end
         end
 
@@ -119,7 +119,7 @@ module Decidim
             reportable.coauthorships.destroy_all
             create(:coauthorship, coauthorable: reportable, author: meeting)
 
-            expect(email_body(mail)).to have_content(translated(meeting.title))
+            expect(email_body(mail)).to have_text(translated(meeting.title))
           end
         end
       end

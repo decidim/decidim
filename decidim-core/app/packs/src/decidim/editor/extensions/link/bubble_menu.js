@@ -1,24 +1,52 @@
-import { PluginKey } from "prosemirror-state";
+import { NodeSelection, PluginKey } from "prosemirror-state";
 
 import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import BubbleMenu from "src/decidim/editor/common/bubble_menu";
 
 class LinkBubbleMenu extends BubbleMenu {
-  shouldDisplay() {
-    return this.editor.isActive("link");
+  shouldDisplay(view) {
+    if (this.editor.isActive("link")) {
+      return true;
+    }
+
+    const selection = view.state.selection;
+    return this.isImage(selection) && Boolean(selection.node.attrs.href);
   }
 
-  display() {
-    const { href } = this.editor.getAttributes("link");
-    this.element.querySelector("[data-linkbubble-value]").textContent = href;
+  display(view) {
+    if (this.editor.isActive("link")) {
+      const { href } = this.editor.getAttributes("link");
+      this.updateHref(href);
+      return;
+    }
+
+    const selection = view.state.selection;
+    if (this.isImage(selection)) {
+      this.bubble.style.zIndex = "10";
+      this.updateHref(selection.node.attrs.href);
+    }
   }
 
   handleAction(action) {
     if (action === "remove") {
+      const { selection } = this.editor.state;
+      if (this.isImage(selection)) {
+        this.editor.chain().focus(null, { scrollIntoView: false }).updateAttributes("image", { href: null, target: null }).run();
+        return;
+      }
+
       this.editor.chain().focus(null, { scrollIntoView: false }).unsetLink().run();
     } else {
       this.editor.commands.linkDialog();
     }
+  }
+
+  updateHref(href) {
+    this.element.querySelector("[data-linkbubble-value]").textContent = href;
+  }
+
+  isImage(selection) {
+    return selection instanceof NodeSelection && selection.node.type.name === "image";
   }
 }
 

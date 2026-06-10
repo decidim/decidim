@@ -10,6 +10,8 @@ module Decidim
       def new
         enforce_permission_to :block, :admin_user
 
+        return redirect_to(officializations_path, alert: I18n.t("officializations.block.no_user", scope: "decidim.admin")) unless user
+
         @form = form(BlockUserForm).from_model(user)
         @form.hide = params[:hide] || false
       end
@@ -27,7 +29,7 @@ module Decidim
 
           on(:invalid) do
             flash[:alert] = I18n.t("officializations.block.error", scope: "decidim.admin")
-            render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_content
           end
         end
       end
@@ -65,7 +67,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("officializations.bulk_action.block.invalid", scope: "decidim.admin")
-            render :bulk_new, status: :unprocessable_entity
+            render :bulk_new, status: :unprocessable_content
           end
         end
       end

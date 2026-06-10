@@ -27,15 +27,15 @@ describe "Conference registrations" do
   let(:registration_type) { registration_types.first }
 
   def visit_conference
-    visit decidim_conferences.conference_path(conference, locale: I18n.locale)
+    visit decidim_conferences.conference_path(conference)
   end
 
   def visit_conference_registration_types
-    visit decidim_conferences.conference_registration_types_path(conference, locale: I18n.locale)
+    visit decidim_conferences.conference_registration_types_path(conference)
   end
 
   def visit_conference_registration_type
-    visit decidim_conferences.conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type, locale: I18n.locale)
+    visit decidim_conferences.conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type)
   end
 
   before do
@@ -97,15 +97,15 @@ describe "Conference registrations" do
         visit_conference
 
         within ".conference__hero" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
         end
 
         within ".conference__content-block" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
         end
 
         within ".conference__box" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
         end
       end
 
@@ -117,11 +117,11 @@ describe "Conference registrations" do
         end
 
         within "#conference-registration-confirm-#{registration_type.id}" do
-          expect(page).to have_content "A legal text"
+          expect(page).to have_text "A legal text"
           click_on "Confirm"
         end
 
-        expect(page).to have_content("successfully")
+        expect(page).to have_callout("You have successfully joined the conference")
 
         expect(page).to have_css(".button", text: "Attending")
         expect(page).to have_css("button[disabled]", text: "Registration", count: 4)
@@ -132,13 +132,13 @@ describe "Conference registrations" do
       it "allows to register" do
         visit_conference
         within ".conference__hero" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
         end
         within ".conference__content-block" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
           click_on "Register"
         end
-        expect(page).to have_content "CHOOSE YOUR REGISTRATION OPTION:"
+        expect(page).to have_text "CHOOSE YOUR REGISTRATION OPTION:"
       end
     end
 
@@ -150,10 +150,10 @@ describe "Conference registrations" do
       it "does not show the register button" do
         visit_conference
         within ".conference__hero" do
-          expect(page).to have_no_content "Register"
+          expect(page).to have_no_text "Register"
         end
         within ".conference__content-block" do
-          expect(page).to have_no_content "Register"
+          expect(page).to have_no_text "Register"
         end
       end
     end
@@ -164,10 +164,10 @@ describe "Conference registrations" do
       it "does not show the register button" do
         visit_conference
         within ".conference__hero" do
-          expect(page).to have_no_content "Register"
+          expect(page).to have_no_text "Register"
         end
         within ".conference__content-block" do
-          expect(page).to have_no_content "Register"
+          expect(page).to have_no_text "Register"
         end
       end
     end
@@ -183,15 +183,15 @@ describe "Conference registrations" do
       visit_conference
 
       within ".conference__hero" do
-        expect(page).to have_content "Manage registration"
+        expect(page).to have_text "Manage registration"
       end
 
       within ".conference__content-block" do
-        expect(page).to have_content "Manage registration"
+        expect(page).to have_text "Manage registration"
       end
 
       within ".conference__box" do
-        expect(page).to have_content "Manage registration"
+        expect(page).to have_text "Manage registration"
       end
     end
 
@@ -202,7 +202,7 @@ describe "Conference registrations" do
         click_on "Attending"
       end
 
-      expect(page).to have_content("successfully")
+      expect(page).to have_callout("You have successfully left the conference")
       expect(page).to have_css(".button", text: "Registration", count: registration_types_count)
     end
   end
@@ -212,7 +212,7 @@ describe "Conference registrations" do
 
     it "requires the user to sign in" do
       visit_conference_registration_type
-      expect(page).to have_current_path("/users/sign_in")
+      expect(page).to have_current_path(decidim.new_user_session_path)
     end
 
     context "when the user is signed in" do
@@ -220,7 +220,7 @@ describe "Conference registrations" do
 
       it "accepts the invitation successfully" do
         visit_conference_registration_type
-        expect(page).to have_content("successfully")
+        expect(page).to have_callout("You have successfully joined the conference")
       end
     end
   end

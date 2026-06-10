@@ -12,10 +12,6 @@ Decidim.register_component(:debates) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Debates::Debate"]
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Debates::Debate.where(component: instance).any?
-  end
-
   component.on(:publish) do |instance|
     Decidim::Debates::Debate.where(component: instance).find_in_batches(batch_size: 100) do |batch|
       Decidim::UpdateSearchIndexesJob.perform_later(batch)
@@ -66,7 +62,7 @@ Decidim.register_component(:debates) do |component|
                           icon_name: "chat-1-line",
                           tooltip_key: "comments_count",
                           tag: :comments do |components, _start_at, _end_at|
-    Decidim::Debates::Debate.where(component: components).not_hidden.count
+    Decidim::Debates::Debate.where(component: components).not_hidden.sum(:comments_count)
   end
 
   component.register_stat :likes_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|

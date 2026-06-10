@@ -32,7 +32,7 @@ describe "User prints the initiative" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout "The initiative has been successfully updated."
+        expect(page).to have_callout "The initiative has been successfully updated."
       end
 
       it "updates the initiative" do
@@ -56,9 +56,9 @@ describe "User prints the initiative" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout "The initiative has been successfully updated."
+        expect(page).to have_callout "The initiative has been successfully updated."
         visit decidim_admin.root_path
-        expect(page).to have_content("updated the #{translated(attributes[:title])} initiative")
+        expect(page).to have_text("updated the #{translated(attributes[:title])} initiative")
       end
 
       context "when initiative is in created state" do
@@ -82,7 +82,7 @@ describe "User prints the initiative" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_admin_callout "The initiative has been successfully updated."
+          expect(page).to have_callout "The initiative has been successfully updated."
         end
 
         it "displays initiative attachments" do
@@ -117,7 +117,7 @@ describe "User prints the initiative" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_admin_callout "The initiative has been successfully updated."
+          expect(page).to have_callout "The initiative has been successfully updated."
         end
 
         it "displays initiative attachments" do

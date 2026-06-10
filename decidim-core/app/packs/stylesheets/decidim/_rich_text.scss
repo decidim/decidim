@@ -106,4 +106,21 @@
   .editor-indent-10 {
     @apply ml-40;
   }
+
+  // Style for external link icon inside linked images
+  a:has(.editor-content-image) [data-external-link="true"] {
+    @apply block relative;
+
+    margin: -1.5rem 0 1em auto;
+    width: fit-content;
+
+    svg {
+      @apply w-4 h-4;
+    }
+  }
+
+  // Make sure the anchor with image is positioned for proper icon placement
+  a:has(.editor-content-image) {
+    @apply block relative;
+  }
 }

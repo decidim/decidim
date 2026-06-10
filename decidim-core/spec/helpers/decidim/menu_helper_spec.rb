@@ -13,6 +13,7 @@ module Decidim
     before do
       allow(helper).to receive(:current_organization).and_return(organization)
       allow(helper).to receive(:current_user).and_return(user)
+      allow(helper).to receive(:current_locale).and_return("en")
     end
 
     describe "#menu_highlighted_participatory_process" do
@@ -65,15 +66,15 @@ module Decidim
           end
         end
 
-        context "and the promoted published process with minimum weight is private" do
+        context "and the promoted published process with minimum weight is restricted" do
           before do
-            process_two.update!(promoted: true, private_space: true)
+            process_two.update!(promoted: true, access_mode: :restricted)
           end
 
           context "and current_user is member of that process" do
             let!(:member) { create(:member, participatory_space: process_two, user:) }
 
-            it "returns the private process" do
+            it "returns the restricted process" do
               expect(helper.menu_highlighted_participatory_process).to eq(process_two)
             end
           end
@@ -84,6 +85,13 @@ module Decidim
             end
           end
         end
+      end
+    end
+
+    describe "#footer_menu" do
+      it "renders footer menu items without the menuitem role" do
+        expect(helper.footer_menu.render).to have_css("li")
+        expect(helper.footer_menu.render).to have_no_css("li[role='menuitem']")
       end
     end
   end

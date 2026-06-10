@@ -26,7 +26,7 @@
               <%= link_to decidim_sanitize_translated(survey.title), edit_survey_path(survey) %>
             </td>
             <td data-label="<%= t("models.survey.fields.questions", scope: "decidim.surveys") %>">
-              <%= survey.questionnaire.questions.not_separator.size %>
+              <%= survey.questionnaire.question_types.size %>
             </td>
             <td data-label="<%= t("models.survey.fields.responses", scope: "decidim.surveys") %>">
               <%= survey.questionnaire.count_participants %>

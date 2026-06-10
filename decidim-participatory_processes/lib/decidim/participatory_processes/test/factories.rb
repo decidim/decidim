@@ -32,7 +32,6 @@ FactoryBot.define do
     participatory_structure { generate_localized_title(:participatory_process_participatory_structure, skip_injection:) }
     announcement { generate_localized_title(:participatory_process_announcement, skip_injection:) }
     has_members { false }
-    private_space { false }
     start_date { Date.current }
     end_date { 2.months.from_now }
     area { nil }
@@ -53,8 +52,18 @@ FactoryBot.define do
       deleted_at { Time.current }
     end
 
-    trait :private do
-      private_space { true }
+    trait :open do
+      access_mode { :open }
+    end
+
+    trait :transparent do
+      has_members { true }
+      access_mode { :transparent }
+    end
+
+    trait :restricted do
+      has_members { true }
+      access_mode { :restricted }
     end
 
     trait :with_steps do
@@ -150,28 +159,6 @@ FactoryBot.define do
 
     trait :active do
       active { true }
-    end
-  end
-
-  factory :participatory_process_type, class: "Decidim::ParticipatoryProcessType" do
-    transient do
-      skip_injection { false }
-    end
-    title { generate_localized_title(:participatory_process_type_title, skip_injection:) }
-    organization
-
-    trait :with_active_participatory_processes do
-      after(:create) do |participatory_process_type, evaluator|
-        create_list(:participatory_process, 2, :active, :published, organization: participatory_process_type.organization, participatory_process_type:,
-                                                                    skip_injection: evaluator.skip_injection)
-      end
-    end
-
-    trait :with_past_participatory_processes do
-      after(:create) do |participatory_process_type, evaluator|
-        create_list(:participatory_process, 2, :past, :published, organization: participatory_process_type.organization, participatory_process_type:,
-                                                                  skip_injection: evaluator.skip_injection)
-      end
     end
   end
 

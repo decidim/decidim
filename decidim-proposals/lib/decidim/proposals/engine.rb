@@ -28,16 +28,6 @@ module Decidim
             end
           end
         end
-        resources :collaborative_drafts, except: [:destroy] do
-          member do
-            post :request_access, controller: "collaborative_draft_collaborator_requests"
-            post :request_accept, controller: "collaborative_draft_collaborator_requests"
-            post :request_reject, controller: "collaborative_draft_collaborator_requests"
-            post :withdraw
-            post :publish
-          end
-          resources :versions, only: [:show]
-        end
         scope "/proposals" do
           root to: "proposals#index"
         end
@@ -45,16 +35,12 @@ module Decidim
       end
 
       initializer "decidim_proposals.register_icons" do
-        Decidim.icons.register(name: "Decidim::Proposals::CollaborativeDraft", icon: "draft-line", category: "activity",
-                               description: "Collaborative draft", engine: :proposals)
         Decidim.icons.register(name: "Decidim::Proposals::Proposal", icon: "chat-new-line", category: "activity",
                                description: "Proposal", engine: :proposals)
         Decidim.icons.register(name: "participatory_texts_item", icon: "bookmark-line", description: "Index item", category: "participatory_texts",
                                engine: :proposals)
 
         Decidim.icons.register(name: "scan-line", icon: "scan-line", category: "system", description: "", engine: :proposals)
-        Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line",
-                               category: "action", description: "Edit icon for Collaborative Drafts", engine: :proposals)
 
         Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", category: "system", description: "", engine: :proposals)

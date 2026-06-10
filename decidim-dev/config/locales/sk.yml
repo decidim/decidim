@@ -1,8 +1,12 @@
 sk:
   activemodel:
     attributes:
+      dummy:
+        image: Obrázok
+      dummy_attribute: Fiktívny atribút
       dummy_resource:
         created_at: Vytvorené
+        decidim_scope_id: Oblasť
         field: Moje pole
         start_date: Dátum začatia
         title: Názov
@@ -13,12 +17,31 @@ sk:
       dummy:
         settings:
           global:
+            clear_all: Vymazať všetko
+            guided: Riadený vstup
+            guided_help: Text pomocníka
+            guided_readonly: Zakázaný vstup
+            guided_rich: Riadený formátovaný vstup
+            guided_rich_help_html: HTML <strong>text</strong> pomocníka
+            guided_rich_readonly_html: HTML <strong>text</strong> pomocníka pre zakázaný vstup
+            readonly_attribute: Atribút iba na čítanie
+            test: Test
+            test_add: Pridať test
+            test_choices:
+              a: Možnosť A
+              b: Možnosť B
+              c: Možnosť C
             test_options:
               bar: Stĺpec
+              baz: Baz
               foo: Test
           step:
+            likes_blocked: Lajky zablokované
+            likes_enabled: Lajky povolené
+            readonly_step_attribute: Atribút kroku iba na čítanie
             test_options:
               bar: Stĺpec
+              baz: Baz
               foo: Test
     dummy:
       admin:
@@ -34,6 +57,7 @@ sk:
           description_own: Vytvorili ste %{score} testov.
           name: Testy
           next_level_in: Vytvorte o %{score} testov viac pre dosiahnutie ďalšej úrovne!
+          unearned_another: Tento účastník zatiaľ nevytvoril žiadne testy.
           unearned_own: Zatiaľ ste nevytvorili žiadny test.
     resource_links:
       test_link:

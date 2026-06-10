@@ -117,7 +117,33 @@ module Decidim
       end
     end
 
-    describe "scopes" do
+    describe ".visible?" do
+      let!(:open_process) { create(:participatory_process, access_mode: :open) }
+      let!(:transparent_process) { create(:participatory_process, access_mode: :transparent) }
+      let!(:restricted_process) { create(:participatory_process, access_mode: :restricted) }
+
+      it "returns the right visibility" do
+        expect(open_process).to be_visible
+        expect(transparent_process).to be_visible
+        expect(restricted_process).not_to be_visible
+      end
+    end
+
+    describe "access mode scopes" do
+      describe "public_spaces" do
+        let!(:open_process) { create(:participatory_process, access_mode: :open) }
+        let!(:transparent_process) { create(:participatory_process, access_mode: :transparent) }
+        let!(:restricted_process) { create(:participatory_process, access_mode: :restricted) }
+
+        it "returns the public ones" do
+          expect(described_class.public_spaces).to include open_process
+          expect(described_class.public_spaces).to include transparent_process
+          expect(described_class.public_spaces).not_to include restricted_process
+        end
+      end
+    end
+
+    describe "temporal scopes" do
       let!(:past) { create(:participatory_process, :past) }
       let!(:upcoming) { create(:participatory_process, :upcoming) }
       let!(:active) { create(:participatory_process, :active) }

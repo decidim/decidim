@@ -1,4 +1,8 @@
 zh-TW:
+  activerecord:
+    models:
+      decidim/elections/election:
+        other: 選舉
   decidim:
     admin:
       menu:

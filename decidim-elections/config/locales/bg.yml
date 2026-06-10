@@ -1,4 +1,9 @@
 bg:
+  activerecord:
+    models:
+      decidim/elections/election:
+        one: Избор
+        other: Избори
   decidim:
     admin:
       menu:
@@ -105,4 +110,4 @@ bg:
   layouts:
     decidim:
       election_votes_header:
-        exit: Затвори
+        exit: Затваряне

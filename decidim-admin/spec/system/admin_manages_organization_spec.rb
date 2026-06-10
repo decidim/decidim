@@ -44,21 +44,40 @@ describe "Admin manages organization" do
                           es: "<p>Spanish - Respect the privacy of others.</p>"
 
       click_on "Update"
-      expect(page).to have_content("updated successfully")
+      expect(page).to have_text("updated successfully")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the organization settings")
+      expect(page).to have_text("updated the organization settings")
     end
 
     it "marks the comments_max_length as required" do
       visit decidim_admin.edit_organization_path
       expect(find_by_id("organization_comments_max_length")[:required]).to eq("true")
 
-      expect(page).to have_no_content("There is an error in this field.")
+      expect(page).to have_no_text("There is an error in this field.")
       fill_in :organization_comments_max_length, with: ""
       find_by_id("organization_rich_text_editor_in_public_views").click
 
-      expect(page).to have_content("There is an error in this field.")
+      expect(page).to have_text("There is an error in this field.")
+    end
+
+    it "displays the form error for official language" do
+      visit decidim_admin.edit_organization_path(locale: :ca)
+
+      expect(page).to have_css("#organization_name_ca", visible: :visible)
+      expect(page).to have_field("organization_name_ca", with: organization.name["ca"])
+
+      within "#organization-name-tabs" do
+        click_on "English"
+      end
+      fill_in :organization_name_en, with: ""
+
+      click_on "Actualitzar"
+      expect(page).to have_text("S'ha produït un error en actualitzar aquesta organització.")
+
+      expect(page).to have_css("#organization_name_en", visible: :visible)
+      expect(page).to have_field("organization_name_en", with: "")
+      expect(page).to have_text("no pot estar en blanc")
     end
 
     context "when there are more than 4 locales in the organization" do
@@ -91,6 +110,23 @@ describe "Admin manages organization" do
 
         Decidim::Admin.send(:remove_const, :OrganizationForm)
         load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/organization_form.rb"
+      end
+
+      it "displays the form error for official language" do
+        visit decidim_admin.edit_organization_path(locale: :ca)
+
+        expect(page).to have_css("#organization_name_ca", visible: :visible)
+        expect(page).to have_field("organization_name_ca", with: organization_names[:ca])
+
+        select "English", from: "organization-name-tabs"
+        fill_in :organization_name_en, with: ""
+
+        click_on "Actualitzar"
+        expect(page).to have_text("S'ha produït un error en actualitzar aquesta organització.")
+
+        expect(page).to have_css("#organization_name_en", visible: :visible)
+        expect(page).to have_field("organization_name_en", with: "")
+        expect(page).to have_text("no pot estar en blanc")
       end
 
       it "renders a dropdown for the language selector and switches between languages" do
@@ -329,7 +365,7 @@ describe "Admin manages organization" do
         it "is still editable" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys(Array.new(15) { :backspace }, "bar baz")
           click_on "Update"
-          expect(page).to have_content("Organization updated successfully")
+          expect(page).to have_text("Organization updated successfully")
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
           )["innerHTML"]).to eq("<p>bar baz</p>")
@@ -429,18 +465,18 @@ describe "Admin manages organization" do
           )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
         end
 
-        it "deletes empty list item when pressing backspace and starts new paragraph" do
-          find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, :enter], "Another paragraph"
+        it "allows removing empty list item with backspace" do
+          find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, "test", :left, :left, :left, :left, :backspace]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3test</p></li></ul>".gsub("\n", ""))
         end
 
         it "deletes linebreaks (and smartbreaks) using the backspace" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :enter, :enter, :backspace, :backspace, :backspace, :backspace]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item</p></li></ul>".gsub("\n", ""))
         end
 
         it "keeps right cursor position when using the backspace" do
@@ -448,14 +484,14 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, :backspace, "a"]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li><li><p>abc</p></li></ul>".to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3abc</p></li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right format when using the backspace" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, "abc", :left, :left, :left, :backspace]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3abc</p></li></ul>".to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item abc</p></li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right cursor position when using backspace after empty list item" do
@@ -463,7 +499,7 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :enter, :enter, :backspace, :backspace, :backspace, :backspace, :backspace, :backspace, "a"]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li><li><p>abcd</p></li></ul>".to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List itemabcd</p></li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right cursor position when using backspace after list item with text" do
@@ -471,7 +507,7 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, :backspace, :enter, :enter, :backspace, :backspace, :backspace, :backspace, "b"]
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li><li><p>abcd</p></li></ul>".to_s.gsub("\n", ""))
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item bcd</p></li></ul>".to_s.gsub("\n", ""))
         end
 
         it "does not delete characters below when pressing backspace" do
@@ -595,13 +631,13 @@ describe "Admin manages organization" do
 
       dynamically_attach_file(:organization_logo, Decidim::Dev.asset("city2.jpeg"))
       dynamically_attach_file(:organization_favicon, Decidim::Dev.asset("logo.png"), remove_before: true) do
-        expect(page).to have_content("Has to be a square image")
+        expect(page).to have_text("Has to be a square image")
       end
       dynamically_attach_file(:organization_official_img_footer, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
 
       click_on "Update"
 
-      expect(page).to have_content("updated successfully")
+      expect(page).to have_text("updated successfully")
 
       within "#minimap" do
         expect(page.all("img").count).to eq(3)
@@ -634,9 +670,9 @@ describe "Admin manages organization" do
       it "does not show the customization fields" do
         visit decidim_admin.edit_organization_path
         check "Send welcome notification"
-        expect(page).to have_no_content("Welcome notification subject")
+        expect(page).to have_no_text("Welcome notification subject")
         click_on "Update"
-        expect(page).to have_content("updated successfully")
+        expect(page).to have_text("updated successfully")
 
         organization.reload
         expect(organization[:welcome_notification_subject]).to be_nil
@@ -657,7 +693,7 @@ describe "Admin manages organization" do
                             en: "<p>Body</p>"
 
         click_on "Update"
-        expect(page).to have_content("updated successfully")
+        expect(page).to have_text("updated successfully")
 
         organization.reload
         expect(organization.send_welcome_notification).to be_truthy
@@ -674,13 +710,13 @@ describe "Admin manages organization" do
                      en: ""
 
         click_on "Update"
-        expect(page).to have_content("There was a problem updating this organization.")
+        expect(page).to have_text("There was a problem updating this organization.")
 
         fill_in_i18n :organization_welcome_notification_subject, "#organization-welcome_notification_subject-tabs",
                      en: "Well hello!"
 
         click_on "Update"
-        expect(page).to have_content("updated successfully")
+        expect(page).to have_text("updated successfully")
 
         organization.reload
         expect(organization.send_welcome_notification).to be_truthy

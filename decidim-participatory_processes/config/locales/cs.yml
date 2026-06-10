@@ -14,6 +14,7 @@ cs:
         duplicate_landing_page_blocks: Duplikovat bloky vstupní strany
         duplicate_steps: Duplikovat kroky
         end_date: Datum ukončení
+        has_members: Tento prostor má členy
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
@@ -24,7 +25,6 @@ cs:
         participatory_process_group_id: Skupina procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
-        private_space: Soukromý proces
         promoted: Propagováno
         published_at: Publikováno v
         related_process_ids: Související procesy
@@ -65,6 +65,8 @@ cs:
           attributes:
             document:
               allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}'
+              empty: Dokument je prázdný
+              invalid_json: Dokument není platný JSON
     models:
       decidim/participatory_process_step_activated_event: Krok aktivován
       decidim/participatory_process_step_changed_event: Krok se změnil
@@ -108,10 +110,15 @@ cs:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Podle skupiny procesů
+        with_any_access_mode:
+          label: Přístupový režim
+          values:
+            open: Otevřený
+            restricted: Omezený
+            transparent: Transparentní
       menu:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
-          info: Info
           landing_page: Rozložení vstupní strany
         participatory_processes: Procesy
         participatory_processes_submenu:
@@ -119,17 +126,17 @@ cs:
           attachment_files: Soubory
           attachments: Přílohy
           components: Komponenty
-          info: O tomto procesu
           landing_page: Rozložení vstupní strany
+          members: Členové
           moderations: Moderování
           process_admins: Administrátoři procesu
           steps: Kroky
       models:
         participatory_process:
           fields:
+            access_mode: Přístupový režim
             actions: Akce
             created_at: Vytvořeno v
-            private: Soukromé
             published: Publikováno
             title: Titul
           name: Participační proces
@@ -166,17 +173,14 @@ cs:
         new:
           duplicate: Duplikovat
           select: Vyberte, která data chcete duplikovat
-          title: Duplikovat participativní proces
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zničení skupiny participačních procesů.
           success: Účastní skupina procesů byla úspěšně smazána.
         edit:
-          title: Upravit skupinu procesů
           update: Aktualizace
         new:
           create: Vytvořit
-          title: Nová skupina procesů
         update:
           error: Byla chyba při aktualizaci této participační skupiny procesů.
           success: Skupina účastnických procesů byla úspěšně aktualizována.
@@ -187,7 +191,6 @@ cs:
         new:
           import: Importovat
           select: Vyberte, které údaje chcete importovat
-          title: Importovat proces participace
       participatory_process_publications:
         create:
           error: Při publikování tohoto procesu participace došlo k chybě.
@@ -210,18 +213,14 @@ cs:
             last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
-          title: Úprava kroku procesu participace
           update: Aktualizace
-        index:
-          steps_title: Kroky
         new:
           create: Vytvořit
-          title: Nový krok procesu participace
         ordering:
           error: Došlo k chybě při novém uspořádání těchto kroků procesu participace.
         update:
           error: Při aktualizaci tohoto kroku procesu participace došlo k chybě.
-          success: Úspěšný krok procesu byl úspěšně aktualizován.
+          success: Krok participačního procesu byl úspěšně aktualizován.
       participatory_process_user_roles:
         create:
           error: Při přidávání uživatele pro tento participační proces došlo k chybě.
@@ -229,13 +228,9 @@ cs:
         destroy:
           success: Uživatel byl úspěšně odstraněn z tohoto participačního procesu.
         edit:
-          title: Aktualizovat správce participačního procesu
           update: Aktualizace
-        index:
-          process_admins_title: Uživatelé účastnických procesů
         new:
           create: Vytvořit
-          title: Nový správce participačního procesu
         update:
           error: Došlo k chybě při aktualizaci uživatele pro tento participační proces.
           success: Uživatel byl úspěšně aktualizován pro tento participační proces.
@@ -246,15 +241,14 @@ cs:
         edit:
           update: Aktualizace
         index:
-          private: Soukromé
-          public: Veřejné
+          access_modes:
+            open: Otevřený
+            restricted: Omezený
+            transparent: Transparentní
           published: Publikováno
           unpublished: Nezveřejněno
-        manage_trash:
-          title: Odstraněné participační procesy
         new:
           create: Vytvořit
-          title: Nový participační proces
         update:
           error: Při aktualizaci tohoto participačního procesu došlo k chybě.
           success: Participační proces byl úspěšně aktualizován.
@@ -269,11 +263,6 @@ cs:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Všechny participační procesy
-      titles:
-        participatory_process_groups: Skupiny účastnických procesů
-        participatory_process_types: Typy participačních procesů
-        participatory_processes: Participativní procesy
-        participatory_processes_deleted: Odstraněné participační procesy
       tooltips:
         deleted_processes_info: Proces může být odstraněn pouze v případě, že je stav "Nezveřejněný".
       users:
@@ -287,9 +276,11 @@ cs:
         export: "%{user_name} exportoval participační proces %{resource_name}"
         import: "%{user_name} importoval participační proces %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} participační proces"
+        publish_all_members: "%{user_name} zveřejnil všechny členy participačního procesu %{resource_name}"
         restore: "%{user_name} obnovil participační proces %{resource_name}"
         soft_delete: "%{user_name} přemístil paarticipační proces %{resource_name} do koše"
         unpublish: "%{user_name} neuveřejnil %{resource_name} participační proces"
+        unpublish_all_members: "%{user_name} zneveřejnil všechny členy participačního procesu %{resource_name}"
         update: "%{user_name} aktualizoval %{resource_name} participační proces"
       participatory_process_group:
         create: "%{user_name} vytvořil skupinu %{resource_name} na participační proces"
@@ -300,10 +291,6 @@ cs:
         create: "%{user_name} vytvořil %{resource_name} krok ve %{space_name} účastnických procesech"
         delete: "%{user_name} odstraněno %{resource_name} krok ve %{space_name} účastnických procesech"
         update: "%{user_name} aktualizoval %{resource_name} krok ve %{space_name} účastnických procesech"
-      participatory_process_type:
-        create: "%{user_name} vytvořil %{resource_name} typ participačního procesu"
-        delete: "%{user_name} odstranil %{resource_name} typ participačního procesu"
-        update: "%{user_name} aktualizoval %{resource_name} typ participačního procesu"
       participatory_process_user_role:
         create: "%{user_name} pozval uživatele %{resource_name} do procesu participace %{space_name}"
         delete: "%{user_name} odstranil uživatele %{resource_name} z procesu participace %{space_name}"
@@ -334,17 +321,14 @@ cs:
           contextual: "<p> <strong>Participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: <strong>proces volby členů výboru</strong> (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), <strong>participační rozpočty</strong> (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); <strong>proces strategického plánování</strong>, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           page: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: proces volby členů výboru (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), participační rozpočty (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); proces strategického plánování, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           title: Co je participační proces?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id}).'
     menu:
       processes: Procesy
     open_data:
       help:
         participatory_processes:
-          announcement: Oznámení (vyhlášení) informací
+          access_mode: Režim přístupu. Zda je proces otevřený, omezený nebo transparentní.
           area: Oblast, ve které probíhá proces
+          component_settings: Nastavení komponenty procesu
           created_at: Datum, kdy byl tento prostor vytvořen
           description: Dlouhý popis procesu
           developer_group: Skupina tvůrců procesu. Jedná se o organizaci, která proces prosazuje.
@@ -446,6 +430,7 @@ cs:
                   two_five: Částečně
                   zero: 'Ne'
               functional_diversity_invited:
+                legend: Jak je posuzována míra rozmanitosti zástupců a účastníků ve vztahu k referenčnímu souboru procesu?
                 options:
                   five: Dobrý
                   one: Nízký
@@ -472,6 +457,7 @@ cs:
                   zero: 'Ne'
             informativeness:
               information_provided:
+                legend: Byly poskytnuty informace o schopnosti účastníků ovlivnit projednávané téma? (jak ve sdělení procesu a pozvání, tak na začátku každého zasedání rozpravy)
                 options:
                   five: Vždy
                   one: Téměř nikdy
@@ -490,26 +476,45 @@ cs:
             all: Vše
             max_results: Maximální množství prvků, které chcete zobrazit
             selection_criteria: Kritéria výběru
+        imports:
+          attachment_error: Přílohu "%{title}" nelze importovat (%{error}).
+          hero_image_error: Obrázek hrdiny nelze importovat (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Tato funkce importu umožňuje vytvořit nový participační proces z exportovaného JSON souboru. Můžete exportovat proces z jiné organizace nebo ze stejné organizace. Importovaný proces bude obsahovat jeho nastavení, komponenty a přílohy (je-li vybráno).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+          new:
+            title: Duplikovat participační proces
         participatory_process_groups:
+          edit:
+            title: Upravit skupinu procesu
           form:
             metadata: Metadata
             title: O tomto procesu
             visibility: Viditelnost
+          new:
+            title: Nová skupina procesu
         participatory_process_imports:
           form:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_processes:
+          edit:
+            title: O tomto procesu
           form:
-            announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
+            access:
+              label: Přístup
+              options:
+                open: Každý může vidět proces a zúčastnit se.
+                restricted: Pouze členové a administrátoři se mohou podívat a zúčastnit. Neobjeví se v obecném vyhledávání, API ani v otevřených datových souborech.
+                transparent: Každý může tento proces vidět, ale zúčastnit se mohou pouze členové a správci.
+              set_this_space_as: Nastavit tento prostor jako
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
+            has_members_help: Budete moci vytvářet a publikovat členy
             images: Obrázky
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
@@ -519,6 +524,12 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
+          index:
+            title: Participační procesy
+          manage_trash:
+            title: Odstraněné participační procesy
+          new:
+            title: Nový participační proces
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -537,11 +548,13 @@ cs:
             description_html: Níže je uveden soubor ukazatelů používaných k posouzení demokratické kvality tohoto účastnického procesu. Další podrobnosti o tom, jak jsou vypočítány, naleznete v <a href="%{info_url}">informační stránce o demokratických ukazatelích kvality</a>.
             name: Globální skóre
             note: "*Orientační hodnoty se měří na stupnici od 1 do 5, kde 1 představuje nejnižší a 5 nejvyšší ukazatel kvality."
+            tooltip: Vypočteno jako průměr všech dimenzí
           name: Ukazatel kvality
           qualitative_metrics:
             description: Tyto ukazatele se získávají z odpovědí na sebehodnocení, které vyplní správci platformy.
             indicators:
               citizen_influence: Vliv občanů
+              citizen_influence_tooltip: Měří míru vlivu účastníků na rozhodování.
               inclusiveness: Inkluzivita
               inclusiveness_tooltip: Hodnocení, zda jsou zastoupeny různé zúčastněné strany.
               informativeness: Informativita
@@ -550,7 +563,7 @@ cs:
         extra_data:
           name: Fáze a doba trvání
         hero:
-          name: Obrázek hrdiny a CTA
+          name: Obrázek hrdiny a výzva k akci
         highlighted_processes:
           name: Zvýrazněné procesy
         related_processes:
@@ -615,8 +628,10 @@ cs:
           title: O tomto procesu
       show:
         belongs_to_group: Tento proces patří do
-        private_space: Jedná se o soukromý proces
         related_processes: Související procesy
+      static_pages:
+        democratic_quality_indicators:
+          title: Ukazatele kvality demokracie
     statistics:
       processes_count: Procesy
       processes_count_tooltip: Počet veřejně přístupných participačních procesů.

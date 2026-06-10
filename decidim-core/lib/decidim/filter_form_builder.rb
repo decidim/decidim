@@ -50,7 +50,7 @@ module Decidim
     private
 
     def check_boxes_tree_id(*args)
-      args.map(&:to_s).join("_")
+      args.join("_")
     end
 
     def default_form_type_for_collection(collection)
