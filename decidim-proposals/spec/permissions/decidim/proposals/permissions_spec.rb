@@ -276,38 +276,19 @@ describe Decidim::Proposals::Permissions do
       end
 
       context "when coauthor is not confirmed" do
-        before { coauthor.update!(confirmed_at: nil) }
+        let(:coauthor) { create(:user, organization: user.organization) }
 
         it { is_expected.to be false }
       end
 
       context "when coauthor is blocked" do
-        before do
-          coauthor.update!(
-            name: "Blocked user",
-            blocked: true,
-            blocked_at: Time.current,
-            extended_data: { user_name: generate(:name) }
-          )
-        end
+        let(:coauthor) { create(:user, :confirmed, :blocked, organization: user.organization) }
 
         it { is_expected.to be false }
       end
 
       context "when coauthor is deleted" do
-        before do
-          coauthor.update!(
-            name: "",
-            nickname: "",
-            email: "",
-            delete_reason: "",
-            admin: false,
-            deleted_at: Time.current,
-            avatar: nil,
-            personal_url: "",
-            about: ""
-          )
-        end
+        let(:coauthor) { create(:user, :confirmed, :deleted, organization: user.organization) }
 
         it { is_expected.to be false }
       end
