@@ -50,7 +50,7 @@ describe "Admin filters invites" do
 
     it "successfully handles the error" do
       within "#new_meeting_registration_invite" do
-        fill_in :meeting_registration_invite_name, with: user1.name
+        choose "Email", name: "meeting_registration_invite[attendee_type]"
         fill_in :meeting_registration_invite_email, with: user1.email
         click_on "Invite"
       end
@@ -66,7 +66,7 @@ describe "Admin filters invites" do
       invited = build(:user, organization:)
 
       within "#new_meeting_registration_invite" do
-        fill_in :meeting_registration_invite_name, with: invited.name
+        choose "Email", name: "meeting_registration_invite[attendee_type]"
         fill_in :meeting_registration_invite_email, with: invited.email
         click_on "Invite"
       end

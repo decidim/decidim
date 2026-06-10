@@ -170,12 +170,6 @@ module Decidim
         "#{::Faker::X.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
       end
 
-      def random_email(suffix:)
-        r = SecureRandom.hex(4)
-
-        "#{suffix}-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{r}@example.org"
-      end
-
       def create_emendation!(proposal:)
         author = find_or_initialize_user_by(email: random_email(suffix: "amendment"))
 
