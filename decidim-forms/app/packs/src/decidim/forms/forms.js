@@ -20,7 +20,7 @@ document.addEventListener("turbo:load", () => {
     });
   });
 
-  $.unique($(".js-check-box-collection").parents(".response")).each((idx, el) => {
+  $.uniqueSort($(".js-check-box-collection").parents(".response")).each((idx, el) => {
     const maxChoices = $(el).data("max-choices");
     if (maxChoices) {
       createMaxChoicesAlertComponent({

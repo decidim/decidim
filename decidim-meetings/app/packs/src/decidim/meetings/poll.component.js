@@ -205,7 +205,7 @@ export default class PollComponent {
       });
     });
 
-    $.unique($(".js-check-box-collection").parents("[data-max-choices]")).each((idx, el) => {
+    $.uniqueSort($(".js-check-box-collection").parents("[data-max-choices]")).each((idx, el) => {
       const maxChoices = $(el).data("max-choices");
       if (maxChoices) {
         createMaxChoicesAlertComponent({
