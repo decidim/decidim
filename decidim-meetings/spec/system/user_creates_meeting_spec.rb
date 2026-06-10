@@ -33,6 +33,72 @@ describe "User creates meeting" do
     switch_to_host(organization.host)
   end
 
+  context "when the user is not logged in" do
+    context "when creation is enabled" do
+      let!(:component) do
+        create(:meeting_component,
+               participatory_space: participatory_process,
+               settings: { creation_enabled_for_participants: true, taxonomy_filters: [taxonomy_filter.id] })
+      end
+
+      it "displays the new meeting button" do
+        visit_component
+        expect(page).to have_text("New meeting")
+      end
+
+      it "redirects to login page when visiting new page" do
+        visit Decidim::EngineRouter.main_proxy(component).new_meeting_path
+        expect(page).to have_text("You need to log in or create an account before continuing.")
+        expect(page).to have_current_path(decidim.new_user_session_path)
+      end
+    end
+
+    context "when creation is disabled" do
+      let!(:component) do
+        create(:meeting_component,
+               participatory_space: participatory_process,
+               settings: { taxonomy_filters: [taxonomy_filter.id] })
+      end
+
+      it "hides the new meeting button" do
+        visit_component
+        expect(page).to have_no_text("New meeting")
+      end
+    end
+  end
+
+  context "when the user is logged in" do
+    before do
+      login_as user, scope: :user
+    end
+
+    context "when creation is enabled" do
+      let!(:component) do
+        create(:meeting_component,
+               participatory_space: participatory_process,
+               settings: { creation_enabled_for_participants: true, taxonomy_filters: [taxonomy_filter.id] })
+      end
+
+      it "displays the new post button" do
+        visit_component
+        expect(page).to have_text("New meeting")
+      end
+    end
+
+    context "when creation is disabled" do
+      let!(:component) do
+        create(:meeting_component,
+               participatory_space: participatory_process,
+               settings: { taxonomy_filters: [taxonomy_filter.id] })
+      end
+
+      it "hides the new meeting button" do
+        visit_component
+        expect(page).to have_no_text("New meeting")
+      end
+    end
+  end
+
   context "when creating a new meeting" do
     let(:user) { create(:user, :confirmed, organization:) }
 

@@ -6,14 +6,13 @@ module Decidim
       # A form object used to invite users to join a meeting.
       #
       class MeetingRegistrationInviteForm < Form
-        attribute :name, String
         attribute :email, String
         attribute :user_id, Integer
-        attribute :existing_user, Boolean, default: false
+        attribute :attendee_type, String, default: "name"
 
-        validates :name, presence: true, unless: proc { |object| object.existing_user }
-        validates :email, presence: true, "valid_email_2/email": { disposable: true }, unless: proc { |object| object.existing_user }
-        validates :user, presence: true, if: proc { |object| object.existing_user }
+        validates :attendee_type, presence: true, inclusion: { in: %w(name email) }
+        validates :user, presence: true, if: proc { |object| object.attendee_type == "name" }
+        validates :email, presence: true, "valid_email_2/email": { disposable: true }, if: proc { |object| object.attendee_type == "email" }
 
         def user
           @user ||= current_organization.users.find_by(id: user_id)
