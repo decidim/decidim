@@ -88,7 +88,7 @@
   }
 
   &__modal {
-    &-error{
+    &-error {
       [data-dialog-closable] {
         @apply top-6 right-6;
       }
