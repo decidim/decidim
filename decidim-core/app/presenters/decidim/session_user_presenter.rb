@@ -5,7 +5,7 @@ module Decidim
   # Decorator for users when they can see the user details themselves, i.e.
   # when the user is logged in themselves.
   #
-  class PersonalUserPresenter < UserPresenter
+  class SessionUserPresenter < UserPresenter
     def nickname
       return "" if blocked?
 

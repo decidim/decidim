@@ -11,7 +11,7 @@ module Decidim
       def user
         return unless object
 
-        Decidim::PersonalUserPresenter.new(object)
+        Decidim::SessionUserPresenter.new(object)
       end
     end
   end
