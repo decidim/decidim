@@ -1216,7 +1216,6 @@ fi:
         create:
           error: Keskustelun aloittaminen epäonnistui. Yritä myöhemmin uudestaan.
         error_modal:
-          close: Sulje ikkuna
           correct_errors: Korjaa virheet ja yritä uudestaan.
           intro: 'Viestisi sisältää seuraavia virheitä:'
           ok: OK
