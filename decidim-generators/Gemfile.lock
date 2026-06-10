@@ -463,7 +463,7 @@ GEM
     hashdiff (1.2.1)
     hashie (5.1.0)
       logger
-    hexapdf (1.9.0)
+    hexapdf (1.9.1)
       cmdparse (~> 3.0, >= 3.0.3)
       geom2d (~> 0.4, >= 0.4.1)
       openssl (>= 2.2.1)
