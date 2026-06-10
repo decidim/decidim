@@ -121,6 +121,18 @@ module Decidim
             end
           end
 
+          context "when body has a user mention with a hyphen in the nickname" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
+            let(:body) { "A reasonable proposal body mentioning @#{mentioned_user.nickname}" }
+
+            it "rewrites the mention to the mentioned user GID" do
+              command.call
+              proposal.reload
+
+              expect(proposal.body["en"]).to include(mentioned_user.to_global_id.to_s)
+            end
+          end
+
           context "with an author" do
             it "sets the author" do
               command.call

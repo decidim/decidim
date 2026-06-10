@@ -16,7 +16,7 @@ module Decidim
       Metadata = Struct.new(:users)
 
       # Matches a nickname if contains letters, numbers or underscores.
-      MENTION_REGEX = /\B@(\w*)\b/
+      MENTION_REGEX = /\B@([\w-]*)\b/
 
       # (see BaseParser#metadata)
       def metadata

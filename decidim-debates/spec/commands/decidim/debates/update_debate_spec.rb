@@ -107,6 +107,18 @@ describe Decidim::Debates::UpdateDebate do
       end
     end
 
+    context "when description has a user mention with a hyphen in the nickname" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
+      let(:description) { "Description mentioning @#{mentioned_user.nickname}" }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+        debate.reload
+
+        expect(debate.description.except("machine_translations").values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
+    end
+
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:update!)

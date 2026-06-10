@@ -67,6 +67,17 @@ describe Decidim::Debates::Admin::UpdateDebate do
       end
     end
 
+    context "when description has a user mention with a hyphen in the nickname" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
+      let(:description) { { en: "description mentioning @#{mentioned_user.nickname}" } }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+
+        expect(debate.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
+    end
+
     it "sets the taxonomies" do
       subject.call
       expect(debate.reload.taxonomies).to match_array(taxonomizations.map(&:taxonomy))
