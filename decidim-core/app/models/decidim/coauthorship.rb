@@ -11,12 +11,6 @@ module Decidim
     after_commit :author_is_follower, on: [:create]
     after_restore :reset_coauthorable_counter
 
-    def reset_coauthorable_counter
-      return unless coauthorable
-
-      coauthorable.class.unscoped.reset_counters(coauthorable.id, :coauthorships)
-    end
-
     def identity
       author
     end
@@ -41,6 +35,12 @@ module Decidim
       return unless coauthorable.is_a?(Decidim::Followable)
 
       Decidim::Follow.find_or_create_by!(followable: coauthorable, user: author)
+    end
+
+    def reset_coauthorable_counter
+      return unless coauthorable
+
+      coauthorable.class.unscoped.reset_counters(coauthorable.id, :coauthorships)
     end
   end
 end
