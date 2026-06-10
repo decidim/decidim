@@ -844,6 +844,7 @@ fi:
             invalid: Osallistujien eston peruminen epäonnistui.
             success: Osallistujien eston peruminen onnistui.
         create:
+          no_user_found: Osallistujaa ei löytynyt.
           success: Osallistujan virallistaminen onnistui.
         destroy:
           success: Osallistujan virallistamisen peruminen onnistui.
