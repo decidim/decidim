@@ -1,21 +1,13 @@
-<div id="messageErrorModal" data-reveal>
-  <div>
-    <h2><%= error %></h2>
-    <button class="close-button" data-close aria-label="<%= t(".close") %>"
-      type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="reveal__body">
-    <p><%= t(".intro") %></p>
-    <p>
-      <%= messages.join("<br>") %>
-    </p>
-    <p><%= t(".correct_errors") %></p>
-  </div>
-  <div>
-    <div>
-      <a class="button" role="button" href="#" data-close aria-label="<%= t(".ok") %>"><%= t(".ok") %></a>
+<%= decidim_modal id: "messageErrorModal", class: "conversation__modal-error" do %>
+  <div data-dialog-container>
+    <h2 id="dialog-title-messageErrorModal" tabindex="-1" data-dialog-title><%= error %></h2>
+    <div id="dialog-desc-messageErrorModal" class="mt-4">
+      <p><%= t(".intro") %></p>
+      <p><%= safe_join(messages, tag.br) %></p>
+      <p><%= t(".correct_errors") %></p>
+    </div>
+    <div data-dialog-actions>
+      <button type="button" class="button button__sm lg:button__lg button__secondary" data-dialog-close="messageErrorModal" aria-label="<%= t(".ok") %>"><%= t(".ok") %></button>
     </div>
   </div>
-</div>
+<% end %>
