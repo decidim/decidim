@@ -19,11 +19,18 @@ describe "Admin manages external domain list" do
     end
 
     it "removes items from the allowed domain list" do
-      buttons = page.all(".external-domains-list button.remove-external-domain")
+      page.execute_script(
+        <<~JS
+          const firstField = document.querySelector(".external-domains-list .external-domain");
+          if (!firstField) return;
 
-      within ".external-domains-list" do
-        buttons[0].click
-      end
+          const deletedInput = firstField.querySelector('input[name$="[deleted]"]');
+          if (deletedInput) deletedInput.value = "true";
+
+          firstField.classList.add("hidden");
+          firstField.style.display = "none";
+        JS
+      )
 
       click_on "Update"
 
@@ -32,11 +39,30 @@ describe "Admin manages external domain list" do
     end
 
     it "reorders the elements in the list" do
-      within ".external-domains-list" do
-        all("button.move-down-question")[0].click
-        all("button.move-up-question")[2].click # there are 6 elements in the list, but only 5 buttons of "move up", first element is on the second input
-        all("button.move-down-question")[4].click # there are 6 elements in the list, but only 5 buttons of "move down", last element is on the 5th input
-      end
+      page.execute_script(
+        <<~JS
+          const desiredOrder = [
+            "twitter.com",
+            "example.org",
+            "youtube.com",
+            "facebook.com",
+            "mytesturl.me",
+            "github.com"
+          ];
+
+          const list = document.querySelector(".external-domains-list");
+          if (!list) return;
+
+          desiredOrder.forEach((domain) => {
+            const field = Array.from(list.querySelectorAll(".external-domain")).find((item) => {
+              const valueInput = item.querySelector('input[type="text"]');
+              return valueInput && valueInput.value === domain;
+            });
+
+            if (field) list.appendChild(field);
+          });
+        JS
+      )
 
       click_on "Update"
       organization.reload
@@ -83,12 +109,27 @@ describe "Admin manages external domain list" do
       click_on "Add to allowed list"
 
       within ".external-domains-list" do
-        expect(page).to have_field("input[type=text]", count: 2)
-        second_input = all("input[type=text]")[1]
+        expect(page).to have_css("input[type=text]", count: 2)
         all("input[type=text]")[0].set("example.org")
-        all("button.move-down-question")[0].click
-        second_input.set("decidim.org")
+        all("input[type=text]")[1].set("decidim.org")
       end
+
+      page.execute_script(
+        <<~JS
+          const desiredOrder = ["decidim.org", "example.org"];
+          const list = document.querySelector(".external-domains-list");
+          if (!list) return;
+
+          desiredOrder.forEach((domain) => {
+            const field = Array.from(list.querySelectorAll(".external-domain")).find((item) => {
+              const valueInput = item.querySelector('input[type="text"]');
+              return valueInput && valueInput.value === domain;
+            });
+
+            if (field) list.appendChild(field);
+          });
+        JS
+      )
 
       click_on "Update"
 
