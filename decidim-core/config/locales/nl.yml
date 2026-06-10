@@ -587,7 +587,6 @@ nl:
           modal_title: Nieuwe conversatie
           no_results: Geen resultaten gevonden
         error_modal:
-          close: Sluit venster
           correct_errors: Corrigeer de fouten en probeer opnieuw.
           intro: 'Er waren de volgende fouten met je bericht:'
           ok: OK
