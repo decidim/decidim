@@ -1309,7 +1309,7 @@ ro:
           no_results: Niciun rezultat
           participant_with_disabled_message_reception: Acest participant nu dorește să primească mesaje private.
         error_modal:
-          close: Închidere
+          close: Închideți fereastra
           correct_errors: Vă rugăm să remediați erorile și să încercați din nou.
           intro: 'Au existat următoarele erori cu mesajul tău:'
           ok: Ok
