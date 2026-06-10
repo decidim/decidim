@@ -59,6 +59,7 @@ window.Decidim = window.Decidim || {
   announceForScreenReader
 };
 
+window.createDialog = createDialog;
 window.morphdom = morphdom
 
 const deprecate = (element, targetController, oldSyntax) => {
