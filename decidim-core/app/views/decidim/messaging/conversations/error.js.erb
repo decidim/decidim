@@ -1,10 +1,15 @@
-var $messageError = $("#messageErrorModal");
-if ($messageError.length > 0) {
-  $messageError.foundation("_destroy").remove();
+var messageError = document.getElementById("messageErrorModal")
+
+if (messageError) {
+  messageError.remove();
 }
+document.body.insertAdjacentHTML("beforeend", "<%= j(render "error_modal", error:, messages:).html_safe %>");
 
-$("#messages").append("<%= j(render "error_modal", error:, messages:).html_safe %>");
-$messageError = $("#messageErrorModal");
+messageError = document.getElementById("messageErrorModal")
+if (messageError) {
+  window.createDialog(messageError);
 
-var messageErrorReveal = new Foundation.Reveal($messageError);
-messageErrorReveal.open();
+  if (Decidim.currentDialogs.messageErrorModal) {
+    window.Decidim.currentDialogs.messageErrorModal.open();
+  }
+}

@@ -61,6 +61,7 @@ window.Decidim = window.Decidim || {
   announceForScreenReader
 };
 
+window.createDialog = createDialog;
 window.morphdom = morphdom
 
 // eslint-disable-next-line max-params
