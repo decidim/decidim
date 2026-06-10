@@ -893,7 +893,6 @@ lt:
         create:
           error: Pokalbis neprasidėjo. Bandykite dar kartą vėliau.
         error_modal:
-          close: Uždaryti modalinį langą
           correct_errors: Ištaisykite klaidas ir bandykite dar kartą.
           intro: 'Jūsų pranešime aptiktos šios klaidos:'
           ok: Gerai
