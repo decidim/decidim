@@ -201,10 +201,9 @@ export default class extends Controller {
   }
 
   /**
-   * Add a selected user to the display list
-   * @param {Object} selection - The selected user object
-   * @param {string} id - The user ID
-   * @returns {void}
+   * Escape HTML characters in a string
+   * @param {string} str - The string to escape
+   * @returns {string} The escaped HTML string
    */
   htmlEscape(str) {
     const div = document.createElement("div");
@@ -212,6 +211,12 @@ export default class extends Controller {
     return div.innerHTML;
   }
 
+  /**
+   * Add a selected user to the display list
+   * @param {Object} selection - The selected user object
+   * @param {string} id - The user ID
+   * @returns {void}
+   */
   addSelectedUser(selection, id) {
     const label = this.removeLabel.replace("%name%", selection.value.name);
 
