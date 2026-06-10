@@ -13,9 +13,11 @@ module Decidim
       exporter = OpenDataExporter.new(organization, path, resource)
       raise "Could not generate Open Data export" unless exporter.export.positive?
 
-      organization.open_data_files.attach(io: File.open(path, "rb"), filename:)
-      # Deletes the temporary file file
-      File.delete(path)
+      File.open(path, "rb") do |file|
+        organization.open_data_files.attach(io: file, filename:)
+      end
+    ensure
+      FileUtils.rm_f(path)
     end
   end
 end
