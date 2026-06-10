@@ -143,11 +143,28 @@ describe "User edits a debate" do
       let(:document_path) { Decidim::Dev.asset(document_filename) }
       let!(:image_attachment) { create(:attachment, :with_image, attached_to: debate) }
 
-      it "can attach a file" do
+      it "can remove an attachment" do
         visit_component
         click_on debate.title.values.first
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
+
+        click_on("Edit attachments")
+        within "li[data-filename='#{image_attachment.file.blob.filename}']" do
+          click_on("Remove")
+        end
+
+        click_on("Save")
+        expect(page).to have_no_css("img[src*='#{image_filename}']")
+      end
+
+      it "can attach a file" do
+        visit_component
+        click_on debate.title.values.first
+
+        find("#dropdown-trigger-resource-#{debate.id}").click
+        click_on "Edit"
+
         dynamically_attach_file(:debate_documents, document_path)
         expect(page).to have_text("Exampledocument.pdf")
       end
