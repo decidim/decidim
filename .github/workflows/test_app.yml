@@ -74,7 +74,7 @@ jobs:
         image: ${{ vars.ACTION_ACCESSIBILITY_VALIDATOR_VERSION || 'ghcr.io/validator/validator:latest' }}
         ports: ["8888:8888"]
       postgres:
-        image: ghcr.io/decidim/postgres:14
+        image: ghcr.io/cloudnative-pg/postgresql:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
