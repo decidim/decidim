@@ -143,3 +143,11 @@ In the case where you have an external provider configured (like the `Omniauth s
 Finally, you can also Edit an organization, although some fields cannot be changed as some contents in the database depends on them.
 
 For accessing your newly created Organization, you can do it by going to the domain or subdomain that you have configured in `Host`.
+
+== Delete an organization
+
+As there are lots of dependencies in the whole database, currently an Organization can not be deleted through the system panel. If you still want to go to this direction, there's a snippet for deleting an Organization with a script: link:https://gist.github.com/alexrlpz/90bcdb6304d68d21360d1ffa9c9bd1c7[gist.github.com/alexrlpz/90bcdb6304d68d21360d1ffa9c9bd1c7].
+
+Mind that you will need to fine-tune it and adapt it to your own database.
+
+Read more about this at link:https://github.com/decidim/decidim/issues/15825[#15825] and link:https://github.com/decidim/decidim/pull/16855[#16855].
