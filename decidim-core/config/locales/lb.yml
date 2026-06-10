@@ -744,7 +744,7 @@ lb:
           modal_title: Nei Konversatioun
           no_results: Keen Resultat
         error_modal:
-          close: Dialog zou maachen
+          close: Modal zou maachen
           correct_errors: Korrigéier w. e. g. dëse Feeler a probéier op en Neits.
           intro: 'Bei denger Noriicht ass dësen Feeler opgetrueden:'
           ok: OK
