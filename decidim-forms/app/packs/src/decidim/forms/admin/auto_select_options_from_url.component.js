@@ -16,7 +16,7 @@ export default class AutoSelectOptionsFromUrl {
     const params = this.sourceToParams(this.$source);
     const url = this.$source.data("url");
 
-    $.getJSON(url, params, function (data) {
+    $.ajax({ url, data: params, dataType: "json" }).done(function (data) {
       select.find("option:not([value=''])").remove();
       const selectedValue = select.data("selected");
 
