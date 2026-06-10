@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::PersonalUserPresenter, type: :helper do
+describe Decidim::SessionUserPresenter, type: :helper do
   let(:user) { build(:user) }
 
   describe "#nickname" do
