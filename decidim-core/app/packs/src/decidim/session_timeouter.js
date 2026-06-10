@@ -104,13 +104,13 @@ document.addEventListener("turbo:load", () => {
     });
   }, interval);
 
-  $(document).mousemove(() => {
+  $(document).on("mousemove", () => {
     lastAction = dayjs();
   })
-  $(document).scroll(() => {
+  $(document).on("scroll", () => {
     lastAction = dayjs();
   })
-  $(document).keypress(() => {
+  $(document).on("keypress", () => {
     lastAction = dayjs();
   })
 
@@ -120,7 +120,7 @@ document.addEventListener("turbo:load", () => {
     setTimer(timeoutInSeconds);
   });
 
-  $(document).ajaxComplete((_event, _xhr, settings) => {
+  $(document).on("ajaxComplete", (_event, _xhr, settings) => {
     if (settings && settings.url === secondsUntilTimeoutPath) {
       return;
     }

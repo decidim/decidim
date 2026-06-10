@@ -109,7 +109,7 @@ document.addEventListener("turbo:load", () => {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown li button").click(function (e) {
+    $("#js-bulk-actions-dropdown li button").on("click", function (e) {
       $("#js-bulk-actions-dropdown").removeClass("is-open");
       hideBulkActionForms();
 
@@ -125,13 +125,13 @@ document.addEventListener("turbo:load", () => {
       }
 
       if (panelActions.includes(action)) {
-        $(`#js-form-${action}`).submit(function () {
+        $(`#js-form-${action}`).on("submit", function () {
           $(".layout-content > div[data-callout-wrapper]").html("");
         });
 
         $(`#js-${action}-actions`).removeClass("hide");
       } else {
-        $(`#js-form-${action}`).submit(function () {
+        $(`#js-form-${action}`).on("submit", function () {
           $(".layout-content > div[data-callout-wrapper]").html("");
         });
 
@@ -142,7 +142,7 @@ document.addEventListener("turbo:load", () => {
     });
 
     // select all checkboxes
-    $(".js-check-all").change(function() {
+    $(".js-check-all").on("change", function() {
       $(".js-check-all-proposal").prop("checked", $(this).prop("checked"));
 
       if ($(this).prop("checked")) {

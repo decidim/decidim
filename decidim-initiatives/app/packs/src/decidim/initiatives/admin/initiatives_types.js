@@ -22,8 +22,8 @@ document.addEventListener("turbo:load", () => {
     }
   };
 
-  $($promotingCommitteeCheckbox).click(() => toggleVisibility());
-  $($signatureType).change(() => toggleVisibility());
+  $($promotingCommitteeCheckbox).on("click", () => toggleVisibility());
+  $($signatureType).on("change", () => toggleVisibility());
 
   toggleVisibility();
 });

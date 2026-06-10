@@ -31,7 +31,7 @@ document.addEventListener("turbo:load", () => {
   // Prevents readonly containers from being modified.
   const $readonlyContainer = $(".readonly_container input");
 
-  $readonlyContainer.click((event) => {
+  $readonlyContainer.on("click", (event) => {
     event.preventDefault();
     return false;
   });
@@ -54,7 +54,7 @@ document.addEventListener("turbo:load", () => {
       $amendmentStepSettings.hide();
     }
 
-    $amendmentsEnabled.click(() => {
+    $amendmentsEnabled.on("click", () => {
       $amendmentStepSettings.toggle();
     });
   }
