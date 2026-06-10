@@ -61,7 +61,7 @@ jobs:
     timeout-minutes: 90
     services:
       postgres:
-        image: postgres:14
+        image: postgresghcr.io/decidim/postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
