@@ -12,15 +12,15 @@ if ENV["SIMPLECOV"]
     track_files "../**/*.rb"
 
     # We ignore some of the files because they are never tested
-    add_filter "/config/"
-    add_filter "/db/"
-    add_filter "/vendor/"
-    add_filter "/spec/"
-    add_filter "/test/"
-    add_filter %r{^/decidim-[^/]*/lib/decidim/[^/]*/engine.rb}
-    add_filter %r{^/decidim-[^/]*/lib/decidim/[^/]*/admin-engine.rb}
-    add_filter %r{^/decidim-[^/]*/lib/decidim/[^/]*/component.rb}
-    add_filter %r{^/decidim-[^/]*/lib/decidim/[^/]*/participatory_space.rb}
+    skip "/config/"
+    skip "/db/"
+    skip "/vendor/"
+    skip "/spec/"
+    skip "/test/"
+    skip %r{^/decidim-[^/]*/lib/decidim/[^/]*/engine.rb}
+    skip %r{^/decidim-[^/]*/lib/decidim/[^/]*/admin-engine.rb}
+    skip %r{^/decidim-[^/]*/lib/decidim/[^/]*/component.rb}
+    skip %r{^/decidim-[^/]*/lib/decidim/[^/]*/participatory_space.rb}
   end
 
   SimpleCov.merge_timeout 1800
