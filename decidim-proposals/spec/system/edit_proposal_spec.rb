@@ -425,7 +425,7 @@ describe "Edit proposals" do
       expect(page).to have_text "Edit proposal"
     end
 
-    it "can remove attachment" do
+    it "can remove an attachment" do
       click_on("Edit attachments")
       within ".upload-modal" do
         within "li[data-filename='#{document.file.blob.filename}']" do

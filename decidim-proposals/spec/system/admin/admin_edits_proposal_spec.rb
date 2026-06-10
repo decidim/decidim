@@ -112,7 +112,7 @@ describe "Admin edits proposals" do
 
       let!(:document) { create(:attachment, :with_pdf, attached_to: proposal) }
 
-      it "can remove attachment" do
+      it "can remove an attachment" do
         visit_component_admin
         within "tr", text: translated_attribute(proposal.title) do
           find("button[data-controller='dropdown']").click
