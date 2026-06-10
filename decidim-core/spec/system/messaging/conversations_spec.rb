@@ -56,7 +56,7 @@ describe "Conversations" do
       start_conversation("Is this a Ryanair style democracy?")
 
       expect(page).to have_css("#messageErrorModal[aria-hidden='false']")
-      expect(page).to have_css(".conversation-error-modal")
+      expect(page).to have_css(".conversation__modal-error")
       expect(page).to have_text("Conversation not started. Try again later.")
     end
 
