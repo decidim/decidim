@@ -37,42 +37,66 @@ $(() => {
     emptyFocusElement.className = "empty-list";
     $selectedItems.before(emptyFocusElement);
   }
+  /**
+   * Escape HTML characters in a string
+   * @param {string} str - The string to escape
+   * @returns {string} The escaped HTML string
+   */
+  const htmlEscape = (str) => {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
   updateSubmitButton($fieldContainer, $selectedItems);
-  const autoComplete = new AutoComplete($searchInput[0], {
-    dataMatchKeys: ["name", "nickname"],
-    dataSource: (query, callback) => {
-      $.post(window.Decidim.config.get("api_path"), {
-        "query": `
-          {
-            users(filter:{wildcard:"${query}",excludeIds:[]})
-              {
-                id,nickname,name,avatarUrl,__typename,...on UserGroup{membersCount},...on User{
-                  directMessagesEnabled
-                }
-              }
-          }`
-      }).then((response) => {
-        callback(response.data.users);
+  const autoComplete = new TomSelect(this.searchInput, {
+    maxItems: 1,
+    valueField: "id",
+    labelField: "name",
+    searchField: ["name", "nickname"],
+    loadThrottle: 200,
+    loadingClass: "loading",
+    preload: false,
+    highlight: true,
+    load: (query, callback) => {
+      if (!query || query.length < 2) {
+        callback();
+        return;
+      }
+      this.getDataSource(query, (results) => {
+        const filtered = this.filterResults(results);
+        filtered.forEach((item) => {
+          if (item.directMessagesEnabled === "false") {
+            item.disabled = true;
+          }
+        });
+        callback(filtered);
       });
     },
-    dataFilter: (list) => {
-      return list.filter(
-        (item) => !selected.includes(item.value.id)
-      );
+    render: {
+      option: (data, escape) => {
+        const isDisabled = data.directMessagesEnabled === "false";
+        const className = isDisabled
+          ? "disabled"
+          : "";
+        const disabledMsg = isDisabled
+          ? `<small>${escape(this.searchInput.dataset.directMessagesDisabled)}</small>`
+          : "";
+        return `<div class="${className}">
+            <img src="${escape(data.avatarUrl)}" alt="${escape(data.name)}">
+            <span>${escape(data.nickname)}</span>
+            <small>${escape(data.name)}</small>
+            ${disabledMsg}
+          </div>`;
+      },
+      "no_results": () => `<div class="no-results">${this.searchInput.dataset.noresults || ""}</div>`
     },
-    modifyResult: (element, value) => {
-      $(element).html(`
-        <img src="${value.avatarUrl}" alt="${value.name}">
-        <span>${value.nickname}</span>
-        <small>${value.name}</small>
-      `);
-      if (value.directMessagesEnabled === "false") {
-        $(element).addClass("disabled");
-        $(element).append(`<small>${$searchInput.data().directMessagesDisabled}</small>`);
-      }
-      if (value.membersCount) {
-        $(element).append(`<small class="is-group">${value.membersCount}x ${icon("group-2-fill")}</small>`);
+    onChange: (value) => {
+      if (value) {
+        const option = this.tomSelect.options[value];
+        this.handleSelection({value: option});
+        this.tomSelect.clear();
+        this.tomSelect.clearOptions();
       }
     }
   });
@@ -88,14 +112,13 @@ $(() => {
     const label = removeLabel.replace("%name%", selection.value.name);
     $selectedItems.append(`
       <li tabindex="-1">
-        <input type="hidden" name="${options.name}" value="${id}">
-        <img src="${selection.value.avatarUrl}" alt="${selection.value.name}">
-        <span>${selection.value.name}</span>
-        <button type="button" data-remove="${id}" tabindex="0" aria-controls="0" aria-label="${label}">${icon("delete-bin-line")}</button>
+        <input type="hidden" name="${htmlEscape(this.options.name)}" value="${htmlEscape(id)}">
+      <img src="${htmlEscape(selection.value.avatarUrl)}" alt="${htmlEscape(selection.value.name)}">
+      <span>${htmlEscape(selection.value.name)}</span>
+      <button type="button" data-remove="${htmlEscape(id)}" tabindex="0" aria-controls="0" aria-label="${htmlEscape(label)}">${icon("delete-bin-line")}</button>
       </li>
     `);
 
-    autoComplete.setInput("");
     selected.push(id);
     updateSubmitButton($fieldContainer, $selectedItems);
 
