@@ -91,6 +91,45 @@ describe "Edit initiative" do
       let!(:document) { create(:attachment, :with_pdf, attached_to: initiative) }
       let!(:image) { create(:attachment, :with_image, attached_to: initiative) }
 
+      it "can remove an attachment" do
+        visit initiative_path
+
+        click_on("Edit")
+
+        expect(page).to have_text "Edit Initiative"
+
+        within "form.edit_initiative" do
+          find_by_id("initiative_documents_button").click
+        end
+        within ".upload-modal" do
+          within "[data-filename='#{document.file.blob.filename}']" do
+            click_on "Remove"
+          end
+          click_on "Save"
+        end
+        within "form.edit_initiative" do
+          expect(page).to have_no_css("img[src*='#{document.file.blob.filename}']")
+        end
+      end
+
+      it "can attach a file" do
+        visit initiative_path
+
+        click_on("Edit")
+
+        expect(page).to have_text "Edit Initiative"
+
+        dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("city3.jpeg"))
+
+        within "form.edit_initiative" do
+          click_on "Update"
+        end
+
+        perform_enqueued_jobs
+
+        expect(initiative.reload.attachments.count).to eq(3)
+      end
+
       it "can edit an initiative with attachments" do
         visit initiative_path
 
@@ -106,27 +145,6 @@ describe "Edit initiative" do
 
         expect(page).to have_text("Updated initiative title with attachments")
         expect(initiative.reload.attachments.count).to eq(2)
-      end
-
-      it "allows adding attachments" do
-        initiative_without_attachments = create(:initiative, :created, author: user, scoped_type:, organization:)
-        visit decidim_initiatives.initiative_path(initiative_without_attachments, locale: I18n.locale)
-
-        click_on("Edit")
-
-        expect(page).to have_text "Edit Initiative"
-
-        expect(initiative_without_attachments.reload.attachments.count).to eq(0)
-
-        dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
-
-        within "form.edit_initiative" do
-          click_on "Update"
-        end
-
-        perform_enqueued_jobs
-
-        expect(initiative_without_attachments.reload.documents.count).to eq(1)
       end
     end
 
