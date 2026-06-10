@@ -51,6 +51,15 @@ describe "Conversations" do
 
     it_behaves_like "accessible page"
 
+    it "displays an error pop-up", :slow do
+      recipient.destroy!
+      start_conversation("Is this a Ryanair style democracy?")
+
+      expect(page).to have_css("#messageErrorModal[aria-hidden='false']")
+      expect(page).to have_css(".conversation__modal-error")
+      expect(page).to have_text("Conversation not started. Try again later.")
+    end
+
     it "shows an empty conversation page" do
       expect(page).to have_no_selector(".card--list__item")
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
