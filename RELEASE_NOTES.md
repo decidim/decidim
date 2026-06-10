@@ -42,7 +42,21 @@ bin/rails data:migrate
 
 ## 2. General notes
 
-### 2.1. [[TITLE OF THE ACTION]]
+### 2.1. Unconfirmed and managed participants are now hidden by default
+
+Participants that have not confirmed their account or accepted the terms of service of the website and managed participants are now hidden by default. This means that these profiles do not appear publicly on the website before the participant has accepted the terms of service. It is assumed that the consent to publish the participant's personal details on the website is mandated by the terms of service.
+
+The profiles will be considered hidden by default and visible after the participant has accepted the terms of service or after a managed participant account is elevated to a regular participant account. The details of the hidden profiles are not displayed on the website and the API.
+
+This change is based on the GDPR regulation:
+
+> [...] In particular, such measures shall ensure that by default personal data are not made accessible without the individual’s intervention to an indefinite number of natural persons.
+>
+> GDPR Art. 25 (2)
+
+You can read more about this change on PR [#11036](https://github.com/decidim/decidim/pull/11036).
+
+### 2.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
