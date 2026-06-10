@@ -33,6 +33,7 @@ describe "Organizations" do
         expect(find(:xpath, "//input[@id='organization_organization_admin_name']").value).to eq(admin.email.split("@")[0])
         expect(find(:xpath, "//input[@id='organization_organization_admin_email']").value).to eq(admin.email)
         within "table" do
+          expect(page).to have_field("input[type='checkbox']:checked", count: 1)
           expect(find(:xpath, "//input[@id='organization_available_locales_#{Decidim.default_locale}']")).to be_checked
           expect(find(:xpath, "//input[@name='organization[default_locale]']", match: :first)).to be_checked
         end
