@@ -28,7 +28,7 @@ module Decidim
     def destroy_resource_like
       query = @resource.likes.where(author: @current_user)
 
-      query.really_destroy!
+      query.destroy_all
     end
   end
 end
