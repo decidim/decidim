@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe "rake decidim:mailers:notifications_digest_weekly", type: :task do
-  let(:organization) { create(:organization) }
-  let(:resource) { create(:dummy_resource, organization:) }
+  let(:organization) { resource.organization }
+  let(:resource) { create(:dummy_resource) }
   let(:current_time) { Time.utc(2026, 1, 15, 12, 0, 0) }
   let!(:target_user) { create(:user, organization:, notifications_sending_frequency: :weekly) }
   let!(:user_with_wrong_frequency) { create(:user, organization:, notifications_sending_frequency: :daily) }
