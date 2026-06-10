@@ -206,16 +206,22 @@ export default class extends Controller {
    * @param {string} id - The user ID
    * @returns {void}
    */
+  htmlEscape(str) {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   addSelectedUser(selection, id) {
     const label = this.removeLabel.replace("%name%", selection.value.name);
 
     const listItem = document.createElement("li");
     listItem.tabIndex = "-1";
     listItem.innerHTML = `
-      <input type="hidden" name="${this.options.name}" value="${id}">
-      <img src="${selection.value.avatarUrl}" alt="${selection.value.name}">
-      <span>${selection.value.name}</span>
-      <button type="button" data-remove="${id}" tabindex="0" aria-controls="0" aria-label="${label}">${icon("delete-bin-line")}</button>
+      <input type="hidden" name="${this.htmlEscape(this.options.name)}" value="${this.htmlEscape(id)}">
+      <img src="${this.htmlEscape(selection.value.avatarUrl)}" alt="${this.htmlEscape(selection.value.name)}">
+      <span>${this.htmlEscape(selection.value.name)}</span>
+      <button type="button" data-remove="${this.htmlEscape(id)}" tabindex="0" aria-controls="0" aria-label="${this.htmlEscape(label)}">${icon("delete-bin-line")}</button>
     `;
 
     this.selectedItems.appendChild(listItem);
