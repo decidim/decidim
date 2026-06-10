@@ -418,23 +418,50 @@ describe "Edit proposals" do
 
     before do
       login_as user, scope: :user
-
       visit_component
       click_on proposal_title
       find("#dropdown-trigger-resource-#{proposal.id}").click
       click_on "Edit"
-
       expect(page).to have_text "Edit proposal"
     end
 
-    it "can update the title with attachments" do
-      expect(page.html).to include(document_filename)
+    it "can remove attachment" do
+      click_on("Edit attachments")
+      within ".upload-modal" do
+        within "li[data-filename='#{document.file.blob.filename}']" do
+          click_on("Remove")
+        end
+        click_on "Save"
+      end
+      click_on("Send")
+      expect(page).to have_text("Proposal successfully updated.")
+      expect(page).to have_no_text("Documents")
+    end
 
+    it "can attach a file" do
+      page.execute_script("document.getElementById('proposal_documents_button').click()")
+      within ".upload-modal" do
+        within "li[data-filename='#{document.file.blob.filename}']" do
+          click_on("Remove")
+        end
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset("Exampledocument.pdf"))
+        within "[data-filename='Exampledocument.pdf']" do
+          expect(page).to have_css("li progress[value='100']")
+        end
+        expect(page).to have_button("Save", disabled: false)
+        click_on "Save"
+      end
+      click_on("Send")
+      expect(page).to have_text("Proposal successfully updated.")
+      expect(page).to have_text("Exampledocument.pdf")
+    end
+
+    it "can edit a proposal with attachments" do
+      expect(page.html).to include(document_filename)
       within "form.edit_proposal" do
         fill_in :proposal_title, with: "Updated proposal title with attachments"
         click_on "Send"
       end
-
       expect(page).to have_text("Proposal successfully updated.")
       expect(page).to have_text("Updated proposal title with attachments")
     end
