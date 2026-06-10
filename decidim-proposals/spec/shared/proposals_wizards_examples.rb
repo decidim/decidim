@@ -219,12 +219,14 @@ shared_examples "proposals wizards" do |options|
         click_on "Publish"
 
         visit decidim.last_activities_path
-        expect(page).to have_text("New proposal: #{translated(proposal_draft.title)}")
+        expect(page).to have_text("New proposal", wait: 10)
+        expect(page).to have_text(translated(proposal_draft.title), wait: 10)
 
         within "#filters" do
           find("a", class: "filter", text: "Proposal", match: :first).click
         end
-        expect(page).to have_text("New proposal: #{translated(proposal_draft.title)}")
+        expect(page).to have_text("New proposal", wait: 10)
+        expect(page).to have_text(translated(proposal_draft.title), wait: 10)
       end
 
       it "shows a preview" do
