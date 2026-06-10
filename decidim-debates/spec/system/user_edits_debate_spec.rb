@@ -140,9 +140,19 @@ describe "User edits a debate" do
       let(:attachments_allowed) { true }
       let(:image_filename) { "city.jpeg" }
       let(:document_filename) { "Exampledocument.pdf" }
+      let(:document_path) { Decidim::Dev.asset(document_filename) }
       let!(:image_attachment) { create(:attachment, :with_image, attached_to: debate) }
 
-      it "retains existing attachments after editing the title" do
+      it "can attach a file" do
+        visit_component
+        click_on debate.title.values.first
+        find("#dropdown-trigger-resource-#{debate.id}").click
+        click_on "Edit"
+        dynamically_attach_file(:debate_documents, document_path)
+        expect(page).to have_text("Exampledocument.pdf")
+      end
+
+      it "can edit a debate with an attachment" do
         visit_component
 
         click_on debate.title.values.first
