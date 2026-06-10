@@ -83,6 +83,7 @@
   @include meta.load-css("stylesheets/decidim/actions");
   @include meta.load-css("stylesheets/decidim/emoji");
   @include meta.load-css("stylesheets/decidim/success_image");
+  @include meta.load-css("stylesheets/decidim/editor_suggestions");
 }
 
 // This applies the custom style imports registered at the application.
