@@ -348,10 +348,10 @@ en:
             success: Participant successfully invited to join the meeting.
           form:
             attendee_type: Attendee type
-            existing_user: Existing participant
+            email: Email
             invite: Invite
             invite_explanation: The participant will be invited to join the meeting and to the organization as well.
-            non_user: Non existing participant
+            name_or_nickname: Name or nickname
             select_user: Select participant
           index:
             invites: Invites

@@ -287,11 +287,10 @@ describe "Conversations" do
           visit_inbox
           expect(page).to have_text("New conversation")
           click_on "New conversation"
-          expect(page).to have_css("#add_conversation_users")
-          field = find_by_id("add_conversation_users")
-          field.set ""
+          expect(page).to have_css(".ts-control input")
+          field = find(".ts-control input")
           field.native.send_keys "@#{interlocutor2.nickname.slice(0, 3)}"
-          expect(page).to have_css("#autoComplete_list_1 li.disabled", wait: 5)
+          expect(page).to have_css(".ts-dropdown .option.disabled", wait: 5)
         end
       end
 
@@ -302,19 +301,19 @@ describe "Conversations" do
         it "does not insert element twice and closes dropdown", :slow do
           visit_inbox
           click_on "New conversation"
-          expect(page).to have_css("#add_conversation_users")
+          expect(page).to have_css(".ts-control input")
 
-          field = find_by_id("add_conversation_users")
+          field = find(".ts-control input")
           field.native.send_keys "Mar"
 
-          expect(page).to have_css("#autoComplete_list_1 li", wait: 5)
+          expect(page).to have_css(".ts-dropdown .option", wait: 5)
 
-          find("#autoComplete_list_1 li").click
+          find(".ts-dropdown .option", match: :first).click
 
           expect(page).to have_css(".conversation__modal-results li", count: 1)
           expect(page).to have_text("Maria")
-          expect(page).to have_no_css("#autoComplete_list_1 li", wait: 2)
-          expect(field.value).to eq("")
+          expect(page).to have_no_css(".ts-dropdown .option", visible: :visible)
+          expect(find_by_id("add_conversation_users", visible: false).value).to eq("")
         end
       end
     end
