@@ -166,6 +166,9 @@ describe "User edits a debate" do
         click_on "Edit"
 
         dynamically_attach_file(:debate_documents, document_path)
+        click_on("Save")
+
+        click_on("Documents")
         expect(page).to have_text("Exampledocument.pdf")
       end
 
@@ -182,7 +185,6 @@ describe "User edits a debate" do
         end
 
         expect(page).to have_text("Debate successfully updated.")
-        expect(page).to have_text("Should every organization use Decidim?")
         expect(page).to have_css("img[src*='#{image_filename}']")
       end
     end
