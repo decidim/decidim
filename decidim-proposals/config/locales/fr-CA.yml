@@ -333,6 +333,8 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur(e) de la proposition.
           email_subject: La proposition %{resource_title} a été fusionnée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été fusionnée par un administrateur.
+        proposal_published:
+          email_subject: Nouvelle proposition "%{resource_title}" par %{author_name}
         proposal_published_for_space:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
