@@ -602,7 +602,6 @@
           modal_title: Ny Samtale
           no_results: Ingen resultater
         error_modal:
-          close: Lukk modal
           correct_errors: Vennligst korriger feilene og prøv på nytt.
           intro: 'Det var følgende feil med din melding:'
           ok: Ok
