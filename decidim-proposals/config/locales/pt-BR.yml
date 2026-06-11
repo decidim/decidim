@@ -79,12 +79,12 @@ pt-BR:
           attributes:
             base:
               not_official: Não são oficiais
-              voted: Recebeu votos ou recomendações 
+              voted: Recebeu votos ou recomendações
         proposals_split:
           attributes:
             base:
               not_official: Não são oficiais
-              voted: Recebeu votos ou recomendações 
+              voted: Recebeu votos ou recomendações
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Taxonomias da proposta alteradas
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
