@@ -6,7 +6,7 @@
     <%= render partial: "decidim/admin/shared/adjacent_navigation", locals: { adjacent_paths: filtered_adjacent_paths(proposal, :proposal_path) } %>
     <div class="component__show_header">
       <h2 class="component__show_header-title">
-        <%= decidim_escape_translated(proposal.title) %>
+        <%= present(proposal).title(html_escape: true) %>
       </h2>
     </div>
 
