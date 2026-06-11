@@ -1212,7 +1212,6 @@ es:
         create:
           error: No se ha iniciado la conversación. Vuelve a intentarlo más tarde.
         error_modal:
-          close: Cerrar modal
           correct_errors: Por favor, corrige los errores e inténtalo de nuevo.
           intro: 'Se han producido los siguientes errores en tu mensaje:'
           ok: De acuerdo
