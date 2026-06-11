@@ -1015,7 +1015,6 @@ hu:
         create:
           error: A beszélgetés nem kezdődött el. Próbáld újra később.
         error_modal:
-          close: Felugró ablak bezárása
           correct_errors: Kérjük javítsa a hibákat és próbálja újra.
           intro: 'A következő hibákat tartalmazza az üzenet:'
           ok: OK
