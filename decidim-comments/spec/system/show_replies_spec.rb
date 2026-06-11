@@ -14,6 +14,7 @@ describe "Show replies" do
   before do
     switch_to_host(organization.host)
     visit resource_path
+    expect(page).to have_text(translated_attribute(commentable.title))
   end
 
   after do
@@ -45,6 +46,7 @@ describe "Show replies" do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit resource_path
+      expect(page).to have_button(id: "trigger-dropdown-account")
     end
 
     after do
@@ -86,11 +88,11 @@ describe "Show replies" do
 
   context "when the locale is different than English" do
     before do
-      visit resource_path
-
       within_language_menu do
         click_on "Castellano"
       end
+
+      expect(page).to have_css(%(html[lang="es"]))
     end
 
     it "shows the replies button in the correct locale" do

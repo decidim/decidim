@@ -119,9 +119,9 @@ jobs:
         with:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
           verbose: true
-          files: coverage/coverage.xml
+          files: coverage/coverage.json
           add-prefix: ${{ env.DECIDIM_MODULE }}
-      - uses: codecov/codecov-action@v6
+      - uses: codecov/codecov-action@v7
         name: Upload coverage
         with:
           name: decidim-generators

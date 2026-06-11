@@ -51,15 +51,15 @@ describe Decidim::Meetings::MeetingsController do
         component_id: meeting_component.id
       }
     end
-    let(:params) { { meeting: meeting_params } }
-
-    before { sign_in user }
+    let(:params) { { meeting: meeting_params, id: meeting.id } }
 
     context "when an authorized user is withdrawing a meeting" do
       let(:meeting) { create(:meeting, component: meeting_component, author: user) }
 
+      before { sign_in user }
+
       it "withdraws the meeting" do
-        put :withdraw, params: params.merge(id: meeting.id)
+        put(:withdraw, params:)
 
         expect(flash[:notice]).to eq("The meeting has been withdrawn successfully.")
         expect(response).to have_http_status(:found)
@@ -72,11 +72,25 @@ describe Decidim::Meetings::MeetingsController do
       let(:current_user) { create(:user, organization: meeting_component.organization) }
       let(:meeting) { create(:meeting, component: meeting_component, author: current_user) }
 
+      before { sign_in user }
+
       it "is not able to withdraw the meeting" do
-        put :withdraw, params: params.merge(id: meeting.id)
+        put(:withdraw, params:)
 
         expect(flash[:alert]).to eq("You are not authorized to perform this action.")
         expect(response).to have_http_status(:found)
+        meeting.reload
+        expect(meeting.withdrawn?).to be false
+      end
+    end
+
+    context "when user is not authenticated" do
+      let(:user) { nil }
+
+      it "redirects to login page" do
+        put(:withdraw, params:)
+        expect(flash[:alert]).to eq("You need to log in or create an account before continuing.")
+        expect(response).to redirect_to(new_user_session_path)
         meeting.reload
         expect(meeting.withdrawn?).to be false
       end
@@ -158,6 +172,57 @@ describe Decidim::Meetings::MeetingsController do
       it "redirects to the login page" do
         get(:new)
         expect(response).to have_http_status(:found)
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe "#create" do
+    let(:meeting_params) do
+      {
+        component_id: meeting_component.id
+      }
+    end
+    let(:params) { { meeting: meeting_params } }
+
+    context "when user is not authenticated" do
+      it "redirects to login page" do
+        post(:create, params:)
+        expect(flash[:alert]).to eq("You need to log in or create an account before continuing.")
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe "#edit" do
+    let(:meeting_params) do
+      {
+        component_id: meeting_component.id
+      }
+    end
+    let(:params) { { meeting: meeting_params, id: meeting.id } }
+
+    context "when user is not authenticated" do
+      it "redirects to login page" do
+        get(:edit, params:)
+        expect(flash[:alert]).to eq("You need to log in or create an account before continuing.")
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe "#update" do
+    let(:meeting_params) do
+      {
+        component_id: meeting_component.id
+      }
+    end
+    let(:params) { { meeting: meeting_params, id: meeting.id } }
+
+    context "when user is not authenticated" do
+      it "redirects to login page" do
+        put(:update, params:)
+        expect(flash[:alert]).to eq("You need to log in or create an account before continuing.")
         expect(response).to redirect_to(new_user_session_path)
       end
     end

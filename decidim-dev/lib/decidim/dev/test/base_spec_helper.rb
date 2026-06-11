@@ -16,7 +16,10 @@ ENV["DECIDIM_MACHINE_TRANSLATION_SERVICE"] ||= "Decidim::Dev::DummyTranslator"
 
 engine_spec_dir = File.join(Dir.pwd, "spec")
 
-require "simplecov" if ENV["SIMPLECOV"]
+if ENV["SIMPLECOV"]
+  require "simplecov"
+  SimpleCov.start
+end
 
 require "decidim/core"
 require "decidim/dev/component"
