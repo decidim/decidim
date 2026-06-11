@@ -191,7 +191,7 @@ eu:
         browse: Arakatu
         confirm_delete_component: |
           Ziur zaude osagai hau ezabatu nahi duzula?
-          Osagai honek honako hauek ditu: 
+          Osagai honek honako hauek ditu:
           <ul class="list-disc ml-6 my-2">
            <li class="font-bold">%{resources_count}  resources</li>
           </ul>
@@ -400,7 +400,7 @@ eu:
           title: Zain dauden moderazioak
         show:
           dropdown: Goitibeherako zerrrenda
-          view_more_logs: Ikusi erregistro gehiago 
+          view_more_logs: Ikusi erregistro gehiago
       domain_allowlist:
         form:
           domain_too_short: Domeinu laburregia
@@ -849,7 +849,7 @@ eu:
       officializations:
         block:
           error: Arazo bat izan da parte-hartzailea blokeatzean.
-          no_user: Ez da parte-hartzailerik aurkitu 
+          no_user: Ez da parte-hartzailerik aurkitu
           success: Parte-hartzailea zuzen blokeatua.
         bulk_action:
           block:
