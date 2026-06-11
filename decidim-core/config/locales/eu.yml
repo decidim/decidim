@@ -1215,7 +1215,6 @@ eu:
         create:
           error: Elkarrizketa ez da hasi. Saiatu berriro geroago.
         error_modal:
-          close: Itxi leihoa
           correct_errors: Mesedez, zuzendu akatsak eta saiatu berriro.
           intro: 'Zure mezuan honako akats hauek gertatu dira:'
           ok: Ados
