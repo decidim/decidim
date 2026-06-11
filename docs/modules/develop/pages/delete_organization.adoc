@@ -27,7 +27,7 @@ confirmation = $stdin.gets.chomp
 
 unless confirmation == "YES"
   puts "Deletion aborted"
-  return
+  exit
 end
 
 # -------------------------------------------------
@@ -107,7 +107,7 @@ Decidim::InitiativesVote.class_eval do
 end
 
 # -------------------------------------------------------------------
-# Fake classes simulating deleted Decidim::Consultations funcionality
+# Fake classes simulating deleted Decidim::Consultations
 # -------------------------------------------------------------------
 
 module Decidim
@@ -365,6 +365,11 @@ end
 PaperTrail.request(enabled: false) do
   # Set the organization to be deleted
   org = Decidim::Organization.find_by(host: org_host)
+
+  if org.nil?
+    puts "Organization with host '#{org_host}' not found."
+    exit
+  end
 
   org.static_pages.each do |page|
     page.skip_default_page_check = true
@@ -738,8 +743,10 @@ PaperTrail.request(enabled: false) do
 
   # As AssemblySettings is not a model (it was deleted on previous decidim versions), we have to delete its info directly
   if ActiveRecord::Base.connection.table_exists?("decidim_assemblies_settings")
-    ActiveRecord::Base.connection.execute(
-      "DELETE FROM decidim_assemblies_settings WHERE decidim_organization_id = #{org.id}"
+    ActiveRecord::Base.connection.exec_delete(
+      "DELETE FROM decidim_assemblies_settings WHERE decidim_organization_id = ?",
+      "SQL",
+      [[nil, org.id]]
     )
   end
 
