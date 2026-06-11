@@ -591,7 +591,6 @@ pt:
           modal_title: Nova conversa
           no_results: Sem resultados
         error_modal:
-          close: Fechar modal
           correct_errors: Por favor corrija os erros e tente de novo
           intro: 'Há os seguintes erros com a sua mensagem:'
           ok: OK
