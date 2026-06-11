@@ -6,7 +6,7 @@
     <%= render partial: "decidim/admin/shared/adjacent_navigation", locals: { adjacent_paths: filtered_adjacent_paths(proposal, :proposal_path) } %>
     <div class="component__show_header">
       <h2 class="component__show_header-title">
-        <%= decidim_html_escape(present(proposal).title).html_safe %>
+        <%= present(proposal).title(html_escape: true) %>
       </h2>
     </div>
 
@@ -20,7 +20,7 @@
             <li class="component__show_nav-author-title">
               <%= link_to_if(
                     presented_author.profile_path.present?,
-                    presented_author.name,
+                    decidim_html_escape(presented_author.name),
                     presented_author.profile_path,
                     target: :blank
                   ) %>
@@ -47,9 +47,9 @@
         <div class="card-section">
           <div class="row column">
             <span class="component__show-title"><%= t ".body" %></span>
-            <p class="component__show-text">
-              <%= simple_format(present(proposal).body(strip_tags: true)) %>
-            </p>
+            <div class="component__show-text editor-content">
+              <%= render_proposal_body(proposal) %>
+            </div>
           </div>
         </div>
 
