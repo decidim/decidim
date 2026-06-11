@@ -12,7 +12,7 @@ sk:
         description: Popis
         end_date: Koniec
         progress: Postup
-        start_date: Začiatok 
+        start_date: Začiatok
         subresults: Čiastkové výsledky
         title: Názov
         updated_at: Aktualizované
@@ -266,7 +266,7 @@ sk:
             created_at: Vytvorené
             end_date: Koniec
             progress: Postup
-            start_date: Začiatok 
+            start_date: Začiatok
             status: Stav
             taxonomies: Taxonómie
             title: Názov
