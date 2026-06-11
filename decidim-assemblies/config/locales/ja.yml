@@ -100,9 +100,9 @@ ja:
           update: 更新
         index:
           access_modes:
-            open: 公開
-            restricted: 限定
-            transparent: 閲覧のみ
+            open: 参加可能
+            restricted: メンバー限定
+            transparent: 閲覧のみ可能
           published: 公開済み
           unpublished: 未公開
         new:
@@ -238,7 +238,7 @@ ja:
             access:
               label: アクセス
               options:
-                open: 誰もが参加スペースを見て参加することができます。
+                open: 誰もが参加スペースを閲覧、参加することができます。
                 restricted: この機能はメンバーおよび管理者のみが閲覧・参加可能です。一般的な検索、API、公開データファイルには表示されません。
                 transparent: 誰でも参加スペースの内容は閲覧できますが、参加できるのはメンバーおよび管理者のみです。
               set_this_space_as: このスペースを以下の設定にします
@@ -388,7 +388,7 @@ ja:
     open_data:
       help:
         assemblies:
-          access_mode: アクセスモード。参加スペースが公開か、限定か、閲覧のみ可能かを設定します。
+          access_mode: アクセスモードです。参加スペースが参加可能か、メンバー限定か、閲覧のみ可能かを設定します。
           area: 参加スペースのエリア
           assembly_type: 参加スペースの種別
           closing_date: 参加スペースの終了日
