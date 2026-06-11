@@ -928,7 +928,6 @@ pl:
         create:
           error: Rozmowa nie została rozpoczęta. Spróbuj ponownie później.
         error_modal:
-          close: Zamknij okno
           correct_errors: Popraw daty i spróbuj ponownie.
           intro: 'W wiadomości wystąpiły błędy:'
           ok: ok
