@@ -125,7 +125,7 @@ module Decidim
       end
 
       def current_token
-        @current_token ||= collection.find(params[:id])
+        @current_token ||= collection.find(params.expect(:id))
       end
     end
   end

@@ -17,7 +17,7 @@ module Decidim
     end
 
     def show
-      @page = current_organization.static_pages.find_by!(slug: params[:id])
+      @page = current_organization.static_pages.find_by!(slug: params.expect(:id))
       enforce_permission_to :read, :public_page, page: @page
       @topic = @page.topic
       @pages = @topic&.pages

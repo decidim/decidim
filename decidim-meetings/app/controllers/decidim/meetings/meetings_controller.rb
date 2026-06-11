@@ -21,6 +21,7 @@ module Decidim
       helper_method :meetings, :meeting, :registration, :registration_qr_code_image, :search, :tab_panel_items, :withdrawn_meetings?
 
       before_action :add_additional_csp_directives, only: [:show]
+      before_action :authenticate_user!, only: [:new, :create, :edit, :update, :withdraw]
 
       def new
         enforce_permission_to :create, :meeting
@@ -52,8 +53,7 @@ module Decidim
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
 
         if @past_meetings.result.present?
-          params[:filter] ||= {}
-          params[:filter][:with_any_date] = %w(past)
+          params.fetch(:filter, {}).merge!(with_any_date: %w(past))
           @forced_past_meetings = true
           @search = @past_meetings
         end
@@ -204,7 +204,7 @@ module Decidim
         return @previous_space if @previous_space
         return unless params[:previous_space]
 
-        previous_space_class, previous_space_id = params[:previous_space].split("#")
+        previous_space_class, previous_space_id = params.expect(:previous_space).split("#")
 
         @previous_space = previous_space_class.constantize.find_by(id: previous_space_id)
         @previous_space

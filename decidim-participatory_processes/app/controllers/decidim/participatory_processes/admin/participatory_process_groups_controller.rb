@@ -42,14 +42,14 @@ module Decidim
         end
 
         def edit
-          @item = collection.find(params[:id])
+          @item = collection.find(params.expect(:id))
           enforce_permission_to :update, :process_group, process_group: @item
           @form = form(ParticipatoryProcessGroupForm).from_model(@item)
           render layout: "decidim/admin/participatory_process_group"
         end
 
         def update
-          @participatory_process_group = collection.find(params[:id])
+          @participatory_process_group = collection.find(params.expect(:id))
           enforce_permission_to :update, :process_group, process_group: @participatory_process_group
           @form = form(ParticipatoryProcessGroupForm).from_params(params)
 
@@ -67,7 +67,7 @@ module Decidim
         end
 
         def destroy
-          @participatory_process_group = collection.find(params[:id])
+          @participatory_process_group = collection.find(params.expect(:id))
           enforce_permission_to :destroy, :process_group, process_group: @participatory_process_group
 
           Decidim::Commands::DestroyResource.call(@participatory_process_group, current_user) do
@@ -97,7 +97,7 @@ module Decidim
         end
 
         def participatory_process_group
-          @participatory_process_group ||= collection.find(params[:id])
+          @participatory_process_group ||= collection.find(params.expect(:id))
         end
 
         def collection

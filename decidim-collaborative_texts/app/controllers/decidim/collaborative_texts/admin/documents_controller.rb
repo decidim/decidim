@@ -130,7 +130,7 @@ module Decidim
         end
 
         def document
-          @document ||= collection.find(params[:id])
+          @document ||= collection.find(params.expect(:id))
         end
 
         def collection

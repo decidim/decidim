@@ -900,6 +900,7 @@ en:
       officializations:
         block:
           error: There was a problem blocking the participant.
+          no_user: No user found
           success: Participant successfully blocked.
         bulk_action:
           block:
@@ -909,6 +910,7 @@ en:
             invalid: There was a problem unblocking the participants.
             success: Participants successfully unblocked.
         create:
+          no_user_found: Participant was not found.
           success: Participant successfully officialized.
         destroy:
           success: Participant successfully unofficialized.
@@ -935,6 +937,7 @@ en:
           officialize: Officialize
           title: Officialize participant "%{name}"
         show_email:
+          no_user: No user found
           title: Show email
         show_email_modal:
           description: If you need to contact a participant directly, you can click on the Show button to see their email address. This action will be logged.

@@ -78,15 +78,16 @@ module Decidim
               InviteJoinMeetingMailer.invite(user, meeting, invited_by).deliver_later
             end
           else
-            user.name = form.name
-            user.nickname = User.nicknamize(user.name, user.decidim_organization_id)
+            email_local_part = form.email.split("@").first
+            user.name = email_local_part
+            user.nickname = User.nicknamize(email_local_part, user.decidim_organization_id)
             invite_user_to_sign_up
             create_invitation!
           end
         end
 
         def user
-          @user ||= if form.existing_user
+          @user ||= if form.attendee_type == "name"
                       form.user
                     else
                       Decidim::User.find_or_initialize_by(

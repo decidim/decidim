@@ -15,13 +15,13 @@ shared_examples "access mode transparent participatory spaces" do
     it "lists all the spaces" do
       within css_class_selector do
         within "h2" do
-          expect(page).to have_content("2")
+          expect(page).to have_text("2")
         end
 
-        expect(page).to have_content(translated(participatory_space.title, locale: :en))
+        expect(page).to have_text(translated(participatory_space.title, locale: :en))
         expect(page).to have_css(".card__grid", count: 2)
 
-        expect(page).to have_content(translated(transparent_participatory_space.title, locale: :en))
+        expect(page).to have_text(translated(transparent_participatory_space.title, locale: :en))
       end
     end
 
@@ -29,7 +29,7 @@ shared_examples "access mode transparent participatory spaces" do
       first(".card__grid-text", text: translated(transparent_participatory_space.title, locale: :en)).click
 
       expect(page).to have_current_path transparent_participatory_space_path
-      expect(page).to have_content "This is a transparent space"
+      expect(page).to have_text "This is a transparent space"
     end
   end
 
@@ -44,13 +44,13 @@ shared_examples "access mode transparent participatory spaces" do
       it "lists all the spaces" do
         within css_class_selector do
           within "h2" do
-            expect(page).to have_content("2")
+            expect(page).to have_text("2")
           end
 
-          expect(page).to have_content(translated(participatory_space.title, locale: :en))
+          expect(page).to have_text(translated(participatory_space.title, locale: :en))
           expect(page).to have_css(".card__grid", count: 2)
 
-          expect(page).to have_content(translated(transparent_participatory_space.title, locale: :en))
+          expect(page).to have_text(translated(transparent_participatory_space.title, locale: :en))
         end
       end
     end
@@ -65,7 +65,7 @@ shared_examples "access mode transparent participatory spaces" do
       it "does not show the privacy warning in attachments admin" do
         visit transparent_participatory_space_attachment_path
         within "#attachments" do
-          expect(page).to have_no_content("Any participant could share this document to others")
+          expect(page).to have_no_text("Any participant could share this document to others")
         end
       end
     end
@@ -96,7 +96,7 @@ shared_examples "access mode transparent participatory spaces comments" do
 
     it "can see the comments" do
       expect(page).to have_css("#comments")
-      expect(page).to have_content(comment.body["en"])
+      expect(page).to have_text(comment.body["en"])
     end
 
     it "cannot see the comment form" do
@@ -117,7 +117,7 @@ shared_examples "access mode transparent participatory spaces comments" do
 
     it "can see the comments" do
       expect(page).to have_css("#comments")
-      expect(page).to have_content(comment.body["en"])
+      expect(page).to have_text(comment.body["en"])
     end
 
     it "can see the comment form" do
@@ -130,7 +130,7 @@ shared_examples "access mode transparent participatory spaces comments" do
         click_on "Publish comment"
       end
 
-      expect(page).to have_content("This is a test comment from a member")
+      expect(page).to have_text("This is a test comment from a member")
     end
 
     it "can see the vote buttons" do
@@ -160,12 +160,12 @@ shared_examples "access mode transparent participatory spaces comments" do
 
     it "can see the comments" do
       expect(page).to have_css("#comments")
-      expect(page).to have_content(comment.body["en"])
+      expect(page).to have_text(comment.body["en"])
     end
 
     it "cannot see the comment form" do
       expect(page).to have_no_css("form#new_comment_for_DummyResource_#{commentable.id}")
-      expect(page).to have_content("You are not able to comment at this moment")
+      expect(page).to have_text("You are not able to comment at this moment")
     end
 
     it "cannot see the vote buttons" do
@@ -182,7 +182,7 @@ shared_examples "access mode transparent participatory spaces comments" do
 
     it "can see the comments" do
       expect(page).to have_css("#comments")
-      expect(page).to have_content(comment.body["en"])
+      expect(page).to have_text(comment.body["en"])
     end
 
     it "can see the comment form" do
@@ -195,7 +195,7 @@ shared_examples "access mode transparent participatory spaces comments" do
         click_on "Publish comment"
       end
 
-      expect(page).to have_content("This is a test comment from a member")
+      expect(page).to have_text("This is a test comment from a member")
     end
 
     it "can see the vote buttons" do
@@ -225,12 +225,12 @@ shared_examples "access mode transparent participatory spaces comments" do
 
     it "can see the comments" do
       expect(page).to have_css("#comments")
-      expect(page).to have_content(comment.body["en"])
+      expect(page).to have_text(comment.body["en"])
     end
 
     it "cannot see the comment form" do
       expect(page).to have_no_css("form#new_comment_for_DummyResource_#{commentable.id}")
-      expect(page).to have_content("You are not able to comment at this moment")
+      expect(page).to have_text("You are not able to comment at this moment")
     end
 
     it "cannot see the vote buttons" do

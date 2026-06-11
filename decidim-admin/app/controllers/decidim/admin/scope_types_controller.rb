@@ -77,7 +77,7 @@ module Decidim
       def tab_menu_name = :admin_scopes_menu
 
       def scope_type
-        @scope_type ||= scope_types.find(params[:id])
+        @scope_type ||= scope_types.find(params.expect(:id))
       end
 
       def scope_types

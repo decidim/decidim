@@ -39,7 +39,6 @@ hu:
           destroy:
             confirm: A dátum előtti engedélyek visszavonása nem vonható vissza. Biztos, hogy folytatni szeretné?
             confirm_all: Az összes jogosultság visszavonása nem vonható vissza. Biztos, hogy folytatni szeretné?
-          destroy_ok: Az összes egyező engedélyt sikeresen visszavonták.
           info: Összesen %{count} ellenőrzött résztvevő.
           no_data: Nincsenek ellenőrzött résztvevők.
           title: Engedélyezés és visszavonás

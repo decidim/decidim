@@ -41,7 +41,7 @@ describe "Admin manages moderated users" do
         fill_in "Justification", with: "Blocking this user for testing purposes."
         click_on "Block account and send justification"
 
-        expect(page).to have_content "Participant successfully blocked"
+        expect(page).to have_text "Participant successfully blocked"
       end
     end
 
@@ -77,25 +77,25 @@ describe "Admin manages moderated users" do
       it "can be searched by nickname" do
         search_by_text(first_user.nickname)
 
-        expect(page).to have_content(first_user.name)
-        expect(page).to have_no_content(second_user.name)
-        expect(page).to have_no_content(third_user.name)
+        expect(page).to have_text(first_user.name)
+        expect(page).to have_no_text(second_user.name)
+        expect(page).to have_no_text(third_user.name)
       end
 
       it "can be searched by email" do
         search_by_text(first_user.email)
 
-        expect(page).to have_content(first_user.name)
-        expect(page).to have_no_content(second_user.name)
-        expect(page).to have_no_content(third_user.name)
+        expect(page).to have_text(first_user.name)
+        expect(page).to have_no_text(second_user.name)
+        expect(page).to have_no_text(third_user.name)
       end
 
       it "can be searched by name" do
         search_by_text(first_user.name)
 
-        expect(page).to have_content(first_user.name)
-        expect(page).to have_no_content(second_user.name)
-        expect(page).to have_no_content(third_user.name)
+        expect(page).to have_text(first_user.name)
+        expect(page).to have_no_text(second_user.name)
+        expect(page).to have_no_text(third_user.name)
       end
     end
 
@@ -163,19 +163,19 @@ describe "Admin manages moderated users" do
       it "can be searched by nickname" do
         search_by_text(first_user.nickname)
 
-        expect(page).to have_content(first_user.nickname)
+        expect(page).to have_text(first_user.nickname)
       end
 
       it "can be searched by email" do
         search_by_text(first_user.email)
 
-        expect(page).to have_content(first_user.nickname)
+        expect(page).to have_text(first_user.nickname)
       end
 
       it "can be searched by name" do
         search_by_text(first_user.name)
 
-        expect(page).to have_content(first_user.nickname)
+        expect(page).to have_text(first_user.nickname)
       end
     end
 
@@ -215,37 +215,37 @@ describe "Admin manages moderated users" do
       end
 
       it "blocks reported participants" do
-        expect(page).to have_content("Reported participants")
+        expect(page).to have_text("Reported participants")
         find_by_id("moderated_users_bulk").set(true)
-        expect(page).to have_content("Reported participants 3")
+        expect(page).to have_text("Reported participants 3")
         click_on "Actions"
         within "#js-bulk-actions-dropdown" do
           click_on "Block"
         end
-        expect(page).to have_content("Block users")
+        expect(page).to have_text("Block users")
         within "#js-block-moderated_users-actions" do
           click_on "Block users"
         end
-        expect(page).to have_content("Justification")
-        expect(page).to have_content("Block accounts and send justification")
+        expect(page).to have_text("Justification")
+        expect(page).to have_text("Block accounts and send justification")
         fill_in "Justification", with: "Blocking these users for testing purposes."
         click_on "Block accounts and send justification"
-        expect(page).to have_content("Participants successfully blocked")
+        expect(page).to have_text("Participants successfully blocked")
       end
 
       it "unreports reported participants" do
-        expect(page).to have_content("Reported participants")
+        expect(page).to have_text("Reported participants")
         find_by_id("moderated_users_bulk").set(true)
-        expect(page).to have_content("Reported participants 3")
+        expect(page).to have_text("Reported participants 3")
         click_on "Actions"
         within "#js-bulk-actions-dropdown" do
           click_on "Unreport"
         end
-        expect(page).to have_content("Unreport users")
+        expect(page).to have_text("Unreport users")
         within "#js-unreport-moderated_users-actions" do
           click_on "Unreport users"
         end
-        expect(page).to have_content("Participants successfully unreported")
+        expect(page).to have_text("Participants successfully unreported")
       end
 
       context "when on blocked users path" do
@@ -259,18 +259,18 @@ describe "Admin manages moderated users" do
 
         it "unblocks reported participants" do
           click_on "Blocked"
-          expect(page).to have_content("Reported participants")
+          expect(page).to have_text("Reported participants")
           find_by_id("moderated_users_bulk").set(true)
-          expect(page).to have_content("Reported participants 3")
+          expect(page).to have_text("Reported participants 3")
           click_on "Actions"
           within "#js-bulk-actions-dropdown" do
             click_on "Unblock"
           end
-          expect(page).to have_content("Unblock users")
+          expect(page).to have_text("Unblock users")
           within "#js-unblock-moderated_users-actions" do
             click_on "Unblock users"
           end
-          expect(page).to have_content("Participants successfully unblocked")
+          expect(page).to have_text("Participants successfully unblocked")
         end
       end
     end

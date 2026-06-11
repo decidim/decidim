@@ -201,13 +201,6 @@ sv:
             email_outro: Du har fått detta meddelande eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Ny debatt "%{resource_title}" i %{participatory_space_title}
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades i <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-          user_followers:
-            email_intro: |-
-              Hej,
-              %{author_name} %{author_nickname}, som du följer, har skapat den nya debatten "%{resource_title}". Ta en titt och bidra med:
-            email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
-            email_subject: Ny debatt "%{resource_title}" med %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> skapade debatten <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Att skapa debatter är inte längre aktivt i %{participatory_space_title}. Du kan fortfarande delta i öppna debatter via den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
