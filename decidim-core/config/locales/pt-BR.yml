@@ -1209,7 +1209,6 @@ pt-BR:
         create:
           error: Conversa não iniciada. Tente mais tarde.
         error_modal:
-          close: Fechar modal
           correct_errors: Por favor, corrija os itens citados e tente novamente.
           intro: 'Sua mensagem contém os seguintes erros:'
           ok: OK
