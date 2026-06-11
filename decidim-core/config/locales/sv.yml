@@ -1215,7 +1215,6 @@ sv:
         create:
           error: Konversationen har inte startat. Försök igen senare.
         error_modal:
-          close: Stäng fönster
           correct_errors: Vänligen korrigera felen och försök igen.
           intro: 'Det fanns följande fel med ditt meddelande:'
           ok: Ok
