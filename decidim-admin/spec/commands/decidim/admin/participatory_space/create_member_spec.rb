@@ -58,14 +58,46 @@ module Decidim::Admin::ParticipatorySpace
         expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
       end
 
-      it "sends the notification" do
-        expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 0
+      context "when participatory_space is a participatory process" do
+        let(:participatory_space) { create(:participatory_process, :restricted) }
 
-        perform_enqueued_jobs { subject.call }
+        it "broadcasts the notification" do
+          expect(Decidim::EventsManager).to receive(:publish).with({
+                                                                     event: "decidim.events.participatory_space.member_added",
+                                                                     event_class: Decidim::ParticipatoryProcessMemberAddedEvent,
+                                                                     resource: participatory_space,
+                                                                     affected_users: [user],
+                                                                     force_send: true,
+                                                                     extra: { force_email: true }
+                                                                   })
 
-        expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
+          expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 0
 
-        expect(last_email_body).to include("You have been added as a member to a participatory space.")
+          perform_enqueued_jobs { subject.call }
+
+          expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
+        end
+      end
+
+      context "when participatory_space is an assembly" do
+        let(:participatory_space) { create(:assembly, :restricted) }
+
+        it "broadcasts the notification" do
+          expect(Decidim::EventsManager).to receive(:publish).with({
+                                                                     event: "decidim.events.participatory_space.member_added",
+                                                                     event_class: Decidim::AssemblyMemberAddedEvent,
+                                                                     resource: participatory_space,
+                                                                     affected_users: [user],
+                                                                     force_send: true,
+                                                                     extra: { force_email: true }
+                                                                   })
+
+          expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 0
+
+          perform_enqueued_jobs { subject.call }
+
+          expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
+        end
       end
 
       it "creates a new user with no application admin privileges" do

@@ -958,10 +958,16 @@ en:
         notification_title: An event occurred to <a href="%{resource_path}">%{resource_title}</a>.
       participatory_space:
         member_added:
-          email_intro: You have been added as a member to a participatory space.
-          email_outro: You have received this notification because you have been added to the <a href="%{resource_path}">%{resource_title}</a> space.
-          email_subject: You now have access to %{resource_title}
-          notification_title: You now have access to <a href="%{resource_path}">%{resource_title}</a>
+          private:
+            email_intro: You have been added as a member to a participatory space.
+            email_outro: You have received this notification because an administrator has added you to <a href="%{resource_url}">%{resource_title}</a>. If access to this space is restricted, you will be able to access it with your account.
+            email_subject: You now have access to %{resource_title}.
+            notification_title: You now have access to <a href="%{resource_url}">%{resource_title}</a>.
+          published:
+            email_intro: You have been added as a member to a participatory space.
+            email_outro: You have received this notification because an administrator has added you to <a href="%{resource_url}">%{resource_title}</a>. If access to this space is restricted, you will be able to access it with your account.<br> Your profile will appear in the <a href="%{members_page}">list of members</a> of the space.
+            email_subject: You now have access to %{resource_title}.
+            notification_title: You now have access to <a href="%{resource_url}">%{resource_title}</a>.
       reports:
         parent_hidden:
           email_intro: |-

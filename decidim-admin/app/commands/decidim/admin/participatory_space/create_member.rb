@@ -74,7 +74,7 @@ module Decidim
           else
             Decidim::EventsManager.publish(
               event: "decidim.events.participatory_space.member_added",
-              event_class: Decidim::ParticipatorySpace::MemberAddedEvent,
+              event_class: "#{member_to.class.name}MemberAddedEvent".constantize,
               resource: member_to,
               affected_users: [@existing_user],
               force_send: true,
