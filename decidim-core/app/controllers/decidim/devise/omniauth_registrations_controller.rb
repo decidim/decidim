@@ -137,7 +137,11 @@ module Decidim
       def restore_raw_data_from_cache
         return {} if pending_oauth_token.blank?
 
-        Rails.cache.read(raw_data_cache_key(pending_oauth_token)) || {}
+        raw_data = Rails.cache.read(raw_data_cache_key(pending_oauth_token))
+        return raw_data if raw_data.present?
+
+        Rails.logger.warn("[Decidim::OmniauthRegistrationsController] Missing raw_data in cache for pending_oauth_token=#{pending_oauth_token}")
+        {}
       end
 
       def restore_pending_oauth_data

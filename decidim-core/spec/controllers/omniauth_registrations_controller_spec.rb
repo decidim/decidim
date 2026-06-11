@@ -335,6 +335,23 @@ module Decidim
           expect(controller).to be_user_signed_in
           expect(User.find_by(email:)).to be_present
         end
+
+        context "when raw_data is missing in cache" do
+          before do
+            Rails.cache.delete("decidim/omniauth_registration/raw_data/#{pending_token}")
+          end
+
+          it "logs a warning and signs in" do
+            expect(Rails.logger).to receive(:warn).with(/Missing raw_data in cache for pending_oauth_token=/)
+
+            expect do
+              post :create, params: { locale: I18n.locale, user: { pending_oauth_token: pending_token, tos_agreement: "1" } }
+            end.to change(Identity, :count).by(1)
+
+            expect(controller).to be_user_signed_in
+            expect(User.find_by(email:)).to be_present
+          end
+        end
       end
     end
   end
