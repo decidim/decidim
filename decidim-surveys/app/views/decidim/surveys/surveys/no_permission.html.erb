@@ -1,9 +1,45 @@
-<div class="row">
-  <div class="columns large-6">
-    <div class="card">
-      <div>
-        <%= cell "decidim/authorization_modal", authorizations %>
-      </div>
+<% add_decidim_meta_tags({
+                           title: translated_attribute(questionnaire.title),
+                           description: translated_attribute(questionnaire.description)
+                         }) %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center mt-8">
+    <div class="flex justify-center">
+      <%= icon "lock-line", class: "w-20 h-20" %>
+    </div>
+    <h1 tabindex="-1" class="h1">
+      <%= t("#{authorizations.global_code || :missing}.title", scope: "decidim.authorization_modals.content") %>
+    </h1>
+    <div class="authorization-modal__verification-container">
+      <% authorizations.statuses.each do |status| %>
+        <% next if status.ok? %>
+        <% next if authorizations.global_code && status.code != (authorizations.global_code || :missing) %>
+
+        <div class="authorization-modal__verification">
+          <p>
+            <%= t(
+                  "#{status.code}.explanation",
+                  authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers"),
+                  scope: "decidim.authorization_modals.content"
+                ) %>
+          </p>
+
+          <% if status.data[:action].present? %>
+            <%= action_authorized_link_to(
+                  :respond,
+                  t(
+                    "#{status.code}.#{status.data[:action]}",
+                    authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers"),
+                    scope: "decidim.authorization_modals.content"
+                  ),
+                  survey_path(questionnaire_for),
+                  class: "button button__lg button__secondary",
+                  resource: questionnaire_for
+                ) %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
-</div>
+<% end %>

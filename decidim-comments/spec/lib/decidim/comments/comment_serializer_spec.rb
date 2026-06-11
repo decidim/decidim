@@ -41,7 +41,7 @@ module Decidim
         end
 
         it "includes the root commentable's url" do
-          expect(subject.serialize[:root_commentable_url]).to match(/http/)
+          expect(subject.serialize[:root_commentable_url]).to include("http")
         end
 
         context "when the author has been deleted" do

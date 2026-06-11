@@ -5,6 +5,7 @@ shared_examples "import proposals to projects" do
   let!(:rejected_proposals) { create_list(:proposal, 3, :rejected, component: origin_component) }
   let!(:origin_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
   let!(:default_budget) { 2333 }
+
   include Decidim::ComponentPathHelper
 
   it "imports proposals from one component to a budget component" do

@@ -1,12 +1,15 @@
-var messageError = document.getElementById("messageErrorModal");
+var messageError = document.getElementById("messageErrorModal")
 
-if (messageError){
+if (messageError) {
   messageError.remove();
 }
+document.body.insertAdjacentHTML("beforeend", "<%= j(render "error_modal", error:, messages:).html_safe %>");
 
-const messagesContainer = document.getElementById("messages");
-if (messagesContainer) {
-  messagesContainer.insertAdjacentHTML("beforeend", "<%= j(render "error_modal", error:, messages:).html_safe %>");
+messageError = document.getElementById("messageErrorModal")
+if (messageError) {
+  window.createDialog(messageError);
+
+  if (Decidim.currentDialogs.messageErrorModal) {
+    window.Decidim.currentDialogs.messageErrorModal.open();
+  }
 }
-
-var messageError = document.getElementById("messageErrorModal");
