@@ -163,7 +163,7 @@ sk:
         client_id: ID klienta
         client_secret: Tajný kľúč klienta
         organization_name: Názov organizácie
-        organization_url: Odkaz na stránku organizácie 
+        organization_url: Odkaz na stránku organizácie
         redirect_uri: Presmerovanie URI
         site: Webstránka
   decidim:
