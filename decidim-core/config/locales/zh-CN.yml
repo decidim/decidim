@@ -673,7 +673,6 @@ zh-CN:
           modal_title: 新建对话
           no_results: 没有结果
         error_modal:
-          close: 关闭模式
           correct_errors: 请更正错误，然后重试。
           intro: '您的消息有以下错误：'
           ok: 好的
