@@ -75,14 +75,22 @@ jobs:
         ports: ["8888:8888"]
       postgres:
         image: ghcr.io/cloudnative-pg/postgresql:14
-        ports: ["5432:5432"]
+        ports:
+          - 5432:5432
         options: >-
-          --health-cmd pg_isready
+          --entrypoint bash
+          --health-cmd "pg_isready -U postgres"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
         env:
           POSTGRES_PASSWORD: postgres
+          PGDATA: /tmp/pgdata
+        run: |
+          mkdir -p /tmp/pgdata
+          initdb -D /tmp/pgdata --username=postgres
+          echo "host all all all trust" >> /tmp/pgdata/pg_hba.conf
+          postgres -D /tmp/pgdata
     steps:
       - uses: actions/checkout@v6
         with:

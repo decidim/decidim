@@ -47,7 +47,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
       postgres:
-        image: ghcr.io/cloudnative-pg/postgresql:14
+        image: ghcr.io/devcontainers/features/postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
