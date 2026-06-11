@@ -311,13 +311,49 @@ describe "Admin manages elections" do
 
     let!(:document) { create(:attachment, :with_image, attached_to: election_with_attachment) }
 
-    before { visit_component_admin }
+    before do
+      visit_component_admin
 
-    it "can edit an election with an attachment" do
       within "tr", text: translated(election_with_attachment.title) do
         find("button[data-controller='dropdown']").click
-        click_on "Edit election"
       end
+    end
+
+    it "can remove an attachment" do
+      click_on translated(election_with_attachment.title)
+
+      click_on("Edit attachments")
+
+      within "li[data-filename='#{document.file.blob.filename}']" do
+        click_on("Remove")
+      end
+
+      click_on("Save")
+
+      expect(page).to have_no_css("img[src*='#{document.file.blob.filename}']")
+    end
+
+    it "can attach a file" do
+      click_on translated(election_with_attachment.title)
+
+      click_on("Edit attachments")
+
+      within ".upload-modal" do
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(document.file.blob.filename.to_s))
+      end
+
+      click_on("Save")
+
+      sleep 1
+
+      click_on("Save and continue")
+      click_on("Main")
+
+      expect(page).to have_css("img[src*='#{document.file.blob.filename}']")
+    end
+
+    it "can edit an election with an attachment" do
+      click_on translated(election_with_attachment.title)
 
       expect(page.html).to include(document.file.blob.filename.to_s)
 
