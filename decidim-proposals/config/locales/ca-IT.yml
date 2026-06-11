@@ -111,9 +111,6 @@ ca-IT:
       decidim/proposals/proposal:
         one: Proposta
         other: Propostes
-      decidim/proposals/proposal_note:
-        one: Nota
-        other: Notes
       decidim/proposals/proposal_vote:
         one: Donar suport
         other: Suports
