@@ -23,7 +23,7 @@ describe Decidim::ParticipatoryProcessMemberAddedEvent do
     let(:i18n_scope) { "#{event_name}.published" }
     let(:email_outro) { "You have received this notification because an administrator has added you to <a href=\"#{resource_url}\">#{resource_title}</a>. If access to this space is restricted, you will be able to access it with your account.<br> Your profile will appear in the <a href=\"#{members_page}\">list of members</a> of the space." }
 
-    context "when assembly is transparent" do
+    context "when participatory process is transparent" do
       let(:resource) { create(:participatory_process, :transparent, title: generate_localized_title(:participatory_process_title)) }
 
       it_behaves_like "a simple event" do
@@ -33,7 +33,7 @@ describe Decidim::ParticipatoryProcessMemberAddedEvent do
       it_behaves_like "a simple event notification"
     end
 
-    context "when assembly is restricted" do
+    context "when participatory process is restricted" do
       let(:resource) { create(:participatory_process, :restricted, title: generate_localized_title(:participatory_process_title)) }
       let(:i18n_scope) { event_name }
 
@@ -49,7 +49,7 @@ describe Decidim::ParticipatoryProcessMemberAddedEvent do
     let(:role) { create(:member, :unpublished, user:, participatory_space:) }
     let(:i18n_scope) { "#{event_name}.private" }
 
-    context "when assembly is transparent" do
+    context "when participatory process is transparent" do
       let(:resource) { create(:participatory_process, :transparent, title: generate_localized_title(:participatory_process_title)) }
 
       it_behaves_like "a simple event"
@@ -57,7 +57,7 @@ describe Decidim::ParticipatoryProcessMemberAddedEvent do
       it_behaves_like "a simple event notification"
     end
 
-    context "when assembly is restricted" do
+    context "when participatory process is restricted" do
       let(:resource) { create(:participatory_process, :restricted, title: generate_localized_title(:participatory_process_title)) }
 
       it_behaves_like "a simple event"
