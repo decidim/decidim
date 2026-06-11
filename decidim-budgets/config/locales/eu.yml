@@ -317,7 +317,7 @@ eu:
           added: Gehituta
           all: Guztiak
         projects_for: '%{name} parte-hartzailearen proiektuak'
-        select_projects: Hautatu proiektuak 
+        select_projects: Hautatu proiektuak
         show:
           budget: Aurrekontua
       prompt: Aukeratu aurrekontua
