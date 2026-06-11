@@ -319,7 +319,7 @@ sk:
           email_intro: '%{requester_name} bol/a odmietnutý/á ako prispievateľ do spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} mal odmietnutý pre prístup ako prispievateľ ku %{resource_title} kolektívnemu návrhu."
-          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a><strong> mal odmietnutý prístup ako prispievateľ </strong>ku spoločnému návrhu <a href = "%{resource_path}" >%{resource_title} </a>. 
+          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a><strong> mal odmietnutý prístup ako prispievateľ </strong>ku spoločnému návrhu <a href = "%{resource_path}" >%{resource_title} </a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} požiadal/a o prístup ako prispievateľ. Žiadosť môžete <strong>prijať alebo odmietnuť</strong> na stránke spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
