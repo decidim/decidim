@@ -1155,7 +1155,6 @@ ro:
           participants:
             title: Participanți
         error_modal:
-          close: Închidere
           correct_errors: Vă rugăm să remediați erorile și să încercați din nou.
           intro: 'Au existat următoarele erori cu mesajul tău:'
           ok: Ok
