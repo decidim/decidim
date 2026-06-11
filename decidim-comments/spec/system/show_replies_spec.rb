@@ -58,7 +58,8 @@ describe "Show replies" do
 
       click_button "Load more comments"
 
-      expect(page).to have_css(".comment")
+      expect(page).to have_css(".comment", minimum: 25)
+      expect(page).to have_no_button("Load more comments")
     end
 
     it "can reply to a loaded comment", :slow do
