@@ -683,7 +683,7 @@ PaperTrail.request(enabled: false) do
     destroy_with_versions(template)
   end
 
-  Decidim::ActionLog.where(decidim_organization_id: org.id).delete_all # Use delete_all to avoid errors with a before_destroy. As it hasn't any other callbacks, it's not a problem
+  Decidim::ActionLog.where(decidim_organization_id: org.id).delete_all # Use delete_all to avoid errors with a before_destroy. As it has not any other callbacks, it is not a problem
 
   Decidim::AreaType.where(decidim_organization_id: org.id).find_each do |type|
     destroy_with_versions(type)
