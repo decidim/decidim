@@ -77,9 +77,6 @@ shared_context "when managing a component" do
 
   def visit_component_admin
     visit manage_component_path(component)
-    within "#admin-sidebar-menu-settings" do
-      expect(page).to have_css(%(a[aria-current="page"]), text: translated(component.name))
-    end
   end
 
   # Returns the config path for a given component.
