@@ -1,5 +1,6 @@
 <% add_decidim_page_title(t(".title")) %>
 <%= append_stylesheet_pack_tag "participatory_texts_admin" %>
+<%= append_javascript_pack_tag "participatory_texts_admin" %>
 
 <div class="item_show__header">
   <h1 class="item_show__header-title">
@@ -10,7 +11,7 @@
 <% if @drafts.any? %>
   <div class="item__edit item__edit-1col">
     <div class="item__edit-form">
-      <%= decidim_form_for(@preview_form, url: participatory_texts_path, html: { class: "form-defaults form grid-container" }) do |form| %>
+      <%= decidim_form_for(@preview_form, url: participatory_texts_path, html: { class: "form-defaults form grid-container", data: { controller: "participatory-texts" } }) do |form| %>
         <div class="form__wrapper">
           <div class="card">
             <div class="row column">
@@ -19,7 +20,9 @@
                   data-controller="accordion"
                   data-sort-url="#"
                   data-multi-expand="true"
-                  data-allow-all-closed="true">
+                  data-allow-all-closed="true"
+                  data-participatory-texts-target="list"
+                  data-action="sortupdate->participatory-texts#updatePositions">
                 <%= form.fields_for(:proposals) do |prop_form| %>
                   <% proposal = @drafts[prop_form.index] %>
 
@@ -40,7 +43,7 @@
         </div>
         <div class="item__edit-sticky">
           <div class="item__edit-sticky-container">
-            <%= form.submit t(".save_draft"), name: :save_draft, class: "button button__sm button__secondary" %>
+            <%= form.submit t(".save_draft"), name: :save_draft, class: "button button__sm button__secondary", data: { action: "participatory-texts#saveDraft" } %>
             <%= form.submit t(".publish_document"), class: "button button__sm button__secondary" %>
           </div>
         </div>
@@ -48,22 +51,3 @@
     </div>
   </div>
 <% end %>
-<script>
-  $(window).on("load", function() {
-    // Not all browsers submit the buttons as form data.
-    $("button[name=\"save_draft\"]").on("click", function(ev) {
-      ev.preventDefault();
-
-      var $form = $(this).parents("form");
-      $form.append("<input type=\"hidden\" name=\"save_draft\" value=\"true\" />");
-      $form.submit();
-    });
-    $("#participatory-text").on("sortupdate",
-      function(event, ui) {
-        $("#participatory-text li").each(function(idx, li) {
-          input = $(li).find("input.position").val(idx + 1);
-        });
-      }
-    );
-  });
-</script>

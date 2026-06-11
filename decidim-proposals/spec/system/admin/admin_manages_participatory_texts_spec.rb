@@ -104,6 +104,37 @@ describe "Admin manages participatory texts" do
     end
   end
 
+  describe "reordering participatory texts in draft mode" do
+    let!(:first_section) { create(:proposal, :draft, component: current_component, participatory_text_level: "section", position: 1, title: { en: "First section" }) }
+    let!(:second_section) { create(:proposal, :draft, component: current_component, participatory_text_level: "section", position: 2, title: { en: "Second section" }) }
+    let!(:third_section) { create(:proposal, :draft, component: current_component, participatory_text_level: "section", position: 3, title: { en: "Third section" }) }
+
+    it "persists the new positions after dragging and saving the draft" do
+      visit_participatory_texts
+      expect(page).to have_css("#participatory-text li", count: 3)
+
+      drag_last_section_to_top
+
+      expect(all("#participatory-text li a").map(&:text).first).to include("Third section")
+
+      click_on "Save draft"
+      expect(page).to have_text "Participatory text successfully updated."
+
+      expect(all("#participatory-text li a").map(&:text).first).to include("Third section")
+      titles = Decidim::Proposals::Proposal.where(component: current_component).order(:position).pluck(:title)
+      expect(titles.map { |title| title["en"] }).to eq(["Third section", "First section", "Second section"])
+    end
+
+    def drag_last_section_to_top
+      page.execute_script(<<~JS)
+        const list = document.querySelector("#participatory-text");
+        const items = list.querySelectorAll("li");
+        list.insertBefore(items[items.length - 1], items[0]);
+        list.dispatchEvent(new CustomEvent("sortupdate", { bubbles: true }));
+      JS
+    end
+  end
+
   describe "updating participatory texts in draft mode" do
     let!(:proposal) { create(:proposal, :draft, component: current_component, participatory_text_level: "article") }
     let!(:new_body) { Faker::Lorem.unique.sentences(number: 3).join("\n") }
