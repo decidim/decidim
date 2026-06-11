@@ -885,8 +885,6 @@ el:
           add_users_placeholder: Αναζήτηση...
           modal_title: Νέα συνομιλία
           no_results: Δεν υπάρχουν αποτελέσματα
-        error_modal:
-          close: Κλείσιμο παραθύρου
         index:
           new_conversation: Νέα συνομιλία
           next: Επόμενο
