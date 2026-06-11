@@ -41,6 +41,9 @@ describe "Admin publish and unpublish documents" do
   context "when unpublished document" do
     before do
       visit_component
+      within ".account-container", visible: :hidden do
+        expect(page).to have_text(:all, user.name)
+      end
     end
 
     it "displays unpublished documents in public view" do
@@ -53,6 +56,9 @@ describe "Admin publish and unpublish documents" do
       before do
         login_as regular_user, scope: :user
         visit_component
+        within ".account-container", visible: :hidden do
+          expect(page).to have_text(:all, regular_user.name)
+        end
       end
 
       it "does not display unpublished documents in public view" do
