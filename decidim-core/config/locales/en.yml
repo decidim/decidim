@@ -556,7 +556,7 @@ en:
           global:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
-            comments_max_length: Comments max length
+            comments_max_length: Max characters per comment
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             dummy_global_attribute1: Dummy Attribute 1
             dummy_global_attribute2: Dummy Attribute 2
