@@ -1212,7 +1212,6 @@ ca-IT:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard.
         error_modal:
-          close: Tanca la finestra
           correct_errors: Si us plau, corregiu els errors i torneu-ho a intentar.
           intro: 'Hi ha els següents errors al vostre missatge:'
           ok: D'acord
@@ -1858,7 +1857,7 @@ ca-IT:
       invite_collaborator:
         subject: T'han convidat a col·laborar a %{organization}
       invite_private_user:
-        subject: T'han convidat a participar en un espai de participació privat a%{organization}
+        subject: T'han convidat a participar en un espai de participació privat a %{organization}
       organization_admin_invitation_instructions:
         subject: T'han convidat a administrar %{organization}
       password_change:
