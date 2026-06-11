@@ -1411,7 +1411,6 @@ cs:
         create:
           error: Konverzace nebyla zahájena. Zkuste to znovu později.
         error_modal:
-          close: Zavřít okno
           correct_errors: Opravte chyby a zkuste to znovu.
           intro: 'Došlo k následujícím chybám ve vaší zprávě:'
           ok: OK
