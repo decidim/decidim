@@ -1232,7 +1232,6 @@ sk:
         create:
           error: Konverzácia sa nezačala. Skúste to znova neskôr.
         error_modal:
-          close: Zavrieť okno
           correct_errors: Opravte chyby a skúste to znova.
           intro: 'Vo vašej správe sa vyskytli nasledujúce chyby:'
           ok: OK
