@@ -109,7 +109,7 @@ describe "Admin manages external domain list" do
       click_on "Add to allowed list"
 
       within ".external-domains-list" do
-        expect(page).to have_css("input[type=text]", count: 2)
+        expect(page).to have_field("input[type=text]", count: 2)
         all("input[type=text]")[0].set("example.org")
         all("input[type=text]")[1].set("decidim.org")
       end
