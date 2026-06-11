@@ -136,6 +136,46 @@ module Decidim::Meetings
       expect(subject.longitude).to eq(longitude)
     end
 
+  describe "map_model" do
+    subject { described_class.from_model(meeting).with_context(context) }
+
+    let(:meeting) { create(:meeting, component: current_component) }
+
+    it "sets the description" do
+      expect(subject.description).to be_present
+    end
+
+    context "when description contains a user mention" do
+      let(:mentioned_user) { create(:user, organization:) }
+      let(:meeting) do
+        create(:meeting, component: current_component,
+                         description: { en: "Hello #{mentioned_user.to_global_id}" })
+      end
+
+      context "when rich text editor is enabled" do
+        before { organization.update!(rich_text_editor_in_public_views: true) }
+
+        it "renders the mention with editor span tags" do
+          expect(subject.description).to include(
+            %(<span data-type="mention" data-id="@#{mentioned_user.nickname})
+          )
+        end
+      end
+
+      context "when rich text editor is disabled" do
+        before { organization.update!(rich_text_editor_in_public_views: false) }
+
+        it "renders the mention as plain @nickname" do
+          expect(subject.description).to include("@#{mentioned_user.nickname}")
+        end
+
+        it "does not include editor span tags" do
+          expect(subject.description).not_to include("<span data-type=\"mention\"")
+        end
+      end
+    end
+  end
+
     describe "when online meeting link is missing and type of meeting is online" do
       let(:type_of_meeting) { "online" }
       let(:online_meeting_url) { nil }

@@ -45,5 +45,16 @@ module Decidim
         content
       end
     end
+
+    # Prepares content for plain text areas (non-editor). Renders mentions
+    # to plain @nickname text instead of editor-specific HTML tags.
+    def plain_locales(data, all_locales)
+      handle_locales(data, all_locales) do |content|
+        content = Decidim::ContentRenderers::BlobRenderer.new(content).render
+        content = Decidim::ContentRenderers::UserRenderer.new(content).render(plain: true)
+        content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(plain: true)
+        content.html_safe
+      end
+    end
   end
 end

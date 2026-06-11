@@ -92,17 +92,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
 
       context "when body has a user mention" do
         let(:mentioned_user) { create(:user, :confirmed, organization:) }
-        let(:form_params) do
-          {
-            title: { en: "A reasonable proposal title" },
-            body: { en: "A reasonable proposal body mentioning @#{mentioned_user.nickname}" },
-            address:,
-            has_address:,
-            attachment: attachment_params,
-            documents: current_files,
-            add_documents: uploaded_files
-          }
-        end
+        let(:body) { { en: "A reasonable proposal body mentioning @#{mentioned_user.nickname}" } }
 
         it "rewrites the mention to the mentioned user GID" do
           command.call
@@ -114,17 +104,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
 
       context "when body has a user mention with a hyphen in the nickname" do
         let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
-        let(:form_params) do
-          {
-            title: { en: "A reasonable proposal title" },
-            body: { en: "A reasonable proposal body mentioning @#{mentioned_user.nickname}" },
-            address:,
-            has_address:,
-            attachment: attachment_params,
-            documents: current_files,
-            add_documents: uploaded_files
-          }
-        end
+        let(:body) { { en: "A reasonable proposal body mentioning @#{mentioned_user.nickname}" } }
 
         it "rewrites the mention to the mentioned user GID" do
           command.call

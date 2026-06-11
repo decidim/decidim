@@ -198,6 +198,43 @@ shared_examples "a proposal form" do |options|
     end
   end
 
+  context "when loading from model" do
+    subject { described_class.from_model(proposal).with_context(current_component: component, current_organization: component.organization, current_participatory_space: participatory_space) }
+
+    let(:proposal) { create(:proposal, component:, taxonomies: [taxonomy]) }
+    let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
+    let(:body_text) { subject.body.is_a?(Hash) ? subject.body.values.first : subject.body }
+
+    context "when body contains a user mention" do
+      let(:mentioned_user) { create(:user, organization:) }
+      let(:proposal) do
+        create(:proposal, component:, body: { en: "Hello #{mentioned_user.to_global_id}" }, taxonomies: [taxonomy])
+      end
+
+      context "when rich text editor is enabled" do
+        before { organization.update!(rich_text_editor_in_public_views: true) }
+
+        it "renders the mention with editor span tags" do
+          expect(body_text).to include(
+            %(<span data-type="mention" data-id="@#{mentioned_user.nickname})
+          )
+        end
+      end
+
+      context "when rich text editor is disabled" do
+        before { organization.update!(rich_text_editor_in_public_views: false) }
+
+        it "renders the mention as plain @nickname" do
+          expect(body_text).to include("@#{mentioned_user.nickname}")
+        end
+
+        it "does not include editor span tags" do
+          expect(body_text).not_to include("<span data-type=\"mention\"")
+        end
+      end
+    end
+  end
+
   context "when the attachment is present" do
     let(:params) do
       {

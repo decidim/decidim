@@ -40,7 +40,11 @@ module Decidim
         self.body = translated_attribute(model.body)
 
         presenter = ProposalPresenter.new(model)
-        self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
+        self.body = if model.component.organization.rich_text_editor_in_public_views?
+                      presenter.editor_body(all_locales: body.is_a?(Hash))
+                    else
+                      presenter.plain_locales(model.body, body.is_a?(Hash))
+                    end
 
         self.documents = model.attachments
       end

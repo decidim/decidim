@@ -25,7 +25,8 @@ module Decidim
         # the public form does not allow it. When a user creates a debate the
         # user locale is taken as the text locale.
         self.title = debate.title.values.first
-        self.description = debate.description.values.first
+        self.description = render_content(debate.description.values.first,
+                                          editor: debate.component.organization.rich_text_editor_in_public_views?)
         self.documents = debate.attachments
       end
 
@@ -43,6 +44,19 @@ module Decidim
         return unless debate.respond_to?(:editable_by?)
 
         errors.add(:debate, :invalid) unless debate.editable_by?(current_user)
+      end
+
+      def render_content(content, editor: false)
+        content = Decidim::ContentRenderers::BlobRenderer.new(content).render
+        if editor
+          content = Decidim::ContentRenderers::UserRenderer.new(content).render(editor: true).html_safe
+          content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(editor: true).html_safe
+        else
+          content = Decidim::ContentRenderers::UserRenderer.new(content).render(plain: true).html_safe
+          content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(plain: true).html_safe
+        end
+
+        content
       end
     end
   end

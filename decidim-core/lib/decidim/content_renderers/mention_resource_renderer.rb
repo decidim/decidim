@@ -20,8 +20,12 @@ module Decidim
       # a link to the resource.
       #
       # @return [String] the content ready to display (contains HTML)
-      def render(editor: false, **_)
-        replace_pattern(content, GLOBAL_ID_REGEX, editor:)
+      def render(editor: false, plain: false, **_)
+        if plain
+          replace_plain_text(content)
+        else
+          replace_pattern(content, GLOBAL_ID_REGEX, editor:)
+        end
       end
 
       protected
@@ -36,6 +40,13 @@ module Decidim
           else
             render_resource_link(resource)
           end
+        end
+      end
+
+      def replace_plain_text(text)
+        text.gsub(GLOBAL_ID_REGEX) do
+          resource = GlobalID::Locator.locate(Regexp.last_match[0])
+          resource ? presenter_for(resource).title : ""
         end
       end
 

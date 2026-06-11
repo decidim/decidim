@@ -40,7 +40,11 @@ module Decidim
           presenter = DebatePresenter.new(model)
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
-          self.description = presenter.description(all_locales: description.is_a?(Hash))
+          self.description = if model.component.organization.rich_text_editor_in_public_views?
+                               presenter.editor_locales(model.description, description.is_a?(Hash))
+                             else
+                               presenter.plain_locales(model.description, description.is_a?(Hash))
+                             end
           self.comments_layout = model.comments_layout || "single_column"
           self.documents = model.attachments
         end
