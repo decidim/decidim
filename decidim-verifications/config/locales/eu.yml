@@ -67,7 +67,7 @@ eu:
             - Egiaztatu "A" letraz hasten den pasaporte zenbaki bat sartuz.
         csv_census:
           help:
-            - Administratzaileek onartutako parte-hartzaileen posta elektronikoak dituen CSV igotzen dute. 
+            - Administratzaileek onartutako parte-hartzaileen posta elektronikoak dituen CSV igotzen dute.
             - CSV fitxategian posta elektroniko bat duten parte-hartzaileak soilik egiaztatu ahal dira.
         default:
           help:
@@ -182,7 +182,7 @@ eu:
             index:
               empty: Ez dago errolda-daturik. Erabili %{import_csv} inportatzeko CSV fitxategi bat.
               no_sign_in: Saioa inoiz ez hasia
-              no_user: Ez da parte-hartzailerik aurkitu 
+              no_user: Ez da parte-hartzailerik aurkitu
               title: Erroldako oraingo datuak
             instructions:
               body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
