@@ -247,34 +247,37 @@ module Decidim
         end
 
         it "preserves oauth data in pending state and creates the account on retry" do
-          expect do
-            post :create, params: { locale: I18n.locale, user: { tos_agreement: nil } }
-          end.not_to change(User, :count)
+          Rails.cache.with_local_cache do
+            expect do
+              post :create, params: { locale: I18n.locale, user: { tos_agreement: nil } }
+            end.not_to change(User, :count)
 
-          expect(response).to render_template(:new_tos_fields)
+            expect(response).to render_template(:new_tos_fields)
 
-          token = session.dig(:omniauth_registration, :token)
-          expect(token).to be_present
-          expect(session.dig(:omniauth_registration, :data, :raw_data)).to eq(raw_data.deep_symbolize_keys)
+            token = session.dig(:omniauth_registration, :token)
+            expect(token).to be_present
+            expect(session.dig(:omniauth_registration, :data)).not_to have_key(:raw_data)
+            expect(Rails.cache.read("decidim/omniauth_registration/raw_data/#{token}")).to eq(raw_data.deep_symbolize_keys)
 
-          request.env["omniauth.auth"] = nil
-          allow(ActiveSupport::Notifications).to receive(:publish).and_call_original
+            request.env["omniauth.auth"] = nil
+            allow(ActiveSupport::Notifications).to receive(:publish).and_call_original
 
-          expect do
-            post :create, params: { locale: I18n.locale, user: { pending_oauth_token: token, tos_agreement: "1" } }
-          end.to change(User, :count).by(1)
+            expect do
+              post :create, params: { locale: I18n.locale, user: { pending_oauth_token: token, tos_agreement: "1" } }
+            end.to change(User, :count).by(1)
 
-          expect(controller).to be_user_signed_in
-          expect(User.find_by(email:)).to be_present
-          expect(ActiveSupport::Notifications).to have_received(:publish).with(
-            "decidim.user.omniauth_registration",
-            hash_including(
-              provider:,
-              uid:,
-              email:,
-              raw_data: raw_data.deep_symbolize_keys
+            expect(controller).to be_user_signed_in
+            expect(User.find_by(email:)).to be_present
+            expect(ActiveSupport::Notifications).to have_received(:publish).with(
+              "decidim.user.omniauth_registration",
+              hash_including(
+                provider:,
+                uid:,
+                email:,
+                raw_data: raw_data.deep_symbolize_keys
+              )
             )
-          )
+          end
         end
       end
 
@@ -318,10 +321,10 @@ module Decidim
               "name" => "Facebook User",
               "nickname" => "facebook_user",
               "avatar_url" => nil,
-              "verified_email" => email,
-              "raw_data" => pending_raw_data
+              "verified_email" => email
             }
           }
+          Rails.cache.write("decidim/omniauth_registration/raw_data/#{pending_token}", pending_raw_data)
         end
 
         it "restores the pending state and signs in" do

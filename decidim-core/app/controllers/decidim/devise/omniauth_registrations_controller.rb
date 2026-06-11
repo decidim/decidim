@@ -77,6 +77,9 @@ module Decidim
 
       # Private: Create trusted form params from oauth data stored server-side.
       # Since we are using trusted oauth data we are generating a valid signature.
+      # Note: raw_data is stored in Rails.cache (not session) to avoid cookie size issues.
+      # If cache is not shared across nodes, raw_data may not be available on retry —
+      # the registration flow will still succeed but raw_data will be empty.
       def pending_oauth_form_params
         return {} if pending_oauth_data.blank?
 
@@ -88,7 +91,7 @@ module Decidim
           nickname: pending_oauth_data[:nickname],
           oauth_signature: OmniauthRegistrationForm.create_signature(pending_oauth_data[:provider], pending_oauth_data[:uid]),
           avatar_url: pending_oauth_data[:avatar_url],
-          raw_data: pending_oauth_data[:raw_data],
+          raw_data: restore_raw_data_from_cache,
           pending_oauth_token:
         }
       end
@@ -116,17 +119,25 @@ module Decidim
           name: oauth_data.dig(:info, :name),
           nickname: oauth_data.dig(:info, :nickname),
           avatar_url: oauth_data.dig(:info, :image),
-          verified_email: oauth_data.dig(:info, :email).presence,
-          raw_data: oauth_hash
+          verified_email: oauth_data.dig(:info, :email).presence
         }
 
-        session[:omniauth_registration] = {
-          token: SecureRandom.hex(16),
-          data:
-        }
+        token = SecureRandom.hex(16)
+        session[:omniauth_registration] = { token:, data: }
+        Rails.cache.write(raw_data_cache_key(token), oauth_hash, expires_in: 30.minutes)
 
-        @pending_oauth_token = session[:omniauth_registration][:token]
+        @pending_oauth_token = token
         data
+      end
+
+      def raw_data_cache_key(token)
+        "decidim/omniauth_registration/raw_data/#{token}"
+      end
+
+      def restore_raw_data_from_cache
+        return {} if pending_oauth_token.blank?
+
+        Rails.cache.read(raw_data_cache_key(pending_oauth_token)) || {}
       end
 
       def restore_pending_oauth_data
@@ -145,6 +156,7 @@ module Decidim
       end
 
       def clear_pending_oauth_data!
+        Rails.cache.delete(raw_data_cache_key(pending_oauth_token)) if pending_oauth_token.present?
         session.delete(:omniauth_registration)
       end
 
