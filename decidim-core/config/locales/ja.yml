@@ -1007,8 +1007,8 @@ ja:
           email_subject: '%{resource_type} は表示されなくなりました'
           notification_title: |-
             あなたの%{resource_type}は表示されなくなりました。<br>
-            これは、あなたが返信した提案、ミーティング、討論、またはコメントがモデレーションされたためです。 
-            元の投稿が再び表示可能になった場合、あなたのコメントも自動的に復元されます。 
+            これは、あなたが返信した提案、ミーティング、討論、またはコメントがモデレーションされたためです。
+            元の投稿が再び表示可能になった場合、あなたのコメントも自動的に復元されます。
             <i>%{resource_content}</i>
         resource_hidden:
           email_intro: '%{report_reasons} として報告されたため、管理者が %{resource_type} を削除しました。'
@@ -1362,7 +1362,6 @@ ja:
         create:
           error: 会話が開始されませんでした。後ほど改めてお試しください。
         error_modal:
-          close: ウィンドウを閉じる
           correct_errors: エラーを修正して、再度お試しください
           intro: 'あなたのメッセージには次のエラーがありました:'
           ok: OK
