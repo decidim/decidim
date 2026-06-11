@@ -236,7 +236,7 @@ sk:
           description_own: Zúčastnili ste sa na %{score} debatách.
           name: Debaty
           next_level_in: Podieľajte sa na ďalších %{score} debatách pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník sa nezúčastnil na žiadnej debate. 
+          unearned_another: Tento účastník sa nezúčastnil na žiadnej debate.
           unearned_own: Zatiaľ ste sa nezúčastnili žiadnych debát.
     open_data:
       help:
