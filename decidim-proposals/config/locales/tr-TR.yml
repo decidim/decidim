@@ -25,7 +25,7 @@ tr:
         cost_report: Maliyet raporu
         execution_period: Yürütme süresi
       proposal_state:
-        announcement_title: Yanıt Başlığı 
+        announcement_title: Yanıt Başlığı
         bg_color: Arka plan rengi
         colors:
           blue: Mavi
@@ -381,7 +381,7 @@ tr:
             title: Başlık
             votes: Oylar
         proposal_state:
-          css_class: CSS Sınıfı 
+          css_class: CSS Sınıfı
           title: Durum
       participatory_text_proposal:
         alternative_title: Şu anda katılımcı metin yok
