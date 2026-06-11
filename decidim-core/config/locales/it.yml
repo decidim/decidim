@@ -730,7 +730,6 @@ it:
           modal_title: Nuova conversazione
           no_results: Nessun risultato
         error_modal:
-          close: Chiudi modalità
           correct_errors: Correggi gli errori e riprova.
           intro: 'Ci sono stati i seguenti errori con il tuo messaggio:'
           ok: Ok
