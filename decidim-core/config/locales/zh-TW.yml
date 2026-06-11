@@ -986,7 +986,6 @@ zh-TW:
         create:
           error: 對話未開始。請稍後再試。
         error_modal:
-          close: 關閉視窗
           correct_errors: 請修正錯誤後再試一次。
           intro: '您的訊息有以下錯誤：'
           ok: 好的
