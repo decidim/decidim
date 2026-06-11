@@ -115,7 +115,7 @@ en:
             announcement: Announcement
             attachments_allowed: Allow attachments
             comments_enabled: Comments enabled
-            comments_max_length: Comments max length (Leave 0 for default value)
+            comments_max_length: Max characters per comment (Leave 0 for default value)
             creation_enabled_for_participants: Participants can create posts
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             no_taxonomy_filters_found: No taxonomy filters found.
