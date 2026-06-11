@@ -31,7 +31,6 @@ module Decidim
         validates :start_time, presence: { if: :validate_start_time? }, date: { before: :end_time, allow_blank: true, if: :validate_start_time? }
         validates :end_time, presence: { if: :validate_end_time? }, date: { after: :start_time, allow_blank: true, if: :validate_end_time? }
         validates :comments_layout, presence: true, inclusion: { in: %w(single_column two_columns) }
-        validate :comments_layout_change, if: -> { debate&.comments_count&.positive? }
 
         validate :notify_missing_attachment_if_errored
 
@@ -43,6 +42,10 @@ module Decidim
           self.description = presenter.description(all_locales: description.is_a?(Hash))
           self.comments_layout = model.comments_layout || "single_column"
           self.documents = model.attachments
+        end
+
+        def comments_layout_locked?
+          debate&.comments_count&.positive?
         end
 
         def participatory_space_manifest
@@ -61,10 +64,6 @@ module Decidim
 
         def validate_start_time?
           end_time.present?
-        end
-
-        def comments_layout_change
-          errors.add(:comments_layout, I18n.t("form.errors.comments_layout_locked", scope: "decidim.debates.admin.debates")) if debate.comments_layout != comments_layout
         end
 
         # This method will add an error to the `add_documents` field only if there is

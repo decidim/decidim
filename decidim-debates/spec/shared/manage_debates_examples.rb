@@ -107,21 +107,14 @@ RSpec.shared_examples "manage debates" do
       let!(:debate) { create(:debate, component: current_component, comments_layout: "two_columns") }
       let!(:comment) { create(:comment, commentable: debate, body: { "en" => "This is a test comment" }) }
 
-      it "prevents admin from updating debate layout once comments have been posted" do
+      it "shows disabled layout field with warning callout" do
         within "tr", text: translated(debate.title) do
           find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
-        within ".edit_debate" do
-          choose "Single column"
-          find("*[type=submit]").click
-        end
-
-        expect(page).to have_text("You cannot change the comment layout once comments have been posted")
-
-        debate.reload
-        expect(debate.comments_layout).to eq("two_columns")
+        expect(page).to have_css("input[name='debate[comments_layout]'][disabled]")
+        expect(page).to have_text("The comment layout cannot be changed because comments have already been posted")
       end
     end
   end

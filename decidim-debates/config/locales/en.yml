@@ -77,6 +77,7 @@ en:
           form:
             add_attachments: Add attachments
             attachment_legend: Add a document or an image
+            comments_layout_locked_warning: The comment layout cannot be changed because comments have already been posted.
             comments_visualization: Comments visualization
             comments_warning: Once the first comment is posted, the selected display option cannot be changed.
             debate_type: Debate type
