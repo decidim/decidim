@@ -347,8 +347,9 @@ describe "Admin manages elections" do
       sleep 1
 
       click_on("Save and continue")
-      click_on("Main")
+      expect(page).to have_text("Election updated successfully")
 
+      click_on("Main")
       expect(page).to have_css("img[src*='#{document.file.blob.filename}']")
     end
 
