@@ -1379,7 +1379,6 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard.
         error_modal:
-          close: Tancar el modal
           correct_errors: Si us plau, corregiu els errors i torneu-ho a intentar.
           intro: 'Hi ha els següents errors al vostre missatge:'
           ok: D'acord
