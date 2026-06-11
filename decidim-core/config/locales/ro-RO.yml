@@ -718,7 +718,7 @@ ro:
             <p>Sigur nu doriți să primiți un buletin informativ?<br>
             Vă rugăm să bifați din nou caseta din buletinul informativ de mai jos.<br>
             Este foarte important pentru noi să puteți primi e-mailuri ocazionale
-            pentru a face anunțuri importante, puteți modifica oricând opțiunea pe 
+            pentru a face anunțuri importante, puteți modifica oricând opțiunea pe
             pagina cu setări pentru notificări. </p>
             <p>Dacă nu bifați caseta ați putea rata informații importante
             despre noi oportunități de participare în cadrul platformei.<br>Dacă, totuși, doriți să evitați primirea de buletine informative, înțelegem
@@ -1309,7 +1309,6 @@ ro:
           no_results: Niciun rezultat
           participant_with_disabled_message_reception: Acest participant nu dorește să primească mesaje private.
         error_modal:
-          close: Închideți fereastra
           correct_errors: Vă rugăm să remediați erorile și să încercați din nou.
           intro: 'Au existat următoarele erori cu mesajul tău:'
           ok: Ok
