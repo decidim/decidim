@@ -125,12 +125,6 @@ describe "Admin manages projects" do
     end
   end
 
-  private
-
-  def format_title(budget)
-    "     #{translated(budget.title)}"
-  end
-
   context "when a project has an attachment" do
     let!(:budget_with_attachment) { create(:budget, component: current_component) }
     let!(:project_with_attachment) do
@@ -146,6 +140,47 @@ describe "Admin manages projects" do
         find("button[data-controller='dropdown']").click
         click_on "Add projects"
       end
+    end
+
+    it "can remove an attachment" do
+      within "tr", text: translated(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      click_on("Edit attachments")
+      within "li[data-filename='#{document.file.blob.filename}']" do
+        click_on("Remove")
+      end
+
+      click_on("Save")
+
+      expect(page).to have_no_css("img[src*='#{document.file.blob.filename}']")
+    end
+
+    it "can attach a file" do
+      within "tr", text: translated(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      click_on("Edit attachments")
+
+      within ".upload-modal" do
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(document.file.blob.filename.to_s))
+      end
+
+      click_on("Save")
+      click_on("Update")
+
+      expect(page).to have_text("successfully")
+
+      within "tr", text: translated_attribute(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page).to have_css("img[src*='#{document.file.blob.filename}']")
     end
 
     it "can edit a project with an attachment" do
@@ -176,5 +211,11 @@ describe "Admin manages projects" do
       expect(page).to have_field("project_title_en", with: "Updated project title with attachments")
       expect(page.html).to include(document.file.blob.filename.to_s)
     end
+  end
+
+  private
+
+  def format_title(budget)
+    "     #{translated(budget.title)}"
   end
 end
