@@ -1270,7 +1270,6 @@ fr:
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard.
         error_modal:
-          close: Fermer la fenêtre de dialogue
           correct_errors: Veuillez corriger les erreurs et réessayer.
           intro: 'Il y a eu les erreurs suivantes avec votre message :'
           ok: Ok
