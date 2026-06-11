@@ -2,7 +2,6 @@
 
 module Decidim
   module ParticipatorySpace
-
     # i18n-tasks-use t('decidim.events.participatory_space.member_added.private.email_intro')
     # i18n-tasks-use t('decidim.events.participatory_space.member_added.private.email_outro')
     # i18n-tasks-use t('decidim.events.participatory_space.member_added.private.email_subject')
