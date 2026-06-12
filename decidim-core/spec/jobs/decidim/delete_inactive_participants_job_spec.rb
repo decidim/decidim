@@ -11,7 +11,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
   before do
     Decidim.delete_inactive_users_after_days = 300
     allow(Decidim::ParticipantsAccountMailer).to receive(:inactivity_notification).and_return(double(deliver_later: true))
-    allow(Decidim::ParticipantsAccountMailer).to receive(:removal_notification).and_return(double(deliver_later: true))
+    allow(Decidim::DeleteUserMailer).to receive(:delete).and_return(double(deliver_later: true))
   end
 
   describe "#perform" do
@@ -100,7 +100,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
         perform_enqueued_jobs { subject.perform_later(organization) }
 
         expect(user.reload.email).to be_empty
-        expect(Decidim::ParticipantsAccountMailer).to have_received(:removal_notification).with(email, name, locale, organization).once
+        expect(Decidim::DeleteUserMailer).to have_received(:delete).with(user_email: email, user_name: name, locale:, organization:).once
       end
     end
   end

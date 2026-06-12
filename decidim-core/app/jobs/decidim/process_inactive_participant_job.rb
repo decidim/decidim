@@ -31,13 +31,6 @@ module Decidim
     end
 
     def process_remove_user(user)
-      email = user.email
-      name = user.name
-      locale = user.locale
-      organization = user.organization
-
-      ParticipantsAccountMailer.removal_notification(email, name, locale, organization).deliver_later
-
       Decidim::DestroyAccount.call(
         Decidim::DeleteAccountForm.from_params(
           delete_reason: I18n.t("decidim.account.destroy.inactive_account_removal_reason", inactivity_period: Decidim.delete_inactive_users_after_days)
