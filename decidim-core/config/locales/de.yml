@@ -547,7 +547,6 @@ de:
           global:
             amendments_enabled: Änderungen aktiviert
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximallänge der Kommentare
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             dummy_global_attribute1: Dummy-Attribut 1
             dummy_global_attribute2: Dummy-Attribut 2
