@@ -119,7 +119,6 @@ lt:
             attachments_allowed: Leisti failų prisegimus
             collaborative_drafts_enabled: Bendri projektai įjungti
             comments_enabled: Komentarai įjungti
-            comments_max_length: Maksimalus komentarų ilgis (Palikite 0 kaip numatytą vertę)
             default_sort_order: Numatytas pasiūlymų rikiavimas
             default_sort_order_options:
               most_commented: Labiausiai komentuojamas
