@@ -45,7 +45,6 @@ el:
         alert_color: Ειδοποίηση
         available_authorizations: Διαθέσιμες εγκρίσεις
         badges_enabled: Ενεργοποίηση εμβλημάτων
-        comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
         customize_welcome_notification: Προσαρμογή ειδοποίησης καλωσορίσματος
         default_locale: Προεπιλεγμένες τοπικές ρυθμίσεις
         description: Περιγραφή
