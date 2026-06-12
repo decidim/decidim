@@ -49,7 +49,6 @@ cs:
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
-        comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
         customize_welcome_notification: Přizpůsobit uvítací oznámení
         default_locale: Výchozí jazyk
         description: Popis
