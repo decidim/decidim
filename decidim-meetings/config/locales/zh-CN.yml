@@ -56,7 +56,6 @@ zh-CN:
           global:
             announcement: 通 知
             comments_enabled: 评论已启用
-            comments_max_length: 评论最大长度 (默认值留0)
             creation_enabled_for_participants: 参与者可以创建会议
             default_registration_terms: 默认注册条款
             enable_pads_creation: 启用页面创建
