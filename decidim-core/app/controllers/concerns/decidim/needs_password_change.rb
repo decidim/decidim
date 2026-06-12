@@ -16,6 +16,7 @@ module Decidim
       return unless current_user
       return unless current_user.admin?
       return unless Decidim.config.admin_password_strong
+      return if session.fetch(:authentication_method, nil) == "omniauth"
       return unless current_user.needs_password_update?
       return if password_update_permitted_path?(request.path)
 

@@ -51,26 +51,6 @@ module Decidim
             it { is_expected.to eq account_path }
           end
 
-          context "and is an admin with expired password and only omniauth is enabled" do
-            before do
-              organization.update(users_registration_mode: :existing)
-            end
-
-            let(:user) { build(:user, :admin, password_updated_at: 93.days.ago, sign_in_count: 1, organization:) }
-
-            it { is_expected.not_to eq controller.decidim.change_password_path }
-          end
-
-          context "and is an admin with expired password and omniauth is disabled" do
-            before do
-              organization.update(users_registration_mode: :enabled)
-            end
-
-            let(:user) { build(:user, :admin, password_updated_at: 93.days.ago, sign_in_count: 1, organization:) }
-
-            it { is_expected.to eq controller.decidim.change_password_path }
-          end
-
           context "and is not an admin" do
             context "when it is the first time to log in" do
               let(:user) { build(:user, :confirmed, sign_in_count: 1) }
@@ -149,6 +129,27 @@ module Decidim
 
               it { is_expected.to eq(root_path) }
             end
+          end
+        end
+      end
+
+      [:enabled, :existing, :disabled].each do |users_registration_mode|
+        context "when registration mode is #{users_registration_mode}" do
+          let!(:user) { create(:user, :admin, password_updated_at: 93.days.ago, sign_in_count: 1, email:, organization:) }
+          let(:email) { "new-user@from-facebook.com" }
+
+          before do
+            organization.update(users_registration_mode:)
+            post :create, params: { locale: I18n.locale }
+          end
+
+          it "does not force password change" do
+            expect(controller).to be_user_signed_in
+            expect(controller).not_to redirect_to(controller.decidim.change_password_path)
+          end
+
+          it "sets the session value" do
+            expect(session[:authentication_method]).to eq("omniauth")
           end
         end
       end

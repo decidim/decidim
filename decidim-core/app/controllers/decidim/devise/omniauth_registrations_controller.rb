@@ -22,6 +22,7 @@ module Decidim
         CreateOmniauthRegistration.call(@form, verified_email) do
           on(:ok) do |user|
             if user.active_for_authentication?
+              session[:authentication_method] = "omniauth"
               sign_in_and_redirect user, event: :authentication
               set_flash_message :notice, :success, kind: @form.provider.capitalize
             else

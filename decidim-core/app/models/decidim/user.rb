@@ -261,7 +261,6 @@ module Decidim
 
     def needs_password_update?
       return false if organization.users_registration_mode == "disabled"
-      return false if organization.users_registration_mode == "existing" && admin?
       return false unless admin?
       return false unless Decidim.config.admin_password_strong
       return false if Decidim.config.admin_password_expiration_days.zero?
