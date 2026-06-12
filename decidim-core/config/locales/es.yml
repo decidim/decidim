@@ -552,7 +552,7 @@ es:
           global:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios
+            comments_max_length: Máximo de caracteres por comentario
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             dummy_global_attribute1: Atributo de prueba 1
             dummy_global_attribute2: Atributo de prueba 2
