@@ -56,11 +56,10 @@ module Decidim
                  optional: true,
                  counter_cache: true
 
-      has_many :votes,
+      has_many :votes, # rubocop:disable Rails/HasManyOrHasOneDependent
                -> { final },
                foreign_key: "decidim_proposal_id",
                class_name: "Decidim::Proposals::ProposalVote",
-               dependent: :destroy,
                counter_cache: "proposal_votes_count"
 
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
