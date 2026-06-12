@@ -176,7 +176,7 @@ es:
             collaborative_drafts_enabled: Borradores colaborativos habilitados
             collaborative_drafts_enabled_help: La función "Borradores colaborativos" se eliminará próximamente. Si la utilizas a partir de la versión 0.32 de Decidim, podrás utilizar la funcionalidad de coautoría de propuestas.
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             default_sort_order: Ordenación por defecto de propuestas
             default_sort_order_help: '''Automático'' significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.'
             default_sort_order_options:
