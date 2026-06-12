@@ -115,12 +115,24 @@ describe "Admin manages organization homepage" do
       it "displays the 'Resolution is too large' error message when image is invalid" do
         visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
 
+        fill_in(:content_block_settings_title_en, with: "Custom title text!")
+        fill_in(:content_block_settings_action_button_title_en, with: "Custom action title!")
+        fill_in(:content_block_settings_action_button_subtitle_en, with: "Custom action subtitle!")
+        fill_in(:content_block_settings_action_button_url, with: "http://example.org")
+
         dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("8001x4000.png"))
 
         click_on "Update"
-        sleep 1
 
         expect(page).to have_text("File resolution is too large")
+      end
+
+      it "displays validation errors when required fields are empty" do
+        visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
+
+        click_on "Update"
+
+        expect(page).to have_text("There is an error in this field.")
       end
     end
 
