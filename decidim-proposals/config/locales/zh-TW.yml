@@ -104,7 +104,6 @@ zh-TW:
             attachments_allowed: 允許附檔
             collaborative_drafts_enabled: ' 啟用協作草稿'
             comments_enabled: 已啟用留言
-            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
             default_sort_order: 預設提案排序
             default_sort_order_options:
               most_commented: 最多評論
