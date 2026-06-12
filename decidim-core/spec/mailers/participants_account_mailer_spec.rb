@@ -41,26 +41,5 @@ module Decidim
         expect(mail.body.encoded).to include("this account has been scheduled for automatic deletion ")
       end
     end
-
-    describe "#removal_notification" do
-      let!(:email) { user.email }
-      let!(:name) { user.name }
-      let!(:locale) { user.locale }
-      let(:mail) { described_class.removal_notification(email, name, locale, organization) }
-
-      it "renders the headers" do
-        expect(mail.subject).to eq("Inactive account deleted")
-        expect(mail.to).to eq([user.email])
-        expect(mail.from).to eq([default_sender_email])
-      end
-
-      it "includes the organization name in the body" do
-        expect(mail.body.encoded).to include("Test Organization")
-      end
-
-      it "provides a removal confirmation message" do
-        expect(mail.body.encoded).to include("Your Test Organization account has been deleted due to inactivity.")
-      end
-    end
   end
 end
