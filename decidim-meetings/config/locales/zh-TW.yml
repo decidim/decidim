@@ -121,7 +121,6 @@ zh-TW:
           global:
             announcement: 公告
             comments_enabled: 已啟用留言
-            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
             creation_enabled_for_participants: 參與者可以建立會議
             default_registration_terms: 預設報名條款
             enable_pads_creation: 啟用平板創建
