@@ -160,7 +160,6 @@ sq:
         settings:
           global:
             comments_enabled: Komentet e aktivizuara
-            comments_max_length: Madhësia maks. e komenteve
             display_progress_enabled: Shfaq ecurinë
             intro: Hyrje
           step:
