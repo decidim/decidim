@@ -301,7 +301,6 @@ sv:
           global:
             clear_all: Rensa alla
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             default_taxonomy: Standardkategori
             default_taxonomy_help: Välj vilka kategorier du vill visa som standard. Om ingen kategori är vald, kommer resultatet visas som en lista.
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
