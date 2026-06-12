@@ -85,7 +85,6 @@ nl:
             attachments_allowed: Bijlagen toestaan
             collaborative_drafts_enabled: Samenwerkingsconcepten ingeschakeld
             comments_enabled: Reacties ingeschakeld
-            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             default_sort_order: Standaardsortering
             default_sort_order_options:
               most_commented: Meeste reacties
