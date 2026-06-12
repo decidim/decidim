@@ -174,7 +174,7 @@ fr:
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             collaborative_drafts_enabled_help: La fonctionnalité « Brouillons collaboratifs » sera supprimée dans Decidim v0.32. Les organisations qui l’utilisent peuvent passer à la nouvelle fonctionnalité de co-auteur de proposition.
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             default_sort_order: Tri des propositions par défaut
             default_sort_order_help: Automatique signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, elles seront triées par ordre décroissant des votes.
             default_sort_order_options:
