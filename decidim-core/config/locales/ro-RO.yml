@@ -565,7 +565,6 @@ ro:
           global:
             amendments_enabled: Amendamente activate
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor
             define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
             dummy_global_attribute1: Mostră de atribut 1
             dummy_global_attribute2: Mostră de atribut 2
