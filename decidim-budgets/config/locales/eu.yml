@@ -347,7 +347,6 @@ eu:
             announcement: Oharra
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (uzti 0 defektuz konfigurazioa mantendu nahi baduzu)
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             form:
               errors:
