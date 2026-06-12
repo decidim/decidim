@@ -119,7 +119,6 @@ cs:
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
             comments_enabled: Komentáře povoleny
-            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             creation_enabled_for_participants: Účastníci mohou vytvářet příspěvky
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
