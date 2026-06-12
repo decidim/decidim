@@ -41,7 +41,6 @@ lt:
         alert_color: Įspėjimas
         available_authorizations: Leidžiamos autorizacijos
         badges_enabled: Aktyvinti ženklelius
-        comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
         customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
         default_locale: Numatytoji lokalė
         description: Aprašymas
