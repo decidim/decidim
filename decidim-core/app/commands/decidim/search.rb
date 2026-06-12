@@ -26,7 +26,13 @@ module Decidim
     # Returns nothing.
     def call
       search_results = Decidim::Searchable.searchable_resources.inject({}) do |results_by_type, (class_name, klass)|
-        result_ids = filtered_query_for(class_name).pluck(:resource_id)
+        result_ids = filtered_query_for(class_name).pluck(:resource_id).uniq
+
+        if result_ids.present? && klass.method_defined?(:commentable)
+          hidden_ids = hidden_commentable_ids(klass, result_ids)
+          result_ids -= hidden_ids if hidden_ids.present?
+        end
+
         results_count = result_ids.count
 
         results = if filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
@@ -37,14 +43,6 @@ module Decidim
                   else
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
                   end
-
-        if results&.first.respond_to?(:commentable)
-          hidden_commentable_resources = hidden_commentable_resources(results)
-          if hidden_commentable_resources.present?
-            results_count -= hidden_commentable_resources.count
-            results = Kaminari.paginate_array(results - hidden_commentable_resources, total_count: results_count).page(page_params[:page]).per(page_params[:per_page])
-          end
-        end
 
         results_by_type.update(class_name => {
                                  count: results_count,
@@ -99,8 +97,17 @@ module Decidim
       query
     end
 
-    def hidden_commentable_resources(results)
-      results.where(id: results.select { |obj| commentable_hidden?(obj) }.map(&:id))
+    def hidden_commentable_ids(klass, result_ids)
+      records = klass.preload(:commentable, :root_commentable).where(id: result_ids).to_a
+      found_ids = records.map(&:id)
+
+      # IDs from SearchableResource that don't exist in the actual table (orphaned entries)
+      orphaned_ids = result_ids - found_ids
+
+      # IDs of records that are hidden, deleted, or have comments disabled
+      hidden_ids = records.select { |obj| commentable_hidden?(obj) }.map(&:id)
+
+      orphaned_ids + hidden_ids
     end
 
     def commentable_hidden?(object)
