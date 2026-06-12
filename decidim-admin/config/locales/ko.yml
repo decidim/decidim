@@ -34,7 +34,6 @@ ko:
       organization:
         alert_color: 알림
         badges_enabled: 뱃지 활성화
-        comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
         customize_welcome_notification: 환영 알림 커스터마이징
         default_locale: 기본 위치
         description: 상세정보
