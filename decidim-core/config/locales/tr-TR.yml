@@ -301,7 +301,6 @@ tr:
           global:
             amendments_enabled: Değişiklikler etkinleştirildi
             comments_enabled: Yorumlar etkin
-            comments_max_length: Maksimum yorum uzunluğu
             dummy_global_attribute1: Sahet Özellik 1
             dummy_global_attribute2: Sahte Özellik 2
             dummy_global_translatable_text: Sahte Çevrilebilir Metin
