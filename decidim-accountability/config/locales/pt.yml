@@ -142,7 +142,6 @@ pt:
           global:
             clear_all: Apagar tudo
             comments_enabled: Comentários ativados
-            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
             define_taxonomy_filters: Para usar esta definição, filtros devem estar definidos neste espaço participativo.
             display_progress_enabled: Mostrar progresso
             intro: Introdução
