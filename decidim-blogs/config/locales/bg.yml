@@ -75,7 +75,6 @@ bg:
           global:
             announcement: Обявление
             comments_enabled: Коментарите са разрешени
-            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
           step:
             announcement: Обявление
             comments_blocked: Коментарите са блокирани
