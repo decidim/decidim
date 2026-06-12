@@ -45,7 +45,7 @@ es-PY:
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
-        comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+        comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
         customize_welcome_notification: Personalizar notificación de bienvenida
         default_locale: Idioma predeterminado
         description: Descripción
