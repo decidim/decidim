@@ -45,7 +45,6 @@ ja:
         alert_color: アラート
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
-        comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
         customize_welcome_notification: ウェルカム通知をカスタマイズ
         default_locale: 既定のロケール：
         description: 説明
@@ -960,7 +959,7 @@ ja:
             explanation: '%{count} 人のプライベート参加者がいます。'
             title: プライベート参加者を削除
           example_file: 'サンプルファイル：'
-          explanation: "CSVファイルをアップロードしてください。ファイルには2つの列が必要で、1列目にはメールアドレス、最後の列には参加スペースに追加したいユーザーの名前を入力してください。ヘッダー行は不要です。ユーザー名には、`<>?%&^*#@()[]=+:;\"{}\\|`などの無効な文字を使用しないでください。\n"
+          explanation: "CSVファイルをアップロードしてください。ファイルには2つの列が必要で、1列目にはメールアドレス、最後の列には参加スペースに追加したいユーザーの名前を入力してください。ヘッダー行は不要です。ユーザー名には、`<>?%&^*#@()[]=+:;\"{}\\\\|`などの無効な文字を使用しないでください。\n"
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
