@@ -49,7 +49,6 @@ pt-BR:
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
-        comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
         customize_welcome_notification: Personalizar notificação de boas-vindas
         default_locale: Idioma padrão
         description: Descrição
