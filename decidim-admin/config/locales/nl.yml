@@ -34,7 +34,6 @@ nl:
         alert_color: Alarm
         available_authorizations: Beschikbare autorisaties
         badges_enabled: Schakel badges in
-        comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
         customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Standaard taal
         description: Beschrijving
