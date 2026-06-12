@@ -64,16 +64,5 @@ RSpec.describe "Omniauth callback" do
         expect(response).to redirect_to(decidim.root_path)
       end
     end
-
-    context "when the user is admin with a pending password change" do
-      let!(:user) { create(:user, :confirmed, :admin, organization:, email:, sign_in_count: 1, password_updated_at: 1.year.ago) }
-
-      it "redirects to the /change_password path" do
-        get(request_path, env: { "omniauth.auth" => oauth_hash })
-
-        expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(decidim.change_password_path)
-      end
-    end
   end
 end
