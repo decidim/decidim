@@ -33,7 +33,6 @@
         alert_color: Varsel
         available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
-        comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
         customize_welcome_notification: Tilpass dine velkomstvarsler
         default_locale: Standardspråk
         description: Beskrivelse
