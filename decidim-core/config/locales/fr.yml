@@ -516,7 +516,7 @@ fr:
           global:
             amendments_enabled: Modifications activées
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur maximale des commentaires
+            comments_max_length: Nombre maximum de caractères par commentaire
             dummy_global_attribute1: Attribut factice 1
             dummy_global_attribute2: Attribut factice 2
             dummy_global_translatable_text: Texte traduisible factice
