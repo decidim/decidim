@@ -45,7 +45,6 @@ pt-BR:
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
-        comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
         customize_welcome_notification: Personalizar notificação de boas-vindas
         default_locale: Idioma padrão
         description: Descrição
@@ -211,11 +210,11 @@ pt-BR:
         view_deleted_components: Visualizar componentes excluídos
       admin_terms_of_service:
         accept:
-          error: Houve um erro ao aceitar os termos de serviço de administrador. 
+          error: Houve um erro ao aceitar os termos de serviço de administrador.
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
           accept: Concordo com estes termos
-          are_you_sure: Tem certeza que deseja negar os termos de Serviço para administrador? 
+          are_you_sure: Tem certeza que deseja negar os termos de Serviço para administrador?
           refuse: Recusar os termos de administrador
           title: "Concordo com os termos de serviço\n"
         required_review:
