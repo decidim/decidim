@@ -113,6 +113,8 @@ module Decidim
         context "and the session authentication_method is omniauth" do
           [:enabled, :existing, :disabled].each do |users_registration_mode|
             context "when registration mode is #{users_registration_mode}" do
+              let(:organization) { create(:organization, users_registration_mode:) }
+
               before do
                 session[:authentication_method] = "omniauth"
               end
