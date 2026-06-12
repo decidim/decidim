@@ -174,7 +174,6 @@ de:
             clear_all: Alles löschen
             collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             default_sort_order: Standardsortierung für Vorschläge
             default_sort_order_help: Standardmäßig bedeutet, dass bei aktivierten Stimmensammlung die Vorschläge nach Zufall und bei deaktivierter Stimmensammlung nach den meist gewählten Vorschläge sortiert werden.
             default_sort_order_options:
