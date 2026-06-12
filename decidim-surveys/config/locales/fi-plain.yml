@@ -29,7 +29,7 @@ fi-pl:
     components:
       surveys:
         actions:
-          respond: Vastaaminen
+          respond: Vastaa
         name: Kyselyt
         settings:
           announcement: Ilmoitus
