@@ -552,7 +552,7 @@ ca:
           global:
             amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris
+            comments_max_length: Caràcters màxims per comentari
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             dummy_global_attribute1: Atribut de prova 1
             dummy_global_attribute2: Atribut de prova 2
