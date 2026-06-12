@@ -176,7 +176,7 @@ eu:
             collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
             collaborative_drafts_enabled_help: Elkarlaneko zirriborroak Decidim v0.32an ezabatuko dira. Erabiltzen duten erakundeek proposamen berriaren egilekidetzara pasa daitezke.
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako ezarpenei eusteko)
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             default_sort_order: Proposamenen hurrenkera lehenetsia
             default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
