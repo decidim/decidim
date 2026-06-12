@@ -167,7 +167,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             creation_enabled_for_participants: Les participants peuvent créer des rencontres
             default_registration_terms: Conditions d'inscription par défaut
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
