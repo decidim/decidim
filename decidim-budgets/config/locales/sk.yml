@@ -366,7 +366,6 @@ sk:
             announcement: Oznámenie
             clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             form:
               errors:
