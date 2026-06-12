@@ -45,7 +45,6 @@ pl:
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
-        comments_max_length: Maksymalna długość komentarza (pozostaw 0 dla wartości domyślnej)
         customize_welcome_notification: Dostosuj treść komunikatu powitalnego
         default_locale: Domyślny język
         description: Opis
