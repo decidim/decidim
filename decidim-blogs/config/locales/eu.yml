@@ -114,7 +114,7 @@ eu:
             announcement: Iragarpena
             attachments_allowed: Baimendu eranskinak
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             creation_enabled_for_participants: Parte-hartzaileek sarrerak sor ditzakete
             define_taxonomy_filters: Mesedez, zehaztu iragazki batzuk partaidetza-espazio honetarako eszenatoki hau erabili aurretik.
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
