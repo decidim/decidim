@@ -19,3 +19,9 @@
     </aside>
   <% end %>
 </div>
+
+<% if local_assigns[:reference].present? %>
+  <aside class="layout-container__reference" aria-label="reference">
+    <p><%= reference %></p>
+  </aside>
+<% end %>

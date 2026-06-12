@@ -13,3 +13,9 @@ css_class = case columns
 <%= content_tag main_tag, class: "layout-1col #{css_class}", role: (main_enabled ? "main" : nil)  do %>
   <%= yield %>
 <% end %>
+
+<% if local_assigns[:reference].present? %>
+  <aside class="layout-container__reference" aria-label="reference">
+    <p><%= reference %></p>
+  </aside>
+<% end %>

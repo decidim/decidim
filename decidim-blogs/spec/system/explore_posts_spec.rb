@@ -120,6 +120,12 @@ describe "Explore posts" do
         expect(page).to have_text(post.created_at.strftime("%d/%m/%Y %H:%M"))
       end
 
+      it "shows the post reference" do
+        within ".layout-container__reference" do
+          expect(page).to have_text(post.reference)
+        end
+      end
+
       it_behaves_like "has embedded video in description", :body
     end
   end

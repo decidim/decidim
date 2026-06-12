@@ -50,7 +50,7 @@ en:
         alert_color: Alert
         available_authorizations: Available authorizations
         badges_enabled: Enable badges
-        comments_max_length: Comments max length (Leave 0 for default value)
+        comments_max_length: Max characters per comment (Leave 0 for default value)
         customize_welcome_notification: Customize welcome notification
         default_locale: Default locale
         description: Description
@@ -910,6 +910,7 @@ en:
             invalid: There was a problem unblocking the participants.
             success: Participants successfully unblocked.
         create:
+          no_user_found: Participant was not found.
           success: Participant successfully officialized.
         destroy:
           success: Participant successfully unofficialized.

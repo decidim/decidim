@@ -21,6 +21,7 @@ module Decidim
       include Traceable
       include Loggable
       include Decidim::SoftDeletable
+      include Decidim::HasReference
 
       component_manifest_name "blogs"
 

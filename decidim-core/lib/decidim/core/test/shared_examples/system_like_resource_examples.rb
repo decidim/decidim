@@ -125,7 +125,7 @@ shared_examples "Like resource system specs" do
           end
         end
 
-        it "can show the likes pop-up" do
+        it "can show the likes modal" do
           visit_resource
           within "#liker-list-#{resource.id}" do
             expect(page).to have_text("Liked by you")

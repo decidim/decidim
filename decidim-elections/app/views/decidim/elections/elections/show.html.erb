@@ -20,7 +20,7 @@
   <%= render partial: "election_aside" %>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: elections_path } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { reference: resource_reference(election), back_path: elections_path } do %>
 
   <section class="layout-main__section layout-main__heading">
     <%= render partial: "election_top" %>

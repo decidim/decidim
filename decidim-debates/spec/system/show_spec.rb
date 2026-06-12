@@ -68,6 +68,12 @@ describe "show" do
     it "shows the debate title" do
       expect(page).to have_text(translated(debate.title))
     end
+
+    it "shows the debate reference" do
+      within ".layout-container__reference" do
+        expect(page).to have_text(debate.reference)
+      end
+    end
   end
 
   describe "comments metadata" do

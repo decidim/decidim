@@ -185,6 +185,8 @@ sv:
           application_type_help_html: 'Klienttypen OAuth enligt definitionen av <a href="%{client_type_link}" target="_blank">RFC 6749 Avsnitt 2.1</a>. Offentliga kunder behöver implementera PKCE-flödet enligt definitionen av <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
           refresh_tokens_help_html: 'Uppdatera tokens är användbart om de behöver en längre livstid än vad som tilldelas för åtkomsttoken. Observera att <strong>uppdatera token bör användas varsamt</strong> eftersom de kan försvaga säkerheten för dina användare. '
           scopes_explanation:
+            "admin:read": Tillåt användare att hantera frågor av adminkaraktär via GraphQL API.
+            "admin:write": Tillåt användaren att hantera förändringar av adminkaraktär via GraphQL API.
             "api:read": Tillåter användaren att ställa frågor genom GraphQL API.
             "api:write": Tillåter användaren att utföra mutationsåtgärder genom GraphQL API.
             profile: Ger åtkomst till användarens egna profildetaljer. Endast denna omfattning behövs ifall OAuth-applikationen bara används som identitetsleverantör eller autentiseringstjänst.

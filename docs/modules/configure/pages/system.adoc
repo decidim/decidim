@@ -143,3 +143,7 @@ In the case where you have an external provider configured (like the `Omniauth s
 Finally, you can also Edit an organization, although some fields cannot be changed as some contents in the database depends on them.
 
 For accessing your newly created Organization, you can do it by going to the domain or subdomain that you have configured in `Host`.
+
+== Delete an organization
+
+As there are lots of dependencies in the whole database, currently an Organization cannot be deleted through the system panel. If you still want to go to this direction, there is a xref:develop:delete_organization.adoc[snippet for deleting an Organization with a script].

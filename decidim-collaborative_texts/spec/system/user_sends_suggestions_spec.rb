@@ -46,7 +46,7 @@ describe "User adds suggestions" do
     end
 
     it "lists all the documents" do
-      within("aside") do
+      within("aside.layout-2col__aside") do
         expect(page).to have_text(translated(component.name))
       end
 
@@ -58,7 +58,7 @@ describe "User adds suggestions" do
       click_on document.title
 
       expect(page).to have_text(translated(document.title))
-      within("aside") do
+      within("aside.layout-2col__aside") do
         expect(page).to have_text("Index")
         expect(page).to have_text("First title")
         expect(page).to have_no_text("First paragraph")
@@ -86,7 +86,7 @@ describe "User adds suggestions" do
       expect(page).to have_text("A new content", count: 2)
       expect(page).to have_no_text("First paragraph")
 
-      find("aside").click # to force a "blur" event
+      find("aside.layout-2col__aside").click # to force a "blur" event
       expect(page).to have_text("A new content", count: 1)
       expect(page).to have_text("First paragraph")
     end

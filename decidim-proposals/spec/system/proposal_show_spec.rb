@@ -24,6 +24,12 @@ describe "Show a Proposal" do
 
       it_behaves_like "share link"
 
+      it "shows the proposal reference" do
+        within ".layout-container__reference" do
+          expect(page).to have_text(proposal.reference)
+        end
+      end
+
       describe "extra admin link" do
         before do
           login_as user, scope: :user

@@ -398,7 +398,7 @@ module Decidim
   self.reference_generator ||= lambda do |resource, component|
     ref = ""
 
-    if resource.is_a?(Decidim::HasComponent) && component.present?
+    if component.present?
       # It is a component resource
       ref = component.participatory_space.organization.reference_prefix
     elsif resource.is_a?(Decidim::Participable)

@@ -15,6 +15,7 @@ module Decidim
       let!(:indefinite_survey) { create(:survey, allow_responses: true, starts_at: nil, ends_at: nil) }
 
       include_examples "has component"
+      include_examples "has reference"
 
       it { is_expected.to be_valid }
 

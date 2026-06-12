@@ -12,6 +12,7 @@ module Decidim
 
       include_examples "traceable interface"
       include_examples "timestamps interface"
+      include_examples "referable interface"
 
       shared_examples "unauthorized Document" do
         it "throws Decidim::Api::Errors::UnauthorizedObjectError" do

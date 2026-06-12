@@ -48,7 +48,7 @@ es-MX:
             confirm: La revocación de las autorizaciones anteriores a esta fecha no se puede deshacer. ¿Seguro que quieres continuar?
             confirm_all: La revocación de todas las autorizaciones no se puede deshacer. ¿Seguro que quieres continuar?
           destroy_nok: Se ha producido un error al revocar las autorizaciones.
-          destroy_ok: Todas las autorizaciones coincidentes han sido revocadas con éxito.
+          destroy_ok: La revocación de las autorizaciones está en curso. Esto puede tardar unos minutos en completarse.
           info: Hay un total de %{count} participantes verificadas.
           no_data: No hay participantes verificadas.
           title: Revocación de autorizaciones

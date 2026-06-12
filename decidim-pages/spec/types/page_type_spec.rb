@@ -10,6 +10,8 @@ module Decidim
 
       let(:model) { create(:page) }
 
+      include_examples "referable interface"
+
       describe "id" do
         let(:query) { "{ id }" }
 
