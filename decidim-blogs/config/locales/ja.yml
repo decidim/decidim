@@ -112,7 +112,6 @@ ja:
             announcement: お知らせ
             attachments_allowed: 添付ファイルを許可
             comments_enabled: コメントを有効にする
-            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             creation_enabled_for_participants: 参加者は投稿を作成できます
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
