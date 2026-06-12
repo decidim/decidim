@@ -49,7 +49,6 @@ ja:
         alert_color: アラート
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
-        comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
         customize_welcome_notification: ウェルカム通知をカスタマイズ
         default_locale: 既定のロケール：
         description: 説明
