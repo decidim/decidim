@@ -9,6 +9,27 @@ shared_examples "manage results" do
     it_behaves_like "having a rich text editor", "new_result", "full"
   end
 
+  context "when there are statuses" do
+    before do
+      click_on "New result"
+    end
+
+    it "displays the status select" do
+      expect(page).to have_select "result_decidim_accountability_status_id"
+    end
+  end
+
+  context "when there are no statuses" do
+    before do
+      Decidim::Accountability::Status.where(component: current_component).destroy_all
+      click_on "New result"
+    end
+
+    it "does not display the status select" do
+      expect(page).to have_no_select "result_decidim_accountability_status_id"
+    end
+  end
+
   context "when the proposal module is not installed" do
     before do
       allow(Decidim).to receive(:module_installed?).and_return(false)
