@@ -300,7 +300,6 @@ de:
           global:
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             default_taxonomy: Standard Klassifizierung
             default_taxonomy_help: Wählen Sie, welche Klassifizierung standardmäßig angezeigt werden soll. Wenn keine Taxonomie ausgewählt ist, werden die Ergebnisse in einem Listenformat angezeigt.
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
