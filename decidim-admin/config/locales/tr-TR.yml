@@ -49,7 +49,6 @@ tr:
         alert_color: Alarm
         available_authorizations: Uygun yetkilendirmeler
         badges_enabled: Rozetleri etkinleştir
-        comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
         customize_welcome_notification: Karşılama bildirimlerini özelleştir
         default_locale: Varsayılan yerel ayar
         description: Açıklama
