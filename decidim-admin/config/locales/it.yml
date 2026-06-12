@@ -44,7 +44,6 @@ it:
         alert_color: Notifica
         available_authorizations: Autorizzazioni disponibili
         badges_enabled: Abilita badge
-        comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
         customize_welcome_notification: Personalizza la notifica di benvenuto
         default_locale: Lingua predefinita
         description: Descrizione
