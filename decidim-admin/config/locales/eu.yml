@@ -49,7 +49,7 @@ eu:
         alert_color: Abisua
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
-        comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
+        comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
         customize_welcome_notification: Pertsonalizatu ongi etorri jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
