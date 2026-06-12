@@ -152,7 +152,6 @@ tr:
           global:
             announcement: Duyurular
             comments_enabled: Yorumlar etkin
-            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             landing_page_content: Bütçeler ana sayfası
             more_information_modal: Daha fazla bilgi
             projects_per_page: Sayfa başına projeler
