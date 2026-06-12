@@ -553,7 +553,7 @@ ca-IT:
           global:
             amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris
+            comments_max_length: Caràcters màxims per comentari
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             dummy_global_attribute1: Atribut de prova 1
             dummy_global_attribute2: Atribut de prova 2
@@ -1179,7 +1179,7 @@ ca-IT:
         taxonomy_presenter:
           not_found: 'No s''ha trobat la taxonomia a la base de dades (ID: %{id})'
     machine_translations:
-      automatic: traducció automàtica a %{locale_name} 
+      automatic: traducció automàtica a %{locale_name}
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
     map:
@@ -1872,7 +1872,7 @@ ca-IT:
       invite_collaborator:
         subject: T'han convidat a col·laborar a %{organization}
       invite_member:
-        subject: T'han convidat a participar en un espai de participació privat a %{organization}
+        subject: T'han convidat a participar en un espai de participació privat a%{organization}
       organization_admin_invitation_instructions:
         subject: T'han convidat a administrar %{organization}
       password_change:
