@@ -551,7 +551,6 @@ pt-BR:
           global:
             amendments_enabled: Alterações ativadas
             comments_enabled: Comentários ativados
-            comments_max_length: Comprimento máximo de comentários
             define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             dummy_global_attribute1: Dummy Atributo 1
             dummy_global_attribute2: Dummy Attribute 2
