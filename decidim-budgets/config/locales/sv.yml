@@ -344,7 +344,6 @@ sv:
             announcement: Meddelande
             clear_all: Återställ
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             form:
               errors:
