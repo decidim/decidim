@@ -41,7 +41,6 @@ de:
             attachments_allowed: Anhänge zulassen
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             taxonomy_filters: Filter für die Komponente auswählen
