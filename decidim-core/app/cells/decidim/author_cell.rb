@@ -32,7 +32,7 @@ module Decidim
     end
 
     def perform_caching?
-      true
+      ActionController::Base.perform_caching
     end
 
     def raw_model
