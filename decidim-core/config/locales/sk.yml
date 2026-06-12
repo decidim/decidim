@@ -584,7 +584,6 @@ sk:
           global:
             amendments_enabled: Zmeny povolené
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             dummy_global_attribute1: Zástupný atribút 1
             dummy_global_attribute2: Zástupný atribút 2
@@ -2314,7 +2313,7 @@ sk:
     dropdown:
       choose_diff_view_html: 'Mód zobrazenia HTML:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
-      option_escaped: Nepoužívané 
+      option_escaped: Nepoužívané
       option_split: Vedle sebe (Sbs)
       option_unescaped: Používané
       option_unified: Sjednocené
