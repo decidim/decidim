@@ -124,7 +124,6 @@ ar:
             attachments_allowed: السماح للمرفقات
             collaborative_drafts_enabled: تم تمكين المسودات التعاونية
             comments_enabled: تم تمكين التعليقات
-            comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
             default_sort_order: التصنيف الافتراضي للاقتراح
             default_sort_order_options:
               most_commented: صاحبة الأكثر تعليقات
