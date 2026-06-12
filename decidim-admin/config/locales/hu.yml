@@ -43,7 +43,6 @@ hu:
         alert_color: Figyelmeztetés
         available_authorizations: Elérhető authorizációk
         badges_enabled: Jelvények engedélyezése
-        comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
         customize_welcome_notification: Az üdvözlő értesítések testreszabása
         default_locale: Alapértelmezett hely
         description: Leírás
