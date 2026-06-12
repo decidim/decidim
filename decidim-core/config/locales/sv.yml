@@ -556,7 +556,6 @@ sv:
           global:
             amendments_enabled: Aktivera ändringsförslag
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Maximal längd på kommentarer
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             dummy_global_attribute1: Dummy Attribut 1
             dummy_global_attribute2: Dummy Attribut 2
