@@ -172,7 +172,6 @@ ja:
             collaborative_drafts_enabled: 共同草稿を有効にする
             collaborative_drafts_enabled_help: 共同草案機能は Decidim v0.32 で廃止されます。この機能を現在使用している組織は、新しい提案共同作成機能に移行することができます。
             comments_enabled: コメントを有効にする
-            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             default_sort_order: デフォルトの提案の並べ替え
             default_sort_order_help: '「自動」にすると、投票が有効になっている間、提案はランダムにソートされます。 投票がブロックされると、最も投票数が多い順に並べられます'
             default_sort_order_options:
