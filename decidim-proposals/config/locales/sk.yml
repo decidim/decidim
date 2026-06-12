@@ -187,7 +187,6 @@ sk:
             collaborative_drafts_enabled: Spoločné návrhy sú povolené
             collaborative_drafts_enabled_help: Funkcia kolaboratívnych konceptov bude odstránená vo verzii Decidim v0.32. Organizácie, ktoré ju používajú, môžu prejsť na novú funkciu spoluautorstva návrhov.
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov (Pre predvolenú hodnotu ponechajte 0)
             default_sort_order: Predvolené zoradenie návrhov
             default_sort_order_help: Automaticky znamená, že ak sú hlasy povolené, návrhy sa zobrazia náhodne zoradené, a ak sú hlasy zablokované, zoradia sa podľa najvyššieho počtu hlasov.
             default_sort_order_options:
@@ -318,7 +317,7 @@ sk:
           email_intro: '%{requester_name} bol/a odmietnutý/á ako prispievateľ do spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} mal odmietnutý pre prístup ako prispievateľ ku %{resource_title} kolektívnemu návrhu."
-          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a><strong> mal odmietnutý prístup ako prispievateľ </strong>ku spoločnému návrhu <a href = "%{resource_path}" >%{resource_title} </a>. 
+          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a><strong> mal odmietnutý prístup ako prispievateľ </strong>ku spoločnému návrhu <a href = "%{resource_path}" >%{resource_title} </a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} požiadal/a o prístup ako prispievateľ. Žiadosť môžete <strong>prijať alebo odmietnuť</strong> na stránke spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
