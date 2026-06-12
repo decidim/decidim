@@ -268,7 +268,6 @@ bg:
           global:
             announcement: Обявление
             comments_enabled: Коментарите са активирани
-            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             form:
               errors:
                 budget_voting_rule_only_one: Трябва да бъде активирано само едно правило за гласуване.
