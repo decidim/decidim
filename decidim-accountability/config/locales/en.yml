@@ -303,7 +303,7 @@ en:
           global:
             clear_all: Clear all
             comments_enabled: Comments enabled
-            comments_max_length: Comments max length (Leave 0 for default value)
+            comments_max_length: Max characters per comment (Leave 0 for default value)
             default_taxonomy: Default taxonomy
             default_taxonomy_help: Select which taxonomy you want to show by default. If no taxonomy is selected, the results will be shown in a list format.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
