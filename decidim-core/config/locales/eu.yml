@@ -553,7 +553,7 @@ eu:
           global:
             amendments_enabled: Zuzenketak gaituta
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             dummy_global_attribute1: Balizko atributua 1
             dummy_global_attribute2: Balizko atributua 2
