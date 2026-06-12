@@ -102,7 +102,6 @@ it:
             attachments_allowed: Consenti allegati
             collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
-            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             default_sort_order_options:
               random: Casuale
               recent: Recenti
