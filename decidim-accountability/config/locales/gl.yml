@@ -122,7 +122,6 @@ gl:
         settings:
           global:
             comments_enabled: Comentarios habilitados
-            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             display_progress_enabled: Mostrar o progreso
             intro: Intro
           step:
