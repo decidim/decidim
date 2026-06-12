@@ -42,7 +42,6 @@ sv:
             attachments_allowed: Tillåt bilagor
             clear_all: Rensa
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             taxonomy_filters: Välj filter för komponenten
