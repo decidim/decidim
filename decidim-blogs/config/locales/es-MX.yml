@@ -114,7 +114,7 @@ es-MX:
             announcement: Anuncio
             attachments_allowed: Permitir archivos adjuntos
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             creation_enabled_for_participants: Las participantes pueden crear nuevas entradas en el blog
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
