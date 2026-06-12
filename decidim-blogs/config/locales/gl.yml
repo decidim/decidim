@@ -42,7 +42,6 @@ gl:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
-            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
