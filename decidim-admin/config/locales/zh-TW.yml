@@ -41,7 +41,6 @@ zh-TW:
         alert_color: 警告
         available_authorizations: 可用認證方式
         badges_enabled: 啟用勳章
-        comments_max_length: 留言字數上限 (0 表示使用預設)
         customize_welcome_notification: 自訂歡迎通知
         default_locale: 預設語言
         description: 說明
