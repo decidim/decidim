@@ -83,6 +83,45 @@
           </div>
         <% end %>
 
+        <% if proposal.evaluators.any? %>
+          <div class="card-section mb-8">
+            <div class="card-divider">
+              <h2 class="card-title">
+                <%= t ".evaluators" %>
+              </h2>
+            </div>
+
+            <div class="card-section">
+              <div class="row column">
+                <strong><%= t ".assigned_evaluators" %>:</strong>
+                <ul id="evaluators">
+                  <% proposal.evaluation_assignments.each do |assignment| %>
+                    <% presented_evaluator = present(assignment.evaluator) %>
+                    <li>
+                      <%= link_to(
+                            presented_evaluator.name,
+                            presented_evaluator.profile_path,
+                            target: :blank
+                          ) %>
+
+                      <% if allowed_to? :unassign_from_evaluator, :proposals, evaluator: assignment.evaluator %>
+                        <%= icon_link_to(
+                              "delete-bin-line",
+                              evaluation_assignment_path(proposal_ids: [proposal.id], evaluator_role_ids: [assignment.evaluator_role.id]),
+                              t(".remove_assignment"),
+                              method: :delete,
+                              data: { confirm: t(".remove_assignment_confirmation") },
+                              class: "red-icon"
+                            ) %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
       </div>
       <div class="component__show_grid-item">
         <% if proposal.taxonomies.present? %>
@@ -183,43 +222,4 @@
       </div>
     </div>
   </div>
-
-  <% if proposal.evaluators.any? %>
-    <div class="card">
-      <div class="card-divider">
-        <h2 class="card-title">
-          <%= t ".evaluators" %>
-        </h2>
-      </div>
-
-      <div class="card-section">
-        <div class="row column">
-          <strong><%= t ".assigned_evaluators" %>:</strong>
-          <ul id="evaluators">
-            <% proposal.evaluation_assignments.each do |assignment| %>
-              <% presented_evaluator = present(assignment.evaluator) %>
-              <li>
-                <%= link_to(
-                      presented_evaluator.name,
-                      presented_evaluator.profile_path,
-                      target: :blank
-                    ) %>
-
-                <% if allowed_to? :unassign_from_evaluator, :proposals, evaluator: assignment.evaluator %>
-                  <%= icon_link_to(
-                        "delete-bin-line",
-                        evaluation_assignment_path(proposal_ids: [proposal.id], evaluator_role_ids: [assignment.evaluator_role.id]),
-                        t(".remove_assignment"),
-                        method: :delete,
-                        data: { confirm: t(".remove_assignment_confirmation") },
-                        class: "red-icon"
-                      ) %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  <% end %>
 </div>
