@@ -165,7 +165,6 @@ hu:
         settings:
           global:
             comments_enabled: Megjegyzések engedélyezve
-            comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
             display_progress_enabled: Állapot megjelenítése
             intro: Intro
           step:
