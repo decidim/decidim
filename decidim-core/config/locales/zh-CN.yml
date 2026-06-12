@@ -263,7 +263,6 @@ zh-CN:
           global:
             amendments_enabled: 修改已启用
             comments_enabled: 评论已启用
-            comments_max_length: 评论最大长度
             dummy_global_attribute1: 虚拟属性 1
             dummy_global_attribute2: 虚拟属性 2
             dummy_global_translatable_text: 虚拟可翻译文本
