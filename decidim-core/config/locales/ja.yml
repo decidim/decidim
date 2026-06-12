@@ -539,7 +539,6 @@ ja:
           global:
             amendments_enabled: 修正を有効にする
             comments_enabled: コメントを有効にする
-            comments_max_length: コメント最大長
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             dummy_global_attribute1: ダミーステータス１
             dummy_global_attribute2: ダミーステータス2
@@ -944,8 +943,8 @@ ja:
           email_subject: '%{resource_type} は表示されなくなりました'
           notification_title: |-
             あなたの%{resource_type}は表示されなくなりました。<br>
-            これは、あなたが返信した提案、ミーティング、討論、またはコメントがモデレーションされたためです。 
-            元の投稿が再び表示可能になった場合、あなたのコメントも自動的に復元されます。 
+            これは、あなたが返信した提案、ミーティング、討論、またはコメントがモデレーションされたためです。
+            元の投稿が再び表示可能になった場合、あなたのコメントも自動的に復元されます。
             <i>%{resource_content}</i>
         resource_hidden:
           email_intro: '%{report_reasons} として報告されたため、管理者が %{resource_type} を削除しました。'
@@ -1499,7 +1498,7 @@ ja:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          <p>記録によると、あなたは<strong>%{date_account_creation}</strong>に%{organization_name}のアカウントを作成しましたが、<strong>%{date_last_connection}</strong>以降は利用されていないようです。</p> <p>プライバシー保護のため、このアカウントは<strong>%{days}日後</strong>に自動削除される予定です。</p> 
+          <p>記録によると、あなたは<strong>%{date_account_creation}</strong>に%{organization_name}のアカウントを作成しましたが、<strong>%{date_last_connection}</strong>以降は利用されていないようです。</p> <p>プライバシー保護のため、このアカウントは<strong>%{days}日後</strong>に自動削除される予定です。</p>
           <p>%{organization_name}のアカウントを保持したい場合は、それまでに%{login_url}にアクセスするだけでアカウントは維持されます。</p>
         greetings_html: |
           よろしくお願いいたします。<br>
