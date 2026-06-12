@@ -178,6 +178,7 @@ describe Decidim::Debates::Admin::DebateForm do
         let(:comments_layout) { "two_columns" }
 
         it { is_expected.not_to be_valid }
+
         it "adds an error to comments_layout" do
           subject.valid?
           expect(subject.errors[:comments_layout]).to include(I18n.t("form.errors.comments_layout_locked", scope: "decidim.debates.admin.debates"))
