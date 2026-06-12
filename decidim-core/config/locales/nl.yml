@@ -298,7 +298,6 @@ nl:
           global:
             amendments_enabled: Wijzigingen toegestaan
             comments_enabled: Reacties ingeschakeld
-            comments_max_length: Commentaar maximale lengte
             dummy_global_attribute1: Voorbeeld-kenmerk 1
             dummy_global_attribute2: Voorbeeld-kenmerk 2
             dummy_global_translatable_text: Vertaalbare tekst Dummy
