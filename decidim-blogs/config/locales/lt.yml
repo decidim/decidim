@@ -71,7 +71,6 @@ lt:
           global:
             announcement: Pranešimas
             comments_enabled: Komentarai įjungti
-            comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
           step:
             announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti
