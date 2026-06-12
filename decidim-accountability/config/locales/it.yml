@@ -279,7 +279,6 @@ it:
           global:
             clear_all: Cancella tutto
             comments_enabled: Commenti abilitati
-            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             default_taxonomy: Tassonomia di default
             default_taxonomy_help: Seleziona quale tassonomia vuoi mostrare di default. Se nessuna tassonomia è selezionata, i risultati saranno mostrati in formato elenco.
             define_taxonomy_filters: Si prega di definire alcuni filtri per questo spazio partecipativo prima di utilizzare questa impostazione.
