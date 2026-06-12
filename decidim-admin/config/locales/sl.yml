@@ -30,7 +30,6 @@ sl:
       organization:
         alert_color: Opozorilo
         badges_enabled: Omogoči značke
-        comments_max_length: Maksimalna dolžina komentarjev (0 je privzeta)
         customize_welcome_notification: Priredi obvestilo dobrodošlice
         default_locale: Privzeto območje
         description: Opis
