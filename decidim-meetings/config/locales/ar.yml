@@ -121,7 +121,6 @@ ar:
           global:
             announcement: إعلان
             comments_enabled: تم تمكين التعليقات
-            comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
             creation_enabled_for_participants: يمكن للمشاركين إنشاء اجتماعات
             default_registration_terms: شروط التسجيل الافتراضية
             enable_pads_creation: تمكين إنشاء منصات
