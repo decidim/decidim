@@ -13,9 +13,16 @@ export const initializeReverseGeocoding = function() {
 
   const setLocating = (button, enable) => {
     if (enable) {
+      button.dataset.originalContent = button.innerHTML;
+      button.innerHTML = `<span class="geocoding-spinner"></span> ${button.dataset.locatingText || "Locating..."}`;
       button.setAttribute("disabled", true);
+      button.classList.add("is-locating");
     } else {
+      if (button.dataset.originalContent) {
+        button.innerHTML = button.dataset.originalContent;
+      }
       button.removeAttribute("disabled");
+      button.classList.remove("is-locating");
     }
   };
 
@@ -36,19 +43,18 @@ export const initializeReverseGeocoding = function() {
         navigator.geolocation.getCurrentPosition((position) => {
           const coordinates = [position.coords.latitude, position.coords.longitude];
 
-          // reverse geolocation
           $.post(url, { latitude: coordinates[0], longitude: coordinates[1] }, (data) => {
             input.value = data.address;
             $(input).trigger("geocoder-suggest-coordinates.decidim", [coordinates]);
+            setLocating(target, false);
           }).fail((xhr, status, error) => {
             info(input, `${errorNoLocation} ${error}`);
+            setLocating(target, false);
           });
-
-          setLocating(target, false);
 
         }, (evt) => {
           info(input, `${errorNoLocation} ${evt.message}`);
-          target.removeAttribute("disabled");
+          setLocating(target, false);
         }, {
           enableHighAccuracy: true
         });
