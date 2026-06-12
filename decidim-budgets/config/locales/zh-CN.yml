@@ -138,7 +138,6 @@ zh-CN:
           global:
             announcement: 通 知
             comments_enabled: 评论已启用
-            comments_max_length: 评论最大长度 (默认值留0)
             landing_page_content: 预算登陆页
             more_information_modal: 更多信息模式
             projects_per_page: 每页项目数
