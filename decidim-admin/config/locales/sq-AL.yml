@@ -43,7 +43,6 @@ sq:
         alert_color: Paralajmërim
         available_authorizations: Autorizimet në dispozicion
         badges_enabled: Aktivizo emblemat
-        comments_max_length: Madhësia maks. e komenteve(0 për vlerën e paracaktuar)
         customize_welcome_notification: Personalizo njoftimin e mirëseardhjes
         default_locale: Lokalizimi i parazgjedhur
         description: Përshkrimi
