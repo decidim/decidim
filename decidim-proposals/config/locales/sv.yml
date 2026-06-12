@@ -179,7 +179,6 @@ sv:
             collaborative_drafts_enabled: Aktivera gemensamma utkast
             collaborative_drafts_enabled_help: Funktionen gemensamma utkast kommer att tas bort i Decidim v0.32. Organisationer som använder det kan växla till den nya funktionen för medförfattare.
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             default_sort_order: Förvald sortering
             default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
             default_sort_order_options:
