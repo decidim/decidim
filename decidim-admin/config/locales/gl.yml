@@ -34,7 +34,6 @@ gl:
         alert_color: Alerta
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
-        comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
         customize_welcome_notification: Personalizar a notificación de benvida
         default_locale: Configuración predeterminada
         description: Descrición
