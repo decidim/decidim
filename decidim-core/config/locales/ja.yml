@@ -538,7 +538,6 @@ ja:
           global:
             amendments_enabled: 修正を有効にする
             comments_enabled: コメントを有効にする
-            comments_max_length: コメント最大長
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             dummy_global_attribute1: ダミーステータス１
             dummy_global_attribute2: ダミーステータス2
