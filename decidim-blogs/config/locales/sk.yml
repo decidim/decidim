@@ -118,7 +118,6 @@ sk:
             announcement: Oznámenie
             attachments_allowed: Povoliť prílohy
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
             creation_enabled_for_participants: Účastníci môžu vytvárať príspevky
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             no_taxonomy_filters_found: Nenašli sa žiadne filtre taxonómie.
@@ -160,6 +159,7 @@ sk:
           likes_count: Počet označení páči sa mi tohto príspevku
           participatory_space: Do ktorého priestoru (napr. participatívny proces alebo zhromaždenie) tento príspevok patrí
           published_at: Dátum zverejnenia tohto príspevku
+          reference: Jedinečný identifikátor príspevku
           title: Názov príspevku
           updated_at: Dátum poslednej aktualizácie tohto príspevku
           url: URL adresa tohto príspevku
