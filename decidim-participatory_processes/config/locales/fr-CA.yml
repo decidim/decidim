@@ -109,6 +109,7 @@ fr-CA:
         participatory_process_groups: Groupes de concertations
         participatory_process_groups_submenu:
           info: À propos de ce groupe de processus
+          landing_page: Mise en page de la page d'accueil
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
@@ -116,6 +117,7 @@ fr-CA:
           attachments: Documents liés
           components: Fonctionnalités
           info: A propos de cette concertation
+          landing_page: Mise en page de la page d'accueil
           moderations: Modérations
           private_users: Membres
           process_admins: Administrateurs de la concertation
@@ -290,6 +292,7 @@ fr-CA:
         import: "%{user_name} a importé la concertation %{resource_name}"
         publish: "%{user_name} a publié la concertation %{resource_name}"
         publish_all_members: "%{user_name} a publié tous les membres du processus participatif %{resource_name}"
+        restore: "%{user_name} a restauré le processus participatif %{resource_name}"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
         unpublish_all_members: "%{user_name} a dépublié tous les membres du processus participatif %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
@@ -345,6 +348,14 @@ fr-CA:
     open_data:
       help:
         participatory_processes:
+          announcement: Information sur l'annonce (callout)
+          created_at: La date de création de cet espace
+          description: Une description longue du processus
+          developer_group: Le groupe promoteur de la concertation. Il s'agit de l'organisation qui porte la concertation.
+          end_date: La date de fin de la concertation
+          promoted: Si la concertation est promue ou non
+          published_at: La date de publication de cet espace
+          reference: La référence unique de l'espace
           updated_at: La dernière date de mise à jour de cet espace
           url: L'URL de l'espace
     participatory_process_groups:
