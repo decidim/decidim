@@ -45,7 +45,7 @@ fr-CA:
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
-        comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+        comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
         customize_welcome_notification: Personnaliser le mail de bienvenue
         default_locale: Langue par défaut
         description: Description
@@ -360,6 +360,7 @@ fr-CA:
           text: Recherche par email, nom ou pseudo de l'utilisateur actuel
         managed_user_name: Utilisateur représenté
         solved: Résolu
+        title: Conflits de vérification
         transfer:
           email: Email
           error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
@@ -1170,6 +1171,9 @@ fr-CA:
           title: Modifier le filtre de taxonomie
           update: Mettre à jour le filtre de taxonomie
         form:
+          items:
+            one: "{count} élément sélectionné"
+            other: "{count} éléments sélectionnés"
           space_filter: Disponible comme filtre pour
         index:
           description: Un filtre de taxonomie permet aux administrateurs de trier et de filtrer les espaces participatifs selon une taxonomie. Par exemple, ajoutez un filtre de taxonomie pour trier les processus par étendue géographique.
@@ -1197,12 +1201,24 @@ fr-CA:
         taxonomies_select:
           filters: Filtres
           select_filter: Sélectionnez un filtre
+          select_taxonomy: Sélectionner une taxonomie
           taxonomies: Taxonomies
+      taxonomy_items:
+        edit:
+          title: Modifier l'élément dans %{taxonomy}
+          update: Mettre l'élément à jour
+        new:
+          create: Créer l'élément
+          none: Aucune
+          title: Nouvel élément dans %{taxonomy}
       titles:
+        admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
+        dashboard: Tableau de bord
         edit_external_domains: Liste des domaines externes autorisés
+        impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         menu: Menu
         page_topics: Sujets
@@ -1213,6 +1229,7 @@ fr-CA:
         scopes: Périmètres d'application
         statistics: Statistiques
         taxonomies: Taxonomies
+        users: Administrateurs
       tooltips:
         cannot_destroy_taxonomy_filter: Impossible de détruire ce filtre de taxonomie
         cannot_edit_taxonomy_filter: Impossible de modifier ce filtre de taxonomie
@@ -1269,12 +1286,15 @@ fr-CA:
         reportable:
           bulk_action:
             hide:
+              failed: 'Une erreur est survenue lors du masquage de certaines ressouces: %{errored}'
               invalid: Aucune modération sélectionnée.
               success: Ressources cachées avec succès.
             ignore:
               invalid: Aucune modération d'utilisateur sélectionnée.
             unhide:
+              failed: 'Une erreur est survenue lors du dé-masquage de certaines ressouces: %{errored}'
               invalid: Aucune modération sélectionnée.
+              success: Ressource dé-masquée avec succès.
             unreport:
               invalid: Aucune modération sélectionnée.
           hide:
