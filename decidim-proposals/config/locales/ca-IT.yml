@@ -173,7 +173,7 @@ ca-IT:
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             collaborative_drafts_enabled_help: La funció «Esborranys col·laboratius» s'eliminarà pròximament. Si la feies servir, a partir de la versió 0.32 de Decidim podràs fer servir la funcionalitat de coautoria de propostes.
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
             default_sort_order: Ordre de propostes per defecte
             default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
@@ -884,7 +884,7 @@ ca-IT:
           edit_proposal: Editar
           estimated_cost: Cost estimat
           hidden_likes_count:
-            one: i %{count} persones més
+            one: i %{count} persona més
             other: i %{count} persones més
           link_to_promoted_emendation_help_text: Aquesta proposta és una esmena promocionada
           link_to_promoted_emendation_text: Veure l'esmena rebutjada.
