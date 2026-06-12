@@ -61,26 +61,26 @@ shared_examples "an uncommentable component" do
       end
 
       it "displays the visible comments" do
-        expect(page).to have_content("4 results for the search")
+        expect(page).to have_text("4 results for the search")
 
         within "aside.layout-2col__aside #dropdown-menu-search" do
           click_on manifest.name.to_s.humanize
         end
 
-        expect(page).to have_content("1 results for the search")
+        expect(page).to have_text("1 results for the search")
       end
 
       context "when comments are disabled" do
         let(:comments_enabled) { false }
 
         it "does not display any comment" do
-          expect(page).to have_content("1 results for the search")
+          expect(page).to have_text("1 results for the search")
 
           within "aside.layout-2col__aside #dropdown-menu-search" do
             click_on manifest.name.to_s.humanize
           end
 
-          expect(page).to have_content("1 results for the search")
+          expect(page).to have_text("1 results for the search")
         end
       end
     end

@@ -101,7 +101,7 @@ module Decidim
       records = klass.preload(:commentable, :root_commentable).where(id: result_ids).to_a
       found_ids = records.map(&:id)
 
-      # IDs from SearchableResource that don't exist in the actual table (orphaned entries)
+      # IDs from SearchableResource that do not exist in the actual table (orphaned entries)
       orphaned_ids = result_ids - found_ids
 
       # IDs of records that are hidden, deleted, or have comments disabled
