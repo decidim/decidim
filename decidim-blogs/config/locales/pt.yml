@@ -105,7 +105,6 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
-            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
             creation_enabled_for_participants: Os participantes podem criar publicações
           step:
             announcement: Anúncio
