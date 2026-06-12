@@ -116,7 +116,6 @@ ro:
             attachments_allowed: Permite atașamente
             collaborative_drafts_enabled: Ciornele colaborative au fost activate
             comments_enabled: Comentariile au fost activate
-            comments_max_length: Număr maxim de caractere a comentariilor (păstrează 0 pentru valoarea implicită)
             default_sort_order: Mod implicit de sortare a propunerilor
             default_sort_order_options:
               most_commented: Cele mai comentate
