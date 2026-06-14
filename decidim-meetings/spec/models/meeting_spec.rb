@@ -145,6 +145,21 @@ module Decidim::Meetings
       end
     end
 
+    describe ".withdrawn" do
+      subject { described_class.withdrawn }
+
+      let!(:withdrawn_meeting) { create(:meeting, :withdrawn) }
+      let!(:active_meeting) { create(:meeting) }
+
+      it "includes meetings with a withdrawn_at timestamp" do
+        expect(subject).to include(withdrawn_meeting)
+      end
+
+      it "excludes meetings without a withdrawn_at timestamp" do
+        expect(subject).not_to include(active_meeting)
+      end
+    end
+
     describe "#withdrawable_by" do
       let(:organization) { create(:organization, available_locales: [:en]) }
       let(:participatory_process) { create(:participatory_process, organization:) }
