@@ -65,6 +65,8 @@ module Decidim
       scope :closed, -> { where.not(closed_at: nil) }
       scope :not_closed, -> { where(closed_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
+      # Closed meetings count as past regardless of end_time so admins can
+      # mark a meeting finished early and it leaves the upcoming list.
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)).or(where.not(closed_at: nil)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)).where(closed_at: nil) }
       scope :withdrawn, -> { where.not(withdrawn_at: nil) }
@@ -192,6 +194,8 @@ module Decidim
         start_time < Time.current
       end
 
+      # True once the meeting is finished: end_time has passed OR an admin
+      # closed it.
       def past?
         end_time < Time.current || closed?
       end
