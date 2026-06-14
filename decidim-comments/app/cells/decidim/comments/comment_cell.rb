@@ -75,7 +75,6 @@ module Decidim
         hash.push(model.cache_key_with_version)
         hash.push(model.author.cache_key_with_version)
         hash.push(extra_actions.to_s)
-        hash.push(target_self? ? 1 : 0)
         hash.push(expand_replies? ? 1 : 0)
         @hash = hash.join(Decidim.cache_key_separator)
       end
@@ -251,20 +250,20 @@ module Decidim
         target_chain_ids.include?(model.id)
       end
 
-      def target_self?
-        on_target_chain? && target_chain_ids.last == model.id
-      end
-
       def expand_replies?
-        on_target_chain? && !target_self?
+        on_target_chain? && target_chain_ids.last != model.id
       end
 
-      def server_rendered_replies
-        @server_rendered_replies ||= model.comment_threads
-                                          .not_hidden
-                                          .not_deleted
-                                          .includes(:author, :up_votes, :down_votes)
-                                          .order(created_at: :asc)
+      # Returns only the direct child that continues the target chain (an
+      # array of zero or one Comments). Sibling replies under this ancestor
+      # keep their lazy-load behaviour.
+      def next_chain_reply
+        return [] unless on_target_chain?
+
+        next_id = target_chain_ids[target_chain_ids.index(model.id) + 1]
+        return [] unless next_id
+
+        model.comment_threads.not_hidden.not_deleted.where(id: next_id).includes(:author, :up_votes, :down_votes).to_a
       end
 
       # action_authorization_button expects current_component to be available

@@ -20,8 +20,8 @@
        data-show-replies-target="container"
        class="comment-reply <%= "hidden" unless expand_replies? %>">
     <% if expand_replies? %>
-      <% server_rendered_replies.each do |reply| %>
-        <%= cell("decidim/comments/comment", reply, root_depth:, order:, target_chain_ids:) %>
+      <% next_chain_reply.each do |reply| %>
+        <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, target_chain_ids: target_chain_ids) %>
       <% end %>
     <% end %>
   </div>
