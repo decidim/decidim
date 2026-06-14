@@ -76,6 +76,7 @@ module Decidim
         hash.push(model.author.cache_key_with_version)
         hash.push(extra_actions.to_s)
         hash.push(target_self? ? 1 : 0)
+        hash.push(expand_replies? ? 1 : 0)
         @hash = hash.join(Decidim.cache_key_separator)
       end
 
@@ -246,14 +247,16 @@ module Decidim
         @target_chain_ids ||= options[:target_chain_ids] || []
       end
 
-      def expand_replies?
-        return false if target_chain_ids.blank?
-
+      def on_target_chain?
         target_chain_ids.include?(model.id)
       end
 
       def target_self?
-        target_chain_ids.present? && target_chain_ids.last == model.id
+        on_target_chain? && target_chain_ids.last == model.id
+      end
+
+      def expand_replies?
+        on_target_chain? && !target_self?
       end
 
       def server_rendered_replies
