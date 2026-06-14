@@ -55,7 +55,8 @@ module Decidim
 
       def can_close?
         meeting.authored_by?(user) &&
-          meeting.past?
+          meeting.past? &&
+          !meeting.closed?
       end
 
       def can_register?

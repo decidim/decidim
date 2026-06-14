@@ -409,14 +409,26 @@ module Decidim::Meetings
           expect(subject.past?).to be false
         end
       end
+
+      context "when closed meeting with a future end_time" do
+        let(:meeting) { build(:meeting, :closed, start_time: 5.days.from_now, end_time: 5.days.from_now + 2.hours) }
+
+        it "returns true" do
+          expect(subject.past?).to be true
+        end
+      end
     end
 
     describe ".upcoming" do
       subject { described_class.upcoming }
 
-      let!(:upcoming_meeting) { create(:meeting, :published) }
-      let!(:past_meeting) { create(:meeting, :published, :past) }
-      let!(:closed_upcoming_meeting) { create(:meeting, :published, :closed) }
+      around do |example|
+        travel_to(Time.zone.local(2026, 6, 14, 12, 0, 0)) { example.run }
+      end
+
+      let!(:upcoming_meeting) { create(:meeting, :published, start_time: 5.days.from_now, end_time: 5.days.from_now + 2.hours) }
+      let!(:past_meeting) { create(:meeting, :published, start_time: 5.days.ago, end_time: 5.days.ago + 2.hours) }
+      let!(:closed_upcoming_meeting) { create(:meeting, :published, :closed, start_time: 5.days.from_now, end_time: 5.days.from_now + 2.hours) }
 
       it "includes meetings with a future end_time that are not closed" do
         expect(subject).to include(upcoming_meeting)
@@ -434,9 +446,13 @@ module Decidim::Meetings
     describe ".past" do
       subject { described_class.past }
 
-      let!(:upcoming_meeting) { create(:meeting, :published) }
-      let!(:past_meeting) { create(:meeting, :published, :past) }
-      let!(:closed_upcoming_meeting) { create(:meeting, :published, :closed) }
+      around do |example|
+        travel_to(Time.zone.local(2026, 6, 14, 12, 0, 0)) { example.run }
+      end
+
+      let!(:upcoming_meeting) { create(:meeting, :published, start_time: 5.days.from_now, end_time: 5.days.from_now + 2.hours) }
+      let!(:past_meeting) { create(:meeting, :published, start_time: 5.days.ago, end_time: 5.days.ago + 2.hours) }
+      let!(:closed_upcoming_meeting) { create(:meeting, :published, :closed, start_time: 5.days.from_now, end_time: 5.days.from_now + 2.hours) }
 
       it "includes meetings whose end_time has passed" do
         expect(subject).to include(past_meeting)

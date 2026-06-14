@@ -67,7 +67,6 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)).or(closed) }
       scope :upcoming, -> { not_closed.where(arel_table[:end_time].gteq(Time.current)) }
-      scope :withdrawn, -> { where(state: "withdrawn") }
       scope :withdrawn, -> { where.not(withdrawn_at: nil) }
       scope :not_withdrawn, -> { where(withdrawn_at: nil) }
       scope :with_availability, lambda { |state_key|
@@ -194,7 +193,7 @@ module Decidim
       end
 
       def past?
-        end_time < Time.current
+        end_time < Time.current || closed?
       end
 
       def emendation?
