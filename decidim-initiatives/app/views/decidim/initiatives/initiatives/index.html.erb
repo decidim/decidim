@@ -14,9 +14,11 @@ edit_link(
   <h1 class="title-decorator"><%= component_name %></h1>
   <%= render partial: "new_initiative_button" %>
 
-  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "initiatives" } do %>
-    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
-  <% end %>
+  <div data-state-filter-fallback="<%= @default_state_filter.join(",") %>">
+    <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "initiatives" } do %>
+      <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+    <% end %>
+  </div>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>

@@ -40,7 +40,10 @@ module Decidim
       # GET /initiatives
       def index
         enforce_permission_to :list, :initiative
-        return unless search.result.blank? && params.dig("filter", "with_any_state") != %w(closed)
+        @default_state_filter = Array(default_filter_params[:with_any_state])
+        submitted_state = Array(params.dig("filter", "with_any_state")).compact_blank
+        state_is_default = submitted_state.empty? || submitted_state.sort == @default_state_filter.sort
+        return unless search.result.blank? && state_is_default
 
         @closed_initiatives ||= search_with(filter_params.merge(with_any_state: %w(closed)))
 

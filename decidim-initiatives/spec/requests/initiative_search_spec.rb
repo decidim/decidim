@@ -220,6 +220,26 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(user1_created_initiative.title))
       end
     end
+
+    context "and the state filter does not match the default" do
+      let(:state) { %w(rejected) }
+
+      before do
+        Decidim::Initiative.where(state: :rejected).destroy_all
+        get(
+          request_path,
+          params: { filter: filter_params },
+          headers: { "HOST" => organization.host }
+        )
+      end
+
+      it "does not silently fall back to closed initiatives" do
+        expect(subject).not_to include(decidim_escape_translated(initiative1.title))
+        expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
+        expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
+        expect(subject).not_to include(decidim_escape_translated(answered_rejected_initiative.title))
+      end
+    end
   end
 
   context "when filtering by scope" do
