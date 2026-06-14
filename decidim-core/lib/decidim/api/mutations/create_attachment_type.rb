@@ -6,8 +6,6 @@ module Decidim
       description "Creates an attachment"
       type Decidim::Core::AttachmentType
 
-      required_scopes "admin:read", "admin:write"
-
       argument :attributes, AttachmentAttributes, description: "input attributes to create an attachment", required: true
 
       def resolve(attributes:)

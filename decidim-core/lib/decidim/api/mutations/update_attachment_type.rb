@@ -6,8 +6,6 @@ module Decidim
       description "Updates an attachment"
       type Decidim::Core::AttachmentType
 
-      required_scopes "admin:read", "admin:write"
-
       argument :attributes, AttachmentAttributes, description: "input attributes to update an attachment", required: true
       argument :id, GraphQL::Types::ID, "The ID of the attachment", required: true
 

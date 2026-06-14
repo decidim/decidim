@@ -14,9 +14,7 @@ shared_examples "API uploadable file" do
     end
 
     it "raises execution error" do
-      expect do
-        execute_query(query, variables)
-      end.to raise_error(StandardError, match(/File extension is not supported./))
+      expect { response }.to raise_error(GraphQL::ExecutionError, /File extension is not supported./)
     end
   end
 
@@ -31,9 +29,7 @@ shared_examples "API uploadable file" do
     end
 
     it "raises execution error" do
-      expect do
-        execute_query(query, variables)
-      end.to raise_error(StandardError, match(/File type is not supported./))
+      expect { response }.to raise_error(GraphQL::ExecutionError, /File type is not supported./)
     end
   end
 
@@ -48,14 +44,10 @@ shared_examples "API uploadable file" do
     end
 
     it "uploads the file and returns the blob" do
-      result = nil
-
-      expect do
-        result = execute_query(query, variables)
-      end.to change(ActiveStorage::Blob, :count).by(1)
+      expect { response }.to change(ActiveStorage::Blob, :count).by(1)
 
       blob = ActiveStorage::Blob.last
-      expect(result["uploadFile"]["blob"]).to include(
+      expect(response["uploadFile"]["blob"]).to include(
         "id" => blob.id.to_s,
         "filename" => blob.filename,
         "checksum" => blob.checksum,

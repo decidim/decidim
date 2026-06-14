@@ -5,7 +5,6 @@ module Decidim
     class UploadFileType < Decidim::Api::Types::BaseMutation
       include Decidim::Api::GraphqlPermissions
 
-      required_scopes "admin:read", "admin:write"
       description "Upload a file via multipart form"
 
       argument :file, Decidim::Api::Types::BaseUpload, description: "File being uploaded", required: true

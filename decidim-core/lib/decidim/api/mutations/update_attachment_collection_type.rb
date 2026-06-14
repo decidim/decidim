@@ -6,8 +6,6 @@ module Decidim
       description "Creates an attachment collection"
       type Decidim::Core::AttachmentCollectionType
 
-      required_scopes "admin:read", "admin:write"
-
       argument :attributes, AttachmentCollectionAttributes, description: "input attributes to create an attachment collection", required: true
       argument :id, GraphQL::Types::ID, "The ID of the attachment collection", required: true
 

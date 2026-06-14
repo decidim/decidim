@@ -5,8 +5,6 @@ module Decidim
     class DeleteAttachmentCollectionType < Api::DestroyResourceType
       description "deletes an attachment collection"
 
-      required_scopes "admin:read", "admin:write"
-
       type Decidim::Core::AttachmentType
 
       def authorized?(id:)

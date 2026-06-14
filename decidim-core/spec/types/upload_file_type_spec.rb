@@ -21,10 +21,10 @@ module Decidim
 
       let(:query) do
         <<~GRAPHQL
-          mutation($input: UploadFileInput!) {#{" "}
-            uploadFile(input: $input) {#{" "}
-              blob { id filename byteSize signedId checksum }#{" "}
-            }#{" "}
+          mutation($input: UploadFileInput!) {
+            uploadFile(input: $input) {
+              blob { id filename byteSize signedId checksum }
+            }
           }
         GRAPHQL
       end
@@ -52,7 +52,7 @@ module Decidim
         end
 
         it "does not upload file" do
-          expect(api_response).to be_nil
+          expect { response }.to raise_error(GraphQL::ExecutionError, /you do not have permission/)
         end
       end
     end
