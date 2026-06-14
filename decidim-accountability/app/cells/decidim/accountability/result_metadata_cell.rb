@@ -6,7 +6,7 @@ module Decidim
     class ResultMetadataCell < Decidim::CardMetadataCell
       include Decidim::Accountability::Engine.routes.url_helpers
 
-      delegate :start_date, :end_date, :status, :parent, :reference, to: :model
+      delegate :start_date, :end_date, :status, :parent, to: :model
 
       alias result model
 
@@ -24,7 +24,7 @@ module Decidim
 
       def result_items
         return [dates_item, status_item, status_description] if template == :result_aside
-        return [reference, versions] if template == :show_footer
+        return [versions] if template == :show_footer
 
         [dates_item_compact, status_item_compact] + taxonomy_items
       end
@@ -40,10 +40,6 @@ module Decidim
           text: date_values(format: :decidim_with_month_name_short).join(" - "),
           icon: "calendar-todo-line"
         }
-      end
-
-      def reference
-        { text: resource_reference(result) }
       end
 
       def versions_count

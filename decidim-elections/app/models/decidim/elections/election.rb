@@ -18,6 +18,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Reportable
       include Decidim::FilterableResource
+      include Decidim::HasReference
       include ActionView::Helpers::NumberHelper
 
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze

@@ -177,7 +177,7 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             collaborative_drafts_enabled_help: The Collaborative Drafts feature will be removed in Decidim v0.32. Organizations using it can switch to the new proposal co-authorship feature.
             comments_enabled: Comments enabled
-            comments_max_length: Comments max length (Leave 0 for default value)
+            comments_max_length: Max characters per comment (Leave 0 for default value)
             default_sort_order: Default proposal sorting
             default_sort_order_help: Automatic means that if the votes are enabled, the proposals will be shown sorted by random, and if the votes are blocked, then they will be sorted by the most voted.
             default_sort_order_options:

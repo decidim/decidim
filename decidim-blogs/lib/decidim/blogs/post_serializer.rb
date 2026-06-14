@@ -22,6 +22,7 @@ module Decidim
           },
           title: post.title,
           body: post.body,
+          reference: post.reference,
           created_at: post.created_at,
           updated_at: post.updated_at,
           published_at: post.published_at,
