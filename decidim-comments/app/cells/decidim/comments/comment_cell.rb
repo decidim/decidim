@@ -75,6 +75,7 @@ module Decidim
         hash.push(model.cache_key_with_version)
         hash.push(model.author.cache_key_with_version)
         hash.push(extra_actions.to_s)
+        hash.push(target_self? ? 1 : 0)
         @hash = hash.join(Decidim.cache_key_separator)
       end
 
@@ -239,6 +240,28 @@ module Decidim
 
       def replies_count
         @replies_count ||= model.replies.count
+      end
+
+      def target_chain_ids
+        @target_chain_ids ||= options[:target_chain_ids] || []
+      end
+
+      def expand_replies?
+        return false if target_chain_ids.blank?
+
+        target_chain_ids.include?(model.id)
+      end
+
+      def target_self?
+        target_chain_ids.present? && target_chain_ids.last == model.id
+      end
+
+      def server_rendered_replies
+        @server_rendered_replies ||= model.comment_threads
+                                          .not_hidden
+                                          .not_deleted
+                                          .includes(:author, :up_votes, :down_votes)
+                                          .order(created_at: :asc)
       end
 
       # action_authorization_button expects current_component to be available

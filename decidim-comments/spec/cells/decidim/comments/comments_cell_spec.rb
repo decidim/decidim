@@ -50,6 +50,29 @@ module Decidim::Comments
           expect(subject).to have_css(".flash.secondary", text: "View all comments")
         end
 
+        context "when the single comment is a reply" do
+          let(:thread_root) { create(:comment, commentable:) }
+          let(:reply_level_1) { create(:comment, commentable: thread_root) }
+          let(:comment) { create(:comment, commentable: reply_level_1) }
+
+          it "renders the whole thread chain leading to the target comment" do
+            expect(subject).to have_text(thread_root.body.values.first)
+            expect(subject).to have_text(reply_level_1.body.values.first)
+            expect(subject).to have_text(comment.body.values.first)
+          end
+
+          it "expands the ancestor replies containers" do
+            expect(subject).to have_css("#comment-#{thread_root.id}-replies:not(.hidden)")
+            expect(subject).to have_css("#comment-#{reply_level_1.id}-replies:not(.hidden)")
+          end
+
+          it "does not render unrelated threads on the same commentable" do
+            other_comments.each do |other_comment|
+              expect(subject).to have_no_text(other_comment.body.values.first)
+            end
+          end
+        end
+
         context "with the single comment being moderated" do
           before do
             create(

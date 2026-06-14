@@ -77,6 +77,10 @@
     @apply border-gray-2;
   }
 
+  &.comment--highlighted {
+    @apply border-tertiary ring-2 ring-tertiary/40;
+  }
+
   &__header {
     @apply flex items-center gap-x-2 mb-2 relative;
 
