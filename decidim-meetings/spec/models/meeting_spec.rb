@@ -411,6 +411,46 @@ module Decidim::Meetings
       end
     end
 
+    describe ".upcoming" do
+      subject { described_class.upcoming }
+
+      let!(:upcoming_meeting) { create(:meeting, :published) }
+      let!(:past_meeting) { create(:meeting, :published, :past) }
+      let!(:closed_upcoming_meeting) { create(:meeting, :published, :closed) }
+
+      it "includes meetings with a future end_time that are not closed" do
+        expect(subject).to include(upcoming_meeting)
+      end
+
+      it "excludes meetings whose end_time has passed" do
+        expect(subject).not_to include(past_meeting)
+      end
+
+      it "excludes closed meetings even if their end_time is in the future" do
+        expect(subject).not_to include(closed_upcoming_meeting)
+      end
+    end
+
+    describe ".past" do
+      subject { described_class.past }
+
+      let!(:upcoming_meeting) { create(:meeting, :published) }
+      let!(:past_meeting) { create(:meeting, :published, :past) }
+      let!(:closed_upcoming_meeting) { create(:meeting, :published, :closed) }
+
+      it "includes meetings whose end_time has passed" do
+        expect(subject).to include(past_meeting)
+      end
+
+      it "includes closed meetings even if their end_time is in the future" do
+        expect(subject).to include(closed_upcoming_meeting)
+      end
+
+      it "excludes meetings with a future end_time that are not closed" do
+        expect(subject).not_to include(upcoming_meeting)
+      end
+    end
+
     describe "#has_contributions?" do
       context "when the meeting has contributions" do
         let(:meeting) { build(:meeting, contributions_count: 10) }

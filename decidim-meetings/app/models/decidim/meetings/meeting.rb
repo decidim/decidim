@@ -63,9 +63,10 @@ module Decidim
       geocoded_by :address
 
       scope :closed, -> { where.not(closed_at: nil) }
+      scope :not_closed, -> { where(closed_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
-      scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
-      scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
+      scope :past, -> { where(arel_table[:end_time].lteq(Time.current)).or(closed) }
+      scope :upcoming, -> { not_closed.where(arel_table[:end_time].gteq(Time.current)) }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :withdrawn, -> { where.not(withdrawn_at: nil) }
       scope :not_withdrawn, -> { where(withdrawn_at: nil) }
