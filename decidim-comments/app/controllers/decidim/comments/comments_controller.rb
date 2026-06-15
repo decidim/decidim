@@ -162,9 +162,9 @@ module Decidim
         @comment = comment.reload
         @comments_count = case commentable
                           when Decidim::Comments::Comment
-                            commentable.root_commentable.comments_count
+                            commentable.root_commentable.reload.comments_count
                           else
-                            commentable.comments_count
+                            commentable.reload.comments_count
                           end
       end
 

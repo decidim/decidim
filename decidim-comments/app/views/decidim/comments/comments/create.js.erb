@@ -3,55 +3,48 @@
   var commentHtml = '<%== j(render @comment).strip %>';
   var inReplyTo = <%== (reply?(@comment) ? @commentable.id : nil).to_json %>;
   var alignment = <%= @comment.alignment.nil? ? "null" : @comment.alignment %>;
+  var newCommentId = <%= @comment.id %>;
 
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");
   if (inReplyTo) {
     component.addReply(inReplyTo, commentHtml, true);
 
-    var hideButton = $("#comment_" + <%= root_comment.id %>).find("[data-comment-hide]").first();
-    hideButton.find("[data-show-comment-reply]").first().html('<%= t("decidim.components.comment.show_replies", count: Decidim::Comments::SortedComments.for(root_comment.reload).size) %>');
-
+    <%
+      # Refresh the "N replies" label on every ancestor up to the thread root.
+      ancestor_labels = []
+      cursor = @comment
+      while cursor.commentable.is_a?(Decidim::Comments::Comment)
+        cursor = cursor.commentable
+        ancestor_labels << { id: cursor.id, label: t("decidim.components.comment.replies_count", count: cursor.replies.count) }
+      end
+    %>
+    <%== ancestor_labels.to_json %>.forEach(function(entry) {
+      var label = document.querySelector("#comment-" + entry.id + "-replies-trigger span.font-normal");
+      if (label) { label.textContent = entry.label; }
+    });
   } else {
-    var params = new URLSearchParams({
-      "commentable_gid": component.commentableGid,
-      "root_depth": component.rootDepth,
-      "order": component.order,
-      "reload": 1
-    });
+    // Always prepend new top-level comments: predictable for screen-reader
+    // users (next focus-stop after the form), visible immediately for sighted
+    // users. Canonical sort order is restored on next page load / order change.
+    component.addThread(commentHtml, alignment, true, "prepend");
+  }
 
-    var csrfToken = document.querySelector('meta[name="csrf-token"]');
-    var headers = {
-      "Accept": "text/javascript",
-      "X-Requested-With": "XMLHttpRequest"
-    };
-    if (csrfToken) { headers["X-CSRF-Token"] = csrfToken.getAttribute("content"); }
-
-    fetch(component.commentsUrl + "?" + params.toString(), {
-      method: "GET",
-      headers: headers,
-      credentials: "same-origin"
-    }).then(function(response) {
-      if (!response.ok) { throw new Error("Network response was not ok"); }
-      return response.text();
-    }).then(function(script) {
-      var scriptElement = document.createElement("script");
-      scriptElement.textContent = script;
-      document.body.appendChild(scriptElement);
-      document.body.removeChild(scriptElement);
-      component._finalizeCommentCreation(null, true);
-    }).catch(function() {
-      var commentsContainer = document.getElementById(rootCommentableId);
-      var loadingElement = commentsContainer.querySelector(".loading-comments");
-      var commentsElement = commentsContainer.querySelector(".comments");
-      if (loadingElement) { loadingElement.classList.add("hidden"); }
-      if (commentsElement) { commentsElement.classList.remove("hidden"); }
-      component._finalizeCommentCreation(null, true);
-    });
+  // Move focus to the new comment so screen readers announce it (the element
+  // is briefly highlighted via the .comment--just-posted class).
+  var newCommentEl = document.getElementById("comment_" + newCommentId);
+  if (newCommentEl) {
+    newCommentEl.setAttribute("tabindex", "-1");
+    newCommentEl.classList.add("comment--just-posted");
+    newCommentEl.focus();
+    setTimeout(function() {
+      var el = document.getElementById("comment_" + newCommentId);
+      if (el) { el.classList.remove("comment--just-posted"); }
+    }, 2000);
   }
 
   document.dispatchEvent(new CustomEvent("comments:loaded", {
-    detail: { commentsIds: [<%= @comment.id %>, <%= @comment.commentable.id %>] }
+    detail: { commentsIds: [newCommentId, <%= @comment.commentable.id %>] }
   }));
 
   // Update the comments count

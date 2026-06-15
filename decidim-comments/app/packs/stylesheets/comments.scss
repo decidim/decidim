@@ -73,10 +73,14 @@
 }
 
 .comment {
-  @apply rounded-lg border-2 border-background-5 p-3 pl-6 mt-4 md:mt-0;
+  @apply rounded-lg border-2 border-background-5 p-3 pl-6 mt-4 md:mt-0 transition-colors duration-1000;
 
   &.top-comment {
     @apply border-gray-2;
+  }
+
+  &.comment--just-posted {
+    @apply border-tertiary;
   }
 
   &__header {

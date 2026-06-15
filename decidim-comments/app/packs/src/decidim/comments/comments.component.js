@@ -82,9 +82,11 @@ export default class CommentsComponent {
    *   If null or if on a mobile screen, the comment is added to the general thread.
    * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
    *   is the author of the new thread. Defaults to false.
+   * @param {String} position - "append" (default) or "prepend".
    * @returns {Void} - Does not return a value.
    */
-  addThread(threadHtml, alignment = null, fromCurrentUser = false) {
+  // eslint-disable-next-line max-params
+  addThread(threadHtml, alignment = null, fromCurrentUser = false, position = "append") {
     const $comment = $(threadHtml);
     let $parent = null;
 
@@ -107,7 +109,7 @@ export default class CommentsComponent {
       $parent = $(".comment-threads", this.$element);
     }
 
-    this._addComment($parent, $comment);
+    this._addComment($parent, $comment, position);
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
@@ -179,9 +181,10 @@ export default class CommentsComponent {
    * @private
    * @param {jQuery} $target - The target element to add the comment to.
    * @param {jQuery} $container - The comment container element to add.
+   * @param {String} position - "append" (default) or "prepend".
    * @returns {Void} - Returns nothing
    */
-  _addComment($target, $container) {
+  _addComment($target, $container, position = "append") {
     let $comment = $(".comment", $container);
     if ($comment.length < 1) {
       // In case of a reply
@@ -189,7 +192,11 @@ export default class CommentsComponent {
     }
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
 
-    $target.append($container);
+    if (position === "prepend") {
+      $target.prepend($container);
+    } else {
+      $target.append($container);
+    }
 
     this._initializeComments($container);
     document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [this.lastCommentId] } }));
