@@ -37,8 +37,8 @@ describe Decidim::Debates::Admin::DebateForm do
       instructions:,
       start_time:,
       end_time:,
-      add_documents: uploaded_files,
-      documents: current_files
+      add_attachments: uploaded_files,
+      attachments: current_files
     }
   end
 
@@ -118,7 +118,7 @@ describe Decidim::Debates::Admin::DebateForm do
 
     it "accepts valid attachments" do
       expect(form).to be_valid
-      expect(form.add_documents.count).to eq(2)
+      expect(form.add_attachments.count).to eq(2)
     end
 
     context "when an attachment is invalid" do
@@ -129,7 +129,7 @@ describe Decidim::Debates::Admin::DebateForm do
       end
 
       it "does not add the invalid file to the form" do
-        expect(form.documents).to be_empty
+        expect(form.attachments).to be_empty
       end
     end
   end
@@ -151,8 +151,8 @@ describe Decidim::Debates::Admin::DebateForm do
     end
 
     it "sets the documents correctly" do
-      expect(subject.documents).to match_array(attachments)
-      expect(subject.documents.map { |doc| doc.title["en"] }).to contain_exactly("Document 1", "Document 2")
+      expect(subject.attachments).to match_array(attachments)
+      expect(subject.attachments.map { |doc| doc.title["en"] }).to contain_exactly("Document 1", "Document 2")
     end
 
     context "when the debate has start and end dates" do

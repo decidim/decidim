@@ -30,8 +30,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
       comments_enabled: true,
       comments_layout:,
       attachment: attachment_params,
-      add_documents: uploaded_files,
-      documents: current_files,
+      add_attachments: uploaded_files,
+      attachments: current_files,
       errors: ActiveModel::Errors.new(self)
     )
   end
