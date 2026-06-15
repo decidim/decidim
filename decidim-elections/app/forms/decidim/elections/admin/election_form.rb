@@ -33,8 +33,8 @@ module Decidim
 
         def map_model(election)
           self.manual_start = election.start_at.blank?
-          self.documents = election.attachments.ids
-          self.add_documents = election.attachments.map { |att| { id: att.id, title: att.title } }
+          self.attachments = election.attachments.ids
+          self.add_attachments = election.attachments.map { |att| { id: att.id, title: att.title } }
         end
 
         def results_availability_labels

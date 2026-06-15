@@ -41,7 +41,7 @@ module Decidim
             attributes
           )
 
-          document_cleanup!
+          attachment_cleanup!
           create_attachments if process_attachments?
         end
 

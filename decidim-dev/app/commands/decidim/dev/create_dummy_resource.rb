@@ -30,7 +30,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :dummy_resource, :documents
+      attr_reader :form, :dummy_resource, :attachments
 
       def create_dummy_resource
         @dummy_resource = DummyResource.create!(

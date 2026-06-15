@@ -82,11 +82,11 @@ module Decidim
       end
 
       def has_attachments?
-        question.has_attachments? && errors[:add_documents].empty? && add_documents.present?
+        question.has_attachments? && errors[:add_attachments].empty? && add_attachments.present?
       end
 
       def has_error_in_attachments?
-        errors[:add_documents].present?
+        errors[:add_attachments].present?
       end
 
       def sorting?
@@ -141,8 +141,8 @@ module Decidim
         I18n.t("questionnaires.question.max_choices", scope: "decidim.forms", n: question.max_choices)
       end
 
-      def documents_present
-        errors.add(:add_documents, :blank) if add_documents.empty? && errors[:add_documents].empty?
+      def attachments_present
+        errors.add(:add_attachments, :blank) if add_attachments.empty? && errors[:add_attachments].empty?
       end
     end
   end
