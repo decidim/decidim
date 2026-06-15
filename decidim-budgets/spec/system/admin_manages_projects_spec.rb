@@ -131,7 +131,7 @@ describe "Admin manages projects" do
       create(:project, budget: budget_with_attachment)
     end
 
-    let!(:document) { create(:attachment, :with_image, attached_to: project_with_attachment) }
+    let!(:attachment) { create(:attachment, :with_image, attached_to: project_with_attachment) }
 
     before do
       visit_component_admin
@@ -149,13 +149,13 @@ describe "Admin manages projects" do
       end
 
       click_on("Edit attachments")
-      within "li[data-filename='#{document.file.blob.filename}']" do
+      within "li[data-filename='#{attachment.file.blob.filename}']" do
         click_on("Remove")
       end
 
       click_on("Save")
 
-      expect(page).to have_no_css("img[src*='#{document.file.blob.filename}']")
+      expect(page).to have_no_css("img[src*='#{attachment.file.blob.filename}']")
     end
 
     it "can attach a file" do
@@ -167,20 +167,20 @@ describe "Admin manages projects" do
       click_on("Edit attachments")
 
       within ".upload-modal" do
-        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(document.file.blob.filename.to_s))
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(attachment.file.blob.filename.to_s))
       end
 
       click_on("Save")
       click_on("Update")
 
-      expect(page).to have_text("successfully")
+      expect(page).to have_text("Project successfully updated.")
 
       within "tr", text: translated_attribute(project_with_attachment.title) do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
-      expect(page).to have_css("img[src*='#{document.file.blob.filename}']")
+      expect(page).to have_css("img[src*='#{attachment.file.blob.filename}']")
     end
 
     it "can edit a project with an attachment" do
@@ -189,7 +189,7 @@ describe "Admin manages projects" do
         click_on "Edit"
       end
 
-      expect(page.html).to include(document.file.blob.filename.to_s)
+      expect(page.html).to include(attachment.file.blob.filename.to_s)
 
       fill_in_i18n(:project_title, "#project-title-tabs", en: "Updated project title with attachments")
       click_on "Update"
@@ -209,7 +209,7 @@ describe "Admin manages projects" do
       end
 
       expect(page).to have_field("project_title_en", with: "Updated project title with attachments")
-      expect(page.html).to include(document.file.blob.filename.to_s)
+      expect(page.html).to include(attachment.file.blob.filename.to_s)
     end
   end
 
