@@ -42,7 +42,7 @@ module Decidim
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
           self.comments_layout = model.comments_layout || "single_column"
-          self.documents = model.attachments
+          self.attachments = model.attachments
         end
 
         def participatory_space_manifest
