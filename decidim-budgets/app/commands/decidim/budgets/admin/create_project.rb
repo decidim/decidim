@@ -18,7 +18,7 @@ module Decidim
           @attached_to = resource
           link_proposals
           create_attachments if process_attachments?
-          document_cleanup!
+          attachment_cleanup!
         end
 
         def run_before_hooks

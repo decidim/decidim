@@ -20,7 +20,7 @@ module Decidim
         def run_after_hooks
           link_proposals
           create_attachments if process_attachments?
-          document_cleanup!(include_all_attachments: true)
+          attachment_cleanup!(include_all_attachments: true)
         end
 
         def run_before_hooks
