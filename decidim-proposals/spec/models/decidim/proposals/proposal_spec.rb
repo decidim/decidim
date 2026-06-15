@@ -515,6 +515,41 @@ module Decidim
           expect(described_class.ransackable_attributes).to include("translated_title")
         end
       end
+
+      describe "soft delete cascading" do
+        let(:coauthor) { create(:user, :confirmed, organization:) }
+        let!(:extra_coauthorship) { create(:coauthorship, coauthorable: proposal, author: coauthor) }
+        let(:liker) { create(:user, :confirmed, organization:) }
+        let!(:like) { create(:like, resource: proposal, author: liker) }
+
+        context "when the proposal is soft-deleted" do
+          before { proposal.destroy! }
+
+          it "soft-deletes its coauthorships instead of hard-deleting them" do
+            expect(Decidim::Coauthorship.only_deleted.where(coauthorable: proposal)).not_to be_empty
+          end
+
+          it "soft-deletes its likes instead of hard-deleting them" do
+            expect(Decidim::Like.only_deleted.where(resource: proposal)).not_to be_empty
+            expect(Decidim::Like.where(resource: proposal)).to be_empty
+          end
+        end
+      end
+
+      describe "coauthorship counter reset on restore" do
+        let(:coauthor) { create(:user, :confirmed, organization:) }
+        let!(:extra_coauthorship) { create(:coauthorship, coauthorable: proposal, author: coauthor) }
+
+        context "when a soft-deleted coauthorship is restored" do
+          before { extra_coauthorship.destroy! }
+
+          it "resets the coauthorships_count on the proposal" do
+            count_after_delete = proposal.reload.coauthorships_count
+            extra_coauthorship.restore!
+            expect(proposal.reload.coauthorships_count).to eq(count_after_delete + 1)
+          end
+        end
+      end
     end
   end
 end
