@@ -160,12 +160,6 @@ module Decidim
 
       def handle_success(comment)
         @comment = comment.reload
-        @comments_count = case commentable
-                          when Decidim::Comments::Comment
-                            commentable.root_commentable.reload.comments_count
-                          else
-                            commentable.reload.comments_count
-                          end
       end
 
       def root_comment

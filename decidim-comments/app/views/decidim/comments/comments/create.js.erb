@@ -9,20 +9,25 @@
   var component = $comments.data("comments");
   if (inReplyTo) {
     component.addReply(inReplyTo, commentHtml, true);
-
-    <%
-      # Refresh the "N replies" label on every ancestor up to the thread root.
-      ancestor_labels = []
-      cursor = @comment
-      while cursor.commentable.is_a?(Decidim::Comments::Comment)
-        cursor = cursor.commentable
-        ancestor_labels << { id: cursor.id, label: t("decidim.components.comment.replies_count", count: cursor.replies.count) }
-      end
-    %>
-    <%== ancestor_labels.to_json %>.forEach(function(entry) {
-      var label = document.querySelector("#comment-" + entry.id + "-replies-trigger [data-replies-count-label]");
-      if (label) { label.textContent = entry.label; }
-    });
+    // Walk ancestors via the data-parent chain and bump each replies counter
+    // by one. Templates for the "one" / "other" plural forms are emitted as
+    // data attrs on the trigger, so we don't need a server roundtrip.
+    var cursor = document.getElementById("comment_" + inReplyTo);
+    while (cursor) {
+      var commentId = cursor.dataset.commentId;
+      var trigger = document.getElementById("comment-" + commentId + "-replies-trigger");
+      if (trigger) {
+        var newCount = (parseInt(trigger.dataset.repliesCount || "0", 10) || 0) + 1;
+        var template = newCount === 1 ? trigger.dataset.repliesLabelOne : trigger.dataset.repliesLabelOther;
+        trigger.dataset.repliesCount = newCount;
+        var label = trigger.querySelector("[data-replies-count-label]");
+        if (label && template) {
+          label.textContent = template.replace("%{count}", newCount);
+        }
+      }
+      var parentRef = cursor.dataset.parent;
+      cursor = parentRef ? document.getElementById(parentRef) : null;
+    }
   } else {
     // Always prepend new top-level comments: predictable for screen-reader
     // users (next focus-stop after the form), visible immediately for sighted
@@ -47,8 +52,17 @@
     detail: { commentsIds: [newCommentId, <%= @comment.commentable.id %>] }
   }));
 
-  // Update the comments count
-  $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+  // Bump the top-level comments count by one using locale-aware templates
+  // emitted as data attrs (no server roundtrip needed).
+  var countEl = $comments.find(".comments-count")[0];
+  if (countEl) {
+    var newTotal = (parseInt(countEl.dataset.commentsCount || "0", 10) || 0) + 1;
+    var titleTemplate = newTotal === 1 ? countEl.dataset.commentsTitleOne : countEl.dataset.commentsTitleOther;
+    countEl.dataset.commentsCount = newTotal;
+    if (titleTemplate) {
+      countEl.textContent = titleTemplate.replace("%{count}", newTotal);
+    }
+  }
 
   var $addCommentCard = $("#add-comment-anchor");
 
