@@ -9,6 +9,7 @@ module Decidim
       include Decidim::HasComponent
       include Decidim::FilterableResource
       include Decidim::Publicable
+      include Decidim::HasReference
       include Decidim::Searchable
 
       component_manifest_name "surveys"
