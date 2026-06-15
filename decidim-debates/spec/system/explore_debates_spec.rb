@@ -108,6 +108,7 @@ describe "Explore debates" do
     shared_examples "ordering debates by selected option" do |selected_option|
       let(:first_debate_title) { translated(first_debate.title) }
       let(:last_debate_title) { translated(last_debate.title) }
+
       before do
         visit_component
         within ".order-by" do

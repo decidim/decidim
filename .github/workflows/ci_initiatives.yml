@@ -16,6 +16,7 @@ on:
       - "decidim-core/**"
       - "decidim-dev/**"
       - "decidim-initiatives/**"
+      - "decidim-meetings/**"
       - "decidim-verifications/**"
 
 permissions:

@@ -44,7 +44,7 @@ module Decidim
       def items_collection
         return [] unless root_taxonomy
 
-        @items_collection ||= map_items_collection(root_taxonomy)
+        @items_collection ||= build_items_collection
       end
 
       def root_taxonomy
@@ -62,22 +62,24 @@ module Decidim
 
       private
 
-      def map_items_collection(taxonomy)
-        taxonomy.children.map do |item|
+      def build_items_collection
+        children_by_parent_id = root_taxonomy.all_children.group_by(&:parent_id)
+        build_subtree(root_taxonomy.id, children_by_parent_id)
+      end
+
+      def build_subtree(parent_id, children_by_parent_id)
+        Array(children_by_parent_id[parent_id]).map do |item|
           Item.new(
             name: translated_attribute(item.name),
             value: item.id,
-            children: map_items_collection(item)
+            children: build_subtree(item.id, children_by_parent_id)
           )
         end
       end
 
       def valid_taxonomy_items
-        return if taxonomy_items.all? do |item|
-          next unless root_taxonomy
-
-          root_taxonomy.all_children.map(&:id).include?(item.to_i)
-        end
+        valid_ids = root_taxonomy ? root_taxonomy.all_children.pluck(:id).to_set : Set.new
+        return if taxonomy_items.all? { |item| valid_ids.include?(item.to_i) }
 
         errors.add(:taxonomy_items, :invalid)
       end

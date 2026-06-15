@@ -30,5 +30,13 @@ describe "Elections Breadcrumb" do
         expect(page).to have_text(translated(election.title))
       end
     end
+
+    it "shows the election reference" do
+      click_on translated(election.title)
+
+      within ".layout-container__reference" do
+        expect(page).to have_text(election.reference)
+      end
+    end
   end
 end

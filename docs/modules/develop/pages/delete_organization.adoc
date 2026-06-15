@@ -1,0 +1,755 @@
+= Delete an organization
+
+[NOTE]
+====
+This script was originally copied from link:https://gist.github.com/alexrlpz/90bcdb6304d68d21360d1ffa9c9bd1c7[gist.github.com/alexrlpz/90bcdb6304d68d21360d1ffa9c9bd1c7].
+====
+
+Mind that you will need to fine-tune it and adapt it to your own database.
+
+Read more about this at link:https://github.com/decidim/decidim/issues/15825[#15825] and link:https://github.com/decidim/decidim/pull/16855[#16855].
+
+[source,ruby]
+----
+# frozen_string_literal: true
+
+org_host = ARGV[0].to_s
+if org_host.blank?
+  puts "Please introduce the name of the organization to be deleted as argument when launching the script"
+  puts "Example: 'rails runner destroy_organization.rb <host>'"
+  exit
+end
+
+puts "You are going to delete the organization with host '#{org_host}' and all of it associated data. This is an action that cannot be reversed."
+puts "Do you want to proceed? Write 'YES' to continue: "
+
+confirmation = $stdin.gets.chomp
+
+unless confirmation == "YES"
+  puts "Deletion aborted"
+  exit
+end
+
+# -------------------------------------------------
+# Overrides of classes to permit deleting data
+# -------------------------------------------------
+
+# To permit deleting a default static page
+Decidim::StaticPage.class_eval do
+  attr_accessor :skip_default_page_check
+
+  before_destroy :can_be_destroyed?, unless: :skip_default_page_check
+end
+
+# To permit deleting ActionLogs
+Decidim::ActionLog.class_eval do
+  def readonly?
+    false
+  end
+end
+
+# To permit deleting Meetings::Meeting records without checking its searchable resources
+Decidim::Meetings::Meeting.singleton_class.class_eval do
+  def search_resource_fields_mapper
+    nil
+  end
+
+  def remove_from_index
+    nil
+  end
+end
+
+# To permit deleting Comments::Comment records without checking its searchable resources
+Decidim::Comments::Comment.singleton_class.class_eval do
+  def remove_from_index
+    nil
+  end
+end
+
+# To permit deleting ConferenceMeeting records without checking its searchable resources
+Decidim::ConferenceMeeting.singleton_class.class_eval do
+  def remove_from_index
+    nil
+  end
+end
+
+# To permit deleting Initiatives records without checking its searchable resources
+Decidim::Initiative.singleton_class.class_eval do
+  def search_resource_fields_mapper
+    nil
+  end
+
+  def remove_from_index
+    nil
+  end
+end
+
+# To permit deleting Comments::Comment without validations
+Decidim::Comments::Comment.class_eval do
+  def remove_from_index(searchable)
+    nil
+  end
+
+  def body_length
+    nil
+  end
+
+  def commentable_can_have_comments
+    nil
+  end
+end
+
+# To permit deleting an initiative without updating its votes counter
+Decidim::InitiativesVote.class_eval do
+  attr_accessor :skip_update_counter
+
+  after_commit :update_counter_cache, on: [:create, :destroy], unless: :skip_update_counter
+end
+
+# -------------------------------------------------------------------
+# Fake classes simulating deleted Decidim::Consultations
+# -------------------------------------------------------------------
+
+module Decidim
+  class Consultation < ApplicationRecord
+    include Decidim::Traceable
+
+    belongs_to :organization,
+               foreign_key: "decidim_organization_id",
+               class_name: "Decidim::Organization"
+
+    belongs_to :highlighted_scope,
+               foreign_key: "decidim_highlighted_scope_id",
+               class_name: "Decidim::Scope"
+
+    has_many :questions,
+             foreign_key: "decidim_consultation_id",
+             class_name: "Decidim::Consultations::Question",
+             inverse_of: :consultation,
+             dependent: :destroy
+  end
+
+  module Consultations
+    class Question < ApplicationRecord
+      include Decidim::Traceable
+
+      self.table_name = "decidim_consultations_questions"
+
+      belongs_to :consultation,
+                 foreign_key: "decidim_consultation_id",
+                 class_name: "Decidim::Consultation",
+                 inverse_of: :questions
+
+      belongs_to :organization,
+                 foreign_key: "decidim_organization_id",
+                 class_name: "Decidim::Organization"
+
+      has_many :components, as: :participatory_space, dependent: :destroy
+      has_many :votes,
+               foreign_key: "decidim_consultation_question_id",
+               class_name: "Decidim::Consultations::Vote",
+               dependent: :destroy,
+               inverse_of: :question
+
+      has_many :responses,
+               foreign_key: "decidim_consultations_questions_id",
+               class_name: "Decidim::Consultations::Response",
+               inverse_of: :question,
+               dependent: :destroy
+
+      has_many :response_groups,
+               foreign_key: "decidim_consultations_questions_id",
+               class_name: "Decidim::Consultations::ResponseGroup",
+               inverse_of: :question,
+               dependent: :destroy
+    end
+
+    class Vote < ApplicationRecord
+      self.table_name = "decidim_consultations_votes"
+
+      belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
+
+      belongs_to :question,
+                 foreign_key: "decidim_consultation_question_id",
+                 class_name: "Decidim::Consultations::Question",
+                 counter_cache: :votes_count,
+                 inverse_of: :votes
+
+      belongs_to :response,
+                 foreign_key: "decidim_consultations_response_id",
+                 class_name: "Decidim::Consultations::Response",
+                 inverse_of: :votes,
+                 counter_cache: :votes_count
+    end
+
+    class Response < ApplicationRecord
+      self.table_name = "decidim_consultations_responses"
+
+      belongs_to :question,
+                 foreign_key: "decidim_consultations_questions_id",
+                 class_name: "Decidim::Consultations::Question",
+                 counter_cache: :responses_count,
+                 inverse_of: :responses
+
+      has_many :votes,
+               foreign_key: "decidim_consultations_response_id",
+               class_name: "Decidim::Consultations::Vote",
+               inverse_of: :response,
+               dependent: :restrict_with_error
+
+      belongs_to :response_group,
+                 foreign_key: "decidim_consultations_response_group_id",
+                 class_name: "Decidim::Consultations::ResponseGroup",
+                 inverse_of: :responses,
+                 counter_cache: :responses_count,
+                 optional: true
+    end
+
+    class ResponseGroup < ApplicationRecord
+      self.table_name = "decidim_consultations_response_groups"
+
+      belongs_to :question,
+                 foreign_key: "decidim_consultations_questions_id",
+                 class_name: "Decidim::Consultations::Question",
+                 counter_cache: :response_groups_count,
+                 inverse_of: :response_groups
+
+      has_many :responses,
+               foreign_key: "decidim_consultations_response_group_id",
+               class_name: "Decidim::Consultations::Response",
+               inverse_of: :response_group,
+               dependent: :restrict_with_error
+    end
+  end
+end
+
+# -------------------------------------------------
+# Common methods used for deletions
+# -------------------------------------------------
+
+# Method to destroy a record and its associated records on the table PaperTrail::Version (if any)
+def destroy_with_versions(record)
+  return unless record
+
+  record.destroy!
+  record.versions.destroy_all if record.respond_to?(:versions)
+end
+
+# Method with common actions for participatory spaces (deleting components)
+def destroy_component_resources(component) # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+  case component.manifest_name
+  when "accountability"
+    results = Decidim::Accountability::Result.where(decidim_component_id: component.id)
+
+    results.find_each do |result|
+      result.children.find_each do |child|
+        child.timeline_entries.find_each { |entry| destroy_with_versions(entry) }
+        destroy_with_versions(child)
+      end
+
+      result.timeline_entries.find_each { |entry| destroy_with_versions(entry) }
+      result.attachments.find_each { |attachment| destroy_with_versions(attachment) }
+      result.attachment_collections.find_each { |collection| destroy_with_versions(collection) }
+
+      destroy_with_versions(result.categorization)
+      destroy_with_versions(result.category)
+      destroy_with_versions(result)
+    end
+
+    Decidim::Accountability::Status.where(decidim_component_id: component.id).find_each { |status| destroy_with_versions(status) }
+  when "budgets"
+    Decidim::Budgets::Budget.where(decidim_component_id: component.id).find_each do |budget|
+      budget.projects.find_each do |project|
+        project.attachments.each { |attachment| destroy_with_versions(attachment) }
+        project.attachment_collections.each { |collection| destroy_with_versions(collection) }
+
+        destroy_with_versions(project.categorization)
+        destroy_with_versions(project.category)
+        destroy_with_versions(project)
+      end
+
+      destroy_with_versions(budget)
+    end
+  when "blogs"
+    Decidim::Blogs::Post.where(decidim_component_id: component.id).find_each do |post|
+      post.attachments.each { |attachment| destroy_with_versions(attachment) }
+      post.attachment_collections.each { |collection| destroy_with_versions(collection) }
+      destroy_with_versions(post)
+    end
+  when "debates"
+    Decidim::Debates::Debate.where(decidim_component_id: component.id).find_each do |debate|
+      destroy_with_versions(debate.categorization)
+      destroy_with_versions(debate.category)
+      destroy_with_versions(debate)
+    end
+  when "meetings"
+    Decidim::Meetings::Meeting.where(decidim_component_id: component.id).find_each do |meeting|
+      meeting.agenda&.agenda_items&.each { |item| destroy_with_versions(item) }
+      destroy_with_versions(meeting.agenda)
+
+      meeting.invites.each { |invite| destroy_with_versions(invite) }
+      meeting.services.each { |service| destroy_with_versions(service) }
+
+      Decidim::Forms::Questionnaire.where(questionnaire_for_type: "Decidim::Meetings::Meeting", questionnaire_for_id: meeting.id).find_each do |questionnaire|
+        questionnaire.answers.each do |answer|
+          answer.attachments.each { |attachment| destroy_with_versions(attachment) }
+        end
+        destroy_with_versions(questionnaire)
+      end
+
+      meeting.attachments.each { |attachment| destroy_with_versions(attachment) }
+      meeting.attachment_collections.each { |collection| destroy_with_versions(collection) }
+
+      destroy_with_versions(meeting.categorization)
+      destroy_with_versions(meeting.category)
+      destroy_with_versions(meeting)
+    end
+  when "proposals"
+    proposals = Decidim::Proposals::Proposal.where(decidim_component_id: component.id)
+
+    Decidim::Proposals::ValuationAssignment.where(decidim_proposal_id: proposals.ids).find_each do |assignment|
+      destroy_with_versions(assignment)
+    end
+
+    proposals.find_each do |proposal|
+      proposal.notes.each { |note| destroy_with_versions(note) }
+      proposal.attachments.each { |attachment| destroy_with_versions(attachment) }
+
+      destroy_with_versions(proposal.categorization)
+      destroy_with_versions(proposal.category)
+      destroy_with_versions(proposal)
+    end
+  when "surveys"
+    Decidim::Surveys::Survey.where(decidim_component_id: component.id).find_each do |survey|
+      Decidim::Forms::Questionnaire.where(questionnaire_for_type: "Decidim::Surveys::Survey", questionnaire_for_id: survey.id).find_each do |questionnaire|
+        questionnaire.answers.find_each do |answer|
+          answer.attachments.find_each do |attachment|
+            destroy_with_versions(attachment)
+          end
+        end
+
+        destroy_with_versions(questionnaire)
+      end
+      survey.destroy!
+    end
+  end
+
+  Decidim::Pages::Page.where(decidim_component_id: component.id).each do |page|
+    destroy_with_versions(page)
+  end
+
+  Decidim::Proposals::CollaborativeDraft.where(decidim_component_id: component.id).find_each do |draft|
+    draft.attachments.each { |attachment| destroy_with_versions(attachment) }
+    destroy_with_versions(draft.categorization)
+    destroy_with_versions(draft.category)
+    destroy_with_versions(draft)
+  end
+
+  Decidim::Proposals::ProposalState.where(decidim_component_id: component.id).each do |state|
+    state.proposals_count = 0 if state.proposals_count.negative?
+    destroy_with_versions(state)
+  end
+
+  Decidim::Proposals::ParticipatoryText.where(decidim_component_id: component.id).each do |text|
+    destroy_with_versions(text)
+  end
+
+  Decidim::Sortitions::Sortition.where(decidim_component_id: component.id).find_each do |sortition|
+    destroy_with_versions(sortition.categorization)
+    destroy_with_versions(sortition.category)
+    destroy_with_versions(sortition)
+  end
+end
+
+# We disable PaperTrail to avoid the creation of new records on PaperTrail::Version when deleting traceable entities
+PaperTrail.request(enabled: false) do
+  # Set the organization to be deleted
+  org = Decidim::Organization.find_by(host: org_host)
+
+  if org.nil?
+    puts "Organization with host '#{org_host}' not found."
+    exit
+  end
+
+  org.static_pages.each do |page|
+    page.skip_default_page_check = true
+    page.save!
+  end
+
+  # ------------------------------------------------- #
+  # Awesome module tables
+  # ------------------------------------------------- #
+
+  Decidim::DecidimAwesome::AwesomeConfig.where(decidim_organization_id: org.id).destroy_all
+
+  Decidim::DecidimAwesome::EditorImage.where(decidim_organization_id: org.id).destroy_all
+
+  # ------------------------------------------------- #
+  # Term Customizer module tables
+  # ------------------------------------------------- #
+
+  Decidim::TermCustomizer::Constraint.where(decidim_organization_id: org.id).find_each do |constraint|
+    constraint.translation_set.destroy!
+  end
+
+  # ------------------------------------------------- #
+
+  users = Decidim::User.where(decidim_organization_id: org.id)
+
+  # If the conversation participants are users from the organization we want to delete, we should delete their conversations too
+  Decidim::Messaging::Conversation.find_each do |conversation|
+    conversation.destroy! if users.ids.intersect?(conversation.participants.ids)
+  end
+
+  Decidim::EditorImage.where(decidim_organization_id: org.id).destroy_all
+
+  Decidim::Newsletter.where(organization_id: org.id).find_each do |newsletter|
+    destroy_with_versions(newsletter)
+  end
+
+  Decidim::Consultation.where(decidim_organization_id: org.id).find_each do |consultation|
+    consultation.questions.find_each do |question|
+      destroy_with_versions(question)
+    end
+    destroy_with_versions(consultation)
+  end
+
+  users.find_each do |user|
+    Decidim::Amendment.where(decidim_user_id: user.id).destroy_all
+    Decidim::Coauthorship.where(decidim_author_id: user.id).destroy_all
+    Decidim::Gamification::BadgeScore.where(user_id: user.id).destroy_all
+    Decidim::ImpersonationLog.where(decidim_user_id: user.id).destroy_all
+    Decidim::Report.where(decidim_user_id: user.id).destroy_all
+    Decidim::UserReport.where(user_id: user.id).destroy_all
+    Decidim::Verifications::Conflict.where(current_user_id: user.id).destroy_all
+    Decidim::UserBlock.where(decidim_user_id: user.id).destroy_all
+    Decidim::UserBlock.where(blocking_user_id: user.id).destroy_all
+    Decidim::Authorization.where(decidim_user_id: user.id).find_each do |authorization|
+      destroy_with_versions(authorization)
+    end
+    Decidim::UserModeration.where(decidim_user_id: user.id).find_each do |moderation|
+      destroy_with_versions(moderation)
+    end
+    Decidim::Comments::Comment.where(decidim_author_id: user.id).find_each do |comment|
+      destroy_with_versions(comment)
+    end
+    destroy_with_versions(user)
+  end
+
+  # Participatory Processes
+
+  participatory_processes = Decidim::ParticipatoryProcess.where(decidim_organization_id: org.id)
+
+  participatory_processes.find_each do |process|
+    process.components.find_each do |component|
+      destroy_component_resources(component)
+      destroy_with_versions(component)
+    end
+
+    process.steps.find_each do |step|
+      destroy_with_versions(step)
+    end
+
+    Decidim::ParticipatoryProcessUserRole.where(decidim_participatory_process_id: process.id).find_each do |user_role|
+      destroy_with_versions(user_role)
+    end
+
+    process.categories.find_each do |category|
+      category.categorizations.find_each do |categorization|
+        destroy_with_versions(categorization)
+      end
+
+      destroy_with_versions(category)
+    end
+
+    Decidim::Moderation.where(decidim_participatory_space_type: "Decidim::ParticipatoryProcess", decidim_participatory_space_id: process.id).find_each do |moderation|
+      destroy_with_versions(moderation)
+    end
+
+    process.attachments.each do |attachment|
+      destroy_with_versions(attachment)
+    end
+
+    process.attachment_collections.each do |attachment_collection|
+      destroy_with_versions(attachment_collection)
+    end
+
+    process.participatory_space_resource_links_to.destroy_all
+    process.participatory_space_resource_links_from.destroy_all
+
+    destroy_with_versions(process)
+  end
+
+  # Assemblies
+
+  assemblies = Decidim::Assembly.where(decidim_organization_id: org.id)
+
+  assemblies.find_each do |assembly|
+    assembly.components.find_each do |component|
+      destroy_component_resources(component)
+      destroy_with_versions(component)
+    end
+
+    assembly.members.find_each do |member|
+      destroy_with_versions(member)
+    end
+
+    Decidim::AssemblyUserRole.where(decidim_assembly_id: assembly.id).find_each do |user_role|
+      destroy_with_versions(user_role)
+    end
+
+    assembly.categories.find_each do |category|
+      category.categorizations.find_each do |categorization|
+        destroy_with_versions(categorization)
+      end
+
+      destroy_with_versions(category)
+    end
+
+    Decidim::Moderation.where(decidim_participatory_space_type: "Decidim::Assembly", decidim_participatory_space_id: assembly.id).find_each do |moderation|
+      destroy_with_versions(moderation)
+    end
+
+    assembly.attachments.find_each do |attachment|
+      destroy_with_versions(attachment)
+    end
+
+    assembly.attachment_collections.find_each do |attachment_collection|
+      destroy_with_versions(attachment_collection)
+    end
+
+    # One assembly might have multiple assemblies as childs. We need to delete their info before deleting the parent
+    assembly.children.find_each do |child_assembly|
+      child_assembly.components.find_each do |component|
+        destroy_component_resources(component)
+        destroy_with_versions(component)
+      end
+
+      child_assembly.members.find_each do |member|
+        destroy_with_versions(member)
+      end
+
+      child_assembly.categories.find_each do |category|
+        category.categorizations.find_each do |categorization|
+          destroy_with_versions(categorization)
+        end
+
+        destroy_with_versions(category)
+      end
+
+      child_assembly.attachments.find_each do |attachment|
+        destroy_with_versions(attachment)
+      end
+
+      child_assembly.attachment_collections.find_each do |attachment_collection|
+        destroy_with_versions(attachment_collection)
+      end
+    end
+
+    assembly.participatory_space_resource_links_to.destroy_all
+    assembly.participatory_space_resource_links_from.destroy_all
+
+    destroy_with_versions(assembly)
+  end
+
+  # Conferences
+
+  conferences = Decidim::Conference.where(decidim_organization_id: org.id)
+
+  conferences.find_each do |conference|
+    conference.components.find_each do |component|
+      destroy_component_resources(component)
+      destroy_with_versions(component)
+    end
+
+    conference.speakers.find_each do |speaker|
+      speaker.conference_meetings.destroy_all
+      destroy_with_versions(speaker)
+    end
+
+    conference.conference_invites.find_each do |invite|
+      destroy_with_versions(invite)
+    end
+
+    conference.media_links.find_each do |link|
+      destroy_with_versions(link)
+    end
+
+    conference.partners.find_each do |partner|
+      destroy_with_versions(partner)
+    end
+
+    conference.registration_types.find_each do |type|
+      type.conference_meetings.find_each do |conference_meeting|
+        destroy_with_versions(conference_meeting)
+      end
+      destroy_with_versions(type)
+    end
+
+    Decidim::ConferenceUserRole.where(decidim_conference_id: conference.id).find_each do |user_role|
+      destroy_with_versions(user_role)
+    end
+
+    conference.categories.find_each do |category|
+      category.categorizations.find_each do |categorization|
+        destroy_with_versions(categorization)
+      end
+
+      destroy_with_versions(category)
+    end
+
+    Decidim::Moderation.where(decidim_participatory_space_type: "Decidim::Conference", decidim_participatory_space_id: conference.id).find_each do |moderation|
+      destroy_with_versions(moderation)
+    end
+
+    conference.attachments.find_each do |attachment|
+      destroy_with_versions(attachment)
+    end
+
+    conference.attachment_collections.find_each do |attachment_collection|
+      destroy_with_versions(attachment_collection)
+    end
+
+    conference.participatory_space_resource_links_to.destroy_all
+    conference.participatory_space_resource_links_from.destroy_all
+
+    destroy_with_versions(conference)
+  end
+
+  # Initiatives
+
+  initiatives = Decidim::Initiative.where(decidim_organization_id: org.id)
+
+  initiatives.find_each do |initiative|
+    initiative.components.find_each do |component|
+      destroy_component_resources(component)
+      destroy_with_versions(component)
+    end
+
+    initiative.votes.each do |vote|
+      vote.skip_update_counter = true
+    end
+
+    initiative.categories.find_each do |category|
+      category.categorizations.find_each do |categorization|
+        destroy_with_versions(categorization)
+      end
+
+      destroy_with_versions(category)
+    end
+
+    Decidim::Moderation.where(decidim_participatory_space_type: "Decidim::Initiative", decidim_participatory_space_id: initiative.id).find_each do |moderation|
+      destroy_with_versions(moderation)
+    end
+
+    initiative.attachments.find_each do |attachment|
+      destroy_with_versions(attachment)
+    end
+
+    initiative.attachment_collections.find_each do |attachment_collection|
+      destroy_with_versions(attachment_collection)
+    end
+
+    destroy_with_versions(initiative)
+  end
+
+  # -------------------------------------------------
+  # Delete info from tables not affected by callbacks
+  # -------------------------------------------------
+
+  Decidim::ParticipatoryProcessGroup.where(decidim_organization_id: org.id).find_each do |group|
+    destroy_with_versions(group)
+  end
+
+  Decidim::ParticipatoryProcessType.where(decidim_organization_id: org.id).find_each do |type|
+    destroy_with_versions(type)
+  end
+
+  Decidim::AssembliesType.where(decidim_organization_id: org.id).find_each do |assembly_type|
+    destroy_with_versions(assembly_type)
+  end
+
+  # Delete templates and their associated questionnaires
+  Decidim::Templates::Template.where(decidim_organization_id: org.id).find_each do |template|
+    Decidim::Forms::Questionnaire.where(questionnaire_for_type: "Decidim::Templates::Template", questionnaire_for_id: template.id).find_each do |questionnaire|
+      questionnaire.answers.find_each do |answer|
+        answer.attachments.find_each do |attachment|
+          destroy_with_versions(attachment)
+        end
+      end
+
+      destroy_with_versions(questionnaire)
+    end
+    destroy_with_versions(template)
+  end
+
+  Decidim::ActionLog.where(decidim_organization_id: org.id).delete_all # Use delete_all to avoid errors with a before_destroy. As it has not any other callbacks, it is not a problem
+
+  Decidim::AreaType.where(decidim_organization_id: org.id).find_each do |type|
+    destroy_with_versions(type)
+  end
+
+  Decidim::Area.where(decidim_organization_id: org.id).find_each do |area|
+    destroy_with_versions(area)
+  end
+
+  Decidim::ContentBlock.where(decidim_organization_id: org.id).destroy_all
+
+  Decidim::ContextualHelpSection.where(organization_id: org.id).find_each do |help|
+    destroy_with_versions(help)
+  end
+
+  Decidim::Identity.where(decidim_organization_id: org.id).destroy_all
+
+  Decidim::Metric.where(decidim_organization_id: org.id).destroy_all
+
+  Decidim::ShareToken.where(decidim_organization_id: org.id).destroy_all
+
+  Decidim::ShortLink.where(decidim_organization_id: org.id).destroy_all
+
+  Decidim::Verifications::CsvDatum.where(decidim_organization_id: org.id).destroy_all
+
+  Decidim::ConferenceMeeting.where(decidim_author_type: "Decidim::Organization", decidim_author_id: org.id).destroy_all
+
+  Decidim::InitiativesSettings.where(decidim_organization_id: org.id).find_each do |initiative_settings|
+    destroy_with_versions(initiative_settings)
+  end
+
+  Decidim::InitiativesType.where(decidim_organization_id: org.id).find_each do |initiative_type|
+    destroy_with_versions(initiative_type)
+  end
+
+  Decidim::SearchableResource.where(decidim_organization_id: org.id).destroy_all
+
+  Decidim::ScopeType.where(decidim_organization_id: org.id).find_each do |scope_type|
+    destroy_with_versions(scope_type)
+  end
+
+  Decidim::Scope.where(decidim_organization_id: org.id).find_each do |scope|
+    destroy_with_versions(scope)
+  end
+
+  Decidim::StaticPage.where(decidim_organization_id: org.id).find_each do |page|
+    page.versions.destroy_all
+  end
+
+  Decidim::OAuthApplication.where(decidim_organization_id: org.id).find_each do |oauth_app|
+    destroy_with_versions(oauth_app)
+  end
+
+  Decidim::UserGroup.where(decidim_organization_id: org.id).find_each do |user_group|
+    destroy_with_versions(user_group)
+  end
+
+  # As AssemblySettings is not a model (it was deleted on previous decidim versions), we have to delete its info directly
+  if ActiveRecord::Base.connection.table_exists?("decidim_assemblies_settings")
+    ActiveRecord::Base.connection.exec_delete(
+      "DELETE FROM decidim_assemblies_settings WHERE decidim_organization_id = ?",
+      "SQL",
+      [[nil, org.id]]
+    )
+  end
+
+  destroy_with_versions(org)
+end
+----
