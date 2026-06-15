@@ -20,7 +20,7 @@ module Decidim
       validate :max_choices, if: -> { question.max_choices }
       validate :all_choices, if: :sorting?
       validate :min_choices, if: -> { question.matrix? && question.mandatory? }
-      validate :documents_present, if: -> { question.question_type == "files" && question.mandatory? }
+      validate :attachments_present, if: -> { question.question_type == "files" && question.mandatory? }
       validate :max_characters, if: -> { question.max_characters.positive? }
 
       delegate :mandatory_body?, :mandatory_choices?, :matrix?, to: :question
