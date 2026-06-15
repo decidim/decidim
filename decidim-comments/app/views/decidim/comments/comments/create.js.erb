@@ -2,28 +2,35 @@
   var rootCommentableId = <%== "comments-for-#{@comment.root_commentable.commentable_type.demodulize}-#{@comment.root_commentable.id}".to_json %>;
   var commentHtml = '<%== j(render @comment).strip %>';
   var inReplyTo = <%== (reply?(@comment) ? @commentable.id : nil).to_json %>;
-  var alignment = <%= @comment.alignment.nil? ? "null" : @comment.alignment %>;
-  var newCommentId = <%= @comment.id %>;
+  var alignment = <%== @comment.alignment.to_json %>;
+  var newCommentId = <%== @comment.id.to_json %>;
+  var locale = document.documentElement.lang || "en";
+  var pluralRules = typeof Intl !== "undefined" && Intl.PluralRules ? new Intl.PluralRules(locale) : null;
+
+  function renderPluralLabel(templatesJson, count) {
+    if (!templatesJson) { return null; }
+    var templates;
+    try { templates = JSON.parse(templatesJson); } catch (_) { return null; }
+    var key = pluralRules ? pluralRules.select(count) : (count === 1 ? "one" : "other");
+    var template = templates[key] || templates.other || templates.one;
+    return template ? template.replace("%{count}", count) : null;
+  }
 
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");
   if (inReplyTo) {
     component.addReply(inReplyTo, commentHtml, true);
     // Walk ancestors via the data-parent chain and bump each replies counter
-    // by one. Templates for the "one" / "other" plural forms are emitted as
-    // data attrs on the trigger, so we don't need a server roundtrip.
+    // by one. Plural templates are emitted as a JSON map per locale.
     var cursor = document.getElementById("comment_" + inReplyTo);
     while (cursor) {
-      var commentId = cursor.dataset.commentId;
-      var trigger = document.getElementById("comment-" + commentId + "-replies-trigger");
+      var trigger = document.getElementById("comment-" + cursor.dataset.commentId + "-replies-trigger");
       if (trigger) {
         var newCount = (parseInt(trigger.dataset.repliesCount || "0", 10) || 0) + 1;
-        var template = newCount === 1 ? trigger.dataset.repliesLabelOne : trigger.dataset.repliesLabelOther;
+        var rendered = renderPluralLabel(trigger.dataset.repliesLabelTemplates, newCount);
         trigger.dataset.repliesCount = newCount;
         var label = trigger.querySelector("[data-replies-count-label]");
-        if (label && template) {
-          label.textContent = template.replace("%{count}", newCount);
-        }
+        if (label && rendered) { label.textContent = rendered; }
       }
       var parentRef = cursor.dataset.parent;
       cursor = parentRef ? document.getElementById(parentRef) : null;
@@ -48,20 +55,13 @@
     }, 2000);
   }
 
-  document.dispatchEvent(new CustomEvent("comments:loaded", {
-    detail: { commentsIds: [newCommentId, <%= @comment.commentable.id %>] }
-  }));
-
-  // Bump the top-level comments count by one using locale-aware templates
-  // emitted as data attrs (no server roundtrip needed).
+  // Bump the top-level comments count by one using locale-aware templates.
   var countEl = $comments.find(".comments-count")[0];
   if (countEl) {
     var newTotal = (parseInt(countEl.dataset.commentsCount || "0", 10) || 0) + 1;
-    var titleTemplate = newTotal === 1 ? countEl.dataset.commentsTitleOne : countEl.dataset.commentsTitleOther;
+    var titleRendered = renderPluralLabel(countEl.dataset.commentsTitleTemplates, newTotal);
     countEl.dataset.commentsCount = newTotal;
-    if (titleTemplate) {
-      countEl.textContent = titleTemplate.replace("%{count}", newTotal);
-    }
+    if (titleRendered) { countEl.textContent = titleRendered; }
   }
 
   var $addCommentCard = $("#add-comment-anchor");
