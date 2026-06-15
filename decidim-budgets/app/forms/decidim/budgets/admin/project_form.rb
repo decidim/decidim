@@ -22,7 +22,7 @@ module Decidim
         attribute :attachment, AttachmentForm
         attribute :selected, Boolean
 
-        attachments_attribute :documents
+        attachments_attribute :attachments
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -36,8 +36,8 @@ module Decidim
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
           self.selected = model.selected?
-          self.documents = model.attachments.ids
-          self.add_documents = model.attachments.map { |att| { id: att.id, title: att.title } }
+          self.attachments = model.attachments.ids
+          self.add_attachments = model.attachments.map { |att| { id: att.id, title: att.title } }
         end
 
         def participatory_space_manifest
@@ -76,7 +76,7 @@ module Decidim
         # an error, the attachment is lost, so we need a way to inform the user of
         # this problem.
         def notify_missing_attachment_if_errored
-          errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
+          errors.add(:add_attachments, :needs_to_be_reattached) if errors.any? && add_attachments.present?
         end
       end
     end
