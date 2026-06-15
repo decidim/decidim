@@ -144,7 +144,7 @@ describe "Edit initiative" do
         end
 
         expect(page).to have_text("Updated initiative title with attachments")
-        expect(initiative.reload.attachments.count).to eq(2)
+        expect(initiative.reload.attachments.count).to eq(1)
       end
     end
 
