@@ -37,6 +37,21 @@ shared_examples "when managing results bulk actions as an admin" do
           expect(page).to have_selector(:link_or_button, "Change status")
           expect(page).to have_selector(:link_or_button, "Change dates")
         end
+
+        context "when there are no statuses" do
+          before do
+            Decidim::Accountability::Status.where(component: current_component).destroy_all
+            visit current_path
+            page.find_by_id("results_bulk").set(true)
+            click_on "Actions"
+          end
+
+          it "does not show the change status option" do
+            expect(page).to have_selector(:link_or_button, "Change taxonomies")
+            expect(page).to have_no_selector(:link_or_button, "Change status")
+            expect(page).to have_selector(:link_or_button, "Change dates")
+          end
+        end
       end
 
       context "when change taxonomies is selected from actions dropdown" do
