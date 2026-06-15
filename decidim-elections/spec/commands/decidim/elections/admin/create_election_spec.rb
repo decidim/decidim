@@ -18,7 +18,7 @@ module Decidim
         let(:end_at) { 2.days.from_now }
         let(:manual_start) { false }
         let(:uploaded_photos) { [] }
-        let(:documents) { [] }
+        let(:attachments) { [] }
         let(:invalid) { false }
 
         let(:form) do
@@ -34,8 +34,8 @@ module Decidim
             end_at:,
             manual_start:,
             results_availability: "after_end",
-            documents:,
-            add_documents: uploaded_photos
+            attachments:,
+            add_attachments: uploaded_photos
           )
         end
 

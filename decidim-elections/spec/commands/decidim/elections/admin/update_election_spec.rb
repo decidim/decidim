@@ -35,8 +35,8 @@ module Decidim
             end_at:,
             manual_start:,
             results_availability: "after_end",
-            documents: current_photos,
-            add_documents: uploaded_photos
+            attachments: current_photos,
+            add_attachments: uploaded_photos
           )
         end
 
