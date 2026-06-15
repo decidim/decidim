@@ -195,18 +195,18 @@ describe "Edit proposals" do
 
           find("#dropdown-trigger-resource-#{proposal.id}").click
           click_on "Edit proposal"
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
+          dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("city.jpeg"))
+          dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("icon.png"))
+          dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("avatar.jpg"))
           click_on "Send"
           click_on "Edit proposal"
           expect(page).to have_text("city.jpeg")
           expect(page).to have_text("icon.png")
           expect(page).to have_text("avatar.jpg")
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
+          dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("city2.jpeg"))
           expect(page).to have_text("city2.jpeg")
           expect(page).to have_no_text("city3.jpeg")
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
+          dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("city3.jpeg"))
           expect(page).to have_text("city2.jpeg")
           expect(page).to have_text("city3.jpeg")
           click_on "Send"
