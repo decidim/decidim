@@ -119,7 +119,7 @@ module Decidim
       return true if root_resource.nil?
 
       root_hidden = root_resource.try(:hidden?) || root_resource.try(:deleted?)
-      comments_disabled = !root_resource.commentable?
+      comments_disabled = !root_resource.try(:commentable?)
 
       object.try(:hidden?) || object.try(:deleted?) || root_hidden || comments_disabled
     end
