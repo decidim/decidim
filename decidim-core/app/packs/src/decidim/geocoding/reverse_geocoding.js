@@ -14,7 +14,11 @@ export const initializeReverseGeocoding = function() {
   const setLocating = (button, enable) => {
     if (enable) {
       button.dataset.originalContent = button.innerHTML;
-      button.innerHTML = `<span class="geocoding-spinner"></span> ${button.dataset.locatingText || "Locating..."}`;
+      button.textContent = "";
+      const spinner = document.createElement("span");
+      spinner.className = "geocoding-spinner";
+      button.appendChild(spinner);
+      button.append(` ${button.dataset.locatingText || "Locating..."}`);
       button.setAttribute("disabled", true);
       button.classList.add("is-locating");
     } else {
