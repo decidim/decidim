@@ -18,8 +18,9 @@ describe("reverseGeocoding", () => {
     container.innerHTML = `
       <label>
         <input id="test_address" type="text" />
-        <div class="user-device-location">
+        <div class="geocoding__locate">
           <button
+            class="geocoding__button"
             type="button"
             data-input="test_address"
             data-error-no-location="Could not detect location."
@@ -33,7 +34,7 @@ describe("reverseGeocoding", () => {
     `;
     document.body.appendChild(container);
 
-    button = container.querySelector(".user-device-location button");
+    button = container.querySelector(".geocoding__button");
     input = container.querySelector("#test_address");
     label = container.querySelector("label");
 
@@ -70,8 +71,8 @@ describe("reverseGeocoding", () => {
       button.click();
 
       expect(button.disabled).toBe(true);
-      expect(button.classList.contains("is-locating")).toBe(true);
-      expect(button.querySelector(".geocoding-spinner")).not.toBeNull();
+      expect(button.classList.contains("geocoding__button--locating")).toBe(true);
+      expect(button.querySelector(".geocoding__spinner")).not.toBeNull();
       expect(button.textContent).toContain("Locating...");
     });
 
@@ -111,8 +112,8 @@ describe("reverseGeocoding", () => {
       button.click();
 
       expect(button.disabled).toBe(false);
-      expect(button.classList.contains("is-locating")).toBe(false);
-      expect(button.querySelector(".geocoding-spinner")).toBeNull();
+      expect(button.classList.contains("geocoding__button--locating")).toBe(false);
+      expect(button.querySelector(".geocoding__spinner")).toBeNull();
       expect(button.textContent).toContain("Use my location");
       expect(input.value).toBe("New York, NY, USA");
     });
@@ -133,7 +134,7 @@ describe("reverseGeocoding", () => {
       button.click();
 
       expect(button.disabled).toBe(false);
-      expect(button.classList.contains("is-locating")).toBe(false);
+      expect(button.classList.contains("geocoding__button--locating")).toBe(false);
       expect(button.textContent).toContain("Use my location");
     });
   });
@@ -148,7 +149,7 @@ describe("reverseGeocoding", () => {
       button.click();
 
       expect(button.disabled).toBe(false);
-      expect(button.classList.contains("is-locating")).toBe(false);
+      expect(button.classList.contains("geocoding__button--locating")).toBe(false);
       expect(button.textContent).toContain("Use my location");
     });
 
@@ -176,7 +177,7 @@ describe("reverseGeocoding", () => {
       button.click();
 
       expect(button.disabled).toBe(false);
-      expect(button.classList.contains("is-locating")).toBe(false);
+      expect(button.classList.contains("geocoding__button--locating")).toBe(false);
       const errorElement = label.querySelector(".form-error");
       expect(errorElement).not.toBeNull();
       expect(errorElement.textContent).toContain("Device not supported.");

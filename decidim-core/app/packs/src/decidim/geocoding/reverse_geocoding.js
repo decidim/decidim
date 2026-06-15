@@ -16,21 +16,21 @@ export const initializeReverseGeocoding = function() {
       button.dataset.originalContent = button.innerHTML;
       button.textContent = "";
       const spinner = document.createElement("span");
-      spinner.className = "geocoding-spinner";
+      spinner.className = "geocoding__spinner";
       button.appendChild(spinner);
       button.append(` ${button.dataset.locatingText || "Locating..."}`);
       button.setAttribute("disabled", true);
-      button.classList.add("is-locating");
+      button.classList.add("geocoding__button--locating");
     } else {
       if (button.dataset.originalContent) {
         button.innerHTML = button.dataset.originalContent;
       }
       button.removeAttribute("disabled");
-      button.classList.remove("is-locating");
+      button.classList.remove("geocoding__button--locating");
     }
   };
 
-  document.querySelectorAll(".user-device-location button").forEach((button) => {
+  document.querySelectorAll(".geocoding__button").forEach((button) => {
     button.addEventListener("click", (event) => {
       const target = event.target;
       if (target.disabled) {

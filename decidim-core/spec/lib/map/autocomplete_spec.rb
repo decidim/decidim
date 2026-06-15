@@ -103,7 +103,7 @@ module Decidim
 
         it "renders the button with data-locating-text attribute" do
           expect(form_markup).to include("data-locating-text")
-          expect(form_markup).to include("user-device-location")
+          expect(form_markup).to include("geocoding__locate")
         end
       end
     end
