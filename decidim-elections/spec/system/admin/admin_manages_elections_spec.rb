@@ -147,7 +147,7 @@ describe "Admin manages elections" do
         expect(page).to have_field("election_end_at_date", disabled: true)
         expect(page).to have_field("election_end_at_time", disabled: true)
       end
-      dynamically_attach_file(:election_documents, Decidim::Dev.asset("city2.jpeg"))
+      dynamically_attach_file(:election_attachments, Decidim::Dev.asset("city2.jpeg"))
 
       click_on "Save and continue"
       expect(page).to have_callout "Election updated successfully"
