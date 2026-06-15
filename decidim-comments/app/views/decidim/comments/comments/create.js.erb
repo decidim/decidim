@@ -20,14 +20,14 @@
       end
     %>
     <%== ancestor_labels.to_json %>.forEach(function(entry) {
-      var label = document.querySelector("#comment-" + entry.id + "-replies-trigger span.font-normal");
+      var label = document.querySelector("#comment-" + entry.id + "-replies-trigger [data-replies-count-label]");
       if (label) { label.textContent = entry.label; }
     });
   } else {
     // Always prepend new top-level comments: predictable for screen-reader
     // users (next focus-stop after the form), visible immediately for sighted
     // users. Canonical sort order is restored on next page load / order change.
-    component.addThread(commentHtml, alignment, true, "prepend");
+    component.prependThread(commentHtml, alignment, true);
   }
 
   // Move focus to the new comment so screen readers announce it (the element
