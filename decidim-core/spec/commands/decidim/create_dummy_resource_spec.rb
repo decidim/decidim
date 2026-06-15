@@ -20,8 +20,8 @@ module Decidim
         title:,
         body:,
         photos:,
-        add_documents: uploaded_images,
-        documents: [],
+        add_attachments: uploaded_images,
+        attachments: [],
         current_component:
       )
     end
