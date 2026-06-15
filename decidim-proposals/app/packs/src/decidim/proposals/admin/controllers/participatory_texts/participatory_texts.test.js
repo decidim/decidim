@@ -50,6 +50,16 @@ describe("ParticipatoryTextsController", () => {
       expect(hiddenInput.value).toBe("true");
       expect(submitSpy).toHaveBeenCalled();
     });
+
+    it("prevents the default click so the form is not submitted twice", () => {
+      jest.spyOn(form, "submit").mockImplementation(() => {});
+      const controller = application.getControllerForElementAndIdentifier(form, "participatory-texts");
+      const event = { preventDefault: jest.fn() };
+
+      controller.saveDraft(event);
+
+      expect(event.preventDefault).toHaveBeenCalled();
+    });
   });
 
   describe("updatePositions", () => {
