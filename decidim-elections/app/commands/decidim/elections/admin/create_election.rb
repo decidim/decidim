@@ -10,7 +10,7 @@ module Decidim
 
         protected
 
-        attr_reader :documents
+        attr_reader :attachments
 
         def resource_class = Decidim::Elections::Election
 

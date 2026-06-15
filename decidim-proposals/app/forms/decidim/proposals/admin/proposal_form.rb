@@ -14,7 +14,7 @@ module Decidim
         translatable_attribute :body, Decidim::Attributes::RichText
         attribute :attachment, AttachmentForm
 
-        attachments_attribute :documents
+        attachments_attribute :attachments
 
         validates :title, :body, translatable_presence: true
         validates :title, :body, translated_etiquette: true
@@ -27,12 +27,12 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
-          self.documents = model.attachments.ids
-          self.add_documents = model.attachments.map { |att| { id: att.id, title: att.title } }
+          self.attachments = model.attachments.ids
+          self.add_attachments = model.attachments.map { |att| { id: att.id, title: att.title } }
         end
 
         def notify_missing_attachment_if_errored
-          errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
+          errors.add(:add_attachments, :needs_to_be_reattached) if errors.any? && add_attachments.present?
         end
       end
     end

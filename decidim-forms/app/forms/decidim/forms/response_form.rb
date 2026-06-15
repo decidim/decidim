@@ -12,7 +12,7 @@ module Decidim
       attribute :choices, Array[ResponseChoiceForm]
       attribute :matrix_choices, Array[ResponseChoiceForm]
 
-      attachments_attribute :documents
+      attachments_attribute :attachments
 
       validates :body, presence: true, if: :mandatory_body?
       validates :selected_choices, presence: true, if: :mandatory_choices?

@@ -54,7 +54,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :documents, :initiative
+      attr_reader :form, :attachments, :initiative
 
       # Creates the initiative and all default components
       def create_initiative

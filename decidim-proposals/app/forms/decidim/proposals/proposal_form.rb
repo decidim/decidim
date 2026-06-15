@@ -19,7 +19,7 @@ module Decidim
       attribute :longitude, Float
       attribute :attachment, AttachmentForm
 
-      attachments_attribute :documents
+      attachments_attribute :attachments
 
       validates :title, :body, presence: true
       validates :title, :body, etiquette: true

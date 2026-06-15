@@ -64,7 +64,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :initiative, :documents
+      attr_reader :form, :initiative, :attachments
 
       def attributes
         attrs = {

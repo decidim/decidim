@@ -20,7 +20,7 @@ module Decidim
         attribute :results_availability, String, default: "after_end"
         attribute :attachment, AttachmentForm
 
-        attachments_attribute :documents
+        attachments_attribute :attachments
 
         validates :title, translatable_presence: true
         validates :results_availability, inclusion: { in: Decidim::Elections::Election::RESULTS_AVAILABILITY_OPTIONS }
