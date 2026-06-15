@@ -41,7 +41,9 @@ module Decidim
             context[subject] = object
           end
 
-          permission_action = Decidim::PermissionAction.new(scope: api_scope, action:, subject:)
+          scope = context.fetch(:scope, api_scope)
+
+          permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
 
           permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|
             permission_context = local_user_context(object, context)

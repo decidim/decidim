@@ -15,6 +15,12 @@ module Decidim
       field :create_milestone, mutation: CreateMilestoneType, description: "Creates a milestone"
       field :delete_milestone, mutation: Decidim::Accountability::DeleteMilestoneType, description: "Deletes a milestone"
       field :update_milestone, mutation: UpdateMilestoneType, description: "Updates a milestone"
+
+      def initialize(object, context)
+        context.scoped_set!(:scope, :admin) if context[:current_user]
+        @object = object
+        @context = context
+      end
     end
   end
 end

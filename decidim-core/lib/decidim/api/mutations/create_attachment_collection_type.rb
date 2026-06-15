@@ -25,11 +25,7 @@ module Decidim
         end
         return attachment_collection if attachment_collection.present?
 
-        if form.errors.any?
-          return GraphQL::ExecutionError.new(
-            form.errors.full_messages.join(", ")
-          )
-        end
+        raise Decidim::Api::Errors::AttributeValidationError, form.errors if form.errors.any?
 
         GraphQL::ExecutionError.new(
           I18n.t("decidim.admin.attachment_collections.create.error")
@@ -37,7 +33,7 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        unless super && allowed_to?(:create, :attachment_collection, object, context)
+        unless super && allowed_to?(:create, :attachment_collection, nil, context)
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 

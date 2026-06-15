@@ -28,11 +28,7 @@ module Decidim
           end
         end
 
-        if form.errors.any?
-          return GraphQL::ExecutionError.new(
-            form.errors.full_messages.join(", ")
-          )
-        end
+        raise Decidim::Api::Errors::AttributeValidationError, form.errors if form.errors.any?
 
         GraphQL::ExecutionError.new(
           I18n.t("decidim.admin.attachment_collections.update.error")

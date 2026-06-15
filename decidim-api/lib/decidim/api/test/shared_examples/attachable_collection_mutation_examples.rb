@@ -45,8 +45,11 @@ RSpec.shared_examples "attachable collection mutations" do
     end
     let(:api_response) { response["createAttachmentCollection"] }
 
-    it "does not create attachment collection for unauthorized user" do
-      expect(api_response).to be_nil
+    context "with an unauthorized user" do
+      let(:current_user) { nil }
+      it "does not create attachment collection for unauthorized user" do
+        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+      end
     end
 
     context "with an admin user" do
@@ -92,8 +95,12 @@ RSpec.shared_examples "attachable collection mutations" do
       GRAPHQL
     end
 
-    it "does not update attachment collection for unauthorized user" do
-      expect(api_response).to be_nil
+    context "with an unauthorized user" do
+      let(:current_user) { nil }
+
+      it "does not update attachment collection for unauthorized user" do
+        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+      end
     end
 
     context "with an admin user" do
@@ -117,8 +124,11 @@ RSpec.shared_examples "attachable collection mutations" do
     end
     let(:api_response) { response["deleteAttachmentCollection"] }
 
-    it "does not update attachment for unauthorized user" do
-      expect(api_response).to be_nil
+    context "with an unauthorized user" do
+      let(:current_user) { nil }
+      it "does not update attachment for unauthorized user" do
+        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+      end
     end
 
     context "with an admin user" do
