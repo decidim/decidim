@@ -527,6 +527,7 @@ module Decidim
 
           it "soft-deletes its coauthorships instead of hard-deleting them" do
             expect(Decidim::Coauthorship.only_deleted.where(coauthorable: proposal)).not_to be_empty
+            expect(Decidim::Coauthorship.where(coauthorable: proposal)).to be_empty
           end
 
           it "soft-deletes its likes instead of hard-deleting them" do
