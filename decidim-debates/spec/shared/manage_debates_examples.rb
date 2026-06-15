@@ -401,7 +401,7 @@ RSpec.shared_examples "manage debates" do
         choose "Open"
       end
 
-      dynamically_attach_file(:debate_attachmets, document_path)
+      dynamically_attach_file(:debate_attachments, document_path)
 
       within ".new_debate" do
         find("*[type=submit]").click
