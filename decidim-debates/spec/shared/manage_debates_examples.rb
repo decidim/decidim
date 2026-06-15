@@ -260,8 +260,8 @@ RSpec.shared_examples "manage debates" do
           choose "Open"
         end
 
-        dynamically_attach_file(:debate_documents, image_path)
-        dynamically_attach_file(:debate_documents, document_path)
+        dynamically_attach_file(:debate_attachmets, image_path)
+        dynamically_attach_file(:debate_attachmets, document_path)
 
         within ".new_debate" do
           find("*[type=submit]").click
@@ -279,7 +279,7 @@ RSpec.shared_examples "manage debates" do
       end
 
       it "shows validation error when format is not accepted" do
-        dynamically_attach_file(:debate_documents, invalid_document, keep_modal_open: true) do
+        dynamically_attach_file(:debate_attachmets, invalid_document, keep_modal_open: true) do
           expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
         end
         expect(page).to have_text("Validation error!")
@@ -301,8 +301,8 @@ RSpec.shared_examples "manage debates" do
           fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
         end
 
-        dynamically_attach_file(:debate_documents, image_path)
-        dynamically_attach_file(:debate_documents, document_path)
+        dynamically_attach_file(:debate_attachmets, image_path)
+        dynamically_attach_file(:debate_attachmets, document_path)
 
         within ".edit_debate" do
           find("*[type=submit]").click
@@ -379,7 +379,7 @@ RSpec.shared_examples "manage debates" do
         click_on "Edit"
       end
       within ".edit_debate" do
-        find_by_id("debate_documents_button").click
+        find_by_id("debate_attachments_button").click
       end
       within ".upload-modal" do
         click_on "Remove"
@@ -401,7 +401,7 @@ RSpec.shared_examples "manage debates" do
         choose "Open"
       end
 
-      dynamically_attach_file(:debate_documents, document_path)
+      dynamically_attach_file(:debate_attachmets, document_path)
 
       within ".new_debate" do
         find("*[type=submit]").click
