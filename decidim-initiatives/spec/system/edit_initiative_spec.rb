@@ -99,7 +99,7 @@ describe "Edit initiative" do
         expect(page).to have_text "Edit Initiative"
 
         within "form.edit_initiative" do
-          find_by_id("initiative_documents_button").click
+          find_by_id("initiative_attachments_button").click
         end
         within ".upload-modal" do
           within "[data-filename='#{document.file.blob.filename}']" do
@@ -119,7 +119,7 @@ describe "Edit initiative" do
 
         expect(page).to have_text "Edit Initiative"
 
-        dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("city3.jpeg"))
+        dynamically_attach_file(:initiative_attachments, Decidim::Dev.asset("city3.jpeg"))
 
         within "form.edit_initiative" do
           click_on "Update"
