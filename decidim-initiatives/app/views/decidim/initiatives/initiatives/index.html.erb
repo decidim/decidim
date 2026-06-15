@@ -14,7 +14,7 @@ edit_link(
   <h1 class="title-decorator"><%= component_name %></h1>
   <%= render partial: "new_initiative_button" %>
 
-  <div data-state-filter-fallback="<%= @default_state_filter.join(",") %>">
+  <div data-state-filter-fallback="<%= @default_state_filter.to_json %>">
     <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "initiatives" } do %>
       <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
     <% end %>

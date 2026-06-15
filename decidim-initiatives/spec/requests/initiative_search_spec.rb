@@ -222,10 +222,21 @@ RSpec.describe "Initiative search" do
     end
 
     context "and the state filter does not match the default" do
-      let(:filter_params) { { with_any_state: %w(rejected), search_text_cont: "definitely-not-a-match-#{SecureRandom.hex(4)}" } }
+      let(:filter_params) { { with_any_state: %w(rejected), search_text_cont: "zzz-no-initiative-matches-this-needle-zzz" } }
 
       it "does not silently fall back to closed initiatives" do
         expect(subject).not_to include(decidim_escape_translated(initiative1.title))
+        expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
+        expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
+        expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
+        expect(subject).not_to include(decidim_escape_translated(answered_rejected_initiative.title))
+      end
+    end
+
+    context "and the state filter is submitted explicitly empty" do
+      let(:filter_params) { { with_any_state: [""] } }
+
+      it "does not silently fall back to closed initiatives" do
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))

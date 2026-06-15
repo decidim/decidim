@@ -41,8 +41,9 @@ module Decidim
       def index
         enforce_permission_to :list, :initiative
         @default_state_filter = Array(default_filter_params[:with_any_state])
+        state_param_provided = params.dig("filter").respond_to?(:key?) && params.dig("filter").key?("with_any_state")
         submitted_state = Array(params.dig("filter", "with_any_state")).compact_blank
-        state_is_default = submitted_state.empty? || submitted_state.sort == @default_state_filter.sort
+        state_is_default = !state_param_provided || submitted_state.sort == @default_state_filter.sort
         return unless search.result.blank? && state_is_default
 
         @closed_initiatives ||= search_with(filter_params.merge(with_any_state: %w(closed)))

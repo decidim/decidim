@@ -4,7 +4,12 @@ const FALLBACK_ATTR = "data-state-filter-fallback";
 const readFallbackValues = () => {
   const host = document.querySelector(`[${FALLBACK_ATTR}]`);
   if (!host) return [];
-  return host.getAttribute(FALLBACK_ATTR).split(",").map((v) => v.trim()).filter(Boolean);
+  try {
+    const parsed = JSON.parse(host.getAttribute(FALLBACK_ATTR));
+    return Array.isArray(parsed) ? parsed.filter((v) => typeof v === "string" && v.length > 0) : [];
+  } catch (_) {
+    return [];
+  }
 };
 
 const stateInputs = () => Array.from(document.querySelectorAll(STATE_INPUT_SELECTOR));
@@ -13,8 +18,11 @@ const ensureFallback = () => {
   const inputs = stateInputs();
   if (!inputs.length) return;
 
-  const checkedWithValue = inputs.filter((el) => el.checked && el.value !== "");
-  if (checkedWithValue.length > 0) return;
+  // Any checked checkbox counts as a deliberate selection — including the
+  // "All" toggle (value === ""). Only when nothing is checked do we apply
+  // the server-declared default.
+  const anyChecked = inputs.some((el) => el.checked);
+  if (anyChecked) return;
 
   const fallbackValues = readFallbackValues();
   if (!fallbackValues.length) return;
