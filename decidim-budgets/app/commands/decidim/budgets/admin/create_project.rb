@@ -12,7 +12,7 @@ module Decidim
 
         private
 
-        attr_reader :documents
+        attr_reader :attachments
 
         def run_after_hooks
           @attached_to = resource
