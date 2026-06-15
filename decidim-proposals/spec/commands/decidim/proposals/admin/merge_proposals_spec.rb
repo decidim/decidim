@@ -100,7 +100,7 @@ module Decidim
                     same_component?: same_component,
                     current_user: create(:user, :admin, organization: current_component.organization),
                     add_photos: [valid_photo],
-                    add_documents: [valid_document],
+                    add_attachments: [valid_document],
                     title: { "en" => "Valid very Long Proposal Title" },
                     body: { "en" => "Valid body text" },
                     address: "",

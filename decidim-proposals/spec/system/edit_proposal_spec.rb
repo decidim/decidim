@@ -81,7 +81,7 @@ describe "Edit proposals" do
       it "shows validation error when format is not accepted" do
         find("#dropdown-trigger-resource-#{proposal.id}").click
         click_on "Edit"
-        dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
+        dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
           expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
         expect(page).to have_text("Validation error!")
@@ -439,7 +439,7 @@ describe "Edit proposals" do
     end
 
     it "can attach a file" do
-      page.execute_script("document.getElementById('proposal_documents_button').click()")
+      page.execute_script("document.getElementById('proposal_attachments_button').click()")
       within ".upload-modal" do
         within "li[data-filename='#{document.file.blob.filename}']" do
           click_on("Remove")
