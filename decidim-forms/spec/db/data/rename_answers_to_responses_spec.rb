@@ -80,7 +80,29 @@ describe RenameAnswersToResponses do
     expect(Decidim::ActionLog.where(resource_type: "Decidim::Forms::Questionnaire").first.resource).to eq(questionnaire)
     expect(Decidim::ActionLog.where(resource_type: "Decidim::Forms::Response").first).to be_nil
   end
+  class Version < ApplicationRecord
+    self.table_name = "versions"
+  end
 
+  it "updates properly the paper trail versions" do
+    Version.create!(
+      item_type: "Decidim::Forms::Answer",
+      item_id: response.id,
+      event: "update",
+      whodunnit: user.id.to_s,
+      object: "{}",
+      object_changes: "{}",
+      created_at: Time.current
+    )
+
+    expect(Version.where(item_type: "Decidim::Forms::Response").first).to be_nil
+
+    migrator.migrate(:up)
+    expect(Version.where(item_type: "Decidim::Forms::Response").first.item_id).to eq(response.id)
+
+    migrator.migrate(:down)
+    expect(Version.where(item_type: "Decidim::Forms::Response").first).to be_nil
+  end
   context "when having attachments" do
     let!(:response) { create(:response, :with_attachments, questionnaire:) }
     let!(:other_attachment) { create(:attachment, attached_to: participatory_process) }
