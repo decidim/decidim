@@ -380,7 +380,7 @@ GEM
     doc2text (0.4.11)
       nokogiri (~> 1.19)
       rubyzip (~> 3.2)
-    doorkeeper (5.9.2)
+    doorkeeper (5.9.3)
       railties (>= 5)
     doorkeeper-i18n (5.2.9)
       doorkeeper (>= 5.2)
@@ -507,7 +507,7 @@ GEM
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.19.8)
+    json (2.19.9)
     jwt (3.2.0)
       base64
     kaminari (1.2.2)
