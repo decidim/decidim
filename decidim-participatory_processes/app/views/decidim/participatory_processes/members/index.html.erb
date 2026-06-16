@@ -11,14 +11,15 @@ edit_link(
 )
 %>
 
-<% content_for :aside do %>
-  <h1 class="title-decorator">
-    <%= t("members", scope: "decidim.participatory_space_members.index") %>
-  </h1>
-<% end %>
+<main class="container" role="main">
+  <section class="layout-main__section" id="participatory_process_members">
+    <h1 class="title-decorator my-12 inline-flex items-center gap-3">
+      <span><%= t("members", scope: "decidim.participatory_space_members.index") %></span>
+      <span class="text-sm font-semibold text-gray-2 bg-background rounded px-2 py-0.5"><%= collection.size %></span>
+    </h1>
 
-<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <section class="layout-main__section">
-    <%= render(collection) %>
+    <div class="profile__user-grid profile__user-grid--three-cols mb-12">
+      <%= render(collection) %>
+    </div>
   </section>
-<% end %>
+</main>
