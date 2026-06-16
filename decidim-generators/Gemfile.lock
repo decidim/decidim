@@ -822,10 +822,10 @@ GEM
     ruby-vips (2.3.0)
       ffi (~> 1.12)
       logger
-    rubyXL (3.4.37)
+    rubyXL (3.4.38)
       nokogiri (>= 1.10.8)
       rubyzip (>= 3.2.2)
-    rubyzip (3.3.1)
+    rubyzip (3.4.0)
     sass-embedded (1.97.3-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
     securerandom (0.4.1)
