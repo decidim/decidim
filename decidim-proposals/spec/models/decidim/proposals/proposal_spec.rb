@@ -521,6 +521,7 @@ module Decidim
         let!(:extra_coauthorship) { create(:coauthorship, coauthorable: proposal, author: coauthor) }
         let(:liker) { create(:user, :confirmed, organization:) }
         let!(:like) { create(:like, resource: proposal, author: liker) }
+        let!(:attachment) { create(:attachment, :with_pdf, attached_to: proposal) }
 
         context "when the proposal is soft-deleted" do
           before { proposal.destroy! }
@@ -533,6 +534,31 @@ module Decidim
           it "soft-deletes its likes instead of hard-deleting them" do
             expect(Decidim::Like.only_deleted.where(resource: proposal)).not_to be_empty
             expect(Decidim::Like.where(resource: proposal)).to be_empty
+          end
+
+          it "soft-deletes its attachments instead of hard-deleting them" do
+            expect(Decidim::Attachment.only_deleted.where(attached_to: proposal)).not_to be_empty
+            expect(Decidim::Attachment.where(attached_to: proposal)).to be_empty
+          end
+
+          it "preserves the ActiveStorage file record when soft-deleting attachments" do
+            blob = attachment.file.blob
+            expect(ActiveStorage::Blob.exists?(blob.id)).to be true
+          end
+        end
+
+        context "when a soft-deleted proposal is restored" do
+          before { proposal.destroy! }
+
+          it "restores its attachments" do
+            proposal.restore(recursive: true)
+            expect(Decidim::Attachment.where(attached_to: proposal)).not_to be_empty
+            expect(Decidim::Attachment.only_deleted.where(attached_to: proposal)).to be_empty
+          end
+
+          it "restores the ActiveStorage file association" do
+            proposal.restore(recursive: true)
+            expect(proposal.attachments.first.file.attached?).to be true
           end
         end
       end
