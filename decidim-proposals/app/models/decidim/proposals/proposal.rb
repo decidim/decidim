@@ -32,6 +32,12 @@ module Decidim
       include Decidim::SoftDeletable
       include Decidim::Publicable
 
+      before_destroy(prepend: true) do
+        # rubocop:disable Rails/SkipsModelValidations
+        attachments.update_all(deleted_at: Time.current)
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
       before_destroy do
         # rubocop:disable Rails/SkipsModelValidations
         coauthorships.update_all(deleted_at: Time.current)
@@ -46,6 +52,7 @@ module Decidim
           coauthorships_count: Decidim::Coauthorship.unscoped.where(coauthorable: self, deleted_at: nil).count
         )
         # rubocop:enable Rails/SkipsModelValidations
+        Decidim::Attachment.only_deleted.where(attached_to: self).find_each(&:restore!)
       end
 
       def assign_state(token)

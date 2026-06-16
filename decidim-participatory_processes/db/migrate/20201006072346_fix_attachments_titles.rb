@@ -5,7 +5,7 @@ class FixAttachmentsTitles < ActiveRecord::Migration[5.2]
     reset_column_information
 
     PaperTrail.request(enabled: false) do
-      Decidim::Attachment.find_each do |attachment|
+      Decidim::Attachment.unscoped.find_each do |attachment|
         next if attachment.title.is_a?(Hash) && attachment.description.is_a?(Hash)
 
         attached_to = attachment.attached_to
