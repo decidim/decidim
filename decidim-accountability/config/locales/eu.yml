@@ -106,7 +106,7 @@ eu:
               </ul>
               </li>
               </ol>
-            title: Inportatu emaitzak CSV fitxategitik
+            title: Emaitzak CSV fitxategitik inportartu
         imports:
           create:
             invalid: Arazo bat egon da emaitzak inportatzean.
