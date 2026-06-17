@@ -54,6 +54,7 @@ module Decidim
         email = last_email
         expect(email.subject).to eq("Your account has been deleted")
         expect(last_email_body).to include("Dear #{original_name}")
+        expect(last_email_body).to include("Your account has been deactivated and is no longer accessible.")
       end
 
       it "stores the deleted_at and delete_reason to the user" do
