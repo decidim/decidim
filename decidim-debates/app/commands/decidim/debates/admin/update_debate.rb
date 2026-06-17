@@ -45,7 +45,7 @@ module Decidim
 
         def run_after_hooks
           @attached_to = resource
-          document_cleanup!(include_all_attachments: true)
+          attachment_cleanup!(include_all_attachments: true)
           create_attachments(first_weight: 1) if process_attachments?
         end
       end
