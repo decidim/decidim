@@ -144,7 +144,7 @@ module Decidim
             {
               "responses" => [
                 {
-                  "add_documents" => uploaded_files,
+                  "add_attachments" => uploaded_files,
                   "question_id" => question1.id
                 }
               ],
