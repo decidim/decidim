@@ -197,7 +197,7 @@ shared_examples "manage proposals" do
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:proposal_documents, image_path)
+            dynamically_attach_file(:proposal_attachments, image_path)
 
             within ".new_proposal" do
               find("*[type=submit]").click

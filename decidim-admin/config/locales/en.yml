@@ -12,6 +12,7 @@ en:
         plural: Plural
       attachment:
         attachment_collection_id: Folder
+        attachments: Attachments
         description: Description
         file: File
         title: Attachment or image name
@@ -1097,10 +1098,10 @@ en:
           next_title: Next item
           previous: Previous
           previous_title: Previous item
-        gallery:
-          add_images: Add images
-          edit_images: Edit images
-          gallery_legend: Add an image gallery (Optional)
+        attachments:
+          add_attachments: Add attachments
+          attachment_legend: Add an attachment gallery (Optional)
+          edit_attachments: Edit attachments
       static_page_topics:
         create:
           error: There was a problem creating a new topic.
@@ -1316,6 +1317,11 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when managing a non-managed participant.
+      file_help:
+        attachment:
+          explanation: 'Guidance for file:'
+          message_1: CSV, JSON and Excel (.xlsx) files are supported
+          message_2: For CSV files, the separator between columns must be a semicolon (";")
     moderations:
       actions:
         expand: Expand

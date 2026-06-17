@@ -4,13 +4,13 @@ module Decidim
   module Elections
     module Admin
       class CreateElection < Decidim::Commands::CreateResource
-        include ::Decidim::GalleryMethods
+        include ::Decidim::MultipleAttachmentsMethods
 
         fetch_form_attributes :title, :description, :start_at, :end_at, :results_availability
 
         protected
 
-        attr_reader :gallery
+        attr_reader :attachments
 
         def resource_class = Decidim::Elections::Election
 
@@ -34,14 +34,14 @@ module Decidim
 
         def run_after_hooks
           @attached_to = resource
-          create_gallery if process_gallery?
+          create_attachments if process_attachments?
         end
 
         def run_before_hooks
-          return unless process_gallery?
+          return unless process_attachments?
 
-          build_gallery
-          raise Decidim::Commands::HookError if gallery_invalid?
+          build_attachments
+          raise Decidim::Commands::HookError if attachments_invalid?
         end
       end
     end
