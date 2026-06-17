@@ -39,6 +39,7 @@ module Decidim
       end
 
       before_destroy do
+        votes.delete_all
         # rubocop:disable Rails/SkipsModelValidations
         coauthorships.update_all(deleted_at: Time.current)
         likes.update_all(deleted_at: Time.current)
