@@ -2,21 +2,21 @@
 
 module Decidim
   module ParticipatorySpace
-    # i18n-tasks-use t('decidim.events.participatory_space.member_added.private.email_intro')
-    # i18n-tasks-use t('decidim.events.participatory_space.member_added.private.email_outro')
-    # i18n-tasks-use t('decidim.events.participatory_space.member_added.private.email_subject')
-    # i18n-tasks-use t('decidim.events.participatory_space.member_added.private.notification_title')
     # i18n-tasks-use t('decidim.events.participatory_space.member_added.published.email_intro')
     # i18n-tasks-use t('decidim.events.participatory_space.member_added.published.email_outro')
     # i18n-tasks-use t('decidim.events.participatory_space.member_added.published.email_subject')
     # i18n-tasks-use t('decidim.events.participatory_space.member_added.published.notification_title')
+    # i18n-tasks-use t('decidim.events.participatory_space.member_added.unpublished.email_intro')
+    # i18n-tasks-use t('decidim.events.participatory_space.member_added.unpublished.email_outro')
+    # i18n-tasks-use t('decidim.events.participatory_space.member_added.unpublished.email_subject')
+    # i18n-tasks-use t('decidim.events.participatory_space.member_added.unpublished.notification_title')
     class MemberAddedEvent < Decidim::Events::SimpleEvent
       include Rails.application.routes.mounted_helpers
 
       def i18n_scope
         return "#{super}.published" if membership&.published?
 
-        "#{super}.private"
+        "#{super}.unpublished"
       end
 
       def default_i18n_options

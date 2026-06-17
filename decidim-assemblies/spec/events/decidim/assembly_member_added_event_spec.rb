@@ -47,7 +47,7 @@ describe Decidim::AssemblyMemberAddedEvent do
 
   context "when membership is public" do
     let(:role) { create(:member, :unpublished, user:, participatory_space:) }
-    let(:i18n_scope) { "#{event_name}.private" }
+    let(:i18n_scope) { "#{event_name}.unpublished" }
 
     context "when assembly is transparent" do
       let(:resource) { create(:assembly, :transparent, title: generate_localized_title(:assembly_title)) }

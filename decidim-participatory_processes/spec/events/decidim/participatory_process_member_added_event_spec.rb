@@ -47,7 +47,7 @@ describe Decidim::ParticipatoryProcessMemberAddedEvent do
 
   context "when membership is public" do
     let(:role) { create(:member, :unpublished, user:, participatory_space:) }
-    let(:i18n_scope) { "#{event_name}.private" }
+    let(:i18n_scope) { "#{event_name}.unpublished" }
 
     context "when participatory process is transparent" do
       let(:resource) { create(:participatory_process, :transparent, title: generate_localized_title(:participatory_process_title)) }
