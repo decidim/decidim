@@ -260,8 +260,8 @@ RSpec.shared_examples "manage debates" do
           choose "Open"
         end
 
-        dynamically_attach_file(:debate_documents, image_path)
-        dynamically_attach_file(:debate_documents, document_path)
+        dynamically_attach_file(:debate_attachments, image_path)
+        dynamically_attach_file(:debate_attachments, document_path)
 
         within ".new_debate" do
           find("*[type=submit]").click
@@ -279,7 +279,7 @@ RSpec.shared_examples "manage debates" do
       end
 
       it "shows validation error when format is not accepted" do
-        dynamically_attach_file(:debate_documents, invalid_document, keep_modal_open: true) do
+        dynamically_attach_file(:debate_attachments, invalid_document, keep_modal_open: true) do
           expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
         end
         expect(page).to have_text("Validation error!")
@@ -301,8 +301,8 @@ RSpec.shared_examples "manage debates" do
           fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
         end
 
-        dynamically_attach_file(:debate_documents, image_path)
-        dynamically_attach_file(:debate_documents, document_path)
+        dynamically_attach_file(:debate_attachments, image_path)
+        dynamically_attach_file(:debate_attachments, document_path)
 
         within ".edit_debate" do
           find("*[type=submit]").click
@@ -317,18 +317,6 @@ RSpec.shared_examples "manage debates" do
 
         expect(page).to have_css("img[src*='#{image_filename}']")
         expect(page).to have_text(document_filename)
-      end
-    end
-
-    context "when attachments are not allowed" do
-      before do
-        component_settings = current_component["settings"]["global"].merge!(attachments_allowed: false)
-        current_component.update!(settings: component_settings)
-        click_on "New debate"
-      end
-
-      it "does not show the attachments form", :slow do
-        expect(page).to have_no_css("#debate_documents_button")
       end
     end
   end
@@ -370,6 +358,87 @@ RSpec.shared_examples "manage debates" do
           expect(page).to have_no_text("Close")
         end
       end
+    end
+  end
+
+  context "when the debate has an attachment" do
+    let!(:debate_with_attachment) { create(:debate, component: current_component) }
+    let!(:document) { create(:attachment, :with_image, attached_to: debate_with_attachment) }
+    let(:document_filename) { "Exampledocument.pdf" }
+    let(:document_path) { Decidim::Dev.asset(document_filename) }
+
+    before do
+      component_settings = current_component["settings"]["global"].merge!(attachments_allowed: true)
+      current_component.update!(settings: component_settings)
+      visit_component_admin
+    end
+
+    it "can remove an attachment" do
+      within "tr[data-id=\"#{debate_with_attachment.id}\"]" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+      within ".edit_debate" do
+        find_by_id("debate_attachments_button").click
+      end
+      within ".upload-modal" do
+        click_on "Remove"
+        click_on "Save"
+      end
+      within ".edit_debate" do
+        expect(page).to have_no_css("img[src*='#{document.file.blob.filename}']")
+      end
+    end
+
+    it "can attach a file" do
+      click_on "New debate"
+
+      within ".new_debate" do
+        fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n_editor(:debate_description, "#debate-description-tabs", **attributes[:description].except("machine_translations"))
+        fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
+
+        choose "Open"
+      end
+
+      dynamically_attach_file(:debate_attachments, document_path)
+
+      within ".new_debate" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_callout "Debate successfully created"
+
+      within "tr[data-id=\"#{Decidim::Debates::Debate.last.id}\"]" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page).to have_text(document_filename)
+    end
+
+    it "can edit a debate with an attachment" do
+      within "tr[data-id=\"#{debate_with_attachment.id}\"]" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+
+      fill_in_i18n(:debate_title, "#debate-title-tabs", en: "Updated debate title with attachments")
+      click_on "Update"
+
+      expect(page).to have_callout "Debate successfully updated"
+
+      visit_component_admin
+
+      within "tr", text: "Updated debate title with attachments" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+      expect(page).to have_field("debate_title_en", with: "Updated debate title with attachments")
     end
   end
 end

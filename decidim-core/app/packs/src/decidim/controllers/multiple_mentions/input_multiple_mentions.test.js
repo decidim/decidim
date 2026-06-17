@@ -7,13 +7,14 @@
 import { Application } from "@hotwired/stimulus"
 import MultipleMentionsController from "src/decidim/controllers/multiple_mentions/controller"
 
-const AutoComplete = require("src/decidim/refactor/moved/autocomplete");
+const TomSelect = require("tom-select/dist/cjs/tom-select.popular");
 const iconMock = require("src/decidim/refactor/moved/icon");
 
 // Mock the dependencies
-jest.mock("src/decidim/refactor/moved/autocomplete", () => {
+jest.mock("tom-select/dist/cjs/tom-select.popular", () => {
   return jest.fn().mockImplementation(() => ({
-    setInput: jest.fn()
+    destroy: jest.fn(),
+    clearOptions: jest.fn()
   }));
 });
 
@@ -114,12 +115,22 @@ describe("MultipleMentionsManager", () => {
       expect(controller.emptyFocusElement).toBe(existingElement);
     });
 
-    it("should initialize AutoComplete with correct configuration", () => {
-      expect(AutoComplete).toHaveBeenCalledWith(searchInput, {
-        dataMatchKeys: ["name", "nickname"],
-        dataSource: expect.any(Function),
-        dataFilter: expect.any(Function),
-        modifyResult: expect.any(Function)
+    it("should initialize TomSelect with correct configuration", () => {
+      expect(TomSelect).toHaveBeenCalledWith(searchInput, {
+        maxItems: 1,
+        valueField: "id",
+        labelField: "name",
+        searchField: ["name", "nickname"],
+        loadThrottle: 200,
+        loadingClass: "loading",
+        preload: false,
+        highlight: true,
+        load: expect.any(Function),
+        render: {
+          option: expect.any(Function),
+          "no_results": expect.any(Function)
+        },
+        onChange: expect.any(Function)
       });
     });
   });
@@ -226,24 +237,24 @@ describe("MultipleMentionsManager", () => {
       controller.selected = ["1", "3"];
 
       const list = [
-        { value: { id: "1" } },
-        { value: { id: "2" } },
-        { value: { id: "3" } },
-        { value: { id: "4" } }
+        { id: "1" },
+        { id: "2" },
+        { id: "3" },
+        { id: "4" }
       ];
 
       const filtered = controller.filterResults(list);
 
       expect(filtered).toEqual([
-        { value: { id: "2" } },
-        { value: { id: "4" } }
+        { id: "2" },
+        { id: "4" }
       ]);
     });
 
     it("should return all users when none are selected", () => {
       const list = [
-        { value: { id: "1" } },
-        { value: { id: "2" } }
+        { id: "1" },
+        { id: "2" }
       ];
 
       const filtered = controller.filterResults(list);
@@ -255,8 +266,8 @@ describe("MultipleMentionsManager", () => {
       controller.selected = ["1", "2"];
 
       const list = [
-        { value: { id: "1" } },
-        { value: { id: "2" } }
+        { id: "1" },
+        { id: "2" }
       ];
 
       const filtered = controller.filterResults(list);
@@ -330,7 +341,6 @@ describe("MultipleMentionsManager", () => {
 
       expect(controller.selected).toContain("1");
       expect(selectedItems.children.length).toBe(1);
-      expect(controller.autoComplete.setInput).toHaveBeenCalledWith("");
     });
 
     it("should not add user when max limit is reached", () => {
@@ -350,7 +360,6 @@ describe("MultipleMentionsManager", () => {
 
       expect(controller.selected).not.toContain("10");
       expect(selectedItems.children.length).toBe(0);
-      expect(controller.autoComplete.setInput).not.toHaveBeenCalled();
     });
 
     it("should not add user when direct messages are disabled", () => {
@@ -368,7 +377,6 @@ describe("MultipleMentionsManager", () => {
 
       expect(controller.selected).not.toContain("1");
       expect(selectedItems.children.length).toBe(0);
-      expect(controller.autoComplete.setInput).not.toHaveBeenCalled();
     });
 
     it("should handle multiple valid selections", () => {
@@ -383,7 +391,6 @@ describe("MultipleMentionsManager", () => {
 
       expect(controller.selected).toEqual(["1", "2"]);
       expect(selectedItems.children.length).toBe(2);
-      expect(controller.autoComplete.setInput).toHaveBeenCalledTimes(2);
     });
   });
 
