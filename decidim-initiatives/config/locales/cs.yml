@@ -444,6 +444,8 @@ cs:
       events:
         approve_membership_request:
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}'
+        create_initiative_event:
+          email_subject: Nová iniciativa od %{author_name}
         revoke_membership_request:
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
         spawn_committee_request_event:
