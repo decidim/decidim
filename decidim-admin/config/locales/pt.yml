@@ -637,10 +637,6 @@ pt:
       share_tokens:
         actions:
           destroy: Eliminar
-      shared:
-        gallery:
-          add_images: Adicionar imagens
-          gallery_legend: Adicionar uma galeria de imagens (Opcional)
       static_page_topics:
         create:
           error: Ocorreu um problema ao criar um novo tópico.
