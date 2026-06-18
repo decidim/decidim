@@ -38,10 +38,6 @@ ro:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Trebuie să fie reatașate
-            add_photos:
-              needs_to_be_reattached: Trebuie să fie reatașate
             body:
               cant_be_equal_to_template: nu poate fi egal cu modelul
               identical: Nici titlul nu poate fi identic
