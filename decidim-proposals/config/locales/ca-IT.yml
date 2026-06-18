@@ -68,9 +68,9 @@ ca-IT:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+              needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
             add_photos:
-              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+              needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
             body:
               cant_be_equal_to_template: No pot ser igual a la plantilla
               identical: I el títol no pot ser idèntic
