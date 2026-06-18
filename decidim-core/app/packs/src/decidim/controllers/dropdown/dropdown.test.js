@@ -144,8 +144,8 @@ describe("DropdownController", () => {
 
   describe("focus trap", () => {
     const makeFocusable = (anchor) => {
-      Object.defineProperty(anchor, "offsetWidth", { configurable: true, value: 1 })
-      Object.defineProperty(anchor, "offsetHeight", { configurable: true, value: 1 })
+      Reflect.defineProperty(anchor, "offsetWidth", { configurable: true, value: 1 })
+      Reflect.defineProperty(anchor, "offsetHeight", { configurable: true, value: 1 })
       return anchor
     }
 

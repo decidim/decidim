@@ -191,7 +191,7 @@ shared_examples "cycling through publication states" do
     visit decidim_admin_participatory_processes.components_path(component.participatory_space)
 
     within ".sidebar-menu" do
-      click_on "Components"
+      click_on "Components", match: :first
     end
 
     within "tr", text: title do

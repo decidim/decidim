@@ -4,8 +4,8 @@ import MainMenuController from "src/decidim/controllers/main_menu/controller"
 
 describe("MainMenuController", () => {
   const makeFocusable = (element) => {
-    Object.defineProperty(element, "offsetWidth", { configurable: true, value: 1 })
-    Object.defineProperty(element, "offsetHeight", { configurable: true, value: 1 })
+    Reflect.defineProperty(element, "offsetWidth", { configurable: true, value: 1 })
+    Reflect.defineProperty(element, "offsetHeight", { configurable: true, value: 1 })
     return element
   }
 
