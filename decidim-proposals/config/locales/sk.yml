@@ -63,10 +63,6 @@ sk:
               allowed_file_content_types: 'Neplatný typ dokumentu. Povolené sú iba súbory s nasledujúcimi príponami: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Je potrebné priložiť znovu
-            add_photos:
-              needs_to_be_reattached: Je potrebné priložiť znovu
             body:
               cant_be_equal_to_template: nemôže byť rovnaké, ako šablóna
               identical: A názov nemôže byť totožný
