@@ -956,6 +956,18 @@ en:
         notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that is why we have removed the case-sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
       notification_event:
         notification_title: An event occurred to <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: You have been added as a member to a participatory space.
+            email_outro: You have received this notification because an administrator has added you to <a href="%{resource_url}">%{resource_title}</a>. If access to this space is restricted, you will be able to access it with your account.<br> Your profile will appear in the <a href="%{members_page}">list of members</a> of the space.
+            email_subject: You now have access to %{resource_title}.
+            notification_title: You now have access to <a href="%{resource_url}">%{resource_title}</a>.
+          unpublished:
+            email_intro: You have been added as a member to a participatory space.
+            email_outro: You have received this notification because an administrator has added you to <a href="%{resource_url}">%{resource_title}</a>. If access to this space is restricted, you will be able to access it with your account.
+            email_subject: You now have access to %{resource_title}.
+            notification_title: You now have access to <a href="%{resource_url}">%{resource_title}</a>.
       reports:
         parent_hidden:
           email_intro: |-

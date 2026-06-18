@@ -19,7 +19,7 @@ module Decidim
       attribute :longitude, Float
       attribute :attachment, AttachmentForm
 
-      attachments_attribute :documents
+      attachments_attribute :attachments
 
       validates :title, :body, presence: true
       validates :title, :body, etiquette: true
@@ -42,7 +42,7 @@ module Decidim
         presenter = ProposalPresenter.new(model)
         self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
 
-        self.documents = model.attachments
+        self.attachments = model.attachments
       end
 
       def participatory_space_manifest
@@ -73,7 +73,7 @@ module Decidim
       # in any other field. This is needed because when the form has an error, the attachment
       # is lost, so we need a way to inform the user of this problem.
       def notify_missing_attachment_if_errored
-        errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
+        errors.add(:add_attachments, :needs_to_be_reattached) if errors.any? && add_attachments.present?
       end
     end
   end

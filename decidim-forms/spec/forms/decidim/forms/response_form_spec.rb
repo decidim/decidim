@@ -87,7 +87,7 @@ module Decidim
           context "when the body is empty" do
             before do
               subject.body = nil
-              subject.add_documents = uploaded_files
+              subject.add_attachments = uploaded_files
             end
 
             it "is valid" do
@@ -97,7 +97,7 @@ module Decidim
 
           context "when there are no uploaded files" do
             before do
-              subject.add_documents = nil
+              subject.add_attachments = nil
             end
 
             it "is not valid if there are no files" do
