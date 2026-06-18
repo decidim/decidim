@@ -33,10 +33,6 @@ nl:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Moet opnieuw worden gekoppeld
-            add_photos:
-              needs_to_be_reattached: Moet opnieuw worden gekoppeld
             body:
               cant_be_equal_to_template: mag niet gelijk zijn aan het template
               identical: EN titel kan niet identiek zijn
