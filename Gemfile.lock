@@ -341,7 +341,7 @@ GEM
     cmdparse (3.0.7)
     commonmarker (2.6.3-arm64-darwin)
     commonmarker (2.6.3-x86_64-linux)
-    concurrent-ruby (1.3.6)
+    concurrent-ruby (1.3.7)
     connection_pool (3.0.2)
     crack (1.0.1)
       bigdecimal
