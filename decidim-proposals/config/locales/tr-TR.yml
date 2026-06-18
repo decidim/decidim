@@ -47,10 +47,6 @@ tr:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Yeniden eklenmesi gerekiyor
-            add_photos:
-              needs_to_be_reattached: Yeniden eklenmesi gerekiyor
             body:
               cant_be_equal_to_template: şablona eşit olamaz
               identical: VE başlık aynı olamaz
