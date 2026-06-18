@@ -49,8 +49,6 @@ sv:
       meeting_registration_invite:
         email: E-post
         name: Namn
-      response:
-        add_documents: Lägg till dokument
       validate_registration_code:
         code: Kod
     errors:
