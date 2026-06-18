@@ -62,10 +62,6 @@ cs:
               allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Potřebuje být znovu připojen
-            add_photos:
-              needs_to_be_reattached: Potřebuje být znovu připojen
             body:
               cant_be_equal_to_template: nelze se rovnat šabloně
               identical: A název nemůže být totožný
