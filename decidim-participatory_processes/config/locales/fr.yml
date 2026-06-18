@@ -295,6 +295,7 @@ fr:
         publish: "%{user_name} a publié la concertation %{resource_name}"
         publish_all_members: "%{user_name} a publié tous les membres du processus participatif %{resource_name}"
         restore: "%{user_name} a restauré le processus participatif %{resource_name}"
+        soft_delete: "%{user_name} a déplacé le processus participatif %{resource_name} dans la corbeille"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
         unpublish_all_members: "%{user_name} a dépublié tous les membres du processus participatif %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
@@ -357,7 +358,7 @@ fr:
         participatory_processes:
           announcement: Information sur l'annonce (callout)
           created_at: La date de création de cet espace
-          description: Une description longue du processus
+          description: Une description longue de la concertation
           developer_group: Le groupe promoteur de la concertation. Il s'agit de l'organisation qui porte la concertation.
           end_date: La date de fin de la concertation
           hashtag: Le hashtag du processus, utilisé pour Twitter/X
