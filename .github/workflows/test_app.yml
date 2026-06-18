@@ -28,6 +28,8 @@ on:
         required: false
         default: false
         type: boolean
+      # We prefer to disable this check instead of having to create more associations during the tests/seeds that
+      # would make the testing/seeding performance worse
       bullet_unused_eager_loading:
         description: 'Enable bullet unused eager loading testing'
         required: false
