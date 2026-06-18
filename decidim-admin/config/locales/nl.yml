@@ -667,11 +667,6 @@ nl:
       share_tokens:
         actions:
           destroy: Verwijderen
-      shared:
-        gallery:
-          add_images: Afbeeldingen toevoegen
-          edit_images: Bewerk afbeeldingen
-          gallery_legend: Voeg een afbeeldingsgalerij toe (optioneel)
       static_page_topics:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw onderwerp.
