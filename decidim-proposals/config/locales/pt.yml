@@ -33,10 +33,6 @@ pt:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Necessita de ser recolocado
-            add_photos:
-              needs_to_be_reattached: Necessita de ser recolocado
             body:
               cant_be_equal_to_template: não pode ser igual ao modelo
               identical: E o título não pode ser idêntico
