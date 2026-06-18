@@ -32,3 +32,4 @@ jobs:
     with:
       working-directory: "decidim-pages"
       test_command: bundle exec parallel_test --type rspec --pattern spec/
+      bullet_unused_eager_loading: true
