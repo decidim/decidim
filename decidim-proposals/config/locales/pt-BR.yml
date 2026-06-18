@@ -66,10 +66,6 @@ pt-BR:
               allowed_file_content_types: 'Tipo de documento inválido. Apenas arquivos com as seguintes extensões são permitidos: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Precisa ser recolocado
-            add_photos:
-              needs_to_be_reattached: Precisa ser recolocado
             body:
               cant_be_equal_to_template: não pode ser igual ao modelo
               identical: E o título não pode ser idêntico
