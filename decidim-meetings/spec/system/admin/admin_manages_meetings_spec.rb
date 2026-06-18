@@ -792,6 +792,62 @@ describe "Admin manages meetings" do
     end
   end
 
+  context "when the meeting has an attachment" do
+    let(:attachment_collection) { create(:attachment_collection, collection_for: meeting) }
+    let!(:attachment) { create(:attachment, attached_to: meeting, attachment_collection:) }
+
+    it "can remove an attachment" do
+      visit_component_admin
+      within "tr", text: translated(meeting.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Add attachment"
+      end
+
+      within "tr[data-id='#{attachment.id}']" do
+        find("button[data-controller='dropdown']").click
+        click_on "Delete"
+      end
+
+      accept_confirm
+      expect(page).to have_no_css("tr[data-id='#{attachment.id}']")
+    end
+
+    it "can attach a file" do
+      visit_component_admin
+      within "tr", text: translated(meeting.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Add attachment"
+      end
+
+      click_on "New attachment"
+
+      fill_in_i18n(:attachment_title, "#attachment-title-tabs", en: "Test attachment")
+      fill_in_i18n(:attachment_description, "#attachment-description-tabs", en: "Test description")
+
+      dynamically_attach_file(:attachment_file, Decidim::Dev.asset("Exampledocument.pdf"))
+
+      click_on "Create attachment"
+
+      expect(page).to have_text("Test attachment")
+    end
+
+    it "can edit a meeting with an attachment" do
+      visit_component_admin
+      within "tr", text: translated(meeting.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      within ".edit_meeting" do
+        fill_in_i18n(:meeting_title, "#meeting-title-tabs", en: "Updated title", ca: "Títol actualitzat", es: "Título actualizado")
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_callout("Meeting successfully updated.")
+      expect(page).to have_text("Updated title")
+    end
+  end
+
   private
 
   def fill_in_services

@@ -16,7 +16,7 @@ module Decidim
         attribute :target_component_id, Array[Integer]
         attribute :proposal_ids, Array
 
-        attachments_attribute :documents
+        attachments_attribute :attachments
 
         validates :target_component, :proposals, :current_component, presence: true
         validates :proposal_ids, length: { minimum: 2 }
@@ -62,7 +62,7 @@ module Decidim
         end
 
         def notify_missing_attachment_if_errored
-          errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
+          errors.add(:add_attachments, :needs_to_be_reattached) if errors.any? && add_attachments.present?
         end
       end
     end

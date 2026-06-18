@@ -23,7 +23,7 @@ module Decidim
         attribute :comments_enabled, Boolean, default: true
         attribute :attachment, AttachmentForm
 
-        attachments_attribute :documents
+        attachments_attribute :attachments
 
         validates :title, :description, translatable_presence: true
         validates :title, :description, translated_etiquette: true
@@ -42,7 +42,7 @@ module Decidim
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
           self.comments_layout = model.comments_layout || "single_column"
-          self.documents = model.attachments
+          self.attachments = model.attachments
         end
 
         def participatory_space_manifest
@@ -72,7 +72,7 @@ module Decidim
         # an error, the attachment is lost, so we need a way to inform the user of
         # this problem.
         def notify_missing_attachment_if_errored
-          errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
+          errors.add(:add_attachments, :needs_to_be_reattached) if errors.any? && add_attachments.present?
         end
       end
     end

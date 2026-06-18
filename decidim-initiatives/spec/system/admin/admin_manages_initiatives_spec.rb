@@ -122,4 +122,78 @@ describe "Admin manages initiatives" do
 
     it_behaves_like "paginating a collection"
   end
+
+  context "when the initiative has an attachment" do
+    let!(:initiative_with_attachment) { create(:initiative, organization:) }
+    let!(:document) { create(:attachment, :with_image, attached_to: initiative_with_attachment) }
+
+    it "can remove an attachment" do
+      visit decidim_admin_initiatives.edit_initiative_path(initiative_with_attachment)
+      click_on("Edit")
+
+      find("tbody tr:first-child button[data-controller='dropdown']").click
+      click_on "Delete"
+
+      click_on "OK"
+
+      expect(page).to have_text("Attachment destroyed successfully.")
+
+      visit decidim_admin_initiatives.edit_initiative_path(initiative_with_attachment)
+
+      expect(page).to have_no_text(document.file.blob.filename.to_s)
+    end
+
+    it "can attach a file" do
+      visit decidim_admin_initiatives.edit_initiative_path(initiative_with_attachment)
+
+      within("#accordion-homepage_attachments") do
+        click_on("New")
+      end
+
+      fill_in_i18n(
+        :attachment_title,
+        "#attachment-title-tabs",
+        en: "Super city!"
+      )
+      fill_in_i18n(
+        :attachment_description,
+        "#attachment-description-tabs",
+        en: "Attachment description"
+      )
+
+      click_on("Add file")
+
+      within(".upload-modal") do
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset("city3.jpeg"))
+        click_on("Save")
+      end
+
+      click_on("Create attachment")
+
+      expect(page).to have_text("Super city!")
+    end
+
+    it "can edit an initiative with an attachment" do
+      visit decidim_admin_initiatives.edit_initiative_path(initiative_with_attachment)
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+
+      fill_in_i18n(
+        :initiative_title,
+        "#initiative-title-tabs",
+        en: "Updated initiative title with attachments"
+      )
+
+      within("[data-content]") do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_callout "The initiative has been successfully updated."
+
+      visit decidim_admin_initiatives.edit_initiative_path(initiative_with_attachment)
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+      expect(page).to have_field("initiative_title_en", with: "Updated initiative title with attachments")
+    end
+  end
 end
