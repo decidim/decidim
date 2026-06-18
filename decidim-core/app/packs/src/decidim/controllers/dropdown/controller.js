@@ -2,6 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 import { screens } from "tailwindcss/defaultTheme"
 import Dropdowns from "a11y-dropdown-component";
 
+const DROPDOWN_FOCUSABLE_SELECTOR = "a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled])"
+
 /**
  * Create dropdown from a component
  *
@@ -80,6 +82,105 @@ export default class extends Controller {
     const addAriaRoles = this.element.dataset.addAriaRoles !== "false";
     if (!addAriaRoles) {
       this.removeAriaRoles();
+    }
+
+    if (this.element.dataset.focusTrap === "true") {
+      this.setupFocusTrap();
+    }
+  }
+
+  disconnect() {
+    this.teardownFocusTrap();
+  }
+
+  setupFocusTrap() {
+    this.dropdownMenu = document.getElementById(this.element.dataset.target);
+
+    if (!this.dropdownMenu) {
+      return;
+    }
+
+    this.focusTrapEnabled = false;
+    this.handleFocusTrapKeydown = this.handleFocusTrapKeydown.bind(this);
+    this.focusTrapObserver = new MutationObserver(() => this.syncFocusTrap());
+    this.focusTrapObserver.observe(this.dropdownMenu, { attributes: true, attributeFilter: ["aria-hidden"] });
+    this.syncFocusTrap();
+  }
+
+  teardownFocusTrap() {
+    this.disableFocusTrap();
+    this.focusTrapObserver?.disconnect();
+  }
+
+  isDropdownOpen() {
+    return this.dropdownMenu?.getAttribute("aria-hidden") === "false";
+  }
+
+  syncFocusTrap() {
+    if (this.isDropdownOpen()) {
+      this.enableFocusTrap();
+    } else {
+      this.disableFocusTrap();
+    }
+  }
+
+  getFocusableElements() {
+    return Array.from(this.dropdownMenu.querySelectorAll(DROPDOWN_FOCUSABLE_SELECTOR)).filter(
+      (element) => !element.disabled && (element.offsetWidth > 0 || element.offsetHeight > 0)
+    );
+  }
+
+  handleFocusTrapKeydown(event) {
+    if (!this.isDropdownOpen() || event.key !== "Tab") {
+      return;
+    }
+
+    const focusable = this.getFocusableElements();
+
+    if (focusable.length === 0) {
+      return;
+    }
+
+    const firstElement = focusable[0];
+    const lastElement = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement.focus({ preventScroll: true });
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement.focus({ preventScroll: true });
+    }
+  }
+
+  enableFocusTrap() {
+    if (this.focusTrapEnabled) {
+      return;
+    }
+
+    this.focusTrapEnabled = true;
+    document.addEventListener("keydown", this.handleFocusTrapKeydown);
+
+    if (window.focusGuard) {
+      window.focusGuard.trap(this.dropdownMenu, this.element);
+    }
+
+    const focusable = this.getFocusableElements();
+    if (focusable.length > 0) {
+      focusable[0].focus({ preventScroll: true });
+    }
+  }
+
+  disableFocusTrap() {
+    if (!this.focusTrapEnabled) {
+      return;
+    }
+
+    this.focusTrapEnabled = false;
+    document.removeEventListener("keydown", this.handleFocusTrapKeydown);
+
+    if (window.focusGuard) {
+      window.focusGuard.disable();
     }
   }
 

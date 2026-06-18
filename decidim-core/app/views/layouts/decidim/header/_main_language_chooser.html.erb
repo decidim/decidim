@@ -1,6 +1,6 @@
 <% if available_locales.length > 1 %>
   <div class="main-bar__language-chooser">
-    <button id="trigger-<%= id %>" data-controller="dropdown" data-target="<%= id %>" class="main-bar__language-chooser-trigger">
+    <button id="trigger-<%= id %>" data-controller="dropdown" data-target="<%= id %>" data-focus-trap="true" class="main-bar__language-chooser-trigger">
       <span class="main-bar__language-chooser-holder">
         <%= icon "global-line" %>
         <span><%= t("name", scope: "locale" ) %></span>

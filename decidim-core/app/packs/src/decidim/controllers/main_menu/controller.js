@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 const OPEN_DELAY_MS = 50
+const FOCUSABLE_SELECTOR = "a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex='-1'])"
 
 /**
  * Main menu dropdown controller and traps page scroll while the menu is open.
@@ -74,14 +75,18 @@ export default class extends Controller {
   }
 
   handleKeydown(event) {
-    if (event.key !== "Escape") {
-      return;
-    }
     if (this.isHidden()) {
       return;
     }
 
-    this.closeMenu()
+    if (event.key === "Escape") {
+      this.closeMenu()
+      return;
+    }
+
+    if (event.key === "Tab") {
+      this.handleFocusTrap(event)
+    }
   }
 
   handleCloseButtonClick() {
@@ -96,6 +101,31 @@ export default class extends Controller {
     return this.menuContainer.getAttribute("aria-hidden") === "true"
   }
 
+  getFocusableElements() {
+    return Array.from(this.menuContainer.querySelectorAll(FOCUSABLE_SELECTOR)).filter(
+      (element) => !element.disabled && (element.offsetWidth > 0 || element.offsetHeight > 0)
+    )
+  }
+
+  handleFocusTrap(event) {
+    const focusable = this.getFocusableElements()
+
+    if (focusable.length === 0) {
+      return;
+    }
+
+    const firstElement = focusable[0]
+    const lastElement = focusable[focusable.length - 1]
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault()
+      lastElement.focus({ preventScroll: true })
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault()
+      firstElement.focus({ preventScroll: true })
+    }
+  }
+
   openMenu() {
     if (typeof this.previousBodyOverflow === "undefined") {
       this.previousBodyOverflow = document.body.style.overflow;
@@ -104,6 +134,15 @@ export default class extends Controller {
     this.element.setAttribute("aria-expanded", "true")
     this.menuContainer.setAttribute("aria-hidden", "false")
     this.menuContainer.setAttribute("aria-modal", "true")
+
+    if (window.focusGuard) {
+      window.focusGuard.trap(this.menuContainer, this.menuButton)
+    }
+
+    const focusable = this.getFocusableElements()
+    if (focusable.length > 0) {
+      focusable[0].focus({ preventScroll: true })
+    }
   }
 
   closeMenu() {
@@ -111,5 +150,11 @@ export default class extends Controller {
     this.element.setAttribute("aria-expanded", "false")
     this.menuContainer.setAttribute("aria-hidden", "true")
     this.menuContainer.removeAttribute("aria-modal")
+
+    if (window.focusGuard) {
+      window.focusGuard.disable()
+    } else {
+      this.menuButton.focus({ preventScroll: true })
+    }
   }
 }

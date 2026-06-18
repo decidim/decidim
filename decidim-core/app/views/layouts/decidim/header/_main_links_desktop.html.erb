@@ -7,7 +7,7 @@
     </div>
   <% else %>
     <div class="main-bar__dropdown-container">
-      <button id="trigger-dropdown-account" class="main-bar__dropdown-trigger" data-controller="dropdown" data-target="dropdown-menu-account">
+      <button id="trigger-dropdown-account" class="main-bar__dropdown-trigger" data-controller="dropdown" data-target="dropdown-menu-account" data-focus-trap="true">
         <% unread_data = current_user_unread_data %>
         <% if unread_data[:unread_items] %>
           <%= content_tag :span, "", class: "main-bar__notification", data: unread_data %>

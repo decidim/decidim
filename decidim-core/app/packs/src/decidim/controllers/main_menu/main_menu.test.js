@@ -3,6 +3,12 @@ import { Application } from "@hotwired/stimulus"
 import MainMenuController from "src/decidim/controllers/main_menu/controller"
 
 describe("MainMenuController", () => {
+  const makeFocusable = (element) => {
+    Object.defineProperty(element, "offsetWidth", { configurable: true, value: 1 })
+    Object.defineProperty(element, "offsetHeight", { configurable: true, value: 1 })
+    return element
+  }
+
   let application = null
   let controller = null
   let menuButton = null
@@ -41,6 +47,11 @@ describe("MainMenuController", () => {
     menuButton = document.querySelector('[data-controller="main-menu"]')
     menuContainer = document.getElementById("main-menu-container")
     closeButton = document.getElementById("main-menu-close")
+
+    window.focusGuard = {
+      trap: jest.fn(),
+      disable: jest.fn()
+    }
 
     jest.spyOn(window, "scrollTo").mockImplementation(() => {})
 
@@ -89,6 +100,27 @@ describe("MainMenuController", () => {
     })
   })
 
+  describe("openMenu", () => {
+    it("enables focus guard and focuses the first element", () => {
+      const focusableButton = makeFocusable(document.createElement("button"))
+      focusableButton.textContent = "First"
+      menuContainer.prepend(focusableButton)
+      controller.openMenu()
+
+      expect(window.focusGuard.trap).toHaveBeenCalledWith(menuContainer, menuButton)
+      expect(document.activeElement).toBe(focusableButton)
+    })
+  })
+
+  describe("closeMenu", () => {
+    it("disables focus guard when available", () => {
+      controller.openMenu()
+      controller.closeMenu()
+
+      expect(window.focusGuard.disable).toHaveBeenCalled()
+    })
+  })
+
   describe("handleButtonClick", () => {
     it("opens the menu after the delay and scrolls to top", () => {
       jest.useFakeTimers()
@@ -133,6 +165,38 @@ describe("MainMenuController", () => {
       controller.handleKeydown({ key: "Enter" })
 
       expect(menuContainer.getAttribute("aria-hidden")).toBe("false")
+    })
+
+    it("traps focus on Tab from the last focusable element", () => {
+      const firstButton = makeFocusable(document.createElement("button"))
+      firstButton.textContent = "First"
+      const lastButton = makeFocusable(document.createElement("button"))
+      lastButton.textContent = "Last"
+      menuContainer.append(firstButton, lastButton)
+      controller.openMenu()
+      lastButton.focus()
+
+      const event = { key: "Tab", shiftKey: false, preventDefault: jest.fn() }
+      controller.handleKeydown(event)
+
+      expect(event.preventDefault).toHaveBeenCalled()
+      expect(document.activeElement).toBe(firstButton)
+    })
+
+    it("traps focus on Shift+Tab from the first focusable element", () => {
+      const firstButton = makeFocusable(document.createElement("button"))
+      firstButton.textContent = "First"
+      const lastButton = makeFocusable(document.createElement("button"))
+      lastButton.textContent = "Last"
+      menuContainer.append(firstButton, lastButton)
+      controller.openMenu()
+      firstButton.focus()
+
+      const event = { key: "Tab", shiftKey: true, preventDefault: jest.fn() }
+      controller.handleKeydown(event)
+
+      expect(event.preventDefault).toHaveBeenCalled()
+      expect(document.activeElement).toBe(lastButton)
     })
   })
 

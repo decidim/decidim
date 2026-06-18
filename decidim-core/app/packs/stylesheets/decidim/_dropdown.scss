@@ -1,4 +1,4 @@
-[id*="dropdown-menu"] {
+[id*="dropdown-menu"]:not(#dropdown-menu-account-mobile):not(#dropdown-menu-main-mobile):not(#dropdown-menu-main-desktop) {
   @apply flex flex-col py-0 mx-3.5 md:mx-0 border-t-0 border-gray-3 cursor-pointer;
 
   &[aria-hidden="true"] {

@@ -154,22 +154,33 @@ header {
 
         #main-dropdown-summary-desktop-close {
           @apply self-end;
+
+          &:hover,
+          &:focus-visible {
+            @apply bg-secondary rounded-[4px] text-white;
+
+            svg,
+            span {
+              @apply text-white fill-current;
+            }
+          }
         }
       }
 
       &__trigger {
-        @apply text-secondary cursor-pointer py-1 px-2 text-md leading-[22px] w-fit flex items-center gap-x-2;
+        @apply text-secondary cursor-pointer py-1 px-2 text-md leading-[22px] w-fit flex items-center gap-x-2 rounded;
 
         span {
           @apply text-secondary;
         }
 
-        &:hover {
+        &:hover,
+        &:focus-visible {
           @apply bg-secondary rounded-[4px] text-white;
 
           svg,
           span {
-            @apply text-white;
+            @apply text-white fill-current;
           }
         }
 
@@ -223,7 +234,11 @@ header {
       }
 
       &__account {
-        @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
+        @apply fixed top-0 left-0 w-full h-full z-30 m-0 flex flex-col border-0 bg-white cursor-default;
+
+        &[aria-hidden="true"] {
+          @apply hidden;
+        }
 
         ul {
           @apply my-6 divide-y divide-gray-3;
@@ -243,10 +258,6 @@ header {
 
         .main-bar__avatar-name {
           @apply w-12 h-12 text-2xl;
-        }
-
-        .account-container {
-          @apply before:block before:absolute before:top-16 before:right-14 before:content-[""] before:bg-white before:w-2 before:h-12 before:-mt-8;
         }
       }
 
@@ -285,7 +296,16 @@ header {
       }
 
       &-trigger {
-        @apply flex flex-col items-center text-secondary relative px-2 py-1;
+        @apply flex flex-col items-center text-secondary relative px-2 py-1 rounded;
+
+        &:hover,
+        &:focus-visible {
+          @apply bg-secondary text-white;
+
+          svg {
+            @apply fill-white;
+          }
+        }
       }
     }
 
@@ -358,7 +378,11 @@ header {
       }
 
       &__dropdown-wrapper {
-        @apply flex flex-none items-center cursor-pointer underline;
+        @apply flex flex-none items-center cursor-pointer underline rounded;
+
+        &:focus-visible {
+          @apply outline outline-2 outline-white outline-offset-[-2px];
+        }
       }
 
       &__label--truncatable {
@@ -457,7 +481,11 @@ header {
       }
 
       .menu-bar__breadcrumb-item {
-        @apply block flex-1 min-w-0 overflow-hidden whitespace-nowrap text-ellipsis font-semibold underline;
+        @apply flex flex-1 min-w-0 items-center gap-x-2 overflow-hidden font-semibold underline rounded;
+
+        &:focus-visible {
+          @apply outline outline-2 outline-white outline-offset-[-2px];
+        }
       }
 
       /* overwrite default dropdown styles */
@@ -505,11 +533,16 @@ header {
         }
       }
 
-      li:hover {
+      li:hover,
+      li:focus-within {
         @apply bg-[var(--secondary)] rounded-[4px];
 
         a {
           @apply text-white;
+        }
+
+        svg {
+          @apply fill-white;
         }
       }
     }
@@ -541,7 +574,7 @@ header {
           }
 
           a {
-            @apply flex items-center justify-start gap-1 font-semibold text-lg text-secondary;
+            @apply flex items-center justify-start gap-1 font-semibold text-lg text-secondary rounded;
 
             span {
               @apply min-w-0 truncate;
@@ -549,6 +582,15 @@ header {
 
             svg {
               @apply flex-none fill-current;
+            }
+
+            &:hover,
+            &:focus-visible {
+              @apply bg-secondary text-white;
+
+              svg {
+                @apply fill-white;
+              }
             }
           }
         }

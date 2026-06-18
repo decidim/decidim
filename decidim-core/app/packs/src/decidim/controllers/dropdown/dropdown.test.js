@@ -142,6 +142,63 @@ describe("DropdownController", () => {
     });
   });
 
+  describe("focus trap", () => {
+    const makeFocusable = (anchor) => {
+      Object.defineProperty(anchor, "offsetWidth", { configurable: true, value: 1 })
+      Object.defineProperty(anchor, "offsetHeight", { configurable: true, value: 1 })
+      return anchor
+    }
+
+    beforeEach(() => {
+      window.focusGuard = {
+        trap: jest.fn(),
+        disable: jest.fn()
+      }
+      element.setAttribute("data-focus-trap", "true")
+    })
+
+    afterEach(() => {
+      Reflect.deleteProperty(window, "focusGuard")
+    })
+
+    it("enables focus trap when the dropdown opens", () => {
+      const testController = createController(element)
+      testController.connect()
+
+      dropdownMenuEl.setAttribute("aria-hidden", "false")
+      testController.syncFocusTrap()
+
+      expect(window.focusGuard.trap).toHaveBeenCalledWith(dropdownMenuEl, element)
+    })
+
+    it("traps focus on Tab from the last focusable element", () => {
+      const firstLink = makeFocusable(dropdownMenuEl.querySelector("a"))
+      const lastLink = makeFocusable(dropdownMenuEl.querySelectorAll("a")[2])
+      const testController = createController(element)
+      testController.connect()
+      testController.setupFocusTrap()
+      dropdownMenuEl.setAttribute("aria-hidden", "false")
+      testController.enableFocusTrap()
+      lastLink.focus()
+
+      const event = { key: "Tab", shiftKey: false, preventDefault: jest.fn() }
+      testController.handleFocusTrapKeydown(event)
+
+      expect(event.preventDefault).toHaveBeenCalled()
+      expect(document.activeElement).toBe(firstLink)
+    })
+
+    it("disables focus trap when the dropdown closes", () => {
+      const testController = createController(element)
+      testController.connect()
+      testController.enableFocusTrap()
+
+      testController.disableFocusTrap()
+
+      expect(window.focusGuard.disable).toHaveBeenCalled()
+    })
+  })
+
   describe("data-add-aria-roles option", () => {
     it("keeps role menu when data-add-aria-roles is true", () => {
       element.setAttribute("data-add-aria-roles", "true");
