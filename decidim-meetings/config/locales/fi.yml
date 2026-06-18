@@ -49,8 +49,6 @@ fi:
       meeting_registration_invite:
         email: Sähköpostiosoite
         name: Nimi
-      response:
-        add_documents: Lisää asiakirjoja
       validate_registration_code:
         code: Koodi
     errors:
