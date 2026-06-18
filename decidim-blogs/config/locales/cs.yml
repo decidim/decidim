@@ -159,6 +159,7 @@ cs:
           likes_count: Počet líbí se mi pro tento příspevek
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tento příspěvek
           published_at: Datum zveřejnění tohoto příspěvku
+          reference: Jedinečný odkaz na příspěvek
           title: Název příspěvku
           updated_at: Poslední datum, kdy byl příspěvek aktualizován
           url: URL pro tento příspěvek
