@@ -752,11 +752,6 @@ lt:
       share_tokens:
         actions:
           destroy: Ištrinti
-      shared:
-        gallery:
-          add_images: Pridėti paveikslėlių
-          edit_images: Redaguoti paveikslėlį
-          gallery_legend: Pridėti paveikslėlių galeriją (Neprivaloma)
       static_page_topics:
         create:
           error: Kuriant naują temą iškilo problema.
