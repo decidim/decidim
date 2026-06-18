@@ -612,10 +612,6 @@ lb:
       share_tokens:
         actions:
           destroy: Löschen
-      shared:
-        gallery:
-          add_images: Bilder hinzufügen
-          gallery_legend: Bildergalerie hinzufügen (Optional)
       static_page_topics:
         create:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
