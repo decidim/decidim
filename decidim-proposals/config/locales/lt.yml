@@ -39,10 +39,6 @@ lt:
               allowed_file_content_types: 'Nevalidus turinio tipas. Leidžiamos rinkmenos tik su šiomis galūnėmis: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Reikia pridėti iš naujo
-            add_photos:
-              needs_to_be_reattached: Reikia pridėti iš naujo
             body:
               cant_be_equal_to_template: negali prilygti šablonui
               identical: IR pavadinimas negali sutapti
