@@ -39,10 +39,6 @@ zh-TW:
               allowed_file_content_types: '無效文件類型。只允許使用以下副檔名的文件：%{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: 需要重新附加
-            add_photos:
-              needs_to_be_reattached: 需要重新附加
             body:
               cant_be_equal_to_template: 不能與模板相同
               identical: 並且標題不能相同
