@@ -64,9 +64,9 @@ fr:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
+              needs_to_be_reattached: Doit être ré-attachée
             add_photos:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
+              needs_to_be_reattached: Doit être ré-attachée
             body:
               cant_be_equal_to_template: ne peut pas être égal au modèle
               identical: ET le titre ne peut pas être identique
