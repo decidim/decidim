@@ -62,10 +62,6 @@ fi-pl:
               allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Liitettävä uudelleen
-            add_photos:
-              needs_to_be_reattached: Liitettävä uudelleen
             body:
               cant_be_equal_to_template: ei voi vastata mallipohjaa
               identical: JA otsikko ei voi olla täysin sama
