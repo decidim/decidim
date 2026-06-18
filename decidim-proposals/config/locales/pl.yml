@@ -52,10 +52,6 @@ pl:
               allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Musi zostać ponownie załączony
-            add_photos:
-              needs_to_be_reattached: Musi zostać ponownie załączony
             body:
               cant_be_equal_to_template: nie może być taki sam jak szablon
               identical: I tytuł nie może być identyczny
