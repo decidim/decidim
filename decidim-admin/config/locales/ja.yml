@@ -1190,7 +1190,7 @@ ja:
           success: タクソノミーを更新しました。
       taxonomy_filters:
         actions:
-          new_taxonomy_filter: 新規タクソノミフィルター
+          new_taxonomy_filter: 新規分類フィルター
         breadcrumb:
           edit: フィルターの編集
           filters: フィルター
