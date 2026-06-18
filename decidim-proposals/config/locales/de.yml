@@ -62,10 +62,6 @@ de:
               allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
-            add_photos:
-              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
             body:
               cant_be_equal_to_template: kann nicht gleich der Vorlage sein
               identical: UND Titel dürfen nicht identisch sein
