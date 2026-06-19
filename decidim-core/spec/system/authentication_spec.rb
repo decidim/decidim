@@ -714,9 +714,7 @@ describe "Authentication" do
 
             expect(page).to have_text("Invalid")
 
-            # Ensure the unlock email job is enqueued before processing
-            sleep 1
-            perform_enqueued_jobs
+            perform_enqueued_jobs(only: ActionMailer::MailDeliveryJob)
             expect(emails.count).to eq(1)
           end
         end
