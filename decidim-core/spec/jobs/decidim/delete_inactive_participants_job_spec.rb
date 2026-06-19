@@ -105,12 +105,12 @@ describe Decidim::DeleteInactiveParticipantsJob do
         expect(last_email_body).to include("Your account has been deactivated and is no longer accessible.")
       end
 
-      context "when deletes a single user" do
+      context "when deleting an inactive participant" do
         before do
           allow(Decidim::DeleteUserMailer).to receive(:delete).and_return(double(deliver_later: true))
         end
 
-        it "removes the user and sends deletion notification" do
+        it "removes the user and sends the email" do
           perform_enqueued_jobs { subject.perform_later(organization) }
 
           expect(user.reload.email).to be_empty
