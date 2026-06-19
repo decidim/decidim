@@ -807,10 +807,6 @@ bg:
           next_title: Следващ елемент
           previous: Предишен
           previous_title: Предишен елемент
-        gallery:
-          add_images: Добави изображения
-          edit_images: Редактиране на изображения
-          gallery_legend: Добавяне на галерия с изображения (незадължително)
       static_page_topics:
         create:
           error: Възникна проблем при създаването на нова тема.
