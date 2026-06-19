@@ -19,6 +19,10 @@
         <%= icon "add-line" %>
       <% end %>
   <% end %>
+
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable:, skip_to_id: "blogs" } do %>
+    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+  <% end %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
