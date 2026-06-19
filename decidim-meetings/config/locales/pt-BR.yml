@@ -50,8 +50,6 @@ pt-BR:
       meeting_registration_invite:
         email: E-mail
         name: Nome
-      response:
-        add_documents: Adicionar documentos
       validate_registration_code:
         code: Código
     errors:
