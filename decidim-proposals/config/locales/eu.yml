@@ -63,10 +63,8 @@ eu:
               allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Berriz atxikitu beharra dago
-            add_photos:
-              needs_to_be_reattached: Berriz atxikitu beharra dago
+            add_attachments:
+              needs_to_be_reattached: Berriro erantsi behar da
             body:
               cant_be_equal_to_template: ezin da plantilla bezalakoa izan
               identical: ETA izenburua ezin da berdina izan
@@ -766,6 +764,7 @@ eu:
         errors:
           device_not_supported: Zure gailuak ez ditu kokapen-zerbitzuak onartzen. Mesedez, sartu helbidea eskuz.
           no_device_location: Barkatu, ezin izan dugu zure kokapena antzeman. Mesedez, sartu helbidea eskuz.
+        locating: Lokalizatzen...
         use_my_location: Erabili nire egungo kokapena
       invite_coauthors:
         cancel:
