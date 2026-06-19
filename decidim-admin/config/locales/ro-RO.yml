@@ -764,11 +764,6 @@ ro:
         index:
           copied: Link de acces copiat!
           title: 'Link-uri de acces pentru: %{name}'
-      shared:
-        gallery:
-          add_images: Adaugă imagini
-          edit_images: Editare imagini
-          gallery_legend: Adaugă o galerie de imagini (opțional)
       static_page_topics:
         create:
           error: A apărut o problemă la crearea unui subiect nou.
