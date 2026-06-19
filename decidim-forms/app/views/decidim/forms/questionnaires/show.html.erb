@@ -6,7 +6,7 @@
 <%= append_stylesheet_pack_tag "decidim_forms" %>
 <%= append_javascript_pack_tag "decidim_forms" %>
 
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { reference: questionnaire_for.respond_to?(:reference) ? resource_reference(questionnaire_for) : nil } do %>
 
   <div class="text-center py-10">
     <% if questionnaire.title.present? %>

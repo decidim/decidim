@@ -29,7 +29,7 @@ module Decidim
           )
           expect(serialized[:comment]).to include(alignment: resource.comment.alignment)
           expect(serialized[:comment]).to include(alignment: resource.comment.depth)
-          expect(serialized[:comment][:root_commentable_url]).to match(/http/)
+          expect(serialized[:comment][:root_commentable_url]).to include("http")
         end
 
         it "includes the creation date" do

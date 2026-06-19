@@ -85,7 +85,7 @@ describe "User edits a debate" do
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
-        expect(page).to have_no_css("#debate_documents_button")
+        expect(page).to have_no_css("#debate_attachments_button")
       end
     end
 
@@ -109,8 +109,8 @@ describe "User edits a debate" do
           fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
         end
 
-        dynamically_attach_file(:debate_documents, image_path)
-        dynamically_attach_file(:debate_documents, document_path)
+        dynamically_attach_file(:debate_attachments, image_path)
+        dynamically_attach_file(:debate_attachments, document_path)
 
         within ".edit_debate" do
           find("*[type=submit]").click
@@ -128,11 +128,64 @@ describe "User edits a debate" do
 
       context "when attaching an invalid file format" do
         it "shows an error message" do
-          dynamically_attach_file(:debate_documents, Decidim::Dev.asset("participatory_text.odt"), keep_modal_open: true) do
+          dynamically_attach_file(:debate_attachments, Decidim::Dev.asset("participatory_text.odt"), keep_modal_open: true) do
             expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
           end
           expect(page).to have_text("Validation error! Check that the file has an allowed extension or size.")
         end
+      end
+    end
+
+    context "when the debate has an attachment", :slow do
+      let(:attachments_allowed) { true }
+      let(:image_filename) { "city.jpeg" }
+      let(:document_filename) { "Exampledocument.pdf" }
+      let(:document_path) { Decidim::Dev.asset(document_filename) }
+      let!(:image_attachment) { create(:attachment, :with_image, attached_to: debate) }
+
+      it "can remove an attachment" do
+        visit_component
+        click_on debate.title.values.first
+        find("#dropdown-trigger-resource-#{debate.id}").click
+        click_on "Edit"
+
+        click_on("Edit attachments")
+        within "li[data-filename='#{image_attachment.file.blob.filename}']" do
+          click_on("Remove")
+        end
+
+        click_on("Save")
+        expect(page).to have_no_css("img[src*='#{image_filename}']")
+      end
+
+      it "can attach a file" do
+        visit_component
+        click_on debate.title.values.first
+
+        find("#dropdown-trigger-resource-#{debate.id}").click
+        click_on "Edit"
+
+        dynamically_attach_file(:debate_attachments, document_path)
+        click_on("Save")
+
+        click_on("Documents")
+        expect(page).to have_text("Exampledocument.pdf")
+      end
+
+      it "can edit a debate with an attachment" do
+        visit_component
+
+        click_on debate.title.values.first
+        find("#dropdown-trigger-resource-#{debate.id}").click
+        click_on "Edit"
+
+        within ".edit_debate" do
+          fill_in :debate_title, with: "Should every organization use Decidim?"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_text("Debate successfully updated.")
+        expect(page).to have_css("img[src*='#{image_filename}']")
       end
     end
   end

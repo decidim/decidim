@@ -8,6 +8,7 @@ describe "User changes own data", type: :system do
     let(:compared_field) { :about }
     let(:compared_against) { about }
     let(:resource) { Decidim::UserBaseEntity }
+
     it "updates the about text" do
       expect { command.call }.to broadcast(:ok)
       field = resource.last.reload.send(compared_field)

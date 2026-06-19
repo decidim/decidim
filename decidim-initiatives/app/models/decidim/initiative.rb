@@ -380,13 +380,14 @@ module Decidim
     #
     # Returns a Boolean.
     def has_authorship?(user)
+      return false unless user
       return true if author.id == user.id
 
       committee_members.approved.where(decidim_users_id: user.id).any?
     end
 
     def author_users
-      [author].concat(committee_members.excluding_author.map(&:user))
+      [author].concat(committee_members.includes(:user).excluding_author.map(&:user))
     end
 
     def accepts_offline_votes?

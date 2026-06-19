@@ -49,6 +49,9 @@ import {
   Dialogs
 } from "src/decidim/a11y"
 
+
+window.Rails = window.Rails || Rails;
+
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referenced through a single Decidim.I18n object
 window.Decidim = window.Decidim || {
@@ -59,6 +62,7 @@ window.Decidim = window.Decidim || {
   announceForScreenReader
 };
 
+window.createDialog = createDialog;
 window.morphdom = morphdom
 
 const deprecate = (element, targetController, oldSyntax) => {
@@ -236,8 +240,7 @@ const initializer = (element = document) => {
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
 
-// If no jQuery is used the Tribute feature used in comments to autocomplete
-// mentions stops working
+// Keep this under jQuery ready to support components initialized on legacy templates
 $(() => initializer());
 
 // Run initializer action over the new DOM elements
@@ -260,4 +263,3 @@ document.addEventListener("comments:loaded", (event) => {
     });
   }
 });
-

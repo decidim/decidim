@@ -9,35 +9,39 @@
       </button>
     </div>
 
-    <div id="panel-attendee" class="card-section">
+    <div id="panel-attendee" class="card-section m-4">
+      <p class="mb-4"><%= t(".invite_explanation") %></p>
 
-      <div class="row column">
-        <fieldset>
-          <%= form.collection_radio_buttons(:existing_user, [[t(".non_user"), false], [t(".existing_user"), true]], :last, :first) %>
-        </fieldset>
+      <div class="grid grid-cols-2 gap-4">
+        <%= label_tag :meeting_registration_invite_attendee_type_name, class: "attendee-type-card p-4 block border border-background rounded-lg cursor-pointer has-[:checked]:border-secondary has-[:checked]:border-2" do %>
+          <%= radio_button_tag "meeting_registration_invite[attendee_type]", "name", form.object.attendee_type == "name", id: "meeting_registration_invite_attendee_type_name", class: "hidden peer !m-0", disabled: %>
+          <span class="text-lg font-normal">
+            <%= t(".name_or_nickname") %>
+          </span>
+        <% end %>
+
+        <%= label_tag :meeting_registration_invite_attendee_type_email, class: "attendee-type-card p-4 block border border-background rounded-lg cursor-pointer has-[:checked]:border-secondary has-[:checked]:border-2" do %>
+          <%= radio_button_tag "meeting_registration_invite[attendee_type]", "email", form.object.attendee_type == "email", id: "meeting_registration_invite_attendee_type_email", class: "hidden peer !m-0", disabled: %>
+          <span class="text-lg font-normal">
+            <%= t(".email") %>
+          </span>
+        <% end %>
       </div>
 
-      <div class="row column">
-        <p><%= t(".invite_explanation") %></p>
-      </div>
-
-      <div class="row column">
-        <div class="cell attendee-fields--new-user">
-          <%= form.text_field :name, disabled: %>
-        </div>
-        <div class="cell attendee-fields--new-user">
-          <%= form.text_field :email, disabled: %>
-        </div>
-
-        <div class="cell attendee-fields--user-picker">
+      <div class="mt-4">
+        <div class="attendee-fields--name hidden">
           <% prompt_options = { placeholder: t(".select_user") } %>
-          <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, class: "autocomplete-field--results-inline" }, prompt_options) do |user|
+          <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, label: t(".name_or_nickname"), class: "autocomplete-field--results-inline" }, prompt_options) do |user|
             { value: user.id, label: "#{user.name} (@#{user.nickname})" }
           end %>
         </div>
 
+        <div class="attendee-fields--email hidden">
+          <%= form.text_field :email, disabled: %>
+        </div>
       </div>
-      <div class="row column">
+
+      <div class="mt-4">
         <%= form.submit t(".invite"), class: "button button__sm button__secondary", disabled: %>
       </div>
     </div>

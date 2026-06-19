@@ -16,6 +16,7 @@ on:
       - "decidim-core/**"
       - "decidim-dev/**"
       - "decidim-initiatives/**"
+      - "decidim-meetings/**"
       - "decidim-verifications/**"
 
 permissions:
@@ -44,5 +45,3 @@ jobs:
     with:
       working-directory: "decidim-initiatives"
       test_command: ${{ matrix.test.command }}
-      bullet_n_plus_one: false
-      bullet_unused_eager_loading: false

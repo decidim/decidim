@@ -170,6 +170,15 @@ export default Extension.create({
       "Shift-Tab": outdent,
       Backspace: () => {
         if (this.editor.isActive("listItem")) {
+          // When at the start of a list item, join the list items
+          // together using joinItemBackward which properly merges
+          // inline content. This ensures the items are merged
+          // correctly regardless of how the browser handles the
+          // event.
+          if (this.editor.state.selection.$head.parentOffset === 0) {
+            return this.editor.commands.joinItemBackward();
+          }
+
           return false;
         }
 

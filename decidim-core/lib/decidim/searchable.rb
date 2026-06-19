@@ -117,6 +117,11 @@ module Decidim
             searchables_in_org.find_each do |sr|
               next if sr.blank?
 
+              unless sr.locale.in?(org.available_locales)
+                sr.destroy
+                next
+              end
+
               sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
             end
           end

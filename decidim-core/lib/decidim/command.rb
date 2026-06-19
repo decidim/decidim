@@ -54,7 +54,7 @@ module Decidim
     protected
 
     def event_arguments
-      raise "#{self.class} must implement #event_arguments"
+      raise "#{self.class} must implement #event_arguments (passed to #{event_namespace})"
     end
 
     def event_namespace
