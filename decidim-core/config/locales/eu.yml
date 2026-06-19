@@ -1528,7 +1528,6 @@ eu:
         greetings_html: |
           Adeitasunez,<br>
           %{organization_name}
-        hello: "%{username}, agurgarria:\n"
         subject: Kontu inaktiboa ezabatua
     passwords:
       update:
