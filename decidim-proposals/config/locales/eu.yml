@@ -62,6 +62,8 @@ eu:
               allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
         proposal:
           attributes:
+            add_attachments:
+              needs_to_be_reattached: Berriz atxikitu beharra dago
             body:
               cant_be_equal_to_template: ezin da plantilla bezalakoa izan
               identical: ETA izenburua ezin da berdina izan
