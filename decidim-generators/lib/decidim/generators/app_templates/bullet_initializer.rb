@@ -2,7 +2,7 @@
 
 if defined?(Bullet) && !Rails.application.config.try(:boost_performance)
   Rails.application.config.after_initialize do
-    Bullet.enable = Decidim::Env.new("DECIDIM_BULLET_DEVELOPMENT_ENABLED", "false").present?
+    Bullet.enable = true
     Bullet.raise = true
     Bullet.bullet_logger = true
     Bullet.rails_logger = true
