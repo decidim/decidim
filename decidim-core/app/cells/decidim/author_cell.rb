@@ -31,10 +31,6 @@ module Decidim
       render unless current_user == model
     end
 
-    def perform_caching?
-      ActionController::Base.perform_caching
-    end
-
     def raw_model
       model.try(:__getobj__) || model
     end
