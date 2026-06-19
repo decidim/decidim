@@ -50,8 +50,6 @@ ca-IT:
       meeting_registration_invite:
         email: Correu electrònic
         name: Nom
-      response:
-        add_documents: Afegir documents
       validate_registration_code:
         code: Codi
     errors:
