@@ -951,6 +951,18 @@ es-PY:
         notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
         notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Se te ha añadido como miembro a un espacio de participación.
+            email_outro: Has recibido esta notificación porque una administradora te ha añadido a <a href="%{resource_url}">"%{resource_title}"</a>. Tu perfil se mostrará en la <a href="%{members_page}">lista de miembros</a> de este espacio.<br> Si el acceso a este espacio es restringido, podrás acceder siempre que hayas iniciado tu sesión con tu cuenta.
+            email_subject: Ahora tienes acceso a "%{resource_title}".
+            notification_title: Ahora tienes acceso a <a href="%{resource_url}">"%{resource_title}"</a>.
+          unpublished:
+            email_intro: Se te ha añadido como miembro a un espacio de participación.
+            email_outro: Has recibido esta notificación porque una administradora te ha añadido a <a href="%{resource_url}">"%{resource_title}"</a>. Si el acceso a este espacio es restringido, podrás acceder siempre que hayas iniciado tu sesión con tu cuenta.
+            email_subject: Ahora tienes acceso a "%{resource_title}".
+            notification_title: Ahora tienes acceso a <a href="%{resource_url}">"%{resource_title}"</a>.
       reports:
         parent_hidden:
           email_intro: |-
