@@ -700,7 +700,7 @@ describe "Authentication" do
               within ".new_user" do
                 fill_in :session_user_email, with: user.email
                 fill_in :session_user_password, with: "not-the-password"
-                find("*[type=submit]").click
+                perform_enqueued_jobs { find("*[type=submit]").click }
               end
             end
           end
@@ -709,10 +709,14 @@ describe "Authentication" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
               fill_in :session_user_password, with: "not-the-password"
-              perform_enqueued_jobs { find("*[type=submit]").click }
+              find("*[type=submit]").click
             end
 
             expect(page).to have_text("Invalid")
+
+            # Ensure the unlock email job is enqueued before processing
+            sleep 1
+            perform_enqueued_jobs
             expect(emails.count).to eq(1)
           end
         end
