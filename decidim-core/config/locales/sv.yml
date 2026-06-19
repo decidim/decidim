@@ -1530,7 +1530,6 @@ sv:
         greetings_html: |
           Vänliga hälsningar,<br>
           %{organization_name}
-        hello: Hej %{username},
         subject: Inaktivt konto raderat
     passwords:
       update:
