@@ -949,6 +949,18 @@ eu:
         notification_body: 'Ezizenak erabiltzeko modua zuzendu dugu bikoiztasunik egon ez dadin, eta horregatik kendu dugu kasu sentikorra den araua. Zure ezizena beste baten ostean sortu da, eta automatikoki aldatu dugu. Zure kontuaren konfiguraziotik alda dezakezu hemen: <a href="%{link_to_account_settings}">your account settings</a>.'
       notification_event:
         notification_title: 'Ekintza bat izan da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Partaidetza-espazio batean kide gisa gehitu zaituzte.
+            email_outro: Jakinarazpen hau jaso duzu administratzaile batek <a href="%{resource_url}">%{resource_title}</a> gehitu dizulako. Gune horretara sartzea mugatuta badago, zure kontuarekin sartu ahal izango zara.<br> Zure profila guneko <a href="%{members_page}"> pare-hartzailen zerrendan </a> agertuko da.
+            email_subject: Orain %{resource_title} baliabiderako sarbidea duzu.
+            notification_title: Orain, <a href="%{resource_url}">%{resource_title}</a> helbiderako sarbidea duzu.
+          unpublished:
+            email_intro: Gune parte-hartzaile batean kide gisa gehitu zaituzte.
+            email_outro: Jakinarazpen hau jaso duzu administratzaile batek <<a href="%{resource_url}">%{resource_title}</a> gehitu dizulako. Gune horretara sartzea mugatuta badago, zure kontuarekin sartu ahal izango zara.
+            email_subject: Orain  %{resource_title}  baliabidera sarbidea duzu.
+            notification_title: Orain, <a href="%{resource_url}">%{resource_title}</a> helbiderako sarbidea duzu.
       reports:
         parent_hidden:
           email_intro: |-
