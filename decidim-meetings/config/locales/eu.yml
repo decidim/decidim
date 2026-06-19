@@ -50,8 +50,6 @@ eu:
       meeting_registration_invite:
         email: Helbide elektronikoa
         name: Izena
-      response:
-        add_documents: Dokumentuak gehitu
       validate_registration_code:
         code: Kodea
     errors:
