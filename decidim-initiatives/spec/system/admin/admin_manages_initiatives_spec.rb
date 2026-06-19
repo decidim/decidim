@@ -176,6 +176,7 @@ describe "Admin manages initiatives" do
 
       within(".upload-modal") do
         find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset("city3.jpeg"))
+        sleep(1)
         click_on("Save")
       end
 

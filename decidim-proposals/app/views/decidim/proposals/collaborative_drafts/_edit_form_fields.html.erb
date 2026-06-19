@@ -14,7 +14,7 @@
 <% end %>
 
 <% if component_settings.attachments_allowed? %>
-  <%= form.attachment :documents,
+  <%= form.attachment :attachments,
                       multiple: false,
                       label: t("decidim.proposals.collaborative_drafts.new.add_file"),
                       button_label: t("decidim.proposals.collaborative_drafts.new.add_file"),
