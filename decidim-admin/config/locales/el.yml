@@ -779,11 +779,6 @@ el:
       share_tokens:
         actions:
           destroy: Διαγραφή
-      shared:
-        gallery:
-          add_images: Προσθήκη εικόνων
-          edit_images: Επεξεργασία εικόνας
-          gallery_legend: Προσθήκη συλλογής εικόνων (προαιρετικά)
       static_page_topics:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου θέματος.
