@@ -1570,7 +1570,6 @@ sk:
         greetings_html: |
           S pozdravom,<br>
           %{organization_name}
-        hello: Vážený/á %{username},
         subject: Neaktívny účet bol vymazaný
     passwords:
       update:
