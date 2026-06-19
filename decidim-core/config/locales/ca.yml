@@ -948,6 +948,18 @@ ca:
         notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no es distingueix entre majúscules i minúscules.<br/>El teu àlies es va crear més tard que un altre d'igual, així que s'ha renombrat automàticament. Pots modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Se t'ha afegit com a membre a un espai de participació.
+            email_outro: Heu rebut aquesta notificació perquè una administradora us ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. El vostre perfil es mostrarà a la <a href="%{members_page}">llista de membres</a> d'aquest espai.<br> Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
+            email_subject: Ara tens accés a "%{resource_title}".
+            notification_title: Ara tens accés a <a href="%{resource_url}">"%{resource_title}"</a>.
+          unpublished:
+            email_intro: Se t'ha afegit com a membre a un espai de participació.
+            email_outro: Heu rebut aquesta notificació perquè una administradora us ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
+            email_subject: Ara tens accés a "%{resource_title}".
+            notification_title: Ara tens accés a <a href="%{resource_url}">"%{resource_title}"</a>.
       reports:
         parent_hidden:
           email_intro: |-
