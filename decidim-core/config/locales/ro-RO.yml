@@ -1413,7 +1413,6 @@ ro:
         greetings_html: |
           Cu stimă,<br>
           %{organization_name}
-        hello: Dragă %{username},
         subject: Cont inactiv șters
     profile:
       deleted: Participant șters
