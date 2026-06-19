@@ -50,8 +50,6 @@ fr:
       meeting_registration_invite:
         email: Email
         name: Nom
-      response:
-        add_documents: Ajouter des documents
       validate_registration_code:
         code: Code
     errors:
