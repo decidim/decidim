@@ -11,6 +11,7 @@ eu:
         plural: Plurala
       attachment:
         attachment_collection_id: Karpeta
+        attachments: Erantsitako fitxategiak
         description: Deskribapena
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
@@ -235,7 +236,7 @@ eu:
         index:
           title: Arlo motak
         new:
-          create: Sortu arlo mota
+          create: Arlo mota sortu
           title: Beste arlo mota bat
         update:
           error: Arazo bat egon da arlo mota hau eguneratzean.
@@ -1096,6 +1097,10 @@ eu:
           next_title: Hurrengo elementua
           previous: Aurrekoa
           previous_title: Aurreko elementua
+        attachments:
+          add_attachments: Eranskinak erantsi
+          attachment_legend: Eranskin-galeria bat gehitu (Aukerakoa)
+          edit_attachments: Eranskinak editatu
       static_page_topics:
         create:
           error: Arazo bat egon da beste gai bat sortzean.
@@ -1311,6 +1316,11 @@ eu:
       errors:
         impersonate_user:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
+      file_help:
+        attachment:
+          explanation: 'Fitxategiako jarraibieak:'
+          message_1: CSV, JSON eta Excel (.xlsx) fitxategiak onartzen dira
+          message_2: CSV fitxategietarako, zutabeen arteko bereizgailuak erdikolona (";") izan behar du
     moderations:
       actions:
         expand: Zabaldu
