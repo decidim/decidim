@@ -1523,7 +1523,6 @@ pt-BR:
         greetings_html: |
           Atenciosamente,<br>
           %{organization_name}
-        hello: Prezado %{username},
         subject: Conta inativa excluída
     passwords:
       update:
