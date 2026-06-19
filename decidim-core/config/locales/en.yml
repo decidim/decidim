@@ -664,6 +664,13 @@ en:
           all: All
         filter_taxonomy_values:
           all: All
+    delete_user_mailer:
+      delete:
+        body_1: Your account has been deactivated and is no longer accessible. Your personal data is scheduled for permanent deletion in accordance with our data retention policies.
+        body_2: For security reasons, some authorization-related data will be retained; if you create a new account and authorize again, it may be linked to your new account.
+        greetings_html: Kind regards,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Dear %{username},
+      subject: Your account has been deleted
     devise:
       omniauth_registrations:
         create:
