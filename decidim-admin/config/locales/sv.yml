@@ -1055,10 +1055,6 @@ sv:
           next_title: Nästa
           previous: Föregående
           previous_title: Föregående
-        gallery:
-          add_images: Lägg till bilder
-          edit_images: Redigera bilder
-          gallery_legend: Lägg till ett bildgalleri (Frivilligt)
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.
