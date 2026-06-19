@@ -608,6 +608,11 @@ en:
         edit:
           title: Edit member
           update: Update
+        form:
+          email: Email
+          invite_explanation: The participant will be invited to join the organization.
+          name_or_nickname: Name or nickname
+          select_user: Select member
         index:
           import_via_csv: Import via CSV
           publish_all: Publish all

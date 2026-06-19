@@ -24,6 +24,7 @@ shared_examples "manage admin members examples" do
     click_on "New member"
 
     within ".new_member" do
+      choose "Email", name: "member[member_type]"
       fill_in :member_name, with: "John Doe"
       fill_in :member_email, with: other_user.email
 
@@ -95,7 +96,8 @@ shared_examples "manage admin members examples" do
       before do
         form = Decidim::Admin::ParticipatorySpace::MemberForm.from_params(
           name: "test",
-          email: "test@example.org"
+          email: "test@example.org",
+          member_type: "email"
         )
 
         Decidim::Admin::ParticipatorySpace::CreateMember.call(

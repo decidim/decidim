@@ -62,10 +62,14 @@ module Decidim
         end
 
         def existing_user
-          @existing_user ||= User.find_by(
-            email: form.email.downcase,
-            organization: member_to.organization
-          )
+          @existing_user ||= if form.member_type == "name"
+                               form.user
+                             else
+                               User.find_by(
+                                 email: form.email.downcase,
+                                 organization: member_to.organization
+                               )
+                             end
         end
 
         def send_notification_for_existing_user
@@ -92,12 +96,22 @@ module Decidim
         end
 
         def user_form
-          OpenStruct.new(name: form.name,
-                         email: form.email.downcase,
-                         organization: member_to.organization,
-                         admin: false,
-                         invited_by: current_user,
-                         invitation_instructions:)
+          if form.member_type == "name"
+            OpenStruct.new(name: form.user.name,
+                           email: form.user.email.downcase,
+                           organization: member_to.organization,
+                           admin: false,
+                           invited_by: current_user,
+                           invitation_instructions:)
+          else
+            email_local_part = form.email.split("@").first
+            OpenStruct.new(name: email_local_part,
+                           email: form.email.downcase,
+                           organization: member_to.organization,
+                           admin: false,
+                           invited_by: current_user,
+                           invitation_instructions:)
+          end
         end
 
         def invitation_instructions
