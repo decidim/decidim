@@ -12,6 +12,7 @@ fr-CA:
         plural: Pluriel
       attachment:
         attachment_collection_id: Dossier
+        attachments: Pièces jointes
         description: Description
         file: Fichier
         title: Nom de la pièce jointe ou de l'image
@@ -596,6 +597,7 @@ fr-CA:
           new:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
             promote: Promouvoir
+            title: Nouvelle promotion d'un utilisateur représenté
       members:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un membre pour cet espace participatif.
@@ -824,6 +826,7 @@ fr-CA:
           title: Modèles de newsletter
           use_template: Utiliser ce modèle
         show:
+          title: 'Prévisualiser le modèle: %{template_name}'
           use_template: Utiliser ce modèle
       newsletters:
         confirm_recipients:
@@ -1016,6 +1019,8 @@ fr-CA:
         edit:
           title: Modifier le type de secteur
           update: Mettre à jour
+        index:
+          title: Types de secteur
         new:
           create: Créer un type de secteur
           title: Nouveau secteur
@@ -1032,6 +1037,8 @@ fr-CA:
         edit:
           title: Modifier le périmètre d'application
           update: Mettre à jour
+        index:
+          title: Secteurs
         new:
           create: Créer un périmètre d'application
           title: Nouveau périmètre d'application
@@ -1091,10 +1098,10 @@ fr-CA:
           next_title: Élément suivant
           previous: Précédent
           previous_title: Élément précédent
-        gallery:
-          add_images: Ajouter des images
-          edit_images: Modifier les images
-          gallery_legend: Ajouter une galerie d'images (facultatif)
+        attachments:
+          add_attachments: Ajouter des pièces jointes
+          attachment_legend: Ajouter une galerie de pièces jointes (facultatif)
+          edit_attachments: Modifier les pièces jointes
       static_page_topics:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau sujet.
@@ -1170,7 +1177,10 @@ fr-CA:
         filters:
           search_placeholder: Rechercher
         index:
+          description: Les taxonomies et les filtres permettent aux administrateurs de trier et d'organiser le contenu. Par exemple, ajoutez une taxonomie avec les arrondissements et quartiers de la ville et créez ensuite des filtres uniquement avec les arrondissements ou pour un quartier spécifique.
           new_taxonomy: Nouvelle taxonomie
+          no_items_found: Aucune taxonomie trouvée correspondant aux critères de recherche.
+          title: Taxonomies
         name: Nom
         new:
           create: Créer la taxonomie
@@ -1179,6 +1189,8 @@ fr-CA:
         table:
           to_next_page: Faites glisser pour passer à la page suivante
           to_prev_page: Faites glisser pour passer à la page précédente
+        taxonomy_actions:
+          confirm_destroy: 'Êtes-vous sûr de vouloir supprimer %{name}? Cela supprimera également tous les éléments enfants. NOTE : Les ressources qui utilisent cette taxonomie ne seront pas affectées, mais elles perdront la référence à cette taxonomie.'
         total_filters: Filtres
         total_items: Éléments de la taxonomie
         update:
@@ -1194,19 +1206,26 @@ fr-CA:
         create:
           error: Un problème a été rencontré lors de la création de ce filtre de taxonomie.
           success: Filtre de taxonomie créé avec succès.
+        destroy:
+          error: Un problème a été rencontré lors de la suppression de ce filtre de taxonomie.
+          success: Filtre de taxonomie supprimé avec succès.
         edit:
           back: Revenir en arrière
           title: Modifier le filtre de taxonomie
           update: Mettre à jour le filtre de taxonomie
         form:
+          all: Toutes
           items:
             one: "{count} élément sélectionné"
             other: "{count} éléments sélectionnés"
+          name_help: Le titre du filtre à afficher dans l'interface publique.
+          no_items: Aucun élément n'est disponible pour cette taxonomie. Vous pouvez créer des éléments dans les paramètres de configuration de taxonomie.
           space_filter: Disponible comme filtre pour
         index:
           description: Un filtre de taxonomie permet aux administrateurs de trier et de filtrer les espaces participatifs selon une taxonomie. Par exemple, ajoutez un filtre de taxonomie pour trier les processus par étendue géographique.
           empty: Il n'y a actuellement aucun filtre de taxonomie. Créez une liste de filtres de taxonomie ici pour trier et filtrer les espaces participatifs basés sur une taxonomie.
           new_filter: Nouveau filtre
+          title: Filtres de taxonomie pour "%{taxonomy}"
         new:
           back: Revenir en arrière
           create: Créer un filtre de taxonomie
@@ -1214,13 +1233,17 @@ fr-CA:
         table:
           actions: Actions
           components_count: Composants utilisant ceci
+          confirm_destroy: 'Êtes-vous sûr de vouloir supprimer le filtre %{name}? NOTE : Les ressources qui utilisent ce filtre ne seront pas affectées, mais elles perdront la référence à ce filtre.'
           destroy: Supprimer
           edit: Modifier
         update:
           error: Il y a eu un problème lors de la mise à jour de ce filtre de taxonomie.
           success: Filtre de taxonomie mis à jour avec succès.
       taxonomy_filters_selector:
+        index:
+          title: Filtres de taxonomie
         new:
+          add_new_items_html: Si vous avez besoin de définir un nouveau filtre ou un nouvel élément, faites-le dans <a href="%{url}">les paramètres de configuration</a>.
           items_count: "%{count} éléments"
           save: Enregistrer
           title: Nouveau sélecteur de filtre de taxonomie
@@ -1292,6 +1315,11 @@ fr-CA:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lorsque vous représentez un participant non représenté.
+      file_help:
+        attachment:
+          explanation: 'Instructions concernant le fichier :'
+          message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont pris en charge
+          message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
     moderations:
       actions:
         expand: Agrandir
@@ -1311,11 +1339,13 @@ fr-CA:
               success: Ressources cachées avec succès.
             ignore:
               invalid: Aucune modération d'utilisateur sélectionnée.
+              success: Participants dé-signalés avec succès.
             unhide:
               failed: 'Une erreur est survenue lors du dé-masquage de certaines ressouces: %{errored}'
               invalid: Aucune modération sélectionnée.
               success: Ressource dé-masquée avec succès.
             unreport:
+              failed: 'Un problème a été rencontré lors du dé-signalement de certaines ressources %{errored}'
               invalid: Aucune modération sélectionnée.
           hide:
             invalid: Il y a eu un problème au moment de masquer le contenu.
