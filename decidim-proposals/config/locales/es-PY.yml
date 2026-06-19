@@ -63,9 +63,7 @@ es-PY:
               allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Es necesario volver a adjuntar el archivo
-            add_photos:
+            add_attachments:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
             body:
               cant_be_equal_to_template: no puede ser igual a la plantilla
@@ -766,6 +764,7 @@ es-PY:
         errors:
           device_not_supported: Su dispositivo no soporta servicios de ubicación. Por favor, introduzca la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
           no_device_location: Lo sentimos, no hemos podido detectar tu ubicación. Por favor, introduce la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
+        locating: Localizando...
         use_my_location: Usar mi ubicación actual
       invite_coauthors:
         cancel:
