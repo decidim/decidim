@@ -1090,10 +1090,6 @@ ja:
           next_title: 次の項目
           previous: 前へ
           previous_title: 前の項目
-        gallery:
-          add_images: 画像を追加
-          edit_images: 画像を編集
-          gallery_legend: 画像ギャラリーを追加 (オプション)
       static_page_topics:
         create:
           error: 新しいトピックを作成中に問題が発生しました。
