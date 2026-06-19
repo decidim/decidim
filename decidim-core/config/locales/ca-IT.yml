@@ -1528,7 +1528,7 @@ ca-IT:
         greetings_html: |
           Atentament,<br>
           %{organization_name}
-        hello: Benvolgut/da %{username},
+        hello: Hola %{username},
         subject: Avís de compte inactiu
     passwords:
       update:
