@@ -240,7 +240,7 @@ eu:
           title: Editatu arlo mota
           update: Eguneratu
         new:
-          create: Sortu arlo mota
+          create: Arlo mota sortu
           title: Beste arlo mota bat
         update:
           error: Arazo bat egon da arlo mota hau eguneratzean.
