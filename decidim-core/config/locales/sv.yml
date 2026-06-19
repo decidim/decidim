@@ -1512,7 +1512,6 @@ sv:
         greetings_html: |
           Vänliga hälsningar,<br>
           %{organization_name}
-        hello: Hej %{username},
         subject: Inaktivt konto raderat
     participatory_space:
       pages:
