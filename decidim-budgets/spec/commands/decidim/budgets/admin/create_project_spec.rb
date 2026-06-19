@@ -11,8 +11,8 @@ module Decidim::Budgets
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:current_component) { create(:component, manifest_name: :budgets, participatory_space: participatory_process) }
     let(:budget) { create(:budget, component: current_component) }
-    let(:uploaded_photos) { [] }
-    let(:photos) { [] }
+    let(:uploaded_attachments) { [] }
+    let(:attachments) { [] }
     let(:address) { nil }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
@@ -42,8 +42,8 @@ module Decidim::Budgets
         longitude:,
         taxonomizations:,
         proposal_ids: proposals.map(&:id),
-        photos:,
-        add_photos: uploaded_photos,
+        attachments:,
+        add_attachments: uploaded_attachments,
         budget:
       )
     end

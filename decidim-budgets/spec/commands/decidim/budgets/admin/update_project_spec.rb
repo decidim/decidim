@@ -11,12 +11,12 @@ module Decidim::Budgets
     let(:organization) { budget.component.organization }
     let(:participatory_process) { budget.component.participatory_space }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
-    let(:uploaded_photos) { [] }
+    let(:uploaded_attachments) { [] }
     let(:selected) { nil }
     let(:address) { "something" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
-    let(:current_photos) { [] }
+    let(:current_attachments) { [] }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
@@ -40,8 +40,8 @@ module Decidim::Budgets
         proposal_ids: proposals.map(&:id),
         taxonomizations:,
         selected:,
-        photos: current_photos,
-        add_photos: uploaded_photos,
+        attachments: current_attachments,
+        add_attachments: uploaded_attachments,
         address:,
         latitude:,
         longitude:
