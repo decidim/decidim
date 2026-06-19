@@ -1530,7 +1530,6 @@ fi-pl:
         greetings_html: |
           Terveisin,<br>
           %{organization_name}
-        hello: Hei %{username},
         subject: Käyttämättä ollut tili on poistettu
     passwords:
       update:
