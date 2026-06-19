@@ -1380,7 +1380,7 @@ ja:
           is_root: このタクソノミーが親を持たない場合は True
           name: このタクソノミーの名前
           parent_id: このタクソノミーの親の固有ID(もしあれば)
-          part_of: このタクソノミが他のタクソノミの一部であるかどうかを検出するために使用されます
+          part_of: この分類が他の分類の一部であるかどうかを検出するために使用されます
           taxonomizations_count: このタクソノミーを使用するリソースの数
           updated_at: このタクソノミーの最終更新日時
           weight: このタクソノミーが表示される順序
@@ -1510,7 +1510,6 @@ ja:
         greetings_html: |
           よろしくお願いいたします。<br>
           %{organization_name}
-        hello: こんにちは %{username} さん、
         subject: 非アクティブなアカウントが削除されました
     passwords:
       update:
