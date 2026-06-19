@@ -1486,7 +1486,6 @@ de:
         greetings_html: |
           Freundliche Grüsse,<br>
           %{organization_name}
-        hello: Hallo %{username},
         subject: Inaktives Konto gelöscht
     participatory_space_members:
       index:
