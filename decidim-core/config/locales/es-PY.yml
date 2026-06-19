@@ -1531,7 +1531,7 @@ es-PY:
         greetings_html: |
           Atentamente,<br>
           %{organization_name}
-        hello: Estimado/a %{username},
+        hello: Hola %{username},
         subject: Aviso de cuenta inactiva
     passwords:
       update:
