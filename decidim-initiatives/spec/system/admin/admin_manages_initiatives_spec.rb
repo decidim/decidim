@@ -199,7 +199,7 @@ describe "Admin manages initiatives" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout "The initiative has been successfully updated."
+      expect(page).to have_content "The initiative has been successfully updated."
 
       visit decidim_admin_initiatives.edit_initiative_path(initiative_with_attachment)
 

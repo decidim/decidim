@@ -407,7 +407,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout "Debate successfully created"
+      expect(page).to have_content "Debate successfully created"
 
       within "tr[data-id=\"#{Decidim::Debates::Debate.last.id}\"]" do
         find("button[data-controller='dropdown']").click
@@ -428,7 +428,7 @@ RSpec.shared_examples "manage debates" do
       fill_in_i18n(:debate_title, "#debate-title-tabs", en: "Updated debate title with attachments")
       click_on "Update"
 
-      expect(page).to have_callout "Debate successfully updated"
+      expect(page).to have_content "Debate successfully updated"
 
       visit_component_admin
 

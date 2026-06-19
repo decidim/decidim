@@ -359,7 +359,7 @@ describe "Admin manages elections" do
       fill_in_i18n(:election_title, "#election-title-tabs", en: "Updated election title with attachments")
       click_on "Save and continue"
 
-      expect(page).to have_callout "Election updated successfully"
+      expect(page).to have_content "Election updated successfully"
 
       visit_component_admin
 

@@ -194,7 +194,7 @@ describe "Admin manages projects" do
       fill_in_i18n(:project_title, "#project-title-tabs", en: "Updated project title with attachments")
       click_on "Update"
 
-      expect(page).to have_callout "Project successfully updated."
+      expect(page).to have_content "Project successfully updated."
 
       visit_component_admin
 

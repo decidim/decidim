@@ -843,7 +843,7 @@ describe "Admin manages meetings" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout("Meeting successfully updated.")
+      expect(page).to have_content("Meeting successfully updated.")
       expect(page).to have_text("Updated title")
     end
   end
