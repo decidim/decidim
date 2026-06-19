@@ -1531,7 +1531,6 @@ cs:
         greetings_html: |
           S pozdravem,<br>
           %{organization_name}
-        hello: Dobrý den %{username},
         subject: Neaktivní účet byl smazán
     participatory_space:
       pages:
