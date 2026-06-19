@@ -7,12 +7,13 @@ module Decidim
     extend ActiveSupport::Concern
     include Decidim::UserBlockedChecker
     include Decidim::OnboardingActionMethods
+    include Decidim::OmniauthSession
 
     included do
       def after_sign_in_path_for(user)
         if user.present? && user.blocked?
           check_user_block_status(user)
-        elsif session.fetch(:authentication_method, nil) != "omniauth" && user.needs_password_update?
+        elsif !signed_in_via_omniauth? && user.needs_password_update?
           decidim.change_password_path
         elsif pending_onboarding_action?(user)
           decidim_verifications.onboarding_pending_authorizations_path

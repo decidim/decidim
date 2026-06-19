@@ -8,6 +8,7 @@ module Decidim
       include Decidim::DeviseControllers
       include Decidim::DeviseAuthenticationMethods
       include NeedsTosAccepted
+      include Decidim::OmniauthSession
 
       def new
         @form = form(OmniauthRegistrationForm).from_params(params[:user])
@@ -22,7 +23,7 @@ module Decidim
         CreateOmniauthRegistration.call(@form, verified_email) do
           on(:ok) do |user|
             if user.active_for_authentication?
-              session[:authentication_method] = "omniauth"
+              mark_omniauth_sign_in
               sign_in_and_redirect user, event: :authentication
               set_flash_message :notice, :success, kind: @form.provider.capitalize
             else
