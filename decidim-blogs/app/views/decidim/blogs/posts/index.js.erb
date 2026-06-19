@@ -1,0 +1,8 @@
+var $blogs = $('#blogs');
+var $orderFilterInput = $('.order_filter');
+
+$blogs.html('<%= j(render partial: "blogs").strip.html_safe %>');
+$orderFilterInput.val('<%= order %>');
+
+$blogs[0].innerHTML = $blogs[0].innerHTML.replace('data-open="false"', 'data-open="true"');
+document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $blogs[0] }));

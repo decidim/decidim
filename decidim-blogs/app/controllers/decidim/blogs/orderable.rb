@@ -19,6 +19,19 @@ module Decidim
         def default_order
           "recent"
         end
+
+        def paginate_posts
+          @paginate_posts ||= paginate(reorder(posts))
+        end
+
+        def reorder(posts)
+          case order
+          when "most_commented"
+            posts.order(comments_count: :desc)
+          else
+            posts.published_at_desc
+          end
+        end
       end
     end
   end

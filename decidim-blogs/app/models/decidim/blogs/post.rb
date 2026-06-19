@@ -104,16 +104,16 @@ module Decidim
         [author.name]
       end
 
-      # Create i18n ransackers for :title and :description.
+      # Create i18n ransackers for :title and :body.
       # Create the :search_text ransacker alias for searching from both of these.
-      ransacker_i18n_multi :search_text, [:title, :description]
+      ransacker_i18n_multi :search_text, [:title, :body]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :with_any_origin, :with_any_taxonomies]
+        [:with_any_taxonomies]
       end
 
       def self.ransackable_attributes(_auth_object = nil)
-        %w(search_text title description)
+        %w(search_text title body)
       end
 
       def self.ransackable_associations(_auth_object = nil)
