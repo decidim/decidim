@@ -673,11 +673,6 @@
       share_tokens:
         actions:
           destroy: Slett
-      shared:
-        gallery:
-          add_images: Legg til bilder
-          edit_images: Rediger bilder
-          gallery_legend: Legg til et bildegalleri (valgfritt)
       static_page_topics:
         create:
           error: Det oppstod et problem med å opprette et nytt emne.
