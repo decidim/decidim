@@ -1480,13 +1480,6 @@ de:
         log_in: anmelden
         never_logged_in: Nie angemeldet
         subject: Inaktive Kontowarnung
-      removal_notification:
-        body: Ihr %{organization_name} Konto wurde aufgrund von Inaktivität gelöscht.
-        greetings_html: |
-          Freundliche Grüsse,<br>
-          %{organization_name}
-        hello: Hallo %{username},
-        subject: Inaktives Konto gelöscht
     participatory_space_members:
       index:
         members: Mitglieder
