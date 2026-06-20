@@ -659,6 +659,13 @@ eu:
           all: Guztiak
         filter_taxonomy_values:
           all: Guztiak
+    delete_user_mailer:
+      delete:
+        body_1: Zure kontua desaktibatu egin da eta ezin da sartu. Zure datu pertsonalak behin betiko ezabatuko dira, datuak gordetzeko gure politikekin bat etorriz.
+        body_2: Segurtasun arrazoiengatik, baimenarekin lotutako datu batzuk gordeko dira; kontu berri bat sortu eta berriro baimena ematen baduzu, zure kontu berriarekin lotuta egon daiteke.
+        greetings_html: Adeitasunez, <br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: '%{username}, estimatua:'
+      subject: Zure kontua ezabatu egin da
     devise:
       omniauth_registrations:
         create:
@@ -952,14 +959,14 @@ eu:
       participatory_space:
         member_added:
           published:
-            email_intro: Partaidetza-espazio batean kide gisa gehitu zaituzte.
-            email_outro: Jakinarazpen hau jaso duzu administratzaile batek <a href="%{resource_url}">%{resource_title}</a> gehitu dizulako. Gune horretara sartzea mugatuta badago, zure kontuarekin sartu ahal izango zara.<br> Zure profila guneko <a href="%{members_page}"> pare-hartzailen zerrendan </a> agertuko da.
+            email_intro: Espazio parte-hartzaile batean kide gisa gehitu zaituzte.
+            email_outro: Jakinarazpen hau jaso duzu administratzaile batek <a href="%{resource_url}">%{resource_title}</a> gunera gehitu zaituelako. Gune horretara sartzea mugatuta badago, zure kontua erabiliz sartu ahal izango zara.<br> Zure profila guneko <a href="%{members_page}"> pare-hartzailen zerrendan </a> agertuko da.
             email_subject: Orain %{resource_title} baliabiderako sarbidea duzu.
             notification_title: Orain, <a href="%{resource_url}">%{resource_title}</a> helbiderako sarbidea duzu.
           unpublished:
             email_intro: Gune parte-hartzaile batean kide gisa gehitu zaituzte.
-            email_outro: Jakinarazpen hau jaso duzu administratzaile batek <<a href="%{resource_url}">%{resource_title}</a> gehitu dizulako. Gune horretara sartzea mugatuta badago, zure kontuarekin sartu ahal izango zara.
-            email_subject: Orain  %{resource_title}  baliabidera sarbidea duzu.
+            email_outro: Jakinarazpen hau jaso duzu administratzaile batek <a href="%{resource_url}">%{resource_title}</a> gunera gehitu zaituelako. Gune horretara sartzea mugatuta badago, zure kontua erabiliz sartu ahal izango zara.<br> Zure profila guneko <a href="%{members_page}"> pare-hartzailen zerrendan </a> agertuko da.
+            email_subject: Orain %{resource_title} baliabiderako sarbidea duzu.
             notification_title: Orain, <a href="%{resource_url}">%{resource_title}</a> helbiderako sarbidea duzu.
       reports:
         parent_hidden:
@@ -1537,13 +1544,6 @@ eu:
         log_in: hasi saioa
         never_logged_in: inoiz ez konektatua
         subject: Kontu inaktiboaren abisua
-      removal_notification:
-        body: Zure %{organization_name} kontua ezabatu egin da inaktibitateagatik.
-        greetings_html: |
-          Adeitasunez,<br>
-          %{organization_name}
-        hello: "%{username}, agurgarria:\n"
-        subject: Kontu inaktiboa ezabatua
     participatory_space:
       pages:
         user_profile:
