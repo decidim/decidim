@@ -1381,6 +1381,7 @@ fr:
         greetings_html: |
           Cordialement,<br>
           %{organization_name}
+        hello: Cher(ère) %{username},
         subject: Compte inactif supprimé
     passwords:
       update:
