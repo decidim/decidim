@@ -1507,13 +1507,6 @@ ja:
         log_in: ログイン
         never_logged_in: ログインしたことがない
         subject: 非アクティブなアカウントの警告
-      removal_notification:
-        body: あなたの %{organization_name} アカウントは非アクティブのため削除されました。
-        greetings_html: |
-          よろしくお願いいたします。<br>
-          %{organization_name}
-        hello: こんにちは %{username} さん、
-        subject: 非アクティブなアカウントが削除されました
     participatory_space:
       pages:
         user_profile:
