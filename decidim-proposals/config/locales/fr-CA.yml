@@ -663,6 +663,7 @@ fr-CA:
         errors:
           device_not_supported: Votre appareil ne prend pas en charge les services de localisation. Veuillez entrer l'adresse manuellement.
           no_device_location: Désolé, nous n'avons pas pu détecter votre position. Veuillez entrer l'adresse manuellement.
+        locating: Localisation en cours...
         use_my_location: Utiliser ma position actuelle
       invite_coauthors:
         cancel:
