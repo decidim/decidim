@@ -1527,13 +1527,6 @@ fi:
         log_in: kirjaudu sisään
         never_logged_in: et ole koskaan kirjautunut palveluun
         subject: Varoitus passiivisesta käyttäjätilistä
-      removal_notification:
-        body: Tilisi palvelussa %{organization_name} on poistettu, koska tiliä ei ole käytetty pitkään aikaan.
-        greetings_html: |
-          Terveisin,<br>
-          %{organization_name}
-        hello: Hei %{username},
-        subject: Käyttämättä ollut tili on poistettu
     participatory_space:
       pages:
         user_profile:
