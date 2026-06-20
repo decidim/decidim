@@ -763,6 +763,7 @@ es:
         errors:
           device_not_supported: Su dispositivo no soporta servicios de ubicación. Por favor, introduzca la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
           no_device_location: Lo sentimos, no hemos podido detectar tu ubicación. Por favor, introduce la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
+        locating: Localizando...
         use_my_location: Usar mi ubicación actual
       invite_coauthors:
         cancel:
