@@ -16,7 +16,7 @@ describe "Access Mode Transparent Participatory Processes" do
   it_behaves_like "access mode transparent participatory spaces"
   it_behaves_like "access mode transparent participatory spaces comments"
 
-  context "when accessing transparent process with elevated space roles" do
+  context "when accessing transparent process and user has space roles assigned" do
     before do
       switch_to_host(organization.host)
     end

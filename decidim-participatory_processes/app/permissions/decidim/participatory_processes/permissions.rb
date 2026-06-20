@@ -214,7 +214,7 @@ module Decidim
         return unless can_manage_process?(role: :collaborator)
         return if permission_action.subject == :space_member
 
-        allow! if permission_action.action == :preview
+        allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
       # Evaluators can only read the components of a process.

@@ -19,7 +19,7 @@ describe "Access Mode Restricted Assemblies" do
   it_behaves_like "access mode restricted participatory spaces"
   it_behaves_like "access mode restricted participatory spaces comments"
 
-  context "when accessing restricted assembly as elevated space roles" do
+  context "when accessing restricted assembly and user has space roles assigned" do
     context "when user is a space admin" do
       let!(:space_admin) { create(:assembly_admin, :confirmed, assembly: restricted_participatory_space) }
 
