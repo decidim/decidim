@@ -152,9 +152,9 @@ describe "Admin edits proposals" do
 
         within ".upload-modal" do
           find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset("Exampledocument.pdf"))
+          click_on("Save")
         end
 
-        click_on("Save")
         click_on("Update")
 
         within "tr", text: translated_attribute(proposal.title) do
