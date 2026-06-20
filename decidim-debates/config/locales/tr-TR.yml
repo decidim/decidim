@@ -142,13 +142,6 @@ tr:
             email_outro: Bu bildirimi %{participatory_space_title} katılımcılık Başlıklı alanını takip ettiğiniz için aldınız. Bildirim almayı önceki bağlantı linkini izleyerek durdurabilirsiniz.
             email_subject: '%{participatory_space_title} başlıpı ile ilgili yeni tartışma "%{resource_title}"'
             notification_title: <a href="%{resource_path}">%{resource_title</a> tartışması <a href="%{participatory_space_url}">%{participatory_space_title</a> tarihinde oluşturuldu.
-          user_followers:
-            email_intro: |-
-              Merhaba,
-              Takip ettiğiniz %{author_name} %{author_nickname}, "%{resource_title}" adlı yeni bir tartışma yarattı. Kontrol edin ve katkıda bulunun:
-            email_outro: Bu bildirimi %{author_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
-            email_subject: '%{author_nickname} tarafından "%{resource_title}" adlı yeni tartışma'
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} </a>, <a href="%{resource_path}">%{resource_title} </a> tartışmasını oluşturdu.
         creation_disabled:
           email_intro: 'Tartışma oluşturma artık %{participatory_space_title} içinde aktif değil. Bu sayfadan hala açık tartışmalara katılabilirsiniz:'
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.

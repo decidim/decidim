@@ -48,7 +48,7 @@ shared_examples "manage processes announcements" do
 
     click_on "Update"
 
-    expect(page).to have_content("Active content blocks")
+    expect(page).to have_text("Active content blocks")
 
     visit decidim_admin_participatory_processes.participatory_processes_path
 
@@ -60,7 +60,7 @@ shared_examples "manage processes announcements" do
     end
 
     page.within_window(new_window) do
-      expect(page).to have_content("An important announcement")
+      expect(page).to have_text("An important announcement")
     end
   end
 

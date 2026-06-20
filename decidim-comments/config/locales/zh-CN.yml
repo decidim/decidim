@@ -69,19 +69,15 @@ zh-CN:
           email_intro: "%{author_name} 在 %{resource_title}留下了一条评论。您可以在这个页面阅读："
           email_outro: 您收到此通知是因为您正在关注 %{author_name}。您可以从其个人资料页面取消关注此用户。
           email_subject: '%{author_name} 在 %{resource_title} 有一个新评论'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 有新的评论。
         comment_created:
           email_intro: "%{resource_title} 已被评论。您可以阅读此页面中的评论："
           email_outro: 您收到此通知是因为您正在关注"%{resource_title}"或其作者。您可以从上一个链接取消关注它。
           email_subject: '%{author_name} 在 %{resource_title} 有一个新评论'
-          notification_title: 来自 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 的新评论 <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
           email_intro: "%{author_name} 在 %{resource_title}回复了您的评论。您可以在这个页面阅读："
           email_outro: 您收到此通知是因为您的评论已被回复。
           email_subject: "%{author_name} 在 %{resource_title} 回复了您的评论"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 回复了您在 <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: 您已被提到。
           email_outro: 您收到此通知是因为您已在 %{resource_title} 中被提及。
           email_subject: 您已在 %{resource_title} 中被提及了
-          notification_title: 您在 <a href="%{resource_path}">%{resource_title}中提到</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a>

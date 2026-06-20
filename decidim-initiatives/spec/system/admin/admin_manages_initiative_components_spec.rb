@@ -56,12 +56,12 @@ describe "Admin manages initiative components" do
 
     it "is successfully created" do
       expect(page).to have_callout("Component created successfully.")
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     it "has a successful admin log" do
       visit decidim_admin.root_path
-      expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(initiative.title)}")
+      expect(page).to have_text("created #{translated(attributes[:name])} in #{translated(initiative.title)}")
     end
 
     context "and then edit it" do
@@ -132,7 +132,7 @@ describe "Admin manages initiative components" do
       end
 
       expect(page).to have_callout("The component was updated successfully.")
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
 
       within "tr", text: translated(attributes[:name]) do
         find("button[data-controller='dropdown']").click
@@ -148,7 +148,7 @@ describe "Admin manages initiative components" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated #{translated(attributes[:name])} in #{translated(initiative.title)}")
+      expect(page).to have_text("updated #{translated(attributes[:name])} in #{translated(initiative.title)}")
     end
   end
 
@@ -175,7 +175,7 @@ describe "Admin manages initiative components" do
         accept_confirm { click_on("Move to trash") }
       end
 
-      expect(page).to have_no_content("My component")
+      expect(page).to have_no_text("My component")
     end
   end
 
@@ -210,9 +210,25 @@ describe "Admin manages initiative components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
+      describe "when there are special characters (', &) in the nav links" do
+        let(:participatory_space) { initiative }
+        let(:component_name) { "People's Budget & Ideas" }
+        let!(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
+
+        it "renders the component name correctly" do
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
+          within ".participatory-space__nav-container" do
+            expect(page).to have_text(component_name)
+            expect(page).to have_no_text("&#39;")
+            expect(page).to have_no_text("&amp;#39;")
+          end
+        end
+      end
+
       it "hides the component from the menu" do
         visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
-        expect(page).to have_content decidim_escape_translated(component.name)
+        expect(page).to have_text translated(component.name)
+        expect(page.html).to include decidim_escape_translated(component.name).gsub("&quot;", "\"")
 
         visit decidim_admin_initiatives.components_path(initiative)
 
@@ -227,7 +243,7 @@ describe "Admin manages initiative components" do
         end
 
         visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
-        expect(page).to have_no_content decidim_escape_translated(component.name)
+        expect(page).to have_no_text translated(component.name)
       end
     end
 
@@ -283,9 +299,9 @@ describe "Admin manages initiative components" do
     end
 
     it "can access proposals from admin" do
-      expect(page).to have_content("Proposals")
-      expect(page).to have_content(translated(proposal1.title))
-      expect(page).to have_content(translated(proposal2.title))
+      expect(page).to have_text("Proposals")
+      expect(page).to have_text(translated(proposal1.title))
+      expect(page).to have_text(translated(proposal2.title))
     end
   end
 

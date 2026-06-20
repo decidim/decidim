@@ -28,7 +28,7 @@ shared_examples_for "manage questionnaire responses" do
         find("button[data-controller='dropdown']").click
         click_on "Questions"
       end
-      expect(page).to have_content("Responses")
+      expect(page).to have_text("Responses")
     end
 
     context "and managing responses page" do
@@ -41,14 +41,14 @@ shared_examples_for "manage questionnaire responses" do
       end
 
       it "shows the responses page" do
-        expect(page).to have_content(response1.body)
-        expect(page).to have_content(response1.question.body["en"])
-        expect(page).to have_content(response2.body)
-        expect(page).to have_content(response2.question.body["en"])
+        expect(page).to have_text(response1.body)
+        expect(page).to have_text(response1.question.body["en"])
+        expect(page).to have_text(response2.body)
+        expect(page).to have_text(response2.question.body["en"])
       end
 
       it "shows the percentage" do
-        expect(page).to have_content("33%")
+        expect(page).to have_text("33%")
       end
 
       it "has a detail link" do
@@ -71,11 +71,11 @@ shared_examples_for "manage questionnaire responses" do
         let(:first_type) { "long_response" }
 
         it "shows session token" do
-          expect(page).to have_no_content(response1.body)
-          expect(page).to have_content(response1.session_token)
-          expect(page).to have_content(response2.session_token)
-          expect(page).to have_content(response3.session_token)
-          expect(page).to have_content("User identifier")
+          expect(page).to have_no_text(response1.body)
+          expect(page).to have_text(response1.session_token)
+          expect(page).to have_text(response2.session_token)
+          expect(page).to have_text(response3.session_token)
+          expect(page).to have_text("User identifier")
         end
       end
 
@@ -113,9 +113,9 @@ shared_examples_for "manage questionnaire responses" do
 
       it "shows all the questions and responses" do
         click_on response1.body, match: :first
-        expect(page).to have_content(first.body["en"])
-        expect(page).to have_content(second.body["en"])
-        expect(page).to have_content(response1.body)
+        expect(page).to have_text(first.body["en"])
+        expect(page).to have_text(second.body["en"])
+        expect(page).to have_text(response1.body)
       end
 
       it "first response has a next link" do
@@ -138,8 +138,8 @@ shared_examples_for "manage questionnaire responses" do
 
       it "third response has download link for the attachments" do
         click_on response3.session_token, match: :first
-        expect(page).to have_content(translated(file_response.attachments.first.title))
-        expect(page).to have_content(translated(file_response.attachments.second.title))
+        expect(page).to have_text(translated(file_response.attachments.first.title))
+        expect(page).to have_text(translated(file_response.attachments.second.title))
       end
 
       context "when the file response does not have a title for the attachment" do
@@ -151,7 +151,7 @@ shared_examples_for "manage questionnaire responses" do
 
         it "third response has download link for the attachments" do
           click_on response3.session_token, match: :first
-          expect(page).to have_content("Download attachment")
+          expect(page).to have_text("Download attachment")
         end
       end
     end

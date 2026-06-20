@@ -197,9 +197,6 @@ lb:
       update_draft:
         error: Et gouf e Problem beim Aktualiséieren vum Ännerungsvirschlag.
         success: Ännerungsvirschlag gouf aktualiséiert.
-      wizard_step_form:
-        steps:
-          '1': Erstell deng Ännerung
     anonymous_user: Anonym
     application:
       document:
@@ -402,13 +399,9 @@ lb:
           affected_user:
             email_intro: 'Eng Ännerung gouf %{amendable_title} akzeptéiert. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum%{amendable_title} bass.
-            email_subject: Akzeptéiert Ännerung %{amendable_title} vum %{emendation_author_nickname}
-            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf ugeholl.
           follower:
             email_intro: 'Eng Ännerung gouf %{amendable_title} akzeptéiert. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-            email_subject: Akzeptéiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
-            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf ugeholl.
         amendment_created:
           affected_user:
             email_intro: 'Eng Ännerung fir %{amendable_title} gouf erstallt. Du kanns dat op dëser Säit gesinn:'
@@ -424,24 +417,16 @@ lb:
           affected_user:
             email_intro: 'Eng refuséiert Ännerung am %{amendable_title} gouf als eng nei ënner %{amendable_type} verëffentlecht. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum %{amendable_title} bass.
-            email_subject: Eng Ännerung vun %{emendation_author_nickname} gouf als nei /n %{amendable_type} verëffentlecht
-            notification_title: D' <a href="%{emendation_path}">refuséiert Ännerung </a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf als nei verëffentlecht %{amendable_type} duerch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Eng refuséiert Ännerung am %{amendable_title} gouf als eng nei ënner %{amendable_type} verëffentlecht. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-            email_subject: Eng Ännerung vun %{emendation_author_nickname} gouf als nei /n %{amendable_type} verëffentlecht
-            notification_title: D' <a href="%{emendation_path}">refuséiert Ännerung </a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf als nei verëffentlecht %{amendable_type} duerch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Eng Ännerung fir %{amendable_title} gouf refuséiert. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum%{amendable_title} bass.
-            email_subject: Refuséiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
-            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf refuséiert.
           follower:
             email_intro: 'Eng Ännerung fir %{amendable_title} gouf refuséiert. Du kanns dat op dëser Säit gesinn:'
             email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-            email_subject: Refuséiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
-            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf refuséiert.
       attachments:
         attachment_created:
           email_intro: 'En neit Dokument fir %{resource_title} gouf dru gehaange. Du kanns dat op dëser Säit gesinn:'
@@ -471,12 +456,6 @@ lb:
           email_subject: Deng %{resource_type} gouf geläscht
           notification_title: |-
             En Admin huet däin %{resource_type} geläscht, well en als %{report_reasons}.</br><i>%{resource_content}</i> gemellt gouf
-      users:
-        profile_updated:
-          email_intro: D' <a href="%{resource_url}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
-          email_outro: Du hues dës Noriicht kritt, well s'du dem %{nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-          email_subject: "%{nickname} huet säin Profil aktualiséiert"
-          notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
       download_your_data_export:
         download: Eroflueden

@@ -201,9 +201,6 @@ nl:
       update_draft:
         error: Er is een fout opgetreden bij het bijwerken van dit amendement.
         success: Amendement ontwerp is succesvol bijgewerkt.
-      wizard_step_form:
-        steps:
-          '1': Maak uw amendement
     anonymous_user: Anoniem
     application:
       document:
@@ -405,13 +402,9 @@ nl:
           affected_user:
             email_intro: 'Een eervolle vermelding is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
-            email_subject: Geaccepteerd amendement voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is aanvaard voor <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Een eervolle vermelding is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u %{amendable_title} volgt. Je kunt de meldingen stoppen door de vorige link te volgen.
-            email_subject: Geaccepteerd amendement voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is aanvaard voor <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Er is een nieuwe eervolle vermelding gemaakt voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
@@ -427,24 +420,16 @@ nl:
           affected_user:
             email_intro: 'Een afgewezen amendement voor %{amendable_title} is als nieuw gepubliceerd %{amendable_type}. U kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
-            email_subject: Een amendement van %{emendation_author_nickname} is als nieuw gepubliceerd %{amendable_type}
-            notification_title: Een <a href="%{emendation_path}">afgewezen amendement</a> voor <a href="%{amendable_path}">%{amendable_title}</a> is gepubliceerd als een nieuwe %{amendable_type} bij <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Een amendement afgewezen voor %{amendable_title} is gepubliceerd als een nieuw %{amendable_type}. Je kunt het op deze pagina bekijken:'
             email_outro: U heeft deze melding ontvangen omdat u %{amendable_title} volgt. Je kunt stoppen met het ontvangen van meldingen door de vorige link te volgen.
-            email_subject: Een amendement van %{emendation_author_nickname} is gepubliceerd als %{amendable_type}
-            notification_title: Een <a href="%{emendation_path}">afgewezen amendement</a> voor <a href="%{amendable_path}">%{amendable_title}</a> is gepubliceerd als een nieuwe %{amendable_type} bij <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Een amendement is afgewezen door %{amendable_title}. Je kunt het op deze pagina bekijken:'
             email_outro: U heeft deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
-            email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurd door <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Een amendement is afgewezen voor %{amendable_title}. Je kunt het op deze pagina bekijken:'
             email_outro: U heeft deze melding ontvangen omdat u %{amendable_title} volgt. U kunt stoppen met het ontvangen van meldingen via de vorige link.
-            email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurde <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Een nieuw document we’d toegevoegd aan %{resource_title}. Je kan het via deze link bekijken:'
@@ -467,12 +452,6 @@ nl:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
         level_up:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
-      users:
-        profile_updated:
-          email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
-          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
-          email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
-          notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       download_your_data_export:
         download: Download

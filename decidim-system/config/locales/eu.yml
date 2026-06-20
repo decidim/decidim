@@ -163,7 +163,7 @@ eu:
             save_and_invite: Sortu antolatzailea eta gonbidatu administratzailea
           fields:
             content_security_policy: Edukien segurtasun-politika
-            created_at: Tan sortua
+            created_at: Noiz sortua
             file_upload_settings: Fitxategiak igotzearen doikuntzak
             name: Izena
             omniauth_settings: Omniauth doikuntzak
@@ -189,6 +189,8 @@ eu:
           application_type_help_html: 'OAuth bezero-mota <a href="%{client_type_link}" target="_blank">, RFC 6749, 2.1 sekzioak</a>definitzen duen bezala. Bezero publikoek PKCE fluxua ezarri behar dute <a href="%{pkce_link}" target="_blank">, RFC 7636</a>arauak zehazten duen bezala '
           refresh_tokens_help_html: 'Freskatzeko fitxak erabilgarriak dira baldin eta fitxak sarbide-fitxari esleitutakoa baino bizialdi luzeagoa behar badu. Kontuan izan <strong>freskatzeko fitxak kontuz erabili behar</strong> direla zure erabiltzaileen segurtasuna ahuldu dezaketelako '
           scopes_explanation:
+            "admin:read": Parte-hartzaileari administrazioarekin lotutako kontsultak API grafikoaren bidez egiteko aukera ematen dio.
+            "admin:write": Parte-hartzaileari administrazio-mutazio eragiketak egiteko aukera ematen dio API grafikoaren bidez.
             "api:read": Parte-hartzaileari kontsultak egiteko aukera ematen dio API grafikoaren bidez.
             "api:write": Parte-harlzaileari mutazio-eragiketak egiteko aukera ematen dio API grafikoaren bidez.
             profile: Parte-hartzailearen profilaren datuak eskuratzeko aukera ematen du. Irismen hori soilik behar da OAuth aplikazioa identitate hornitzaile edo autentifikazio zerbitzu gisa bakarrik erabiltzen bada.

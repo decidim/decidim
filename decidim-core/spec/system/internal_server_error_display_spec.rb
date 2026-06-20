@@ -35,18 +35,18 @@ describe "Internal server error display" do
     end
 
     it "generates the copiable form" do
-      expect(page).to have_content("Please try again later. If the error persists, please copy the following info and send it to platform maintainers with any other information you may want to share.")
+      expect(page).to have_text("Please try again later. If the error persists, please copy the following info and send it to platform maintainers with any other information you may want to share.")
       within "tr", text: "User ID" do
-        expect(page).to have_content("Unknown")
+        expect(page).to have_text("Unknown")
       end
       within "tr", text: "Date and time" do
-        expect(page).to have_content("2022-01-01T12:00:00.000000")
+        expect(page).to have_text("2022-01-01T12:00:00.000000")
       end
       within "tr", text: "URL" do
-        expect(page).to have_content("http://#{organization.host}:#{Capybara.server_port}")
+        expect(page).to have_text("http://#{organization.host}:#{Capybara.server_port}")
       end
       within "tr", text: "Request method" do
-        expect(page).to have_content("GET")
+        expect(page).to have_text("GET")
       end
       expect(page).to have_button("Copy to clipboard")
     end
@@ -60,7 +60,7 @@ describe "Internal server error display" do
 
     it "displays the user ID" do
       within "tr", text: "User ID" do
-        expect(page).to have_content(user.id)
+        expect(page).to have_text(user.id)
       end
     end
 
@@ -71,7 +71,7 @@ describe "Internal server error display" do
       end
 
       it "copies the data to the clipboard" do
-        expect(page).to have_content("Text copied!")
+        expect(page).to have_text("Text copied!")
       end
     end
   end
@@ -86,7 +86,7 @@ describe "Internal server error display" do
 
     it "generates the reference" do
       within "tr", text: "Reference" do
-        expect(page).to have_content(/\[dummy changes-(\w+['-])+\w+\] \[(\w+['-]+)+\w+\] \[normal_string\]$/)
+        expect(page).to have_text(/\[dummy changes-(\w+['-])+\w+\] \[(\w+['-]+)+\w+\] \[normal_string\]$/)
       end
     end
   end

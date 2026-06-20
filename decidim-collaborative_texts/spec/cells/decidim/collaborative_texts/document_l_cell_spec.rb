@@ -33,7 +33,7 @@ module Decidim::CollaborativeTexts
       end
 
       it "renders the title" do
-        expect(subject).to have_content(document.title)
+        expect(subject).to have_text(document.title)
         expect(subject).to have_css(".card__list-title")
       end
     end

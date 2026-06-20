@@ -31,5 +31,8 @@ module.exports = {
     "\\.js$": "babel-jest"
   },
   testRegex: "\\.(test|spec)\\.js$",
-  moduleDirectories: moduleDirs
+  moduleDirectories: moduleDirs,
+  setupFilesAfterEnv: [
+    "jest-location-mock"
+  ]
 };

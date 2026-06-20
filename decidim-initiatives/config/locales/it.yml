@@ -294,25 +294,11 @@ it:
         update: Modifica
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} ha respinto la tua richiesta di far parte del comitato promotore per la seguente iniziativa %{resource_title}."
           email_outro: 'Hai ricevuto questa notifica perché sei l''autore di questa iniziativa: %{resource_title}'
-          email_subject: "%{author_nickname} ha accettato la tua candidatura al comitato promoter"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha respinto la tua richiesta di far parte del comitato di promozione per la seguente iniziativa <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, che stai seguendo, ha creato una nuova iniziativa, dai un'occhiata e dai il tuo contributo:"
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Nuova iniziativa di %{author_nickname}
-          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata creata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} ha respinto la tua richiesta di far parte del comitato promoter per la seguente iniziativa %{resource_title}."
           email_outro: 'Hai ricevuto questa notifica perché sei l''autore di questa iniziativa: %{resource_title}.'
-          email_subject: "%{author_nickname} ha respinto la tua richiesta per il comitato promoter"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha respinto la tua richiesta di far parte del comitato di promozione per la seguente iniziativa <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} ha fatto domanda per il comitato promoter della tua iniziativa %{resource_title}. Per accettare o respingere l'applicazione, vai al modulo di modifica della tua iniziativa."
           email_outro: 'Hai ricevuto questa notifica perché sei l''autore di questa iniziativa: %{resource_title}'
-          email_subject: "%{applicant_nickname} vuole unirsi alla tua iniziativa"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha fatto domanda per il comitato promoter della tua iniziativa <a href="%{resource_url}">%{resource_title}</a>. Per accettare o rifiutare clicca <a href="%{resource_url}/edit">qui</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Ritorno all'iniziativa

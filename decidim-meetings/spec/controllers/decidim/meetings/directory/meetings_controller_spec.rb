@@ -65,8 +65,8 @@ describe Decidim::Meetings::Directory::MeetingsController do
     it { expect(response).to have_http_status(:success) }
 
     it "shows the participatory space for each meeting" do
-      expect(response.body).to include(ERB::Util.html_escape(decidim_escape_translated(participatory_process1.title)))
-      expect(response.body).to include(ERB::Util.html_escape(decidim_escape_translated(participatory_process2.title)))
+      expect(response.body).to include(decidim_escape_translated(participatory_process1.title))
+      expect(response.body).to include(decidim_escape_translated(participatory_process2.title))
     end
   end
 end

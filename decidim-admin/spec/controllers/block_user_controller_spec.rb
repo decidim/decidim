@@ -61,6 +61,28 @@ module Decidim
         end
       end
 
+      describe "new" do
+        context "when user is found" do
+          let!(:user) { create(:user, :confirmed, organization:) }
+
+          it "renders new template" do
+            get :new, params: { user_id: user.id }
+
+            expect(subject).to render_template(:new)
+          end
+        end
+
+        context "when user is not found" do
+          it "sets flash alert message and redirects back" do
+            get :new, params: { user_id: 999_999_999 }
+
+            expect(flash[:alert]).to be_present
+            expect(flash[:alert]).to eq("No user found")
+            expect(response).to redirect_to(officializations_path)
+          end
+        end
+      end
+
       describe "block" do
         shared_examples "blocking a user" do
           context "when having a user" do

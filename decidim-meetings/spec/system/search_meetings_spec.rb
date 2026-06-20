@@ -22,11 +22,11 @@ describe "Search meetings" do
       visit_component
 
       within("main") do
-        expect(page).to have_content("35 meetings")
+        expect(page).to have_text("35 meetings")
       end
 
       within "main nav" do
-        expect(page).to have_content("Next")
+        expect(page).to have_text("Next")
       end
     end
   end
@@ -49,7 +49,7 @@ describe "Search meetings" do
         end
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
-        expect(page).to have_content(%(results for the search: "#{term}"))
+        expect(page).to have_text(%(results for the search: "#{term}"))
         expect(page).to have_css(".filter-search.filter-container")
         expect(page.find("#search-count h2").text.to_i).to eq(0)
       end

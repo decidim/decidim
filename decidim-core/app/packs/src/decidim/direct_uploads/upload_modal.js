@@ -27,7 +27,7 @@ export default class UploadModal {
       // - maxFileSize - Defines maximum file size in bytes
       // - formObjectClass - Class of the current form object (e.g. Decidim::AccountForm)
       providedOptions = JSON.parse(button.dataset.upload);
-    } catch (_e) {
+    } catch {
       // Do not care about the parse errors, just skip the provided options.
     }
 

@@ -72,7 +72,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
       it "sanitizes potentially malicious HTML tags" do
         within "#diff-for-body" do
           expect(subject).to have_no_css("script", visible: :all)
-          expect(subject).to have_content("alert('SCRIPT')")
+          expect(subject).to have_text("alert('SCRIPT')")
         end
       end
     end
@@ -89,7 +89,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
       it "sanitizes potentially malicious HTML tags" do
         within "#diff-for-body" do
           expect(subject).to have_no_css("script", visible: :all)
-          expect(subject).to have_content("alert('SCRIPT')")
+          expect(subject).to have_text("alert('SCRIPT')")
         end
       end
     end
@@ -106,7 +106,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
       it "sanitizes potentially malicious HTML tags" do
         within "#diff-for-body" do
           expect(subject).to have_no_css("script", visible: :all)
-          expect(subject).to have_content("alert('SCRIPT')")
+          expect(subject).to have_text("alert('SCRIPT')")
         end
       end
     end
@@ -123,7 +123,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
       it "sanitizes potentially malicious HTML tags" do
         within "#diff-for-body" do
           expect(subject).to have_no_css("script", visible: :all)
-          expect(subject).to have_content("alert('SCRIPT')")
+          expect(subject).to have_text("alert('SCRIPT')")
         end
       end
     end

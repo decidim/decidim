@@ -4,13 +4,13 @@ shared_examples "accessing the participatory space" do
   it "shows the page" do
     # Since the button now contains dynamic text, we have to check the href
     expect(page).to have_css("[href='#{resource_locator(try(:participatory_space) || try(:participatory_process)).path.split("?").first}']", text: "See")
-    expect(page).to have_content("My space")
+    expect(page).to have_text("My space")
   end
 end
 
 shared_examples "showing the unauthorized error message" do
   it "redirects to the relevant unauthorized page" do
-    expect(page).to have_content("You are not authorized to perform this action")
+    expect(page).to have_text("You are not authorized to perform this action")
     expect(page).to have_current_path(decidim_admin.root_path)
   end
 end
@@ -85,10 +85,10 @@ shared_examples "admin menu shows only assigned space" do |space_name:, other_sp
 
   context "and does not show unassigned spaces" do
     it "shows only the assigned space" do
-      expect(page).to have_content(space_name)
+      expect(page).to have_text(space_name)
 
       other_spaces.each do |other_space|
-        expect(page).to have_no_content(other_space)
+        expect(page).to have_no_text(other_space)
       end
     end
   end

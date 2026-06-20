@@ -164,7 +164,7 @@ ca:
           attachments: Adjunts
           components: Components
           info: Quant a aquesta assemblea
-          landing_page: Disposició de la pàgina de destinació
+          landing_page: Disposició de la pàgina d'inici
           members: Membres
           moderations: Moderacions
           see_assembly: Veure l'assemblea
@@ -241,8 +241,8 @@ ca:
               label: Accés
               options:
                 open: Qualsevol pot veure i participar a l'assemblea.
-                restricted: Només les membres poden veure i participar a l'assemblea.
-                transparent: Qualsevol pot veure l'assemblea, però només les membres hi poden participar.
+                restricted: Només membres i administradores poden veure aquesta assemblea i participar-hi. No apareixerà a la cerca general, API, ni als arxius de dates oberts.
+                transparent: Qualsevol pot veure l'assemblea, però només membres i administradores hi poden participar.
               set_this_space_as: Defineix el tipus d'accés a aquest espai
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada

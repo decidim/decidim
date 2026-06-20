@@ -26,7 +26,7 @@ describe "Admin manages meetings polls" do
         click_on "Manage poll"
       end
 
-      expect(page).to have_content("Edit poll")
+      expect(page).to have_text("Edit poll")
     end
   end
 
@@ -284,11 +284,11 @@ describe "Admin manages meetings polls" do
     it "can modify questionnaire open questions" do
       visit questionnaire_edit_path
 
-      expect(page).to have_content("Add question")
+      expect(page).to have_text("Add question")
       expand_all_questions
       within "#questionnaire_question_#{unpublished_question.id}-field" do
-        expect(page).to have_content("Remove")
-        expect(page).to have_content("Add response option")
+        expect(page).to have_text("Remove")
+        expect(page).to have_text("Add response option")
         fill_in find_nested_form_field_locator("body_en"), with: "Changed title"
         page.all(".questionnaire-question-response-option").each_with_index do |question_response_option, response_option_idx|
           within question_response_option do
@@ -317,7 +317,7 @@ describe "Admin manages meetings polls" do
       end
 
       it "keeps the content of blocked questions" do
-        expect(page).to have_content("There was a problem updating this meeting poll")
+        expect(page).to have_text("There was a problem updating this meeting poll")
         expand_all_questions
 
         expect(page).to have_css("input[value='#{translated_attribute(unpublished_question.body)}']:not([disabled])")

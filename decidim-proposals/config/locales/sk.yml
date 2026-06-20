@@ -283,17 +283,13 @@ sk:
             email_intro: '%{author_name} vytvoril/a súkromnú poznámku v %{resource_title}. Pozrite si to v <a href="%{admin_proposal_info_url}">paneli administrátora</a>.'
             email_outro: Toto upozornenie ste dostali, pretože môžete hodnotiť návrh.
             email_subject: Niekto zanechal poznámku k návrhu %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvoril/a súkromnú poznámku v <a href="%{resource_path}">%{resource_title}</a>. Pozrite si to v <a href="%{admin_proposal_info_path}">paneli administrátora</a>.
           proposal_note_mentioned:
-            email_intro: Boli ste spomenutý/á v súkromnej poznámke v „%{resource_title}“ používateľom „%{author_name}“ „%{author_nickname}“. Pozrite si to v <a href="%{admin_proposal_info_url}">paneli administrátora</a>.
             email_outro: Toto upozornenie ste dostali, pretože ste boli spomenutý/á v súkromnej poznámke.
             email_subject: Niekto vás spomenul v poznámke k návrhu %{resource_title}.
-            notification_title: Boli ste spomenutý/á v súkromnej poznámke v <a href="%{resource_path}">%{resource_title}</a> používateľom <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Pozrite si to v <a href="%{admin_proposal_info_path}">paneli administrátora</a>.
           proposal_note_replied:
             email_intro: '%{author_name} odpovedal/a na vašu súkromnú poznámku v %{resource_title}. Pozrite si to v <a href="%{admin_proposal_info_url}">paneli administrátora</a>.'
             email_outro: Toto upozornenie ste dostali, pretože ste autorom poznámky.
             email_subject: "%{author_name} odpovedal/a na vašu súkromnú poznámku v %{resource_title}."
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpovedal/a na vašu súkromnú poznámku v <a href="%{resource_path}">%{resource_title}</a>. Pozrite si to v <a href="%{admin_proposal_info_path}">paneli administrátora</a>.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> prijal/a vašu pozvánku stať sa spoluautorom návrhu <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
@@ -310,17 +306,14 @@ sk:
           email_intro: '%{requester_name} bol/a prijatý/á ako prispievateľ do spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} bol prijatý k prístupu ako prispievateľ %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> je <strong> má prístup ako prispievateľ </strong> v spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} bol/a odmietnutý/á ako prispievateľ do spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} mal odmietnutý pre prístup ako prispievateľ ku %{resource_title} kolektívnemu návrhu."
-          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a><strong> mal odmietnutý prístup ako prispievateľ </strong>ku spoločnému návrhu <a href = "%{resource_path}" >%{resource_title} </a>. 
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} požiadal/a o prístup ako prispievateľ. Žiadosť môžete <strong>prijať alebo odmietnuť</strong> na stránke spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} požiadal o prístup ku spolupráci na %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a> požiadal o prístup ku spolupráci na <a href="%{resource_path}">%{resource_title} </a>. Prosíme <strong> prijmite alebo odmietnite žiadosť </strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Boli ste prijatý/á ako prispievateľ do spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Toto upozornenie ste dostali, pretože ste požiadali o to, aby ste sa stali spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
@@ -332,10 +325,7 @@ sk:
           email_subject: Bol ste odmietnutý ako prispievateľ ku %{resource_title}.
           notification_title: Boli ste <strong> odmietnutý ako prispievateľ ku </strong> spoločnému návrhu <a href="%{resource_path}">%{resource_title} </a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> stiahol/stiahla spoločný koncept <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "% {AUTHOR_NAME}% {author_nickname} stiahol% {resource_title} návrh spolupráce."
-          notification_title: <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a> <strong> stiahnuté </ strong> <a href="%{resource_path}">% {resource_title} </ a> návrh spolupráce.
         creation_enabled:
           email_intro: 'Teraz môžete vytvoriť nové návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
@@ -356,11 +346,6 @@ sk:
           email_outro: Toto upozornenie ste dostali, pretože ste autorom návrhu.
           email_subject: Návrh %{resource_title} bol zlúčený
           notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> bol zlúčený administrátorom.
-        proposal_published:
-          email_intro: '% {AUTHOR_NAME}% {author_nickname}, ktorý sledujete, zverejnil nový návrh nazvaný "% {resource_title}". Vyskúšajte to a prispejte: '
-          email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-          email_subject: Nový návrh "%{resource_title}" o%{author_nickname}
-          notification_title: Návrh <a href="%{resource_path}">% {resource_title} </a> bol zverejnený <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
         proposal_published_for_space:
           email_intro: Návrh "%{resource_title}" bol pridaný k "%{participatory_space_title}", ktorý sledujete.
           email_outro: Toto oznámenie ste dostali, pretože sledujete "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.

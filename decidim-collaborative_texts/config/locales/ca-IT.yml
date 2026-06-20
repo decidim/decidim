@@ -79,6 +79,8 @@ ca-IT:
           update_settings:
             invalid: S'ha produït un error en actualitzar el document.
             success: Document actualitzat correctament.
+        exports:
+          document_suggestions: Suggeriments
         index:
           published: Publicat
           unpublished: Despublicat

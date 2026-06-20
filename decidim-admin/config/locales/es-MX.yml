@@ -899,6 +899,7 @@ es-MX:
       officializations:
         block:
           error: Se ha producido un error al bloquear a la participante.
+          no_user: No se ha encontrado ninguna usuaria
           success: Participante bloqueada correctamente.
         bulk_action:
           block:
@@ -934,6 +935,7 @@ es-MX:
           officialize: Oficializar
           title: Oficializar el usuario "%{name}"
         show_email:
+          no_user: No se ha encontrado ninguna usuaria
           title: Mostrar el correo electrónico
         show_email_modal:
           description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.

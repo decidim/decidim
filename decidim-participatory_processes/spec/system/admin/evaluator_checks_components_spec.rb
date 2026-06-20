@@ -32,8 +32,8 @@ describe "Evaluator checks components" do
       end
 
       within ".table-list" do
-        expect(page).to have_content(translated(current_component.name))
-        expect(page).to have_no_content(translated(another_component.name))
+        expect(page).to have_text(translated(current_component.name))
+        expect(page).to have_no_text(translated(another_component.name))
       end
     end
   end

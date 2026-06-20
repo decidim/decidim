@@ -15,24 +15,24 @@ describe "Organizations" do
     describe "current organizations section" do
       it "has a link for creating a new organization" do
         click_on "New organization"
-        expect(page).to have_content("New organization")
+        expect(page).to have_text("New organization")
         expect(page).to have_button("Create organization & invite admin")
       end
 
       it "has a list of the current organizations" do
-        expect(page).to have_content("Citizen Corp")
+        expect(page).to have_text("Citizen Corp")
       end
     end
 
     describe "admins section" do
       it "has a link for creating a new admin" do
         click_on "New admin"
-        expect(page).to have_content("New admin")
+        expect(page).to have_text("New admin")
         expect(page).to have_button("Create")
       end
 
       it "has a list of the current admins" do
-        expect(page).to have_content("system@example.org")
+        expect(page).to have_text("system@example.org")
       end
     end
   end

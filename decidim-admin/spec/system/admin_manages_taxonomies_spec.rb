@@ -14,7 +14,7 @@ describe "Admin manages taxonomies" do
   end
 
   it "displays the taxonomies" do
-    expect(page).to have_content("Taxonomies")
+    expect(page).to have_text("Taxonomies")
   end
 
   context "when creating a new taxonomy" do
@@ -29,11 +29,11 @@ describe "Admin manages taxonomies" do
     end
 
     it "displays a success message" do
-      expect(page).to have_content("Taxonomy created successfully.")
+      expect(page).to have_text("Taxonomy created successfully.")
     end
 
     it "creates a new taxonomy" do
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
     end
   end
 
@@ -49,7 +49,7 @@ describe "Admin manages taxonomies" do
     end
 
     it "displays an error message" do
-      expect(page).to have_content("cannot be blank")
+      expect(page).to have_text("cannot be blank")
     end
   end
 
@@ -69,7 +69,7 @@ describe "Admin manages taxonomies" do
     end
 
     it "creates a new taxonomy item" do
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
     end
   end
 
@@ -89,7 +89,7 @@ describe "Admin manages taxonomies" do
     end
 
     it "displays an error message" do
-      expect(page).to have_content("cannot be blank")
+      expect(page).to have_text("cannot be blank")
     end
   end
 
@@ -113,7 +113,7 @@ describe "Admin manages taxonomies" do
 
     it "creates a new taxonomy item" do
       within(".js-sortable tr", text: translated(parent_taxonomy.name)) do
-        expect(page).to have_content(translated(attributes[:name]))
+        expect(page).to have_text(translated(attributes[:name]))
       end
     end
   end
@@ -133,11 +133,11 @@ describe "Admin manages taxonomies" do
     end
 
     it "displays a success message" do
-      expect(page).to have_content("Taxonomy updated successfully.")
+      expect(page).to have_text("Taxonomy updated successfully.")
     end
 
     it "updates the taxonomy" do
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     context "and the organization has multiple languages" do
@@ -183,14 +183,14 @@ describe "Admin manages taxonomies" do
           click_on "Create item"
         end
 
-        expect(page).to have_content("My english value")
+        expect(page).to have_text("My english value")
 
         within "tr", text: "My english value" do
           find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
-        expect(page).to have_content("My english value")
+        expect(page).to have_text("My english value")
         expect(taxonomy.reload.children.last.name["en"]).to eq("My english value")
         expect(taxonomy.reload.children.last.name["it"]).to eq("My italian value")
 
@@ -204,7 +204,7 @@ describe "Admin manages taxonomies" do
           click_on "Update item"
         end
 
-        expect(page).to have_content("My modified english value")
+        expect(page).to have_text("My modified english value")
         expect(taxonomy.reload.children.last.name["en"]).to eq("My modified english value")
         expect(taxonomy.reload.children.last.name["it"]).to eq("My modified italian value")
       end
@@ -220,8 +220,8 @@ describe "Admin manages taxonomies" do
 
     it "displays a success message" do
       click_delete_taxonomy
-      expect(page).to have_content("Taxonomy successfully destroyed.")
-      expect(page).to have_no_content(taxonomy.name)
+      expect(page).to have_text("Taxonomy successfully destroyed.")
+      expect(page).to have_no_text(taxonomy.name)
     end
   end
 
@@ -238,9 +238,9 @@ describe "Admin manages taxonomies" do
       expect(page).to have_css(".js-sortable")
 
       within ".js-sortable" do
-        expect(page).to have_content(translated(taxonomy1.name))
-        expect(page).to have_content(translated(taxonomy2.name))
-        expect(page).to have_content(translated(taxonomy3.name))
+        expect(page).to have_text(translated(taxonomy1.name))
+        expect(page).to have_text(translated(taxonomy2.name))
+        expect(page).to have_text(translated(taxonomy3.name))
       end
 
       page.execute_script(<<~JS)
@@ -252,26 +252,26 @@ describe "Admin manages taxonomies" do
       JS
 
       within ".js-sortable tr:first-child td:nth-child(2)" do
-        expect(page).to have_content(translated(taxonomy2.name))
+        expect(page).to have_text(translated(taxonomy2.name))
       end
       within ".js-sortable tr:nth-child(2) td:nth-child(2)" do
-        expect(page).to have_content(translated(taxonomy3.name))
+        expect(page).to have_text(translated(taxonomy3.name))
       end
       within ".js-sortable tr:last-child td:nth-child(2)" do
-        expect(page).to have_content(translated(taxonomy1.name))
+        expect(page).to have_text(translated(taxonomy1.name))
       end
 
       # Refresh the page to ensure the order is persisted
       visit current_path
 
       within ".js-sortable tr:first-child td:nth-child(2)" do
-        expect(page).to have_content(translated(taxonomy2.name))
+        expect(page).to have_text(translated(taxonomy2.name))
       end
       within ".js-sortable tr:nth-child(2) td:nth-child(2)" do
-        expect(page).to have_content(translated(taxonomy3.name))
+        expect(page).to have_text(translated(taxonomy3.name))
       end
       within ".js-sortable tr:last-child td:nth-child(2)" do
-        expect(page).to have_content(translated(taxonomy1.name))
+        expect(page).to have_text(translated(taxonomy1.name))
       end
     end
   end
@@ -284,15 +284,15 @@ describe "Admin manages taxonomies" do
     end
 
     it "displays the pagination" do
-      expect(page).to have_content(translated(taxonomies[25].name))
-      expect(page).to have_content("Drag over for previous page")
+      expect(page).to have_text(translated(taxonomies[25].name))
+      expect(page).to have_text("Drag over for previous page")
       expect(page).to have_link("Prev")
 
       all(".js-sortable tr").last.drag_to(all(".js-sortable tr").first)
 
-      expect(page).to have_content("Drag over for next page")
-      expect(page).to have_content(translated(taxonomies[25].name))
-      expect(page).to have_no_content(translated(taxonomies[24].name))
+      expect(page).to have_text("Drag over for next page")
+      expect(page).to have_text(translated(taxonomies[25].name))
+      expect(page).to have_no_text(translated(taxonomies[24].name))
     end
   end
 

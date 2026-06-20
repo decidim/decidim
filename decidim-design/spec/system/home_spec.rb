@@ -13,7 +13,7 @@ describe "Home" do
     visit decidim_design.root_path
 
     within "main" do
-      expect(page).to have_content("Decidim Design Guide")
+      expect(page).to have_text("Decidim Design Guide")
     end
   end
 end

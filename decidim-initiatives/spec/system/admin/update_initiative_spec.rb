@@ -58,7 +58,7 @@ describe "User prints the initiative" do
 
         expect(page).to have_callout "The initiative has been successfully updated."
         visit decidim_admin.root_path
-        expect(page).to have_content("updated the #{translated(attributes[:title])} initiative")
+        expect(page).to have_text("updated the #{translated(attributes[:title])} initiative")
       end
 
       context "when initiative is in created state" do

@@ -15,9 +15,9 @@ module Decidim::Assemblies::Admin
       instance_double(File,
                       blank?: false)
     end
-    let(:form) do
-      instance_double(
-        AssemblyImportForm,
+
+    let(:attributes) do
+      {
         title: { en: "title" },
         slug: "imported-slug",
         import_steps?: import_steps,
@@ -25,8 +25,15 @@ module Decidim::Assemblies::Admin
         import_components?: import_components,
         document: form_doc,
         document_text: document_file,
-        document_type:,
-        current_user: create(:user, organization:),
+        document_type:
+      }
+    end
+    let(:current_user) { user }
+    let(:form) do
+      instance_double(
+        AssemblyImportForm,
+        **attributes,
+        current_user:,
         current_organization: organization,
         invalid?: invalid
       )
@@ -94,6 +101,30 @@ module Decidim::Assemblies::Admin
         expect do
           subject.call
         end.not_to change(::Decidim::Assembly, :count)
+      end
+    end
+
+    context "when there is a trashed space with the same slug" do
+      let!(:trashed_space) { create(:assembly, :trashed, :open, slug: "imported-slug", organization:) }
+      let(:form_doc) do
+        ActiveStorage::Blob.create_and_upload!(
+          io: File.open(Decidim::Dev.asset(document_name)),
+          filename: document_name,
+          content_type: document_type
+        )
+      end
+
+      let(:form) do
+        AssemblyImportForm.from_params(attributes)
+                          .with_context({
+                                          current_user:,
+                                          current_organization: organization
+                                        })
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors[:slug]).not_to be_empty
       end
     end
 

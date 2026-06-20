@@ -40,7 +40,7 @@ describe "Admin manages participatory process attachments" do
 
         wait_enqueued_jobs do
           visit decidim.notifications_path
-          expect(page).to have_content("A new document has been added to")
+          expect(page).to have_text("A new document has been added to")
         end
       end
     end

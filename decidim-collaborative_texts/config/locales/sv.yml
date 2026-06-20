@@ -79,6 +79,8 @@ sv:
           update_settings:
             invalid: Det gick inte att uppdatera dokumentet.
             success: Dokumentet har uppdaterats.
+        exports:
+          document_suggestions: Förslag
         index:
           published: Publicerade
           unpublished: Opublicerade

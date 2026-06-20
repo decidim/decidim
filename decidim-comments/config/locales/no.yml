@@ -107,12 +107,10 @@
           email_intro: "%{author_name} har lagt igjen en kommentar i %{resource_title}. Du kan lese den på denne siden:"
           email_outro: Du har mottatt denne varslingen fordi du følger %{author_name}. Du kan slutte å følge denne brukeren fra dems profil side.
           email_subject: Det er en ny kommentar av %{author_name} i %{resource_title}
-          notification_title: Det er en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} har blitt kommentert. Du kan lese kommentaren på denne siden:"
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" eller dens forfatter. Du kan slutte å følge den fra den forrige lenken.
           email_subject: Det er en ny kommentar fra %{author_name} i %{resource_title}
-          notification_title: Det er en ny kommentar fra <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Din kommentar i "%{resource_title}" har blitt stemt ned. Den har nå totalt %{upvotes} stemmer opp og %{downvotes} stemmer ned.
           email_outro: Du har mottatt dette varselet fordi du er forfatteren av denne kommentaren.
@@ -127,9 +125,7 @@
           email_intro: "%{author_name} har svart kommentaren din i %{resource_title}. Du kan lese den på denne siden:"
           email_outro: Du har mottatt denne varslingen fordi din kommentar er besvart.
           email_subject: "%{author_name} har svart kommentaren din i %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svart kommentaren din i <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Du har blitt nevnt
           email_outro: Du har mottatt denne varslingen fordi du er nevnt i %{resource_title}.
           email_subject: Du har blitt nevnt i %{resource_title}
-          notification_title: Du har blitt nevnt i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>

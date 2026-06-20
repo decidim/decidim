@@ -40,11 +40,11 @@ describe "Admin manages area types" do
     expect(page).to have_callout("Area type created successfully.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:name])} area type")
+    expect(page).to have_text("created the #{translated(attributes[:name])} area type")
   end
 
   context "with existing area_types" do
@@ -56,7 +56,7 @@ describe "Admin manages area types" do
 
     it "lists all the area types for the organization" do
       within "#area-types table" do
-        expect(page).to have_content(translated(area_type.name, locale: :en))
+        expect(page).to have_text(translated(area_type.name, locale: :en))
       end
     end
 
@@ -84,11 +84,11 @@ describe "Admin manages area types" do
       expect(page).to have_callout("Area type updated successfully.")
 
       within "table" do
-        expect(page).to have_content(translated(attributes[:name]))
+        expect(page).to have_text(translated(attributes[:name]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:name])} area type")
+      expect(page).to have_text("updated the #{translated(attributes[:name])} area type")
     end
 
     it "can delete them" do
@@ -100,7 +100,7 @@ describe "Admin manages area types" do
       expect(page).to have_callout("Area type successfully destroyed.")
 
       within "table" do
-        expect(page).to have_no_content(translated(area_type.name))
+        expect(page).to have_no_text(translated(area_type.name))
       end
     end
   end

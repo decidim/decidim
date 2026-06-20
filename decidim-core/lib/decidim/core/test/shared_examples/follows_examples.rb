@@ -18,7 +18,7 @@ shared_examples "followable content for users" do
 
         expect do
           click_on "Follow"
-          expect(page).to have_content "Stop following"
+          expect(page).to have_text "Stop following"
         end.to change(Decidim::Follow, :count).by(1)
       end
     end
@@ -36,7 +36,7 @@ shared_examples "followable content for users" do
 
         expect do
           click_on "Stop following"
-          expect(page).to have_content "Follow"
+          expect(page).to have_text "Follow"
         end.to change(Decidim::Follow, :count).by(-1)
       end
     end
@@ -56,7 +56,7 @@ shared_examples "followable space content for users" do
 
         expect do
           click_on "Follow"
-          expect(page).to have_content "Stop following"
+          expect(page).to have_text "Stop following"
         end.to change(Decidim::Follow, :count).by(1)
       end
     end
@@ -73,7 +73,7 @@ shared_examples "followable space content for users" do
 
         expect do
           click_on "Stop following"
-          expect(page).to have_content "Follow"
+          expect(page).to have_text "Follow"
         end.to change(Decidim::Follow, :count).by(-1)
       end
     end
@@ -96,7 +96,7 @@ shared_examples "followable content for users with a component" do
 
         expect do
           click_on "Follow"
-          expect(page).to have_content "Stop following"
+          expect(page).to have_text "Stop following"
         end.to change(Decidim::Follow, :count).by(1)
       end
     end

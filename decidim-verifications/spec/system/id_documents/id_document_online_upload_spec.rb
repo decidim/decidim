@@ -16,7 +16,7 @@ describe "Identity document online upload" do
   end
 
   it "redirects to verification after login" do
-    expect(page).to have_content("Upload your identity document")
+    expect(page).to have_text("Upload your identity document")
   end
 
   it "allows the user to upload their identity document" do
@@ -26,7 +26,7 @@ describe "Identity document online upload" do
       file_name: "id.jpg"
     )
 
-    expect(page).to have_content("Document successfully uploaded")
+    expect(page).to have_text("Document successfully uploaded")
   end
 
   it "does not allow to upload an invalid file" do
@@ -37,7 +37,7 @@ describe "Identity document online upload" do
       keep_modal_open: true
     )
 
-    expect(page).to have_content("Validation error!")
+    expect(page).to have_text("Validation error!")
     expect(page).to have_css("button[disabled]", text: "Save")
   end
 

@@ -322,19 +322,31 @@ header {
   .menu-bar {
     @apply container h-full flex justify-between items-center sm:relative last-of-type:[&>svg]:hidden;
 
+    &__breadcrumb-text {
+      @apply block min-w-0 max-w-full overflow-hidden whitespace-nowrap text-ellipsis;
+    }
+
     &__container {
       @apply bg-primary relative h-14 flex justify-between;
     }
 
     &__breadcrumb-desktop {
-      @apply hidden lg:flex justify-between items-center [&>*]:text-md [&>*]:text-white gap-x-2;
+      @apply hidden lg:flex flex-1 min-w-0 overflow-hidden items-center [&>*]:text-md [&>*]:text-white gap-x-2;
+
+      > * {
+        @apply min-w-0;
+      }
 
       .no-interactive {
-        @apply font-normal px-0;
+        @apply font-normal px-0 min-w-0;
       }
 
       &__dropdown-trigger {
-        @apply flex rounded py-1 z-20 font-semibold;
+        @apply flex flex-none rounded py-1 z-20 font-semibold;
+
+        &--truncatable {
+          @apply min-w-0 overflow-hidden;
+        }
 
         &:hover {
           @apply z-10 relative before:content-[''] before:absolute before:w-[calc(100%+3rem+1px)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
@@ -346,7 +358,11 @@ header {
       }
 
       &__dropdown-wrapper {
-        @apply flex items-center cursor-pointer underline;
+        @apply flex flex-none items-center cursor-pointer underline;
+      }
+
+      &__label--truncatable {
+        @apply block w-full min-w-0 max-w-full overflow-hidden;
       }
 
       &__dropdown-content {
@@ -417,18 +433,31 @@ header {
     }
 
     &__breadcrumb-mobile {
-      @apply block lg:hidden w-full z-20;
+      @apply block lg:hidden w-full min-w-0 z-20;
 
       &__dropdown-trigger {
-        @apply flex items-center justify-between text-white;
+        @apply flex min-w-0 items-center justify-between text-white;
+
+        .menu-bar__breadcrumb-item {
+          @apply min-w-0;
+        }
 
         svg {
+          @apply flex-none;
           @apply w-6 h-6 fill-current;
         }
       }
 
+      &__label-wrapper {
+        @apply block min-w-0 flex-1 overflow-hidden;
+      }
+
+      &__label {
+        @apply flex w-full items-center gap-x-2 min-w-0 overflow-hidden;
+      }
+
       .menu-bar__breadcrumb-item {
-        @apply font-semibold underline;
+        @apply block flex-1 min-w-0 overflow-hidden whitespace-nowrap text-ellipsis font-semibold underline;
       }
 
       /* overwrite default dropdown styles */

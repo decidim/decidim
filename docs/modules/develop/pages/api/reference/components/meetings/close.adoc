@@ -6,7 +6,7 @@ To use the API to close any meeting that the user is authorized to close, you wi
 ----
 mutation closeMeeting($componentId: ID!, $meetingId: ID!, $input: CloseMeetingInput!){
   component(id: $componentId) {
-    ...on MeetingsMutation{
+    ... on MeetingsMutation {
       meeting(id: $meetingId) {
         close(input: $input) {
           id

@@ -169,12 +169,10 @@ ro:
           email_intro: "%{author_name} a lăsat un comentariu în %{resource_title}. Îl puteți citi pe această pagină:"
           email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{author_name}. Puteți să nu urmăriți acest utilizator de pe pagina lui de profil.
           email_subject: Există un nou comentariu de la %{author_name} pentru %{resource_title}
-          notification_title: Există un comentariu nou de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> pentru <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} a primit un comentariu. Poți citi comentariul pe această pagină:"
           email_outro: Ați primit această notificare deoarece urmăriți „%{resource_title}” sau pe autorii săi. Puteți anula abonarea de la link-ul anterior.
           email_subject: Există un comentariu nou de la %{author_name} pentru %{resource_title}
-          notification_title: Există un comentariu nou de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> pentru <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Comentariul dumneavoastră pentru "%{resource_title}" a primit un vot nefavorabil. Acesta are acum un total de %{upvotes} voturi favorabile și %{downvotes} voturi nefavorabile.
           email_outro: Ați primit această notificare deoarece sunteți autorul acestui comentariu.
@@ -189,12 +187,10 @@ ro:
           email_intro: "%{author_name} a răspuns la comentariul dumneavoastră pentru %{resource_title}. Îl poți citi în această pagină:"
           email_outro: Ați primit această notificare deoarece comentariul dumneavoastră a fost răspuns.
           email_subject: "%{author_name} a răspuns la comentariul dumneavoastră pentru %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a răspuns la comentariul dumneavoastră pentru <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Ați fost menționat(ă)
           email_outro: Ați primit această notificare deoarece ați fost menționat(ă) în %{resource_title}.
           email_subject: Ați fost menționat(ă) în %{resource_title}
-          notification_title: Ați fost menționat(ă) în <a href="%{resource_path}">%{resource_title}</a> de către <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: nu poate avea comentarii

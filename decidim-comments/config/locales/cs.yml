@@ -169,12 +169,12 @@ cs:
           email_intro: "%{author_name} zanechal komentář v %{resource_title}. Můžete si je přečíst na této stránce:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_name}. Tento uživatel můžete zrušit ze své profilové stránky.
           email_subject: K dispozici je nový komentář %{author_name} v %{resource_title}
-          notification_title: Je tu nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Nový komentář od <a href="%{author_path}">%{author_name}</a> v <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} bylo komentováno. Můžete si přečíst komentář na této stránce:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}" nebo jeho autora. Můžete jej odhlásit od předchozího odkazu.
           email_subject: K dispozici je nový komentář od %{author_name} do %{resource_title}
-          notification_title: Je tu nový komentář od <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: Nový komentář od <a href="%{author_path}">%{author_name}</a> v <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Váš komentář v "%{resource_title}" byl nepodpořen. Nyní má celkem %{upvotes} hlasů podpory a %{downvotes} hlasuje proti.
           email_outro: Obdrželi jste toto oznámení, protože jste autorem tohoto komentáře.
@@ -189,12 +189,10 @@ cs:
           email_intro: "%{author_name} odpověděl váš komentář v %{resource_title}. Můžete si je přečíst na této stránce:"
           email_outro: Toto oznámení jste obdrželi, protože váš komentář byl zodpovězen.
           email_subject: "%{author_name} odpověděl váš komentář v %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpověděl na váš komentář v <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Byl jste zmíněn
           email_outro: Toto oznámení jste obdrželi, protože jste byli uvedeni v %{resource_title}.
           email_subject: Byl jste zmíněn v %{resource_title}
-          notification_title: Byli jste zmíněni v <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: nelze komentovat

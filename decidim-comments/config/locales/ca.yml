@@ -168,12 +168,12 @@ ca:
           email_intro: "%{author_name} ha deixat un comentari a %{resource_title}. Podeu llegir-lo en aquesta pàgina:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint el comentari "%{author_name}". Pots deixar de seguir a aquesta participant des de la seva pàgina de perfil.
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
-          notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name}</a> a<a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "Algú ha deixat un comentari a \"%{resource_title}\". Pots llegir el comentari a través del següent enllaç:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint el comentari "%{resource_title}" o la seva autora. Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
-          notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name}</a> a<a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: El teu comentari a "%{resource_title}" ha rebut un vot negatiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
           email_outro: Has rebut aquesta notificació perquè vas fer aquest comentari.
@@ -188,12 +188,12 @@ ca:
           email_intro: "%{author_name} ha respost el teu comentari a %{resource_title}. Pots llegir-lo en aquesta pàgina:"
           email_outro: Has rebut aquesta notificació perquè s'ha respost el teu comentari.
           email_subject: "%{author_name} ha respost el teu comentari a %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost el teu comentari a <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: <a href="%{author_path}">%{author_name}</a> ha respost el teu comentari a <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Has estat esmentada
           email_outro: Has rebut aquesta notificació perquè t'han esmentat al comentari "%{resource_title}".
           email_subject: Has estat esmentada a %{resource_title}
-          notification_title: Has estat esmentada a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          notification_title: Has estat esmentada per <a href="%{author_path}">%{author_name}</a> a <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: no es poden fer comentaris

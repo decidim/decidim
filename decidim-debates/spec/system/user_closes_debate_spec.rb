@@ -37,8 +37,8 @@ describe "User closes a debate" do
         click_on "Close debate"
       end
 
-      expect(page).to have_content("The debate was closed")
-      expect(page).to have_content("Yes, all organizations should use Decidim!")
+      expect(page).to have_text("The debate was closed")
+      expect(page).to have_text("Yes, all organizations should use Decidim!")
       expect(page).to have_css(".likes-list__avatar")
     end
   end
@@ -54,7 +54,7 @@ describe "User closes a debate" do
     end
 
     it "cannot be edited" do
-      expect(page).to have_no_content("Edit debate")
+      expect(page).to have_no_text("Edit debate")
     end
 
     it "is allowed to change the conclusions" do
@@ -66,7 +66,7 @@ describe "User closes a debate" do
         click_on "Close debate"
       end
 
-      expect(page).to have_content("New conclusions")
+      expect(page).to have_text("New conclusions")
     end
   end
 end

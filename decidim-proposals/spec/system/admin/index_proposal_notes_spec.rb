@@ -35,8 +35,8 @@ describe "Index Proposal Notes" do
 
   it "shows proposal notes for the current proposal" do
     proposal_notes.each do |proposal_note|
-      expect(page).to have_content(proposal_note.author.name)
-      expect(page).to have_content(decidim_sanitize_translated(proposal_note.body))
+      expect(page).to have_text(proposal_note.author.name)
+      expect(page).to have_text(decidim_sanitize_translated(proposal_note.body))
     end
     expect(page).to have_css("form")
   end
@@ -54,11 +54,11 @@ describe "Index Proposal Notes" do
       click_on "Private notes"
 
       within "#panel-notes .comment:last-of-type" do
-        expect(page).to have_content(decidim_sanitize_translated(attributes[:body]))
+        expect(page).to have_text(decidim_sanitize_translated(attributes[:body]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("left a private note on the #{translated(proposal.title)} proposal")
+      expect(page).to have_text("left a private note on the #{translated(proposal.title)} proposal")
     end
   end
 
@@ -72,7 +72,7 @@ describe "Index Proposal Notes" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("There is an error in this field.")
+      expect(page).to have_text("There is an error in this field.")
     end
   end
 
@@ -90,12 +90,12 @@ describe "Index Proposal Notes" do
     click_on "Private notes"
 
     within("div.comment", text: decidim_sanitize_translated(proposal_note.body)) do
-      expect(page).to have_content(decidim_sanitize_translated(attributes[:body]))
+      expect(page).to have_text(decidim_sanitize_translated(attributes[:body]))
     end
 
     expect(proposal_note.replies.count).to eq(1)
 
     visit decidim_admin.root_path
-    expect(page).to have_content("left a private note on the #{translated(proposal.title)} proposal")
+    expect(page).to have_text("left a private note on the #{translated(proposal.title)} proposal")
   end
 end

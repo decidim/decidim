@@ -14,8 +14,8 @@ describe "Blogs Breadcrumb" do
   describe "index" do
     it "shows the correct information in breadcrumb (space, component)" do
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
       end
     end
   end
@@ -25,9 +25,9 @@ describe "Blogs Breadcrumb" do
       click_on translated(post.title)
 
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(post.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(post.title))
       end
     end
   end

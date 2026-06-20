@@ -30,7 +30,6 @@ it:
           before_date_info: Utile se il processo è già iniziato e si desidera revocare i permessi del processo precedente.
           button: Revoca tutto
           button_before: Revoca prima della data
-          destroy_ok: Tutte le autorizzazioni corrispondenti sono state revocate correttamente.
           info: Ci sono un totale di %{count} partecipanti verificati.
           title: Revoca delle autorizzazioni
         authorization_workflows: Autorizzazioni

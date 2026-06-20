@@ -352,25 +352,11 @@ bg:
         update: Актуализация
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} прие вашата кандидатура да станете част от промоторския комитет за инициативата %{resource_title}."
           email_outro: 'Получихте това известие, защото кандидатствахте за тази инициатива: %{resource_title}'
-          email_subject: "%{author_nickname} прие кандидатурата ви в комитета на промоутъра"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> прие вашата кандидатура да бъде част от комитета на промоторите за следната инициатива <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, когото следвате, създаде нова инициатива, разгледайте я и допринесете:"
-          email_outro: Получихте това известие, защото следвате %{author_nickname}. Можете да спрете да получавате известия, като последвате предходния линк.
-          email_subject: Нова инициатива на %{author_nickname}
-          notification_title: Инициативата <a href="%{resource_path}">%{resource_title}</a> беше създадена от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} отхвърли кандидатурата ви да станете част от комитета на промоторите за следната инициатива %{resource_title}."
           email_outro: 'Получихте това известие, защото кандидатствахте за тази инициатива: %{resource_title}.'
-          email_subject: "%{author_nickname} отхвърли кандидатурата ви до промоутърската комисия"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> отхвърли кандидатурата ви да бъде част от комитета на промоторите за следната инициатива <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} кандидатства за промоторския комитет на вашата инициатива %{resource_title}. За да приемете или отхвърлите кандидатурата, отидете на формата за редактиране на вашата инициатива."
           email_outro: 'Получихте това известие, защото сте авторът на тази инициатива: %{resource_title}'
-          email_subject: "%{applicant_nickname} иска да се присъедини към вашата инициатива"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> кандидатства за промоторския комитет на вашата инициатива <a href="%{resource_url}">%{resource_title}</a>. За да приемете или отхвърлите, щракнете <a href="%{resource_url}/edit">тук</a>.
       form:
         add_image: Добавяне на изображение
         edit_image: Редактиране на изображение

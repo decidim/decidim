@@ -257,9 +257,6 @@ el:
       update_draft:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του πρόχειρου τροποποίησης.
         success: Το πρόχειρο τροποποίησης ενημερώθηκε επιτυχώς.
-      wizard_step_form:
-        steps:
-          '1': Δημιουργήστε την τροποποίησή σας
     anonymous_user: Ανώνυμη
     application:
       document:
@@ -493,13 +490,9 @@ el:
           affected_user:
             email_intro: 'Μια τροποποίηση έγινε δεκτή για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
-            email_subject: Αποδεκτή τροποποίηση για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
-            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> έγινε δεκτή για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Μια τροποποίηση έγινε δεκτή για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-            email_subject: Αποδεκτή τροποποίηση για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
-            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> έγινε δεκτή για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Μια νέα τροποποίηση δημιουργήθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
@@ -515,24 +508,16 @@ el:
           affected_user:
             email_intro: 'Μια τροποποίηση που απορρίφθηκε για %{amendable_title} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
-            email_subject: Μια τροποποίηση από τον συντάκτη %{emendation_author_nickname} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}
-            notification_title: Μια <a href="%{emendation_path}">τροποποίηση που απορρίφθηκε</a> για <a href="%{amendable_path}">%{amendable_title}</a> δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type} από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Μια τροποποίηση που απορρίφθηκε για %{amendable_title} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-            email_subject: Μια τροποποίηση από τον συντάκτη %{emendation_author_nickname} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}
-            notification_title: Μια <a href="%{emendation_path}">τροποποίηση που απορρίφθηκε</a> για <a href="%{amendable_path}">%{amendable_title}</a> δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type} από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Μια τροποποίηση απορρίφθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
-            email_subject: Η τροποποίηση απορρίφθηκε για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
-            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> απορρίφθηκε για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Μια τροποποίηση απορρίφθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-            email_subject: Η τροποποίηση απορρίφθηκε για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
-            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> απορρίφθηκε για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Ένα νέο έγγραφο προστέθηκε στο στοιχείο %{resource_title}. Μπορείτε να το δείτε από αυτήν τη σελίδα:'
@@ -555,12 +540,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
         level_up:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
-      users:
-        profile_updated:
-          email_intro: Η <a href="%{resource_url}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον/την %{nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: "Ο/η %{nickname} ενημέρωσε το προφίλ του/της"
-          notification_title: Η <a href="%{resource_path}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
     export_mailer:
       download_your_data_export:
         download: Λήψη

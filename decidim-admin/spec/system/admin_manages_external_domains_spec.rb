@@ -53,7 +53,7 @@ describe "Admin manages external domain list" do
     let(:organization) { create(:organization, external_domain_allowlist: []) }
 
     it "updates the external domains list" do
-      expect(page).to have_content("Add to allowed list")
+      expect(page).to have_text("Add to allowed list")
       click_on "Add to allowed list"
       within ".external-domains-list" do
         find(:css, "input[type=text]").set("example.org")
@@ -67,7 +67,7 @@ describe "Admin manages external domain list" do
     end
 
     it "updates the list when having multiple allowed domains" do
-      expect(page).to have_content("Add to allowed list")
+      expect(page).to have_text("Add to allowed list")
       click_on "Add to allowed list"
       click_on "Add to allowed list"
 
@@ -85,7 +85,7 @@ describe "Admin manages external domain list" do
     end
 
     it "reorders the list" do
-      expect(page).to have_content("Add to allowed list")
+      expect(page).to have_text("Add to allowed list")
       click_on "Add to allowed list"
       click_on "Add to allowed list"
 

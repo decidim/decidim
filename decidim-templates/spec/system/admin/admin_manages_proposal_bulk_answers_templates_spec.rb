@@ -22,6 +22,12 @@ describe "Admin manages bulk proposal answer templates" do
   end
 
   before do
+    # We do not optimize n+1 here, as the n+1 comes from the enqueue mechanism, which is calling various jobs where the user is required.
+    # Does not make sense to optimize the enqueuer just for tests
+    %w(amendable amended component coauthorships).each do |association|
+      Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Proposals::Proposal", :association => association
+    end
+
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit manage_component_path(component)
@@ -38,8 +44,8 @@ describe "Admin manages bulk proposal answer templates" do
     click_on "Update"
 
     wait_enqueued_jobs do
-      expect(page).to have_content("4 proposals will be answered using the template")
-      expect(page).to have_content("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
+      expect(page).to have_text("4 proposals will be answered using the template")
+      expect(page).to have_text("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
       expect(proposal.reload.proposal_state).to eq(state)
       expect(proposal.answer["en"]).to include("Hi #{proposal.creator_author.name}, this proposal will be implemented in #{organization.name["en"]}. Signed: #{user.name}")
       other_proposals.each do |reportable|
@@ -60,8 +66,8 @@ describe "Admin manages bulk proposal answer templates" do
       click_on "Update"
 
       wait_enqueued_jobs do
-        expect(page).to have_content("4 proposals will be answered using the template")
-        expect(page).to have_content("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
+        expect(page).to have_text("4 proposals will be answered using the template")
+        expect(page).to have_text("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
         expect(proposal.reload.proposal_state).to eq(state)
         expect(proposal.answer["en"]).to include("Hi #{organization.name["en"]}, this proposal will be implemented in #{organization.name["en"]}. Signed: #{user.name}")
       end
@@ -100,8 +106,8 @@ describe "Admin manages bulk proposal answer templates" do
       click_on "Update"
 
       wait_enqueued_jobs do
-        expect(page).to have_content("4 proposals will be answered using the template")
-        expect(page).to have_content("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
+        expect(page).to have_text("4 proposals will be answered using the template")
+        expect(page).to have_text("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
         expect(proposal.reload.proposal_state).to eq(state)
         other_proposals.each do |reportable|
           expect(reportable.reload.proposal_state).to eq(state)

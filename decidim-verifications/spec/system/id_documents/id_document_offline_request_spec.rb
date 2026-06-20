@@ -21,8 +21,8 @@ describe "Identity document offline request" do
   end
 
   it "redirects to verification after login" do
-    expect(page).to have_content("Upload your identity document")
-    expect(page).to have_content("This is my explanation text")
+    expect(page).to have_text("Upload your identity document")
+    expect(page).to have_text("This is my explanation text")
   end
 
   it "allows the user fill in their identity document" do
@@ -31,7 +31,7 @@ describe "Identity document offline request" do
       doc_number: "XXXXXXXX"
     )
 
-    expect(page).to have_content("Document successfully uploaded")
+    expect(page).to have_text("Document successfully uploaded")
   end
 
   private

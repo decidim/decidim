@@ -21,8 +21,8 @@ module Decidim::Comments
       it "renders the card" do
         html = cell("decidim/comments/comment_activity", action_log).call
         expect(html).to have_css("[data-activity]")
-        expect(html).to have_content("New comment:")
-        expect(html).to have_content(comment.body.values.first)
+        expect(html).to have_text("New comment:")
+        expect(html).to have_text(comment.body.values.first)
       end
 
       context "when the comment has mentions" do
@@ -35,8 +35,8 @@ module Decidim::Comments
 
         it "correctly renders comments with mentions" do
           html = cell("decidim/comments/comment_activity", action_log).call
-          expect(html).to have_no_content("gid://")
-          expect(html).to have_content("@#{comment.author.nickname}")
+          expect(html).to have_no_text("gid://")
+          expect(html).to have_text("@#{comment.author.nickname}")
         end
       end
 
@@ -56,8 +56,8 @@ module Decidim::Comments
         it "renders the card" do
           html = cell("decidim/comments/comment_activity", action_log).call
           expect(html).to have_css("[data-activity]")
-          expect(html).to have_content("New comment:")
-          expect(html).to have_content(comment.body.values.first)
+          expect(html).to have_text("New comment:")
+          expect(html).to have_text(comment.body.values.first)
         end
       end
     end

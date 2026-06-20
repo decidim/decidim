@@ -415,10 +415,6 @@ de:
       withdraw:
         error: Beim Zurückziehen der Änderung ist ein Problem aufgetreten.
         success: Die Änderung wurde erfolgreich zurückgezogen.
-      wizard_step_form:
-        steps:
-          '1': Erstellen Sie Ihre Änderung
-          '2': Änderung veröffentlichen
     anonymous_user: Anonym
     application:
       document:
@@ -793,6 +789,7 @@ de:
           invitation_sent_at: Datum und Uhrzeit, an dem die Einladung versendet wurde
           invitations_count: Die Anzahl der an diesen Benutzer gesendeten Einladungen
           invited_by: Der Benutzer, der diesen Benutzer eingeladen hat
+          last_sign_in_at: Datum und Uhrzeit des letzten Logins
           locale: Die Plattformsprache, die dieser Benutzer ausgewählt hat
           managed: Ob dieser Benutzer von einem anderen Benutzer verwaltet wird
           name: Der Name des Benutzers
@@ -858,13 +855,9 @@ de:
           affected_user:
             email_intro: 'Eine Änderung an %{amendable_title} wurde akzeptiert. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Akzeptierte Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde angenommen.
           follower:
             email_intro: 'Eine Änderung für %{amendable_title} wurde akzeptiert. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Akzeptierte Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde akzeptiert.
         amendment_created:
           affected_user:
             email_intro: 'Eine neue Änderung wurde für %{amendable_title} vorgeschlagen. Sehen Sie es sich auf dieser Seite an:'
@@ -880,29 +873,20 @@ de:
           affected_user:
             email_intro: 'Eine abgelehnte Änderung an %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n %{amendable_type} veröffentlicht
-            notification_title: Die <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n %{amendable_type} veröffentlicht.
           follower:
             email_intro: 'Eine abgelehnte Änderung für %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n/s %{amendable_type} veröffentlicht
-            notification_title: Eine <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n/s %{amendable_type} veröffentlicht.
         amendment_rejected:
           affected_user:
             email_intro: 'Eine Änderung an %{amendable_title} wurde abgelehnt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Abgelehnter Änderungsantrag für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde abgelehnt.
           follower:
             email_intro: 'Eine Änderung für %{amendable_title} wurde abgelehnt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Abgelehnte Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde abgelehnt.
         emendation_promoted:
           follower:
             email_intro: 'Eine Änderung wurde für %{amendable_title} abgelehnt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} mitverfasst haben.
-            email_subject: Eine Änderung von %{emendation_author_nickname} ist als neuer %{amendable_type} veröffentlicht worden
       attachments:
         attachment_created:
           email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sehen Sie es sich auf dieser Seite an:'
@@ -953,25 +937,13 @@ de:
           notification_title: |-
             Ein Administrator hat Ihr/e %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
             <i>%{resource_content}</i>
-      resource_liked:
-        email_intro: '%{liker_name} %{liker_nickname}, dem Sie folgen, hat gerade "%{resource_title}" unterstützt. Wir denken, das könnte interessant für Sie sein. Jetzt anschauen und mitreden:'
-        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{liker_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
-        email_subject: "%{liker_nickname} etwas Neues unterstützt"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} wurde von <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> unterstützt.
       resources:
         soft_deleted:
           notification_title: Ein Admin hat Ihre "%{resource_type}" "%{resource_title} " gelöscht.
       users:
-        profile_updated:
-          email_intro: Die <a href="%{resource_url}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: "%{nickname} hat ihr Profil aktualisiert"
-          notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
         user_officialized:
-          email_intro: Teilnehmer %{name} (%{nickname}) wurde offiziell bestätigt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Organisation sind.
           email_subject: "%{name} wurde offiziell bestätigt"
-          notification_title: Teilnehmer %{name} (%{nickname}) wurde offiziell bestätigt.
     export_mailer:
       download_your_data_export:
         click_button_html: Klicken Sie auf den nächsten Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis %{date} zum Download zur Verfügung.
@@ -1520,10 +1492,6 @@ de:
     participatory_space_members:
       index:
         members: Mitglieder
-    participatory_spaces:
-      show:
-        restricted_space: Dies ist ein eingeschränkter Bereich. Nur Mitglieder können ihn sehen und teilnehmen.
-        transparent_space: Dies ist ein öffentlich sichtbarer Bereich. Alle können die Inhalte einsehen, aber nur Mitglieder können teilnehmen.
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.

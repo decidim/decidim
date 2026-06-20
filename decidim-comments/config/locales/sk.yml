@@ -184,12 +184,10 @@ sk:
           email_intro: "%{author_name} komentoval na %{resource_title}. Môžete si to prečítať na stránke:"
           email_outro: Túto notifikáciu ste dostali, pretože sledujete autora "%{author_name}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Je nový komentár od %{author_name} na %{resource_title}
-          notification_title: Je nový komentár od <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} bol okomentovaný. Komentár si môžete prečítať na stránke:"
           email_outro: Túto notifikáciu ste dostali, pretože sledujete "%{resource_title}" alebo autora. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Je nový komentár od %{author_name} na %{resource_title}
-          notification_title: Je nový komentár od <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Váš komentár v „%{resource_title}“ získal negatívny hlas. Teraz má celkovo %{upvotes} pozitívnych hlasov a %{downvotes} negatívnych hlasov.
           email_outro: Toto upozornenie ste dostali, pretože ste autorom tohto komentára.
@@ -204,12 +202,10 @@ sk:
           email_intro: "%{author_name} odpovedal na váš komentár na %{resource_title}. Môžete si to prečítať na stránke:"
           email_outro: Túto notifikáciu ste dostali, pretože niekto odpovedal na Váš komentár.
           email_subject: "%{author_name} odpovedal na Váš komentár na %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> odpovedal na váš komentár na <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Niekto vás spomenul
           email_outro: Túto notifikáciu ste dostali, pretože ste boli spomenutí na %{resource_title}.
           email_subject: Boli ste spomenutí na %{resource_title}
-          notification_title: Boli ste spomenutí <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: nemôže mať komentáre

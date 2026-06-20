@@ -7,6 +7,8 @@
 export default class BudgetRuleTogglerComponent {
 
   /**
+   * Constructor of BudgetRuleTogglerComponent class.
+   *
    * @param {Object} options - Configuration options
    * @param {HTMLInputElement[]} options.ruleRadios - Array of radio inputs controlling the rules
    * @param {Record<string, string[]>} options.mapping - Mapping from radio values to selectors of containers to show

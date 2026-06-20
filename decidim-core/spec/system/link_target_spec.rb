@@ -35,7 +35,7 @@ describe "Admin editor link target remains" do
       find("button[data-action='save']").click
     end
     click_button "Update"
-    expect(page).to have_content("The component was updated successfully")
+    expect(page).to have_text("The component was updated successfully")
 
     # modifying content
     visit decidim_admin_participatory_processes.edit_component_path(participatory_process, component)
@@ -47,7 +47,7 @@ describe "Admin editor link target remains" do
       editor_input.send_keys(:enter, :enter, :arrow_up, "...more content")
     end
     click_button "Update"
-    expect(page).to have_content("The component was updated successfully")
+    expect(page).to have_text("The component was updated successfully")
 
     # checking link is still in same tab
     visit decidim_admin_participatory_processes.edit_component_path(participatory_process, component)

@@ -35,23 +35,23 @@ describe Decidim::Assemblies::ContentBlocks::MainDataCell, type: :cell do
   end
 
   it "shows the title" do
-    expect(subject).to have_content("About this assembly")
+    expect(subject).to have_text("About this assembly")
   end
 
   it "shows the short description" do
-    expect(subject).to have_content(short_description)
+    expect(subject).to have_text(short_description)
   end
 
   shared_examples_for "with extra attribute" do
     it "shows it" do
-      expect(subject).to have_content(attribute_title)
-      expect(subject).to have_content(attribute_content)
+      expect(subject).to have_text(attribute_title)
+      expect(subject).to have_text(attribute_content)
     end
   end
 
   shared_examples_for "without extra attribute" do
     it "does not show it" do
-      expect(subject).to have_no_content(attribute_title)
+      expect(subject).to have_no_text(attribute_title)
     end
   end
 

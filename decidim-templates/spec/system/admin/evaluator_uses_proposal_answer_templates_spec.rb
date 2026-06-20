@@ -34,14 +34,14 @@ describe "Evaluator uses proposal answer templates" do
       expect(page).to have_select(:proposal_answer_template_chooser, with_options: [translated(template.name)])
       expect(page).to have_no_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
       select template.name["en"], from: :proposal_answer_template_chooser
-      expect(page).to have_content(description)
+      expect(page).to have_text(description)
       click_on "Answer"
     end
 
     expect(page).to have_callout("Proposal successfully answered")
 
     within "tr", text: proposal.title["en"] do
-      expect(page).to have_content("Rejected")
+      expect(page).to have_text("Rejected")
     end
     expect(proposal.reload.internal_state).to eq("rejected")
   end
@@ -66,8 +66,8 @@ describe "Evaluator uses proposal answer templates" do
       within ".edit_proposal_answer" do
         template.destroy!
         select template.name["en"], from: :proposal_answer_template_chooser
-        expect(page).to have_no_content(description)
-        expect(page).to have_content("Could not find this template")
+        expect(page).to have_no_text(description)
+        expect(page).to have_text("Could not find this template")
       end
     end
   end

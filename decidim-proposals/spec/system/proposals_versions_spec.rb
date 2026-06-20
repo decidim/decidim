@@ -27,7 +27,7 @@ describe "Explore versions", versioning: true do
     end
 
     it "has only one version" do
-      expect(page).to have_content("Version number 1 (of 1)")
+      expect(page).to have_text("Version number 1 (of 1)")
     end
 
     it "shows the versions index" do
@@ -41,7 +41,7 @@ describe "Explore versions", versioning: true do
       end
 
       it "creates a new version" do
-        expect(page).to have_content("Version number 2 (of 2)")
+        expect(page).to have_text("Version number 2 (of 2)")
       end
     end
   end
@@ -80,34 +80,34 @@ describe "Explore versions", versioning: true do
 
     it "shows the creation date" do
       within ".version__author" do
-        expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
+        expect(page).to have_text(Time.zone.today.strftime("%d/%m/%Y"))
       end
     end
 
     it "shows the changed attributes" do
-      expect(page).to have_content("Changes at")
+      expect(page).to have_text("Changes at")
 
       within "#diff-for-title-english" do
-        expect(page).to have_content("Title (English)")
+        expect(page).to have_text("Title (English)")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(translated(proposal.title))
+          expect(page).to have_text(translated(proposal.title))
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(translated(emendation.title))
+          expect(page).to have_text(translated(emendation.title))
         end
       end
 
       within "#diff-for-body-english" do
-        expect(page).to have_content("Body (English)")
+        expect(page).to have_text("Body (English)")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(translated(proposal.body))
+          expect(page).to have_text(translated(proposal.body))
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(translated(emendation.body))
+          expect(page).to have_text(translated(emendation.body))
         end
       end
     end
@@ -131,9 +131,9 @@ describe "Explore versions", versioning: true do
       click_on("Version 3 of 3")
 
       within "#diff-for-state" do
-        expect(page).to have_content("State")
+        expect(page).to have_text("State")
         within ".diff > ul > .ins" do
-          expect(page).to have_content("Evaluating")
+          expect(page).to have_text("Evaluating")
         end
       end
     end

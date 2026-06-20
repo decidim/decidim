@@ -205,20 +205,13 @@ describe("ImpersonationWarningController", () => {
 
   describe("session expiry handling", () => {
     it("reloads page when session expires", () => {
-      Reflect.deleteProperty(window, "location")
-      window.location = { reload: jest.fn() };
-
       // Set time to exactly when session expires
       jest.setSystemTime(new Date("2024-01-01T12:00:00Z"))
       controller.updateCountdown()
-
-      expect(window.location.reload).toHaveBeenCalled()
+      expect(window.location.reload).toHaveBeenCalled();
     })
 
     it("reloads page when session has already expired", () => {
-      Reflect.deleteProperty(window, "location")
-      window.location = { reload: jest.fn() };
-
       // Set time to after session expires
       jest.setSystemTime(new Date("2024-01-01T12:05:00Z"))
       controller.updateCountdown()

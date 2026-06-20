@@ -14,7 +14,7 @@ shared_examples_for "has attachments content blocks" do
 
     it "shows them" do
       within "[data-content] .documents__container" do
-        expect(page).to have_content(translated(document.title))
+        expect(page).to have_text(translated(document.title))
       end
 
       within "[data-content] [data-gallery]" do
@@ -58,8 +58,8 @@ shared_examples_for "has attachments tabs" do
     it "shows them" do
       find("li [data-controls='panel-documents']").click
       within "#panel-documents" do
-        expect(page).to have_content(translated(document.title))
-        expect(page).to have_content(translated(link.title))
+        expect(page).to have_text(translated(document.title))
+        expect(page).to have_text(translated(link.title))
       end
 
       find("li [data-controls='panel-images']").click

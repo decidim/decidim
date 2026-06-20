@@ -219,12 +219,6 @@ ar:
           choose_html: أريد إنشاء <strong>%{title}</strong>
           more_information: (معلومات اكثر)
           select: أريد أن أشجع هذه المبادرة
-      events:
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}، الذي تتابعه ، بإنشاء مبادرة جديدة والتحقق منها والمساهمة فيها:"
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: مبادرة جديدة بنسبة %{author_nickname}
-          notification_title: تم إنشاء مبادرة <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       form:
         add_attachments: إضافة مرفقات
         attachment_legend: إضافة مستند أو صورة

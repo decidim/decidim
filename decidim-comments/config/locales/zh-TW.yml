@@ -113,12 +113,10 @@ zh-TW:
           email_intro: "%{author_name} 在%{resource_title} 留下了一則評論。您可以在此頁面上閱讀它:"
           email_outro: 您收到此通知是因為您正在關注%{author_name}。您可以從他們的個人資料頁面取消關注該用戶。
           email_subject: '%{author_name} 在%{resource_title} 發表了一則新的評論'
-          notification_title: 在<a href="%{resource_path}">%{resource_title}</a>中，<a href="%{author_path}">%{author_name} %{author_nickname}</a>有了一個新的評論。
         comment_created:
           email_intro: "%{resource_title} 已被評論。您可以在此頁面中閱讀評論:"
           email_outro: 您收到此通知是因為您正在關注「%{resource_title}」或其作者。您可以從上面的連結取消關注。
           email_subject: '%{resource_title}」有新的評論來自 %{author_name}'
-          notification_title: 在 <a href="%{resource_path}">%{resource_title}</a>有新的評論來自 <a href="%{author_path}">%{author_name} %{author_nickname}</a>
         comment_downvoted:
           email_intro: 您在「%{resource_title}」的評論已經倒讚。它現在的評分是 %{upvotes} 個讚和 %{downvotes} 個倒讚。
           email_outro: 您收到此通知是因為您是此評論的作者。
@@ -133,12 +131,10 @@ zh-TW:
           email_intro: "%{author_name} 已回覆你在%{resource_title} 中的評論。你可以在此頁面上閱讀:"
           email_outro: 你收到此通知是因為有人回覆了你的評論。
           email_subject: "%{author_name} 回覆了你在 %{resource_title} 中的評論。"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 中回覆了你的評論。
         user_mentioned:
           email_intro: 您已被提及
           email_outro: 您收到了此通知，因為您被提及在 %{resource_title} 中。
           email_subject: 您被提及在 %{resource_title} 中
-          notification_title: 您被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 中提及。
   errors:
     messages:
       cannot_have_comments: 無法評論

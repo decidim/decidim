@@ -10,7 +10,7 @@ describe "Homepage" do
 
     it "redirects to system UI and shows a warning" do
       expect(page).to have_current_path(decidim_system.new_admin_session_path)
-      expect(page).to have_content("You must create an organization to get started")
+      expect(page).to have_text("You must create an organization to get started")
     end
   end
 
@@ -135,7 +135,7 @@ describe "Homepage" do
       end
 
       it "welcomes the user" do
-        expect(page).to have_content(translated(organization.name))
+        expect(page).to have_text(translated(organization.name))
       end
 
       context "when there are static pages" do
@@ -150,10 +150,10 @@ describe "Homepage" do
         it "includes links to them" do
           within "footer" do
             [static_page1, static_page2].each do |static_page|
-              expect(page).to have_content(static_page.topic.title["en"])
+              expect(page).to have_text(static_page.topic.title["en"])
             end
 
-            expect(page).to have_no_content(static_page3.title["en"])
+            expect(page).to have_no_text(static_page3.title["en"])
           end
 
           click_on static_page1.topic.title["en"]
@@ -166,7 +166,7 @@ describe "Homepage" do
           expect(page).to have_css("#footer_sub_hero")
 
           within "#footer_sub_hero" do
-            expect(page).to have_content(translated(organization.name))
+            expect(page).to have_text(translated(organization.name))
           end
         end
 
@@ -215,13 +215,13 @@ describe "Homepage" do
 
           it "displays only publicly accessible pages and topics with pages configured to be shown in the footer" do
             within "footer" do
-              expect(page).to have_content(static_page1.topic.title["en"])
-              expect(page).to have_no_content(static_page3.title["en"])
-              expect(page).to have_content(static_page_topic1.topic.title["en"])
-              expect(page).to have_no_content(static_page_topic1_page1.title["en"])
-              expect(page).to have_content(static_page_topic1_page2.topic.title["en"])
-              expect(page).to have_no_content(static_page_topic2.title["en"])
-              expect(page).to have_no_content(static_page_topic3.title["en"])
+              expect(page).to have_text(static_page1.topic.title["en"])
+              expect(page).to have_no_text(static_page3.title["en"])
+              expect(page).to have_text(static_page_topic1.topic.title["en"])
+              expect(page).to have_no_text(static_page_topic1_page1.title["en"])
+              expect(page).to have_text(static_page_topic1_page2.topic.title["en"])
+              expect(page).to have_no_text(static_page_topic2.title["en"])
+              expect(page).to have_no_text(static_page_topic3.title["en"])
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
@@ -240,16 +240,16 @@ describe "Homepage" do
             it_behaves_like "accessible page"
 
             it "displays all pages and topics with pages in footer that are configured to display in footer" do
-              expect(page).to have_content(static_page1.topic.title["en"])
-              expect(page).to have_content(static_page2.topic.title["en"])
-              expect(page).to have_no_content(static_page3.title["en"])
-              expect(page).to have_content(static_page_topic1.topic.title["en"])
-              expect(page).to have_content(static_page_topic1_page1.topic.title["en"])
-              expect(page).to have_content(static_page_topic1_page2.topic.title["en"])
-              expect(page).to have_content(static_page_topic2.topic.title["en"])
-              expect(page).to have_content(static_page_topic2_page1.topic.title["en"])
-              expect(page).to have_no_content(static_page_topic2_page2.title["en"])
-              expect(page).to have_no_content(static_page_topic3.title["en"])
+              expect(page).to have_text(static_page1.topic.title["en"])
+              expect(page).to have_text(static_page2.topic.title["en"])
+              expect(page).to have_no_text(static_page3.title["en"])
+              expect(page).to have_text(static_page_topic1.topic.title["en"])
+              expect(page).to have_text(static_page_topic1_page1.topic.title["en"])
+              expect(page).to have_text(static_page_topic1_page2.topic.title["en"])
+              expect(page).to have_text(static_page_topic2.topic.title["en"])
+              expect(page).to have_text(static_page_topic2_page1.topic.title["en"])
+              expect(page).to have_no_text(static_page_topic2_page2.title["en"])
+              expect(page).to have_no_text(static_page_topic3.title["en"])
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
@@ -297,7 +297,7 @@ describe "Homepage" do
           end
 
           it "does not show last activity section on menu bar main dropdown" do
-            expect(page).to have_no_content(translated(comment.body))
+            expect(page).to have_no_text(translated(comment.body))
             expect(page).to have_no_link("New comment")
             expect(page).to have_no_link("Last activity")
           end
@@ -312,7 +312,7 @@ describe "Homepage" do
           end
 
           it "does not show last activity section on menu bar main dropdown" do
-            expect(page).to have_no_content(title[:en])
+            expect(page).to have_no_text(title[:en])
           end
         end
       end
@@ -336,19 +336,19 @@ describe "Homepage" do
 
         it "shows the statistics block" do
           within "#statistics" do
-            expect(page).to have_content("Statistics")
-            expect(page).to have_content("Processes")
-            expect(page).to have_content("Participants")
+            expect(page).to have_text("Statistics")
+            expect(page).to have_text("Processes")
+            expect(page).to have_text("Participants")
           end
         end
 
         it "has the correct values for the statistics" do
           within ".users_count" do
-            expect(page).to have_content("4")
+            expect(page).to have_text("4")
           end
 
           within ".processes_count" do
-            expect(page).to have_content("3")
+            expect(page).to have_text("3")
           end
         end
       end
@@ -437,14 +437,14 @@ describe "Homepage" do
         it "renders each content block with its corresponding cell content" do
           expect(page).to have_css("section.hero__container")
           within "section.hero__container" do
-            expect(page).to have_content("Welcome")
+            expect(page).to have_text("Welcome")
           end
 
           expect(page).to have_css("#how_to_participate")
-          expect(page).to have_content("How do I take part in a process?")
+          expect(page).to have_text("How do I take part in a process?")
 
           expect(page).to have_css("#statistics")
-          expect(page).to have_content("Statistics")
+          expect(page).to have_text("Statistics")
 
           expect(page).to have_css("#footer_sub_hero")
 
@@ -455,7 +455,7 @@ describe "Homepage" do
           expect(page).to have_css("[id^=meetings]")
 
           expect(page).to have_css(".custom-html")
-          expect(page).to have_content("Custom HTML Content")
+          expect(page).to have_text("Custom HTML Content")
         end
       end
     end

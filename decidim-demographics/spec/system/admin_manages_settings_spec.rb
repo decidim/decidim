@@ -28,7 +28,7 @@ describe "Admin manages demographics" do
         check I18n.t("decidim.demographics.admin.settings.show.collect_data")
         click_on "Save"
 
-        expect(page).to have_content("Demographic data successfully saved")
+        expect(page).to have_text("Demographic data successfully saved")
         expect(demographic.reload.collect_data).to be_truthy
       end
     end
@@ -42,7 +42,7 @@ describe "Admin manages demographics" do
         uncheck I18n.t("decidim.demographics.admin.settings.show.collect_data")
         click_on "Save"
 
-        expect(page).to have_content("Demographic data successfully saved")
+        expect(page).to have_text("Demographic data successfully saved")
         expect(demographic.reload.collect_data).to be_falsey
       end
     end

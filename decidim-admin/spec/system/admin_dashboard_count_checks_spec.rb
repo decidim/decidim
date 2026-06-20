@@ -13,19 +13,19 @@ describe "Admin checks dashboard panel statistics" do
   end
 
   it "show users Activity panel" do
-    expect(page).to have_content(t("decidim.admin.titles.statistics"))
-    expect(page).to have_content(t("decidim.admin.users_statistics.users_count.participants"))
-    expect(page).to have_content(t("decidim.admin.users_statistics.users_count.admins"))
+    expect(page).to have_text(t("decidim.admin.titles.statistics"))
+    expect(page).to have_text(t("decidim.admin.users_statistics.users_count.participants"))
+    expect(page).to have_text(t("decidim.admin.users_statistics.users_count.admins"))
   end
 
   it "show Admin log panel" do
-    expect(page).to have_content(t("decidim.admin.logs.index.title"))
+    expect(page).to have_text(t("decidim.admin.logs.index.title"))
   end
 
   context "when does not have Pending moderations" do
     it "hides the panel" do
-      expect(page).to have_no_content(t("decidim.admin.dashboard.pending_moderations.title"))
-      expect(page).to have_no_content(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
+      expect(page).to have_no_text(t("decidim.admin.dashboard.pending_moderations.title"))
+      expect(page).to have_no_text(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
     end
   end
 
@@ -41,8 +41,8 @@ describe "Admin checks dashboard panel statistics" do
       end
 
       it "displays the panel" do
-        expect(page).to have_content(t("decidim.admin.dashboard.pending_moderations.title"))
-        expect(page).to have_content(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
+        expect(page).to have_text(t("decidim.admin.dashboard.pending_moderations.title"))
+        expect(page).to have_text(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
       end
     end
 
@@ -56,8 +56,8 @@ describe "Admin checks dashboard panel statistics" do
       end
 
       it "displays the panel" do
-        expect(page).to have_content(t("decidim.admin.dashboard.pending_moderations.title"))
-        expect(page).to have_content(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
+        expect(page).to have_text(t("decidim.admin.dashboard.pending_moderations.title"))
+        expect(page).to have_text(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
       end
     end
   end

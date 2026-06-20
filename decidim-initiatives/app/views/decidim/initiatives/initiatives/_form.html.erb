@@ -47,7 +47,7 @@
 <% end %>
 
 <% if current_initiative.type.attachments_enabled? %>
-  <%= form.attachment :documents,
+  <%= form.attachment :attachments,
                       multiple: true,
                       label: t("decidim.initiatives.form.add_attachments"),
                       button_label: t("decidim.initiatives.form.add_attachments"),

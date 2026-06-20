@@ -92,7 +92,7 @@ eu:
             empty: Oraindik ez dago galderarik.
             manage_questions: Galderak
             questionnaire: Galdetegia
-            title: Galdetegiaren txantiloia editatu
+            title: Editatu galdetegiaren txantiloia
           edit_questions:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea

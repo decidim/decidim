@@ -30,7 +30,6 @@ nl:
           before_date_info: Nuttig als het proces al is begonnen en u de machtigingen van het vorige proces wilt intrekken.
           button: Alles intrekken
           button_before: Intrekken voor datum
-          destroy_ok: Alle overeenkomstige autorisaties zijn ingetrokken.
           info: Er zijn een totaal van %{count} geverifieerde deelnemers.
           title: Autorisaties intrekken
         authorization_workflows: Authorisaties

@@ -1,4 +1,4 @@
-/* global global, jest */
+/* global jest */
 
 import Cookies from "js-cookie";
 import ConsentManager from "src/decidim/data_consent/consent_manager";
@@ -17,13 +17,6 @@ jest.mock("js-cookie", () => {
     }
   };
 });
-
-Reflect.deleteProperty(global.window, "location");
-global.window = Object.create(window);
-global.window.location = {
-  protocol: "https:",
-  hostname: "decidim.dev"
-};
 
 describe("ConsentManager", () => {
   const dialogContent = `
@@ -216,6 +209,7 @@ describe("ConsentManager", () => {
   const originalLocation = window.location;
 
   beforeEach(() => {
+    window.location.href = "https://decidim.dev/";
     Cookies.cookieStorage = {};
 
     document.body.innerHTML = dialogContent + modalContent + cookieWarningContent;

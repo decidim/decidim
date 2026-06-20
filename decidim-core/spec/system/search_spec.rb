@@ -29,25 +29,25 @@ describe "Search" do
 
     it "displays the results page" do
       expect(page).to have_current_path decidim.search_path, ignore_query: true
-      expect(page).to have_content(/results for the search: "#{term}"/i)
+      expect(page).to have_text(/results for the search: "#{term}"/i)
       expect(page).to have_css(".filter-search.filter-container")
     end
 
     it "has all the resources to search" do
       within "#dropdown-menu-search" do
-        expect(page).to have_content("All").once
-        expect(page).to have_content("Participants").once
-        expect(page).to have_content("Participatory processes").once
-        expect(page).to have_content("Assemblies").once
-        expect(page).to have_content("Conferences").once
-        expect(page).to have_content("Initiatives").once
-        expect(page).to have_content("Meetings").once
-        expect(page).to have_content("Proposals").once
-        expect(page).to have_content("Budgets").once
-        expect(page).to have_content("Projects").once
-        expect(page).to have_content("Debates").once
-        expect(page).to have_content("Posts").once
-        expect(page).to have_content("Comments").once
+        expect(page).to have_text("All").once
+        expect(page).to have_text("Participants").once
+        expect(page).to have_text("Participatory processes").once
+        expect(page).to have_text("Assemblies").once
+        expect(page).to have_text("Conferences").once
+        expect(page).to have_text("Initiatives").once
+        expect(page).to have_text("Meetings").once
+        expect(page).to have_text("Proposals").once
+        expect(page).to have_text("Budgets").once
+        expect(page).to have_text("Projects").once
+        expect(page).to have_text("Debates").once
+        expect(page).to have_text("Posts").once
+        expect(page).to have_text("Comments").once
       end
     end
   end
@@ -78,8 +78,8 @@ describe "Search" do
     it "displays the results page" do
       visit %{/search?filter[with_resource_type]=Decidim::Proposals::Proposal&page=2&per_page=25'"()%26%25<zzz><ScRiPt >alert("XSS")</ScRiPt>}
 
-      expect(page).to have_content("100 results for the search")
-      expect(page).to have_content("Results per page")
+      expect(page).to have_text("100 results for the search")
+      expect(page).to have_text("Results per page")
     end
   end
 end

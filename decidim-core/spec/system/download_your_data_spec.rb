@@ -36,8 +36,8 @@ describe "DownloadYourData", download: true do
     describe "show button export data" do
       it "export the user's data" do
         within ".download-your-data" do
-          expect(page).to have_content("Here you can find all the downloads available for you")
-          expect(page).to have_content("You can request a .zip file with your submissions and personal data.")
+          expect(page).to have_text("Here you can find all the downloads available for you")
+          expect(page).to have_text("You can request a .zip file with your submissions and personal data.")
         end
       end
 
@@ -61,19 +61,19 @@ describe "DownloadYourData", download: true do
       it "when requesting the file of other user's data" do
         visit decidim.download_download_your_data_path(uuid: other_user_active_export.uuid)
 
-        expect(page).to have_content("The export you have accessed does not exist, or you do not have access to download it")
+        expect(page).to have_text("The export you have accessed does not exist, or you do not have access to download it")
       end
 
       it "when requesting the expired file of other user's data" do
         visit decidim.download_download_your_data_path(uuid: other_user_expired_export.uuid)
 
-        expect(page).to have_content("The export you have accessed does not exist, or you do not have access to download it")
+        expect(page).to have_text("The export you have accessed does not exist, or you do not have access to download it")
       end
 
       it "when requesting current user's expired file" do
         visit decidim.download_download_your_data_path(uuid: expired_export.uuid)
 
-        expect(page).to have_content("The export has expired. Try to generate a new export.")
+        expect(page).to have_text("The export has expired. Try to generate a new export.")
       end
 
       it "when requesting current user's active file", :slow do
@@ -81,8 +81,8 @@ describe "DownloadYourData", download: true do
 
         visit decidim.download_download_your_data_path(uuid: active_export.uuid)
 
-        expect(page).to have_no_content("The export you have accessed does not exist, or you do not have access to download it")
-        expect(page).to have_no_content("The export has expired. Try to generate a new export.")
+        expect(page).to have_no_text("The export you have accessed does not exist, or you do not have access to download it")
+        expect(page).to have_no_text("The export has expired. Try to generate a new export.")
 
         if user.tos_accepted?
           expect(page).to have_current_path(decidim.download_your_data_path, ignore_query: true)
@@ -103,7 +103,7 @@ describe "DownloadYourData", download: true do
         end
 
         within_flash_messages do
-          expect(page).to have_content("data is currently in progress")
+          expect(page).to have_text("data is currently in progress")
         end
 
         expect(Decidim::PrivateExport.count).to eq(5)

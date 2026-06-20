@@ -59,7 +59,7 @@ describe "Admin filters, searches, and paginates projects" do
     it "can be searched by title" do
       search_by_text(project2_title)
 
-      expect(page).to have_content(project2_title)
+      expect(page).to have_text(project2_title)
     end
   end
 

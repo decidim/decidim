@@ -99,7 +99,7 @@
                         <li class="dropdown__item">
                           <% if presenter.validated? %>
                             <div class="dropdown__button-disabled">
-                              <%= with_tooltip t("tooltips.cannot_mark_attendee", scope: "decidim.admin") do %>
+                              <%= with_tooltip t("tooltips.cannot_mark_attendee", scope: "decidim.admin"), class: :left do %>
                                 <%= icon "user-follow-line", class: "text-gray" %>
                                 <span>
                                   <%= t("actions.mark_as_attendee", scope: "decidim.meetings") %>

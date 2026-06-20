@@ -25,7 +25,7 @@ import icon from "src/decidim/refactor/moved/icon"
  * - data-hidden-password: Custom text for screen readers when password is hidden
  * - data-shown-password: Custom text for screen readers when password is shown
  *
- * @extends Controller
+ * @augments Controller
  */
 export default class extends Controller {
 

@@ -16,7 +16,7 @@ shared_examples "manage admin members examples" do
 
   it "shows the member list" do
     within "#members table" do
-      expect(page).to have_content(member.user.email)
+      expect(page).to have_text(member.user.email)
     end
   end
 
@@ -33,11 +33,11 @@ shared_examples "manage admin members examples" do
     expect(page).to have_callout("Member access successfully created.")
 
     within "#members table" do
-      expect(page).to have_content(other_user.email)
+      expect(page).to have_text(other_user.email)
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("invited #{other_user.name} to be a member")
+    expect(page).to have_text("invited #{other_user.name} to be a member")
   end
 
   describe "when import a batch of members from csv" do
@@ -50,7 +50,7 @@ shared_examples "manage admin members examples" do
       dynamically_attach_file(:member_csv_import_file, Decidim::Dev.asset("import_members.csv"))
       perform_enqueued_jobs { click_on "Upload" }
 
-      expect(page).to have_content("CSV file uploaded successfully")
+      expect(page).to have_text("CSV file uploaded successfully")
     end
   end
 
@@ -68,7 +68,7 @@ shared_examples "manage admin members examples" do
       click_on "Publish all"
       sleep(1)
       visit decidim_admin.root_path
-      expect(page).to have_content("published all members of the #{translated(participatory_space.title)}")
+      expect(page).to have_text("published all members of the #{translated(participatory_space.title)}")
     end
   end
 
@@ -87,7 +87,7 @@ shared_examples "manage admin members examples" do
       expect(page).to have_callout("Member access successfully destroyed.")
 
       within "#members table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).to have_no_text(other_user.email)
       end
     end
 

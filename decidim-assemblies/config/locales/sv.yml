@@ -239,8 +239,6 @@ sv:
               label: Åtkomst
               options:
                 open: Alla kan se och delta i sammankomsten.
-                restricted: Endast medlemmar kan se och delta.
-                transparent: Alla kan se sammankomsten, men bara medlemmar kan delta.
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             duration_help: Välj ett slutdatum om samrådet är tidsbegränsat.

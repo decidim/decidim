@@ -15,13 +15,13 @@ describe "Access list" do
   it "allows access to participants side" do
     visit decidim.root_path
 
-    expect(page).to have_content(translated(organization.name))
+    expect(page).to have_text(translated(organization.name))
   end
 
   it "allows access to admin side page" do
     visit decidim_system.root_path
 
-    expect(page).to have_content("Dashboard")
+    expect(page).to have_text("Dashboard")
   end
 
   context "when an access list has been specified" do
@@ -32,14 +32,14 @@ describe "Access list" do
     it "allows access to participants side" do
       visit decidim.root_path
 
-      expect(page).to have_content(translated(organization.name))
+      expect(page).to have_text(translated(organization.name))
     end
 
     it "allows access to admin side page" do
       visit decidim_system.root_path
 
-      expect(page).to have_no_content("Dashboard")
-      expect(page).to have_content("Forbidden")
+      expect(page).to have_no_text("Dashboard")
+      expect(page).to have_text("Forbidden")
     end
   end
 end

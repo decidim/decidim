@@ -15,7 +15,7 @@ shared_examples "has mandatory config setting" do |mandatory_field|
     click_on "Update"
 
     within ".#{mandatory_field}_container" do
-      expect(page).to have_content("There is an error in this field")
+      expect(page).to have_text("There is an error in this field")
     end
   end
 end

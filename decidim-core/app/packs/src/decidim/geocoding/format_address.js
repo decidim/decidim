@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 
 // If you want to customize the geocoder address format which is displayed
 // when showing the geocoding results list, add this configuration code to

@@ -28,7 +28,7 @@ module Decidim::Proposals
 
         it "shows related projects" do
           html = cell("decidim/proposals/proposal_history", proposal).call
-          expect(html).to have_content("It was added to this budget:")
+          expect(html).to have_text("It was added to this budget:")
         end
       end
 
@@ -44,7 +44,7 @@ module Decidim::Proposals
 
         it "shows related resources" do
           html = cell("decidim/proposals/proposal_history", proposal).call
-          expect(html).to have_content("It was added to this result:")
+          expect(html).to have_text("It was added to this result:")
         end
       end
 
@@ -60,7 +60,7 @@ module Decidim::Proposals
 
         it "shows related meetings" do
           html = cell("decidim/proposals/proposal_history", proposal).call
-          expect(html).to have_content("It was discussed in this meeting:")
+          expect(html).to have_text("It was discussed in this meeting:")
         end
       end
     end

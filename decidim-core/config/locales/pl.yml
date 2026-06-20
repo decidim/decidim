@@ -315,10 +315,6 @@ pl:
         success: Szkic poprawki został pomyślnie zaktualizowany.
       withdraw:
         success: Poprawka została pomyślnie wycofana.
-      wizard_step_form:
-        steps:
-          '1': Utwórz poprawkę
-          '2': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       document:
@@ -639,13 +635,9 @@ pl:
           affected_user:
             email_intro: 'Poprawka została zaakceptowana dla %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została przyjęta w <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Poprawka została zaakceptowana dla %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
-            email_subject: Poprawka przyjęta w %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została przyjęta w <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Nowa poprawka została utworzona do %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
@@ -661,24 +653,16 @@ pl:
           affected_user:
             email_intro: 'Odrzucona poprawka do %{amendable_title} została opublikowana jako %{amendable_type}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka od %{emendation_author_nickname} została opublikowana jako %{amendable_type}
-            notification_title: <a href="%{emendation_path}">Odrzucona poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> została opublikowana jako %{amendable_type} przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Odrzucona poprawka do %{amendable_title} została opublikowana jako %{amendable_type}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-            email_subject: Poprawka od %{emendation_author_nickname} została opublikowana jako %{amendable_type}
-            notification_title: <a href="%{emendation_path}">Odrzucona poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> została opublikowana jako %{amendable_type} przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona w <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
-            notification_title: <a href="%{emendation_path}">Poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona.
       attachments:
         attachment_created:
           email_intro: 'Nowy dokument został dodany do %{resource_title}. Możesz go zobaczyć na tej stronie:'
@@ -720,16 +704,9 @@ pl:
             Administrator usunął %{resource_type}, ponieważ treść została zgłoszona jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: Zaktualizowano <a href="%{resource_url}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-          email_subject: "%{nickname} zaktualizował(a) swój profil"
-          notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
         user_officialized:
-          email_intro: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
           email_subject: "%{name} zostało oficjalnie zarejestrowane"
-          notification_title: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
     export_mailer:
       download_your_data_export:
         download: Pobieranie

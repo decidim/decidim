@@ -31,11 +31,11 @@ describe "Admin manages assembly publication" do
     visit decidim.root_path
     visit decidim.last_activities_path
 
-    expect(page).to have_content("New assembly: #{title}")
+    expect(page).to have_text("New assembly: #{title}")
 
     within "#filters" do
       find("a", class: "filter", text: "Assembly", match: :first).click
     end
-    expect(page).to have_content("New assembly: #{title}")
+    expect(page).to have_text("New assembly: #{title}")
   end
 end

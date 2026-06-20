@@ -9,8 +9,8 @@ shared_examples "fingerprint" do
     click_on("Check fingerprint")
 
     within ".fingerprint-modal" do
-      expect(page).to(have_content(fingerprintable.fingerprint.value))
-      expect(page).to(have_content(fingerprintable.fingerprint.source))
+      expect(page).to(have_text(fingerprintable.fingerprint.value))
+      expect(page).to(have_text(fingerprintable.fingerprint.source))
     end
   end
 end
@@ -24,7 +24,7 @@ shared_examples "consistent fingerprint" do
     click_on("Check fingerprint")
 
     within ".fingerprint-modal" do
-      expect(page).to(have_content(fingerprintable.body.to_json))
+      expect(page).to(have_text(fingerprintable.body.to_json))
     end
   end
 end

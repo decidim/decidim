@@ -2,7 +2,7 @@
   <div class="menu-bar">
 
     <%# secondary dropdown only desktop %>
-    <nav class="menu-bar__breadcrumb-desktop">
+    <nav class="menu-bar__breadcrumb-desktop" data-controller="breadcrumb-truncate">
       <%= render partial: "layouts/decidim/header/menu_breadcrumb_desktop" %>
     </nav>
     <% if content_for?(:participatory_space_actions) %>

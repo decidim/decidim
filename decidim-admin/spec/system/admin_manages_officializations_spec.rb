@@ -146,7 +146,7 @@ describe "Admin manages officializations" do
 
     it "has no user link" do
       within "tr[data-user-id=\"#{user.id}\"]" do
-        expect(page).to have_content(user.name)
+        expect(page).to have_text(user.name)
         expect(page).to have_no_link(user.name)
       end
     end
@@ -173,7 +173,7 @@ describe "Admin manages officializations" do
         expect(page).to have_callout("Participant successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          expect(page).to have_content("Officialized")
+          expect(page).to have_text("Officialized")
         end
       end
 
@@ -190,7 +190,7 @@ describe "Admin manages officializations" do
         expect(page).to have_callout("Participant successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          expect(page).to have_content("Officialized").and have_content("Major of Barcelona")
+          expect(page).to have_text("Officialized").and have_text("Major of Barcelona")
         end
       end
     end
@@ -229,7 +229,7 @@ describe "Admin manages officializations" do
         expect(page).to have_callout("Participant successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          expect(page).to have_content("Officialized").and have_content("Major of Barcelona")
+          expect(page).to have_text("Officialized").and have_text("Major of Barcelona")
         end
       end
     end
@@ -253,7 +253,7 @@ describe "Admin manages officializations" do
       expect(page).to have_callout("Participant successfully unofficialized")
 
       within "tr[data-user-id=\"#{user.id}\"]" do
-        expect(page).to have_content("Not officialized")
+        expect(page).to have_text("Not officialized")
       end
     end
   end
@@ -291,7 +291,7 @@ describe "Admin manages officializations" do
       end
 
       within "div.profile__details" do
-        expect(page).to have_content(user.name)
+        expect(page).to have_text(user.name)
       end
     end
   end
@@ -311,7 +311,7 @@ describe "Admin manages officializations" do
       end
 
       within "div.profile__details" do
-        expect(page).to have_content(user.name)
+        expect(page).to have_text(user.name)
       end
     end
   end
@@ -333,12 +333,12 @@ describe "Admin manages officializations" do
         end
 
         within "#show-email-modal" do
-          expect(page).to have_content("Show participant's email address")
-          expect(page).to have_no_content(user.email)
+          expect(page).to have_text("Show participant's email address")
+          expect(page).to have_no_text(user.email)
 
           click_on "Show"
 
-          expect(page).to have_content(user.email)
+          expect(page).to have_text(user.email)
 
           find("button[data-dialog-close]").click
         end
@@ -347,7 +347,7 @@ describe "Admin manages officializations" do
       visit decidim_admin.root_path
 
       users.each do |user|
-        expect(page).to have_content("#{admin.name} retrieved the email of the participant #{user.name}")
+        expect(page).to have_text("#{admin.name} retrieved the email of the participant #{user.name}")
       end
     end
   end

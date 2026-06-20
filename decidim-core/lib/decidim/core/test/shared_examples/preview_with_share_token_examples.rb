@@ -7,7 +7,7 @@ shared_examples "visit unpublished resource with a share token" do
     end
 
     it "does not allow visiting resource" do
-      expect(page).to have_content "You are not authorized"
+      expect(page).to have_text "You are not authorized"
       expect(page).to have_no_current_path(resource_path, ignore_query: true)
     end
   end
@@ -24,13 +24,13 @@ shared_examples "visit unpublished resource with a share token" do
 
     context "when a valid share_token is provided" do
       it "allows visiting the resource" do
-        expect(page).to have_no_content "You are not authorized"
+        expect(page).to have_no_text "You are not authorized"
         expect(current_url).to include(params[:share_token])
         expect(page).to have_current_path(resource_path, ignore_query: true)
 
         # repeat visit without the token in the params to check for the session
         visit resource_path
-        expect(page).to have_no_content "You are not authorized"
+        expect(page).to have_no_text "You are not authorized"
         expect(current_url).not_to include(params[:share_token])
         expect(page).to have_current_path(resource_path, ignore_query: true)
       end
@@ -40,7 +40,7 @@ shared_examples "visit unpublished resource with a share token" do
       let(:share_token) { create(:share_token, :expired, token: "INVALID_TOKEN_FOR_UNREGISTERED", token_for: resource) }
 
       it "does not allow visiting resource" do
-        expect(page).to have_content "You are not authorized"
+        expect(page).to have_text "You are not authorized"
         expect(page).to have_no_current_path(resource_path, ignore_query: true)
       end
     end
@@ -50,7 +50,7 @@ shared_examples "visit unpublished resource with a share token" do
       let!(:user) { create(:user, :confirmed, organization:) }
 
       it "does not allow visiting resource" do
-        expect(page).to have_content "You are not authorized"
+        expect(page).to have_text "You are not authorized"
         expect(page).to have_no_current_path(resource_path, ignore_query: true)
       end
 
@@ -60,7 +60,7 @@ shared_examples "visit unpublished resource with a share token" do
         uri = URI(resource_path)
         uri.query = URI.encode_www_form(params.to_a)
         visit uri
-        expect(page).to have_no_content "You are not authorized"
+        expect(page).to have_no_text "You are not authorized"
         expect(page).to have_current_path(resource_path, ignore_query: true)
       end
     end

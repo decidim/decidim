@@ -58,26 +58,26 @@ describe "Authorizations revocation flow" do
     context "when showing Admin / Participants / Verifications menu with granted authorizations" do
       it "allows the user to see Verification's revocation menu cell" do
         within "[data-content]" do
-          expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.title"))
+          expect(page).to have_text(t("decidim.admin.menu.authorization_revocation.title"))
         end
       end
 
       it "allows the user to see Verification's revocation menu. Revoke all option" do
         within "[data-content]" do
-          expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.button"))
+          expect(page).to have_text(t("decidim.admin.menu.authorization_revocation.button"))
         end
       end
 
       it "allows the user to see Verification's revocation menu. Before date option" do
         within "[data-content]" do
-          expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))
-          expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.button_before"))
+          expect(page).to have_text(t("decidim.admin.menu.authorization_revocation.before_date_info"))
+          expect(page).to have_text(t("decidim.admin.menu.authorization_revocation.button_before"))
         end
       end
 
       it "does not allow the user to see No Granted Authorizations info message" do
         within "[data-content]" do
-          expect(page).to have_no_content(t("decidim.admin.menu.authorization_revocation.no_data"))
+          expect(page).to have_no_text(t("decidim.admin.menu.authorization_revocation.no_data"))
         end
       end
     end
@@ -91,15 +91,15 @@ describe "Authorizations revocation flow" do
 
       it "allow the user to see No Granted Authorizations info message" do
         within "[data-content]" do
-          expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.no_data"))
+          expect(page).to have_text(t("decidim.admin.menu.authorization_revocation.no_data"))
         end
       end
 
       it "does not allow the user to see Authorization's revocation options" do
         within "[data-content]" do
-          expect(page).to have_no_content(t("decidim.admin.menu.authorization_revocation.button"))
-          expect(page).to have_no_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))
-          expect(page).to have_no_content(t("decidim.admin.menu.authorization_revocation.button_before"))
+          expect(page).to have_no_text(t("decidim.admin.menu.authorization_revocation.button"))
+          expect(page).to have_no_text(t("decidim.admin.menu.authorization_revocation.before_date_info"))
+          expect(page).to have_no_text(t("decidim.admin.menu.authorization_revocation.button_before"))
         end
       end
     end
@@ -152,8 +152,8 @@ describe "Authorizations revocation flow" do
       accept_confirm do
         click_on(t("decidim.admin.menu.authorization_revocation.button"))
       end
-      expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
-      expect(page).to have_no_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
+      expect(page).to have_text(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
+      expect(page).to have_no_text(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
     end
   end
 
@@ -163,8 +163,8 @@ describe "Authorizations revocation flow" do
         click_on(t("decidim.admin.menu.authorization_revocation.button_before"))
       end
 
-      expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
-      expect(page).to have_no_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
+      expect(page).to have_text(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
+      expect(page).to have_no_text(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
     end
   end
 end

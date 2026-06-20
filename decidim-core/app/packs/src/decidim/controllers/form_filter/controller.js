@@ -1,4 +1,4 @@
-/* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
+/* eslint-disable id-length */
 /* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
 import { Controller } from "@hotwired/stimulus"

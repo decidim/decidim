@@ -39,18 +39,18 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::DemocraticQualityStatsC
   end
 
   it "renders the global score indicator section" do
-    expect(html).to have_content("Global score")
+    expect(html).to have_text("Global score")
   end
 
   it "renders the automatic metrics section title" do
-    expect(html).to have_content("Automatic metrics")
+    expect(html).to have_text("Automatic metrics")
   end
 
   it "renders the automatic metrics indicators section" do
-    expect(html).to have_content("Citizen influence")
-    expect(html).to have_content("Hybridization")
-    expect(html).to have_content("Responsiveness")
-    expect(html).to have_content("Traceability")
+    expect(html).to have_text("Citizen influence")
+    expect(html).to have_text("Hybridization")
+    expect(html).to have_text("Responsiveness")
+    expect(html).to have_text("Traceability")
   end
 
   it "includes a link to democratic quality indicators page" do

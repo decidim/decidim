@@ -1,5 +1,3 @@
-/* eslint-disable no-invalid-this */
-
 import Configuration from "src/decidim/refactor/implementation/configuration"
 
 

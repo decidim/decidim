@@ -13,12 +13,12 @@ describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
   let(:event_name) { "decidim.events.initiatives.initiative_created" }
   let(:applicant) { create(:user, organization:) }
   let(:applicant_profile_url) { Decidim::UserPresenter.new(applicant).profile_url }
-  let(:applicant_nickname) { Decidim::UserPresenter.new(applicant).nickname }
+  let(:applicant_name) { Decidim::UserPresenter.new(applicant).name }
   let(:resource_url) { resource_locator(resource).url }
-  let(:email_subject) { "#{applicant_nickname} wants to join your initiative" }
-  let(:email_intro) { "#{applicant_nickname} applied for the promoter committee of your initiative #{resource_title}. To accept or reject the application, go to the edit form of your initiative." }
+  let(:email_subject) { "#{applicant_name} wants to join your initiative" }
+  let(:email_intro) { "#{applicant_name} applied for the promoter committee of your initiative #{resource_title}. To accept or reject the application, go to the edit form of your initiative." }
   let(:email_outro) { "You received this notification because you are the author of this initiative: #{resource_title}" }
-  let(:notification_title) { "<a href=\"#{applicant_profile_url}\">#{applicant_nickname}</a> applied for the promoter committee of your initiative <a href=\"#{resource_url}\">#{resource_title}</a>. To accept or reject click <a href=\"#{resource_url}/edit\">here</a>." }
+  let(:notification_title) { "<a href=\"#{applicant_profile_url}\">#{applicant_name}</a> applied for the promoter committee of your initiative <a href=\"#{resource_url}\">#{resource_title}</a>. To accept or reject click <a href=\"#{resource_url}/edit\">here</a>." }
 
   describe "types" do
     subject { described_class }

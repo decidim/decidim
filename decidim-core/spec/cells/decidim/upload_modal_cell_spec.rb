@@ -130,7 +130,7 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(subject).to have_css("[data-filename='#{filename}']")
 
         details = subject.find(".attachment-details")
-        expect(details).to have_content(decidim_sanitize_translated(attachments[0].title).to_s)
+        expect(details).to have_text(decidim_sanitize_translated(attachments[0].title).to_s)
       end
     end
 
@@ -193,7 +193,7 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(subject).to have_css("[data-filename='#{filename1}']")
 
         details = subject.find(".attachment-details", match: :first)
-        expect(details).to have_content(decidim_sanitize_translated(attachments[0].title).to_s)
+        expect(details).to have_text(decidim_sanitize_translated(attachments[0].title).to_s)
       end
     end
 
@@ -212,14 +212,14 @@ describe Decidim::UploadModalCell, type: :cell do
 
       it "renders the title" do
         expect(subject).to have_css(".attachment-details")
-        expect(subject).to have_content("An image title")
+        expect(subject).to have_text("An image title")
       end
 
       context "when there is rich content in the title" do
         let(:title) { "An image <script>alert(\"ALERT\")</script>" }
 
         it "renders the title" do
-          expect(subject).to have_content("An image alert(\"ALERT\")")
+          expect(subject).to have_text("An image alert(\"ALERT\")")
         end
 
         it "escapes the title" do

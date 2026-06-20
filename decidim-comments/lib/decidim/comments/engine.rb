@@ -34,17 +34,6 @@ module Decidim
         Decidim::Api::MutationType.include MutationExtensions
       end
 
-      initializer "decidim_comments.stats" do
-        Decidim.stats.register :comments_count,
-                               priority: StatsRegistry::HIGH_PRIORITY,
-                               icon_name: "chat-1-line",
-                               tooltip_key: "comments_count" do |organization|
-          Decidim.component_manifests.sum do |component|
-            component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.compact_blank.sum
-          end
-        end
-      end
-
       initializer "decidim_comments.register_icons" do
         common_parameters = { category: "action", engine: :comments }
 

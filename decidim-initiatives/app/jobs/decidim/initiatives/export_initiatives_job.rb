@@ -21,7 +21,7 @@ module Decidim
       private
 
       def collection_to_export(ids, organization)
-        collection = Decidim::Initiative.where(organization:)
+        collection = Decidim::Initiative.includes(:author, :area, :components, :organization).where(organization:)
 
         collection = collection.where(id: ids) if ids.present?
 

@@ -77,9 +77,9 @@ describe "Last activity" do
     end
 
     it "shows activities long comment shorten text" do
-      expect(page).to have_content(long_body_comment[0..79])
-      expect(page).to have_no_content(another_comment.translated_body)
-      expect(page).to have_no_content(withdrawn_proposal.title)
+      expect(page).to have_text(long_body_comment[0..79])
+      expect(page).to have_no_text(another_comment.translated_body)
+      expect(page).to have_no_text(withdrawn_proposal.title)
     end
 
     context "when there is a deleted comment" do
@@ -87,7 +87,7 @@ describe "Last activity" do
 
       it "is not shown" do
         within "#last_activity" do
-          expect(page).to have_no_content("This is deleted")
+          expect(page).to have_no_text("This is deleted")
         end
       end
     end
@@ -101,11 +101,11 @@ describe "Last activity" do
 
       it "shows all activities" do
         expect(page).to have_css("[data-activity]", count: 4)
-        expect(page).to have_content(translated(resource.title))
-        expect(page).to have_content(translated(comment.commentable.title))
-        expect(page).to have_content(translated(another_comment.commentable.title))
-        expect(page).to have_content(translated(proposal.title))
-        expect(page).to have_no_content(translated(withdrawn_proposal.title))
+        expect(page).to have_text(translated(resource.title))
+        expect(page).to have_text(translated(comment.commentable.title))
+        expect(page).to have_text(translated(another_comment.commentable.title))
+        expect(page).to have_text(translated(proposal.title))
+        expect(page).to have_no_text(translated(withdrawn_proposal.title))
       end
 
       it "shows the activities in correct order" do
@@ -119,9 +119,9 @@ describe "Last activity" do
           click_on("Comment")
         end
 
-        expect(page).to have_content(translated(comment.commentable.title))
-        expect(page).to have_content(translated(another_comment.commentable.title))
-        expect(page).to have_no_content(translated(resource.title))
+        expect(page).to have_text(translated(comment.commentable.title))
+        expect(page).to have_text(translated(another_comment.commentable.title))
+        expect(page).to have_no_text(translated(resource.title))
         expect(page).to have_css("[data-activity]", count: 2)
       end
 
@@ -144,7 +144,7 @@ describe "Last activity" do
         end
 
         it "does not show the old activities at the top of the list" do
-          expect(page).to have_no_content(translated(old_comment.commentable.title))
+          expect(page).to have_no_text(translated(old_comment.commentable.title))
         end
       end
 
@@ -162,7 +162,7 @@ describe "Last activity" do
 
         it "does not show the activities" do
           expect(page).to have_css("[data-activity]", count: 0)
-          expect(page).to have_content "There are no entries to show for this activity type."
+          expect(page).to have_text "There are no entries to show for this activity type."
         end
       end
 

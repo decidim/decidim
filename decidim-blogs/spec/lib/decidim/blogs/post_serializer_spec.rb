@@ -61,6 +61,10 @@ module Decidim
           expect(serialized).to include(body: post.body)
         end
 
+        it "serializes the reference" do
+          expect(serialized).to include(reference: post.reference)
+        end
+
         it "serializes the participatory space" do
           expect(serialized[:participatory_space]).to include(id: participatory_space.id)
           expect(serialized[:participatory_space][:url]).to include("http", participatory_space.slug)

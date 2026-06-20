@@ -30,7 +30,7 @@ shared_examples_for "resource liked event" do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("#{author_presenter.nickname} has performed a new like")
+      expect(subject.email_subject).to eq("#{author_presenter.name} has performed a new like")
     end
   end
 
@@ -38,7 +38,7 @@ shared_examples_for "resource liked event" do
     let(:resource_title) { decidim_sanitize_translated(resource.title) }
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("#{author.name} #{author_presenter.nickname}, who you are following, " \
+        .to eq("#{author.name}, who you are following, " \
                "has just liked \"#{resource_title}\" and we think it may be interesting to you. Check it out and contribute:")
     end
   end
@@ -51,7 +51,7 @@ shared_examples_for "resource liked event" do
         .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> #{resource_type} has been liked by ")
 
       expect(subject.notification_title)
-        .to include("<a href=\"/en/profiles/#{author.nickname}\">#{author.name} #{author_presenter.nickname}</a>.")
+        .to include("<a href=\"/en/profiles/#{author.nickname}\">#{author.name}</a>.")
     end
   end
 

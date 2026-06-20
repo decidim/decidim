@@ -16,7 +16,6 @@ module Decidim
         attribute :slug, String
         attribute :duplicate_steps, Boolean
         attribute :duplicate_components, Boolean
-        attribute :duplicate_landing_page_blocks, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, translatable_presence: true
@@ -25,7 +24,7 @@ module Decidim
         private
 
         def slug_uniqueness
-          return unless OrganizationParticipatoryProcesses.new(current_organization).query.where(slug:).where.not(id:).any?
+          return unless OrganizationParticipatoryProcesses.new(current_organization).query.with_deleted.where(slug:).where.not(id:).any?
 
           errors.add(:slug, :taken)
         end

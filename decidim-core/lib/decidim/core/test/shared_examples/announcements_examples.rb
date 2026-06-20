@@ -14,12 +14,12 @@ shared_examples "manage announcements" do
 
     click_on "Update"
 
-    expect(page).to have_content "The component was updated successfully"
+    expect(page).to have_text "The component was updated successfully"
 
     visit main_component_path(current_component)
 
     within page.find("[data-announcement]", match: :first) do
-      expect(page).to have_content("An important announcement")
+      expect(page).to have_text("An important announcement")
     end
   end
 
@@ -50,13 +50,13 @@ shared_examples "manage announcements" do
 
       click_on "Update"
 
-      expect(page).to have_content "The component was updated successfully"
+      expect(page).to have_text "The component was updated successfully"
 
       visit main_component_path(current_component)
 
       within page.find("[data-announcement]", match: :first) do
-        expect(page).to have_no_content("An important announcement")
-        expect(page).to have_content("An announcement for this step")
+        expect(page).to have_no_text("An important announcement")
+        expect(page).to have_text("An announcement for this step")
       end
     end
   end

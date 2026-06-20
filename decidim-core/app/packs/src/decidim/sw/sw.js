@@ -53,7 +53,7 @@ self.addEventListener("notificationclick", (event) => {
 // avoid caching admin or users paths
 registerRoute(
   ({ url }) =>
-    ["/admin/", "/users/"].some((path) => url.pathname.startsWith(path)),
+    ["admin", "users"].some((pathSegment) => url.pathname.split("/").includes(pathSegment)),
   new NetworkOnly()
 );
 

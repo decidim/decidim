@@ -64,7 +64,6 @@ document.addEventListener("turbo:load", async () => {
   }
 
   const unsubscribeFromNotifications = async (registration) => {
-    /* eslint-disable no-shadow */
     const currentSubscription = await registration.pushManager.getSubscription()
     const auth = currentSubscription.toJSON().keys.auth
     await fetch(`/notifications_subscriptions/${auth}`, {

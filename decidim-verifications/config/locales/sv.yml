@@ -48,7 +48,6 @@ sv:
             confirm: Återkallande av auktorisering före datum kan inte ångras. Vill du fortsätta?
             confirm_all: Återkallande av auktorisering kan inte ångras. Vill du fortsätta?
           destroy_nok: Det gick inte att återkalla auktoriseringen.
-          destroy_ok: Alla matchade auktoriseringar har återkallats.
           info: Det finns totalt %{count} verifierade deltagare.
           no_data: Inga verifierade deltagare.
           title: Återkallande av auktoriseringar

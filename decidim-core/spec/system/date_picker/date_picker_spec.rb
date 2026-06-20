@@ -132,7 +132,7 @@ describe "Datepicker" do
       let(:datetime_field) { form.datetime_field(:input, hide_help: true) }
 
       it "hides the help texts" do
-        expect(page).to have_no_content("Format: dd/mm/yy")
+        expect(page).to have_no_text("Format: dd/mm/yy")
       end
     end
 
@@ -172,7 +172,7 @@ describe "Datepicker" do
             find("td > span", text: "20", match: :first).click
             find(".datepicker__calendar-button").click
             element = find("td.wc-datepicker__date--selected")
-            expect(element).to have_content("20")
+            expect(element).to have_text("20")
           end
         end
       end
@@ -186,8 +186,8 @@ describe "Datepicker" do
             month = find('select[name="month"]')
             date = find("td.wc-datepicker__date--selected")
             expect(year.value).to eq("2012")
-            expect(month).to have_content("November")
-            expect(date).to have_content("24")
+            expect(month).to have_text("November")
+            expect(date).to have_text("24")
           end
 
           it "only allows typing numbers and separators" do
@@ -549,8 +549,8 @@ describe "Datepicker" do
             month = find('select[name="month"]')
             date = find("td.wc-datepicker__date--selected")
             expect(year.value).to eq("1994")
-            expect(month).to have_content("January")
-            expect(date).to have_content("20")
+            expect(month).to have_text("January")
+            expect(date).to have_text("20")
           end
         end
 
@@ -778,8 +778,8 @@ describe "Datepicker" do
             month = find('select[name="month"]')
             date = find("td.wc-datepicker__date--selected")
             expect(year.value).to eq("1994")
-            expect(month).to have_content("January")
-            expect(date).to have_content("20")
+            expect(month).to have_text("January")
+            expect(date).to have_text("20")
           end
         end
 

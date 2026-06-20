@@ -17,7 +17,7 @@ eu:
         decidim_category_id: Kategoria
         decidim_scope_id: Eremua
         description: Deskribapena
-        end_time: Bukaera ordua
+        end_time: Amaiera-ordua
         id: ID
         iframe_access_level: Iframe sarbide-maila
         iframe_embed_type: Txertatutako iframe mota
@@ -35,7 +35,7 @@ eu:
         registration_url: Izena ematearen URLa
         registrations_enabled: Izen-emateak gaituta
         reserved_slots: Erreserbatuta dauden plazak
-        start_time: Hasiera ordua
+        start_time: Hasiera-ordua
         title: Titulua
         transparent: Gardena
         type_of_meeting: Mota
@@ -101,7 +101,7 @@ eu:
         accepted_at_not_null:
           label: Onartua
           values:
-            'false': Ez onartuta
+            'false': Ez onartua
             'true': Onartua
         meetings:
           closed_at_present:
@@ -220,7 +220,7 @@ eu:
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
-          button_text: Eman izena topaketan
+          button_text: Eman izena bileran
           email_intro: '"%{resource_title}" topaketa jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" prozesua jarraitzen ari zarelako. Aureko estekan utzi ahal diozu jarraitzeari.
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
@@ -305,13 +305,13 @@ eu:
             add_agenda_item_child: Gai-zerrendan azpi-gai bat gehitu
             agenda_item: Gai zerrendaren gaia
             agenda_item_children: Gai zerrenda azpi gaiak
-            down: Behera
-            remove: Kendu
+            down: Jaitsi
+            remove: Ezabatu
             up: Gora
           agenda_item_child:
             agenda_item_child: Gai zerrenda azpi-gaia
             down: Behera
-            remove: Kendu
+            remove: Ezabatu
             up: Gora
           create:
             invalid: Arazo bat egon da gai-zerrenda hau sortzean.
@@ -510,7 +510,7 @@ eu:
         copy_calendar_url: Kopiatu
         copy_calendar_url_clarification: Kopiatu URL egutegia arbelera
         copy_calendar_url_copied: Kopiatuta!
-        copy_calendar_url_description: Argitaratutako batzar guztiak zure egutegi-aplikazioan edo hornitzailean ikus ditzakezu. Kopiatu eta itsatsi URL hau "Egutegi berria gehitu URL batetik" aukera erabiliz
+        copy_calendar_url_description: Argitaratutako batzar guztiak zure egutegi-aplikazioan edo hornitzailean ikus ditzakezu. Kopiatu eta itsatsi URL hau "Gehitu egutegi berria URL batetik" aukera erabiliz.
         copy_calendar_url_explanation: Mesedez, kontuan izan aukeratutako topaketa multzo bat esportatzen ari zarela eta iragazkiak aktibatuta daudela. Denak esportatu nahi badituzu, lehenengo kendu irakazkiak.
         copy_calendar_url_message: URL hau zuzen kopiatu da zure arbelean.
         export_calendar: Egutegia esportatu
@@ -600,7 +600,7 @@ eu:
             online: On-line
         form:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
-          available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
+          available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
           disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
           iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
           location_help: 'Kokapena: mezua parte-hartzaileei zuzendua biltzeko lekua adieraziz'
@@ -620,7 +620,7 @@ eu:
           close_meeting: Itxi
           edit_close_meeting: Editatu topaketaren txostena
           edit_meeting: Editatu
-          join_meeting: Izena eman
+          join_meeting: Izena eman topaketan
           reply_poll: Erantzun inkesta
           view_poll: Ikusi inkesta
         meetings:
@@ -636,7 +636,7 @@ eu:
         show:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
-          join: Izena eman
+          join: Eman izena
           join_waitlist: Sartu itxarote-zerrendan
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
@@ -738,8 +738,8 @@ eu:
         hidden_participants_count:
           one: eta pertsona bat ehiago
           other: eta %{count} pertsona gehiago
-        show_less: Gutxiago erakutsi
-        show_more: Gehiago erakutsi
+        show_less: Erakutsi gutxiago
+        show_more: Erakutsi gehiago
       read_more: "(gehiago irakurri)"
       registration_mailer:
         confirmation:

@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (data.scheduled) {
         setTimeout(updateVisibility, 4000);
       }
-    } catch (error) {
+    } catch {
       setTimeout(updateVisibility, 4000);
     }
   };

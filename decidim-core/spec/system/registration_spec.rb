@@ -37,7 +37,7 @@ describe "Registration" do
 
     describe "on first sight" do
       it "shows fields empty" do
-        expect(page).to have_content("Create an account to participate")
+        expect(page).to have_text("Create an account to participate")
         expect(page).to have_field("registration_user_name", with: "")
         expect(page).to have_field("registration_user_email", with: "")
         expect(page).to have_field("registration_user_password", with: "")
@@ -119,7 +119,7 @@ describe "Registration" do
       within "form.new_user" do
         find("*[type=submit]").click
       end
-      expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
+      expect(page).to have_text("A message with a confirmation link has been sent to your email address.")
       user.admin = true
       user.confirmed_at = Time.current
       user.save!
@@ -137,7 +137,7 @@ describe "Registration" do
       let(:password) { "sekritpass123" }
 
       it "requires a password change" do
-        expect(page).to have_content("Password change")
+        expect(page).to have_text("Password change")
       end
     end
 
@@ -145,7 +145,7 @@ describe "Registration" do
       let(:password) { "decidim123456789" }
 
       it "does not require password change straight away" do
-        expect(page).to have_no_content("Password change")
+        expect(page).to have_no_text("Password change")
       end
     end
   end

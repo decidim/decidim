@@ -437,25 +437,11 @@ es-PY:
         update: Actualizar
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} ha aceptado tu solicitud para formar parte del comité promotor de la iniciativa %{resource_title}."
           email_outro: 'Has recibido esta notificación porque has solicitado unirte a esta iniciativa: %{resource_title}'
-          email_subject: "%{author_nickname} aceptó tu solicitud para unirte al comité promotor"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> aceptó tu solicitud para formar parte del comité promotor de la siguiente iniciativa <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha creado una nueva iniciativa, compruébalo y contribuye:"
-          email_outro: Recibiste esta notificación porque estás siguiendo %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Nueva iniciativa por %{author_nickname}
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} rechazó tu solicitud para formar parte del comité promotor de la siguiente iniciativa %{resource_title}."
           email_outro: 'Has recibido esta notificación porque has solicitado unirte a esta iniciativa: %{resource_title}.'
-          email_subject: "%{author_nickname} rechazó tu solicitud para unirte al comité promotor"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> rechazó tu solicitud para formar parte del comité promotor de la siguiente iniciativa <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} ha solicitado unirse al comité promotor de tu iniciativa %{resource_title}. Para aceptar o rechazar la solicitud, ve al formulario de edición de tu iniciativa."
           email_outro: 'Has recibido esta notificación porque eres la autora de la iniciativa %{resource_title}'
-          email_subject: "%{applicant_nickname} quiere unirse a tu iniciativa"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha solicitado unirse al comité promotor de tu iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar o rechazar la solicitud haz clic <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Agregar archivo(s) adjunto(s)
         add_image: Añadir imagen

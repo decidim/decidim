@@ -3,22 +3,26 @@
   <% previous_item = non_empty_items[-2] || non_empty_items[-1] %>
 <% end %>
 <div class="menu-bar__breadcrumb-mobile__dropdown-trigger">
-  <span class="inline-block w-full overflow-hidden text-ellipsis align-middle">
-      <span class="cursor-pointer truncate flex items-center gap-x-2">
-        <span aria-hidden="true"><%= icon "arrow-left-s-line" %></span>
-        <% if previous_item %>
-          <% item_label = translated_attribute(previous_item[:label]) %>
-          <% if previous_item[:url].present? && !is_active_link?(previous_item[:url], :exclusive) %>
-            <%= link_to(item_label, previous_item[:url], class: "menu-bar__breadcrumb-item") %>
-          <% else %>
-            <span class="menu-bar__breadcrumb-item"><%= item_label %></span>
+  <span class="menu-bar__breadcrumb-mobile__label-wrapper">
+    <span class="menu-bar__breadcrumb-mobile__label">
+      <span aria-hidden="true"><%= icon "arrow-left-s-line" %></span>
+      <% if previous_item %>
+        <% item_label = translated_attribute(previous_item[:label]) %>
+        <% if previous_item[:url].present? && !is_active_link?(previous_item[:url], :exclusive) %>
+          <%= link_to(previous_item[:url], class: "menu-bar__breadcrumb-item", data: { controller: "breadcrumb-truncate" }) do %>
+            <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= item_label %></span>
           <% end %>
         <% else %>
-          <%= link_to decidim.root_url, class: "menu-bar__breadcrumb-item" do %>
-            <span class=""><%= t("decidim.menu.home") %></span>
-          <% end %>
+          <span class="menu-bar__breadcrumb-item" data-controller="breadcrumb-truncate">
+            <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= item_label %></span>
+          </span>
         <% end %>
-      </span>
+      <% else %>
+        <%= link_to decidim.root_url, class: "menu-bar__breadcrumb-item", data: { controller: "breadcrumb-truncate" } do %>
+          <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= t("decidim.menu.home") %></span>
+        <% end %>
+      <% end %>
+    </span>
   </span>
   <% if content_for?(:participatory_space_mobile_actions) %>
     <div class="menu-bar__actions-mobile">

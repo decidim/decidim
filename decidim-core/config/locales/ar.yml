@@ -288,9 +288,6 @@ ar:
       update_draft:
         error: حدثت هناك مشكلة أثناء تحديث مسودة التعديل.
         success: تم تحديث مسودة التعديل بنجاح.
-      wizard_step_form:
-        steps:
-          '1': إنشاء التعديل الخاص بك
     anonymous_user: مجهول
     application:
       document:
@@ -541,13 +538,9 @@ ar:
           affected_user:
             email_intro: 'تم قبول التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
-            email_subject: تم قبول التعديل من %{amendable_title} من %{emendation_author_nickname}
-            notification_title: تم قبول التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لمدة <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'تم قبول التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-            email_subject: تم قبول التعديل من %{amendable_title} من %{emendation_author_nickname}
-            notification_title: تم قبول التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لمدة <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'تم إنشاء تعديل جديد لـ %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
@@ -563,29 +556,20 @@ ar:
           affected_user:
             email_intro: 'تم نشر تعديل مرفوض لـ %{amendable_title} باعتباره %{amendable_type}جديد. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
-            email_subject: تم نشر تعديل من %{emendation_author_nickname} كـ %{amendable_type}جديد
-            notification_title: A <a href="%{emendation_path}">رفض التعديل</a> لل <a href="%{amendable_path}">%{amendable_title}</a> تم نشره باعتباره الجديدة %{amendable_type} من <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'تم نشر تعديل مرفوض لـ %{amendable_title} باعتباره %{amendable_type}جديد. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-            email_subject: تم نشر تعديل من %{emendation_author_nickname} كـ %{amendable_type}جديد
-            notification_title: A <a href="%{emendation_path}">رفض التعديل</a> لل <a href="%{amendable_path}">%{amendable_title}</a> تم نشره باعتباره الجديدة %{amendable_type} من <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'تم رفض التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
-            email_subject: تم رفض التعديل لـ %{amendable_title} من %{emendation_author_nickname}
-            notification_title: تم رفض التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لـ <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'تم رفض التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-            email_subject: تم رفض التعديل لـ %{amendable_title} من %{emendation_author_nickname}
-            notification_title: تم رفض التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لـ <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'تم نشر تعديل لـ %{amendable_title}. يمكنك رؤيته من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف %{amendable_title}.
-            email_subject: تم نشر تعديل من قبل %{emendation_author_nickname} كـ %{amendable_type} جديد
       attachments:
         attachment_created:
           email_intro: 'تمت إضافة مستند جديد إلى %{resource_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
@@ -616,16 +600,9 @@ ar:
           notification_title: |-
             قام مسؤول بإزالة %{resource_type} لأنه تم الإبلاغ عنه كـ %{report_reasons}.</br><i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: و <a href="%{resource_url}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: "%{nickname} تحديث ملفهم الشخصي"
-          notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
         user_officialized:
-          email_intro: تم إضفاء الطابع الرسمي على المشارك %{name} (%{nickname}).
           email_outro: تلقيت هذا الإشعار لأنك مدير في هذه المنظمة.
           email_subject: "تم إضفاء الطابع الرسمي على %{name}"
-          notification_title: تم إضفاء الطابع الرسمي على المشارك %{name} (%{nickname}).
     export_mailer:
       download_your_data_export:
         download: تحميل

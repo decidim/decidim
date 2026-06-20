@@ -36,7 +36,7 @@
                   </li>
                 <% else %>
                   <div class="dropdown__button-disabled">
-                    <%= with_tooltip t("tooltips.cannot_edit_taxonomy_filter", scope: "decidim.admin") do %>
+                    <%= with_tooltip t("tooltips.cannot_edit_taxonomy_filter", scope: "decidim.admin"), class: :left do %>
                       <%= icon "pencil-line", class: "text-gray" %>
                       <%= t(".edit") %>
                     <% end %>
@@ -54,7 +54,7 @@
                   </li>
                 <% else %>
                   <div class="dropdown__button-disabled">
-                    <%= with_tooltip t("tooltips.cannot_destroy_taxonomy_filter", scope: "decidim.admin") do %>
+                    <%= with_tooltip t("tooltips.cannot_destroy_taxonomy_filter", scope: "decidim.admin"), class: :left do %>
                       <%= icon "delete-bin-line", class: "text-gray" %>
                       <%= t(".destroy") %>
                     <% end %>

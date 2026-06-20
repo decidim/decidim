@@ -1,14 +1,41 @@
 <%= link_to decidim.root_url, class: "menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger" do %>
-  <span class=""><%= t("decidim.menu.home") %></span>
+  <span><%= t("decidim.menu.home") %></span>
 <% end %>
-<% breadcrumb_items.each_with_index do |item, i| %>
+<% truncatable_items = breadcrumb_items.compact_blank.drop(1) %>
+<% breadcrumb_items.each do |item| %>
   <% next if item.blank? %>
 
   <% item_label = translated_attribute(item[:label]) %>
+  <% truncatable = truncatable_items.include?(item) %>
+  <% trigger_classes = ["menu-bar__breadcrumb-desktop__dropdown-trigger"] %>
+  <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
+    <% trigger_classes.unshift("menu-bar__breadcrumb-desktop__dropdown-wrapper") %>
+  <% end %>
+  <% if truncatable %>
+    <% trigger_classes << "menu-bar__breadcrumb-desktop__dropdown-trigger--truncatable" %>
+  <% end %>
   <span aria-hidden="true"><%= icon "arrow-right-s-line", class: "fill-white" %></span>
-  <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger", "aria-current": (item[:active] ? "page" : nil)) do %>
+  <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
+    <%= link_to item[:url], class: trigger_classes.join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), "aria-current": (item[:active] ? "page" : nil) do %>
+      <% if truncatable %>
+        <span class="menu-bar__breadcrumb-desktop__label--truncatable">
+          <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= item_label %></span>
+        </span>
+      <% else %>
+        <span><%= item_label %></span>
+      <% end %>
+    <% end %>
+  <% else %>
     <%# This block is executed if the condition is false %>
-    <%= content_tag :span, item_label, class: "menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive", tabindex: "0", "aria-current": (item[:active] ? "page" : nil) %>
+    <%= content_tag :span, class: [*trigger_classes, "no-interactive"].join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), "aria-current": (item[:active] ? "page" : nil) do %>
+      <% if truncatable %>
+        <span class="menu-bar__breadcrumb-desktop__label--truncatable">
+          <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= item_label %></span>
+        </span>
+      <% else %>
+        <span><%= item_label %></span>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 

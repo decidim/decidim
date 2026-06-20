@@ -8,7 +8,7 @@ The `DeleteProject` mutation allows authenticated administrators to soft-delete 
 ----
 mutation deleteProject($componentId: ID!, $budgetId: ID!, $projectId: ID!){
   component(id: $componentId){
-    ...on BudgetsMutation{
+    ... on BudgetsMutation {
       budget(id: $budgetId){
         deleteProject(id: $projectId){
           id

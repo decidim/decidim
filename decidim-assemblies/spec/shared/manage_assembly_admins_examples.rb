@@ -22,7 +22,7 @@ shared_examples "manage assembly admins examples" do
 
   it "shows assembly admin list" do
     within "#assembly_admins table" do
-      expect(page).to have_content(assembly_admin.email)
+      expect(page).to have_text(assembly_admin.email)
     end
   end
 
@@ -40,11 +40,11 @@ shared_examples "manage assembly admins examples" do
     expect(page).to have_callout("Admin successfully added to this assembly.")
 
     within "#assembly_admins table" do
-      expect(page).to have_content(other_user.email)
+      expect(page).to have_text(other_user.email)
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("invited #{other_user.name} to the #{translated(assembly.title)} assembly")
+    expect(page).to have_text("invited #{other_user.name} to the #{translated(assembly.title)} assembly")
   end
 
   describe "when managing different users" do
@@ -70,10 +70,10 @@ shared_examples "manage assembly admins examples" do
       expect(page).to have_callout("Admin updated successfully for this assembly.")
 
       within "#assembly_admins table" do
-        expect(page).to have_content("Collaborator")
+        expect(page).to have_text("Collaborator")
       end
       visit decidim_admin.root_path
-      expect(page).to have_content("changed the role of #{other_user.name} in the #{translated(assembly.title)} assembly")
+      expect(page).to have_text("changed the role of #{other_user.name} in the #{translated(assembly.title)} assembly")
     end
 
     it "deletes an assembly_user_role" do
@@ -85,7 +85,7 @@ shared_examples "manage assembly admins examples" do
       expect(page).to have_callout("Admin successfully removed from this assembly.")
 
       within "#assembly_admins table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).to have_no_text(other_user.email)
       end
     end
 

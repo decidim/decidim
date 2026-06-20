@@ -71,11 +71,11 @@ shared_examples "a social share via QR code" do
     click_on "Share"
     click_on "Share to QR"
 
-    expect(page).to have_content("QR Code")
+    expect(page).to have_text("QR Code")
     within "#QRCodeDialog" do
       expect(page).to have_css(%(img[alt="QR Code"]))
       expect(page).to have_link("Print poster")
-      expect(page).to have_content(title)
+      expect(page).to have_text(title)
       expect(page).to have_link("Download")
     end
   end
@@ -97,13 +97,13 @@ shared_examples "a social share via QR code" do
     click_on "Share"
     click_on "Share to QR"
     click_on "Print poster"
-    expect(page).to have_content("Scan the QR code")
+    expect(page).to have_text("Scan the QR code")
     expect(page).to have_css(%(img[alt="QR Code for #{parameterized_title}"]))
 
     expect(page).to have_css(%(img[src*="#{card_image}"])) unless card_image.nil?
-    expect(page).to have_content(title)
+    expect(page).to have_text(title)
 
-    expect(page).to have_content(translated(organization.name))
+    expect(page).to have_text(translated(organization.name))
   end
 
   it "generates the same QR code" do

@@ -168,12 +168,10 @@ fi-pl:
           email_intro: "%{author_name} on jättänyt kommentin %{resource_title}. Voit lukea sen tällä sivulla:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit perua seuraamisen kyseisen käyttäjän profiilisivulta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} on kommentoitu. Voit lukea kommentin tällä sivulla:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Kommenttisi kohteessa "%{resource_title}" sai miinusäänen. Sillä on yhteensä %{upvotes} ääntä ja %{downvotes} miinusääntä.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet jättänyt tämän kommentin.
@@ -188,12 +186,10 @@ fi-pl:
           email_intro: "%{author_name} on vastannut kommentiisi kohdassa %{resource_title}. Voit lukea sen tällä sivulla:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska kommenttiisi vastattiin.
           email_subject: "%{author_name} on vastannut kommentiisi %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiisi kohdassa <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Sinut on mainittu
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu kohdssa %{resource_title}.
           email_subject: Sinut on mainittu kohdassa %{resource_title}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohdassa <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: ei voi sisältää kommentteja

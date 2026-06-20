@@ -21,7 +21,7 @@
   </div>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_two_col", locals: { columns: 10, large: true } do %>
+<%= render layout: "layouts/decidim/shared/layout_two_col", locals: { columns: 10, large: true, reference: resource_reference(document) } do %>
   <%= render partial: "decidim/shared/component_announcement" %>
 
   <section class="layout-main__section">

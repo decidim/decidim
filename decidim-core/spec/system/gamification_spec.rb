@@ -21,7 +21,7 @@ describe "Gamification" do
         visit decidim.profile_path(user.nickname)
         click_on "Badges"
         within "div[data-badge='test']" do
-          expect(page).to have_content "Level 2"
+          expect(page).to have_text "Level 2"
         end
       end
     end
@@ -42,9 +42,9 @@ describe "Gamification" do
 
     it "shows a list of available badges" do
       visit decidim.gamification_badges_path
-      expect(page).to have_content "Tests badge"
-      expect(page).to have_content "Participants get this badge by creating tests"
-      expect(page).to have_content "Use a test environment for decidim"
+      expect(page).to have_text "Tests badge"
+      expect(page).to have_text "Participants get this badge by creating tests"
+      expect(page).to have_text "Use a test environment for decidim"
     end
   end
 end

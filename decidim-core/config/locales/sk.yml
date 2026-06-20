@@ -444,10 +444,6 @@ sk:
       withdraw:
         error: Pri sťahovaní pozmeňujúceho návrhu sa vyskytol problém.
         success: Pozmeňujúci návrh bol úspešne stiahnutý.
-      wizard_step_form:
-        steps:
-          '1': Vytvorte svoj pozmeňovací návrh
-          '2': Zverejnite svoj pozmeňujúci návrh
     anonymous_user: Anonymné
     application:
       document:
@@ -911,13 +907,9 @@ sk:
           affected_user:
             email_intro: 'Zmena bola prijatá pre %{amendable_title}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože ste autorom %{amendable_title}.
-            email_subject: doplňujúci návrh prijatý pre %{amendable_title} od%{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> zmena </a> vytvorené <a href="%{emendation_author_path}">%{emendation_author_nickname} </a> bol prijatý <a href = "%{amendable_path}" >%{amendable_title} </a>.
           follower:
             email_intro: 'Zmena bola prijatá pre %{amendable_title}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Po kliknutí na predchádzajúcu odkaz môžete prestať prijímať oznámenia.
-            email_subject: doplňujúci návrh prijatý pre %{amendable_title} od%{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> zmena </a> vytvorené <a href="%{emendation_author_path}">%{emendation_author_nickname} </a> bol prijatý <a href = "%{amendable_path}" >%{amendable_title} </a>.
         amendment_created:
           affected_user:
             email_intro: 'Nová zmena bola vytvorená pre hodnotu%{amendable_title}. Môžete ju vidieť z tejto stránky: '
@@ -933,29 +925,20 @@ sk:
           affected_user:
             email_intro: 'Zamietnutý pozmeňovací návrh pre %{amendable_title} bol publikovaný ako nový %{amendable_type}. Môžete ho vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože ste autorom %{amendable_title}.
-            email_subject: doplňujúci návrh z%{emendation_author_nickname} bol zverejnený ako nový%{amendable_type}
-            notification_title: <a href="%{emendation_path}"> zamietnuť zmenu </a> pre <a href="%{amendable_path}">%{amendable_title} </a> bola publikovaná ako nový%{amendable_type} od <a href = "%{emendation_author_path}">%{emendation_author_nickname} </a>.
           follower:
             email_intro: 'Označenie odmietnutej pre číslo %{amendable_title} bolo povýšené na nezávislý%{amendable_type}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-            email_subject: Zmena z%{emendation_author_nickname} bola uverejnená ako nová%{amendable_type}
-            notification_title: <a href="%{emendation_path}"> zamietnuť zmenu </a> pre <a href="%{amendable_path}">%{amendable_title} </a> bola publikovaná ako nový%{amendable_type} od <a href = "%{emendation_author_path}">%{emendation_author_nickname} </a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Oznámenie bolo zamietnuté za %{amendable_title}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože ste autorom %{amendable_title}.
-            email_subject: Zmena bola zamietnutá pre %{amendable_title} od%{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> zmena </a> vytvorené <a href="%{emendation_author_path}">%{emendation_author_nickname} </a> bola odmietnutá <a href = "%{amendable_path}" >%{amendable_title} </a>.
           follower:
             email_intro: 'Oznámenie bolo zamietnuté za %{amendable_title}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-            email_subject: Zmena bola zamietnutá pre %{amendable_title} od%{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> zmena </a> vytvorené <a href="%{emendation_author_path}">%{emendation_author_nickname} </a> bola odmietnutá <a href = "%{amendable_path}" >%{amendable_title} </a>.
         emendation_promoted:
           follower:
             email_intro: 'Pre %{amendable_title} bola zverejnená úprava. Môžete si ju pozrieť na tejto stránke:'
             email_outro: Toto upozornenie ste dostali, pretože ste autorom %{amendable_title}.
-            email_subject: Úprava od %{emendation_author_nickname} bola zverejnená ako nový %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Do dokumentu%{resource_title} bol pridaný nový dokument. Môžete ho vidieť z tejto stránky: '
@@ -1006,25 +989,13 @@ sk:
           notification_title: |-
             Administrátor odstránil váš %{resource_type}, pretože bol nahlásený ako %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_liked:
-        email_intro: '%{liker_name} %{liker_nickname}, ktorého sledujete, práve označil/a, že sa mu/jej páči „%{resource_title}“, a myslíme si, že by to mohlo zaujímať aj vás. Pozrite si to a prispejte:'
-        email_outro: Toto upozornenie ste dostali, pretože sledujete %{liker_nickname}. Prijímanie upozornení môžete zrušiť pomocou predchádzajúceho odkazu.
-        email_subject: "%{liker_nickname} pridal/a nové označenie páči sa mi to"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}) sa páči používateľovi <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: Administrátor odstránil váš „%{resource_type}“ „%{resource_title}“.
       users:
-        profile_updated:
-          email_intro: <a href="%{resource_url}"> profilová stránka </a> zo %{name} (%{nickname}), ktorú sledujete, bola aktualizovaná.
-          email_outro: Toto oznámenie ste dostali, pretože sledujete %{nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-          email_subject: "%{nickname} aktualizoval svoj profil"
-          notification_title: <a href="%{resource_path}"> profilová stránka </a> od%{name} (%{nickname}), ktorú sledujete, bola aktualizovaná.
         user_officialized:
-          email_intro: Účastník %{name} (%{nickname}) bol oficializovaný.
           email_outro: Toto upozornenie ste dostali, pretože ste administrátorom organizácie.
           email_subject: "%{name} bol/a oficializovaný/á"
-          notification_title: Účastník %{name} (%{nickname}) bol oficializovaný.
     export_mailer:
       download_your_data_export:
         click_button_html: Kliknutím na nasledujúci odkaz si stiahnete svoje údaje.<br/>Súbor bude k dispozícii na stiahnutie do %{date}.
@@ -1588,10 +1559,6 @@ sk:
     participatory_space_members:
       index:
         members: Členovia
-    participatory_spaces:
-      show:
-        restricted_space: Toto je vyhradený priestor. Iba členovia ho môžu zobraziť a zúčastniť sa.
-        transparent_space: Toto je transparentný priestor. Ktokoľvek môže zobraziť obsah, ale zúčastniť sa môžu iba členovia.
     passwords:
       update:
         error: Pri aktualizácii hesla sa vyskytol problém.

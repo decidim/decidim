@@ -43,7 +43,6 @@ lt:
           destroy:
             confirm: Atšaukus leidimus iki datos, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
             confirm_all: Atšaukus visus leidimus, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
-          destroy_ok: Visi sutampantys leidimai atšaukti.
           info: Bendras patvirtintų dalyvių skaičius – %{count}.
           no_data: Patvirtintų dalyvių nėra.
           title: Įgaliojimų atėmimas

@@ -1,6 +1,10 @@
 ru:
   activemodel:
     attributes:
+      milestone:
+        description: Описание
+        entry_date: Дата
+        title: Название
       result:
         decidim_accountability_status_id: Состояние
         decidim_category_id: Категория
@@ -9,6 +13,7 @@ ru:
         end_date: Дата окончания
         progress: Продвижение
         start_date: Дата начала
+        subresults: Подрезультаты
         title: Заголовок
         updated_at: 'Обновлено:'
       status:
@@ -21,6 +26,14 @@ ru:
       decidim/accountability/result_progress_updated_event: Прогресс результатов обновлен
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Этот результат %{link} был включен
+            meetings_ids: 'Что обсуждалось на этой встрече: %{link}'
+            project_ids: 'Что было включено в этот проект: %{link}'
+            proposal_ids: 'Что было включено в это предложение: %{link}'
+            text: 'Что было включено в этот результат: %{link}'
       decidim/accountability/result:
         one: Итог
         few: Итога
@@ -29,35 +42,144 @@ ru:
   decidim:
     accountability:
       actions:
+        add_milestone: Добавить этап
+        add_result: Добавить результат
+        confirm_delete_result: Вы уверены, что хотите удалить этот результат?
         confirm_destroy: Вы действительно хотите удалить %{name}?
+        deleted_results_info: Удаленные результаты могут быть восстановлены из корзины.
         destroy: Удалить
         edit: Редактировать
+        import: Импорт результатов из другого компонента
+        import_csv: Импорт результатов из CSV файла
+        new_milestone: Новый этап
+        new_result: Новый результат
+        new_status: Новый статус
         preview: Предварительный просмотр
         title: Действия
+        view_deleted_results: Просмотр удаленных результатов
       admin:
         exports:
+          result_comments: Комментарии
           results: Итоги
         import_components:
+          create:
+            invalid: Возникла проблема при импорте результатов. Пожалуйста, тщательно следуйте инструкциям и убедитесь, что вы выбрали проекты для реализации.
+          filters:
+            proposal_state: Статус предложения
+            select_state: Выберите статус
           form:
+            create: Импорт
             no_components:
+            origin_component_id: Исходный компонент
+            select_component: Выберите компонент
+          new:
+            title: Импорт резуотатов из другого компонента
+        import_results:
+          new:
+            download_export: Скачать Экспорт в CSV формате
+            import: Импорт
+            info: |
+              <p>Мы рекомендуем выполнить следующие шаги:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Создайте Статусы для Результатов</a>, которые вы хотите добавить</li>
+              <li><a href='%{link_new_result}' target='_blank'>Создайте вручную хотя бы один Результат</a> через эту панель Администратора перед использованием Импорта, чтобы лучше понять формат и что потребуется заполнить.</li>
+              <li>%{link_export_csv}</li>
+              <li>Внесите изменения локально. Вы можете изменять только следующие столбцы CSV (остальные будут проигнорированы):</li>
+              <ul>
+              <li><b>taxonomies/ids:</b> идентификаторы таксономий (если более одного — разделите запятой)</li>
+              <li><b>parent/id:</b> идентификатор родительского элемента (для связанных Результатов). Необязательно</li>
+              <li><b>title/en:</b> заголовок на английском языке. Зависит от языковой конфигурации вашей платформы.</li>
+              <li><b>description/en:</b> описание на английском языке. Зависит от языковой конфигурации вашей платформы.</li>
+              <li><b>start_date:</b> дата начала выполнения результата (формат YYYY-MM-DD)</li>
+              <li><b>end_date:</b> дата окончания выполнения результата (формат YYYY-MM-DD)</li>
+              <li><b>status/id:</b> идентификатор Статуса для данного результата</li>
+              <li><b>progress:</b> процент выполнения (от 0 до 100)</li>
+              <li><b>proposals_ids:</b> внутренний идентификатор связанных предложений (разделённых запятой). Автоматически преобразуется в <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
+            title: Импорт результатов из CSV файла
+        imports:
+          create:
+            invalid: При попытке импорта этого результата произошла ошибка.
+            success: Начался импорт файла. В ближайшие минуты вы получите письмо с результатом импорта.
+        milestones:
+          create:
+            invalid: При попытке добавить этот этап произошла ошибка.
+            success: Этап успешно создан.
+          destroy:
+            success: Этап успешно удален.
+          edit:
+            title: Редактировать этап
+            update: Обновить этап
+          index:
+            title: Этапы
+          new:
+            create: Создать этап
+            title: Новый этап
+          update:
+            invalid: При попытке обновить этот этап произошла ошибка.
+            success: Этап успешно обнавлен.
         models:
           result:
             name: Итог
           status:
             name: Состояние
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Изменить дату
+              end_date: Дата окончания
+              start_date: Дата начала
+            dropdown:
+              actions: Действия
+              change_dates: Изменить даты
+              change_status: Изменить статус
+              change_taxonomies: Изменить таксономии
+            status_form:
+              change_status: Изменить статус
+              status: Статус
+            submit_buttons:
+              cancel: Отменить
+            taxonomies_form:
+              change_taxonomies: Изменить таксономии
+          create:
+            invalid: При создании этого результата возникла проблема.
+            success: Результат успешно создан.
           edit:
             title: Редактировать итог
             update: Обновить итог
           index:
+            selected: Выбранные
             title: Итоги
+          manage_trash:
+            title: Удаленные результаты
           new:
             create: Создать итог
             title: Добавить итог
+          update:
+            invalid: При обновлении этого результата возникла проблема.
+            success: Результат успешно обновлен.
+          update_dates:
+            invalid: При обновлении дат результатов возникла проблема
+            success: Даты результатов успешно обновлены
+          update_status:
+            invalid: При обновлении статуса результатов возникла проблема
+            success: Статус результатов успешно обновлен
+          update_taxonomies:
+            invalid: Не удалось обновить таксономии %{taxonomies} для результатов %{results}
+            select_a_result: Выберите результат
+            select_a_taxonomy: Выберите таксономию
+            success: Успешно обновлены таксономии %{taxonomies} для результатов %{results}
         shared:
           subnav:
             statuses: Состояния
         statuses:
+          create:
+            invalid: Возникла проблема при создании этого статуса.
+            success: Статус успешно создан.
+          destroy:
+            success: Статус успешно удален.
           edit:
             title: Редактировать состояние
             update: Обновить состояние
@@ -66,21 +188,62 @@ ru:
           new:
             create: Создать состояние
             title: Добавить состояние
+          update:
+            invalid: При обновлении статуса возникла проблема.
+            success: Статус успешно обновлен.
       admin_log:
+        milestones:
+          create: "%{user_name} создал этап %{resource_name}"
+          delete: "%{user_name} удалил этап %{resource_name}"
+          update: "%{user_name} обновил этап %{resource_name}"
         result:
           create: "%{user_name} создал итог %{resource_name} в %{space_name}"
           delete: "%{user_name} удалил итог %{resource_name} в %{space_name}"
+          restore: "%{user_name} восстановил результат %{resource_name} в %{space_name}"
+          soft_delete: "%{user_name} переместил результат %{resource_name} в корзину %{space_name}"
           update: "%{user_name} обновил итог %{resource_name} в %{space_name}"
+        status:
+          create: "%{user_name} создал статус %{resource_name}"
+          delete: "%{user_name} удалил статус %{resource_name}"
+          update: "%{user_name} обновил статус %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Родительский объект не найден в базе данных (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: Результаты
+      creation:
+        text: Этот результат был создан
+      import_mailer:
+        import:
+          errors: Ошибки
+          errors_present: Произошла ошибка при импорте результатов.
+          row_number: Строка
+          subject: Успешный импорт результатов
+          success: Успешный импорт результатов. Вы можете просмотреть результаты в интерфейсе администрирования.
+      import_projects_mailer:
+        import:
+          subject: Успешный импорт проектов
+          success: Проекты успешно импортированны в результаты в компоненте %{component_name}. Вы можете просмотреть результаты в интерфейсе администрирования.
+      import_proposals_mailer:
+        import:
+          subject: Успешный импорт предложений
+          success: Предложения успешно импортированны в результаты в компоненте %{component_name}. Вы можете просмотреть результаты в интерфейсе администрирования.
+      last_activity:
+        new_result: 'Новый результат:'
       models:
+        milestone:
+          fields:
+            entry_date: Дата
+            title: Название
         result:
           fields:
+            created_at: Создано
             end_date: Дата окончания
             progress: Продвижение
             start_date: Дата начала
             status: Состояние
+            taxonomies: Таксономии
             title: Заголовок
         status:
           fields:
@@ -97,21 +260,51 @@ ru:
             other: "%{count} итога"
         home_header:
           global_status: Состояние общего исполнения
+        milestones:
+          title: Этапы
+        no_results: Нет проектов
+        root_taxonomies:
+          title: 'Отображать по:'
         search:
           search: Поиск действий
         show:
           stats:
             back_to_resource: Вернуться к итогу
+    admin:
+      filters:
+        results:
+          status_id_eq:
+            label: Статус
+          taxonomies_part_of_contains:
+            label: Таксономия
+      tooltips:
+        deleted_results_info: Невозможно удалить этот результат
     components:
       accountability:
+        actions:
+          comment: Комментарий
         name: Отчетность
         settings:
           global:
+            clear_all: Очистить все
             comments_enabled: Комментарии включены
+            comments_max_length: Максимальная длина комментариев (оставьте 0 для значения по умолчанию)
+            default_taxonomy: Таксономия по умолчанию
+            default_taxonomy_help: Выберите, какую таксономию вы хотите показать по умолчанию. Если таксономия не выбрана, результаты будут показаны в виде списка.
+            define_taxonomy_filters: Пожалуйста, определите фильтры для этого партисипативного пространства перед использованием этой настройки.
             display_progress_enabled: Показывать ход выполнения
+            geocoding_enabled: Карты включены
             intro: Вступление
+            no_taxonomy_filters_found: Фильтры таксономии не найдены.
+            taxonomy_filters: Выберите фильтры для компонента
+            taxonomy_filters_add: Добавить фильтр
           step:
             comments_blocked: Комментарии отключены
+          visualization: Визуализация
+    download_your_data:
+      show:
+        result_comments: Экспорт комментариев результатов
+        results: Экспорт результатов
     events:
       accountability:
         proposal_linked:
@@ -122,9 +315,50 @@ ru:
         result_progress_updated:
           email_intro: 'Результат "%{resource_title}", который включает предложение "%{proposal_title}", теперь завершено на %{progress}%. Вы можете увидеть его на этой странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за "%{proposal_title}", и это предложение включено в результат "%{resource_title}". Вы можете прекратить получение уведомлений, перейдя по предыдущей ссылке.
+          email_subject: Обновление прогресса %{resource_title}
           notification_title: Результат <a href="%{resource_path}">%{resource_title}</a>, который включает предложение <a href="%{proposal_path}">%{proposal_title}</a>, теперь %{progress}% завершен.
+    open_data:
+      help:
+        result_comments:
+          alignment: Если этот комментарий был за, против или нейтральный
+          author: Имя участника, который написал этот комментарий
+          body: Сам комментарий
+          commentable_id: Уникальный идентификатор комментария
+          commentable_type: Тип комментируемого элемента (результат, предложение и т.д.)
+          created_at: Дата создания комментария
+          depth: Позиция комментария в цепочке обсуждения (прямой ответ или ответ на ответ)
+          id: Идентификатор этого комментария
+          locale: Язык, при котором участник оставлял этот комментарий
+          root_commentable_url: URL ресурса, который связан с этим комментарием
+        results:
+          address: Адрес результата (если есть)
+          children_count: Количество результатов дочернего процесса
+          comments_count: Количество комментариев к этому результату
+          component: Компонент, к которому относится результат
+          created_at: Дата создания результата
+          description: Описание результата
+          end_date: Дата окончания выполнения результата
+          id: Уникальный идентификатор результата
+          latitude: Географическая широта результата в случае, если он имеет физическое расположение
+          longitude: Географическая долгота результата в случае, если он имеет физическое местоположение
+          parent: Родительский результат (если есть) результата
+          progress: Процент выполнения результата
+          proposal_urls: URL-адреса предложений, которые включены в этот результат
+          reference: Уникальная ссылка на результат
+          start_date: Дата начала выполнения результата
+          status: Текущий статус этого результата
+          taxonomies: Таксономии результата
+          title: Заголовок результата
+          updated_at: Последняя дата обновления результата
+          url: URL-адрес, где можно найти этот результат
+    participatory_spaces:
+      highlighted_results:
+        see_all: Посмотреть все результаты
     resource_links:
       included_projects:
         result_project: Проекты, включенные в эти итоги
       included_proposals:
         result_proposal: Предложения, включенные в этот итог
+    statistics:
+      results_count: Результаты
+      results_count_tooltip: Количество решений или итогов, выработанных в рамках данного пространства.

@@ -13,7 +13,7 @@ edit_link(
 %>
 
 <%# NOTE: this page does not use a regular layout %>
-<main class="container">
+<main class="container" role="main">
   <h1 class="title-decorator my-12">
     <span class="not-sr-only"><%= t("media", scope: "layouts.decidim.conferences_nav") %></span>
     <span class="sr-only"><%= t("media", scope: "layouts.decidim.conferences_nav") %> (<%= translated_attribute current_participatory_space.title %>)</span>

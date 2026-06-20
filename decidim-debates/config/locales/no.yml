@@ -129,14 +129,6 @@
             title: Innlegg
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              Hei,
-              %{author_name} %{author_nickname}, som du følger, har opprettet en ny innspillstråd "%{resource_title}". Sjekk det ut og bidra:
-            email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den vedlagte lenken.
-            email_subject: Ny innspillstråd "%{resource_title}" av %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> opprettet innspillstråden <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Opprettelse av innspillstråder er ikke lenger aktivt i %{participatory_space_title} Du kan fortsatt delta i åpne innspillstråder på denne siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den vedlagte lenken.

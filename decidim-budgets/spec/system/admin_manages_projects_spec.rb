@@ -60,10 +60,10 @@ describe "Admin manages projects" do
 
     it "selects projects to implementation" do
       within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content("No")
+        expect(page).to have_text("No")
       end
       within "tr[data-id='#{project2.id}']" do
-        expect(page).to have_content("No")
+        expect(page).to have_text("No")
       end
 
       find_by_id("projects_bulk").set(true)
@@ -74,10 +74,10 @@ describe "Admin manages projects" do
 
       expect(page).to have_callout "These projects were successfully selected for implementation"
       within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content("Yes")
+        expect(page).to have_text("Yes")
       end
       within "tr[data-id='#{project2.id}']" do
-        expect(page).to have_content("Yes")
+        expect(page).to have_text("Yes")
       end
       expect(Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
@@ -103,7 +103,7 @@ describe "Admin manages projects" do
         select translated(destination_budget.title), from: "reference_id"
         click_on "Update project's budget"
         within_flash_messages do
-          expect(page).to have_content("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
+          expect(page).to have_text("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
         end
         expect(page).to have_no_css("tr[data-id='#{project.id}']")
         expect(page).to have_no_css("tr[data-id='#{project2.id}']")
@@ -122,6 +122,94 @@ describe "Admin manages projects" do
 
       it_behaves_like "manage soft deletable resource", "project"
       it_behaves_like "manage trashed resource", "project"
+    end
+  end
+
+  context "when a project has an attachment" do
+    let!(:budget_with_attachment) { create(:budget, component: current_component) }
+    let!(:project_with_attachment) do
+      create(:project, budget: budget_with_attachment)
+    end
+
+    let!(:attachment) { create(:attachment, :with_image, attached_to: project_with_attachment) }
+
+    before do
+      visit_component_admin
+
+      within "tr", text: translated(budget_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Add projects"
+      end
+    end
+
+    it "can remove an attachment" do
+      within "tr", text: translated(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      click_on("Edit attachments")
+      within "li[data-filename='#{attachment.file.blob.filename}']" do
+        click_on("Remove")
+      end
+
+      click_on("Save")
+
+      expect(page).to have_no_css("img[src*='#{attachment.file.blob.filename}']")
+    end
+
+    it "can attach a file" do
+      within "tr", text: translated(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      click_on("Edit attachments")
+
+      within ".upload-modal" do
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(attachment.file.blob.filename.to_s))
+      end
+
+      click_on("Save")
+      click_on("Update")
+
+      expect(page).to have_text("Project successfully updated.")
+
+      within "tr", text: translated_attribute(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page).to have_css("img[src*='#{attachment.file.blob.filename}']")
+    end
+
+    it "can edit a project with an attachment" do
+      within "tr", text: translated(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page.html).to include(attachment.file.blob.filename.to_s)
+
+      fill_in_i18n(:project_title, "#project-title-tabs", en: "Updated project title with attachments")
+      click_on "Update"
+
+      expect(page).to have_callout "Project successfully updated."
+
+      visit_component_admin
+
+      within "tr", text: translated(budget_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Add projects"
+      end
+
+      within "tr", text: "Updated project title with attachments" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page).to have_field("project_title_en", with: "Updated project title with attachments")
+      expect(page.html).to include(attachment.file.blob.filename.to_s)
     end
   end
 

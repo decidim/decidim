@@ -27,7 +27,7 @@ shared_examples "manage proposals help texts" do
     visit new_proposal_path(current_component)
 
     within ".flash[data-announcement]" do
-      expect(page).to have_content("Create a proposal following our guidelines.")
+      expect(page).to have_text("Create a proposal following our guidelines.")
     end
   end
 

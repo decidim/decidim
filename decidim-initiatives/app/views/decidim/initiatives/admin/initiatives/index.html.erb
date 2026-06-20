@@ -73,7 +73,7 @@
                   <% else %>
                     <li class="dropdown__item">
                       <div class="dropdown__button-disabled">
-                        <%= with_tooltip(t("actions.cannot_answer", scope: "decidim.admin")) do %>
+                        <%= with_tooltip(t("actions.cannot_answer", scope: "decidim.admin"), class: :left) do %>
                           <%= icon "chat-1-line", class: "text-gray" %>
                           <span><%= t("actions.answer", scope: "decidim.initiatives") %></span>
                         <% end %>

@@ -16,7 +16,7 @@ describe "SMS code request" do
   end
 
   it "redirects to verification after login" do
-    expect(page).to have_content("Request your verification code")
+    expect(page).to have_text("Request your verification code")
   end
 
   context "when requesting a code by sms" do
@@ -26,7 +26,7 @@ describe "SMS code request" do
     end
 
     it "allows the user to request a code by sms to get verified" do
-      expect(page).to have_content("Thanks! We have sent an SMS to your phone.")
+      expect(page).to have_text("Thanks! We have sent an SMS to your phone.")
     end
   end
 end

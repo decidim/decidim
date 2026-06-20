@@ -12,7 +12,7 @@ describe "Doorkeeper authorizations" do
       it "shows the correct abilities" do
         visit_oauth_authorization_page
 
-        expect(page).to have_content(
+        expect(page).to have_text(
           <<~TEXT
             This application will be able to:
             See your name
@@ -33,7 +33,7 @@ describe "Doorkeeper authorizations" do
       it "shows the correct abilities" do
         visit_oauth_authorization_page
 
-        expect(page).to have_content(
+        expect(page).to have_text(
           <<~TEXT
             This application will be able to:
             See your name
@@ -54,7 +54,7 @@ describe "Doorkeeper authorizations" do
       it "shows the correct abilities" do
         visit_oauth_authorization_page
 
-        expect(page).to have_content(
+        expect(page).to have_text(
           <<~TEXT
             This application will be able to:
             See your name
@@ -75,7 +75,7 @@ describe "Doorkeeper authorizations" do
       it "shows the correct abilities" do
         visit_oauth_authorization_page
 
-        expect(page).to have_content(
+        expect(page).to have_text(
           <<~TEXT
             This application will be able to:
             See your name
@@ -86,7 +86,7 @@ describe "Doorkeeper authorizations" do
             Publish content for you
           TEXT
         )
-        expect(page).to have_no_content("This application will not be able to:")
+        expect(page).to have_no_text("This application will not be able to:")
       end
     end
 
@@ -96,7 +96,7 @@ describe "Doorkeeper authorizations" do
       it "shows the correct abilities" do
         visit_oauth_authorization_page
 
-        expect(page).to have_content(
+        expect(page).to have_text(
           <<~TEXT
             This application will be able to:
             See your name
@@ -107,7 +107,7 @@ describe "Doorkeeper authorizations" do
             Publish content for you
           TEXT
         )
-        expect(page).to have_no_content("This application will not be able to:")
+        expect(page).to have_no_text("This application will not be able to:")
       end
     end
 
@@ -117,7 +117,7 @@ describe "Doorkeeper authorizations" do
       it "shows the abilities for the default scope" do
         visit_oauth_authorization_page
 
-        expect(page).to have_content(
+        expect(page).to have_text(
           <<~TEXT
             This application will be able to:
             See your name

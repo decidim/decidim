@@ -79,6 +79,8 @@ es:
           update_settings:
             invalid: Se ha producido un error al actualizar el documento.
             success: Documento actualizado correctamente.
+        exports:
+          document_suggestions: Sugerencias
         index:
           published: Publicado
           unpublished: Despublicado

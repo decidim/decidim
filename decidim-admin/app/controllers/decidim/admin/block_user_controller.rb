@@ -10,6 +10,8 @@ module Decidim
       def new
         enforce_permission_to :block, :admin_user
 
+        return redirect_to(officializations_path, alert: I18n.t("officializations.block.no_user", scope: "decidim.admin")) unless user
+
         @form = form(BlockUserForm).from_model(user)
         @form.hide = params[:hide] || false
       end

@@ -17,7 +17,7 @@ describe Decidim::CoauthorshipsCell, type: :cell do
     let(:coauthors) { [user] }
 
     it "renders the User author" do
-      expect(subject).to have_content(user.name)
+      expect(subject).to have_text(user.name)
     end
   end
 
@@ -25,7 +25,7 @@ describe Decidim::CoauthorshipsCell, type: :cell do
     let(:coauthors) { [organization] }
 
     it "renders the Official author" do
-      expect(subject).to have_content(Decidim::Dev::OfficialAuthorPresenter.new.name)
+      expect(subject).to have_text(Decidim::Dev::OfficialAuthorPresenter.new.name)
     end
   end
 

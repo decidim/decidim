@@ -19,12 +19,12 @@ describe "Data consent within organization" do
   end
 
   it "shows the data consent" do
-    expect(page).to have_content("Information about the cookies used on the website")
+    expect(page).to have_text("Information about the cookies used on the website")
   end
 
   it "discards the data consent" do
     click_on(id: "dc-dialog-accept")
-    expect(page).to have_no_content("Information about the cookies used on the website")
+    expect(page).to have_no_text("Information about the cookies used on the website")
   end
 
   it "sets the correct expiration for the cookie" do
@@ -48,13 +48,13 @@ describe "Data consent within organization" do
 
   if ENV["TEST_SSL"]
     it "sets the cookie with the secure flag" do
-      expect(page).to have_content("Information about the cookies used on the website")
+      expect(page).to have_text("Information about the cookies used on the website")
       click_on(id: "dc-dialog-accept")
       expect(cookie[:secure]).to be(true)
     end
   else
     it "sets the cookie without the secure flag" do
-      expect(page).to have_content("Information about the cookies used on the website")
+      expect(page).to have_text("Information about the cookies used on the website")
       click_on(id: "dc-dialog-accept")
       expect(cookie[:secure]).to be(false)
     end

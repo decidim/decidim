@@ -79,9 +79,9 @@ describe "Menu" do
       it "renders the component name correctly" do
         visit proposal_path
         within ".menu-bar__breadcrumb-desktop" do
-          expect(page).to have_content(component_name)
-          expect(page).to have_no_content("&#39;")
-          expect(page).to have_no_content("&amp;#39;")
+          expect(page).to have_text(component_name)
+          expect(page).to have_no_text("&#39;")
+          expect(page).to have_no_text("&amp;#39;")
         end
       end
     end
@@ -94,9 +94,9 @@ describe "Menu" do
       it "renders the component name correctly" do
         visit proposal_path
         within ".menu-bar__breadcrumb-mobile" do
-          expect(page).to have_content(component_name)
-          expect(page).to have_no_content("&#39;")
-          expect(page).to have_no_content("&amp;#39;")
+          expect(page).to have_text(component_name)
+          expect(page).to have_no_text("&#39;")
+          expect(page).to have_no_text("&amp;#39;")
         end
       end
     end
@@ -115,7 +115,7 @@ describe "Menu" do
     end
 
     it "includes the statistics item" do
-      expect(page).to have_content("Statistics")
+      expect(page).to have_text("Statistics")
       expect(page).to have_css(".statistic__dashboard-container")
     end
   end

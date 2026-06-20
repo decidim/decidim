@@ -242,7 +242,7 @@ en:
               label: Access
               options:
                 open: Everyone can see the assembly and participate.
-                restricted: Only members and administrators can see and participate.
+                restricted: Only members and administrators can see and participate. It will not appear in the general search, API, nor open data files.
                 transparent: Everyone can see the assembly, but only members and administrators can participate.
               set_this_space_as: Set this space as
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.

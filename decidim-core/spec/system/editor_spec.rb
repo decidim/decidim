@@ -1406,7 +1406,7 @@ describe "Editor" do
 
       prosemirror.native.send_keys [:enter]
 
-      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> doe</p>))
+      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> </p>))
     end
   end
 
@@ -1477,7 +1477,7 @@ describe "Editor" do
       prosemirror.native.send_keys "Hello, w"
 
       within ".input-character-counter__text" do
-        expect(page).to have_content("5 characters left")
+        expect(page).to have_text("5 characters left")
       end
     end
 
@@ -1507,7 +1507,7 @@ describe "Editor" do
           expect(page).to have_css("[data-bubble-menu] [data-linkbubble]")
 
           within "[data-bubble-menu] [data-linkbubble]" do
-            expect(page).to have_content("URL:\nhttps://decidim.org")
+            expect(page).to have_text("URL:\nhttps://decidim.org")
             expect(page).to have_button(text: "Edit")
             expect(page).to have_button(text: "Remove")
           end

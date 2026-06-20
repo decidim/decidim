@@ -27,7 +27,7 @@ describe "Initiative signing" do
         it "voting disabled message is shown" do
           visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
-          expect(page).to have_content("Signing disabled")
+          expect(page).to have_text("Signing disabled")
         end
 
         it "shows the offline supports received" do
@@ -35,7 +35,7 @@ describe "Initiative signing" do
 
           visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
-          expect(page).to have_content("1357 1000\nSignatures")
+          expect(page).to have_text("1357 1000\nSignatures")
         end
       end
     end
@@ -51,10 +51,10 @@ describe "Initiative signing" do
         vote_initiative
 
         within ".initiative__aside" do
-          expect(page).to have_content(signature_text(1))
+          expect(page).to have_text(signature_text(1))
           expect(page).to have_button("Already signed", disabled: true)
           click_on("Already signed", disabled: true)
-          expect(page).to have_content(signature_text(1))
+          expect(page).to have_text(signature_text(1))
         end
       end
     end
@@ -63,9 +63,9 @@ describe "Initiative signing" do
       vote_initiative
 
       within ".initiative__aside" do
-        expect(page).to have_content(signature_text(1))
+        expect(page).to have_text(signature_text(1))
         click_on("Already signed")
-        expect(page).to have_content(signature_text(0))
+        expect(page).to have_text(signature_text(0))
       end
     end
   end
@@ -74,7 +74,7 @@ describe "Initiative signing" do
     visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
     within ".initiative__aside" do
-      expect(page).to have_content(signature_text(0))
+      expect(page).to have_text(signature_text(0))
       click_on "Sign"
     end
 
@@ -88,12 +88,12 @@ describe "Initiative signing" do
 
       click_on "Validate your data"
 
-      expect(page).to have_content("initiative has been successfully signed")
+      expect(page).to have_text("initiative has been successfully signed")
       click_on "Back to initiative"
     end
 
     within ".initiative__aside" do
-      expect(page).to have_content(signature_text(1))
+      expect(page).to have_text(signature_text(1))
     end
   end
 

@@ -275,17 +275,13 @@ sv:
             email_intro: '%{author_name} har skapat en privat anteckning till %{resource_title}. Kolla in den i <a href="%{admin_proposal_info_url}">adminpanelen</a>.'
             email_outro: Du har fått det här meddelandet eftersom du kan utvärdera förslaget.
             email_subject: Någon skrev en anteckning till förslaget %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har gjort en privat anteckning till <a href="%{resource_path}">%{resource_title}</a>. Kolla in den i <a href="%{admin_proposal_info_path}">adminpanelen</a>.
           proposal_note_mentioned:
-            email_intro: Du har nämnts i en privat anteckning till "%{resource_title}" av "%{author_name}" "%{author_nickname}". Kolla in det i <a href="%{admin_proposal_info_url}">adminpanelen</a>.
             email_outro: Du har fått den här meddelandet eftersom du har nämnts i en privat anteckning.
             email_subject: Någon nämnde dig i en anteckning till förslaget %{resource_title}.
-            notification_title: Du har nämnts i en privat anteckning i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Kolla in det i <a href="%{admin_proposal_info_path}">adminpanelen</a>.
           proposal_note_replied:
             email_intro: '%{author_name} har svarat på din privata anteckning i %{resource_title}. Kolla in den i <a href="%{admin_proposal_info_url}">adminpanelen</a>.'
             email_outro: Du har fått det här meddelandet eftersom du är skrivit anteckningen.
             email_subject: "%{author_name} har svarat på din privata anteckning i %{resource_title}."
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat din privata anteckning i <a href="%{resource_path}">%{resource_title}</a>. Kolla in den i <a href="%{admin_proposal_info_path}">adminpanelen</a>.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> har accepterat din inbjudan att bli medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
@@ -302,17 +298,14 @@ sv:
           email_intro: '%{requester_name} har blivit godkänd som medförfattare till det gemensamma utkastet <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Du har fått det här meddelandet eftersom du är författare till <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} har fått tillgång till och är accepterad som medskapare till %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>fått tillgång till och accepterats som medskapare till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} har avvisats som medförfattare till <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Du har fått det här meddelandet eftersom du är en medskapare av <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} har avvisats från att få tillgång till det gemensamma utkastet %{resource_title} som medskapare."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>avvisats från att få tillgång till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a> som medskapare.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} har begärt att bli medförfattare. Du kan <strong>acceptera eller avvisa begäran</strong> från sidan för det gemensamma utkastet, <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Du har fått det här meddelandet eftersom du är en medskapare av <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} begärde tillgång att bidra till %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> begärde tillgång för att få bidra till det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>. <strong>Godkänn eller avvisa begäran</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Du har godkänts som medskapare av det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Du har fått det här meddelandet eftersom du bad om att bli medskapare av <a href="%{resource_url}">%{resource_title}</a>.
@@ -324,10 +317,7 @@ sv:
           email_subject: Du har blivit avvisad som medskapare till %{resource_title}.
           notification_title: Du har blivit <strong>avvisad tillgång till </strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a> som medskapare.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> drog tillbaka det gemensamma utkastet <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Du har fått det här meddelandet eftersom du är en medskapare av <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} drog tillbaka det gemensamma utkastet %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>drog tillbaka</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -348,11 +338,6 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du har skrivit förslaget.
           email_subject: Förslaget %{resource_title} har slagits samman
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har slagits samman av en administratör.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, som du följer, har publicerat ett nytt förslag som heter "%{resource_title}". Ta en titt och bidra:'
-          email_outro: Du har fått den här notifikationen eftersom du följer %{author_nickname}. Du kan sluta ta emot notifikationer från föregående länken.
-          email_subject: Nytt förslag "%{resource_title}" av %{author_nickname}
-          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> publicerades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.

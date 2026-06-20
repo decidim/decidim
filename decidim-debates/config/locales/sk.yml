@@ -205,13 +205,6 @@ sk:
             email_outro: Toto upozornenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie upozornení môžete zrušiť kliknutím na predchádzajúci odkaz.
             email_subject: Nová debata „%{resource_title}“ v priestore %{participatory_space_title}
             notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> bola vytvorená v priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-          user_followers:
-            email_intro: |-
-              Dobrý deň,
-              %{author_name} %{author_nickname}, ktorého sledujete, vytvoril novú debatu "%{resource_title}". Pozrite sa na ňu a prispejte:
-            email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-            email_subject: Nová debata "%{resource_title}" od %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} </a> vytvoril debatu <a href="%{resource_path}">% {resource_title} </a>.
         creation_disabled:
           email_intro: 'Tvorba debát v priestore %{participatory_space_title} už nie je možná. Môžete sa zúčastniť otvorených debát na tejto stránke:'
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.

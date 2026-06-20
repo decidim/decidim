@@ -40,6 +40,18 @@ describe Decidim::StatsPresenter, type: :presenter do
 
       expect(result).to contain_exactly({ name: "stat_1", data: [16, 3] })
     end
+
+    it "returns the same data when called several times" do
+      allow(presenter).to receive(:all_stats).with(priority:).and_return([
+                                                                           { name: "stat_1", data: [12, 3] },
+                                                                           { name: "stat_1", data: [4] }
+                                                                         ])
+
+      presenter.collection(priority:)
+      result = presenter.collection(priority:)
+
+      expect(result).to contain_exactly({ name: "stat_1", data: [16, 3] })
+    end
   end
 
   describe "#all_stats" do

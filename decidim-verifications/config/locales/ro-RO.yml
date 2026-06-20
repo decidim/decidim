@@ -36,7 +36,6 @@ ro:
           before_date_info: Este util dacă procesul a început deja și dorești să revoci drepturile procesului anterior.
           button: Revocați toate autorizările
           button_before: Revocați toate autorizările înainte de data
-          destroy_ok: Toate autorizațiile corelate au fost revocate.
           info: Există un total de %{count} participanți verificați.
           title: Revocarea autorizațiilor
         authorization_workflows: Autorizări

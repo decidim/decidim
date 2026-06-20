@@ -73,7 +73,7 @@ describe "Admin copies meetings" do
       expect(page).to have_callout("Meeting successfully duplicated.")
 
       within "table" do
-        expect(page).to have_content("My duplicate meeting")
+        expect(page).to have_text("My duplicate meeting")
       end
     end
   end
@@ -135,7 +135,7 @@ describe "Admin copies meetings" do
       expect(page).to have_callout("Meeting successfully duplicated.")
 
       within "table" do
-        expect(page).to have_content("My duplicate meeting")
+        expect(page).to have_text("My duplicate meeting")
       end
     end
   end
@@ -196,7 +196,7 @@ describe "Admin copies meetings" do
       expect(page).to have_callout("Meeting successfully duplicated.")
 
       within "table" do
-        expect(page).to have_content("My duplicate meeting")
+        expect(page).to have_text("My duplicate meeting")
       end
     end
   end

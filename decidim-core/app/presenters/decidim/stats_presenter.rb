@@ -15,7 +15,7 @@ module Decidim
             hash[name][:data][idx] += value
           end
         else
-          hash[name] = stat
+          hash[name] = stat.merge(data: stat[:data].dup)
         end
       end.values
     end

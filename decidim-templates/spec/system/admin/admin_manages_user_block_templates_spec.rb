@@ -85,7 +85,7 @@ describe "Admin manages user block templates" do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.block_user_templates_path
-        expect(page).to have_content("My new name")
+        expect(page).to have_text("My new name")
       end
     end
   end
@@ -129,7 +129,7 @@ describe "Admin manages user block templates" do
       end
 
       expect(page).to have_callout("Template copied successfully.")
-      expect(page).to have_content(template.name["en"], count: 2)
+      expect(page).to have_text(template.name["en"], count: 2)
     end
   end
 

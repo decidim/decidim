@@ -189,6 +189,8 @@ fi:
           application_type_help_html: 'OAuth-sovelluksen tyyppi <a href="%{client_type_link}" target="_blank">RFC 6749 osion 2.1</a> mukaisesti. Julkisten asiakasohjelmistojen on toteutettava PKCE-tunnistustapa, joka on määritelty <a href="%{pkce_link}" target="_blank">RFC 7636:ssa</a>. '
           refresh_tokens_help_html: 'Päivitettävät rajapintatunnukset ovat hyödyllisiä, mikäli rajapintatunnusten on oltava voimassa pidempään kuin pääsytunnusten oletusarvoinen voimassaoloaika. Huomioithan, että <strong>päivitettäviä rajapintatunnuksia tulisi käyttää varovasti</strong>, koska ne voivat heikentää loppukäyttäjien tietoturvaa. '
           scopes_explanation:
+            "admin:read": Mahdollistaa käyttäjille hallintakäyttäjien toimintoihin liittyvien rajapintakyselyiden (query) tekemisen GraphQL-rajapinnan kautta.
+            "admin:write": Mahdollistaa käyttäjille hallintakäyttäjien toimintoihin liittyvien rajapintapäivitysten (mutation) tekemisen GraphQL-rajapinnan kautta.
             "api:read": Mahdollistaa käyttäjille rajapintakyselyiden (query) tekemisen GraphQL-rajapinnan kautta.
             "api:write": Mahdollistaa käyttäjille rajapintapäivitysten (mutation) tekemisen GraphQL-rajapinnan kautta.
             profile: Antaa pääsyn käyttäjän oman profiilin tietoihin. Ainoastaan tämä rajapintatoiminto tarvitaan, mikäli OAuth sovellusta käytetään ainoastaan käyttäjien tunnistamiseen tai kirjautumistoimintojen tarjoamiseen.

@@ -19,7 +19,7 @@ describe "Filter Proposals", :slow do
 
     it "displays the filter labels in correct locales" do
       within "form.new_filter" do
-        expect(page).to have_content(/Status/i)
+        expect(page).to have_text(/Status/i)
       end
 
       within_language_menu do
@@ -27,7 +27,7 @@ describe "Filter Proposals", :slow do
       end
 
       within "form.new_filter" do
-        expect(page).to have_content(/Estat/i)
+        expect(page).to have_text(/Estat/i)
       end
     end
   end
@@ -45,8 +45,8 @@ describe "Filter Proposals", :slow do
         end
       end
 
-      expect(page).to have_no_content("Another proposal")
-      expect(page).to have_content("Foobar proposal")
+      expect(page).to have_no_text("Another proposal")
+      expect(page).to have_text("Foobar proposal")
 
       filter_params = CGI.parse(URI.parse(page.current_url).query)
       expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
@@ -63,7 +63,7 @@ describe "Filter Proposals", :slow do
         visit_component
 
         within "form.new_filter" do
-          expect(page).to have_content(/Origin/i)
+          expect(page).to have_text(/Origin/i)
         end
       end
 
@@ -107,7 +107,7 @@ describe "Filter Proposals", :slow do
         visit_component
 
         within "form.new_filter" do
-          expect(page).to have_no_content(/Official/i)
+          expect(page).to have_no_text(/Official/i)
         end
       end
     end
@@ -117,23 +117,23 @@ describe "Filter Proposals", :slow do
     visit_component
 
     within ".layout-2col__aside" do
-      expect(page).to have_content "Not answered"
-      expect(page).to have_content "Official"
+      expect(page).to have_text "Not answered"
+      expect(page).to have_text "Official"
     end
 
     click_on "Status"
     click_on "Origin"
 
     within ".layout-2col__aside" do
-      expect(page).to have_no_content "Not answered"
-      expect(page).to have_no_content "Official"
+      expect(page).to have_no_text "Not answered"
+      expect(page).to have_no_text "Official"
     end
 
     click_on "Origin"
 
     within ".layout-2col__aside" do
-      expect(page).to have_no_content "Not answered"
-      expect(page).to have_content "Official"
+      expect(page).to have_no_text "Not answered"
+      expect(page).to have_text "Official"
     end
   end
 
@@ -155,7 +155,7 @@ describe "Filter Proposals", :slow do
 
     it "can be filtered by taxonomy" do
       within "form.new_filter" do
-        expect(page).to have_content(/Taxonomy name/i)
+        expect(page).to have_text(/Taxonomy name/i)
       end
     end
 
@@ -231,7 +231,7 @@ describe "Filter Proposals", :slow do
           visit_component
 
           within "form.new_filter" do
-            expect(page).to have_content(/Status/i)
+            expect(page).to have_text(/Status/i)
           end
         end
 
@@ -248,7 +248,7 @@ describe "Filter Proposals", :slow do
           expect(page).to have_css("[id^='proposals__proposal']", count: 1)
 
           within "[id^='proposals__proposal']" do
-            expect(page).to have_content("Accepted")
+            expect(page).to have_text("Accepted")
           end
         end
 
@@ -265,7 +265,7 @@ describe "Filter Proposals", :slow do
           expect(page).to have_css("[id^='proposals__proposal']", count: 1)
 
           within "[id^='proposals__proposal']" do
-            expect(page).to have_content("Rejected")
+            expect(page).to have_text("Rejected")
           end
         end
 
@@ -288,7 +288,7 @@ describe "Filter Proposals", :slow do
             expect(page).to have_css("[id^='proposals__proposal']", count: 1)
 
             within "[id^='proposals__proposal']" do
-              expect(page).to have_content("Accepted")
+              expect(page).to have_text("Accepted")
             end
           end
 
@@ -302,8 +302,8 @@ describe "Filter Proposals", :slow do
             expect(page).to have_css("[id^='proposals__proposal']", count: 1)
 
             within "[id^='proposals__proposal']" do
-              expect(page).to have_content(translated(proposal.title))
-              expect(page).to have_no_content("Accepted")
+              expect(page).to have_text(translated(proposal.title))
+              expect(page).to have_no_text("Accepted")
             end
           end
         end
@@ -324,7 +324,7 @@ describe "Filter Proposals", :slow do
           visit_component
 
           within "form.new_filter" do
-            expect(page).to have_no_content(/Status/i)
+            expect(page).to have_no_text(/Status/i)
           end
         end
       end
@@ -339,7 +339,7 @@ describe "Filter Proposals", :slow do
         visit_component
 
         within "form.new_filter" do
-          expect(page).to have_no_content(/Status/i)
+          expect(page).to have_no_text(/Status/i)
         end
       end
     end
@@ -360,13 +360,13 @@ describe "Filter Proposals", :slow do
 
       it "can be filtered by activity" do
         within "form.new_filter" do
-          expect(page).to have_content(/Activity/i)
+          expect(page).to have_text(/Activity/i)
         end
       end
 
       it "can be filtered by my proposals" do
         within "form.new_filter" do
-          expect(page).to have_content(/My proposals/i)
+          expect(page).to have_text(/My proposals/i)
         end
       end
 
@@ -385,7 +385,7 @@ describe "Filter Proposals", :slow do
 
         it "can be filtered by voted" do
           within "form.new_filter" do
-            expect(page).to have_content(/Voted/i)
+            expect(page).to have_text(/Voted/i)
           end
         end
 
@@ -406,7 +406,7 @@ describe "Filter Proposals", :slow do
 
         it "cannot be filtered by voted" do
           within "form.new_filter" do
-            expect(page).to have_no_content(/Voted/i)
+            expect(page).to have_no_text(/Voted/i)
           end
         end
       end
@@ -416,7 +416,7 @@ describe "Filter Proposals", :slow do
       it "cannot be filtered by activity" do
         visit_component
         within "form.new_filter" do
-          expect(page).to have_no_content(/Activity/i)
+          expect(page).to have_no_text(/Activity/i)
         end
       end
     end
@@ -437,7 +437,7 @@ describe "Filter Proposals", :slow do
           find('input[name="filter[type]"][value="all"]').click
 
           expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-          expect(page).to have_content("Amendment", count: 2)
+          expect(page).to have_text("Amendment", count: 2)
         end
       end
 
@@ -448,7 +448,7 @@ describe "Filter Proposals", :slow do
           end
 
           expect(page).to have_css("[id^='proposals__proposal']", count: 1)
-          expect(page).to have_content("Amendment", count: 1)
+          expect(page).to have_text("Amendment", count: 1)
         end
       end
 
@@ -459,7 +459,7 @@ describe "Filter Proposals", :slow do
           end
 
           expect(page).to have_css("[id^='proposals__proposal']", count: 1)
-          expect(page).to have_content("Amendment", count: 2)
+          expect(page).to have_text("Amendment", count: 2)
         end
       end
 
@@ -489,7 +489,7 @@ describe "Filter Proposals", :slow do
 
               it "can be filtered by type" do
                 within "form.new_filter" do
-                  expect(page).to have_content(/Type/i)
+                  expect(page).to have_text(/Type/i)
                 end
               end
 
@@ -498,16 +498,16 @@ describe "Filter Proposals", :slow do
                   choose "Amendments"
                 end
                 expect(page).to have_css("[id^='proposals__proposal']", count: 1)
-                expect(page).to have_content("Amendment", count: 2)
-                expect(page).to have_content(translated(new_emendation.title))
-                expect(page).to have_no_content(translated(emendation.title))
+                expect(page).to have_text("Amendment", count: 2)
+                expect(page).to have_text(translated(new_emendation.title))
+                expect(page).to have_no_text(translated(emendation.title))
               end
             end
 
             context "and has NOT amended a proposal" do
               it "cannot be filtered by type" do
                 within "form.new_filter" do
-                  expect(page).to have_no_content(/Type/i)
+                  expect(page).to have_no_text(/Type/i)
                 end
               end
             end
@@ -529,7 +529,7 @@ describe "Filter Proposals", :slow do
 
             it "cannot be filtered by type" do
               within "form.new_filter" do
-                expect(page).to have_no_content(/Type/i)
+                expect(page).to have_no_text(/Type/i)
               end
             end
           end
@@ -565,7 +565,7 @@ describe "Filter Proposals", :slow do
 
               it "can be filtered by type" do
                 within "form.new_filter" do
-                  expect(page).to have_content(/Type/i)
+                  expect(page).to have_text(/Type/i)
                 end
               end
 
@@ -574,9 +574,9 @@ describe "Filter Proposals", :slow do
                   choose "Amendments"
                 end
                 expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-                expect(page).to have_content("Amendment", count: 3)
-                expect(page).to have_content(translated(new_emendation.title))
-                expect(page).to have_content(translated(emendation.title))
+                expect(page).to have_text("Amendment", count: 3)
+                expect(page).to have_text(translated(new_emendation.title))
+                expect(page).to have_text(translated(emendation.title))
               end
             end
 
@@ -588,7 +588,7 @@ describe "Filter Proposals", :slow do
 
               it "can be filtered by type" do
                 within "form.new_filter" do
-                  expect(page).to have_content(/Type/i)
+                  expect(page).to have_text(/Type/i)
                 end
               end
             end
@@ -601,7 +601,7 @@ describe "Filter Proposals", :slow do
 
             it "can be filtered by type" do
               within "form.new_filter" do
-                expect(page).to have_content(/Type/i)
+                expect(page).to have_text(/Type/i)
               end
             end
           end

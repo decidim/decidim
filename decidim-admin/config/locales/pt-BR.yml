@@ -34,7 +34,7 @@ pt-BR:
         content: Conteúdo
       id: ID
       member:
-        email:
+        email: E-mail
         name: Nome
       member_csv_import:
         file: Arquivo
@@ -61,7 +61,7 @@ pt-BR:
         force_users_to_authenticate_before_access_organization: Forçar usuários a autenticar antes de acessar organização
         from: Endereço de e-mail do remetente
         github_handler: Manipulador GitHub
-        header_snippets: Snippets de cabeçalho
+        header_snippets: Trecho de cabeçalho
         highlight_alternative_color: Destaque, alternativa
         highlight_color: Destaque
         host: Host
@@ -89,7 +89,7 @@ pt-BR:
         tertiary_color: Terciário
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        twitter_handler: X handler
+        twitter_handler: Manipulador do X
         users_registration_mode: Modo de registro de usuários
         warning_color: Aviso
         welcome_notification_body: Corpo de notificação de boas-vindas
@@ -117,16 +117,16 @@ pt-BR:
         slug: Texto curto de URL
         title: Título
         topic_id: Tópico
-        weight: Posição do pedido
+        weight: Ordem de posição
       static_page_topic:
         description: Descrição
         name: Nome do tópico
         show_in_footer: Mostrar no rodapé
         title: Título
-        weight: Posição do pedido
+        weight: Ordem de posição
       taxonomy:
         item_name: Nome do item
-        parent_id: Parente
+        parent_id: Pai
       user_group_csv_verification:
         file: Arquivo
     errors:

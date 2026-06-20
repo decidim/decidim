@@ -31,12 +31,12 @@ module Decidim::Surveys
       end
 
       it "renders the title" do
-        expect(subject).to have_content(decidim_sanitize(translated_attribute(survey.title), strip_tags: true))
+        expect(subject).to have_text(decidim_sanitize(translated_attribute(survey.title), strip_tags: true))
         expect(subject).to have_css(".card__list-title")
       end
 
       it "renders the description" do
-        expect(subject).to have_content(decidim_sanitize(translated_attribute(survey.description), strip_tags: true))
+        expect(subject).to have_text(decidim_sanitize(translated_attribute(survey.description), strip_tags: true))
         expect(subject).to have_css(".card__list-text")
       end
     end

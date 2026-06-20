@@ -275,17 +275,13 @@ es-PY:
             email_intro: '%{author_name} ha creado una nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
             email_outro: Has recibido esta notificación porque puedes valorar la propuesta.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creado una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_mentioned:
-            email_intro: '"%{author_name}" "%{author_nickname}" te ha mencionado en una nota privada en "%{resource_title}". Puedes verla en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
             email_outro: Has recibido esta notificación porque se te ha mencionado en una nota privada.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha mencionado en una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_replied:
             email_intro: '%{author_name} ha respondido a tu nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
             email_outro: Has recibido esta notificación porque eres el autor de la nota privada.
             email_subject: "%{author_name} ha respondido a tu nota privada en %{resource_title}."
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido a tu nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verlo en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha aceptado tu invitación para ser coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         coauthor_invited:
@@ -302,17 +298,14 @@ es-PY:
           email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} ha sido aceptado para acceder como contribuidor de %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>aceptado para acceder como colaborador</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: 'Se ha denegado que %{requester_name} acceda como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} ha sido rechazado para acceder como contribuidor del borrador colaborativo %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>rechazado para acceder como contribuidor</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ha solicitado acceso como contribuidora. Puede <strong>aceptar o rechazar la solicitud</strong> de la página de borrador colaborativo de <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} solicitó acceso para contribuir a %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitó acceso para contribuir al borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>. Por favor <strong>aceptar o rechazar la solicitud</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Has sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Has recibido esta notificación porque has solicitado ser contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
@@ -324,10 +317,7 @@ es-PY:
           email_subject: Has sido rechazado como contribuidor de %{resource_title}.
           notification_title: Has sido <strong>rechazado para acceder como contribuidor</strong> al borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> ha retirado el borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} ha retirado el borrador colaborativo %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirado</strong> el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -348,11 +338,6 @@ es-PY:
           email_outro: Recibiste esta notificación porque eres la autora de la propuesta.
           email_subject: La propuesta "%{resource_title}" se ha fusionado con otra
           notification_title: Una administradora ha fusionado la propouesta "<a href="%{resource_path}">%{resource_title}</a>" con otra.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, a quien sigues, ha publicado una nueva propuesta llamada "%{resource_title}". Échale un vistazo y contribuye:'
-          email_outro: Recibiste esta notificación porque estás siguiendo %{author_nickname}. Puedes dejar de recibir notificaciones desde el enlace anterior.
-          email_subject: Nueva propuesta "%{resource_title}" por %{author_nickname}
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> fue publicada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: La propuesta "%{resource_title}" se ha añadido a "%{participatory_space_title}" que estás siguiendo.
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.

@@ -27,7 +27,7 @@ describe "Admin manages assembly landing page" do
       fill_in :content_block_settings_max_results, with: "12"
       click_on "Update"
 
-      expect(page).to have_content("Related assemblies")
+      expect(page).to have_text("Related assemblies")
       expect(related_assemblies_content_block.reload.settings["max_results"]).to eq(12)
     end
   end

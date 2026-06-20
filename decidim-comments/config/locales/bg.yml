@@ -128,12 +128,10 @@ bg:
           email_intro: "%{author_name} остави коментар в %{resource_title}. Можете да го прочетете на тази страница:"
           email_outro: Получихте това известие, защото следвате %{author_name}. Можете да спрете да следвате този потребител от страницата на неговия профил.
           email_subject: Има нов коментар от %{author_name} в(ъв) %{resource_title}
-          notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> в(ъв) <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} получи коментар. Можете да прочетете коментара на тази страница:"
           email_outro: Получавате това известие, защото следвате „%{resource_title}“ или неговия автор. Можете да прекратите следването от предходната връзка.
           email_subject: Има нов коментар от %{author_name} по %{resource_title}
-          notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> по <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Вашият коментар в „%{resource_title}“ беше гласуван против. Вече има общо %{upvotes} гласа за и %{downvotes} гласа против.
           email_outro: Получихте това известие, защото вие сте авторът на този коментар.
@@ -148,12 +146,10 @@ bg:
           email_intro: "%{author_name} отговори на вашия коментар в %{resource_title}. Можете да го прочетете на тази страница:"
           email_outro: Получавате това известие, защото някой отговори на коментара Ви.
           email_subject: "%{author_name} отговори на коментара Ви по %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> отговори на коментара Ви по <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Бяхте споменати
           email_outro: Получавате това известие, защото бяхте споменати в(ъв) %{resource_title}.
           email_subject: Бяхте споменати в(ъв) %{resource_title}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: не може да има коментари

@@ -16,7 +16,7 @@ describe "Authorizing with OAUth applications" do
   describe "authorization screen" do
     it "displays information about the app" do
       within "main" do
-        expect(page).to have_content(application.name)
+        expect(page).to have_text(application.name)
         expect(page).to have_link(application.organization_name, href: application.organization_url)
       end
     end

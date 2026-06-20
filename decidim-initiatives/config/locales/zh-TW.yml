@@ -342,25 +342,11 @@ zh-TW:
         update: 更新
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} 同意您加入 %{resource_title} 倡議的推動委員會。"
           email_outro: '這是您收到的通知，因為您申請參與這個倡議：%{resource_title}。'
-          email_subject: "%{author_nickname} 同意您加入推動委員會。"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> 同意您加入以下倡議的推動委員會：<a href="%{resource_url}">%{resource_title}</a>。
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}，您正在追蹤的用戶，創建了一個新的倡議，請查看並做出貢獻："
-          email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
-          email_subject: 由 %{author_nickname} 提出的新倡議
-          notification_title: 倡議 <a href="%{resource_path}">%{resource_title}</a> 由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 提出。
         revoke_membership_request:
-          email_intro: "%{author_nickname} 拒絕了您加入 %{resource_title} 倡議發起委員會的申請。"
           email_outro: '這是您收到的通知，因為您申請參與這個倡議：%{resource_title}。'
-          email_subject: "%{author_nickname} 拒絕了你加入推廣委員會的申請"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> 拒絕了您加入 %{resource_title} 倡議的推廣委員會成員的申請。
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} 申請加入您的倡議 %{resource_title} 推廣委員會。要接受或拒絕申請，請前往您的倡議編輯表單。"
           email_outro: '你收到這個通知是因為你是該倡議 %{resource_title} 的作者。'
-          email_subject: "%{applicant_nickname} 想加入你的倡議"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> 申請加入你的倡議 <a href="%{resource_url}">%{resource_title}</a> 的推動委員會。點擊<a href="%{resource_url}/edit">這裡</a>接受或拒絕申請。
       index:
         uninitialized: 尚未由管理員設置倡議。
       initiative_signatures:

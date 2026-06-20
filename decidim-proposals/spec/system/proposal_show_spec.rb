@@ -19,10 +19,16 @@ describe "Show a Proposal" do
     context "when requesting the proposal path" do
       before do
         visit_proposal
-        expect(page).to have_content(translated(proposal.title))
+        expect(page).to have_text(translated(proposal.title))
       end
 
       it_behaves_like "share link"
+
+      it "shows the proposal reference" do
+        within ".layout-container__reference" do
+          expect(page).to have_text(proposal.reference)
+        end
+      end
 
       describe "extra admin link" do
         before do
@@ -66,7 +72,7 @@ describe "Show a Proposal" do
         end
 
         it "successfully shows the page" do
-          expect(page).to have_content("Deleted participant")
+          expect(page).to have_text("Deleted participant")
         end
       end
     end
@@ -84,7 +90,7 @@ describe "Show a Proposal" do
         stub_geocoding_coordinates([latitude, longitude])
         proposal.link_resources(meeting, "proposals_from_meeting")
         visit resource_locator(meeting).path
-        expect(page).to have_content(translated(proposal.title))
+        expect(page).to have_text(translated(proposal.title))
       end
 
       context "when the proposal component has votes enabled" do
@@ -94,7 +100,7 @@ describe "Show a Proposal" do
           stub_geocoding_coordinates([latitude, longitude])
           proposal.link_resources(meeting, "proposals_from_meeting")
           visit resource_locator(meeting).path
-          expect(page).to have_content(translated(proposal.title))
+          expect(page).to have_text(translated(proposal.title))
         end
       end
     end

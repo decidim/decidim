@@ -60,12 +60,12 @@ describe "Admin manages proposal answer templates" do
       expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
       within ".table-list" do
         expect(page).to have_i18n_content("Participatory process: A participatory process > A component")
-        expect(page).to have_content(translated(attributes[:name]))
+        expect(page).to have_text(translated(attributes[:name]))
       end
       expect(page).to have_callout("Template created successfully.")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:name])} questionnaire template")
+      expect(page).to have_text("created the #{translated(attributes[:name])} questionnaire template")
     end
   end
 
@@ -87,12 +87,12 @@ describe "Admin manages proposal answer templates" do
       expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
       within ".table-list" do
         expect(page).to have_i18n_content("Participatory process: A participatory process > A component")
-        expect(page).to have_content(translated(attributes[:name]))
+        expect(page).to have_text(translated(attributes[:name]))
       end
       expect(page).to have_callout("Template updated successfully.")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:name])} questionnaire template")
+      expect(page).to have_text("updated the #{translated(attributes[:name])} questionnaire template")
     end
   end
 
@@ -131,7 +131,7 @@ describe "Admin manages proposal answer templates" do
       end
 
       expect(page).to have_callout("Template copied successfully.")
-      expect(page).to have_content(template.name["en"], count: 2)
+      expect(page).to have_text(template.name["en"], count: 2)
     end
   end
 
@@ -170,14 +170,14 @@ describe "Admin manages proposal answer templates" do
       expect(proposal.reload.internal_state).to eq("not_answered")
       within ".edit_proposal_answer" do
         select template.name["en"], from: :proposal_answer_template_chooser
-        expect(page).to have_content(description)
+        expect(page).to have_text(description)
         click_on "Answer"
       end
 
       expect(page).to have_callout("Proposal successfully answered")
 
       within "tr", text: proposal.title["en"] do
-        expect(page).to have_content("Rejected")
+        expect(page).to have_text("Rejected")
       end
       expect(proposal.reload.internal_state).to eq("rejected")
     end
@@ -229,7 +229,7 @@ describe "Admin manages proposal answer templates" do
         it "changes it with the organization name" do
           within ".edit_proposal_answer" do
             select template.name["en"], from: :proposal_answer_template_chooser
-            expect(page).to have_content("Some meaningful answer with the #{translated(organization.name)}")
+            expect(page).to have_text("Some meaningful answer with the #{translated(organization.name)}")
           end
         end
       end
@@ -240,7 +240,7 @@ describe "Admin manages proposal answer templates" do
         it "changes it with the admin's user name" do
           within ".edit_proposal_answer" do
             select template.name["en"], from: :proposal_answer_template_chooser
-            expect(page).to have_content("Some meaningful answer with the #{user.name}")
+            expect(page).to have_text("Some meaningful answer with the #{user.name}")
           end
         end
       end
@@ -251,7 +251,7 @@ describe "Admin manages proposal answer templates" do
         it "changes it with the author's user name" do
           within ".edit_proposal_answer" do
             select template.name["en"], from: :proposal_answer_template_chooser
-            expect(page).to have_content("Some meaningful answer with the #{proposal.creator_author.name}")
+            expect(page).to have_text("Some meaningful answer with the #{proposal.creator_author.name}")
           end
         end
       end

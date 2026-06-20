@@ -15,7 +15,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
 
     it "moves the #{resource_name} to the trash and displays success message" do
       within "table" do
-        expect(page).to have_content(title[:en])
+        expect(page).to have_text(title[:en])
       end
 
       accept_confirm do
@@ -29,7 +29,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
       expect(page).to have_callout("#{resource_name.capitalize} successfully deleted.")
 
       within "table" do
-        expect(page).to have_no_content(title[:en])
+        expect(page).to have_no_text(title[:en])
       end
     end
   end
@@ -57,7 +57,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
     end
 
     it "shows warning message" do
-      expect(page).to have_content("You are currently viewing deleted items.")
+      expect(page).to have_text("You are currently viewing deleted items.")
     end
   end
 end
@@ -74,7 +74,7 @@ shared_examples "manage soft deletable resource" do |resource_name|
   it "moves the #{resource_name} to the trash and displays success message" do
     resource_row = "tr[data-id='#{resource.id}']"
 
-    expect(page).to have_content(title[:en])
+    expect(page).to have_text(title[:en])
 
     within(resource_row) do
       find("button[data-controller='dropdown']").click
@@ -84,7 +84,7 @@ shared_examples "manage soft deletable resource" do |resource_name|
     expect(page).to have_callout("#{resource_name.capitalize} successfully deleted.")
 
     within "table" do
-      expect(page).to have_no_content(title[:en])
+      expect(page).to have_no_text(title[:en])
     end
   end
 end
@@ -102,12 +102,12 @@ shared_examples "manage trashed resource" do |resource_name|
     end
 
     it "shows page title" do
-      expect(page).to have_content("Deleted #{resource_name.pluralize}")
+      expect(page).to have_text("Deleted #{resource_name.pluralize}")
     end
 
     it "displays the #{resource_name} in the trash" do
       within "table" do
-        expect(page).to have_content(title[:en])
+        expect(page).to have_text(title[:en])
       end
     end
 
@@ -121,7 +121,7 @@ shared_examples "manage trashed resource" do |resource_name|
       expect(page).to have_callout("#{resource_name.capitalize} successfully restored.")
       visit trash_path
       within "table" do
-        expect(page).to have_no_content(title[:en])
+        expect(page).to have_no_text(title[:en])
       end
     end
   end

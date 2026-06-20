@@ -26,8 +26,8 @@ describe "Notifications" do
       end
 
       expect(page).to have_current_path decidim.notifications_path
-      expect(page).to have_no_content("No notifications yet")
-      expect(page).to have_content("An event occurred")
+      expect(page).to have_no_text("No notifications yet")
+      expect(page).to have_text("An event occurred")
     end
 
     context "when the resource has been deleted" do
@@ -43,7 +43,7 @@ describe "Notifications" do
         end
 
         expect(page).to have_current_path decidim.notifications_path
-        expect(page).to have_content("No notifications yet")
+        expect(page).to have_text("No notifications yet")
       end
     end
 
@@ -74,8 +74,8 @@ describe "Notifications" do
     end
 
     it "does not show any notification" do
-      expect(page).to have_no_content("Mark all as read")
-      expect(page).to have_content("No notifications yet")
+      expect(page).to have_no_text("Mark all as read")
+      expect(page).to have_text("No notifications yet")
     end
   end
 
@@ -92,10 +92,10 @@ describe "Notifications" do
       let(:notification_title) { "An event occurred to #{translated resource.title}" }
 
       it "hides the notification from the page" do
-        expect(page).to have_content(decidim_sanitize_translated(notification_title))
+        expect(page).to have_text(decidim_sanitize_translated(notification_title))
         find("[data-notification-read]").click
-        expect(page).to have_no_content(translated(notification_title))
-        expect(page).to have_content("No notifications yet")
+        expect(page).to have_no_text(translated(notification_title))
+        expect(page).to have_text("No notifications yet")
       end
     end
 
@@ -103,8 +103,8 @@ describe "Notifications" do
       it "hides all notifications from the page" do
         click_on "Mark all as read"
         expect(page).to have_no_selector("[data-notification]")
-        expect(page).to have_no_content("Mark all as read")
-        expect(page).to have_content("No notifications yet")
+        expect(page).to have_no_text("Mark all as read")
+        expect(page).to have_text("No notifications yet")
 
         within ".main-bar" do
           expect(page).to have_no_selector("[data-unread-items]")
@@ -153,7 +153,7 @@ describe "Notifications" do
     it "shows the notification with the action buttons" do
       within "#notifications" do
         click_on "Test button"
-        expect(page).to have_no_content("Test button")
+        expect(page).to have_no_text("Test button")
       end
     end
 
@@ -167,7 +167,7 @@ describe "Notifications" do
       it "shows an error message" do
         within "#notifications" do
           click_on "Test button"
-          expect(page).to have_content("There was a problem updating the notification")
+          expect(page).to have_text("There was a problem updating the notification")
         end
       end
     end

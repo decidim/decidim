@@ -50,7 +50,7 @@ describe "Admin manages surveys" do
 
     it "shows a warning message" do
       visit questionnaire_public_path
-      expect(page).to have_content("No surveys match your search criteria or there is not any survey open.")
+      expect(page).to have_text("No surveys match your search criteria or there is not any survey open.")
     end
 
     it "allows to response survey" do
@@ -70,7 +70,7 @@ describe "Admin manages surveys" do
           find("button[data-controller='dropdown']").click
           click_on "Questions"
         end
-        expect(page).to have_content("The form is not published")
+        expect(page).to have_text("The form is not published")
       end
 
       it "allows editing questions" do
@@ -114,7 +114,7 @@ describe "Admin manages surveys" do
         expect(page).to have_callout "Survey successfully unpublished"
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          expect(page).to have_content "Unpublished"
+          expect(page).to have_text "Unpublished"
         end
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
@@ -125,7 +125,7 @@ describe "Admin manages surveys" do
         expect(page).to have_callout "Survey successfully published"
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          expect(page).to have_content "Published"
+          expect(page).to have_text "Published"
         end
         expect(questionnaire.responses).to be_empty
       end
@@ -159,7 +159,7 @@ describe "Admin manages surveys" do
               end
 
               within "#confirm-modal" do
-                expect(page).to have_content("Confirm")
+                expect(page).to have_text("Confirm")
               end
             end
 
@@ -205,7 +205,7 @@ describe "Admin manages surveys" do
             visit manage_questions_path
             click_on "Responses"
 
-            expect(page).to have_no_content "Publish responses"
+            expect(page).to have_no_text "Publish responses"
           end
         end
 
@@ -215,7 +215,7 @@ describe "Admin manages surveys" do
           it "shows the 'Publish responses' button" do
             visit manage_questions_path
             click_on "Responses"
-            expect(page).to have_content "Publish responses"
+            expect(page).to have_text "Publish responses"
           end
         end
 
@@ -240,7 +240,7 @@ describe "Admin manages surveys" do
 
           it "has not the buttons for publishing them" do
             within ".item__edit-form" do
-              expect(page).to have_no_content "Not published"
+              expect(page).to have_no_text "Not published"
             end
           end
 
@@ -310,35 +310,35 @@ describe "Admin manages surveys" do
 
             # has the buttons for publishing them
             within ".item__edit-form" do
-              expect(page).to have_content "Not published"
+              expect(page).to have_text "Not published"
             end
 
             # publishes them
             page.find("[for='publish_response_#{question_single_option.id}']").click
 
             within ".item__edit-form" do
-              expect(page).to have_content "Published"
+              expect(page).to have_text "Published"
             end
 
             # Is still published on page reload
             visit current_path
 
             within ".item__edit-form" do
-              expect(page).to have_content "Published"
+              expect(page).to have_text "Published"
             end
 
             # unpublishes them
             page.find("[for='publish_response_#{question_single_option.id}']").click
 
             within ".item__edit-form" do
-              expect(page).to have_content "Not published"
+              expect(page).to have_text "Not published"
             end
 
             # Is still not published on page reload
             visit current_path
 
             within ".item__edit-form" do
-              expect(page).to have_content "Not published"
+              expect(page).to have_text "Not published"
             end
           end
         end
@@ -390,7 +390,7 @@ describe "Admin manages surveys" do
       visit questionnaire_public_path
       choose "All"
 
-      expect(page).to have_content("New description")
+      expect(page).to have_text("New description")
     end
   end
 

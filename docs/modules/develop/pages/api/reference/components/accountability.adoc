@@ -1,0 +1,12 @@
+= Accountability
+
+In the accountability module we are providing a few mutations that we find useful for day-to-day management of Decidim instance as admin.
+
+== For admin roles
+
+* xref:develop:api/reference/components/accountability/create.adoc[Create Result]
+* xref:develop:api/reference/components/accountability/delete.adoc[Delete Result]
+* xref:develop:api/reference/components/accountability/update.adoc[Update Result]
+* xref:develop:api/reference/components/accountability/milestone/create.adoc[Create Milestone]
+* xref:develop:api/reference/components/accountability/milestone/update.adoc[Update Milestone]
+* xref:develop:api/reference/components/accountability/milestone/delete.adoc[Delete Milestone]

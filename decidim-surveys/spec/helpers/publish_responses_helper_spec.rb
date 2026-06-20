@@ -40,7 +40,7 @@ module Decidim
           let(:question) { create(:questionnaire_question, question_type: "single_option") }
 
           it "returns the chart code" do
-            expect(helper.chart_for_question(question.id)).to have_content("ColumnChart")
+            expect(helper.chart_for_question(question.id)).to have_text("ColumnChart")
           end
         end
 
@@ -48,7 +48,7 @@ module Decidim
           let(:question) { create(:questionnaire_question, question_type: "multiple_option") }
 
           it "returns the chart code" do
-            expect(helper.chart_for_question(question.id)).to have_content("ColumnChart")
+            expect(helper.chart_for_question(question.id)).to have_text("ColumnChart")
           end
         end
 
@@ -56,7 +56,7 @@ module Decidim
           let(:question) { create(:questionnaire_question, question_type: "sorting") }
 
           it "returns the chart code" do
-            expect(helper.chart_for_question(question.id)).to have_content("BarChart")
+            expect(helper.chart_for_question(question.id)).to have_text("BarChart")
           end
         end
 
@@ -64,7 +64,7 @@ module Decidim
           let(:question) { create(:questionnaire_question, question_type: "matrix_single") }
 
           it "returns the chart code" do
-            expect(helper.chart_for_question(question.id)).to have_content("ColumnChart")
+            expect(helper.chart_for_question(question.id)).to have_text("ColumnChart")
           end
         end
 
@@ -72,7 +72,7 @@ module Decidim
           let(:question) { create(:questionnaire_question, question_type: "matrix_multiple") }
 
           it "returns the chart code" do
-            expect(helper.chart_for_question(question.id)).to have_content("ColumnChart")
+            expect(helper.chart_for_question(question.id)).to have_text("ColumnChart")
           end
         end
       end

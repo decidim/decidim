@@ -134,23 +134,23 @@ describe "Admin filters proposals" do
       end
 
       it "has a link to remove all filters" do
-        expect(page).to have_content(translated(answered_proposal_with_taxonomy1.title))
-        expect(page).to have_no_content(translated(unanswered_proposal_with_taxonomy1.title))
-        expect(page).to have_no_content(translated(answered_proposal_with_taxonomy2.title))
-        expect(page).to have_no_content(translated(unanswered_proposal_with_taxonomy2.title))
+        expect(page).to have_text(translated(answered_proposal_with_taxonomy1.title))
+        expect(page).to have_no_text(translated(unanswered_proposal_with_taxonomy1.title))
+        expect(page).to have_no_text(translated(answered_proposal_with_taxonomy2.title))
+        expect(page).to have_no_text(translated(unanswered_proposal_with_taxonomy2.title))
 
         within("[data-applied-filters-tags]") do
-          expect(page).to have_content("Remove all")
+          expect(page).to have_text("Remove all")
         end
 
         within("[data-applied-filters-tags]") do
           click_on("Remove all")
         end
 
-        expect(page).to have_content(translated(answered_proposal_with_taxonomy1.title))
-        expect(page).to have_content(translated(unanswered_proposal_with_taxonomy1.title))
-        expect(page).to have_content(translated(answered_proposal_with_taxonomy2.title))
-        expect(page).to have_content(translated(unanswered_proposal_with_taxonomy2.title))
+        expect(page).to have_text(translated(answered_proposal_with_taxonomy1.title))
+        expect(page).to have_text(translated(unanswered_proposal_with_taxonomy1.title))
+        expect(page).to have_text(translated(answered_proposal_with_taxonomy2.title))
+        expect(page).to have_text(translated(unanswered_proposal_with_taxonomy2.title))
         expect(page).to have_css("[data-applied-filters-tags]", exact_text: "")
       end
 
@@ -170,9 +170,9 @@ describe "Admin filters proposals" do
         end
 
         within("[data-applied-filters-tags]") do
-          expect(page).to have_content("Answered: Answered")
-          expect(page).to have_content("Taxonomy: Taxonomy1")
-          expect(page).to have_content("Remove all")
+          expect(page).to have_text("Answered: Answered")
+          expect(page).to have_text("Taxonomy: Taxonomy1")
+          expect(page).to have_text("Remove all")
         end
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -221,7 +221,7 @@ describe "Admin filters proposals" do
     it "can be searched by title" do
       search_by_text(proposal2_title)
 
-      expect(page).to have_content(proposal2_title)
+      expect(page).to have_text(proposal2_title)
     end
   end
 

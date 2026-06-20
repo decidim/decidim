@@ -29,21 +29,21 @@ describe "Admin manages elections" do
   end
 
   it "lists elections" do
-    expect(page).to have_content("Elections")
-    expect(page).to have_content(translated(election.title))
-    expect(page).to have_content(translated(published_election.title))
-    expect(page).to have_content(translated(finished_election.title))
-    expect(page).to have_content(translated(ongoing_election.title))
-    expect(page).to have_content(translated(published_results_election.title))
+    expect(page).to have_text("Elections")
+    expect(page).to have_text(translated(election.title))
+    expect(page).to have_text(translated(published_election.title))
+    expect(page).to have_text(translated(finished_election.title))
+    expect(page).to have_text(translated(ongoing_election.title))
+    expect(page).to have_text(translated(published_results_election.title))
     within "table" do
-      expect(page).to have_content("Unpublished")
-      expect(page).to have_content("Scheduled")
-      expect(page).to have_content("Ongoing")
-      expect(page).to have_content("Finished")
+      expect(page).to have_text("Unpublished")
+      expect(page).to have_text("Scheduled")
+      expect(page).to have_text("Ongoing")
+      expect(page).to have_text("Finished")
     end
-    expect(page).to have_content("Registered participants (dynamic)")
-    expect(page).to have_content("Unregistered participants with tokens (fixed)")
-    expect(page).to have_content("View deleted elections")
+    expect(page).to have_text("Registered participants (dynamic)")
+    expect(page).to have_text("Unregistered participants with tokens (fixed)")
+    expect(page).to have_text("View deleted elections")
     expect(page).to have_link("New election")
     expect(page).to have_link("View deleted elections")
   end
@@ -69,10 +69,10 @@ describe "Admin manages elections" do
     click_on "Save and continue"
 
     expect(page).to have_callout "Election created successfully"
-    expect(page).to have_content("Question must have at least two answers in order go to the next step.")
+    expect(page).to have_text("Question must have at least two answers in order go to the next step.")
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} election in")
+    expect(page).to have_text("created the #{translated(attributes[:title])} election in")
   end
 
   describe "admin form" do
@@ -95,7 +95,7 @@ describe "Admin manages elections" do
       end
 
       click_on "Questions"
-      expect(page).to have_content("Questions")
+      expect(page).to have_text("Questions")
 
       click_on "Main"
 
@@ -123,7 +123,7 @@ describe "Admin manages elections" do
       click_on "Save and continue"
 
       expect(page).to have_callout "Election updated successfully"
-      expect(page).to have_content("Question must have at least two answers in order go to the next step.")
+      expect(page).to have_text("Question must have at least two answers in order go to the next step.")
     end
   end
 
@@ -147,7 +147,7 @@ describe "Admin manages elections" do
         expect(page).to have_field("election_end_at_date", disabled: true)
         expect(page).to have_field("election_end_at_time", disabled: true)
       end
-      dynamically_attach_file(:election_photos, Decidim::Dev.asset("city2.jpeg"))
+      dynamically_attach_file(:election_attachments, Decidim::Dev.asset("city2.jpeg"))
 
       click_on "Save and continue"
       expect(page).to have_callout "Election updated successfully"
@@ -160,9 +160,9 @@ describe "Admin manages elections" do
       expect(page).to have_link("Dashboard")
 
       click_on "Dashboard"
-      expect(page).to have_content("Voting is not yet enabled for any questions.")
+      expect(page).to have_text("Voting is not yet enabled for any questions.")
       click_on "Enable voting", match: :first
-      expect(page).to have_no_content("Voting is not yet enabled for any questions.")
+      expect(page).to have_no_text("Voting is not yet enabled for any questions.")
     end
   end
 
@@ -210,7 +210,7 @@ describe "Admin manages elections" do
 
       click_on "Save and continue"
 
-      expect(page).to have_content("There was a problem updating the election")
+      expect(page).to have_text("There was a problem updating the election")
     end
   end
 
@@ -279,11 +279,11 @@ describe "Admin manages elections" do
     end
 
     it "monitors the election" do
-      expect(page).to have_content("Results available after the election ends")
+      expect(page).to have_text("Results available after the election ends")
       within "#question_#{question1.id}" do
-        expect(page).to have_content(translated(question1.body))
-        expect(page).to have_content("0 votes")
-        expect(page).to have_content("0.0%")
+        expect(page).to have_text(translated(question1.body))
+        expect(page).to have_text("0 votes")
+        expect(page).to have_text("0.0%")
       end
       create(:election_vote, voter_uid: "user-1", question: question1, response_option: question1.response_options.first)
       create(:election_vote, voter_uid: "user-2", question: question2, response_option: question2.response_options.first)
@@ -292,15 +292,86 @@ describe "Admin manages elections" do
       # wait for javascript to update the page
       sleep 4
       within "#question_#{question1.id}" do
-        expect(page).to have_content("1 vote")
-        expect(page).to have_content("100.0%")
+        expect(page).to have_text("1 vote")
+        expect(page).to have_text("100.0%")
       end
       within "#question_#{question2.id}" do
-        expect(page).to have_content("1 vote")
-        expect(page).to have_content("33.3%")
-        expect(page).to have_content("2 votes")
-        expect(page).to have_content("66.7%")
+        expect(page).to have_text("1 vote")
+        expect(page).to have_text("33.3%")
+        expect(page).to have_text("2 votes")
+        expect(page).to have_text("66.7%")
       end
+    end
+  end
+
+  context "when the election has an attachment" do
+    let!(:election_with_attachment) do
+      create(:election, component: current_component)
+    end
+
+    let!(:document) { create(:attachment, :with_image, attached_to: election_with_attachment) }
+
+    before do
+      visit_component_admin
+
+      within "tr", text: translated(election_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+      end
+    end
+
+    it "can remove an attachment" do
+      click_on translated(election_with_attachment.title)
+
+      click_on("Edit attachments")
+
+      within "li[data-filename='#{document.file.blob.filename}']" do
+        click_on("Remove")
+      end
+
+      click_on("Save")
+
+      expect(page).to have_no_css("img[src*='#{document.file.blob.filename}']")
+    end
+
+    it "can attach a file" do
+      click_on translated(election_with_attachment.title)
+
+      click_on("Edit attachments")
+
+      within ".upload-modal" do
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(document.file.blob.filename.to_s))
+      end
+
+      click_on("Save")
+
+      sleep 1
+
+      click_on("Save and continue")
+      expect(page).to have_text("Election updated successfully")
+
+      click_on("Main")
+      expect(page).to have_css("img[src*='#{document.file.blob.filename}']")
+    end
+
+    it "can edit an election with an attachment" do
+      click_on translated(election_with_attachment.title)
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+
+      fill_in_i18n(:election_title, "#election-title-tabs", en: "Updated election title with attachments")
+      click_on "Save and continue"
+
+      expect(page).to have_callout "Election updated successfully"
+
+      visit_component_admin
+
+      within "tr", text: "Updated election title with attachments" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+      expect(page).to have_field("election_title_en", with: "Updated election title with attachments")
     end
   end
 end

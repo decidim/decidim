@@ -32,7 +32,7 @@ module Decidim
           it "renders the correct title" do
             html = cell("decidim/proposals/proposal_activity", action_log).call
             expect(html).to have_css("[data-activity]")
-            expect(html).to have_content("Proposal updated")
+            expect(html).to have_text("Proposal updated")
           end
         end
 
@@ -42,7 +42,7 @@ module Decidim
           it "renders the correct title" do
             html = cell("decidim/proposals/proposal_activity", action_log).call
             expect(html).to have_css("[data-activity]")
-            expect(html).to have_content("New proposal")
+            expect(html).to have_text("New proposal")
           end
         end
 
@@ -50,7 +50,7 @@ module Decidim
           it "renders the correct title" do
             html = cell("decidim/proposals/proposal_activity", action_log).call
             expect(html).to have_css("[data-activity]")
-            expect(html).to have_content("New proposal")
+            expect(html).to have_text("New proposal")
           end
         end
       end
@@ -69,7 +69,7 @@ module Decidim
 
         it "correctly renders proposals with mentions" do
           html = cell("decidim/proposals/proposal_activity", action_log).call
-          expect(html).to have_no_content("gid://")
+          expect(html).to have_no_text("gid://")
         end
       end
     end

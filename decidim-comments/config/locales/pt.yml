@@ -107,12 +107,10 @@ pt:
           email_intro: "%{author_name} deixou um comentário em %{resource_title}. Pode lê-lo nesta página:"
           email_outro: Recebeu esta notificação porque segue %{author_name}. pode deixar de seguir este utilizador a partir da respetiva página de perfil.
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
-          notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} foi comentado. Você pode ler o comentário nesta página:"
           email_outro: Recebeu esta notificação porque segue "%{resource_title}" ou o seu autor. Pode deixar de segui-lo a partir da ligação anterior.
           email_subject: Há um novo comentário de %{author_name} em %{resource_title}
-          notification_title: Há um novo comentário de <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: O seu comentário em "%{resource_title}” foi desvalorizado. Tem agora um total de %{upvotes} valorizações e %{downvotes} desvalorizações.
           email_outro: Recebeu esta notificação porque é o autor deste comentário.
@@ -127,9 +125,7 @@ pt:
           email_intro: "%{author_name} respondeu ao seu comentário em %{resource_title}. Pode lê-lo nesta página:"
           email_outro: Recebeu esta notificação porque responderam ao seu comentário.
           email_subject: "%{author_name} respondeu ao seu comentário em %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> respondeu ao seu comentário em <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Foi mencionado(a)
           email_outro: Recebeu esta notificação porque foi mencionado(a) em %{resource_title}.
           email_subject: Foi mencionado(a) em %{resource_title}
-          notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>

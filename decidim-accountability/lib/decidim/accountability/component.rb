@@ -59,7 +59,7 @@ Decidim.register_component(:accountability) do |component|
                           icon_name: "chat-1-line",
                           tooltip_key: "comments_count",
                           tag: :comments do |components, _start_at, _end_at|
-    Decidim::Accountability::Result.where(component: components).count
+    Decidim::Accountability::Result.where(component: components).sum(:comments_count)
   end
 
   component.settings(:step) do |settings|
@@ -70,7 +70,7 @@ Decidim.register_component(:accountability) do |component|
     exports.collection do |component_instance|
       Decidim::Accountability::Result
         .where(component: component_instance)
-        .includes(:taxonomies, :status, component: { participatory_space: :organization })
+        .includes(:parent, :taxonomies, :status, component: { participatory_space: :organization })
     end
 
     exports.include_in_open_data = true

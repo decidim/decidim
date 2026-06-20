@@ -13,7 +13,7 @@ eu:
           original: Jatorrizko testua
           replace: Ordezkapena
         version:
-          body: Gorputza
+          body: Testua
           draft: Zirriborroa
           version_number: Bertsio zenbakia
   activerecord:
@@ -79,6 +79,8 @@ eu:
           update_settings:
             invalid: Arazo bat egon da dokumentua eguneratzean.
             success: Dokumentua zuzen eguneratua.
+        exports:
+          document_suggestions: Iradokizunak
         index:
           published: Argitaratuta
           unpublished: Argitaratu gabea

@@ -26,11 +26,11 @@ module Decidim::Debates
       end
 
       it "renders the description" do
-        expect(subject).to have_content("Description for test")
+        expect(subject).to have_text("Description for test")
       end
 
       it "renders the title" do
-        expect(subject).to have_content(translated_attribute(model.title))
+        expect(subject).to have_text(translated_attribute(model.title))
       end
 
       context "when the description has a link" do
@@ -38,7 +38,7 @@ module Decidim::Debates
         let(:description) { { en: "This is a description with a link to <a href='http://example.org'>example.org</a>" } }
 
         it "renders the description" do
-          expect(subject).to have_content("This is a description with a link to example.org")
+          expect(subject).to have_text("This is a description with a link to example.org")
         end
       end
     end

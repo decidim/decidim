@@ -28,7 +28,7 @@ describe "Admin manages meetings" do
       expect(resource_locator(meeting).admin_index).to include(current_path)
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(other_meeting).title do
-        expect(page).to have_content("This meeting must be edited from")
+        expect(page).to have_text("This meeting must be edited from")
         click_on translated(other_participatory_space.title)
       end
 
@@ -53,7 +53,7 @@ describe "Admin manages meetings" do
       end
 
       within ".js-components" do
-        expect(page).to have_content(other_meeting.component.manifest.name)
+        expect(page).to have_text(other_meeting.component.manifest.name)
       end
 
       expect do

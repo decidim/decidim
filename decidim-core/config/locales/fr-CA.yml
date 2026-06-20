@@ -384,7 +384,7 @@ fr-CA:
       withdraw:
         error: Une erreur s'est produite lors du retrait de cet amendement.
         success: L'amendement a été retiré avec succès.
-      wizard_step_form:
+      wizard:
         steps:
           '1': Créez votre amendement
           '2': Publier votre amendement
@@ -780,13 +780,9 @@ fr-CA:
           affected_user:
             email_intro: 'Une modification a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de %{amendable_title}.
-            email_subject: Un amendement accepté pour %{amendable_title} du %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Une modification a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Un amendement accepté pour %{amendable_title} du %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Une nouvelle modification a été créée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
@@ -802,29 +798,20 @@ fr-CA:
           affected_user:
             email_intro: 'Une modification rejetée pour %{amendable_title} a été promue en %{amendable_type}indépendante. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de %{amendable_title}.
-            email_subject: Un amendement de %{emendation_author_nickname} a été publié en tant que nouveau %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">a rejeté l' amendement</a> pour <a href="%{amendable_path}">%{amendable_title}</a> a été publiée en tant que nouveau %{amendable_type} par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Une modification rejetée pour %{amendable_title} a été promue en %{amendable_type}indépendante. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Un amendement de %{emendation_author_nickname} a été publié en tant que nouveau %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">a rejeté l' amendement</a> pour <a href="%{amendable_path}">%{amendable_title}</a> a été publiée en tant que nouveau %{amendable_type} par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Une modification a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de %{amendable_title}.
-            email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Une modification a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'Une correction a été publiée pour %{amendable_title}. Vous pouvez la voir sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur/trice de %{amendable_title}.
-            email_subject: Une correction réalisée par %{emendation_author_nickname} a été publiée en tant que nouvelle %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
@@ -866,16 +853,9 @@ fr-CA:
             Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.</br>
             <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
-          email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
-          email_subject: "%{nickname} a mis à jour son profil public"
-          notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
         user_officialized:
-          email_intro: Le participant %{name} (%{nickname}) a été officialisé.
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{name} a été officialisé"
-          notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
       download_your_data_export:
         click_button_html: Cliquez sur le lien suivant pour télécharger vos données.<br/>Le fichier sera disponible au téléchargement jusqu'à %{date}.
@@ -1396,8 +1376,8 @@ fr-CA:
         members: Membres
     participatory_spaces:
       show:
-        restricted_space: Ceci est un espace restreint. Seuls les membres peuvent le voir et y participer.
-        transparent_space: Ceci est un espace transparent. N'importe qui peut voir le contenu, mais seuls les membres peuvent participer.
+        restricted_space: Il s'agit d'un espace restreint. Seuls les membres et les administrateurs peuvent le voir et y participer.
+        transparent_space: Ceci est un espace transparent. N'importe qui peut voir le contenu, mais seuls les membres et les administrateurs peuvent participer.
     passwords:
       update:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.

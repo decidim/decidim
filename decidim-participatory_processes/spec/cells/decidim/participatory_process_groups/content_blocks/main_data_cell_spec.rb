@@ -34,11 +34,11 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::MainDataCell, type:
 
   context "when the content block is called with a participatory process group" do
     it "shows the group title" do
-      expect(subject).to have_content(translated(participatory_process_group.title, locale: :en))
+      expect(subject).to have_text(translated(participatory_process_group.title, locale: :en))
     end
 
     it "shows the group description" do
-      expect(subject).to have_content(
+      expect(subject).to have_text(
         ActionView::Base.full_sanitizer.sanitize(translated(participatory_process_group.description, locale: :en), tags: [])
       )
     end

@@ -12,6 +12,7 @@ module Decidim
       comments_nested_probability: { slow: 0.5, fast: 0.2 },
       comments_vote_skip_probability: { slow: 0.5, fast: 0.7 },
       comments_votes_count: { slow: 12, fast: 3 },
+      budgets_votes_count: { slow: 50, fast: 10 },
       surveys_responses_count: { slow: 200, fast: 20 },
       surveys_response_options_count: { slow: 3, fast: 2 },
       surveys_matrix_rows_count: { slow: 3, fast: 2 },
@@ -42,18 +43,26 @@ module Decidim
       @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
     end
 
-    def find_or_initialize_user_by(email:)
+    def generate_nickname
+      suffix = ["-", "_", ""].sample + rand(100_000).to_s
+      base = Faker::Internet.username(specifier: nil, separators: ["_", "-"])[0...(20 - suffix.length)]
+
+      I18n.transliterate("#{base}#{suffix}").downcase.gsub(/[^a-z0-9_-]/, "_")
+    end
+
+    def find_or_initialize_user_by(email:, with_random_avatar: true)
       user = Decidim::User.find_or_initialize_by(email:)
+      avatar = with_random_avatar ? random_avatar : nil
       user.update!(
         name: ::Faker::Name.name,
-        nickname: "#{::Faker::X.unique.screen_name}-#{rand(10_000)}"[0...20],
+        nickname: generate_nickname,
         password: "decidim123456789",
         organization:,
         confirmed_at: Time.current,
         locale: I18n.default_locale,
         personal_url: ::Faker::Internet.url,
         about: ::Faker::Lorem.paragraph(sentence_count: 2),
-        avatar: random_avatar,
+        avatar:,
         accepted_tos_version: organization.tos_version + 1.hour,
         newsletter_notifications_at: Time.current,
         tos_agreement: true,
@@ -171,6 +180,12 @@ module Decidim
       file_number = format("%03d", rand(1...100))
 
       create_blob!(seeds_file: "avatars/#{file_number}.jpg", filename: "#{file_number}.jpg", content_type: "image/jpeg")
+    end
+
+    def random_email(suffix:)
+      r = SecureRandom.hex(4)
+
+      "#{suffix}-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{r}@example.org"
     end
 
     def create_follow!(user, followable)

@@ -51,7 +51,7 @@
                           <% end %>
                         <% else %>
                           <div class="dropdown__button-disabled">
-                            <%= with_tooltip t("tooltips.deleted_attachment_collections_info", scope: "decidim.admin") do %>
+                            <%= with_tooltip t("tooltips.deleted_attachment_collections_info", scope: "decidim.admin"), class: :left do %>
                               <%= icon "delete-bin-line", class: "text-gray" %>
                               <span>
                                 <%= t("actions.destroy", scope: "decidim.admin") %>

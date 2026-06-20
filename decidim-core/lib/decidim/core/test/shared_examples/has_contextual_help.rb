@@ -17,13 +17,13 @@ shared_examples "shows contextual help" do
     end
 
     within "#floating-helper-block" do
-      expect(page).to have_content("Some relevant help")
+      expect(page).to have_text("Some relevant help")
       click_on
     end
 
     visit current_path
 
-    expect(page).to have_no_content("Some relevant help")
+    expect(page).to have_no_text("Some relevant help")
 
     within "#floating-helper-tip" do
       click_on

@@ -6,14 +6,14 @@ When you want to create a project inside your budget component, you need to rely
 
 [source]
 ----
-• address               (optional) - String
-• budget_amount         (optional) - Integer
-• description           (optional) - JSON
-• latitude              (optional) - Float
-• longitude             (optional) - Float
-• proposal_ids          (optional) - Proposal ids to assign to this project
-• title                 (optional) - JSON
-• taxonomies            (optional) - Taxonomy ids to assign to this project
+• address               (Optional) - String
+• budget_amount         (Optional) - Integer
+• description           (Optional) - JSON
+• latitude              (Optional) - Float
+• longitude             (Optional) - Float
+• proposal_ids          (Optional) - Proposal ids to assign to this project
+• title                 (Required) - JSON
+• taxonomies            (Optional) - Taxonomy ids to assign to this project
 ----
 
 == Sample request
@@ -24,7 +24,7 @@ The `CreateProject` mutation allows authenticated administrators to create new p
 ----
 mutation createProject($componentId: ID!, $budgetId: ID!, $input: CreateProjectInput!){
    component(id: $componentId){
-    ...on BudgetsMutation{
+    ... on BudgetsMutation {
       budget(id: $budgetId){
       	createProject(input: $input){
         	id

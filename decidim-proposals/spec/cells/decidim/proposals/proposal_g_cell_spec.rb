@@ -24,7 +24,7 @@ module Decidim::Proposals
       end
 
       it "renders the proposal title" do
-        expect(subject).to have_content(translated_attribute(proposal.title))
+        expect(subject).to have_text(translated_attribute(proposal.title))
       end
 
       context "when the proposal has an image" do
@@ -67,7 +67,7 @@ module Decidim::Proposals
 
         it "renders the custom state" do
           within ".label" do
-            expect(subject).to have_content "Finished"
+            expect(subject).to have_text "Finished"
           end
         end
       end

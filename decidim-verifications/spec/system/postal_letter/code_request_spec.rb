@@ -21,7 +21,7 @@ describe "Postal letter code request" do
   end
 
   it "redirects to verification after login" do
-    expect(page).to have_content("Request your verification code")
+    expect(page).to have_text("Request your verification code")
   end
 
   context "when requesting a code by postal letter" do
@@ -31,7 +31,7 @@ describe "Postal letter code request" do
     end
 
     it "allows the user to request a code by postal letter to get verified" do
-      expect(page).to have_content("Thanks! We will send a verification code to your address.")
+      expect(page).to have_text("Thanks! We will send a verification code to your address.")
     end
 
     context "and getting it sent" do
@@ -42,7 +42,7 @@ describe "Postal letter code request" do
 
       it "shows the address as pending" do
         within "table" do
-          expect(page).to have_content("C/ Milhouse, 3, 00000, Springfield (Monaco)")
+          expect(page).to have_text("C/ Milhouse, 3, 00000, Springfield (Monaco)")
         end
       end
     end

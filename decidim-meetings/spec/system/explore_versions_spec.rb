@@ -63,23 +63,23 @@ describe "Explore versions", versioning: true do
 
     it "shows the version author and creation date" do
       within ".version__author" do
-        expect(page).to have_content("test suite")
-        expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
+        expect(page).to have_text("test suite")
+        expect(page).to have_text(Time.zone.today.strftime("%d/%m/%Y"))
       end
     end
 
     it "shows the changed attributes" do
-      expect(page).to have_content("Changes at")
+      expect(page).to have_text("Changes at")
 
       within "#diff-for-title-english" do
-        expect(page).to have_content("Title (English)")
+        expect(page).to have_text("Title (English)")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content("My title")
+          expect(page).to have_text("My title")
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content("My updated title")
+          expect(page).to have_text("My updated title")
         end
       end
     end

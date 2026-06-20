@@ -15,8 +15,8 @@ describe "Debates Breadcrumb" do
   describe "index" do
     it "shows the correct information in breadcrumb (space, component)" do
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
       end
     end
   end
@@ -26,9 +26,9 @@ describe "Debates Breadcrumb" do
       click_on translated(debate.title), class: "card__list"
 
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(debate.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(debate.title))
       end
     end
   end
@@ -48,9 +48,9 @@ describe "Debates Breadcrumb" do
 
     it "shows the correct information in breadcrumb (space, component, debate)" do
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(debate.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(debate.title))
       end
     end
   end

@@ -1,5 +1,3 @@
-/* eslint-disable require-jsdoc */
-
 class AdminAssembliesListComponent {
   run() {
     this.rebindArrows();

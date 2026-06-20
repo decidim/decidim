@@ -30,7 +30,7 @@ describe "Admin manages participatory process soft delete" do
     end
 
     it "does not allow collaborators to view deleted processes" do
-      expect(page).to have_content("Processes")
+      expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
     end
   end
@@ -52,7 +52,7 @@ describe "Admin manages participatory process soft delete" do
     end
 
     it "does not allow evaluators to view deleted processes" do
-      expect(page).to have_content("Processes")
+      expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
     end
   end
@@ -74,7 +74,7 @@ describe "Admin manages participatory process soft delete" do
     end
 
     it "does not allow moderators to view deleted processes" do
-      expect(page).to have_content("Processes")
+      expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
     end
   end
@@ -96,7 +96,7 @@ describe "Admin manages participatory process soft delete" do
     end
 
     it "does not allow space admins to view deleted processes" do
-      expect(page).to have_content("Processes")
+      expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
     end
   end

@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 import getCoordinateInputName from "src/decidim/geocoding/coordinate_input"
 
 /**

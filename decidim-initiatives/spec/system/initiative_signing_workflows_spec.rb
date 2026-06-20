@@ -66,7 +66,7 @@ describe "Initiative signing with workflows" do
           click_on "Sign"
         end
 
-        expect(page).to have_content "Already signed"
+        expect(page).to have_text "Already signed"
       end.to change(Decidim::InitiativesVote, :count).by(1)
     end
 
@@ -76,7 +76,7 @@ describe "Initiative signing with workflows" do
           click_on "Sign"
         end
 
-        expect(page).to have_content "Already signed"
+        expect(page).to have_text "Already signed"
       end
 
       it "the vote does not have metadata" do
@@ -99,13 +99,13 @@ describe "Initiative signing with workflows" do
         expect do
           click_on "Validate your data"
 
-          expect(page).to have_content "You have signed the initiative"
+          expect(page).to have_text "You have signed the initiative"
         end.to change(Decidim::InitiativesVote, :count).by(1)
       end
 
       it "the vote created stores the provided data in metadata" do
         click_on "Validate your data"
-        expect(page).to have_content "You have signed the initiative"
+        expect(page).to have_text "You have signed the initiative"
 
         vote = Decidim::InitiativesVote.last
 
@@ -122,7 +122,7 @@ describe "Initiative signing with workflows" do
     end
 
     it "a form collecting personal data is shown" do
-      expect(page).to have_content "Verify with Dummy Signature Handler"
+      expect(page).to have_text "Verify with Dummy Signature Handler"
       expect(page).to have_css("form.new_dummy_signature_handler")
     end
 
@@ -143,7 +143,7 @@ describe "Initiative signing with workflows" do
         expect do
           click_on "Validate your data"
 
-          expect(page).to have_content "You have signed the initiative"
+          expect(page).to have_text "You have signed the initiative"
         end.not_to change(Decidim::Authorization, :count)
       end
     end
@@ -165,7 +165,7 @@ describe "Initiative signing with workflows" do
             expect do
               click_on "Validate your data"
 
-              expect(page).to have_content "Some of the personal data provided to verify your identity is not valid."
+              expect(page).to have_text "Some of the personal data provided to verify your identity is not valid."
 
               expect(page).to have_no_css("form.new_dummy_signature_handler div", text: "is invalid")
               expect(page).to have_no_css("div.field_with_errors")
@@ -181,7 +181,7 @@ describe "Initiative signing with workflows" do
               expect do
                 click_on "Validate your data"
 
-                expect(page).to have_content "Some of the personal data provided to verify your identity is not valid."
+                expect(page).to have_text "Some of the personal data provided to verify your identity is not valid."
 
                 expect(page).to have_css("form.new_dummy_signature_handler div", text: "is invalid")
                 within("div.field_with_errors") do
@@ -198,7 +198,7 @@ describe "Initiative signing with workflows" do
           expect do
             click_on "Validate your data"
 
-            expect(page).to have_content "You have signed the initiative"
+            expect(page).to have_text "You have signed the initiative"
           end.to change(Decidim::Authorization, :count).by(1)
 
           authorization = Decidim::Authorization.last
@@ -210,7 +210,7 @@ describe "Initiative signing with workflows" do
       end
 
       it "a form collecting personal data is shown" do
-        expect(page).to have_content "Verify with Dummy Signature Handler"
+        expect(page).to have_text "Verify with Dummy Signature Handler"
         expect(page).to have_css("form.new_dummy_signature_handler")
       end
 
@@ -245,7 +245,7 @@ describe "Initiative signing with workflows" do
           expect do
             click_on "Validate your data"
 
-            expect(page).to have_content "You have signed the initiative"
+            expect(page).to have_text "You have signed the initiative"
           end.not_to change(Decidim::Authorization, :count)
         end
       end
@@ -275,7 +275,7 @@ describe "Initiative signing with workflows" do
 
           context "when the authorization status is :ok" do
             it "checks the authorization status and creates the vote" do
-              expect(page).to have_content "You have signed the initiative"
+              expect(page).to have_text "You have signed the initiative"
               expect(Decidim::InitiativesVote.where(author: confirmed_user)).to be_present
             end
           end
@@ -284,7 +284,7 @@ describe "Initiative signing with workflows" do
             let(:status) { [:unauthorized, {}] }
 
             it "the vote is not allowed" do
-              expect(page).to have_content "The data provided to proceed with the action is not compatible with your existing authorizations or you have to create a granted authorization."
+              expect(page).to have_text "The data provided to proceed with the action is not compatible with your existing authorizations or you have to create a granted authorization."
               expect(Decidim::InitiativesVote.where(author: confirmed_user)).to be_blank
             end
           end
@@ -317,7 +317,7 @@ describe "Initiative signing with workflows" do
             expect do
               click_on "Validate your data"
 
-              expect(page).to have_content "You have signed the initiative"
+              expect(page).to have_text "You have signed the initiative"
             end.not_to change(Decidim::Authorization, :count)
 
             expect(Decidim::InitiativesVote.where(author: confirmed_user)).to be_present
@@ -333,7 +333,7 @@ describe "Initiative signing with workflows" do
               expect do
                 click_on "Validate your data"
 
-                expect(page).to have_content "You have signed the initiative"
+                expect(page).to have_text "You have signed the initiative"
               end.not_to change(Decidim::Authorization, :count)
 
               authorization = Decidim::Authorization.where(user: confirmed_user).last
@@ -365,7 +365,7 @@ describe "Initiative signing with workflows" do
               expect do
                 click_on "Validate your data"
 
-                expect(page).to have_content "The data provided to proceed with the action is not compatible with your existing authorizations or you have to create a granted authorization."
+                expect(page).to have_text "The data provided to proceed with the action is not compatible with your existing authorizations or you have to create a granted authorization."
               end.not_to change(Decidim::InitiativesVote, :count)
 
               expect(Decidim::Authorization.where(user: confirmed_user)).to be_blank
@@ -390,7 +390,7 @@ describe "Initiative signing with workflows" do
               expect do
                 click_on "Validate your data"
 
-                expect(page).to have_content "You have signed the initiative"
+                expect(page).to have_text "You have signed the initiative"
               end.not_to change(Decidim::Authorization, :count)
 
               expect(Decidim::InitiativesVote.where(author: confirmed_user)).to be_present
@@ -425,7 +425,7 @@ describe "Initiative signing with workflows" do
           fill_personal_data
           click_on "Validate your data"
 
-          expect(page).to have_content "You have signed the initiative"
+          expect(page).to have_text "You have signed the initiative"
         end
       end
 
@@ -439,7 +439,7 @@ describe "Initiative signing with workflows" do
         end
 
         it "votes directly without additional steps" do
-          expect(page).to have_content "You have signed the initiative"
+          expect(page).to have_text "You have signed the initiative"
         end
       end
     end
@@ -452,7 +452,7 @@ describe "Initiative signing with workflows" do
           fill_personal_data
           click_on "Validate your data"
 
-          expect(page).to have_content "Please enter your phone number. You will then receive an SMS with a validation code."
+          expect(page).to have_text "Please enter your phone number. You will then receive an SMS with a validation code."
         end
       end
 
@@ -466,7 +466,7 @@ describe "Initiative signing with workflows" do
         end
 
         it "sends the user to the phone number step" do
-          expect(page).to have_content "Please enter your phone number. You will then receive an SMS with a validation code."
+          expect(page).to have_text "Please enter your phone number. You will then receive an SMS with a validation code."
         end
       end
 
@@ -483,12 +483,12 @@ describe "Initiative signing with workflows" do
           fill_phone_number(phone_number)
 
           click_on "Receive code"
-          expect(page).to have_content "Your confirmation code"
+          expect(page).to have_text "Your confirmation code"
           fill_sms_code("010203")
-          expect(page).to have_content "Your code is correct"
+          expect(page).to have_text "Your code is correct"
           click_on "Sign initiative"
 
-          expect(page).to have_content "You have signed the initiative"
+          expect(page).to have_text "You have signed the initiative"
         end
       end
 
@@ -505,8 +505,8 @@ describe "Initiative signing with workflows" do
             fill_phone_number(phone_number)
 
             click_on "Receive code"
-            expect(page).to have_no_content "Your confirmation code"
-            expect(page).to have_content "The phone number is invalid or pending of authorization. Please, check your authorizations."
+            expect(page).to have_no_text "Your confirmation code"
+            expect(page).to have_text "The phone number is invalid or pending of authorization. Please, check your authorizations."
           end
         end
 
@@ -523,12 +523,12 @@ describe "Initiative signing with workflows" do
               fill_phone_number(phone_number)
 
               click_on "Receive code"
-              expect(page).to have_content "Your confirmation code"
+              expect(page).to have_text "Your confirmation code"
               fill_sms_code("010203")
-              expect(page).to have_content "Your code is correct"
+              expect(page).to have_text "Your code is correct"
               click_on "Sign initiative"
 
-              expect(page).to have_content "You have signed the initiative"
+              expect(page).to have_text "You have signed the initiative"
             end
           end
 
@@ -537,8 +537,8 @@ describe "Initiative signing with workflows" do
               fill_phone_number("000000000")
 
               click_on "Receive code"
-              expect(page).to have_no_content "Your confirmation code"
-              expect(page).to have_content "The phone number is invalid or pending of authorization. Please, check your authorizations."
+              expect(page).to have_no_text "Your confirmation code"
+              expect(page).to have_text "The phone number is invalid or pending of authorization. Please, check your authorizations."
             end
           end
         end

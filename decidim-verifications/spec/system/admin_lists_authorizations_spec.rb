@@ -21,7 +21,7 @@ describe "Admin lists authorizations" do
 
   it "allows the user to list all available authorization methods" do
     within "[data-content]" do
-      expect(page).to have_content("Identity documents")
+      expect(page).to have_text("Identity documents")
     end
   end
 end

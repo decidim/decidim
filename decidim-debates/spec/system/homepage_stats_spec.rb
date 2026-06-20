@@ -15,6 +15,6 @@ describe "Homepage" do
   end
 
   it "does not display debates stat" do
-    expect(page).to have_no_content("Debates")
+    expect(page).to have_no_text("Debates")
   end
 end

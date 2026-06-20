@@ -34,9 +34,9 @@ describe "Admin copies participatory process" do
       end
 
       expect(page).to have_callout("Participatory process successfully duplicated.")
-      expect(page).to have_content("Duplicate participatory process")
+      expect(page).to have_text("Duplicate participatory process")
       within "table" do
-        expect(page).to have_content("Unpublished")
+        expect(page).to have_text("Unpublished")
       end
     end
   end
@@ -76,7 +76,7 @@ describe "Admin copies participatory process" do
 
       within ".table-list" do
         participatory_process.steps.each do |step|
-          expect(page).to have_content(translated(step.title))
+          expect(page).to have_text(translated(step.title))
         end
       end
     end
@@ -97,7 +97,7 @@ describe "Admin copies participatory process" do
 
       within ".table-list" do
         participatory_process.components.each do |component|
-          expect(page).to have_content(translated(component.name))
+          expect(page).to have_text(translated(component.name))
         end
       end
     end

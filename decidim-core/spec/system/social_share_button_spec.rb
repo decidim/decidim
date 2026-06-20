@@ -106,7 +106,7 @@ describe "Social share button" do
         expect(page).to have_css("button[data-clipboard-copy='#urlShareLink']")
         link = find("input#urlShareLink")
         within "#urlShareLink" do
-          expect(page).to have_no_content(resource_path)
+          expect(page).to have_no_text(resource_path)
           expect(link[:value]).to include("#{resource.organization.host}:#{Capybara.current_session.server.port}/s/")
         end
       end

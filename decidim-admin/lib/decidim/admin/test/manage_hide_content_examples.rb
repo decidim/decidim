@@ -44,7 +44,7 @@ shared_examples "hideable resource during block" do
 
     it "chooses to hide content" do
       within ".flag-user-modal" do
-        expect(page).to have_content("Report inappropriate participant")
+        expect(page).to have_text("Report inappropriate participant")
         find(:css, "input[name='report[hide]']").set(true)
       end
       click_on I18n.t("decidim.shared.flag_user_modal.block")
@@ -53,12 +53,12 @@ shared_examples "hideable resource during block" do
       fill_in :block_user_justification, with: "This user is a spammer" * 2 # to have at least 15 chars
 
       click_on I18n.t("decidim.admin.block_user.new.action")
-      expect(page).to have_content(I18n.t("decidim.admin.officializations.block.success"))
+      expect(page).to have_text(I18n.t("decidim.admin.officializations.block.success"))
 
       expect(content.reload).to be_hidden
 
       visit decidim_admin.root_path
-      expect(page).to have_content("blocked user")
+      expect(page).to have_text("blocked user")
     end
   end
 end

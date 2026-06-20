@@ -22,7 +22,7 @@ module Decidim::Comments
 
       it "renders the thread" do
         expect(subject).to have_css(".comment-thread")
-        expect(subject).to have_content(comment.body.values.first)
+        expect(subject).to have_text(comment.body.values.first)
         expect(subject).to have_no_css(".comment-reply")
         expect(subject).to have_css("[aria-label='Comment thread started by #{comment.author.name} on 01/02/2018 12:30']")
       end

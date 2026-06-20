@@ -49,11 +49,11 @@ shared_examples "manage conferences" do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_conferences.conferences_path
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} conference")
+      expect(page).to have_text("created the #{translated(attributes[:title])} conference")
     end
   end
 
@@ -93,7 +93,7 @@ shared_examples "manage conferences" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} conference")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} conference")
     end
   end
 
@@ -142,7 +142,7 @@ shared_examples "manage conferences" do
           click_on "Preview"
         end
 
-        expect(page).to have_content(translated(conference.title))
+        expect(page).to have_text(translated(conference.title))
       end
     end
 
@@ -159,7 +159,7 @@ shared_examples "manage conferences" do
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_conferences.conference_path(conference)
-          expect(page).to have_content(translated(conference.title))
+          expect(page).to have_text(translated(conference.title))
         end
       end
     end
@@ -188,7 +188,7 @@ shared_examples "manage conferences" do
 
       within("tr", text: translated_attribute(conference.title)) do
         find("button[data-controller='dropdown']").click
-        expect(page).to have_content("Unpublish")
+        expect(page).to have_text("Unpublish")
       end
 
       expect(page).to have_current_path decidim_admin_conferences.conferences_path
@@ -212,7 +212,7 @@ shared_examples "manage conferences" do
       end
 
       expect(page).to have_callout("Conference successfully unpublished.")
-      expect(page).to have_content("Publish")
+      expect(page).to have_text("Publish")
       expect(page).to have_current_path decidim_admin_conferences.conferences_path
 
       conference.reload
@@ -225,7 +225,7 @@ shared_examples "manage conferences" do
 
     it "does not let the admin manage conferences form other organizations" do
       within "table" do
-        expect(page).to have_no_content(external_conference.title["en"])
+        expect(page).to have_no_text(external_conference.title["en"])
       end
     end
   end

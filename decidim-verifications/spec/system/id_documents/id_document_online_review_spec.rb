@@ -37,28 +37,28 @@ describe "Identity document online review" do
   it "allows the user to verify an identity document" do
     submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXX")
 
-    expect(page).to have_content("Participant successfully verified")
-    expect(page).to have_no_content("Verification #")
+    expect(page).to have_text("Participant successfully verified")
+    expect(page).to have_no_text("Verification #")
   end
 
   it "shows an error when information does not match" do
     submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
 
-    expect(page).to have_content("Verification does not match")
-    expect(page).to have_content("Introduce the data in the picture")
+    expect(page).to have_text("Verification does not match")
+    expect(page).to have_text("Introduce the data in the picture")
   end
 
   context "when rejected" do
     before { click_on "Reject" }
 
     it "dismisses the verification from the list" do
-      expect(page).to have_content("Verification rejected. Participant will be prompted to amend their documents")
-      expect(page).to have_no_content("Verification #")
+      expect(page).to have_text("Verification rejected. Participant will be prompted to amend their documents")
+      expect(page).to have_no_text("Verification #")
     end
 
     context "and the user logs back in" do
       before do
-        expect(page).to have_content("Verification rejected. Participant will be prompted to amend their documents")
+        expect(page).to have_text("Verification rejected. Participant will be prompted to amend their documents")
         relogin_as user, scope: :user
         visit decidim_verifications.authorizations_path
         click_on "Identity documents"
@@ -74,20 +74,20 @@ describe "Identity document online review" do
           doc_number: "XXXXXXXY",
           file_name: "dni.jpg"
         )
-        expect(page).to have_content("Document successfully reuploaded")
+        expect(page).to have_text("Document successfully reuploaded")
 
         relogin_as admin, scope: :user
         visit decidim_admin_id_documents.root_path
         click_on "Verification #1"
         expect(page).to have_css("img[src*='/private_downloads/']")
         submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
-        expect(page).to have_content("Participant successfully verified")
+        expect(page).to have_text("Participant successfully verified")
       end
 
       it "shows an informative message to the user" do
-        expect(page).to have_content("There was a problem with your verification. Please try again")
-        expect(page).to have_content("Make sure the information entered is correct")
-        expect(page).to have_content("Make sure the information is clearly visible in the uploaded image")
+        expect(page).to have_text("There was a problem with your verification. Please try again")
+        expect(page).to have_text("Make sure the information entered is correct")
+        expect(page).to have_text("Make sure the information is clearly visible in the uploaded image")
       end
     end
   end

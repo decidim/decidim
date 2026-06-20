@@ -5,9 +5,9 @@ When you want to add or create data in your debates component, you need to rely 
 
 [source]
 ----
-• title                 (required) - String
-• description           (required) - String
-• taxonomies            (optional) - Taxonomy ids to assign to this debate
+• title                 (Required) - String
+• description           (Required) - String
+• taxonomies            (Optional) - Taxonomy ids to assign to this debate
 ----
 
 == Sample request
@@ -18,7 +18,7 @@ The `CreateDebate` mutation allows authenticated users to create new debates in 
 ----
 mutation createDebate($componentId: ID!, $input: CreateDebateInput!){
   component(id: $componentId) {
-    ...on DebatesMutation{
+    ... on DebatesMutation {
       createDebate(input: $input) {
         id
         title { translation(locale: "en") }

@@ -44,8 +44,8 @@ module Decidim
         it "renders the top comments first" do
           within ".comments-two-columns" do
             expect(subject).to have_css(".most-upvoted-label", count: 2)
-            expect(subject).to have_content(top_comment_in_favor.body.values.first)
-            expect(subject).to have_content(top_comment_against.body.values.first)
+            expect(subject).to have_text(top_comment_in_favor.body.values.first)
+            expect(subject).to have_text(top_comment_against.body.values.first)
           end
         end
       end

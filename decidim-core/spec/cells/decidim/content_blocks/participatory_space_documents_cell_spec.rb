@@ -32,7 +32,7 @@ describe Decidim::ContentBlocks::ParticipatorySpaceDocumentsCell, type: :cell do
         expect(subject).to have_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "Meetings documents")
 
         section = subject.find("#dropdown-menu-documents-component-#{meeting_component.id}")
-        expect(section).to have_content(translated(meeting_document.title))
+        expect(section).to have_text(translated(meeting_document.title))
       end
     end
 
@@ -88,13 +88,13 @@ describe Decidim::ContentBlocks::ParticipatorySpaceDocumentsCell, type: :cell do
       section = subject.find("#dropdown-menu-documents-component-#{meeting_component.id}")
       other_section = subject.find("#dropdown-menu-documents-component-#{other_meeting_component.id}")
 
-      expect(section).to have_content("My document")
-      expect(section).to have_no_content("Other document")
-      expect(section).to have_no_content("Extra document")
+      expect(section).to have_text("My document")
+      expect(section).to have_no_text("Other document")
+      expect(section).to have_no_text("Extra document")
 
-      expect(other_section).to have_no_content("My document")
-      expect(other_section).to have_content("Other document")
-      expect(other_section).to have_content("Extra document")
+      expect(other_section).to have_no_text("My document")
+      expect(other_section).to have_text("Other document")
+      expect(other_section).to have_text("Extra document")
     end
 
     context "when one of the meetings has visibility concerns" do
@@ -108,13 +108,13 @@ describe Decidim::ContentBlocks::ParticipatorySpaceDocumentsCell, type: :cell do
           section = subject.find("#dropdown-menu-documents-component-#{meeting_component.id}")
           other_section = subject.find("#dropdown-menu-documents-component-#{other_meeting_component.id}")
 
-          expect(section).to have_content("My document")
-          expect(section).to have_no_content("Other document")
-          expect(section).to have_no_content("Extra document")
+          expect(section).to have_text("My document")
+          expect(section).to have_no_text("Other document")
+          expect(section).to have_no_text("Extra document")
 
-          expect(other_section).to have_no_content("My document")
-          expect(other_section).to have_content("Other document")
-          expect(other_section).to have_no_content("Extra document")
+          expect(other_section).to have_no_text("My document")
+          expect(other_section).to have_text("Other document")
+          expect(other_section).to have_no_text("Extra document")
         end
       end
     end
@@ -130,13 +130,13 @@ describe Decidim::ContentBlocks::ParticipatorySpaceDocumentsCell, type: :cell do
         section = subject.find("#dropdown-menu-documents-component-#{meeting_component.id}")
         other_section = subject.find("#dropdown-menu-documents-component-#{other_meeting_component.id}")
 
-        expect(section).to have_content("My document")
-        expect(section).to have_no_content("Other document")
-        expect(section).to have_no_content("Extra document")
+        expect(section).to have_text("My document")
+        expect(section).to have_no_text("Other document")
+        expect(section).to have_no_text("Extra document")
 
-        expect(other_section).to have_no_content("My document")
-        expect(other_section).to have_content("Other document")
-        expect(other_section).to have_content("Extra document")
+        expect(other_section).to have_no_text("My document")
+        expect(other_section).to have_text("Other document")
+        expect(other_section).to have_text("Extra document")
       end
     end
   end

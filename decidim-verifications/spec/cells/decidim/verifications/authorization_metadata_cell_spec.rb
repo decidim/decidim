@@ -11,12 +11,12 @@ describe Decidim::Verifications::AuthorizationMetadataCell, type: :cell do
   let(:model) { create(:authorization, :granted, metadata:, name: "another_dummy_authorization_handler") }
 
   it "renders the information text" do
-    expect(subject).to have_content("This is the data of the current verification:")
+    expect(subject).to have_text("This is the data of the current verification:")
   end
 
   context "when rendering with no metadata" do
     it "renders the link wrapper" do
-      expect(subject).to have_content("No data stored")
+      expect(subject).to have_text("No data stored")
     end
   end
 
@@ -26,8 +26,8 @@ describe Decidim::Verifications::AuthorizationMetadataCell, type: :cell do
     end
 
     it "renders the metadata" do
-      expect(subject).to have_content("Postal code")
-      expect(subject).to have_content("123456")
+      expect(subject).to have_text("Postal code")
+      expect(subject).to have_text("123456")
     end
 
     context "when metadata has an 'extras' key" do
@@ -36,7 +36,7 @@ describe Decidim::Verifications::AuthorizationMetadataCell, type: :cell do
       end
 
       it "ignores the content of the 'extras' key" do
-        expect(subject).to have_no_content("gender")
+        expect(subject).to have_no_text("gender")
       end
     end
   end

@@ -33,8 +33,8 @@ describe "Admin creates proposals" do
 
     fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
     fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
-    dynamically_attach_file(:proposal_documents, image_path)
-    dynamically_attach_file(:proposal_documents, document_path)
+    dynamically_attach_file(:proposal_attachments, image_path)
+    dynamically_attach_file(:proposal_attachments, document_path)
 
     click_on("Create")
     within "tr", text: translated_attribute(new_title) do
@@ -42,8 +42,8 @@ describe "Admin creates proposals" do
       click_on "Edit proposal"
     end
 
-    expect(page).to have_content(image_filename)
-    expect(page).to have_content(document_filename)
+    expect(page).to have_text(image_filename)
+    expect(page).to have_text(document_filename)
   end
 
   it "displays the correct version link", versioning: true do

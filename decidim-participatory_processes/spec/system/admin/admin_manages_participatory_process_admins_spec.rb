@@ -26,7 +26,7 @@ describe "Admin manages participatory process admins" do
 
     it "shows process admin list" do
       within "#process_admins table" do
-        expect(page).to have_content(user.email)
+        expect(page).to have_text(user.email)
       end
     end
   end

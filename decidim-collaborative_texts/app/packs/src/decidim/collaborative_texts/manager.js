@@ -91,7 +91,6 @@ export default class Manager {
           }).
           catch((error) => {
             console.error("Error saving:", error);
-            this.document.alert(error);
           });
       }
     });

@@ -70,7 +70,7 @@ describe "Report User" do
           click_on "Report"
         end
 
-        expect(page).to have_content "report has been created"
+        expect(page).to have_text "report has been created"
       end
 
       it "chooses to block the resource" do
@@ -91,7 +91,7 @@ describe "Report User" do
           click_on "Block this participant"
         end
 
-        expect(page).to have_content "report has been created"
+        expect(page).to have_text "report has been created"
       end
     end
   end
@@ -117,7 +117,7 @@ describe "Report User" do
           click_on "Report"
         end
 
-        expect(page).to have_content "report has been created"
+        expect(page).to have_text "report has been created"
       end
     end
 
@@ -136,7 +136,7 @@ describe "Report User" do
 
         expect(page).to have_css(".flag-user-modal", visible: :visible)
 
-        expect(page).to have_content "already reported"
+        expect(page).to have_text "already reported"
       end
     end
   end

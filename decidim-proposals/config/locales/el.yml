@@ -175,17 +175,14 @@ el:
           email_intro: '%{requester_name} έχει γίνει δεκτή η πρόσβαση ως συνεισφέρων του <a href="%{resource_url}">%{resource_title}</a> συνεργατικού σχεδίου.'
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} έγινε δεκτός για πρόσβαση ως συμβάλλων για το στοιχείο %{resource_title}."
-          notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> έγινε <strong>δεκτός για πρόσβαση ως συμβάλλων</strong> στο <a href="%{resource_path}">%{resource_title}</a> προσχέδιο συνεργασίας.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} έχει απορριφθεί για πρόσβαση ως συνεισφέρων του <a href="%{resource_url}">%{resource_title}</a> συνεργατικού σχεδίου.'
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} απορρίφθηκε για πρόσβαση ως συμβάλλων στο προσχέδιο συνεργασίας %{resource_title}."
-          notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>απορρίφθηκε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: 'Ο/Η %{requester_name} ζήτησε πρόσβαση ως συνεισφέρων. Μπορείτε να <strong>αποδεχτείτε ή να απορρίψετε το αίτημα</strong> από τη σελίδα του συνεργατικού προσχεδίου <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} ζήτησε πρόσβαση για να συνεισφέρει στο στοιχείο %{resource_title}."
-          notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ζήτησε πρόσβαση για να συνεισφέρει στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>. <strong>Αποδεχτείτε ή απορρίψτε το αίτημα</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Έχετε γίνει δεκτός να έχετε πρόσβαση ως συνεισφέρων του συνεργατικού σχεδίου <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή ζητήσατε να γίνετε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
@@ -197,10 +194,7 @@ el:
           email_subject: Απορριφθήκατε ως συμβάλλων για το στοιχείο %{resource_title}.
           notification_title: <strong>Απορριφθήκατε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> απέσυρε το <a href="%{resource_url}">%{resource_title}</a> συνεργατικό προσχέδιο.
           email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "Ο συντάκτης %{author_name} %{author_nickname} απέσυρε το προσχέδιο συνεργασίας %{resource_title}."
-          notification_title: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>απέσυρε</strong> το προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Τώρα μπορείτε να δημιουργήσετε νέες προτάσεις στον χώρο συμμετοχής %{participatory_space_title}! Ξεκινήστε να συμμετέχετε σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
@@ -211,11 +205,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
           email_subject: Έγινε αναφορά στην πρότασή σας «%{mentioned_proposal_title}»
           notification_title: Η πρότασή σας «%{mentioned_proposal_title}» αναφέρθηκε <a href="%{resource_path}">σε αυτόν τον χώρο</a> στα σχόλια.
-        proposal_published:
-          email_intro: 'Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημοσίευση μια νέα πρόταση με τον τίτλο «%{resource_title}». Δείτε την και συνεισφέρετε:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Νέα πρόταση «%{resource_title}» από τον συντάκτη %{author_nickname}
-          notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> δημοσιεύτηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Η πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής «%{participatory_space_title}» που ακολουθείτε.
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.

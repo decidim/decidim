@@ -33,7 +33,7 @@ shared_examples_for "has questionnaire" do
         visit questionnaire_public_path
         see_questionnaire_questions
 
-        expect(page).to have_content("No questions configured for this form yet.")
+        expect(page).to have_text("No questions configured for this form yet.")
       end
     end
 
@@ -58,7 +58,7 @@ shared_examples_for "has questionnaire" do
       visit questionnaire_public_path
       see_questionnaire_questions
 
-      expect(page).to have_content("You have already responded this form.")
+      expect(page).to have_text("You have already responded this form.")
       expect(page).to have_no_i18n_content(question.body)
     end
 
@@ -80,10 +80,10 @@ shared_examples_for "has questionnaire" do
       it "it renders the asterisk as a separated element" do
         see_questionnaire_questions
         within "label.response-questionnaire__question-label" do
-          expect(page).to have_content(translated_attribute(question.body).to_s)
+          expect(page).to have_text(translated_attribute(question.body).to_s)
           within "span.label-required" do
-            expect(page).to have_content("*")
-            expect(page).to have_content("Required field")
+            expect(page).to have_text("*")
+            expect(page).to have_text("Required field")
           end
         end
       end
@@ -99,10 +99,10 @@ shared_examples_for "has questionnaire" do
       end
 
       it "allows responding the first questionnaire" do
-        expect(page).to have_content("Step 1 of 2")
+        expect(page).to have_text("Step 1 of 2")
 
         within ".response-questionnaire__submit", match: :first do
-          expect(page).to have_no_content("Back")
+          expect(page).to have_no_text("Back")
         end
 
         response_first_questionnaire
@@ -115,7 +115,7 @@ shared_examples_for "has questionnaire" do
 
         click_on "Back"
 
-        expect(page).to have_content("Step 1 of 2")
+        expect(page).to have_text("Step 1 of 2")
         expect(page).to have_field("questionnaire_responses_0", with: "My first response")
       end
 
@@ -130,7 +130,7 @@ shared_examples_for "has questionnaire" do
         visit questionnaire_public_path
         see_questionnaire_questions
 
-        expect(page).to have_content("You have already responded this form.")
+        expect(page).to have_text("You have already responded this form.")
       end
 
       def response_first_questionnaire
@@ -140,7 +140,7 @@ shared_examples_for "has questionnaire" do
           fill_in question.body["en"], with: "My first response"
           click_on "Continue"
         end
-        expect(page).to have_content("Step 2 of 2")
+        expect(page).to have_text("Step 2 of 2")
       end
     end
 
@@ -246,7 +246,7 @@ shared_examples_for "has questionnaire" do
           visit questionnaire_public_path
           see_questionnaire_questions
 
-          expect(page).to have_content("30 characters left")
+          expect(page).to have_text("30 characters left")
         end
       end
 
@@ -256,7 +256,7 @@ shared_examples_for "has questionnaire" do
         it "does not show message indicating number of characters left" do
           visit questionnaire_public_path
 
-          expect(page).to have_no_content("characters left")
+          expect(page).to have_no_text("characters left")
         end
       end
     end
@@ -270,7 +270,7 @@ shared_examples_for "has questionnaire" do
 
       it "submits the form and shows errors" do
         expect(page).to have_callout(callout_failure)
-        expect(page).to have_content("cannot be blank")
+        expect(page).to have_text("cannot be blank")
       end
     end
 
@@ -286,9 +286,9 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_callout(callout_failure)
         different_error = I18n.t("decidim.forms.questionnaires.response.max_choices_alert")
         expect(different_error).to eq("There are too many choices selected")
-        expect(page).to have_no_content(different_error)
+        expect(page).to have_no_text(different_error)
 
-        expect(page).to have_content("cannot be blank")
+        expect(page).to have_text("cannot be blank")
       end
     end
 
@@ -318,7 +318,7 @@ shared_examples_for "has questionnaire" do
 
       it "submits the form and shows errors" do
         expect(page).to have_callout(callout_failure)
-        expect(page).to have_content("cannot be blank")
+        expect(page).to have_text("cannot be blank")
       end
     end
 
@@ -505,7 +505,7 @@ shared_examples_for "has questionnaire" do
         visit questionnaire_public_path
         see_questionnaire_questions
 
-        expect(page).to have_content("You have already responded this form.")
+        expect(page).to have_text("You have already responded this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
     end
@@ -520,7 +520,7 @@ shared_examples_for "has questionnaire" do
 
         expect(page).to have_css(".js-check-box-collection input[type=checkbox]", count: 3)
 
-        expect(page).to have_no_content("Max choices:")
+        expect(page).to have_no_text("Max choices:")
 
         check response_options[0]["body"][:en]
         check response_options[1]["body"][:en]
@@ -534,7 +534,7 @@ shared_examples_for "has questionnaire" do
         visit questionnaire_public_path
         see_questionnaire_questions
 
-        expect(page).to have_content("You have already responded this form.")
+        expect(page).to have_text("You have already responded this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
 
@@ -544,20 +544,20 @@ shared_examples_for "has questionnaire" do
         visit questionnaire_public_path
         see_questionnaire_questions
 
-        expect(page).to have_content("Max choices: 2")
+        expect(page).to have_text("Max choices: 2")
 
         check response_options[0]["body"][:en]
         check response_options[1]["body"][:en]
         check response_options[2]["body"][:en]
 
-        expect(page).to have_content("too many choices")
+        expect(page).to have_text("too many choices")
 
         check "questionnaire_tos_agreement"
 
         accept_confirm { click_on "Submit" }
 
         expect(page).to have_callout("There was a problem responding")
-        expect(page).to have_content("are too many")
+        expect(page).to have_text("are too many")
 
         uncheck response_options[2]["body"][:en]
 
@@ -590,7 +590,7 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_css("div.response-questionnaire__sorting.js-collection-input", count: 5)
 
         %w(We all like dark chocolate).each do |term|
-          expect(page).to have_content(term)
+          expect(page).to have_text(term)
         end
       end
 
@@ -635,8 +635,8 @@ shared_examples_for "has questionnaire" do
 
         expect(page).to have_css(".js-radio-button-collection input[type=radio]", count: 4)
 
-        expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
-        expect(page).to have_content(response_options.map { |option| option["body"]["en"] }.join(" "))
+        expect(page).to have_text(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
+        expect(page).to have_text(response_options.map { |option| option["body"]["en"] }.join(" "))
 
         radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
 
@@ -652,7 +652,7 @@ shared_examples_for "has questionnaire" do
         visit questionnaire_public_path
         see_questionnaire_questions
 
-        expect(page).to have_content("You have already responded this form.")
+        expect(page).to have_text("You have already responded this form.")
         expect(page).to have_no_i18n_content(question.body)
 
         first_choice, last_choice = Decidim::Forms::Response.last.choices.pluck(:decidim_response_option_id, :decidim_question_matrix_row_id)
@@ -690,7 +690,7 @@ shared_examples_for "has questionnaire" do
           accept_confirm { click_on "Submit" }
 
           expect(page).to have_callout("There was a problem responding")
-          expect(page).to have_content("Choices are not complete")
+          expect(page).to have_text("Choices are not complete")
         end
       end
     end
@@ -719,8 +719,8 @@ shared_examples_for "has questionnaire" do
 
         expect(page).to have_css(".js-check-box-collection input[type=checkbox]", count: 6)
 
-        expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
-        expect(page).to have_content(response_options.map { |option| option["body"]["en"] }.join(" "))
+        expect(page).to have_text(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
+        expect(page).to have_text(response_options.map { |option| option["body"]["en"] }.join(" "))
 
         checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
 
@@ -737,7 +737,7 @@ shared_examples_for "has questionnaire" do
         visit questionnaire_public_path
         see_questionnaire_questions
 
-        expect(page).to have_content("You have already responded this form.")
+        expect(page).to have_text("You have already responded this form.")
         expect(page).to have_no_i18n_content(question.body)
 
         first_choice, second_choice, third_choice = Decidim::Forms::Response.last.choices.pluck(:decidim_response_option_id, :decidim_question_matrix_row_id)
@@ -754,7 +754,7 @@ shared_examples_for "has questionnaire" do
           visit questionnaire_public_path
           see_questionnaire_questions
 
-          expect(page).to have_content("Max choices: 2")
+          expect(page).to have_text("Max choices: 2")
 
           checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
 
@@ -762,25 +762,25 @@ shared_examples_for "has questionnaire" do
           check checkboxes[1][:id]
           check checkboxes[2][:id]
 
-          expect(page).to have_content("too many choices")
+          expect(page).to have_text("too many choices")
 
           check checkboxes[3][:id]
           check checkboxes[4][:id]
 
-          expect(page).to have_content("too many choices")
+          expect(page).to have_text("too many choices")
 
           check checkboxes[5][:id]
 
           uncheck checkboxes[0][:id]
 
-          expect(page).to have_content("too many choices")
+          expect(page).to have_text("too many choices")
 
           check "questionnaire_tos_agreement"
 
           accept_confirm { click_on "Submit" }
 
           expect(page).to have_callout("There was a problem responding")
-          expect(page).to have_content("are too many")
+          expect(page).to have_text("are too many")
 
           checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
 
@@ -806,7 +806,7 @@ shared_examples_for "has questionnaire" do
           accept_confirm { click_on "Submit" }
 
           expect(page).to have_callout("There was a problem responding")
-          expect(page).to have_content("Choices are not complete")
+          expect(page).to have_text("Choices are not complete")
         end
       end
 

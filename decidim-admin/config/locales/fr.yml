@@ -877,6 +877,7 @@ fr:
       officializations:
         block:
           error: Une erreur s'est produite lors du blocage du participant.
+          no_user: Aucun utilisateur trouvé
           success: Participant bloqué avec succès.
         bulk_action:
           block:
@@ -911,6 +912,7 @@ fr:
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
         show_email:
+          no_user: Aucun utilisateur trouvé
           title: Afficher l'e-mail
         show_email_modal:
           description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir son adresse mail. Cette action sera enregistrée.

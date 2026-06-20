@@ -20,8 +20,8 @@ describe "Proposals Breadcrumb" do
       visit router.root_path
 
       within ".menu-bar" do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
       end
     end
   end
@@ -31,9 +31,9 @@ describe "Proposals Breadcrumb" do
       visit router.proposal_path(proposal)
 
       within ".menu-bar" do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(proposal.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(proposal.title))
       end
     end
 
@@ -49,9 +49,9 @@ describe "Proposals Breadcrumb" do
 
       it "shows the correct information in breadcrumb (space, component, proposal)" do
         within(".menu-bar") do
-          expect(page).to have_content(translated(component.participatory_space.title))
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(official_proposal.title))
+          expect(page).to have_text(translated(component.participatory_space.title))
+          expect(page).to have_text(translated(component.name))
+          expect(page).to have_text(translated(official_proposal.title))
         end
       end
     end
@@ -80,9 +80,9 @@ describe "Proposals Breadcrumb" do
 
     it "shows the correct information in breadcrumb (space, component, proposal)" do
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(proposal.reload.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(proposal.reload.title))
       end
     end
   end
@@ -109,10 +109,10 @@ describe "Proposals Breadcrumb" do
       visit router.proposal_path(emendation)
 
       within ".menu-bar" do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(emendation.title))
-        expect(page).to have_content("Amendment")
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(emendation.title))
+        expect(page).to have_text("Amendment")
       end
     end
   end

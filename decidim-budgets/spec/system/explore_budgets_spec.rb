@@ -19,7 +19,7 @@ describe "Explore Budgets", :slow do
     it "shows an empty page with a message" do
       visit_component
 
-      expect(page).to have_content("There are no budgets yet")
+      expect(page).to have_text("There are no budgets yet")
     end
   end
 
@@ -32,7 +32,7 @@ describe "Explore Budgets", :slow do
 
     it "shows the component name in the sidebar" do
       within("aside") do
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.name))
       end
     end
 
@@ -40,11 +40,11 @@ describe "Explore Budgets", :slow do
       expect(page).to have_css(".card--list__item", count: 1)
 
       budgets.each do |budget|
-        expect(page).to have_content(translated(budget.title))
-        expect(page).to have_content(strip_tags(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0)))
+        expect(page).to have_text(translated(budget.title))
+        expect(page).to have_text(strip_tags(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0)))
       end
-      expect(page).to have_no_content("Remove vote")
-      expect(page).to have_content("0 projects")
+      expect(page).to have_no_text("Remove vote")
+      expect(page).to have_text("0 projects")
     end
   end
 
@@ -63,7 +63,7 @@ describe "Explore Budgets", :slow do
 
     it "shows the component name in the sidebar" do
       within("aside") do
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.name))
       end
     end
 
@@ -71,11 +71,11 @@ describe "Explore Budgets", :slow do
       expect(page).to have_css(".card--list__item", count: 6)
 
       budgets.each do |budget|
-        expect(page).to have_content(translated(budget.title))
-        expect(page).to have_content(strip_tags(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0)))
+        expect(page).to have_text(translated(budget.title))
+        expect(page).to have_text(strip_tags(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0)))
       end
-      expect(page).to have_no_content("Remove vote")
-      expect(page).to have_content("0 projects")
+      expect(page).to have_no_text("Remove vote")
+      expect(page).to have_text("0 projects")
     end
 
     describe "budget list item" do
@@ -137,7 +137,7 @@ describe "Explore Budgets", :slow do
         it "is identified" do
           visit_component
 
-          expect(item.native["class"]).to have_content("budget__card__list-budget--progress")
+          expect(item.native["class"]).to have_text("budget__card__list-budget--progress")
         end
 
         it "shows a finish voting link" do
@@ -149,15 +149,15 @@ describe "Explore Budgets", :slow do
         it "shows the projects count and it has no remove vote link" do
           visit_component
 
-          expect(page).to have_no_content("Remove vote")
-          expect(item).to have_content("3 projects")
+          expect(page).to have_no_text("Remove vote")
+          expect(item).to have_text("3 projects")
         end
 
         it "shows the progress icon" do
           visit_component
 
           expect(item).to have_css("div.card__highlight-text svg.fill-warning")
-          expect(item).to have_content("Incomplete")
+          expect(item).to have_text("Incomplete")
         end
       end
 
@@ -181,25 +181,25 @@ describe "Explore Budgets", :slow do
         it "is identified" do
           visit_component
 
-          expect(item.native["class"]).to have_content("budget__card__list-budget--voted")
+          expect(item.native["class"]).to have_text("budget__card__list-budget--voted")
         end
 
         it "shows the check icon" do
           visit_component
 
           expect(item).to have_css("div.card__highlight-text svg.fill-success")
-          expect(item).to have_content("Completed")
+          expect(item).to have_text("Completed")
           expect(item).to have_link("See projects", href: budget_projects_path(budget))
         end
 
         it "shows the projects count" do
-          expect(page).to have_content("0 projects")
+          expect(page).to have_text("0 projects")
         end
 
         it "has a link to remove vote" do
           visit_component
 
-          expect(item).to have_content("Delete your vote")
+          expect(item).to have_text("Delete your vote")
           within item do
             accept_confirm { click_on "Delete your vote" }
             expect(Decidim::Budgets::Order.where(budget:)).to be_blank
@@ -218,7 +218,7 @@ describe "Explore Budgets", :slow do
           it "has no link to remove vote" do
             visit_component
 
-            expect(item).to have_no_content("Delete your vote")
+            expect(item).to have_no_text("Delete your vote")
           end
         end
 
@@ -234,7 +234,7 @@ describe "Explore Budgets", :slow do
           it "has no link to remove vote" do
             visit_component
 
-            expect(item).to have_no_content("Delete your vote")
+            expect(item).to have_no_text("Delete your vote")
           end
         end
       end

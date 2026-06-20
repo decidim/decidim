@@ -11,7 +11,7 @@ describe Decidim::Admin::HomepageContentBlockCell, type: :cell do
   let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
 
   it "renders the content block name" do
-    expect(subject).to have_content("Hero image")
+    expect(subject).to have_text("Hero image")
   end
 
   it "renders a link to edit the content block" do

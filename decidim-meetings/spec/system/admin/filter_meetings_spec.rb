@@ -111,7 +111,7 @@ describe "Admin filters meetings" do
     it "can be searched by title" do
       search_by_text(meeting2_title)
 
-      expect(page).to have_content(meeting2_title)
+      expect(page).to have_text(meeting2_title)
     end
   end
 

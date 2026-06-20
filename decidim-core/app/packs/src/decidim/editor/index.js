@@ -9,7 +9,7 @@ import { uniqueId } from "src/decidim/editor/common/helpers";
  * Creates a new rich text editor instance.
  *
  * @param {HTMLElement} container The element that contains the editor.
- * @return {Editor} The rich text editor instance.
+ * @returns {Editor} editor - The rich text editor instance.
  */
 export default function createEditor(container) {
   const input = container.parentElement.querySelector("input[type=hidden]");

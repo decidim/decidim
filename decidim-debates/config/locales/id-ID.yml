@@ -78,14 +78,6 @@ id:
             title: Judul
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              Hai,
-              %{author_name} %{author_nickname}, yang Anda ikuti, telah membuat debat baru "%{resource_title}". Lihat dan berkontribusi:
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
-            email_subject: Perdebatan baru "%{resource_title}" oleh %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> menciptakan debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Pembuatan debat tidak lagi aktif dalam %{participatory_space_title}. Anda masih dapat berpartisipasi dalam debat terbuka dari halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.

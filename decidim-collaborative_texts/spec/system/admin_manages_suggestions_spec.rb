@@ -55,16 +55,16 @@ describe "Admin edits documents" do
   end
 
   it "can apply a suggestion" do
-    expect(page).to have_content(translated(document.title))
+    expect(page).to have_text(translated(document.title))
 
-    expect(page).to have_content("1 suggestions")
-    expect(page).to have_content("2 suggestions")
-    expect(page).to have_content("First title", count: 2) # TOC & content
-    expect(page).to have_content("Second title", count: 2)
-    expect(page).to have_content("Third paragraph")
-    expect(page).to have_no_content("A new content")
-    expect(page).to have_no_content("Added content")
-    expect(page).to have_no_content("A meaningful content")
+    expect(page).to have_text("1 suggestions")
+    expect(page).to have_text("2 suggestions")
+    expect(page).to have_text("First title", count: 2) # TOC & content
+    expect(page).to have_text("Second title", count: 2)
+    expect(page).to have_text("Third paragraph")
+    expect(page).to have_no_text("A new content")
+    expect(page).to have_no_text("Added content")
+    expect(page).to have_no_text("A meaningful content")
     expect(page).to have_no_button("Cancel")
     expect(page).to have_no_button("Draft a new version")
     expect(page).to have_no_button("Consolidate accepted suggestions")
@@ -72,8 +72,8 @@ describe "Admin edits documents" do
     click_on "2 suggestions"
     click_on "Suggestion controls", match: :first
     click_on "Apply"
-    expect(page).to have_no_content("Third paragraph")
-    expect(page).to have_content("A new content")
+    expect(page).to have_no_text("Third paragraph")
+    expect(page).to have_text("A new content")
     expect(page).to have_button("Cancel")
     expect(page).to have_button("Draft a new version")
     expect(page).to have_button("Consolidate accepted suggestions")
@@ -83,47 +83,47 @@ describe "Admin edits documents" do
       click_on "Suggestion controls"
     end
     click_on "Apply"
-    expect(page).to have_content("Third paragraph")
-    expect(page).to have_no_content("A new content")
-    expect(page).to have_content("Added content")
+    expect(page).to have_text("Third paragraph")
+    expect(page).to have_no_text("A new content")
+    expect(page).to have_text("Added content")
 
     click_on "1 suggestions"
     click_on "Suggestion controls"
     click_on "Apply"
-    expect(page).to have_no_content("Second title")
-    expect(page).to have_no_content("A new content")
-    expect(page).to have_no_content("Added content")
-    expect(page).to have_content("A meaningful content")
+    expect(page).to have_no_text("Second title")
+    expect(page).to have_no_text("A new content")
+    expect(page).to have_no_text("Added content")
+    expect(page).to have_text("A meaningful content")
 
     click_on "2 suggestions"
     all(".collaborative-texts-suggestions-box-item-dropdown").first.hover
-    expect(page).to have_no_content("A meaningful content")
-    expect(page).to have_content("Second title", count: 1) # TOC is not rendered on hover
-    expect(page).to have_content("A new content")
+    expect(page).to have_no_text("A meaningful content")
+    expect(page).to have_text("Second title", count: 1) # TOC is not rendered on hover
+    expect(page).to have_text("A new content")
   end
 
   it "can cancel applied suggestions" do
     click_on "2 suggestions"
     click_on "Suggestion controls", match: :first
     click_on "Apply"
-    expect(page).to have_no_content("Third paragraph")
-    expect(page).to have_content("A new content")
+    expect(page).to have_no_text("Third paragraph")
+    expect(page).to have_text("A new content")
 
     click_on "2 suggestions"
     click_on "Suggestion controls", match: :first
     click_on "Restore"
-    expect(page).to have_content("Third paragraph")
-    expect(page).to have_no_content("A new content")
+    expect(page).to have_text("Third paragraph")
+    expect(page).to have_no_text("A new content")
 
     click_on "1 suggestions"
     click_on "Suggestion controls"
     click_on "Apply"
 
-    expect(page).to have_content("First title", count: 2)
-    expect(page).to have_no_content("Second title")
-    expect(page).to have_no_content("Third paragraph")
-    expect(page).to have_no_content("A new content")
-    expect(page).to have_content("A meaningful content")
+    expect(page).to have_text("First title", count: 2)
+    expect(page).to have_no_text("Second title")
+    expect(page).to have_no_text("Third paragraph")
+    expect(page).to have_no_text("A new content")
+    expect(page).to have_text("A meaningful content")
 
     within ".collaborative-texts-manager" do
       click_on "Cancel"
@@ -132,12 +132,12 @@ describe "Admin edits documents" do
     expect(page).to have_no_button("Cancel")
     expect(page).to have_no_button("Draft a new version")
     expect(page).to have_no_button("Consolidate accepted suggestions")
-    expect(page).to have_content("First title", count: 2)
-    expect(page).to have_content("Second title", count: 2)
-    expect(page).to have_content("Third paragraph")
-    expect(page).to have_no_content("A new content")
-    expect(page).to have_no_content("Added content")
-    expect(page).to have_no_content("A meaningful content")
+    expect(page).to have_text("First title", count: 2)
+    expect(page).to have_text("Second title", count: 2)
+    expect(page).to have_text("Third paragraph")
+    expect(page).to have_no_text("A new content")
+    expect(page).to have_no_text("Added content")
+    expect(page).to have_no_text("A meaningful content")
   end
 
   it "can draft a new version" do
@@ -150,11 +150,11 @@ describe "Admin edits documents" do
     end
     accept_confirm
 
-    expect(page).to have_content("Edit collaborative texts")
+    expect(page).to have_text("Edit collaborative texts")
     expect(page).to have_checked_field("Draft version")
-    expect(page).to have_content("Version 1")
-    expect(page).to have_content("Version 2")
-    expect(page).to have_content("(Draft version)")
+    expect(page).to have_text("Version 1")
+    expect(page).to have_text("Version 2")
+    expect(page).to have_text("(Draft version)")
     document.document_versions.reload
     expect(document.body).to include("First title")
     expect(document.body).to include("First <b>paragraph</b>")
@@ -184,10 +184,10 @@ describe "Admin edits documents" do
 
     accept_confirm
 
-    expect(page).to have_content("First title", count: 2)
-    expect(page).to have_no_content("Second title")
-    expect(page).to have_content("Second paragraph")
-    expect(page).to have_content("A meaningful content")
+    expect(page).to have_text("First title", count: 2)
+    expect(page).to have_no_text("Second title")
+    expect(page).to have_text("Second paragraph")
+    expect(page).to have_text("A meaningful content")
     document.document_versions.reload
     expect(document.body).to include("First title")
     expect(document.body).to include("First <b>paragraph</b>")

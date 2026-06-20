@@ -43,8 +43,8 @@ describe "Custom map" do
 
   shared_examples "working custom map" do
     it "allows overriding the map controller" do
-      expect(page).to have_content("Custom map started")
-      expect(page).to have_content("Custom map ready")
+      expect(page).to have_text("Custom map started")
+      expect(page).to have_text("Custom map ready")
     end
 
     it "shows the map marker" do
