@@ -859,6 +859,7 @@ eu:
         errors:
           device_not_supported: Zure gailuak ez ditu kokapen-zerbitzuak onartzen. Mesedez, sartu helbidea eskuz.
           no_device_location: Barkatu, ezin izan dugu zure kokapena antzeman. Mesedez, sartu helbidea eskuz.
+        locating: Lokalizatzen...
         use_my_location: Erabili nire egungo kokapena
       invite_coauthors:
         cancel:
