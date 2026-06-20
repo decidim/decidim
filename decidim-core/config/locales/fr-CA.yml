@@ -618,6 +618,11 @@ fr-CA:
           all: Tout
         filter_scope_values:
           all: Tout
+    delete_user_mailer:
+      delete:
+        body_1: Votre compte a été désactivé et n'est plus accessible. La suppression permanente de vos données personnelles a été programmée, conformément à nos politiques de conservation.
+        hello: Cher(ère) %{username},
+      subject: Votre compte a été supprimé
     devise:
       omniauth_registrations:
         create:
@@ -1372,13 +1377,6 @@ fr-CA:
         log_in: se connecter
         never_logged_in: jamais connecté
         subject: Avertissement de compte inactif
-      removal_notification:
-        body: Votre compte %{organization_name} a été supprimé en raison de son inactivité.
-        greetings_html: |
-          Cordialement,<br>
-          %{organization_name}
-        hello: Cher(ère) %{username},
-        subject: Compte inactif supprimé
     participatory_space:
       pages:
         user_profile:
