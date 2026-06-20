@@ -660,6 +660,13 @@ eu:
           all: Guztiak
         filter_taxonomy_values:
           all: Guztiak
+    delete_user_mailer:
+      delete:
+        body_1: Zure kontua desaktibatu egin da eta ezin da sartu. Zure datu pertsonalak behin betiko ezabatuko dira, datuak gordetzeko gure politikekin bat etorriz.
+        body_2: Segurtasun arrazoiengatik, baimenarekin lotutako datu batzuk gordeko dira; kontu berri bat sortu eta berriro baimena ematen baduzu, zure kontu berriarekin lotuta egon daiteke.
+        greetings_html: Adeitasunez, <br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: '%{username}, estimatua:'
+      subject: Zure kontua ezabatu egin da
     devise:
       omniauth_registrations:
         create:
@@ -1538,12 +1545,6 @@ eu:
         log_in: hasi saioa
         never_logged_in: inoiz ez konektatua
         subject: Kontu inaktiboaren abisua
-      removal_notification:
-        body: Zure %{organization_name} kontua ezabatu egin da inaktibitateagatik.
-        greetings_html: |
-          Adeitasunez,<br>
-          %{organization_name}
-        subject: Kontu inaktiboa ezabatua
     participatory_space:
       pages:
         user_profile:
