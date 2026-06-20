@@ -1526,12 +1526,6 @@ cs:
         log_in: přihlásit se
         never_logged_in: nikdy se nepřihlásil
         subject: Upozornění na neaktivní účet
-      removal_notification:
-        body: Váš %{organization_name} účet byl odstraněn z důvodu neaktivity.
-        greetings_html: |
-          S pozdravem,<br>
-          %{organization_name}
-        subject: Neaktivní účet byl smazán
     participatory_space:
       pages:
         user_profile:
