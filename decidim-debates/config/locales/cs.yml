@@ -81,8 +81,6 @@ cs:
             comments_warning: Jakmile je vložen první komentář, zvolenou možnost zobrazení nelze změnit.
             debate_type: Typ debaty
             edit_attachments: Upravit přílohy
-            errors:
-              comments_layout_locked: Po odeslání komentářů nelze změnit rozložení komentáře.
             finite: Konečný (s počátečním a koncovým obdobím)
             open: Otevřený (žádné počáteční nebo koncové období)
             single_column: 'Jeden sloupec: Komentáře jsou zobrazeny chronologicky a mohou mít odpovědi.'
