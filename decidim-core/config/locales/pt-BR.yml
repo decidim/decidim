@@ -1489,12 +1489,6 @@ pt-BR:
         log_in: iniciar sessão
         never_logged_in: nunca iniciou sessão
         subject: Aviso de conta inativa
-      removal_notification:
-        body: Sua conta %{organization_name} foi excluída devido a inatividade.
-        greetings_html: |
-          Atenciosamente,<br>
-          %{organization_name}
-        subject: Conta inativa excluída
     participatory_space_members:
       index:
         members: Membros
