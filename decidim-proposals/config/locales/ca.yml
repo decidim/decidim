@@ -763,6 +763,7 @@ ca:
         errors:
           device_not_supported: El teu dispositiu no admet serveis d'ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
           no_device_location: Si us plau, no hem pogut detectar la teva ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
+        locating: Localitzant...
         use_my_location: Fer servir la meva ubicació actual
       invite_coauthors:
         cancel:
