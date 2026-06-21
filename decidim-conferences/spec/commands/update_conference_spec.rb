@@ -95,6 +95,19 @@ module Decidim::Conferences
         end
       end
 
+      context "when there is a trashed space with the same slug" do
+        let!(:trashed_space) { create(:conference, :trashed, slug: "slug", organization:) }
+
+        let(:form) do
+          Admin::ConferenceForm.from_params(params.deep_merge(conference: { slug: "slug" })).with_context(context)
+        end
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:invalid)
+          expect(form.errors[:slug]).not_to be_empty
+        end
+      end
+
       describe "when the conference is not valid" do
         before do
           allow(form).to receive(:invalid?).and_return(false)

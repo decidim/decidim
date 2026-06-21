@@ -3,7 +3,7 @@
     var $proposalVotesCount = $('#proposal-<%= proposal.id %>-votes-count');
 
     if($proposalVotesCount[0]) {
-      morphdom($proposalVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/votes_count", locals: { proposal:, from_proposals_list: @from_proposals_list }).strip.html_safe %>');
+      morphdom($proposalVotesCount[0], '<%= j(cell("decidim/proposals/proposal_votes_count", proposal, from_proposals_list: @from_proposals_list).to_s).strip.html_safe %>');
     }
 
     var $proposalVoteButton = $('#proposal-<%= proposal.id %>-vote-button');

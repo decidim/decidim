@@ -15,5 +15,15 @@ module Decidim
       expect(described_class.log_presenter_class_for(:foo))
         .to eq Decidim::AdminLog::UserModerationPresenter
     end
+
+    describe ".ransackable_attributes" do
+      it "allows sorting by created_at" do
+        expect(described_class.ransackable_attributes).to include("created_at")
+      end
+
+      it "allows sorting by report_count" do
+        expect(described_class.ransackable_attributes).to include("report_count")
+      end
+    end
   end
 end

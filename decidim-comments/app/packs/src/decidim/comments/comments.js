@@ -99,5 +99,5 @@ const commentsInitializer = () => {
   window.addEventListener("resize", handleResize);
 };
 
-// If no jQuery is used the Tribute feature used in comments to autocomplete mentions stops working
+// Keep this on turbo load so comments are mounted after each visit
 document.addEventListener("turbo:load", commentsInitializer);

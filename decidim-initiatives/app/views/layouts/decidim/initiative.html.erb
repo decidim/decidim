@@ -4,8 +4,8 @@
 <% provide :meta_image_url, current_participatory_space.type.attached_uploader(:banner_image).url %>
 
 <%= render "layouts/decidim/application" do %>
-  <%= render layout: "layouts/decidim/shared/layout_center" do %>
-    <main>
+  <%= render layout: "layouts/decidim/shared/layout_center", locals: { main_enabled: false } do %>
+    <main role="main">
       <%= yield %>
     </main>
     <% if content_for? :expanded %>

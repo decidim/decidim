@@ -33,11 +33,10 @@ module Decidim
       protected
 
       def replace_pattern(text, pattern)
-        return text unless text.respond_to?(:gsub)
-
-        text.gsub(pattern) do
-          blob_gid = Regexp.last_match(1)
-          variation_key = Regexp.last_match(3)
+        replace_pattern_by_context(text, pattern) do |match, _context|
+          match_data = match.match(GLOBAL_ID_REGEX)
+          blob_gid = match_data[1]
+          variation_key = match_data[3]
 
           blob = GlobalID::Locator.locate(blob_gid)
           if variation_key
@@ -50,8 +49,6 @@ module Decidim
           else
             blob_url(blob)
           end
-        rescue ActiveRecord::RecordNotFound => _e
-          ""
         end
       end
 

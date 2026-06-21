@@ -1,0 +1,12 @@
+<% if participatory_texts_variant? %>
+  <%= render :participatory_texts %>
+<% else %>
+  <%= cell(
+        "decidim/progress_bar",
+        progress,
+        total:,
+        units_name: "decidim.proposals.proposals.votes_count.count",
+        element_id:,
+        class: progress_bar_class
+      ) %>
+<% end %>

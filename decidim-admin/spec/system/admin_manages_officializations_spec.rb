@@ -48,6 +48,75 @@ describe "Admin manages officializations" do
     it_behaves_like "paginating a collection"
   end
 
+  describe "sorting participants by creation date" do
+    let!(:newest_user) { create(:user, :confirmed, name: "Newest user", organization:, created_at: 1.day.from_now) }
+    let!(:old_user) { create(:user, :confirmed, name: "Old user", organization:, created_at: 3.weeks.ago) }
+    let!(:recent_user) { create(:user, :confirmed, name: "Recent user", organization:, created_at: 1.week.ago) }
+
+    before do
+      within_admin_sidebar_menu { click_on "Participants" }
+    end
+
+    it "sorts by created_at descending when 'Created at' is clicked" do
+      within "table thead" do
+        click_on "Created At"
+      end
+
+      names = page.all("table tbody tr td:first-child").map(&:text)
+      expect(names.index("Newest user")).to be < names.index("Recent user")
+      expect(names.index("Recent user")).to be < names.index("Old user")
+    end
+
+    it "sorts by created_at ascending when clicked again" do
+      within "table thead" do
+        click_on "Created At"
+        click_on "Created At"
+      end
+
+      names = page.all("table tbody tr td:first-child").map(&:text)
+      expect(names.index("Old user")).to be < names.index("Recent user")
+      expect(names.index("Recent user")).to be < names.index("Newest user")
+    end
+  end
+
+  describe "sorting participants by report count" do
+    let!(:user_mid) { create(:user, :confirmed, name: "Mid reports", organization:) }
+    let!(:user_no_moderation) { create(:user, :confirmed, name: "No moderation", organization:) }
+    let!(:user_zero) { create(:user, :confirmed, name: "Zero reports", organization:) }
+    let!(:user_high) { create(:user, :confirmed, name: "High reports", organization:) }
+
+    before do
+      create(:user_moderation, user: user_mid, report_count: 1)
+      create(:user_moderation, user: user_zero, report_count: 0)
+      create(:user_moderation, user: user_high, report_count: 10)
+      within_admin_sidebar_menu { click_on "Participants" }
+    end
+
+    it "sorts by report count descending when 'Reports' is clicked" do
+      within "table thead" do
+        click_on "Reports"
+      end
+
+      names = page.all("table tbody tr td:first-child").map(&:text)
+      expect(names.index("High reports")).to be < names.index("Mid reports")
+      expect(names.index("Mid reports")).to be < names.index("Zero reports")
+      expect(names.index("Mid reports")).to be < names.index("No moderation")
+    end
+
+    it "treats users without a moderation row as zero reports" do
+      visit "#{current_path}?q%5Bs%5D=user_moderation_report_count+asc"
+
+      names = page.all("table tbody tr td:first-child").map(&:text)
+      no_moderation_idx = names.index("No moderation")
+      zero_idx = names.index("Zero reports")
+      mid_idx = names.index("Mid reports")
+      high_idx = names.index("High reports")
+
+      expect([no_moderation_idx, zero_idx].max).to be < mid_idx
+      expect(mid_idx).to be < high_idx
+    end
+  end
+
   describe "blocked users" do
     let!(:user) { create(:user, :blocked, organization:) }
 
