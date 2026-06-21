@@ -50,8 +50,6 @@ es-MX:
       meeting_registration_invite:
         email: Correo electrónico
         name: Nombre
-      response:
-        add_documents: Añadir documentos
       validate_registration_code:
         code: Código
     errors:
