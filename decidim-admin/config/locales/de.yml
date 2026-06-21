@@ -1064,10 +1064,6 @@ de:
           next_title: Nächstes Element
           previous: Zurück
           previous_title: Vorheriges Element
-        gallery:
-          add_images: Bilder hinzufügen
-          edit_images: Bilder bearbeiten
-          gallery_legend: Bildergalerie hinzufügen (Optional)
       static_page_topics:
         create:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
