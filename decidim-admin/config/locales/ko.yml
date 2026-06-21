@@ -568,11 +568,6 @@ ko:
       share_tokens:
         actions:
           destroy: 삭제
-      shared:
-        gallery:
-          add_images: 이미지 추가
-          edit_images: 이미지 편집
-          gallery_legend: 이미지 갤러리 추가하기 (선택사항)
       static_page_topics:
         update:
           success: 주제가 성공적으로 업데이트되었습니다
