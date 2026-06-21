@@ -18,6 +18,7 @@ export default class TabsController extends Controller {
 
     this._onKeydown = this.onKeydown.bind(this);
     this._onClick = this.onClick.bind(this);
+    this._onFocus = this.onFocus.bind(this);
 
     for (let index = 0; index < this.tabs.length; index += 1) {
       let tab = this.tabs[index];
@@ -33,6 +34,7 @@ export default class TabsController extends Controller {
           this.firstTab = tab;
         }
         this.lastTab = tab;
+        tabpanel.addEventListener("focus", this._onFocus);
       } else {
         console.error(`Tab at index ${index} references a nonexistent panel:`, tab.getAttribute("aria-controls"));
       }
@@ -57,6 +59,9 @@ export default class TabsController extends Controller {
       tab.removeEventListener("keydown", this._onKeydown);
       tab.removeEventListener("click", this._onClick);
     }
+    for (let tabPanel of this.tabpanels) {
+      tabPanel.removeEventListener("focus", this._onFocus);
+    }
   }
 
   setSelectedTab(currentTab, setFocus) {
@@ -72,6 +77,7 @@ export default class TabsController extends Controller {
         this.tabpanels[index].setAttribute("aria-hidden", "false");
         if (setFocus && tab) {
           tab.focus();
+          this.tabpanels[index].dispatchEvent(new CustomEvent("focus"));
         }
       } else {
         this.setInactiveTab(tab)
@@ -118,6 +124,19 @@ export default class TabsController extends Controller {
   }
 
   /* EVENT HANDLERS */
+  onFocus(event) {
+    let target = event.target;
+
+    let content = target.querySelector(".editor .ProseMirror");
+    if (content) {
+      content.focus()
+    } else {
+      content = target.querySelector("input")
+      if (content) {
+        content.focus();
+      }
+    }
+  }
 
   onKeydown(event) {
     let tgt = event.currentTarget;
