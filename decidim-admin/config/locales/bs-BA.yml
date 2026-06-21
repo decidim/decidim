@@ -452,10 +452,6 @@ bs:
           update: Ažuriraj
         new:
           create: Stvori
-      shared:
-        gallery:
-          add_images: Dodaj slike
-          gallery_legend: Dodaj galeriju slika (opciono)
       titles:
         area_types: Tipovi oblasti
         pages: Stranice
