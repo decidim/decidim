@@ -12,6 +12,7 @@ fr:
         plural: Pluriel
       attachment:
         attachment_collection_id: Dossier
+        attachments: Pièces jointes
         description: Description
         file: Fichier
         title: Nom de la pièce jointe ou de l'image
@@ -1071,10 +1072,10 @@ fr:
           next_title: Élément suivant
           previous: Précédent
           previous_title: Élément précédent
-        gallery:
-          add_images: Ajouter des images
-          edit_images: Modifier les images
-          gallery_legend: Ajouter une galerie d'images (facultatif)
+        attachments:
+          add_attachments: Ajouter des pièces jointes
+          attachment_legend: Ajouter une galerie de pièces jointes (facultatif)
+          edit_attachments: Modifier les pièces jointes
       static_page_topics:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau sujet.
@@ -1287,6 +1288,11 @@ fr:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lorsque vous représentez un participant non représenté.
+      file_help:
+        attachment:
+          explanation: 'Instructions concernant le fichier :'
+          message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont pris en charge
+          message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
     moderations:
       actions:
         expand: Agrandir
