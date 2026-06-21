@@ -1065,10 +1065,6 @@ pt-BR:
           next_title: Próximo item
           previous: Anterior
           previous_title: Item anterior
-        gallery:
-          add_images: Adicione imagens
-          edit_images: Editar imagens
-          gallery_legend: Adicionar uma galeria de imagens (Opcional)
       static_page_topics:
         create:
           error: Ocorreu um erro ao criar um novo tópico.
