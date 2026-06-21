@@ -1,6 +1,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
+import "src/decidim/admin/tab_focus"
 import "src/decidim/admin/application"
 import "src/decidim/admin/resources_permissions"
 import "src/decidim/admin/newsletters"
