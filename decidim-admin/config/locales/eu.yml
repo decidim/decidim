@@ -12,6 +12,7 @@ eu:
         plural: Plurala
       attachment:
         attachment_collection_id: Karpeta
+        attachments: Erantsitako fitxategiak
         description: Deskribapena
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
@@ -1071,10 +1072,10 @@ eu:
           next_title: Hurrengo elementua
           previous: Aurrekoa
           previous_title: Aurreko elementua
-        gallery:
-          add_images: Gehitu irudiak
-          edit_images: Editatu irudiak
-          gallery_legend: Gehitu irudi-galeria bat (aukerakoa)
+        attachments:
+          add_attachments: Gehitu eranskinak
+          attachment_legend: Gehitu irudi-galeria bat (aukerakoa)
+          edit_attachments: Editatu eranskinak
       static_page_topics:
         create:
           error: Arazo bat egon da beste gai bat sortzean.
@@ -1289,6 +1290,11 @@ eu:
       errors:
         impersonate_user:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
+      file_help:
+        attachment:
+          explanation: 'Fitxategiako jarraibieak:'
+          message_1: CSV, JSON eta Excel (.xlsx) fitxategiak onartzen dira
+          message_2: CSV fitxategietarako, zutabeen arteko bereizgailuak erdikolona (";") izan behar du
     moderations:
       actions:
         expand: Zabaldu
