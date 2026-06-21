@@ -63,9 +63,7 @@ fr:
               allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Doit être ré-attachée
-            add_photos:
+            add_attachments:
               needs_to_be_reattached: Doit être ré-attachée
             body:
               cant_be_equal_to_template: ne peut pas être égal au modèle
