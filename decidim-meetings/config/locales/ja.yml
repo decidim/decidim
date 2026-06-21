@@ -50,8 +50,6 @@ ja:
       meeting_registration_invite:
         email: Eメールアドレス
         name: 名前
-      response:
-        add_documents: ドキュメントを追加
       validate_registration_code:
         code: コード
     errors:
