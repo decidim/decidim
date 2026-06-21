@@ -520,10 +520,6 @@ zh-CN:
       share_tokens:
         actions:
           destroy: 删除
-      shared:
-        gallery:
-          add_images: 添加图像
-          gallery_legend: 添加图片库 (可选)
       static_page_topics:
         create:
           error: 创建一个新主题时出现问题。
