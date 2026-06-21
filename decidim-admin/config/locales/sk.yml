@@ -1078,10 +1078,8 @@ sk:
           next_title: Nasledujúca položka
           previous: Predchádzajúci
           previous_title: Predchádzajúca položka
-        gallery:
-          add_images: Pridať obrázky
-          edit_images: Upraviť obrázky
-          gallery_legend: Pridať galériu (voliteľné)
+        attachments:
+          add_attachments: Nové prílohy
       static_page_topics:
         create:
           error: Pri tvorbe novej témy nastala chyba.
