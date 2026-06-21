@@ -973,10 +973,6 @@ tr:
           next_title: Sonraki öğe
           previous: Önceki
           previous_title: Önceki öğe
-        gallery:
-          add_images: Resim ekle
-          edit_images: Resimleri düzenle
-          gallery_legend: Bir resim galerisi ekleyin (İsteğe bağlı)
       static_page_topics:
         create:
           error: Yeni bir konu oluştururken bir hata oluştu.
