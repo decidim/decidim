@@ -37,7 +37,7 @@ module Decidim
             has_address:,
             latitude:,
             longitude:,
-            add_documents: attachment_params
+            add_attachments: attachment_params
           }
         end
 
