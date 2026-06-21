@@ -50,8 +50,6 @@ cs:
       meeting_registration_invite:
         email: E-mail
         name: Jméno
-      response:
-        add_documents: Přidat dokumenty
       validate_registration_code:
         code: Kód
     errors:
