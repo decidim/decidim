@@ -851,10 +851,6 @@ pl:
           next_title: Następny element
           previous: Poprzedni
           previous_title: Poprzedni element
-        gallery:
-          add_images: Dodaj obrazy
-          edit_images: Edytuj obrazy
-          gallery_legend: Dodaj galerię obrazów (opcjonalnie)
       static_page_topics:
         create:
           error: Wystąpił błąd podczas tworzenia nowego tematu.
