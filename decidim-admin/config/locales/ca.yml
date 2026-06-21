@@ -12,6 +12,7 @@ ca:
         plural: Plural
       attachment:
         attachment_collection_id: Carpeta
+        attachments: Fitxers adjunts
         description: Descripció
         file: Arxiu
         title: Nom de l'adjunt o imatge
@@ -1071,10 +1072,10 @@ ca:
           next_title: Següent element
           previous: Anterior
           previous_title: Element anterior
-        gallery:
-          add_images: Afegir imatges
-          edit_images: Editar imatges
-          gallery_legend: Afegir una galeria d'imatges (opcional)
+        attachments:
+          add_attachments: Afegir fitxer(s) adjunt(s)
+          attachment_legend: Afegir una galeria de fitxers adjunts (opcional)
+          edit_attachments: Edita els fitxers adjunts
       static_page_topics:
         create:
           error: S'ha produït un error en crear un tema nou.
@@ -1289,6 +1290,11 @@ ca:
       errors:
         impersonate_user:
           reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada.
+      file_help:
+        attachment:
+          explanation: 'Instruccions per al fitxer:'
+          message_1: S'admeten fitxers CSV, JSON y Excel (.xlsx)
+          message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
     moderations:
       actions:
         expand: Expandir
