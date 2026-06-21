@@ -63,9 +63,7 @@ eu:
               allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Berriro erantsi behar da
-            add_photos:
+            add_attachments:
               needs_to_be_reattached: Berriro erantsi behar da
             body:
               cant_be_equal_to_template: ezin da plantilla bezalakoa izan
