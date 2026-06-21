@@ -63,9 +63,7 @@ ca-IT:
               allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
-            add_photos:
+            add_attachments:
               needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
             body:
               cant_be_equal_to_template: No pot ser igual a la plantilla
