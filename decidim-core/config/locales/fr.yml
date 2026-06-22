@@ -431,6 +431,7 @@ fr:
         explanation: Procédure d'autorisation factice
         name: Procédure d'autorisation factice
       ephemeral_dummy_authorization_handler:
+        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par « X ».
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
           document_number: Numéro du document
