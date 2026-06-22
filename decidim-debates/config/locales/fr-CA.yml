@@ -70,11 +70,12 @@ fr-CA:
           form:
             add_attachments: Ajouter des pièces jointes
             attachment_legend: Ajouter un document ou une image
+            comments_layout_locked_warning: La mise en page du commentaire ne peut pas être modifiée car les commentaires ont déjà été publiés.
             comments_warning: Une fois le premier commentaire publié, l'option d'affichage sélectionnée ne peut pas être modifiée.
             debate_type: Type de débat
             edit_attachments: Modifier les pièces jointes
             errors:
-              comments_layout_locked: Vous ne pouvez pas modifier la mise en page des commentaires une fois que les commentaires ont été publiés.
+              comments_layout_locked: La mise en page du commentaire ne peut pas être modifiée car les commentaires ont déjà été publiés.
             finite: Limité (Avec les heures de début et de fin)
             open: Ouvert (pas de date de début et de fin)
           index:
