@@ -1474,10 +1474,10 @@ ca:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
       form:
         add_documents: Afegir documents
-        add_image: Afegir imatge
+        add_image: Afegeix una imatge
         attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-        edit_documents: Editar documents
-        edit_image: Editar imatge
+        edit_documents: Edita els documents
+        edit_image: Edita la imatge
         image_legend: "(Opcional) Afegeix una imatge"
       home:
         extended:
