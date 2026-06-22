@@ -23,7 +23,7 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if @form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
           if process_attachments?
             build_attachments
@@ -44,7 +44,9 @@ module Decidim
             broadcast(:ok)
           end
         end
-
+        
+        private
+        
         def update_page
           parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
           Decidim.traceability.update!(
@@ -53,8 +55,6 @@ module Decidim
             body: parsed_body
           )
         end
-
-        private
 
         attr_reader :form, :page, :current_user
       end

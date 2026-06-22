@@ -7,8 +7,6 @@ module Decidim
       class PagesController < Admin::ApplicationController
         include Decidim::Admin::HasTrashableResources
 
-        helper_method :tab_panel_items
-
         def edit
           enforce_permission_to :update, :page
 
