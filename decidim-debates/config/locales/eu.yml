@@ -77,12 +77,13 @@ eu:
           form:
             add_attachments: Gehitu eranskinak
             attachment_legend: Gehitu dokumentu bat edo irudi bat
+            comments_layout_locked_warning: Iruzkinen formatoa ezin da aldatu iruzkinak argitaratu direlako.
             comments_visualization: Iruzkinak bistaratzea
             comments_warning: Lehen iruzkina argitaratu ondoren, ezin da aldatu aukeratutako bistaratze-aukera.
             debate_type: Eztabaida mota
             edit_attachments: Eranskinak editatu
             errors:
-              comments_layout_locked: Iruzkinen planoa ezin da aldatu iruzkinak argitaratu ondoren.
+              comments_layout_locked: Iruzkinen formatoa ezin da aldatu iruzkin batzuk argitaratu direlako.
             finite: Amaiera (hasiera- eta amaiera-ordua)
             open: Zabalik (ez dago hasiera- edo amaiera-ordurik)
             single_column: 'Zutabe bakarra: iruzkinak hurrenkera kronologikoan agertzen dira eta erantzunak izan ditzakete.'
