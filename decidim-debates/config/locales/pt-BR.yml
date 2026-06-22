@@ -80,8 +80,6 @@ pt-BR:
             comments_warning: Uma vez que o primeiro comentário é publicado, a opção de exibição selecionada não pode ser alterada.
             debate_type: Tipo de debate
             edit_attachments: Editar anexos
-            errors:
-              comments_layout_locked: Você não pode alterar o layout dos comentários, uma vez que os comentários foram postados.
             finite: Finito (com hora de início e fim)
             open: Abra (Sem horas de início ou fim)
             single_column: 'Coluna única: Os comentários são exibidos em ordem cronológica e podem ter respostas.'
