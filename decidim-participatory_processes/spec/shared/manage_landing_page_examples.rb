@@ -86,6 +86,17 @@ shared_examples "manage landing page examples" do
 
       expect(content_block.settings.to_json).to match(/Custom button text!/)
     end
+
+    it "displays the 'Resolution is too large' error message when image is invalid" do
+      visit edit_content_block_path(resource, content_block)
+
+      dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("8001x4000.png"))
+
+      click_on "Update"
+      sleep 1
+
+      expect(page).to have_text("File resolution is too large")
+    end
   end
 end
 

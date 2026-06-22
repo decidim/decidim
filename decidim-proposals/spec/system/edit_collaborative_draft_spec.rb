@@ -60,7 +60,7 @@ describe "Edit collaborative_drafts" do
           find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
           click_on "Edit"
 
-          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"))
+          dynamically_attach_file(:collaborative_draft_attachments, Decidim::Dev.asset("city.jpeg"))
 
           within "form.edit_collaborative_draft" do
             find("*[type=submit]").click

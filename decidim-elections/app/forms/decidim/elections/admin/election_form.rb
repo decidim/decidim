@@ -20,7 +20,7 @@ module Decidim
         attribute :results_availability, String, default: "after_end"
         attribute :attachment, AttachmentForm
 
-        attachments_attribute :photos
+        attachments_attribute :attachments
 
         validates :title, translatable_presence: true
         validates :results_availability, inclusion: { in: Decidim::Elections::Election::RESULTS_AVAILABILITY_OPTIONS }
@@ -33,6 +33,8 @@ module Decidim
 
         def map_model(election)
           self.manual_start = election.start_at.blank?
+          self.attachments = election.attachments.ids
+          self.add_attachments = election.attachments.map { |att| { id: att.id, title: att.title } }
         end
 
         def results_availability_labels
