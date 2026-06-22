@@ -430,6 +430,7 @@ fr:
         explanation: Procédure d'autorisation factice
         name: Procédure d'autorisation factice
       ephemeral_dummy_authorization_handler:
+        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par « X ».
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
           document_number: Numéro du document
@@ -622,6 +623,8 @@ fr:
     delete_user_mailer:
       delete:
         body_1: Votre compte a été désactivé et n'est plus accessible. La suppression permanente de vos données personnelles a été programmée, conformément à nos politiques de conservation.
+        body_2: Pour des raisons de sécurité, certaines données relatives à l’autorisation seront conservées ; si vous créez un nouveau compte et que vous l'autorisez à nouveau, elles peuvent être reliées à votre nouveau compte.
+        greetings_html: Cordialement,<br/><a href="%{organization_url}">%{organization_name}</a>
         hello: Cher(ère) %{username},
       subject: Votre compte a été supprimé
     devise:
