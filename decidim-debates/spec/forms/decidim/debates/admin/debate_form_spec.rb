@@ -38,6 +38,7 @@ describe Decidim::Debates::Admin::DebateForm do
       instructions:,
       start_time:,
       end_time:,
+      comments_layout:,
       add_attachments: uploaded_files,
       attachments: current_files
     }
