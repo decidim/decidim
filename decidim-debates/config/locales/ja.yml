@@ -80,8 +80,6 @@ ja:
             comments_warning: 最初のコメントが投稿されると、選択した表示オプションは変更できません。
             debate_type: ディベートタイプ
             edit_attachments: 添付ファイルを編集
-            errors:
-              comments_layout_locked: コメントが投稿されると、コメントレイアウトを変更することはできません。
             finite: 期間限定 (開始時刻と終了時刻あり)
             open: 無期限 (開始時刻または終了時刻なし)
             single_column: '1カラム: コメントは時系列で表示され、返信を持つことができます。'
