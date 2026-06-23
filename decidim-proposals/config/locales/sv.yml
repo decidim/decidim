@@ -745,6 +745,7 @@ sv:
         errors:
           device_not_supported: Din enhet stöder inte platstjänster. Ange adressen manuellt.
           no_device_location: Tyvärr, vi kunde inte upptäcka din plats. Ange adressen manuellt.
+        locating: Lokaliserar...
         use_my_location: Använd min nuvarande plats
       invite_coauthors:
         cancel:
