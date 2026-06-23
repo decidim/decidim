@@ -11,14 +11,16 @@ edit_link(
 )
 %>
 
-<% content_for :aside do %>
-  <h1 class="title-decorator">
-    <%= t("members", scope: "decidim.participatory_space_members.index") %>
-  </h1>
-<% end %>
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10 } do %>
+  <header class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left mb-12">
+      <%= t("members", scope: "decidim.participatory_space_members.index") %>
+    </h1>
+  </header>
 
-<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <section class="layout-main__section">
-    <%= render(collection) %>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12">
+      <%= render(collection) %>
+    </div>
   </section>
 <% end %>

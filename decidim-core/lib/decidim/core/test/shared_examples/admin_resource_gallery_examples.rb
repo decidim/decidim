@@ -87,7 +87,7 @@ end
 
 shared_examples "admin creates resource gallery" do
   context "when uploading images" do
-    let(:uploaded_photos) do
+    let(:uploaded_attachments) do
       [
         {
           title: "Picture of the city",
@@ -99,10 +99,10 @@ shared_examples "admin creates resource gallery" do
         }
       ]
     end
-    let(:photos) { [] }
+    let(:current_attachments) { [] }
 
     it "creates a gallery for the resource" do
-      expect { command.call }.to change(Decidim::Attachment, :count).by(uploaded_photos.count)
+      expect { command.call }.to change(Decidim::Attachment, :count).by(uploaded_attachments.count)
 
       resource = resource_class.last
       expect(resource.photos.count).to eq(2)
@@ -111,7 +111,7 @@ shared_examples "admin creates resource gallery" do
     end
 
     context "when gallery is left blank" do
-      let(:uploaded_photos) { [] }
+      let(:uploaded_attachments) { [] }
 
       it "broadcasts ok" do
         expect { command.call }.to broadcast(:ok)
@@ -122,7 +122,7 @@ end
 
 shared_examples "admin manages resource gallery" do
   context "when managing images" do
-    let(:uploaded_photos) do
+    let(:uploaded_attachments) do
       [
         {
           title: "Picture of the city",
@@ -134,10 +134,10 @@ shared_examples "admin manages resource gallery" do
         }
       ]
     end
-    let(:photos) { [] }
+    let(:current_attachments) { [] }
 
     it "creates a gallery for the resource" do
-      expect { command.call }.to change(Decidim::Attachment, :count).by(uploaded_photos.count)
+      expect { command.call }.to change(Decidim::Attachment, :count).by(uploaded_attachments.count)
       resource = resource_class.last
       expect(resource.photos.count).to eq(2)
       last_attachment = Decidim::Attachment.last
@@ -145,7 +145,7 @@ shared_examples "admin manages resource gallery" do
     end
 
     context "when gallery is left blank" do
-      let(:uploaded_photos) { [] }
+      let(:uploaded_attachments) { [] }
 
       it "broadcasts ok" do
         expect { command.call }.to broadcast(:ok)
@@ -155,8 +155,8 @@ shared_examples "admin manages resource gallery" do
     context "when images are removed" do
       let!(:image1) { create(:attachment, :with_image, attached_to: resource) }
       let!(:image2) { create(:attachment, :with_image, attached_to: resource) }
-      let(:uploaded_photos) { [] }
-      let(:current_photos) { [image1] }
+      let(:uploaded_attachments) { [] }
+      let(:current_attachments) { [image1.id] }
 
       it "to decrease the number of photos in the gallery" do
         expect(resource.attachments.count).to eq(2)
