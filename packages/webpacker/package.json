@@ -23,7 +23,7 @@
     "esbuild-loader": "^4.0.2",
     "esbuild-sass-plugin": "^3.6.0",
     "glob": "^10.3.3",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^5.1.0",
     "mini-css-extract-plugin": "^2.7.6",
     "path-complete-extname": "^1.0.0",
     "pnp-webpack-plugin": "^1.7.0",
