@@ -344,8 +344,10 @@ sv:
             success: Deltagaren har bjudits in att delta i mötet.
           form:
             attendee_type: Typ av deltagare
+            email: E-post
             invite: Inbjudan
             invite_explanation: Deltagaren kommer att bli inbjuden att delta i mötet och även till organisationen.
+            name_or_nickname: Namn eller smeknamn
             select_user: Välj deltagare
           index:
             invites: Inbjudningar
