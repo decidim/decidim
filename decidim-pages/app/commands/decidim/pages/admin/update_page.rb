@@ -46,7 +46,7 @@ module Decidim
         end
 
         private
- 
+
         def update_page
           parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
           Decidim.traceability.update!(
