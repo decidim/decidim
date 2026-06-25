@@ -23,6 +23,7 @@ module Decidim
       include Decidim::SoftDeletable
       include Decidim::HasReference
       include Decidim::FilterableResource
+      include Decidim::Randomable
 
       component_manifest_name "blogs"
 
@@ -108,6 +109,15 @@ module Decidim
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :body]
 
+      def self.most_commented_available?(component)
+        return false unless component.settings.comments_enabled?
+
+        where(component:)
+          .not_hidden
+          .where("comments_count > 0")
+          .exists?
+      end
+
       def self.ransackable_scopes(_auth_object = nil)
         [:with_any_taxonomies]
       end
@@ -118,6 +128,12 @@ module Decidim
 
       def self.ransackable_associations(_auth_object = nil)
         %w(taxonomies)
+      end
+
+      private
+
+      def comments_blocked?
+        component.current_settings.comments_blocked
       end
     end
   end
