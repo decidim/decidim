@@ -56,7 +56,7 @@ module Decidim
           )
         end
 
-        attr_reader :form, :page, :current_user
+        attr_reader :form, :page
       end
     end
   end
