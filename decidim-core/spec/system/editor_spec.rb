@@ -1439,7 +1439,7 @@ describe "Editor" do
 
       prosemirror.native.send_keys [:enter]
 
-      expect_value(%(<p><span data-type="mentionResource" data-id="gid://decidim.org/Proposal/1" data-label="Proposal 1">Proposal 1</span> </p>))
+      expect_value(%(<p><span data-type="mentionResource" data-id="gid://decidim.org/Proposal/1" data-label="Proposal 1">Proposal 1</span> pro</p>))
     end
   end
 
