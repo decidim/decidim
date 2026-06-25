@@ -39,5 +39,11 @@ module Decidim
     def button_classes
       "button button__sm button__transparent-secondary add-comment-mobile"
     end
+
+    def html_options
+      return super if current_user
+
+      super.merge(data: { dialog_open: "loginModal" })
+    end
   end
 end
