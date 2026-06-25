@@ -42,7 +42,7 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :debate, debate:)
-          @form = form(Decidim::Debates::Admin::DebateForm).from_model(debate)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_model(debate, debate:)
         end
 
         def update

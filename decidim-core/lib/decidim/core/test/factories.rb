@@ -85,6 +85,8 @@ FactoryBot.define do
     "#{Faker::Lorem.sentence(word_count: 1, supplemental: true, random_words_to_add: 3)} #{n}"
   end
 
+  sequence(:component_position)
+
   factory :category, class: "Decidim::Category" do
     transient do
       skip_injection { false }
@@ -469,6 +471,7 @@ FactoryBot.define do
     manifest_name { "dummy" }
     published_at { Time.current }
     deleted_at { nil }
+    weight { generate(:component_position) }
     settings do
       {
         dummy_global_translatable_text: generate_localized_title(:dummy_global_translatable_text, skip_injection:),
