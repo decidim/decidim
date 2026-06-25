@@ -25,7 +25,6 @@ shared_examples "manage admin members examples" do
 
     within ".new_member" do
       choose "Email", name: "member[member_type]"
-      fill_in :member_name, with: "John Doe"
       fill_in :member_email, with: other_user.email
 
       find("*[type=submit]").click
