@@ -186,7 +186,7 @@ de:
               recent: Neueste
               with_more_authors: Mit mehr Autoren
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
-            edit_time: Vorschläge können vor Ablauf dieser Zeit von den Autoren bearbeitet werden
+            edit_time: Autoren können Vorschläge während dieser Zeit nach der Einreichung bearbeiten
             edit_time_units:
               days: Tage
               hours: Stunden
