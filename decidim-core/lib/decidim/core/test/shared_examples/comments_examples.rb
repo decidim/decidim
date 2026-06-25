@@ -173,6 +173,16 @@ shared_examples "comments" do
       expect(page).to have_css(".comment-thread")
     end
 
+    it "opens the login modal when clicking the comment button" do
+      visit resource_path
+
+      expect(page).to have_no_css("#loginModal-content", visible: :visible)
+
+      find("a.add-comment-mobile").click
+
+      expect(page).to have_css("#loginModal-content", visible: :visible)
+    end
+
     context "when user visit a mobile browser" do
       before do
         driven_by(:iphone)
