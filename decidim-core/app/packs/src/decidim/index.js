@@ -49,6 +49,9 @@ import {
   Dialogs
 } from "src/decidim/a11y"
 
+
+window.Rails = window.Rails || Rails;
+
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referenced through a single Decidim.I18n object
 window.Decidim = window.Decidim || {

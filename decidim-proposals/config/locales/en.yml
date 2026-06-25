@@ -764,6 +764,7 @@ en:
         errors:
           device_not_supported: Your device does not support location services. Please enter the address manually.
           no_device_location: Sorry, we could not detect your location. Please enter the address manually.
+        locating: Locating...
         use_my_location: Use my current location
       invite_coauthors:
         cancel:

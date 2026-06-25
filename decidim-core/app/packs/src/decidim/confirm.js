@@ -7,8 +7,6 @@ import icon from "src/decidim/refactor/moved/icon"
  * it to gain control over the confirm events BEFORE rails-ujs is loaded.
  */
 
-const { Rails } = window;
-
 class ConfirmDialog {
   constructor(sourceElement) {
     this.$modal = $("#confirm-modal");
