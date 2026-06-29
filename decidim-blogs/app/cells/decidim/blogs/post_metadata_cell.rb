@@ -13,7 +13,7 @@ module Decidim
       private
 
       def post_items
-        [author_item, creation_date, comments_count_item, likes_count_item] + taxonomy_items
+        [author_item] + taxonomy_items + [creation_date, comments_count_item, likes_count_item]
       end
 
       def creation_date
