@@ -457,7 +457,7 @@ header {
       }
 
       .menu-bar__breadcrumb-item {
-        @apply block flex-1 min-w-0 overflow-hidden whitespace-nowrap text-ellipsis font-semibold underline;
+        @apply flex flex-1 min-w-0 overflow-hidden whitespace-nowrap text-ellipsis font-semibold underline;
       }
 
       /* overwrite default dropdown styles */
