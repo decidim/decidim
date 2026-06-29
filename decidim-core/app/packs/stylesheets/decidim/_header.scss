@@ -342,7 +342,7 @@ header {
       }
 
       &__dropdown-trigger {
-        @apply flex flex-none rounded py-1 z-20 font-semibold;
+        @apply flex flex-none rounded px-2 py-1 z-20 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-inset;
 
         &--truncatable {
           @apply min-w-0 overflow-hidden;
