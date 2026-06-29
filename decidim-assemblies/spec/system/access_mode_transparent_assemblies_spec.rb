@@ -29,9 +29,7 @@ describe "Access Mode Transparent Assemblies" do
         visit transparent_participatory_space_path
       end
 
-      it "can access the transparent assembly" do
-        expect(page).to have_text(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a space collaborator" do
@@ -42,9 +40,7 @@ describe "Access Mode Transparent Assemblies" do
         visit transparent_participatory_space_path
       end
 
-      it "can access the transparent assembly" do
-        expect(page).to have_text(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a space moderator" do
@@ -55,9 +51,7 @@ describe "Access Mode Transparent Assemblies" do
         visit transparent_participatory_space_path
       end
 
-      it "can access the transparent assembly" do
-        expect(page).to have_text(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a space evaluator" do
@@ -68,9 +62,7 @@ describe "Access Mode Transparent Assemblies" do
         visit transparent_participatory_space_path
       end
 
-      it "can access the transparent assembly" do
-        expect(page).to have_text(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a member" do
@@ -82,9 +74,7 @@ describe "Access Mode Transparent Assemblies" do
         visit transparent_participatory_space_path
       end
 
-      it "can access the transparent assembly" do
-        expect(page).to have_text(translated(transparent_participatory_space.title))
-      end
+      it_behaves_like "access mode transparent participatory spaces"
     end
   end
 end

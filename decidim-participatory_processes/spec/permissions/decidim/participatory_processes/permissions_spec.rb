@@ -70,7 +70,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     let(:context) { { participatory_process: } }
 
     context "when user is an org admin" do
-      context "when assembly is restricted and is accessed by different space roles" do
+      context "when process is restricted and is accessed by different space roles" do
         let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
 
         let(:process_collaborator) { create(:process_collaborator, participatory_process:) }
