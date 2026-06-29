@@ -81,8 +81,6 @@ sk:
             comments_warning: Po zverejnení prvého komentára už nie je možné zmeniť vybranú možnosť zobrazenia.
             debate_type: Typ debaty
             edit_attachments: Upraviť prílohy
-            errors:
-              comments_layout_locked: Po zverejnení komentárov už nemôžete zmeniť rozloženie komentárov.
             finite: Konečná (so začiatočným a koncovým časom)
             open: Otvorená (bez začiatočného alebo koncového času)
             single_column: 'Jeden stĺpec: Komentáre sa zobrazujú v chronologickom poradí a môžu mať odpovede.'
