@@ -89,6 +89,14 @@ describe Decidim::MetaImageUrlResolver do
     it { is_expected.to end_with("/description_image.jpg") }
   end
 
+  context "when no attachments and description image is referenced by blob id" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:description_image_path) { "/rails/active_storage/blobs/#{description_image.id}" }
+
+    it { is_expected.to end_with("/description_image.jpg") }
+  end
+
   context "when no previous images and belongs to a participatory space" do
     let(:resource) { proposal }
     let(:attachment) { nil }
