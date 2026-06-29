@@ -62,6 +62,7 @@ Capybara.register_driver :headless_chrome do |app|
   # Do not limit browser resources
   options.args << "--disable-dev-shm-usage"
   options.args << "--no-sandbox"
+  options.add_preference("intl.accept_languages", "en-US,en")
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
                     "--window-size=1920,3000"
                   else

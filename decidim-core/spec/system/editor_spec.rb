@@ -1375,7 +1375,9 @@ describe "Editor" do
   end
 
   def expect_value(html)
-    expect(input.value).to eq(html.strip.gsub(/\n\s*/, ""))
+    expected_html = html.strip.gsub(/\n\s*/, "")
+
+    expect(page).to have_field("record[body]", with: expected_html, type: "hidden", visible: :hidden)
   end
 
   def click_toggle(type)
