@@ -18,10 +18,8 @@ module Decidim
       end
 
       def filter_sections
-        @filter_sections ||= []
-
-        current_component.available_taxonomy_filters.each do |taxonomy_filter|
-          @filter_sections << {
+        @filter_sections ||= current_component.available_taxonomy_filters.map do |taxonomy_filter|
+          {
             method: :with_any_taxonomies,
             name: "[with_any_taxonomies][#{taxonomy_filter.root_taxonomy_id}]",
             collection: filter_taxonomy_values_for(taxonomy_filter),
@@ -29,8 +27,6 @@ module Decidim
             id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}"
           }
         end
-
-        @filter_sections
       end
 
       def search_variable = :search_text_cont
