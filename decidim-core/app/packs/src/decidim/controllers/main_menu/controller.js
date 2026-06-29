@@ -131,6 +131,11 @@ export default class extends Controller {
     this.menuContainer.setAttribute("aria-hidden", "false")
     this.menuContainer.setAttribute("aria-modal", "true")
     this.menuContainer.addEventListener("keydown", this.focusTrapHandler)
+
+    const focusable = getFocusableElements(this.menuContainer);
+    if (focusable.length > 0) {
+      focusable[0].focus({ preventScroll: true });
+    }
   }
 
   closeMenu() {

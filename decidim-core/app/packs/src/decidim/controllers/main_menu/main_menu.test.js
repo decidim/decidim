@@ -177,6 +177,12 @@ describe("MainMenuController", () => {
       controller.closeMenu()
     })
 
+    it("focuses the first focusable element when menu opens", () => {
+      const focusable = menuContainer.querySelectorAll("a[href], button:not([disabled])")
+      const firstEl = focusable[0]
+      expect(document.activeElement).toBe(firstEl)
+    })
+
     it("cycles focus to first element when Tab is pressed on last focusable element", () => {
       const focusable = menuContainer.querySelectorAll("a[href], button:not([disabled])")
       expect(focusable.length).toBeGreaterThan(1)
