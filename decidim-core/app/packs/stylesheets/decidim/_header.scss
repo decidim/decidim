@@ -449,15 +449,15 @@ header {
       }
 
       &__label-wrapper {
-        @apply block min-w-0 flex-1 overflow-hidden;
+        @apply block min-w-0 flex-1;
       }
 
       &__label {
-        @apply flex w-full items-center gap-x-2 min-w-0 overflow-hidden;
+        @apply flex w-11/12 items-center gap-x-2 min-w-0;
       }
 
       .menu-bar__breadcrumb-item {
-        @apply block flex-1 min-w-0 overflow-hidden whitespace-nowrap text-ellipsis font-semibold underline;
+        @apply flex flex-1 min-w-0 items-center gap-x-1 whitespace-nowrap font-semibold underline focus:outline focus:outline-2 focus:outline-offset-2 rounded-sm;
       }
 
       /* overwrite default dropdown styles */
