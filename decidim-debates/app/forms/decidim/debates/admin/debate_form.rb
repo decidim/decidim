@@ -45,6 +45,10 @@ module Decidim
           self.attachments = model.attachments
         end
 
+        def comments_layout_locked?
+          debate&.comments_count&.positive?
+        end
+
         def participatory_space_manifest
           @participatory_space_manifest ||= current_component.participatory_space.manifest.name
         end
