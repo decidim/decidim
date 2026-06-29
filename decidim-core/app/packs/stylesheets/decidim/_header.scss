@@ -457,7 +457,7 @@ header {
       }
 
       .menu-bar__breadcrumb-item {
-        @apply flex flex-1 min-w-0 whitespace-nowrap font-semibold underline focus:outline focus:outline-2 focus:outline-offset-2 rounded-sm;
+        @apply flex flex-1 min-w-0 items-center gap-x-1 whitespace-nowrap font-semibold underline focus:outline focus:outline-2 focus:outline-offset-2 rounded-sm;
       }
 
       /* overwrite default dropdown styles */
