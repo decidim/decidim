@@ -43,7 +43,9 @@ module Decidim
     def html_options
       return super if current_user
 
-      super.merge(data: { dialog_open: "loginModal" })
+      super.tap do |opts|
+        opts[:data] = (opts[:data] || {}).merge(dialog_open: "loginModal")
+      end
     end
   end
 end
