@@ -152,7 +152,7 @@ PATH
       rubocop-rspec (~> 3.0, >= 3.6.0)
       rubocop-rspec_rails (>= 2.31, < 2.33)
       rubocop-rubycw (~> 0.2.0)
-      rubocop-yard (>= 1.0, < 1.3)
+      rubocop-yard (>= 1.0, < 1.4)
       selenium-webdriver (~> 4.9)
       simplecov (~> 1.0.0.rc1)
       spring (~> 4.0)
@@ -501,7 +501,7 @@ GEM
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.19.9)
+    json (2.20.0)
     jwt (3.2.0)
       base64
     kaminari (1.2.2)
@@ -814,7 +814,7 @@ GEM
     rubocop-rubycw (0.2.2)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
-    rubocop-yard (1.2.0)
+    rubocop-yard (1.3.0)
       lint_roller
       rubocop (~> 1.72)
       yard
