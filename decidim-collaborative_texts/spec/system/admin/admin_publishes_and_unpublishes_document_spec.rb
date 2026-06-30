@@ -16,6 +16,7 @@ describe "Admin publish and unpublish documents" do
     fill_in "Title", with: title
     fill_in_editor :document_body, with: body
     click_on "Create"
+    expect(page).to have_text("Document successfully created")
   end
 
   it "publishes and unpublish a document" do
