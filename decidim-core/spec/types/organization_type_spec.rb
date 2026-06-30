@@ -29,7 +29,6 @@ module Decidim
         let!(:unconfirmed_users) { create_list(:user, 2, organization: model) }
 
         it "shows all the stats for this organization" do
-          # As we have 4 confirmed users and the admin (assuming they are counted as confirmed), we expect 5.
           expect(response["stats"]).to include(
             hash_including("name" => { "translation" => "Participants" }, "value" => 4)
           )
