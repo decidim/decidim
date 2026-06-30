@@ -16,8 +16,8 @@ describe "Admin adds display condition to template's questionnaire question" do
 
   it "adds display condition to questionnaire question" do
     questionnaire = template.templatable
-    question_one = create(:questionnaire_question, mandatory: true, question_type: "matrix_single", rows: matrix_rows, options: response_options, questionnaire:)
-    question_two = create(:questionnaire_question, :with_response_options, questionnaire:)
+    question_one = create(:questionnaire_question, position: 0, mandatory: true, question_type: "matrix_single", rows: matrix_rows, options: response_options, questionnaire:)
+    question_two = create(:questionnaire_question, :with_response_options, position: 1, questionnaire:)
 
     visit decidim_admin_templates.edit_questions_questionnaire_template_path(template.id)
     # expand question two

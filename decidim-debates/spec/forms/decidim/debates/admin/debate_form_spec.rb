@@ -29,6 +29,7 @@ describe Decidim::Debates::Admin::DebateForm do
   let(:uploaded_files) { [] }
   let(:current_files) { [] }
   let(:taxonomies) { [] }
+  let(:comments_layout) { "single_column" }
   let(:attributes) do
     {
       taxonomies:,
@@ -37,8 +38,9 @@ describe Decidim::Debates::Admin::DebateForm do
       instructions:,
       start_time:,
       end_time:,
-      add_documents: uploaded_files,
-      documents: current_files
+      comments_layout:,
+      add_attachments: uploaded_files,
+      attachments: current_files
     }
   end
 
@@ -118,7 +120,7 @@ describe Decidim::Debates::Admin::DebateForm do
 
     it "accepts valid attachments" do
       expect(form).to be_valid
-      expect(form.add_documents.count).to eq(2)
+      expect(form.add_attachments.count).to eq(2)
     end
 
     context "when an attachment is invalid" do
@@ -129,7 +131,58 @@ describe Decidim::Debates::Admin::DebateForm do
       end
 
       it "does not add the invalid file to the form" do
-        expect(form.documents).to be_empty
+        expect(form.attachments).to be_empty
+      end
+    end
+  end
+
+  describe "comments_layout validation" do
+    let(:component) { create(:debates_component) }
+    let(:current_component) { component }
+    let(:debate) { create(:debate, component:, comments_layout: "single_column") }
+    let(:context) do
+      {
+        current_organization: organization,
+        current_component:,
+        current_participatory_space: participatory_process,
+        debate:
+      }
+    end
+
+    context "when debate has no comments" do
+      let(:debate) { create(:debate, component:, comments_layout: "single_column", comments_count: 0) }
+
+      context "and comments_layout changes" do
+        let(:comments_layout) { "two_columns" }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "and comments_layout does not change" do
+        let(:comments_layout) { "single_column" }
+
+        it { is_expected.to be_valid }
+      end
+    end
+
+    context "when debate has comments" do
+      let(:debate) { create(:debate, component:, comments_layout: "single_column", comments_count: 5) }
+
+      context "and comments_layout does not change" do
+        let(:comments_layout) { "single_column" }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "and comments_layout changes" do
+        let(:comments_layout) { "two_columns" }
+
+        it { is_expected.not_to be_valid }
+
+        it "adds an error to comments_layout" do
+          subject.valid?
+          expect(subject.errors[:comments_layout]).to include(I18n.t("form.errors.comments_layout_locked", scope: "decidim.debates.admin.debates"))
+        end
       end
     end
   end
@@ -151,8 +204,8 @@ describe Decidim::Debates::Admin::DebateForm do
     end
 
     it "sets the documents correctly" do
-      expect(subject.documents).to match_array(attachments)
-      expect(subject.documents.map { |doc| doc.title["en"] }).to contain_exactly("Document 1", "Document 2")
+      expect(subject.attachments).to match_array(attachments)
+      expect(subject.attachments.map { |doc| doc.title["en"] }).to contain_exactly("Document 1", "Document 2")
     end
 
     context "when the debate has start and end dates" do

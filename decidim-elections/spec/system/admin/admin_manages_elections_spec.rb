@@ -147,7 +147,7 @@ describe "Admin manages elections" do
         expect(page).to have_field("election_end_at_date", disabled: true)
         expect(page).to have_field("election_end_at_time", disabled: true)
       end
-      dynamically_attach_file(:election_photos, Decidim::Dev.asset("city2.jpeg"))
+      dynamically_attach_file(:election_attachments, Decidim::Dev.asset("city2.jpeg"))
 
       click_on "Save and continue"
       expect(page).to have_callout "Election updated successfully"
@@ -301,6 +301,77 @@ describe "Admin manages elections" do
         expect(page).to have_text("2 votes")
         expect(page).to have_text("66.7%")
       end
+    end
+  end
+
+  context "when the election has an attachment" do
+    let!(:election_with_attachment) do
+      create(:election, component: current_component)
+    end
+
+    let!(:document) { create(:attachment, :with_image, attached_to: election_with_attachment) }
+
+    before do
+      visit_component_admin
+
+      within "tr", text: translated(election_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+      end
+    end
+
+    it "can remove an attachment" do
+      click_on translated(election_with_attachment.title)
+
+      click_on("Edit attachments")
+
+      within "li[data-filename='#{document.file.blob.filename}']" do
+        click_on("Remove")
+      end
+
+      click_on("Save")
+
+      expect(page).to have_no_css("img[src*='#{document.file.blob.filename}']")
+    end
+
+    it "can attach a file" do
+      click_on translated(election_with_attachment.title)
+
+      click_on("Edit attachments")
+
+      within ".upload-modal" do
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(document.file.blob.filename.to_s))
+      end
+
+      click_on("Save")
+
+      sleep 1
+
+      click_on("Save and continue")
+      expect(page).to have_text("Election updated successfully")
+
+      click_on("Main")
+      expect(page).to have_css("img[src*='#{document.file.blob.filename}']")
+    end
+
+    it "can edit an election with an attachment" do
+      click_on translated(election_with_attachment.title)
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+
+      fill_in_i18n(:election_title, "#election-title-tabs", en: "Updated election title with attachments")
+      click_on "Save and continue"
+
+      expect(page).to have_callout "Election updated successfully"
+
+      visit_component_admin
+
+      within "tr", text: "Updated election title with attachments" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+
+      expect(page.html).to include(document.file.blob.filename.to_s)
+      expect(page).to have_field("election_title_en", with: "Updated election title with attachments")
     end
   end
 end

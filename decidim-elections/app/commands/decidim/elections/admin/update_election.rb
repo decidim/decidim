@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       class UpdateElection < Decidim::Commands::UpdateResource
-        include ::Decidim::GalleryMethods
+        include ::Decidim::MultipleAttachmentsMethods
 
         fetch_form_attributes :title, :description, :start_at, :end_at, :results_availability
 
@@ -44,15 +44,15 @@ module Decidim
         end
 
         def run_after_hooks
-          create_gallery if process_gallery?
-          photo_cleanup!
+          create_attachments if process_attachments?
+          attachment_cleanup!(include_all_attachments: true)
         end
 
         def run_before_hooks
-          return unless process_gallery?
+          return unless process_attachments?
 
-          build_gallery
-          raise Decidim::Commands::HookError if gallery_invalid?
+          build_attachments
+          raise Decidim::Commands::HookError if attachments_invalid?
         end
       end
     end
