@@ -1,5 +1,181 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* 48 */ 
+  .typography-display-5xl-bold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 36 */ 
+  .typography-display-4xl-bold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 32 */ 
+  .typography-display-3xl-bold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 24 */ 
+  .typography-display-2xl-bold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 24 */ 
+  .typography-headline-2xl-semibold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 20 */ 
+  .typography-headline-xl-semibold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 18 */ 
+  .typography-headline-lg-semibold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 16 */ 
+  .typography-headline-md-semibold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 14 */ 
+  .typography-headline-sm-semibold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 18 */ 
+  .typography-headline-lg-regular {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 18 */ 
+  .typography-text-18-semibold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 16 */ 
+  .typography-text-md-regular {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 14 */ 
+  .typography-text-sm-semibold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 14 */ 
+  .typography-text-sm-regular {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 12 */ 
+  .typography-caption-xs-semibold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 12 */ 
+  .typography-caption-xs-regular {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
 
 }

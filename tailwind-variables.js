@@ -12,18 +12,6 @@ module.exports = {
             'warning': '#d4a81a', 
             'info': '#155abf', 
         },
-        'color-blue': {
-            '50': '#e8eff9', 
-            '100': '#b6cceb', 
-            '200': '#93b3e2', 
-            '300': '#6290d4', 
-            '400': '#447bcc', 
-            '500': '#155abf', 
-            '600': '#1352ae', 
-            '700': '#0f4088', 
-            '800': '#0c3269', 
-            '900': '#092650', 
-        },
         'color-red': {
             '50': '#fceaea', 
             '100': '#f5bebe', 
@@ -59,6 +47,18 @@ module.exports = {
             '700': '#1c7731', 
             '800': '#165c26', 
             '900': '#165c26', 
+        },
+        'color-blue': {
+            '50': '#e8eff9', 
+            '100': '#b6cceb', 
+            '200': '#93b3e2', 
+            '300': '#6290d4', 
+            '400': '#447bcc', 
+            '500': '#155abf', 
+            '600': '#1352ae', 
+            '700': '#0f4088', 
+            '800': '#0c3269', 
+            '900': '#092650', 
         },
         'color-purple': {
             '50': '#f4e9f4', 
@@ -234,6 +234,9 @@ module.exports = {
             'secondary': '#155abf', /* icon */
             'inverted': '#ffffff', /* icon */
         },
+        'color-icon-info': {
+            'dark': '#155abf', /* icon */
+        },
         'color-icon-link': {
             'inverted': '#ffffff', /* icon */
             'visited': '#92278f', /* icon */
@@ -263,9 +266,6 @@ module.exports = {
         },
         'color-icon-base': {
             'dark': '#65707d', /* icon */
-        },
-        'color-icon-info': {
-            'dark': '#155abf', /* icon */
         },
         'color-border': {
             'focus': '#155abf', 
@@ -301,5 +301,12 @@ module.exports = {
         },
     },
     'boxShadow': {
+        'xs': 'var(--shadow-shadow-xs)', 
+        'sm': 'var(--shadow-shadow-sm)', 
+        'md': 'var(--shadow-shadow-md)', 
+        'lg': 'var(--shadow-shadow-lg)', 
+        'xl': 'var(--shadow-shadow-xl)', 
+        'default': 'var(--shadow-focus-default)', 
+        'outside': 'var(--shadow-focus-outside)', 
     }
 }
