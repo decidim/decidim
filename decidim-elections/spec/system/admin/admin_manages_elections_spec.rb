@@ -340,11 +340,11 @@ describe "Admin manages elections" do
 
       within ".upload-modal" do
         find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(document.file.blob.filename.to_s))
+        expect(page).to have_css("li progress[value='100']", wait: 5)
+        click_on("Save")
       end
 
-      click_on("Save")
-
-      sleep 1
+      expect(page).to have_no_css(".upload-modal", wait: 5)
 
       click_on("Save and continue")
       expect(page).to have_text("Election updated successfully")
