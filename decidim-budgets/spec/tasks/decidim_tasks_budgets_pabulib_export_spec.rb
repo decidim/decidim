@@ -3,6 +3,13 @@
 require "spec_helper"
 
 describe "Executing Pabulib export tasks" do
+  before do
+    # Disable machine translations for the spec to avoid Bullet errors. Note
+    # that this before hook has to be defined before the `let!` statements
+    # below.
+    allow(Decidim).to receive(:machine_translation_service_klass).and_return(nil)
+  end
+
   let(:organization) { create(:organization, host: "foo.example.org") }
   let(:participatory_space) { create(:participatory_process, title: { "en" => "Process" }, organization:) }
   let(:component) { create(:budgets_component, :with_minimum_budget_projects, organization:, participatory_space:, vote_minimum_budget_projects_number: 1) }
