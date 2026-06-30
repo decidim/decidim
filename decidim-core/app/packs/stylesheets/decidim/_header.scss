@@ -337,12 +337,8 @@ header {
         @apply min-w-0;
       }
 
-      .no-interactive {
-        @apply font-normal px-0 min-w-0;
-      }
-
       &__dropdown-trigger {
-        @apply flex flex-none rounded py-1 z-20 font-semibold;
+        @apply flex flex-none rounded px-2 py-1 z-20 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-inset;
 
         &--truncatable {
           @apply min-w-0 overflow-hidden;
@@ -355,6 +351,10 @@ header {
         svg {
           @apply w-6 h-6 fill-current;
         }
+      }
+
+      .no-interactive {
+        @apply font-normal px-0 min-w-0;
       }
 
       &__dropdown-wrapper {
