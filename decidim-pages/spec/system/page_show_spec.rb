@@ -32,6 +32,12 @@ describe "Show a page" do
       it "renders the content of the page" do
         expect(page).to have_text("Content")
       end
+
+      it "shows the page reference" do
+        within ".layout-container__reference" do
+          expect(page).to have_text(page_component.reference)
+        end
+      end
     end
 
     context "when there is no content in the page" do

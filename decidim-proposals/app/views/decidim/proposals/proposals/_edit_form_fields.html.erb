@@ -23,7 +23,7 @@
   <% end %>
 <% end %>
 <% if component_settings.attachments_allowed? && (new_proposal || @proposal) %>
-  <%= form.attachment :documents,
+  <%= form.attachment :attachments,
                       multiple: true,
                       label: t("decidim.proposals.proposals.edit.add_attachments"),
                       button_label: t("decidim.proposals.proposals.edit.add_attachments"),

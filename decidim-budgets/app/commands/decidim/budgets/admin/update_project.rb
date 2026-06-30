@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user changes a Project from the admin
       # panel.
       class UpdateProject < Decidim::Commands::UpdateResource
-        include ::Decidim::GalleryMethods
+        include ::Decidim::MultipleAttachmentsMethods
 
         fetch_form_attributes :taxonomizations, :title, :description, :budget_amount, :address, :latitude, :longitude
 
@@ -19,15 +19,15 @@ module Decidim
 
         def run_after_hooks
           link_proposals
-          create_gallery if process_gallery?
-          photo_cleanup!
+          create_attachments if process_attachments?
+          attachment_cleanup!(include_all_attachments: true)
         end
 
         def run_before_hooks
-          return unless process_gallery?
+          return unless process_attachments?
 
-          build_gallery
-          raise Decidim::Commands::HookError if gallery_invalid?
+          build_attachments
+          raise Decidim::Commands::HookError if attachments_invalid?
         end
 
         def attributes

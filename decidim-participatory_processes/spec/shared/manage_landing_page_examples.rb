@@ -84,7 +84,7 @@ shared_examples "manage landing page examples" do
 
       content_block.reload
 
-      expect(content_block.settings.to_json).to match(/Custom button text!/)
+      expect(content_block.settings.to_json).to include("Custom button text!")
     end
 
     it "displays the 'Resolution is too large' error message when image is invalid" do

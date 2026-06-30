@@ -88,6 +88,20 @@
   }
 
   &__modal {
+    &-error {
+      [data-dialog-closable] {
+        @apply top-6 right-6;
+      }
+
+      [data-dialog-container] {
+        @apply inline grid-cols-none;
+      }
+
+      [data-dialog-title] {
+        @apply col-span-2 md:col-span-1 md:col-start-2 grid grid-cols-[auto_1fr] items-start md:items-center gap-2 pb-4 text-left text-xl text-gray-2 md:border-b md:border-gray-3;
+      }
+    }
+
     &-results {
       @apply mb-20 flex flex-wrap gap-x-8 gap-y-4;
     }

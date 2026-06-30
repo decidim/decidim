@@ -7,7 +7,9 @@ module Decidim
   module Templates
     module Admin
       describe ApplyQuestionnaireTemplate do
-        let(:template) { create(:questionnaire_template) }
+        let(:dummy_questionnaire) { create(:questionnaire_template) }
+        let(:template) { dummy_questionnaire.class.includes(:templatable).find(dummy_questionnaire.id) }
+
         let(:destination_questionnaire) { create(:questionnaire, questionnaire_for: template) }
         let(:command) { described_class.new(destination_questionnaire, template) }
 
@@ -32,7 +34,7 @@ module Decidim
           end
 
           context "when the questionnaire has all question types and display conditions" do
-            let(:template) { create(:questionnaire_template, :with_all_questions) }
+            let(:dummy_questionnaire) { create(:questionnaire_template, :with_all_questions) }
 
             it_behaves_like "copies all questionnaire contents"
           end

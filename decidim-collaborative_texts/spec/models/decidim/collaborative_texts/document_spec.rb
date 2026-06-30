@@ -14,6 +14,7 @@ module Decidim
       it { is_expected.to act_as_paranoid }
 
       include_examples "resourceable"
+      include_examples "has reference"
 
       context "without a title" do
         let(:document) { build(:collaborative_text_document, title: nil) }

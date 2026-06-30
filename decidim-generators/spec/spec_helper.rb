@@ -11,8 +11,8 @@ ENV["RETRY_TIMES"] = "0"
 if ENV["SIMPLECOV"]
   require "simplecov"
 
-  SimpleCov.add_filter "/lib/decidim/generators/app_templates/"
-  SimpleCov.add_filter "/lib/decidim/generators/component_templates/"
+  SimpleCov.skip "/lib/decidim/generators/app_templates/"
+  SimpleCov.skip "/lib/decidim/generators/component_templates/"
 end
 
 RSpec.configure do |config|
