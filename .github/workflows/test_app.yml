@@ -26,12 +26,14 @@ on:
       bullet_counter_cache:
         description: 'Enable bullet counter cache testing'
         required: false
-        default: true
+        default: false
         type: boolean
+      # We prefer to disable this check instead of having to create more associations during the tests/seeds that
+      # would make the testing/seeding performance worse
       bullet_unused_eager_loading:
         description: 'Enable bullet unused eager loading testing'
         required: false
-        default: true
+        default: false
         type: boolean
       chrome_version:
         description: 'Chrome & Chromedriver version'
@@ -84,7 +86,7 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
       - run: |
@@ -150,7 +152,7 @@ jobs:
       - uses: qltysh/qlty-action/coverage@v2
         with:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
-          files: coverage/coverage.xml
+          files: coverage/coverage.json
           verbose: true
           add-prefix: ${{ env.DECIDIM_MODULE }}
       - uses: codecov/codecov-action@v7
