@@ -248,6 +248,10 @@ header {
         .account-container {
           @apply before:block before:absolute before:top-16 before:right-14 before:content-[""] before:bg-white before:w-2 before:h-12 before:-mt-8;
         }
+
+        #dropdown-trigger-links-mobile-close {
+          @apply relative z-10;
+        }
       }
 
       &__item {
