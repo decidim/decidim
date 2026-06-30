@@ -41,8 +41,8 @@ module Decidim
             address:,
             has_address:,
             attachment: attachment_params,
-            documents: current_files,
-            add_documents: uploaded_files,
+            attachments: current_files,
+            add_attachments: uploaded_files,
             errors:
           }
         end

@@ -11,6 +11,7 @@ module Decidim
 
       include_examples "has component"
       include_examples "resourceable"
+      include_examples "has reference"
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }

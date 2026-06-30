@@ -36,7 +36,7 @@ module Decidim
           transaction do
             update_proposal
             update_proposal_author
-            document_cleanup!(include_all_attachments: true)
+            attachment_cleanup!(include_all_attachments: true)
             create_attachments(first_weight: first_attachment_weight) if process_attachments?
           end
 

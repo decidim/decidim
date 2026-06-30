@@ -3,7 +3,7 @@
 module Decidim
   module Dev
     class CreateDummyResource < Decidim::Command
-      include Decidim::GalleryMethods
+      include Decidim::MultipleAttachmentsMethods
 
       def initialize(form)
         @form = form
@@ -15,14 +15,14 @@ module Decidim
       def call
         return broadcast(:invalid) if @form.invalid?
 
-        if process_gallery?
-          build_gallery
-          return broadcast(:invalid) if gallery_invalid?
+        if process_attachments?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
         end
 
         transaction do
           create_dummy_resource
-          create_gallery if process_gallery?
+          create_attachments if process_attachments?
         end
 
         broadcast(:ok)
@@ -30,7 +30,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :dummy_resource, :gallery
+      attr_reader :form, :dummy_resource, :attachments
 
       def create_dummy_resource
         @dummy_resource = DummyResource.create!(
