@@ -323,7 +323,7 @@ fr-CA:
           access_mode: Mode d'accès. Définit si le processus est ouvert, restreint ou transparent.
           component_settings: Les paramètres de fonctionnalité de la concertation
           created_at: La date de création de cet espace
-          description: Une description longue de la concertation
+          description: Une description longue du processus
           developer_group: Le groupe promoteur de la concertation. Il s'agit de l'organisation qui porte la concertation.
           end_date: La date de fin de la concertation
           promoted: Si la concertation est promue ou non
