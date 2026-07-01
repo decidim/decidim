@@ -123,7 +123,6 @@ el:
           global:
             announcement: Ανακοίνωση
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
-            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για την προκαθορισμένη τιμή)
             creation_enabled_for_participants: Οι συμμετέχοντες μπορούν να δημιουργήσουν συναντήσεις
             default_registration_terms: Προεπιλεγμένοι όροι εγγραφής
             enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων

@@ -40,7 +40,7 @@ ja:
             attachments_allowed: 添付ファイルを許可
             clear_all: すべてクリア
             comments_enabled: コメントを有効にする
-            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            comments_max_length: 各コメントの最大文字数 (0はデフォルト値のまま)
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             taxonomy_filters: コンポーネントのフィルタを選択
@@ -79,8 +79,6 @@ ja:
             comments_warning: 最初のコメントが投稿されると、選択した表示オプションは変更できません。
             debate_type: ディベートタイプ
             edit_attachments: 添付ファイルを編集
-            errors:
-              comments_layout_locked: コメントが投稿されると、コメントレイアウトを変更することはできません。
             finite: 期間限定 (開始時刻と終了時刻あり)
             open: 無期限 (開始時刻または終了時刻なし)
             single_column: '1カラム: コメントは時系列で表示され、返信を持つことができます。'

@@ -114,7 +114,6 @@ de:
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmende können Beiträge erstellen
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.

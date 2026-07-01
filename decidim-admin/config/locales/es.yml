@@ -12,6 +12,7 @@ es:
         plural: Plural
       attachment:
         attachment_collection_id: Carpeta
+        attachments: Archivos adjuntos
         description: Descripción
         file: Archivo
         title: Nombre del adjunto o imagen
@@ -45,7 +46,7 @@ es:
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
-        comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+        comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
         customize_welcome_notification: Personalizar notificación de bienvenida
         default_locale: Idioma predeterminado
         description: Descripción
@@ -844,6 +845,7 @@ es:
             invalid: Se ha producido un error al desbloquear a las participantes.
             success: Participantes desbloqueadas correctamente.
         create:
+          no_user_found: No se ha encontrado a esta participante.
           success: Participante oficializada correctamente.
         destroy:
           success: Se ha retirado correctamente la oficialización de la participante.
@@ -1070,10 +1072,10 @@ es:
           next_title: Siguiente elemento
           previous: Anterior
           previous_title: Elemento anterior
-        gallery:
-          add_images: Añadir imágenes
-          edit_images: Editar imagenes
-          gallery_legend: Añadir una galería de imágenes (opcional)
+        attachments:
+          add_attachments: Agregar archivo(s) adjunto(s)
+          attachment_legend: Añadir una galería de archivos adjuntos (opcional)
+          edit_attachments: Editar los archivos adjuntos
       static_page_topics:
         create:
           error: Se ha producido un error al crear un nuevo tema.
@@ -1288,6 +1290,11 @@ es:
       errors:
         impersonate_user:
           reason: Debes indicar un motivo para la gestión de una participante no gestionada.
+      file_help:
+        attachment:
+          explanation: 'Instrucciones para el archivo:'
+          message_1: Se admiten archivos CSV, JSON y Excel (.xlsx)
+          message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
     moderations:
       actions:
         expand: Expandir

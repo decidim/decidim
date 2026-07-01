@@ -63,10 +63,6 @@ ja:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されています: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: 再接続が必要
-            add_photos:
-              needs_to_be_reattached: 再接続が必要
             body:
               cant_be_equal_to_template: はテンプレートと等しくすることはできません
               identical: ANDタイトルは同一にすることはできません
@@ -175,7 +171,7 @@ ja:
             collaborative_drafts_enabled: 共同草稿を有効にする
             collaborative_drafts_enabled_help: 共同草案機能は Decidim v0.32 で廃止されます。この機能を現在使用している組織は、新しい提案共同作成機能に移行することができます。
             comments_enabled: コメントを有効にする
-            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            comments_max_length: 各コメントの最大文字数 (0はデフォルト値のまま)
             default_sort_order: デフォルトの提案の並べ替え
             default_sort_order_help: '「自動」にすると、投票が有効になっている間、提案はランダムにソートされます。 投票がブロックされると、最も投票数が多い順に並べられます'
             default_sort_order_options:

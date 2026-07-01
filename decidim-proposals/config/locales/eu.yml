@@ -19,7 +19,7 @@ eu:
         address: Helbidea
         answer: Erantzuna
         answered_at: '-k erantzuna'
-        body: Gorputza
+        body: Testua
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Eremua
         has_address: Helbidea du
@@ -63,10 +63,8 @@ eu:
               allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Fitxategia berriro erantsi behar da
-            add_photos:
-              needs_to_be_reattached: Fitxategia berriro erantsi behar da
+            add_attachments:
+              needs_to_be_reattached: Berriro erantsi behar da
             body:
               cant_be_equal_to_template: ezin da plantilla bezalakoa izan
               identical: ETA izenburua ezin da berdina izan
@@ -179,7 +177,7 @@ eu:
             collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
             collaborative_drafts_enabled_help: Elkarlaneko zirriborroak Decidim v0.32an ezabatuko dira. Erabiltzen duten erakundeek proposamen berriaren egilekidetzara pasa daitezke.
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako ezarpenei eusteko)
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             default_sort_order: Proposamenen hurrenkera lehenetsia
             default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
@@ -391,7 +389,7 @@ eu:
           conditions:
           - Aukeratu zure intereseko partaidetza-espazioa proposamenak bidaltzeko
           - Egin daitezkeen proposamenak egiten saiatu. Horrela onartuak izateko aukera gehiago dute.
-          description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
+          description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
           description_own: Zure %{score} proposamen onartu dira.
           name: Proposamen onartuak
@@ -663,7 +661,7 @@ eu:
           show:
             amendments_count: Zuzenketa kopurua
             assigned_evaluators: Ebaluatzaileak esleituta
-            body: Gorputza
+            body: Testua
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
             evaluators: Ebaluatzaileak
@@ -742,7 +740,7 @@ eu:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Arazoak izan dira zirriborro kolaboratiboa argitaratzean.
+            error: Arazo bat egon da testu kolaboratiboa gordetzen.
             irreversible_action_modal:
               body: Zirriborroa proposamen gisa argitaratu ondoren, jada ez da editagarria izango. Proposamenak ez du beste egile edo ekarpenik onartuko.
               cancel: Utzi
@@ -779,11 +777,11 @@ eu:
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
-          filter_by: 'Honen arabera iragazi:'
+          filter_by: Iragazi honen arabera
           unfold: Zabaldu
         index:
           count:
-            one: "Zirriborro kolaboratibo %{count}"
+            one: "%{count} zirriborro kolaboratibo"
             other: "%{count} zirriborro kolaboratibo"
         name: Zirriborro kolaboratzaileak
         new:
@@ -793,7 +791,7 @@ eu:
         new_collaborative_draft_button:
           new_collaborative_draft: Testu kolaboratibo zirriborro berria
         orders:
-          label: 'Zirriborroak honela ordenatu:'
+          label: 'Ordenatu zirriborroak honen arabera:'
           most_contributed: Bozka gehien jaso duena
           random: Ausazko ordena
           recent: Azkenak
@@ -859,6 +857,7 @@ eu:
         errors:
           device_not_supported: Zure gailuak ez ditu kokapen-zerbitzuak onartzen. Mesedez, sartu helbidea eskuz.
           no_device_location: Barkatu, ezin izan dugu zure kokapena antzeman. Mesedez, sartu helbidea eskuz.
+        locating: Lokalizatzen...
         use_my_location: Erabili nire egungo kokapena
       invite_coauthors:
         cancel:

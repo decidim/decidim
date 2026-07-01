@@ -585,7 +585,7 @@ cs:
           global:
             amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
-            comments_max_length: Maximální délka komentářů
+            comments_max_length: Maximální počet znaků na komentář
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             dummy_global_attribute1: Zástupný atribut 1
             dummy_global_attribute2: Zástupný atribut 2
@@ -1240,7 +1240,6 @@ cs:
         create:
           error: Konverzace nebyla zahájena. Zkuste to znovu později.
         error_modal:
-          close: Zavřít okno
           correct_errors: Opravte chyby a zkuste to znovu.
           intro: 'Došlo k následujícím chybám ve vaší zprávě:'
           ok: OK
@@ -1551,7 +1550,6 @@ cs:
         greetings_html: |
           S pozdravem,<br>
           %{organization_name}
-        hello: Dobrý den %{username},
         subject: Neaktivní účet byl smazán
     passwords:
       update:

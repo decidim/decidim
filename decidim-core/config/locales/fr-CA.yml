@@ -518,7 +518,7 @@ fr-CA:
           global:
             amendments_enabled: Modifications activées
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur maximale des commentaires
+            comments_max_length: Nombre maximum de caractères par commentaire
             dummy_global_attribute1: Attribut factice 1
             dummy_global_attribute2: Attribut factice 2
             dummy_global_translatable_text: Texte traduisible factice
@@ -1090,7 +1090,6 @@ fr-CA:
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard.
         error_modal:
-          close: Fermer la fenêtre de dialogue
           correct_errors: Veuillez corriger les erreurs et réessayer.
           intro: 'Il y a eu les erreurs suivantes avec votre message :'
           ok: Ok
@@ -1382,7 +1381,6 @@ fr-CA:
         greetings_html: |
           Cordialement,<br>
           %{organization_name}
-        hello: Cher(ère) %{username},
         subject: Compte inactif supprimé
     passwords:
       update:

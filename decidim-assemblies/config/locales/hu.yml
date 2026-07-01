@@ -209,7 +209,7 @@ hu:
       admin:
         assemblies:
           form:
-            announcement_help: Az itt megadott szöveg a gyűlés információs oldalán fog megjelenni a felhasználók számára. 
+            announcement_help: Az itt megadott szöveg a gyűlés információs oldalán fog megjelenni a felhasználók számára.
             duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
             images: képek

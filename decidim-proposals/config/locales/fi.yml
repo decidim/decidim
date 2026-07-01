@@ -63,10 +63,8 @@ fi:
               allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Liitettävä uudelleen
-            add_photos:
-              needs_to_be_reattached: Liitettävä uudelleen
+            add_attachments:
+              needs_to_be_reattached: Liitettävä uudestaan
             body:
               cant_be_equal_to_template: ei voi vastata mallipohjaa
               identical: JA otsikko ei voi olla täysin sama
@@ -859,6 +857,7 @@ fi:
         errors:
           device_not_supported: Laitteesi ei tue sijaintipalveluita. Syötä osoite manuaalisesti.
           no_device_location: Valitettavasti sijaintijasi ei voitu tunnistaa automaattisesti. Syötä osoite manuaalisesti.
+        locating: Paikannetaan...
         use_my_location: Käytä nykyistä sijaintiani
       invite_coauthors:
         cancel:

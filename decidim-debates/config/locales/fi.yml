@@ -76,12 +76,13 @@ fi:
           form:
             add_attachments: Lisää liitteitä
             attachment_legend: Lisää asiakirja tai kuva
+            comments_layout_locked_warning: Kommenttien asettelua ei voi muuttaa, koska kommentteja on jo lähetetty.
             comments_visualization: Kommenttien visualisointi
             comments_warning: Ensimmäisen kommentin jälkeen kommenttien esitysmuotoasetusta ei voi muuttaa.
             debate_type: Keskustelun tyyppi
             edit_attachments: Muokkaa liitteitä
             errors:
-              comments_layout_locked: Et voi muuttaa kommenttien esitysmuotoa sen jälkeen, kun kommentteja on laadittu.
+              comments_layout_locked: Kommenttien asettelua ei voi muuttaa, koska kommentteja on jo lähetetty.
             finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
             open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
             single_column: 'Yksi sarake: kommentit näytetään yhdessä sarakkeessa kronologisessa järjestyksessä ja niihin voi vastata.'

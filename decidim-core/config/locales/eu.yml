@@ -555,7 +555,7 @@ eu:
           global:
             amendments_enabled: Zuzenketak gaituta
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             dummy_global_attribute1: Balizko atributua 1
             dummy_global_attribute2: Balizko atributua 2
@@ -774,7 +774,7 @@ eu:
           created_at: Zein datatan eta zein ordutan sortu zen parte-hartzaile pribatu hau
           id: Parte-hartzaile honen identifikatzaile bakarra
           privatable_to: Zein espaziotakoa den parte-hartzaile pribatu hau
-          published: Ea parte-hartzaile pribatu hau argitaratuta dagoen ala ez
+          published: Parte-hartzaile pribatu hau argitaratuta dagoen ala ez
           role: Zein rol duen parte-hartzaile pribatu honek
           updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile pribatu hau
         reports:
@@ -1212,7 +1212,6 @@ eu:
         create:
           error: Elkarrizketa ez da hasi. Saiatu berriro geroago.
         error_modal:
-          close: Itxi leihoa
           correct_errors: Mesedez, zuzendu akatsak eta saiatu berriro.
           intro: 'Zure mezuan honako akats hauek gertatu dira:'
           ok: Ados
@@ -1529,7 +1528,7 @@ eu:
         greetings_html: |
           Adeitasunez,<br>
           %{organization_name}
-        hello: "%{username}, agurgarria:\n"
+        hello: '%{username}, estimatua:'
         subject: Kontu inaktiboa ezabatua
     passwords:
       update:

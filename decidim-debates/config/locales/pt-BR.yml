@@ -41,7 +41,6 @@ pt-BR:
             attachments_allowed: Permitir anexos
             clear_all: Limpar tudo
             comments_enabled: Comentários ativados
-            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             taxonomy_filters: Selecione filtros para o componente
@@ -80,8 +79,6 @@ pt-BR:
             comments_warning: Uma vez que o primeiro comentário é publicado, a opção de exibição selecionada não pode ser alterada.
             debate_type: Tipo de debate
             edit_attachments: Editar anexos
-            errors:
-              comments_layout_locked: Você não pode alterar o layout dos comentários, uma vez que os comentários foram postados.
             finite: Finito (com hora de início e fim)
             open: Abra (Sem horas de início ou fim)
             single_column: 'Coluna única: Os comentários são exibidos em ordem cronológica e podem ter respostas.'
