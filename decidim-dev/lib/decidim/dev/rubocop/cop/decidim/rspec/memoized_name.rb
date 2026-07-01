@@ -26,7 +26,7 @@ module RuboCop
           MSG = "Do not use reserved names as memoized variable names in system specs: %s. Reserved by: %s."
 
           def on_send(node)
-            return unless [:let].include?(node.method_name)
+            return unless [:let, :let!].include?(node.method_name)
             return if within_block?(node)
 
             first_argument = node.first_argument
