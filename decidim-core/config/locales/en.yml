@@ -1537,13 +1537,6 @@ en:
         log_in: log in
         never_logged_in: never logged in
         subject: Inactive account warning
-      removal_notification:
-        body: Your %{organization_name} account has been deleted due to inactivity.
-        greetings_html: |
-          Kind regards,<br>
-          %{organization_name}
-        hello: Dear %{username},
-        subject: Inactive account deleted
     passwords:
       update:
         error: There was a problem updating the password.
