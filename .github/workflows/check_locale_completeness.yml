@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - "chore/l10n/**"
+  pull_request:
+    branches:
+      - "release/**"
 
 permissions:
   contents: read
