@@ -67,6 +67,66 @@ module Decidim
         it_behaves_like "correctly rendered blob URLs"
       end
 
+      context "when blob GID is inside a code tag" do
+        let(:content) do
+          <<~HTML.squish
+            <p><code>#{image_blob.to_global_id}</code></p>
+          HTML
+        end
+
+        it "does not replace blob GID inside code tags" do
+          rendered = Loofah.fragment(subject)
+          code = rendered.at_css("code")
+
+          expect(code.text).to eq(image_blob.to_global_id.to_s)
+        end
+      end
+
+      context "when blob GID is inside a pre tag" do
+        let(:content) do
+          <<~HTML.squish
+            <pre>Image URL: #{image_blob.to_global_id}</pre>
+          HTML
+        end
+
+        it "does not replace blob GID inside pre tags" do
+          rendered = Loofah.fragment(subject)
+          pre = rendered.at_css("pre")
+
+          expect(pre.text).to include(image_blob.to_global_id.to_s)
+        end
+      end
+
+      context "when blob GID is inside a script tag" do
+        let(:content) do
+          <<~HTML.squish
+            <script>var blobId = "#{image_blob.to_global_id}";</script>
+          HTML
+        end
+
+        it "does not replace blob GID inside script tags" do
+          rendered = Loofah.fragment(subject)
+          script = rendered.at_css("script")
+
+          expect(script.text).to include(image_blob.to_global_id.to_s)
+        end
+      end
+
+      context "when blob GID is inside a style tag" do
+        let(:content) do
+          <<~HTML.squish
+            <style>.bg { background: url('#{image_blob.to_global_id}'); }</style>
+          HTML
+        end
+
+        it "does not replace blob GID inside style tags" do
+          rendered = Loofah.fragment(subject)
+          style = rendered.at_css("style")
+
+          expect(style.text).to include(image_blob.to_global_id.to_s)
+        end
+      end
+
       context "when there is a query string after the gid" do
         let(:suffix) { "?some=strange&suffix=after" }
 

@@ -834,6 +834,7 @@ eu:
       officializations:
         block:
           error: Arazo bat izan da parte-hartzailea blokeatzean.
+          no_user: Ez da parte-hartzailerik aurkitu 
           success: Parte-hartzailea zuzen blokeatua.
         bulk_action:
           block:
@@ -867,6 +868,8 @@ eu:
           badge: Ofizializazio-garaikurra
           officialize: Ofizializatzen du
           title: Parte-hartzaile ofiziala "%{name}"
+        show_email:
+          no_user: Ez da parte-hartzailerik aurkitu
         show_email_modal:
           description: Parte-hartzaile batekin zuzenean harremanetan jarri behar baduzu, Erakutsi botoian klik egin dezakezu helbide elektronikoa ikusteko. Ekintza hori erregistratu egingo da.
           email_address: Korreo elektronikoaren helbidea

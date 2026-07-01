@@ -20,12 +20,12 @@ module Decidim
         attribute :results_availability, String, default: "after_end"
         attribute :attachment, AttachmentForm
 
-        attachments_attribute :photos
+        attachments_attribute :attachments
 
         validates :title, translatable_presence: true
         validates :results_availability, inclusion: { in: Decidim::Elections::Election::RESULTS_AVAILABILITY_OPTIONS }
         validates :start_at, date: { before: :end_at }, unless: :manual_start?
-        validates :start_at, date: { after: proc { Time.current } }, if: :scheduled_election?
+        validates :start_at, date: { after: proc { Time.current } }, if: ->(f) { f.election&.scheduled? && f.start_at.present? }
         validates :manual_start, acceptance: true, if: :per_question_not_started?
         validates :end_at, presence: true
         validates :end_at, date: { after: :start_at }, if: ->(f) { f.start_at.present? && f.end_at.present? }
@@ -33,6 +33,8 @@ module Decidim
 
         def map_model(election)
           self.manual_start = election.start_at.blank?
+          self.attachments = election.attachments.ids
+          self.add_attachments = election.attachments.map { |att| { id: att.id, title: att.title } }
         end
 
         def results_availability_labels

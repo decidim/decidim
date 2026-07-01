@@ -194,6 +194,34 @@ module Decidim::Elections
         it { is_expected.to be_valid }
       end
 
+      context "when editing a published election configured for manual start" do
+        let(:election) { create(:election, :published, component:, start_at: nil, end_at: 4.days.from_now) }
+        let(:manual_start) { true }
+        let(:start_at) { nil }
+
+        context "and end_at is valid (in the future)" do
+          let(:end_at) { 2.days.from_now }
+
+          it { is_expected.to be_valid }
+
+          it "does not validate start_at when it is nil" do
+            expect(subject.valid?).to be true
+            expect(subject.errors[:start_at]).to be_empty
+          end
+        end
+
+        context "and end_at is set in the past" do
+          let(:end_at) { 1.day.ago }
+
+          it { is_expected.not_to be_valid }
+
+          it "still validates end_at to prevent moving the election into a finished state" do
+            subject.valid?
+            expect(subject.errors[:end_at]).not_to be_empty
+          end
+        end
+      end
+
       context "when election is not published" do
         let(:election) { create(:election, component:, start_at: 3.days.from_now, end_at: 4.days.from_now) }
 

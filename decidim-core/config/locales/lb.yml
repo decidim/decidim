@@ -202,9 +202,6 @@ lb:
       update_draft:
         error: Et gouf e Problem beim Aktualiséieren vum Ännerungsvirschlag.
         success: Ännerungsvirschlag gouf aktualiséiert.
-      wizard_step_form:
-        steps:
-          '1': Erstell deng Ännerung
     anonymous_user: Anonym
     application:
       document:

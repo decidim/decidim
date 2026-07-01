@@ -79,7 +79,7 @@ module Decidim
     end
 
     def perform_caching?
-      cache_hash.present?
+      super && cache_hash.present?
     end
 
     def cache_hash

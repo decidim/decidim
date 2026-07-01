@@ -11,15 +11,24 @@ module Decidim
       #
       # @return [String] the content ready to display (contains HTML)
       def render(_options = nil)
-        return content unless content.respond_to?(:gsub)
-
-        content.gsub(regex) do |resource_gid|
+        replace_pattern_by_context(content, regex, on_missing: proc { |match, _| "~#{match.split("/").last}" }) do |resource_gid, context|
           resource = GlobalID::Locator.locate(resource_gid)
-          resource.presenter.display_mention
-        rescue ActiveRecord::RecordNotFound
-          resource_id = resource_gid.split("/").last
-          "~#{resource_id}"
+
+          if context.attribute?
+            resource_attribute_value(resource)
+          else
+            resource.presenter.display_mention
+          end
         end
+      end
+
+      protected
+
+      def resource_attribute_value(resource)
+        presenter = resource.presenter
+        return presenter.profile_path if presenter.respond_to?(:profile_path)
+
+        Decidim::ResourceLocatorPresenter.new(resource).path
       end
 
       def regex

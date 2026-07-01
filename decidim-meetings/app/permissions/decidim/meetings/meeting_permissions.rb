@@ -39,8 +39,6 @@ module Decidim
       end
 
       def can_create?
-        return false unless user
-
         (component_settings&.creation_enabled_for_participants? && can_participate?) || initiative_authorship?
       end
 

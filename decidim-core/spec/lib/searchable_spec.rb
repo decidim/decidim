@@ -98,6 +98,26 @@ module Decidim
           participatory_process.update!(published_at: nil)
         end
       end
+
+      context "when the resource locale is not an available locale" do
+        let!(:searchable_resource) do
+          create(
+            :searchable_resource,
+            resource: participatory_process,
+            organization: participatory_process.organization,
+            decidim_participatory_space: participatory_process,
+            locale: "tlh"
+          )
+        end
+
+        it "deletes the searchable resource for unexisting locale" do
+          expect do
+            participatory_process.update!(title: { en: "Updated" })
+          end.to change(Decidim::SearchableResource, :count).by(-1)
+
+          expect(Decidim::SearchableResource.count).to eq(0)
+        end
+      end
     end
   end
 end

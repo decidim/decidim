@@ -32,7 +32,7 @@ module Decidim
     end
 
     def self.ransackable_attributes(_auth_object = nil)
-      %w(reported_id_string reported_content created_at)
+      %w(reported_id_string reported_content created_at report_count)
     end
 
     def self.ransackable_associations(_auth_object = nil)

@@ -27,17 +27,15 @@ module Decidim
       protected
 
       def replace_pattern(text, pattern, editor:)
-        return text unless text.respond_to?(:gsub)
-
-        text.gsub(pattern) do |resource_gid|
+        replace_pattern_by_context(text, pattern) do |resource_gid, context|
           resource = GlobalID::Locator.locate(resource_gid)
-          if editor
+          if context.attribute?
+            render_resource_url(resource, editor:)
+          elsif editor
             render_editor(resource_gid, resource)
           else
             render_resource_link(resource)
           end
-        rescue ActiveRecord::RecordNotFound => _e
-          ""
         end
       end
 
@@ -48,6 +46,12 @@ module Decidim
 
       def render_resource_link(resource)
         link_to mention_title(resource), resource_path(resource)
+      end
+
+      def render_resource_url(resource, editor:)
+        return resource_path(resource) if editor
+
+        Decidim::ResourceLocatorPresenter.new(resource).url
       end
 
       def mention_title(resource)

@@ -21,6 +21,7 @@ module Decidim
       helper_method :meetings, :meeting, :registration, :registration_qr_code_image, :search, :tab_panel_items, :withdrawn_meetings?
 
       before_action :add_additional_csp_directives, only: [:show]
+      before_action :authenticate_user!, only: [:new, :create, :edit, :update, :withdraw]
 
       def new
         enforce_permission_to :create, :meeting

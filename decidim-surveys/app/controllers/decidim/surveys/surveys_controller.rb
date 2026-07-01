@@ -30,7 +30,7 @@ module Decidim
       end
 
       def check_permissions
-        render :no_permission unless action_authorized_to(:response, resource: survey).ok?
+        render :no_permission unless action_authorized_to(:respond, resource: survey).ok?
       end
 
       def questionnaire_for
