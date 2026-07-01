@@ -42,7 +42,7 @@ ca:
             attachments_allowed: Permetre fitxers adjunts
             clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             taxonomy_filters: Seleccionar filtres pel component
@@ -77,12 +77,13 @@ ca:
           form:
             add_attachments: Afegir fitxer(s) adjunt(s)
             attachment_legend: Afegir un document o una imatge
+            comments_layout_locked_warning: No es pot canviar el disseny dels comentaris perquè ja s'han publicat comentaris.
             comments_visualization: Visualització dels comentaris
             comments_warning: Una vegada que es publica el primer comentari, l'opció de visualització seleccionada no es pot canviar.
             debate_type: Tipus de debat
             edit_attachments: Edita els fitxers adjunts
             errors:
-              comments_layout_locked: No pots canviar el disseny del comentari una vegada que s'hagi publicat algun comentario.
+              comments_layout_locked: No es pot canviar el disseny dels comentaris perquè ja s'han publicat comentaris.
             finite: Finit (amb moments d'inici i de fi)
             open: Obert (sense moments d'inici ni de fi)
             single_column: 'Columna única: Els comentaris es mostren per ordre cronològic i poden rebre respostes.'

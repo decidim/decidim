@@ -65,7 +65,6 @@ tr:
           global:
             announcement: Duyuru
             comments_enabled: Yorumlar etkin
-            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             creation_enabled_for_participants: Katılımcılar toplantı oluşturabilir
             default_registration_terms: Varsayılan kayıt şartları
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
