@@ -68,9 +68,9 @@ es:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+              needs_to_be_reattached: Es necesario volver a adjuntar el archivo
             add_photos:
-              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+              needs_to_be_reattached: Es necesario volver a adjuntar el archivo
             body:
               cant_be_equal_to_template: no puede ser igual a la plantilla
               identical: Y el título no puede ser idéntico

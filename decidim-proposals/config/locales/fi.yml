@@ -68,9 +68,9 @@ fi:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Liitettävä uudelleen
+              needs_to_be_reattached: Liitettävä uudestaan
             add_photos:
-              needs_to_be_reattached: Liitettävä uudelleen
+              needs_to_be_reattached: Liitettävä uudestaan
             body:
               cant_be_equal_to_template: ei voi vastata mallipohjaa
               identical: JA otsikko ei voi olla täysin sama

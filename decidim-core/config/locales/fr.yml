@@ -444,6 +444,7 @@ fr:
         explanation: Procédure d'autorisation factice
         name: Procédure d'autorisation factice
       ephemeral_dummy_authorization_handler:
+        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par « X ».
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
           document_number: Numéro du document
@@ -1270,7 +1271,6 @@ fr:
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard.
         error_modal:
-          close: Fermer la fenêtre de dialogue
           correct_errors: Veuillez corriger les erreurs et réessayer.
           intro: 'Il y a eu les erreurs suivantes avec votre message :'
           ok: Ok

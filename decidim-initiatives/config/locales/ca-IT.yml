@@ -74,9 +74,6 @@ ca-IT:
       decidim/initiative_comittee:
         one: Comitè
         other: Comitès
-      decidim/initiative_vote:
-        one: Signatura
-        other: Signatures
   decidim:
     admin:
       actions:
@@ -555,9 +552,6 @@ ca-IT:
           signature_collection: Signatures recollides
           state: Estat
           type: Tipus
-        signatures_count:
-          one: " signatura"
-          other: " signatures"
         vote_cabin:
           already_voted: Ja has signat
           vote: Signar

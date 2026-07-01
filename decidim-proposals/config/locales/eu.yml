@@ -18,7 +18,7 @@ eu:
         answer: Erantzuna
         answered_at: '-k erantzuna'
         automatic_hashtags: Traola automatikoki gehitu da
-        body: Gorputza
+        body: Testua
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Eremua
         has_address: Helbidea du
@@ -68,9 +68,9 @@ eu:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Fitxategia berriro erantsi behar da
+              needs_to_be_reattached: Berriro erantsi behar da
             add_photos:
-              needs_to_be_reattached: Fitxategia berriro erantsi behar da
+              needs_to_be_reattached: Berriro erantsi behar da
             body:
               cant_be_equal_to_template: ezin da plantilla bezalakoa izan
               identical: ETA izenburua ezin da berdina izan
@@ -387,7 +387,7 @@ eu:
           conditions:
           - Aukeratu zure intereseko partaidetza-espazioa proposamenak bidaltzeko
           - Egin daitezkeen proposamenak egiten saiatu. Horrela onartuak izateko aukera gehiago dute.
-          description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
+          description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
           description_own: Zure %{score} proposamen onartu dira.
           name: Proposamen onartuak
@@ -669,7 +669,7 @@ eu:
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
-            body: Gorputza
+            body: Testua
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
             endorsements_count: Atxikimendu kopurua

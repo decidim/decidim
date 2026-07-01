@@ -67,10 +67,6 @@ sk:
               allowed_file_content_types: 'Neplatný typ dokumentu. Povolené sú iba súbory s nasledujúcimi príponami: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Je potrebné priložiť znovu
-            add_photos:
-              needs_to_be_reattached: Je potrebné priložiť znovu
             body:
               cant_be_equal_to_template: nemôže byť rovnaké, ako šablóna
               identical: A názov nemôže byť totožný
@@ -319,7 +315,7 @@ sk:
           email_intro: '%{requester_name} bol/a odmietnutý/á ako prispievateľ do spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} mal odmietnutý pre prístup ako prispievateľ ku %{resource_title} kolektívnemu návrhu."
-          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a><strong> mal odmietnutý prístup ako prispievateľ </strong>ku spoločnému návrhu <a href = "%{resource_path}" >%{resource_title} </a>. 
+          notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a><strong> mal odmietnutý prístup ako prispievateľ </strong>ku spoločnému návrhu <a href = "%{resource_path}" >%{resource_title} </a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} požiadal/a o prístup ako prispievateľ. Žiadosť môžete <strong>prijať alebo odmietnuť</strong> na stránke spoločného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Toto upozornenie ste dostali, pretože ste spolupracovníkom <a href="%{resource_url}">%{resource_title}</a>.

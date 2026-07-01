@@ -1318,7 +1318,7 @@ ca-IT:
         taxonomy_presenter:
           not_found: 'No s''ha trobat la taxonomia a la base de dades (ID: %{id})'
     machine_translations:
-      automatic: traducció automàtica a %{locale_name} 
+      automatic: traducció automàtica a %{locale_name}
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
     map:
@@ -1379,7 +1379,6 @@ ca-IT:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard.
         error_modal:
-          close: Tanca la finestra
           correct_errors: Si us plau, corregiu els errors i torneu-ho a intentar.
           intro: 'Hi ha els següents errors al vostre missatge:'
           ok: D'acord
