@@ -51,10 +51,6 @@ pl:
               allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Musi zostać ponownie załączony
-            add_photos:
-              needs_to_be_reattached: Musi zostać ponownie załączony
             body:
               cant_be_equal_to_template: nie może być taki sam jak szablon
               identical: I tytuł nie może być identyczny
@@ -136,7 +132,6 @@ pl:
             can_accumulate_votes_beyond_threshold: Może gromadzić głosy powyżej progu
             collaborative_drafts_enabled: Zezwalaj na wspólne szkice
             comments_enabled: Komentarze włączone
-            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             default_sort_order: Domyślne sortowanie propozycji
             default_sort_order_help: Automatycznie oznacza, że jeśli głosy są włączone, propozycje będą wyświetlane w losowej kolejności i jeśli głosy zostaną zablokowane, zostaną posortowane według tych z największą ilością głosów.
             default_sort_order_options:

@@ -36,6 +36,8 @@ ja:
               must_be_ssl: リダイレクト URI は SSL が有効な URI でなければなりません
         organization:
           attributes:
+            host:
+              invalid: は無効な値です
             password:
               secret_key: このフィールドを保存するには、環境変数 SECRET_KEY_BASE を定義する必要があります
   decidim:
@@ -191,9 +193,8 @@ ja:
             user: "GraphQL API への呼び出し時に、与えられたトークンを使用してサインイン中のユーザーとして操作を行うための権限です。これは、現在のユーザーに関する情報を必要とするすべての api:write 操作や api:read 操作に必要です。\n"
           scopes_help_html: |
             選択したスコープは、認可プロセス中に接続されたアプリケーションがリクエストできるようになります。ユーザーが OAuth を利用してサインインする際には、認可リクエストの詳細が表示されます。 <br>
-            スコープによって、付与されたアクセストークンを用いた認証後に利用できる機能が異なります。 <br> 
+            スコープによって、付与されたアクセストークンを用いた認証後に利用できる機能が異なります。 <br>
             <strong>注意:</strong> 外部アプリケーションでユーザー認証のみを行いたい場合は、<strong>profile</strong> スコープだけで十分です。Decidim API と連携するアプリケーションには、他のスコープも必要になります。
-
           select_organization: 組織を選択
         index:
           confirm_delete: このアプリケーションを削除してもよろしいですか？

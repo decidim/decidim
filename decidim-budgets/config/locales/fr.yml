@@ -334,7 +334,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             form:
               errors:

@@ -434,11 +434,25 @@ ja:
         update: 更新する
       events:
         approve_membership_request:
+          email_intro: "%{author_name} は、イニシアチブ %{resource_title} の推進委員会メンバーとなるためのあなたの申請を承認しました。"
           email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'
+          email_subject: "%{author_name} が推進委員会へのあなたの申請を承認しました"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> は、以下のイニシアチブ <a href="%{resource_url}">%{resource_title}</a> の推進委員会のメンバーとなるためのあなたの申請を承認しました。
+        create_initiative_event:
+          email_intro: "フォロー中の %{author_name} が新しいイニシアチブを作成しました。ぜひ内容を確認し、ご協力ください："
+          email_outro: '%{author_name} をフォローしているため、この通知が届きました。前のリンクからフォローを解除することで、通知の受信を停止できます。'
+          email_subject: '%{author_name} による新しいイニシアチブ'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは <a href="%{author_path}">%{author_name}</a> によって作成されました。
         revoke_membership_request:
+          email_intro: "%{author_name} により、以下のイニシアチブ %{resource_title} の推進委員会メンバーとなるための申請が却下されました。"
           email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'
+          email_subject: "%{author_name} があなたからの推進委員会への申請を却下しました"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> は、以下のイニシアチブ <a href="%{resource_url}">%{resource_title}</a> の推進委員会メンバーとしての申請を却下しました。
         spawn_committee_request_event:
+          email_intro: "%{applicant_name} がイニシアチブ %{resource_title} の推進委員会に応募しました。承認または却下するには、イニシアチブの編集フォームにアクセスしてください。"
           email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} の作成者だからです。'
+          email_subject: "%{applicant_name} はあなたのイニシアチブへの参加を希望しています"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_name}</a> がイニシアチブ <a href="%{resource_url}">%{resource_title}</a> の推進委員会に応募しました。承認または拒否するには、<a href="%{resource_url}/edit">こちらをクリック</a>してください。
       form:
         add_attachments: 添付ファイルを追加
         add_image: 画像を追加

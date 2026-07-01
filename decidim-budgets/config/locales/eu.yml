@@ -152,7 +152,7 @@ eu:
           orders:
             description: Parte-hatzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
             title:
-              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} partte-hartzaileari
+              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} erabiltzaileri
               other: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} parte-hartzaileri
       admin_log:
         budget:
@@ -179,7 +179,7 @@ eu:
           only_one: ezabatu zure babesa eta hasi berriro.
         completed: Amaituta
         count:
-          one: "%{count} aurrekontu"
+          one: "Aurrekontu %{count}"
           other: "%{count} aurrekontu"
         empty: Oraindik ez dago aurrekonturik
         finished_message: Amaitu duzu babesa emateko prozesua. Eskerrik asko parte hartzeagatik!
@@ -346,7 +346,7 @@ eu:
             announcement: Oharra
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (uzti 0 defektuz konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             form:
               errors:
