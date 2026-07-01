@@ -19,7 +19,7 @@ RSpec.describe RuboCop::Cop::Decidim::RSpec::MemoizedName, :config do
         it "registers an offense for reserved name" do
           expect_offense(<<~RUBY)
             let(:#{name}) { "value" }
-                ^#{"^" * name.length} Do not use reserved names as memoized variable names in specs: #{name}. Reserved by: #{klass}.
+                ^#{"^" * name.length} Do not use reserved names as memoized variable names in system specs: #{name}. Reserved by: #{klass}.
           RUBY
         end
       end
