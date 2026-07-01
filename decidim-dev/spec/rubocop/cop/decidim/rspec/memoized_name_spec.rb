@@ -16,7 +16,7 @@ RSpec.describe RuboCop::Cop::Decidim::RSpec::MemoizedName, :config do
   described_class::RESERVED_NAMES.each do |klass, names|
     names.each do |name|
       context "with #{name}" do
-        it "registers an offense for very short callouts" do
+        it "registers an offense for reserved name" do
           expect_offense(<<~RUBY)
             let(:#{name}) { "value" }
                 ^#{"^" * name.length} Do not use reserved names as memoized variable names in specs: #{name}. Reserved by: #{klass}.
