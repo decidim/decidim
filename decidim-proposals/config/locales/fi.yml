@@ -326,7 +326,7 @@ fi:
           email_intro: <a href="%{author_url}">%{author_name}</a> perui yhteistyöluonnoksen <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{author_name} perui yhteistyöluonnoksen %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name}</a> <strong>perui</strong> yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</strong>.
+          notification_title: <a href="%{author_path}">%{author_name}</a> <strong>perui</strong> yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Voit nyt luoda uusia ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
