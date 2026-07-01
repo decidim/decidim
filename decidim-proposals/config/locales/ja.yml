@@ -63,6 +63,8 @@ ja:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されています: %{types}'
         proposal:
           attributes:
+            add_attachments:
+              needs_to_be_reattached: 再接続が必要
             body:
               cant_be_equal_to_template: はテンプレートと等しくすることはできません
               identical: ANDタイトルは同一にすることはできません
