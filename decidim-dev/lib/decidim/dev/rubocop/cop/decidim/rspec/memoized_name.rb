@@ -20,7 +20,7 @@ module RuboCop
               :relative_image_path,
               :absolute_html_path,
               :output_type
-            ]
+            ].freeze
           }.freeze
 
           MSG = "Do not use reserved names as memoized variable names in system specs: %s. Reserved by: %s."
