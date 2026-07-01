@@ -2,7 +2,7 @@
   <% nav_items.each do |item| %>
     <li>
       <%= link_to item[:url] do %>
-        <span><%= item[:name] %></span><%= icon "arrow-right-line" %>
+        <span><%= decidim_escape_translated(item[:name]) %></span><%= icon "arrow-right-line" %>
       <% end %>
     </li>
   <% end %>
