@@ -129,12 +129,18 @@ export default class TabsController extends Controller {
 
     let content = target.querySelector(".editor .ProseMirror");
     if (content) {
-      content.focus()
+      content.focus();
     } else {
       content = target.querySelector("input")
       if (content) {
         content.focus();
       }
+    }
+
+    if(content) {
+      let value = content.value;
+      content.value = "";
+      content.value = value;
     }
   }
 
