@@ -67,7 +67,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   end
 
   context "with a participatory process" do
-    let(:context) { { participatory_process: } }
+    let!(:context) { { current_participatory_space: participatory_process } }
 
     context "when user is an org admin" do
       context "when process is restricted and is accessed by different space roles" do
@@ -77,8 +77,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         let(:process_moderator) { create(:process_moderator, participatory_process:) }
         let(:process_evaluator) { create(:process_evaluator, participatory_process:) }
         let(:process_admin) { create(:process_admin, participatory_process:) }
-
-        let!(:context) { { current_participatory_space: participatory_process } }
 
         context "and user is admin" do
           let(:user) { process_admin }
