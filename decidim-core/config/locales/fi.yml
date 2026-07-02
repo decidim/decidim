@@ -664,6 +664,13 @@ fi:
           all: Kaikki
         filter_taxonomy_values:
           all: Kaikki
+    delete_user_mailer:
+      delete:
+        body_1: Tilisi on poistettu käytöstä ja se ei ole enää käytettävissä. Henkilötietosi on tarkoitus poistaa pysyvästi tietojen säilyttämiskäytäntöjemme mukaisesti.
+        body_2: Turvallisuussyistä tietyt vahvistuksiin liittyvät tiedot säilytetään. Jos luot uuden tilin ja vahvistat sen uudestaan, tiedot voidaan liittää uuteen tiliisi.
+        greetings_html: Terveisin,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hei %{username},
+      subject: Tilisi on poistettu
     devise:
       omniauth_registrations:
         create:
@@ -1525,13 +1532,6 @@ fi:
         log_in: kirjaudu sisään
         never_logged_in: et ole koskaan kirjautunut palveluun
         subject: Varoitus passiivisesta käyttäjätilistä
-      removal_notification:
-        body: Tilisi palvelussa %{organization_name} on poistettu, koska tiliä ei ole käytetty pitkään aikaan.
-        greetings_html: |
-          Terveisin,<br>
-          %{organization_name}
-        hello: Hei %{username},
-        subject: Käyttämättä ollut tili on poistettu
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
