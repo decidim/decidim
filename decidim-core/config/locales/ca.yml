@@ -552,7 +552,7 @@ ca:
           global:
             amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris
+            comments_max_length: Caràcters màxims per comentari
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             dummy_global_attribute1: Atribut de prova 1
             dummy_global_attribute2: Atribut de prova 2
@@ -658,6 +658,13 @@ ca:
           all: Tots
         filter_taxonomy_values:
           all: Totes
+    delete_user_mailer:
+      delete:
+        body_1: El teu compte s'ha desactivat i ja no és accessible. Les teves dades personals estan programades per eliminar-les permanentment d'acord amb les nostres polítiques de retenció de dades.
+        body_2: Per raons de seguretat, es conservaran algunes dades relacionades amb la verificació; d'aquesta manera si creessis un compte nou i el tornes a verificar, es podria vincular l'autorització amb aquest compte nou.
+        greetings_html: Atentament,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hola %{username},
+      subject:
     devise:
       omniauth_registrations:
         create:
@@ -948,6 +955,18 @@ ca:
         notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no es distingueix entre majúscules i minúscules.<br/>El teu àlies es va crear més tard que un altre d'igual, així que s'ha renombrat automàticament. Pots modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Se t'ha afegit com a membre a un espai de participació.
+            email_outro: Heu rebut aquesta notificació perquè una administradora us ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. El vostre perfil es mostrarà a la <a href="%{members_page}">llista de membres</a> d'aquest espai.<br> Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
+            email_subject: Ara tens accés a "%{resource_title}".
+            notification_title: Ara tens accés a <a href="%{resource_url}">"%{resource_title}"</a>.
+          unpublished:
+            email_intro: Se t'ha afegit com a membre a un espai de participació.
+            email_outro: Heu rebut aquesta notificació perquè una administradora us ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
+            email_subject: Ara tens accés a "%{resource_title}".
+            notification_title: Ara tens accés a <a href="%{resource_url}">"%{resource_title}"</a>.
       reports:
         parent_hidden:
           email_intro: |-
@@ -1214,7 +1233,6 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard.
         error_modal:
-          close: Tanca la finestra
           correct_errors: Si us plau, corregiu els errors i torneu-ho a intentar.
           intro: 'Hi ha els següents errors al vostre missatge:'
           ok: D'acord
@@ -1525,13 +1543,6 @@ ca:
         hello_html: Benvolgut/da <strong>%{username}</strong>,
         log_in: entra
         never_logged_in: mai ha iniciat sessió
-        subject: Avís de compte inactiu
-      removal_notification:
-        body: El teu compte a %{organization_name} s'ha eliminat per inactivitat.
-        greetings_html: |
-          Atentament,<br>
-          %{organization_name}
-        hello: Benvolgut/da %{username},
         subject: Avís de compte inactiu
     participatory_space:
       pages:
@@ -1872,7 +1883,7 @@ ca:
       invite_collaborator:
         subject: T'han convidat a col·laborar a %{organization}
       invite_member:
-        subject: T'han convidat a participar en un espai de participació privat a%{organization}
+        subject: T'han convidat a participar en un espai de participació privat a %{organization}
       organization_admin_invitation_instructions:
         subject: T'han convidat a administrar %{organization}
       password_change:

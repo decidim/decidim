@@ -22,7 +22,7 @@
     "esbuild": "^0.28.1",
     "esbuild-loader": "^4.0.2",
     "esbuild-sass-plugin": "^3.6.0",
-    "glob": "^10.3.3",
+    "glob": "^13.0.6",
     "js-yaml": "^5.1.0",
     "mini-css-extract-plugin": "^2.7.6",
     "path-complete-extname": "^1.0.0",
@@ -43,7 +43,7 @@
     "webpack-assets-manifest": "^6.5.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.2.2",
-    "webpack-merge": "^5.9.0",
+    "webpack-merge": "^6.0.1",
     "webpack-sources": "^3.2.3",
     "workbox-recipes": "^7.0.0",
     "workbox-webpack-plugin": "~7.3.0"

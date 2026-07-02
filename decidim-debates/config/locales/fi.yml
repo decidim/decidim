@@ -76,12 +76,13 @@ fi:
           form:
             add_attachments: Lisää liitteitä
             attachment_legend: Lisää asiakirja tai kuva
+            comments_layout_locked_warning: Kommenttien asettelua ei voi muuttaa, koska kommentteja on jo lähetetty.
             comments_visualization: Kommenttien visualisointi
             comments_warning: Ensimmäisen kommentin jälkeen kommenttien esitysmuotoasetusta ei voi muuttaa.
             debate_type: Keskustelun tyyppi
             edit_attachments: Muokkaa liitteitä
             errors:
-              comments_layout_locked: Et voi muuttaa kommenttien esitysmuotoa sen jälkeen, kun kommentteja on laadittu.
+              comments_layout_locked: Kommenttien asettelua ei voi muuttaa, koska kommentteja on jo lähetetty.
             finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
             open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
             single_column: 'Yksi sarake: kommentit näytetään yhdessä sarakkeessa kronologisessa järjestyksessä ja niihin voi vastata.'
@@ -201,6 +202,13 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi keskustelu "%{resource_title}" osallistumistilassa %{participatory_space_title}
             notification_title: Keskustelu nimeltä <a href="%{resource_path}">%{resource_title}</a> luotiin osallistumistilaan <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hei,
+              Seuraamasi osallistuja %{author_name} on laatinut uuden keskustelun "%{resource_title}". Tutustu siihen ja osallistu:
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{author_name}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Uusi keskustelu "%{resource_title}" osallistujalta %{author_name}
+            notification_title: <a href="%{author_path}">%{author_name}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Keskustelujen luominen ei ole enää käytössä kohteessa %{participatory_space_title}. Voit silti osallistua avattuihin keskusteluihin sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.

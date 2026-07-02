@@ -552,7 +552,7 @@ es:
           global:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios
+            comments_max_length: Máximo de caracteres por comentario
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             dummy_global_attribute1: Atributo de prueba 1
             dummy_global_attribute2: Atributo de prueba 2
@@ -658,6 +658,13 @@ es:
           all: Todos
         filter_taxonomy_values:
           all: Todas
+    delete_user_mailer:
+      delete:
+        body_1: Tu cuenta ha sido desactivada y ya no es accesible. Tus datos personales están programados para su eliminación permanente de acuerdo con nuestras políticas de retención de datos.
+        body_2: Por razones de seguridad, se conservarán algunos datos relacionados con la verificación; de este modo si crearas una nueva cuenta y la verificaras de nuevo, se podría vincular la autorización con esta nueva cuenta.
+        greetings_html: Atentamente,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hola %{username},
+      subject: Tu cuenta ha sido eliminada
     devise:
       omniauth_registrations:
         create:
@@ -893,12 +900,12 @@ es:
           affected_user:
             email_intro: 'Una enmienda rechazada para %{amendable_title} ha sido publicada como una nueva %{amendable_type}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque se ha promocionado una esmena al apartado "%{amendable_title}" que administras.
-            email_subject: Se ha publicado una modificación de %{emendation_author_nickname} como nuevo %{amendable_type}
+            email_subject: Se ha publicado una modificación de %{emendation_author_name} como nuevo %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
           follower:
             email_intro: 'Una enmienda rechazada para %{amendable_title} ha sido publicada como nueva %{amendable_type}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Se ha publicado una enmienda hecha por %{emendation_author_nickname} como nuevo %{amendable_type}
+            email_subject: Se ha publicado una enmienda hecha por %{emendation_author_name} como nuevo %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
         amendment_rejected:
           affected_user:
@@ -948,6 +955,18 @@ es:
         notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
         notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Se te ha añadido como miembro a un espacio de participación.
+            email_outro: Has recibido esta notificación porque una administradora te ha añadido a <a href="%{resource_url}">"%{resource_title}"</a>. Tu perfil se mostrará en la <a href="%{members_page}">lista de miembros</a> de este espacio.<br> Si el acceso a este espacio es restringido, podrás acceder siempre que hayas iniciado tu sesión con tu cuenta.
+            email_subject: Ahora tienes acceso a "%{resource_title}".
+            notification_title: Ahora tienes acceso a <a href="%{resource_url}">"%{resource_title}"</a>.
+          unpublished:
+            email_intro: Se te ha añadido como miembro a un espacio de participación.
+            email_outro: Has recibido esta notificación porque una administradora te ha añadido a <a href="%{resource_url}">"%{resource_title}"</a>. Si el acceso a este espacio es restringido, podrás acceder siempre que hayas iniciado tu sesión con tu cuenta.
+            email_subject: Ahora tienes acceso a "%{resource_title}".
+            notification_title: Ahora tienes acceso a <a href="%{resource_url}">"%{resource_title}"</a>.
       reports:
         parent_hidden:
           email_intro: |-
@@ -1214,7 +1233,6 @@ es:
         create:
           error: No se ha iniciado la conversación. Vuelve a intentarlo más tarde.
         error_modal:
-          close: Cerrar modal
           correct_errors: Por favor, corrige los errores e inténtalo de nuevo.
           intro: 'Se han producido los siguientes errores en tu mensaje:'
           ok: De acuerdo
@@ -1525,13 +1543,6 @@ es:
         hello_html: Estimado/a <strong>%{username}</strong>,
         log_in: entra
         never_logged_in: nunca ha iniciado sesión
-        subject: Aviso de cuenta inactiva
-      removal_notification:
-        body: Tu cuenta en %{organization_name} ha sido eliminada por inactividad.
-        greetings_html: |
-          Atentamente,<br>
-          %{organization_name}
-        hello: Estimado/a %{username},
         subject: Aviso de cuenta inactiva
     participatory_space:
       pages:

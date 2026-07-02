@@ -43,7 +43,6 @@ it:
         alert_color: Notifica
         available_authorizations: Autorizzazioni disponibili
         badges_enabled: Abilita badge
-        comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
         customize_welcome_notification: Personalizza la notifica di benvenuto
         default_locale: Lingua predefinita
         description: Descrizione
@@ -923,9 +922,6 @@ it:
         adjacent_navigation:
           next: Successivo
           next_title: Articolo successivo
-        gallery:
-          add_images: Aggiungi immagini
-          gallery_legend: Aggiungi una galleria di immagini (opzionale)
       static_page_topics:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo argomento.

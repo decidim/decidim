@@ -162,7 +162,6 @@ gl:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
-            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             projects_per_page: Proxectos por páxina
             title: Título
             total_budget: Orzamento total

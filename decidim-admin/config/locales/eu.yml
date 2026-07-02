@@ -11,6 +11,7 @@ eu:
         plural: Plurala
       attachment:
         attachment_collection_id: Karpeta
+        attachments: Erantsitako fitxategiak
         description: Deskribapena
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
@@ -49,7 +50,7 @@ eu:
         alert_color: Abisua
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
-        comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
+        comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
         customize_welcome_notification: Pertsonalizatu ongi etorri jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
@@ -182,7 +183,7 @@ eu:
         configure: Konfiguratu
         confirm_delete_component: |
           Ziur zaude osagai hau ezabatu nahi duzula?
-          Osagai honek honako hauek ditu: 
+          Osagai honek honako hauek ditu:
           <ul class="list-disc ml-6 my-2">
            <li class="font-bold">%{resources_count}  resources</li>
           </ul>
@@ -235,7 +236,7 @@ eu:
         index:
           title: Arlo motak
         new:
-          create: Sortu arlo mota
+          create: Arlo mota sortu
           title: Beste arlo mota bat
         update:
           error: Arazo bat egon da arlo mota hau eguneratzean.
@@ -403,7 +404,7 @@ eu:
         show:
           dropdown: Goitibeherako zerrrenda
           title: Kontrol-panela
-          view_more_logs: Ikusi erregistro gehiago 
+          view_more_logs: Ikusi erregistro gehiago
       domain_allowlist:
         form:
           domain_too_short: Domeinu laburregia
@@ -899,7 +900,7 @@ eu:
       officializations:
         block:
           error: Arazo bat izan da parte-hartzailea blokeatzean.
-          no_user: Ez da parte-hartzailerik aurkitu 
+          no_user: Ez da parte-hartzailerik aurkitu
           success: Parte-hartzailea zuzen blokeatua.
         bulk_action:
           block:
@@ -909,6 +910,7 @@ eu:
             invalid: Arazo bat izan da parte-hartzaileak desblokeatzean.
             success: Parte-hartzaileak zuzen desblokeatuta.
         create:
+          no_user_found: Ez da Parte-hartzailerik aurkitu.
           success: Pate-hartzailea zuzen ofizializatua.
         destroy:
           success: Parte-hartzailearen ofizializazioa behar bezala desgaitua.
@@ -1095,10 +1097,10 @@ eu:
           next_title: Hurrengo elementua
           previous: Aurrekoa
           previous_title: Aurreko elementua
-        gallery:
-          add_images: Gehitu irudiak
-          edit_images: Editatu irudiak
-          gallery_legend: Gehitu irudi-galeria bat (aukerakoa)
+        attachments:
+          add_attachments: Gehitu eranskinak
+          attachment_legend: Gehitu irudi-galeria bat (aukerakoa)
+          edit_attachments: Editatu eranskinak
       static_page_topics:
         create:
           error: Arazo bat egon da beste gai bat sortzean.
@@ -1314,6 +1316,11 @@ eu:
       errors:
         impersonate_user:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
+      file_help:
+        attachment:
+          explanation: 'Fitxategiako jarraibieak:'
+          message_1: CSV, JSON eta Excel (.xlsx) fitxategiak onartzen dira
+          message_2: CSV fitxategietarako, zutabeen arteko bereizgailuak erdikolona (";") izan behar du
     moderations:
       actions:
         expand: Zabaldu

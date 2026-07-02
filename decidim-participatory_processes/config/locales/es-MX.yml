@@ -640,7 +640,7 @@ es-MX:
             <p>La calidad democrática es un principio básico de Decidim. Para mantenerlo, se ha desarrollado un sistema de indicadores que ayudan a evaluar la calidad de los procesos participativos en la plataforma. En este artículo explicamos cómo se calculan estos indicadores.</p>
 
             <h3>¿Cómo se calculan los indicadores?</h3>
-            <p>Se han definido dos métodos para la recogida de indicadores de calidad:</p> 
+            <p>Se han definido dos métodos para la recogida de indicadores de calidad:</p>
 
             <ol>
             <li><strong>Métricas automáticas:</strong> Se calculan directamente a partir de los datos de la plataforma Decidim.</li>
@@ -684,7 +684,7 @@ es-MX:
 
             <h3>Hibridación</h3>
 
-            <p>Este indicador mide el nivel de combinación entre espacios presenciales y digitales durante el proceso.</p> 
+            <p>Este indicador mide el nivel de combinación entre espacios presenciales y digitales durante el proceso.</p>
             <ul>
             <li>¿Hay algún componente de encuentros? (Sí=5, No=0)</li>
             <li>¿Hay encuentros presenciales? (Sí=5, No=0)</li>
@@ -703,7 +703,7 @@ es-MX:
 
             <h3>Trazabilidad</h3>
 
-            <p>Este indicador mide la transparencia y trazabilidad del proceso participativo. Refleja con qué facilidad la ciudadanía pueden seguir la evolución de las propuestas y verificar las acciones institucionales a través de los registros publicados.</p> 
+            <p>Este indicador mide la transparencia y trazabilidad del proceso participativo. Refleja con qué facilidad la ciudadanía pueden seguir la evolución de las propuestas y verificar las acciones institucionales a través de los registros publicados.</p>
             <ul>
             <li>Número de propuestas con historial (n/total)</li>
             <li>Porcentaje de resultados vinculados a propuestas (n/total)</li>
@@ -715,14 +715,14 @@ es-MX:
             <br><br>
             <h3>Métricas de autoevaluación</h3>
 
-            <p>Además de las métricas automáticas, proponemos el uso de un <strong>formulario de autoevaluación</strong> para valorar las dimensiones cualitativas de cada proceso participativo. Este formulario será rellenado, al finalizar cada proceso participativo, por las responsables de estos, y las respuestas se mostrarán públicamente en el bloque de contenido de indicadores.</p> 
+            <p>Además de las métricas automáticas, proponemos el uso de un <strong>formulario de autoevaluación</strong> para valorar las dimensiones cualitativas de cada proceso participativo. Este formulario será rellenado, al finalizar cada proceso participativo, por las responsables de estos, y las respuestas se mostrarán públicamente en el bloque de contenido de indicadores.</p>
 
-            <p>Estas preguntas pretenden captar aspectos de la calidad democrática que no pueden evaluarse únicamente a través de datos cuantitativos. Es importante tener en cuenta que las respuestas a esta encuesta están sesgadas por la opinión de las responsables del proceso participativo en cuestión.</p> 
+            <p>Estas preguntas pretenden captar aspectos de la calidad democrática que no pueden evaluarse únicamente a través de datos cuantitativos. Es importante tener en cuenta que las respuestas a esta encuesta están sesgadas por la opinión de las responsables del proceso participativo en cuestión.</p>
 
             <br><br>
             <h3>Preguntas de autoevaluación</h3>
 
-            <p>A continuación se exponen las preguntas que componen el formulario de autoevaluación respondidas por las responsables del proceso, así como los valores asociados a cada respuesta.</p> 
+            <p>A continuación se exponen las preguntas que componen el formulario de autoevaluación respondidas por las responsables del proceso, así como los valores asociados a cada respuesta.</p>
 
             <h4>Inclusividad</h4>
 
