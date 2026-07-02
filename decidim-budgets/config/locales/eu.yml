@@ -153,7 +153,7 @@ eu:
           orders:
             description: Parte-hatzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
             title:
-              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} partte-hartzaileari
+              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} erabiltzaileri
               other: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} parte-hartzaileri
       admin_log:
         budget:

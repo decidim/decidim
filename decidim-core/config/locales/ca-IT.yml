@@ -665,7 +665,7 @@ ca-IT:
         body_2: Per raons de seguretat, es conservaran algunes dades relacionades amb la verificació; d'aquesta manera si creessis un compte nou i el tornes a verificar, es podria vincular l'autorització amb aquest compte nou.
         greetings_html: Atentament,<br/><a href="%{organization_url}">%{organization_name}</a>
         hello: Hola %{username},
-      subject:
+      subject: El teu compte ha estat eliminat
     devise:
       omniauth_registrations:
         create:
