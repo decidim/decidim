@@ -12,6 +12,7 @@ ja:
         plural: 複数形
       attachment:
         attachment_collection_id: フォルダ
+        attachments: 添付ファイル
         description: 説明
         file: ファイル
         title: 添付ファイルまたは画像名
@@ -1090,6 +1091,10 @@ ja:
           next_title: 次の項目
           previous: 前へ
           previous_title: 前の項目
+        attachments:
+          add_attachments: 添付ファイルを追加
+          attachment_legend: 添付ファイルギャラリーを追加（オプション）
+          edit_attachments: 添付ファイルを編集
       static_page_topics:
         create:
           error: 新しいトピックを作成中に問題が発生しました。
@@ -1304,6 +1309,11 @@ ja:
       errors:
         impersonate_user:
           reason: 管理対象ではない参加者を管理する場合は、理由を入力する必要があります。
+      file_help:
+        attachment:
+          explanation: 'ファイルのガイダンス：'
+          message_1: CSV、JSON、Excel (.xlsx) ファイルがサポートされています
+          message_2: CSV ファイルの場合、カラム間の区切り文字はセミコロン(";")でなければなりません
     moderations:
       actions:
         expand: 展開
