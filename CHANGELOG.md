@@ -1,5 +1,73 @@
 # Changelog
 
+## [0.32.0](https://github.com/decidim/decidim/tree/0.32.0)
+
+### Added
+
+- **decidim-system**: Backport 'Fix system organization form (short name update and only one locale)' to v0.32 [\#17143](https://github.com/decidim/decidim/pull/17143)
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-assemblies**, **decidim-conferences**, **decidim-participatory processes**: Backport 'Fix unique constraint in space commands caused by deleted spaces' to v0.32 [\#17005](https://github.com/decidim/decidim/pull/17005)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Make import of assemblies/processes attachments more robust' to v0.32 [\#17014](https://github.com/decidim/decidim/pull/17014)
+- **decidim-comments**: Backport 'Attempt to fix flakyness of the show replies spec' to v0.32 [\#17001](https://github.com/decidim/decidim/pull/17001)
+- **decidim-admin**, **decidim-comments**, **decidim-core**: Backport 'Replace tribute javascript with resource mention UI' to v0.32 [\#17020](https://github.com/decidim/decidim/pull/17020)
+- **decidim-generators**: Backport 'Fix flaky on generators bundler (multijson)' to v0.32 [\#17033](https://github.com/decidim/decidim/pull/17033)
+- **decidim-admin**, **decidim-core**: Backport 'Fix flaky on `admin_manages_organization_spec.rb`' to v0.32 [\#17032](https://github.com/decidim/decidim/pull/17032)
+- **decidim-core**: Backport 'Fix crash on login/logout with unsupported image file extensions' to v0.32 [\#17036](https://github.com/decidim/decidim/pull/17036)
+- **decidim-admin**: Backport 'Check for existing user in new officialization form' to v0.32 [\#17029](https://github.com/decidim/decidim/pull/17029)
+- **decidim-core**: Backport 'Fix search indexing for unexisting locales' to v0.32 [\#17045](https://github.com/decidim/decidim/pull/17045)
+- **decidim-surveys**: Backport 'Fix census permissions in surveys' to v0.32 [\#17052](https://github.com/decidim/decidim/pull/17052)
+- **decidim-blogs**, **decidim-debates**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Backport 'Fix create meeting display button' to v0.32 [\#17055](https://github.com/decidim/decidim/pull/17055)
+- **decidim-blogs**: Backport 'Fix exception on post new page as a visitor' to v0.32 [\#17058](https://github.com/decidim/decidim/pull/17058)
+- **decidim-initiatives**: Backport 'Fix exception in intiatives when `has_authorship?` receives a nil argument for u' to v0.32 [\#17066](https://github.com/decidim/decidim/pull/17066)
+- **decidim-core**: Backport 'Fix conversations multiple mentions UI' to v0.32 [\#17078](https://github.com/decidim/decidim/pull/17078)
+- **decidim-core**: Backport 'Fix performance when sending digest notitfications' to v0.32 [\#17075](https://github.com/decidim/decidim/pull/17075)
+- **decidim-core**: Backport 'Show errors in new conversation' to v0.32 [\#17085](https://github.com/decidim/decidim/pull/17085)
+- **decidim-admin**: Backport 'Improve taxonomy filter update performance' to v0.32 [\#17082](https://github.com/decidim/decidim/pull/17082)
+- **decidim-proposals**: Backport 'Fix rendering mentions for Proposals' answer page' to v0.32 [\#17091](https://github.com/decidim/decidim/pull/17091)
+- **decidim-templates**: Backport 'Fix flaky spec at admin adds display condition on template' to v0.32 [\#17096](https://github.com/decidim/decidim/pull/17096)
+- **decidim-accountability**, **decidim-admin**, **decidim-blogs**, **decidim-budgets**, **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Backport 'Change setting "comments max length" for "max characters per comment"' to v0.32 [\#17102](https://github.com/decidim/decidim/pull/17102)
+- **decidim-accountability**: Backport 'Do not show the status select in the result form if no statuses' to v0.32 [\#17128](https://github.com/decidim/decidim/pull/17128)
+- **decidim-accountability**: Backport 'Add validation in status' progress field' to v0.32 [\#17126](https://github.com/decidim/decidim/pull/17126)
+- **decidim-admin**, **decidim-core**: Backport 'Make the fields at the "highlighted content banner" content block required' to v0.32 [\#17124](https://github.com/decidim/decidim/pull/17124)
+- **decidim-forms**: Backport 'Fix data migration for answers to responses change' to v0.32 [\#17140](https://github.com/decidim/decidim/pull/17140)
+- **decidim-system**: Backport 'Fix system organization form (short name update and only one locale)' to v0.32 [\#17143](https://github.com/decidim/decidim/pull/17143)
+- **decidim-core**: Backport 'Fix flaky on mention with rich text editor' to v0.32 [\#17150](https://github.com/decidim/decidim/pull/17150)
+- Backport 'Remove check-spelling github workflow' to v0.32 [\#17151](https://github.com/decidim/decidim/pull/17151)
+- **decidim-admin**, **decidim-ai**, **decidim-blogs**, **decidim-budgets**, **decidim-core**, **decidim-debates**, **decidim-dev**, **decidim-elections**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**, **decidim-surveys**: Backport 'Fix editing components with attachments' to v0.32 [\#17145](https://github.com/decidim/decidim/pull/17145)
+- **decidim-admin**, **decidim-assemblies**, **decidim-core**, **decidim-participatory processes**: Backport 'Send notification when creating members from existing users' to v0.32 [\#17149](https://github.com/decidim/decidim/pull/17149)
+- **decidim-core**, **decidim-proposals**: Backport 'Add visual feedback for the "Use my current location" feature' to v0.32 [\#17164](https://github.com/decidim/decidim/pull/17164)
+- **decidim-core**: Backport 'Fix cache invalidation bug in highlighted spaces content blocks' to v0.32 [\#17170](https://github.com/decidim/decidim/pull/17170)
+- **decidim-verifications**: Backport 'Fix flaky spec at `authorizations_spec.rb`' to v0.32 [\#17178](https://github.com/decidim/decidim/pull/17178)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Fix layout for members pages' to v0.32 [\#17162](https://github.com/decidim/decidim/pull/17162)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix delete user email notification' to v0.32 [\#17175](https://github.com/decidim/decidim/pull/17175)
+- **decidim-accountability**, **decidim-admin**, **decidim-blogs**, **decidim-budgets**, **decidim-collaborative_texts**, **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-pages**, **decidim-proposals**, **decidim-surveys**: Backport 'Fix flaky spec at `admin_manages_participatory_process_components_spec.rb`' to v0.32 [\#17182](https://github.com/decidim/decidim/pull/17182)
+- **decidim-debates**: Backport 'Show debates' comments visualization locked on the form' to v0.32 [\#17173](https://github.com/decidim/decidim/pull/17173)
+- Backport 'Bump ruby from 3.3.0 to 3.3.4 in manual.adoc' to v0.32 [\#17199](https://github.com/decidim/decidim/pull/17199)
+- **decidim-core**: Backport 'Make the icon in mobile breadcrumb clickable' to v0.32 [\#17206](https://github.com/decidim/decidim/pull/17206)
+- **decidim-core**: Backport 'Fix focus on desktop breadcrumb menu' to v0.32 [\#17210](https://github.com/decidim/decidim/pull/17210)
+- **decidim-core**: Backport 'Fix account mobile menu details' to v0.32 [\#17212](https://github.com/decidim/decidim/pull/17212)
+- **decidim-core**: Backport 'Fix focus trap for mobile menus' to v0.32 [\#17211](https://github.com/decidim/decidim/pull/17211)
+- **decidim-core**: Backport 'Fix flaky specs on `authentication_spec.rb`' to v0.32 [\#17223](https://github.com/decidim/decidim/pull/17223)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- **decidim-admin**, **decidim-comments**, **decidim-core**: Backport 'Replace tribute javascript with resource mention UI' to v0.32 [\#17020](https://github.com/decidim/decidim/pull/17020)
+- Backport 'Remove check-spelling github workflow' to v0.32 [\#17151](https://github.com/decidim/decidim/pull/17151)
+
 ## [0.32.0.rc3](https://github.com/decidim/decidim/tree/0.32.0.rc3)
 
 ### Added
