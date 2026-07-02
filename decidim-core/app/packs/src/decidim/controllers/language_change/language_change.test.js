@@ -1,5 +1,5 @@
 /* global jest */
-/* eslint max-lines: ["error", 360] */
+/* eslint max-lines: ["error", 210] */
 import { Application } from "@hotwired/stimulus"
 import LanguageChangeController from "src/decidim/controllers/language_change/controller";
 
@@ -188,13 +188,19 @@ describe("LanguageChangeController", () => {
       editor.className = "editor";
       const prosemirror = document.createElement("div");
       prosemirror.className = "ProseMirror";
+      // eslint-disable-next-line no-undefined
+      prosemirror.focus = undefined;
+      const input = document.createElement("input");
+      const focusSpy = jest.spyOn(input, "focus");
+
       editor.appendChild(prosemirror);
       pane.appendChild(editor);
+      pane.appendChild(input);
       tabsContent.appendChild(pane);
 
       controller.focusOnActivePane(pane);
 
-      // ProseMirror was focused (it exists and has focus behavior)
+      expect(focusSpy).toHaveBeenCalled();
       pane.remove();
     });
   });

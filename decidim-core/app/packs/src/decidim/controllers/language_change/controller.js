@@ -34,18 +34,17 @@ export default class extends Controller {
     if (activePane) {
       activePane.ariaHidden = "false";
       activePane.classList.add("is-active");
+      this.focusOnActivePane(activePane);
     }
-
-    this.focusOnActivePane(activePane);
   }
 
   focusOnActivePane(activePane) {
     let content = activePane.querySelector(".editor .ProseMirror");
-    if (content) {
+    if (content && typeof content.focus === "function") {
       content.focus();
     } else {
       content = activePane.querySelector("input")
-      if (content) {
+      if (content && typeof content.focus === "function") {
         content.focus();
       }
     }
