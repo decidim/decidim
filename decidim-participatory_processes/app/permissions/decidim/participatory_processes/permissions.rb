@@ -209,7 +209,7 @@ module Decidim
         allow! if permission_action.subject == :moderation
       end
 
-      # Collaborators can only preview their own processes.
+      # Collaborators can read/preview everything inside their processes.
       def collaborator_action?
         return unless can_manage_process?(role: :collaborator)
         return if permission_action.subject == :space_member
