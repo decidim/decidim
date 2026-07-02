@@ -166,9 +166,11 @@ describe "Admin manages projects" do
 
       click_on("Edit attachments")
 
+      filename = attachment.file.blob.filename.to_s
       within ".upload-modal" do
-        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(attachment.file.blob.filename.to_s))
-        expect(page).to have_css("li progress[value='100']", wait: 5)
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(filename))
+        expect(page).to have_css("li[data-filename='#{filename}']:not([data-attachment-id])", wait: 5)
+        expect(page).to have_css("button[data-dropzone-save]:not([disabled])", wait: 5)
         click_on("Save")
       end
 
