@@ -93,11 +93,6 @@ window.initFoundation = (element) => {
   }
 };
 
-// Create a dummy foundation jQuery method for the comments component to call
-$.fn.foundation = () => {
-  window.initFoundation();
-}
-
 document.addEventListener("turbo:load", () => {
   document.querySelectorAll("[data-tabs]").forEach((elem) =>
     deprecate(elem, "tabs", "[data-tabs]"))
