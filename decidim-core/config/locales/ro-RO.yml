@@ -1408,12 +1408,6 @@ ro:
         log_in: autentificare
         never_logged_in: niciodată autentificat
         subject: Avertizare cont inactiv
-      removal_notification:
-        body: Contul dumneavoastră din %{organization_name} a fost șters din cauza inactivității.
-        greetings_html: |
-          Cu stimă,<br>
-          %{organization_name}
-        subject: Cont inactiv șters
     profile:
       deleted: Participant șters
     profiles:
