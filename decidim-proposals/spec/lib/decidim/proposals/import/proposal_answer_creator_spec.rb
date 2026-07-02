@@ -34,6 +34,12 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     end
   end
 
+  describe ".batch_notifier_klass" do
+    it "returns the batch notifier class" do
+      expect(described_class.batch_notifier_klass).to eq(Decidim::Proposals::Import::BatchNotifier)
+    end
+  end
+
   describe "#resource_attributes" do
     it "returns the attributes hash" do
       expect(subject.resource_attributes).to eq(
@@ -115,6 +121,18 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       it "broadcasts invalid message" do
         expect(subject.finish!).to eq({ invalid: [] })
       end
+    end
+  end
+
+  describe "#finish_without_notify!" do
+    it "saves answer without notifying followers" do
+      record = subject.produce
+      allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call)
+
+      subject.finish_without_notify!
+
+      expect(record.new_record?).to be(false)
+      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).not_to have_received(:call)
     end
   end
 end

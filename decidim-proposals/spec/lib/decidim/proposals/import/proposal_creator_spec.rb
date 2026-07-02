@@ -50,6 +50,12 @@ describe Decidim::Proposals::Import::ProposalCreator do
     end
   end
 
+  describe ".batch_notifier_klass" do
+    it "returns the batch notifier class" do
+      expect(described_class.batch_notifier_klass).to eq(Decidim::Proposals::Import::BatchNotifier)
+    end
+  end
+
   describe "#resource_attributes" do
     it "returns the attributes hash" do
       expect(subject.resource_attributes).to eq(
@@ -95,6 +101,18 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(Decidim::ActionLog.last.user).to eq(user)
       expect(Decidim::ActionLog.last.resource).to eq(record)
       expect(Decidim::ActionLog.last.visibility).to eq("admin-only")
+    end
+  end
+
+  describe "#finish_without_notify!" do
+    it "saves proposal without publishing events" do
+      record = subject.produce
+      allow(Decidim::EventsManager).to receive(:publish)
+
+      subject.finish_without_notify!
+
+      expect(record.new_record?).to be(false)
+      expect(Decidim::EventsManager).not_to have_received(:publish)
     end
   end
 end

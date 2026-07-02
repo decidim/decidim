@@ -41,7 +41,9 @@ module Decidim
 
         # Save resources
         def import!
-          collection.map(&:finish!)
+          finished_collection = collection.map(&:finish_without_notify!)
+          notify_collection_import(finished_collection)
+          finished_collection
         end
 
         # Returns a collection of creators
@@ -95,6 +97,16 @@ module Decidim
 
         def available_locales
           @available_locales ||= component.participatory_space.organization.available_locales
+        end
+
+        def notify_collection_import(finished_collection)
+          notifier_klass = creator.batch_notifier_klass
+          return if notifier_klass.blank?
+
+          notifier_klass.new(
+            collection: finished_collection,
+            context: (context || {}).merge(import_creator_class: creator)
+          ).notify!
         end
       end
     end

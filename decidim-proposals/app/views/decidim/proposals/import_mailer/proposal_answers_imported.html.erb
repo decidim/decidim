@@ -1,0 +1,4 @@
+<p class="email-greeting"><%= I18n.t("decidim.events.email_event.email_greeting", user_name: @user.name) %></p>
+<p class="email-instructions"><%= I18n.t("decidim.events.proposals.proposals_answers_imported.email_intro", participatory_space_title: @participatory_space_title).html_safe %></p>
+<p class="email-instructions"><%= I18n.t("decidim.events.proposals.proposals_answers_imported.email_link", participatory_space_url: @component_url).html_safe %></p>
+<p class="email-closing"><%= I18n.t("decidim.events.proposals.proposals_answers_imported.email_outro", participatory_space_title: @participatory_space_title) %></p>

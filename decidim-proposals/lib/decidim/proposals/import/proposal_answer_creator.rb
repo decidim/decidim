@@ -6,6 +6,11 @@ module Decidim
       # This class is responsible for creating the imported proposal answers
       # and must be included in proposals component's import manifest.
       class ProposalAnswerCreator < Decidim::Admin::Import::Creator
+        class << self
+          def batch_notifier_klass
+            Decidim::Proposals::Import::BatchNotifier
+          end
+        end
         # Returns the resource class to be created with the provided data.
         def self.resource_klass
           Decidim::Proposals::Proposal
@@ -24,7 +29,7 @@ module Decidim
           resource
         end
 
-        def finish!
+        def finish_without_notify!
           Decidim.traceability.perform_action!(
             "answer",
             resource,
@@ -32,7 +37,11 @@ module Decidim
           ) do
             resource.try(:save!)
           end
+          resource
+        end
 
+        def finish!
+          finish_without_notify!
           notify
         end
 

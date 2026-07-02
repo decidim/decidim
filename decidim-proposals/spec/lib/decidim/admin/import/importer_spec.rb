@@ -47,6 +47,26 @@ describe Decidim::Admin::Import::Importer do
           subject.import!
         end.to change(Decidim::Proposals::Proposal, :count).by(3)
       end
+
+      it "calls the creator batch notifier with import creator class in context" do
+        notifier = instance_double(Decidim::Proposals::Import::BatchNotifier, notify!: nil)
+        allow(Decidim::Proposals::Import::BatchNotifier).to receive(:new).and_return(notifier)
+
+        subject.prepare
+        subject.import!
+
+        expect(Decidim::Proposals::Import::BatchNotifier).to have_received(:new).with(
+          collection: kind_of(Array),
+          context: hash_including(
+            current_organization: organization,
+            current_user: user,
+            current_component: current_component,
+            current_participatory_space: participatory_process,
+            import_creator_class: creator
+          )
+        )
+        expect(notifier).to have_received(:notify!)
+      end
     end
   end
 
