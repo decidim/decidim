@@ -22,7 +22,7 @@
     "esbuild": "^0.28.1",
     "esbuild-loader": "^4.0.2",
     "esbuild-sass-plugin": "^3.6.0",
-    "glob": "^10.3.3",
+    "glob": "^13.0.6",
     "js-yaml": "^5.1.0",
     "mini-css-extract-plugin": "^2.7.6",
     "path-complete-extname": "^1.0.0",
