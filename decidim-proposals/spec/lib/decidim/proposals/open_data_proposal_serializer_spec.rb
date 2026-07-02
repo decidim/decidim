@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe ProposalSerializer do
+    describe OpenDataProposalSerializer do
       subject do
         described_class.new(proposal)
       end
@@ -21,8 +21,8 @@ module Decidim
           component.save!
         end
 
-        it "includes the votes count for the admin" do
-          expect(serialized).to include(votes: proposal.proposal_votes_count)
+        it "it does not include the votes count" do
+          expect(serialized).not_to include(votes: nil)
         end
       end
     end
