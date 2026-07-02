@@ -66,57 +66,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
   end
 
-  context "with a participatory process" do
-    let!(:context) { { current_participatory_space: participatory_process } }
-
-    context "when user is an org admin" do
-      context "when process is restricted and is accessed by different space roles" do
-        let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
-
-        let(:process_collaborator) { create(:process_collaborator, participatory_process:) }
-        let(:process_moderator) { create(:process_moderator, participatory_process:) }
-        let(:process_evaluator) { create(:process_evaluator, participatory_process:) }
-        let(:process_admin) { create(:process_admin, participatory_process:) }
-
-        context "and user is admin" do
-          let(:user) { process_admin }
-          let(:action) do
-            { scope: :public, action: :read, subject: :process }
-          end
-
-          it { is_expected.to be true }
-        end
-
-        context "and user is collaborator" do
-          let(:user) { process_collaborator }
-          let(:action) do
-            { scope: :public, action: :read, subject: :process }
-          end
-
-          it { is_expected.to be true }
-        end
-
-        context "and user is moderator" do
-          let(:user) { process_moderator }
-          let(:action) do
-            { scope: :public, action: :read, subject: :process }
-          end
-
-          it { is_expected.to be true }
-        end
-
-        context "and user is evaluator" do
-          let(:user) { process_evaluator }
-          let(:action) do
-            { scope: :public, action: :read, subject: :process }
-          end
-
-          it { is_expected.to be true }
-        end
-      end
-    end
-  end
-
   context "when the action is for the public part" do
     context "when reading the admin dashboard" do
       let(:action) do
@@ -482,6 +431,24 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
 
     context "when user is an org admin" do
+      context "when process is restricted and is accessed by different space roles" do
+        let!(:context) { { current_participatory_space: participatory_process } }
+        let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
+
+        let(:action) do
+          { scope: :public, action: :read, subject: :process }
+        end
+
+        it_behaves_like(
+          "access for roles",
+          org_admin: true,
+          admin: true,
+          collaborator: true,
+          moderator: true,
+          evaluator: true
+        )
+      end
+
       context "when creating a process" do
         let(:action) do
           { scope: :admin, action: :create, subject: :process }
