@@ -847,6 +847,7 @@ ja:
         errors:
           device_not_supported: お使いのデバイスは位置情報サービスをサポートしていません。アドレスを手動で入力してください。
           no_device_location: 申し訳ありませんが、場所を検出できませんでした。アドレスを手動で入力してください。
+        locating: 位置情報を取得中…
         use_my_location: 現在地を使用
       invite_coauthors:
         cancel:
