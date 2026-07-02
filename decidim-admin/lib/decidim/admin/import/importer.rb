@@ -81,6 +81,8 @@ module Decidim
               if index.zero?
                 @data_headers = rowdata.map { |d| d.to_s.to_sym }
               else
+                next if blank_row?(rowdata)
+
                 @collection_data << rowdata.each_with_index.to_h do |val, ind|
                   [@data_headers[ind], val]
                 end
@@ -89,6 +91,10 @@ module Decidim
           end
 
           @collection_data
+        end
+
+        def blank_row?(rowdata)
+          Array(rowdata).all?(&:blank?)
         end
 
         def component

@@ -60,7 +60,7 @@ describe Decidim::Admin::Import::Importer do
           context: hash_including(
             current_organization: organization,
             current_user: user,
-            current_component: current_component,
+            current_component:,
             current_participatory_space: participatory_process,
             import_creator_class: creator
           )
@@ -82,5 +82,24 @@ describe Decidim::Admin::Import::Importer do
     let(:reader) { Decidim::Admin::Import::Readers::XLSX }
 
     it_behaves_like "proposal importer"
+  end
+
+  context "when reader returns blank rows" do
+    let(:blob) { upload_test_file(Decidim::Dev.asset("import_proposals.csv"), return_blob: true) }
+    let(:reader) do
+      Class.new(Decidim::Admin::Import::Readers::Base) do
+        def read_rows
+          yield %w(title/en body/en), 0
+          yield ["Imported title", "Imported body"], 1
+          yield [nil, nil], 2
+          yield ["", ""], 3
+          yield [], 4
+        end
+      end
+    end
+
+    it "ignores blank rows when preparing the collection" do
+      expect(subject.prepare.length).to eq(1)
+    end
   end
 end
