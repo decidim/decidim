@@ -17,64 +17,39 @@ describe "Access Mode Transparent Assemblies" do
   it_behaves_like "access mode transparent participatory spaces comments"
 
   context "when accessing transparent assembly and user has space roles assigned" do
-    before do
-      switch_to_host(organization.host)
-    end
-
     context "when user is a space admin" do
-      let!(:space_admin) { create(:assembly_admin, :confirmed, assembly: transparent_participatory_space) }
-
-      before do
-        login_as space_admin, scope: :user
-        visit transparent_participatory_space_path
+      it_behaves_like "access mode transparent participatory spaces" do
+        let!(:admin) { create(:assembly_admin, :confirmed, assembly: transparent_participatory_space) }
+        let!(:user) { admin }
       end
-
-      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a space collaborator" do
-      let!(:space_collaborator) { create(:assembly_collaborator, :confirmed, assembly: transparent_participatory_space) }
-
-      before do
-        login_as space_collaborator, scope: :user
-        visit transparent_participatory_space_path
+      it_behaves_like "access mode transparent participatory spaces" do
+        let!(:admin) { create(:assembly_collaborator, :confirmed, assembly: transparent_participatory_space) }
+        let!(:user) { admin }
       end
-
-      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a space moderator" do
-      let!(:space_moderator) { create(:assembly_moderator, :confirmed, assembly: transparent_participatory_space) }
-
-      before do
-        login_as space_moderator, scope: :user
-        visit transparent_participatory_space_path
+      it_behaves_like "access mode transparent participatory spaces", with_attachments: false do
+        let!(:admin) { create(:assembly_moderator, :confirmed, assembly: transparent_participatory_space) }
+        let!(:user) { admin }
       end
-
-      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a space evaluator" do
-      let!(:space_evaluator) { create(:assembly_evaluator, :confirmed, assembly: transparent_participatory_space) }
-
-      before do
-        login_as space_evaluator, scope: :user
-        visit transparent_participatory_space_path
+      it_behaves_like "access mode transparent participatory spaces", with_attachments: false do
+        let!(:admin) { create(:assembly_evaluator, :confirmed, assembly: transparent_participatory_space) }
+        let!(:user) { admin }
       end
-
-      it_behaves_like "access mode transparent participatory spaces"
     end
 
     context "when user is a member" do
-      let!(:member_user) { create(:user, :confirmed, organization:) }
-      let!(:member) { create(:assembly_member, user: member_user, participatory_space: transparent_participatory_space) }
-
-      before do
-        login_as member_user, scope: :user
-        visit transparent_participatory_space_path
+      it_behaves_like "access mode transparent participatory spaces" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let!(:member) { create(:assembly_member, user:, participatory_space: transparent_participatory_space) }
       end
-
-      it_behaves_like "access mode transparent participatory spaces"
     end
   end
 end

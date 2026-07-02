@@ -73,6 +73,7 @@ shared_examples "access mode restricted participatory spaces" do |with_attachmen
         expect(page).to have_text "This is a restricted space"
       end
 
+      # Evaluators and Moderators do not have permissions to see the admin attachments page
       if with_attachments
         it "shows the privacy warning in attachments admin" do
           visit restricted_participatory_space_attachment_path
