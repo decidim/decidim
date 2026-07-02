@@ -65,11 +65,11 @@ module Decidim
     # name        - The name of the input which will be suffixed with the corresponding locales.
     # value       - A hash containing the value for each locale.
     # options     - An optional hash of options.
-    #             * enable_tabs: Adds the data-tabs attribute so Foundation picks up automatically.
-    #             * tabs_id: The id to identify the Foundation tabs element.
+    #             * enable_tabs: Adds the tabs controller.
+    #             * tabs_id: The id to identify the tab element.
     #             * label: The label used for the field.
     #
-    # Returns a Foundation tabs element with the translated input field.
+    # Returns a tabs element with the translated input field.
     def translated_field_tag(type, object_name, name, value = {}, options = {})
       locales = available_locales
 
