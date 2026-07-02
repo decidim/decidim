@@ -20,11 +20,12 @@ shared_context "with a proposal" do
   let(:expected_answer) do
     answer = proposal.answer
     Decidim.available_locales.to_h do |locale|
-      [locale.to_s, if answer.is_a?(Hash)
-                      answer[locale.to_s] || ""
-                    else
-                      ""
-                          end]
+      [locale.to_s,
+       if answer.is_a?(Hash)
+         answer[locale.to_s] || ""
+       else
+         ""
+       end]
     end
   end
 
