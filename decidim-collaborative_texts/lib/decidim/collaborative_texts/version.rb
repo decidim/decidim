@@ -3,7 +3,7 @@
 module Decidim
   module CollaborativeTexts
     def self.version
-      "0.32.0.rc3"
+      "0.32.0"
     end
   end
 end
