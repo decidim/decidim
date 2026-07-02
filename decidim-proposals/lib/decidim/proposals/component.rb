@@ -185,6 +185,7 @@ Decidim.register_component(:proposals) do |component|
     exports.include_in_open_data = true
 
     exports.serializer Decidim::Proposals::ProposalSerializer
+    exports.open_data_serializer Decidim::Proposals::OpenDataProposalSerializer
   end
 
   component.exports :proposal_comments do |exports|
