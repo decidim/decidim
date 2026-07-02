@@ -41,6 +41,8 @@ ja:
               invalid: は無効な値です
             password:
               secret_key: このフィールドを保存するには、環境変数 SECRET_KEY_BASE を定義する必要があります
+            secondary_hosts:
+              invalid: は無効な値です
   decidim:
     system:
       actions:
