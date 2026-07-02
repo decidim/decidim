@@ -1565,12 +1565,6 @@ sk:
         log_in: prihlásiť sa
         never_logged_in: nikdy neprihlásený/á
         subject: Upozornenie na neaktívny účet
-      removal_notification:
-        body: Váš účet %{organization_name} bol vymazaný z dôvodu neaktivity.
-        greetings_html: |
-          S pozdravom,<br>
-          %{organization_name}
-        subject: Neaktívny účet bol vymazaný
     passwords:
       update:
         error: Pri aktualizácii hesla sa vyskytol problém.

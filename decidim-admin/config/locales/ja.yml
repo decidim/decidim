@@ -1286,6 +1286,7 @@ ja:
         attachment:
           explanation: 'ファイルのガイダンス：'
           message_1: CSV、JSON、Excel (.xlsx) ファイルがサポートされています
+          message_2: CSV ファイルの場合、カラム間の区切り文字はセミコロン(";")でなければなりません
     moderations:
       actions:
         expand: 展開

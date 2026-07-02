@@ -1525,12 +1525,6 @@ sv:
         log_in: logga in
         never_logged_in: har aldrig loggat in
         subject: Varning om inaktivt konto
-      removal_notification:
-        body: Ditt %{organization_name}-konto har tagits bort på grund av inaktivitet.
-        greetings_html: |
-          Vänliga hälsningar,<br>
-          %{organization_name}
-        subject: Inaktivt konto raderat
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.

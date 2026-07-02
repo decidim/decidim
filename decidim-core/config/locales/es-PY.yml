@@ -664,6 +664,13 @@ es-PY:
           all: Todos
         filter_taxonomy_values:
           all: Todas
+    delete_user_mailer:
+      delete:
+        body_1: Tu cuenta ha sido desactivada y ya no es accesible. Tus datos personales están programados para su eliminación permanente de acuerdo con nuestras políticas de retención de datos.
+        body_2: Por razones de seguridad, se conservarán algunos datos relacionados con la verificación; de este modo si crearas una nueva cuenta y la verificaras de nuevo, se podría vincular la autorización con esta nueva cuenta.
+        greetings_html: Atentamente,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hola %{username},
+      subject: Tu cuenta ha sido eliminada
     devise:
       omniauth_registrations:
         create:
@@ -1525,13 +1532,6 @@ es-PY:
         hello_html: Estimado/a <strong>%{username}</strong>,
         log_in: entra
         never_logged_in: nunca ha iniciado sesión
-        subject: Aviso de cuenta inactiva
-      removal_notification:
-        body: Tu cuenta en %{organization_name} ha sido eliminada por inactividad.
-        greetings_html: |
-          Atentamente,<br>
-          %{organization_name}
-        hello: Hola %{username},
         subject: Aviso de cuenta inactiva
     passwords:
       update:

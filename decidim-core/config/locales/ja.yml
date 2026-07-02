@@ -647,6 +647,13 @@ ja:
           all: すべて
         filter_taxonomy_values:
           all: すべて
+    delete_user_mailer:
+      delete:
+        body_1: アカウントは無効化されており、現在アクセスできません。あなたの個人データは、本サービスのデータ保持ポリシーに従い、永久削除される予定です。
+        body_2: セキュリティ上の理由から、一部の認証関連データは保持されます。新たにアカウントを作成し、再度認証を行った場合、これらのデータが新規アカウントに紐付けられる可能性があります。
+        greetings_html: よろしくお願いいたします。<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: こんにちは %{username} さん、
+      subject: アカウントは削除されました
     devise:
       omniauth_registrations:
         create:
@@ -1505,12 +1512,6 @@ ja:
         log_in: ログイン
         never_logged_in: ログインしたことがない
         subject: 非アクティブなアカウントの警告
-      removal_notification:
-        body: あなたの %{organization_name} アカウントは非アクティブのため削除されました。
-        greetings_html: |
-          よろしくお願いいたします。<br>
-          %{organization_name}
-        subject: 非アクティブなアカウントが削除されました
     passwords:
       update:
         error: パスワードの更新中に問題が発生しました。

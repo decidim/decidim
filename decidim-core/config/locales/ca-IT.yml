@@ -661,6 +661,13 @@ ca-IT:
           all: Tots
         filter_taxonomy_values:
           all: Totes
+    delete_user_mailer:
+      delete:
+        body_1: El teu compte s'ha desactivat i ja no és accessible. Les teves dades personals estan programades per eliminar-les permanentment d'acord amb les nostres polítiques de retenció de dades.
+        body_2: Per raons de seguretat, es conservaran algunes dades relacionades amb la verificació; d'aquesta manera si creessis un compte nou i el tornes a verificar, es podria vincular l'autorització amb aquest compte nou.
+        greetings_html: Atentament,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hola %{username},
+      subject: El teu compte ha estat eliminat
     devise:
       omniauth_registrations:
         create:
@@ -1522,13 +1529,6 @@ ca-IT:
         hello_html: Benvolgut/da <strong>%{username}</strong>,
         log_in: entra
         never_logged_in: mai ha iniciat sessió
-        subject: Avís de compte inactiu
-      removal_notification:
-        body: El teu compte a %{organization_name} s'ha eliminat per inactivitat.
-        greetings_html: |
-          Atentament,<br>
-          %{organization_name}
-        hello: Hola %{username},
         subject: Avís de compte inactiu
     passwords:
       update:
