@@ -35,5 +35,25 @@ export default class extends Controller {
       activePane.ariaHidden = "false";
       activePane.classList.add("is-active");
     }
+
+    this.focusOnActivePane(activePane);
+  }
+
+  focusOnActivePane(activePane) {
+    let content = activePane.querySelector(".editor .ProseMirror");
+    if (content) {
+      content.focus();
+    } else {
+      content = activePane.querySelector("input")
+      if (content) {
+        content.focus();
+      }
+    }
+
+    if (content) {
+      let value = content.value;
+      content.value = "";
+      content.value = value;
+    }
   }
 }

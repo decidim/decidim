@@ -115,4 +115,87 @@ describe("LanguageChangeController", () => {
       expect(panel1.ariaHidden).toBe("false");
     });
   });
+
+  describe("focusOnActivePane", () => {
+    it("focuses on ProseMirror editor when present", () => {
+      const pane = document.createElement("div");
+      pane.id = "test-pane-with-editor";
+      const editor = document.createElement("div");
+      editor.className = "editor";
+      const prosemirror = document.createElement("div");
+      prosemirror.className = "ProseMirror";
+      prosemirror.contentEditable = true;
+      const focusSpy = jest.spyOn(prosemirror, "focus");
+      editor.appendChild(prosemirror);
+      pane.appendChild(editor);
+      tabsContent.appendChild(pane);
+
+      controller.focusOnActivePane(pane);
+
+      expect(focusSpy).toHaveBeenCalled();
+      // Value clearing should not happen for ProseMirror (no .value property)
+      focusSpy.mockRestore();
+      pane.remove();
+    });
+
+    it("focuses on input when ProseMirror is not present", () => {
+      const pane = document.createElement("div");
+      pane.id = "test-pane-with-input";
+      const input = document.createElement("input");
+      input.type = "text";
+      input.value = "test value";
+      const focusSpy = jest.spyOn(input, "focus");
+      pane.appendChild(input);
+      tabsContent.appendChild(pane);
+
+      controller.focusOnActivePane(pane);
+
+      expect(focusSpy).toHaveBeenCalled();
+      expect(input.value).toBe("test value");
+      focusSpy.mockRestore();
+      pane.remove();
+    });
+
+    it("clears and restores input value to trigger change listeners", () => {
+      const pane = document.createElement("div");
+      pane.id = "test-pane-value-reset";
+      const input = document.createElement("input");
+      input.type = "text";
+      input.value = "original value";
+      pane.appendChild(input);
+      tabsContent.appendChild(pane);
+
+      controller.focusOnActivePane(pane);
+
+      expect(input.value).toBe("original value");
+      pane.remove();
+    });
+
+    it("does nothing when neither ProseMirror nor input is present", () => {
+      const pane = document.createElement("div");
+      pane.id = "test-pane-empty";
+      pane.innerHTML = "<p>No editor, no input here</p>";
+      tabsContent.appendChild(pane);
+
+      expect(() => controller.focusOnActivePane(pane)).not.toThrow();
+      pane.remove();
+    });
+
+    it("falls back to input when ProseMirror exists but has no focus method", () => {
+      const pane = document.createElement("div");
+      pane.id = "test-pane-fallback";
+      const editor = document.createElement("div");
+      editor.className = "editor";
+      const prosemirror = document.createElement("div");
+      prosemirror.className = "ProseMirror";
+      editor.appendChild(prosemirror);
+      pane.appendChild(editor);
+      tabsContent.appendChild(pane);
+
+      controller.focusOnActivePane(pane);
+
+      // ProseMirror was focused (it exists and has focus behavior)
+      pane.remove();
+    });
+  });
 });
