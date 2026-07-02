@@ -661,6 +661,13 @@ fi:
           all: Kaikki
         filter_taxonomy_values:
           all: Kaikki
+    delete_user_mailer:
+      delete:
+        body_1: Tilisi on poistettu käytöstä ja se ei ole enää käytettävissä. Henkilötietosi on tarkoitus poistaa pysyvästi tietojen säilyttämiskäytäntöjemme mukaisesti.
+        body_2: Turvallisuussyistä tietyt vahvistuksiin liittyvät tiedot säilytetään. Jos luot uuden tilin ja vahvistat sen uudestaan, tiedot voidaan liittää uuteen tiliisi.
+        greetings_html: Terveisin,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hei %{username},
+      subject: Tilisi on poistettu
     devise:
       omniauth_registrations:
         create:
@@ -874,9 +881,13 @@ fi:
           affected_user:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
+            email_subject: Muutos hyväksytty kohteelle %{amendable_title} osallistujalta %{emendation_author_name}
+            notification_title: Osallistujan <a href="%{emendation_author_path}">%{emendation_author_name}</a> luoma <a href="%{emendation_path}">muutos</a> hyväksyttiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Muutos hyväksytty kohteelle %{amendable_title} osallistujalta %{emendation_author_name}
+            notification_title: Osallistujan <a href="%{emendation_author_path}">%{emendation_author_name}</a> luoma <a href="%{emendation_path}">muutos</a> hyväksyttiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Voit tutustua siihen sivulta:'
@@ -892,20 +903,29 @@ fi:
           affected_user:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
+            email_subject: Osallistujan %{emendation_author_name} laatima muutos on julkaistu uutena %{amendable_type} -kohteena
+            notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> on julkaistu uutena %{amendable_type} -kohteena osallistujan <a href="%{emendation_author_path}">%{emendation_author_name}</a> toimesta.
           follower:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Osallistujan %{emendation_author_name} laatima muutos on julkaistu uutena %{amendable_type} -kohteena
+            notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> on julkaistu uutena %{amendable_type} -kohteena osallistujan <a href="%{emendation_author_path}">%{emendation_author_name}</a> toimesta.
         amendment_rejected:
           affected_user:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
+            email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_name}
+            notification_title: Osallistujan <a href="%{emendation_author_path}">%{emendation_author_name}</a> laatima <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty osallistujalta %{emendation_author_name}
+            notification_title: Osallistujan <a href="%{emendation_author_path}">%{emendation_author_name}</a> laatima <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'Muutos on julkaistu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
+            email_subject: Osallistujan %{emendation_author_name} laatima muutos on julkaistu uutena %{amendable_type} -kohteena
       attachments:
         attachment_created:
           email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit tutustua siihen sivulta:'
@@ -938,6 +958,18 @@ fi:
         notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
         notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Sinut on lisätty osallistumistilan jäseneksi.
+            email_outro: Tämä viesti on lähetetty sinulle, koska hallintakäyttäjä lisäsi sinut osallistumistilaan <a href="%{resource_url}">%{resource_title}</a>. Mikäli tämä osallistumistila on rajattu ainoastaan jäsenille, pääset kyseiseen osallistumistilaan omalla käyttäjätililläsi.<br> Profiilisi näytetään osallistumistilan <a href="%{members_page}">jäsenlistauksessa</a>.
+            email_subject: Sinulla on nyt pääsy osallistumistilaan %{resource_title}.
+            notification_title: Sinulla on nyt pääsy osallistumistilaan <a href="%{resource_url}">%{resource_title}</a>.
+          unpublished:
+            email_intro: Sinut on lisätty osallistumistilan jäseneksi.
+            email_outro: Tämä viesti on lähetetty sinulle, koska hallintakäyttäjä lisäsi sinut osallistumistilaan <a href="%{resource_url}">%{resource_title}</a>. Mikäli tämä osallistumistila on rajattu ainoastaan jäsenille, pääset kyseiseen osallistumistilaan omalla käyttäjätililläsi.
+            email_subject: Sinulla on nyt pääsy osallistumistilaan %{resource_title}.
+            notification_title: Sinulla on nyt pääsy osallistumistilaan <a href="%{resource_url}">%{resource_title}</a>.
       reports:
         parent_hidden:
           email_intro: |-
@@ -955,13 +987,25 @@ fi:
           email_subject: Laatimasi %{resource_type} on ilmoitettu
           notification_title: |-
             Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se on ilmoitettu asiattomana syyllä "%{report_reasons}".</br><i>%{resource_content}</i>
+      resource_liked:
+        email_intro: 'Seuraamasi osallistuja %{liker_name} tykkäsi kohteesta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu tykättyyn asiaan ja osallistu:'
+        email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{liker_name}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+        email_subject: "%{liker_name} lisäsi uuden tykkäyksen"
+        notification_title: <a href="%{liker_path}">%{liker_name} </a> tykkäsi kohteesta <a href="%{resource_path}">%{resource_title}</a> %{resource_type}.
       resources:
         soft_deleted:
           notification_title: Ylläpitäjä poisti kohteen "%{resource_type}" "%{resource_title}".
       users:
+        profile_updated:
+          email_intro: Seuraamasi osallistujan %{name} <a href="%{resource_url}">profiilisivua</a> on päivitetty.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat osallistujaa %{name}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: "%{name} päivitti profiiliaan"
+          notification_title: Seuraamasi osallistujan %{name} <a href="%{resource_path}">profiilisivua</a> on päivitetty.
         user_officialized:
+          email_intro: Osallistuja %{name} on virallistettu.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tämän organisaation hallintakäyttäjä.
           email_subject: "%{name} on virallistettu"
+          notification_title: Osallistuja %{name} on virallistettu.
     export_mailer:
       download_your_data_export:
         click_button_html: Napsauta seuraavaa linkkiä ladataksesi tietosi.<br/>Tiedosto on ladattavissa %{date} saakka.
@@ -1191,7 +1235,6 @@ fi:
         create:
           error: Keskustelun aloittaminen epäonnistui. Yritä myöhemmin uudestaan.
         error_modal:
-          close: Sulje ikkuna
           correct_errors: Korjaa virheet ja yritä uudestaan.
           intro: 'Viestisi sisältää seuraavia virheitä:'
           ok: OK
@@ -1503,13 +1546,6 @@ fi:
         log_in: kirjaudu sisään
         never_logged_in: et ole koskaan kirjautunut palveluun
         subject: Varoitus passiivisesta käyttäjätilistä
-      removal_notification:
-        body: Tilisi palvelussa %{organization_name} on poistettu, koska tiliä ei ole käytetty pitkään aikaan.
-        greetings_html: |
-          Terveisin,<br>
-          %{organization_name}
-        hello: Hei %{username},
-        subject: Käyttämättä ollut tili on poistettu
     participatory_space:
       pages:
         user_profile:

@@ -303,7 +303,6 @@
           global:
             amendments_enabled: Endringer aktivert
             comments_enabled: Kommentarer aktivert
-            comments_max_length: Maks lengde på kommentarer
             dummy_global_attribute1: Dummy Egenskap 1
             dummy_global_attribute2: Dummy Egenskap 2
             dummy_global_translatable_text: Dummy Oversettbar tekst
@@ -601,7 +600,6 @@
           modal_title: Ny Samtale
           no_results: Ingen resultater
         error_modal:
-          close: Lukk modal
           correct_errors: Vennligst korriger feilene og prøv på nytt.
           intro: 'Det var følgende feil med din melding:'
           ok: Ok

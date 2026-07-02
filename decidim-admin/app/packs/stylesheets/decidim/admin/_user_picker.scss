@@ -1,0 +1,3 @@
+.user-picker-card {
+  @apply p-4 block border border-background rounded-lg cursor-pointer has-[:checked]:border-secondary has-[:checked]:border-2;
+}

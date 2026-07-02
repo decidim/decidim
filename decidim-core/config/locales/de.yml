@@ -547,7 +547,6 @@ de:
           global:
             amendments_enabled: Änderungen aktiviert
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximallänge der Kommentare
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             dummy_global_attribute1: Dummy-Attribut 1
             dummy_global_attribute2: Dummy-Attribut 2
@@ -696,12 +695,12 @@ de:
           notice: |-
             <p>Hallo, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?
             Bitte prüfen Sie noch einmal, ob Sie das Kästchen mit der Bestellung des Newsletters nicht doch ankreuzen möchten.
-            Es ist sehr wichtig für uns, dass Sie gelegentlich E-Mails erhalten können, 
+            Es ist sehr wichtig für uns, dass Sie gelegentlich E-Mails erhalten können,
             damit wir Ihnen wichtige Informationen mitteilen können. Sie können die
             Seite mit den Einstellungen für Mitteilungen jederzeit ändern.</p>
             <p>Wenn Sie das Kästchen nicht ankreuzen, könnten Sie vielleicht wichtige Informationen
-             über neue Möglichkeiten der Teilnahme an der Plattform verpassen.<br>
-            Wenn Sie dennoch keinen Newsletter erhalten möchten, 
+            über neue Möglichkeiten der Teilnahme an der Plattform verpassen.<br>
+            Wenn Sie dennoch keinen Newsletter erhalten möchten,
             haben wir vollstes Verständnis für Ihre Entscheidung.</p>
             <p>Vielen Dank, dass Sie sich die Zeit zum Lesen genommen haben!</p>
           title: Newsletter Benachrichtigungen
@@ -1171,7 +1170,6 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal.
         error_modal:
-          close: Fenster schließen
           correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
           intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
           ok: OK
@@ -1329,7 +1327,7 @@ de:
             one: "%{count} Ressource"
             other: "%{count} Ressourcen"
           spaces: Bereiche
-          title: Open Data Dateien für %{organization} 
+          title: Open Data Dateien für %{organization}
         moderated_users:
           about: Die Beschreibung des Kontos
           block_reasons: Der Grund der Blockierung eines Kontos durch einen Admin
@@ -1482,13 +1480,6 @@ de:
         log_in: anmelden
         never_logged_in: Nie angemeldet
         subject: Inaktive Kontowarnung
-      removal_notification:
-        body: Ihr %{organization_name} Konto wurde aufgrund von Inaktivität gelöscht.
-        greetings_html: |
-          Freundliche Grüsse,<br>
-          %{organization_name}
-        hello: Hallo %{username},
-        subject: Inaktives Konto gelöscht
     participatory_space_members:
       index:
         members: Mitglieder

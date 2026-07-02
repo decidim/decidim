@@ -411,7 +411,6 @@ hu:
           global:
             amendments_enabled: A módosítások engedélyezve vannak
             comments_enabled: Megjegyzések engedélyezve
-            comments_max_length: A hozzászólások maximális hossza
             dummy_global_attribute1: Dummy tulajdonság 1
             dummy_global_attribute2: Dummy tulajdonság 2
             dummy_global_translatable_text: Kenyérszöveg - nem valódi fordítható szöveg
@@ -812,7 +811,6 @@ hu:
         create:
           error: A beszélgetés nem kezdődött el. Próbáld újra később.
         error_modal:
-          close: Ablak bezárás
           correct_errors: Kérjük javítsa a hibákat és próbálja újra.
           intro: 'A következő hibákat tartalmazza az üzenet:'
           ok: OK

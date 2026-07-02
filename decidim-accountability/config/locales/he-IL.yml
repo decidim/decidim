@@ -209,7 +209,6 @@ he:
           global:
             clear_all: נקה הכל
             comments_enabled: תגובות אפשריות
-            comments_max_length: אורך מקסימלי להערות (השאירו 0 לערך ברירת המחדל)
             display_progress_enabled: הצגת התקדמות
             intro: הקדמה
           step:

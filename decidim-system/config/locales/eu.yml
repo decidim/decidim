@@ -242,7 +242,6 @@ eu:
           default_src_hint: |
             Default-src kanpoko eduki osorako konbentzio lehenetsia da, hala nola, JavaScript, irudiak, CSS, iturriak, dei asinkronikoak, markoak eta multimedia fitxategiak HTML5.
             Plataformak "'self' 'unsafe-inline'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
-
           font_src: Font src
           font_src_hint: |
             font-src ereduko direktibak using @font-face erabiliz kargatu daitezkeen URLak murrizten ditu.

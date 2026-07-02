@@ -13,7 +13,7 @@ module Decidim
       attribute :description, String
       attribute :attachment, AttachmentForm
 
-      attachments_attribute :documents
+      attachments_attribute :attachments
 
       validates :title, :description, presence: true
       validates :title, :description, etiquette: true
@@ -26,7 +26,7 @@ module Decidim
         # user locale is taken as the text locale.
         self.title = debate.title.values.first
         self.description = debate.description.values.first
-        self.documents = debate.attachments
+        self.attachments = debate.attachments
       end
 
       def participatory_space_manifest

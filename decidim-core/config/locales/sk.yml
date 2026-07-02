@@ -582,7 +582,6 @@ sk:
           global:
             amendments_enabled: Zmeny povolené
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             dummy_global_attribute1: Zástupný atribút 1
             dummy_global_attribute2: Zástupný atribút 2
@@ -1231,7 +1230,6 @@ sk:
         create:
           error: Konverzácia sa nezačala. Skúste to znova neskôr.
         error_modal:
-          close: Zavrieť okno
           correct_errors: Opravte chyby a skúste to znova.
           intro: 'Vo vašej správe sa vyskytli nasledujúce chyby:'
           ok: OK
@@ -1544,13 +1542,6 @@ sk:
         log_in: prihlásiť sa
         never_logged_in: nikdy neprihlásený/á
         subject: Upozornenie na neaktívny účet
-      removal_notification:
-        body: Váš účet %{organization_name} bol vymazaný z dôvodu neaktivity.
-        greetings_html: |
-          S pozdravom,<br>
-          %{organization_name}
-        hello: Vážený/á %{username},
-        subject: Neaktívny účet bol vymazaný
     participatory_space:
       pages:
         user_profile:
@@ -2299,7 +2290,7 @@ sk:
     dropdown:
       choose_diff_view_html: 'Mód zobrazenia HTML:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
-      option_escaped: Nepoužívané 
+      option_escaped: Nepoužívané
       option_split: Vedle sebe (Sbs)
       option_unescaped: Používané
       option_unified: Sjednocené

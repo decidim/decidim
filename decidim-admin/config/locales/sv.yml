@@ -49,7 +49,6 @@ sv:
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
-        comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
@@ -878,6 +877,7 @@ sv:
             invalid: Det gick inte att avblockera deltagarna.
             success: Deltagarna har avblockerats.
         create:
+          no_user_found: Deltagaren hittades inte.
           success: Deltagaren har fått officiell status.
         destroy:
           success: Deltagaren har inte längre officiell status.
@@ -1054,10 +1054,6 @@ sv:
           next_title: Nästa
           previous: Föregående
           previous_title: Föregående
-        gallery:
-          add_images: Lägg till bilder
-          edit_images: Redigera bilder
-          gallery_legend: Lägg till ett bildgalleri (Frivilligt)
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.

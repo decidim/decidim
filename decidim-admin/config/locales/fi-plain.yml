@@ -909,6 +909,7 @@ fi-pl:
             invalid: Osallistujien eston peruminen epäonnistui.
             success: Osallistujien eston peruminen onnistui.
         create:
+          no_user_found: Osallistujaa ei löytynyt.
           success: Osallistujan virallistaminen onnistui.
         destroy:
           success: Osallistujan virallistamisen peruuttaminen onnistui.
@@ -935,6 +936,7 @@ fi-pl:
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
         show_email:
+          no_user: Käyttäjää ei löytynyt
           title: Näytä sähköposti
         show_email_modal:
           description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
@@ -1094,10 +1096,6 @@ fi-pl:
           next_title: Seuraava kohde
           previous: Edellinen
           previous_title: Edellinen kohde
-        gallery:
-          add_images: Lisää kuvia
-          edit_images: Muokkaa kuvia
-          gallery_legend: Lisää kuvagalleria (valinnainen)
       static_page_topics:
         create:
           error: Uuden aiheen luomisessa tapahtui virhe.
