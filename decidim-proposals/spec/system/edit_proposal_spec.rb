@@ -445,10 +445,10 @@ describe "Edit proposals" do
           click_on("Remove")
         end
         find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset("Exampledocument.pdf"))
-        within "[data-filename='Exampledocument.pdf']" do
-          expect(page).to have_css("li progress[value='100']")
+        within "li[data-filename='Exampledocument.pdf']:not([data-attachment-id])" do
+          expect(page).to have_css("progress[value='100']", wait: 5)
         end
-        expect(page).to have_button("Save", disabled: false)
+        expect(page).to have_css("button[data-dropzone-save]:not([disabled])", wait: 5)
         click_on "Save"
       end
       click_on("Send")

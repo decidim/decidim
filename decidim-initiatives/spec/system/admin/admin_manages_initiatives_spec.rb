@@ -166,7 +166,9 @@ describe "Admin manages initiatives" do
       filename = "city3.jpeg"
       within ".upload-modal" do
         find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(filename))
-        expect(page).to have_css("li[data-filename='#{filename}']:not([data-attachment-id])", wait: 5)
+        within "li[data-filename='#{filename}']:not([data-attachment-id])" do
+          expect(page).to have_css("progress[value='100']", wait: 5)
+        end
         expect(page).to have_css("button[data-dropzone-save]:not([disabled])", wait: 5)
         click_on("Save")
       end
