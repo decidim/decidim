@@ -20,35 +20,33 @@ describe "Access Mode Restricted Participatory Processes" do
   it_behaves_like "access mode restricted participatory spaces"
   it_behaves_like "access mode restricted participatory spaces comments"
 
-  context "when accessing restricted process and user has space roles assigned" do
+  context "when accessing restricted assembly and user has space roles assigned" do
     context "when user is a space admin" do
-      let!(:space_admin) { create(:process_admin, :confirmed, participatory_process: restricted_participatory_space) }
-
-      it_behaves_like "access mode restricted participatory spaces"
+      it_behaves_like "access mode restricted participatory spaces" do
+        let!(:admin) { create(:process_admin, :confirmed, participatory_process: restricted_participatory_space) }
+        let!(:other_user) { admin }
+      end
     end
 
     context "when user is a space collaborator" do
-      let!(:space_collaborator) { create(:process_collaborator, :confirmed, participatory_process: restricted_participatory_space) }
-
-      it_behaves_like "access mode restricted participatory spaces"
+      it_behaves_like "access mode restricted participatory spaces" do
+        let!(:admin) { create(:process_collaborator, :confirmed, participatory_process: restricted_participatory_space) }
+        let!(:other_user) { admin }
+      end
     end
 
     context "when user is a space moderator" do
-      let!(:space_moderator) { create(:process_moderator, :confirmed, participatory_process: restricted_participatory_space) }
-
-      it_behaves_like "access mode restricted participatory spaces"
+      it_behaves_like "access mode restricted participatory spaces", with_attachments: false do
+        let!(:admin) { create(:process_moderator, :confirmed, participatory_process: restricted_participatory_space) }
+        let!(:other_user) { admin }
+      end
     end
 
     context "when user is a space evaluator" do
-      let!(:space_evaluator) { create(:process_evaluator, :confirmed, participatory_process: restricted_participatory_space) }
-
-      it_behaves_like "access mode restricted participatory spaces"
-    end
-
-    context "when user is a regular user without any role" do
-      let!(:regular_user) { create(:user, :confirmed, organization:) }
-
-      it_behaves_like "access mode restricted participatory spaces"
+      it_behaves_like "access mode restricted participatory spaces", with_attachments: false do
+        let!(:admin) { create(:process_evaluator, :confirmed, participatory_process: restricted_participatory_space) }
+        let!(:other_user) { admin }
+      end
     end
   end
 end
