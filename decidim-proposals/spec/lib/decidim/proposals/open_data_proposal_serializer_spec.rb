@@ -17,12 +17,12 @@ module Decidim
 
       describe "when the proposal votes are hidden" do
         before do
-          component.current_settings.votes_hidden = true
+          component.step_settings = { component.participatory_space.active_step.id => { votes_hidden: true } }
           component.save!
         end
 
         it "it does not include the votes count" do
-          expect(serialized).not_to include(votes: nil)
+          expect(serialized).to include(votes: nil)
         end
       end
     end

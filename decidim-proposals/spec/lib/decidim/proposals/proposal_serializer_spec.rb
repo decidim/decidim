@@ -17,7 +17,7 @@ module Decidim
 
       describe "when the proposal votes are hidden" do
         before do
-          component.current_settings.votes_hidden = true
+          component.step_settings = { component.participatory_space.active_step.id => { votes_hidden: true } }
           component.save!
         end
 
