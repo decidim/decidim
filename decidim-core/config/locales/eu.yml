@@ -995,7 +995,7 @@ eu:
           notification_title: Administratzaile batek ezabatu du zure "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
-          email_intro: </a> de %{name} profilaren <a href="%{resource_url}"> orria, jarraitzen ari zarena, eguneratu egin da.
+          email_intro: '%{name} erabiltzailearen <a href="%{resource_url}">profilaren orria</a>, jarraitzen ari zarena, eguneratu egin da.'
           email_outro: Jakinarazpen hau jaso duzu %{name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
           email_subject: "%{name} parte-hartzaileak bere profila eguneratu du"
           notification_title: </a> de %{name} profilaren <a href="%{resource_path}"> orria, jarraitzen ari zarena, eguneratu egin da.
