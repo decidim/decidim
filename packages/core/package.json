@@ -47,7 +47,7 @@
     "chartkick": "^5.0.1",
     "classnames": "^2.2.5",
     "dayjs": "^1.11.0",
-    "diff": "^5.0.0",
+    "diff": "^9.0.0",
     "drag-on-drop": "^3.6.1",
     "emoji-mart": "^5.5.2",
     "foundation-sites": "^6.7.0",
