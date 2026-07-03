@@ -607,6 +607,11 @@ ca:
         edit:
           title: Editar membre
           update: Actualizar
+        form:
+          email: Correu electrònic
+          invite_explanation: Es convidarà a la participant a unir-se a l'organització.
+          name_or_nickname: Nom o pseudònim
+          select_user: Seleccionar membre
         index:
           import_via_csv: Importar des de CSV
           publish_all: Publicar totes
