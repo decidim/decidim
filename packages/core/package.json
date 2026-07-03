@@ -12,7 +12,7 @@
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",
     "@rails/activestorage": "^8.1.300",
-    "@tarekraafat/autocomplete.js": "10.2.7",
+    "@tarekraafat/autocomplete.js": "10.2.10",
     "@tiptap/core": "^3.13.0",
     "@tiptap/extension-blockquote": "^3.13.0",
     "@tiptap/extension-bold": "^3.13.0",
