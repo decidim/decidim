@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "access mode restricted participatory spaces" do
+shared_examples "access mode restricted participatory spaces" do |with_attachments: true|
   let!(:organization) { create(:organization) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
@@ -73,10 +73,13 @@ shared_examples "access mode restricted participatory spaces" do
         expect(page).to have_content "This is a restricted space"
       end
 
-      it "shows the privacy warning in attachments admin" do
-        visit restricted_participatory_space_attachment_path
-        within "#attachments" do
-          expect(page).to have_content(I18n.t("decidim.admin.attachments_privacy_warning.message"))
+      # Evaluators and Moderators do not have permissions to see the admin attachments page
+      if with_attachments
+        it "shows the privacy warning in attachments admin" do
+          visit restricted_participatory_space_attachment_path
+          within "#attachments" do
+            expect(page).to have_content(I18n.t("decidim.admin.attachments_privacy_warning.message"))
+          end
         end
       end
     end
