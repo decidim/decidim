@@ -33,7 +33,6 @@ pt:
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar distintivos
-        comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
         customize_welcome_notification: Personalizar a notificação de boas-vindas
         default_locale: Idioma por defeito
         description: Descrição
@@ -638,10 +637,6 @@ pt:
       share_tokens:
         actions:
           destroy: Eliminar
-      shared:
-        gallery:
-          add_images: Adicionar imagens
-          gallery_legend: Adicionar uma galeria de imagens (Opcional)
       static_page_topics:
         create:
           error: Ocorreu um problema ao criar um novo tópico.

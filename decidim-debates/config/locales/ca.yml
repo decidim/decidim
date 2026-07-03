@@ -41,7 +41,7 @@ ca:
             attachments_allowed: Permetre fitxers adjunts
             clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             taxonomy_filters: Seleccionar filtres pel component
@@ -76,12 +76,13 @@ ca:
           form:
             add_attachments: Afegir fitxer(s) adjunt(s)
             attachment_legend: Afegir un document o una imatge
+            comments_layout_locked_warning: No es pot canviar el disseny dels comentaris perquè ja s'han publicat comentaris.
             comments_visualization: Visualització dels comentaris
             comments_warning: Una vegada que es publica el primer comentari, l'opció de visualització seleccionada no es pot canviar.
             debate_type: Tipus de debat
             edit_attachments: Edita els fitxers adjunts
             errors:
-              comments_layout_locked: No pots canviar el disseny del comentari una vegada que s'hagi publicat algun comentario.
+              comments_layout_locked: No es pot canviar el disseny dels comentaris perquè ja s'han publicat comentaris.
             finite: Finit (amb moments d'inici i de fi)
             open: Obert (sense moments d'inici ni de fi)
             single_column: 'Columna única: Els comentaris es mostren per ordre cronològic i poden rebre respostes.'
@@ -204,7 +205,7 @@ ca:
           user_followers:
             email_intro: |-
               Hola,
-              %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat "%{resource_title}". Consulta i contribueix:
+              %{author_name}, a qui segueixes, ha creat un nou debat "%{resource_title}". Consulta i contribueix:
             email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{author_name}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Nou debat "%{resource_title}" creat per %{author_name}
             notification_title: <a href="%{author_path}">%{author_name}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.

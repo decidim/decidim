@@ -30,10 +30,6 @@ zh-CN:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: 需要重新连接
-            add_photos:
-              needs_to_be_reattached: 需要重新连接
             body:
               cant_be_equal_to_template: 不能等于模板
               identical: 和标题不能相同
@@ -85,7 +81,6 @@ zh-CN:
             attachments_allowed: 允许附件
             collaborative_drafts_enabled: 协作草稿已启用
             comments_enabled: 评论已启用
-            comments_max_length: 评论最大长度 (默认值留0)
             new_proposal_body_template: 新的提案正文模板
             new_proposal_body_template_help: 您可以定义新建议将包含的预填文本
             new_proposal_help_text: 新建议帮助文本

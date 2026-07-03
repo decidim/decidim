@@ -11,6 +11,7 @@ ca:
         plural: Plural
       attachment:
         attachment_collection_id: Carpeta
+        attachments: Fitxers adjunts
         description: Descripció
         file: Arxiu
         title: Nom de l'adjunt o imatge
@@ -49,7 +50,7 @@ ca:
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
-        comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+        comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
         customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
@@ -909,6 +910,7 @@ ca:
             invalid: Hi ha hagut un problema en desbloquejar a les participants.
             success: Participants desbloquejades correctament.
         create:
+          no_user_found: No s'ha trobat aquesta participant.
           success: Participant oficialitzada correctament.
         destroy:
           success: S'ha retirat correctament l'oficialització de la participant.
@@ -1095,10 +1097,10 @@ ca:
           next_title: Següent element
           previous: Anterior
           previous_title: Element anterior
-        gallery:
-          add_images: Afegir imatges
-          edit_images: Editar imatges
-          gallery_legend: Afegir una galeria d'imatges (opcional)
+        attachments:
+          add_attachments: Afegir fitxer(s) adjunt(s)
+          attachment_legend: Afegir una galeria de fitxers adjunts (opcional)
+          edit_attachments: Edita els fitxers adjunts
       static_page_topics:
         create:
           error: S'ha produït un error en crear un tema nou.
@@ -1314,6 +1316,11 @@ ca:
       errors:
         impersonate_user:
           reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada.
+      file_help:
+        attachment:
+          explanation: 'Instruccions per al fitxer:'
+          message_1: S'admeten fitxers CSV, JSON y Excel (.xlsx)
+          message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
     moderations:
       actions:
         expand: Expandir

@@ -429,6 +429,7 @@ fr:
         explanation: Procédure d'autorisation factice
         name: Procédure d'autorisation factice
       ephemeral_dummy_authorization_handler:
+        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par « X ».
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
           document_number: Numéro du document
@@ -516,7 +517,7 @@ fr:
           global:
             amendments_enabled: Modifications activées
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur maximale des commentaires
+            comments_max_length: Nombre maximum de caractères par commentaire
             dummy_global_attribute1: Attribut factice 1
             dummy_global_attribute2: Attribut factice 2
             dummy_global_translatable_text: Texte traduisible factice
@@ -618,6 +619,13 @@ fr:
           all: Tout
         filter_scope_values:
           all: Tout
+    delete_user_mailer:
+      delete:
+        body_1: Votre compte a été désactivé et n'est plus accessible. La suppression permanente de vos données personnelles a été programmée, conformément à nos politiques de conservation.
+        body_2: Pour des raisons de sécurité, certaines données relatives à l’autorisation seront conservées ; si vous créez un nouveau compte et que vous l'autorisez à nouveau, elles peuvent être reliées à votre nouveau compte.
+        greetings_html: Cordialement,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Cher(ère) %{username},
+      subject: Votre compte a été supprimé
     devise:
       omniauth_registrations:
         create:
@@ -844,6 +852,18 @@ fr:
         notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, et c'est pourquoi nous avons supprimé la distinction entre les majuscules et les minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement modifié. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
       notification_event:
         notification_title: Un événement a eu lieu sur <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Vous avez été ajouté(e) en tant que membre à un espace participatif.
+            email_outro: Vous avez reçu cette notification car un administrateur vous a ajouté à <a href="%{resource_url}">%{resource_title}</a>. Si l'accès à cet espace est restreint, vous pourrez y accéder avec votre compte.<br> Votre profil apparaîtra dans la <a href="%{members_page}">liste des membres</a> de cet espace.
+            email_subject: Vous avez maintenant accès à %{resource_title}.
+            notification_title: Vous avez maintenant accès à <a href="%{resource_url}">%{resource_title}</a>.
+          unpublished:
+            email_intro: Vous avez été ajouté(e) en tant que membre à un espace participatif.
+            email_outro: Vous avez reçu cette notification car un administrateur vous a ajouté à <a href="%{resource_url}">%{resource_title}</a>. Si l'accès à cet espace est restreint, vous pourrez y accéder avec votre compte.
+            email_subject: Vous avez maintenant accès à %{resource_title}.
+            notification_title: Vous avez maintenant accès à <a href="%{resource_url}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.
@@ -853,6 +873,8 @@ fr:
             Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.</br>
             <i>%{resource_content}</i>
       users:
+        profile_updated:
+          email_subject: "%{name} a mis à jour son profil"
         user_officialized:
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{name} a été officialisé"
@@ -1072,7 +1094,6 @@ fr:
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard.
         error_modal:
-          close: Fermer la fenêtre de dialogue
           correct_errors: Veuillez corriger les erreurs et réessayer.
           intro: 'Il y a eu les erreurs suivantes avec votre message :'
           ok: Ok
@@ -1359,13 +1380,6 @@ fr:
         log_in: se connecter
         never_logged_in: jamais connecté
         subject: Avertissement de compte inactif
-      removal_notification:
-        body: Votre compte %{organization_name} a été supprimé en raison de son inactivité.
-        greetings_html: |
-          Cordialement,<br>
-          %{organization_name}
-        hello: Cher(ère) %{username},
-        subject: Compte inactif supprimé
     participatory_space:
       pages:
         user_profile:

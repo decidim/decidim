@@ -105,6 +105,7 @@ fr-CA:
           comment: Commenter
           create: Créer
           destroy: Supprimer
+          like: Soutenir
           update: Mettre à jour
           vote_comment: Vote sur le commentaire
         name: Actualités
@@ -113,7 +114,7 @@ fr-CA:
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             creation_enabled_for_participants: Les participants peuvent créer des articles
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
@@ -122,6 +123,8 @@ fr-CA:
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
+            likes_blocked: Soutiens bloqués
+            likes_enabled: Soutiens activés
     events:
       blogs:
         post_created:
@@ -136,15 +139,24 @@ fr-CA:
           author: Le nom du participant qui a fait ce commentaire
           body: Le commentaire lui-même
           commentable_id: L'identifiant unique du commentaire
+          commentable_type: Le type de l'élément commenté (s'il s'agit d'un résultat, d'une proposition, etc.)
           created_at: La date de création de ce commentaire
+          depth: L'endroit où ce commentaire se trouve dans l'arborescence des commentaires (si c'est une réponse ou une réponse à une réponse)
           id: L'id de ce commentaire
+          locale: La langue que le participant a utilisé en créant ce commentaire
+          root_commentable_url: L'URL de la ressource liée à ce commentaire
         posts:
+          author: Les informations de l'auteur
           body: Le corps de l'article
           comments_count: Le nombre de commentaires sur cet article
           component: Le composant auquel appartient l'article
           created_at: La date de création de cet article
+          follows_count: Le nombre de personnes qui suivent cet article
           id: L'identifiant unique de cet article
+          likes_count: Le nombre de soutiens à cet article
+          participatory_space: 'À quel espace (ex : Concertation ou Assemblée) appartient cet article'
           published_at: La date à laquelle cet article a été publié
+          reference: La référence unique de l'article
           title: Le titre de l'article
           updated_at: La dernière date de mise à jour de cet article
           url: L'URL de cet article

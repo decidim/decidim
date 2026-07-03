@@ -164,6 +164,7 @@ fr-CA:
           attachments: Documents liés
           components: Composants
           info: À propos de cette assemblée
+          landing_page: Mise en page de la page d'accueil
           members: Membres
           moderations: Modérations
           see_assembly: Voir l'assemblée
@@ -233,6 +234,8 @@ fr-CA:
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: À propos de cette assemblée
           form:
             access:
               label: Accès
@@ -396,7 +399,10 @@ fr-CA:
           created_at: La date de création de cet espace
           created_by: Qui a créé cette assemblée
           created_by_other: Autre créateur de l'assemblée
+          creation_date: La date de création de l'assemblée
+          decidim_scope_id: La portée de l'assemblée
           description: Une description longue de l'assemblée
+          developer_group: Le groupe promoteur de l'assemblée
           duration: La durée de l'assemblée
           follows_count: Le nombre d'utilisateurs suivant cet espace
           id: L'identifiant unique de cette assemblée

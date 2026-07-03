@@ -343,7 +343,7 @@ es-MX:
             announcement: Anuncio
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             form:
               errors:
