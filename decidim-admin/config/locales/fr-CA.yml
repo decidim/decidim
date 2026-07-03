@@ -607,6 +607,11 @@ fr-CA:
         edit:
           title: Modifier le membre
           update: Mettre à jour
+        form:
+          email: Email
+          invite_explanation: Le participant sera invité à rejoindre l'organisation.
+          name_or_nickname: Nom ou pseudonyme
+          select_user: Sélectionner un membre
         index:
           import_via_csv: Importer via CSV
           publish_all: Tout publier
