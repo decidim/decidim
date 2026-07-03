@@ -71,6 +71,6 @@
     "select": "^1.1.2",
     "svg4everybody": "2.1.9",
     "tom-select": "2.2.2",
-    "wc-datepicker": "^0.5.2"
+    "wc-datepicker": "^0.13.0"
   }
 }
