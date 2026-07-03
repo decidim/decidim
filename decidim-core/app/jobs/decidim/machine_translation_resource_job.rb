@@ -68,8 +68,8 @@ module Decidim
       if old_value[default_locale] == new_value[default_locale]
         locales_present = old_value.keys
         locales_present.each do |locale|
-          old_text = strip_tags(old_value[locale].to_s).strip
-          new_text = strip_tags(new_value[locale].to_s).strip
+          old_text = strip_tags(old_value[locale].to_s).gsub(/\u00A0|&nbsp;/, " ").strip
+          new_text = strip_tags(new_value[locale].to_s).gsub(/\u00A0|&nbsp;/, " ").strip
           @locales_to_be_translated << locale if old_text != new_text && new_text.blank?
         end
       end

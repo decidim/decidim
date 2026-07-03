@@ -167,5 +167,36 @@ module Decidim
           )
       end
     end
+
+    describe "when a manually inserted translation for rich text field is cleared to" do
+      let(:description) { { en: "<p>New Description</p>", es: "<p>descripción manual</p>" } }
+      let(:process) { create(:participatory_process, description:, organization:) }
+
+      before do
+        updated_description = { en: "<p>New Description</p>", es: "<p> </p>" }
+        process.update(description: updated_description)
+        clear_enqueued_jobs
+      end
+
+      it "enqueues machine translation for the cleared locale" do
+        Decidim::MachineTranslationResourceJob.perform_now(
+          process,
+          process.translatable_previous_changes,
+          current_locale
+        )
+
+        expect(Decidim::MachineTranslationFieldsJob)
+          .to have_been_enqueued
+          .on_queue("translations")
+          .exactly(1).times
+          .with(
+            process,
+            "description",
+            "<p>New Description</p>",
+            "es",
+            current_locale
+          )
+      end
+    end
   end
 end
