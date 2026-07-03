@@ -11,28 +11,27 @@
 <% if @drafts.any? %>
   <div class="item__edit item__edit-1col">
     <div class="item__edit-form">
-      <%= decidim_form_for(@preview_form, url: participatory_texts_path, html: { class: "form-defaults form grid-container", data: { controller: "participatory-texts" } }) do |form| %>
+      <%= decidim_form_for(@preview_form, url: participatory_texts_path, html: { class: "form-defaults form grid-container" }) do |form| %>
         <div class="form__wrapper">
           <div class="card">
             <div class="row column">
               <p class="mt-3"><%= t(".info_1") %></p>
               <ul id="participatory-text" class="draggable-list js-connect js-list-actives mt-2.5 ml-2.5 mr-2.5"
-                  data-controller="accordion"
+                  data-controller="accordion sortable"
                   data-sort-url="#"
                   data-multi-expand="true"
                   data-allow-all-closed="true"
-                  data-participatory-texts-target="list"
-                  data-action="sortupdate->participatory-texts#updatePositions">
+                  data-action="sortupdate->sortable#update">
                 <%= form.fields_for(:proposals) do |prop_form| %>
                   <% proposal = @drafts[prop_form.index] %>
 
                   <li class="draggable-content is-active" data-accordion-item draggable="true">
-                    <a data-open="true" data-controls="article-<%= proposal.id %>">
+                    <a data-open="true" data-controls="panel-article-<%= proposal.id %>">
                       <%= icon "arrow-right-s-line" %>
                       <%= preview_participatory_text_section_title(proposal) %>
                       <span><%= icon "menu-line", class: "fill-black" %></span>
                     </a>
-                    <div data-tab-content id="article-<%= proposal.id %>">
+                    <div data-tab-content id="panel-article-<%= proposal.id %>">
                       <%= render "decidim/proposals/admin/participatory_texts/article-preview", { form: prop_form, proposal: } %>
                     </div>
                   </li>
@@ -43,7 +42,7 @@
         </div>
         <div class="item__edit-sticky">
           <div class="item__edit-sticky-container">
-            <%= form.submit t(".save_draft"), name: :save_draft, class: "button button__sm button__secondary", data: { action: "participatory-texts#saveDraft" } %>
+            <%= form.submit t(".save_draft"), name: :save_draft, class: "button button__sm button__secondary" %>
             <%= form.submit t(".publish_document"), class: "button button__sm button__secondary" %>
           </div>
         </div>

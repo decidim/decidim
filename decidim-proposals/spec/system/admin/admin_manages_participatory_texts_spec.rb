@@ -104,6 +104,22 @@ describe "Admin manages participatory texts" do
     end
   end
 
+  describe "collapsing participatory texts in draft mode" do
+    let!(:proposal) { create(:proposal, :draft, component: current_component, participatory_text_level: "article") }
+
+    it "toggles the article panel when clicking its title" do
+      visit_participatory_texts
+
+      expect(page).to have_css("#panel-article-#{proposal.id}")
+
+      find("a[data-controls='panel-article-#{proposal.id}']").click
+      expect(page).to have_css("#panel-article-#{proposal.id}", visible: :hidden)
+
+      find("a[data-controls='panel-article-#{proposal.id}']").click
+      expect(page).to have_css("#panel-article-#{proposal.id}")
+    end
+  end
+
   describe "reordering participatory texts in draft mode" do
     let!(:first_section) { create(:proposal, :draft, component: current_component, participatory_text_level: "section", position: 1, title: { en: "First section" }) }
     let!(:second_section) { create(:proposal, :draft, component: current_component, participatory_text_level: "section", position: 2, title: { en: "Second section" }) }
