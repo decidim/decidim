@@ -42,7 +42,7 @@
     "webpack": "~5.108.3",
     "webpack-assets-manifest": "^6.5.2",
     "webpack-cli": "^7.1.0",
-    "webpack-dev-server": "^5.2.2",
+    "webpack-dev-server": "^6.0.0",
     "webpack-merge": "^6.0.1",
     "webpack-sources": "^3.2.3",
     "workbox-recipes": "^7.0.0",
