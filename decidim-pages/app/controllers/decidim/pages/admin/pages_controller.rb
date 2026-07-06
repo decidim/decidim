@@ -11,6 +11,7 @@ module Decidim
           enforce_permission_to :update, :page
 
           @form = form(Admin::PageForm).from_model(page)
+          @form.attachment = form(AttachmentForm).from_params({})
         end
 
         def update

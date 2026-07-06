@@ -50,4 +50,19 @@ describe "Edit a page" do
 
     it_behaves_like "manage announcements"
   end
+
+  describe "attachments" do
+    let(:component) { create(:page_component, :with_attachments_allowed, participatory_space: participatory_process) }
+
+    before do
+      create(:page, component:, body:)
+      visit_component_admin
+    end
+
+    it "shows the attachment upload field" do
+      within "form.edit_page" do
+        expect(page).to have_text("Add attachments")
+      end
+    end
+  end
 end
