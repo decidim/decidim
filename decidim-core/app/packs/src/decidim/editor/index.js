@@ -88,7 +88,7 @@ export default function createEditor(container) {
   });
 
   editor.on("focus", () => {
-    editor.commands.setContent(editor.getHTML())
+    editor.commands.focus('end')
   });
 
   return editor;
