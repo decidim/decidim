@@ -19,6 +19,10 @@ FactoryBot.define do
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     component { build(:component, manifest_name: "pages") }
 
+    transient do
+      skip_injection { false }
+    end
+
     trait :with_photo do
       after :create do |page, evaluator|
         page.attachments << create(:attachment, :with_image, attached_to: page, skip_injection: evaluator.skip_injection)
