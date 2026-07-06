@@ -15,14 +15,13 @@ describe Decidim::Proposals::CollaborativeDraftWithdrawnEvent do
   let(:author_path) { author_presenter.profile_path }
   let(:author_url) { author_presenter.profile_url }
   let(:author_name) { author_presenter.name }
-  let(:author_nickname) { author_presenter.nickname }
   let(:extra) { { author_id: } }
 
   context "when the notification is for coauthor users" do
-    let(:notification_title) { %(<a href="#{author_path}">#{author_name} #{author_nickname}</a> <strong>withdrawn</strong> the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
+    let(:notification_title) { %(<a href="#{author_path}">#{author_name}</a> has <strong>withdrawn</strong> the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
     let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{resource_title}</a>.) }
-    let(:email_intro) { %(<a href="#{author_url}">#{author_name} #{author_nickname}</a> withdrawn the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.) }
-    let(:email_subject) { "#{author_name} #{author_nickname} withdrawn the #{decidim_sanitize(resource_title)} collaborative draft." }
+    let(:email_intro) { %(<a href="#{author_url}">#{author_name}</a> has withdrawn the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.) }
+    let(:email_subject) { "#{author_name} has withdrawn the #{decidim_sanitize(resource_title)} collaborative draft." }
 
     it_behaves_like "a simple event"
     it_behaves_like "a simple event email"

@@ -12,13 +12,13 @@ describe Decidim::Initiatives::RevokeMembershipRequestEvent do
   let!(:resource) { create(:initiative, :created, organization:) }
   let(:author) { resource.author }
   let(:author_profile_url) { Decidim::UserPresenter.new(author).profile_url }
-  let(:author_nickname) { Decidim::UserPresenter.new(author).nickname }
+  let(:author_name) { Decidim::UserPresenter.new(author).name }
   let(:user) { create(:initiatives_committee_member, initiative: resource, state: "requested").user }
   let(:resource_url) { resource_locator(resource).url }
-  let(:email_subject) { "#{author_nickname} rejected your application to the promoter committee" }
-  let(:email_intro) { "#{author_nickname} rejected your application to be part of the promoter committee for the following initiative #{resource_title}." }
+  let(:email_subject) { "#{author_name} rejected your application to the promoter committee" }
+  let(:email_intro) { "#{author_name} rejected your application to be part of the promoter committee for the following initiative #{resource_title}." }
   let(:email_outro) { "You received this notification because you applied to this initiative: #{resource_title}." }
-  let(:notification_title) { "<a href=\"#{author_profile_url}\">#{author_nickname}</a> rejected your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>." }
+  let(:notification_title) { "<a href=\"#{author_profile_url}\">#{author_name}</a> rejected your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>." }
 
   it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
