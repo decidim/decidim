@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus";
  * This JavaScript is taken from the following link:
  * https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/
  *
- * To which I have converted it to a Stimulus controller, trying to keep decidim structure.
+ * To which we have converted it to a Stimulus controller, trying to keep decidim structure.
  * We keep the same HTML structure as on foundation, but we are replacing with a truly accessible tabs implementation.
  */
 
