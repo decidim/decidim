@@ -44,6 +44,15 @@ module Decidim
         end
 
         context "when page has attachments" do
+          before do
+            # We do not optimize the eager loading here, as these associations are loaded by
+            # .with_attached_file and .includes(:attachment_collection) and used internally
+            # by ActiveStorage callbacks or the machine_translation callback, which Bullet does not track.
+            Bullet.add_safelist type: :unused_eager_loading, class_name: "ActiveStorage::Blob", association: :variant_records
+            Bullet.add_safelist type: :unused_eager_loading, class_name: "ActiveStorage::Blob", association: :preview_image_attachment
+            Bullet.add_safelist type: :unused_eager_loading, class_name: "Decidim::Attachment", association: :attachment_collection
+          end
+
           let!(:photo) { create(:attachment, :with_image, attached_to: page) }
           let!(:document) { create(:attachment, :with_pdf, attached_to: page) }
 
