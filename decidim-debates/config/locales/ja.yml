@@ -203,10 +203,10 @@ ja:
           user_followers:
             email_intro: |-
               こんにちは、
-              %{author_name} %{author_nickname}さん、あなたがフォローしている人が新しいディベート「%{resource_title}」を作成しました。チェックして貢献してください：
-            email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-            email_subject: '%{resource_title}による新しいディベート " %{author_nickname}"'
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a> ディベートを作成しました。
+              あなたがフォローしている %{author_name} さんが新しいディベート「%{resource_title}」を作成しました。ぜひ内容を確認し、意見をお寄せください：
+            email_outro: '%{author_name} さんをフォローしているため、この通知が届きました。前のリンクからフォローを解除することで、通知の受信を停止できます。'
+            email_subject: '%{resource_title}による新しいディベート " %{author_name}"'
+            notification_title: <a href="%{author_path}">%{author_name}</a> さんが <a href="%{resource_path}">%{resource_title}</a> ディベートを作成しました。
         creation_disabled:
           email_intro: 'ディベートの作成は %{participatory_space_title}で行われなくなりました。このページからまだディベートに参加できます：'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
