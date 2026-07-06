@@ -173,16 +173,20 @@ describe("TabsController", () => {
         setTimeout(() => {
           controller = application.getControllerForElementAndIdentifier(tablistElement, "tabs");
 
-          // Spy on the ProseMirror element's focus method (jsdom does not change
-          // document.activeElement for non-focusable elements like <div>)
+          // Spy on the ProseMirror element's dispatchEvent to verify the
+          // move-cursor-to-end custom event is dispatched
           const proseMirror = panels[0].querySelector(".editor .ProseMirror");
-          const focusSpy = jest.spyOn(proseMirror, "focus");
+          const dispatchSpy = jest.spyOn(proseMirror, "dispatchEvent");
 
           // Dispatch focus event on the panel to trigger controller.onFocus
           panels[0].dispatchEvent(new Event("focus", { bubbles: true }));
 
-          // The ProseMirror element's focus() should have been called
-          expect(focusSpy).toHaveBeenCalled();
+          // The ProseMirror element should have received the move-cursor-to-end event
+          expect(dispatchSpy).toHaveBeenCalledWith(expect.objectContaining({
+            type: "move-cursor-to-end",
+            bubbles: true
+          }));
+          dispatchSpy.mockRestore();
           resolve();
         }, 0);
       });

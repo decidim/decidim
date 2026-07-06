@@ -125,16 +125,19 @@ describe("LanguageChangeController", () => {
       const prosemirror = document.createElement("div");
       prosemirror.className = "ProseMirror";
       prosemirror.contentEditable = true;
-      const focusSpy = jest.spyOn(prosemirror, "focus");
+      const dispatchSpy = jest.spyOn(prosemirror, "dispatchEvent");
       editor.appendChild(prosemirror);
       pane.appendChild(editor);
       tabsContent.appendChild(pane);
 
       controller.focusOnActivePane(pane);
 
-      expect(focusSpy).toHaveBeenCalled();
+      expect(dispatchSpy).toHaveBeenCalledWith(expect.objectContaining({
+        type: "move-cursor-to-end",
+        bubbles: true
+      }));
       // Value clearing should not happen for ProseMirror (no .value property)
-      focusSpy.mockRestore();
+      dispatchSpy.mockRestore();
       pane.remove();
     });
 
