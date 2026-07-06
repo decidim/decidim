@@ -63,6 +63,35 @@ module Decidim
             expect(action_log.version.event).to eq "update"
           end
         end
+
+        describe "with attachments" do
+          let!(:existing_attachment) { create(:attachment, :with_pdf, attached_to: page) }
+          let(:form_params) do
+            {
+              "body" => { "en" => "My new body" },
+              "attachments" => [existing_attachment.id.to_s]
+            }
+          end
+
+          it "keeps existing attachments" do
+            command.call
+            expect(page.reload.attachments).to include(existing_attachment)
+          end
+
+          context "when removing attachments" do
+            let(:form_params) do
+              {
+                "body" => { "en" => "My new body" },
+                "attachments" => []
+              }
+            end
+
+            it "removes attachments not in the list" do
+              command.call
+              expect(page.reload.attachments).not_to include(existing_attachment)
+            end
+          end
+        end
       end
     end
   end

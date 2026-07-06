@@ -4,6 +4,18 @@
       <div class="row column">
         <%= form.translated :editor, :body, lines: 30, label: t("models.components.body", scope: "decidim.pages.admin") %>
       </div>
+
+      <% if component_settings.attachments_allowed? %>
+        <div class="row column">
+          <%= form.attachment :attachments,
+                              multiple: true,
+                              label: t("decidim.pages.admin.pages.edit.add_attachments"),
+                              button_label: t("decidim.pages.admin.pages.edit.add_attachments"),
+                              button_edit_label: t("decidim.pages.admin.pages.edit.edit_attachments"),
+                              button_class: "button button__sm button__transparent-secondary mt-2 md:w-auto w-full",
+                              help_i18n_scope: "decidim.forms.file_help.file" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
