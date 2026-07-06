@@ -41,7 +41,7 @@ export default class extends Controller {
   focusOnActivePane(activePane) {
     let content = activePane.querySelector(".editor .ProseMirror");
     if (content && typeof content.focus === "function") {
-      content.focus();
+      content.dispatchEvent(new CustomEvent("move-cursor-to-end", { bubbles: true }));
     } else {
       content = activePane.querySelector("input")
       if (content && typeof content.focus === "function") {

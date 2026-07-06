@@ -129,7 +129,7 @@ export default class TabsController extends Controller {
 
     let content = target.querySelector(".editor .ProseMirror");
     if (content) {
-      content.focus();
+      content.dispatchEvent(new CustomEvent("move-cursor-to-end", { bubbles: true }));
     } else {
       content = target.querySelector("input")
       if (content) {
