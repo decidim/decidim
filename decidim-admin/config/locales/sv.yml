@@ -852,6 +852,7 @@ sv:
             invalid: Det gick inte att avblockera deltagarna.
             success: Deltagarna har avblockerats.
         create:
+          no_user_found: Deltagaren hittades inte.
           success: Deltagaren har fått officiell status.
         destroy:
           success: Deltagaren har inte längre officiell status.

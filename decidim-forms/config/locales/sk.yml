@@ -165,7 +165,7 @@ sk:
           resize_to_fit: Veľkosť tohto obrázka sa zmení tak, aby sa zmestil do %{dimensions}.
       question_types:
         files: Súbory
-        long_answer: Dlhá odpoveď 
+        long_answer: Dlhá odpoveď
         matrix_multiple: Matica (Viacero možností)
         matrix_single: Matica (Jedna možnosť)
         multiple_option: Viacero možností
@@ -221,7 +221,7 @@ sk:
       user_answers_serializer:
         body: Odpoveď
         completion: Dokončenie
-        created_at: Odpovedané na 
+        created_at: Odpovedané na
         id: ID odpovede
         ip_hash: IP Hash
         question: Otázka

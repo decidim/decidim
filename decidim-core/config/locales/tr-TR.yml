@@ -766,7 +766,6 @@ tr:
           modal_title: Yeni görüşme
           no_results: Sonuç bulunamadı
         error_modal:
-          close: Pencereyi kapat
           correct_errors: Lütfen hataları düzeltip tekrar deneyin.
           intro: 'Mesajınızda aşağıdaki hatalar vardı:'
           ok: OK

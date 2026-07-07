@@ -59,10 +59,6 @@ bg:
               allowed_file_content_types: 'Невалиден файлов формат. Позволени са само файлове със следните разширения: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Необходимо е да се прикачи отново
-            add_photos:
-              needs_to_be_reattached: Необходимо е да се прикачи отново
             body:
               cant_be_equal_to_template: не може да е еднакво с шаблона
               identical: И заглавието не може да е еднакво

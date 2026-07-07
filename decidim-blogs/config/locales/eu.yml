@@ -82,7 +82,7 @@ eu:
           title: Izenburua
         index:
           count:
-            one: "%{count} argitalpen"
+            one: "Argitalpen bat"
             other: "%{count} argitalpen"
           empty: Oraindik ez dago argitalpenik.
           new_post: Beste sarrera bat
