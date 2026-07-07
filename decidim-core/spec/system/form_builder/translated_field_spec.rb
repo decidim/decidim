@@ -177,6 +177,13 @@ describe "Translated field" do
 
         expect(find(id: "form_textarea_es")).to be_visible
       end
+
+      it "successfully moves the cursor at the end" do
+        select "Castellano", from: "form-textarea-tabs"
+
+        cursor_pos = page.evaluate_script('Stimulus.getControllerForElementAndIdentifier(document.getElementById("form_textarea_es").querySelector(".editor-container"),"editor").editor.state.selection.from')
+        expect(cursor_pos).to eq("The spanish".length + 1)
+      end
     end
   end
 
@@ -233,6 +240,13 @@ describe "Translated field" do
         click_on "Castellano"
 
         expect(find(id: "form_textarea_es")).to be_visible
+      end
+
+      it "successfully moves the cursor at the end" do
+        click_on "Castellano"
+
+        cursor_pos = page.evaluate_script('Stimulus.getControllerForElementAndIdentifier(document.getElementById("form_textarea_es").querySelector(".editor-container"),"editor").editor.state.selection.from')
+        expect(cursor_pos).to eq("The spanish".length + 1)
       end
     end
   end
