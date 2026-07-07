@@ -39,7 +39,6 @@ Decidim.register_component(:pages) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :attachments_allowed, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|

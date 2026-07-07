@@ -52,7 +52,7 @@ describe "Edit a page" do
   end
 
   describe "attachments" do
-    let(:component) { create(:page_component, :with_attachments_allowed, participatory_space: participatory_process) }
+    let(:component) { create(:page_component, participatory_space: participatory_process) }
 
     before do
       create(:page, component:, body:)
