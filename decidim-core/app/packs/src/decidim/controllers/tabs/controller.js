@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
+import autofocus from "src/decidim/refactor/implementation/autofocus"
 
 /**
  * This JavaScript is taken from the following link:
@@ -125,23 +126,7 @@ export default class TabsController extends Controller {
 
   /* EVENT HANDLERS */
   onFocus(event) {
-    let target = event.target;
-
-    let content = target.querySelector(".editor .ProseMirror");
-    if (content) {
-      content.dispatchEvent(new CustomEvent("move-cursor-to-end", { bubbles: true }));
-    } else {
-      content = target.querySelector("input")
-      if (content) {
-        content.focus();
-      }
-    }
-
-    if (content) {
-      let value = content.value;
-      content.value = "";
-      content.value = value;
-    }
+    autofocus(event.target);
   }
 
   onKeydown(event) {

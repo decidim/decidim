@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import autofocus from "src/decidim/refactor/implementation/autofocus"
 
 /**
  * This controller is used to change the active tab when the language is changed in the admin or system panel.
@@ -10,49 +11,40 @@ export default class extends Controller {
   connect() {
     this.handleChange = this.handleChange.bind(this);
     this.element.addEventListener("change", this.handleChange);
-    this.element.dispatchEvent(new Event("change"));
+    this.tabsContent = this.element.parentElement.parentElement.nextElementSibling;
+
+    this.setActiveTab(this.element.value);
   }
 
   disconnect() {
     this.element.removeEventListener("change", this.handleChange)
   }
 
-  handleChange(event) {
-    let targetTabPaneSelector = event.target.value;
-    let tabsContent = event.target.parentElement.parentElement.nextElementSibling;
-
-    if (!tabsContent) {
+  setActiveTab(targetTabPaneSelector) {
+    if (!this.tabsContent) {
       return;
     }
 
-    let activeTabContent = tabsContent.querySelector(".is-active");
+    let activeTabContent = this.tabsContent.querySelector(".is-active");
     if (activeTabContent) {
       activeTabContent.ariaHidden = "true";
       activeTabContent.classList.remove("is-active");
     }
-    let activePane = tabsContent.querySelector(targetTabPaneSelector);
+    let activePane = this.tabsContent.querySelector(targetTabPaneSelector);
     if (activePane) {
       activePane.ariaHidden = "false";
       activePane.classList.add("is-active");
-      this.focusOnActivePane(activePane);
     }
   }
 
-  focusOnActivePane(activePane) {
-    let content = activePane.querySelector(".editor .ProseMirror");
-    if (content && typeof content.focus === "function") {
-      content.dispatchEvent(new CustomEvent("move-cursor-to-end", { bubbles: true }));
-    } else {
-      content = activePane.querySelector("input")
-      if (content && typeof content.focus === "function") {
-        content.focus();
-      }
-    }
+  handleChange(event) {
+    this.setActiveTab(event.target.value);
+    let activePane = this.tabsContent.querySelector(event.target.value);
 
-    if (content) {
-      let value = content.value;
-      content.value = "";
-      content.value = value;
-    }
+    this.focusOnActivePane(activePane);
+  }
+
+  focusOnActivePane(activePane) {
+    autofocus(activePane);
   }
 }
