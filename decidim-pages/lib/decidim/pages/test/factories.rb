@@ -5,14 +5,6 @@ FactoryBot.define do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :pages).i18n_name }
     manifest_name { :pages }
     participatory_space { create(:participatory_process, :with_steps, organization:) }
-
-    trait :with_attachments_allowed do
-      settings do
-        {
-          attachments_allowed: true
-        }
-      end
-    end
   end
 
   factory :page, class: "Decidim::Pages::Page" do

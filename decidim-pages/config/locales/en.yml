@@ -15,7 +15,6 @@ en:
         settings:
           global:
             announcement: Announcement
-            attachments_allowed: Allow attachments
           step:
             announcement: Announcement
     open_data:
