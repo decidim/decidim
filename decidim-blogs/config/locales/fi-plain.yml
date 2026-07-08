@@ -156,6 +156,7 @@ fi-pl:
           likes_count: Artikkelin tykkäysten lukumäärä
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä artikkeli kuuluu
           published_at: Artikkelin julkaisuaika
+          reference: Artikkelin yksilöivä viite
           title: Artikkelin otsikko
           updated_at: Artikkelin viimeisimmän päivityksen ajankohta
           url: Artikkelin URL-osoite

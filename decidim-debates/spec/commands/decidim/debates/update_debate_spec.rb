@@ -19,8 +19,8 @@ describe Decidim::Debates::UpdateDebate do
     Decidim::Debates::DebateForm.from_params(
       title: "Title",
       description:,
-      documents: current_files,
-      add_documents: uploaded_files,
+      attachments: current_files,
+      add_attachments: uploaded_files,
       taxonomies:,
       id: debate.id
     ).with_context(

@@ -49,8 +49,6 @@ de:
       meeting_registration_invite:
         email: E-Mail
         name: Name
-      response:
-        add_documents: Dokumente hinzufügen
       validate_registration_code:
         code: Code
     errors:
@@ -168,7 +166,6 @@ de:
             announcement: Ankündigung
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmende können Veranstaltungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
@@ -347,10 +344,8 @@ de:
             success: Der Benutzende wurde erfolgreich zur Veranstaltung eingeladen.
           form:
             attendee_type: Teilnehmertyp
-            existing_user: Existierender Benutzer
             invite: Einladen
             invite_explanation: Der Benutzende wird eingeladen, der Veranstaltung und der Organisation beizutreten.
-            non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
             invites: Lädt ein

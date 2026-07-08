@@ -23,8 +23,8 @@ describe Decidim::Debates::CreateDebate do
       current_user: user,
       current_component:,
       current_organization: organization,
-      add_documents: attachments,
-      documents: [],
+      add_attachments: attachments,
+      attachments: [],
       errors: ActiveModel::Errors.new(self)
     )
   end

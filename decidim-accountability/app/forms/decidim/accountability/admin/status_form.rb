@@ -15,6 +15,7 @@ module Decidim
 
         validates :key, presence: true
         validates :name, translatable_presence: true
+        validates :progress, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }, if: ->(form) { form.progress.present? }
       end
     end
   end

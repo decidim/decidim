@@ -62,10 +62,6 @@ sk:
               allowed_file_content_types: 'Neplatný typ dokumentu. Povolené sú iba súbory s nasledujúcimi príponami: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Je potrebné priložiť znovu
-            add_photos:
-              needs_to_be_reattached: Je potrebné priložiť znovu
             body:
               cant_be_equal_to_template: nemôže byť rovnaké, ako šablóna
               identical: A názov nemôže byť totožný
@@ -184,7 +180,6 @@ sk:
             collaborative_drafts_enabled: Spoločné návrhy sú povolené
             collaborative_drafts_enabled_help: Funkcia kolaboratívnych konceptov bude odstránená vo verzii Decidim v0.32. Organizácie, ktoré ju používajú, môžu prejsť na novú funkciu spoluautorstva návrhov.
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov (Pre predvolenú hodnotu ponechajte 0)
             default_sort_order: Predvolené zoradenie návrhov
             default_sort_order_help: Automaticky znamená, že ak sú hlasy povolené, návrhy sa zobrazia náhodne zoradené, a ak sú hlasy zablokované, zoradia sa podľa najvyššieho počtu hlasov.
             default_sort_order_options:

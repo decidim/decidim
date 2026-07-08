@@ -554,7 +554,6 @@ sv:
           global:
             amendments_enabled: Aktivera ändringsförslag
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Maximal längd på kommentarer
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             dummy_global_attribute1: Dummy Attribut 1
             dummy_global_attribute2: Dummy Attribut 2
@@ -1196,7 +1195,6 @@ sv:
         create:
           error: Konversationen har inte startat. Försök igen senare.
         error_modal:
-          close: Stäng fönster
           correct_errors: Vänligen korrigera felen och försök igen.
           intro: 'Det fanns följande fel med ditt meddelande:'
           ok: Ok
@@ -1508,13 +1506,6 @@ sv:
         log_in: logga in
         never_logged_in: har aldrig loggat in
         subject: Varning om inaktivt konto
-      removal_notification:
-        body: Ditt %{organization_name}-konto har tagits bort på grund av inaktivitet.
-        greetings_html: |
-          Vänliga hälsningar,<br>
-          %{organization_name}
-        hello: Hej %{username},
-        subject: Inaktivt konto raderat
     participatory_space:
       pages:
         user_profile:

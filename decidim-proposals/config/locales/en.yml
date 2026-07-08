@@ -63,9 +63,7 @@ en:
               allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Needs to be reattached
-            add_photos:
+            add_attachments:
               needs_to_be_reattached: Needs to be reattached
             body:
               cant_be_equal_to_template: cannot be equal to the template
@@ -177,7 +175,7 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             collaborative_drafts_enabled_help: The Collaborative Drafts feature will be removed in Decidim v0.32. Organizations using it can switch to the new proposal co-authorship feature.
             comments_enabled: Comments enabled
-            comments_max_length: Comments max length (Leave 0 for default value)
+            comments_max_length: Max characters per comment (Leave 0 for default value)
             default_sort_order: Default proposal sorting
             default_sort_order_help: Automatic means that if the votes are enabled, the proposals will be shown sorted by random, and if the votes are blocked, then they will be sorted by the most voted.
             default_sort_order_options:
@@ -766,6 +764,7 @@ en:
         errors:
           device_not_supported: Your device does not support location services. Please enter the address manually.
           no_device_location: Sorry, we could not detect your location. Please enter the address manually.
+        locating: Locating...
         use_my_location: Use my current location
       invite_coauthors:
         cancel:

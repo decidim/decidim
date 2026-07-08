@@ -387,7 +387,7 @@ module Decidim
     end
 
     def author_users
-      [author].concat(committee_members.excluding_author.map(&:user))
+      [author].concat(committee_members.includes(:user).excluding_author.map(&:user))
     end
 
     def accepts_offline_votes?

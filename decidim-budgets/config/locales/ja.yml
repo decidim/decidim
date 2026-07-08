@@ -336,7 +336,7 @@ ja:
             announcement: お知らせ
             clear_all: すべてクリア
             comments_enabled: コメントを有効にする
-            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            comments_max_length: 各コメントの最大文字数 (0はデフォルト値のまま)
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             form:
               errors:

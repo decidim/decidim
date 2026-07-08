@@ -13,7 +13,7 @@ module Decidim
       attribute :description, String
       attribute :attachment, AttachmentForm
 
-      attachments_attribute :documents
+      attachments_attribute :attachments
 
       validates :title, :description, presence: true
       validates :title, :description, etiquette: true
@@ -27,7 +27,7 @@ module Decidim
         self.title = debate.title.values.first
         self.description = render_content(debate.description.values.first,
                                           editor: debate.component.organization.rich_text_editor_in_public_views?)
-        self.documents = debate.attachments
+        self.attachments = debate.attachments
       end
 
       def participatory_space_manifest

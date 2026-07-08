@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UpdateComponent do
     let!(:participatory_process) { create(:participatory_process, :with_steps) }
     let(:step) { participatory_process.steps.first }
-    let!(:component) { create(:component, :with_one_step, participatory_space: participatory_process) }
+    let!(:component) { create(:component, :with_one_step, participatory_space: participatory_process, weight: 0) }
     let(:manifest) { component.manifest }
     let(:user) { create(:user) }
 

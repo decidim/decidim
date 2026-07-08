@@ -82,7 +82,7 @@ module Decidim
             )
 
             proposal.taxonomizations = form.taxonomizations if form.taxonomizations.present?
-            proposal.documents = form.documents if form.documents.present?
+            proposal.attachments = form.attachments if form.attachments.present?
             if form.geocoded?
               proposal.latitude = form.latitude
               proposal.longitude = form.longitude
