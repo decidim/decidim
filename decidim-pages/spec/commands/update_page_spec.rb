@@ -46,6 +46,9 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.pages.admin.update_page:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.pages.admin.update_page:after"
+
           it "creates a new page with the same name as the component" do
             expect(page).to receive(:update!)
             command.call
