@@ -41,7 +41,6 @@ sv:
             attachments_allowed: Tillåt bilagor
             clear_all: Rensa
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             taxonomy_filters: Välj filter för komponenten
@@ -80,8 +79,6 @@ sv:
             comments_warning: Visningsalternativet inte längre ändras efter att den första kommentaren har postats.
             debate_type: Typ av debatt
             edit_attachments: Redigera bilagor
-            errors:
-              comments_layout_locked: Du kan inte ändra kommentarslayouten när kommentarer har postats.
             finite: Tidsbegränsad (med start- och sluttid)
             open: Öppen (utan start- eller sluttid)
             single_column: 'En kolumn: Kommentarer visas i kronologisk ordning och kan ha svar.'

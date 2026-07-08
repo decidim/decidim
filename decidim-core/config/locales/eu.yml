@@ -553,7 +553,7 @@ eu:
           global:
             amendments_enabled: Zuzenketak gaituta
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             dummy_global_attribute1: Balizko atributua 1
             dummy_global_attribute2: Balizko atributua 2
@@ -659,6 +659,13 @@ eu:
           all: Guztiak
         filter_taxonomy_values:
           all: Guztiak
+    delete_user_mailer:
+      delete:
+        body_1: Zure kontua desaktibatu egin da eta ezin da sartu. Zure datu pertsonalak behin betiko ezabatuko dira, datuak gordetzeko gure politikekin bat etorriz.
+        body_2: Segurtasun arrazoiengatik, baimenarekin lotutako datu batzuk gordeko dira; kontu berri bat sortu eta berriro baimena ematen baduzu, zure kontu berriarekin lotuta egon daiteke.
+        greetings_html: Adeitasunez, <br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: '%{username}, estimatua:'
+      subject: Zure kontua ezabatu egin da
     devise:
       omniauth_registrations:
         create:
@@ -906,13 +913,17 @@ eu:
             email_intro: '%{amendable_title} k zuzenketa ukatu egin du. Orrialde honetan ikus dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
             email_subject: '%{emendation_author_name} parte-hartzaileak %{amendable_title} zuzenketa ukatu du'
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_name}</a> egileak sortu duen <a href="%{emendation_path}"> </a>zuzenketa honetarako ukatu da <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Aldaketa ukatu egin da %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
+            email_subject: '%{emendation_author_name} parte-hartzaileak %{amendable_title} zuzenketa ukatu du'
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_name}</a> egileak sortu duen <a href="%{emendation_path}"> </a>zuzenketa honetarako ukatu da <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'Zuzenketa bat argitaratu da honetarako: %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
+            email_subject: '%{emendation_author_name} parte-hartzailearen zuzenketa bat argitaratu da %{amendable_type} berri gisa'
       attachments:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde honetan ikusi dezakezu:'
@@ -945,6 +956,18 @@ eu:
         notification_body: 'Ezizenak erabiltzeko modua zuzendu dugu bikoiztasunik egon ez dadin, eta horregatik kendu dugu kasu sentikorra den araua. Zure ezizena beste baten ostean sortu da, eta automatikoki aldatu dugu. Zure kontuaren konfiguraziotik alda dezakezu hemen: <a href="%{link_to_account_settings}">your account settings</a>.'
       notification_event:
         notification_title: 'Ekintza bat izan da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Espazio parte-hartzaile batean kide gisa gehitu zaituzte.
+            email_outro: Jakinarazpen hau jaso duzu administratzaile batek <a href="%{resource_url}">%{resource_title}</a> gunera gehitu zaituelako. Gune horretara sartzea mugatuta badago, zure kontua erabiliz sartu ahal izango zara.<br> Zure profila guneko <a href="%{members_page}"> pare-hartzailen zerrendan </a> agertuko da.
+            email_subject: Orain %{resource_title} baliabiderako sarbidea duzu.
+            notification_title: Orain, <a href="%{resource_url}">%{resource_title}</a> helbiderako sarbidea duzu.
+          unpublished:
+            email_intro: Gune parte-hartzaile batean kide gisa gehitu zaituzte.
+            email_outro: Jakinarazpen hau jaso duzu administratzaile batek <a href="%{resource_url}">%{resource_title}</a> gunera gehitu zaituelako. Gune horretara sartzea mugatuta badago, zure kontua erabiliz sartu ahal izango zara.<br> Zure profila guneko <a href="%{members_page}"> pare-hartzailen zerrendan </a> agertuko da.
+            email_subject: Orain %{resource_title} baliabiderako sarbidea duzu.
+            notification_title: Orain, <a href="%{resource_url}">%{resource_title}</a> helbiderako sarbidea duzu.
       reports:
         parent_hidden:
           email_intro: |-
@@ -962,13 +985,25 @@ eu:
           email_subject: Zure %{resource_type} ezabatu egin da
           notification_title: |-
             Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.</br><i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name} parte-hartzaileari, jarraitzen ari zarenari, %{resource_title}" gustatu zaio, eta zuretzat interesgarria izan daitekeela uste dugu. Egiaztatu eta lagundu:'
+        email_outro: Jakinarazpen hau jaso duzu %{liker_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+        email_subject: "%{liker_name} parte-hartzaileak like berri bat egin du"
+        notification_title: <a href="%{liker_path}">%{liker_name} </a> -k <a href="%{resource_path}">%{resource_title}</a> %{resource_type} atsegin du.
       resources:
         soft_deleted:
           notification_title: Administratzaile batek ezabatu du zure "%{resource_type}" "%{resource_title}".
       users:
+        profile_updated:
+          email_intro: </a> de %{name} profilaren <a href="%{resource_url}"> orria, jarraitzen ari zarena, eguneratu egin da.
+          email_outro: Jakinarazpen hau jaso duzu %{name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+          email_subject: "%{name} parte-hartzaileak bere profila eguneratu du"
+          notification_title: </a> de %{name} profilaren <a href="%{resource_path}"> orria, jarraitzen ari zarena, eguneratu egin da.
         user_officialized:
+          email_intro: '%{name} parte-hartzailea ofizializatu egin da.'
           email_outro: Jakinarazpen hau jaso duzu erakundearen administratzailea zarelako.
           email_subject: "%{name} ofizializatu egin da"
+          notification_title: '%{name} parte-hartzailea ofizializatu egin da.'
     export_mailer:
       download_your_data_export:
         click_button_html: Sakatu hurrengo estekan zure datuak deskargatzeko. <br/> fitxategia eskuragarri egongo da %{date} arte.
@@ -1198,7 +1233,6 @@ eu:
         create:
           error: Elkarrizketa ez da hasi. Saiatu berriro geroago.
         error_modal:
-          close: Itxi leihoa
           correct_errors: Mesedez, zuzendu akatsak eta saiatu berriro.
           intro: 'Zure mezuan honako akats hauek gertatu dira:'
           ok: Ados
@@ -1510,13 +1544,6 @@ eu:
         log_in: hasi saioa
         never_logged_in: inoiz ez konektatua
         subject: Kontu inaktiboaren abisua
-      removal_notification:
-        body: Zure %{organization_name} kontua ezabatu egin da inaktibitateagatik.
-        greetings_html: |
-          Adeitasunez,<br>
-          %{organization_name}
-        hello: "%{username}, agurgarria:\n"
-        subject: Kontu inaktiboa ezabatua
     participatory_space:
       pages:
         user_profile:

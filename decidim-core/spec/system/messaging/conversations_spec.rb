@@ -51,7 +51,7 @@ describe "Conversations" do
 
     it_behaves_like "accessible page"
 
-    it "displays an error pop-up", :slow do
+    it "displays an error modal", :slow do
       recipient.destroy!
       start_conversation("Is this a Ryanair style democracy?")
 

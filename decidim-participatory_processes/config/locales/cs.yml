@@ -495,6 +495,8 @@ cs:
             metadata: Metadata
             title: O tomto procesu
             visibility: Viditelnost
+          index:
+            title: Skupiny participativního procesu
           new:
             title: Nová skupina procesu
         participatory_process_imports:

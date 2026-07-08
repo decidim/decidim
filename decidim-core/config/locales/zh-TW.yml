@@ -401,7 +401,6 @@ zh-TW:
           global:
             amendments_enabled: 修改功能已啟用
             comments_enabled: 啟用評論功能
-            comments_max_length: 評論最大長度
             dummy_global_attribute1: 虛擬屬性 1
             dummy_global_attribute2: 虛擬屬性 2
             dummy_global_translatable_text: 虛擬可翻譯文字
@@ -791,7 +790,6 @@ zh-TW:
         create:
           error: 對話未開始。請稍後再試。
         error_modal:
-          close: 關閉視窗
           correct_errors: 請修正錯誤後再試一次。
           intro: '您的訊息有以下錯誤：'
           ok: 好的

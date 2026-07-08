@@ -114,7 +114,7 @@ ca-IT:
             announcement: Avís
             attachments_allowed: Permetre fitxers adjunts
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
             creation_enabled_for_participants: Les participants poden crear noves entrades en el blog
             define_taxonomy_filters: Si us plau, defineix alguns filtres per aquest espai de participació abans de fer servir aquesta configuració.
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
@@ -156,6 +156,7 @@ ca-IT:
           likes_count: El número de "M'agrada" que té aquesta publicació
           participatory_space: A quin espai pertany aquesta publicació (procés participatiu, assemblea, etc.)
           published_at: La data en què es va publicar aquesta entrada al blog
+          reference: La referència única de la publicació
           title: El títol de la publicació
           updated_at: La data de la darrera actualització d'aquesta publicació
           url: L'URL d'aquesta publicació

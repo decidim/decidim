@@ -93,6 +93,19 @@ module Decidim
 
         it_behaves_like "having a help text"
       end
+
+      context "when showing the location button" do
+        let(:component) { double(manifest_name: "proposals") }
+
+        before do
+          allow(template).to receive(:current_component).and_return(component)
+        end
+
+        it "renders the button with data-locating-text attribute" do
+          expect(form_markup).to include("data-locating-text")
+          expect(form_markup).to include("geocoding__locate")
+        end
+      end
     end
   end
 end

@@ -38,10 +38,6 @@ el:
               allowed_file_content_types: 'Μη έγκυρος τύπος εγγράφου. Επιτρέπονται μόνο αρχεία με τις ακόλουθες επεκτάσεις: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
-            add_photos:
-              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
             body:
               cant_be_equal_to_template: δεν μπορεί να είναι ίσο με το πρότυπο
               identical: ΚΑΙ ο τίτλος δεν μπορεί να είναι ίδιος
@@ -112,7 +108,6 @@ el:
             attachments_allowed: Να επιτρέπονται τα συνημμένα
             collaborative_drafts_enabled: Τα προσχέδια συνεργασίας ενεργοποιήθηκαν
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
-            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για την προκαθορισμένη τιμή)
             default_sort_order: Προεπιλεγμένη ταξινόμηση προτάσεων
             default_sort_order_options:
               most_commented: Πιο σχολιασμένες

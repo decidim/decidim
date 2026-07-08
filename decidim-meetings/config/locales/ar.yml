@@ -120,7 +120,6 @@ ar:
           global:
             announcement: إعلان
             comments_enabled: تم تمكين التعليقات
-            comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
             creation_enabled_for_participants: يمكن للمشاركين إنشاء اجتماعات
             default_registration_terms: شروط التسجيل الافتراضية
             enable_pads_creation: تمكين إنشاء منصات
@@ -237,10 +236,8 @@ ar:
             success: تمت دعوة المشارك بنجاح للانضمام إلى الاجتماع.
           form:
             attendee_type: نوع الحضور
-            existing_user: المشارك الحالي
             invite: دعا
             invite_explanation: سيتم دعوة المشارك للانضمام إلى الاجتماع وإلى المنظمة أيضًا.
-            non_user: مشارك غير موجود
             select_user: اختر المشارك
           index:
             invites: تدعو

@@ -29,6 +29,7 @@ module Decidim
 
           ActiveRecord::Base.transaction do
             @user ||= existing_user || new_user
+            send_notification_for_existing_user if @existing_user
             create_member
           end
 
@@ -61,16 +62,29 @@ module Decidim
         end
 
         def existing_user
-          return @existing_user if defined?(@existing_user)
+          @existing_user ||= if form.member_type == "name"
+                               form.user
+                             else
+                               User.find_by(
+                                 email: form.email.downcase,
+                                 organization: member_to.organization
+                               )
+                             end
+        end
 
-          @existing_user = User.find_by(
-            email: form.email.downcase,
-            organization: member_to.organization
-          )
-
-          InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
-
-          @existing_user
+        def send_notification_for_existing_user
+          if @existing_user.invitation_pending?
+            InviteUserAgain.call(@existing_user, invitation_instructions)
+          else
+            Decidim::EventsManager.publish(
+              event: "decidim.events.participatory_space.member_added",
+              event_class: "#{member_to.class.name}MemberAddedEvent".constantize,
+              resource: member_to,
+              affected_users: [@existing_user],
+              force_send: true,
+              extra: { force_email: true }
+            )
+          end
         end
 
         def new_user
@@ -82,12 +96,22 @@ module Decidim
         end
 
         def user_form
-          OpenStruct.new(name: form.name,
-                         email: form.email.downcase,
-                         organization: member_to.organization,
-                         admin: false,
-                         invited_by: current_user,
-                         invitation_instructions:)
+          if form.member_type == "name"
+            OpenStruct.new(name: form.user.name,
+                           email: form.user.email.downcase,
+                           organization: member_to.organization,
+                           admin: false,
+                           invited_by: current_user,
+                           invitation_instructions:)
+          else
+            email_local_part = form.email.split("@").first
+            OpenStruct.new(name: email_local_part,
+                           email: form.email.downcase,
+                           organization: member_to.organization,
+                           admin: false,
+                           invited_by: current_user,
+                           invitation_instructions:)
+          end
         end
 
         def invitation_instructions

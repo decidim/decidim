@@ -16,6 +16,7 @@ module Decidim
 
       include_examples "has component"
       include_examples "resourceable"
+      include_examples "has reference"
 
       context "without a component" do
         let(:election) { build(:election, component: nil) }
