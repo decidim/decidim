@@ -41,10 +41,6 @@ export default class extends Controller {
     this.setActiveTab(event.target.value);
     let activePane = this.tabsContent.querySelector(event.target.value);
 
-    this.focusOnActivePane(activePane);
-  }
-
-  focusOnActivePane(activePane) {
     autofocus(activePane);
   }
 }

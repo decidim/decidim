@@ -151,8 +151,8 @@ describe "Translated field" do
       it "successfully moves the cursor at the end" do
         select "Castellano", from: "form-text-tabs"
 
-        cursor_pos = page.evaluate_script("document.getElementById('form_text_es').selectionStart")
-        expect(cursor_pos).to eq("The spanish".length)
+        find("#form_text_es").send_keys("X")
+        expect(find("#form_text_es").value).to eq("The spanishX")
       end
     end
 
@@ -181,8 +181,8 @@ describe "Translated field" do
       it "successfully moves the cursor at the end" do
         select "Castellano", from: "form-textarea-tabs"
 
-        cursor_pos = page.evaluate_script('Stimulus.getControllerForElementAndIdentifier(document.getElementById("form_textarea_es").querySelector(".editor-container"),"editor").editor.state.selection.from')
-        expect(cursor_pos).to eq("The spanish".length + 1)
+        find("#form_textarea_es .ProseMirror").send_keys("X")
+        expect(find("#form_textarea_es .ProseMirror")).to have_content("The spanishX")
       end
     end
   end
@@ -215,8 +215,8 @@ describe "Translated field" do
       it "successfully moves the cursor at the end" do
         click_on "Castellano"
 
-        cursor_pos = page.evaluate_script("document.getElementById('form_text_es').selectionStart")
-        expect(cursor_pos).to eq("The spanish".length)
+        find("#form_text_es").send_keys("X")
+        expect(find("#form_text_es").value).to eq("The spanishX")
       end
     end
 
@@ -245,8 +245,8 @@ describe "Translated field" do
       it "successfully moves the cursor at the end" do
         click_on "Castellano"
 
-        cursor_pos = page.evaluate_script('Stimulus.getControllerForElementAndIdentifier(document.getElementById("form_textarea_es").querySelector(".editor-container"),"editor").editor.state.selection.from')
-        expect(cursor_pos).to eq("The spanish".length + 1)
+        find("#form_textarea_es .ProseMirror").send_keys("X")
+        expect(find("#form_textarea_es .ProseMirror")).to have_content("The spanishX")
       end
     end
   end
