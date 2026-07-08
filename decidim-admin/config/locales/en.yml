@@ -1097,6 +1097,10 @@ en:
           add_images: Add images
           edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
+        attachments:
+          add_attachments: Add attachments
+          attachment_legend: Add a document or an image
+          edit_attachments: Edit attachments
       static_page_topics:
         create:
           error: There was a problem creating a new topic.

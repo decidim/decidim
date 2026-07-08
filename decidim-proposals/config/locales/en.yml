@@ -919,7 +919,6 @@ en:
           instructions: You can move the point on the map.
         edit:
           add_attachments: Add attachments
-          attachment_legend: Add a document or an image
           back: Back
           edit_attachments: Edit attachments
           send: Send

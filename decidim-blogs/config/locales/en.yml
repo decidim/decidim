@@ -73,6 +73,7 @@ en:
             title: Title
       posts:
         edit:
+          add_attachments: Add attachments
           back: Back to post
           button: Update
           title: Edit post
