@@ -44,6 +44,11 @@ module Decidim
             redirect_to admins_path
           end
 
+          on(:password_mismatch) do
+            flash.now[:alert] = I18n.t("errors.decidim/user.password_confirmation", scope: "decidim.forms")
+            render :edit, status: :unprocessable_content
+          end
+
           on(:invalid) do
             flash.now[:alert] = I18n.t("admins.update.error", scope: "decidim.system")
             render :edit, status: :unprocessable_content

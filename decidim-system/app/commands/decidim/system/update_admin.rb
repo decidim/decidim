@@ -21,6 +21,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+        return broadcast(:password_mismatch) if form.password != form.password_confirmation
 
         update_admin
         broadcast(:ok)
