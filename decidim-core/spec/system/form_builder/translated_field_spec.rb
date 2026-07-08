@@ -151,8 +151,8 @@ describe "Translated field" do
       it "successfully moves the cursor at the end" do
         select "Castellano", from: "form-text-tabs"
 
-        find("#form_text_es").send_keys("X")
-        expect(find("#form_text_es").value).to eq("The spanishX")
+        find_by_id("form_text_es").send_keys("X")
+        expect(find_by_id("form_text_es").value).to eq("The spanishX")
       end
     end
 
@@ -182,7 +182,7 @@ describe "Translated field" do
         select "Castellano", from: "form-textarea-tabs"
 
         find("#form_textarea_es .ProseMirror").send_keys("X")
-        expect(find("#form_textarea_es .ProseMirror")).to have_content("The spanishX")
+        expect(find("#form_textarea_es .ProseMirror")).to have_text("The spanishX")
       end
     end
   end
@@ -215,8 +215,8 @@ describe "Translated field" do
       it "successfully moves the cursor at the end" do
         click_on "Castellano"
 
-        find("#form_text_es").send_keys("X")
-        expect(find("#form_text_es").value).to eq("The spanishX")
+        find_by_id("form_text_es").send_keys("X")
+        expect(find_by_id("form_text_es").value).to eq("The spanishX")
       end
     end
 
@@ -246,7 +246,7 @@ describe "Translated field" do
         click_on "Castellano"
 
         find("#form_textarea_es .ProseMirror").send_keys("X")
-        expect(find("#form_textarea_es .ProseMirror")).to have_content("The spanishX")
+        expect(find("#form_textarea_es .ProseMirror")).to have_text("The spanishX")
       end
     end
   end
