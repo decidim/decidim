@@ -49,14 +49,14 @@ module Decidim
       def render_content(content, editor: false)
         content = Decidim::ContentRenderers::BlobRenderer.new(content).render
         if editor
-          content = Decidim::ContentRenderers::UserRenderer.new(content).render(editor: true).html_safe
-          content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(editor: true).html_safe
+          content = Decidim::ContentRenderers::UserRenderer.new(content).render(editor: true)
+          content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(editor: true)
         else
-          content = Decidim::ContentRenderers::UserRenderer.new(content).render(plain: true).html_safe
-          content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(plain: true).html_safe
+          content = Decidim::ContentRenderers::UserRenderer.new(content).render(plain: true)
+          content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(plain: true)
         end
 
-        content
+        ActionController::Base.helpers.sanitize(content)
       end
     end
   end

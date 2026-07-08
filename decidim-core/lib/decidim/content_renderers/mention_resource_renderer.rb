@@ -51,8 +51,11 @@ module Decidim
       end
 
       def render_editor(resource_gid, resource)
-        title = presenter_for(resource).title
-        %(<span data-type="mentionResource" data-id="#{resource_gid}" data-label="#{title}">#{title}</span>)
+        title = presenter_for(resource).title.to_s
+        escaped_gid = CGI.escapeHTML(resource_gid.to_s)
+        escaped_title = CGI.escapeHTML(title)
+
+        %(<span data-type="mentionResource" data-id="#{escaped_gid}" data-label="#{escaped_title}">#{escaped_title}</span>)
       end
 
       def render_resource_link(resource)
