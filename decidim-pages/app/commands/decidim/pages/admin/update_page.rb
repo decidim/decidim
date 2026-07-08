@@ -29,7 +29,7 @@ module Decidim
             return broadcast(:invalid) if attachments_invalid?
           end
 
-          transaction do
+          with_events(with_transaction: true) do
             update_page
             attachment_cleanup!(include_all_attachments: true)
             create_attachments(first_weight: first_attachment_weight) if process_attachments?
@@ -39,6 +39,16 @@ module Decidim
         end
 
         private
+
+        def event_arguments
+          {
+            resource: @page,
+            extra: {
+              event_author: @form.current_user,
+              locale:
+            }
+          }
+        end
 
         def update_page
           Decidim.traceability.update!(
