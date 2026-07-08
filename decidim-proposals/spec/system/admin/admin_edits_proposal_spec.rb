@@ -8,8 +8,6 @@ describe "Admin edits proposals" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let!(:proposal) { create(:proposal, :official, component:) }
   let(:creation_enabled?) { true }
-  let(:attached_image_filename) { "city.jpeg" }
-  let(:attached_image_path) { Decidim::Dev.asset(attached_image_filename) }
 
   include_context "when managing a component as an admin"
 
