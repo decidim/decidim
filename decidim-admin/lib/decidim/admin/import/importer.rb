@@ -111,8 +111,15 @@ module Decidim
 
           notifier_klass.new(
             collection: finished_collection,
-            context: (context || {}).merge(import_creator_class: creator)
+            context: notifier_context
           ).notify!
+        end
+
+        def notifier_context
+          return context.merge(import_creator_class: creator) if context.is_a?(Hash)
+
+          base_context = context.respond_to?(:to_h) ? context.to_h : {}
+          base_context.merge(import_creator_class: creator)
         end
       end
     end

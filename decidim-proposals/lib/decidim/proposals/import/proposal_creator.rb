@@ -8,9 +8,11 @@ module Decidim
       class ProposalCreator < Decidim::Admin::Import::Creator
         class << self
           def batch_notifier_klass
+            require_dependency "decidim/proposals/import/batch_notifier"
             Decidim::Proposals::Import::BatchNotifier
           end
         end
+
         # Returns the resource class to be created with the provided data.
         def self.resource_klass
           Decidim::Proposals::Proposal
@@ -37,21 +39,18 @@ module Decidim
         end
 
         # Saves the proposal
-        def finish_without_notify!
-          Decidim.traceability.perform_action!(:create, self.class.resource_klass, context[:current_user], visibility: "admin-only") do
-            resource.save!
-            resource
-          end
-          resource
-        end
-
         def finish!
           finish_without_notify!
           notify(resource)
           publish(resource)
         end
 
-        private
+        def finish_without_notify!
+          Decidim.traceability.perform_action!(:create, self.class.resource_klass, context[:current_user], visibility: "admin-only") do
+            resource.save!
+            resource
+          end
+        end
 
         def resource
           @resource ||= Decidim::Proposals::Proposal.new(

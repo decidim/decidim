@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "ostruct"
 
 describe Decidim::Admin::Import::Importer do
   subject { described_class.new(file: blob, reader:, creator:, context:) }
@@ -54,6 +55,27 @@ describe Decidim::Admin::Import::Importer do
 
         subject.prepare
         subject.import!
+
+        expect(Decidim::Proposals::Import::BatchNotifier).to have_received(:new).with(
+          collection: kind_of(Array),
+          context: hash_including(
+            current_organization: organization,
+            current_user: user,
+            current_component:,
+            current_participatory_space: participatory_process,
+            import_creator_class: creator
+          )
+        )
+        expect(notifier).to have_received(:notify!)
+      end
+
+      it "calls batch notifier when context is an OpenStruct" do
+        notifier = instance_double(Decidim::Proposals::Import::BatchNotifier, notify!: nil)
+        allow(Decidim::Proposals::Import::BatchNotifier).to receive(:new).and_return(notifier)
+
+        importer = described_class.new(file: blob, reader:, creator:, context: OpenStruct.new(context))
+        importer.prepare
+        importer.import!
 
         expect(Decidim::Proposals::Import::BatchNotifier).to have_received(:new).with(
           collection: kind_of(Array),

@@ -36,7 +36,6 @@ module Decidim
           def batch_notifier_klass
             nil
           end
-
         end
 
         attr_reader :data
