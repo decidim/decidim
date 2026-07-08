@@ -1,3 +1,5 @@
+/* global jest */
+
 import autofocus from "src/decidim/refactor/implementation/autofocus"
 
 describe("autofocus", () => {
