@@ -38,10 +38,6 @@ zh-TW:
               allowed_file_content_types: '無效文件類型。只允許使用以下副檔名的文件：%{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: 需要重新附加
-            add_photos:
-              needs_to_be_reattached: 需要重新附加
             body:
               cant_be_equal_to_template: 不能與模板相同
               identical: 並且標題不能相同
@@ -103,7 +99,6 @@ zh-TW:
             attachments_allowed: 允許附檔
             collaborative_drafts_enabled: ' 啟用協作草稿'
             comments_enabled: 已啟用留言
-            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
             default_sort_order: 預設提案排序
             default_sort_order_options:
               most_commented: 最多評論

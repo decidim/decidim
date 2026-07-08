@@ -62,10 +62,8 @@ es:
               allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
-            add_photos:
-              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+            add_attachments:
+              needs_to_be_reattached: Es necesario volver a adjuntar el archivo
             body:
               cant_be_equal_to_template: no puede ser igual a la plantilla
               identical: Y el título no puede ser idéntico
@@ -176,7 +174,7 @@ es:
             collaborative_drafts_enabled: Borradores colaborativos habilitados
             collaborative_drafts_enabled_help: La función "Borradores colaborativos" se eliminará próximamente. Si la utilizas a partir de la versión 0.32 de Decidim, podrás utilizar la funcionalidad de coautoría de propuestas.
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             default_sort_order: Ordenación por defecto de propuestas
             default_sort_order_help: '''Automático'' significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.'
             default_sort_order_options:
@@ -765,6 +763,7 @@ es:
         errors:
           device_not_supported: Su dispositivo no soporta servicios de ubicación. Por favor, introduzca la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
           no_device_location: Lo sentimos, no hemos podido detectar tu ubicación. Por favor, introduce la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
+        locating: Localizando...
         use_my_location: Usar mi ubicación actual
       invite_coauthors:
         cancel:

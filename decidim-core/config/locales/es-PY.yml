@@ -555,7 +555,7 @@ es-PY:
           global:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios
+            comments_max_length: Máximo de caracteres por comentario
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             dummy_global_attribute1: Atributo ficticio 1
             dummy_global_attribute2: Atributo ficticio 2
@@ -661,6 +661,13 @@ es-PY:
           all: Todos
         filter_taxonomy_values:
           all: Todas
+    delete_user_mailer:
+      delete:
+        body_1: Tu cuenta ha sido desactivada y ya no es accesible. Tus datos personales están programados para su eliminación permanente de acuerdo con nuestras políticas de retención de datos.
+        body_2: Por razones de seguridad, se conservarán algunos datos relacionados con la verificación; de este modo si crearas una nueva cuenta y la verificaras de nuevo, se podría vincular la autorización con esta nueva cuenta.
+        greetings_html: Atentamente,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hola %{username},
+      subject: Tu cuenta ha sido eliminada
     devise:
       omniauth_registrations:
         create:
@@ -874,9 +881,13 @@ es-PY:
           affected_user:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
+            email_subject: Enmienda aceptada de %{emendation_author_name} para %{amendable_title}
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_name}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_subject: Enmienda de %{emendation_author_name} aceptada para %{amendable_title}
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_name}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verlo desde esta página:'
@@ -892,20 +903,29 @@ es-PY:
           affected_user:
             email_intro: 'Una enmienda rechazada por %{amendable_title} ha sido promovida a %{amendable_type}independiente. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
+            email_subject: Se ha publicado una modificación de %{emendation_author_name} como nuevo %{amendable_type}
+            notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
           follower:
             email_intro: 'Una enmienda rechazada por %{amendable_title} ha sido promovida a %{amendable_type}independiente. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_subject: Se ha publicado una enmienda hecha por %{emendation_author_name} como nuevo %{amendable_type}
+            notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
+            email_subject: La enmienda de %{emendation_author_name} a %{amendable_title} se ha rechazado
+            notification_title: Se ha rechazado la <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_name}</a> para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_subject: La enmienda de %{emendation_author_name} a %{amendable_title} se ha rechazado
+            notification_title: Se ha rechazado la <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_name}</a> para <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'Se ha publicado una enmienda para %{amendable_title}. Puedes verla en esta página:'
             email_outro: Has recibido esta notificación porque es autora de %{amendable_title}.
+            email_subject: Una enmienda de %{emendation_author_name} se ha publicado como un nuevo %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Se ha agregado un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -938,6 +958,18 @@ es-PY:
         notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
         notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Se te ha añadido como miembro a un espacio de participación.
+            email_outro: Has recibido esta notificación porque una administradora te ha añadido a <a href="%{resource_url}">"%{resource_title}"</a>. Tu perfil se mostrará en la <a href="%{members_page}">lista de miembros</a> de este espacio.<br> Si el acceso a este espacio es restringido, podrás acceder siempre que hayas iniciado tu sesión con tu cuenta.
+            email_subject: Ahora tienes acceso a "%{resource_title}".
+            notification_title: Ahora tienes acceso a <a href="%{resource_url}">"%{resource_title}"</a>.
+          unpublished:
+            email_intro: Se te ha añadido como miembro a un espacio de participación.
+            email_outro: Has recibido esta notificación porque una administradora te ha añadido a <a href="%{resource_url}">"%{resource_title}"</a>. Si el acceso a este espacio es restringido, podrás acceder siempre que hayas iniciado tu sesión con tu cuenta.
+            email_subject: Ahora tienes acceso a "%{resource_title}".
+            notification_title: Ahora tienes acceso a <a href="%{resource_url}">"%{resource_title}"</a>.
       reports:
         parent_hidden:
           email_intro: |-
@@ -956,13 +988,25 @@ es-PY:
           notification_title: |-
             Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name}, a quien sigues, le acaba de gustar: "%{resource_title}", que puede ser interesante para ti. Revisala y contribuye:'
+        email_outro: Has recibido esta notificación porque estás siguiendo la iniciativa "%{liker_name}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: "%{liker_name} ha realizado un nuevo \"me gusta\""
+        notification_title: 'A <a href="%{liker_path}">%{liker_name}</a> le ha gustado la %{resource_type}: <a href="%{resource_path}">%{resource_title}</a>.'
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
       users:
+        profile_updated:
+          email_intro: La <a href="%{resource_url}">página de perfil</a> de %{name}, a quien estás siguiendo, se ha actualizado.
+          email_outro: Has recibido esta notificación porque estás siguiendo "%{name}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: "%{name} actualizó su perfil"
+          notification_title: La <a href="%{resource_path}">página de perfil</a> de %{name}, a quien estás siguiendo, se ha actualizado.
         user_officialized:
+          email_intro: El/la participante %{name} ha sido oficializada.
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
           email_subject: "Se ha oficializado a %{name}"
+          notification_title: El/la participante %{name} ha sido oficializada.
     export_mailer:
       download_your_data_export:
         click_button_html: Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible para su descarga hasta el %{date}.
@@ -1192,7 +1236,6 @@ es-PY:
         create:
           error: No se ha iniciado la conversación. Vuelve a intentarlo más tarde.
         error_modal:
-          close: Cerrar modal
           correct_errors: Por favor, corrige los errores e inténtalo de nuevo.
           intro: 'Se han producido los siguientes errores en tu mensaje:'
           ok: De acuerdo
@@ -1503,13 +1546,6 @@ es-PY:
         hello_html: Estimado/a <strong>%{username}</strong>,
         log_in: entra
         never_logged_in: nunca ha iniciado sesión
-        subject: Aviso de cuenta inactiva
-      removal_notification:
-        body: Tu cuenta en %{organization_name} ha sido eliminada por inactividad.
-        greetings_html: |
-          Atentamente,<br>
-          %{organization_name}
-        hello: Estimado/a %{username},
         subject: Aviso de cuenta inactiva
     participatory_space:
       pages:

@@ -91,7 +91,6 @@ hu:
           global:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
-            comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
             creation_enabled_for_participants: A résztvevők létrehozhatnak találkozókat
             default_registration_terms: Alapértelmezett regisztrációs feltételek
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
@@ -206,10 +205,8 @@ hu:
             success: Felhasználó meghívása a találkozóra sikeres.
           form:
             attendee_type: Résztvevő típusa
-            existing_user: Létező felhasználó
             invite: Meghívás
             invite_explanation: A felhasználó meghívást kap a találkozóra és a szervezethez való csatlakozásra.
-            non_user: Nemlétező felhasználó
             select_user: Felhasználó kiválasztása
           index:
             invites: Meghívottak

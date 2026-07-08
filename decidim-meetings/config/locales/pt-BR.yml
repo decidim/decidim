@@ -49,8 +49,6 @@ pt-BR:
       meeting_registration_invite:
         email: E-mail
         name: Nome
-      response:
-        add_documents: Adicionar documentos
       validate_registration_code:
         code: Código
     errors:
@@ -168,7 +166,6 @@ pt-BR:
             announcement: Anúncio
             clear_all: Limpar tudo
             comments_enabled: Comentários ativados
-            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             creation_enabled_for_participants: Os participantes podem criar reuniões
             default_registration_terms: Termos de registro padrão
             define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
@@ -347,10 +344,8 @@ pt-BR:
             success: O usuário foi convidado para participar da reunião.
           form:
             attendee_type: Tipo de participante
-            existing_user: Usuário existente
             invite: Convite
             invite_explanation: O usuário será convidado a participar do encontro e da organização.
-            non_user: Usuário inexistente
             select_user: Selecionar usuário
           index:
             invites: Convites
