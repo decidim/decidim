@@ -48,7 +48,7 @@ export default Mention.extend({
           }
 
           const data = await searchUsers(query);
-          const sorted = data.sort((a, b) => a.nickname.localeCompare(b.nickname));
+          const sorted = data.sort((first, second) => first.nickname.localeCompare(second.nickname));
           return sorted.slice(0, 5);
         },
         render: createSuggestionRenderer(this, {
