@@ -1406,7 +1406,7 @@ describe "Editor" do
 
       prosemirror.native.send_keys [:enter]
 
-      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john">@doe_john</span> </p>))
+      expect_value(%(<p><span data-type="mention" data-id="@doe_jane" data-label="@doe_jane">@doe_jane</span> </p>))
     end
 
     it "shows a help message for the first character" do

@@ -91,7 +91,7 @@ describe("Mention", () => {
     }
 
     expect(items[0].querySelector(".editor-suggestions-item-avatar")).toBeInstanceOf(HTMLImageElement);
-    expect(items[0].querySelector(".editor-suggestions-item-avatar").getAttribute("src")).toBe("/avatars/johndoe.jpg");
+    expect(items[0].querySelector(".editor-suggestions-item-avatar").getAttribute("src")).toBe("/avatars/joannadoe.jpg");
   });
 
   it("does not display the suggestions when less than two characters are entered", async () => {

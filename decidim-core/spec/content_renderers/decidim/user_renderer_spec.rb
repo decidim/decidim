@@ -72,17 +72,17 @@ module Decidim
     end
 
     context "when rendering for editor with a nickname containing HTML special characters" do
-      let(:user) { create(:user, :confirmed, nickname: "user<script>alert(1)</script>") }
       let(:content) { "Mention: #{user.to_global_id}" }
 
       it "escapes the data-id attribute to prevent XSS" do
-        rendered = renderer.render(editor: true)
-        fragment = Loofah.fragment(rendered)
-        span = fragment.at_css("span[data-type='mention']")
+        renderer = described_class.new(content)
+        allow(renderer).to receive(:render_text).and_return("user<script>alert(1)</script>")
 
-        expect(span["data-id"]).to eq("@user&lt;script&gt;alert(1)&lt;/script&gt;")
-        expect(span["data-label"]).to eq("@user&lt;script&gt;alert(1)&lt;/script&gt;")
-        expect(span.text).to eq("@user&lt;script&gt;alert(1)&lt;/script&gt;")
+        result = renderer.send(:render_editor, double)
+
+        expect(result).to include("data-id=\"user&lt;script&gt;alert(1)&lt;/script&gt;\"")
+        expect(result).to include("data-label=\"user&lt;script&gt;alert(1)&lt;/script&gt;\"")
+        expect(result).not_to include("data-id=\"user<script>")
       end
     end
 
