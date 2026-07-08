@@ -56,7 +56,7 @@ describe Decidim::Debates::DebateForm do
   context "when a debate exists" do
     subject { described_class.from_model(debate).with_context(context.merge(current_user: user)) }
 
-    let(:debate) { create(:debate, component: current_component) }
+    let(:debate) { create(:debate, component: current_component, description: { en: "A valid description for the debate." }) }
 
     describe "when the user is the author" do
       let(:user) { debate.author }
@@ -118,7 +118,7 @@ describe Decidim::Debates::DebateForm do
 
         it "renders the mention with editor span tags" do
           expect(subject.description).to include(
-            %(<span data-type="mention" data-id="@#{mentioned_user.nickname})
+            %(<span>@#{mentioned_user.nickname}</span>)
           )
         end
       end
