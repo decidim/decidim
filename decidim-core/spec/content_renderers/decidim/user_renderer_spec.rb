@@ -66,8 +66,23 @@ module Decidim
 
       it "renders the mention wrapper for the editor" do
         expect(renderer.render(editor: true)).to eq(
-          %(This text contains a valid Decidim::User Global ID: <span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
+          %(This text contains a valid Decidim::User Global ID: <span data-type="mention" data-id="#{label}" data-label="#{label}">#{label}</span>)
         )
+      end
+    end
+
+    context "when rendering for editor with a nickname containing HTML special characters" do
+      let(:user) { create(:user, :confirmed, nickname: "user<script>alert(1)</script>") }
+      let(:content) { "Mention: #{user.to_global_id}" }
+
+      it "escapes the data-id attribute to prevent XSS" do
+        rendered = renderer.render(editor: true)
+        fragment = Loofah.fragment(rendered)
+        span = fragment.at_css("span[data-type='mention']")
+
+        expect(span["data-id"]).to eq("@user&lt;script&gt;alert(1)&lt;/script&gt;")
+        expect(span["data-label"]).to eq("@user&lt;script&gt;alert(1)&lt;/script&gt;")
+        expect(span.text).to eq("@user&lt;script&gt;alert(1)&lt;/script&gt;")
       end
     end
 
