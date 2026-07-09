@@ -1548,6 +1548,10 @@ es-PY:
         never_logged_in: nunca ha iniciado sesión
         subject: Aviso de cuenta inactiva
     participatory_space:
+      labels:
+        reference: Referencia del espacio de participación
+        restricted: Espacio de participación restringido
+        transparent: Espacio de participación transparente
       pages:
         user_profile:
           member_of:
