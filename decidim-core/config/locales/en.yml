@@ -1537,6 +1537,9 @@ en:
         log_in: log in
         never_logged_in: never logged in
         subject: Inactive account warning
+    participatory_space:
+      labels:
+        reference: Reference of the space
     passwords:
       update:
         error: There was a problem updating the password.
