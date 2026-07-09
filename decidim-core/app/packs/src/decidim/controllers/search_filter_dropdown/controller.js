@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { screens } from "tailwindcss/defaultTheme"
 
 /**
  * Expands / collapses the global search results filter list through the two
@@ -17,6 +18,14 @@ export default class extends Controller {
   connect() {
     this.expand = this.expand.bind(this);
     this.collapse = this.collapse.bind(this);
+
+    // The server renders `aria-expanded="true"` for the desktop layout, where
+    // the list is always visible. On small screens the list starts hidden, so
+    // the attribute is corrected to keep the chevrons and the toggle direction
+    // in sync with the actual state.
+    if (!window.matchMedia(`(min-width: ${screens.md})`).matches) {
+      this.triggerTarget.setAttribute("aria-expanded", "false");
+    }
 
     // The `icon` helper strips `data-*` attributes, so the chevron listeners
     // cannot be declared on the svg and are wired here instead.

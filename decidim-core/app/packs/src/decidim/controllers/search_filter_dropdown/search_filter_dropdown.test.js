@@ -10,7 +10,9 @@ describe("SearchFilterDropdownController", () => {
   let arrowUp = null;
   let list = null;
 
-  beforeEach(() => {
+  const setup = ({ desktop }) => {
+    window.matchMedia = jest.fn(() => ({ matches: desktop }));
+
     document.body.innerHTML = `
       <div class="filter-container search__filter" data-controller="search-filter-dropdown">
         <button id="dropdown-trigger-search" aria-expanded="true" data-search-filter-dropdown-target="trigger" data-action="keydown->search-filter-dropdown#toggle">
@@ -33,11 +35,27 @@ describe("SearchFilterDropdownController", () => {
     return new Promise((resolve) => {
       setTimeout(resolve, 0);
     });
-  });
+  };
+
+  beforeEach(() => setup({ desktop: true }));
 
   afterEach(() => {
     application.stop();
     document.body.innerHTML = "";
+    Reflect.deleteProperty(window, "matchMedia");
+  });
+
+  describe("initial state", () => {
+    it("keeps aria-expanded on larger screens", () => {
+      expect(trigger.getAttribute("aria-expanded")).toBe("true");
+    });
+
+    it("corrects aria-expanded on small screens, where the list starts hidden", async () => {
+      application.stop();
+      await setup({ desktop: false });
+
+      expect(trigger.getAttribute("aria-expanded")).toBe("false");
+    });
   });
 
   describe("expand", () => {
