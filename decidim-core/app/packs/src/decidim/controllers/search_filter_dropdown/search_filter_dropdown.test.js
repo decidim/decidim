@@ -14,16 +14,17 @@ describe("SearchFilterDropdownController", () => {
     document.body.innerHTML = `
       <div class="filter-container search__filter" data-controller="search-filter-dropdown">
         <button id="dropdown-trigger-search" aria-expanded="true" data-search-filter-dropdown-target="trigger" data-action="keydown->search-filter-dropdown#toggle">
-          <span data-search-filter-dropdown-target="arrowDown" data-action="click->search-filter-dropdown#expand">down</span>
-          <span data-search-filter-dropdown-target="arrowUp" data-action="click->search-filter-dropdown#collapse">up</span>
+          <span>Filter by</span>
+          <svg class="arrow-down"><use href="#arrow-down-s-line"></use></svg>
+          <svg class="arrow-up"><use href="#arrow-up-s-line"></use></svg>
         </button>
         <ul id="dropdown-menu-search" aria-hidden="true" data-search-filter-dropdown-target="list"></ul>
       </div>
     `;
 
     trigger = document.querySelector("#dropdown-trigger-search");
-    arrowDown = document.querySelector("[data-search-filter-dropdown-target='arrowDown']");
-    arrowUp = document.querySelector("[data-search-filter-dropdown-target='arrowUp']");
+    arrowDown = trigger.querySelector("svg:first-of-type");
+    arrowUp = trigger.querySelector("svg:last-of-type");
     list = document.querySelector("#dropdown-menu-search");
 
     application = Application.start();

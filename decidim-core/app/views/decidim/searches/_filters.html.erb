@@ -25,12 +25,8 @@
           <% end %>
         <% end %>
       <% end %>
-      <span data-search-filter-dropdown-target="arrowDown" data-action="click->search-filter-dropdown#expand">
-        <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
-      </span>
-      <span data-search-filter-dropdown-target="arrowUp" data-action="click->search-filter-dropdown#collapse">
-        <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
-      </span>
+      <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
+      <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
     </button>
     <ul id="dropdown-menu-search" aria-hidden="true" data-search-filter-dropdown-target="list">
       <li>

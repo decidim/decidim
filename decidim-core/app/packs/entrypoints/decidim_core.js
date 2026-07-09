@@ -7,6 +7,9 @@ import "src/decidim/decidim_application"
 // Loads the SVG icons sprite into the page
 import "src/decidim/cors_icons"
 
+// Shows the offline banner when the browser loses connectivity
+import "src/decidim/offline_banner"
+
 // CSS
 import "entrypoints/decidim_core.scss"
 import "stylesheets/decidim/resource_history.scss"

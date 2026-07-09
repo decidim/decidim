@@ -12,22 +12,17 @@ import { Controller } from "@hotwired/stimulus"
  * for Enter (keyCode 13) or Space (keyCode 32), matching the original inline
  * behavior.
  *
- * The controller is mounted on the button itself (not on the accordion
- * container, whose exact `[data-controller="accordion"]` style selector must be
- * preserved). It resolves its own panel from the button's `data-controls`
- * attribute, which holds the unique panel id, so that when several content
- * blocks with a "view more" panel coexist on the same page each button toggles
+ * The controller is mounted on the button itself rather than on the accordion
+ * container, so it resolves its own panel from the button's `data-controls`
+ * attribute, which holds the unique panel id. This way, when several content
+ * blocks with a "view more" panel coexist on the same page, each button toggles
  * its own panel.
  */
-export default class ViewMoreToggleController extends Controller {
+export default class extends Controller {
 
   /**
-   * Toggles the `inert` attribute on this button's panel.
-   *
-   * Reacts to both click and keydown events: clicks always toggle, while
-   * keydown events only toggle for Enter (keyCode 13) or Space (keyCode 32).
-   * @param {(MouseEvent|KeyboardEvent)} event - The click or keydown event.
-   * @returns {void}
+   * Toggles the `inert` attribute on this button's panel. Clicks always toggle,
+   * while keydown only toggles for Enter (keyCode 13) or Space (keyCode 32).
    */
   toggle(event) {
     if (event.type === "keydown" && event.keyCode !== 13 && event.keyCode !== 32) {
