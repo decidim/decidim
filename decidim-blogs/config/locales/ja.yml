@@ -75,7 +75,6 @@ ja:
       posts:
         edit:
           add_attachments: 添付ファイルを追加
-          attachment_legend: ドキュメントまたは画像を追加
           back: 投稿に戻る
           button: 更新
           edit_attachments: 添付ファイルを編集
