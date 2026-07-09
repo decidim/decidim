@@ -1381,6 +1381,10 @@ fr:
         never_logged_in: jamais connecté
         subject: Avertissement de compte inactif
     participatory_space:
+      labels:
+        reference: Référence de l'espace
+        restricted: Espace restreint
+        transparent: Espace transparent
       pages:
         user_profile:
           member_of:
