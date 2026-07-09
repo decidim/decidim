@@ -144,7 +144,7 @@ module Decidim
       def skip_replacement_for_node?(node, skip_ancestor_tags)
         return false unless node
 
-        ([node.name] + node.ancestors.map(&:name)).any? { |name| skip_ancestor_tags.include?(name) }
+        ([node.name] + node.ancestors.map(&:name)).intersect?(skip_ancestor_tags)
       end
     end
   end
