@@ -402,7 +402,6 @@ fr:
       form:
         add_attachments: Ajouter des pièces jointes
         add_image: Ajouter une image
-        attachment_legend: Ajouter un document ou une image
         edit_attachments: Modifier les pièces jointes
         edit_image: Modifier l'Image
         image_legend: "(Facultatif) Ajouter une image"
