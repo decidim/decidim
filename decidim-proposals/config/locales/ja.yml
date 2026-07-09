@@ -807,7 +807,6 @@ ja:
           instructions: 地図上のポイントを移動できます。
         edit:
           add_attachments: 添付ファイルを追加
-          attachment_legend: ドキュメントまたは画像を追加
           back: 戻る
           edit_attachments: 添付ファイルを編集
           send: 送信
