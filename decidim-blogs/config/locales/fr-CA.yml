@@ -76,7 +76,6 @@ fr-CA:
       posts:
         edit:
           add_attachments: Ajouter des pièces jointes
-          attachment_legend: Ajouter un document ou une image
           back: Retour à l'article
           button: Mettre à jour
           edit_attachments: Modifier les pièces jointes
