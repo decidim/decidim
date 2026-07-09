@@ -1104,7 +1104,7 @@ ca:
           previous_title: Element anterior
         attachments:
           add_attachments: Afegir fitxer(s) adjunt(s)
-          attachment_legend: Afegir una galeria de fitxers adjunts (opcional)
+          attachment_legend: Afegir un document o una imatge
           edit_attachments: Edita els fitxers adjunts
       static_page_topics:
         create:
