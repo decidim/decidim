@@ -14,15 +14,19 @@ describe "Search filter dropdown" do
   end
 
   it "collapses and expands the filter list through the chevron arrows" do
-    trigger = find("#dropdown-trigger-search")
+    trigger = find_by_id("dropdown-trigger-search")
     expect(trigger["aria-expanded"]).to eq("true")
 
-    # the up chevron (last svg) is the visible one when expanded; it collapses the list
+    # the up chevron (last svg) is the visible one while the list is expanded
     trigger.find("svg:last-of-type").click
-    expect(page).to have_css("#dropdown-trigger-search[aria-expanded='false']")
 
-    # the down chevron (first svg) is now visible; it expands the list again
+    expect(page).to have_css("#dropdown-trigger-search[aria-expanded='false']")
+    expect(page).to have_no_text("Participatory processes")
+
+    # the down chevron (first svg) is the visible one while the list is collapsed
     trigger.find("svg:first-of-type").click
+
     expect(page).to have_css("#dropdown-trigger-search[aria-expanded='true']")
+    expect(page).to have_text("Participatory processes")
   end
 end

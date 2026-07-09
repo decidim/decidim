@@ -16,19 +16,19 @@ describe "View more toggle" do
 
   it "renders both view more panels collapsed" do
     expect(page).to have_button("More information", count: 2)
-    expect(page).to have_css("button[data-controller='view-more-toggle']", count: 2)
     expect(page).to have_css("[id^='panel-view-more'][inert]", count: 2)
   end
 
   it "expands only the panel whose button is clicked" do
-    buttons = all("button[data-controller='view-more-toggle']")
+    buttons = all(:button, "More information")
     first_panel = buttons[0]["data-controls"]
     second_panel = buttons[1]["data-controls"]
 
     buttons[0].click
 
+    expect(buttons[0]).to have_text("Show less")
+    expect(buttons[1]).to have_text("More information")
     expect(page).to have_css("##{first_panel}:not([inert])")
     expect(page).to have_css("##{second_panel}[inert]")
-    expect(page).to have_css("[id^='panel-view-more'][inert]", count: 1)
   end
 end

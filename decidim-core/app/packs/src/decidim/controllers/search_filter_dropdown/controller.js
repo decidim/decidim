@@ -1,13 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
 
 /**
- * Stimulus controller for the global search results filter dropdown.
+ * Expands / collapses the global search results filter list through the two
+ * chevron icons of the trigger button and through keyboard activation (Enter /
+ * Space) on the button, keeping `aria-expanded` in sync.
  *
- * The trigger button holds the `aria-expanded` state and the menu list its
- * visibility. The two chevron icons inside the button drive the state (the down
- * arrow expands, the up arrow collapses) and keyboard activation on the button
- * (Enter / Space) toggles it. Every state change is intentionally delayed by
- * 300ms to mirror the previous inline implementation.
+ * Targets:
+ *   - `trigger` – The dropdown trigger button holding `aria-expanded`.
+ *   - `list` – The filter list whose visibility is toggled.
  */
 export default class extends Controller {
   static get targets() {

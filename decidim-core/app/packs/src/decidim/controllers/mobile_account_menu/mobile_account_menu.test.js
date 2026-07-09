@@ -12,7 +12,7 @@ describe("MobileAccountMenuController", () => {
     document.body.innerHTML = `
       <button id="dropdown-trigger-links-mobile"></button>
       <div id="dropdown-menu-account-mobile" aria-hidden="true" aria-modal="true" data-controller="mobile-account-menu">
-        <div id="dropdown-trigger-links-mobile-close" class="main-bar__links-mobile__trigger" tabindex="0" data-mobile-account-menu-target="close" data-action="keydown->mobile-account-menu#close"></div>
+        <div id="dropdown-trigger-links-mobile-close" class="main-bar__links-mobile__trigger" tabindex="0" data-action="keydown->mobile-account-menu#close"></div>
       </div>
     `;
 
