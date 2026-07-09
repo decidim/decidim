@@ -1553,6 +1553,10 @@ en:
         never_logged_in: never logged in
         subject: Inactive account warning
     participatory_space:
+      labels:
+        reference: Reference of the space
+        restricted: Restricted space
+        transparent: Transparent space
       pages:
         user_profile:
           member_of:

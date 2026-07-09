@@ -18,13 +18,13 @@
 
 <main role="main">
   <% if current_participatory_space.restricted? %>
-    <aside class="layout-container__reference text-sm alert" aria-label="reference">
+    <aside class="layout-container__reference text-sm alert" aria-label="<%= t("restricted", scope: "decidim.participatory_space.labels") %>">
       <%= t("restricted_space", scope: "decidim.participatory_spaces.show") %>
     </aside>
   <% end %>
 
   <% if current_participatory_space.transparent? %>
-    <aside class="layout-container__reference text-sm alert" aria-label="reference">
+    <aside class="layout-container__reference text-sm alert" aria-label="<%= t("transparent", scope: "decidim.participatory_space.labels") %>">
       <%= t("transparent_space", scope: "decidim.participatory_spaces.show") %>
     </aside>
   <% end %>
@@ -42,7 +42,7 @@
 
   </div>
 
-  <aside class="layout-container__reference" aria-label="reference">
+  <aside class="layout-container__reference" aria-label="<%= t("reference", scope: "decidim.participatory_space.labels") %>">
     <p><%= resource_reference(current_participatory_space) %></p>
   </aside>
 </main>
