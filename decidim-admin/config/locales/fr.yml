@@ -1104,7 +1104,7 @@ fr:
           previous_title: Élément précédent
         attachments:
           add_attachments: Ajouter des pièces jointes
-          attachment_legend: Ajouter une galerie de pièces jointes (facultatif)
+          attachment_legend: Ajouter un document ou une image
           edit_attachments: Modifier les pièces jointes
       static_page_topics:
         create:
