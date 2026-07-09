@@ -815,7 +815,6 @@ fi-pl:
           instructions: Voit siirtää pistettä kartalla.
         edit:
           add_attachments: Lisää liitteitä
-          attachment_legend: Lisää asiakirja tai kuva
           back: Takaisin
           edit_attachments: Muokkaa liitteitä
           send: Lähetä
