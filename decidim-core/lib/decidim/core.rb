@@ -295,7 +295,7 @@ module Decidim
 
   # Users that have not logged in for this period of time will be deleted
   config_accessor :delete_inactive_users_after_days do
-    Decidim::Env.new("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+    Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
   end
 
   # The minimum allowed inactivity period for deleting participants.
