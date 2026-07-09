@@ -224,12 +224,22 @@ shared_examples "a proposal form" do |options|
       context "when rich text editor is disabled" do
         before { organization.update!(rich_text_editor_in_public_views: false) }
 
-        it "renders the mention as plain @nickname" do
-          expect(body_text).to include("@#{mentioned_user.nickname}")
+        unless options[:admin]
+          it "renders the mention as plain @nickname" do
+            expect(body_text).to include("@#{mentioned_user.nickname}")
+          end
+
+          it "does not include editor span tags" do
+            expect(body_text).not_to include("<span data-type=\"mention\"")
+          end
         end
 
-        it "does not include editor span tags" do
-          expect(body_text).not_to include("<span data-type=\"mention\"")
+        if options[:admin]
+          it "still renders the mention with editor span tags" do
+            expect(body_text).to include(
+              %(<span data-type="mention" data-id="@#{mentioned_user.nickname})
+            )
+          end
         end
       end
     end

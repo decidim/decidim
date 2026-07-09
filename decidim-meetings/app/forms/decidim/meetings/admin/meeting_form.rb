@@ -58,11 +58,7 @@ module Decidim
 
           presenter = MeetingEditionPresenter.new(model)
           self.title = presenter.title(all_locales: true)
-          self.description = if model.component.organization.rich_text_editor_in_public_views?
-                               presenter.editor_description(all_locales: true)
-                             else
-                               presenter.plain_locales(model.description, true)
-                             end
+          self.description = presenter.editor_description(all_locales: true)
         end
 
         def services_to_persist
