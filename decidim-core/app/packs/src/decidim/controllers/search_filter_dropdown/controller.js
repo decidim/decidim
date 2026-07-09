@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-import { screens } from "tailwindcss/defaultTheme"
 
 /**
  * Expands / collapses the global search results filter list through the two
@@ -19,11 +18,9 @@ export default class extends Controller {
     this.expand = this.expand.bind(this);
     this.collapse = this.collapse.bind(this);
 
-    // The server renders `aria-expanded="true"` for the desktop layout, where
-    // the list is always visible. On small screens the list starts hidden, so
-    // the attribute is corrected to keep the chevrons and the toggle direction
-    // in sync with the actual state.
-    if (!window.matchMedia(`(min-width: ${screens.md})`).matches) {
+    // The server-rendered `aria-expanded="true"` fits desktop only; sync it
+    // with the actual visibility (the CSS hides the list on small screens).
+    if (window.getComputedStyle(this.listTarget).display === "none") {
       this.triggerTarget.setAttribute("aria-expanded", "false");
     }
 

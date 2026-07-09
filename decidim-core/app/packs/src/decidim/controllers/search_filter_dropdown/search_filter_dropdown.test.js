@@ -10,8 +10,10 @@ describe("SearchFilterDropdownController", () => {
   let arrowUp = null;
   let list = null;
 
-  const setup = ({ desktop }) => {
-    window.matchMedia = jest.fn(() => ({ matches: desktop }));
+  const setup = ({ listHidden = false } = {}) => {
+    const listStyle = listHidden
+      ? 'style="display: none"'
+      : "";
 
     document.body.innerHTML = `
       <div class="filter-container search__filter" data-controller="search-filter-dropdown">
@@ -20,7 +22,7 @@ describe("SearchFilterDropdownController", () => {
           <svg class="arrow-down"><use href="#arrow-down-s-line"></use></svg>
           <svg class="arrow-up"><use href="#arrow-up-s-line"></use></svg>
         </button>
-        <ul id="dropdown-menu-search" aria-hidden="true" data-search-filter-dropdown-target="list"></ul>
+        <ul id="dropdown-menu-search" aria-hidden="true" data-search-filter-dropdown-target="list" ${listStyle}></ul>
       </div>
     `;
 
@@ -37,22 +39,21 @@ describe("SearchFilterDropdownController", () => {
     });
   };
 
-  beforeEach(() => setup({ desktop: true }));
+  beforeEach(() => setup());
 
   afterEach(() => {
     application.stop();
     document.body.innerHTML = "";
-    Reflect.deleteProperty(window, "matchMedia");
   });
 
   describe("initial state", () => {
-    it("keeps aria-expanded on larger screens", () => {
+    it("keeps aria-expanded when the list is visible", () => {
       expect(trigger.getAttribute("aria-expanded")).toBe("true");
     });
 
-    it("corrects aria-expanded on small screens, where the list starts hidden", async () => {
+    it("corrects aria-expanded when the list starts hidden", async () => {
       application.stop();
-      await setup({ desktop: false });
+      await setup({ listHidden: true });
 
       expect(trigger.getAttribute("aria-expanded")).toBe("false");
     });
