@@ -1105,7 +1105,7 @@ en:
           previous_title: Previous item
         attachments:
           add_attachments: Add attachments
-          attachment_legend: Add an attachment gallery (Optional)
+          attachment_legend: Add a document or an image
           edit_attachments: Edit attachments
       static_page_topics:
         create:
