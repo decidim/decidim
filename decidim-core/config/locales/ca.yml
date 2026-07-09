@@ -1545,6 +1545,10 @@ ca:
         never_logged_in: mai ha iniciat sessió
         subject: Avís de compte inactiu
     participatory_space:
+      labels:
+        reference: Referència de l'espai de participació
+        restricted: Espai de participació restringit
+        transparent: Espai de participació transparent
       pages:
         user_profile:
           member_of:
