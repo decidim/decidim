@@ -815,7 +815,6 @@ es:
           instructions: Puedes mover la ubicación en el mapa.
         edit:
           add_attachments: Agregar archivo(s) adjunto(s)
-          attachment_legend: Añadir un documento o una imagen
           back: Volver
           edit_attachments: Editar los archivos adjuntos
           send: Enviar
