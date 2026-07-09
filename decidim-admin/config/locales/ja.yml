@@ -1092,7 +1092,6 @@ ja:
           previous_title: 前の項目
         attachments:
           add_attachments: 添付ファイルを追加
-          attachment_legend: 添付ファイルギャラリーを追加（オプション）
           edit_attachments: 添付ファイルを編集
       static_page_topics:
         create:
