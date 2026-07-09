@@ -247,15 +247,17 @@ describe "Initiative" do
 
       it "shows the components" do
         within ".participatory-space__nav-container" do
-          expect(page).to have_content(decidim_escape_translated(meetings_component.name))
-          expect(page).to have_no_content(decidim_escape_translated(unpublished_proposals_component.name))
-          expect(page).to have_content(decidim_escape_translated(blogs_component.name))
+          expect(page).to have_content(translated(meetings_component.name))
+          expect(page.html).to include(decidim_escape_translated(meetings_component.name).gsub("&quot;", "\""))
+          expect(page).to have_no_content(translated(unpublished_proposals_component.name))
+          expect(page).to have_content(translated(blogs_component.name))
+          expect(page.html).to include(decidim_escape_translated(blogs_component.name).gsub("&quot;", "\""))
         end
       end
 
       it "allows visiting the components" do
         within ".participatory-space__nav-container" do
-          click_on decidim_escape_translated(meetings_component.name)
+          click_on translated(meetings_component.name)
         end
 
         expect(page).to have_css('[id^="meetings__meeting"]', count: 3)
@@ -388,7 +390,7 @@ describe "Initiative" do
 
       it "has special permissions to create posts" do
         within ".participatory-space__nav-container" do
-          click_on decidim_escape_translated(blogs_component.name)
+          click_on translated(blogs_component.name)
         end
 
         expect(page).to have_content("New post")
@@ -396,7 +398,7 @@ describe "Initiative" do
 
       it "has special permissions to create meetings" do
         within ".participatory-space__nav-container" do
-          click_on decidim_escape_translated(meetings_component.name)
+          click_on translated(meetings_component.name)
         end
 
         expect(page).to have_content("New meeting")

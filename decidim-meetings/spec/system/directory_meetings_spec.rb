@@ -34,8 +34,10 @@ describe "Global meetings directory", :slow do
 
   it "shows the participatory space name for each meeting in the main list" do
     within ".layout-2col__main" do
-      expect(page).to have_content(decidim_escape_translated(participatory_process1.title))
-      expect(page).to have_content(decidim_escape_translated(participatory_process2.title))
+      expect(page).to have_content translated(participatory_process1.title)
+      expect(page.html).to include decidim_escape_translated(participatory_process1.title).gsub("&quot;", "\"")
+      expect(page).to have_content translated(participatory_process2.title)
+      expect(page.html).to include decidim_escape_translated(participatory_process2.title).gsub("&quot;", "\"")
     end
   end
 end
