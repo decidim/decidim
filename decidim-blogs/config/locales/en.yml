@@ -77,7 +77,6 @@ en:
       posts:
         edit:
           add_attachments: Add attachments
-          attachment_legend: Add a document or an image
           back: Back to post
           button: Update
           edit_attachments: Edit attachments
