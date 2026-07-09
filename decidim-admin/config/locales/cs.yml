@@ -11,6 +11,7 @@ cs:
         plural: Množné číslo
       attachment:
         attachment_collection_id: Složka
+        attachments: Přílohy
         description: Popis
         file: Soubor
         title: Název přílohy nebo obrázku
@@ -49,7 +50,7 @@ cs:
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
-        comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+        comments_max_length: Maximální počet znaků na komentář (ponechte 0 pro výchozí hodnotu)
         customize_welcome_notification: Přizpůsobit uvítací oznámení
         default_locale: Výchozí jazyk
         description: Popis
@@ -1103,10 +1104,9 @@ cs:
           next_title: Další položka
           previous: Předchozí
           previous_title: Předchozí položka
-        gallery:
-          add_images: Přidat obrázky
-          edit_images: Upravit obrázky
-          gallery_legend: Přidat galerii obrázků (volitelné)
+        attachments:
+          add_attachments: Přidat přílohy
+          edit_attachments: Upravit přílohy
       static_page_topics:
         create:
           error: Při vytváření nového tématu došlo k chybě.
@@ -1324,6 +1324,10 @@ cs:
       errors:
         impersonate_user:
           reason: Musíte uvést důvod pro správu neřízeného účastníka.
+      file_help:
+        attachment:
+          explanation: 'Pokyny pro soubor:'
+          message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
     moderations:
       actions:
         expand: Rozbalit

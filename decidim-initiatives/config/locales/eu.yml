@@ -437,11 +437,25 @@ eu:
         update: Eguneratu
       events:
         approve_membership_request:
+          email_intro: "%{author_name} parte-hartzaileak onartu du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
           email_outro: 'Jakinarazpen hau jaso duzu %{resource_title} ekimenarekin bat egitea eskatu duzulako'
+          email_subject: "%{author_name} parte-hartzaileak onartu du zure eskaera batzorde bultzatzailean parte hartzeko"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> parte-hartzaileak onartu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
+        create_initiative_event:
+          email_intro: "%{author_name} parte-hartzaileak, jarraitzen ari zarenak, beste ekimen bat sortu du, egiaztatu eta lagundu:"
+          email_outro: Jakinarazpen hau jaso duzu %{author_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+          email_subject: '%{author_name} parte-hartzailearen bete ekimen bat'
+          notification_title: '<a href="%{resource_path}">%{resource_title}</a> eztabaida sortu da hemen: <a href="%{author_path}">%{author_name}</a>.'
         revoke_membership_request:
+          email_intro: "%{author_name} parte-hartzaileak ukatu egin du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
           email_outro: 'Jakinarazpen hau jaso duzu eskatu duzulako parte hartzea %{resource_title} ekimenean.'
+          email_subject: "%{author_name} parte-hartzaileak ukatu egin du zure eskaera batzorde bultzatzailean parte hartzeko"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> parte-hartzaileak ukatu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
         spawn_committee_request_event:
+          email_intro: "%{applicant_name} parte-hartzaileak eskatu du %{resource_title} zure ekimenaren batzorde bultzatzailean parte hartzeko. Eskaera onartzeko edo ukatzeko, zoaz zure ekimenaren edizio-galdetegira."
           email_outro: 'Jakinarazpen hau jaso duzu %{resource_title} ekimenaren egilea zarelako'
+          email_subject: "%{applicant_name} parte-hartzaileak zure ekimenarekin bat egin nahi du"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_name}</a> parte-hartzaileak eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. Eskaera onartzeko edo ukatzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Eranskinak gehitu
         add_image: Irudia gehitu

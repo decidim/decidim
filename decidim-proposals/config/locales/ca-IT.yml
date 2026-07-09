@@ -62,10 +62,8 @@ ca-IT:
               allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
-            add_photos:
-              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+            add_attachments:
+              needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
             body:
               cant_be_equal_to_template: No pot ser igual a la plantilla
               identical: I el títol no pot ser idèntic
@@ -106,9 +104,6 @@ ca-IT:
       decidim/proposals/proposal:
         one: Proposta
         other: Propostes
-      decidim/proposals/proposal_note:
-        one: Nota
-        other: Notes
       decidim/proposals/proposal_vote:
         one: Donar suport
         other: Suports
@@ -176,7 +171,7 @@ ca-IT:
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             collaborative_drafts_enabled_help: La funció «Esborranys col·laboratius» s'eliminarà pròximament. Si la feies servir, a partir de la versió 0.32 de Decidim podràs fer servir la funcionalitat de coautoria de propostes.
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
             default_sort_order: Ordre de propostes per defecte
             default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
@@ -275,13 +270,17 @@ ca-IT:
             email_intro: '%{author_name} ha creat una nota privada a %{resource_title}. La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name}</a> ha creat una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
           proposal_note_mentioned:
+            email_intro: '"%{author_name}" t''ha esmentat a una nota privada a "%{resource_title}". <a href="%{admin_proposal_info_url}">La pots veure al taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè t'han esmentat a una nota privada.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name}</a> t'ha esmentat a una nota privada a "<a href="%{resource_path}">%{resource_title}</a>". <a href="%{admin_proposal_info_path}">La pots veure al taulell d'administració</a>.
           proposal_note_replied:
             email_intro: '%{author_name} ha respost la teva nota privada a %{resource_title}. Ho pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè ets l'autora de la nota privada.
             email_subject: "%{author_name} ha respost a la teva nota privada a %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name}</a> ha respost a la teva nota privada a <a href="%{resource_path}">%{resource_title}</a>. <a href="%{admin_proposal_info_path}">Pots veure la resposta des del taulell d'administració</a>.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha acceptat la teva invitació per a ser coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
         coauthor_invited:
@@ -298,14 +297,17 @@ ca-IT:
           email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "S'ha acceptat %{requester_name} per accedir com a contribuidora del %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> ha estat <strong>acceptada per accedir com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: 'S''ha rebutjat que %{requester_name} accedeixi com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "S'ha rebutjat %{requester_name} per accedir com a contribuïdora de l'esborrany col·laboratiu %{resource_title}."
+          notification_title: '<strong>S''ha rebutjat que <a href="%{requester_path}">%{requester_name}</a> accedeixi com a contribuïdora de l''esborrany col·laboratiu<strong>: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdora. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "%{requester_name} ha demanat accés per contribuir a %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> ha sol·licitat accés per contribuir a l'esborrany col·laboratiu de <a href="%{resource_path}">%{resource_title}</a>. Si us plau, <strong>accepta o rebutja la sol·licitud</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Has estat acceptada com a contribuïdora de l'esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Has rebut aquesta notificació perquè has sol·licitat poder contribuïr a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
@@ -317,7 +319,10 @@ ca-IT:
           email_subject: Has estat rebutjada com a contribuïdora de %{resource_title}.
           notification_title: Has estat rebutjada <strong>per accedir com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
+          email_intro: '<a href="%{author_url}">%{author_name}</a> ha retirat l''esborrany col·laboratiu: <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
+          email_subject: "%{author_name} ha retirat l'esborrany col·laboratiu: %{resource_title}."
+          notification_title: '<a href="%{author_path}">%{author_name}</a> <strong>ha retirat l''esborrany col·laboratiu</strong>: <a href="%{resource_path}">%{resource_title}</a>.'
         creation_enabled:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}! Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -338,6 +343,11 @@ ca-IT:
           email_outro: Has rebut aquesta notificació perquè ets l'autora de la proposta.
           email_subject: La proposta "%{resource_title}" s'ha fusionat amb una altra
           notification_title: Una administradora ha fusionat la proposta "<a href="%{resource_path}">%{resource_title}</a> amb una altra.
+        proposal_published:
+          email_intro: '%{author_name}, a qui segueixes, ha publicat una nova proposta anomenada "%{resource_title}". Consulta i contribueix:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{author_name}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Nova proposta "%{resource_title}" de %{author_name}
+          notification_title: La proposta "<a href="%{resource_path}">%{resource_title}</a>" va ser publicada per <a href="%{author_path}">%{author_name} </a>.
         proposal_published_for_space:
           email_intro: La proposta "%{resource_title}" s'ha afegit a l'espai "%{participatory_space_title}", que segueixes.
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -750,6 +760,7 @@ ca-IT:
         errors:
           device_not_supported: El teu dispositiu no admet serveis d'ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
           no_device_location: Si us plau, no hem pogut detectar la teva ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
+        locating: Localitzant...
         use_my_location: Fer servir la meva ubicació actual
       invite_coauthors:
         cancel:
@@ -872,7 +883,7 @@ ca-IT:
           edit_proposal: Editar
           estimated_cost: Cost estimat
           hidden_likes_count:
-            one: i %{count} persones més
+            one: i %{count} persona més
             other: i %{count} persones més
           link_to_promoted_emendation_help_text: Aquesta proposta és una esmena promocionada
           link_to_promoted_emendation_text: Veure l'esmena rebutjada.

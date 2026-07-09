@@ -114,7 +114,7 @@ es:
             announcement: Aviso
             attachments_allowed: Permitir archivos adjuntos
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             creation_enabled_for_participants: Las participantes pueden crear nuevas entradas en el blog
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
@@ -156,6 +156,7 @@ es:
           likes_count: El número de "Me gusta" que tiene esta publicación
           participatory_space: A qué espacio pertenece esta publicación (proceso participativo, asamblea, etc.)
           published_at: La fecha en la que se publicó esta entrada en el blog
+          reference: La referencia única de la publicación
           title: El título de la publicación
           updated_at: La fecha de la última actualización de esta publicación
           url: La URL para esta publicación

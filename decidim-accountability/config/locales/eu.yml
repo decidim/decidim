@@ -105,7 +105,7 @@ eu:
               </ul>
               </li>
               </ol>
-            title: Inportatu emaitzak CSV fitxategitik
+            title: Emaitzak CSV fitxategitik inportartu
         imports:
           create:
             invalid: Arazo bat egon da emaitzak inportatzean.
@@ -275,7 +275,7 @@ eu:
           title: Mugarriak
         no_results: Ez dago proiekturik
         root_taxonomies:
-          title: 'Ikusi honela:'
+          title: 'Honen bidez bistaratu:'
         search:
           search: Bilatu ekintzak
         show:
@@ -300,7 +300,7 @@ eu:
           global:
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 hasierako konfigurazioari eusteko)
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             default_taxonomy: Taxonomia akatsa
             default_taxonomy_help: Aukeratu zein taxonomia erakutsi nahi duzun akatsez. Taxonomiarik aukeratzen ez bada, emaitzak zerrenda formatuan agertuko dira.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk partaidetza-espazio honetarako.

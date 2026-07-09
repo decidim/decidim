@@ -7,8 +7,8 @@ shared_examples "manage proposals" do
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:, scope: participatory_process_scope) }
   let(:participatory_process_scope) { nil }
   let(:proposal_title) { translated(proposal.title) }
-  let(:image_filename) { "city.jpeg" }
-  let(:image_path) { Decidim::Dev.asset(image_filename) }
+  let(:attached_image_filename) { "city.jpeg" }
+  let(:attached_image_path) { Decidim::Dev.asset(attached_image_filename) }
 
   before do
     stub_geocoding(address, [latitude, longitude])
@@ -197,7 +197,7 @@ shared_examples "manage proposals" do
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:proposal_attachments, image_path)
+            dynamically_attach_file(:proposal_attachments, attached_image_path)
 
             within ".new_proposal" do
               find("*[type=submit]").click

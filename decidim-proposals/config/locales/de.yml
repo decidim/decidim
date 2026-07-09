@@ -61,10 +61,6 @@ de:
               allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
-            add_photos:
-              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
             body:
               cant_be_equal_to_template: kann nicht gleich der Vorlage sein
               identical: UND Titel dürfen nicht identisch sein
@@ -174,7 +170,6 @@ de:
             clear_all: Alles löschen
             collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             default_sort_order: Standardsortierung für Vorschläge
             default_sort_order_help: Standardmäßig bedeutet, dass bei aktivierten Stimmensammlung die Vorschläge nach Zufall und bei deaktivierter Stimmensammlung nach den meist gewählten Vorschläge sortiert werden.
             default_sort_order_options:
@@ -187,7 +182,7 @@ de:
               recent: Neueste
               with_more_authors: Mit mehr Autoren
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
-            edit_time: Vorschläge können vor Ablauf dieser Zeit von den Autoren bearbeitet werden
+            edit_time: Autoren können Vorschläge während dieser Zeit nach der Einreichung bearbeiten
             edit_time_units:
               days: Tage
               hours: Stunden
