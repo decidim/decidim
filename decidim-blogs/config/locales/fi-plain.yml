@@ -76,7 +76,6 @@ fi-pl:
       posts:
         edit:
           add_attachments: Lisää liitteitä
-          attachment_legend: Lisää asiakirja tai kuva
           back: Takaisin artikkeliin
           button: Päivitä
           edit_attachments: Muokkaa liitteitä
