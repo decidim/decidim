@@ -19,13 +19,13 @@ module Decidim
             next_step = process.steps.where(start_date: ..Time.zone.now.to_date).find_by(position: next_position)
             if next_step.present?
               active_step.update(active: false)
-              activate_step(next_step)
+              activate_step(next_step, process.organization)
             end
           else
             step_to_activate = steps.first
             if active_step != step_to_activate
               active_step&.update(active: false)
-              activate_step(step_to_activate)
+              activate_step(step_to_activate, process.organization)
             end
           end
         end
@@ -33,13 +33,13 @@ module Decidim
 
       private
 
-      def activate_step(step)
-        return step.update!(active: true) unless user_available?
+      def activate_step(step, organization)
+        return step.update!(active: true) if system_user(organization).blank?
 
         Decidim.traceability.perform_action!(
           :activate,
           step,
-          system_user,
+          system_user(organization),
           details: {
             automatic_action: true
           }
@@ -48,12 +48,8 @@ module Decidim
         end
       end
 
-      def system_user
-        @system_user ||= Decidim::User.first
-      end
-
-      def user_available?
-        system_user.present?
+      def system_user(organization)
+        @system_user ||= Decidim::User.where(organization:).first
       end
     end
   end

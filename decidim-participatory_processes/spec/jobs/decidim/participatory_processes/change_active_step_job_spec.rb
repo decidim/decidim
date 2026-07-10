@@ -313,6 +313,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
           expect(activation_log.action).to eq("activate")
           expect(activation_log.resource_id).to eq(step_two.id)
           expect(activation_log.user).to eq(user)
+          expect(user.organization).to eq(organization)
           expect(activation_log.extra["details"]["automatic_action"]).to be(true)
         end
       end
