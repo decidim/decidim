@@ -283,5 +283,61 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         end
       end
     end
+
+    context "with traceability logging" do
+      let!(:user) { create(:user, organization:) }
+      let!(:step_one) do
+        create(
+          :participatory_process_step,
+          participatory_process:,
+          active: true,
+          start_date: Time.zone.local(2022, 3, 10, 10, 0, 0),
+          end_date: Time.zone.local(2022, 3, 14, 10, 59, 59)
+        )
+      end
+      let!(:step_two) do
+        create(
+          :participatory_process_step,
+          participatory_process:,
+          start_date: Time.zone.local(2022, 3, 15, 11, 0, 0),
+          end_date: Time.zone.local(2022, 3, 20, 20, 0, 0)
+        )
+      end
+
+      context "when users exist" do
+        it "logs activation in activity log" do
+          expect { subject.perform_now }
+            .to change(Decidim::ActionLog, :count).by(1)
+
+          activation_log = Decidim::ActionLog.last
+          expect(activation_log.action).to eq("activate")
+          expect(activation_log.resource_id).to eq(step_two.id)
+          expect(activation_log.user).to eq(user)
+          expect(activation_log.extra["details"]["automatic_action"]).to be(true)
+        end
+      end
+
+      context "when no users exist" do
+        before do
+          Decidim::User.destroy_all
+        end
+
+        it "completes without error" do
+          expect { subject.perform_now }.not_to raise_error
+        end
+
+        it "activates and deactivates steps without traceability" do
+          subject.perform_now
+
+          expect(step_one.reload).not_to be_active
+          expect(step_two.reload).to be_active
+        end
+
+        it "does not create action logs" do
+          expect { subject.perform_now }
+            .not_to change(Decidim::ActionLog, :count)
+        end
+      end
+    end
   end
 end
