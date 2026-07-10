@@ -25,7 +25,7 @@ module Decidim
     def path
       return "#add-comment-anchor" if current_user
 
-      "#"
+      nil
     end
 
     def text
@@ -41,9 +41,9 @@ module Decidim
     end
 
     def html_options
-      return super if current_user
+      return {} if current_user
 
-      super.merge(data: { dialog_open: "loginModal" })
+      { data: { "dialog-open": "loginModal" } }
     end
   end
 end
