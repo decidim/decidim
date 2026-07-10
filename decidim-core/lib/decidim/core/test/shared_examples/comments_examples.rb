@@ -178,7 +178,7 @@ shared_examples "comments" do
 
       expect(page).to have_no_css("#loginModal-content", visible: :visible)
 
-      find("a.add-comment-mobile").click
+      find(".add-comment-mobile").click
 
       expect(page).to have_css("#loginModal-content", visible: :visible)
     end
