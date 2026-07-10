@@ -25,7 +25,7 @@ module Decidim
     def path
       return "#add-comment-anchor" if current_user
 
-      "#"
+      nil
     end
 
     def text
