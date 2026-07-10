@@ -212,6 +212,22 @@ shared_examples "comments" do
       expect(page).to have_css(".add-comment form")
     end
 
+    it "does not show login modal when clicking the comment button" do
+      visit resource_path
+
+      find("a.add-comment-mobile").click
+
+      expect(page).to have_no_css("#loginModal-content", visible: :visible)
+    end
+
+    it "guides the user to the comment form when clicking the comment button" do
+      visit resource_path
+
+      find("a.add-comment-mobile").click
+
+      expect(page).to have_css("#add-comment-anchor")
+    end
+
     context "when user visit a computer browser" do
       before do
         switch_to_host(organization.host)
