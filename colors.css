@@ -70,7 +70,7 @@
     --color-color-slate-600: #384554; 
     --color-color-slate-700: #2c3641; 
     --color-color-slate-800: #222a33; 
-    --color-color-alphas-white-0: #ffffff00; 
+    --color-color-alphas-white-0: #ffffff03; 
     --color-color-alphas-white-25: #ffffff40; 
     --color-color-alphas-white-50: #ffffff80; 
     --color-color-alphas-white-75: #ffffffbf; 
@@ -89,19 +89,19 @@
     --color-color-fill-alert: #e02d2d; /* bem */
     --color-color-fill-info: #155abf; /* bem */
     --color-color-bg-primary-interactive-default: #e02d2d; /* background */
-    --color-color-bg-primary-interactive-light-default: #ffffff00; /* background */
+    --color-color-bg-primary-interactive-light-default: #ffffff03; /* background */
     --color-color-bg-primary-interactive-light-hover: #fceaea; /* background */
-    --color-color-bg-primary-interactive-light-selected: #ffffff00; /* background */
+    --color-color-bg-primary-interactive-light-selected: #ffffff03; /* background */
     --color-color-bg-secondary-interactive-default: #155abf; /* background */
     --color-color-bg-secondary-interactive-hover: #1352ae; /* background */
     --color-color-bg-secondary-interactive-selected: #155abf; /* background */
-    --color-color-bg-secondary-interactive-light-default: #ffffff00; /* background */
+    --color-color-bg-secondary-interactive-light-default: #ffffff03; /* background */
     --color-color-bg-secondary-interactive-light-hover: #e8eff9; /* background */
-    --color-color-bg-secondary-interactive-light-selected: #ffffff00; /* background */
+    --color-color-bg-secondary-interactive-light-selected: #ffffff03; /* background */
     --color-color-bg-primary-interactive-hover: #cc2929; /* background */
     --color-color-bg-primary-interactive-selected: #e02d2d; /* background */
     --color-color-bg-secondary: #155abf; /* background */
-    --color-color-bg-neutral-interactive-light-default: #ffffff00; /* background */
+    --color-color-bg-neutral-interactive-light-default: #ffffff03; /* background */
     --color-color-bg-neutral-interactive-light-hover: #fafafa; /* background */
     --color-color-bg-neutral-interactive-dark-default: #fafafa; /* background */
     --color-color-bg-neutral-interactive-dark-hover: #d4d4d4; /* background */
@@ -110,9 +110,9 @@
     --color-color-bg-inverted-interactive-dark-default: #ffffff; /* background */
     --color-color-bg-inverted-interactive-dark-hover: #ffffffbf; /* background */
     --color-color-bg-inverted-interactive-dark-active: #ffffff; /* background */
-    --color-color-bg-inverted-interactive-light-default: #ffffff00; /* background */
+    --color-color-bg-inverted-interactive-light-default: #ffffff03; /* background */
     --color-color-bg-inverted-interactive-light-hover: #ffffff40; /* background */
-    --color-color-bg-inverted-interactive-light-active: #ffffff00; /* background */
+    --color-color-bg-inverted-interactive-light-active: #ffffff03; /* background */
     --color-color-bg-secondary-light: #e8eff9; /* background */
     --color-color-bg-primary: #e02d2d; /* background */
     --color-color-bg-primary-light: #fceaea; /* background */
@@ -172,8 +172,8 @@
     --color-color-icon-info-dark: #155abf; /* icon */
     --color-color-border-primary: #e02d2d; 
     --color-color-border-secondary: #155abf; 
-    --color-color-border-primary-interactive-typing: #e02d2d; 
-    --color-color-border-secondary-interactive-typing: #155abf; 
+    --color-color-border-primary-interactive: #e02d2d; /* typing */
+    --color-color-border-secondary-interactive: #155abf; /* typing */
     --color-color-border-neutral-dark: #8f8f8f; /* inputs, checkbox, radio */
     --color-color-border-neutral-light: #d4d4d4; /* dividers */
     --color-color-border-inverted: #ffffff40; 
@@ -183,4 +183,6 @@
     --color-color-border-alert-dark: #cc2929; 
     --color-color-border-base-dark: #65707d; 
     --color-color-border-info-dark: #155abf; 
+    --color-color-border-tertiary: #d4a81a; 
+    --color-color-border-tertiary-interactive: #d4a81a; /* card active */
 }

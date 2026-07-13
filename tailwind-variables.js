@@ -12,6 +12,18 @@ module.exports = {
             'warning': '#d4a81a', 
             'info': '#155abf', 
         },
+        'color-blue': {
+            '50': '#e8eff9', 
+            '100': '#b6cceb', 
+            '200': '#93b3e2', 
+            '300': '#6290d4', 
+            '400': '#447bcc', 
+            '500': '#155abf', 
+            '600': '#1352ae', 
+            '700': '#0f4088', 
+            '800': '#0c3269', 
+            '900': '#092650', 
+        },
         'color-red': {
             '50': '#fceaea', 
             '100': '#f5bebe', 
@@ -47,18 +59,6 @@ module.exports = {
             '700': '#1c7731', 
             '800': '#165c26', 
             '900': '#165c26', 
-        },
-        'color-blue': {
-            '50': '#e8eff9', 
-            '100': '#b6cceb', 
-            '200': '#93b3e2', 
-            '300': '#6290d4', 
-            '400': '#447bcc', 
-            '500': '#155abf', 
-            '600': '#1352ae', 
-            '700': '#0f4088', 
-            '800': '#0c3269', 
-            '900': '#092650', 
         },
         'color-purple': {
             '50': '#f4e9f4', 
@@ -97,7 +97,7 @@ module.exports = {
             '900': '#1a2027', 
         },
         'color-alphas-white': {
-            '0': '#ffffff00', 
+            '0': '#ffffff03', 
             '25': '#ffffff40', 
             '50': '#ffffff80', 
             '75': '#ffffffbf', 
@@ -117,7 +117,7 @@ module.exports = {
             'dark': '#fafafa', /* background */
         },
         'color-bg-neutral-interactive-light': {
-            'default': '#ffffff00', /* background */
+            'default': '#ffffff03', /* background */
             'hover': '#fafafa', /* background */
         },
         'color-bg-neutral-interactive-dark': {
@@ -134,9 +134,9 @@ module.exports = {
             'active': '#ffffff', /* background */
         },
         'color-bg-inverted-interactive-light': {
-            'default': '#ffffff00', /* background */
+            'default': '#ffffff03', /* background */
             'hover': '#ffffff40', /* background */
-            'active': '#ffffff00', /* background */
+            'active': '#ffffff03', /* background */
         },
         'color-bg-secondary': {
             'light': '#e8eff9', /* background */
@@ -147,9 +147,9 @@ module.exports = {
             'selected': '#155abf', /* background */
         },
         'color-bg-secondary-interactive-light': {
-            'default': '#ffffff00', /* background */
+            'default': '#ffffff03', /* background */
             'hover': '#e8eff9', /* background */
-            'selected': '#ffffff00', /* background */
+            'selected': '#ffffff03', /* background */
         },
         'color-bg-primary': {
             'light': '#fceaea', /* background */
@@ -160,9 +160,9 @@ module.exports = {
             'selected': '#e02d2d', /* background */
         },
         'color-bg-primary-interactive-light': {
-            'default': '#ffffff00', /* background */
+            'default': '#ffffff03', /* background */
             'hover': '#fceaea', /* background */
-            'selected': '#ffffff00', /* background */
+            'selected': '#ffffff03', /* background */
         },
         'color-bg-success': {
             'light': '#eaf6ec', /* background */
@@ -234,9 +234,6 @@ module.exports = {
             'secondary': '#155abf', /* icon */
             'inverted': '#ffffff', /* icon */
         },
-        'color-icon-info': {
-            'dark': '#155abf', /* icon */
-        },
         'color-icon-link': {
             'inverted': '#ffffff', /* icon */
             'visited': '#92278f', /* icon */
@@ -267,17 +264,24 @@ module.exports = {
         'color-icon-base': {
             'dark': '#65707d', /* icon */
         },
+        'color-icon-info': {
+            'dark': '#155abf', /* icon */
+        },
         'color-border': {
             'focus': '#155abf', 
             'primary': '#e02d2d', 
             'secondary': '#155abf', 
+            'tertiary': '#d4a81a', 
             'inverted': '#ffffff40', 
         },
-        'color-border-primary-interactive': {
-            'typing': '#e02d2d', 
+        'color-border-primary': {
+            'interactive': '#e02d2d', /* typing */
         },
-        'color-border-secondary-interactive': {
-            'typing': '#155abf', 
+        'color-border-secondary': {
+            'interactive': '#155abf', /* typing */
+        },
+        'color-border-tertiary': {
+            'interactive': '#d4a81a', /* card active */
         },
         'color-border-neutral': {
             'dark': '#8f8f8f', /* inputs, checkbox, radio */
