@@ -26,6 +26,18 @@ module Decidim
 
         it { is_expected.to eq("") }
       end
+
+      context "when user is deleted" do
+        let(:user) { build(:user, :confirmed, :deleted, organization:) }
+
+        it { is_expected.to eq("") }
+      end
+
+      context "when user is managed" do
+        let(:user) { build(:user, :confirmed, :managed, organization:) }
+
+        it { is_expected.to eq("") }
+      end
     end
 
     describe "#nickname" do
@@ -39,6 +51,24 @@ module Decidim
         before do
           user.blocked = true
         end
+
+        it { is_expected.to eq("") }
+      end
+
+      context "when not confirmed" do
+        let(:user) { build(:user, organization:) }
+
+        it { is_expected.to eq("") }
+      end
+
+      context "when deleted" do
+        let(:user) { build(:user, :confirmed, :deleted, organization:) }
+
+        it { is_expected.to eq("") }
+      end
+
+      context "when managed" do
+        let(:user) { build(:user, :confirmed, :managed, organization:) }
 
         it { is_expected.to eq("") }
       end
@@ -66,6 +96,24 @@ module Decidim
       subject { described_class.new(user).profile_url }
 
       it { is_expected.to eq("http://#{user.organization.host}:#{Capybara.server_port}/en/profiles/#{user.nickname}") }
+
+      context "when user is not confirmed" do
+        let(:user) { build(:user, organization:) }
+
+        it { is_expected.to eq("http://#{user.organization.host}:#{Capybara.server_port}/en") }
+      end
+
+      context "when user is deleted" do
+        let(:user) { build(:user, :confirmed, :deleted, organization:) }
+
+        it { is_expected.to eq("http://#{user.organization.host}:#{Capybara.server_port}/en") }
+      end
+
+      context "when user is managed" do
+        let(:user) { build(:user, :confirmed, :managed, organization:) }
+
+        it { is_expected.to eq("http://#{user.organization.host}:#{Capybara.server_port}/en") }
+      end
     end
 
     describe "#avatar_url" do
@@ -109,13 +157,21 @@ module Decidim
 
         it { is_expected.to eq("/en") }
       end
-    end
 
-    context "when user is deleted" do
-      let(:user) { build(:user, :confirmed, :deleted) }
+      context "when user is deleted" do
+        let(:user) { build(:user, :confirmed, :deleted, organization:) }
 
-      describe "#profile_path" do
-        subject { presenter.profile_path }
+        it { is_expected.to eq("/en") }
+      end
+
+      context "when user is managed" do
+        let(:user) { build(:user, :confirmed, :managed, organization:) }
+
+        it { is_expected.to eq("/en") }
+      end
+
+      context "when user is blocked" do
+        let(:user) { build(:user, :confirmed, :blocked, organization:) }
 
         it { is_expected.to eq("/en") }
       end
