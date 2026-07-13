@@ -432,8 +432,8 @@ module Decidim
           Gem::Version.new(ver)
         rescue LoadError, Redis::BaseError
           # This does not have to be the actual Redis version, it can be
-          # anything that is above any of the version checks below to default to
-          # the latest Sidekiq version.
+          # anything that is above any of the version checks at
+          # `add_queue_adapter` to default to the latest Sidekiq version.
           Gem::Version.new("8.0.0")
         end
       end
