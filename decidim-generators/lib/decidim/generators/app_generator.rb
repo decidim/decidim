@@ -232,17 +232,6 @@ module Decidim
 
         return unless adapter == "sidekiq"
 
-        redis_version = begin
-          require "redis"
-          ver = Redis.new.call("INFO").lines(chomp: true).find { |l| l.start_with?("redis_version:") }.split(":", 2).last
-          Gem::Version.new(ver)
-        rescue LoadError, Redis::CannotConnectError
-          # This does not have to be the actual Redis version, it can be
-          # anything that is above any of the version checks below to default to
-          # the latest Sidekiq version.
-          Gem::Version.new("8.0.0")
-        end
-
         if redis_version < Gem::Version.new("6.2.0")
           # Sidekiq 7.x requires Redis 6.2.0 or newer
           # However, this cannot be installed because that version depends on
@@ -432,6 +421,22 @@ module Decidim
       end
 
       private
+
+      def redis_version
+        @redis_version ||= begin
+          require "redis"
+          info_line = Redis.new.call("INFO").lines(chomp: true).find { |l| l.start_with?("redis_version:") }
+          raise Redis::BaseError, "redis_version not found in INFO output" unless info_line
+
+          ver = info_line.split(":", 2).last
+          Gem::Version.new(ver)
+        rescue LoadError, Redis::BaseError
+          # This does not have to be the actual Redis version, it can be
+          # anything that is above any of the version checks below to default to
+          # the latest Sidekiq version.
+          Gem::Version.new("8.0.0")
+        end
+      end
 
       def gem_modifier
         @gem_modifier ||= if options[:path]
