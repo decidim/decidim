@@ -17,6 +17,14 @@ describe Decidim::AuthorCell, type: :cell do
       expect(subject).to have_css("[data-author]")
     end
 
+    context "when the user profile is not published" do
+      let(:user) { create(:user, organization:) }
+
+      it "does not render the author card" do
+        expect(subject).to have_no_css("[data-author]")
+      end
+    end
+
     context "and when this user is officialized" do
       let(:user) { create(:user, :confirmed, :officialized, organization:) }
 

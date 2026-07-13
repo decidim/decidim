@@ -103,6 +103,12 @@ module Decidim
       subject { presenter.profile_path }
 
       it { is_expected.to eq("/en/profiles/#{user.nickname}") }
+
+      context "when user is not published" do
+        let(:user) { build(:user, organization:) }
+
+        it { is_expected.to eq("/en") }
+      end
     end
 
     context "when user is deleted" do
