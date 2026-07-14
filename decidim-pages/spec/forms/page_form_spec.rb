@@ -36,6 +36,14 @@ module Decidim
         context "when everything is OK" do
           it { is_expected.to be_valid }
         end
+
+        describe "attachment attributes" do
+          it "includes attachment attributes" do
+            expect(subject).to respond_to(:attachment)
+            expect(subject).to respond_to(:attachments)
+            expect(subject).to respond_to(:add_attachments)
+          end
+        end
       end
     end
   end
