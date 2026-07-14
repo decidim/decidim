@@ -1104,6 +1104,7 @@ eu:
           previous_title: Aurreko elementua
         attachments:
           add_attachments: Gehitu eranskinak
+          attachment_legend: Gehitu dokumentu bat edo irudi bat
           edit_attachments: Editatu eranskinak
       static_page_topics:
         create:
