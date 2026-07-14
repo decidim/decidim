@@ -34,7 +34,7 @@ module Decidim
 
       def all_abilities?
         %w(api:read api:write).all? { |scope| @scopes.include?(scope) } &&
-          %w(profile user).intersect?(@scopes)
+          %w(profile user).any? { |scope| @scopes.include?(scope) }
       end
     end
   end
