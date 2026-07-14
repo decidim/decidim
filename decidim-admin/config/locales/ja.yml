@@ -602,6 +602,11 @@ ja:
         edit:
           title: メンバーを編集
           update: 更新
+        form:
+          email: メールアドレス
+          invite_explanation: 参加者は組織に招待されます。
+          name_or_nickname: 名前またはアカウント名
+          select_user: メンバーを選択
         index:
           import_via_csv: CSV形式でインポート
           publish_all: すべて公開
@@ -1092,6 +1097,7 @@ ja:
           previous_title: 前の項目
         attachments:
           add_attachments: 添付ファイルを追加
+          attachment_legend: ドキュメントまたは画像を追加
           edit_attachments: 添付ファイルを編集
       static_page_topics:
         create:
