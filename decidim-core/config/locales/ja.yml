@@ -1527,6 +1527,10 @@ ja:
         never_logged_in: ログインしたことがない
         subject: 非アクティブなアカウントの警告
     participatory_space:
+      labels:
+        reference: スペースの参照
+        restricted: メンバー限定スペース
+        transparent: 閲覧可能スペース
       pages:
         user_profile:
           member_of:
