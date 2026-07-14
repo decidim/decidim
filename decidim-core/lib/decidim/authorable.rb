@@ -49,7 +49,14 @@ module Decidim
         return mapped_author if mapped_author.try(:deleted?)
         return mapped_author if mapped_author.try(:ephemeral?)
 
-        Decidim::User.new(id: 0, name: "", nickname: "", decidim_organization_id: mapped_author.decidim_organization_id)
+        Decidim::User.new(
+          id: 0,
+          name: "",
+          nickname: "",
+          confirmed_at: Time.current,
+          accepted_tos_version: Time.current,
+          decidim_organization_id: mapped_author.decidim_organization_id
+        )
       end
 
       # Checks whether the user is author of the given resource
