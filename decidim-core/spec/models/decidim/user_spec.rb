@@ -277,6 +277,26 @@ module Decidim
       end
     end
 
+    describe "search indexing" do
+      context "with confirmed and unconfirmed accounts" do
+        let(:confirmed) { create_list(:user, 10, :confirmed, organization:) }
+        let(:unconfirmed) { create_list(:user, 5, organization:) }
+
+        it "indexes only the confirmed accounts" do
+          expect { confirmed | unconfirmed }.to change(Decidim::SearchableResource, :count).by(10 * organization.available_locales.count)
+        end
+      end
+
+      context "when an account changes from unconfirmed to confirmed" do
+        let!(:user) { create(:user, organization:) }
+
+        it "adds the search indexing record" do
+          expect(Decidim::SearchableResource.count).to eq(0)
+          expect { user.update!(confirmed_at: Time.current) }.to change(Decidim::SearchableResource, :count).by(organization.available_locales.count)
+        end
+      end
+    end
+
     describe "#deleted?" do
       it "returns true if deleted_at is present" do
         subject.deleted_at = Time.current
