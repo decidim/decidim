@@ -41,7 +41,7 @@ eu:
             attachments_allowed: Baimendu eranskinak
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazioa honetarako iragazki batzuk.
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             taxonomy_filters: Hautatu iragazkiak osagairako
@@ -76,12 +76,13 @@ eu:
           form:
             add_attachments: Gehitu eranskinak
             attachment_legend: Gehitu dokumentu bat edo irudi bat
+            comments_layout_locked_warning: Iruzkinen formatoa ezin da aldatu iruzkinak argitaratu direlako.
             comments_visualization: Iruzkinak bistaratzea
             comments_warning: Lehen iruzkina argitaratu ondoren, ezin da aldatu aukeratutako bistaratze-aukera.
             debate_type: Eztabaida mota
             edit_attachments: Eranskinak editatu
             errors:
-              comments_layout_locked: Iruzkinen planoa ezin da aldatu iruzkinak argitaratu ondoren.
+              comments_layout_locked: Iruzkinen formatoa ezin da aldatu iruzkin batzuk argitaratu direlako.
             finite: Amaiera (hasiera- eta amaiera-ordua)
             open: Zabalik (ez dago hasiera- edo amaiera-ordurik)
             single_column: 'Zutabe bakarra: iruzkinak hurrenkera kronologikoan agertzen dira eta erantzunak izan ditzakete.'
@@ -201,6 +202,13 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} parte hartzeko espazioa jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
             email_subject: '"%{resource_title}" eztabaida berria hemen %{participatory_space_title}'
             notification_title: '<a href="%{resource_path}">%{resource_title}</a> eztabaida sortu da hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+          user_followers:
+            email_intro: |-
+              Kaixo,
+              Jarraitzen ari zaren %{author_name} %{author_nickname} parte-hartzaileak "%{resource_title}" beste eztabaida bat sortu du. Sartu eztabaidan eta zure ekarpena egin:
+            email_outro: Jakinarazpen hau jaso duzu %{author_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+            email_subject: '%{author_name} parte-hartzaileak beste eztabaida bat sortu du hemen: "%{resource_title}"'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu du.
         creation_disabled:
           email_intro: 'Eztabaida sortzea dagoeneko ez dago aktibo %{participatory_space_title}. Oraindik irekita dauden eztabaidetan parte har dezakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.

@@ -162,10 +162,8 @@ lv:
             success: Dalībnieks tika veiksmīgi uzaicināts pievienoties sanāksmei.
           form:
             attendee_type: Apmeklētāja veids
-            existing_user: Esošais dalībnieks
             invite: Uzaicināt
             invite_explanation: Dalībnieks tiks uzaicināts pievienoties gan sanāksmei, gan organizācijai.
-            non_user: Neeksistējošs dalībnieks
             select_user: Izvēlieties dalībnieku
           index:
             invites: Ielūgumi

@@ -118,7 +118,6 @@ cs:
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
             comments_enabled: Komentáře povoleny
-            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             creation_enabled_for_participants: Účastníci mohou vytvářet příspěvky
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
@@ -160,6 +159,7 @@ cs:
           likes_count: Počet líbí se mi pro tento příspevek
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tento příspěvek
           published_at: Datum zveřejnění tohoto příspěvku
+          reference: Jedinečný odkaz na příspěvek
           title: Název příspěvku
           updated_at: Poslední datum, kdy byl příspěvek aktualizován
           url: URL pro tento příspěvek

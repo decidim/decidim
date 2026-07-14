@@ -31,8 +31,8 @@ describe Decidim::Debates::Admin::CreateDebate do
       finite:,
       comments_enabled: true,
       comments_layout:,
-      add_documents: attachments,
-      documents: [],
+      add_attachments: attachments,
+      attachments: [],
       errors: ActiveModel::Errors.new(self)
     )
   end

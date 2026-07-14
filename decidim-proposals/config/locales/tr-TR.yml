@@ -25,7 +25,7 @@ tr:
         cost_report: Maliyet raporu
         execution_period: Yürütme süresi
       proposal_state:
-        announcement_title: Yanıt Başlığı 
+        announcement_title: Yanıt Başlığı
         bg_color: Arka plan rengi
         colors:
           blue: Mavi
@@ -46,10 +46,6 @@ tr:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Yeniden eklenmesi gerekiyor
-            add_photos:
-              needs_to_be_reattached: Yeniden eklenmesi gerekiyor
             body:
               cant_be_equal_to_template: şablona eşit olamaz
               identical: VE başlık aynı olamaz
@@ -107,7 +103,6 @@ tr:
             attachments_allowed: Eklere izin ver
             collaborative_drafts_enabled: Ortak çalışma taslakları etkin
             comments_enabled: Yorumlar etkin
-            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             new_proposal_body_template: Yeni teklif gövdesi şablonu
             new_proposal_body_template_help: Yeni Tekliflerin sahip olacağı önceden doldurulmuş metni tanımlayabilirsiniz
             new_proposal_help_text: Yeni teklif yardım metni
@@ -381,7 +376,7 @@ tr:
             title: Başlık
             votes: Oylar
         proposal_state:
-          css_class: CSS Sınıfı 
+          css_class: CSS Sınıfı
           title: Durum
       participatory_text_proposal:
         alternative_title: Şu anda katılımcı metin yok

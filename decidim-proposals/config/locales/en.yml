@@ -63,9 +63,7 @@ en:
               allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Needs to be reattached
-            add_photos:
+            add_attachments:
               needs_to_be_reattached: Needs to be reattached
             body:
               cant_be_equal_to_template: cannot be equal to the template
@@ -766,6 +764,7 @@ en:
         errors:
           device_not_supported: Your device does not support location services. Please enter the address manually.
           no_device_location: Sorry, we could not detect your location. Please enter the address manually.
+        locating: Locating...
         use_my_location: Use my current location
       invite_coauthors:
         cancel:
@@ -817,7 +816,6 @@ en:
           instructions: You can move the point on the map.
         edit:
           add_attachments: Add attachments
-          attachment_legend: Add a document or an image
           back: Back
           edit_attachments: Edit attachments
           send: Send

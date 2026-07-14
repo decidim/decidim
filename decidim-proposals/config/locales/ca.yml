@@ -62,10 +62,8 @@ ca:
               allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
-            add_photos:
-              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+            add_attachments:
+              needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
             body:
               cant_be_equal_to_template: No pot ser igual a la plantilla
               identical: I el títol no pot ser idèntic
@@ -176,7 +174,7 @@ ca:
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             collaborative_drafts_enabled_help: La funció «Esborranys col·laboratius» s'eliminarà pròximament. Si la feies servir, a partir de la versió 0.32 de Decidim podràs fer servir la funcionalitat de coautoria de propostes.
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
             default_sort_order: Ordre de propostes per defecte
             default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
@@ -280,7 +278,7 @@ ca:
             email_intro: '"%{author_name}" t''ha esmentat a una nota privada a "%{resource_title}". <a href="%{admin_proposal_info_url}">La pots veure al taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè t'han esmentat a una nota privada.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name}</a> t'ha esmentat a una nota privada a "<a href="%{resource_path}">{resource_title}</a>". <a href="%{admin_proposal_info_path}">La pots veure al taulell d'administració</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> t'ha esmentat a una nota privada a "<a href="%{resource_path}">%{resource_title}</a>". <a href="%{admin_proposal_info_path}">La pots veure al taulell d'administració</a>.
           proposal_note_replied:
             email_intro: '%{author_name} ha respost la teva nota privada a %{resource_title}. Ho pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè ets l'autora de la nota privada.
@@ -765,6 +763,7 @@ ca:
         errors:
           device_not_supported: El teu dispositiu no admet serveis d'ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
           no_device_location: Si us plau, no hem pogut detectar la teva ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
+        locating: Localitzant...
         use_my_location: Fer servir la meva ubicació actual
       invite_coauthors:
         cancel:

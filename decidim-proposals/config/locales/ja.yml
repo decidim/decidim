@@ -62,10 +62,6 @@ ja:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されています: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: 再接続が必要
-            add_photos:
-              needs_to_be_reattached: 再接続が必要
             body:
               cant_be_equal_to_template: はテンプレートと等しくすることはできません
               identical: ANDタイトルは同一にすることはできません
@@ -172,7 +168,7 @@ ja:
             collaborative_drafts_enabled: 共同草稿を有効にする
             collaborative_drafts_enabled_help: 共同草案機能は Decidim v0.32 で廃止されます。この機能を現在使用している組織は、新しい提案共同作成機能に移行することができます。
             comments_enabled: コメントを有効にする
-            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            comments_max_length: 各コメントの最大文字数 (0はデフォルト値のまま)
             default_sort_order: デフォルトの提案の並べ替え
             default_sort_order_help: '「自動」にすると、投票が有効になっている間、提案はランダムにソートされます。 投票がブロックされると、最も投票数が多い順に並べられます'
             default_sort_order_options:
@@ -271,7 +267,9 @@ ja:
             email_intro: '%{author_name} は %{resource_title} でプライベートノートを作成しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
             email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: 誰かが提案 %{resource_title} にメモを残しました。
+            notification_title: <a href="%{author_path}">%{author_name}</a> が <a href="%{resource_path}">%{resource_title}</a>にプライベートノートを作成しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください。
           proposal_note_mentioned:
+            email_intro: '"%{resource_title}" 内の "%{author_name}" "%{author_nickname}" によるプライベートノートで言及されました。<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。'
             email_outro: プライベートノートで言及されているため、この通知を受信しました。
             email_subject: 誰かが提案 %{resource_title} のメモであなたをメンションしました。
           proposal_note_replied:
@@ -334,6 +332,11 @@ ja:
           email_outro: あなたが提案の作成者であるため、この通知を受け取りました。
           email_subject: 提案 %{resource_title} がマージされました
           notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> は管理者によってマージされました。
+        proposal_published:
+          email_intro: 'あなたがフォローしている %{author_name} さんが新しい提案「%{resource_title}」を作成しました。ぜひ内容を確認し、ご意見をお寄せください：'
+          email_outro: '%{author_name} をフォローしているため、この通知が届きました。上記のリンクから通知の受信を停止できます。'
+          email_subject: '" %{author_name}"による新しい提案%{resource_title}'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案を <a href="%{author_path}">%{author_name}</a> が公開しました。
         proposal_published_for_space:
           email_intro: あなたがフォローしている提案「%{resource_title}」が「%{participatory_space_title}」に追加されました。
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止できます。'

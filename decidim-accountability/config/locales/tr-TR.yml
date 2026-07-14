@@ -300,7 +300,6 @@ tr:
           global:
             clear_all: Tümünü sil
             comments_enabled: Yorumlar etkin
-            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             default_taxonomy: Varsayılan sınıflandırma
             default_taxonomy_help: Varsayılan olarak hangi sınıflandırmayı göstermek istediğinizi seçin. Eğer herhangi bir sınıflandırma seçilmezse, sonuçlar liste biçiminde gösterilecektir.
             define_taxonomy_filters: Bu ayarı kullanmadan önce lütfen bu katılımcı alan için bazı filtreler tanımlayın.

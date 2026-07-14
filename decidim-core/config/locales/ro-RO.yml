@@ -565,7 +565,6 @@ ro:
           global:
             amendments_enabled: Amendamente activate
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor
             define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
             dummy_global_attribute1: Mostră de atribut 1
             dummy_global_attribute2: Mostră de atribut 2
@@ -710,7 +709,7 @@ ro:
             <p>Sigur nu doriți să primiți un buletin informativ?<br>
             Vă rugăm să bifați din nou caseta din buletinul informativ de mai jos.<br>
             Este foarte important pentru noi să puteți primi e-mailuri ocazionale
-            pentru a face anunțuri importante, puteți modifica oricând opțiunea pe 
+            pentru a face anunțuri importante, puteți modifica oricând opțiunea pe
             pagina cu setări pentru notificări. </p>
             <p>Dacă nu bifați caseta ați putea rata informații importante
             despre noi oportunități de participare în cadrul platformei.<br>Dacă, totuși, doriți să evitați primirea de buletine informative, înțelegem
@@ -1154,7 +1153,6 @@ ro:
           participants:
             title: Participanți
         error_modal:
-          close: Închidere
           correct_errors: Vă rugăm să remediați erorile și să încercați din nou.
           intro: 'Au existat următoarele erori cu mesajul tău:'
           ok: Ok
@@ -1383,13 +1381,6 @@ ro:
         log_in: autentificare
         never_logged_in: niciodată autentificat
         subject: Avertizare cont inactiv
-      removal_notification:
-        body: Contul dumneavoastră din %{organization_name} a fost șters din cauza inactivității.
-        greetings_html: |
-          Cu stimă,<br>
-          %{organization_name}
-        hello: Dragă %{username},
-        subject: Cont inactiv șters
     participatory_space_members:
       index:
         members: Membri

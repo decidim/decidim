@@ -13,14 +13,6 @@ ru:
         answer: Ответить
       proposals_copy:
         origin_component_id: Составляющая, откуда нужно скопировать предложения
-    errors:
-      models:
-        proposal:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Необходимо заново прикрепить
-            add_photos:
-              needs_to_be_reattached: Необходимо заново прикрепить
     models:
       decidim/proposals/creation_enabled_event: Включена возможность создания предложений
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто

@@ -15,7 +15,7 @@ module Decidim
     def call
       return broadcast(:invalid) unless @form.valid?
 
-      Decidim::User.transaction do
+      with_events(with_transaction: true) do
         destroy_user_account!
         destroy_user_identities
         destroy_follows
@@ -109,6 +109,17 @@ module Decidim
       Decidim.participatory_space_manifests.each do |space_manifest|
         space_manifest.invoke_on_destroy_account(current_user)
       end
+    end
+
+    # We use memoization in this particular email, as we want to have the data available before the actual anonymization
+    def event_arguments
+      @event_arguments ||= {
+        user_id: current_user.id,
+        user_email: current_user.email,
+        user_name: current_user.name,
+        locale: current_user.locale,
+        organization: current_user.organization
+      }
     end
   end
 end

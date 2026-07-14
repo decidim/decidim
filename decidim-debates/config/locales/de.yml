@@ -40,7 +40,6 @@ de:
             attachments_allowed: Anhänge zulassen
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             taxonomy_filters: Filter für die Komponente auswählen
@@ -79,8 +78,6 @@ de:
             comments_warning: Sobald der erste Kommentar veröffentlicht wurde, kann die gewählte Anzeigeoption nicht geändert werden.
             debate_type: Debatten-Typ
             edit_attachments: Anhänge bearbeiten
-            errors:
-              comments_layout_locked: Sie können das Kommentaransicht nicht ändern, sobald Kommentare veröffentlicht wurden.
             finite: Zeitlich begrenzt (mit Start- und Endzeit)
             open: Offen (keine Start- und Endzeit)
             single_column: 'Einzelne Spalte: Kommentare werden in chronologischer Reihenfolge angezeigt und können beantwortet werden.'
