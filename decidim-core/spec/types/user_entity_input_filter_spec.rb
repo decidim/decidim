@@ -31,6 +31,16 @@ module Decidim
             expect(users).to include("id" => another_user.id.to_s, "__typename" => "User")
           end
         end
+
+        context "when user is unconfirmed" do
+          let(:user) { create(:user, organization: current_organization) }
+
+          it "does not return the unconfirmed user" do
+            users = response["users"]
+            expect(users).not_to include("id" => user.id.to_s, "__typename" => "User")
+            expect(users).to include("id" => another_user.id.to_s, "__typename" => "User")
+          end
+        end
       end
 
       context "when searching fragments" do
