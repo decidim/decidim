@@ -608,6 +608,11 @@ en:
         edit:
           title: Edit member
           update: Update
+        form:
+          email: Email
+          invite_explanation: The participant will be invited to join the organization.
+          name_or_nickname: Name or nickname
+          select_user: Select member
         index:
           import_via_csv: Import via CSV
           publish_all: Publish all
@@ -1100,7 +1105,7 @@ en:
           previous_title: Previous item
         attachments:
           add_attachments: Add attachments
-          attachment_legend: Add an attachment gallery (Optional)
+          attachment_legend: Add a document or an image
           edit_attachments: Edit attachments
       static_page_topics:
         create:

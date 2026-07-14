@@ -228,8 +228,8 @@ RSpec.shared_examples "manage debates" do
   end
 
   describe "Attachments in a debate" do
-    let(:image_filename) { "city2.jpeg" }
-    let(:image_path) { Decidim::Dev.asset(image_filename) }
+    let(:attached_image_filename) { "city2.jpeg" }
+    let(:attached_image_path) { Decidim::Dev.asset(attached_image_filename) }
     let(:document_filename) { "Exampledocument.pdf" }
     let(:document_path) { Decidim::Dev.asset(document_filename) }
     let(:invalid_document) { Decidim::Dev.asset("invalid_extension.log") }
@@ -253,7 +253,7 @@ RSpec.shared_examples "manage debates" do
           choose "Open"
         end
 
-        dynamically_attach_file(:debate_attachments, image_path)
+        dynamically_attach_file(:debate_attachments, attached_image_path)
         dynamically_attach_file(:debate_attachments, document_path)
 
         within ".new_debate" do
@@ -267,7 +267,7 @@ RSpec.shared_examples "manage debates" do
           click_on "Edit"
         end
 
-        expect(page).to have_css("img[src*='#{image_filename}']")
+        expect(page).to have_css("img[src*='#{attached_image_filename}']")
         expect(page).to have_text(document_filename)
       end
 
@@ -294,7 +294,7 @@ RSpec.shared_examples "manage debates" do
           fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
         end
 
-        dynamically_attach_file(:debate_attachments, image_path)
+        dynamically_attach_file(:debate_attachments, attached_image_path)
         dynamically_attach_file(:debate_attachments, document_path)
 
         within ".edit_debate" do
@@ -308,7 +308,7 @@ RSpec.shared_examples "manage debates" do
           click_on "Edit"
         end
 
-        expect(page).to have_css("img[src*='#{image_filename}']")
+        expect(page).to have_css("img[src*='#{attached_image_filename}']")
         expect(page).to have_text(document_filename)
       end
     end
