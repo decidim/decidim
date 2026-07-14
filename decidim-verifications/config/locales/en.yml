@@ -42,17 +42,27 @@ en:
     admin:
       menu:
         authorization_revocation:
+          before_date: Before date
+          before_date_hint: Leave it empty to revoke everything
           before_date_info: Useful if the process has already begun and you want to revoke the permissions of the previous process.
-          button: Revoke all
-          button_before: Revoke before date
           destroy:
-            confirm: Revoke before date authorizations cannot be undone. Are you sure you want to continue?
-            confirm_all: Revoke all the authorizations cannot be undone. Are you sure you want to continue?
+            confirm: Revoking verifications cannot be undone. Are you sure you want to continue?
+            confirm_impersonated_before_date_html: You are about to revoke <strong>%{count} impersonated verifications</strong> of "%{workflow}" created before %{date}. This action cannot be undone. Are you sure you want to continue?
+            confirm_impersonated_html: You are about to revoke <strong>%{count} impersonated verifications</strong> of "%{workflow}". This action cannot be undone. Are you sure you want to continue?
+            confirm_total_before_date_html: You are about to revoke <strong>%{count} verifications</strong> of "%{workflow}" created before %{date}. This action cannot be undone. Are you sure you want to continue?
+            confirm_total_html: You are about to revoke <strong>%{count} verifications</strong> of "%{workflow}". This action cannot be undone. Are you sure you want to continue?
           destroy_nok: There was a problem while revoking authorizations.
-          destroy_ok: Revocation of authorizations is in progress. This may take a few minutes to complete.
-          info: There are a total of %{count} verified participants.
-          no_data: No verified participants.
-          title: Authorizations revocation
+          impersonated_only: Impersonated only
+          revoke_button: Revoke verifications
+          revoke_description: You can choose to revoke all existing verifications or only those granted through impersonation. This is useful when a new process has already started and you need to remove the permissions or verifications carried over from a previous process.
+          revoke_title: Revoke verifications
+          revoked:
+            one: The revocation of %{count} verification of "%{workflow}" is in progress. This may take a few minutes to complete.
+            other: The revocation of %{count} verifications of "%{workflow}" is in progress. This may take a few minutes to complete.
+          revoked_impersonated:
+            one: The revocation of %{count} impersonated verification of "%{workflow}" is in progress. This may take a few minutes to complete.
+            other: The revocation of %{count} impersonated verifications of "%{workflow}" is in progress. This may take a few minutes to complete.
+          total_verified: Total verified
         authorization_workflows: Authorizations
     admin_log:
       organization:

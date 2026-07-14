@@ -81,10 +81,10 @@ const runConfirm = (message, sourceElement = null, opts = {}) => new Promise((re
 // The old approach is broken according to https://github.com/rails/rails/issues/36686#issuecomment-514213323
 // so for the moment this needs to be executed **before** Rails.start()
 const allowAction = (ev, element) => {
-  const message = $(element).data("confirm");
+  const message = element.getAttribute("data-confirm");
   const opts = {
-    title: $(element).data("confirm-title"),
-    iconName: $(element).data("confirm-icon")
+    title: element.getAttribute("data-confirm-title"),
+    iconName: element.getAttribute("data-confirm-icon")
   };
   if (!message) {
     return true;

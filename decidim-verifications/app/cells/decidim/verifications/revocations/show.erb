@@ -1,42 +1,67 @@
-<div class="card-divider">
-  <h2 class="card-title">
-    <%= t("decidim.admin.menu.authorization_revocation.title") %>
-  </h2>
-</div>
-<div class="card-section">
-  <% if model.count > 0 %>
-    <div class="revoke_all_box">
-      <p><%= t("decidim.admin.menu.authorization_revocation.info", count: model.count ) %></p>
-      <%= link_to t("decidim.admin.menu.authorization_revocation.button"),
-                  decidim_verifications.admin_verifications_destroy_all_path,
-                  method: :delete,
-                  class: "button button__sm md:button__lg button__secondary",
-                  data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm_all") } %>
-    </div>
-    <br>
-    <div class="revoke_before_date_box">
-      <%= decidim_form_for(@form, url: decidim_verifications.admin_verifications_destroy_before_date_path, html: { class: "form form-defaults" } ) do |form| %>
-        <div class="form__wrapper">
-          <div class="card">
-            <div class="card-section">
-              <div class="row column">
-                <%= form.check_box :impersonated_only %>
-              </div>
-              <div class="row column">
-                <%= form.date_field :before_date, value: Time.zone.today.prev_month, autocomplete: "off" %>
-                <%= label_tag(:before_date_info, t("decidim.admin.menu.authorization_revocation.before_date_info")) %>
-              </div>
-              <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-                <%= form.submit t("decidim.admin.menu.authorization_revocation.button_before"), data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm") }, class: "button button__sm md:button__lg button__secondary" %>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="mt-6">
+  <h3 class="text-lg font-semibold mb-2">
+    <%= t("decidim.admin.menu.authorization_revocation.revoke_title") %>
+  </h3>
+  <p class="text-gray-2 mb-4">
+    <%= t("decidim.admin.menu.authorization_revocation.revoke_description") %>
+  </p>
+
+  <%= decidim_form_for(form, url: decidim_verifications.admin_verifications_destroy_path, method: :delete, html: { id: option_field_id(:form), class: "form form-defaults" }, data: { revocations: workflow.name, controller: "revocations", "revocations-count-url-value": decidim_verifications.admin_verifications_count_path }) do |f| %>
+    <%= f.hidden_field :name, id: option_field_id(:name), data: { "revocations-target": "name" } %>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      <%= label_tag option_field_id(:total), class: "user-picker-card#{" opacity-50 pointer-events-none" if total_count.zero?}" do %>
+        <span class="flex items-center gap-3">
+          <%= radio_button_tag "revocations[impersonated_only]", false, false, id: option_field_id(:total), disabled: total_count.zero?, class: "!m-0", data: { "revocations-option": "total", count: total_count, "revocations-target": "option", action: "change->revocations#pick" } %>
+          <span class="flex-1"><%= t("decidim.admin.menu.authorization_revocation.total_verified") %></span>
+          <span class="font-semibold"><%= total_count %></span>
+        </span>
+      <% end %>
+
+      <%= label_tag option_field_id(:impersonated), class: "user-picker-card#{" opacity-50 pointer-events-none" if impersonated_count.zero?}" do %>
+        <span class="flex items-center gap-3">
+          <%= radio_button_tag "revocations[impersonated_only]", true, false, id: option_field_id(:impersonated), disabled: impersonated_count.zero?, class: "!m-0", data: { "revocations-option": "impersonated", count: impersonated_count, "revocations-target": "option", action: "change->revocations#pick" } %>
+          <span class="flex-1"><%= t("decidim.admin.menu.authorization_revocation.impersonated_only") %></span>
+          <span class="font-semibold"><%= impersonated_count %></span>
+        </span>
       <% end %>
     </div>
-  <% else %>
-    <div class="revoke_no_data">
-      <%= t("decidim.admin.menu.authorization_revocation.no_data") %>
+
+    <div class="mt-4" data-revocations-date data-revocations-target="dateContainer" data-action="change->revocations#refresh selectDate->revocations#refresh">
+      <div class="form__wrapper">
+        <div class="row column">
+          <p class="text-sm">
+            <span class="font-semibold"><%= t("decidim.admin.menu.authorization_revocation.before_date") %></span>
+            <span class="text-gray-2"><%= t("decidim.admin.menu.authorization_revocation.before_date_hint") %></span>
+          </p>
+          <%= f.date_field :before_date,
+                           id: option_field_id(:before_date_input),
+                           label: false,
+                           hide_help: true,
+                           placeholder: t("date.formats.help.date_format"),
+                           autocomplete: "off",
+                           data: {
+                             "date-label": t("datetime.widget.label.date", label: t("decidim.admin.menu.authorization_revocation.before_date")),
+                             "button-date-label": t("datetime.widget.picker.date_button", label: t("decidim.admin.menu.authorization_revocation.before_date"))
+                           } %>
+          <p class="text-sm text-gray-2 mt-4"><%= t("decidim.admin.menu.authorization_revocation.before_date_info") %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden fixed inset-x-0 bottom-0 z-20 flex justify-end bg-white border-t border-background px-6 py-4 shadow-lg" data-revocations-bar data-revocations-target="bar">
+      <%= f.submit t("decidim.admin.menu.authorization_revocation.revoke_button"),
+                   class: "button button__sm md:button__lg button__secondary m-0",
+                   data: {
+                     confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm"),
+                     "confirm-title": t("decidim.admin.menu.authorization_revocation.revoke_title"),
+                     "confirm-icon": "delete-bin-line",
+                     "confirm-total": confirm_text("confirm_total_html"),
+                     "confirm-impersonated": confirm_text("confirm_impersonated_html"),
+                     "confirm-total-before-date": confirm_text("confirm_total_before_date_html"),
+                     "confirm-impersonated-before-date": confirm_text("confirm_impersonated_before_date_html"),
+                     "revocations-target": "submit"
+                   } %>
     </div>
   <% end %>
 </div>

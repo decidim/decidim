@@ -201,6 +201,28 @@ describe("Confirm dialog for button[type='button']", () => {
       expect(openSpy).toHaveBeenCalled();
     });
 
+    it("shows the current data-confirm when it changes between clicks", async () => {
+      const { initializeConfirm } = await import("src/decidim/confirm.js");
+
+      document.body.insertAdjacentHTML("beforeend", `
+        <button type="button" data-confirm="First message">Click me</button>
+      `);
+
+      const button = document.querySelector('button[type="button"]');
+      const content = document.querySelector("[data-confirm-modal-content]");
+
+      initializeConfirm();
+
+      button.click();
+      expect(content.innerHTML).toBe("First message");
+
+      document.querySelector("[data-confirm-cancel]").click();
+      button.setAttribute("data-confirm", "Second message");
+      button.click();
+
+      expect(content.innerHTML).toBe("Second message");
+    });
+
     it("does not trigger confirm for button without data-confirm attribute", async () => {
       const { initializeConfirm } = await import("src/decidim/confirm.js");
 

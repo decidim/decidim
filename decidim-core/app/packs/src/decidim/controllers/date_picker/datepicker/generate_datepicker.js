@@ -14,6 +14,9 @@ export default function generateDatePicker(input, row, formats) {
   date.setAttribute("id", `${input.id}_date`);
   date.setAttribute("type", "text");
   date.setAttribute("aria-label", input.dataset.dateLabel);
+  if (input.attributes.placeholder) {
+    date.setAttribute("placeholder", input.attributes.placeholder.value);
+  };
   if (input.attributes.disabled) {
     date.setAttribute("disabled", input.attributes.disabled);
   };
