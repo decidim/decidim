@@ -29,8 +29,8 @@ module Decidim
         result_ids = filtered_query_for(class_name).pluck(:resource_id).uniq
 
         if result_ids.present? && klass.method_defined?(:commentable)
-          hidden_ids = hidden_commentable_ids(klass, result_ids)
-          result_ids -= hidden_ids if hidden_ids.present?
+          excluded_ids = excluded_commentable_ids(klass, result_ids)
+          result_ids -= excluded_ids if excluded_ids.present?
         end
 
         results_count = result_ids.count
@@ -97,7 +97,7 @@ module Decidim
       query
     end
 
-    def hidden_commentable_ids(klass, result_ids)
+    def excluded_commentable_ids(klass, result_ids)
       records = klass.preload(:commentable, :root_commentable).where(id: result_ids).to_a
       found_ids = records.map(&:id)
 
@@ -105,12 +105,12 @@ module Decidim
       orphaned_ids = result_ids - found_ids
 
       # IDs of records that are hidden, deleted, or have comments disabled
-      hidden_ids = records.select { |obj| commentable_hidden?(obj) }.map(&:id)
+      excluded_ids = records.select { |obj| commentable_excluded?(obj) }.map(&:id)
 
-      orphaned_ids + hidden_ids
+      orphaned_ids + excluded_ids
     end
 
-    def commentable_hidden?(object)
+    def commentable_excluded?(object)
       # For nested comments, commentable is another Comment, so we need to use root_commentable
       # to get the actual resource (Meeting, Proposal, etc.) and check its commentable? status
       actual_commentable = object.commentable
@@ -118,10 +118,10 @@ module Decidim
 
       return true if root_resource.nil?
 
-      root_hidden = root_resource.try(:hidden?) || root_resource.try(:deleted?)
+      root_excluded = root_resource.try(:hidden?) || root_resource.try(:deleted?)
       comments_disabled = !root_resource.try(:commentable?)
 
-      object.try(:hidden?) || object.try(:deleted?) || root_hidden || comments_disabled
+      object.try(:hidden?) || object.try(:deleted?) || root_excluded || comments_disabled
     end
   end
 end
