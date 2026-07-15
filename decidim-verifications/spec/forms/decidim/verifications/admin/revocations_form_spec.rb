@@ -38,8 +38,22 @@ module Decidim::Verifications::Admin
       it { is_expected.to be_valid }
     end
 
+    context "when before_date cannot be parsed" do
+      let(:before_date) { "99/99/9999" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when before_date is not a date-like value" do
+      let(:before_date) { ["15/03/2022"] }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when impersonated_only is not given" do
       subject { described_class.from_params(name:).with_context(current_organization: organization) }
+
+      it { is_expected.to be_invalid }
 
       it "defaults to false" do
         expect(subject.impersonated_only).to be(false)

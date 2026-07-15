@@ -25,6 +25,7 @@ describe("RevocationsController", () => {
       </div>
       <div class="hidden" data-revocations-bar data-revocations-target="bar">
         <button type="submit"
+                data-confirm="Revoking cannot be undone"
                 data-confirm-total="Revoke %{count} authorizations"
                 data-confirm-impersonated="Revoke %{count} impersonated"
                 data-confirm-total-before-date="Revoke %{count} authorizations before %{date}"
@@ -130,6 +131,7 @@ describe("RevocationsController", () => {
       headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" }
     })
     expect(submit("dummy").dataset.confirm).toEqual("Revoke 3 impersonated before 15/03/2022")
+    expect(submit("dummy").disabled).toBe(false)
   })
 
   it("writes a zero count when no authorization matches the picked date", async () => {
@@ -166,7 +168,17 @@ describe("RevocationsController", () => {
     resolveFetch({ json: () => Promise.resolve({ count: 9 }) })
     await flushPromises()
 
-    expect(submit("dummy").dataset.confirm).toEqual("Revoke 2 impersonated")
+    expect(submit("dummy").dataset.confirm).toEqual("Revoking cannot be undone")
+  })
+
+  it("holds the submission with the generic confirm while the count is being fetched", () => {
+    fetch.mockReturnValue(new Promise(() => {}))
+
+    pick("dummy", "total")
+    typeDate("dummy", "2022-03-15", "15/03/2022")
+
+    expect(submit("dummy").dataset.confirm).toEqual("Revoking cannot be undone")
+    expect(submit("dummy").disabled).toBe(true)
   })
 
   it("falls back to the dateless template synchronously when the date is cleared", () => {
@@ -180,7 +192,7 @@ describe("RevocationsController", () => {
     expect(fetch).toHaveBeenCalledTimes(1)
   })
 
-  it("logs fetch errors and leaves the confirm text unchanged", async () => {
+  it("logs fetch errors and keeps the generic confirm", async () => {
     fetch.mockRejectedValue(new Error("network down"))
     const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {})
 
@@ -189,7 +201,8 @@ describe("RevocationsController", () => {
     await flushPromises()
 
     expect(errorSpy).toHaveBeenCalledWith("Error fetching authorizations count:", expect.any(Error))
-    expect(submit("dummy").dataset.confirm).toEqual("Revoke 5 authorizations")
+    expect(submit("dummy").dataset.confirm).toEqual("Revoking cannot be undone")
+    expect(submit("dummy").disabled).toBe(false)
     errorSpy.mockRestore()
   })
 })

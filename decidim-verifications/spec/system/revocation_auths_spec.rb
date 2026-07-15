@@ -132,6 +132,26 @@ describe "Authorizations revocation flow" do
         )
       end
 
+      it "falls back to the full count when the picked date is erased" do
+        message = accept_confirm do
+          within "[data-revocations='#{authorization_name}']" do
+            choose total_field_id
+            fill_in_datepicker date_field_locator, with: "15/03/2022"
+            find("[data-revocations-date] p", match: :first).click
+            expect(page).to have_css("[data-revocations-bar] [type='submit'][data-confirm*='15/03/2022']")
+
+            find_by_id(date_field_locator).send_keys([:backspace] * 10)
+            find("[data-revocations-date] p", match: :first).click
+            expect(page).to have_css("[data-revocations-bar] [type='submit']:not([data-confirm*='15/03/2022'])")
+            click_button t("decidim.admin.menu.authorization_revocation.revoke_button")
+          end
+        end
+
+        expect(message).to include(
+          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_total_html", count: 2, workflow: workflow_fullname))
+        )
+      end
+
       it "counts every authorization when the picked date is in the future" do
         tomorrow = (Time.zone.today + 1.day).strftime("%d/%m/%Y")
 

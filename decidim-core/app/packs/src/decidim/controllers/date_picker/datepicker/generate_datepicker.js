@@ -96,6 +96,14 @@ export default function generateDatePicker(input, row, formats) {
     };
   });
 
+  // An erased or incomplete visible date must not keep the synced value;
+  // `input` also covers cut, drag and drop and autofill.
+  date.addEventListener("input", () => {
+    if (date.value.length !== 10 && input.value !== "") {
+      input.value = "";
+    };
+  });
+
   let pickedDate = null;
 
   datePicker.addEventListener("selectDate", (event) => {

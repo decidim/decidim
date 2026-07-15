@@ -9,6 +9,7 @@ import { Controller } from "@hotwired/stimulus"
  */
 export default class RevocationsController extends Controller {
   connect() {
+    this.fallbackConfirm = this.submitTarget.dataset.confirm;
     this.onSiblingPicked = this.onSiblingPicked.bind(this);
     document.addEventListener("revocations:picked", this.onSiblingPicked);
     this.reset();
@@ -24,8 +25,8 @@ export default class RevocationsController extends Controller {
     this.refresh();
   }
 
-  // Without a date the count of the picked option is already on the radio, so
-  // the server is only asked when a date is set.
+  // The radio already carries the dateless count; the server is asked only
+  // when a date is set.
   refresh() {
     const radio = this._checkedOption();
     if (!radio) {
@@ -50,12 +51,18 @@ export default class RevocationsController extends Controller {
     params.set("revocations[impersonated_only]", radio.value);
     params.set("revocations[before_date]", requestedDate);
 
+    // Hold the submission behind the generic confirm text until the accurate
+    // count arrives.
+    this.submitTarget.dataset.confirm = this.fallbackConfirm;
+    this.submitTarget.disabled = true;
+
     fetch(`${url}?${params}`, {
       headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" },
       credentials: "same-origin"
     }).then((response) => response.json()).then((data) => {
-      // Discard responses the form has already moved on from (another option
-      // picked, another date typed or the form reset by a sibling one).
+      this.submitTarget.disabled = false;
+
+      // Discard responses the form has already moved on from.
       if (this._checkedOption() !== radio || (this._dateInput()?.value || "") !== requestedDate) {
         return;
       }
@@ -67,6 +74,7 @@ export default class RevocationsController extends Controller {
       const date = this._visibleDateInput()?.value || requestedDate;
       this._setConfirm(this._confirmTemplate(option, true), { count: data.count, date });
     }).catch((error) => {
+      this.submitTarget.disabled = false;
       console.error("Error fetching authorizations count:", error);
     });
   }
@@ -85,6 +93,7 @@ export default class RevocationsController extends Controller {
     });
 
     this.barTarget.classList.add("hidden");
+    this.submitTarget.disabled = false;
 
     [this._dateInput(), this._visibleDateInput()].forEach((input) => {
       if (input) {
@@ -101,8 +110,7 @@ export default class RevocationsController extends Controller {
     return this.dateContainerTarget.querySelector("input[name='revocations[before_date]']");
   }
 
-  // The text input the datepicker renders in place of the hidden submittable
-  // one, holding the date as the user sees it (e.g. dd/mm/yyyy).
+  // The datepicker's visible text input, holding the date as the user sees it.
   _visibleDateInput() {
     const input = this._dateInput();
 
