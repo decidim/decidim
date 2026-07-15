@@ -418,6 +418,50 @@ describe Decidim::Search do
       end
     end
 
+    context "when root_commentable is not published" do
+      # Override the parent let! with an unpublished resource (no :published trait)
+      let!(:dummy_resource) { create(:dummy_resource, component:, title: { en: term }) }
+
+      it "does not return comments in search results" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 0
+            expect(results[:results]).to be_empty
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+
+      it "does not return comments in general search results" do
+        described_class.call(term, current_organization, "with_resource_type" => "") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 0
+            expect(results[:results]).to be_empty
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    context "when comment object does not respond to published?" do
+      # Decidim::Comments::Comment has no published? method; resource_published? must default
+      # to true so that comments are not excluded solely for lacking the method.
+      it "treats the comment as published and includes it in search results" do
+        expect(comment1).not_to respond_to(:published?)
+
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 3
+            expect(results[:results]).to contain_exactly(comment1, comment1_1, comment1_1_1)
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
     context "when a specific comment is hidden" do
       before do
         create(:moderation, reportable: comment1_1, hidden_at: 2.days.ago)

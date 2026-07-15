@@ -118,10 +118,14 @@ module Decidim
 
       return true if root_resource.nil?
 
-      root_excluded = root_resource.try(:hidden?) || root_resource.try(:deleted?)
+      root_excluded = root_resource.try(:hidden?) || root_resource.try(:deleted?) || !resource_published?(root_resource)
       comments_disabled = !root_resource.try(:commentable?)
 
-      object.try(:hidden?) || object.try(:deleted?) || root_excluded || comments_disabled
+      object.try(:hidden?) || object.try(:deleted?) || !resource_published?(object) || root_excluded || comments_disabled
+    end
+
+    def resource_published?(object)
+      object.respond_to?(:published?) ? object.published? : true
     end
   end
 end
