@@ -1104,6 +1104,7 @@ fi:
           previous_title: Edellinen kohde
         attachments:
           add_attachments: Lisää liitteitä
+          attachment_legend: Lisää asiakirja tai kuva
           edit_attachments: Muokkaa liitteitä
       static_page_topics:
         create:
