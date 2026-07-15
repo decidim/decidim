@@ -101,7 +101,7 @@
           </div>
         <% end %>
 
-        <% if component_settings.geocoding_enabled? && proposal.geocoded? %>
+        <% if component_settings.geocoding_enabled? && proposal.address.present? %>
           <div class="card-section">
             <div class="row column">
               <span class="component__show-title"><%= t ".address" %></span>
