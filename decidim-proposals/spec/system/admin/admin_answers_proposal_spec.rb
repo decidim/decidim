@@ -140,7 +140,7 @@ describe "Admin answers proposals" do
           click_on "Answer proposal"
         end
         expect(page).to have_css(".component__show-title", text: "Address")
-        expect(page).to have_content(proposals.first.address)
+        expect(page).to have_text(proposals.first.address)
       end
     end
   end
