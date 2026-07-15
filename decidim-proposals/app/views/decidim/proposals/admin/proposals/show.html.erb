@@ -101,6 +101,20 @@
           </div>
         <% end %>
 
+        <% if component_settings.geocoding_enabled? && proposal.geocoded? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t ".address" %></span>
+              <div class="flex items-center gap-x-2 mt-2">
+                <%= icon "map-pin-line", class: "fill-gray" %>
+                <p class="component__show-icon-text">
+                  <%= proposal.address %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
         <div class="card-section">
           <div class="row column" data-votes>
             <span class="component__show-title"><%= t ".votes_count" %></span>
