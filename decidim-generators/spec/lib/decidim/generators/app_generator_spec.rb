@@ -55,7 +55,7 @@ module Decidim
           expect(development_config_content).to include("config.active_job.queue_adapter = :sidekiq")
           expect(production_config_content).to include("config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?")
           expect(routes_content).to match(%r{^require "sidekiq/web"$})
-          expect(routes_content).to match(%(mount Sidekiq::Web => "/sidekiq"))
+          expect(routes_content).to include(%(mount Sidekiq::Web => "/sidekiq"))
         end
       end
 
@@ -67,7 +67,7 @@ module Decidim
           expect(development_config_content).not_to include("config.active_job.queue_adapter = :sidekiq")
           expect(production_config_content).not_to include("config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?")
           expect(routes_content).not_to match(%r{^require "sidekiq/web"$})
-          expect(routes_content).not_to match(%(mount Sidekiq::Web => "/sidekiq"))
+          expect(routes_content).not_to include(%(mount Sidekiq::Web => "/sidekiq"))
         end
       end
 
