@@ -26,7 +26,7 @@ module Decidim
         #
         # Returns a proposal
         def produce
-          resource.add_coauthor(context[:current_user])
+          resource.add_coauthor(component.organization)
 
           resource
         end
