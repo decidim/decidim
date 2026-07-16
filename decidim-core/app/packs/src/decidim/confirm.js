@@ -24,7 +24,7 @@ class ConfirmDialog {
 
   confirm(message, title, iconName) {
     if (title) {
-      this.$title.html(title);
+      this.$title.text(title);
     }
     if (iconName) {
       this.$iconContainer.html(icon(iconName, { width: null, height: null }));
