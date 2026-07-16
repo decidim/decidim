@@ -11,8 +11,8 @@ describe "Authorizations revocation flow" do
   let(:managed_user) { create(:user, :confirmed, :managed, organization:) }
   let(:other_method_user) { create(:user, :confirmed, organization:) }
   let(:workflow_fullname) { Decidim::Verifications::Adapter.from_element(authorization_name).fullname }
-  let(:total_field_id) { "revocations_#{authorization_name}_total" }
-  let(:impersonated_field_id) { "revocations_#{authorization_name}_impersonated" }
+  let(:total_option_label) { t("decidim.admin.menu.authorization_revocation.total_verified") }
+  let(:impersonated_option_label) { t("decidim.admin.menu.authorization_revocation.impersonated_only") }
   let(:date_field_locator) { "revocations_#{authorization_name}_before_date_input_date" }
 
   let!(:regular_authorization) { create(:authorization, name: authorization_name, user: regular_user) }
@@ -31,10 +31,8 @@ describe "Authorizations revocation flow" do
     expect(page).to have_css("h2", text: workflow_fullname)
 
     within "[data-revocations='#{authorization_name}']" do
-      expect(find("label[for='#{total_field_id}']")).to have_text(t("decidim.admin.menu.authorization_revocation.total_verified"))
-      expect(find("label[for='#{total_field_id}']")).to have_text("2")
-      expect(find("label[for='#{impersonated_field_id}']")).to have_text(t("decidim.admin.menu.authorization_revocation.impersonated_only"))
-      expect(find("label[for='#{impersonated_field_id}']")).to have_text("1")
+      expect(find("label", text: total_option_label)).to have_text("2")
+      expect(find("label", text: impersonated_option_label)).to have_text("1")
     end
   end
 
@@ -45,8 +43,8 @@ describe "Authorizations revocation flow" do
 
     it "disables the total and impersonated radios" do
       within "[data-revocations='#{authorization_name}']" do
-        expect(page).to have_field(total_field_id, disabled: true)
-        expect(page).to have_field(impersonated_field_id, disabled: true)
+        expect(page).to have_field(total_option_label, disabled: true)
+        expect(page).to have_field(impersonated_option_label, disabled: true)
       end
     end
   end
@@ -57,11 +55,10 @@ describe "Authorizations revocation flow" do
         expect(page).to have_css("[data-revocations-date]", visible: :visible)
         expect(page).to have_text(t("decidim.admin.menu.authorization_revocation.before_date_hint"))
         expect(page).to have_text(t("decidim.admin.menu.authorization_revocation.before_date_info"))
-        expect(page).to have_css("[data-revocations-bar]", visible: :hidden)
+        expect(page).to have_no_button(t("decidim.admin.menu.authorization_revocation.revoke_button"))
 
-        choose total_field_id
+        choose total_option_label
 
-        expect(page).to have_css("[data-revocations-bar]", visible: :visible)
         expect(page).to have_button(t("decidim.admin.menu.authorization_revocation.revoke_button"))
       end
     end
@@ -71,7 +68,7 @@ describe "Authorizations revocation flow" do
     it "includes the count and the method name in the impersonated confirm dialog" do
       message = accept_confirm do
         within "[data-revocations='#{authorization_name}']" do
-          choose impersonated_field_id
+          choose impersonated_option_label
           click_button t("decidim.admin.menu.authorization_revocation.revoke_button")
         end
       end
@@ -84,7 +81,7 @@ describe "Authorizations revocation flow" do
     it "includes the count and the method name in the total confirm dialog" do
       message = accept_confirm do
         within "[data-revocations='#{authorization_name}']" do
-          choose total_field_id
+          choose total_option_label
           click_button t("decidim.admin.menu.authorization_revocation.revoke_button")
         end
       end
@@ -101,7 +98,7 @@ describe "Authorizations revocation flow" do
       it "includes the picked date and the recalculated count in the total confirm dialog" do
         message = accept_confirm do
           within "[data-revocations='#{authorization_name}']" do
-            choose total_field_id
+            choose total_option_label
             fill_in_datepicker date_field_locator, with: "15/03/2022"
             find("[data-revocations-date] p", match: :first).click
 
@@ -118,7 +115,7 @@ describe "Authorizations revocation flow" do
       it "shows a zero count in the confirm dialog when the picked date predates every authorization" do
         message = accept_confirm do
           within "[data-revocations='#{authorization_name}']" do
-            choose total_field_id
+            choose total_option_label
             fill_in_datepicker date_field_locator, with: "01/01/2019"
             find("[data-revocations-date] p", match: :first).click
 
@@ -135,7 +132,7 @@ describe "Authorizations revocation flow" do
       it "falls back to the full count when the picked date is erased" do
         message = accept_confirm do
           within "[data-revocations='#{authorization_name}']" do
-            choose total_field_id
+            choose total_option_label
             fill_in_datepicker date_field_locator, with: "15/03/2022"
             find("[data-revocations-date] p", match: :first).click
             expect(page).to have_css("[data-revocations-bar] [type='submit'][data-confirm*='15/03/2022']")
@@ -157,7 +154,7 @@ describe "Authorizations revocation flow" do
 
         message = accept_confirm do
           within "[data-revocations='#{authorization_name}']" do
-            choose total_field_id
+            choose total_option_label
             fill_in_datepicker date_field_locator, with: tomorrow
             find("[data-revocations-date] p", match: :first).click
 
@@ -177,7 +174,7 @@ describe "Authorizations revocation flow" do
     it "revokes only the impersonated authorizations of that method" do
       perform_enqueued_jobs do
         within "[data-revocations='#{authorization_name}']" do
-          choose impersonated_field_id
+          choose impersonated_option_label
           accept_confirm { click_button t("decidim.admin.menu.authorization_revocation.revoke_button") }
         end
 
@@ -194,7 +191,7 @@ describe "Authorizations revocation flow" do
     it "revokes all granted authorizations of that method" do
       perform_enqueued_jobs do
         within "[data-revocations='#{authorization_name}']" do
-          choose total_field_id
+          choose total_option_label
           accept_confirm { click_button t("decidim.admin.menu.authorization_revocation.revoke_button") }
         end
 
@@ -216,7 +213,7 @@ describe "Authorizations revocation flow" do
     it "revokes only the managed authorizations of that method created before the picked date" do
       perform_enqueued_jobs do
         within "[data-revocations='#{authorization_name}']" do
-          choose impersonated_field_id
+          choose impersonated_option_label
           fill_in_datepicker date_field_locator, with: "15/03/2022"
           find("[data-revocations-date] p", match: :first).click
 
@@ -242,7 +239,7 @@ describe "Authorizations revocation flow" do
     it "does not revoke authorizations belonging to a different organization" do
       perform_enqueued_jobs do
         within "[data-revocations='#{authorization_name}']" do
-          choose total_field_id
+          choose total_option_label
           accept_confirm { click_button t("decidim.admin.menu.authorization_revocation.revoke_button") }
         end
 
