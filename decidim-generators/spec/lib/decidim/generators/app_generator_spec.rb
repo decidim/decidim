@@ -33,17 +33,18 @@ module Decidim
         # Generate the necessary base files for the tests.
         original_cwd = Dir.pwd
 
-        capture(:stdout) do
-          generator.create_root
-          generator.create_root_files
-          generator.create_config_files
+        begin
+          capture(:stdout) do
+            generator.create_root
+            generator.create_root_files
+            generator.create_config_files
+          end
+
+          example.run
+        ensure
+          Dir.chdir(original_cwd)
+          FileUtils.rm_rf(destination_root)
         end
-
-        example.run
-
-        FileUtils.rm_rf(destination_root)
-
-        Dir.chdir(original_cwd)
       end
 
       shared_examples_for "app with sidekiq" do
