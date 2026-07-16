@@ -10,20 +10,14 @@
     <%= f.hidden_field :name, id: option_field_id(:name), data: { "revocations-target": "name" } %>
 
     <div class="grid gap-4 md:grid-cols-2">
-      <%= label_tag option_field_id(:total), class: "user-picker-card#{" opacity-50 pointer-events-none" if total_count.zero?}" do %>
-        <span class="flex items-center gap-3">
-          <%= radio_button_tag "revocations[impersonated_only]", false, false, id: option_field_id(:total), disabled: total_count.zero?, class: "!m-0", data: { "revocations-option": "total", count: total_count, "revocations-target": "option", action: "change->revocations#pick" } %>
-          <span class="flex-1"><%= t("decidim.admin.menu.authorization_revocation.total_verified") %></span>
-          <span class="font-semibold"><%= total_count %></span>
-        </span>
-      <% end %>
-
-      <%= label_tag option_field_id(:impersonated), class: "user-picker-card#{" opacity-50 pointer-events-none" if impersonated_count.zero?}" do %>
-        <span class="flex items-center gap-3">
-          <%= radio_button_tag "revocations[impersonated_only]", true, false, id: option_field_id(:impersonated), disabled: impersonated_count.zero?, class: "!m-0", data: { "revocations-option": "impersonated", count: impersonated_count, "revocations-target": "option", action: "change->revocations#pick" } %>
-          <span class="flex-1"><%= t("decidim.admin.menu.authorization_revocation.impersonated_only") %></span>
-          <span class="font-semibold"><%= impersonated_count %></span>
-        </span>
+      <% revocation_options.each do |option| %>
+        <%= label_tag option_field_id(option[:key]), class: "user-picker-card#{" opacity-50 pointer-events-none" if option[:count].zero?}" do %>
+          <span class="flex items-center gap-3">
+            <%= radio_button_tag "revocations[impersonated_only]", option[:value], false, id: option_field_id(option[:key]), disabled: option[:count].zero?, class: "!m-0", data: { "revocations-option": option[:key], "confirm-message": option[:confirm_message], "revocations-target": "option", action: "change->revocations#pick" } %>
+            <span class="flex-1"><%= option[:label] %></span>
+            <span class="font-semibold"><%= option[:count] %></span>
+          </span>
+        <% end %>
       <% end %>
     </div>
 
@@ -41,6 +35,7 @@
                            placeholder: t("date.formats.help.date_format"),
                            autocomplete: "off",
                            data: {
+                             "revocations-target": "date",
                              "date-label": t("datetime.widget.label.date", label: t("decidim.admin.menu.authorization_revocation.before_date")),
                              "button-date-label": t("datetime.widget.picker.date_button", label: t("decidim.admin.menu.authorization_revocation.before_date"))
                            } %>
@@ -49,19 +44,17 @@
       </div>
     </div>
 
-    <div class="hidden fixed inset-x-0 bottom-0 z-20 flex justify-end bg-white border-t border-background px-6 py-4 shadow-lg" data-revocations-bar data-revocations-target="bar">
-      <%= f.submit t("decidim.admin.menu.authorization_revocation.revoke_button"),
-                   class: "button button__sm md:button__lg button__secondary m-0",
-                   data: {
-                     confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm"),
-                     "confirm-title": t("decidim.admin.menu.authorization_revocation.revoke_title"),
-                     "confirm-icon": "delete-bin-line",
-                     "confirm-total": confirm_text("confirm_total_html"),
-                     "confirm-impersonated": confirm_text("confirm_impersonated_html"),
-                     "confirm-total-before-date": confirm_text("confirm_total_before_date_html"),
-                     "confirm-impersonated-before-date": confirm_text("confirm_impersonated_before_date_html"),
-                     "revocations-target": "submit"
-                   } %>
+    <div class="item__edit-sticky hidden" data-revocations-bar data-revocations-target="bar">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t("decidim.admin.menu.authorization_revocation.revoke_button"),
+                     class: "button button__sm button__secondary",
+                     data: {
+                       confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm"),
+                       "confirm-title": t("decidim.admin.menu.authorization_revocation.revoke_title"),
+                       "confirm-icon": "delete-bin-line",
+                       "revocations-target": "submit"
+                     } %>
+      </div>
     </div>
   <% end %>
 </div>

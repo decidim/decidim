@@ -54,10 +54,12 @@ module Decidim::Verifications::Admin
       subject { described_class.from_params(name:).with_context(current_organization: organization) }
 
       it { is_expected.to be_invalid }
+    end
 
-      it "defaults to false" do
-        expect(subject.impersonated_only).to be(false)
-      end
+    context "when impersonated_only is an empty string" do
+      let(:impersonated_only) { "" }
+
+      it { is_expected.to be_invalid }
     end
   end
 end

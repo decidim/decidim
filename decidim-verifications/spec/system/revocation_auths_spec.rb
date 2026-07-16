@@ -77,7 +77,7 @@ describe "Authorizations revocation flow" do
       end
 
       expect(message).to include(
-        strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_impersonated_html", count: 1, workflow: workflow_fullname))
+        strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.impersonated.all_html", count: 1, workflow: workflow_fullname))
       )
     end
 
@@ -90,7 +90,7 @@ describe "Authorizations revocation flow" do
       end
 
       expect(message).to include(
-        strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_total_html", count: 2, workflow: workflow_fullname))
+        strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.all_html", count: 2, workflow: workflow_fullname))
       )
     end
 
@@ -111,7 +111,7 @@ describe "Authorizations revocation flow" do
         end
 
         expect(message).to include(
-          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_total_before_date_html", count: 1, workflow: workflow_fullname, date: "15/03/2022"))
+          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.before_date_html", count: 1, workflow: workflow_fullname, date: "15/03/2022"))
         )
       end
 
@@ -128,7 +128,7 @@ describe "Authorizations revocation flow" do
         end
 
         expect(message).to include(
-          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_total_before_date_html", count: 0, workflow: workflow_fullname, date: "01/01/2019"))
+          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.before_date_html", count: 0, workflow: workflow_fullname, date: "01/01/2019"))
         )
       end
 
@@ -148,7 +148,7 @@ describe "Authorizations revocation flow" do
         end
 
         expect(message).to include(
-          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_total_html", count: 2, workflow: workflow_fullname))
+          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.all_html", count: 2, workflow: workflow_fullname))
         )
       end
 
@@ -167,7 +167,7 @@ describe "Authorizations revocation flow" do
         end
 
         expect(message).to include(
-          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_total_before_date_html", count: 2, workflow: workflow_fullname, date: tomorrow))
+          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.before_date_html", count: 2, workflow: workflow_fullname, date: tomorrow))
         )
       end
     end
@@ -181,7 +181,7 @@ describe "Authorizations revocation flow" do
           accept_confirm { click_button t("decidim.admin.menu.authorization_revocation.revoke_button") }
         end
 
-        expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.revoked_impersonated", count: 1, workflow: workflow_fullname))
+        expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.revoked.impersonated", count: 1, workflow: workflow_fullname))
       end
 
       expect(Decidim::Authorization.exists?(managed_authorization.id)).to be(false)
@@ -198,7 +198,7 @@ describe "Authorizations revocation flow" do
           accept_confirm { click_button t("decidim.admin.menu.authorization_revocation.revoke_button") }
         end
 
-        expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.revoked", count: 2, workflow: workflow_fullname))
+        expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.revoked.total", count: 2, workflow: workflow_fullname))
       end
 
       expect(Decidim::Authorization.exists?(regular_authorization.id)).to be(false)
@@ -224,7 +224,7 @@ describe "Authorizations revocation flow" do
           accept_confirm { click_button t("decidim.admin.menu.authorization_revocation.revoke_button") }
         end
 
-        expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.revoked_impersonated", count: 1, workflow: workflow_fullname))
+        expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.revoked.impersonated", count: 1, workflow: workflow_fullname))
       end
 
       expect(Decidim::Authorization.exists?(managed_authorization.id)).to be(false)
@@ -246,7 +246,7 @@ describe "Authorizations revocation flow" do
           accept_confirm { click_button t("decidim.admin.menu.authorization_revocation.revoke_button") }
         end
 
-        expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.revoked", count: 2, workflow: workflow_fullname))
+        expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.revoked.total", count: 2, workflow: workflow_fullname))
       end
 
       expect(Decidim::Authorization.exists?(other_organization_authorization.id)).to be(true)

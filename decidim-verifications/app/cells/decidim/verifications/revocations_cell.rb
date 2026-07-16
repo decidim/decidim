@@ -19,20 +19,19 @@ module Decidim
         @form ||= Decidim::Verifications::Admin::RevocationsForm.from_params(name: workflow.name)
       end
 
-      def total_count
-        options[:total].to_i
+      def revocation_options
+        [
+          { key: "total", value: false, label: t("decidim.admin.menu.authorization_revocation.total_verified"), count: options[:total].to_i },
+          { key: "impersonated", value: true, label: t("decidim.admin.menu.authorization_revocation.impersonated_only"), count: options[:impersonated].to_i }
+        ].map { |option| option.merge(confirm_message: confirm_message(option)) }
       end
 
-      def impersonated_count
-        options[:impersonated].to_i
+      def confirm_message(option)
+        t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.#{option[:key]}.all_html", count: option[:count], workflow: workflow.fullname)
       end
 
       def option_field_id(option)
         "revocations_#{workflow.key}_#{option}"
-      end
-
-      def confirm_text(key)
-        t("decidim.admin.menu.authorization_revocation.destroy.#{key}", workflow: workflow.fullname, count: "%{count}", date: "%{date}")
       end
 
       def decidim_verifications

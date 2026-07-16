@@ -7,7 +7,15 @@ import { Controller } from "@hotwired/stimulus"
  * resets the sibling forms through a `revocations:picked` document event, so
  * only one form is active at a time.
  */
-export default class RevocationsController extends Controller {
+export default class extends Controller {
+  static get targets() {
+    return ["option", "name", "date", "dateContainer", "bar", "submit"];
+  }
+
+  static get values() {
+    return { countUrl: String };
+  }
+
   connect() {
     this.fallbackConfirm = this.submitTarget.dataset.confirm;
     this.onSiblingPicked = this.onSiblingPicked.bind(this);
@@ -25,18 +33,18 @@ export default class RevocationsController extends Controller {
     this.refresh();
   }
 
-  // The radio already carries the dateless count; the server is asked only
-  // when a date is set.
+  // The picked option already carries its dateless message; the server is
+  // asked only when a date is set.
   refresh() {
     const radio = this._checkedOption();
     if (!radio) {
       return;
     }
 
-    const option = radio.dataset.revocationsOption;
-    const requestedDate = this._dateInput()?.value || "";
+    const requestedDate = this.dateTarget.value;
     if (!requestedDate) {
-      this._setConfirm(this._confirmTemplate(option, false), { count: radio.dataset.count });
+      this.submitTarget.disabled = false;
+      this._setConfirm(radio.dataset.confirmMessage);
       return;
     }
 
@@ -52,27 +60,26 @@ export default class RevocationsController extends Controller {
     params.set("revocations[before_date]", requestedDate);
 
     // Hold the submission behind the generic confirm text until the accurate
-    // count arrives.
+    // message arrives.
     this.submitTarget.dataset.confirm = this.fallbackConfirm;
     this.submitTarget.disabled = true;
 
     fetch(`${url}?${params}`, {
       headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" },
       credentials: "same-origin"
-    }).then((response) => response.json()).then((data) => {
-      this.submitTarget.disabled = false;
-
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      return response.json();
+    }).then((data) => {
       // Discard responses the form has already moved on from.
-      if (this._checkedOption() !== radio || (this._dateInput()?.value || "") !== requestedDate) {
+      if (this._checkedOption() !== radio || this.dateTarget.value !== requestedDate) {
         return;
       }
 
-      if (typeof data.count === "undefined") {
-        return;
-      }
-
-      const date = this._visibleDateInput()?.value || requestedDate;
-      this._setConfirm(this._confirmTemplate(option, true), { count: data.count, date });
+      this.submitTarget.disabled = false;
+      this._setConfirm(data.message);
     }).catch((error) => {
       this.submitTarget.disabled = false;
       console.error("Error fetching authorizations count:", error);
@@ -94,54 +101,30 @@ export default class RevocationsController extends Controller {
 
     this.barTarget.classList.add("hidden");
     this.submitTarget.disabled = false;
+    this.submitTarget.dataset.confirm = this.fallbackConfirm;
 
-    [this._dateInput(), this._visibleDateInput()].forEach((input) => {
-      if (input) {
-        input.value = "";
-      }
-    });
+    this.dateTarget.value = "";
+    const visibleDate = this._visibleDateInput();
+    if (visibleDate) {
+      visibleDate.value = "";
+    }
   }
 
   _checkedOption() {
     return this.optionTargets.find((radio) => radio.checked);
   }
 
-  _dateInput() {
-    return this.dateContainerTarget.querySelector("input[name='revocations[before_date]']");
-  }
-
   // The datepicker's visible text input, holding the date as the user sees it.
   _visibleDateInput() {
-    const input = this._dateInput();
-
-    return input && document.getElementById(`${input.id}_date`);
+    return document.getElementById(`${this.dateTarget.id}_date`);
   }
 
   // The Decidim confirm dialog reads the confirm text from the attribute.
-  _setConfirm(template, { count, date = "" }) {
-    if (!template) {
+  _setConfirm(message) {
+    if (!message) {
       return;
     }
 
-    this.submitTarget.dataset.confirm = template.
-      replace(/%\{count\}/g, count).
-      replace(/%\{date\}/g, date);
-  }
-
-  _confirmTemplate(option, withDate) {
-    const templates = this.submitTarget.dataset;
-
-    if (option === "impersonated") {
-      return withDate
-        ? templates.confirmImpersonatedBeforeDate
-        : templates.confirmImpersonated;
-    }
-
-    return withDate
-      ? templates.confirmTotalBeforeDate
-      : templates.confirmTotal;
+    this.submitTarget.dataset.confirm = message;
   }
 }
-
-RevocationsController.targets = ["option", "name", "dateContainer", "bar", "submit"]
-RevocationsController.values = { countUrl: String }

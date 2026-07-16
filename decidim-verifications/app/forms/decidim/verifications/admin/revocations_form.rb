@@ -5,24 +5,27 @@ module Decidim
     module Admin
       class RevocationsForm < Decidim::Form
         attribute :name, String
-        attribute :impersonated_only, Boolean, default: false
+        attribute :impersonated_only, Boolean
         attribute :before_date, Decidim::Attributes::LocalizedDate
 
         validates :name, presence: true
+        validates :impersonated_only, inclusion: { in: [true, false] }
         validate :name_is_available
-        validate :impersonated_only_is_present
         validate :before_date_is_valid
 
-        # Raw values tell missing or unparseable params apart from casted
-        # defaults, which would silently widen the revocation.
-        def impersonated_only=(value)
-          @raw_impersonated_only = value
-          super
-        end
-
+        # The raw value tells a missing or unparseable date apart from a
+        # casted nil, which would silently widen the revocation.
         def before_date=(value)
           @raw_before_date = value
           super
+        end
+
+        def option
+          impersonated_only? ? "impersonated" : "total"
+        end
+
+        def period
+          before_date ? "before_date" : "all"
         end
 
         private
@@ -31,10 +34,6 @@ module Decidim
           return if name.blank?
 
           errors.add(:name, :invalid) unless current_organization&.available_authorizations&.include?(name)
-        end
-
-        def impersonated_only_is_present
-          errors.add(:impersonated_only, :blank) if @raw_impersonated_only.nil?
         end
 
         def before_date_is_valid

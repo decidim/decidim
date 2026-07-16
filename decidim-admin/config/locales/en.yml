@@ -301,8 +301,8 @@ en:
       authorization_workflows:
         index:
           intro: |-
-           Authorizations allow to give specific participation rights to participants who have completed a verification process. Depending on the needs of each use case, different verification mechanisms can be used to ensure the validity and security of the verification process.
-           To enable an authorization, you need to have access to the System panel or ask your decidim implementer. Below you can see the authorization methods available:
+            Authorizations allow you to give specific participation rights to participants who have completed a verification process. Depending on the needs of each use case, different verification mechanisms can be used to ensure the validity and security of the verification process.
+            To enable an authorization, you need to have access to the System panel or ask your Decidim implementer. Below you can see the authorization methods available:
           title: Authorizations
       autocomplete:
         no_results: No results found

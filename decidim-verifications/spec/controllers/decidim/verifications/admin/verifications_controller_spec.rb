@@ -8,6 +8,7 @@ module Decidim::Verifications::Admin
 
     let(:organization) { create(:organization, available_authorizations: [authorization_name]) }
     let(:authorization_name) { "dummy_authorization_handler" }
+    let(:workflow_fullname) { Decidim::Verifications.find_workflow_manifest(authorization_name).fullname }
     let(:admin) { create(:user, :admin, :confirmed, organization:) }
 
     let!(:regular_authorization) { create(:authorization, name: authorization_name, user: create(:user, :confirmed, organization:)) }
@@ -19,18 +20,24 @@ module Decidim::Verifications::Admin
     end
 
     describe "GET #count" do
-      it "returns the count of granted authorizations matching the filters" do
+      it "returns the count and confirm message of granted authorizations matching the filters" do
         get :count, params: { name: authorization_name, impersonated_only: false }
 
         expect(response).to have_http_status(:ok)
-        expect(response.parsed_body).to eq("count" => 2)
+        expect(response.parsed_body["count"]).to eq(2)
+        expect(response.parsed_body["message"]).to eq(
+          I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.all_html", count: 2, workflow: workflow_fullname)
+        )
       end
 
       it "returns the count filtered to impersonated authorizations only" do
         get :count, params: { name: authorization_name, impersonated_only: true }
 
         expect(response).to have_http_status(:ok)
-        expect(response.parsed_body).to eq("count" => 1)
+        expect(response.parsed_body["count"]).to eq(1)
+        expect(response.parsed_body["message"]).to eq(
+          I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.impersonated.all_html", count: 1, workflow: workflow_fullname)
+        )
       end
 
       it "does not count authorizations belonging to another organization" do
@@ -39,7 +46,7 @@ module Decidim::Verifications::Admin
 
         get :count, params: { name: authorization_name, impersonated_only: false }
 
-        expect(response.parsed_body).to eq("count" => 2)
+        expect(response.parsed_body["count"]).to eq(2)
       end
 
       context "when the name is invalid" do
@@ -71,11 +78,14 @@ module Decidim::Verifications::Admin
           create(:authorization, name: authorization_name, user: create(:user, :confirmed, :managed, organization:), created_at: Date.new(2024, 6, 1))
         end
 
-        it "returns the count of granted authorizations created before the given date" do
+        it "returns the count and confirm message of granted authorizations created before the given date" do
           get :count, params: { name: authorization_name, impersonated_only: false, before_date: "15/03/2022" }
 
           expect(response).to have_http_status(:ok)
-          expect(response.parsed_body).to eq("count" => 1)
+          expect(response.parsed_body["count"]).to eq(1)
+          expect(response.parsed_body["message"]).to eq(
+            I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.before_date_html", count: 1, workflow: workflow_fullname, date: "15/03/2022")
+          )
         end
 
         it "renders an error when no scope is given" do
