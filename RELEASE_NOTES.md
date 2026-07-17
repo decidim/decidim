@@ -71,9 +71,9 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 ### 5.1. `initFoundation` Javascript function has been removed
 
-In order to fully remove foundation, we need to remove any dependency to Foundation-Sites. In the latest releases we started to rely more on Stimulus controllers and plain Javascript.
+In order to fully remove Foundation CSS, we need to remove any dependency to Foundation-Sites. In the latest releases we started to rely more on Stimulus controllers and plain Javascript.
 
-If you are a plugin developer, upgrading your module, make sure that you do not have foundation-sites related code.
+If you are a developer or implementer, and you are upgrading your module or application, make sure that you do not have `foundation-sites` related code.
 
 You can read more about this change on PR [#16889](https://github.com/decidim/decidim/pull/16889).
 
