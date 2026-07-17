@@ -285,7 +285,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
     end
 
     context "with traceability logging" do
-      let!(:user) { create(:user, organization:) }
+      let!(:user) { create(:user, :admin, :confirmed, organization:) }
       let!(:step_one) do
         create(
           :participatory_process_step,
@@ -319,9 +319,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
       end
 
       context "when no users exist" do
-        before do
-          Decidim::User.destroy_all
-        end
+        let!(:user) { nil }
 
         it "completes without error" do
           expect { subject.perform_now }.not_to raise_error

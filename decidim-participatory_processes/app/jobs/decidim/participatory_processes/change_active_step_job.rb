@@ -34,12 +34,13 @@ module Decidim
       private
 
       def activate_step(step, organization)
-        return step.update!(active: true) if system_user(organization).blank?
+        admin = admin_user(organization)
+        return step.update!(active: true) if admin.blank?
 
         Decidim.traceability.perform_action!(
           :activate,
           step,
-          system_user(organization),
+          admin,
           details: {
             automatic_action: true
           }
@@ -48,8 +49,8 @@ module Decidim
         end
       end
 
-      def system_user(organization)
-        @system_user ||= Decidim::User.where(organization:).first
+      def admin_user(organization)
+        Decidim::User.where(organization:, admin: true).confirmed.first
       end
     end
   end
