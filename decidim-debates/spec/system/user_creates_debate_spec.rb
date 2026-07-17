@@ -66,8 +66,8 @@ describe "User creates debate" do
 
         context "and attachments are allowed" do
           let(:attachments_allowed) { true }
-          let(:image_filename) { "city2.jpeg" }
-          let(:image_path) { Decidim::Dev.asset(image_filename) }
+          let(:attached_image_filename) { "city2.jpeg" }
+          let(:attached_image_path) { Decidim::Dev.asset(attached_image_filename) }
           let(:document_filename) { "Exampledocument.pdf" }
           let(:document_path) { Decidim::Dev.asset(document_filename) }
 
@@ -84,7 +84,7 @@ describe "User creates debate" do
               fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
             end
 
-            dynamically_attach_file(:debate_attachments, image_path)
+            dynamically_attach_file(:debate_attachments, attached_image_path)
             dynamically_attach_file(:debate_attachments, document_path)
 
             within ".new_debate" do
@@ -95,7 +95,7 @@ describe "User creates debate" do
             expect(page).to have_text("Should every organization use Decidim?")
             expect(page).to have_text("Add your comments on whether Decidim is useful for every organization.")
             expect(page).to have_css("[data-author]", text: user.name)
-            expect(page).to have_css("img[src*='#{image_filename}']")
+            expect(page).to have_css("img[src*='#{attached_image_filename}']")
 
             click_on "Documents"
 
