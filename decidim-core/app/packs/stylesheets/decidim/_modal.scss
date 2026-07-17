@@ -22,19 +22,27 @@
   }
 
   [data-dialog-container] {
-    @apply grid grid-cols-[auto_1fr] items-start md:items-center gap-2 text-left;
+    @apply block text-left;
 
-    > svg {
-      @apply w-6 h-6 text-gray fill-current flex-none;
-    }
+    &:has(> svg) {
+      @apply grid grid-cols-[auto_1fr] items-start md:items-center gap-2;
 
-    > :last-child {
-      @apply col-span-2 md:col-span-1 md:col-start-2;
+      > svg {
+        @apply w-6 h-6 text-gray fill-current flex-none mb-6;
+      }
+
+      > :last-child {
+        @apply col-span-2 md:col-span-1 md:col-start-2;
+      }
     }
   }
 
   [data-dialog-title] {
-    @apply text-2xl text-black font-semibold focus:outline-none;
+    @apply text-xl text-gray-2 font-semibold focus:outline-none pb-2 mb-4 md:border-b md:border-gray-3;
+
+    > svg {
+      @apply w-6 h-6 text-gray fill-current flex-none;
+    }
   }
 
   [data-dialog-actions] {
@@ -59,7 +67,7 @@
     }
 
     [data-dialog-container] {
-      @apply grid-cols-none;
+      @apply grid grid-cols-none;
 
       &.layout-content {
         @apply bg-white;
