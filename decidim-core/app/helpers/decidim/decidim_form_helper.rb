@@ -71,6 +71,7 @@ module Decidim
     #
     # Returns a tabs element with the translated input field.
     def translated_field_tag(type, object_name, name, value = {}, options = {})
+      raise "Disavbled"
       locales = available_locales
 
       field_label = label_tag(name, options[:label])
