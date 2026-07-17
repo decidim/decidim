@@ -45,7 +45,7 @@ module Decidim
       # Questions which have display conditions based on the value of this question's response
       has_many :conditioned_questions,
                through: :display_conditions_for_other_questions,
-               foreign_key: "decidim_condition_question_id",
+               source: :question,
                class_name: "Question"
 
       has_many :responses,
