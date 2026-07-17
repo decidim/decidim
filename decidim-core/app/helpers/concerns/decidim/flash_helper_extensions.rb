@@ -44,7 +44,7 @@ module Decidim
 
       private
 
-      # Adding accessibility tags.
+      # Adding accessibility tags to announcement boxes.
       #
       # @private
       #

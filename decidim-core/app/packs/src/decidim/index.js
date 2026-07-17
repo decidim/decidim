@@ -88,11 +88,13 @@ window.deprecationMessage = deprecationMessage;
 
 // eslint-disable-next-line no-unused-vars
 window.initFoundation = (element) => {
-  console.warn("[Decidim] initFoundation method is deprecated and no longer performs any action. It was deprecated since Decidim 0.28")
+  let message = "[Decidim] initFoundation method has previously used to initialize foundation-sites based tools. The Foundation CSS based interface has been removed in 0.28. Since then we worked to remove related JavaScript, which has been completed. Calling this method, will have no effect on your application."
+
+  console.warn(message)
 
   if (typeof window.Decidim.dev !== "undefined" && window.Decidim.dev === true) {
     // eslint-disable-next-line no-alert
-    alert("[Decidim] initFoundation method is deprecated and no longer performs any action. It was deprecated since Decidim 0.28")
+    alert(message)
   }
 };
 
