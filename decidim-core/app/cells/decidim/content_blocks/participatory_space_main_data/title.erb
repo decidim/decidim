@@ -23,7 +23,7 @@
         <% end %>
       </div>
 
-      <button class="button button__sm button__text-secondary mt-2" data-controls="panel-view-more-<%= seed %>" aria-expanded="false" onclick="document.querySelector('div[id^=panel-view-more]').toggleAttribute('inert')">
+      <button class="button button__sm button__text-secondary mt-2" data-controls="panel-view-more-<%= seed %>" aria-expanded="false" data-controller="view-more-toggle" data-action="click->view-more-toggle#toggle keydown->view-more-toggle#toggle">
         <span>
           <%= t("view_more", scope: "layouts.decidim.announcements") %>
         </span>
@@ -42,12 +42,3 @@
     <% end %>
   </div>
 <% end %>
-<script>
-  const button = document.querySelector('button[data-controls^="panel-view-more"]')
-  button.addEventListener('keydown', function(e){
-    // press space or enter
-    if (e.keyCode === 32 || e.keyCode === 13){
-      document.querySelector('div[id^=panel-view-more]').toggleAttribute('inert')
-    }
-  })
-</script>
