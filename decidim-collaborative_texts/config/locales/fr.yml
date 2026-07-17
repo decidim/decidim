@@ -41,6 +41,7 @@ fr:
           draft_options:
             accepting_suggestions: Activer les suggestions dans la prochaine version
             accepting_suggestions_help: Activer les suggestions démarrera une nouvelle série de suggestions pour ce document. Les suggestions actuelles ne seront pas visibles dans la nouvelle version.
+            draft: Version préliminaire
           edit:
             previous_versions: Versions précédentes
             public_version: Version publique
