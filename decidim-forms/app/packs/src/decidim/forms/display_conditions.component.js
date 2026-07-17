@@ -192,6 +192,30 @@ class DisplayConditionsComponent {
     }
 
     this.wrapperField.find("input, textarea").prop("disabled", "disabled");
+    this.clearAnswers();
+  }
+
+  // When a question is hidden its answer must not survive: a stale value would
+  // keep questions conditioned on it visible We clear the answer and notify the
+  // questions conditioned on this one so the change cascades down the chain.
+  clearAnswers() {
+    const changed = [];
+
+    this.wrapperField.find("input[type='checkbox']:checked, input[type='radio']:checked").each((idx, el) => {
+      el.checked = false;
+      changed.push(el);
+    });
+
+    this.wrapperField.find("input[type='text'], textarea").each((idx, el) => {
+      if (el.value !== "") {
+        el.value = "";
+        changed.push(el);
+      }
+    });
+
+    if (changed.length) {
+      $(changed).trigger("change");
+    }
   }
 }
 
