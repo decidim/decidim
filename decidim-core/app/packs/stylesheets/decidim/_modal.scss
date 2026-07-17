@@ -38,7 +38,7 @@
   }
 
   [data-dialog-title] {
-    @apply text-xl text-gray-2 font-semibold focus:outline-none pb-2 mb-4 md:border-b md:border-gray-3;
+    @apply flex items-center gap-2 text-xl text-gray-2 font-semibold focus:outline-none pb-2 mb-4 md:border-b md:border-gray-3;
 
     > svg {
       @apply w-6 h-6 text-gray fill-current flex-none;

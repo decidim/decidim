@@ -1,18 +1,6 @@
 .qr-modal {
   @apply md:p-6 lg:p-8;
 
-  [data-dialog-title] {
-    @apply flex justify-start items-center text-2xl text-black font-semibold focus:outline-none;
-
-    > svg {
-      @apply w-10 h-10 text-gray fill-current flex-none;
-    }
-
-    > :last-child {
-      @apply ml-1;
-    }
-  }
-
   [data-dialog-container] {
     .content {
       @apply md:grid md:grid-cols-2 gap-5 md:py-4;
