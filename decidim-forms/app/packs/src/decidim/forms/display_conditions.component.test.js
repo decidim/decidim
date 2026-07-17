@@ -99,4 +99,30 @@ describe("DisplayConditionsComponent", () => {
     expect(wrapper("Q3").find("input[value='1']").prop("checked")).toBe(false);
     expect(isVisible("FINAL1")).toBe(false);
   });
+
+  it("clears file upload responses of a hidden question", () => {
+    document.body.innerHTML = `
+      <div class="answer-questionnaire">
+        <div class="question" data-question-id="Q0" data-conditioned="false">
+          ${radioCollection("Q0", [{ optionId: "optA", value: "A" }, { optionId: "optC", value: "C" }])}
+        </div>
+        <div class="question" data-question-id="QFILE" data-conditioned="true">
+          ${conditionTag({ id: "dcFile", type: "equal", condition: "Q0", option: "optC", mandatory: false })}
+          <div class="upload-modal__files" data-active-uploads="QFILE">
+            <div class="attachment-details" data-filename="doc.pdf" data-state="uploaded">
+              <input name="resp[QFILE][add_attachments]" type="hidden" value="signed-id-123" />
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    $(".answer-questionnaire .question[data-conditioned='true']").each((idx, el) => {
+      createDisplayConditions({ wrapperField: $(el) });
+    });
+
+    // Q0 is not "C", so QFILE is hidden: its attachment preview and the hidden
+    // field carrying the upload must be gone so nothing stale is submitted.
+    expect(wrapper("QFILE").find(".attachment-details").length).toBe(0);
+    expect(wrapper("QFILE").find("input[name='resp[QFILE][add_attachments]']").length).toBe(0);
+  });
 });

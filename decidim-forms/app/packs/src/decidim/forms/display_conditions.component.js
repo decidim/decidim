@@ -213,6 +213,12 @@ class DisplayConditionsComponent {
       }
     });
 
+    // File responses ("files" question type) keep their selection in hidden
+    // fields rendered inside the upload previews. Remove those previews (and the
+    // hidden fields they contain) so a hidden question cannot retain a stale
+    // attachment.
+    this.wrapperField.find("[data-active-uploads] .attachment-details").remove();
+
     if (changed.length) {
       $(changed).trigger("change");
     }
