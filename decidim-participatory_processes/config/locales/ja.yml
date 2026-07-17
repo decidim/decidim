@@ -101,6 +101,12 @@ ja:
       filters:
         decidim_participatory_process_group_id_eq:
           label: プロセスグループ別
+        with_any_access_mode:
+          label: アクセスモード
+          values:
+            open: 参加可能
+            restricted: メンバー限定
+            transparent: 閲覧のみ可能
       menu:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
@@ -119,6 +125,7 @@ ja:
       models:
         participatory_process:
           fields:
+            access_mode: アクセスモード
             actions: アクション
             created_at: 作成日時
             published: 公開済み
@@ -225,6 +232,10 @@ ja:
         edit:
           update: 更新
         index:
+          access_modes:
+            open: 参加可能
+            restricted: メンバー限定
+            transparent: 閲覧のみ可能
           published: 公開済み
           unpublished: 未公開
         new:
@@ -306,6 +317,7 @@ ja:
     open_data:
       help:
         participatory_processes:
+          access_mode: アクセスモードです。プロセスが参加可能か、メンバー限定か、閲覧のみ可能かを設定します。
           area: プロセスが行われているエリア
           component_settings: プロセスのコンポーネント設定
           created_at: このスペースの作成日時
@@ -499,6 +511,13 @@ ja:
           edit:
             title: このプロセスについて
           form:
+            access:
+              label: アクセス
+              options:
+                open: 誰もがプロセスを閲覧、参加することができます。
+                restricted: メンバーおよび管理者のみが閲覧・参加可能です。一般的な検索、API、公開データファイルには表示されません。
+                transparent: 誰でもプロセスの内容は閲覧できますが、参加できるのはメンバーおよび管理者のみです。
+              set_this_space_as: このスペースを以下の設定にします
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 期間
             has_members_help: メンバーを作成し、公開することができます

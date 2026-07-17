@@ -7,9 +7,11 @@ module Decidim
     class Page < Pages::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasComponent
+      include Decidim::HasAttachments
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::TranslatableResource
+      include Decidim::HasReference
 
       translatable_fields :body
 
@@ -22,6 +24,10 @@ module Decidim
       # Public: Pages do not have title so we assign the component one to it.
       def title
         component.name
+      end
+
+      def attachment_context
+        :admin
       end
     end
   end

@@ -583,7 +583,7 @@ cs:
           global:
             amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
-            comments_max_length: Maximální délka komentářů
+            comments_max_length: Maximální počet znaků na komentář
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             dummy_global_attribute1: Zástupný atribut 1
             dummy_global_attribute2: Zástupný atribut 2
@@ -1220,7 +1220,6 @@ cs:
         create:
           error: Konverzace nebyla zahájena. Zkuste to znovu později.
         error_modal:
-          close: Zavřít okno
           correct_errors: Opravte chyby a zkuste to znovu.
           intro: 'Došlo k následujícím chybám ve vaší zprávě:'
           ok: OK
@@ -1526,16 +1525,18 @@ cs:
         log_in: přihlásit se
         never_logged_in: nikdy se nepřihlásil
         subject: Upozornění na neaktivní účet
-      removal_notification:
-        body: Váš %{organization_name} účet byl odstraněn z důvodu neaktivity.
-        greetings_html: |
-          S pozdravem,<br>
-          %{organization_name}
-        hello: Dobrý den %{username},
-        subject: Neaktivní účet byl smazán
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Je členem
     participatory_space_members:
       index:
         members: Členové
+    participatory_spaces:
+      show:
+        restricted_space: Toto je omezený prostor. Pouze členové a administrátoři jej mohou zobrazit a účastnit se.
+        transparent_space: Toto je transparentní prostor. Kdokoli může zobrazit obsah, ale mohou se účastnit pouze členové a správci.
     passwords:
       update:
         error: Došlo k problému s aktualizací hesla.

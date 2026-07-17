@@ -288,7 +288,7 @@ module Decidim
   mattr_accessor :default_locale, default: (Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").presence || :en).to_s
 
   # Users that have not logged in for this period of time will be deleted
-  mattr_accessor :delete_inactive_users_after_days, default: Decidim::Env.new("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+  mattr_accessor :delete_inactive_users_after_days, default: Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
 
   # The minimum allowed inactivity period for deleting participants.
   mattr_accessor :minimum_inactivity_period, default: Decidim::Env.new("DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS", 30).to_i
@@ -398,7 +398,7 @@ module Decidim
   self.reference_generator ||= lambda do |resource, component|
     ref = ""
 
-    if resource.is_a?(Decidim::HasComponent) && component.present?
+    if component.present?
       # It is a component resource
       ref = component.participatory_space.organization.reference_prefix
     elsif resource.is_a?(Decidim::Participable)

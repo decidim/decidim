@@ -181,6 +181,12 @@ describe "Explore results", :versioning do
         expect(page).to have_text("#{result.progress.to_i}%")
       end
 
+      it "shows the result reference" do
+        within ".layout-container__reference" do
+          expect(page).to have_text(result.reference)
+        end
+      end
+
       context "when it has no versions" do
         before do
           result.versions.destroy_all

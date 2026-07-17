@@ -44,7 +44,6 @@ pl:
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
-        comments_max_length: Maksymalna długość komentarza (pozostaw 0 dla wartości domyślnej)
         customize_welcome_notification: Dostosuj treść komunikatu powitalnego
         default_locale: Domyślny język
         description: Opis
@@ -809,10 +808,6 @@ pl:
           next_title: Następny element
           previous: Poprzedni
           previous_title: Poprzedni element
-        gallery:
-          add_images: Dodaj obrazy
-          edit_images: Edytuj obrazy
-          gallery_legend: Dodaj galerię obrazów (opcjonalnie)
       static_page_topics:
         create:
           error: Wystąpił błąd podczas tworzenia nowego tematu.

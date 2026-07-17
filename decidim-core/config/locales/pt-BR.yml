@@ -551,7 +551,6 @@ pt-BR:
           global:
             amendments_enabled: Alterações ativadas
             comments_enabled: Comentários ativados
-            comments_max_length: Comprimento máximo de comentários
             define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             dummy_global_attribute1: Dummy Atributo 1
             dummy_global_attribute2: Dummy Attribute 2
@@ -943,8 +942,8 @@ pt-BR:
           email_outro: Você recebeu está notificação porque você é autor do %{resource_type} afetado.
           email_subject: Seu %{resource_type} não está mais visível
           notification_title: |-
-            Seu %{resource_type} não está mais visível. <br> 
-             Isso aconteceu porque a proposta, reunião, debate ou comentário que você respondeu foi moderado. Se voltar a ficar disponível, o seu comentário será restaurado automaticamente.<i>%{resource_content}</i>
+            Seu %{resource_type} não está mais visível. <br>
+            Isso aconteceu porque a proposta, reunião, debate ou comentário que você respondeu foi moderado. Se voltar a ficar disponível, o seu comentário será restaurado automaticamente.<i>%{resource_content}</i>
         resource_hidden:
           email_intro: Um administrador removeu seu %{resource_type} porque ele foi reportado como %{report_reasons}.
           email_outro: Você recebeu esta notificação porque você é um autor do conteúdo removido.
@@ -1179,7 +1178,6 @@ pt-BR:
         create:
           error: Conversa não iniciada. Tente mais tarde.
         error_modal:
-          close: Fechar modal
           correct_errors: Por favor, corrija os itens citados e tente novamente.
           intro: 'Sua mensagem contém os seguintes erros:'
           ok: OK
@@ -1490,13 +1488,6 @@ pt-BR:
         log_in: iniciar sessão
         never_logged_in: nunca iniciou sessão
         subject: Aviso de conta inativa
-      removal_notification:
-        body: Sua conta %{organization_name} foi excluída devido a inatividade.
-        greetings_html: |
-          Atenciosamente,<br>
-          %{organization_name}
-        hello: Prezado %{username},
-        subject: Conta inativa excluída
     participatory_space_members:
       index:
         members: Membros

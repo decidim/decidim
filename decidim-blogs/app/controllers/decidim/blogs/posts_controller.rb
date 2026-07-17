@@ -12,6 +12,7 @@ module Decidim
       include Decidim::FormFactory
 
       helper_method :posts, :post, :post_presenter, :paginate_posts, :posts_most_commented, :tabs, :panels
+      before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
       def index; end
 

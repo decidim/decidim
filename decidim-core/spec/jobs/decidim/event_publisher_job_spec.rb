@@ -5,6 +5,12 @@ require "spec_helper"
 describe Decidim::EventPublisherJob do
   subject { described_class }
 
+  before do
+    # We do not optimize n+1 here, as the n+1 comes from the enqueue mechanism, which is calling various jobs where the user is required.
+    # Does not make sense to optimize the enqueuer just for tests
+    Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Component", :association => :participatory_space
+  end
+
   describe "queue" do
     it "is queued to events" do
       expect(subject.queue_name).to eq "events"

@@ -545,6 +545,7 @@ describe "Proposals" do
     shared_examples "ordering proposals by selected option" do |selected_option|
       let(:first_proposal_title) { translated(first_proposal.title) }
       let(:last_proposal_title) { translated(last_proposal.title) }
+
       before do
         visit_component
         within ".order-by" do

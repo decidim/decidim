@@ -49,7 +49,7 @@ ja:
         alert_color: アラート
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
-        comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+        comments_max_length: 各コメントの最大文字数 (0はデフォルト値のまま)
         customize_welcome_notification: ウェルカム通知をカスタマイズ
         default_locale: 既定のロケール：
         description: 説明
@@ -632,7 +632,7 @@ ja:
             explanation: '%{count} 名のメンバーがいます。'
             title: メンバーを削除
           example_file: 'サンプルファイル：'
-          explanation: "CSVファイルをアップロードしてください。ファイルには2つの列が必要で、1列目にはメールアドレス、最後の列には参加スペースに追加したいユーザーの名前を入力してください。ヘッダー行は不要です。ユーザー名には、`<>?%&^*#@()[]=+:;\"{}\\|`などの無効な文字を使用しないでください。\n"
+          explanation: "CSVファイルをアップロードしてください。ファイルには2つの列が必要で、1列目にはメールアドレス、最後の列には参加スペースに追加したいユーザーの名前を入力してください。ヘッダー行は不要です。ユーザー名には、`<>?%&^*#@()[]=+:;\"{}\\\\|`などの無効な文字を使用しないでください。\n"
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -845,6 +845,7 @@ ja:
           confirm_delete: このニュースレターを削除してもよろしいですか？
           followers: 'フォロワー '
           has_been_sent_to: '送信先: '
+          members: 'メンバー '
           not_sent: 送信されていません
           participants: '参加者 '
           segmented_to: '%{subject}にセグメント : '
@@ -862,6 +863,7 @@ ja:
           confirm_recipients: 受取人を確認
           deliver: ニュースレターを配信する
           followers_help: リスト内の選択した参加型スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
+          members_help: 選択した参加型スペースにメンバーとして追加されたすべての確認済みユーザー宛に、ニュースレターを送信します。
           participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
           select_assemblies: 参加スペースを選択
@@ -892,6 +894,7 @@ ja:
       officializations:
         block:
           error: 参加者のブロック中に問題が発生しました。
+          no_user: ユーザーが見つかりません
           success: 参加者をブロックしました。
         bulk_action:
           block:
@@ -901,6 +904,7 @@ ja:
             invalid: 参加者のブロック解除中に問題が発生しました。
             success: 参加者のブロックを解除しました。
         create:
+          no_user_found: 参加者が見つかりません。
           success: 参加者が公式化されました。
         destroy:
           success: 参加者が非公式化されました。
@@ -927,6 +931,7 @@ ja:
           officialize: 公式化
           title: 参加者 "%{name} " を正規化
         show_email:
+          no_user: ユーザーが見つかりません
           title: メールアドレスを表示
         show_email_modal:
           description: 直接参加者に連絡する必要がある場合、彼らの電子メールアドレスを見るために表示ボタンをクリックしてください。このアクションは記録されます。
@@ -1084,10 +1089,6 @@ ja:
           next_title: 次の項目
           previous: 前へ
           previous_title: 前の項目
-        gallery:
-          add_images: 画像を追加
-          edit_images: 画像を編集
-          gallery_legend: 画像ギャラリーを追加 (オプション)
       static_page_topics:
         create:
           error: 新しいトピックを作成中に問題が発生しました。
@@ -1184,7 +1185,7 @@ ja:
           success: タクソノミーを更新しました。
       taxonomy_filters:
         actions:
-          new_taxonomy_filter: 新規タクソノミフィルター
+          new_taxonomy_filter: 新規分類フィルター
         breadcrumb:
           edit: フィルターの編集
           filters: フィルター

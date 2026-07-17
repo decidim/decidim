@@ -32,6 +32,12 @@ describe "Show a page" do
       it "renders the content of the page" do
         expect(page).to have_text("Content")
       end
+
+      it "shows the page reference" do
+        within ".layout-container__reference" do
+          expect(page).to have_text(page_component.reference)
+        end
+      end
     end
 
     context "when there is no content in the page" do
@@ -85,6 +91,20 @@ describe "Show a page" do
             expect(page).to have_text("Content")
           end
         end
+      end
+    end
+
+    context "when the page has attachments" do
+      let!(:document) { create(:attachment, :with_pdf, attached_to: page_component) }
+      let!(:photo) { create(:attachment, :with_image, attached_to: page_component) }
+
+      before do
+        visit_component
+      end
+
+      it "displays the attachments" do
+        expect(page).to have_css("[data-controls='panel-images']")
+        expect(page).to have_css("[data-controls='panel-documents']")
       end
     end
   end
