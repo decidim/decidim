@@ -348,6 +348,47 @@ module Decidim
               expect(questionnaire.questions[2].display_conditions.second.decidim_response_option_id).to eq(question_2_response_options.first.id)
             end
           end
+
+          context "and a display condition already exists and is saved without changes" do
+            let!(:display_condition) do
+              create(
+                :display_condition,
+                condition_type: "answered",
+                question: questions[2],
+                condition_question: questions[0]
+              )
+            end
+
+            let(:form_params) do
+              {
+                "questions" => {
+                  "3" => {
+                    "id" => questions[2].id,
+                    "body" => questions[2].body,
+                    "position" => 2,
+                    "question_type" => "short_answer",
+                    "deleted" => "false",
+                    "display_conditions" => {
+                      "1" => {
+                        "id" => display_condition.id,
+                        "decidim_condition_question_id" => questions[0].id,
+                        "decidim_question_id" => questions[2].id,
+                        "condition_type" => "answered"
+                      }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "keeps the display condition owned by the same question" do
+              expect { command.call }.to broadcast(:ok)
+
+              expect(questions[2].reload.display_conditions.count).to eq(1)
+              expect(display_condition.reload.decidim_question_id).to eq(questions[2].id)
+              expect(display_condition.decidim_condition_question_id).to eq(questions[0].id)
+            end
+          end
         end
       end
     end
