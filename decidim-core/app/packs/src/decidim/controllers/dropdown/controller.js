@@ -47,6 +47,10 @@ export default class extends Controller {
       this.element.id = `dropdown-${Math.random().toString(36).substring(7)}`
     }
 
+    if (!this.element.hasAttribute("aria-expanded")) {
+      this.element.setAttribute("aria-expanded", "false");
+    }
+
     const autofocus = this.element.dataset.autofocus;
     if (autofocus) {
       // set the focus to some inner element, use setTimeout hack due to waiting for element to display

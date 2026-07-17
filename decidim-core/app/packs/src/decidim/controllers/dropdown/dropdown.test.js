@@ -142,6 +142,25 @@ describe("DropdownController", () => {
     });
   });
 
+  describe("aria-expanded initialization", () => {
+    it("sets aria-expanded to false when missing", () => {
+      const testController = createController(element);
+
+      testController.connect();
+
+      expect(element.getAttribute("aria-expanded")).toBe("false");
+    });
+
+    it("does not override existing aria-expanded attribute", () => {
+      element.setAttribute("aria-expanded", "true");
+      const testController = createController(element);
+
+      testController.connect();
+
+      expect(element.getAttribute("aria-expanded")).toBe("true");
+    });
+  });
+
   describe("data-add-aria-roles option", () => {
     it("keeps role menu when data-add-aria-roles is true", () => {
       element.setAttribute("data-add-aria-roles", "true");
