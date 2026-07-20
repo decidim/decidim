@@ -80,17 +80,26 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(record.longitude).to eq(data[:longitude])
       expect(record.published_at).to be >= (moment)
     end
+
+    it "sets the organization as author (official proposal)" do
+      record = subject.produce
+
+      expect(record.authors).to contain_exactly(organization)
+      expect(record.official?).to be true
+    end
   end
 
   describe "#finish!" do
     it "saves the proposal" do
       record = subject.produce
       subject.finish!
+
       expect(record.new_record?).to be(false)
     end
 
     it "creates admin log" do
       record = subject.produce
+
       expect { subject.finish! }.to change(Decidim::ActionLog, :count).by(1)
       expect(Decidim::ActionLog.last.user).to eq(user)
       expect(Decidim::ActionLog.last.resource).to eq(record)
