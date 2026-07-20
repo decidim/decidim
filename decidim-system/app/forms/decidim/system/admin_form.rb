@@ -32,9 +32,8 @@ module Decidim
       def admin_exists?
         id.present?
       end
-
       def password_present?
-        password.present?
+        password.present? || password_confirmation.present?
       end
     end
   end
