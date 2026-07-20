@@ -19,6 +19,14 @@ describe "Pages component" do # rubocop:disable RSpec/DescribeClass
     it "copies the page" do
       expect { subject }.to change { Decidim::Pages::Page.where(body: original_page.body).count }.by(1)
     end
+
+    context "when the page has attachments" do
+      let!(:document) { create(:attachment, :with_pdf, attached_to: original_page) }
+
+      it "copies the page with attachments" do
+        expect { subject }.to change(Decidim::Attachment, :count).by(1)
+      end
+    end
   end
 
   context "with assembly" do

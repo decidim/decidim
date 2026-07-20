@@ -29,7 +29,7 @@ module Decidim
     def user_and_moderation_same_organization
       return if !moderation || !user
 
-      errors.add(:moderation, :invalid) unless user.organization == moderation.organization
+      errors.add(:moderation, :invalid) unless user.decidim_organization_id == moderation.organization.id
     end
   end
 end

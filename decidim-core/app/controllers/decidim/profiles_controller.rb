@@ -14,6 +14,7 @@ module Decidim
 
     before_action :ensure_profile_holder
     before_action :ensure_profile_holder_is_a_user, only: :following
+    before_action :ensure_profile_published
     before_action :ensure_user_not_blocked
 
     def show
@@ -45,6 +46,12 @@ module Decidim
     end
 
     private
+
+    def ensure_profile_published
+      return if profile_holder&.profile_published?
+
+      raise ActionController::RoutingError, "Not Found"
+    end
 
     def ensure_user_not_blocked
       raise ActionController::RoutingError, "Blocked User" if profile_holder&.blocked? && !current_user&.admin?

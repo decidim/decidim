@@ -7,9 +7,6 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
 
-// REDESIGN_PENDING: deprecated
-import "foundation-sites";
-
 // external deps that require initialization
 import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
@@ -26,7 +23,6 @@ import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pen
 // local deps with no initialization
 import "src/decidim/refactor/moved/history"
 import "src/decidim/append_redirect_url_to_modals"
-import "src/decidim/form_attachments"
 import "src/decidim/form_remote"
 import "src/decidim/refactor/moved/delayed"
 import "src/decidim/security/selfxss_warning"
@@ -89,6 +85,18 @@ const deprecationMessage = (element, oldSyntax, newSyntax) => {
 
 window.deprecate = deprecate;
 window.deprecationMessage = deprecationMessage;
+
+// eslint-disable-next-line no-unused-vars
+window.initFoundation = (element) => {
+  let message = "[Decidim] initFoundation method has previously used to initialize foundation-sites based tools. The Foundation CSS based interface has been removed in 0.28. Since then we worked to remove related JavaScript, which has been completed. Calling this method, will have no effect on your application."
+
+  console.warn(message)
+
+  if (typeof window.Decidim.dev !== "undefined" && window.Decidim.dev === true) {
+    // eslint-disable-next-line no-alert
+    alert(message)
+  }
+};
 
 document.addEventListener("turbo:load", () => {
   document.querySelectorAll("[data-tabs]").forEach((elem) =>
@@ -162,33 +170,6 @@ document.addEventListener("turbo:load", () => {
     deprecationMessage(container, "[data-toggler]", "Use the Stimulus toggle controller with hidden targets"));
 })
 
-// REDESIGN_PENDING: deprecated
-window.initFoundation = (element) => {
-  $(element).foundation();
-
-  // Fix compatibility issue with the `a11y-accordion-component` package that
-  // uses the `data-open` attribute to indicate the open state for the accordion
-  // trigger.
-  //
-  // In Foundation, these listeners are initiated on the document node always,
-  // regardless of the element for which foundation is initiated. Therefore, we
-  // need the document node here instead of the `element` passed to this
-  // function.
-  const $document = $(document);
-
-  $document.off("click.zf.trigger", window.Foundation.Triggers.Listeners.Basic.openListener);
-  $document.on("click.zf.trigger", "[data-open]", (ev, ...restArgs) => {
-    // Do not apply for the accordion triggers.
-    const accordion = ev.currentTarget?.closest("[data-controller='accordion']");
-    if (accordion) {
-      return;
-    }
-
-    // Otherwise call the original implementation
-    Reflect.apply(window.Foundation.Triggers.Listeners.Basic.openListener, ev.currentTarget, [ev, ...restArgs]);
-  });
-};
-
 // Confirm initialization needs to happen before Rails.start()
 initializeConfirm();
 Rails.start()
@@ -203,9 +184,6 @@ Rails.start()
 const initializer = (element = document) => {
   // focus guard must be initialized only once
   window.focusGuard = window.focusGuard || new FocusGuard(document.body);
-
-  // REDESIGN_PENDING: deprecated
-  window.initFoundation(element);
 
   svg4everybody();
 

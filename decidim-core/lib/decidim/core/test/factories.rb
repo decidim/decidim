@@ -269,6 +269,7 @@ FactoryBot.define do
 
     trait :ephemeral do
       managed
+      confirmed
       extended_data { { ephemeral: true } }
     end
 
@@ -1004,7 +1005,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     resource { build(:dummy_resource, skip_injection:) }
-    author { resource.try(:creator_author) || resource.try(:author) || build(:user, organization: resource.organization, skip_injection:) }
+    author { resource.try(:creator_author) || resource.try(:author) || build(:user, :confirmed, organization: resource.organization, skip_injection:) }
   end
 
   factory :share_token, class: "Decidim::ShareToken" do

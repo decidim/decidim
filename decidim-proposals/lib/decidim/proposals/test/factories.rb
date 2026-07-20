@@ -436,7 +436,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     proposal { build(:proposal, skip_injection:) }
-    author { build(:user, organization: proposal.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: proposal.organization, skip_injection:) }
   end
 
   factory :proposal_amendment, class: "Decidim::Amendment" do
@@ -461,7 +461,7 @@ FactoryBot.define do
       end
     end
     proposal { build(:proposal, skip_injection:) }
-    author { build(:user, organization: proposal.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: proposal.organization, skip_injection:) }
   end
 
   factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do

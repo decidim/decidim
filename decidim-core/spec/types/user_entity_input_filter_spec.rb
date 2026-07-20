@@ -9,6 +9,7 @@ module Decidim
       include_context "with a graphql class type"
       let(:type_class) { Decidim::Api::QueryType }
 
+      let!(:current_user) { nil }
       let(:user) { create(:user, :confirmed, organization: current_organization) }
       let(:another_user) { create(:user, :confirmed, organization: current_organization) }
       let!(:models) { [user, another_user] }
@@ -27,6 +28,16 @@ module Decidim
 
           it "does not returns the blocked user" do
             users = response["users"]
+            expect(users).to include("id" => another_user.id.to_s, "__typename" => "User")
+          end
+        end
+
+        context "when user is unconfirmed" do
+          let(:user) { create(:user, organization: current_organization) }
+
+          it "does not return the unconfirmed user" do
+            users = response["users"]
+            expect(users).not_to include("id" => user.id.to_s, "__typename" => "User")
             expect(users).to include("id" => another_user.id.to_s, "__typename" => "User")
           end
         end

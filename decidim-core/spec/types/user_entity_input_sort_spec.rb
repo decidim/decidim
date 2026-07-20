@@ -9,7 +9,7 @@ module Decidim
       include_context "with a graphql class type"
       let(:type_class) { Decidim::Api::QueryType }
 
-      let(:current_user) { create(:user, organization: current_organization) }
+      let(:current_user) { nil }
       let(:user) { create(:user, :confirmed, organization: current_organization) }
       let(:other_user) { create(:user, :confirmed, organization: current_organization) }
       let!(:models) { [user, other_user] }
