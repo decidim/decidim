@@ -48,7 +48,7 @@ export default class extends Controller {
     }
 
     if (!this.element.hasAttribute("aria-expanded")) {
-      this.element.setAttribute("aria-expanded", "false");
+      this.element.setAttribute("aria-expanded", dropdownOptions.isOpen ? "true" : "false");
     }
 
     const autofocus = this.element.dataset.autofocus;

@@ -143,12 +143,21 @@ describe("DropdownController", () => {
   });
 
   describe("aria-expanded initialization", () => {
-    it("sets aria-expanded to false when missing", () => {
+    it("sets aria-expanded to false when missing and isOpen is false", () => {
       const testController = createController(element);
 
       testController.connect();
 
       expect(element.getAttribute("aria-expanded")).toBe("false");
+    });
+
+    it("sets aria-expanded to true when missing and data-open is true", () => {
+      element.setAttribute("data-open", "true");
+      const testController = createController(element);
+
+      testController.connect();
+
+      expect(element.getAttribute("aria-expanded")).toBe("true");
     });
 
     it("does not override existing aria-expanded attribute", () => {
