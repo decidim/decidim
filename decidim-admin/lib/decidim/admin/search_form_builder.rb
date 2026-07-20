@@ -2,9 +2,9 @@
 
 module Decidim
   module Admin
-    # This custom FormBuilder extends the Admin::FormBuilder with the needed
+    # This custom FormBuilder extends the Admin::FormBuilder with the necessary
     # functionality for the Ransack search forms. Adapts functionality from
-    # Ransack::Helpers::FormBuilder to the FoundationRailsHelper::FormBuilder
+    # Ransack::Helpers::FormBuilder to the LegacyFormBuilder
     # that we use as the form builder in the admin views.
     class SearchFormBuilder < Decidim::Admin::FormBuilder
       private
@@ -29,7 +29,7 @@ module Decidim
       # Passes the `:i18n` options for the default_label_text method from the
       # options passed for the custom_label method.
       #
-      # @see FoundationRailsHelper::FormBuilder#custom_label
+      # @see Decidim::FormBuilder#custom_label
       def custom_label(attribute, text, options)
         text = default_label_text(object, attribute, options.delete(:i18n) || {}) if text.nil? || text == true
         super
