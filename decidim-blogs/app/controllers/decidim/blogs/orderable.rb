@@ -16,7 +16,6 @@ module Decidim
         # i18n-tasks-use t('decidim.blogs.posts.orders.most_commented')
         # i18n-tasks-use t('decidim.blogs.posts.orders.random')
         # i18n-tasks-use t('decidim.blogs.posts.orders.recent')
-
         def available_orders
           @available_orders ||= possible_orders
         end
