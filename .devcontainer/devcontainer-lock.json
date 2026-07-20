@@ -1,0 +1,34 @@
+{
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "version": "1.10.0",
+      "resolved": "ghcr.io/devcontainers/features/docker-outside-of-docker@sha256:c2c2cf829505ead8e4892c88c31b6594ae94a2bbb209e16e1fac456c1a3a624e",
+      "integrity": "sha256:c2c2cf829505ead8e4892c88c31b6594ae94a2bbb209e16e1fac456c1a3a624e"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "1.1.0",
+      "resolved": "ghcr.io/devcontainers/features/github-cli@sha256:d22f50b70ed75339b4eed1ba9ecde3a1791f90e88d37936517e3bace0bbad671",
+      "integrity": "sha256:d22f50b70ed75339b4eed1ba9ecde3a1791f90e88d37936517e3bace0bbad671"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "1.7.1",
+      "resolved": "ghcr.io/devcontainers/features/node@sha256:8c0de46939b61958041700ee89e3493f3b2e4131a06dc46b4d9423427d06e5f6",
+      "integrity": "sha256:8c0de46939b61958041700ee89e3493f3b2e4131a06dc46b4d9423427d06e5f6"
+    },
+    "ghcr.io/rails/devcontainer/features/activestorage": {
+      "version": "1.1.1",
+      "resolved": "ghcr.io/rails/devcontainer/features/activestorage@sha256:7fa8fff898ac33076ebf65631d3c6c902dc9bad87de3e5dfa645f3e2d7a35c07",
+      "integrity": "sha256:7fa8fff898ac33076ebf65631d3c6c902dc9bad87de3e5dfa645f3e2d7a35c07"
+    },
+    "ghcr.io/rails/devcontainer/features/bundler-cache:1.0.1": {
+      "version": "1.0.1",
+      "resolved": "ghcr.io/rails/devcontainer/features/bundler-cache@sha256:a86f0bcae6473bdc4df43bf68fc57c2ce42e88790d32fed2e1c10aee1d11581b",
+      "integrity": "sha256:a86f0bcae6473bdc4df43bf68fc57c2ce42e88790d32fed2e1c10aee1d11581b"
+    },
+    "ghcr.io/rails/devcontainer/features/postgres-client": {
+      "version": "1.2.0",
+      "resolved": "ghcr.io/rails/devcontainer/features/postgres-client@sha256:7e6b118646d6e0d82a9ec06e81ad1b5406f7042f0279d35fff3a7a612be7a050",
+      "integrity": "sha256:7e6b118646d6e0d82a9ec06e81ad1b5406f7042f0279d35fff3a7a612be7a050"
+    }
+  }
+}
