@@ -10,12 +10,23 @@ module Decidim
       filename = organization.open_data_file_path(resource)
       path = Rails.root.join("tmp/#{filename}")
 
+      Rails.logger.info "[OpenDataJob] Starting export for organization=#{organization.id} resource=#{resource.inspect}"
+
       exporter = OpenDataExporter.new(organization, path, resource)
-      raise "Could not generate Open Data export" unless exporter.export.positive?
+      exported_bytes = exporter.export
+
+      Rails.logger.info "[OpenDataJob] Exported #{exported_bytes} bytes for organization=#{organization.id} resource=#{resource.inspect}"
+
+      # Purge any existing attachment with the same filename before attaching the
+      # new one, so the controller never serves a stale file and blobs don't accumulate.
+      organization.open_data_files.select { |f| f.blob.filename.to_s == filename }.each(&:purge)
 
       File.open(path, "rb") do |file|
         organization.open_data_files.attach(io: file, filename:)
       end
+    rescue StandardError => e
+      Rails.logger.error "[OpenDataJob] Export failed for organization=#{organization&.id} resource=#{resource.inspect}: #{e.message}"
+      raise
     ensure
       FileUtils.rm_f(path)
     end
