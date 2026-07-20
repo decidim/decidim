@@ -3,7 +3,7 @@
 shared_examples "participatory space members" do
   let(:blocks_manifests) { [] }
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, organization: participatory_space.organization) }
+  let(:user) { create(:user, :confirmed, organization: participatory_space.organization) }
   let(:unpublished_user) { create(:user, organization: participatory_space.organization) }
 
   before do
@@ -109,7 +109,7 @@ shared_examples "participatory space members" do
       it "lists all the members" do
         within ".layout-main__section" do
           expect(page).to have_css(".profile__user", count: 1)
-          expect(page).to have_no_text(Decidim::ParticipatorySpace::MemberPresenter.new(unpublished_member).name)
+          expect(page).to have_no_text(decidim_sanitize(unpublished_member.name))
         end
 
         click_on(member.name)

@@ -10,9 +10,9 @@ describe "Admin manages proposals evaluators" do
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
-  let!(:evaluator) { create(:user, organization:) }
+  let!(:evaluator) { create(:user, :confirmed, organization:) }
   let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user: evaluator, participatory_process:) }
-  let!(:other_evaluator) { create(:user, organization:) }
+  let!(:other_evaluator) { create(:user, :confirmed, organization:) }
   let!(:other_evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user: other_evaluator, participatory_process:) }
 
   include Decidim::ComponentPathHelper
