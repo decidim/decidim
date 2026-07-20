@@ -359,16 +359,6 @@ ca:
           email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
           notification_title: '%{author} ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.'
           notification_title_official: S'ha afegit la proposta oficial <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.
-        proposals_answers_imported:
-          email_intro: S'ha donat resposta a propostes de l'espai "%{participatory_space_title}".
-          email_link: "Pots llegir les respostes des d'aquesta pàgina: <a href='%{participatory_space_url}'>enllaç</a>."
-          email_outro: Has rebut aquesta notificació perquè estas seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Noves respostes a propostes de %{participatory_space_title}
-        proposals_imported:
-          email_intro: S'han afegit noves propostes a l'espai "%{participatory_space_title}".
-          email_link: Pots veure les noves propostes seguint <a href="%{participatory_space_url}">aquest enllaç</a>.
-          email_outro: Has rebut aquesta notificació perquè estas seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Noves propostes afegides a %{participatory_space_title}
         proposal_state_changed:
           affected_user:
             email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
