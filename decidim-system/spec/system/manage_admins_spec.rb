@@ -87,7 +87,7 @@ describe "Manage admins" do
       end
     end
 
-    context "when password and password confirmation missmatch" do
+    context "when password and password confirmation mismatch" do
       it "gives an error" do
         within "tr", text: admin.email do
           click_on "Edit"
@@ -100,7 +100,7 @@ describe "Manage admins" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_callout("Password confirmation must match the password")
+        expect(page).to have_css(".form-error.is-visible", text: "does not match Password")
       end
     end
   end
