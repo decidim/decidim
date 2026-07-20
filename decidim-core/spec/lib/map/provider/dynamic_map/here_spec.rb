@@ -32,7 +32,9 @@ module Decidim
                 marker_color: "#e02d2d",
                 tile_layer: {
                   api_key: "key1234", foo: "bar", language: "en"
-                }
+                },
+                zoom_in_text: "Zoom in",
+                zoom_out_text: "Zoom out"
               )
             end
 
@@ -51,7 +53,9 @@ module Decidim
                   marker_color: "#e02d2d",
                   tile_layer: {
                     api_key: "key1234", foo: "bar", language: "ca"
-                  }
+                  },
+                  zoom_in_text: "Zoom in",
+                  zoom_out_text: "Zoom out"
                 )
               end
 
@@ -61,7 +65,9 @@ module Decidim
                   marker_color: "#e02d2d",
                   tile_layer: {
                     api_key: "key1234", foo: "bar", language: "es"
-                  }
+                  },
+                  zoom_in_text: "Zoom in",
+                  zoom_out_text: "Zoom out"
                 )
               end
             end
@@ -70,7 +76,9 @@ module Decidim
               let(:config) do
                 {
                   api_key: "appid123secret456",
-                  tile_layer: { foo: "bar" }
+                  tile_layer: { foo: "bar" },
+                  zoom_in_text: "Zoom in",
+                  zoom_out_text: "Zoom out"
                 }
               end
 
@@ -82,7 +90,9 @@ module Decidim
                     api_key: "appid123secret456",
                     foo: "bar",
                     language: "en"
-                  }
+                  },
+                  zoom_in_text: "Zoom in",
+                  zoom_out_text: "Zoom out"
                 )
               end
             end
