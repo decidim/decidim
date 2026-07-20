@@ -1,7 +1,9 @@
+/* global jest */
+
 import FocusGuard from "src/decidim/refactor/moved/focus_guard"
 
 describe("FocusGuard", () => {
-  let focusGuard;
+  let focusGuard = null;
 
   beforeEach(() => {
     document.body.innerHTML = "";
