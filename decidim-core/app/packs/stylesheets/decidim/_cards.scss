@@ -55,7 +55,7 @@
     }
 
     &-content {
-      @apply flex flex-col gap-2.5 min-w-0 break-all;
+      @apply flex flex-col gap-2.5 min-w-0 break-words;
     }
 
     &-title {
