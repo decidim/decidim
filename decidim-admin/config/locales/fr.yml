@@ -1236,6 +1236,8 @@ fr:
           confirm_destroy: 'Êtes-vous sûr de vouloir supprimer le filtre %{name}? NOTE : Les ressources qui utilisent ce filtre ne seront pas affectées, mais elles perdront la référence à ce filtre.'
           destroy: Supprimer
           edit: Modifier
+          internal_name: Identifiant interne
+          name: Identifiant
         update:
           error: Il y a eu un problème lors de la mise à jour de ce filtre de taxonomie.
           success: Filtre de taxonomie mis à jour avec succès.
@@ -1347,6 +1349,7 @@ fr:
             unreport:
               failed: 'Un problème a été rencontré lors du dé-signalement de certaines ressources %{errored}'
               invalid: Aucune modération sélectionnée.
+              success: Signalement des ressources annulé succès.
           hide:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.
