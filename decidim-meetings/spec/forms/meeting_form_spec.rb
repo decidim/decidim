@@ -146,7 +146,7 @@ module Decidim::Meetings
       end
 
       context "when description contains a user mention" do
-        let(:mentioned_user) { create(:user, organization:) }
+        let(:mentioned_user) { create(:user, :confirmed, organization:) }
         let(:meeting) do
           create(:meeting, component: current_component,
                            description: { en: "Hello #{mentioned_user.to_global_id}" })

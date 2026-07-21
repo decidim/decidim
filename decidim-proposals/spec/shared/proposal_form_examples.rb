@@ -206,7 +206,7 @@ shared_examples "a proposal form" do |options|
     let(:body_text) { subject.body.is_a?(Hash) ? subject.body.values.first : subject.body }
 
     context "when body contains a user mention" do
-      let(:mentioned_user) { create(:user, organization:) }
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
       let(:proposal) do
         create(:proposal, component:, body: { en: "Hello #{mentioned_user.to_global_id}" }, taxonomies: [taxonomy])
       end
