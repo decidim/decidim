@@ -98,6 +98,11 @@ fr:
           back: Retour aux articles
           button: Créer
           title: Créer un nouvel article
+        orders:
+          label: Trier les articles par
+          most_commented: Les plus commentés
+          random: Ordre aléatoire
+          recent: Les plus récents
     components:
       blogs:
         actions:
