@@ -1546,6 +1546,10 @@ eu:
         never_logged_in: inoiz ez konektatua
         subject: Kontu inaktiboaren abisua
     participatory_space:
+      labels:
+        reference: Espazioaren erreferentzia
+        restricted: Espazio mugatua
+        transparent: Espazio gardena
       pages:
         user_profile:
           member_of:
