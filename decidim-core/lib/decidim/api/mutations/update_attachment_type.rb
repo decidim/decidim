@@ -12,27 +12,18 @@ module Decidim
       def resolve(attributes:, id:)
         return GraphQL::ExecutionError.new(I18n.t("decidim.admin.attachments.update.error")) unless attachment(id)
 
-        form_params = params_from_attributes(attributes)
-        form = Admin::AttachmentForm.from_params(form_params).with_context(
-          current_component: context[:current_component],
-          current_organization: context[:current_organization],
-          current_user: context[:current_user],
-          attached_to: object
-        )
+        params = extract_from(attributes)
+        form = form(Admin::AttachmentForm).from_params(params, attached_to: object)
 
-        status = nil
         Decidim::Admin::UpdateAttachment.call(attachment, form) do
           on(:ok) do
-            status = :ok
+            return attachment.reload
+          end
+
+          on(:invalid) do
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
         end
-        return attachment.reload if status == :ok
-
-        raise Decidim::Api::Errors::AttributeValidationError, form.errors if form.errors.any?
-
-        GraphQL::ExecutionError.new(
-          I18n.t("decidim.admin.attachments.update.error")
-        )
       end
 
       def authorized?(attributes:, id:)
@@ -52,9 +43,13 @@ module Decidim
         end
       end
 
-      def params_from_attributes(attributes)
+      def extract_from(attributes)
+        validate_multiple_locales(attributes, :title)
+        validate_multiple_locales(attributes, :description)
+
         file_attribute = attributes.file&.blob&.signed_id ||
                          attachment.file&.blob&.signed_id
+
         attachment_attribute = attributes.collection&.id_value || attachment.attachment_collection&.id
         {
           title: attachment.title,

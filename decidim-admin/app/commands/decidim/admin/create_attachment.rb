@@ -30,14 +30,16 @@ module Decidim
           Decidim.traceability.perform_action!(:create, Decidim::Attachment, current_user) do
             @attachment.save!
             notify_followers
-            broadcast(:ok)
             @attachment
           end
+          broadcast(:ok, @attachment)
         else
           @form.errors.add :file, @attachment.errors[:file] if @attachment.errors.has_key? :file
           broadcast(:invalid)
         end
       end
+
+      attr_reader :attachment
 
       private
 

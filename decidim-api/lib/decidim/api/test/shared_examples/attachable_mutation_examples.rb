@@ -200,6 +200,37 @@ shared_examples_for "creatable attachment" do |supports_collection:|
       expect { response }.to raise_error(StandardError)
     end
   end
+
+  context "when having invalid locale" do
+    let(:title) { { "en" => "Some text in english", "tlh" => "Foo bar" } }
+
+    it "raises an error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::InvalidLocaleError, /Invalid locale provided/)
+    end
+  end
+
+  context "when having invalid value for wight" do
+    let(:weight) { "foo bar" }
+
+    it "raises an error" do
+      expect { response }.to raise_error(GraphQL::ExecutionError, /Could not coerce value "foo bar" to Int/)
+    end
+  end
+
+  context "when file is missing" do
+    let(:attributes) do
+      {
+        weight:,
+        title:,
+        file: nil
+      }
+    end
+
+    it "raises an error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+    end
+  end
+
   include_examples "create attachment with collection support" if supports_collection
 end
 
@@ -253,6 +284,22 @@ shared_examples_for "updatable attachment" do |supports_collection:|
       response
       attachment.reload
       expect(attachment.description).to eq(original_description)
+    end
+  end
+
+  context "when having invalid locale" do
+    let(:title) { { "en" => "Some text in english", "tlh" => "Foo bar" } }
+
+    it "raises an error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::InvalidLocaleError, /Invalid locale provided/)
+    end
+  end
+
+  context "when having invalid value for wight" do
+    let(:weight) { "foo bar" }
+
+    it "raises an error" do
+      expect { response }.to raise_error(GraphQL::ExecutionError, /Could not coerce value "foo bar" to Int/)
     end
   end
 

@@ -6,43 +6,46 @@ module Decidim
       description "Creates an attachment"
       type Decidim::Core::AttachmentType
 
-      argument :attributes, AttachmentAttributes, description: "input attributes to create an attachment", required: true
+      argument :attributes, AttachmentAttributes, description: "Input attributes to create an attachment", required: true
 
       def resolve(attributes:)
-        form_attrs = attributes.to_h.merge(
-          file: attributes.file.blob.signed_id,
-          attachment_collection_id: attributes.collection&.id_value
-        )
-        form = Admin::AttachmentForm.from_params(form_attrs)
-                                    .with_context(
-                                      current_component: context[:current_component],
-                                      current_organization: context[:current_organization],
-                                      current_user: context[:current_user],
-                                      attached_to: object
-                                    )
+        params = extract_from(attributes)
+        form = form(Admin::AttachmentForm).from_params(params, attached_to: object)
 
-        attachment = nil
         Admin::CreateAttachment.call(form, object) do
-          on(:ok) do
-            attachment = @attachment
+          on(:ok, attachment) do
+            return attachment
+          end
+
+          on(:invalid) do
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
         end
-        return attachment if attachment.present?
-
-        raise Decidim::Api::Errors::AttributeValidationError, form.errors if form.errors.any?
-
-        GraphQL::ExecutionError.new(
-          I18n.t("decidim.admin.attachments.create.error")
-        )
       end
 
       def authorized?(attributes:)
         context[:scope] = :admin
 
         context[:attached_to] = object
+
         raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:create, :attachment, nil, context)
 
         true
+      end
+
+      def extract_from(attributes)
+        validate_multiple_locales(attributes, :title)
+        validate_multiple_locales(attributes, :description)
+
+        attributes = attributes.to_h.merge(
+          file: attributes.file&.blob&.signed_id,
+          attachment_collection_id: attributes.collection&.id_value
+        )
+
+        attributes[:title] = attributes.to_h.fetch(:title, {})
+        attributes[:description] = attributes.to_h.fetch(:description, {})
+
+        attributes
       end
     end
   end
