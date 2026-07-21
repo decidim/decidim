@@ -38,21 +38,19 @@ module Decidim
         let(:query) { '{ title { locales translation(locale:"en") } }' }
 
         it "returns its title" do
-          expected_keys = (model.description.keys.excluding("machine_translations") + model.description["machine_translations"].keys).sort
+          expected_keys = (model.title.keys.excluding("machine_translations") + model.title["machine_translations"].keys).sort
           expect(response["title"]["locales"]).to include(*expected_keys)
           expect(response["title"]["translation"]).to eq(model.title["en"])
         end
       end
 
       describe "description" do
-        context "when description is not nil" do
-          let(:query) { '{ description { locales translation(locale:"en") } }' }
+        let(:query) { '{ description { locales translation(locale:"en") } }' }
 
-          it "returns its description" do
-            expected_keys = (model.description.keys.excluding("machine_translations") + model.description["machine_translations"].keys).sort
-            expect(response["description"]["locales"]).to include(*expected_keys)
-            expect(response["description"]["translation"]).to eq(model.description["en"])
-          end
+        it "returns its description" do
+          expected_keys = (model.description.keys.excluding("machine_translations") + model.description["machine_translations"].keys).sort
+          expect(response["description"]["locales"]).to include(*expected_keys)
+          expect(response["description"]["translation"]).to eq(model.description["en"])
         end
 
         context "when description is nil" do
@@ -61,19 +59,17 @@ module Decidim
           end
           let(:query) { "{ description { translation(locale:\"en\") } }" }
 
-          it "returns null" do
+          it "returns nil" do
             expect(response["description"]).to be_nil
           end
         end
       end
 
       describe "startDate" do
-        context "when startDate is not nil" do
-          let(:query) { "{ startDate }" }
+        let(:query) { "{ startDate }" }
 
-          it "returns the step's start date" do
-            expect(response["startDate"]).to eq(model.start_date.to_time.iso8601)
-          end
+        it "returns the step's start date" do
+          expect(response["startDate"]).to eq(model.start_date.to_time.iso8601)
         end
 
         context "when start_date is nil" do
@@ -89,12 +85,10 @@ module Decidim
       end
 
       describe "endDate" do
-        context "when endDate is not nil" do
-          let(:query) { "{ endDate }" }
+        let(:query) { "{ endDate }" }
 
-          it "returns the step's end date" do
-            expect(response["endDate"]).to eq(model.end_date.to_time.iso8601)
-          end
+        it "returns the step's end date" do
+          expect(response["endDate"]).to eq(model.end_date.to_time.iso8601)
         end
 
         context "when end_date is nil" do
@@ -110,33 +104,29 @@ module Decidim
       end
 
       describe "position" do
-        context "when position is not nil" do
-          let(:query) { "{ position }" }
+        let(:query) { "{ position }" }
 
-          it "returns its position" do
-            expect(response["position"]).to eq(model.position)
-          end
+        it "returns its position" do
+          expect(response["position"]).to eq(model.position)
         end
 
-        context "when position is nil" do
+        context "when position is left blank" do
           let(:model) do
             create(:participatory_process_step, participatory_process: process, position: nil)
           end
           let(:query) { "{ position }" }
 
-          it "returns zero" do
+          it "is auto-assigned to zero" do
             expect(response["position"]).to eq(0)
           end
         end
       end
 
       describe "active" do
-        context "when active is not nil" do
-          let(:query) { "{ active }" }
+        let(:query) { "{ active }" }
 
-          it "returns its active" do
-            expect(response["active"]).to eq(model.active)
-          end
+        it "returns its active" do
+          expect(response["active"]).to eq(model.active)
         end
 
         context "when active is false" do
