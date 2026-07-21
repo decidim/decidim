@@ -24,9 +24,13 @@ module Decidim
         # Debates can be translated in different languages from the admin but
         # the public form does not allow it. When a user creates a debate the
         # user locale is taken as the text locale.
+        presenter = DebatePresenter.new(debate)
         self.title = debate.title.values.first
-        self.description = render_content(debate.description.values.first,
-                                          editor: debate.component.organization.rich_text_editor_in_public_views?)
+        self.description = if debate.component.organization.rich_text_editor_in_public_views?
+                             presenter.editor_locales(debate.description, false)
+                           else
+                             presenter.plain_locales(debate.description, false)
+                           end
         self.attachments = debate.attachments
       end
 
@@ -44,19 +48,6 @@ module Decidim
         return unless debate.respond_to?(:editable_by?)
 
         errors.add(:debate, :invalid) unless debate.editable_by?(current_user)
-      end
-
-      def render_content(content, editor: false)
-        content = Decidim::ContentRenderers::BlobRenderer.new(content).render
-        if editor
-          content = Decidim::ContentRenderers::UserRenderer.new(content).render(editor: true)
-          content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(editor: true)
-        else
-          content = Decidim::ContentRenderers::UserRenderer.new(content).render(plain: true)
-          content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(plain: true)
-        end
-
-        ActionController::Base.helpers.sanitize(content)
       end
     end
   end
