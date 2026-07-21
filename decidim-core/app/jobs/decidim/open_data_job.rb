@@ -25,8 +25,8 @@ organization.open_data_files.select { |f| f.blob.filename.to_s == filename }.sor
     rescue StandardError => e
       Rails.logger.error "[OpenDataJob] Export failed for organization=#{organization&.id} resource=#{resource.inspect}: #{e.message}"
       raise
-    ensure
-      FileUtils.rm_f(path)
-    end
+ensure
+  FileUtils.rm_f(path) if path.present?
+end
   end
 end
