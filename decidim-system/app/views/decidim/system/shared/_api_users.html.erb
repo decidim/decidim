@@ -22,15 +22,14 @@
         </td>
         <td>
           <% if fresh_token?(api_user) %>
-            <div data-controller="password-toggler" class="flex flex-row items-center gap-x-2">
-              <div class="input-group__password">
-                <input type="password" id="<%= "token_#{api_user.id}" %>" value="<%= @secret_user[:secret] %>" class="w-full" autocomplete="off">
-              </div>
-              <div class="basis-1/4"
-                data-show-password="<%= t "api_user.show_secret", scope: "decidim.system.actions" %>"
-                data-hide-password="<%= t "api_user.hide_secret", scope: "decidim.system.actions" %>"
-                data-hidden-password="<%= t "api_user.hidden_secret", scope: "decidim.system.actions" %>"
-                data-shown-password="<%= t "api_user.shown_secret", scope: "decidim.system.actions" %>">
+            <div data-controller="password-toggler"
+                 class="flex flex-row items-center gap-x-2"
+                 data-show-password="<%= t "api_user.show_secret", scope: "decidim.system.actions" %>"
+                 data-hide-password="<%= t "api_user.hide_secret", scope: "decidim.system.actions" %>"
+                 data-hidden-password="<%= t "api_user.hidden_secret", scope: "decidim.system.actions" %>"
+                 data-shown-password="<%= t "api_user.shown_secret", scope: "decidim.system.actions" %>">
+              <input type="password" id="<%= "token_#{api_user.id}" %>" value="<%= @secret_user[:secret] %>" class="w-full" autocomplete="off">
+              <div class="basis-1/4">
                 <button type="button"
                       class="button button__sm button__text-primary"
                       data-controller="clipboard-copy"

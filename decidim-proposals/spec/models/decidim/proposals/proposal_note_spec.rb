@@ -10,7 +10,7 @@ module Decidim
       let!(:organization) { create(:organization) }
       let!(:component) { create(:component, organization:, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization:) }
-      let!(:author) { create(:user, :admin, organization:) }
+      let!(:author) { create(:user, :confirmed, :admin, organization:) }
       let!(:proposal) { create(:proposal, component:, users: [author]) }
       let!(:proposal_note) { build(:proposal_note, proposal:, author:) }
 

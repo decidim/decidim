@@ -26,6 +26,7 @@ import TooltipController from "src/decidim/controllers/tooltip/controller"
 import UserRegistrationFormController from "src/decidim/controllers/user_registration_form/controller";
 import TabsController from "src/decidim/controllers/tabs/controller";
 import SelectiveDisplay from "src/decidim/controllers/selective_display/controller";
+import AutofocusController from "src/decidim/controllers/autofocus/controller";
 
 import { definitionsFromContext } from "src/decidim/refactor/support/stimulus"
 
@@ -57,6 +58,7 @@ application.register("tooltip", TooltipController)
 application.register("user-registration-form", UserRegistrationFormController);
 application.register("tabs", TabsController);
 application.register("selective-display", SelectiveDisplay);
+application.register("autofocus", AutofocusController);
 
 application.debug = true
 

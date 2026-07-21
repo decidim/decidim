@@ -32,7 +32,6 @@
 @layer base {
   @include meta.load-css("stylesheets/decidim/fonts");
   @include meta.load-css("stylesheets/decidim/typography");
-  // Keep this in separate file as long as we are maintaining Foundation compatibility
   @include meta.load-css("stylesheets/decidim/rich_text");
 }
 

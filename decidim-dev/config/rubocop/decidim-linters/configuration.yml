@@ -1,8 +1,15 @@
 require:
   - decidim/dev/rubocop/cop/decidim/message_antipattern
+  - decidim/dev/rubocop/cop/decidim/rspec/memoized_name
 
 Decidim/MessageAntipattern:
   Enabled: true
   Include:
     - "**/spec/**/*"
     - "**/test/**/*"
+
+Decidim/RSpec/MemoizedName:
+  Enabled: true
+  Include:
+    - "**/spec/system/**/*"
+    - "**/spec/shared/**/*"

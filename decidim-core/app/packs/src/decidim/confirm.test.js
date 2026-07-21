@@ -150,7 +150,7 @@ describe("Confirm dialog for button[type='button']", () => {
       expect(submitHandlerCalls.length).toBeGreaterThan(0);
     });
 
-    it("adds turbo:load event listener for Foundation Abide compatibility", async () => {
+    it("adds turbo:load event listener", async () => {
       const { initializeConfirm } = await import("src/decidim/confirm.js");
 
       const addEventListenerSpy = jest.spyOn(document, "addEventListener");

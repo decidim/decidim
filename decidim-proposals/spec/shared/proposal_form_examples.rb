@@ -21,7 +21,7 @@ shared_examples "a proposal form" do |options|
     end
   end
   let(:body_template) { nil }
-  let(:author) { create(:user, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:address) { nil }

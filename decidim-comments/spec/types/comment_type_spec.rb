@@ -108,6 +108,14 @@ module Decidim
           it "returns the user" do
             expect(response).to include("author" => { "name" => author.name })
           end
+
+          context "and the account is unconfirmed" do
+            let(:author) { create(:user, organization: commentable.organization) }
+
+            it "returns a blank user" do
+              expect(response).to include("author" => { "name" => "" })
+            end
+          end
         end
       end
 
