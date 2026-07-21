@@ -1548,6 +1548,10 @@ fi:
         never_logged_in: et ole koskaan kirjautunut palveluun
         subject: Varoitus passiivisesta käyttäjätilistä
     participatory_space:
+      labels:
+        reference: Tilan viite
+        restricted: Rajoitettu tila
+        transparent: Läpinäkyvä tila
       pages:
         user_profile:
           member_of:
