@@ -90,6 +90,23 @@ describe "Manage admins" do
         expect(page).to have_css(".form-error.is-visible", text: "is too common")
       end
     end
+
+    context "when password and password confirmation mismatch" do
+      it "gives an error" do
+        within "tr", text: admin.email do
+          click_on "Edit"
+        end
+
+        within ".edit_admin" do
+          fill_in :admin_password, with: "decidim123456789"
+          fill_in :admin_password_confirmation, with: "123456789decidim"
+
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_css(".form-error.is-visible", text: "does not match Password")
+      end
+    end
   end
 
   it "deletes an admin" do
