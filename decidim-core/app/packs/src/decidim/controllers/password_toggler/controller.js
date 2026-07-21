@@ -55,6 +55,18 @@ export default class extends Controller {
       hide: icon("eye-off-line")
     }
 
+    const existingWrapper = this.input.closest(".input-group__password");
+    if (existingWrapper) {
+      const existingButton = existingWrapper.querySelector('button[type="button"]');
+      const existingStatusText = existingWrapper.querySelector('span.sr-only[aria-live="polite"]');
+      if (existingButton && existingStatusText) {
+        this.button = existingButton;
+        this.statusText = existingStatusText;
+        this.bindListeners();
+        return;
+      }
+    }
+
     this.init();
   }
 
@@ -81,8 +93,17 @@ export default class extends Controller {
    */
   init() {
     this.createControls();
+    this.bindListeners();
+  }
 
-    // Bind methods to maintain correct context
+  bindListeners() {
+    if (this.button && this.boundToggleVisibility) {
+      this.button.removeEventListener("click", this.boundToggleVisibility);
+    }
+    if (this.form && this.boundHidePassword) {
+      this.form.removeEventListener("submit", this.boundHidePassword);
+    }
+
     this.boundToggleVisibility = this.toggleVisibility.bind(this);
     this.boundHidePassword = this.hidePassword.bind(this);
 

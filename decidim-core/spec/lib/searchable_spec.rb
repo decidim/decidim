@@ -30,8 +30,8 @@ module Decidim
           author: organization2
         )
       end
-      let!(:user1) { create(:user, id: COMMON_ID, organization: organization1) }
-      let!(:user2) { create(:user, id: COMMON_ID + 1, organization: organization2) }
+      let!(:user1) { create(:user, :confirmed, id: COMMON_ID, organization: organization1) }
+      let!(:user2) { create(:user, :confirmed, id: COMMON_ID + 1, organization: organization2) }
 
       it "each searchable should link to its own searchable_resources" do
         org = user1.organization

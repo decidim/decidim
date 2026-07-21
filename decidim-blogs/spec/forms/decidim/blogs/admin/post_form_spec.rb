@@ -14,8 +14,8 @@ module Decidim
         end
 
         let(:current_organization) { create(:organization) }
-        let(:current_user) { create(:user, organization: current_organization) }
-        let(:another_user) { create(:user, organization: current_organization) }
+        let(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        let(:another_user) { create(:user, :confirmed, organization: current_organization) }
         let(:decidim_author_id) { "" }
         let(:component) { create(:post_component, organization: current_organization) }
         let(:post) { create(:post, component:, author:, published_at:) }
