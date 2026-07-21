@@ -383,6 +383,12 @@ fr:
           new: Créer une nouvelle pétition
           select: Créer une pétition
           verification_required: Vérifiez votre compte pour créer une pétition
+        send_to_technical_validation_button:
+          button: Envoyer pour validation technique
+          confirm: Vous êtes sur le point d'envoyer cette pétition à un administrateur afin qu'il l'examine et la publie. Une fois publiée, vous ne pourrez plus la modifier. Êtes-vous sûr de vouloir continuer ?
+        share_committee_link:
+          invite_to_committee_help: Lien d'invitation pour les personnes qui feront partie du comité de promotion.
+          more_information: Plus d'informations
       edit:
         accept: Accepter la pétition
         back: Retour
@@ -490,6 +496,8 @@ fr:
           random: Aléatoire
           recent: Les plus récentes
           recently_published: Plus récemment publié
+        pending_initiatives:
+          title: Versions préliminaires et propositions en attente
         print:
           address: Adresse
           author_title: Auteur de la pétition
@@ -562,6 +570,7 @@ fr:
       show:
         badge_name:
           accepted: Assez de signatures
+          created: Rédigé
           discarded: Retirée
           open: Ouverte
           rejected: Pas assez de signatures
@@ -575,9 +584,23 @@ fr:
         expired: Expirées
       unavailable_scope: Portée indisponible
       update:
+        error: Un problème est survenu lors de la mise à jour de la pétition.
         success: La pétition a été mise à jour avec succès.
     menu:
       initiatives: Pétitions
+    open_data:
+      help:
+        initiatives:
+          answer: La suite donnée à cette pétition (le cas échéant)
+          authors: Les auteurs de cette pétition
+          comments_count: Le nombre de commentaires suscités par cette pétition
+          description: La description de cette pétition
+          first_progress_notification_at: La date à laquelle la première notification de progrès a été envoyée
+          offline_votes: Le nombre de signatures récoltées par cette pétition en dehors de la plateforme
+          online_votes: Le nombre de signatures récoltées en ligne par cette pétition (directement via la plateforme)
+          scope: La portée de cette pétition
+          second_progress_notification_at: La date à laquelle la deuxième notification de progrès a été envoyée
+          signature_end_date: La date à laquelle la période de collecte des signatures prend fin
     resources:
       initiative:
         actions:
