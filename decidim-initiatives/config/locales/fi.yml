@@ -237,7 +237,7 @@ fi:
             order:
               default: Oletus (vanhin ensin)
               label: 'Järjestä elementit:'
-              most_recent: Uusimmat
+              most_recent: Viimeisimmät
         exports:
           initiatives: Aloitteet
         index:
