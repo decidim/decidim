@@ -3,8 +3,8 @@
   "description": "Note: this is not a package, just the dependencies for the project in the dev environment.",
   "private": true,
   "engines": {
-    "node": ">=22.14.0",
-    "npm": ">=9.6.7"
+    "node": ">=24.18.0",
+    "npm": ">=11.16.0"
   },
   "files": [
     "packages/**/*"
