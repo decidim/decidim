@@ -1,5 +1,3 @@
-/* global jest */
-
 export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => {
   let suggestion = null;
   let suggestionItems = null;
@@ -61,7 +59,9 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       const isValidRange = currentRange.from >= 0 && currentRange.to <= docSize && currentRange.from <= currentRange.to;
 
       if (isValidRange) {
-        const nodeType = currentEditor.schema.nodes[items[idx].__typename === "User" ? "mention" : "mentionResource"];
+        const nodeType = currentEditor.schema.nodes[items[idx].__typename === "User"
+          ? "mention"
+          : "mentionResource"];
         currentEditor.chain().focus().setTextSelection(currentRange).insertContent({
           type: nodeType.name,
           attrs: item
