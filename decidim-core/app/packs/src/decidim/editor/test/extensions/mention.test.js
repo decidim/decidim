@@ -1,6 +1,6 @@
 /* global jest, global */
 
-import { createBasicEditor, updateContent } from "src/decidim/editor/test/helpers";
+import { createBasicEditor, updateContent, sleep } from "src/decidim/editor/test/helpers";
 
 import Mention from "src/decidim/editor/extensions/mention";
 
@@ -135,5 +135,22 @@ describe("Mention", () => {
     expect(normalizeHTML(editor.getHTML())).toEqual(
       '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
+  });
+
+  it("allows selecting a mention when content changes after triggering", async () => {
+    editorElement.focus();
+    await updateContent(editorElement, "@joh", editor);
+
+    const suggestions = document.querySelector(".editor-suggestions");
+    expect(suggestions).toBeInstanceOf(HTMLDivElement);
+
+    editor.commands.setContent("<p>Some new content @joh</p>");
+    await sleep(50);
+
+    expect(() => {
+      suggestions.querySelector(".editor-suggestions-item").click();
+    }).not.toThrow();
+
+    expect(normalizeHTML(editor.getHTML())).toContain('data-type="mention"');
   });
 });
