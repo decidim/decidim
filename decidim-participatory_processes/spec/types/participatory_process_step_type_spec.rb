@@ -180,7 +180,7 @@ module Decidim
           end
           let(:query) { '{ title { translation(locale:"ca") } }' }
 
-          it "returns nil for missing locale" do
+          it "returns nil" do
             expect(response["title"]["translation"]).to be_nil
           end
         end
