@@ -81,7 +81,7 @@ module Decidim
         end
 
         def id
-          data[:id].to_i
+          normalize_id(data[:id])
         end
 
         def state
@@ -107,6 +107,22 @@ module Decidim
         def notify
           state = initial_state || resource.try(:state)
           ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, state)
+        end
+
+        def normalize_id(raw_id)
+          values = case raw_id
+                   when nil
+                     []
+                   when String
+                     raw_id.split(",")
+                   when Array
+                     raw_id.flatten
+                   else
+                     [raw_id]
+                   end
+
+          value = values.find { |item| item.present? }
+          value.respond_to?(:to_i) ? value.to_i : nil
         end
       end
     end

@@ -71,6 +71,26 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
         expect(record).to be_nil
       end
     end
+
+    context "when import data comes from flattened JSON" do
+      it "finds the proposal when ID is an array" do
+        data[:id] = [proposal.id]
+
+        record = subject.produce
+
+        expect(record).to be_a(Decidim::Proposals::Proposal)
+        expect(record.id).to eq(proposal.id)
+      end
+
+      it "finds the proposal when ID is a string" do
+        data[:id] = proposal.id.to_s
+
+        record = subject.produce
+
+        expect(record).to be_a(Decidim::Proposals::Proposal)
+        expect(record.id).to eq(proposal.id)
+      end
+    end
   end
 
   describe "#finish!" do

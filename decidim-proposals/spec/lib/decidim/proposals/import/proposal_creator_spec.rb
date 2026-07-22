@@ -86,6 +86,48 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(record.longitude).to eq(data[:longitude])
       expect(record.published_at).to be >= (moment)
     end
+
+    context "when import data comes from flattened JSON" do
+      let(:data) do
+        {
+          "id" => "101",
+          :"taxonomies/ids" => [taxonomy1.id, taxonomy2.id],
+          :"scope/id" => [scope.id],
+          :"title/en" => Faker::Lorem.sentence,
+          :"body/en" => Faker::Lorem.paragraph(sentence_count: 3),
+          :address => nil,
+          :latitude => nil,
+          :longitude => nil
+        }
+      end
+
+      it "parses taxonomy IDs from array values" do
+        record = subject.produce
+
+        expect(record.taxonomies).to contain_exactly(taxonomy1, taxonomy2)
+      end
+
+      it "parses scope ID from array values" do
+        record = subject.produce
+
+        expect(record.scope).to eq(scope)
+      end
+
+      it "parses taxonomy IDs from CSV strings" do
+        data[:"taxonomies/ids"] = "#{taxonomy1.id},#{taxonomy2.id}"
+
+        record = subject.produce
+
+        expect(record.taxonomies).to contain_exactly(taxonomy1, taxonomy2)
+      end
+
+      it "does not fail when scope is missing" do
+        data.delete(:"scope/id")
+        record = subject.produce
+
+        expect(record.scope).to be_nil
+      end
+    end
   end
 
   describe "#finish!" do
