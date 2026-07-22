@@ -78,7 +78,7 @@ module Decidim
           end
           let(:query) { "{ startDate }" }
 
-          it "returns null" do
+          it "returns nil" do
             expect(response["startDate"]).to be_nil
           end
         end
