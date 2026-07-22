@@ -47,7 +47,7 @@ Example of submitted variables
   "resultId": "5",
   "input": {
     "attributes": {
-      "weight": "1",
+      "weight": 1,
       "title": {
         "en": "Your english title"
       },
@@ -55,7 +55,7 @@ Example of submitted variables
         "en": "Your english description"
       },
       "file": {
-        "blobId": "32524"
+        "blobId": 32524
       }
     }
   }

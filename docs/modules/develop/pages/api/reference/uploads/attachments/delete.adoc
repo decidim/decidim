@@ -2,7 +2,7 @@
 
 == Sample request
 
-The `deteteAttachment` mutation allows authenticated administrators to delete any attachments.
+The `deleteAttachment` mutation allows authenticated administrators to delete any attachments.
 
 [source,graphql]
 ----

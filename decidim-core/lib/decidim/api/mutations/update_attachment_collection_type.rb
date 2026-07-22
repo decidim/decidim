@@ -3,10 +3,10 @@
 module Decidim
   module Core
     class UpdateAttachmentCollectionType < Decidim::Api::Types::BaseMutation
-      description "Creates an attachment collection"
+      description "Updates an attachment collection"
       type Decidim::Core::AttachmentCollectionType
 
-      argument :attributes, AttachmentCollectionAttributes, description: "input attributes to create an attachment collection", required: true
+      argument :attributes, AttachmentCollectionAttributes, description: "Input attributes to update an attachment collection", required: true
       argument :id, GraphQL::Types::ID, "The ID of the attachment collection", required: true
 
       def resolve(attributes:, id:)

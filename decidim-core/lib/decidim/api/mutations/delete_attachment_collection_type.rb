@@ -5,7 +5,7 @@ module Decidim
     class DeleteAttachmentCollectionType < Api::DestroyResourceType
       description "deletes an attachment collection"
 
-      type Decidim::Core::AttachmentType
+      type Decidim::Core::AttachmentCollectionType
 
       def authorized?(id:)
         attachment_collection = find_resource(id)

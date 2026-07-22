@@ -1,4 +1,4 @@
-# frozen_string_literal:  true
+# frozen_string_literal: true
 
 RSpec.shared_examples "attachable mutations" do |supports_collection:|
   let!(:attached_to) { model }

@@ -18,7 +18,7 @@ The `UpdateAttachmentCollection` mutation allows authenticated administrators to
 
 [source,graphql]
 ----
-mutation updateAttachmentMutation($componentId: ID!, $resultId: ID!, $input: UpdateAttachmentInput!) {
+mutation updateAttachmentMutation($componentId: ID!, $resultId: ID!, $input: UpdateAttachmentCollectionInput!) {
   component(id: $componentId) {
     ... on AccountabilityMutation {
       result(id: $resultId) {

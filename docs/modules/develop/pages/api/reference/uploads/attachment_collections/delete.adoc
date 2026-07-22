@@ -2,7 +2,7 @@
 
 == Sample request
 
-The `deteteAttachment` mutation allows authenticated administrators to delete any attachment collections.
+The `deleteAttachmentCollection` mutation allows authenticated administrators to delete any attachment collections.
 
 [source,graphql]
 ----
@@ -10,7 +10,7 @@ mutation deleteAttachmentCollection($componentId: ID!, $resultId: ID!, $attachme
   component(id: $componentId){
     ... on AccountabilityMutation {
       result(id: $resultId){
-        deleteAttachmentCollection(id: $attachmentId){
+        deleteAttachmentCollection(id: $attachmentCollectionId){
           id
         }
       }
