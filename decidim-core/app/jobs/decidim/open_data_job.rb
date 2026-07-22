@@ -5,6 +5,7 @@ module Decidim
     queue_as :exports
 
     def perform(organization, resource = nil)
+      path = nil
       organization = Organization.with_attached_open_data_files.find(organization&.id)
 
       filename = organization.open_data_file_path(resource)
@@ -15,7 +16,7 @@ module Decidim
       exporter = OpenDataExporter.new(organization, path, resource)
       exported_bytes = exporter.export
 
-      Rails.logger.info "[OpenDataJob] Exported #{exported_bytes} bytes for organization=#{organization.id} resource=#{resource.inspect}"
+      raise "Export produced no data (0 bytes) for resource=#{resource.inspect}" unless exported_bytes.is_a?(Integer) && exported_bytes.positive?
 
       File.open(path, "rb") do |file|
         organization.open_data_files.attach(io: file, filename:)
