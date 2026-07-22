@@ -17,16 +17,16 @@ module Decidim
 
       Rails.logger.info "[OpenDataJob] Exported #{exported_bytes} bytes for organization=#{organization.id} resource=#{resource.inspect}"
 
-File.open(path, "rb") do |file|
-  organization.open_data_files.attach(io: file, filename:)
-end
+      File.open(path, "rb") do |file|
+        organization.open_data_files.attach(io: file, filename:)
+      end
 
-organization.open_data_files.select { |f| f.blob.filename.to_s == filename }.sort_by(&:created_at)[0...-1].each(&:purge)
+      organization.open_data_files.select { |f| f.blob.filename.to_s == filename }.sort_by(&:created_at)[0...-1].each(&:purge)
     rescue StandardError => e
       Rails.logger.error "[OpenDataJob] Export failed for organization=#{organization&.id} resource=#{resource.inspect}: #{e.message}"
       raise
-ensure
-  FileUtils.rm_f(path) if path.present?
-end
+    ensure
+      FileUtils.rm_f(path) if path.present?
+    end
   end
 end
