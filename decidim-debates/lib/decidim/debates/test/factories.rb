@@ -41,7 +41,7 @@ FactoryBot.define do
       start_time { nil }
       end_time { nil }
       author do
-        build(:user, organization: component.organization, skip_injection:) if component
+        build(:user, :confirmed, organization: component.organization, skip_injection:) if component
       end
     end
 

@@ -22,17 +22,7 @@ describe("PasswordToggler", () => {
     container = document.createElement("div");
     container.innerHTML = `
       <div data-controller="password-toggler" class="flex flex-row items-center gap-x-2" data-show-password="Show secret" data-hide-password="Hide Secret" data-hidden-password="Secret is hidden" data-shown-password="Secret is shown">
-        <div class="input-group__password">
-          <div class="input-group__password">
-            <button type="button" aria-controls="token_162" aria-label="Show password">
-              <svg width="0.75em" height="0.75em" role="img" aria-hidden="true">
-                <title>eye-line</title>
-                <use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-eye-line"></use>
-              </svg>
-            </button>
-            <input type="password" id="token_162" value="AXXXXXXXX" class="w-full" autocomplete="off">
-          </div>
-        </div>
+        <input type="password" id="token_162" value="AXXXXXXXX" class="w-full" autocomplete="off">
         <div class="basis-1/4">
           <button type="button" class="button button__sm button__text-primary" data-clipboard-copy="#token_162">
             <span>Copy secret</span>
@@ -204,22 +194,23 @@ describe("PasswordToggler", () => {
     });
   });
 
-  describe("integration with existing markup", () => {
-    it("works with existing button structure", () => {
-      const existingButton = passwordElement.querySelector('button[aria-controls="token_162"]');
-      expect(existingButton).toBeTruthy();
+  describe("idempotency", () => {
+    it("does not duplicate controls on reconnect", () => {
+      controller.disconnect();
+      controller.connect();
 
-      controller.init();
+      const wrappers = passwordElement.querySelectorAll(".input-group__password");
+      const buttons = passwordElement.querySelectorAll('button[aria-controls="token_162"]');
 
-      // Should work alongside existing button
-      expect(controller.button).toBeDefined();
-      expect(controller.input.getAttribute("type")).toBe("password");
+      expect(wrappers.length).toBe(1);
+      expect(buttons.length).toBe(1);
     });
+  });
 
+  describe("integration with existing markup", () => {
     it("handles password input with existing value", () => {
       expect(controller.input.value).toBe("AXXXXXXXX");
 
-      controller.init();
       controller.showPassword();
 
       expect(controller.input.getAttribute("type")).toBe("text");

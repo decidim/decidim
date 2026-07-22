@@ -79,6 +79,9 @@ module Decidim
         image_url = image_element["src"]
         next if image_url.blank?
 
+        blob = find_blob_by_id(image_url.split("/").last)
+        return blob if blob.present?
+
         blob = find_blob_by_key(image_url.split("/").second_to_last)
         return blob if blob.present?
       end
@@ -118,6 +121,10 @@ module Decidim
 
     def find_blob_by_key(blob_key)
       ActiveStorage::Blob.find_signed(blob_key) if blob_key.present?
+    end
+
+    def find_blob_by_id(blob_id)
+      ActiveStorage::Blob.find_by(id: blob_id) if blob_id.present?
     end
 
     def blob_from_attached_file(file)
