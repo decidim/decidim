@@ -8,7 +8,7 @@ module Decidim
 
       argument :id, GraphQL::Types::ID, "Maps the collection using its ID", required: false
       argument :key, GraphQL::Types::String, "Maps the collection using its key", required: false
-      argument :slug, GraphQL::Types::String, "DEPRECATED: Use 'key' instead", required: false
+      argument :slug, GraphQL::Types::String, "DEPRECATED: Use 'key' instead", required: false, deprecation_reason: "Use `key` instead"
 
       def prepare
         id = arguments[:id]
@@ -30,6 +30,8 @@ module Decidim
 
         parent = context[:current_object].object
         raise GraphQL::ExecutionError, "Outside of record context." unless parent
+
+        raise GraphQL::ExecutionError, "Attachment collections are not supported for this resource." unless parent.respond_to?(:attachment_collections)
 
         collection = parent.attachment_collections.find_by(key: key.strip)
         raise GraphQL::ExecutionError, "Key not found within the record's collections." unless collection
