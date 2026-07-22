@@ -6,6 +6,9 @@ module Decidim
     # to a participatory space.
     class CreateAttachmentCollection < Decidim::Command
       delegate :current_user, to: :form
+
+      attr_reader :attachment_collection
+
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -25,7 +28,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         create_attachment_collection
-        broadcast(:ok)
+        broadcast(:ok, attachment_collection)
       end
 
       private

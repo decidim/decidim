@@ -98,6 +98,10 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 **** xref:develop:api/reference/uploads/attachments/create.adoc[Create Attachments]
 **** xref:develop:api/reference/uploads/attachments/update.adoc[Update Attachments]
 **** xref:develop:api/reference/uploads/attachments/delete.adoc[Delete Attachments]
+*** xref:develop:api/reference/uploads/attachments.adoc[Attachment Collections]
+**** xref:develop:api/reference/uploads/attachment_collections/create.adoc[Create Attachment Collections]
+**** xref:develop:api/reference/uploads/attachment_collections/update.adoc[Update Attachment Collections]
+**** xref:develop:api/reference/uploads/attachment_collections/delete.adoc[Delete Attachment Collections]
 
 == Usage limits
 

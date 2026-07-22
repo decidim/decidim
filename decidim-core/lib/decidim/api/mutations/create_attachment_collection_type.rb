@@ -9,27 +9,19 @@ module Decidim
       argument :attributes, AttachmentCollectionAttributes, description: "input attributes to create an attachment collection", required: true
 
       def resolve(attributes:)
-        key = attributes.key || attributes.slug
-        form = Admin::AttachmentCollectionForm.from_params(attributes.to_h.merge(key:))
-                                              .with_context(
-                                                current_component: context[:current_component],
-                                                current_organization: context[:current_organization],
-                                                current_user: context[:current_user],
-                                                collection_for: object
-                                              )
-        attachment_collection = nil
+        params = extract_from(attributes)
+
+        form = form(Admin::AttachmentCollectionForm).from_params(params, collection_for: object)
+
         Decidim::Admin::CreateAttachmentCollection.call(form, object) do
-          on(:ok) do
-            attachment_collection = @attachment_collection
+          on(:ok, attachment_collection) do
+            return attachment_collection
+          end
+
+          on(:invalid) do
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
         end
-        return attachment_collection if attachment_collection.present?
-
-        raise Decidim::Api::Errors::AttributeValidationError, form.errors if form.errors.any?
-
-        GraphQL::ExecutionError.new(
-          I18n.t("decidim.admin.attachment_collections.create.error")
-        )
       end
 
       def authorized?(attributes:)
@@ -38,6 +30,20 @@ module Decidim
         end
 
         true
+      end
+
+      def extract_from(attributes)
+        validate_multiple_locales(attributes, :name)
+        validate_multiple_locales(attributes, :description)
+
+        key = attributes.key || attributes.slug
+
+        attributes = attributes.to_h.merge(key:)
+
+        attributes[:name] = attributes.to_h.fetch(:name, {})
+        attributes[:description] = attributes.to_h.fetch(:description, {})
+
+        attributes
       end
     end
   end

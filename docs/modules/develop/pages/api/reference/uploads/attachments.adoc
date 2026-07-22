@@ -5,3 +5,9 @@
 * xref:develop:api/reference/uploads/attachments/create.adoc[Create Attachments]
 * xref:develop:api/reference/uploads/attachments/update.adoc[Update Attachments]
 * xref:develop:api/reference/uploads/attachments/delete.adoc[Delete Attachments]
+
+== Attachment Collections
+
+* xref:develop:api/reference/uploads/attachment_collections/create.adoc[Create Collections]
+* xref:develop:api/reference/uploads/attachment_collections/update.adoc[Update Collections]
+* xref:develop:api/reference/uploads/attachment_collections/delete.adoc[Delete Collections]

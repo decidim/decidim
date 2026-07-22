@@ -5,6 +5,9 @@ module Decidim
     # A command with all the business logic when updating an attachment collection.
     class UpdateAttachmentCollection < Decidim::Command
       delegate :current_user, to: :form
+
+      attr_reader :attachment_collection
+
       # Public: Initializes the command.
       #
       # attachment_collection - The AttachmentCollection to update
@@ -24,7 +27,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         update_attachment_collection
-        broadcast(:ok)
+        broadcast(:ok, attachment_collection)
       end
 
       private

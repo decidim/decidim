@@ -15,7 +15,7 @@ When you want to update a Decidim attachment's details, you need to rely on the 
 
 == Sample request
 
-The `UpdateAttachment` mutation allows authenticated administrators to update attachments within certain resources. This mutation uses the existing `UpdateAttachment` command from the admin controller. In the below example, we are updating an attachment into a `Result` type.
+The `UpdateAttachment` mutation allows authenticated administrators to update attachments within certain resources. This mutation uses the existing `UpdateAttachment` command from the admin controller. In the below example, we are updating an attachment bound to a `Result` type.
 
 [source,graphql]
 ----
@@ -24,12 +24,13 @@ mutation updateAttachmentMutation($componentId: ID!, $resultId: ID!, $input: Upd
     ... on AccountabilityMutation {
       result(id: $resultId) {
         updateAttachment(input: $input) {
-        id
-        title {
-          translation(locale: "en")
-        }
-        description {
-          translation(locale: "en")
+          id
+          title {
+            translation(locale: "en")
+          }
+          description {
+            translation(locale: "en")
+          }
         }
       }
     }
@@ -49,10 +50,10 @@ Example of submitted variables
     "attributes": {
       "weight": "1",
       "title": {
-        "en": "your english name"
+        "en": "Your english name"
       },
       "description": {
-        "en": "Your ennglish description"
+        "en": "Your english description"
       },
       "file": {
         "blobId": "32524"

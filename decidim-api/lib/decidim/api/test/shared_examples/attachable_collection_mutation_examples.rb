@@ -239,6 +239,30 @@ shared_examples_for "creatable attachment collection" do
       expect(ac.key).to be_nil
     end
   end
+
+  context "when name is missing" do
+    let(:name) { { "en" => "" } }
+
+    it "raises an error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+    end
+  end
+
+  context "when description is missing" do
+    let(:description) { { "en" => "" } }
+
+    it "raises an error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+    end
+  end
+
+  context "when having invalid locale" do
+    let(:name) { { "en" => "Some text in english", "tlh" => "Foo bar" } }
+
+    it "raises an error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::InvalidLocaleError, /Invalid locale provided/)
+    end
+  end
 end
 
 shared_examples_for "updatable attachment collection" do
@@ -339,6 +363,30 @@ shared_examples_for "updatable attachment collection" do
       collection.reload
       expect(collection.key).not_to be_empty
       expect(collection.key).to eq(original_key)
+    end
+  end
+
+  context "when name is missing" do
+    let(:name) { { "en" => "" } }
+
+    it "raises an error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+    end
+  end
+
+  context "when description is missing" do
+    let(:description) { { "en" => "" } }
+
+    it "raises an error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
+    end
+  end
+
+  context "when having invalid locale" do
+    let(:name) { { "en" => "Some text in english", "tlh" => "Foo bar" } }
+
+    it "raises an error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::InvalidLocaleError, /Invalid locale provided/)
     end
   end
 end

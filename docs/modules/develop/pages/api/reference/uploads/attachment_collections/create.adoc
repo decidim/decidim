@@ -1,36 +1,37 @@
-= Create Attachments
+= Create Attachment Collections
 
 ==  Input attributes
 
-When you want to create a Decidim attachment, you need to rely on the `AttachmentAttributes` type, which has the following input fields.
+When you want to create a Decidim attachment collection, you need to rely on the `AttachmentCollectionAttributes` type, which has the following input fields.
 
 [source]
 ----
-• collection            (optional) - Integer
 • description           (optional) - JSON
-• file                  (Required) - JSON - FileInputObject format
-• title                 (Required) - JSON
+• key                   (optional) - String
+• name                  (Required) - JSON
 • weight                (Optional) - Integer
 ----
 
 == Sample request
 
-The `CreateAttachment` mutation allows authenticated administrators to create new attachments within certain resources. This mutation uses the existing `CreateAttachment` command from the admin controller. In the below  example, we are creating an attachment bound to a `Result` type.
+The `CreateAttachmentCollection` mutation allows authenticated administrators to create new attachment collections within certain resources. This mutation uses the existing `CreateAttachmentCollection` command from the admin controller. In the below  example, we are creating an attachment bound to a `Result` type.
 
 [source,graphql]
 ----
-mutation createAttachmentMutation($componentId: ID!, $resultId: ID!, $input: CreateAttachmentInput!) {
+mutation createAttachmentCollectionMutation($componentId: ID!, $resultId: ID!, $input: CreateAttachmentCollectionInput!) {
   component(id: $componentId) {
     ... on AccountabilityMutation {
       result(id: $resultId) {
-        createAttachment(input: $input) {
+        createAttachmentCollection(input: $input) {
           id
-          title {
-             translation(locale: "en")
+          name {
+            translation(locale: "en")
           }
           description {
             translation(locale: "en")
           }
+          weight
+          key
         }
       }
     }
@@ -48,14 +49,11 @@ Example of submitted variables
   "input": {
     "attributes": {
       "weight": "1",
-      "title": {
-        "en": "Your english title"
+      "name": {
+        "en": "Your english name"
       },
       "description": {
         "en": "Your english description"
-      },
-      "file": {
-        "blobId": "32524"
       }
     }
   }
