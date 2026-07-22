@@ -47,7 +47,7 @@ module Decidim
       # This replaces all invalid byte sequences before persisting the file to
       # the database.
       def sanitized_filename
-        @sanitized_filename || begin
+        @sanitized_filename ||= begin
           name = uploaded_file.original_filename
           name = name.scrub unless name.valid_encoding?
           name

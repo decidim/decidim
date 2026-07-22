@@ -17,7 +17,7 @@ module Decidim
         form = form(Admin::AttachmentCollectionForm).from_params(params, collection_for: object)
 
         Decidim::Admin::UpdateAttachmentCollection.call(attachment_collection, form) do
-          on(:ok) do
+          on(:ok, attachment_collection) do
             return attachment_collection.reload
           end
 

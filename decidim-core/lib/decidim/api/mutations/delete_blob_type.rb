@@ -3,7 +3,7 @@
 module Decidim
   module Core
     class DeleteBlobType < Api::DestroyResourceType
-      description "deletes a blob"
+      description "Deletes a blob"
 
       type Decidim::Core::BlobType
 
