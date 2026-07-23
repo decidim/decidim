@@ -58,7 +58,7 @@ module Decidim
         element_class: "font-semibold underline",
         active_class: "is-active",
         role: false,
-        container_options: { class: "space-y-4 break-inside-avoid" },
+        container_options: { class: "space-y-4 break-inside-avoid mb-4" },
         label: t("layouts.decidim.footer.decidim_title")
       )
     end

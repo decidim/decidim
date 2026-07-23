@@ -3,11 +3,35 @@ footer {
     @apply bg-gray-4;
 
     &__top {
-      @apply hidden lg:flex flex-row gap-8 container py-10;
+      @apply flex flex-col lg:flex-row gap-8 container py-10;
 
       .prose a,
       .prose strong {
         @apply text-white;
+      }
+
+      .footer__nav {
+        @apply border-b border-white/20 lg:border-0;
+
+        > [data-controls] {
+          @apply flex items-center justify-between w-full py-4 lg:py-0 text-left text-white font-semibold;
+
+          svg {
+            @apply w-4 h-4 fill-current transition-transform lg:hidden;
+          }
+
+          &[aria-expanded="true"] svg {
+            @apply rotate-180;
+          }
+        }
+
+        [id*="panel"][aria-hidden="true"] {
+          @apply hidden;
+        }
+
+        [id*="panel"][aria-hidden="false"] {
+          @apply block;
+        }
       }
     }
 
