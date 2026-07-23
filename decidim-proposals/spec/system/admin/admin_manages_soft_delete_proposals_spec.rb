@@ -20,7 +20,7 @@ describe "Admin manages proposal soft delete" do
     let(:author) { resource.creator_author }
     let!(:likes) do
       2.times.collect do
-        create(:like, resource:, author: build(:user, organization:))
+        create(:like, resource:, author: create(:user, :confirmed, organization:))
       end
     end
 
