@@ -114,7 +114,6 @@ sv:
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa inlägg
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
@@ -156,6 +155,7 @@ sv:
           likes_count: Antal gilla-markeringar för inlägget
           participatory_space: Vilket utrymme (deltagandeprocess eller samråd) inlägget tillhör
           published_at: Publiceringsdatum för inlägget
+          reference: Unik referens för inlägget
           title: Titeln på inlägget
           updated_at: Senaste datum när inlägget uppdaterades
           url: URL för inlägget

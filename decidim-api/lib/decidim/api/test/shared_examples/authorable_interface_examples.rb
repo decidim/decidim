@@ -28,6 +28,14 @@ shared_examples_for "authorable interface" do
       it "includes the user's name" do
         expect(response["author"]["name"]).to eq(author.name)
       end
+
+      context "when unconfirmed" do
+        let(:author) { create(:user, organization: model.participatory_space.organization) }
+
+        it "includes a blank name for the user" do
+          expect(response["author"]["name"]).to eq("")
+        end
+      end
     end
 
     describe "with an organization" do

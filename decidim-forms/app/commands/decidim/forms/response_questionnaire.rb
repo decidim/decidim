@@ -59,7 +59,7 @@ module Decidim
       # of this problem.
       def reset_form_attachments
         @form.responses.each do |response|
-          response.errors.add(:add_documents, :needs_to_be_reattached) if response.has_attachments? || response.has_error_in_attachments?
+          response.errors.add(:add_attachments, :needs_to_be_reattached) if response.has_attachments? || response.has_error_in_attachments?
         end
       end
 
@@ -116,7 +116,7 @@ module Decidim
             end
 
             create_attachments if process_attachments?
-            document_cleanup!
+            attachment_cleanup!
           end
 
           @form = @main_form

@@ -33,10 +33,6 @@ it:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Necessita di essere riallegato
-            add_photos:
-              needs_to_be_reattached: Necessita di essere riallegato
             body:
               cant_be_equal_to_template: non può essere uguale al modello
               identical: Il titolo AND non può essere identico
@@ -101,7 +97,6 @@ it:
             attachments_allowed: Consenti allegati
             collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
-            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             default_sort_order_options:
               random: Casuale
               recent: Recenti

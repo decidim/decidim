@@ -62,10 +62,8 @@ fr:
               allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
-            add_photos:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
+            add_attachments:
+              needs_to_be_reattached: Doit être ré-attachée
             body:
               cant_be_equal_to_template: ne peut pas être égal au modèle
               identical: ET le titre ne peut pas être identique
@@ -173,7 +171,7 @@ fr:
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             collaborative_drafts_enabled_help: La fonctionnalité « Brouillons collaboratifs » sera supprimée dans Decidim v0.32. Les organisations qui l’utilisent peuvent passer à la nouvelle fonctionnalité de co-auteur de proposition.
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             default_sort_order: Tri des propositions par défaut
             default_sort_order_help: Automatique signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, elles seront triées par ordre décroissant des votes.
             default_sort_order_options:
@@ -333,6 +331,8 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur(e) de la proposition.
           email_subject: La proposition %{resource_title} a été fusionnée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été fusionnée par un administrateur.
+        proposal_published:
+          email_subject: Nouvelle proposition "%{resource_title}" par %{author_name}
         proposal_published_for_space:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -663,6 +663,7 @@ fr:
         errors:
           device_not_supported: Votre appareil ne prend pas en charge les services de localisation. Veuillez entrer l'adresse manuellement.
           no_device_location: Désolé, nous n'avons pas pu détecter votre position. Veuillez entrer l'adresse manuellement.
+        locating: Localisation en cours...
         use_my_location: Utiliser ma position actuelle
       invite_coauthors:
         cancel:

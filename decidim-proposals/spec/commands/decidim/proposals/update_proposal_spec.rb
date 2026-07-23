@@ -20,7 +20,7 @@ module Decidim
       end
 
       let!(:proposal) { create(:proposal, component:, users: [author]) }
-      let(:author) { create(:user, organization:) }
+      let(:author) { create(:user, :confirmed, organization:) }
 
       let(:has_address) { false }
       let(:address) { nil }
@@ -41,8 +41,8 @@ module Decidim
             address:,
             has_address:,
             attachment: attachment_params,
-            documents: current_files,
-            add_documents: uploaded_files,
+            attachments: current_files,
+            add_attachments: uploaded_files,
             errors:
           }
         end

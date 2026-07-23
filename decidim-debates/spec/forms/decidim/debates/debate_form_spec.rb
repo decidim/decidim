@@ -25,8 +25,8 @@ describe Decidim::Debates::DebateForm do
       taxonomies:,
       title:,
       description:,
-      add_documents: uploaded_files,
-      documents: current_files
+      add_attachments: uploaded_files,
+      attachments: current_files
     }
   end
 
@@ -81,7 +81,7 @@ describe Decidim::Debates::DebateForm do
 
     it "accepts valid attachments" do
       expect(form).to be_valid
-      expect(form.add_documents.count).to eq(2)
+      expect(form.add_attachments.count).to eq(2)
     end
   end
 
@@ -103,7 +103,7 @@ describe Decidim::Debates::DebateForm do
     end
 
     it "sets the attachments" do
-      expect(subject.documents).to eq(debate.documents)
+      expect(subject.attachments).to eq(debate.attachments)
     end
   end
 end

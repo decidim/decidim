@@ -12,7 +12,7 @@ sk:
         description: Popis
         end_date: Koniec
         progress: Postup
-        start_date: Začiatok 
+        start_date: Začiatok
         subresults: Čiastkové výsledky
         title: Názov
         updated_at: Aktualizované
@@ -266,7 +266,7 @@ sk:
             created_at: Vytvorené
             end_date: Koniec
             progress: Postup
-            start_date: Začiatok 
+            start_date: Začiatok
             status: Stav
             taxonomies: Taxonómie
             title: Názov
@@ -314,7 +314,6 @@ sk:
           global:
             clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
             default_taxonomy: Predvolená taxonómia
             default_taxonomy_help: Vyberte, ktorú taxonómiu chcete predvolene zobraziť. Ak nie je vybraná žiadna taxonómia, výsledky sa zobrazia vo formáte zoznamu.
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.

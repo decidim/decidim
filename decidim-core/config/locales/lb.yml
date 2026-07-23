@@ -296,7 +296,6 @@ lb:
           global:
             amendments_enabled: Ännerungen aktivéiert
             comments_enabled: Kommentarer aktiv
-            comments_max_length: Maximal Längt vun de Kommentären
             dummy_global_attribute1: Dummy Attribut 1
             dummy_global_attribute2: Dummy Attribut 2
             dummy_global_translatable_text: Dummy Text ze iwwersetzen
@@ -586,7 +585,6 @@ lb:
           modal_title: Nei Konversatioun
           no_results: Keen Resultat
         error_modal:
-          close: Dialog zou maachen
           correct_errors: Korrigéier w. e. g. dëse Feeler a probéier op en Neits.
           intro: 'Bei denger Noriicht ass dësen Feeler opgetrueden:'
           ok: OK

@@ -22,7 +22,7 @@ module Decidim
             copy_questionnaire_matrix_rows(original_question, new_question)
           end
           # once all questions are copied, copy display conditions
-          original_questionnaire.questions.zip(new_questionnaire.questions.load).each do |original_question, new_question|
+          original_questionnaire.questions.zip(new_questionnaire.questions.includes(:questionnaire).load).each do |original_question, new_question|
             copy_question_display_conditions(original_question, new_question)
           end
         end

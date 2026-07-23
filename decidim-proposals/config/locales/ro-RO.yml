@@ -37,10 +37,6 @@ ro:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Trebuie să fie reatașate
-            add_photos:
-              needs_to_be_reattached: Trebuie să fie reatașate
             body:
               cant_be_equal_to_template: nu poate fi egal cu modelul
               identical: Nici titlul nu poate fi identic
@@ -115,7 +111,6 @@ ro:
             attachments_allowed: Permite atașamente
             collaborative_drafts_enabled: Ciornele colaborative au fost activate
             comments_enabled: Comentariile au fost activate
-            comments_max_length: Număr maxim de caractere a comentariilor (păstrează 0 pentru valoarea implicită)
             default_sort_order: Mod implicit de sortare a propunerilor
             default_sort_order_options:
               most_commented: Cele mai comentate
