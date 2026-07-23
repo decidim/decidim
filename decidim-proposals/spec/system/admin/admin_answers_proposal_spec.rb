@@ -131,7 +131,7 @@ describe "Admin answers proposals" do
             }
           }
         )
-        visit current_path
+        visit_component_admin
       end
 
       it "shows the address on the proposal show page" do
