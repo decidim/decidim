@@ -205,12 +205,14 @@ module Decidim
   def self.seed_gamification_badges!
     Gamification.badges.each do |badge|
       puts "Setting random values for the \"#{badge.name}\" badge..." # rubocop:disable Rails/Output
-      User.all.find_each do |user|
-        Gamification::BadgeScore.find_or_create_by!(
-          user:,
-          badge_name: badge.name,
-          value: Random.rand(0...20)
-        )
+      ActiveRecord::Base.transaction(requires_new: true) do
+        User.find_each do |user|
+          Gamification::BadgeScore.find_or_create_by!(
+            user:,
+            badge_name: badge.name,
+            value: Random.rand(0...20)
+          )
+        end
       end
     end
   end
@@ -221,18 +223,18 @@ module Decidim
                              .select { |resource| resource.constantize.include? Decidim::Likeable }
 
     resources_types.each do |resource_type|
+      puts "Setting random random likes for #{resource_type}" # rubocop:disable Rails/Output
       resource_type.constantize.find_each do |resource|
-        # exclude the users that already liked
-        users = resource.likes.map(&:author)
-        remaining_count = Decidim::User.count - users.count
-        next if remaining_count < 1
+        ActiveRecord::Base.transaction(requires_new: true) do
+          # exclude the users that already liked
+          users = resource.likes.map(&:author)
+          remaining_count = Decidim::User.count - users.count
+          next if remaining_count < 1
 
-        rand([50, remaining_count].min).times do
-          user = (Decidim::User.all - users).sample
-          next unless user
-
-          Decidim::Like.create!(resource:, author: user)
-          users << user
+          Decidim::User.where.not(id: users).order("RANDOM()").take([50, remaining_count].min).each do |user|
+            Decidim::Like.create!(resource:, author: user)
+            users << user
+          end
         end
       end
     end

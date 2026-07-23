@@ -172,7 +172,9 @@ module Decidim
 
     def seed_components_manifests!(participatory_space:)
       Decidim.component_manifests.each do |manifest|
-        manifest.seed!(participatory_space.reload)
+        ActiveRecord::Base.transaction do
+          manifest.seed!(participatory_space.reload)
+        end
       end
     end
 

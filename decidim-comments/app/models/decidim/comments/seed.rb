@@ -22,20 +22,27 @@ module Decidim
 
           @organization = resource.organization
 
-          rand(0..config_value(:comments_count)).times do
-            comment1 = create_comment(resource)
-            NewCommentNotificationCreator.new(comment1, []).create
+          Decidim::Comments::Comment.skip_callback(:save, :after, :update_counter)
 
-            if rand < config_value(:comments_nested_probability)
-              comment2 = create_comment(comment1, resource)
-              NewCommentNotificationCreator.new(comment2, []).create
+          ActiveRecord::Base.transaction(requires_new: true) do
+            rand(0..config_value(:comments_count)).times do
+              comment1 = create_comment(resource)
+              NewCommentNotificationCreator.new(comment1, []).create
+
+              if rand < config_value(:comments_nested_probability)
+                comment2 = create_comment(comment1, resource)
+                NewCommentNotificationCreator.new(comment2, []).create
+              end
+
+              next if rand < config_value(:comments_vote_skip_probability)
+
+              create_votes(comment1) if comment1
+              create_votes(comment2) if comment2
             end
-
-            next if rand < config_value(:comments_vote_skip_probability)
-
-            create_votes(comment1) if comment1
-            create_votes(comment2) if comment2
           end
+
+          resource.update_comments_count if resource.respond_to?(:update_comments_count)
+          Decidim::Comments::Comment.set_callback(:save, :after, :update_counter)
         end
 
         private
@@ -84,12 +91,21 @@ module Decidim
         #
         # @return nil
         def create_votes(comment)
-          rand(0..config_value(:comments_votes_count)).times do
-            author = random_user
-            next if CommentVote.where(comment:, author:).any?
+          Decidim::Comments::CommentVote.skip_callback(:create, :after, :update_comment_votes_count)
 
+          user_ids = CommentVote.where(comment:, decidim_author_type: "Decidim::UserBaseEntity").pluck(:decidim_author_id)
+
+          users = Decidim::UserBaseEntity.not_deleted.not_blocked.confirmed.where.not(id: user_ids).order("RANDOM()").take(rand(0..50))
+          users.each do |author|
             CommentVote.create!(comment:, author:, weight: [1, -1].sample)
           end
+
+          comment.update(
+            up_votes_count: comment.up_votes.count,
+            down_votes_count: comment.down_votes.count
+          )
+
+          Decidim::Comments::CommentVote.set_callback(:create, :after, :update_comment_votes_count)
 
           nil
         rescue ActiveRecord::AssociationTypeMismatch
