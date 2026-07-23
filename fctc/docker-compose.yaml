@@ -1,0 +1,47 @@
+name: "decidim"
+
+services:
+  rails-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      REDIS_URL: redis://redis:6379/1
+    depends_on:
+      - redis
+      - postgres
+
+  redis:
+    image: redis:7.2
+    restart: unless-stopped
+    volumes:
+    - redis-data:/data
+    ports:
+      - 6379:6379
+
+  postgres:
+    image: postgres:16.1
+    restart: unless-stopped
+    networks:
+      - default
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 5432:5432
+  
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+    networks:
+      - default
+
+volumes:
+  redis-data:
+  postgres-data:
+
