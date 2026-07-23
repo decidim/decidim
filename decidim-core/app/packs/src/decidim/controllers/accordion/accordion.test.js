@@ -27,8 +27,8 @@ describe("AccordionController", () => {
     window.matchMedia = jest.fn().mockImplementation((query) => ({
       matches: false,
       media: query,
-      addListener: jest.fn(),
-      removeListener: jest.fn()
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn()
     }));
 
     document.body.innerHTML = `
