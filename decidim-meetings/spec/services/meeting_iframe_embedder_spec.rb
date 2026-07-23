@@ -63,6 +63,16 @@ module Decidim
             expect(subject).not_to be_embeddable
           end
         end
+
+        context "with an allowed host containing CSP-breaking characters" do
+          let(:url) { "https://meet.jit.si/room;script-src-elem 'none';report-uri https://attacker.example/collect" }
+
+          it "is not transformed, embeddable, or CSP-safe" do
+            expect(subject.embed_transformed_url(request_host)).to be_nil
+            expect(subject).not_to be_embeddable
+            expect(subject).not_to be_csp_safe
+          end
+        end
       end
 
       describe "#embeddable?" do

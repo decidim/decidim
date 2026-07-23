@@ -101,6 +101,8 @@ module Decidim
 
       def parsed_online_meeting_uri
         @parsed_online_meeting_uri ||= URI.parse(online_meeting_service_url) if online_meeting_service_url.present?
+      rescue URI::InvalidURIError
+        nil
       end
 
       def valid_csp_url?

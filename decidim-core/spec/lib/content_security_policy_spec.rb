@@ -64,11 +64,15 @@ module Decidim
       end
 
       it "rejects values containing semicolons" do
-        expect { subject.append_csp_directive("frame-src", "https://example.org/;script-src 'none'") }.to raise_error(RuntimeError, /Invalid Content Security Policy value/)
+        expect { subject.append_csp_directive("frame-src", "https://example.org/;script-src='none'") }.to raise_error(RuntimeError, /Invalid Content Security Policy value/)
       end
 
       it "rejects values containing whitespace" do
         expect { subject.append_csp_directive("frame-src", "https://example.org 'none'") }.to raise_error(RuntimeError, /Invalid Content Security Policy value/)
+      end
+
+      it "rejects values containing both semicolons and whitespace" do
+        expect { subject.append_csp_directive("frame-src", "https://example.org/;script-src 'none'") }.to raise_error(RuntimeError, /Invalid Content Security Policy value/)
       end
 
       it "accepts values without separators" do
