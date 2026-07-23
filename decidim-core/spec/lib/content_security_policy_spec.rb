@@ -62,6 +62,18 @@ module Decidim
       it "when has invalid rule" do
         expect { subject.append_csp_directive("invalid-rule", "https://example.org") }.to raise_error(RuntimeError)
       end
+
+      it "rejects values containing semicolons" do
+        expect { subject.append_csp_directive("frame-src", "https://example.org/;script-src 'none'") }.to raise_error(RuntimeError, /Invalid Content Security Policy value/)
+      end
+
+      it "rejects values containing whitespace" do
+        expect { subject.append_csp_directive("frame-src", "https://example.org 'none'") }.to raise_error(RuntimeError, /Invalid Content Security Policy value/)
+      end
+
+      it "accepts values without separators" do
+        expect { subject.append_csp_directive("frame-src", "https://example.org/abc") }.not_to raise_error
+      end
     end
   end
 end

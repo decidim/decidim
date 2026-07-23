@@ -15,10 +15,11 @@ module Decidim
       def add_additional_csp_directives
         return unless respond_to?(:meeting) || meeting.present?
 
-        embedded = MeetingIframeEmbedder.new(meeting.online_meeting_url).embed_transformed_url(request.host)
-        return if embedded.blank?
+        embedder = MeetingIframeEmbedder.new(meeting.online_meeting_url)
+        return unless embedder.embeddable?
 
-        content_security_policy.append_csp_directive("frame-src", embedded)
+        embedded = embedder.embed_transformed_url(request.host)
+        content_security_policy.append_csp_directive("frame-src", embedded) if embedded.present?
       end
     end
   end

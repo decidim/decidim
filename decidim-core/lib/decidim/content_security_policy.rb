@@ -55,6 +55,7 @@ module Decidim
 
       message = "Invalid Content Security Policy directive: #{directive}, supported directives: #{SUPPORTED_POLICIES.join(", ")}"
       raise message unless SUPPORTED_POLICIES.include?(directive)
+      raise "Invalid Content Security Policy value: #{value.inspect}" unless valid_csp_value?(value)
 
       policy[directive] ||= []
       policy[directive] << value
@@ -78,6 +79,10 @@ module Decidim
       policy.map do |directive, values|
         [directive, values.uniq.join(" ")].join(" ")
       end.join("; ")
+    end
+
+    def valid_csp_value?(value)
+      value.to_s.match?(/\A[^;\s]+\z/)
     end
 
     def append_multiple_csp_directives(directive, values)

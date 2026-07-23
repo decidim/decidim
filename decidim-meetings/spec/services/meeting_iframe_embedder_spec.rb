@@ -54,6 +54,15 @@ module Decidim
             expect(subject.embed_transformed_url(request_host)).to eq(url)
           end
         end
+
+        context "with a URL containing CSP-breaking characters" do
+          let(:url) { "https://meet.evil.example/?a=1;script-src-elem 'none';report-uri https://attacker.example/collect" }
+
+          it "returns the URL verbatim but is not considered embeddable" do
+            expect(subject.embed_transformed_url(request_host)).to eq(url)
+            expect(subject).not_to be_embeddable
+          end
+        end
       end
 
       describe "#embeddable?" do

