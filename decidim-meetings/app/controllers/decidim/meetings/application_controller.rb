@@ -16,10 +16,12 @@ module Decidim
         return unless respond_to?(:meeting) || meeting.present?
 
         embedder = MeetingIframeEmbedder.new(meeting.online_meeting_url)
-        return unless embedder.embeddable?
+        return unless embedder.csp_safe?
 
         embedded = embedder.embed_transformed_url(request.host)
-        content_security_policy.append_csp_directive("frame-src", embedded) if embedded.present?
+        return unless MeetingIframeEmbedder.csp_safe_value?(embedded)
+
+        content_security_policy.append_csp_directive("frame-src", embedded)
       end
     end
   end

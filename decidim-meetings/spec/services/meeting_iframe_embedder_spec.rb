@@ -99,6 +99,48 @@ module Decidim
         end
       end
 
+      describe "#csp_safe?" do
+        context "with a valid youtube URL" do
+          let(:url) { "https://www.youtube.com/watch?v=aiyHi9MzW30" }
+
+          it "is safe for CSP" do
+            expect(subject).to be_csp_safe
+          end
+        end
+
+        context "with a valid Twitch URL" do
+          let(:url) { "https://www.twitch.tv/videos/920134652?collection=YQZOzRslZRZ0TQ" }
+
+          it "is safe for CSP" do
+            expect(subject).to be_csp_safe
+          end
+        end
+
+        context "with a valid Jitsi URL" do
+          let(:url) { "https://meet.jit.si/decidim-meeting" }
+
+          it "is safe for CSP" do
+            expect(subject).to be_csp_safe
+          end
+        end
+
+        context "with an allowlisted host containing CSP-breaking characters" do
+          let(:url) { "https://meet.jit.si/room;script-src-elem 'none'" }
+
+          it "is not safe for CSP" do
+            expect(subject).not_to be_csp_safe
+          end
+        end
+
+        context "with a not recognized streaming URL" do
+          let(:url) { "https://example.org/decidim-meeting" }
+
+          it "is not safe for CSP" do
+            expect(subject).not_to be_csp_safe
+          end
+        end
+      end
+
       describe "#embed_code" do
         let(:url) { "https://www.youtube.com/watch?v=aiyHi9MzW30" }
 

@@ -8,6 +8,19 @@ module Decidim
     # in the live event. For some services it is required to transform a bit
     # the structure of the URL.
     class MeetingIframeEmbedder
+      # Public: Validates that a value is safe to include in a CSP source list.
+      # It checks that the value contains no semicolons or whitespace and that
+      # it is a valid HTTP/HTTPS URL with a host.
+      def self.csp_safe_value?(value)
+        return false if value.blank?
+        return false unless value.match?(/\A[^;\s]+\z/)
+
+        uri = URI.parse(value)
+        (uri.is_a?(URI::HTTP) || uri.is_a?(URI::HTTPS)) && uri.host.present?
+      rescue URI::InvalidURIError
+        false
+      end
+
       # Public: Initializes the service.
       # online_meeting_service_url - A String containing the url of the online meeting
       def initialize(online_meeting_service_url)
@@ -31,6 +44,10 @@ module Decidim
         return nil if parsed_online_meeting_uri.nil?
 
         embeddable_services.include?(parsed_online_meeting_uri.host)
+      end
+
+      def csp_safe?
+        valid_csp_url? && embeddable?
       end
 
       def embed_code(request_host)
@@ -84,6 +101,10 @@ module Decidim
 
       def parsed_online_meeting_uri
         @parsed_online_meeting_uri ||= URI.parse(online_meeting_service_url) if online_meeting_service_url.present?
+      end
+
+      def valid_csp_url?
+        self.class.csp_safe_value?(online_meeting_service_url)
       end
     end
   end

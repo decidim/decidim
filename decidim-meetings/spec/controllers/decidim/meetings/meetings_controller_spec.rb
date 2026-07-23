@@ -132,6 +132,19 @@ describe Decidim::Meetings::MeetingsController do
             expect(csp).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://www.youtube-nocookie.com/embed/pj_2G3x6-Zk")
           end
         end
+
+        context "when online_meeting_url uses an allowlisted host with a malicious path" do
+          it "does not crash and keeps the frame-src directive clean" do
+            meeting.update!(online_meeting_url: "https://meet.jit.si/room;script-src-elem 'none'")
+
+            expect { get :show, params: { id: meeting.id } }.not_to raise_error
+            expect(response).to render_template(:show)
+
+            csp = response.headers["Content-Security-Policy"]
+            expect(csp).not_to include("script-src-elem 'none'")
+            expect(csp).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com")
+          end
+        end
       end
 
       it "can access private but transparent meetings" do
