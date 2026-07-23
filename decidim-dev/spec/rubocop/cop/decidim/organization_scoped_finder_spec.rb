@@ -1,0 +1,114 @@
+# frozen_string_literal: true
+
+require "rubocop"
+require "rubocop/rspec/support"
+require "decidim/dev/rubocop/cop/decidim/organization_scoped_finder"
+
+RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :cop do
+  it "registers an offense for unscoped Model.find" do
+    expect_offense(<<~RUBY)
+      Template.find(params.expect(:id))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for unscoped Model.find_by" do
+    expect_offense(<<~RUBY)
+      Template.find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for unscoped namespaced Model.find_by" do
+    expect_offense(<<~RUBY)
+      Decidim::Templates::Template.find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for unscoped Model.where(...).first" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").first
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for unscoped Model.where(...).take" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").take
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "accepts current_organization scoped find_by" do
+    expect_no_offenses(<<~RUBY)
+      current_organization.templates.find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts collection scoped find" do
+    expect_no_offenses(<<~RUBY)
+      collection.find(params.expect(:id))
+    RUBY
+  end
+
+  it "accepts explicit decidim_organization_id scoping in find_by" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(decidim_organization_id: current_organization.id).find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts current_organization scoped namespaced find_by" do
+    expect_no_offenses(<<~RUBY)
+      current_organization.templates.where(target: :proposal_answer).find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts where(current_organization: current_organization).first" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(current_organization: current_organization).first
+    RUBY
+  end
+
+  it "accepts where(current_component: current_component).find_by" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(current_component: current_component).find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts where(component: current_component).find" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(component: current_component).find(params.expect(:id))
+    RUBY
+  end
+
+  it "accepts Authorizations.new(organization: current_organization).query.find" do
+    expect_no_offenses(<<~RUBY)
+      Authorizations.new(organization: current_organization, name: "foo", granted: false).query.find(params.expect(:id))
+    RUBY
+  end
+
+  it "accepts current_organization scoped find" do
+    expect_no_offenses(<<~RUBY)
+      current_organization.users.find(params.expect(:id))
+    RUBY
+  end
+
+  it "accepts where(value uses current_component through nested receiver).find" do
+    expect_no_offenses(<<~RUBY)
+      Project.joins(:budget).where(budget: { component: current_component }).find(params.expect(:id))
+    RUBY
+  end
+
+  it "accepts where(value uses current_organization.participatory_spaces).find" do
+    expect_no_offenses(<<~RUBY)
+      Component.where(participatory_space: current_organization.participatory_spaces).find(params.expect(:component_id))
+    RUBY
+  end
+
+  it "accepts where(value uses current_participatory_space).find" do
+    expect_no_offenses(<<~RUBY)
+      InitiativesCommitteeMember.where(initiative: current_participatory_space).find(params.expect(:id))
+    RUBY
+  end
+end

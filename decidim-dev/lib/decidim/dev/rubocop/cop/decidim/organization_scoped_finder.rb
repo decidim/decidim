@@ -1,0 +1,156 @@
+# frozen_string_literal: true
+
+require "rubocop"
+
+module RuboCop
+  module Cop
+    module Decidim
+      # Flags unscoped ActiveRecord finder calls in controllers.
+      #
+      # In a multi-tenant Decidim deployment, loading a record without scoping
+      # it to the current organization can allow one tenant's users to access
+      # another tenant's resources. This cop promotes safe patterns such as
+      # `current_organization.templates.find_by(id: ...)` or using an already
+      # scoped `collection`.
+      #
+      # The cop targets chains that start with an ActiveRecord model constant
+      # and end with a terminal finder (`find`, `find_by`, `find_by!`, `first`,
+      # `take`, etc.) unless the chain includes a recognized scoping step.
+      class OrganizationScopedFinder < RuboCop::Cop::Base
+        MSG = "Unscoped ActiveRecord finder detected. Scope the query to the current organization, " \
+              "e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`."
+
+        RESTRICT_ON_SEND = [:find, :find_by, :find_by!, :first, :first!, :take, :take!].freeze
+
+        SCOPE_ROOT_METHODS = [:current_organization, :collection].freeze
+
+        SCOPED_WHERE_KEYS = [:current_organization, :current_component].freeze
+
+        ORGANIZATION_SCOPED_KEYS = [:decidim_organization_id, :organization_id].freeze
+
+        SCOPED_ASSOCIATION_KEYS = [:component, :organization].freeze
+
+        SCOPED_HELPER_METHODS = [:current_organization, :current_component, :current_participatory_space].freeze
+
+        IGNORED_CONSTANT_PREFIXES = ["Bundler"].freeze
+
+        def on_send(node)
+          return unless RESTRICT_ON_SEND.include?(node.method_name)
+          return if node.block_node
+          return if scoped_finder_arguments?(node)
+          return unless node.receiver
+          return if organization_scoped?(node.receiver)
+          return unless unscoped_model_class?(node.receiver)
+          return if constructed_scope_root?(node.receiver)
+
+          add_offense(node)
+        end
+
+        private
+
+        def organization_scoped?(node)
+          return false unless node
+          return true if scoped_node?(node)
+          return organization_scoped?(node.receiver) if node.send_type?
+
+          false
+        end
+
+        def unscoped_model_class?(node)
+          return false unless node
+          return false if ignored_constant?(node)
+          return true if node.const_type?
+          return false unless node.send_type?
+
+          unscoped_model_class?(node.receiver)
+        end
+
+        def ignored_constant?(node)
+          node.const_type? &&
+            IGNORED_CONSTANT_PREFIXES.any? { |prefix| node.source.start_with?(prefix) }
+        end
+
+        def scoped_node?(node)
+          return false unless node.send_type?
+
+          scope_root?(node) || scoped_where?(node)
+        end
+
+        def scope_root?(node)
+          SCOPE_ROOT_METHODS.include?(node.method_name)
+        end
+
+        def scoped_finder_arguments?(node)
+          node.arguments.any? { |arg| scoped_argument?(arg) }
+        end
+
+        def scoped_where?(node)
+          return false unless node.method_name == :where
+
+          node.arguments.any? { |arg| scoped_argument?(arg) }
+        end
+
+        def scoped_argument?(node)
+          return false unless node.hash_type?
+
+          node.values.any? { |value| scoped_value?(value) } ||
+            node.keys.any? do |key|
+              scoped_where_key?(key) || scoped_association_key?(node, key)
+            end
+        end
+
+        def scoped_value?(node)
+          return false unless node
+
+          case node.type
+          when :send
+            scoped_helper_method?(node) || (node.receiver && scoped_value?(node.receiver))
+          when :hash
+            node.values.any? { |value| scoped_value?(value) } ||
+              node.keys.any? { |key| scoped_helper_key?(key) }
+          else
+            false
+          end
+        end
+
+        def scoped_helper_key?(key)
+          key.sym_type? && SCOPED_HELPER_METHODS.include?(key.value)
+        end
+
+        def scoped_helper_method?(node)
+          return false unless node.send_type?
+
+          SCOPED_HELPER_METHODS.include?(node.method_name)
+        end
+
+        def scoped_where_key?(key)
+          key.sym_type? &&
+            (SCOPED_WHERE_KEYS.include?(key.value) ||
+             ORGANIZATION_SCOPED_KEYS.include?(key.value))
+        end
+
+        def scoped_association_key?(hash_node, key)
+          return false unless key.sym_type?
+          return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
+
+          index = hash_node.keys.index(key)
+          return false unless index
+
+          value = hash_node.values[index]
+          value.send_type? && value.method_name == :"current_#{key.value}"
+        end
+
+        def constructed_scope_root?(node)
+          return false unless node.send_type?
+
+          if node.method_name == :new
+            receiver = node.receiver
+            return receiver&.const_type?
+          end
+
+          constructed_scope_root?(node.receiver) if node.receiver
+        end
+      end
+    end
+  end
+end
