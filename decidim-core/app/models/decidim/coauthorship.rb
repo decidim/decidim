@@ -3,8 +3,7 @@
 module Decidim
   class Coauthorship < ApplicationRecord
     include Decidim::Authorable
-
-    acts_as_paranoid
+    include Decidim::SoftDeletable
 
     belongs_to :coauthorable, polymorphic: true, counter_cache: true
 

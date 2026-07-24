@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
-require "paranoia"
-
 module Decidim
   # A resource can have a like for each user.
   class Like < ApplicationRecord
     include Decidim::Authorable
-
-    acts_as_paranoid
+    include Decidim::SoftDeletable
 
     belongs_to :resource,
                polymorphic: true,
@@ -34,9 +31,8 @@ module Decidim
     end
 
     def reset_like_counter
-      # rubocop:disable Rails/SkipsModelValidations
-      resource.update_columns(likes_count: Decidim::Like.unscoped.where(resource:, deleted_at: nil).count)
-      # rubocop:enable Rails/SkipsModelValidations
+      return unless resource
+       resource.update_columns(likes_count: Decidim::Like.unscoped.where(resource:, deleted_at: nil).count) # rubocop:disable Rails/SkipsModelValidations
     end
   end
 end
