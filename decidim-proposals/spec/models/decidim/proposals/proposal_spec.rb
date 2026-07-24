@@ -522,6 +522,21 @@ module Decidim
         let(:liker) { create(:user, :confirmed, organization:) }
         let!(:like) { create(:like, resource: proposal, author: liker) }
         let!(:attachment) { create(:attachment, :with_pdf, attached_to: proposal) }
+        let(:voter) { create(:user, :confirmed, organization:) }
+        let!(:vote) { create(:proposal_vote, proposal:, author: voter) }
+
+        it "preserves its votes when soft-deleting the proposal" do
+          expect { proposal.destroy! }.not_to change(Decidim::Proposals::ProposalVote, :count)
+          expect(Decidim::Proposals::ProposalVote.where(proposal:, author: voter)).to exist
+        end
+
+        it "keeps its votes after restoring the proposal" do
+          proposal.destroy!
+          proposal.restore(recursive: true)
+
+          expect(Decidim::Proposals::ProposalVote.where(proposal:, author: voter)).to exist
+          expect(proposal.reload.proposal_votes_count).to eq(1)
+        end
 
         context "when the proposal is soft-deleted" do
           before { proposal.destroy! }

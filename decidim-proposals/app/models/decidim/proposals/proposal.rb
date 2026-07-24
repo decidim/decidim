@@ -39,7 +39,6 @@ module Decidim
       end
 
       before_destroy do
-        votes.delete_all
         # rubocop:disable Rails/SkipsModelValidations
         coauthorships.update_all(deleted_at: Time.current)
         likes.update_all(deleted_at: Time.current)
@@ -53,7 +52,6 @@ module Decidim
           coauthorships_count: Decidim::Coauthorship.unscoped.where(coauthorable: self, deleted_at: nil).count
         )
         # rubocop:enable Rails/SkipsModelValidations
-        Decidim::Attachment.only_deleted.where(attached_to: self).find_each(&:restore!)
       end
 
       def assign_state(token)

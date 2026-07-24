@@ -44,5 +44,31 @@ module Decidim
         expect { subject.call }.to broadcast(:invalid)
       end
     end
+
+    context "when an associated record was deleted independently before the trash" do
+      let(:like) { create(:like, resource:) }
+
+      before do
+        like.destroy!
+        travel 5.minutes
+        resource.destroy! # cascada de trash
+      end
+
+      it "does not resurrect the independently-deleted like" do
+        subject.call
+        expect(like.reload).to be_deleted
+      end
+    end
+
+    context "when an associated record was deleted as part of the trash cascade" do
+      let!(:like) { create(:like, resource:) }
+
+      before { resource.destroy! } # cascade soft-deletes the like at (almost) the same time
+
+      it "restores the cascaded like" do
+        subject.call
+        expect(like.reload).not_to be_deleted
+      end
+    end
   end
 end
