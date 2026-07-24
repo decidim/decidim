@@ -99,6 +99,7 @@ module Decidim
 
       def participatory_process_groups
         @participatory_process_groups ||= OrganizationParticipatoryProcessGroups.new(current_organization).query
+                                                                                .includes(:hero_image_attachment)
                                                                                 .where(id: filtered_processes.grouped.group_ids)
       end
 
