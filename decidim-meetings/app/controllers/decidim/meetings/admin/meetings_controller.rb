@@ -105,11 +105,11 @@ module Decidim
         end
 
         def meetings
-          @meetings ||= filtered_collection
+          @meetings ||= filtered_collection.includes(:agenda, :component, :taxonomies)
         end
 
         def meeting
-          @meeting ||= Meeting.where(component: current_component).find_by(id: params[:id])
+          @meeting ||= Meeting.includes(component: :participatory_space).where(component: current_component).find_by(id: params[:id])
         end
 
         def collection

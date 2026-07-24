@@ -25,7 +25,7 @@ module Decidim
 
       def base_query
         root_query.includes(
-          :participatory_space, :user, :resource, :component, :version
+          :participatory_space, :resource, :user, :component, version: :item
         )
       end
 

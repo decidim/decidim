@@ -97,7 +97,7 @@ module Decidim
         def event_class = raise NotImplementedError, "Event class method must be implemented for #{self.class.name}"
 
         def collection
-          @collection ||= role_class.joins(:user).for_space(current_participatory_space)
+          @collection ||= role_class.includes(:user).joins(:user).for_space(current_participatory_space)
         end
 
         def destroy_command = Decidim::Admin::ParticipatorySpace::DestroyAdmin
