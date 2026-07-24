@@ -58,6 +58,52 @@ module Decidim
           end.not_to change(Like, :count)
         end
       end
+
+      context "when the resource was previously liked and then unliked" do
+        before do
+          command.call
+          Decidim::UnlikeResource.new(resource, current_user).call
+        end
+
+        it "broadcasts ok" do
+          expect { command.call }.to broadcast(:ok)
+        end
+
+        it "does not raise ActiveRecord::RecordNotUnique" do
+          expect { command.call }.not_to raise_error
+        end
+
+        it "restores the existing like instead of creating a new row" do
+          expect { command.call }.not_to change(Like, :count)
+          expect(Like.unscoped.where(resource:, decidim_author_id: current_user.id).count).to eq(1)
+        end
+
+        it "increases the likes_count back to 1" do
+          expect do
+            command.call
+            resource.reload
+          end.to change(resource, :likes_count).by(1)
+        end
+
+        it "notifies all followers of the liker that the resource has been liked again" do
+          follower = create(:user, organization: resource.organization)
+          create(:follow, followable: current_user, user: follower)
+
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.resource_liked",
+              event_class: Decidim::ResourceLikedEvent,
+              resource:,
+              followers: [follower],
+              extra: {
+                liker_id: current_user.id
+              }
+            )
+
+          command.call
+        end
+      end
     end
   end
 end

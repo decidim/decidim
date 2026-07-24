@@ -20,18 +20,33 @@ module Decidim
     #
     # Returns nothing.
     def call
-      like = build_resource_like
-      if like.save
-        notify_liker_followers
-        broadcast(:ok, like)
+      like = find_existing_like
+
+      if like
+        return broadcast(:invalid) unless restore_like(like)
       else
-        broadcast(:invalid)
+        like = build_resource_like
+        return broadcast(:invalid) unless like.save
       end
+
+      notify_liker_followers
+      broadcast(:ok, like)
     rescue ActiveRecord::RecordNotUnique
       broadcast(:invalid)
     end
 
     private
+
+    def find_existing_like
+      @resource.likes.with_deleted.find_by(author: @current_user)
+    end
+
+    def restore_like(like)
+      return true unless like.deleted?
+      return false unless like.valid?
+
+      like.restore
+    end
 
     def build_resource_like
       @resource.likes.build(author: @current_user)

@@ -51,7 +51,7 @@ module Decidim
       before do
         like.destroy!
         travel 5.minutes
-        resource.destroy! # cascada de trash
+        resource.destroy!
       end
 
       it "does not resurrect the independently-deleted like" do
