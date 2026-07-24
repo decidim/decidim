@@ -28,9 +28,9 @@ module Decidim
     def activities
       @activities ||= paginate(
         if own_activities?
-          OwnActivities.new(current_organization, **activity_options).query.with_private_resources
+          OwnActivities.new(current_organization, **activity_options).query.includes(:user, component: :participatory_space).with_private_resources
         else
-          PublicActivities.new(current_organization, **activity_options).query.with_all_resources
+          PublicActivities.new(current_organization, **activity_options).query.includes(:user, component: :participatory_space).with_all_resources
         end
       )
     end
