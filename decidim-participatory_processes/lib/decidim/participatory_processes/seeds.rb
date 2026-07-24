@@ -29,7 +29,7 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:participatory_processes])
 
-        number_of_records.times do |_n|
+        number_of_spaces.times do |_n|
           process = create_process!(process_group: process_groups.sample)
 
           create_follow!(Decidim::User.where(organization:, admin: true).first, process)
@@ -45,6 +45,10 @@ module Decidim
 
           seed_components_manifests!(participatory_space: process)
         end
+      end
+
+      def number_of_spaces
+        slow_seeds? ? 2 : 1
       end
 
       def create_content_block!
@@ -111,7 +115,6 @@ module Decidim
         ) do
           Decidim::ParticipatoryProcess.create!(params)
         end
-        process.add_to_index_as_search_resource
 
         process
       end

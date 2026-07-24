@@ -20,7 +20,7 @@ module Decidim
 
           next if questionnaire.questionnaire_for.allow_responses
 
-          rand(0..config_value(:surveys_responses_count)).times { create_responses!(questionnaire:) }
+          create_responses!(questionnaire:, amount: rand(0..config_value(:surveys_responses_count)))
         end
       end
 
@@ -128,26 +128,30 @@ module Decidim
         )
       end
 
-      def create_responses!(questionnaire:, user: nil)
-        user = find_or_initialize_user_by(email: "survey-#{questionnaire.id}-#{rand(1_000_000)}@example.org") if user.nil?
+      def create_responses!(questionnaire:, amount:)
+        emails = amount.times.map do |n|
+          "survey-#{questionnaire.id}-#{n}@example.org"
+        end
 
-        response_options = {
-          user:,
-          questionnaire:,
-          session_token: Digest::SHA256.hexdigest("#{user.id}-#{Rails.application.secret_key_base}"),
-          ip_hash: Faker::Internet.device_token.slice(0, 24)
-        }
+        bulk_find_or_create_users(emails:).each do |user|
+          response_options = {
+            user:,
+            questionnaire:,
+            session_token: Digest::SHA256.hexdigest("#{user.id}-#{Rails.application.secret_key_base}"),
+            ip_hash: Faker::Internet.device_token.slice(0, 24)
+          }
 
-        questionnaire.questions.each do |question|
-          case question.question_type
-          when "short_response", "long_response"
-            create_response_for_text_question_type!(response_options.merge({ question: }))
-          when "single_option", "multiple_option"
-            create_response_for_multiple_choice_question_type(response_options.merge({ question: }))
-          when "sorting"
-            create_response_for_sorting_question_type(response_options.merge({ question: }))
-          when "matrix_single", "matrix_multiple"
-            create_response_for_matrix_question_type(response_options.merge({ question: }))
+          questionnaire.questions.each do |question|
+            case question.question_type
+            when "short_response", "long_response"
+              create_response_for_text_question_type!(response_options.merge({ question: }))
+            when "single_option", "multiple_option"
+              create_response_for_multiple_choice_question_type(response_options.merge({ question: }))
+            when "sorting"
+              create_response_for_sorting_question_type(response_options.merge({ question: }))
+            when "matrix_single", "matrix_multiple"
+              create_response_for_matrix_question_type(response_options.merge({ question: }))
+            end
           end
         end
       rescue ActiveRecord::RecordInvalid
@@ -155,13 +159,15 @@ module Decidim
       end
 
       def create_response_for_text_question_type!(options)
-        Decidim::Forms::Response.create!(
+        response = Decidim::Forms::Response.new(
           **options, body: ::Faker::Lorem.paragraph(sentence_count: 1)
         )
+        response.save!(validate: false)
       end
 
       def create_response_for_sorting_question_type(options)
-        response = Decidim::Forms::Response.create!(**options)
+        response = Decidim::Forms::Response.new(**options)
+        response.save!(validate: false)
         response_options = options[:question].response_options
         available_positions = (0..(response_options.size - 1)).to_a
 
@@ -169,39 +175,44 @@ module Decidim
           position = available_positions.sample
           body = response_option[I18n.locale]
 
-          Decidim::Forms::ResponseChoice.create!(
+          choice = Decidim::Forms::ResponseChoice.new(
             response:,
             response_option:,
             body:,
             position:
           )
+          choice.save!(validate: false)
         end
       end
 
       def create_response_for_multiple_choice_question_type(options)
-        response = Decidim::Forms::Response.create!(**options)
+        response = Decidim::Forms::Response.new(**options)
+        response.save!(validate: false)
         response_option = options[:question].response_options.sample
         body = response_option[I18n.locale]
 
-        Decidim::Forms::ResponseChoice.create!(
+        choice = Decidim::Forms::ResponseChoice.new(
           response:,
           response_option:,
           body:
         )
+        choice.save!(validate: false)
       end
 
       def create_response_for_matrix_question_type(options)
-        response = Decidim::Forms::Response.create!(**options)
+        response = Decidim::Forms::Response.new(**options)
+        response.save!(validate: false)
         response_option = options[:question].response_options.sample
         matrix_row = options[:question].matrix_rows.sample
         body = response_option[I18n.locale]
 
-        Decidim::Forms::ResponseChoice.create!(
+        choice = Decidim::Forms::ResponseChoice.new(
           response:,
           response_option:,
           matrix_row:,
           body:
         )
+        choice.save!(validate: false)
       end
     end
   end

@@ -12,10 +12,14 @@ module Decidim
         @participatory_space = participatory_space
       end
 
+      def number_of_budgets
+        slow_seeds? ? rand(1..3) : 1
+      end
+
       def call
         component = create_component!
 
-        number_of_records.times do
+        number_of_budgets.times do
           create_budget!(component:)
         end
 
@@ -25,10 +29,9 @@ module Decidim
 
             create_attachments!(attached_to: project)
 
-            create_project_votes!(project:)
-
             Decidim::Comments::Seed.comments_for(project)
           end
+          create_budget_votes!(budget:)
         end
       end
 
@@ -117,43 +120,89 @@ module Decidim
         end
       end
 
-      def create_project_votes!(project:)
-        candidate_projects = project.budget.projects.where.not(id: project.id).to_a
-
+      def create_budget_votes!(budget:)
         min_budgets_votes_count = config_value(:budgets_votes_count) / 5
         max_budgets_votes_count = config_value(:budgets_votes_count) * 2
 
-        rand(min_budgets_votes_count..max_budgets_votes_count).times do |n|
-          user = find_or_initialize_user_by(email: random_email(suffix: "budget-#{project.id}-vote-#{n}"), with_random_avatar: false)
+        users = users_pool.sample(rand(min_budgets_votes_count..max_budgets_votes_count))
 
+        orders = []
+        line_items = []
+        users.each do |user|
+          projects = select_projects_to_order(budget:)
+
+          orders << {
+            decidim_budgets_budget_id: budget.id,
+            decidim_user_id: user.id,
+            checked_out_at: can_checkout?(budget, projects) ? Time.current : nil
+          }
+          line_items << projects.map do |project|
+            { decidim_project_id: project.id }
+          end
+        end
+
+        # rubocop:disable Rails/SkipsModelValidations
+        result = Decidim::Budgets::Order.insert_all(orders)
+        result.each_with_index do |row, idx|
           Decidim.traceability.perform_action!(
             "create",
             Decidim::Budgets::Order,
-            user,
+            users[idx],
             visibility: "private-only"
           ) do
-            order = Decidim::Budgets::Order.create!(user:, budget: project.budget)
-            add_projects_to_order!(order:, project:, candidate_projects:)
-            order.update!(checked_out_at: Time.current) if order.can_checkout?
-            order
+            SeedOrder.new(
+              id: row["id"],
+              type: "Decidim::Budgets::Order",
+              decidim_component_id: budget.decidim_component_id
+            )
           end
+
+          line_items[idx].each do |item|
+            item[:decidim_order_id] = row["id"]
+          end
+        end
+        Decidim::Budgets::LineItem.insert_all(line_items.flatten)
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
+      def users_pool
+        @users_pool ||= begin
+          emails = (config_value(:budgets_votes_count) * 2).times.map do |n|
+            random_email(suffix: "budget-vote-#{n}")
+          end
+          bulk_find_or_create_users(emails:)
         end
       end
 
-      def add_projects_to_order!(order:, project:, candidate_projects:)
-        selected_projects = [project]
-        total_budget = project.budget_amount
+      def select_projects_to_order(budget:)
+        selected_projects = []
+        total_budget = 0
 
-        candidate_projects.shuffle.each do |candidate|
+        budget.projects.shuffle.each do |candidate|
           next if selected_projects.include?(candidate)
-          next if total_budget + candidate.budget_amount > project.budget.total_budget
+          next if total_budget + candidate.budget_amount > budget.total_budget
 
           selected_projects << candidate
           total_budget += candidate.budget_amount
         end
 
-        selected_projects.each do |selected_project|
-          order.projects << selected_project
+        selected_projects
+      end
+
+      def can_checkout?(budget, selected_projects)
+        if budget.settings.voting_rule == "selected_projects"
+          selected_projects.count >= budget.settings.vote_selected_projects_minimum && selected_projects.count <= budget.settings.vote_selected_projects_maximum
+        elsif budget.settings.voting_rule == "minimum_projects"
+          selected_projects.count >= budget.settings.vote_minimum_budget_projects_number
+        else
+          minimum_budget = budget.total_budget.to_f * (budget.settings.vote_threshold_percent.to_f / 100)
+          selected_projects.sum(&:budget_amount).to_f >= minimum_budget
+        end
+      end
+
+      SeedOrder = Struct.new(:id, :type, :decidim_component_id) do
+        def valid?
+          true
         end
       end
     end

@@ -57,6 +57,27 @@ module Decidim
       ]
     end
 
+    # Allows providing a block of code during which the search indexing is
+    # disabled. This can be useful for improving performance during specific
+    # procedures, such as the database seeds.
+    #
+    # @yield The block to be executed with search indexing disabled.
+    # @return The result provided by the provided block.
+    def self.skip_indexing
+      @skip_indexing = true
+      yield
+    ensure
+      @skip_indexing = false
+    end
+
+    # Interprets whether search indexing is currently enabled or not.
+    #
+    # @return [Boolean] A boolean indicating whether search indexing is enabled
+    #   or not.
+    def self.indexing_enabled?
+      @skip_indexing != true
+    end
+
     included do
       # Always access to this association scoping by_organization
       clazz = self
@@ -70,10 +91,14 @@ module Decidim
       end
 
       after_touch do |searchable|
+        next unless Decidim::Searchable.indexing_enabled?
+
         remove_from_index(searchable) if searchable.respond_to?(:hidden?) && searchable.hidden?
       end
 
       after_destroy do |searchable|
+        next unless Decidim::Searchable.indexing_enabled?
+
         remove_from_index(searchable) if self.class.search_resource_fields_mapper
       end
       # after_create and after_update callbacks are dynamically set in `searchable_fields` method.
@@ -87,12 +112,16 @@ module Decidim
       end
 
       def remove_from_index(searchable)
+        return unless Decidim::Searchable.indexing_enabled?
+
         org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
         searchable.searchable_resources.by_organization(org.id).destroy_all
       end
 
       # Forces the model to be indexed for the first time.
       def add_to_index_as_search_resource
+        return unless Decidim::Searchable.indexing_enabled?
+
         fields = self.class.search_resource_fields_mapper.mapped(self)
         fields[:i18n].keys.each do |locale|
           Decidim::SearchableResource.create!(contents_to_searchable_resource_attributes(fields, locale))

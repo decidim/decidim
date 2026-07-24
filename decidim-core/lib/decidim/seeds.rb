@@ -18,7 +18,7 @@ module Decidim
       surveys_matrix_rows_count: { slow: 3, fast: 2 },
       initiatives_votes_count: { slow: 50, fast: 10 },
       accountability_statuses_count: { slow: 5, fast: 3 },
-      accountability_taxonomies_count: { slow: 2, fast: 1 }
+      accountability_taxonomies_count: { slow: 6, fast: 1 }
     }.freeze
 
     protected
@@ -53,7 +53,32 @@ module Decidim
     def find_or_initialize_user_by(email:, with_random_avatar: true)
       user = Decidim::User.find_or_initialize_by(email:)
       avatar = with_random_avatar ? random_avatar : nil
-      user.update!(
+      user.update!(generate_user_details(avatar:))
+
+      user
+    end
+
+    def bulk_find_or_create_users(emails:, only_ids: false)
+      existing_emails = Decidim::User.where(email: emails).pluck(:email)
+
+      result = Decidim::User.transaction do
+        # rubocop:disable Rails/SkipsModelValidations
+        Decidim::User.insert_all(
+          (emails - existing_emails).map do |email|
+            details = generate_user_details.except(:organization, :tos_agreement, :avatar)
+            encrypted_password = ::Devise::Encryptor.digest(Decidim::User, details.delete(:password))
+            { decidim_organization_id: organization.id, email:, encrypted_password:, **details }
+          end
+        )
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+      return result.rows.map(&:first) if only_ids
+
+      Decidim::User.where(email: emails)
+    end
+
+    def generate_user_details(avatar: nil)
+      {
         name: ::Faker::Name.name,
         nickname: generate_nickname,
         password: "decidim123456789",
@@ -67,9 +92,7 @@ module Decidim
         newsletter_notifications_at: Time.current,
         tos_agreement: true,
         password_updated_at: Time.current
-      )
-
-      user
+      }
     end
 
     def seeds_root = File.join(__dir__, "..", "..", "db", "seeds")

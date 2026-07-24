@@ -16,13 +16,16 @@ module Decidim
 
         create_statuses!(component:)
 
-        number_of_records.times do
-          taxonomies = create_taxonomies!
-
-          taxonomies.each do |taxonomy|
+        taxonomies = create_taxonomies!
+        taxonomies.each do |taxonomy|
+          number_of_records.times do
             create_result!(component:, taxonomy:)
           end
         end
+      end
+
+      def number_of_child_records
+        slow_seeds? ? rand(0..2) : rand(0..1)
       end
 
       def create_component!
@@ -77,10 +80,13 @@ module Decidim
       end
 
       def create_result!(component:, taxonomy:)
-        result = Decidim.traceability.create!(
+        result = Decidim.traceability.perform_action!(
+          "create",
           Decidim::Accountability::Result,
           admin_user,
-          {
+          visibility: "all"
+        ) do
+          result = Decidim::Accountability::Result.new(
             component:,
             taxonomies: [taxonomy],
             title: Decidim::Faker::Localized.sentence(word_count: 2),
@@ -90,17 +96,21 @@ module Decidim
             address: "#{::Faker::Address.street_address} #{::Faker::Address.zip} #{::Faker::Address.city}",
             latitude: ::Faker::Address.latitude,
             longitude: ::Faker::Address.longitude
-          },
-          visibility: "all"
-        )
+          )
+          result.save!(validate: false)
+          result
+        end
 
         Decidim::Comments::Seed.comments_for(result)
 
-        number_of_records.times do
-          child_result = Decidim.traceability.create!(
+        number_of_child_records.times do
+          child_result = Decidim.traceability.perform_action!(
+            "create",
             Decidim::Accountability::Result,
             admin_user,
-            {
+            visibility: "all"
+          ) do
+            result = Decidim::Accountability::Result.new(
               component:,
               parent: result,
               start_date: Time.zone.today,
@@ -111,17 +121,22 @@ module Decidim
               description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end
-            },
-            visibility: "all"
-          )
-
-          number_of_records.times do |i|
-            child_result.milestones.create!(
-              entry_date: child_result.start_date + i.days,
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.paragraph(sentence_count: 1)
             )
+            result.save!(validate: false)
+            result
           end
+
+          # rubocop:disable Rails/SkipsModelValidations
+          child_result.milestones.insert_all(
+            number_of_records.times.map do |i|
+              {
+                entry_date: child_result.start_date + i.days,
+                title: Decidim::Faker::Localized.sentence(word_count: 2),
+                description: Decidim::Faker::Localized.paragraph(sentence_count: 1)
+              }
+            end
+          )
+          # rubocop:enable Rails/SkipsModelValidations
 
           Decidim::Comments::Seed.comments_for(child_result)
         end

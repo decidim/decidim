@@ -8,7 +8,7 @@ module Decidim
       def call
         create_content_block!
 
-        number_of_records.times do |_n|
+        number_of_spaces.times do |_n|
           conference = create_conference!
 
           create_conference_user_roles!(conference:)
@@ -39,6 +39,10 @@ module Decidim
 
           create_conference_meeting!(conference:)
         end
+      end
+
+      def number_of_spaces
+        slow_seeds? ? 2 : 1
       end
 
       def create_content_block!
@@ -87,7 +91,6 @@ module Decidim
         ) do
           Decidim::Conference.create!(params)
         end
-        conference.add_to_index_as_search_resource
 
         conference
       end

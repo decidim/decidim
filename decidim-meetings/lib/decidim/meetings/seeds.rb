@@ -21,15 +21,11 @@ module Decidim
           create_meeting!(component:, type: :hybrid)
           meeting = create_meeting!(component:, type: :in_person)
 
-          number_of_records.times do
-            create_service!(meeting:)
-          end
+          create_services!(meeting:, amount: number_of_records)
 
           create_questionnaire_for!(meeting:)
 
-          number_of_records.times do |_n|
-            create_meeting_registration!(meeting:)
-          end
+          create_meeting_registrations!(meeting:, amount: number_of_records)
 
           create_attachments!(attached_to: meeting)
         end
@@ -170,12 +166,18 @@ module Decidim
         resource
       end
 
-      def create_service!(meeting:)
-        Decidim::Meetings::Service.create!(
-          meeting:,
-          title: Decidim::Faker::Localized.sentence(word_count: 2),
-          description: Decidim::Faker::Localized.sentence(word_count: 5)
+      def create_services!(meeting:, amount:)
+        # rubocop:disable Rails/SkipsModelValidations
+        Decidim::Meetings::Service.insert_all(
+          amount.times.map do
+            {
+              decidim_meeting_id: meeting.id,
+              title: Decidim::Faker::Localized.sentence(word_count: 2),
+              description: Decidim::Faker::Localized.sentence(word_count: 5)
+            }
+          end
         )
+        # rubocop:enable Rails/SkipsModelValidations
       end
 
       def create_questionnaire_for!(meeting:)
@@ -191,15 +193,23 @@ module Decidim
         )
       end
 
-      def create_meeting_registration!(meeting:)
-        r = SecureRandom.hex(4)
-        email = "meeting-registered-user-#{meeting.id}-#{r}@example.org"
-        user = find_or_initialize_user_by(email:)
+      def create_meeting_registrations!(meeting:, amount:)
+        emails = amount.times.map do
+          r = SecureRandom.hex(4)
+          "meeting-registered-user-#{meeting.id}-#{r}@example.org"
+        end
 
-        Decidim::Meetings::Registration.create!(
-          meeting:,
-          user:
+        user_ids = bulk_find_or_create_users(emails:, only_ids: true)
+        # rubocop:disable Rails/SkipsModelValidations
+        Decidim::Meetings::Registration.insert_all(
+          user_ids.map do |user_id|
+            {
+              decidim_meeting_id: meeting.id,
+              decidim_user_id: user_id
+            }
+          end
         )
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

@@ -17,7 +17,7 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:assemblies])
 
-        number_of_records.times do |_n|
+        number_of_spaces.times do |_n|
           assembly = create_assembly!
 
           create_assembly_user_roles!(assembly:)
@@ -25,8 +25,6 @@ module Decidim
           child = create_assembly!(parent: assembly)
 
           [assembly, child].each do |current_assembly|
-            current_assembly.add_to_index_as_search_resource
-
             create_attachments!(attached_to: current_assembly)
 
             seed_components_manifests!(participatory_space: current_assembly)
@@ -34,6 +32,10 @@ module Decidim
             Decidim::ContentBlocksCreator.new(current_assembly).create_default!
           end
         end
+      end
+
+      def number_of_spaces
+        slow_seeds? ? 2 : 1
       end
 
       def create_content_block!

@@ -85,7 +85,6 @@ module Decidim
         ) do
           Decidim::Initiative.create!(params)
         end
-        initiative.add_to_index_as_search_resource
 
         initiative
       end
