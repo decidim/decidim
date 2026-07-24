@@ -73,6 +73,7 @@ module Decidim
           return unless @queue
 
           Decidim::ActionLog.insert_all(@queue) # rubocop:disable Rails/SkipsModelValidations
+          @queue = []
         end
       end
 

@@ -125,10 +125,11 @@ module Decidim
         max_budgets_votes_count = config_value(:budgets_votes_count) * 2
 
         users = users_pool.sample(rand(min_budgets_votes_count..max_budgets_votes_count))
+        users = users.index_by(&:id)
 
         orders = []
         line_items = []
-        users.each do |user|
+        users.values.each do |user|
           projects = select_projects_to_order(budget:)
 
           orders << {
@@ -142,12 +143,13 @@ module Decidim
         end
 
         # rubocop:disable Rails/SkipsModelValidations
-        result = Decidim::Budgets::Order.insert_all(orders)
+        result = Decidim::Budgets::Order.insert_all(orders, returning: %w(id decidim_user_id))
         result.each_with_index do |row, idx|
+          user = users[row["decidim_user_id"]]
           Decidim.traceability.perform_action!(
             "create",
             Decidim::Budgets::Order,
-            users[idx],
+            user,
             visibility: "private-only"
           ) do
             SeedOrder.new(

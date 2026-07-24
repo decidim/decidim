@@ -59,7 +59,7 @@ module Decidim
     end
 
     def bulk_find_or_create_users(emails:, only_ids: false)
-      existing_emails = Decidim::User.where(email: emails).pluck(:email)
+      existing_emails = Decidim::User.where(organization:, email: emails).pluck(:email)
 
       result = Decidim::User.transaction do
         # rubocop:disable Rails/SkipsModelValidations
@@ -74,7 +74,7 @@ module Decidim
       end
       return result.rows.map(&:first) if only_ids
 
-      Decidim::User.where(email: emails)
+      Decidim::User.where(organization:, email: emails)
     end
 
     def generate_user_details(avatar: nil)
