@@ -74,7 +74,7 @@ module Decidim
         end
 
         it "restores the existing like instead of creating a new row" do
-          expect { command.call }.not_to change(Like, :count)
+          expect { command.call }.to change(Like, :count).from(0).to(1)
           expect(Like.unscoped.where(resource:, decidim_author_id: current_user.id).count).to eq(1)
         end
 
@@ -88,6 +88,7 @@ module Decidim
         it "notifies all followers of the liker that the resource has been liked again" do
           follower = create(:user, organization: resource.organization)
           create(:follow, followable: current_user, user: follower)
+          current_user.reload
 
           expect(Decidim::EventsManager)
             .to receive(:publish)
