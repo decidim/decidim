@@ -661,6 +661,7 @@ fi-pl:
             number_of_proposals: Haluatko varmasti julkaista %{number} ehdotusten vastausta?
             select_a_proposal: Valitse ehdotus.
           show:
+            address: Osoite
             amendments_count: Muutosten lukumäärä
             assigned_evaluators: Annettu tehtäväksi arvioijalle
             body: Ehdotuksen kuvaus
