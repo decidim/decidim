@@ -108,9 +108,9 @@ module Decidim
 
       def search_collection
         if current_user&.admin?
-          Post.where(component: current_component)
+          Post.includes(:component, :taxonomies, :author).where(component: current_component)
         else
-          Post.published.where(component: current_component)
+          Post.includes(:component, :taxonomies, :author).published.where(component: current_component)
         end
       end
 
