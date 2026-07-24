@@ -143,12 +143,16 @@ module Decidim
       def create_meeting!(component:, type: :in_person, author_type: :official)
         params = meeting_params(component:, type:, author_type:)
 
-        resource = Decidim.traceability.create!(
+        resource = Decidim.traceability.perform_action!(
+          "create",
           Decidim::Meetings::Meeting,
           admin_user,
-          params,
           visibility: "all"
-        )
+        ) do
+          meet = Decidim::Meetings::Meeting.new(params)
+          meet.save!(validate: false)
+          meet
+        end
 
         Decidim::EventsManager.publish(
           event: "decidim.events.meetings.meeting_created",

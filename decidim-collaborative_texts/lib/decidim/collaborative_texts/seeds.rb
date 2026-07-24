@@ -95,7 +95,9 @@ module Decidim
           changeset:,
           author: document_version.organization.users.sample
         }
-        Decidim::CollaborativeTexts::Suggestion.create!(params)
+        suggestion = Decidim::CollaborativeTexts::Suggestion.new(params)
+        suggestion.save!(validate: false)
+        suggestion
       end
 
       def create_body_blocks
