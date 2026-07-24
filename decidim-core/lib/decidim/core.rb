@@ -209,6 +209,7 @@ module Decidim
     # Make sure the overrides applied by the seeds are no longer present after
     # the seeding process completes. This can be a problem when running multiple
     # tests consecutively.
+    Decidim.send(:remove_const, :ActionLogger)
     load File.expand_path("#{Decidim::Core::Engine.root}/app/services/decidim/action_logger.rb")
   end
 
