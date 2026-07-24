@@ -166,11 +166,6 @@ module Decidim
     # consecutively, reset the column cache before the migrations.
     reset_all_column_information
 
-    Decidim::ActionLogger.include(Decidim::Seeding::ActionLogger)
-    Rails.application.reloader.after_class_unload do
-      Decidim::ActionLogger.include(Decidim::Seeding::ActionLogger)
-    end
-
     # Faker needs to have the `:en` locale in order to work properly, so we
     # must enforce it during the seeds.
     original_locale = I18n.available_locales
@@ -205,6 +200,11 @@ module Decidim
     Decidim::ActionLogger.commit_logs
 
     I18n.available_locales = original_locale
+
+    # Make sure the overrides applied by the seeds are no longer present after
+    # the seeding process completes. This can be a problem when running multiple
+    # tests consecutively.
+    Rails.application.reloader.reload!
   end
 
   def self.seed_contextual_help_sections!(manifest)

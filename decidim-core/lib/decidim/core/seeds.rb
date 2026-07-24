@@ -13,6 +13,7 @@ module Decidim
 
         Rails.application.reloader.reload! if Rails.application.reloader.check!
         reset_column_information
+        Decidim::ActionLogger.include(Decidim::Seeding::ActionLogger)
 
         organization = create_organization!
 
