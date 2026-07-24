@@ -107,7 +107,7 @@ module Decidim
           scope: n.positive? ? nil : Decidim::Scope.all.sample
         }
 
-        process = Decidim.traceability.perform_action!(
+        Decidim.traceability.perform_action!(
           "publish",
           Decidim::ParticipatoryProcess,
           organization.users.first,
@@ -115,8 +115,6 @@ module Decidim
         ) do
           Decidim::ParticipatoryProcess.create!(params)
         end
-
-        process
       end
 
       def create_process_step!(process:)

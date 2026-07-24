@@ -77,7 +77,7 @@ module Decidim
           organization:
         }
 
-        initiative = Decidim.traceability.perform_action!(
+        Decidim.traceability.perform_action!(
           "publish",
           Decidim::Initiative,
           organization.users.first,
@@ -85,8 +85,6 @@ module Decidim
         ) do
           Decidim::Initiative.create!(params)
         end
-
-        initiative
       end
 
       def create_initiative_votes!(initiative:)

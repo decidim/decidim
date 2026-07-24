@@ -83,7 +83,7 @@ module Decidim
           end
         }
 
-        conference = Decidim.traceability.perform_action!(
+        Decidim.traceability.perform_action!(
           "publish",
           Decidim::Conference,
           organization.users.first,
@@ -91,8 +91,6 @@ module Decidim
         ) do
           Decidim::Conference.create!(params)
         end
-
-        conference
       end
 
       def create_conference_user_roles!(conference:)
