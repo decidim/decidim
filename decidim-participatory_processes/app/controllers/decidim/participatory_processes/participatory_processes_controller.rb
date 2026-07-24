@@ -53,7 +53,7 @@ module Decidim
 
         @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or(
           organization_participatory_processes.where(id: params["slug"])
-        ).includes(attachments: :file_attachment).first!
+        ).includes(attachments: { file_attachment: :blob }).first!
       end
 
       def active_content_blocks
