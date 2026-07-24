@@ -167,6 +167,9 @@ module Decidim
     reset_all_column_information
 
     Decidim::ActionLogger.include(Decidim::Seeding::ActionLogger)
+    Rails.application.reloader.after_class_unload do
+      Decidim::ActionLogger.include(Decidim::Seeding::ActionLogger)
+    end
 
     # Faker needs to have the `:en` locale in order to work properly, so we
     # must enforce it during the seeds.
