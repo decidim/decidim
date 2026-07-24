@@ -259,6 +259,7 @@ fr:
             reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
             success: La pétition a été envoyée à la validation technique.
+            title: À propos de cette pétition
             update: Mettre à jour
           form:
             attachments_title: Pièces jointes
@@ -268,6 +269,7 @@ fr:
             actions_title: Action
             preview: Aperçu
             print: Impression
+            title: Pétitions
           initiative_attachments:
             documents: Documents
             edit: Modifier
@@ -284,6 +286,7 @@ fr:
             success: La pétition a été mise à jour avec succès.
         initiatives_settings:
           edit:
+            title: Paramètres de la pétition
             update: Mettre à jour
           form:
             comments: Les plus commentées
@@ -312,17 +315,21 @@ fr:
           destroy:
             success: Le type de pétition a été supprimé avec succès.
           edit:
+            title: Modifier le type de pétition
             update: Mettre à jour
           form:
             child_scope_threshold_enabled_help_html: 'Cette option de configuration ne prend pas en charge les votes hors-ligne, elle permet d''activer des sous-secteurs et fonctionne avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner cette autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les secteurs doivent être configurés de manière hiérarchique : 1 Parent - N Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, consultez la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentation sur l''administration des initiatives</a>.'
             only_global_scope_enabled_help_html: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configuré la portée globale comme votre secteur parent. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, consultez la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentation sur l'administration des initiatives</a>.
             options: Paramètres
+          index:
+            title: Types de pétition
           initiative_type_scopes:
             title: Secteurs pour ce type de pétition
           new:
             create: Créer
             title: Nouveau type de pétition
           update:
+            error: Une erreur s'est produite lors de la mise à jour du type de pétition.
             success: Le type de pétition a été mis à jour avec succès.
       admin_log:
         initiative:
@@ -366,8 +373,14 @@ fr:
         highlighted_initiatives:
           name: Pétitions mises en avant
       create_initiative:
+        committee_member:
+          confirm_approve: Êtes-vous sûr de vouloir approuver ce membre ?
+          confirm_revoke: Êtes-vous sûr de vouloir retirer ce membre ?
+          revoke: Retirer
         fill_data:
+          confirm_discard: Êtes-vous sûr de vouloir abandonner cette pétition ?
           continue: Continuer
+          discard: Abandonner la pétition
           fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
           select_area: Sélectionnez une zone
           select_scope: Sélectionnez une portée
