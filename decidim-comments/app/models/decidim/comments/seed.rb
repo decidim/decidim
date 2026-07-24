@@ -123,7 +123,7 @@ module Decidim
         end
 
         def random_user
-          user = random_users.sample
+          user = random_users.includes(avatar_attachment: :blob).sample
 
           user.valid? ? user : random_user
         end
