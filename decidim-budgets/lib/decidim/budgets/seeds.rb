@@ -128,7 +128,7 @@ module Decidim
         users = users.index_by(&:id)
 
         orders = []
-        line_items = []
+        line_items = {}
         users.values.each do |user|
           projects = select_projects_to_order(budget:)
 
@@ -137,14 +137,14 @@ module Decidim
             decidim_user_id: user.id,
             checked_out_at: can_checkout?(budget, projects) ? Time.current : nil
           }
-          line_items << projects.map do |project|
+          line_items[user.id] = projects.map do |project|
             { decidim_project_id: project.id }
           end
         end
 
         # rubocop:disable Rails/SkipsModelValidations
         result = Decidim::Budgets::Order.insert_all(orders, returning: %w(id decidim_user_id))
-        result.each_with_index do |row, idx|
+        result.each do |row|
           user = users[row["decidim_user_id"]]
           Decidim.traceability.perform_action!(
             "create",
@@ -159,11 +159,11 @@ module Decidim
             )
           end
 
-          line_items[idx].each do |item|
+          line_items[user.id].each do |item|
             item[:decidim_order_id] = row["id"]
           end
         end
-        Decidim::Budgets::LineItem.insert_all(line_items.flatten)
+        Decidim::Budgets::LineItem.insert_all(line_items.values.flatten)
         # rubocop:enable Rails/SkipsModelValidations
       end
 
