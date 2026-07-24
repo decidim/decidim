@@ -41,11 +41,11 @@ module Decidim
       end
 
       def project
-        @project ||= budget&.projects&.find_by(id: params[:id])
+        @project ||= search_collection.find_by(id: params[:id])
       end
 
       def search_collection
-        budget.projects.includes([:component, :attachments, :taxonomies]).with_order(filter_params[:addition_type] == "added" ? current_order : nil)
+        budget.projects.includes(:component, :taxonomies, attachments: { file_attachment: :blob }).with_order(filter_params[:addition_type] == "added" ? current_order : nil)
       end
 
       def default_filter_params
