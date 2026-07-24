@@ -30,6 +30,7 @@ module Decidim
 
       def base_relation
         @base_relation ||= Decidim::Meetings::Meeting.where(component: model)
+                                                     .includes(:taxonomies, component: [:participatory_space])
                                                      .not_withdrawn
                                                      .published
                                                      .not_hidden
