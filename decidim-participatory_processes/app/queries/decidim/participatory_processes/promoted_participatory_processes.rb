@@ -5,7 +5,7 @@ module Decidim
     # This query filters processes so only promoted ones are returned.
     class PromotedParticipatoryProcesses < Decidim::Query
       def query
-        Decidim::ParticipatoryProcess.includes(:hero_image_attachment, :active_step).promoted
+        Decidim::ParticipatoryProcess.with_attached_hero_image.includes(:active_step).promoted
       end
     end
   end
