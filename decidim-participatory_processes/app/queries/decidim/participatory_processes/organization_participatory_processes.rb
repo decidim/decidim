@@ -9,7 +9,7 @@ module Decidim
       end
 
       def query
-        Decidim::ParticipatoryProcess.where(organization: @organization).order(weight: :asc)
+        Decidim::ParticipatoryProcess.includes(:hero_image_attachment, :active_step).where(organization: @organization).order(weight: :asc)
       end
     end
   end
