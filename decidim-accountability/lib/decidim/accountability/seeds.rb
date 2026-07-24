@@ -110,7 +110,7 @@ module Decidim
             admin_user,
             visibility: "all"
           ) do
-            result = Decidim::Accountability::Result.new(
+            res = Decidim::Accountability::Result.new(
               component:,
               parent: result,
               start_date: Time.zone.today,
@@ -122,8 +122,8 @@ module Decidim
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end
             )
-            result.save!(validate: false)
-            result
+            res.save!(validate: false)
+            res
           end
 
           # rubocop:disable Rails/SkipsModelValidations
