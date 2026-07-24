@@ -1273,6 +1273,7 @@ fr:
           badge: Le badge de l'utilisateur
           groups: L'identifiant et le nom du groupe d'utilisateurs
           id: L'identifiant unique de l'utilisateur
+          name: Le nom d'affichage de l'utilisateur
           nickname: Le pseudonyme de l'utilisateur
           profile_url: L'url du profil
       index:
