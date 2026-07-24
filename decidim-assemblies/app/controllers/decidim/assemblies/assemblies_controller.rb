@@ -65,7 +65,7 @@ module Decidim
 
         @current_participatory_space ||= OrganizationAssemblies.new(current_organization).query.where(slug: params[:slug]).or(
           OrganizationAssemblies.new(current_organization).query.where(id: params[:slug])
-        ).first!
+        ).includes(attachments: { file_attachment: :blob }).first!
       end
 
       def published_assemblies
