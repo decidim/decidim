@@ -98,6 +98,8 @@ eu:
           back: Itzuli sarrerara
           button: Sortu
           title: Sortu beste sarrera bat
+        orders:
+          random: Ausazko ordena
     components:
       blogs:
         actions:
