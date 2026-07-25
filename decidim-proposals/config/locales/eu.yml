@@ -661,6 +661,7 @@ eu:
             number_of_proposals: '%{number} proposamenetarako erantzunak argitaratuko dira?'
             select_a_proposal: Mesedez, hautatu proposamen bat.
           show:
+            address: Helbidea
             amendments_count: Zuzenketa kopurua
             assigned_evaluators: Ebaluatzaileak esleituta
             body: Testua
