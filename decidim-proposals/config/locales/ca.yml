@@ -662,6 +662,7 @@ ca:
             number_of_proposals: Es publicaran les respostes a %{number} propostes
             select_a_proposal: Si us plau, selecciona una proposta.
           show:
+            address: Adreça
             amendments_count: Número d'esmenes
             assigned_evaluators: Avaluadores assignades
             body: Cos
