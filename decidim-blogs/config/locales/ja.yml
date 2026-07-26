@@ -96,6 +96,11 @@ ja:
           back: 投稿に戻る
           button: 作成
           title: 新しい投稿を作成
+        orders:
+          label: 投稿の並び順
+          most_commented: コメントの多い順
+          random: ランダム
+          recent: 新着順
     components:
       blogs:
         actions:
