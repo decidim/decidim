@@ -79,7 +79,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= current_conference.registration_types
+          @collection ||= current_conference.registration_types.includes(:conference_registrations, :conference_meeting_registration_types)
         end
       end
     end

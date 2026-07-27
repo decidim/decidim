@@ -24,6 +24,7 @@ module Decidim
         def meetings
           meeting_components = current_participatory_space.components.where(manifest_name: "meetings")
           @meetings ||= Decidim::ConferenceMeeting.where(component: meeting_components)
+                                                  .includes(:component)
                                                    &.order(title: :asc)
                                                    &.map do |meeting|
                                                      OpenStruct.new(
