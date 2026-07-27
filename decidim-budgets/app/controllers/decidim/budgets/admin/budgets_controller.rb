@@ -65,7 +65,7 @@ module Decidim
         end
 
         def budgets
-          @budgets ||= Budget.includes(:component, :projects).where(component: current_component).order(weight: :asc)
+          @budgets ||= Budget.includes(:component).where(component: current_component).order(weight: :asc)
         end
 
         def budget
