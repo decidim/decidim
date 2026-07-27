@@ -121,7 +121,13 @@ export default class extends Controller {
       const handler = () => {
         this.reconnect({ detail: { collapse: true } });
       };
-      mql.addEventListener("change", handler);
+
+      if (mql.addEventListener) {
+        mql.addEventListener("change", handler);
+      } else if (mql.addListener) {
+        mql.addListener(handler);
+      }
+
       this._mediaQueries.push({ mql, handler });
     });
   }
@@ -129,7 +135,11 @@ export default class extends Controller {
   _stopListeningForBreakpointChanges() {
     if (this._mediaQueries) {
       this._mediaQueries.forEach(({ mql, handler }) => {
-        mql.removeEventListener("change", handler);
+        if (mql.removeEventListener) {
+          mql.removeEventListener("change", handler);
+        } else if (mql.removeListener) {
+          mql.removeListener(handler);
+        }
       });
       this._mediaQueries = [];
     }
