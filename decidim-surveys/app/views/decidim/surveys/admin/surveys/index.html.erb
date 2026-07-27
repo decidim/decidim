@@ -65,7 +65,7 @@
                       <%= t("actions.manage_questions", scope: "decidim.surveys") %>
                     <% end %>
                   </li>
-                  <% if survey.questionnaire.responses.any? %>
+                  <% if survey.questionnaire.responses.size.positive? %>
                     <li class="dropdown__item">
                       <%= link_to survey_responses_path(survey), class: "dropdown__button" do %>
                         <%= icon "draft-line" %>
