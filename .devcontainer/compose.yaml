@@ -37,3 +37,4 @@ services:
 volumes:
   redis-data:
   postgres-data:
+
