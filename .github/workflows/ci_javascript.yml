@@ -18,7 +18,7 @@ on:
 
 env:
   CI: "true"
-  NODE_VERSION: 22.14.0
+  NODE_VERSION: 24.18.0
   NODE_ENV: "test"
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 1
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Get npm cache directory path

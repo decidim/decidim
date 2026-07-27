@@ -8,7 +8,7 @@ describe Decidim::Debates::UpdateDebate do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:author) { user }
   let!(:debate) { create(:debate, author:, component: current_component) }
   let(:current_files) { debate.attachments }
@@ -48,7 +48,7 @@ describe Decidim::Debates::UpdateDebate do
   end
 
   describe "when the debate is not editable by the user" do
-    let(:author) { create(:user, organization:) }
+    let(:author) { create(:user, :confirmed, organization:) }
 
     it "broadcasts invalid" do
       expect { subject.call }.to broadcast(:invalid)

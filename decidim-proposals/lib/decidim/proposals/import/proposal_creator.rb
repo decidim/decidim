@@ -33,7 +33,7 @@ module Decidim
         #
         # Returns a proposal
         def produce
-          resource.add_coauthor(context[:current_user])
+          resource.add_coauthor(component.organization)
 
           resource
         end
@@ -110,8 +110,7 @@ module Decidim
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_published",
             event_class: Decidim::Proposals::PublishProposalEvent,
-            resource: proposal,
-            followers: coauthors_followers(proposal)
+            resource: proposal
           )
         end
 
@@ -120,7 +119,7 @@ module Decidim
             event: "decidim.events.proposals.proposal_published",
             event_class: Decidim::Proposals::PublishProposalEvent,
             resource: proposal,
-            followers: proposal.participatory_space.followers - coauthors_followers(proposal),
+            followers: proposal.participatory_space.followers,
             extra: {
               participatory_space: true
             }

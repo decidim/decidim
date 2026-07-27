@@ -20,9 +20,6 @@ import Configuration from "src/decidim/refactor/implementation/configuration";
 // so tests are not able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");
 
-// Create a dummy foundation jQuery method for the comments component to call
-$.fn.foundation = () => {};
-
 // Create the configuration object to make the configurations available for the tests
 window.Decidim = {}
 window.Decidim.config = new Configuration()

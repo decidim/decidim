@@ -11,7 +11,7 @@ describe "Gamification" do
 
   context "with a user" do
     describe "profile badges" do
-      let!(:user) { create(:user, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
 
       before do
         Decidim::Gamification.set_score(user, :test, 5)
@@ -28,7 +28,7 @@ describe "Gamification" do
   end
 
   describe "badges info page" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     it "can be reached from the profile's badges page" do
       visit decidim.profile_path(user.nickname)
