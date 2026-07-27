@@ -99,7 +99,7 @@ export default class extends Controller {
       }
 
       this.element.querySelectorAll(`[data-controls][data-open-${key}]`).forEach((elem) => {
-        elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]
+        elem.dataset.open = elem.getAttribute(`data-open-${key}`);
       });
     });
   }
