@@ -51,10 +51,6 @@ bg:
               allowed_file_content_types: 'Невалиден файлов формат. Позволени са само файлове със следните разширения: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Необходимо е да се прикачи отново
-            add_photos:
-              needs_to_be_reattached: Необходимо е да се прикачи отново
             body:
               cant_be_equal_to_template: не може да е еднакво с шаблона
               identical: И заглавието не може да е еднакво
@@ -133,7 +129,6 @@ bg:
             can_accumulate_votes_beyond_threshold: Може да натрупва гласове над прага
             collaborative_drafts_enabled: Съвместните чернови са разрешени
             comments_enabled: Коментарите са разрешени
-            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             default_sort_order: Сортиране на предложения по подразбиране
             default_sort_order_help: Автоматично означава, че ако гласовете са активирани, предложенията ще се показват сортирани на случаен принцип, а ако гласовете са блокирани, тогава те ще бъдат сортирани по най-гласуваните.
             default_sort_order_options:

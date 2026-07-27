@@ -43,7 +43,6 @@ he:
         alert_color: התראה
         available_authorizations: הרשאות זמינות
         badges_enabled: אפשר תגיות
-        comments_max_length: אורך מקסימלי לתגובות (השאירו 0 לערך ברירת המחדל)
   decidim:
     admin:
       newsletters:

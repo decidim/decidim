@@ -110,7 +110,6 @@ da:
         settings:
           global:
             comments_enabled: Kommentarer aktiveret
-            comments_max_length: Kommentarer maks. længde (Leave 0 for standardværdi)
             display_progress_enabled: Vis fremskridt
             intro: Intro
     resource_links:

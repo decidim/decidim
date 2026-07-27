@@ -134,7 +134,9 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       }
     },
 
-    onUpdate({ clientRect, items }) {
+    onUpdate({ clientRect, items, command }) {
+      selectCommand = command;
+
       if (!clientRect || !suggestion) {
         return;
       }

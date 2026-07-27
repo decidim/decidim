@@ -49,8 +49,6 @@ cs:
       meeting_registration_invite:
         email: E-mail
         name: Jméno
-      response:
-        add_documents: Přidat dokumenty
       validate_registration_code:
         code: Kód
     errors:
@@ -173,7 +171,6 @@ cs:
             announcement: Oznámení
             clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
-            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             creation_enabled_for_participants: Účastníci mohou vytvářet schůzky
             default_registration_terms: Výchozí podmínky registrace
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
@@ -348,10 +345,10 @@ cs:
             success: Uživatel úspěšně byl pozván k účasti na schůzce.
           form:
             attendee_type: Typ účastníka
-            existing_user: Existující uživatel
+            email: E-mail
             invite: Pozvat
             invite_explanation: Uživatel bude pozván, aby se připojil ke schůzce i organizaci.
-            non_user: Neexistující uživatel
+            name_or_nickname: Jméno nebo přezdívka
             select_user: Vyberte uživatele
           index:
             invites: Pozvánky
@@ -396,6 +393,7 @@ cs:
             assign: Přiřadit
             link_a_space: Propojit prostor
             private_meeting_warning: Propojené prostory nebudou použity, pokud je schůzka soukromá a netransparentní.
+            restricted_space_warning: Propojené prostory nebudou použity, pokud schůzka patří do soukromého netransparentního prostoru.
             select: Vyberte prostor
             table:
               actions: Akce

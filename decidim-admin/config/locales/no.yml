@@ -33,7 +33,6 @@
         alert_color: Varsel
         available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
-        comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
         customize_welcome_notification: Tilpass dine velkomstvarsler
         default_locale: Standardspråk
         description: Beskrivelse
@@ -673,11 +672,6 @@
       share_tokens:
         actions:
           destroy: Slett
-      shared:
-        gallery:
-          add_images: Legg til bilder
-          edit_images: Rediger bilder
-          gallery_legend: Legg til et bildegalleri (valgfritt)
       static_page_topics:
         create:
           error: Det oppstod et problem med å opprette et nytt emne.

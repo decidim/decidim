@@ -43,10 +43,6 @@ ar:
               allowed_file_content_types: 'نوع الوثيقة غير صالح. يسمح فقط بالملفات ذات الإضافات التالية: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: يحتاج إلى إعادة ربط
-            add_photos:
-              needs_to_be_reattached: يحتاج إلى إعادة ربط
             body:
               cant_be_equal_to_template: لا يمكن أن يساوي القالب
               identical: لا يمكن أن يكون العنوان متطابقًا
@@ -124,7 +120,6 @@ ar:
             attachments_allowed: السماح للمرفقات
             collaborative_drafts_enabled: تم تمكين المسودات التعاونية
             comments_enabled: تم تمكين التعليقات
-            comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
             default_sort_order: التصنيف الافتراضي للاقتراح
             default_sort_order_options:
               most_commented: صاحبة الأكثر تعليقات
