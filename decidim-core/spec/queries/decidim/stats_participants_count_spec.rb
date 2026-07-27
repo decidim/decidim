@@ -75,20 +75,6 @@ describe Decidim::StatsParticipantsCount do
     describe "meetings" do
       let(:meetings_component) { create(:meeting_component, participatory_space:) }
 
-      context "with registrations" do
-        let!(:meeting) { create(:meeting, :published, component: meetings_component) }
-        let!(:registration) { create(:registration, meeting:, user:) }
-
-        it "counts registered users" do
-          expect(subject.query).to eq(1)
-        end
-
-        it "counts multiple registered users" do
-          create(:registration, meeting:, user: other_user)
-          expect(subject.query).to eq(2)
-        end
-      end
-
       context "with participant-organized meetings" do
         let!(:meeting) do
           create(:meeting, :published, :not_official, component: meetings_component, author: user)
@@ -97,19 +83,13 @@ describe Decidim::StatsParticipantsCount do
         it "counts organizer" do
           expect(subject.query).to eq(1)
         end
-
-        it "deduplicates when user is both organizer and registrant" do
-          create(:registration, meeting:, user:)
-          expect(subject.query).to eq(1)
-        end
       end
 
       context "with hidden meetings" do
         let!(:meeting) { create(:meeting, :published, :not_official, component: meetings_component, author: user) }
-        let!(:registration) { create(:registration, meeting:, user: other_user) }
         let!(:moderation) { create(:moderation, reportable: meeting, participatory_space:, hidden_at: Time.current) }
 
-        it "excludes hidden meetings from organizers and registrations" do
+        it "excludes hidden meetings from organizers" do
           expect(subject.query).to eq(0)
         end
       end

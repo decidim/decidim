@@ -46,10 +46,8 @@ module Decidim
       return [] unless Decidim.module_installed?(:meetings)
 
       meetings = Decidim::Meetings::Meeting.where(component: space_components).not_hidden
-      registrations = Decidim::Meetings::Registration.where(decidim_meeting_id: meetings).pluck(:decidim_user_id)
-      organizers = meetings.where(decidim_author_type: Decidim::UserBaseEntity.name).pluck(:decidim_author_id)
 
-      [registrations, organizers].flatten.uniq
+      meetings.where(decidim_author_type: Decidim::UserBaseEntity.name).pluck(:decidim_author_id)
     end
 
     def meetings_attendees_count_query
