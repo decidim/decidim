@@ -16,7 +16,7 @@ module Decidim
         proposals_query,
         proposal_votes_query,
         survey_response_query
-      ].flatten.uniq.count
+      ].flatten.uniq.count + meetings_attendees_count_query
     end
 
     private
@@ -50,6 +50,16 @@ module Decidim
       organizers = meetings.where(decidim_author_type: Decidim::UserBaseEntity.name).pluck(:decidim_author_id)
 
       [registrations, organizers].flatten.uniq
+    end
+
+    def meetings_attendees_count_query
+      return 0 unless Decidim.module_installed?(:meetings)
+
+      Decidim::Meetings::Meeting
+        .not_hidden
+        .published
+        .where(component: space_components, closing_visible: true)
+        .sum(:attendees_count)
     end
 
     def likes_query
