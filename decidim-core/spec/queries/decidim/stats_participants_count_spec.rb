@@ -173,13 +173,50 @@ describe Decidim::StatsParticipantsCount do
     end
 
     # ── likes_query ─────────────────────────────────────────────────
-    # The likes_query filters for likes whose resource is a Component.
-    # Since Likes cannot be created on Components (the Like model's
-    # organization method calls resource&.component, which Components
-    # do not respond to), this query always returns 0 in practice.
     describe "likes" do
-      it "does not count likes on non-component resources" do
-        create(:like, resource: dummy_resource, author: user)
+      def create_like_on_component(component, author:)
+        now = Time.current
+        Decidim::Like.insert_all!([
+          { resource_type: "Decidim::Component", resource_id: component.id,
+            decidim_author_id: author.id, decidim_author_type: "Decidim::User",
+            created_at: now, updated_at: now }
+        ])
+      end
+
+      it "counts users who liked components in the space" do
+        create_like_on_component(component, author: user)
+        expect(subject.query).to eq(1)
+      end
+
+      it "counts users who liked resources (proposals) within components" do
+        proposals_component = create(:proposal_component, participatory_space:)
+        proposal = create(:proposal, :official, component: proposals_component)
+        create(:like, resource: proposal, author: user)
+        expect(subject.query).to eq(1)
+      end
+
+      it "counts multiple users across resources and components" do
+        proposals_component = create(:proposal_component, participatory_space:)
+        proposal = create(:proposal, :official, component: proposals_component)
+        create(:like, resource: proposal, author: user)
+        create_like_on_component(component, author: other_user)
+        expect(subject.query).to eq(2)
+      end
+
+      it "deduplicates the same user liking multiple resources" do
+        proposals_component = create(:proposal_component, participatory_space:)
+        proposal = create(:proposal, :official, component: proposals_component)
+        other_proposal = create(:proposal, :official, component: proposals_component)
+        create(:like, resource: proposal, author: user)
+        create(:like, resource: other_proposal, author: user)
+        expect(subject.query).to eq(1)
+      end
+
+      it "does not count likes on resources outside the space" do
+        other_space = create(:participatory_process, :with_steps, organization:)
+        other_component = create(:proposal_component, participatory_space: other_space)
+        other_proposal = create(:proposal, :official, component: other_component)
+        create(:like, resource: other_proposal, author: user)
         expect(subject.query).to eq(0)
       end
     end
@@ -220,38 +257,32 @@ describe Decidim::StatsParticipantsCount do
       end
     end
 
-    # ── proposals_query ─────────────────────────────────────────────
-    describe "proposals" do
+    # ── proposal_votes_query ────────────────────────────────────────
+    describe "proposal votes" do
       let(:proposals_component) { create(:proposal_component, participatory_space:) }
-
-      let!(:proposal) do
-        create(:proposal, component: proposals_component, users: [user])
+      let!(:proposal) { create(:proposal, :official, component: proposals_component) }
+      let!(:vote) do
+        create(:proposal_vote, proposal:, author: user)
       end
 
-      it "counts coauthors" do
+      it "counts voters on official proposals" do
         expect(subject.query).to eq(1)
       end
 
-      it "counts unique coauthors across multiple proposals" do
-        create(:proposal, component: proposals_component, users: [other_user])
+      it "counts multiple voters" do
+        other_proposal = create(:proposal, :official, component: proposals_component)
+        create(:proposal_vote, proposal: other_proposal, author: other_user)
         expect(subject.query).to eq(2)
       end
 
-      context "with hidden proposals" do
-        let!(:moderation) { create(:moderation, reportable: proposal, participatory_space:, hidden_at: Time.current) }
+      context "with non-final (temporary) votes" do
+        let!(:temporary_vote) do
+          create(:proposal_vote, proposal: create(:proposal, :official, component: proposals_component), author: user, temporary: true)
+        end
 
-        it "excludes hidden proposals" do
+        it "excludes temporary votes" do
+          vote.destroy!
           expect(subject.query).to eq(0)
-        end
-      end
-
-      context "with official proposals" do
-        let!(:official_proposal) do
-          create(:proposal, :official, component: proposals_component)
-        end
-
-        it "does not count official coauthors" do
-          expect(subject.query).to eq(1)
         end
       end
     end
@@ -301,8 +332,8 @@ describe Decidim::StatsParticipantsCount do
     # ── deduplication across queries ────────────────────────────────
     describe "deduplication across queries" do
       it "counts unique participants even when the same user appears in multiple queries" do
-        create(:comment, commentable: dummy_resource, author: user, participatory_space:)
         create(:like, resource: dummy_resource, author: user)
+        create(:debate, :participant_author, component: create(:debates_component, participatory_space:), author: user)
 
         expect(subject.query).to eq(1)
       end
@@ -310,7 +341,9 @@ describe Decidim::StatsParticipantsCount do
       it "sums attendees_count on top of unique participant count" do
         meetings_component = create(:meeting_component, participatory_space:)
         create(:meeting, :published, :closed, closing_visible: true, attendees_count: 7, component: meetings_component)
-        create(:comment, commentable: dummy_resource, author: user, participatory_space:)
+        proposals_component = create(:proposal_component, participatory_space:)
+        proposal = create(:proposal, :official, component: proposals_component)
+        create(:like, resource: proposal, author: user)
 
         expect(subject.query).to eq(8)
       end

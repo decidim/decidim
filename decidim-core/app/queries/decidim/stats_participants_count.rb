@@ -63,10 +63,28 @@ module Decidim
     end
 
     def likes_query
-      Decidim::Like
-        .where(resource: space_components)
-        .pluck(:decidim_author_id)
-        .uniq
+      component_ids = space_components.pluck(:id)
+      return [] if component_ids.empty?
+
+      queries = [Decidim::Like.where(resource_type: "Decidim::Component", resource_id: component_ids)]
+
+      likeable_resource_types.each do |type|
+        resource_ids = type.where(component: space_components).pluck(:id)
+        next if resource_ids.empty?
+
+        queries << Decidim::Like.where(resource_type: type.name, resource_id: resource_ids)
+      end
+
+      queries.flat_map { |q| q.pluck(:decidim_author_id) }.uniq
+    end
+
+    def likeable_resource_types
+      @likeable_resource_types ||= ActiveRecord::Base.descendants.select do |klass|
+        next false if klass.abstract_class? || klass.name.nil?
+
+        reflection = klass.reflect_on_association(:likes)
+        reflection&.macro == :has_many && reflection.options[:as] == :resource
+      end
     end
 
     def proposals_query
