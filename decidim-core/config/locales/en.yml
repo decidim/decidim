@@ -1746,7 +1746,7 @@ en:
       no_stats: There are no statistics yet.
       pages_count: Pages
       participants_count: Participants
-      participants_count_tooltip: The number of unique users who have interacted in this space by submitting proposals, attending meetings, voting, or joining discussions.
+      participants_count_tooltip: An aggregated count of participants across proposals, meetings, voting, and debates. The same person may be counted more than once if they participated in multiple activities.
       surveys_count: Surveys
       users_count: Participants
       users_count_tooltip: The total number of users who have signed up and confirmed their account via email.
