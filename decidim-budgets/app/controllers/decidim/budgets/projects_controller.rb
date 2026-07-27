@@ -33,7 +33,7 @@ module Decidim
         return @projects if @projects
 
         @projects = reorder(search.result)
-        @projects = @projects.page(params[:page]).per(current_component.settings.projects_per_page)
+        @projects = @projects.includes(:component, :taxonomies).page(params[:page]).per(current_component.settings.projects_per_page)
       end
 
       def all_geocoded_projects
@@ -41,11 +41,11 @@ module Decidim
       end
 
       def project
-        @project ||= search_collection.find_by(id: params[:id])
+        @project ||= search_collection.includes(attachments: { file_attachment: :blob }).find_by(id: params[:id])
       end
 
       def search_collection
-        budget.projects.includes(:component, :taxonomies, attachments: { file_attachment: :blob }).with_order(filter_params[:addition_type] == "added" ? current_order : nil)
+        budget.projects.with_order(filter_params[:addition_type] == "added" ? current_order : nil)
       end
 
       def default_filter_params
