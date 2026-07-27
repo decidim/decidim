@@ -9,7 +9,8 @@ module Decidim
       organization = Organization.with_attached_open_data_files.find(organization&.id)
 
       filename = organization.open_data_file_path(resource)
-      path = Rails.root.join("tmp/#{filename}")
+      tmp_filename = "#{SecureRandom.uuid}-#{filename}"
+      path = Rails.root.join("tmp", tmp_filename)
 
       Rails.logger.info "[OpenDataJob] Starting export for organization=#{organization.id} resource=#{resource.inspect}"
 
