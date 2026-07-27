@@ -99,7 +99,7 @@ module Decidim
         end
 
         def parent_results
-          @parent_results ||= Resul.where(component: current_component, parent_id: nil)
+          @parent_results ||= Result.where(component: current_component, parent_id: nil)
         end
 
         def statuses

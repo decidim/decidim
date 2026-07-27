@@ -26,7 +26,7 @@ module Decidim
       private
 
       def budget
-        @budget ||= Budget.where(component: current_component).includes(:projects).find_by(id: params[:budget_id])
+        @budget ||= Budget.where(component: current_component).includes(:projects).find(params.expect(:budget_id))
       end
 
       def projects

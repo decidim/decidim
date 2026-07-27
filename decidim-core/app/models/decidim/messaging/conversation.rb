@@ -117,7 +117,7 @@ module Decidim
       # @return [Array<Decidim::User>]
       #
       def interlocutors(user)
-        participants.includes(:organization, avatar_attachment: :blob).reject { |participant| participant.id == user.id }
+        participants.reject { |participant| participant.id == user.id }
       end
 
       #
