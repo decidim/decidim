@@ -8,7 +8,6 @@ module Decidim
 
       argument :id, GraphQL::Types::ID, "Maps the collection using its ID", required: false
       argument :key, GraphQL::Types::String, "Maps the collection using its key", required: false
-      argument :slug, GraphQL::Types::String, "DEPRECATED: Use 'key' instead", required: false, deprecation_reason: "Use `key` instead"
 
       def prepare
         id = arguments[:id]

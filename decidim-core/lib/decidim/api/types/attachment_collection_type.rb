@@ -12,8 +12,6 @@ module Decidim
       field :attachments, [Decidim::Core::AttachmentType, { null: true }], "The collection's attachments", null: false
       field :id, GraphQL::Types::ID, "The id of this attachment collection", null: false
       field :key, GraphQL::Types::String, "A technical key for the attachment collection to identify a specific correct collection", null: true
-      # @deprecated Use `#key` instead.
-      field :slug, GraphQL::Types::String, "DEPRECATED: Use 'key' instead", null: true, method: :key, deprecation_reason: "Use `key` instead"
       field :weight, GraphQL::Types::Int, "The weight of this attachment collection", null: false
     end
   end
