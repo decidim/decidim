@@ -3,6 +3,14 @@
 require "tempfile"
 
 shared_examples "API uploadable file" do
+  context "when file does not exists" do
+    let!(:tempfile) { Tempfile.create(["foo", ".xyz"]) }
+    let(:file) { "foobar" }
+
+    it "raises execution error" do
+      expect { response }.to raise_error(GraphQL::ExecutionError, /is not a valid upload/)
+    end
+  end
   context "when file extension is not supported" do
     let!(:tempfile) { Tempfile.create(["foo", ".xyz"]) }
     let(:file) do
@@ -14,7 +22,7 @@ shared_examples "API uploadable file" do
     end
 
     it "raises execution error" do
-      expect { response }.to raise_error(GraphQL::ExecutionError, /File extension is not supported./)
+      expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, /File extension is not supported./)
     end
   end
 
@@ -29,7 +37,7 @@ shared_examples "API uploadable file" do
     end
 
     it "raises execution error" do
-      expect { response }.to raise_error(GraphQL::ExecutionError, /File type is not supported./)
+      expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, /File type is not supported./)
     end
   end
 

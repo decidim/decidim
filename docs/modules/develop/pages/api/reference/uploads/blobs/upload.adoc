@@ -1,0 +1,33 @@
+= Upload files
+
+== Sample request
+
+The `uploadFile` mutation allows authenticated administrators to upload and create file blobs.
+
+[source,graphql]
+----
+mutation ($input: UploadFileInput!) {
+  uploadFile(input: $input) {
+    blob {
+      id filename byteSize signedId checksum
+    }
+  }
+}
+----
+
+The `uploadFile` mutation accepts a file through a multipart GraphQL request. Send the file as `multipart/form-data` using the https://github.com/jaydenseric/graphql-multipart-request-spec[GraphQL multipart request spec].
+
+The file variable must be `null` in the `operations` payload, and the uploaded file is mapped separately:
+
+[source,bash]
+----
+curl -X POST http://localhost:3000/api/ \
+  -F 'operations={"query":"mutation ($input: UploadFileInput!) { uploadFile(input: $input) { blob { id filename byteSize signedId checksum } } }","variables":{"input":{"file":null}}}' \
+  -F 'map={"0":["variables.input.file"]}' \
+  -F '0=@/path/to/file.jpg'
+----
+
+== Error Handling
+
+* xref:develop:api/reference/errors/unauthorized_object.adoc[Unauthorized Object Error - UNAUTHORIZED_OBJECT_ERROR]
+* xref:develop:api/reference/errors/validation_error.adoc[Attribute Error - VALIDATION_ERROR]
