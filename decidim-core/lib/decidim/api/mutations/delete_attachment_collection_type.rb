@@ -3,7 +3,7 @@
 module Decidim
   module Core
     class DeleteAttachmentCollectionType < Api::DestroyResourceType
-      description "deletes an attachment collection"
+      description "Deletes an attachment collection"
 
       type Decidim::Core::AttachmentCollectionType
 

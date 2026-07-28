@@ -9,6 +9,14 @@ module Decidim
 
       type Decidim::Core::BlobType
 
+      def resolve(id:)
+        resource = find_resource(id)
+
+        return resource if resource.respond_to?(:attachments) && resource.attachments.destroy_all
+
+        raise Decidim::Api::Errors::ValidationError, "Not attached"
+      end
+
       def authorized?(id:)
         blob = find_resource(id)
         raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:delete, :blob, blob, context)

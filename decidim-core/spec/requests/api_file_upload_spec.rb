@@ -4,7 +4,7 @@ require "spec_helper"
 require "tempfile"
 require "decidim/api/test"
 
-RSpec.describe "UploadFile Mutation" do
+describe "UploadFile Mutation" do
   let(:sign_in_path) { "/api/sign_in" }
   let(:sign_out_path) { "/api/sign_out" }
   let(:api_path) { "/api" }

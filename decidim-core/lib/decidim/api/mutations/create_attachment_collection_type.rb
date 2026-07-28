@@ -6,7 +6,7 @@ module Decidim
       description "Creates an attachment collection"
       type Decidim::Core::AttachmentCollectionType
 
-      argument :attributes, AttachmentCollectionAttributes, description: "input attributes to create an attachment collection", required: true
+      argument :attributes, AttachmentCollectionAttributes, description: "Input attributes to create an attachment collection", required: true
 
       def resolve(attributes:)
         params = extract_from(attributes)
