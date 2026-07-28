@@ -1,7 +1,7 @@
 <div data-controller="accordion" data-multiselectable="true" class="contents">
   <nav class="footer__nav" role="navigation" aria-label="<%= t("layouts.decidim.footer.decidim_title") %>">
-    <button type="button" data-controls="panel-footer-menu" data-open-lg="true">
-      <h2 class="h4"><%= t("layouts.decidim.footer.decidim_title") %></h2>
+    <button type="button" id="panel-footer-menu-trigger" data-controls="panel-footer-menu" data-open-lg="true">
+      <span class="h4"><%= t("layouts.decidim.footer.decidim_title") %></span>
       <%= icon "arrow-down-s-line" %>
     </button>
     <div id="panel-footer-menu" aria-hidden="true">
@@ -10,8 +10,8 @@
   </nav>
 
   <nav class="footer__nav" role="navigation" aria-label="<%= t("layouts.decidim.user_menu.profile") %>">
-    <button type="button" data-controls="panel-profile" data-open-lg="true">
-      <h2 class="h4"><%= t("layouts.decidim.user_menu.profile") %></h2>
+    <button type="button" id="panel-profile-trigger" data-controls="panel-profile" data-open-lg="true">
+      <span class="h4"><%= t("layouts.decidim.user_menu.profile") %></span>
       <%= icon "arrow-down-s-line" %>
     </button>
     <div id="panel-profile" aria-hidden="true">
@@ -32,8 +32,8 @@
   </nav>
 
   <nav class="footer__nav" role="navigation" aria-label="<%= t("layouts.decidim.footer.resources") %>">
-    <button type="button" data-controls="panel-resources" data-open-lg="true">
-      <h2 class="h4"><%= t("layouts.decidim.footer.resources") %></h2>
+    <button type="button" id="panel-resources-trigger" data-controls="panel-resources" data-open-lg="true">
+      <span class="h4"><%= t("layouts.decidim.footer.resources") %></span>
       <%= icon "arrow-down-s-line" %>
     </button>
     <div id="panel-resources" aria-hidden="true">
@@ -48,8 +48,8 @@
   </nav>
 
   <nav class="footer__nav" role="navigation" aria-label="<%= t("layouts.decidim.footer.help") %>">
-    <button type="button" data-controls="panel-help" data-open-lg="true">
-      <h2 class="h4"><%= t("layouts.decidim.footer.help") %></h2>
+    <button type="button" id="panel-help-trigger" data-controls="panel-help" data-open-lg="true">
+      <span class="h4"><%= t("layouts.decidim.footer.help") %></span>
       <%= icon "arrow-down-s-line" %>
     </button>
     <div id="panel-help" aria-hidden="true">
