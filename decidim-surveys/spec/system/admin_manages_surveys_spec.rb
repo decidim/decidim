@@ -127,7 +127,7 @@ describe "Admin manages surveys" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
           expect(page).to have_text "Published"
         end
-        expect(questionnaire.responses).to be_empty
+        expect(questionnaire.reload.responses).to be_empty
       end
 
       context "when publishing the survey" do
@@ -177,7 +177,7 @@ describe "Admin manages surveys" do
                 Decidim::Admin::PublishComponent.call(component, user)
               end
 
-              expect(questionnaire.responses).to be_empty
+              expect(questionnaire.reload.responses).to be_empty
             end
           end
         end

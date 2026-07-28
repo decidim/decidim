@@ -12,8 +12,8 @@ module Decidim
       # The action logs are too complicated to be eagerly loaded
       # we may have a Decidim::Meetings::Meeting resource to which we can eagerly load component: { participatory_space: :organization }
       # We may have a Decidim::Comments::Comment resource to which we caan eagerly load :commentable, :root_commentable with associated children
-      # We may have a Decidim::Component resource that
-      # We may have a Decidim::Parocess resource that doesn't have an collection
+      # We may have a Decidim::Component resource that does not respond to component and so on
+      # We may have a Decidim::Parocess resource that does not have an collection
       # Calling .includes() with all the possible combinations, could raise a `ActiveRecord::AssociationNotFoundError`
       around_action :skip_bullet, if: -> { defined?(::Bullet) }
 
