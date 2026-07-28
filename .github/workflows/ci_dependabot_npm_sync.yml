@@ -18,7 +18,7 @@ on:
       - 'package.json'
 
 env:
-  NODE_VERSION: 22.14.0
+  NODE_VERSION: 24.18.0
 
 jobs:
   sync-lockfiles:
