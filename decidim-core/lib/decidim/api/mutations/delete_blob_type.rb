@@ -5,6 +5,8 @@ module Decidim
     class DeleteBlobType < Api::DestroyResourceType
       description "Deletes a blob"
 
+      required_scopes "api:read", "admin:read", "admin:write"
+
       type Decidim::Core::BlobType
 
       def authorized?(id:)

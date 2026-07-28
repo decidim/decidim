@@ -21,6 +21,9 @@ module Decidim
         return render json: { error: :unallowed_file_extension }, status: :unprocessable_content unless extension_allowlist.any? { |ext| ext == uploaded_file_extension }
         return render json: { error: :unallowed_content_type }, status: :unprocessable_content unless content_type_allowlist.any? { |type| type.match?(uploaded_file.content_type) }
 
+        max_bytes = Decidim.organization_settings(current_organization).upload.maximum_file_size.default.megabytes
+        return render json: { error: :file_too_large }, status: :unprocessable_content if uploaded_file.size > max_bytes
+
         blob = ActiveStorage::Blob.create_and_upload!(
           io: uploaded_file,
           filename: sanitized_filename,

@@ -100,6 +100,8 @@ module Decidim
         operations = JSON.parse(params[:operations])
         map = JSON.parse(params[:map])
 
+        raise "Invalid multipart map" if map.blank?
+
         # Single file only
         file_key, paths = map.first
         file = params[file_key]
