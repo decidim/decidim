@@ -26,7 +26,7 @@ footer {
         }
 
         [id*="panel"][aria-hidden="true"] {
-          @apply hidden;
+          @apply hidden lg:block;
         }
 
         [id*="panel"][aria-hidden="false"] {
