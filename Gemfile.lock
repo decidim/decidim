@@ -97,6 +97,7 @@ PATH
       premailer-rails (~> 1.10)
       rack (>= 3.2.4, < 4.0)
       rack-attack (>= 6.7, < 6.9)
+      rack-proxy (~> 0.8.3, < 1.0)
       rails (~> 8.1.0)
       rails-i18n (~> 8.1.0, < 8.2)
       ransack (>= 4.2, < 4.5)
