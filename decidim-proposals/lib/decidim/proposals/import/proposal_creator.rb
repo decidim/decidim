@@ -52,6 +52,8 @@ module Decidim
           end
         end
 
+        private
+
         def resource
           @resource ||= Decidim::Proposals::Proposal.new(
             taxonomies:,
@@ -127,7 +129,7 @@ module Decidim
         end
 
         def coauthors_followers(proposal)
-          @coauthors_followers ||= proposal.authors.flat_map(&:followers)
+          proposal.authors.flat_map(&:followers)
         end
 
         def taxonomies_raw_ids
