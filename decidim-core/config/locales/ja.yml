@@ -644,6 +644,13 @@ ja:
           all: すべて
         filter_taxonomy_values:
           all: すべて
+    delete_user_mailer:
+      delete:
+        body_1: アカウントは無効化されており、現在アクセスできません。あなたの個人データは、本サービスのデータ保持ポリシーに従い、永久削除される予定です。
+        body_2: セキュリティ上の理由から、一部の認証関連データは保持されます。新たにアカウントを作成し、再度認証を行った場合、これらのデータが新規アカウントに紐付けられる可能性があります。
+        greetings_html: よろしくお願いいたします。<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: こんにちは %{username} さん、
+      subject: アカウントは削除されました
     devise:
       omniauth_registrations:
         create:
@@ -933,6 +940,18 @@ ja:
         notification_body: ニックネームの使用方法を修正し、重複をなくすために大文字小文字を区別しないようにしました。<br/> あなたのニックネームは他の同じ名前の方の後に登録されたため、自動的にリネームされました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
+      participatory_space:
+        member_added:
+          published:
+            email_intro: あなたは参加型スペースにメンバーとして追加されました。
+            email_outro: 管理者によって <a href="%{resource_url}">%{resource_title}</a> にあなたが追加されたため、この通知が届きました。このスペースへのアクセスがメンバー限定でも、あなたのアカウントでアクセスできます。<br> あなたのプロフィールは、スペースの <a href="%{members_page}">メンバー一覧</a> に表示されます。
+            email_subject: これで %{resource_title} にアクセスできます。
+            notification_title: <a href="%{resource_url}">%{resource_title}</a>にアクセスできるようになりました。
+          unpublished:
+            email_intro: あなたは参加型スペースにメンバーとして追加されました。
+            email_outro: 管理者によって <a href="%{resource_url}">%{resource_title}</a> にあなたが追加されたため、この通知が届きました。このスペースへのアクセスがメンバー限定でも、あなたのアカウントでアクセスできます。
+            email_subject: これで %{resource_title} にアクセスできます。
+            notification_title: <a href="%{resource_url}">%{resource_title}</a>にアクセスできるようになりました。
       reports:
         parent_hidden:
           email_intro: |-
@@ -1169,6 +1188,8 @@ ja:
       dynamic:
         screen_reader_explanation: 以下の要素は、このページ上のアイテムを地図上のポイントとして表示するマップです。 この要素はスクリーンリーダーで使用することができますが、理解しにくいかもしれません。
         skip_button: 地図をスキップ
+        zoom_in: 拡大
+        zoom_out: 縮小
       static:
         latlng_text: '緯度: %{latitude}, 経度: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1508,6 +1529,10 @@ ja:
         never_logged_in: ログインしたことがない
         subject: 非アクティブなアカウントの警告
     participatory_space:
+      labels:
+        reference: スペースの参照
+        restricted: メンバー限定スペース
+        transparent: 閲覧可能スペース
       pages:
         user_profile:
           member_of:

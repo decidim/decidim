@@ -76,7 +76,6 @@ pt-BR:
       posts:
         edit:
           add_attachments: Adicionar anexos
-          attachment_legend: Adicionar um documento ou uma imagem
           back: Voltar à postagem
           button: Atualizar
           edit_attachments: Editar anexos

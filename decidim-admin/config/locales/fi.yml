@@ -607,6 +607,11 @@ fi:
         edit:
           title: Muokkaa jäsentä
           update: Päivitä
+        form:
+          email: Sähköposti
+          invite_explanation: Osallistuja kutsutaan liittymään organisaatioon.
+          name_or_nickname: Nimi tai nimimerkki
+          select_user: Valitse jäsen
         index:
           import_via_csv: Tuo CSV-tiedostosta
           publish_all: Julkaise kaikki
@@ -1099,7 +1104,7 @@ fi:
           previous_title: Edellinen kohde
         attachments:
           add_attachments: Lisää liitteitä
-          attachment_legend: Lisää liitegalleria (valinnainen)
+          attachment_legend: Lisää asiakirja tai kuva
           edit_attachments: Muokkaa liitteitä
       static_page_topics:
         create:
