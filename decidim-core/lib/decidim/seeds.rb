@@ -47,7 +47,7 @@ module Decidim
       # - Maximum total amount of results: 6 * 75 = 450
       # - Maximum total amount of comments for all results: 6 * 900 = 5400
       accountability_statuses_count: { slow: 5, fast: 3 },
-      accountability_taxonomies_count: { slow: 6, fast: 1 },
+      accountability_taxonomies_count: { slow: 3..5, fast: 1 },
       accountability_results_per_taxonomy_count: { slow: 3..5, fast: 1 },
       accountability_children_per_result_count: { slow: 0..2, fast: 0..1 },
       accountability_milestones_per_result_count: { slow: 3..5, fast: 1 },
