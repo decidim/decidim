@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Debates::UpdateDebate do
+  include_context "sorted taxonomies"
+
   subject { described_class.new(form, debate) }
 
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }

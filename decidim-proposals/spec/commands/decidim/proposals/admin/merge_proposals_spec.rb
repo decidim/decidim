@@ -7,6 +7,8 @@ module Decidim
     module Admin
       describe MergeProposals do
         describe "call" do
+          include_context "sorted taxonomies"
+
           let!(:proposals) { create_list(:proposal, 3, component: current_component, taxonomies:) }
           let!(:current_component) { create(:proposal_component) }
           let!(:target_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }

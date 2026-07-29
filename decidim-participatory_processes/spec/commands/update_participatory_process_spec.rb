@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcess do
     describe "call" do
+      include_context "sorted taxonomies"
+
       let(:organization) { create(:organization) }
       let(:my_process) { create(:participatory_process, organization:, taxonomies:) }
       let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }

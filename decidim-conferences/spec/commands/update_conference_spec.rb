@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::UpdateConference do
     describe "call" do
+      include_context "sorted taxonomies"
+
       let(:organization) { create(:organization) }
       let(:my_conference) { create(:conference, taxonomies:, organization:) }
       let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }

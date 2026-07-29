@@ -7,6 +7,8 @@ module Decidim
     module Admin
       describe SplitProposals do
         describe "call" do
+          include_context "sorted taxonomies"
+
           let!(:proposals) { Array(create(:proposal, component: current_component, taxonomies:)) }
           let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: current_component.organization) }
           let!(:current_component) { create(:proposal_component) }
