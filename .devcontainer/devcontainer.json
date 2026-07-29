@@ -10,7 +10,7 @@
       "moby": false
     },
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "22.14.0"
+      "version": "24.18.0"
     },
     "ghcr.io/rails/devcontainer/features/activestorage": {},
     "ghcr.io/rails/devcontainer/features/postgres-client": {}

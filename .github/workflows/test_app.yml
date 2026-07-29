@@ -1,6 +1,11 @@
 on:
   workflow_call:
     inputs:
+      node_version:
+        description: 'Node Version'
+        default: "24.18.0"
+        required: false
+        type: string
       ruby_version:
         description: 'Ruby Version'
         default: "3.4.7"

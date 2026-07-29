@@ -1212,6 +1212,8 @@ en:
       dynamic:
         screen_reader_explanation: The following element is a map which presents the items on this page as map points. The element can be used with a screen reader but it may be hard to understand.
         skip_button: Skip map
+        zoom_in: Zoom in
+        zoom_out: Zoom out
       static:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap

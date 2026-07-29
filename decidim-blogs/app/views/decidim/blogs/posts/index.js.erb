@@ -1,0 +1,8 @@
+var blogs = document.getElementById('blogs');
+var orderFilterInput = document.querySelector('.order_filter');
+
+blogs.innerHTML = '<%= j(render partial: "posts").strip.html_safe %>';
+if (orderFilterInput) { orderFilterInput.value = '<%= order %>'; }
+
+blogs.innerHTML = blogs.innerHTML.replace('data-open="false"', 'data-open="true"');
+document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: blogs }));

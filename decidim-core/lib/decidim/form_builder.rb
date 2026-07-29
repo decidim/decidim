@@ -480,8 +480,7 @@ module Decidim
       hidden_options
     end
 
-    # Private: Override from FoundationRailsHelper in order to render
-    # inputs inside the label and to automatically inject validations
+    # Private: Render inputs inside the label and to automatically inject validations
     # from the object.
     #
     # attribute    - The String name of the attribute to build the field.
@@ -608,8 +607,7 @@ module Decidim
       object._validators[attribute.to_sym].find { |validator| validator.instance_of?(klass) }
     end
 
-    # Private: Override method from FoundationRailsHelper to render the text of the
-    # label before the input, instead of after.
+    # Private: Render the text of the label before the input, instead of after.
     #
     # attribute - The String name of the attribute we are build the label.
     # text      - The String text to use as label.
@@ -804,9 +802,8 @@ module Decidim
     end
 
     # Private: Creates a tag from the given options for the field prefix and
-    # suffix. Overridden from FoundationRailsHelper to make the generated HTML
-    # valid since these elements are printed within <label> elements and <div>'s
-    # are not allowed there.
+    # suffix. Make the generated HTML valid since these elements are printed
+    # within <label> elements and <div>'s are not allowed there.
     def tag_from_options(name, options)
       return "".html_safe unless options && options[:value].present?
 
