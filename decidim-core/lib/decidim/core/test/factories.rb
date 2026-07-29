@@ -622,7 +622,7 @@ FactoryBot.define do
     name { generate_localized_title(:taxonomy_name, skip_injection:) }
     organization
     parent { nil }
-    weight { nil }
+    sequence(:weight)
 
     trait :with_parent do
       parent { create(:taxonomy, organization:, skip_injection:) }
