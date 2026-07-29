@@ -24,6 +24,7 @@ module Decidim
       end
 
       def authorized?(attributes:)
+        previous_scope = context[:scope]
         context[:scope] = :admin
 
         context[:attached_to] = object
@@ -31,6 +32,8 @@ module Decidim
         raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:create, :attachment, nil, context)
 
         true
+      ensure
+        context[:scope] = previous_scope
       end
 
       def extract_from(attributes)

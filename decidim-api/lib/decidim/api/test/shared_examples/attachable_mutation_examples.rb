@@ -579,19 +579,19 @@ shared_examples_for "update attachment with collection support" do
         expect { response }.to raise_error(StandardError)
       end
     end
-  end
 
-  context "and the slug is not set" do
-    let(:attributes) do
-      {
-        title:,
-        file: { blobId: blob.id },
-        collection: { slug: nil }
-      }
-    end
+    context "and the slug is not set" do
+      let(:attributes) do
+        {
+          title:,
+          file: { blobId: blob.id },
+          collection: { slug: nil }
+        }
+      end
 
-    it "does not update the attachment" do
-      expect { response }.to raise_error(StandardError)
+      it "does not update the attachment" do
+        expect { response }.to raise_error(StandardError)
+      end
     end
   end
 end
