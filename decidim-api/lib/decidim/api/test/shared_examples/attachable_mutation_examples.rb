@@ -369,7 +369,7 @@ shared_examples_for "create attachment with collection support" do
         title:,
         description:,
         file: { blobId: blob.id },
-        collection: { slug: collection.key }
+        collection: { key: collection.key }
       }
     end
 
@@ -387,7 +387,7 @@ shared_examples_for "create attachment with collection support" do
           title:,
           description:,
           file: { blobId: blob.id },
-          collection: { slug: "foo" }
+          collection: { key: "foo" }
         }
       end
 
@@ -411,7 +411,7 @@ shared_examples_for "create attachment with collection support" do
           title:,
           description:,
           file: { blobId: blob.id },
-          collection: { slug: "" }
+          collection: { key: "" }
         }
       end
 
@@ -427,7 +427,7 @@ shared_examples_for "create attachment with collection support" do
           title:,
           description:,
           file: { blobId: blob.id },
-          collection: { slug: nil }
+          collection: { key: nil }
         }
       end
 
@@ -543,7 +543,7 @@ shared_examples_for "update attachment with collection support" do
       {
         title:,
         file: { blobId: blob.id },
-        collection: { slug: collection.key }
+        collection: { key: collection.key }
       }
     end
 
@@ -558,7 +558,7 @@ shared_examples_for "update attachment with collection support" do
         {
           title:,
           file: { blobId: blob.id },
-          collection: { slug: "foo" }
+          collection: { key: "foo" }
         }
       end
 
@@ -572,7 +572,7 @@ shared_examples_for "update attachment with collection support" do
         {
           title:,
           file: { blobId: blob.id },
-          collection: { slug: "" }
+          collection: { key: "" }
         }
       end
       it "does not update the attachment" do
@@ -585,7 +585,7 @@ shared_examples_for "update attachment with collection support" do
         {
           title:,
           file: { blobId: blob.id },
-          collection: { slug: nil }
+          collection: { key: nil }
         }
       end
 

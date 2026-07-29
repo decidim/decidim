@@ -11,7 +11,7 @@ module Decidim
 
       def prepare
         id = arguments[:id]
-        key = arguments[:key].presence || arguments[:slug]
+        key = arguments[:key]
 
         raise GraphQL::ExecutionError, "Either id or key needs to be provided." if id.blank? && key.blank?
         raise GraphQL::ExecutionError, "Only one of id or key can be provided at a time." if id.present? && key.present?
@@ -23,7 +23,7 @@ module Decidim
       def id_value
         return arguments[:id].to_i if arguments[:id].present?
 
-        key = arguments[:key].presence || arguments[:slug]
+        key = arguments[:key]
         raise GraphQL::ExecutionError, "The key cannot be empty." if key.blank?
         raise GraphQL::ExecutionError, "Outside of object context." if context[:current_object].blank?
 

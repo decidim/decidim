@@ -182,7 +182,7 @@ shared_examples_for "creatable attachment collection" do
         name:,
         description:,
         weight:,
-        slug:
+        key:
       }
     end
 
@@ -300,7 +300,7 @@ shared_examples_for "updatable attachment collection" do
         name:,
         description:,
         weight:,
-        slug:
+        key:
       }
     end
 
@@ -336,7 +336,7 @@ shared_examples_for "updatable attachment collection" do
       {
         name:,
         weight:,
-        slug:
+        key:
       }
     end
 

@@ -36,7 +36,7 @@ module Decidim
         validate_multiple_locales(attributes, :name)
         validate_multiple_locales(attributes, :description)
 
-        key = attributes.key || attributes.slug
+        key = attributes.key
 
         attributes = attributes.to_h.merge(key:)
 

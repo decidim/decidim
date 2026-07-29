@@ -48,7 +48,7 @@ module Decidim
         validate_multiple_locales(attributes, :name)
         validate_multiple_locales(attributes, :description)
 
-        key = attributes[:key].presence || attributes[:slug] || attachment_collection.key
+        key = attributes[:key].presence || attachment_collection.key
 
         {
           key:,
