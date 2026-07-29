@@ -1205,6 +1205,8 @@ ca-IT:
       dynamic:
         screen_reader_explanation: El següent element és un mapa que presenta els components d'aquesta pàgina com a punts al mapa. L'element es pot fer servir amb un lector de pantalla però pot ser difícil d'entendre.
         skip_button: Saltar el mapa
+        zoom_in: Ampliar
+        zoom_out: Allunyar
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
