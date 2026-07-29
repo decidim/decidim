@@ -14,7 +14,7 @@ When you want to create a Decidim attachment collection, you need to rely on the
 
 == Sample request
 
-The `CreateAttachmentCollection` mutation allows authenticated administrators to create new attachment collections within certain resources. This mutation uses the existing `CreateAttachmentCollection` command from the admin controller. In the below  example, we are creating an attachment bound to a `Result` type.
+The `CreateAttachmentCollection` mutation allows authenticated administrators to create new attachment collections within certain resources. This mutation uses the existing `CreateAttachmentCollection` command from the admin controller. In the below example, we are creating an attachment collection bound to a `Result` type.
 
 [source,graphql]
 ----
