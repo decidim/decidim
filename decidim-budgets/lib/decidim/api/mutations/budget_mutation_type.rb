@@ -15,7 +15,7 @@ module Decidim
       end
 
       def project(**args)
-        Project.find_by(id: args[:id], budget: object)
+        Project.find_by!(id: args[:id], budget: object)
       end
     end
   end
