@@ -150,6 +150,7 @@ fr-CA:
         statuses:
           publish_results:
             invalid: Un problème est survenu lors de la publication des résultats.
+            success: Résultats publiés avec succès.
           unknown: État Inconnu
       admin_log:
         election:
