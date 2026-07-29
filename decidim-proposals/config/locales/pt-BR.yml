@@ -795,7 +795,6 @@ pt-BR:
           instructions: Você pode mover o ponto no mapa.
         edit:
           add_attachments: Adicionar anexos
-          attachment_legend: Adicionar um documento ou uma imagem
           back: Voltar
           edit_attachments: Editar anexos
           send: Enviar

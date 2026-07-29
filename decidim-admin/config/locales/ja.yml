@@ -11,6 +11,7 @@ ja:
         plural: 複数形
       attachment:
         attachment_collection_id: フォルダ
+        attachments: 添付ファイル
         description: 説明
         file: ファイル
         title: 添付ファイルまたは画像名
@@ -601,6 +602,11 @@ ja:
         edit:
           title: メンバーを編集
           update: 更新
+        form:
+          email: メールアドレス
+          invite_explanation: 参加者は組織に招待されます。
+          name_or_nickname: 名前またはアカウント名
+          select_user: メンバーを選択
         index:
           import_via_csv: CSV形式でインポート
           publish_all: すべて公開
@@ -632,7 +638,7 @@ ja:
             explanation: '%{count} 名のメンバーがいます。'
             title: メンバーを削除
           example_file: 'サンプルファイル：'
-          explanation: "CSVファイルをアップロードしてください。ファイルには2つの列が必要で、1列目にはメールアドレス、最後の列には参加スペースに追加したいユーザーの名前を入力してください。ヘッダー行は不要です。ユーザー名には、`<>?%&^*#@()[]=+:;\"{}\\\\|`などの無効な文字を使用しないでください。\n"
+          explanation: "CSVファイルをアップロードしてください。ファイルには2つの列が必要で、1列目にはメールアドレス、最後の列には参加スペースに追加したいユーザーの名前を入力してください。ヘッダー行は不要です。ユーザー名には、`<>?%&^*#@()[]=+:;\"{}\\\\\\\\|`などの無効な文字を使用しないでください。\n"
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -1089,6 +1095,10 @@ ja:
           next_title: 次の項目
           previous: 前へ
           previous_title: 前の項目
+        attachments:
+          add_attachments: 添付ファイルを追加
+          attachment_legend: ドキュメントまたは画像を追加
+          edit_attachments: 添付ファイルを編集
       static_page_topics:
         create:
           error: 新しいトピックを作成中に問題が発生しました。
@@ -1303,6 +1313,11 @@ ja:
       errors:
         impersonate_user:
           reason: 管理対象ではない参加者を管理する場合は、理由を入力する必要があります。
+      file_help:
+        attachment:
+          explanation: 'ファイルのガイダンス：'
+          message_1: CSV、JSON、Excel (.xlsx) ファイルがサポートされています
+          message_2: CSV ファイルの場合、カラム間の区切り文字はセミコロン(";")でなければなりません
     moderations:
       actions:
         expand: 展開

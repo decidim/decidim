@@ -308,6 +308,7 @@ cs:
       accountability:
         actions:
           comment: Komentář
+          vote_comment: Hlasovat pro komentář
         name: Odpovědnost
         settings:
           global:
