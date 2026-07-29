@@ -64,4 +64,37 @@ shared_examples "API uploadable file" do
       )
     end
   end
+
+  context "when file size equals the configured maximum" do
+    let!(:tempfile) { Tempfile.create(["foo", ".jpg"]) }
+    let(:file) do
+      Rack::Multipart::UploadedFile.new(
+        tempfile.path,
+        "image/jpg",
+        filename: "foo.jpg"
+      )
+    end
+
+    before do
+      tempfile.write("a" * 10_240)
+      tempfile.rewind
+
+      current_organization.settings.tap do |settings|
+        settings.upload.maximum_file_size.default = 10.kilobytes.to_f / 1.megabyte
+      end
+    end
+
+    it "uploads the file and returns the blob" do
+      expect { response }.to change(ActiveStorage::Blob, :count).by(1)
+
+      blob = ActiveStorage::Blob.last
+      expect(response["uploadFile"]["blob"]).to include(
+        "id" => blob.id.to_s,
+        "filename" => blob.filename,
+        "checksum" => blob.checksum,
+        "signedId" => blob.signed_id,
+        "byteSize" => blob.byte_size
+      )
+    end
+  end
 end

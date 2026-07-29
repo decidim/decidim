@@ -53,7 +53,7 @@ module Decidim
       def validate_size!(file)
         max_bytes = Decidim.organization_settings(current_organization).upload.maximum_file_size.default.megabytes
 
-        return if file.size < max_bytes
+        return if file.size <= max_bytes
 
         raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.file_upload.errors.file_too_large")
       end
