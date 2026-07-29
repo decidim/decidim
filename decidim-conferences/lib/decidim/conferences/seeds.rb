@@ -8,28 +8,28 @@ module Decidim
       def call
         create_content_block!
 
-        number_of_spaces.times do |_n|
+        config_value(:conferences_count).times do |_n|
           conference = create_conference!
 
           create_conference_user_roles!(conference:)
 
           create_attachments!(attached_to: conference)
 
-          number_of_records.times do
+          config_value(:conferences_speakers_count).times do
             create_conference_speaker!(conference:)
           end
 
           Decidim::Conferences::Partner::TYPES.map do |type|
-            number_of_records.times do
+            config_value(:conferences_partners_per_type_count).times do
               create_conference_partner!(conference:, type:)
             end
           end
 
-          number_of_records.times do
+          config_value(:conferences_media_links_count).times do
             create_conference_media_link!(conference:)
           end
 
-          number_of_records.times do
+          config_value(:conferences_registration_types_count).times do
             create_conference_registration_type!(conference:)
           end
 
@@ -39,10 +39,6 @@ module Decidim
 
           create_conference_meeting!(conference:)
         end
-      end
-
-      def number_of_spaces
-        slow_seeds? ? 2 : 1
       end
 
       def create_content_block!

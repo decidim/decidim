@@ -14,13 +14,13 @@ module Decidim
       def call
         component = create_component!
 
-        number_of_records.times do
+        config_value(:surveys_count).times do
           questionnaire = create_questionnaire!(component:)
           create_questions!(questionnaire:)
 
           next if questionnaire.questionnaire_for.allow_responses
 
-          create_responses!(questionnaire:, amount: rand(0..config_value(:surveys_responses_count)))
+          create_responses!(questionnaire:, amount: config_value(:surveys_responses_count))
         end
       end
 

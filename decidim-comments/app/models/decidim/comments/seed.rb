@@ -22,7 +22,7 @@ module Decidim
 
           @organization = resource.organization
 
-          rand(0..config_value(:comments_count)).times do
+          config_value(:comments_per_resource_count).times do
             generate_child_comment = rand < config_value(:comments_nested_probability)
             comment1 = create_comment(resource, comments_count: generate_child_comment ? 1 : 0)
             NewCommentNotificationCreator.new(comment1, []).create
@@ -45,7 +45,10 @@ module Decidim
         attr_reader :organization
 
         def config_value(key)
-          slow_seeds? ? Decidim::Seeds::SEEDS_CONFIG[key][:slow] : Decidim::Seeds::SEEDS_CONFIG[key][:fast]
+          value = slow_seeds? ? Decidim::Seeds::SEEDS_CONFIG[key][:slow] : Decidim::Seeds::SEEDS_CONFIG[key][:fast]
+          return rand(value) if value.is_a?(Range)
+
+          value
         end
 
         def slow_seeds?
@@ -94,7 +97,7 @@ module Decidim
         # @return nil
         def create_votes(comment)
           voting_author_ids = CommentVote.where(comment:).pluck(:decidim_author_id)
-          author_ids = random_users.where.not(id: voting_author_ids).sample(rand(0..config_value(:comments_votes_count))).pluck(:id)
+          author_ids = random_users.where.not(id: voting_author_ids).sample(config_value(:comments_votes_per_comment_count)).pluck(:id)
 
           # rubocop:disable Rails/SkipsModelValidations
           CommentVote.insert_all(

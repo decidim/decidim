@@ -15,17 +15,17 @@ module Decidim
       def call
         component = create_component!
 
-        number_of_records.times do
+        config_value(:meetings_per_type_count).times do
           create_meeting!(component:, type: :online)
           create_meeting!(component:, type: :online_live_event)
           create_meeting!(component:, type: :hybrid)
           meeting = create_meeting!(component:, type: :in_person)
 
-          create_services!(meeting:, amount: number_of_records)
+          create_services!(meeting:, amount: config_value(:meetings_services_per_meeting_count))
 
           create_questionnaire_for!(meeting:)
 
-          create_meeting_registrations!(meeting:, amount: number_of_records)
+          create_meeting_registrations!(meeting:, amount: config_value(:meetings_registrations_per_meeting_count))
 
           create_attachments!(attached_to: meeting)
         end

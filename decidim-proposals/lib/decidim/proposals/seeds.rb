@@ -17,9 +17,7 @@ module Decidim
 
         Decidim::Proposals.create_default_states!(component, admin_user)
 
-        number_of_records = slow_seeds? ? rand(5..50) : rand(5..10)
-
-        number_of_records.times do |n|
+        config_value(:proposals_count).times do
           proposal = create_proposal!(component:)
 
           if proposal.state.nil? && component.settings.amendments_enabled?
@@ -27,9 +25,9 @@ module Decidim
             create_proposal_votes!(proposal: emendation, amount: 1)
           end
 
-          create_proposal_votes!(proposal:, amount: n % 3)
+          create_proposal_votes!(proposal:, amount: config_value(:proposals_votes_per_proposal_count))
 
-          create_proposal_notes!(proposal:, amount: n % 3)
+          create_proposal_notes!(proposal:, amount: config_value(:proposals_notes_per_proposal_count))
 
           Decidim::Comments::Seed.comments_for(proposal)
         end

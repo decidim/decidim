@@ -9,7 +9,7 @@ module Decidim
       def call
         create_content_block!
 
-        number_of_records.times do |_n|
+        config_value(:initiatives_types_count).times do |_n|
           type = create_initiative_type!
 
           organization.top_scopes.each do |scope|
@@ -89,7 +89,7 @@ module Decidim
 
       def create_initiative_votes!(initiative:)
         users = []
-        rand(0..config_value(:initiatives_votes_count)).times do
+        config_value(:initiatives_votes_count).times do
           author = (Decidim::User.all - users).sample
           initiative.votes.create!(author:, scope: initiative.scope, hash_id: SecureRandom.hex)
           users << author

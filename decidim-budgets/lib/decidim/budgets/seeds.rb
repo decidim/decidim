@@ -12,19 +12,15 @@ module Decidim
         @participatory_space = participatory_space
       end
 
-      def number_of_budgets
-        slow_seeds? ? rand(1..3) : 1
-      end
-
       def call
         component = create_component!
 
-        number_of_budgets.times do
+        config_value(:budgets_count).times do
           create_budget!(component:)
         end
 
-        Decidim::Budgets::Budget.where(component:).each do |budget|
-          number_of_records.times do
+        Decidim::Budgets::Budget.includes(:component).where(component:).each do |budget|
+          config_value(:budgets_projects_per_budget_count).times do
             project = create_project!(budget:)
 
             create_attachments!(attached_to: project)
@@ -121,10 +117,7 @@ module Decidim
       end
 
       def create_budget_votes!(budget:)
-        min_budgets_votes_count = config_value(:budgets_votes_count) / 5
-        max_budgets_votes_count = config_value(:budgets_votes_count) * 2
-
-        users = users_pool.sample(rand(min_budgets_votes_count..max_budgets_votes_count))
+        users = users_pool.sample(config_value(:budgets_votes_per_budget_count))
         users = users.index_by(&:id)
 
         orders = []
@@ -169,7 +162,7 @@ module Decidim
 
       def users_pool
         @users_pool ||= begin
-          emails = (config_value(:budgets_votes_count) * 2).times.map do |n|
+          emails = (config_value(:budgets_votes_per_budget_count) * 2).times.map do |n|
             random_email(suffix: "budget-vote-#{n}")
           end
           bulk_find_or_create_users(emails:)

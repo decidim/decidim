@@ -12,7 +12,7 @@ module Decidim
         create_content_block!
 
         process_groups = []
-        number_of_records.times do
+        config_value(:participatory_processes_groups_count).times do
           process_groups << create_process_group!
         end
 
@@ -21,7 +21,7 @@ module Decidim
         end
 
         taxonomy = create_taxonomy!(name: "Process Types", parent: nil)
-        number_of_records.times do
+        config_value(:participatory_processes_types_taxonomies_count).times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
         # filters for processes only
@@ -29,7 +29,7 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:participatory_processes])
 
-        number_of_spaces.times do |_n|
+        config_value(:participatory_processes_count).times do |_n|
           process = create_process!(process_group: process_groups.sample)
 
           create_follow!(Decidim::User.where(organization:, admin: true).first, process)
@@ -45,10 +45,6 @@ module Decidim
 
           seed_components_manifests!(participatory_space: process)
         end
-      end
-
-      def number_of_spaces
-        slow_seeds? ? 2 : 1
       end
 
       def create_content_block!

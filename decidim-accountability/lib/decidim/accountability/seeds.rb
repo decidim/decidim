@@ -18,14 +18,10 @@ module Decidim
 
         taxonomies = create_taxonomies!
         taxonomies.each do |taxonomy|
-          number_of_records.times do
+          config_value(:accountability_results_per_taxonomy_count).times do
             create_result!(component:, taxonomy:)
           end
         end
-      end
-
-      def number_of_child_records
-        slow_seeds? ? rand(0..2) : rand(0..1)
       end
 
       def create_component!
@@ -103,7 +99,7 @@ module Decidim
 
         Decidim::Comments::Seed.comments_for(result)
 
-        number_of_child_records.times do
+        config_value(:accountability_children_per_result_count).times do
           child_result = Decidim.traceability.perform_action!(
             "create",
             Decidim::Accountability::Result,
@@ -128,7 +124,7 @@ module Decidim
 
           # rubocop:disable Rails/SkipsModelValidations
           child_result.milestones.insert_all(
-            number_of_records.times.map do |i|
+            config_value(:accountability_milestones_per_result_count).times.map do |i|
               {
                 entry_date: child_result.start_date + i.days,
                 title: Decidim::Faker::Localized.sentence(word_count: 2),
