@@ -114,14 +114,6 @@ nl:
             title: Titel
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              Hallo,
-              %{author_name} %{author_nickname}, wie je volgt, heeft een nieuw debat "%{resource_title}" gemaakt. Bekijk het en draag bij:
-            email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kan deze meldingen uitschakelen door te klikken op de voorgaande link.
-            email_subject: Nieuw debat "%{resource_title}" met %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> creëerde het debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Het is niet langer mogelijk een debat aan te maken in %{participatory_space_title}. Je kan nog steeds deelnemen aan lopende debatten op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
