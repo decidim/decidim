@@ -88,7 +88,7 @@ NOTE: When you bump the version, the generator tests will fail because the gems 
 
 . Update the version in the documentation system that we use, Antora. For the https://github.com/decidim/decididm[decidim repository] this is done automatically when bumping the versions. For the https://github.com/decidim/documentation[documentation repository], mind that you need to work in two branches at least: the new release branch and the develop branch.
 ... For the new release branch version:
-.... Create locally and then push the branch in that repository: `git checkout release/0.XX-stable && git push origin release/x.y-stable`
+.... Create locally and then push the branch in that repository: `git checkout -b release/x.y-stable && git push -u origin release/x.y-stable`
 .... Update the version on the antora.yml files for all the languages too. See example: https://github.com/decidim/documentation/commit/452c54bf2247a73f2a04f1457ff4ccc0e6b7b944
 ... On the `develop` branch (see example: https://github.com/decidim/documentation/pull/263):
 .... Add the new version on the https://github.com/decidim/documentation/blob/develop/antora-playbook.yml[antora-playbook.yml] `branches` key, for the both sources (decidim and documentation repository)
