@@ -251,7 +251,7 @@ module Decidim
         remaining_count = Decidim::User.count - user_ids.count
         next if remaining_count < 1
 
-        author_ids = Decidim::User.where.not(id: user_ids).sample([50, remaining_count].min).pluck(:id)
+        author_ids = Decidim::User.where.not(id: user_ids).sample(rand([50, remaining_count].min)).pluck(:id)
         next if author_ids.count < 1
 
         # rubocop:disable Rails/SkipsModelValidations
