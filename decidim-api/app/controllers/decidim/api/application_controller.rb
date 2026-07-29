@@ -53,7 +53,14 @@ module Decidim
       end
 
       def api_user
-        @api_user = current_api_user || current_user
+        @api_user ||= organization_user(current_api_user || current_user)
+      end
+
+      def organization_user(user)
+        return if user.blank? || current_organization.blank?
+        return unless user.decidim_organization_id == current_organization.id
+
+        user
       end
 
       # Determines the scopes for the user for API requests.
