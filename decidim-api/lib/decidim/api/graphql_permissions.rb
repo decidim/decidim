@@ -36,9 +36,7 @@ module Decidim
         # @return Boolean
         # @param [Symbol] scope
         def allowed_to?(action, subject, object, context)
-          unless subject.is_a?(::Symbol)
-            subject = determine_subject_name(object)
-          end
+          subject = determine_subject_name(object) unless subject.is_a?(::Symbol)
           context[subject] = object
 
           scope = context.fetch(:scope, api_scope)
