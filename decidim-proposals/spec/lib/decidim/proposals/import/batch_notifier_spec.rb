@@ -10,7 +10,7 @@ describe Decidim::Proposals::Import::BatchNotifier do
   let(:participatory_space) { double("participatory_space", followers: followers_relation) }
   let(:imported_resource) { instance_double(Decidim::Proposals::Proposal, participatory_space:) }
   let(:collection) { [imported_resource] }
-  let(:context) { { import_creator_class: creator_class } }
+  let(:context) { { import_creator_class: creator_class, current_participatory_space: participatory_space } }
 
   before do
     allow(followers_relation).to receive(:where).with(notification_types: %w(all followed-only)).and_return([recipient])
@@ -80,6 +80,43 @@ describe Decidim::Proposals::Import::BatchNotifier do
         notifier.notify!
 
         expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).once.with(collection, recipient)
+      end
+    end
+
+    context "when importing multiple resources" do
+      let(:creator_class) { Decidim::Proposals::Import::ProposalCreator }
+      let(:other_followers_relation) { instance_double(ActiveRecord::Relation) }
+      let(:other_participatory_space) { double("participatory_space", followers: other_followers_relation) }
+      let(:other_imported_resource) { instance_double(Decidim::Proposals::Proposal, participatory_space: other_participatory_space) }
+      let(:collection) { [imported_resource, other_imported_resource] }
+
+      before do
+        allow(other_followers_relation).to receive(:where)
+      end
+
+      it "queries followers only once using the current participatory space" do
+        delivery = instance_double(ActionMailer::MessageDelivery, deliver_later: true)
+        allow(Decidim::Proposals::ImportMailer).to receive(:proposals_imported).and_return(delivery)
+
+        notifier.notify!
+
+        expect(followers_relation).to have_received(:where).once.with(notification_types: %w(all followed-only))
+        expect(other_followers_relation).not_to have_received(:where)
+      end
+    end
+
+    context "when current participatory space is missing from context" do
+      let(:creator_class) { Decidim::Proposals::Import::ProposalCreator }
+      let(:context) { { import_creator_class: creator_class } }
+
+      it "falls back to the first imported resource participatory space" do
+        delivery = instance_double(ActionMailer::MessageDelivery, deliver_later: true)
+        allow(Decidim::Proposals::ImportMailer).to receive(:proposals_imported).and_return(delivery)
+
+        notifier.notify!
+
+        expect(followers_relation).to have_received(:where).once.with(notification_types: %w(all followed-only))
+        expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).with(collection, recipient)
       end
     end
   end
