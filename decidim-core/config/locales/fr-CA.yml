@@ -1050,6 +1050,8 @@ fr-CA:
       dynamic:
         screen_reader_explanation: L'élément suivant est une carte qui présente les éléments de cette page comme des points de carte. L'élément peut être utilisé avec un lecteur d'écran, mais il peut être difficile à comprendre.
         skip_button: Passer la carte
+        zoom_in: Zoomer
+        zoom_out: Dézoomer
       static:
         latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1258,6 +1260,7 @@ fr-CA:
           badge: Le badge de l'utilisateur
           groups: L'identifiant et le nom du groupe d'utilisateurs
           id: L'identifiant unique de l'utilisateur
+          name: Le nom d'affichage de l'utilisateur
           nickname: Le pseudonyme de l'utilisateur
           profile_url: L'url du profil
       index:
@@ -1366,6 +1369,9 @@ fr-CA:
         log_in: se connecter
         never_logged_in: jamais connecté
         subject: Avertissement de compte inactif
+    participatory_space:
+      labels:
+        reference: Référence de l'espace
     passwords:
       update:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
