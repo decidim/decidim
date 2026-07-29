@@ -172,7 +172,7 @@ describe "Admin edits proposals" do
         end
 
         click_on "Edit attachments"
-        expect(page).to have_no_content("Exampledocument.pdf")
+        expect(page).to have_no_content(filename)
       end
 
       it "can edit a proposal with an attachment" do
