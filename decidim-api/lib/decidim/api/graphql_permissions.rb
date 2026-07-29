@@ -38,8 +38,8 @@ module Decidim
         def allowed_to?(action, subject, object, context)
           unless subject.is_a?(::Symbol)
             subject = determine_subject_name(object)
-            context[subject] = object
           end
+          context[subject] = object
 
           scope = context.fetch(:scope, api_scope)
 

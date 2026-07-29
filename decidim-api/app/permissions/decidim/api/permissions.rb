@@ -17,7 +17,7 @@ module Decidim
       private
 
       def blob
-        @blob ||= context.fetch(:blob, nil)
+        @blob ||= context[permission_action.subject]
       end
 
       def user

@@ -91,19 +91,42 @@ module Decidim
 
         raise "Invalid multipart map" if map.blank?
 
-        # Single file only
-        file_key, paths = map.first
-        file = params[file_key]
-        raise "Uploaded file missing in params[#{file_key}]" unless file
+        map.each do |file_key, paths|
+          file = params[file_key]
+          raise "Uploaded file missing in params[#{file_key}]" unless file
 
-        paths.each do |path|
-          keys = path.split(".")
-          last_key = keys.pop
+          paths.each do |path|
+            keys = path.split(".")
+            last_key = keys.pop
 
-          parent = operations
-          keys.each { |k| parent = parent[k.to_s] }
+            parent = operations
+            keys.each do |k|
+              if parent.is_a?(Array)
+                index = k.to_i
+                raise "Invalid array index in path: #{path}" unless index.to_s == k
+                raise "Array index out of bounds in path: #{path}" unless index < parent.length
 
-          parent[last_key] = file
+                parent = parent[index]
+              elsif parent.is_a?(Hash)
+                raise "Unsupported path segment :#{k} in path: #{path}" unless parent.key?(k)
+
+                parent = parent[k]
+              else
+                raise "Unexpected parent type #{parent.class} in path: #{path}"
+              end
+            end
+
+            if parent.is_a?(Array)
+              index = last_key.to_i
+              raise "Invalid array index in path: #{path}" unless index.to_s == last_key
+
+              parent[index] = file
+            elsif parent.is_a?(Hash)
+              parent[last_key] = file
+            else
+              raise "Unexpected parent type #{parent.class} for assignment in path: #{path}"
+            end
+          end
         end
 
         params[:query] = operations["query"]
