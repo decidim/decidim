@@ -15,7 +15,7 @@ module Decidim
         validate_file!(file)
 
         filename = File.basename(file.original_filename)
-        content_type = file.content_type || Marcel::MimeType.for(file.tempfile, filename:)
+        content_type = detect_content_type(file)
 
         blob = ActiveStorage::Blob.create_and_upload!(
           io: file,
@@ -42,7 +42,7 @@ module Decidim
       end
 
       def validate_content_type!(file)
-        content_type = file.content_type || Marcel::MimeType.for(file.tempfile, filename:)
+        content_type = detect_content_type(file)
         allowed_types = Decidim.organization_settings(current_organization).upload_allowed_content_types_admin || []
 
         return if allowed_types.any? { |t| (t.is_a?(Regexp) ? t.match?(content_type) : t.to_s == content_type) }
@@ -71,6 +71,10 @@ module Decidim
         return if allowed_exts.include?(ext)
 
         raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.file_upload.errors.file_ext_not_supported")
+      end
+
+      def detect_content_type(file)
+        file.content_type || Marcel::MimeType.for(file.tempfile, name: File.basename(file.original_filename))
       end
     end
   end
