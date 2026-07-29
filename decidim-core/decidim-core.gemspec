@@ -74,6 +74,9 @@ Gem::Specification.new do |s|
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.8.1"
   s.add_dependency "rack-attack", "~> 6.0"
+  # Workaround until shakapacker releases a new version compatible with rack-proxy v1.0
+  # @see https://github.com/shakacode/shakapacker/issues/1220
+  s.add_dependency "rack-proxy", "~> 0.8.3", "< 1.0"
   s.add_dependency "rails", "~> 7.2.0", ">= 7.2.2.2"
   s.add_dependency "rails-i18n", "~> 7.0"
   s.add_dependency "ransack", "~> 4.2.0"

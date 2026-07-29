@@ -99,6 +99,7 @@ PATH
       premailer-rails (~> 1.10)
       rack (~> 2.2, >= 2.2.8.1)
       rack-attack (~> 6.0)
+      rack-proxy (~> 0.8.3, < 1.0)
       rails (~> 7.2.0, >= 7.2.2.2)
       rails-i18n (~> 7.0)
       ransack (~> 4.2.0)
@@ -658,7 +659,7 @@ GEM
     rack-protection (3.2.0)
       base64 (>= 0.1.0)
       rack (~> 2.2, >= 2.2.4)
-    rack-proxy (0.7.7)
+    rack-proxy (0.8.3)
       rack
     rack-session (1.0.2)
       rack (< 3)
