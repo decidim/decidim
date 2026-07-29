@@ -34,7 +34,7 @@ files:
         lv: lv
         mt: mt
         nl: nl
-        no: no
+        'no': 'no'
         pl: pl
         pt: pt
         pt-PT: pt
