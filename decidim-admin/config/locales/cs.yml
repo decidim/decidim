@@ -589,6 +589,8 @@ cs:
           participatory_space: Najít participační prostor
           text: Hledat podle e-mailu, jména nebo přezdívky
           user: Uživatel
+        index:
+          title: Záznamy administrátora
         logs_list:
           no_logs_yet: Zatím nejsou žádné logy.
           no_matching_logs: Nebyly nalezeny žádné záznamy s poskytnutými vyhledávacími filtry. Zkuste je změnit a zkuste to znovu.
@@ -833,6 +835,7 @@ cs:
           title: Šablony zpravodaje
           use_template: Použít tuto šablonu
         show:
+          title: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
         confirm_recipients:
@@ -1107,6 +1110,7 @@ cs:
           previous_title: Předchozí položka
         attachments:
           add_attachments: Přidat přílohy
+          attachment_legend: Přidat galerii příloh (volitelné)
           edit_attachments: Upravit přílohy
       static_page_topics:
         create:
@@ -1329,6 +1333,7 @@ cs:
         attachment:
           explanation: 'Pokyny pro soubor:'
           message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
+          message_2: V CSV souborech musí být oddělovač mezi sloupci středník (";")
     moderations:
       actions:
         expand: Rozbalit

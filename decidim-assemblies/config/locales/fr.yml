@@ -410,6 +410,8 @@ fr:
           internal_organisation: L'organisation interne de cette assemblée
           is_transparent: Si l'assemblée est transparente ou non
           local_area: La zone locale de cette assemblée
+          participatory_scope: La portée participative de l'assemblée
+          participatory_structure: La structure participative de l'assemblée
           promoted: Si l'assemblée est promue ou non
           published_at: La date à laquelle cet espace a été publié
           purpose_of_action: Le but de l'action de l'assemblée

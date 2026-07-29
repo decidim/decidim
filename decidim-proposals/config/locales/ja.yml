@@ -655,6 +655,7 @@ ja:
             number_of_proposals: '%{number} 件の提案に対する回答が公開されますか？'
             select_a_proposal: 提案を選択してください。
           show:
+            address: 住所
             amendments_count: 修正数
             assigned_evaluators: 評価者に割り当てられました
             body: 本文

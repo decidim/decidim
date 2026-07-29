@@ -208,7 +208,7 @@ eu:
         cancel_error: Ezin izan da ezeztatu helbide elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
         resend_error: Ezin izan da birbidali berresteko helbide elektronikoa.
-        resend_successfully: Correo de confirmación reenviado con éxito a %{unconfirmed_email}.
+        resend_successfully: 'Berresteko posta elektronikoa zuzen birbidalia hona: %{unconfirmed_email}.'
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -1546,6 +1546,10 @@ eu:
         never_logged_in: inoiz ez konektatua
         subject: Kontu inaktiboaren abisua
     participatory_space:
+      labels:
+        reference: Espazioaren erreferentzia
+        restricted: Espazio mugatua
+        transparent: Espazio gardena
       pages:
         user_profile:
           member_of:

@@ -47,6 +47,7 @@ cs:
     system:
       actions:
         api_user:
+          hidden_secret: Tajný klíč je skrytý
           hide_secret: Skrýt tajný klíč
           secret_can_not_be_shown: API secret může být zobrazeno nebo zkopírováno pouze po vytvoření
           show_secret: Zobrazit tajný klíč
@@ -187,6 +188,7 @@ cs:
               explanation: Aplikace, které nemohou používat registrované zákaznické tajemství, jako jsou aplikace běžící v prohlížeči nebo na mobilním zařízení.
               name: Veřejné
           application_type_help_html: 'Typ OAuth klienta definovaný <a href="%{client_type_link}" target="_blank">RFC 6749 Oddíl 2.1</a>. Veřejní klienti musí realizovat tok PKCE definovaný <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
+          refresh_tokens_help_html: 'Aktualizovat tokeny je užitečné v případě, že token potřebuje delší životnost, než je přiděleno pro přístupový token. Všimněte si, že <strong>obnovovací tokeny by měly být používány pečlivě</strong>, protože mohou oslabit bezpečnost vašich uživatelů. '
           select_organization: Vybrat organizaci
         index:
           confirm_delete: Jste si jisti, že chcete odstranit tuto žádost?
