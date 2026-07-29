@@ -111,6 +111,8 @@ fr-CA:
         initiatives_menu:
           see_initiative: Voir la pétition
         initiatives_settings: Paramètres
+        initiatives_submenu:
+          info: À propos de cette pétition
         initiatives_types: Types d'initiatives
         moderations: Modérations
       models:
@@ -330,6 +332,7 @@ fr-CA:
             create: Créer
             title: Nouveau type d'initiative
           update:
+            error: Une erreur s'est produite lors de la mise à jour du type de pétition.
             success: Le type de pétition a été mis à jour avec succès.
       admin_log:
         initiative:
@@ -373,8 +376,14 @@ fr-CA:
         highlighted_initiatives:
           name: Initiatives mises en avant
       create_initiative:
+        committee_member:
+          confirm_approve: Êtes-vous sûr de vouloir approuver ce membre ?
+          confirm_revoke: Êtes-vous sûr de vouloir retirer ce membre ?
+          revoke: Retirer
         fill_data:
+          confirm_discard: Êtes-vous sûr de vouloir abandonner cette pétition ?
           continue: Continuer
+          discard: Abandonner la pétition
           fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
           select_area: Sélectionnez une zone
           select_scope: Sélectionnez une portée
@@ -389,6 +398,12 @@ fr-CA:
           new: Créer une nouvelle pétition
           select: Créer une initiative
           verification_required: Vérifiez votre compte pour créer une pétition
+        send_to_technical_validation_button:
+          button: Envoyer pour validation technique
+          confirm: Vous êtes sur le point d'envoyer cette pétition à un administrateur afin qu'il l'examine et la publie. Une fois publiée, vous ne pourrez plus la modifier. Êtes-vous sûr de vouloir continuer ?
+        share_committee_link:
+          invite_to_committee_help: Lien d'invitation pour les personnes qui feront partie du comité de promotion.
+          more_information: Plus d'informations
       edit:
         accept: Accepter la pétition
         back: Retour
@@ -496,6 +511,8 @@ fr-CA:
           random: Aléatoire
           recent: Les plus récentes
           recently_published: Plus récemment publié
+        pending_initiatives:
+          title: Versions préliminaires et propositions en attente
         print:
           address: Adresse
           author_title: Auteur de la pétition
@@ -568,6 +585,7 @@ fr-CA:
       show:
         badge_name:
           accepted: Assez de signatures
+          created: Rédigé
           discarded: Abandonné
           open: Ouverte
           rejected: Pas assez de signatures
@@ -581,9 +599,23 @@ fr-CA:
         expired: Expirées
       unavailable_scope: Portée indisponible
       update:
+        error: Un problème est survenu lors de la mise à jour de la pétition.
         success: La pétition a été mise à jour avec succès.
     menu:
       initiatives: Pétitions
+    open_data:
+      help:
+        initiatives:
+          answer: La suite donnée à cette pétition (le cas échéant)
+          authors: Les auteurs de cette pétition
+          comments_count: Le nombre de commentaires suscités par cette pétition
+          description: La description de cette pétition
+          first_progress_notification_at: La date à laquelle la première notification de progrès a été envoyée
+          offline_votes: Le nombre de signatures récoltées par cette pétition en dehors de la plateforme
+          online_votes: Le nombre de signatures récoltées en ligne par cette pétition (directement via la plateforme)
+          scope: La portée de cette pétition
+          second_progress_notification_at: La date à laquelle la deuxième notification de progrès a été envoyée
+          signature_end_date: La date à laquelle la période de collecte des signatures prend fin
     resources:
       initiative:
         actions:
