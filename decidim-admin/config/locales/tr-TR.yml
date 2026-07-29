@@ -12,6 +12,7 @@ tr:
         plural: Çoğul
       attachment:
         attachment_collection_id: Klasör
+        attachments: Ekler
         description: Açıklama
         file: Dosya
         title: Ek veya resim adı
@@ -45,6 +46,7 @@ tr:
         alert_color: Alarm
         available_authorizations: Uygun yetkilendirmeler
         badges_enabled: Rozetleri etkinleştir
+        comments_max_length: Yorum başına en fazla karakter sayısı (varsayılan değer için 0 bırakın)
         customize_welcome_notification: Karşılama bildirimlerini özelleştir
         default_locale: Varsayılan yerel ayar
         description: Açıklama
@@ -127,6 +129,7 @@ tr:
         weight: Sıra numarası
       taxonomy:
         item_name: Öge adı
+        parent_id: Üst öge
       user_group_csv_verification:
         file: Dosya
     errors:
@@ -179,6 +182,7 @@ tr:
         attachment_collections: Klasör ekle
         attachments: Eklenti ekle
         browse: Araştır
+        configure: Yapılandır
         confirm_delete_component: |
           Bu bileşeni silmek istediğinizden emin misiniz? <br>
 
@@ -187,17 +191,23 @@ tr:
            <li class="font-bold"> %{resources_count} kaynakları </li>
           </ul>
           Fikrinizi değiştirirseniz daha sonra yeniden yükleyebilirsiniz.
+        export: Dışa aktar
         export_all: Tümünü dışa aktar
+        export_selection: Seçimi dışa aktar
         import: İçe aktar
         menu_hidden: Menüden gizle
+        moderate: İçerik denetimlerini yönet
         newsletter:
           new: Yeni bülten
         participatory_space_private_user:
           new: Yeni katılımcı alanı özel kullanıcısı
         per_page: Sayfa başına
+        permissions: İzinleri yönet
         restore: Geri yükle
         send_me_a_test_email: Bana bir test e-postası gönder
         share: Paylaş
+        share_tokens: Bağlantıyı paylaş
+        soft_delete: Çöp kutusuna taşı
         user:
           new: Yeni yönetici
         view_deleted_components: Silinmiş bileşenleri görüntüle
@@ -257,6 +267,8 @@ tr:
         edit:
           title: Klasörü düzenle
           update: Güncelleştirme
+        index:
+          attachment_collections_title: Ek klasörleri
         new:
           create: yaratmak
           title: Yeni dosya
@@ -272,6 +284,8 @@ tr:
         edit:
           title: Eki düzenle
           update: Güncelleştirme
+        index:
+          attachments_title: Ekler
         new:
           create: Ek oluştur
           title: Yeni ek
@@ -292,6 +306,7 @@ tr:
           title: Kullanıcıları engelle
         new:
           action: Hesabı engelle ve uyarı mesjı gönder
+          already_reported_html: Bu işleme devam ederseniz katılımcının tüm içeriklerini de gizleyeceksiniz.
           description: Bir kullanıcının engellenmesi, hesabının kullanılamaz hale gelmesine neden olur, gerekçenizde ve kullanıcının engellemesini kaldırmayı düşündüğünüz yollarla ilgili yönergeler sağlayabilirsiniz.
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
@@ -337,13 +352,17 @@ tr:
           error: Bu bileşeni güncellerken bir hata oluştu.
           success: Bileşen başarıyla güncellendi.
         visibility_label:
+          menu_hidden: Menü gizli
           published: Yayınlanmış
           unpublished: Yayınlanmamış
       conflicts:
         attempts: Girişimler
         'false': 'Hayır'
+        index:
+          text: Mevcut kullanıcının e posta adresi, adı veya kullanıcı adıyla ara
         managed_user_name: Yönetilen Kullanıcı
         solved: Çözüldü
+        title: Doğrulama çakışmaları
         transfer:
           email: E-Posta
           error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
@@ -419,9 +438,13 @@ tr:
             'false': resmileştirilmiş
             'true': Resmi değil
         participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Davet kabul edildi
           user_invitation_sent_at_not_null:
+            label: Davet gönderildi
             values:
               'false': Gönderilmedi
+              'true': Gönderildi
         private_space_eq:
           label: Kişisel
           values:
@@ -436,6 +459,8 @@ tr:
         search_label: Arama
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}''da e-posta, isim veya takma ad ile ara'
+          report_count_eq: Rapor sayısı eşittir
+          title_cont: '%{collection} içinde başlığa göre ara'
           user_name_or_user_nickname_or_user_email_cont: '%{collection}''da e-posta, isim veya takma ad ile ara'
         state_eq:
           label: Durum
@@ -545,6 +570,7 @@ tr:
         promotions:
           new:
             explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
+            new_managed_user_promotion: Yeni yönetilen katılımcı yükseltme işlemi
             promote: Desteklemek
       menu:
         admin_log: Yönetici etkinlik günlüğü
@@ -1095,6 +1121,8 @@ tr:
         area_types: Alan türleri
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
+        dashboard: Gösterge paneli
+        impersonatable_users: Yönetilebilir katılımcılar
         impersonations: Kullanıcılar yönetimi
         page_topics: Konular
         pages: Sayfalar

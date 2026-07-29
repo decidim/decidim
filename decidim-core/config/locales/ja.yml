@@ -1173,6 +1173,8 @@ ja:
       dynamic:
         screen_reader_explanation: 以下の要素は、このページ上のアイテムを地図上のポイントとして表示するマップです。 この要素はスクリーンリーダーで使用することができますが、理解しにくいかもしれません。
         skip_button: 地図をスキップ
+        zoom_in: 拡大
+        zoom_out: 縮小
       static:
         latlng_text: '緯度: %{latitude}, 経度: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1512,6 +1514,9 @@ ja:
         log_in: ログイン
         never_logged_in: ログインしたことがない
         subject: 非アクティブなアカウントの警告
+    participatory_space:
+      labels:
+        reference: スペースの参照
     passwords:
       update:
         error: パスワードの更新中に問題が発生しました。

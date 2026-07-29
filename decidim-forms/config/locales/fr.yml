@@ -177,7 +177,9 @@ fr:
         question:
           max_choices: 'Choix maximum: %{n}'
         response:
+          invalid: Une erreur s'est produite lors de l'envoi du formulaire.
           max_choices_alert: Il y a trop de choix sélectionnés
+          success: Le formulaire a bien été envoyé.
         show:
           current_step: Étape %{step}
           empty: Aucune question configurée pour ce formulaire pour le moment.

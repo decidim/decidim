@@ -41,7 +41,9 @@ fr:
           draft_options:
             accepting_suggestions: Activer les suggestions dans la prochaine version
             accepting_suggestions_help: Activer les suggestions démarrera une nouvelle série de suggestions pour ce document. Les suggestions actuelles ne seront pas visibles dans la nouvelle version.
+            draft: Version préliminaire
           edit:
+            draft: Version préliminaire
             previous_versions: Versions précédentes
             public_version: Version publique
             title: Modifier les textes collaboratifs
@@ -97,6 +99,7 @@ fr:
         save: Suggérer des modifications
         status:
           accepting_suggestions: Pour suggérer des modifications, sélectionnez ou double-cliquez sur le texte que vous souhaitez modifier, puis cliquez sur le bouton « Suggérer des modifications ».
+          draft: Ce document est actuellement en cours d'examen par les administrateurs. Il n'est pas possible de proposer des suggestions pour le moment, mais vous pouvez consulter celles formulées par d'autres participants.
           not_accepting_suggestions: Les suggestions ne sont pas autorisées pour le moment.
           selection_active: Une sélection est active. Veuillez annuler la sélection actuelle pour en faire une nouvelle.
         suggestions_count: "%{count} suggestions"
@@ -115,6 +118,10 @@ fr:
             published: Publié
             suggestions: Accepter les suggestions
             title: Titre
+      suggestion:
+        add_html: <span class="type">Ajouter :</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Supprimer :</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Remplacer :</span> <span class="text">%{text}</span>
       suggestions:
         create:
           invalid: Il y a eu un problème lors de la création de la suggestion.

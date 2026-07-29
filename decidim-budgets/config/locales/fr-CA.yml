@@ -336,6 +336,7 @@ fr-CA:
         settings:
           global:
             announcement: Annonce
+            clear_all: Tout effacer
             comments_enabled: Activer le module de commentaire
             comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.

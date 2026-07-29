@@ -880,6 +880,8 @@ pl:
       dynamic:
         screen_reader_explanation: Poniższy element to mapa, która przedstawia elementy na tej stronie jako punkty mapy. Element może być użyty z czytnikiem ekranu, ale może być trudny do zrozumienia.
         skip_button: Pomiń mapę
+        zoom_in: Przybliż
+        zoom_out: Oddal
       static:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap

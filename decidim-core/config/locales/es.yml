@@ -1189,6 +1189,8 @@ es:
       dynamic:
         screen_reader_explanation: El siguiente elemento es un mapa que presenta los componentes de esta página como puntos en el mapa. El elemento se puede utilizar con un lector de pantalla pero puede ser difícil de entender.
         skip_button: Saltar el mapa
+        zoom_in: Ampliar
+        zoom_out: Alejar
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1530,6 +1532,9 @@ es:
         log_in: entra
         never_logged_in: nunca ha iniciado sesión
         subject: Aviso de cuenta inactiva
+    participatory_space:
+      labels:
+        reference: Referencia del espacio de participación
     passwords:
       update:
         error: Se ha producido un error al actualizar la contraseña.
