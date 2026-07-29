@@ -14,7 +14,7 @@ module Decidim
         return unless blob_id
 
         blob = ActiveStorage::Blob.find(blob_id)
-        raise Api::Errors::UnauthorizedObjectError, "You don't have permission to access this blob" unless context[:current_user]&.admin?
+        raise Api::Errors::UnauthorizedObjectError, "You do not have permission to access this blob" unless context[:current_user]&.admin?
 
         blob
       end
