@@ -1066,6 +1066,8 @@ fr:
       dynamic:
         screen_reader_explanation: L'élément suivant est une carte qui présente les éléments de cette page comme des points de carte. L'élément peut être utilisé avec un lecteur d'écran, mais il peut être difficile à comprendre.
         skip_button: Passer la carte
+        zoom_in: Zoomer
+        zoom_out: Dézoomer
       static:
         latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
         map_service_brand: OpenStreetMap
