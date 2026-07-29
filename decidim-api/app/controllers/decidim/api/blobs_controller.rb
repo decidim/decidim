@@ -6,8 +6,7 @@ module Decidim
     # file blobs can be uploaded through the `/api/blobs` endpoint and managed
     # (e.g. destroyed) through the normal GraphQL API.
     #
-    # The upload can be done in chunks improving the file upload performance
-    # and the response for a successful upload contains the blob ID that can be
+    # The response for a successful upload contains the blob ID that can be
     # attached to any record where blobs can be attached to. The purpose of this
     # endpoint is to provide a stable (i.e. unchanging) and performant API for
     # uploading the files as that would be difficult to do through the normal
@@ -62,6 +61,8 @@ module Decidim
       end
 
       def file_uploaded?
+        return false unless params[:file]
+
         return true if defined?(Rack::Test::UploadedFile) && uploaded_file.is_a?(Rack::Test::UploadedFile)
 
         uploaded_file.is_a?(ActionDispatch::Http::UploadedFile)
