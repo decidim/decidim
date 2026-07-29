@@ -364,7 +364,7 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New responses to proposals in %{participatory_space_title}
         proposals_imported:
-          email_intro: New proposals has been added to "%{participatory_space_title}".
+          email_intro: New proposals have been added to "%{participatory_space_title}".
           email_link: You can see the new proposals by following <a href="%{participatory_space_url}">this link</a>.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New proposals added to %{participatory_space_title}
