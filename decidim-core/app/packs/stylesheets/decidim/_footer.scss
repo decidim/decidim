@@ -13,6 +13,14 @@ footer {
       .footer__nav {
         @apply border-b border-white/20 lg:border-0;
 
+        ul {
+          @apply space-y-4 break-inside-avoid mb-4;
+
+          li a {
+            @apply font-semibold underline decoration-1 underline-offset-1;
+          }
+        }
+
         > [data-controls] {
           @apply flex items-center justify-between w-full py-4 lg:pointer-events-none lg:cursor-default text-left text-white font-semibold;
 
