@@ -68,6 +68,8 @@ export default class extends Controller {
   /**
    * Applies viewport-conditional data-open attributes and resets
    * previously applied values when the viewport no longer matches.
+   *
+   * @returns {void}
    */
   _applyBreakpointOpenAttributes() {
     const controlledTriggers = new Set();
@@ -107,6 +109,8 @@ export default class extends Controller {
   /**
    * Listens for viewport changes that cross breakpoints relevant
    * to this accordion and reconnects to keep state in sync.
+   *
+   * @returns {void}
    */
   _listenForBreakpointChanges() {
     this._mediaQueries = [];
