@@ -204,12 +204,17 @@ module Decidim
         end
 
         user_ids = bulk_find_or_create_users(emails:, only_ids: true)
+        codes = user_ids.index_with do
+          dummy_registration = Decidim::Meetings::Registration.new(meeting:)
+          Decidim::Meetings::Registrations.code_generator.generate(dummy_registration)
+        end
         # rubocop:disable Rails/SkipsModelValidations
         Decidim::Meetings::Registration.insert_all(
-          user_ids.map do |user_id|
+          codes.map do |decidim_user_id, code|
             {
               decidim_meeting_id: meeting.id,
-              decidim_user_id: user_id
+              decidim_user_id:,
+              code:
             }
           end
         )

@@ -89,6 +89,7 @@ module Decidim
       collaborative_texts_unpublished_documents_count: { slow: 3..5, fast: 1 },
       collaborative_texts_versions_per_document_count: { slow: 3..5, fast: 1 },
       debates_open_count: { slow: 3..5, fast: 1 },
+      debates_closed_count: { slow: 1, fast: 1 },
       elections_count: { slow: 3..5, fast: 1 },
       elections_create_questions_probability: { slow: 0.3, fast: 0.3 },
       elections_questions_per_election_count: { slow: 3..5, fast: 1 },
