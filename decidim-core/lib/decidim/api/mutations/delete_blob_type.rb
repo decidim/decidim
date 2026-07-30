@@ -14,7 +14,7 @@ module Decidim
 
         return resource if resource.respond_to?(:attachments) && resource.attachments.any? && resource.attachments.destroy_all
 
-        raise Decidim::Api::Errors::ValidationError, "Not attached"
+        raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.specific.not_attached")
       end
 
       def authorized?(id:)

@@ -101,7 +101,6 @@ module Decidim
 
     autoload :AttachmentAttributes, "decidim/api/attributes/attachment_attributes"
     autoload :AttachmentCollectionAttributes, "decidim/api/attributes/attachment_collection_attributes"
-    autoload :FileAttributes, "decidim/api/attributes/file_attributes"
 
     autoload :AttachmentCollectionInputObject, "decidim/api/input_objects/attachment_collection_input_object"
     autoload :FileInputObject, "decidim/api/input_objects/file_input_object"

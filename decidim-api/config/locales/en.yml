@@ -3,12 +3,23 @@ en:
   decidim:
     api:
       errors:
+        attachment_collections:
+          not_found: Key not found within the record's collections.
+          not_supported: Attachment collections are not supported for this resource.
         introspection_disabled: Introspection is disabled for this request
         invalid_locale: Invalid locale provided
         locale_argument_error: There was an error while internally handling i18n data
         not_found: "%{type} not found"
         permission_not_set: Permission has not been set for this %{type}
         recursion_limit_exceeded_error: Too many recursions detected in query
+        specific:
+          empty_key: The key cannot be empty.
+          needs_key_or_id: Either id or key needs to be provided.
+          needs_key_or_id_once: Only one of id or key can be provided at a time.
+          not_attached: Not attached
+          outside_object_context: Outside of object context.
+          outside_record_context: Outside of record context.
+          unexpected: Unexpected command result
         too_many_aliases_error: Too many aliases used. You have used %{size} aliases, but %{limit} are allowed.
         unauthorized_field: You cannot view or edit %{field} field on %{type} because you do not have permission
         unauthorized_mutation: You do not have permission to perform this mutation

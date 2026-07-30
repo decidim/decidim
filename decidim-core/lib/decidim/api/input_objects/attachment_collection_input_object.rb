@@ -13,9 +13,9 @@ module Decidim
         id = arguments[:id]
         key = arguments[:key]
 
-        raise GraphQL::ExecutionError, "Either id or key needs to be provided." if id.blank? && key.blank?
-        raise GraphQL::ExecutionError, "Only one of id or key can be provided at a time." if id.present? && key.present?
-        raise GraphQL::ExecutionError, "The key cannot be empty." if !key.nil? && key.empty?
+        raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.specific.needs_key_or_id") if id.blank? && key.blank?
+        raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.specific.needs_key_or_id_once") if id.present? && key.present?
+        raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.specific.empty_key") if !key.nil? && key.empty?
 
         super
       end
@@ -24,16 +24,16 @@ module Decidim
         return arguments[:id].to_i if arguments[:id].present?
 
         key = arguments[:key]
-        raise GraphQL::ExecutionError, "The key cannot be empty." if key.blank?
-        raise GraphQL::ExecutionError, "Outside of object context." if context[:current_object].blank?
+        raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.specific.empty_key") if key.blank?
+        raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.specific.outside_object_context") if context[:current_object].blank?
 
         parent = context[:current_object].object
-        raise GraphQL::ExecutionError, "Outside of record context." unless parent
+        raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.specific.outside_record_context") unless parent
 
-        raise GraphQL::ExecutionError, "Attachment collections are not supported for this resource." unless parent.respond_to?(:attachment_collections)
+        raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.attachment_collections.not_supported") unless parent.respond_to?(:attachment_collections)
 
         collection = parent.attachment_collections.find_by(key: key.strip)
-        raise GraphQL::ExecutionError, "Key not found within the record's collections." unless collection
+        raise Decidim::Api::Errors::NotFoundError, I18n.t("decidim.api.errors.attachment_collections.not_found") unless collection
 
         collection.id
       end
