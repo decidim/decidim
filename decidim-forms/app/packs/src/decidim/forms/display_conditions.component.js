@@ -15,11 +15,22 @@ class DisplayCondition {
   bindEvent() {
     this.checkCondition();
     this.getInputsToListen().on("change", this.checkCondition.bind(this));
+
+    const conditionWrapper = document.querySelector(`.question[data-question-id='${this.conditionQuestion}']`);
+    conditionWrapper?.addEventListener("display-conditions:visibility", this.checkCondition.bind(this));
   }
 
   getInputValue() {
     const $conditionWrapperField = $(`.question[data-question-id='${this.conditionQuestion}']`);
     const $textInput = $conditionWrapperField.find("textarea, input[type='text']:not([name$=\\[custom_body\\]])");
+
+    // A hidden question counts as unanswered, like the server sees it: its inputs are
+    // disabled, so it submits nothing. The response itself is left alone.
+    if ($conditionWrapperField.is("[data-condition-hidden]")) {
+      return $textInput.length
+        ? ""
+        : [];
+    }
 
     if ($textInput.length) {
       return $textInput.val();
@@ -181,6 +192,7 @@ class DisplayConditionsComponent {
     this.wrapperField.fadeIn();
     this.wrapperField.find("input, textarea").prop("disabled", null);
     this.showCount++;
+    this.setHidden(false);
   }
 
   hideQuestion() {
@@ -192,36 +204,21 @@ class DisplayConditionsComponent {
     }
 
     this.wrapperField.find("input, textarea").prop("disabled", "disabled");
-    this.clearAnswers();
+    this.setHidden(true);
   }
 
-  // When a question is hidden its answer must not survive: a stale value would
-  // keep questions conditioned on it visible We clear the answer and notify the
-  // questions conditioned on this one so the change cascades down the chain.
-  clearAnswers() {
-    const changed = [];
+  // A hidden question stops counting as answered, so questions conditioned on this
+  // one have to re-evaluate, which the visibility event asks them to do. Only a real
+  // change is propagated, so the cascade settles after one pass and cannot loop.
+  setHidden(hidden) {
+    const [wrapper] = this.wrapperField;
 
-    this.wrapperField.find("input[type='checkbox']:checked, input[type='radio']:checked").each((idx, el) => {
-      el.checked = false;
-      changed.push(el);
-    });
-
-    this.wrapperField.find("input[type='text'], textarea").each((idx, el) => {
-      if (el.value !== "") {
-        el.value = "";
-        changed.push(el);
-      }
-    });
-
-    // File responses ("files" question type) keep their selection in hidden
-    // fields rendered inside the upload previews. Remove those previews (and the
-    // hidden fields they contain) so a hidden question cannot retain a stale
-    // attachment.
-    this.wrapperField.find("[data-active-uploads] .attachment-details").remove();
-
-    if (changed.length) {
-      $(changed).trigger("change");
+    if (wrapper.hasAttribute("data-condition-hidden") === hidden) {
+      return;
     }
+
+    wrapper.toggleAttribute("data-condition-hidden", hidden);
+    wrapper.dispatchEvent(new CustomEvent("display-conditions:visibility"));
   }
 }
 

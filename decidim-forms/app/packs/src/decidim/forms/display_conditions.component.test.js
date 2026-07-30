@@ -91,16 +91,22 @@ describe("DisplayConditionsComponent", () => {
     selectOption("Q3", "1");
     expect(isVisible("FINAL1")).toBe(true);
 
-    // Move Q0 away from C: Q3 hides, its stale answer is cleared and the change
-    // propagates so FINAL1 hides too instead of lingering.
+    // Move Q0 away from C: Q3 hides and stops counting as answered, and the
+    // visibility change propagates so FINAL1 hides too instead of lingering.
     selectOption("Q0", "A");
 
     expect(isVisible("Q3")).toBe(false);
-    expect(wrapper("Q3").find("input[value='1']").prop("checked")).toBe(false);
     expect(isVisible("FINAL1")).toBe(false);
+    // Q3's response is kept, so showing it again restores the chain as it was
+    expect(wrapper("Q3").find("input[value='1']").prop("checked")).toBe(true);
+
+    selectOption("Q0", "C");
+
+    expect(isVisible("Q3")).toBe(true);
+    expect(isVisible("FINAL1")).toBe(true);
   });
 
-  it("clears file upload responses of a hidden question", () => {
+  it("keeps file upload responses of a hidden question out of the submission without destroying them", () => {
     document.body.innerHTML = `
       <div class="answer-questionnaire">
         <div class="question" data-question-id="Q0" data-conditioned="false">
@@ -120,9 +126,17 @@ describe("DisplayConditionsComponent", () => {
       createDisplayConditions({ wrapperField: $(el) });
     });
 
-    // Q0 is not "C", so QFILE is hidden: its attachment preview and the hidden
-    // field carrying the upload must be gone so nothing stale is submitted.
-    expect(wrapper("QFILE").find(".attachment-details").length).toBe(0);
-    expect(wrapper("QFILE").find("input[name='resp[QFILE][add_attachments]']").length).toBe(0);
+    // Q0 is not "C", so QFILE is hidden. The attachment stays in the DOM, but it is
+    // disabled, so nothing stale is submitted and nothing already uploaded is lost.
+    const $hiddenField = wrapper("QFILE").find("input[name='resp[QFILE][add_attachments]']");
+
+    expect(wrapper("QFILE").find(".attachment-details").length).toBe(1);
+    expect($hiddenField.length).toBe(1);
+    expect($hiddenField.prop("disabled")).toBe(true);
+
+    // and it is submitted again once the question is shown
+    selectOption("Q0", "C");
+
+    expect($hiddenField.prop("disabled")).toBe(false);
   });
 });
