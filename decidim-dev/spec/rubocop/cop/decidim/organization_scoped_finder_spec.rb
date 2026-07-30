@@ -40,6 +40,20 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense for unscoped Model.where without a terminal finder" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo")
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "does not double-offense when where is consumed by a finder" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "accepts current_organization scoped find_by" do
     expect_no_offenses(<<~RUBY)
       current_organization.templates.find_by(id: params[:id])
