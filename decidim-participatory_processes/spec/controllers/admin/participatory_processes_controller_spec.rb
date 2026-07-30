@@ -47,6 +47,24 @@ module Decidim
           end
         end
 
+        describe "cross-organization filter scoping" do
+          render_views
+
+          let(:other_org) { create(:organization) }
+          let(:other_group) { create(:participatory_process_group, organization: other_org, title: { en: "Foreign Group" }) }
+          let(:own_group) { create(:participatory_process_group, organization:, title: { en: "Own Group" }) }
+
+          it "does not expose group names from other organizations" do
+            get :index, params: { q: { decidim_participatory_process_group_id_eq: other_group.id } }
+            expect(response.body).not_to include("Foreign Group")
+          end
+
+          it "shows group names from the current organization" do
+            get :index, params: { q: { decidim_participatory_process_group_id_eq: own_group.id } }
+            expect(response.body).to include("Own Group")
+          end
+        end
+
         it_behaves_like "a soft-deletable space",
                         space_name: :participatory_process,
                         space_path: :participatory_processes_path,
