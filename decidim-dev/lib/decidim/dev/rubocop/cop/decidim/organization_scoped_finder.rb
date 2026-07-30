@@ -33,7 +33,7 @@ module RuboCop
 
         SCOPED_HELPER_METHODS = [:current_organization, :current_component, :current_participatory_space].freeze
 
-        IGNORED_CONSTANT_PREFIXES = ["Bundler"].freeze
+        IGNORED_CONSTANT_PREFIXES = ["Bundler", "ActiveRecord"].freeze
 
         def on_send(node)
           return unless RESTRICT_ON_SEND.include?(node.method_name)
