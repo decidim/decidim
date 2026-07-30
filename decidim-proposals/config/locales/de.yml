@@ -785,7 +785,6 @@ de:
           instructions: Sie können den Punkt auf der Karte verschieben.
         edit:
           add_attachments: Anhänge hinzufügen
-          attachment_legend: Dokument oder Bild hinzufügen
           back: Zurück
           edit_attachments: Anhänge bearbeiten
           send: Abschicken

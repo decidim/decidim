@@ -76,7 +76,6 @@ fr-CA:
       posts:
         edit:
           add_attachments: Ajouter des pièces jointes
-          attachment_legend: Ajouter un document ou une image
           back: Retour à l'article
           button: Mettre à jour
           edit_attachments: Modifier les pièces jointes
@@ -99,6 +98,11 @@ fr-CA:
           back: Retour aux articles
           button: Créer
           title: Créer un nouvel article
+        orders:
+          label: Trier les articles par
+          most_commented: Les plus commentés
+          random: Ordre aléatoire
+          recent: Les plus récents
     components:
       blogs:
         actions:

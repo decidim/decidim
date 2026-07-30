@@ -421,7 +421,6 @@ ar:
           instructions: يمكنك تحريك النقطة على الخريطة.
         edit:
           add_attachments: إضافة مرفقات
-          attachment_legend: إضافة مستند أو صورة
           back: الى الخلف
           edit_attachments: تعديل المرفقات
           send: إرسال

@@ -76,7 +76,6 @@ es-PY:
       posts:
         edit:
           add_attachments: Agregar archivo(s) adjunto(s)
-          attachment_legend: Añadir un documento o una imagen
           back: Volver a la publicación
           button: Actualizar
           edit_attachments: Editar los archivos adjuntos

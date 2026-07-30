@@ -33,6 +33,8 @@ ja:
             body: 本文
         pages:
           edit:
+            add_attachments: 添付ファイルを追加
+            edit_attachments: 添付ファイルを編集
             save: 更新
             title: ページを編集
           update:

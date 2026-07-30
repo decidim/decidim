@@ -11,6 +11,7 @@ fi-pl:
         plural: Monikko
       attachment:
         attachment_collection_id: Kansio
+        attachments: Liitteet
         description: Kuvaus
         file: Tiedosto
         title: Liitetiedoston tai kuvan nimi
@@ -606,6 +607,11 @@ fi-pl:
         edit:
           title: Muokkaa jäsentä
           update: Päivitä
+        form:
+          email: Sähköposti
+          invite_explanation: Osallistuja kutsutaan liittymään organisaatioon.
+          name_or_nickname: Nimi tai nimimerkki
+          select_user: Valitse jäsen
         index:
           import_via_csv: Tuo CSV-tiedostosta
           publish_all: Julkaise kaikki
@@ -1096,6 +1102,9 @@ fi-pl:
           next_title: Seuraava kohde
           previous: Edellinen
           previous_title: Edellinen kohde
+        attachments:
+          add_attachments: Lisää liitteitä
+          edit_attachments: Muokkaa liitteitä
       static_page_topics:
         create:
           error: Uuden aiheen luomisessa tapahtui virhe.
@@ -1311,6 +1320,11 @@ fi-pl:
       errors:
         impersonate_user:
           reason: Sinun on annettava syy, kun hallitset osallistujaa, joka ei ole hallittu osallistuja.
+      file_help:
+        attachment:
+          explanation: 'Tiedoston ohjeistus:'
+          message_1: CSV-, JSON- ja Excel-tiedostoja (.xlsx) tuetaan
+          message_2: CSV-tiedostoissa sarake-erottimen on oltava puolipiste (";")
     moderations:
       actions:
         expand: Avaa
