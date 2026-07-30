@@ -153,8 +153,9 @@ module RuboCop
           return false unless node.send_type?
 
           if node.method_name == :new
-            receiver = node.receiver
-            return receiver&.const_type?
+            return false unless node.receiver&.const_type?
+
+            return scoped_finder_arguments?(node)
           end
 
           constructed_scope_root?(node.receiver) if node.receiver
