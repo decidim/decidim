@@ -29,7 +29,7 @@ module RuboCop
 
         ORGANIZATION_SCOPED_KEYS = [:decidim_organization_id, :organization_id].freeze
 
-        SCOPED_ASSOCIATION_KEYS = [:component, :organization].freeze
+        SCOPED_ASSOCIATION_KEYS = [:component, :organization, :participatory_space].freeze
 
         SCOPED_HELPER_METHODS = [:current_organization, :current_component, :current_participatory_space].freeze
 
