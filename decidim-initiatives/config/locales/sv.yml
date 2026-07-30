@@ -439,7 +439,6 @@ sv:
       form:
         add_attachments: Lägg till bilagor
         add_image: Lägg till bild
-        attachment_legend: Lägg till ett dokument eller en bild
         edit_attachments: Redigera bilagor
         edit_image: Redigera bild
         image_legend: "(Valfritt) Lägg till en bild"

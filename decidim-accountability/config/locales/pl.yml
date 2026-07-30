@@ -1,6 +1,9 @@
 pl:
   activemodel:
     attributes:
+      milestone:
+        description: Opis
+        entry_date: Data
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategoria
