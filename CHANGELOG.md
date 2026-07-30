@@ -51,9 +51,6 @@ Nothing.
 
 - **decidim-core**: Backport 'Fix translation issue in maps' to v0.31 [\#17392](https://github.com/decidim/decidim/pull/17392)
 
-### Unsorted
-
-- e28a48f378 Update Crowdin configuration file [\#](https://github.com/decidim/decidim/pull/) || 
 ## [0.31.6](https://github.com/decidim/decidim/tree/0.31.6)
 
 ### Added
