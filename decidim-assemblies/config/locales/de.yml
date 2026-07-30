@@ -37,7 +37,7 @@ de:
         is_transparent: Ist transparent
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
-        parent_id: Haupt Versammlung
+        parent_id: Übergeordnete Versammlung
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie wird es entschieden?
@@ -79,26 +79,26 @@ de:
   activerecord:
     models:
       decidim/assembly:
-        one: Gre­mi­um
-        other: Gremien
+        one: Versammlung
+        other: Versammlungen
       decidim/assembly_member:
-        one: Gremienmitglieder
-        other: Mitglieder der Versammlung
+        one: Versammlungsmitglied
+        other: Versammlungsmitglieder
       decidim/assembly_user_role:
-        one: Assembly-Benutzerrolle
-        other: Zusammenbau von Benutzerrollen
+        one: Versammlungsbenutzerrolle
+        other: Versammlungsbenutzerrollen
   decidim:
     admin:
       actions:
-        confirm_delete_assembly: Sind Sie sicher, dass Sie dieses Gremium löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie sie später wiederherstellen.
+        confirm_delete_assembly: Sind Sie sicher, dass Sie diese Versammlung löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie sie später wiederherstellen.
         import_assembly: Importieren
-        new_assembly: Neues Gremium
-        new_assembly_user_role: Neuer Gremium-Admin
-        view_deleted_assemblies: Gelöschte Gremien anzeigen
+        new_assembly: Neue Versammlung
+        new_assembly_user_role: Neuer Versammlungsadmin
+        view_deleted_assemblies: Gelöschte Versammlungen anzeigen
       assemblies:
         create:
-          error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
-          success: Gremium erfolgreich erstellt. Sie können nun Komponenten hinzufügen und konfigurieren.
+          error: Beim Erstellen einer neuen Versammlung ist ein Fehler aufgetreten.
+          success: Versammlung erfolgreich erstellt. Sie können nun Komponenten hinzufügen und konfigurieren.
         edit:
           update: Aktualisieren
         index:
@@ -111,43 +111,43 @@ de:
         new:
           create: Erstellen
         update:
-          error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
+          error: Beim Aktualisieren dieser Versammlung ist ein Fehler aufgetreten.
           success: Die Versammlung wurde erfolgreich aktualisiert.
       assemblies_duplicates:
         create:
-          error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich dupliziert.
+          error: Beim Duplizieren dieser Versammlung ist ein Fehler aufgetreten.
+          success: Die Versammlung wurde erfolgreich dupliziert.
       assembly_duplicates:
         new:
           duplicate: Duplizieren
           select: Wählen Sie, welche Daten Sie duplizieren möchten
       assembly_imports:
         create:
-          error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
-          success: Gremium wurde erfolgreich importiert.
+          error: Beim Importieren dieser Versammlung ist ein Fehler aufgetreten.
+          success: Versammlung erfolgreich importiert.
         new:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
       assembly_publications:
         create:
-          error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
-          success: Gremium erfolgreich veröffentlicht.
+          error: Beim Veröffentlichen dieser Versammlung ist ein Fehler aufgetreten.
+          success: Versammlung erfolgreich veröffentlicht.
         destroy:
-          error: Beim Aufheben der Veröffentlichung dieser Assembly ist ein Fehler aufgetreten.
-          success: Die Assembly wurde nicht veröffentlicht.
+          error: Beim Aufheben der Veröffentlichung dieser Versammlung ist ein Fehler aufgetreten.
+          success: Die Veröffentlichung der Versammlung wurde aufgehoben.
       assembly_user_roles:
         create:
-          error: Beim Hinzufügen eines Benutzers für diese Assembly ist ein Fehler aufgetreten.
-          success: Der Administrator wurde dieser Versammlung erfolgreich hinzugefügt.
+          error: Beim Hinzufügen eines Admins für diese Versammlung ist ein Fehler aufgetreten.
+          success: Der Admin wurde dieser Versammlung erfolgreich hinzugefügt.
         destroy:
-          success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
+          success: Der Admin wurde erfolgreich aus dieser Versammlung entfernt.
         edit:
           update: Aktualisieren
         new:
           create: Erstellen
         update:
-          error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
-          success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
+          error: Beim Aktualisieren eines Admins für diese Versammlung ist ein Fehler aufgetreten.
+          success: Der Admin wurde für diese Versammlung erfolgreich aktualisiert.
       filters:
         ceased_date_not_null:
           label: Eingestellt
@@ -157,18 +157,18 @@ de:
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Name oder Kontoname suchen
       menu:
-        assemblies: Gremien
+        assemblies: Versammlungen
         assemblies_submenu:
-          assembly_admins: Assembly Benutzer
+          assembly_admins: Versammlungsadmins
           attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anhänge
           components: Komponenten
-          info: Über dieses Gremium
+          info: Über diese Versammlung
           landing_page: Startseiten-Layout
           members: Mitglieder
           moderations: Moderationen
-          see_assembly: Gremium ansehen
+          see_assembly: Versammlung ansehen
       models:
         assembly:
           fields:
@@ -178,7 +178,7 @@ de:
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
-          name: Gremium
+          name: Versammlung
         assembly_member:
           name: Mitglied
           positions:
@@ -192,7 +192,7 @@ de:
             email: Email
             name: Name
             role: Rolle
-          name: Assembly Benutzer
+          name: Versammlungsadmin
           roles:
             admin: Administrator
             collaborator: Mitarbeiter
@@ -200,98 +200,113 @@ de:
             moderator: Moderator
       taxonomy_filters:
         space_filter_for:
-          assemblies: Alle Gremien
+          assemblies: Alle Versammlungen
       tooltips:
-        deleted_assemblies_info: Ein Gremium kann nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
+        deleted_assemblies_info: Eine Versammlung kann nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
     admin_log:
       assembly:
-        create: "%{user_name} hat das Gremium %{resource_name} erstellt"
-        duplicate: "%{user_name} hat das Gremium %{resource_name} dupliziert"
-        export: "%{user_name} hat das Gremium %{resource_name} exportiert"
-        import: "%{user_name} hat das Gremium %{resource_name} importiert"
-        publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
-        publish_all_members: "%{user_name} hat alle Mitglieder des Gremiums %{resource_name} veröffentlicht"
-        restore: "%{user_name} hat das Gremium %{resource_name} wiederhergestellt"
-        soft_delete: "%{user_name} hat das Gremium %{resource_name} in den Papierkorb verschoben"
-        unpublish: "%{user_name} hat das Gremium %{resource_name} auf \"unveröffentlicht\" gesetzt"
-        unpublish_all_members: "%{user_name} hat die Veröffentlichung aller Mitglieder des Gremiums %{resource_name} aufgehoben"
-        update: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
+        create: "%{user_name} hat die Versammlung %{resource_name} erstellt"
+        duplicate: "%{user_name} hat die Versammlung %{resource_name} dupliziert"
+        export: "%{user_name} hat die Versammlung %{resource_name} exportiert"
+        import: "%{user_name} hat die Versammlung %{resource_name} importiert"
+        publish: "%{user_name} hat die Versammlung %{resource_name} veröffentlicht"
+        publish_all_members: "%{user_name} hat alle Mitglieder der Versammlung %{resource_name} veröffentlicht"
+        restore: "%{user_name} hat die Versammlung %{resource_name} wiederhergestellt"
+        soft_delete: "%{user_name} hat die Versammlung %{resource_name} in den Papierkorb verschoben"
+        unpublish: "%{user_name} hat die Versammlung %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        unpublish_all_members: "%{user_name} hat die Veröffentlichung aller Mitglieder der Versammlung %{resource_name} aufgehoben"
+        update: "%{user_name} hat die Versammlung %{resource_name} aktualisiert"
       assembly_member:
-        create: "%{user_name} hat das Mitglied %{resource_name} im Gremium %{space_name} erstellt"
-        delete: "%{user_name} hat das Mitglied %{resource_name} aus dem Gremium %{space_name} entfernt"
-        update: "%{user_name} hat das Mitglied %{resource_name} im Gremium %{space_name} aktualisiert"
+        create: "%{user_name} hat das Mitglied %{resource_name} in der Versammlung %{space_name} erstellt"
+        delete: "%{user_name} hat das Mitglied %{resource_name} aus der Versammlung %{space_name} entfernt"
+        update: "%{user_name} hat das Mitglied %{resource_name} in der Versammlung %{space_name} aktualisiert"
       assembly_setting:
-        update: "%{user_name} hat die Gremieneinstellungen aktualisiert"
+        update: "%{user_name} hat die Versammlungseinstellungen aktualisiert"
       assembly_type:
-        create: "%{user_name} hat den Gremientyp %{resource_name} erstellt"
-        delete: "%{user_name} hat den Gremientyp %{resource_name} entfernt"
-        publish: "%{user_name} hat den Gremientyp %{resource_name} veröffentlicht"
-        unpublish: "%{user_name} hat den Gremientyp %{resource_name} auf \"unveröffentlicht\" gesetzt"
-        update: "%{user_name} hat den Gremientyp %{resource_name} aktualisiert"
+        create: "%{user_name} hat den Versammlungstyp %{resource_name} erstellt"
+        delete: "%{user_name} hat den Versammlungstyp %{resource_name} entfernt"
+        publish: "%{user_name} hat den Versammlungstyp %{resource_name} veröffentlicht"
+        unpublish: "%{user_name} hat den Versammlungstyp %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        update: "%{user_name} hat den Versammlungstyp %{resource_name} aktualisiert"
       assembly_user_role:
-        create: "%{user_name} hat %{resource_name} zum Gremium %{space_name} eingeladen"
-        delete: "%{user_name} hat %{resource_name} aus dem Gremium %{space_name} entfernt"
-        update: "%{user_name} hat die Rolle von %{resource_name} im Gremium %{space_name} geändert"
+        create: "%{user_name} hat %{resource_name} zur Versammlung %{space_name} eingeladen"
+        delete: "%{user_name} hat %{resource_name} aus der Versammlung %{space_name} entfernt"
+        update: "%{user_name} hat die Rolle von %{resource_name} in der Versammlung %{space_name} geändert"
     assemblies:
       admin:
         assemblies:
           edit:
-            title: Über dieses Gremium
+            title: Über diese Versammlung
           form:
             access:
               label: Zugriff
               options:
                 open: Jeder kann die Versammlung sehen und teilnehmen.
+                restricted: Nur Mitglieder und Administratoren können ansehen und teilnehmen. Erscheint weder in der allgemeinen Suche, der API, noch in den Open-Data-Dateien.
+                transparent: Jeder kann die Versammlung sehen, aber nur die Mitglieder und Admins können teilnehmen.
               set_this_space_as: Setze diesen Bereich als
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis
-            duration_help: Wenn die Dauer dieses Gremiums begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
+            duration_help: Wenn die Dauer dieser Versammlung begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
             has_members_help: Sie können Mitglieder erstellen und veröffentlichen
             images: Bilder
-            included_at_help: Wählen Sie das Datum aus, an dem dieses Gremium zur Plattform hinzugefügt wurde. Das Datum muss nicht zwingend mit dem Gründungsdatum übereinstimmen.
+            included_at_help: Wählen Sie das Datum aus, an dem diese Versammlung zur Plattform hinzugefügt wurde. Das Datum muss nicht zwingend mit dem Gründungsdatum übereinstimmen.
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
-            select_parent_assembly: Übergeordnetes Gremium auswählen
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            select_parent_assembly: Übergeordnete Versammlung auswählen
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
             taxonomies: Klassifizierungen
             title: Allgemeine Information
             visibility: Sichtbarkeit
           index:
-            title: Gremien
+            title: Versammlungen
           manage_trash:
-            title: Gelöschte Gremien
+            title: Gelöschte Versammlungen
           new:
-            title: Neues Gremium
+            title: Neue Versammlung
         assembly_duplicates:
           form:
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
           new:
-            title: Gremium duplizieren
+            title: Versammlung duplizieren
         assembly_imports:
           form:
             document_legend: Dokument hinzufügen
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
+          new:
+            title: Versammlung importieren
         assembly_members:
           form:
             explanation: 'Hinweise für das Bild:'
             image_guide: Vorzugsweise ein Portraitbild, das keinen Text enthält.
             non_user_avatar_help: Sie sollten die Zustimmung der Personen einholen, bevor Sie sie als Mitglied veröffentlichen.
+        assembly_user_roles:
+          edit:
+            title: Versammlungsadmin aktualisieren
+          index:
+            title: Versammlungsadmins
+          new:
+            title: Neuer Versammlungsadmin
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+        imports:
+          attachment_error: Der Anhang "%{title}" konnte nicht importiert werden (%{error}).
+          hero_image_error: Das Bannerbild konnte nicht importiert werden (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Mit dieser Importfunktion können Sie aus einer exportierten JSON-Datei eine neue Versammlung erstellen. Sie können eine Versammlung von einer anderen Organisation oder von derselben Organisation exportieren. Die importierte Versammlung enthält Einstellungen, Komponenten und Anhänge (falls ausgewählt).
       assemblies:
         description:
           area_name: Gebiet
           closing_date: Abschlussdatum
           created_by: Erstellt von
           creation_date: Erstellungsdatum
-          data: Gremiendaten
+          data: Versammlungsdaten
           developer_group: Gruppe der Unterstützenden
           duration: Aktiv bis
           included_at: Hinzugefügt am
@@ -301,24 +316,24 @@ de:
           participatory_scope: Was wird entschieden
           participatory_structure: Wie wird es entschieden
           target: Wer nimmt teil
-          title: Über dieses Gremium
+          title: Über diese Versammlung
         filters:
           names:
             all: Alle
           type: Typ
         show:
-          title: Über dieses Gremium
+          title: Über diese Versammlung
       content_blocks:
         children_assemblies:
-          name: Gremien
+          name: Versammlungen
         dates_metadata:
           name: Metadaten der Daten
         extra_data:
           name: Typ & Dauer
         highlighted_assemblies:
-          name: Hervorgehobene Gremien
+          name: Hervorgehobene Versammlungen
         related_assemblies:
-          name: Ähnliche Gremien
+          name: Ähnliche Versammlungen
       created_by:
         city_council: Stadtrat
         others: Andere
@@ -334,27 +349,27 @@ de:
         participatory: Partizipativ
         working_group: Arbeitsgruppe
       index:
-        title: Gremien
+        title: Versammlungen
       last_activity:
-        new_assembly: 'Neues Gremium:'
+        new_assembly: 'Neue Versammlung:'
       pages:
         home:
           highlighted_assemblies:
-            active_spaces: Aktive Gremien
-            see_all_spaces: Alle Gremien anzeigen
+            active_spaces: Aktive Versammlungen
+            see_all_spaces: Alle Versammlungen anzeigen
       show:
         duration: Aktiv bis
-        social_networks_title: Gremium besuchen unter
+        social_networks_title: Versammlung besuchen unter
     download_your_data:
       show:
-        assemblies: Export der Gremien
+        assemblies: Export der Versammlungen
     events:
       assemblies:
         create_assembly_member:
-          email_intro: Ein Administrator des Gremiums <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einem Gremium eingeladen wurden. Gehen Sie zur <a href="%{resource_url}">Gremiumsseite</a>, um mitzumachen!
-          email_subject: Sie wurden als Mitglied des Gremiums %{resource_name} eingeladen!
-          notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> eingetragen. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
+          email_intro: Ein Admin der Versammlung <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied hinzugefügt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Versammlung eingeladen wurden. Gehen Sie zur <a href="%{resource_url}">Versammlungsseite</a>, um mitzumachen!
+          email_subject: Sie wurden als Mitglied der Versammlung %{resource_name} eingeladen!
+          notification_title: Sie wurden als Mitglied der Versammlung <a href="%{resource_path}">%{resource_name}</a> eingetragen. Gehen Sie zur <a href="%{resource_path}">Versammlungsseite</a>, um mitzuwirken!
       assembly:
         role_assigned:
           email_intro: Sie wurden als %{role} für die Versammlung "%{resource_title}" ausgewählt.
@@ -366,56 +381,58 @@ de:
         assemblies:
           contextual: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
           page: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
-          title: Was sind Gremien?
+          title: Was sind Versammlungen?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
+          not_found: 'Die Versammlung wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
-      assemblies: Gremien
+      assemblies: Versammlungen
     open_data:
       help:
         assemblies:
-          area: Der Bereich des Gremiums
-          assembly_type: Der Typ des Gremiums
-          closing_date: Das Auflösungsdatum des Gremiums
-          closing_date_reason: Der Auflösungsgrund des Gremiums
-          composition: Die Zusammensetzung des Gremiums
+          access_mode: Zugangsmodus. Definiert, ob die Versammlung öffentlich, eingeschränkt oder transparent ist.
+          area: Der Bereich der Versammlung
+          assembly_type: Der Typ der Versammlung
+          closing_date: Das Auflösungsdatum der Versammlung
+          closing_date_reason: Der Auflösungsgrund der Versammlung
+          component_settings: Die Komponenteneinstellungen der Versammlung
+          composition: Die Zusammensetzung der Versammlung
           created_at: Erstellungsdatum des Raums
-          created_by: Wer hat dieses Gremium gegründet hat
-          created_by_other: Weitere Gründungspersonen des Gremiums
-          creation_date: Das Gründungsdatum des Gremiums
-          decidim_scope_id: Die Themen des Gremiums
-          description: Eine lange Beschreibung des Gremiums
-          developer_group: Die Entwicklungsgruppe des Gremiums
-          duration: Die Dauer des Gremiums
+          created_by: Wer diese Versammlung gegründet hat
+          created_by_other: Weitere Gründungspersonen der Versammlung
+          creation_date: Das Gründungsdatum dieser Versammlung
+          decidim_scope_id: Der Bereich der Versammlung
+          description: Eine lange Beschreibung der Versammlung
+          developer_group: Die Entwicklungsgruppe der Versammlung
+          duration: Die Dauer der Versammlung
           facebook_handler: Social Media Handler für Facebook
           follows_count: Die Anzahl der Benutzer, die diesem Raum folgen
           github_handler: Social Media Handler für GitHub
-          id: Die eindeutige Bezeichnung dieser Assembly
-          included_at: Datum des Einbezugs des Ergebnisses
+          id: Die eindeutige Bezeichnung dieser Versammlung
+          included_at: Das Datum, an dem die Versammlung aufgenommen wurde
           instagram_handler: Social Media Handler für Instagram
-          internal_organisation: Die interne Organisation dieses Gremiums
-          is_transparent: Ob das Gremium öffentlich zugänglich ist oder nicht
-          local_area: Der lokale Bereich des Gremiums
-          meta_scope: Die Bereichsmetadaten des Ergebnisses
-          participatory_scope: Der partizipative Bereich des Gremiums
-          participatory_structure: Die partizipative Struktur des Gremiums
-          promoted: Ob das Gremium hervorgehoben ist oder nicht
+          internal_organisation: Die interne Organisation dieser Versammlung
+          is_transparent: Ob die Versammlung öffentlich zugänglich ist oder nicht
+          local_area: Der lokale Bereich der Versammlung
+          meta_scope: Die Bereichsmetadaten der Versammlung
+          participatory_scope: Der partizipative Bereich der Versammlung
+          participatory_structure: Die partizipative Struktur der Versammlung
+          promoted: Ob die Versammlung hervorgehoben ist oder nicht
           published_at: Das Datum der Veröffentlichung des Raums
-          purpose_of_action: Der Zweck des Gremiums
+          purpose_of_action: Der Zweck der Versammlung
           reference: Die eindeutige Referenz des Bereichs
-          remote_banner_image_url: Die URL des Gremium-Bannerbildes
-          remote_hero_image_url: Die URL des Gremium-Titelbildes
-          scope: Die Themen des Gremiums
+          remote_banner_image_url: Die URL des Versammlungs-Bannerbildes
+          remote_hero_image_url: Die URL des Versammlungs-Titelbildes
+          scope: Der Bereich der Versammlung
           scopes_enabled: Ob Themen aktiviert sind oder nicht
-          short_description: Eine kurze Beschreibung des Gremiums
-          slug: Der URL-Slug des Gremiums (verwendet für Identifikationszwecke in der URL)
-          special_features: Welche besonderen Merkmale dieses Gremium hat
-          subtitle: Der Untertitel des Gremiums
-          target: Das Ziel des Gremiums
+          short_description: Eine kurze Beschreibung der Versammlung
+          slug: Der URL-Slug der Versammlung (verwendet für Identifikationszwecke in der URL)
+          special_features: Welche besonderen Merkmale diese Versammlung hat
+          subtitle: Der Untertitel der Versammlung
+          target: Das Ziel der Versammlung
           taxonomies: Die Klassifizierungen des Projekts
-          title: Der Titel des Gremiums
+          title: Der Titel der Versammlung
           twitter_handler: Social Media Handler für X/Twitter
           updated_at: Letztes Aktualisierungsdatum dieses Bereichs
           url: Die URL des Bereichs
@@ -424,8 +441,8 @@ de:
       show:
         related_assemblies: Ähnliche Versammlungen
     statistics:
-      assemblies_count: Gremien
-      assemblies_count_tooltip: Die Anzahl der öffentlichen Gremien, in denen kollektive Entscheidungen getroffen werden.
+      assemblies_count: Versammlungen
+      assemblies_count_tooltip: Die Anzahl der öffentlichen Versammlungen, in denen kollektive Entscheidungen getroffen werden.
   layouts:
     decidim:
       assemblies:
@@ -433,14 +450,14 @@ de:
           more_info: Mehr Informationen
           take_part: Teilnehmen
         index:
-          promoted_assemblies: Hervorgehobene Gremien
+          promoted_assemblies: Hervorgehobene Versammlungen
         metadata:
           children_item:
-            one: "%{count} Gremium"
-            other: "%{count} Gremien"
+            one: "%{count} Versammlung"
+            other: "%{count} Versammlungen"
         order_by_assemblies:
           assemblies:
-            one: "%{count} Gremien"
-            other: "%{count} Gremien"
+            one: "%{count} Versammlungen"
+            other: "%{count} Versammlungen"
       assembly_navigation:
         assembly_member_menu_item: Mitglieder
