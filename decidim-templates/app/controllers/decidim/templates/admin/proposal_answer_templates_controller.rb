@@ -142,9 +142,9 @@ module Decidim
         def proposal
           @proposal ||= begin
             component_ids = current_organization.participatory_spaces
-                            .flat_map { |s| s.components.where(manifest_name: :proposals).pluck(:id) }
+                                                .flat_map { |s| s.components.where(manifest_name: :proposals).pluck(:id) }
             Decidim::Proposals::Proposal.where(decidim_component_id: component_ids)
-              .find { |p| p.id == params.expect(:proposalId).to_i }
+                                        .find { |p| p.id == params.expect(:proposalId).to_i }
           end
         end
 

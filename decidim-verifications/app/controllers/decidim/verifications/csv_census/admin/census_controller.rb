@@ -97,8 +97,8 @@ module Decidim
             return { icon: nil, text: t(".no_user"), last_sign_in: nil } unless user
 
             authorized = Decidim::Authorization.where(name: "csv_census", user:) # rubocop:disable Decidim/OrganizationScopedFinder -- user is already scoped to current_organization (line 95)
-                                                .where.not(granted_at: nil)
-                                                .exists?
+                                               .where.not(granted_at: nil)
+                                               .exists?
 
             icon = authorized ? "checkbox-circle-line" : "close-circle-line"
             text = authorized ? t("index.authorized", scope: "decidim.verifications.csv_census.admin") : t("index.no_authorized", scope: "decidim.verifications.csv_census.admin")
