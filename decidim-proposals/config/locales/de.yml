@@ -53,6 +53,7 @@ de:
         file: Datei
       proposals_import:
         import_proposals: Vorschläge importieren
+        keep_answers: Status und Antworten beibehalten
         keep_authors: Behalten Sie die ursprünglichen Autoren
     errors:
       models:
@@ -62,6 +63,8 @@ de:
               allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
         proposal:
           attributes:
+            add_attachments:
+              needs_to_be_reattached: Muss erneut angehängt werden
             body:
               cant_be_equal_to_template: kann nicht gleich der Vorlage sein
               identical: UND Titel dürfen nicht identisch sein
@@ -170,7 +173,9 @@ de:
             can_accumulate_votes_beyond_threshold: Stimmen können nach Erreichen des Schwellwerts weiter gesammelt werden
             clear_all: Alles löschen
             collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
+            collaborative_drafts_enabled_help: Die Funktion "Gemeinsame Entwürfe" wird in Decidim v0.32 entfernt. Organisationen, die sie nutzen, können auf die neue Funktion zur gemeinsamen Autorenschaft von Vorschlägen umsteigen.
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Zeichenanzahl pro Kommentar (0 für Standardwert)
             default_sort_order: Standardsortierung für Vorschläge
             default_sort_order_help: Standardmäßig bedeutet, dass bei aktivierten Stimmensammlung die Vorschläge nach Zufall und bei deaktivierter Stimmensammlung nach den meist gewählten Vorschläge sortiert werden.
             default_sort_order_options:
@@ -269,13 +274,17 @@ de:
             email_intro: '%{author_name} hat eine private Notiz unter %{resource_title} erstellt. Jetzt im <a href="%{admin_proposal_info_url}">Admin-Panel</a> anzeigen.'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie den Vorschlag bewerten können.
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
+            notification_title: <a href="%{author_path}">%{author_name}</a> hat eine private Notiz zu <a href="%{resource_path}">%{resource_title}</a> erstellt. Im <a href="%{admin_proposal_info_path}">Admin-Bereich</a> finden Sie die Details.
           proposal_note_mentioned:
+            email_intro: Sie wurden von "%{author_name}" in einer privaten Notiz zu "%{resource_title}" erwähnt. Im <a href="%{admin_proposal_info_url}">Admin-Bereich</a> finden Sie die Details.
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in einer privaten Notiz erwähnt wurden.
             email_subject: Jemand hat Sie in einer Notiz zum Vorschlag "%{resource_title}" erwähnt.
+            notification_title: Sie wurden von <a href="%{author_path}">%{author_name}</a> in einer privaten Notiz zu <a href="%{resource_path}">%{resource_title}</a> erwähnt. Im <a href="%{admin_proposal_info_path}">Admin-Bereich</a> finden Sie die Details.
           proposal_note_replied:
             email_intro: '%{author_name} hat deine private Notiz unter %{resource_title} beantwortet. Jetzt im <a href="%{admin_proposal_info_url}">Admin-Panel</a> anzeigen.'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Noitz sind.
             email_subject: "%{author_name} hat auf Ihre private Notiz unter %{resource_title} geantwortet."
+            notification_title: <a href="%{author_path}">%{author_name}</a> hat auf Ihre private Notiz zu <a href="%{resource_path}">%{resource_title}</a> geantwortet. Im <a href="%{admin_proposal_info_path}">Admin-Bereich</a> finden Sie die Details.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> hat Ihre Einladung angenommen, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
         coauthor_invited:
@@ -292,14 +301,17 @@ de:
           email_intro: '%{requester_name} wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_url}">%{resource_title}</a> akzeptiert.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
           email_subject: "%{requester_name} wurde zur Mitwirkung an %{resource_title} akzeptiert."
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> wurde als Mitwirkende/r für den gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>angenommen</strong>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} wurde als Mitwirkender des kollaborativen Entwurfs <a href="%{resource_url}">%{resource_title}</a> abgelehnt.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
           email_subject: "%{requester_name} wurde als Mitwirkender des kollaborativen Entwurfs %{resource_title} abgelehnt."
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> wurde als Mitwirkende/r für den gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} hat um Zugriff auf Ihren kollaborativen Entwurf angefragt. Sie können den Antrag auf der Seite des kollaborativen Entwurfs <a href="%{resource_url}">%{resource_title}</a> <strong>annehmen oder ablehnen</strong>.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
           email_subject: "%{requester_name} hat um Zugang zur Mitwirkung bei %{resource_title} angefragt."
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> hat um Zugang zur Mitarbeit am gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> gebeten. Bitte <strong>nehmen Sie die Anfrage an oder lehnen Sie sie ab</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Sie wurden zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_url}">%{resource_title}</a> akzeptiert.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefragt haben, bei <a href="%{resource_url}">%{resource_title}</a> mitzuwirken.
@@ -311,7 +323,10 @@ de:
           email_subject: Sie wurden als Mitwirkender von %{resource_title} abgelehnt.
           notification_title: Sie wurden als Mitwirkender beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name}</a> hat den gemeinsamen Entwurf <a href="%{resource_url}">%{resource_title}</a> zurückgezogen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
+          email_subject: "%{author_name} hat den gemeinsamen Entwurf %{resource_title} zurückgezogen."
+          notification_title: <a href="%{author_path}">%{author_name}</a> hat den gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>zurückgezogen</strong>.
         creation_enabled:
           email_intro: 'Sie können jetzt neue Vorschläge in %{participatory_space_title} erstellen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
@@ -321,6 +336,7 @@ de:
           email_intro: 'Sie können ab jetzt Vorschläge auf %{participatory_space_title} unterstützen! Jetzt auf dieser Seite mitmachen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
           email_subject: Vorschläge können nun in %{participatory_space_title} unterstützt werden
+          notification_title: Sie können nun in <a href="%{participatory_space_url}">%{participatory_space_title}</a> damit beginnen, <a href="%{resource_path}">Vorschlägen zu gefallen</a>.
         proposal_mentioned:
           email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">hier</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
@@ -331,6 +347,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag verfasst haben.
           email_subject: Der Vorschlag %{resource_title} wurde zusammengeführt
           notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde von einem Admin zusammengeführt.
+        proposal_published:
+          email_intro: '%{author_name}, dem/der Sie folgen, hat einen neuen Vorschlag mit dem Titel "%{resource_title}" veröffentlicht. Schauen Sie ihn sich an und beteiligen Sie sich:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Neuer Vorschlag "%{resource_title}" von %{author_name}
+          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name}</a> veröffentlicht.
         proposal_published_for_space:
           email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
@@ -348,6 +369,12 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Der Status eines Vorschlags, dem Sie folgen, hat sich geändert (%{state})
             notification_title: Der Status des Vorschlags <a href="%{resource_path}">%{resource_title}</a> hat sich zu "%{state}" geändert.
+        proposal_state_changed_for_authors:
+          affected_user:
+            email_intro: 'Der Status des Vorschlags "%{resource_title}" wurde auf "%{state}" geändert. Die Antwort finden Sie auf dieser Seite:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Autor/in von "%{resource_title}" sind.
+            email_subject: Der Status Ihres Vorschlags wurde geändert (%{state})
+            notification_title: Der Status Ihres Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde auf "%{state}" geändert.
         proposal_update_taxonomies:
           email_intro: 'Ein Admin hat die Klassifizierung Ihres Vorschlags „%{resource_title}“ aktualisiert. Auf der folgenden Seite ansehen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag verfasst haben.
@@ -431,7 +458,7 @@ de:
           longitude: Der Längengrad des Vorschlags, falls er verortet wurde
           meeting_urls: Die URLs der Veranstaltungen, an denen dieser Vorschlag vorgestellt oder diskutiert wurde
           original_proposal: Referenz des ursprünglichen Vorschlags, falls es sich um einen Änderungsantrag handelt
-          participatory_space: Zu welchem Bereich dieser Vorschlag gehört (z.B. Partizipationsprozesse oder Gremien)
+          participatory_space: Zu welchem Bereich dieser Vorschlag gehört (z.B. Partizipationsprozesse oder Versammlungen)
           published_at: Das Datum, an dem dieser Vorschlag veröffentlicht wurde
           reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
           related_proposals: Mit diesem Vorschlag verknüpfte Vorschläge
@@ -624,7 +651,7 @@ de:
             statuses: Status
             title: Vorschläge
             unassign_from_evaluator: Zuweisung zur bewertenden Person aufheben
-            unassign_from_evaluator_button:
+            unassign_from_evaluator_button: Zuweisung aufheben
             update: Aktualisieren
           manage_trash:
             title: Gelöschte Vorschläge
@@ -635,6 +662,7 @@ de:
             number_of_proposals: Antworten für %{number} Vorschläge werden veröffentlicht.
             select_a_proposal: Bitte wählen Sie einen Vorschlag.
           show:
+            address: Adresse
             amendments_count: Anzahl der Ergänzungen
             assigned_evaluators: Zugewiesene Personen
             body: Haupttext
@@ -652,6 +680,7 @@ de:
             related_meetings: Ähnliche Veranstaltungen
             remove_assignment: Zuweisung entfernen
             remove_assignment_confirmation: Sind Sie sicher, dass Sie den Bewerter dieses Vorschlags entfernen möchten?
+            title: Vorschlag beantworten
             votes_count: Anzahl Stimmen
           update_taxonomies:
             invalid: 'Diese Vorschläge gehörten bereits zur Klassifizierung %{taxonomies}: %{proposals}.'
@@ -666,6 +695,7 @@ de:
             create: Vorschläge importieren
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
             select_component: Bitte wählen Sie eine Komponente aus
+            select_states: Importiert nur Vorschläge mit diesen Status. Wenn keiner ausgewählt ist, werden alle Vorschläge importiert.
             title: Vorschläge aus einer anderen Komponente importieren
         proposals_merges:
           create:
@@ -735,6 +765,7 @@ de:
         errors:
           device_not_supported: Ihr Gerät unterstützt keine Ortungsdienste. Bitte geben Sie die Adresse manuell ein.
           no_device_location: Leider konnten wir Ihren Standort nicht erkennen. Bitte geben Sie die Adresse manuell ein.
+        locating: Standort wird ermittelt …
         use_my_location: Meinen aktuellen Standort verwenden
       invite_coauthors:
         cancel:
