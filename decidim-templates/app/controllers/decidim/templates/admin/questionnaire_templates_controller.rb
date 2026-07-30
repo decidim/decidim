@@ -105,8 +105,8 @@ module Decidim
         end
 
         def apply
-          questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
-          template = Decidim::Templates::Template.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
+          questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id]) # rubocop:disable Decidim/OrganizationScopedFinder -- scoping requires polymorphic questionnaire_for chain; guarded by template scoping where applicable
+          template = current_organization.templates.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
 
           ApplyQuestionnaireTemplate.call(questionnaire, template) do
             on(:ok) do
@@ -131,7 +131,7 @@ module Decidim
         end
 
         def skip
-          questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
+          questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id]) # rubocop:disable Decidim/OrganizationScopedFinder -- scoping requires polymorphic questionnaire_for chain
           # rubocop:disable Rails/SkipsModelValidations
           questionnaire.touch
           # rubocop:enable Rails/SkipsModelValidations
