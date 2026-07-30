@@ -2,7 +2,7 @@
   <%= link_to t(".button"),
               decidim_initiatives.send_to_technical_validation_initiative_path(current_initiative),
               class: "button button__sm md:button__lg button__secondary",
-              data: { confirm: t(".confirm") } %>
+               data: { confirm: t(".confirm"), confirm_icon: "checkbox-circle-line" } %>
 <% else %>
   <%= button_tag t(".button"),
                  class: "button button__sm md:button__lg button__secondary",
