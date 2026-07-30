@@ -23,7 +23,7 @@ on:
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 60
     concurrency:
       group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}-${{ matrix.language }}

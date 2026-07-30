@@ -23,7 +23,7 @@ permissions:
 jobs:
   check_title:
     name: Check PR title
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-26.04
     steps:
       - uses: deepakputhraya/action-pr-title@master
         with:
@@ -48,7 +48,7 @@ jobs:
   check_label:
     needs: labeler
     name: Check PR labels
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-26.04
     steps:
       - uses: jesusvasquez333/verify-pr-label-action@v1.4.0
         with:
