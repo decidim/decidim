@@ -129,6 +129,13 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense for an organization-scoped key with untrusted value in find_by" do
+    expect_offense(<<~RUBY)
+      Template.find_by(organization_id: params[:organization_id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "accepts where(value uses current_component through nested receiver).find" do
     expect_no_offenses(<<~RUBY)
       Project.joins(:budget).where(budget: { component: current_component }).find(params.expect(:id))
