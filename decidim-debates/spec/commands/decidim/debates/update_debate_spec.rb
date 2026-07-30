@@ -5,8 +5,6 @@ require "spec_helper"
 describe Decidim::Debates::UpdateDebate do
   subject { described_class.new(form, debate) }
 
-  include_context "sorted taxonomies"
-
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }

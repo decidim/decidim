@@ -7,8 +7,6 @@ module Decidim
     module Admin
       describe SplitProposals do
         describe "call" do
-          include_context "sorted taxonomies"
-
           let!(:proposals) { Array(create(:proposal, component: current_component, taxonomies:)) }
           let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: current_component.organization) }
           let!(:current_component) { create(:proposal_component) }
@@ -72,7 +70,7 @@ module Decidim
               expect(new_proposal.title).to eq(proposal.title)
               expect(new_proposal.body).to eq(proposal.body)
               expect(new_proposal.creator_author).to eq(current_component.organization)
-              expect(new_proposal.taxonomies).to eq(proposal.taxonomies)
+              expect(new_proposal.taxonomies).to match_array(proposal.taxonomies)
 
               expect(new_proposal.state).to be_nil
               expect(new_proposal.answer).to be_nil
