@@ -81,12 +81,15 @@ module Decidim
       # Public: after_create callback to index the model as a SearchableResource, if configured so.
       #
       def try_add_to_index_as_search_resource
+        return if self.class.search_disabled?
         return unless self.class.searchable_resource?(self) && self.class.search_resource_fields_mapper.index_on_create?(self)
 
         add_to_index_as_search_resource
       end
 
       def remove_from_index(searchable)
+        return if self.class.search_disabled?
+
         org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
         searchable.searchable_resources.by_organization(org.id).destroy_all
       end
@@ -102,6 +105,7 @@ module Decidim
       # Public: after_update callback to update index information of the model.
       #
       def try_update_index_for_search_resource(current_depth = 0)
+        return if self.class.search_disabled?
         return unless self.class.searchable_resource?(self)
 
         org = self.class.search_resource_fields_mapper.retrieve_organization(self)
@@ -130,6 +134,10 @@ module Decidim
         end
 
         find_and_update_descendants(current_depth)
+      end
+
+      def search_disabled?
+        Decidim.respond_to?(:skip_indexing) && Decidim.skip_indexing
       end
 
       private
