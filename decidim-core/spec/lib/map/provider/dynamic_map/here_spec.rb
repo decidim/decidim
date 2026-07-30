@@ -54,8 +54,8 @@ module Decidim
                   tile_layer: {
                     api_key: "key1234", foo: "bar", language: "ca"
                   },
-                  zoom_in_text: "Zoom in",
-                  zoom_out_text: "Zoom out"
+                  zoom_in_text: "Ampliar",
+                  zoom_out_text: "Allunyar"
                 )
               end
 
@@ -66,8 +66,8 @@ module Decidim
                   tile_layer: {
                     api_key: "key1234", foo: "bar", language: "es"
                   },
-                  zoom_in_text: "Zoom in",
-                  zoom_out_text: "Zoom out"
+                  zoom_in_text: "Ampliar",
+                  zoom_out_text: "Alejar"
                 )
               end
             end
