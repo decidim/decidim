@@ -1,5 +1,59 @@
 # Changelog
 
+## [0.31.7](https://github.com/decidim/decidim/tree/0.31.7)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-dev**: Backport 'Add ARIA role for the accessibility report button' to v0.31 [\#17260](https://github.com/decidim/decidim/pull/17260)
+- **decidim-comments**, **decidim-core**, **decidim-debates**, **decidim-initiatives**, **decidim-proposals**: Backport 'Remove user's nickname from notifications and emails' to v0.31 [\#17225](https://github.com/decidim/decidim/pull/17225)
+- **decidim-collaborative_texts**, **decidim-dev**: Backport 'Fix flaky spec at admin publishes and unpublishes document' to v0.31 [\#17264](https://github.com/decidim/decidim/pull/17264)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory processes**: Backport 'Fix double-escaping of component names in participatory space nav links and card' to v0.31 [\#16965](https://github.com/decidim/decidim/pull/16965)
+- **decidim-core**: Backport 'Fix ENV var for setting inactive users deletion period' to v0.31 [\#17276](https://github.com/decidim/decidim/pull/17276)
+- **decidim-comments**, **decidim-core**: Backport 'Fix comments `loginModal` for non-logged in users' to v0.31 [\#17285](https://github.com/decidim/decidim/pull/17285)
+- **decidim-core**, **decidim-meetings**: Backport 'Fix meeting social share image preview not displaying description image' to v0.31 [\#17297](https://github.com/decidim/decidim/pull/17297)
+- **decidim-surveys**: Backport 'Fix inverted survey response pagination' to v0.31 [\#17300](https://github.com/decidim/decidim/pull/17300)
+- **decidim-meetings**: Backport 'Exclude removed items from total agenda duration calculation' to v0.31 [\#17312](https://github.com/decidim/decidim/pull/17312)
+- **decidim-comments**: Backport 'Fix focus when changing the "Sort by" in comments' to v0.31 [\#17327](https://github.com/decidim/decidim/pull/17327)
+- **decidim-proposals**: Backport 'Make the proposal official when importing' to v0.31 [\#17303](https://github.com/decidim/decidim/pull/17303)
+- **decidim-core**: Backport 'Convert to a proper table the cookies information' to v0.31 [\#17324](https://github.com/decidim/decidim/pull/17324)
+- **decidim-assemblies**, **decidim-core**, **decidim-participatory processes**: Backport 'Fix space visibility announcement' to v0.31 [\#17320](https://github.com/decidim/decidim/pull/17320)
+- **decidim-core**: Backport 'Fix responsiveness in "Related documents" content block' to v0.31 [\#17334](https://github.com/decidim/decidim/pull/17334)
+- **decidim-core**, **decidim-system**: Backport 'Make idempotent the "show password" toggle' to v0.31 [\#17336](https://github.com/decidim/decidim/pull/17336)
+- **decidim-system**: Backport 'Add validation for password confirmation mismatch in admin system form' to v0.31 [\#17341](https://github.com/decidim/decidim/pull/17341)
+- **decidim-api**, **decidim-core**: Backport 'Ensure JWT secret exists for `devise-jwt`' to v0.31 [\#17346](https://github.com/decidim/decidim/pull/17346)
+- **decidim-proposals**: Backport 'Add address in proposals' answer page' to v0.31 [\#17356](https://github.com/decidim/decidim/pull/17356)
+- **decidim-core**, **decidim-meetings**: Backport 'Fix the focus guard in the "QR code" modal' to v0.31 [\#17366](https://github.com/decidim/decidim/pull/17366)
+- **decidim-core**: Backport 'Fix email update order for converting groups to user' to v0.31 [\#17368](https://github.com/decidim/decidim/pull/17368)
+- **decidim-core**, **decidim-participatory processes**: Backport 'Show elements on footer with accordion on mobile viewports ' to v0.31 [\#17381](https://github.com/decidim/decidim/pull/17381)
+- **decidim-core**, **decidim-generators**: Backport 'Pin rack-proxy to a version compatible with shakapacker' to v0.31 [\#17375](https://github.com/decidim/decidim/pull/17375)
+- **decidim-core**: Backport 'Add the `aria-expanded="false"` attribute when loading the Dropdowns' to v0.31 [\#17378](https://github.com/decidim/decidim/pull/17378)
+- **decidim-core**: Backport 'Add maps controls ('Zoom in/Zoom out') to i18n' to v0.31 [\#17377](https://github.com/decidim/decidim/pull/17377)
+- **decidim-budgets**, **decidim-core**, **decidim-elections**, **decidim-initiatives**, **decidim-proposals**: Backport 'Fix flaky specs on edit attachments examples' to v0.31 [\#17318](https://github.com/decidim/decidim/pull/17318)
+- **decidim-core**: Backport 'Fix translation issue in maps' to v0.31 [\#17392](https://github.com/decidim/decidim/pull/17392)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- **decidim-core**: Backport 'Fix translation issue in maps' to v0.31 [\#17392](https://github.com/decidim/decidim/pull/17392)
+
+### Unsorted
+
+- e28a48f378 Update Crowdin configuration file [\#](https://github.com/decidim/decidim/pull/) || 
 ## [0.31.6](https://github.com/decidim/decidim/tree/0.31.6)
 
 ### Added
