@@ -102,7 +102,8 @@ module RuboCop
         def scoped_pair?(pair_node)
           return false unless pair_node.pair_type?
 
-          key, value = pair_node.children[0], pair_node.children[1]
+          key = pair_node.children[0]
+          value = pair_node.children[1]
 
           scoped_where_pair?(key, value) ||
             scoped_association_pair?(key, value) ||
