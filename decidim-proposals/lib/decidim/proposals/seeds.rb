@@ -160,7 +160,7 @@ module Decidim
         when 1
           meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
 
-          Decidim::Meetings::Meeting.where(component: meeting_component).sample
+          Decidim::Meetings::Meeting.where(component: meeting_component).sample || random_coauthor
         else
           organization
         end
