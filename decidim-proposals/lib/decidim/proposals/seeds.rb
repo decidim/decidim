@@ -156,7 +156,7 @@ module Decidim
 
         case n
         when 0
-          Decidim::User.visible.where(organization:).sample
+          Decidim::User.visible.where(organization:).sample || organization
         when 1
           meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
 
