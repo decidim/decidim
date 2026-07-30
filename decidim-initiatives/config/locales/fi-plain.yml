@@ -459,7 +459,6 @@ fi-pl:
       form:
         add_attachments: Lisää liitteitä
         add_image: Lisää kuva
-        attachment_legend: Lisää asiakirja tai kuva
         edit_attachments: Muokkaa liitteitä
         edit_image: Muokkaa kuvaa
         image_legend: "(Vapaaehtoinen) Lisää kuva"

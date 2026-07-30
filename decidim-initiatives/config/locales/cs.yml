@@ -454,7 +454,6 @@ cs:
       form:
         add_attachments: Přidat přílohy
         add_image: Přidat obrázek
-        attachment_legend: Přidat dokument nebo obrázek
         edit_attachments: Upravit přílohy
         edit_image: Upravit obrázek
         image_legend: "(Volitelné) Přidat obrázek"

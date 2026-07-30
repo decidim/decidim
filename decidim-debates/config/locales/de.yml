@@ -73,7 +73,6 @@ de:
             update: Debatte aktualisieren
           form:
             add_attachments: Anhänge hinzufügen
-            attachment_legend: Dokument oder Bild hinzufügen
             comments_visualization: Kommentardarstellung
             comments_warning: Sobald der erste Kommentar veröffentlicht wurde, kann die gewählte Anzeigeoption nicht geändert werden.
             debate_type: Debatten-Typ

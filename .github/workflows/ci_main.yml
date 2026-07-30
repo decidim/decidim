@@ -12,7 +12,7 @@ on:
 env:
   CI: "true"
   RUBY_VERSION: 3.4.7
-  NODE_VERSION: 22.14.0
+  NODE_VERSION: 24.18.0
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 permissions:
