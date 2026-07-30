@@ -96,28 +96,45 @@ module RuboCop
         def scoped_argument?(node)
           return false unless node.hash_type?
 
-          node.values.any? { |value| scoped_value?(value) } ||
-            node.keys.any? do |key|
-              scoped_where_key?(key) || scoped_association_key?(node, key)
-            end
+          node.children.any? { |pair| scoped_pair?(pair) }
         end
 
-        def scoped_value?(node)
+        def scoped_pair?(pair_node)
+          return false unless pair_node.pair_type?
+
+          key, value = pair_node.children[0], pair_node.children[1]
+
+          scoped_where_pair?(key, value) ||
+            scoped_association_pair?(key, value) ||
+            (value.hash_type? && value.children.any? { |inner| scoped_pair?(inner) })
+        end
+
+        def scoped_where_pair?(key, value)
+          return false unless key.sym_type?
+          return false unless scoped_where_key?(key)
+
+          scoped_trusted_value?(value)
+        end
+
+        def scoped_association_pair?(key, value)
+          return false unless key.sym_type?
+          return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
+          return false unless value.send_type?
+
+          value.method_name == :"current_#{key.value}"
+        end
+
+        def scoped_trusted_value?(node)
           return false unless node
 
           case node.type
           when :send
-            scoped_helper_method?(node) || (node.receiver && scoped_value?(node.receiver))
+            scoped_helper_method?(node) || (node.receiver && scoped_trusted_value?(node.receiver))
           when :hash
-            node.values.any? { |value| scoped_value?(value) } ||
-              node.keys.any? { |key| scoped_helper_key?(key) }
+            node.children.any? { |pair| scoped_pair?(pair) }
           else
             false
           end
-        end
-
-        def scoped_helper_key?(key)
-          key.sym_type? && SCOPED_HELPER_METHODS.include?(key.value)
         end
 
         def scoped_helper_method?(node)
@@ -130,17 +147,6 @@ module RuboCop
           key.sym_type? &&
             (SCOPED_WHERE_KEYS.include?(key.value) ||
              ORGANIZATION_SCOPED_KEYS.include?(key.value))
-        end
-
-        def scoped_association_key?(hash_node, key)
-          return false unless key.sym_type?
-          return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
-
-          index = hash_node.keys.index(key)
-          return false unless index
-
-          value = hash_node.values[index]
-          value.send_type? && value.method_name == :"current_#{key.value}"
         end
 
         def constructed_scope_root?(node)

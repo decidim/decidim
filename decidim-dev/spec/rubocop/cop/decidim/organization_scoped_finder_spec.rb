@@ -108,21 +108,37 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense for a scoped value on an unrelated key" do
+    expect_offense(<<~RUBY)
+      Template.where(foo: current_organization)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for an organization-scoped key using untrusted input" do
+    expect_offense(<<~RUBY)
+      Template.where(decidim_organization_id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "accepts where(value uses current_component through nested receiver).find" do
     expect_no_offenses(<<~RUBY)
       Project.joins(:budget).where(budget: { component: current_component }).find(params.expect(:id))
     RUBY
   end
 
-  it "accepts where(value uses current_organization.participatory_spaces).find" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for where value uses current_organization.participatory_spaces on an unrelated key" do
+    expect_offense(<<~RUBY)
       Component.where(participatory_space: current_organization.participatory_spaces).find(params.expect(:component_id))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
     RUBY
   end
 
-  it "accepts where(value uses current_participatory_space).find" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for where value uses current_participatory_space on an unrelated key" do
+    expect_offense(<<~RUBY)
       InitiativesCommitteeMember.where(initiative: current_participatory_space).find(params.expect(:id))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
     RUBY
   end
 end
