@@ -121,6 +121,7 @@ module RuboCop
           return false unless key.sym_type?
           return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
           return false unless value.send_type?
+          return false if value.receiver
 
           value.method_name == :"current_#{key.value}"
         end
@@ -140,6 +141,7 @@ module RuboCop
 
         def scoped_helper_method?(node)
           return false unless node.send_type?
+          return false if node.receiver
 
           SCOPED_HELPER_METHODS.include?(node.method_name)
         end
