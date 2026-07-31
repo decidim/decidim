@@ -40,14 +40,17 @@ describe "Datepicker" do
       </div>
     HTML
 
+    date_config = date_formats
+    time_config = time_formats
+
     template.instance_eval do
       js_config = {
         icons_path: asset_pack_path("media/images/remixicon.symbol.svg"),
         messages: {
           editor: I18n.t("editor"),
           selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
-          date: I18n.t("date"),
-          time: I18n.t("time")
+          date: date_config,
+          time: time_config
         }
       }
 
@@ -71,6 +74,9 @@ describe "Datepicker" do
     end
   end
 
+  let(:date_formats) { I18n.t("date") }
+  let(:time_formats) { I18n.t("time") }
+
   before do
     final_html = html_document
     Rails.application.routes.draw do
@@ -89,26 +95,84 @@ describe "Datepicker" do
     Rails.application.reload_routes!
   end
 
-  context "when date format dd.mm.yyyy and clock format 24" do
+  def fill_datetime_clicking(value, move_month: 0)
+    time = value.is_a?(Time) ? value : Time.zone.parse(value)
+
+    # find(".datepicker__calendar-button").click
+    find(".datepicker__calendar-button").click(x: 5, y: 10)
+    find('span > input[name="year"]').set(time.year)
+    find('select[name="month"]').find(:option, time.strftime("%B")).select_option
+    move_month.abs.times do
+      if move_month.positive?
+        find(".wc-datepicker__next-month-button").click
+      else
+        find(".wc-datepicker__previous-month-button").click
+      end
+    end
+    find("td > span", text: time.day, match: :first).click
+  end
+
+  def move_clock(hours:, minutes:)
+    find(".datepicker__clock-button").click
+    hours.abs.times do
+      if hours.positive?
+        find(".datepicker__hour-up").click
+      else
+        find(".datepicker__hour-down").click
+      end
+    end
+    minutes.abs.times do
+      if minutes.positive?
+        find(".datepicker__minute-up").click
+      else
+        find(".datepicker__minute-down").click
+      end
+    end
+    find(".datepicker__select-clock").click
+  end
+
+  shared_context "with custom formats" do |date_format, time_format, help_format|
+    let(:date_formats) do
+      {
+        formats: {
+          decidim_short: date_format,
+          help: {
+            date_format: "Format: #{help_format}"
+          }
+        },
+        buttons: {
+          close: "Close",
+          select: "Select"
+        }
+      }
+    end
+    let(:time_formats) do
+      {
+        clock_format: time_format,
+        formats: {
+          help: {
+            time_format: "Format: hh:mm"
+          }
+        },
+        buttons: {
+          close: "Close",
+          select: "Select",
+          reset: "Reset"
+        }
+      }
+    end
+  end
+
+  context "when date format dd/mm/yyyy and clock format 24" do
     context "when filling form datetime input with datepicker" do
       it "fills the field correctly" do
-        find(".datepicker__calendar-button").click
-        find('span > input[name="year"]').set("1994")
-        find('select[name="month"]').find(:option, "January").select_option
-        find(".wc-datepicker__next-month-button").click
-        month = find('select[name="month"]').value
-        formatted_month = format("%02d", month)
-
-        find("td > span", text: "20", match: :first).click
-
-        find(".datepicker__clock-button").click
-        find(".datepicker__hour-up").click
-        find(".datepicker__minute-down").click
-        find(".datepicker__select-clock").click
+        fill_datetime_clicking("1994-01-20", move_month: 1)
+        move_clock(hours: 1, minutes: -1)
+        next_month = "02"
 
         expect(page).to have_field("example_input_time", with: "01:59")
-        expect(page).to have_field("example_input_date", with: "20/#{formatted_month}/1994")
-        expect(page).to have_field("example_input", with: "1994-#{formatted_month}-20T01:59", visible: :all)
+        expect(page).to have_field("example_input_date", with: "20/#{next_month}/1994")
+        expect(page).to have_field("example_input", with: "1994-#{next_month}-20T01:59", visible: :all)
       end
     end
 
@@ -416,98 +480,17 @@ describe "Datepicker" do
   end
 
   context "when date format mm/dd/yyyy and clock format 12" do
-    let(:html_document) do
-      datepicker_wrapper = form.datetime_field(:input)
-      content_wrapper = <<~HTML
-        <div data-content>
-          <main class="layout-1col">
-            <div class="cols-6">
-              <div class="text-center py-12">
-                <h1 class="h1 decorator inline-block text-left">Datepicker test</h1>
-              </div>
-              <div class="page__container">
-                <form action="/form_action" method="post">
-                  #{datepicker_wrapper}
-                </form>
-              </div>
-              <button type="submit" name="commit" class="button button_sm md:button__lg button__secondary">Create</button>
-              <input type="text" id="example_input_clipboard">
-            </div>
-          </main>
-        </div>
-      HTML
-
-      template.instance_eval do
-        js_config = {
-          icons_path: asset_pack_path("media/images/remixicon.symbol.svg"),
-          messages: {
-            editor: I18n.t("editor"),
-            selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
-            date: {
-              formats: {
-                decidim_short: "%m/%d/%Y",
-                help: {
-                  date_format: "Format: mm/dd/yyyy"
-                }
-              },
-              buttons: {
-                close: "Close",
-                select: "Select"
-              }
-            },
-            time: {
-              clock_format: 12,
-              formats: {
-                help: {
-                  time_format: "Format: hh:mm"
-                }
-              },
-              buttons: {
-                close: "Close",
-                select: "Select",
-                reset: "Reset"
-              }
-            }
-          }
-        }
-        <<~HTML.strip
-          <!doctype html>
-          <html lang="en">
-          <head>
-            <title>Datepicker Test</title>
-            #{stylesheet_pack_tag "decidim_core"}
-            #{stylesheet_pack_tag "decidim_dev"}
-            #{javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_dev", defer: false}
-          </head>
-          <body>
-            #{content_wrapper}
-            <script>
-              Decidim.config.set(#{js_config.to_json});
-            </script>
-          </body>
-          </html>
-        HTML
-      end
-    end
+    include_context "with custom formats", "%m/%d/%Y", 12, "mm/dd/yyyy"
 
     context "when filling form datetime input with datepicker" do
       it "fills the field correctly" do
-        find(".datepicker__calendar-button").click(x: 5, y: 10)
-        find('span > input[name="year"]').set("1994")
-        find('select[name="month"]').find(:option, "January").select_option
-        find(".wc-datepicker__next-month-button").click
-        month = find('select[name="month"]').value
-        formatted_month = format("%02d", month)
+        fill_datetime_clicking("1994-01-20", move_month: 1)
+        move_clock(hours: 1, minutes: -1)
+        next_month = "02"
 
-        find("td > span", text: "20", match: :first).click
-
-        find(".datepicker__clock-button").click
-        find(".datepicker__hour-up").click
-        find(".datepicker__minute-down").click
-        find(".datepicker__select-clock").click
-        expect(page).to have_field("example_input_date", with: "#{formatted_month}/20/1994")
+        expect(page).to have_field("example_input_date", with: "#{next_month}/20/1994")
         expect(page).to have_field("example_input_time", with: "02:59")
-        expect(page).to have_field("example_input", with: "1994-#{formatted_month}-20T02:59", visible: :all)
+        expect(page).to have_field("example_input", with: "1994-#{next_month}-20T02:59", visible: :all)
       end
 
       context "when time is set to AM" do
@@ -669,100 +652,18 @@ describe "Datepicker" do
     end
   end
 
-  context "when date format yyyy.mm.dd" do
-    let(:html_document) do
-      datepicker_wrapper = form.datetime_field(:input)
-      content_wrapper = <<~HTML
-        <div data-content>
-          <main class="layout-1col">
-            <div class="cols-6">
-              <div class="text-center py-12">
-                <h1 class="h1 decorator inline-block text-left">Datepicker test</h1>
-              </div>
-              <div class="page__container">
-                <form action="/form_action" method="post">
-                  #{datepicker_wrapper}
-                </form>
-              </div>
-              <button type="submit" name="commit" class="button button_sm md:button__lg button__secondary">Create</button>
-              <input type="text" id="example_input_clipboard">
-            </div>
-          </main>
-        </div>
-      HTML
-
-      template.instance_eval do
-        js_config = {
-          icons_path: asset_pack_path("media/images/remixicon.symbol.svg"),
-          messages: {
-            editor: I18n.t("editor"),
-            selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
-            date: {
-              formats: {
-                decidim_short: "%Y/%m/%d",
-                help: {
-                  date_format: "Format: yyyy/mm/dd"
-                }
-              },
-              buttons: {
-                close: "Close",
-                select: "Select"
-              }
-            },
-            time: {
-              clock_format: 24,
-              formats: {
-                help: {
-                  time_format: "Format: hh:mm"
-                }
-              },
-              buttons: {
-                close: "Close",
-                select: "Select",
-                reset: "Reset"
-              }
-            }
-          }
-        }
-        <<~HTML.strip
-          <!doctype html>
-          <html lang="en">
-          <head>
-            <title>Datepicker Test</title>
-            #{stylesheet_pack_tag "decidim_core"}
-            #{stylesheet_pack_tag "decidim_dev"}
-            #{javascript_pack_tag "decidim_core", "decidim_controllers", "decidim_dev", defer: false}
-          </head>
-          <body>
-            #{content_wrapper}
-            <script>
-              Decidim.config.set(#{js_config.to_json});
-            </script>
-          </body>
-          </html>
-        HTML
-      end
-    end
+  context "when date format yyyy/mm/dd" do
+    include_context "with custom formats", "%Y/%m/%d", 24, "yyyy/mm/dd"
 
     context "when filling form datetime input with datepicker" do
       it "fills the field correctly" do
-        find(".datepicker__calendar-button").click(x: 5, y: 10)
-        find('span > input[name="year"]').set("1994")
-        find('select[name="month"]').find(:option, "January").select_option
-        find(".wc-datepicker__next-month-button").click
-        month = find('select[name="month"]').value
-        formatted_month = format("%02d", month)
+        fill_datetime_clicking("1994-01-20", move_month: 1)
+        move_clock(hours: 1, minutes: -1)
+        next_month = "02"
 
-        find("td > span", text: "20", match: :first).click
-
-        find(".datepicker__clock-button").click
-        find(".datepicker__hour-up").click
-        find(".datepicker__minute-down").click
-        find(".datepicker__select-clock").click
-
-        expect(page).to have_field("example_input_date", with: "1994/#{formatted_month}/20")
+        expect(page).to have_field("example_input_date", with: "1994/#{next_month}/20")
         expect(page).to have_field("example_input_time", with: "01:59")
-        expect(page).to have_field("example_input", with: "1994-#{formatted_month}-20T01:59", visible: :all)
+        expect(page).to have_field("example_input", with: "1994-#{next_month}-20T01:59", visible: :all)
       end
     end
 
@@ -819,6 +720,60 @@ describe "Datepicker" do
               expect(page).to have_field("example_input_date", with: "2012/24/11")
             end
           end
+        end
+      end
+    end
+  end
+
+  # These formats were parsed from the source translation files with the
+  # following commands:
+  #   locales = Gem.loaded_specs["decidim-core"].files.select { |f| f.match?(%r{^config/locales}) }.map { |f| File.basename(f, ".yml") }
+  #   I18n.available_locales = locales
+  #   formats = locales.to_h { |loc| I18n.with_locale(loc) { [loc, I18n.t("date.formats.decidim_short")] } }
+  #   formats.values.uniq
+  #
+  # In addition to the available formats, the following formats are possible:
+  # - %m/%d/%Y (en-US)
+  # - %Y-%m-%d
+  # - %d-%m-%Y
+  #
+  # We do not parse them automatically in this test because invalid translations
+  # could affect the specs.
+  #
+  # Already tested above and therefore not added here:
+  # - %d.%m.%Y / dd.mm.yyyy
+  # - %Y/%m/%d / yyyy/mm/dd
+  # - %m/%d/%Y / mm/dd/yyyy
+  {
+    "%d/%m/%Y" => ["%d/%m/%Y", "dd/mm/yyyy"],
+    "%-d/%-m/%Y" => ["%d/%m/%Y", "dd/mm/yyyy"],
+    "%_d/%_m/%Y" => ["%d/%m/%Y", "dd/mm/yyyy"],
+    "%0d/%0m/%Y" => ["%d/%m/%Y", "dd/mm/yyyy"],
+    "%Y.%m.%d" => ["%Y.%m.%d", "yyyy.mm.dd"],
+    "%d/%m/%G" => ["%d/%m/%Y", "dd/mm/yyyy"], # %G unsupported by the date picker
+    "%d/%m/%g" => ["%d/%m/%Y", "dd/mm/yyyy"], # Unused format but %g unsupported by the date picker
+    "%d.%m-%Y" => ["%d.%m.%Y", "dd.mm.yyyy"], # Different separators unsupported by the date picker
+    "%Y-%m-%d" => ["%Y-%m-%d", "yyyy-mm-dd"],
+    "%d-%m-%Y" => ["%d-%m-%Y", "dd-mm-yyyy"],
+    "%D" => ["%m/%d/%Y", "mm/dd/yyyy"], # Actual format is %m/%d/%y but year without century is unsupported by the date picker
+    "%x" => ["%m/%d/%Y", "mm/dd/yyyy"], # Same as %D
+    "%F" => ["%Y-%m-%d", "yyyy-mm-dd"],
+    "%v" => ["%d-%m-%Y", "dd-mm-yyyy"]
+  }.each do |date_format, (display_format, help_format)|
+    context "when date backend date format #{date_format} and clock format 24" do
+      include_context "with custom formats", date_format, 24, help_format
+
+      context "when filling form datetime input with datepicker" do
+        it "fills the field correctly" do
+          value = Time.zone.parse("1994-01-02")
+
+          fill_datetime_clicking(value, move_month: 1)
+          move_clock(hours: 1, minutes: -1)
+          next_month = "02"
+
+          expect(page).to have_field("example_input_time", with: "01:59")
+          expect(page).to have_field("example_input_date", with: (value + 1.month).strftime(display_format))
+          expect(page).to have_field("example_input", with: "1994-#{next_month}-02T01:59", visible: :all)
         end
       end
     end
