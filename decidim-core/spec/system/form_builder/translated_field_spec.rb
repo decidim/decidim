@@ -58,7 +58,7 @@ describe "Translated field" do
             </div>
           </main>
 
-          #{javascript_pack_tag "decidim_core", "decidim_controllers", defer: false}
+          #{javascript_pack_tag "decidim_core", defer: false}
           <script>
             Decidim.config.set(#{js_configs.to_json});
             window.isTestEnvironment = true;
