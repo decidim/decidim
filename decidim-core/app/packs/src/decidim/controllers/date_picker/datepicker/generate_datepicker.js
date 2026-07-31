@@ -103,7 +103,7 @@ export default function generateDatePicker(input, row, formats) {
     if (input.type === "date") {
       input.value = `${pickedDate}`;
     } else if (input.type === "datetime-local") {
-      input.value = `${pickedDate}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
+      input.value = `${pickedDate}T${formatTime(document.querySelector(`#${input.id}_time`).value || defaultTime, formats.time, input.id)}`;
     };
     datePickerContainer.style.display = "none";
   });
