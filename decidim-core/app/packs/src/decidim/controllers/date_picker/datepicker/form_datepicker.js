@@ -17,8 +17,6 @@ export default function formDatePicker(input) {
     .replace(/%[0_-]/g, "%")
     // Upcase modifier (removed, not supported by the date picker)
     .replaceAll("%^", "%")
-    // Year without century (converted to full year as it is not supported by the date picker)
-    .replace("%y", "%Y")
     // Week-based year (converted to regular full year as it is not supported by the date picker)
     .replace(/%[gG]/, "%Y")
     // Shorthand conventions %D, %x, %F
@@ -27,7 +25,7 @@ export default function formDatePicker(input) {
     // VMS date (converted to day-month-year as it is not supported by the date picker)
     .replace("%v", "%d-%m-%Y")
   /* eslint-enable dot-location */
-  const dateOrder = dateFormat.replace("%Y", "y").replaceAll("%", "").replace(/[/.-]/g, "-");
+  const dateOrder = dateFormat.replace("%Y", "y").replaceAll("%", "").replace(/[^A-Za-z]/g, "-");
   const dateSeparator = (dateFormat.match(/([^%A-Za-z])/) || ["/"])[0];
   const formats = { order: dateOrder, separator: dateSeparator, time: i18nTime.clock_format || 24 }
 
