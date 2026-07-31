@@ -50,10 +50,7 @@ export const setMinute = (value) => {
 };
 
 export const formatInputDate = (date, formats) => {
-  const dateList = date.split("-");
-  const year = dateList[0];
-  const month = dateList[1];
-  const day = dateList[2];
+  const [year, month, day] = date.split("-");
 
   if (formats.order === "m-d-y") {
     return `${month}${formats.separator}${day}${formats.separator}${year}`;
@@ -64,9 +61,11 @@ export const formatInputDate = (date, formats) => {
 };
 
 export const formatInputTime = (time, format, input) => {
-  const timeList = time.split(":");
-  let hour = timeList[0];
-  const minute = timeList[1];
+  if (time.length < 1) {
+    return time;
+  }
+
+  let [hour, minute] = time.split(":");
 
   if (format === 12) {
     if (Number(hour) === 12) {
@@ -80,11 +79,9 @@ export const formatInputTime = (time, format, input) => {
     } else if (Number(hour) === 0) {
       hour = "12";
     }
-
-    return `${hour}:${minute}`;
   };
 
-  return time;
+  return `${hour}:${minute}`;
 };
 
 export const changeHourDisplay = (change, hour, format) => {
@@ -199,29 +196,21 @@ export const formatDate = (value, formats) => {
 };
 
 export const formatTime = (value, format, inputname) => {
-  if (format === 12) {
-    const splitValue = value.split(":");
-    let hour = splitValue[0];
-    const minute = splitValue[1];
-    if (document.getElementById(`period_am_${inputname}`).checked) {
-      switch (hour) {
-      case "12":
-        hour = "00";
+  let [hour, minute] = value.split(":").map((part) => part.padStart(2, "0"));
 
-        return `${hour}:${minute}`;
-      default:
-        return value;
-      };
+  if (format === 12) {
+    if (document.getElementById(`period_am_${inputname}`).checked) {
+      if (hour === "12") {
+        hour = "00";
+      }
     } else if (document.getElementById(`period_pm_${inputname}`).checked) {
       if (Number(hour) > 0 && Number(hour) < 12) {
         hour = `${Number(hour) + 12}`;
       };
-
-      return `${hour}:${minute}`
     };
   };
 
-  return value;
+  return `${hour}:${minute}`;
 };
 
 export const updateInputValue = (input, formats, time) => {

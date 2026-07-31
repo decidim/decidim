@@ -51,7 +51,7 @@ export default function generateDatePicker(input, row, formats) {
   dateColumn.appendChild(datePickerContainer);
 
   let prevDate = null;
-  let defaultTime = input.getAttribute("default_time") || "00:00"
+  let defaultTime = input.dataset.defaultTime || "00:00"
 
   const datePickerDisplay = (event) => {
     if (!dateColumn.contains(event.target)) {
@@ -72,7 +72,7 @@ export default function generateDatePicker(input, row, formats) {
       if (input.type === "date") {
         input.value = `${formatDate(date.value, formats)}`;
       } else if (input.type === "datetime-local") {
-        input.value = `${formatDate(date.value, formats)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
+        input.value = `${formatDate(date.value, formats)}T${formatTime(document.querySelector(`#${input.id}_time`).value || defaultTime, formats.time, input.id)}`;
       };
     };
   });
@@ -88,7 +88,7 @@ export default function generateDatePicker(input, row, formats) {
       if (input.type === "date") {
         input.value = `${formatDate(date.value, formats)}`;
       } else if (input.type === "datetime-local") {
-        input.value = `${formatDate(date.value, formats)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
+        input.value = `${formatDate(date.value, formats)}T${formatTime(document.querySelector(`#${input.id}_time`).value || defaultTime, formats.time, input.id)}`;
       };
     };
   });
