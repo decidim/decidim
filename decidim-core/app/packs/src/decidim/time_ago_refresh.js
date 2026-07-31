@@ -33,9 +33,9 @@ const updateTimeAgoElements = () => {
     numeric: "auto"
   })
 
-  document
-    .querySelectorAll("time[data-relative-time]")
-    .forEach((element) => {
+  document.
+    querySelectorAll("time[data-relative-time]").
+    forEach((element) => {
       const date = new Date(element.getAttribute("datetime"))
 
       if (Number.isNaN(date.getTime())) {
@@ -48,7 +48,7 @@ const updateTimeAgoElements = () => {
     })
 }
 
-let refreshInterval
+let refreshInterval = null
 
 const initializeTimeAgoRefresh = () => {
   updateTimeAgoElements()
