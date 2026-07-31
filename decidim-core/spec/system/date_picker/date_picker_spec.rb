@@ -445,11 +445,10 @@ describe "Datepicker" do
             selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
             date: {
               formats: {
+                decidim_short: "%m/%d/%Y",
                 help: {
-                  date_format: "Format: mm.dd.yyyy"
-                },
-                order: "m-d-y",
-                separator: "/"
+                  date_format: "Format: mm/dd/yyyy"
+                }
               },
               buttons: {
                 close: "Close",
@@ -700,11 +699,10 @@ describe "Datepicker" do
             selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
             date: {
               formats: {
+                decidim_short: "%Y/%m/%d",
                 help: {
                   date_format: "Format: yyyy/mm/dd"
-                },
-                order: "y-m-d",
-                separator: "/"
+                }
               },
               buttons: {
                 close: "Close",
