@@ -81,7 +81,9 @@ const splitTime = (value) => {
 };
 
 export const formatInputTime = (time, format, input) => {
-  if (time.length < 1) {
+  if (!time) {
+    return "";
+  } else if (time.length < 1) {
     return time;
   }
 
