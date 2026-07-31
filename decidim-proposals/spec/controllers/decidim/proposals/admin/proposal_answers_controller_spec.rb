@@ -150,7 +150,10 @@ module Decidim
           context "with cross-organization template" do
             let(:other_org) { create(:organization) }
             let(:other_component) { create(:proposal_component, organization: other_org) }
-            let(:other_template) { create(:template, skip_injection: true, target: :proposal_answer, templatable: other_component, organization: other_org) }
+            let(:other_template) do
+              create(:template, skip_injection: true, target: :proposal_answer, templatable: other_component, organization: other_org,
+                                field_values: { "proposal_state_id" => proposal_state.id })
+            end
             let(:params) do
               {
                 proposal_ids:, template: { template_id: other_template.id }
