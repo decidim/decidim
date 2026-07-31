@@ -14,7 +14,7 @@ export default function formDatePicker(input) {
   // See: https://docs.ruby-lang.org/en/3.4/strftime_formatting_rdoc.html
   const dateFormat = i18nDate.decidim_short
     // Padding modifiers (removed, not supported by the date picker)
-    .replaceAll(/%[0_-]/, "%")
+    .replace(/%[0_-]/g, "%")
     // Upcase modifier (removed, not supported by the date picker)
     .replaceAll("%^", "%")
     // Year without century (converted to full year as it is not supported by the date picker)
