@@ -13,7 +13,12 @@ module Decidim
           return if collection.blank?
 
           recipients.each do |recipient|
-            deliver_import_email(recipient)
+            case recipient.notifications_sending_frequency
+            when "real_time"
+              deliver_import_email(recipient)
+            when "daily", "weekly"
+              create_import_notification(recipient)
+            end
           end
         end
 
@@ -35,6 +40,33 @@ module Decidim
             Decidim::Proposals::ImportMailer.proposals_imported(collection, recipient).deliver_later
           elsif creator_class_name == "Decidim::Proposals::Import::ProposalAnswerCreator"
             Decidim::Proposals::ImportMailer.proposal_answers_imported(collection, recipient).deliver_later
+          end
+        end
+
+        def create_import_notification(recipient)
+          return if collection.blank?
+
+          event_name, extra = import_notification_details
+          return if event_name.blank?
+
+          Decidim::NotificationGeneratorForRecipient.new(
+            event_name,
+            Decidim::Proposals::ImportBatchEvent,
+            collection.first,
+            recipient,
+            :follower,
+            extra
+          ).generate
+        end
+
+        def import_notification_details
+          case creator_class_name
+          when "Decidim::Proposals::Import::ProposalCreator"
+            ["decidim.events.proposals.proposals_imported", { imported_count: collection.size }]
+          when "Decidim::Proposals::Import::ProposalAnswerCreator"
+            ["decidim.events.proposals.proposals_answers_imported", { imported_count: collection.size }]
+          else
+            [nil, {}]
           end
         end
 

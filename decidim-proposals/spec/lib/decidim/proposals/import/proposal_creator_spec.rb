@@ -144,6 +144,23 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(record.new_record?).to be(false)
     end
 
+    it "publishes proposal notifications for followers" do
+      record = subject.produce
+      allow(Decidim::EventsManager).to receive(:publish)
+
+      subject.finish!
+
+      expect(Decidim::EventsManager).to have_received(:publish).with(
+        event: "decidim.events.proposals.proposal_published",
+        event_class: Decidim::Proposals::PublishProposalEvent,
+        resource: record,
+        followers: record.participatory_space.followers,
+        extra: {
+          participatory_space: true
+        }
+      )
+    end
+
     it "creates admin log" do
       record = subject.produce
 
