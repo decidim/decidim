@@ -10,7 +10,7 @@ export default function formDatePicker(input) {
   const i18nDateHelp = getDictionary("date.formats.help");
   const i18nTime = getDictionary("time");
   const i18nTimeHelp = getDictionary("time.formats.help");
-  const dateFormat = i18nDate.decidim_short.replaceAll("%-", "%").replace(/%[gG]/, "%Y");
+  const dateFormat = i18nDate.decidim_short.replaceAll(/%[0_-]/, "%").replace(/%[gG]/, "%Y");
   const dateOrder = dateFormat.replace("%Y", "y").replaceAll("%", "").replace(/[/.-]/g, "-");
   const dateSeparator = dateFormat.match(/([^%A-Za-z])/)[0];
   const formats = { order: dateOrder, separator: dateSeparator, time: i18nTime.clock_format || 24 }
