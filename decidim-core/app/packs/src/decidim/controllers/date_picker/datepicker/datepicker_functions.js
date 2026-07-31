@@ -175,13 +175,13 @@ export const formatDate = (value, formats) => {
   const splitValue = value.split(formats.separator).splice(0, 3).map((part) => part.replace(/[^0-9]/g, ""));
 
   let newValue = null;
-  if (formats.order === "d-m-y") {
-    newValue = [splitValue[1], splitValue[0], splitValue[2]];
+  if (formats.order === "m-d-y") {
+    newValue = splitValue;
   } else if (formats.order === "y-m-d") {
     newValue = [splitValue[1], splitValue[2], splitValue[0]];
   } else {
-    // Assuming m-d-y
-    newValue = splitValue;
+    // Assuming d-m-y
+    newValue = [splitValue[1], splitValue[0], splitValue[2]];
   }
 
   // Fill missing parts
