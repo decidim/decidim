@@ -6,12 +6,14 @@ import { formatInputDate, formatInputTime } from "src/decidim/controllers/date_p
 import { getDictionary } from "src/decidim/refactor/moved/i18n";
 
 export default function formDatePicker(input) {
-
   const i18nDate = getDictionary("date.formats");
   const i18nDateHelp = getDictionary("date.formats.help");
   const i18nTime = getDictionary("time");
   const i18nTimeHelp = getDictionary("time.formats.help");
-  const formats = { order: i18nDate.order, separator: i18nDate.separator, time: i18nTime.clock_format || 24 }
+  const dateFormat = i18nDate.decidim_short.replaceAll("%-", "%")
+  const dateOrder = dateFormat.replace("%Y", "y").replaceAll("%", "").replace(/[/.-]/g, "-");
+  const dateSeparator = dateFormat.match(/([^%A-Za-z])/)[0];
+  const formats = { order: dateOrder, separator: dateSeparator, time: i18nTime.clock_format || 24 }
 
   if (!customElements.get("wc-datepicker")) {
     defineCustomElements();
