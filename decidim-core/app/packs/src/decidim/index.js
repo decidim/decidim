@@ -39,6 +39,7 @@ import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocod
 import FocusGuard from "src/decidim/refactor/moved/focus_guard"
 import markAsReadNotifications from "src/decidim/notifications"
 import RemoteModal from "src/decidim/remote_modal"
+import initializeTimeAgoRefresh from "src/decidim/time_ago_refresh"
 import {
   createDialog,
   announceForScreenReader,
@@ -184,6 +185,8 @@ Rails.start()
 const initializer = (element = document) => {
   // focus guard must be initialized only once
   window.focusGuard = window.focusGuard || new FocusGuard(document.body);
+
+  initializeTimeAgoRefresh()
 
   svg4everybody();
 

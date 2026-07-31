@@ -105,4 +105,81 @@ describe Decidim::ActivityCell, type: :cell do
       end
     end
   end
+
+  describe "#created_at" do
+    subject { described_class.new(model) }
+
+    let(:creating_date) { Time.zone.parse("2026-01-15 10:00:00") }
+    let(:model) do
+      create(:action_log, action: "publish", visibility: "all", resource:, organization: component.organization, participatory_space: component.participatory_space, created_at: creating_date)
+    end
+
+    context "when created_at is between zero and 59 seconds" do
+      it "returns the correct datetime for client-side rendering and time ago text" do
+        travel_to(creating_date) do
+          result = subject.created_at
+
+          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
+          expect(result).to include("less than a minute ago")
+        end
+
+        travel_to(creating_date + 10.seconds) do
+          result = subject.created_at
+
+          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
+          expect(result).to include("less than a minute ago")
+        end
+
+        travel_to(creating_date + 59.seconds) do
+          result = subject.created_at
+
+          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
+          expect(result).to include("1 minute ago")
+        end
+      end
+    end
+
+    context "when created_at is between 1 minute and 59 minutes" do
+      it "returns the correct datetime for client-side rendering and time ago text" do
+        travel_to(creating_date + 1.minute) do
+          result = subject.created_at
+
+          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
+          expect(result).to include("1 minute ago")
+        end
+
+        travel_to(creating_date + 6.minutes) do
+          result = subject.created_at
+
+          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
+          expect(result).to include("6 minutes ago")
+        end
+
+        travel_to(creating_date + 59.minutes) do
+          result = subject.created_at
+
+          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
+          expect(result).to include("about 1 hour ago")
+        end
+      end
+    end
+
+    context "when created_at is hours ago" do
+      it "returns the correct datetime for client-side rendering and time ago text" do
+        travel_to(creating_date + 2.hours) do
+          result = subject.created_at
+
+          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
+          expect(result).to include("about 2 hours ago")
+        end
+
+        travel_to(creating_date + 12.hours) do
+          result = subject.created_at
+
+          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
+          expect(result).to include("about 12 hours ago")
+        end
+      end
+    end
+  end
 end

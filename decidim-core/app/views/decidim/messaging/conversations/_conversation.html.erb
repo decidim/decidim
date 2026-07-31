@@ -30,7 +30,8 @@
     <p class="conversation__item-snippet-message"><%= truncate conversation.last_message.body, length: 150 %></p>
 
     <div class="conversation__item-snippet-time">
-      <%= t("decidim.user_conversations.index.time_ago", time: time_ago_in_words(Time.zone.parse(conversation.last_message.created_at.to_s))) %>
+      <%= time_tag(conversation.last_message.created_at,
+                   t("decidim.user_conversations.index.time_ago", time: time_ago_in_words(conversation.last_message.created_at)), data: { relative_time: true }) %>
     </div>
   </div>
 
