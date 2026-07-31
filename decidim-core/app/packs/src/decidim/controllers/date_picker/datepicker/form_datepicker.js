@@ -28,7 +28,7 @@ export default function formDatePicker(input) {
     .replace("%v", "%d-%m-%Y")
   /* eslint-enable dot-location */
   const dateOrder = dateFormat.replace("%Y", "y").replaceAll("%", "").replace(/[/.-]/g, "-");
-  const dateSeparator = dateFormat.match(/([^%A-Za-z])/)[0];
+  const dateSeparator = (dateFormat.match(/([^%A-Za-z])/) || ["/"])[0];
   const formats = { order: dateOrder, separator: dateSeparator, time: i18nTime.clock_format || 24 }
 
   if (!customElements.get("wc-datepicker")) {
