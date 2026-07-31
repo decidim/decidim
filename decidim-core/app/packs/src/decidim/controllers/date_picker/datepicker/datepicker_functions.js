@@ -60,12 +60,32 @@ export const formatInputDate = (date, formats) => {
   return `${day}${formats.separator}${month}${formats.separator}${year}`;
 };
 
+/**
+ * Splits a time string into two elements: hours and minutes. Ensures a returned
+ * array of size 2 for any kind of strings or `null` values.
+ *
+ * Examples:
+ * splitTime("") => ["00", "00"]
+ * splitTime(null) => ["00", "00"]
+ * splitTime("12") => ["12", "00"]
+ * splitTime("12:30") => ["12", "30"]
+ * splitTime("2:4") => ["02", "04"]
+ * splitTime("12:30:45") => ["12", "30"]
+ *
+ * @param {String} value The original time string, typically hh:ss.
+ * @returns {Array} An array with two elements where the first element is the
+ *   hour part and the second element is the minute part.
+ */
+const splitTime = (value) => {
+  return [...(value || "").split(":"), "00"].splice(0, 2).map((part) => part.padStart(2, "0"));
+};
+
 export const formatInputTime = (time, format, input) => {
   if (time.length < 1) {
     return time;
   }
 
-  let [hour, minute] = time.split(":");
+  let [hour, minute] = splitTime(time);
 
   if (format === 12) {
     if (Number(hour) === 12) {
@@ -196,7 +216,7 @@ export const formatDate = (value, formats) => {
 };
 
 export const formatTime = (value, format, inputname) => {
-  let [hour, minute] = value.split(":").map((part) => part.padStart(2, "0"));
+  let [hour, minute] = splitTime(value);
 
   if (format === 12) {
     if (document.getElementById(`period_am_${inputname}`).checked) {
