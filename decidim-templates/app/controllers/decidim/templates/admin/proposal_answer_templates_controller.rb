@@ -144,7 +144,7 @@ module Decidim
             component_ids = current_organization.participatory_spaces
                                                 .flat_map { |s| s.components.where(manifest_name: :proposals).pluck(:id) }
             Decidim::Proposals::Proposal.where(decidim_component_id: component_ids) # rubocop:disable Decidim/OrganizationScopedFinder -- scoped via component_ids derived from current_organization.participatory_spaces
-                                        .find_by(id: params.expect(:proposalId).to_i)
+                                        .find_by(id: params[:proposalId].to_i)
           end
         end
 
