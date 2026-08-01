@@ -3,7 +3,7 @@ de:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Ähnliche Gremien
+        assemblies_ids: Ähnliche Versammlungen
         available_slots: Verfügbare Plätze
         banner_image: Banner-Bild
         decidim_scope_id: Umfang
@@ -303,6 +303,7 @@ de:
         destroy:
           success: Der Registrierungstyp wurde erfolgreich von dieser Konferenz entfernt.
         edit:
+          title: Anmeldeart aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
@@ -552,7 +553,7 @@ de:
         details: Einzelheiten
         introduction: Einführung
         objectives: Ziele
-        related_assemblies: Ähnliche Gremien
+        related_assemblies: Ähnliche Versammlungen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
     download_your_data:
       help:
