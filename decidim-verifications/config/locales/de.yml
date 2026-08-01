@@ -49,6 +49,7 @@ de:
             confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
           destroy_nok: Beim Entziehen der Berechtigungen ist ein Fehler aufgetreten.
+          destroy_ok: Der Widerruf der Verifizierungen läuft. Dies kann einige Minuten in Anspruch nehmen.
           info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
           no_data: Keine verifizierten Teilnehmer.
           title: Berechtigungen widerrufen
@@ -220,6 +221,10 @@ de:
               user_authorized: Mitglied berechtigt?
             import_csv: CSV importieren
             no_authorized: Mitglied nicht berechtigt
+            title: Aktuelle Zählungsdaten
+          instructions:
+            body: Öffnen Sie dazu die Systemverwaltung und fügen Sie der Organisation die Verifizierung "csv_census" hinzu
+            title: Sie müssen die CSV-Zählung für diese Organisation aktivieren
         authorizations:
           new:
             error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Erhebung der Organisation.
@@ -250,6 +255,7 @@ de:
               error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Teilnehmer sie ändern kann.
               success: Teilnehmer erfolgreich überprüft.
             new:
+              introduce_user_data: Geben Sie die Daten aus dem Bild ein
               reject: Ablehnen
               verify: Überprüfen
           offline_confirmations:
@@ -258,6 +264,7 @@ de:
               success: Benutzer erfolgreich überprüft.
             new:
               cancel: Abbrechen
+              introduce_user_data: Geben Sie die E-Mail-Adresse der teilnehmenden Person sowie die Dokumentdaten ein
               verify: Überprüfen
           pending_authorizations:
             index:
@@ -298,6 +305,7 @@ de:
           pending_authorizations:
             index:
               address: Adresse
+              already_sent: Der Brief wurde bereits versendet und kann nicht erneut als versendet markiert werden.
               letter_sent_at: Brief an gesendet
               mark_as_sent: Als gesendet markieren
               not_yet_sent: Noch nicht gesendet
