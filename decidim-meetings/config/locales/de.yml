@@ -144,6 +144,7 @@ de:
           success: Veranstaltung erfolgreich dupliziert.
         new:
           copy: Kopieren
+          title: Veranstaltung duplizieren
       tooltips:
         cannot_close_meetings: Diese Veranstaltung kann nicht abgeschlossen werden, da sie von einem Teilnehmenden erstellt wurde
         cannot_duplicate_meetings: Dieses Meeting kann nicht dupliziert werden, da es von einem Teilnehmenden erstellt wurde
@@ -166,6 +167,7 @@ de:
             announcement: Ankündigung
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Zeichenanzahl pro Kommentar (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmende können Veranstaltungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
@@ -350,6 +352,7 @@ de:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
+            invite_attendee: Teilnehmende einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
         meeting_closes:
@@ -804,7 +807,7 @@ de:
           longitude: Der Längengrad des Veranstaltungsorts
           online_meeting_url: Die URL der Online-Veranstaltung
           organizations: Die Organisationen, die an dieser Veranstaltung teilnehmen
-          participatory_space: Zu welchem Bereich diese Veranstaltung gehört (z.B. Beteiligungsprozesse oder Gremien)
+          participatory_space: Zu welchem Bereich diese Veranstaltung gehört (z.B. Beteiligungsprozesse oder Versammlungen)
           private_meeting: Um anzugeben, ob die Veranstaltung privat ist oder nicht
           published: Wann die Veranstaltung veröffentlicht wurde
           reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
