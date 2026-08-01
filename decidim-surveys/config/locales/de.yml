@@ -1,6 +1,9 @@
 ---
 de:
   activemodel:
+    attributes:
+      response:
+        add_attachments: Anhänge hinzufügen
     models:
       decidim/surveys/closed_survey_event: Umfrage beendet
       decidim/surveys/opened_survey_event: Umfrage gestartet
@@ -61,6 +64,7 @@ de:
         manage_questions: Fragen
         new_survey: Neue Umfrage
         preview: Vorschau
+        responses: Antworten
         responses_alert: Das Löschen der Antworten bei der Veröffentlichung dieser Umfrage aktiv. Derzeit gibt es %{responses_count} Antworten, die gelöscht werden, wenn Sie fortfahren.
         title: Aktionen
       admin:
@@ -137,6 +141,7 @@ de:
             title: Titel
           published:
             published: Veröffentlicht
+            unpublished: Unveröffentlicht
           status:
             closed: Geschlossen
             open: Offen
