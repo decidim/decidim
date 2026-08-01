@@ -1,5 +1,10 @@
 ---
 de:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Datei
+        remove_all: Alle aktuellen Zählungsdaten entfernen
   activerecord:
     models:
       decidim/elections/election:
@@ -9,8 +14,13 @@ de:
     admin:
       menu:
         elections_menu:
+          basic_elections: Allgemein
           election_census: Erhebung
+          election_dashboard: Dashboard
           election_questions: Fragen
+      tooltips:
+        deleted_elections_info: Diese Wahl kann nicht gelöscht werden
+        edit_elections_info: Diese Wahl kann nicht bearbeitet werden
     components:
       elections:
         actions:
@@ -25,40 +35,90 @@ de:
             announcement: Ankündigung
     elections:
       actions:
+        confirm_delete_election: Sind Sie sicher, dass Sie diese Wahl löschen möchten?
+        confirm_unpublish_election: Sind Sie sicher, dass Sie die Veröffentlichung dieser Wahl aufheben möchten?
+        deleted_election_info: Gelöschte Wahlen werden nicht in der Liste angezeigt. Sie können sie über die Schaltfläche unten einsehen.
+        edit: Wahl bearbeiten
+        new: Neue Wahl
         preview: Vorschau
         title: Aktionen
+        view: Wahl ansehen
+        view_deleted_elections: Gelöschte Wahlen anzeigen
       admin:
         census:
           edit:
+            choose_census: Wählen Sie die Art der Zählung, die Sie für diese Wahl verwenden möchten
             created_at: Erstellt am
+            identifier: Benutzerkennung
+          preview:
+            title:
+              one: Die Vorschauliste ist auf %{count} Eintrag beschränkt.
+              other: Die Vorschauliste ist auf %{count} Einträge beschränkt.
+          update:
+            error: Beim Erstellen oder Speichern der Zählung ist ein Fehler aufgetreten.
+            success: Zählung erfolgreich aktualisiert.
         dashboard:
+          calendar:
+            end_at: 'Endzeit:'
+            end_election: Wahl beenden
+            manual_start: Manuell
+            published_results_at: Ergebnisse veröffentlicht am
+            start_at: 'Startzeit:'
+            start_election: Wahl starten
+            title: Kalender
           census:
             title: Erhebung
           main:
             labels:
+              calendar: Kalender
               description: Beschreibung
+              image: Bildergalerie
+              results: Verfügbarkeit der Ergebnisse
               title: Titel
+            title: Allgemein
+          publish_confirm: Sind Sie sicher, dass Sie diese Wahl veröffentlichen möchten?
           questions:
             labels:
               answers: Antworten
+            limit_info: Diese Wahl enthält weitere Fragen. Die Vorschau ist auf 3 Fragen begrenzt.
             title: Fragen
           questions_table:
             answer: Antworten
+            percentage: Prozentsatz
+            total: Gesamt
             votes: Stimmen
+            votes_count:
+              one: 1 Stimme
+              other: "%{count} Stimmen"
           results:
+            not_started: Die Wahl hat noch nicht begonnen.
+            per_question_waiting: Für keine der Fragen ist die Abstimmung aktiviert. Teilnehmende sehen die Meldung "Warten auf die nächste Frage", bis Sie mindestens eine Frage aktivieren.
             publish_button: Resultate veröffentlichen
             results_availability:
+              after_end: Sie können alle Ergebnisse veröffentlichen, sobald die Wahl beendet ist. Die Ergebnisse bleiben verborgen, bis Sie sie manuell veröffentlichen.
+              per_question: Sie müssen die Abstimmung aktivieren und die Ergebnisse für jede Frage einzeln manuell veröffentlichen.
               real_time: Ergebnisse werden laufend während der Wahl angezeigt.
             start_question_button: Abstimmung aktivieren
             title: Resultate
           status:
             census: 'Erhebung:'
+            results_availability:
+              after_end: Ergebnisse verfügbar nach Ende der Wahl
+              per_question: Ergebnisse verfügbar pro Frage
+              real_time: Ergebnisse in Echtzeit verfügbar
             title: Wahlstatus
         elections:
+          create:
+            invalid: Beim Erstellen der Wahl ist ein Fehler aufgetreten.
+            success: Wahl erfolgreich erstellt.
+          dashboard:
+            subtitle: 'Letzter Schritt: Überprüfen Sie Ihre Angaben. Vor der Veröffentlichung können noch Änderungen vorgenommen werden. Auch nach der Veröffentlichung können Sie die Beschreibung der Wahl weiterhin aktualisieren.'
+            title: Dashboard
           edit:
             title: Wahl bearbeiten
           form:
             add_images: Bilder hinzufügen
+            attachment_legend: Bildergalerie hinzufügen (optional)
             basic_title: Hauptinformation
             calendar: Kalender
             calendar_description: Überprüfen Sie, ob die Zeitzone in den Organisationseinstellungen korrekt ist. Die aktuelle Konfiguration ist %{timezone}.
@@ -67,8 +127,12 @@ de:
             manual_start: Manueller Start
             publish: Veröffentlichen
             results_availability:
+              after_end: Nach Ende der Wahl
+              after_end_help: Ergebnisse veröffentlichen, sobald die Wahl beendet ist
               per_question: Frage nach Frage
+              per_question_help: Abstimmung manuell steuern und Ergebnisse für jede Frage einzeln veröffentlichen
               real_time: In Echtzeit
+              real_time_help: Ergebnisse während der laufenden Abstimmung automatisch veröffentlichen
               title: Verfügbarkeit der Ergebnisse
             save: Speichern und fortfahren
             start_at: Startzeit
@@ -78,53 +142,183 @@ de:
             title: Gelöschte Wahlen
           new:
             title: Neue Wahl
+          publish:
+            invalid: Beim Veröffentlichen der Wahl ist ein Fehler aufgetreten.
+            success: Wahl erfolgreich veröffentlicht.
+          unpublish:
+            invalid: Beim Aufheben der Veröffentlichung der Wahl ist ein Fehler aufgetreten.
+            success: Die Veröffentlichung der Wahl wurde erfolgreich aufgehoben.
+          update:
+            invalid: Beim Aktualisieren der Wahl ist ein Fehler aufgetreten.
+            success: Wahl erfolgreich aktualisiert.
         questions:
           edit_questions:
             new_question: Neue Frage
+            remove_question_confirm: Sind Sie sicher, dass Sie diese Frage entfernen möchten?
             title: Fragen
+          form:
+            errors:
+              at_least_one_question: Mindestens eine Frage ist erforderlich.
+            form_description: Die Frage muss mindestens zwei Antworten haben, um zum nächsten Schritt zu gelangen.
+          update:
+            invalid: Beim Aktualisieren der Fragen ist ein Fehler aufgetreten.
+            success: Fragen erfolgreich aktualisiert.
         statuses:
+          enable_voting:
+            invalid: Beim Aktivieren der Abstimmung ist ein Fehler aufgetreten.
+            success: Abstimmung erfolgreich aktiviert.
+          end:
+            invalid: Beim Beenden der Wahl ist ein Fehler aufgetreten.
+            success: Wahl erfolgreich beendet.
           publish_results:
             invalid: Beim Veröffentlichen der Ergebnisse ist ein Fehler aufgetreten.
+            success: Ergebnisse erfolgreich veröffentlicht.
+          start:
+            invalid: Beim Starten der Wahl ist ein Fehler aufgetreten.
+            success: Wahl erfolgreich gestartet.
+          unknown: Unbekannter Status
+      admin_log:
+        election:
+          create: "%{user_name} hat die Wahl %{resource_name} in %{space_name} erstellt"
+          publish: "%{user_name} hat die Wahl %{resource_name} in %{space_name} veröffentlicht"
+          restore: "%{user_name} hat die Wahl %{resource_name} in %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat die Wahl %{resource_name} in %{space_name} in den Papierkorb verschoben"
+          unpublish: "%{user_name} hat die Wahl %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
+          update: "%{user_name} hat die Wahl %{resource_name} in %{space_name} aktualisiert"
+        question:
+          update: "%{user_name} hat die Fragen der Wahl %{resource_name} aktualisiert"
       censuses:
+        census_ready_html: Die Zählungsdaten wurden hochgeladen und für die Verwendung in der Wahl <b>%{election_title}</b> vorbereitet.
+        census_size_html:
+          one: Derzeit ist <strong>1</strong> Person zur Teilnahme an dieser Wahl berechtigt (dies kann sich bei einer dynamischen Zählung ändern).
+          other: Derzeit sind <strong>%{count}</strong> Personen zur Teilnahme an dieser Wahl berechtigt (dies kann sich bei einer dynamischen Zählung ändern).
+        internal_users:
+          already_have_an_account?: Sie haben bereits ein Konto?
+          are_you_new?: Sie sind neu hier?
+          info_html: |
+            Sie können die Teilnahme an der Wahl auf Teilnehmende mit einer Verifizierung beschränken.<br>
+                  Beachten Sie, dass Teilnehmende die ausgewählten Verifizierungen erfüllen müssen, um abstimmen zu können. Wenn Sie alle Kontrollkästchen leer lassen, können alle registrierten Personen abstimmen.
+          internal_type_title: Zusätzlich erforderliche Verifizierungen zur Teilnahme (optional)
+          label: Registrierte Teilnehmende (dynamisch)
+          sign_in_description: Melden Sie sich an, um an dieser Wahl teilzunehmen
+          sign_up_description: Erstellen Sie ein Konto, um an dieser Wahl teilzunehmen
+        internal_users_form:
+          authorization_options_invalid: Obwohl Sie über alle erforderlichen Verifizierungen verfügen, sind leider einige davon für diese Wahl nicht gültig.
+          exit_button: Wahlkabine verlassen
+          invalid: Sie sind nicht berechtigt, an dieser Wahl teilzunehmen.
+          resume_with_method: Verifizierung mit %{name} fortsetzen
+          verify_with_method: Mit %{name} verifizieren
+        token_csv:
+          example: |
+            email;token
+                  user@example.org;123456
+                  user2@example.org;ABCXYZ
+          info_html: |
+            Die Datei muss im CSV-Format mit zwei Spalten vorliegen: einer mit der E-Mail-Adresse und einer mit dem Wert eines Tokens, das zur Teilnahme eingegeben werden muss.
+                  Die Spalten müssen durch ein Semikolon (;) getrennt sein
+          label: Nicht registrierte Teilnehmende mit Tokens (fest)
+          remove_before_upload: Wenn Sie eine neue Zählung hochladen möchten, müssen Sie zuerst die bestehende entfernen.
+          upload_file: Datei hochladen
+          upload_new_census: CSV-Datei hochladen
         token_csv_form:
           email: E-Mail
+          email_placeholder: Geben Sie die E-Mail-Adresse der abstimmenden Person ein
+          invalid: Die E-Mail-Adresse oder das Token ist ungültig. Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut.
+          token: Token
+          token_placeholder: Geben Sie das Token der abstimmenden Person ein
       elections:
         count:
           elections_count:
             one: "%{count} Wahlen"
             other: "%{count} Wahlen"
+        elections:
+          empty: Es sind keine Wahlen verfügbar.
+          empty_filters: Es gibt keine Wahlen, die Ihren Filtern entsprechen.
         filters:
           all: Alle
           state: Status
           state_values:
             finished: Abgeschlossen
             ongoing: Aktuell
+            scheduled: Geplant
         orders:
+          end_at: Enddatum
+          label: Sortieren nach
           recent: Kürzlich hinzugefügt
+          start_at: Startdatum
         questions:
+          subtitle: 'Dies sind die Fragen für diesen Abstimmungsprozess:'
           title: Wahlfragen
         show:
+          active_voting_until: 'Abstimmung aktiv bis: %{end_date}'
+          edit_vote_button: Stimme bearbeiten
           vote_button: Abstimmung
+          voted: Sie haben bereits abgestimmt. Sie können erneut abstimmen, wobei nur Ihre letzte Stimme gezählt wird.
+          votes_count:
+            one: 1 vote
+            other: "%{count} Stimmen"
+          voting_began: 'Abstimmung begonnen am: %{start_date}'
         vote_results:
+          subtitle:
+            after_end: Die Wahl ist beendet. Sie können nun die Ergebnisse einsehen.
+            per_question: Die Ergebnisse sind pro Frage verfügbar. Sie können die Ergebnisse für jede Frage einsehen, sobald die Abstimmung aktiviert und die Ergebnisse veröffentlicht wurden.
+            real_time: Die Ergebnisse sind in Echtzeit verfügbar. Sie können die Ergebnisse einsehen, während die Abstimmung läuft.
           title: Resultate
+          total: 'GESAMT:'
+          total_votes:
+            one: 1 vote
+            other: "%{count} votes"
       models:
         election:
           fields:
             census: Erhebung
+            end_at: Endzeit
+            start_at: Startzeit
             status: Status
             title: Titel
+      per_question_votes:
+        waiting:
+          description: Sie können hier warten, bis die nächste Frage verfügbar ist. Sobald sie bereit ist, werden Sie automatisch zur nächsten Frage weitergeleitet.
+          edit_vote: Ihre Stimme bearbeiten
+          exit_button: Warteraum verlassen
+          title: Warten auf die nächste Frage
       status:
         active: Aktiv
         finished: Abgeschlossen
         not_started: Nicht begonnen
         ongoing: Aktuell
+        published_results: Veröffentlichte Ergebnisse
+        scheduled: Geplant
         unpublished: Nicht veröffentlicht
+        voting_enabled: Abstimmung läuft
       votes:
+        cast:
+          invalid: Beim Abgeben Ihrer Stimme ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut.
+          success: Ihre Stimme wurde erfolgreich abgegeben.
+        check_census:
+          access: Zugriff
+          election_not_open: Die Wahl ist noch nicht geöffnet. Bitte überprüfen Sie die Termine und versuchen Sie es erneut.
+          failed: Ihre Identität konnte nicht verifiziert werden. Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut.
+          form_title: Verifizieren Sie Ihre Identität
+          invalid: Person nicht in der Zählung gefunden.
         confirm:
+          cast_vote: Stimme abgeben
+          edit_vote: Ihre Stimme bearbeiten
+          not_answered: Sie haben diese Frage nicht beantwortet.
           title: Bestätige deine Stimme
+        not_authorized: Sie sind nicht berechtigt, an dieser Wahl teilzunehmen.
         question:
           back: Zurück
+          cast_vote: Stimme abgeben
           next: Weiter
+        receipt:
+          description: Solange die Abstimmung geöffnet ist, können Sie jederzeit erneut abstimmen. Ihre vorherige Stimme wird dabei durch die neue ersetzt.
+          edit_vote: Ihre Stimme bearbeiten
+          exit_button: Wahlkabine verlassen
+          title: Ihre Stimmen wurden erfolgreich abgegeben
+    metadata:
+      progress:
+        published_results: 'Ergebnisse veröffentlicht: %{end_date}'
     statistics:
       elections_count: Wahlen
   layouts:
