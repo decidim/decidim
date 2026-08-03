@@ -25,7 +25,9 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        unless super && allowed_to?(:create, :attachment_collection, nil, context)
+        context[:attached_to] = object
+
+        unless super && allowed_to?(:create, :attachment_collection, object, context)
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 
