@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateDefaultProposalStatuses < ActiveRecord::Migration[6.1]
+class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
   class CustomProposal < ApplicationRecord
     belongs_to :proposal_state,
                class_name: "ProposalStatus",

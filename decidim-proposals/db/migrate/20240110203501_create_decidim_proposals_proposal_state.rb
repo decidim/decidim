@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateDecidimProposalsProposalStatus < ActiveRecord::Migration[6.1]
+class CreateDecidimProposalsProposalState < ActiveRecord::Migration[6.1]
   def change
     create_table :decidim_proposals_proposal_states do |t|
       t.jsonb :title

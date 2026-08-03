@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeStatusesOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
+class ChangeStatesOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
   class CollaborativeDraft < ApplicationRecord
     self.table_name = :decidim_proposals_collaborative_drafts
     STATES = { open: 0, published: 10, withdrawn: -1 }.freeze

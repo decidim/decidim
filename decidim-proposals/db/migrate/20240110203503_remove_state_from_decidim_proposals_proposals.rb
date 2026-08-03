@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RemoveStatusFromDecidimProposalsProposals < ActiveRecord::Migration[6.1]
+class RemoveStateFromDecidimProposalsProposals < ActiveRecord::Migration[6.1]
   def up
     rename_column :decidim_proposals_proposals, :state, :old_state
   end
