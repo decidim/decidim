@@ -34,7 +34,7 @@ module Decidim
         case permission_action.action
         when :create
           true
-        when :destroy, :update
+        when :destroy, :delete, :update
           resource.present?
         else
           false

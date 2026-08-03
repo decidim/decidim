@@ -75,8 +75,8 @@ describe Decidim::Api::Permissions do
       end
     end
 
-    context "and action is :destroy" do
-      let(:action) { { scope: :admin, action: :destroy, subject: :blob } }
+    context "and action is :delete" do
+      let(:action) { { scope: :admin, action: :delete, subject: :blob } }
 
       context "when blob is present" do
         it { is_expected.to be true }
