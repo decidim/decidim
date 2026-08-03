@@ -59,10 +59,10 @@ module Decidim::Proposals
       end
 
       context "when the proposal has a custom state" do
-        let!(:state) { create(:proposal_state, component:, token: :finished, title: { en: "Finished" }) }
+        let!(:state) { create(:proposal_status, component:, token: :finished, title: { en: "Finished" }) }
 
         before do
-          proposal.update!(proposal_state: state)
+          proposal.update!(proposal_status: state)
         end
 
         it "renders the custom state" do

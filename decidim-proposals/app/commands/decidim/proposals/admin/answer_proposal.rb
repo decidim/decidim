@@ -23,7 +23,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          store_initial_proposal_state
+          store_initial_proposal_status
 
           transaction do
             answer_proposal
@@ -53,7 +53,7 @@ module Decidim
             if form.state == "not_answered"
               attributes[:answered_at] = nil
               attributes[:state_published_at] = nil
-              proposal.proposal_state = nil
+              proposal.proposal_status = nil
             else
               proposal.assign_state(form.state)
               attributes[:answered_at] = Time.current
@@ -70,7 +70,7 @@ module Decidim
           NotifyProposalAnswer.call(proposal, initial_state)
         end
 
-        def store_initial_proposal_state
+        def store_initial_proposal_status
           @initial_has_state_published = proposal.published_state?
           @initial_state = proposal.state
         end

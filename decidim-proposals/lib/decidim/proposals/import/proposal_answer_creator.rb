@@ -56,12 +56,12 @@ module Decidim
 
           proposal.answer = answer
           proposal.answered_at = Time.current
-          @initial_state = proposal.proposal_state
+          @initial_state = proposal.proposal_status
 
-          proposal_state = Decidim::Proposals::ProposalState.where(component:, token: state).first
+          proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token: state).first
 
-          if proposal_state.present?
-            proposal.proposal_state = proposal_state
+          if proposal_status.present?
+            proposal.proposal_status = proposal_status
             proposal.state_published_at = Time.current if component.current_settings.publish_answers_immediately?
           else
             proposal.errors.add(:state, :invalid)

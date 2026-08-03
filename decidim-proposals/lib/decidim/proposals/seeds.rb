@@ -86,16 +86,16 @@ module Decidim
       end
 
       def create_proposal!(component:)
-        proposal_state, answer, state_published_at = random_state_answer
-        proposal_state = Decidim::Proposals::ProposalState.where(component:, token: proposal_state).first
+        proposal_status, answer, state_published_at = random_state_answer
+        proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token: proposal_status).first
 
         params = {
           component:,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           body: Decidim::Faker::Localized.paragraph(sentence_count: 1),
-          proposal_state:,
+          proposal_status:,
           answer:,
-          answered_at: proposal_state.present? ? Time.current : nil,
+          answered_at: proposal_status.present? ? Time.current : nil,
           state_published_at:,
           published_at: Time.current
         }
@@ -177,7 +177,7 @@ module Decidim
           component: proposal.component,
           title: Decidim::Faker::Localized.literal(proposal.title[I18n.locale]),
           body: Decidim::Faker::Localized.paragraph(sentence_count: 3),
-          proposal_state: Decidim::Proposals::ProposalState.where(component: proposal.component, token: :evaluating).first,
+          proposal_status: Decidim::Proposals::ProposalStatus.where(component: proposal.component, token: :evaluating).first,
           answer: nil,
           answered_at: Time.current,
           published_at: Time.current

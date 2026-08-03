@@ -46,8 +46,8 @@ module Decidim
           return if proposal.state == "not_answered"
 
           Decidim::EventsManager.publish(
-            event: "decidim.events.proposals.proposal_state_changed",
-            event_class: Decidim::Proposals::ProposalStateChangedEvent,
+            event: "decidim.events.proposals.proposal_status_changed",
+            event_class: Decidim::Proposals::ProposalStatusChangedEvent,
             resource: proposal,
             followers: proposal.followers - proposal.notifiable_identities
           )
@@ -57,8 +57,8 @@ module Decidim
           return if proposal.state == "not_answered"
 
           Decidim::EventsManager.publish(
-            event: "decidim.events.proposals.proposal_state_changed_for_authors",
-            event_class: Decidim::Proposals::ProposalStateChangedEvent,
+            event: "decidim.events.proposals.proposal_status_changed_for_authors",
+            event_class: Decidim::Proposals::ProposalStatusChangedEvent,
             resource: proposal,
             affected_users: proposal.authors,
             extra: { force_email: true }

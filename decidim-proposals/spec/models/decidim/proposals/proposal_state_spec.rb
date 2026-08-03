@@ -4,12 +4,12 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe ProposalState do
-      subject { proposal_state }
+    describe ProposalStatus do
+      subject { proposal_status }
 
       let(:component) { build(:proposal_component) }
       let(:organization) { component.participatory_space.organization }
-      let(:proposal_state) { create(:proposal_state, token:, component:) }
+      let(:proposal_status) { create(:proposal_status, token:, component:) }
       let!(:proposal) { create(:proposal, component:) }
       let(:token) { "some_status" }
 
@@ -17,13 +17,13 @@ module Decidim
       it { is_expected.to be_versioned }
 
       context "when creating" do
-        let(:proposal_state) { build(:proposal_state, token:, component:) }
+        let(:proposal_status) { build(:proposal_status, token:, component:) }
 
         it "does not generate a new token if exists" do
-          expect(proposal_state.token).to eq("some_status")
-          proposal_state.update!(title: { en: "New title" })
-          expect(proposal_state.token).to be_present
-          expect(proposal_state.token).to eq("some_status")
+          expect(proposal_status.token).to eq("some_status")
+          proposal_status.update!(title: { en: "New title" })
+          expect(proposal_status.token).to be_present
+          expect(proposal_status.token).to eq("some_status")
         end
       end
 
@@ -31,24 +31,24 @@ module Decidim
         let(:token) { nil }
 
         it "generates a token on creation" do
-          proposal_state.save!
-          expect(proposal_state.token).to be_present
+          proposal_status.save!
+          expect(proposal_status.token).to be_present
         end
       end
 
       context "when destroying" do
         it "destroys the proposal state" do
-          proposal_state.destroy
-          expect { proposal_state.reload }.to raise_error(ActiveRecord::RecordNotFound)
+          proposal_status.destroy
+          expect { proposal_status.reload }.to raise_error(ActiveRecord::RecordNotFound)
         end
 
         context "when proposals assigned" do
           before do
-            proposal.update!(proposal_state:)
+            proposal.update!(proposal_status:)
           end
 
           it "prevents deletion" do
-            expect { proposal_state.destroy! }.to raise_error(ActiveRecord::RecordNotDestroyed)
+            expect { proposal_status.destroy! }.to raise_error(ActiveRecord::RecordNotDestroyed)
           end
         end
       end

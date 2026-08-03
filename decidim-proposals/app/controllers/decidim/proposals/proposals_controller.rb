@@ -201,7 +201,7 @@ module Decidim
 
       def default_states
         [
-          Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s),
+          Decidim::Proposals::ProposalStatus.where(component: current_component).pluck(:token).map(&:to_s),
           %w(state_not_published)
         ].flatten - ["rejected"]
       end

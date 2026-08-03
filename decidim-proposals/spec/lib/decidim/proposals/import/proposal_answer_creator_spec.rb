@@ -93,7 +93,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
 
       context "and notifies followers" do
         before do
-          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, proposal.proposal_state)
+          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, proposal.proposal_status)
         end
 
         it "notifies followers" do

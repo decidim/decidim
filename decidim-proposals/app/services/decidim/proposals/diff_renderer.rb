@@ -15,7 +15,7 @@ module Decidim
           address: :string,
           latitude: :string,
           longitude: :string,
-          decidim_proposals_proposal_state_id: :state
+          decidim_proposals_proposal_status_id: :state
         }
       end
 
@@ -42,8 +42,8 @@ module Decidim
       def parse_state_changeset(attribute, values, type, diff)
         return unless diff
 
-        old_scope = Decidim::Proposals::ProposalState.find_by(id: values[0])
-        new_scope = Decidim::Proposals::ProposalState.find_by(id: values[1])
+        old_scope = Decidim::Proposals::ProposalStatus.find_by(id: values[0])
+        new_scope = Decidim::Proposals::ProposalStatus.find_by(id: values[1])
 
         diff.update(
           attribute => {

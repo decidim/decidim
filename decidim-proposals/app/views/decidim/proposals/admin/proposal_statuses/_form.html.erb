@@ -9,7 +9,7 @@
       </div>
 
       <div class="row column proposal-status__color">
-        <% Decidim::Proposals::ProposalState.colors.each do |color_key, color_values| %>
+        <% Decidim::Proposals::ProposalStatus.colors.each do |color_key, color_values| %>
           <% state_id = "proposal_state_text_color_#{color_values[:foreground].delete("#").downcase}" %>
           <style>
             <%= "##{state_id}" %> {

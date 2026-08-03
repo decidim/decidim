@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Proposals::ProposalStateChangedEvent do
+describe Decidim::Proposals::ProposalStatusChangedEvent do
   context "when recipient is author" do
     shared_context "when author proposal changed the state" do |state|
       let(:event_name) { "decidim.events.proposals.proposal_state_changed" }

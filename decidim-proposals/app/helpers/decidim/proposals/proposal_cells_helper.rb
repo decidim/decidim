@@ -14,7 +14,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::CardHelper
 
-      delegate :title, :proposal_state, :state, :published_state?, :withdrawn?, :amendable?, :emendation?, to: :model
+      delegate :title, :proposal_status, :state, :published_state?, :withdrawn?, :amendable?, :emendation?, to: :model
 
       def has_actions?
         return context[:has_actions] if context[:has_actions].present?
@@ -53,9 +53,9 @@ module Decidim
       end
 
       def badge_name
-        return humanize_proposal_state(:withdrawn) if withdrawn?
+        return humanize_proposal_status(:withdrawn) if withdrawn?
 
-        humanize_proposal_state state
+        humanize_proposal_status state
       end
 
       def state_classes

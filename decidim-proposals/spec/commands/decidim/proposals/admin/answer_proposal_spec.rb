@@ -88,7 +88,7 @@ module Decidim
           end
 
           it "notifies the proposal new answer" do
-            expect(proposal.proposal_state.token).to eq("accepted")
+            expect(proposal.proposal_status.token).to eq("accepted")
 
             expect(NotifyProposalAnswer)
               .to receive(:call)

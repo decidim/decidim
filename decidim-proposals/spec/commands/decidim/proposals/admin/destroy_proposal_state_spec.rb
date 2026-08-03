@@ -5,12 +5,12 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe DestroyProposalState do
+      describe DestroyProposalStatus do
         subject { described_class.new(state, user) }
         let!(:component) { create(:proposal_component) }
         let(:current_organization) { component.organization }
         let(:user) { create(:user, :admin, :confirmed, organization: current_organization) }
-        let!(:state) { create(:proposal_state, component:, token: "editable") }
+        let!(:state) { create(:proposal_status, component:, token: "editable") }
 
         context "when everything is ok" do
           it "destroys the result" do

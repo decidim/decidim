@@ -33,9 +33,9 @@ module Decidim
       include Decidim::Publicable
 
       def assign_state(token)
-        proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
+        proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token:).first
 
-        self.proposal_state = proposal_state
+        self.proposal_status = proposal_status
       end
 
       translatable_fields :title, :body
@@ -49,9 +49,9 @@ module Decidim
 
       component_manifest_name "proposals"
 
-      belongs_to :proposal_state,
-                 class_name: "Decidim::Proposals::ProposalState",
-                 foreign_key: "decidim_proposals_proposal_state_id",
+      belongs_to :proposal_status,
+                 class_name: "Decidim::Proposals::ProposalStatus",
+                 foreign_key: "decidim_proposals_proposal_status_id",
                  inverse_of: :proposals,
                  optional: true,
                  counter_cache: true
@@ -70,11 +70,11 @@ module Decidim
       geocoded_by :address
 
       scope :not_status, lambda { |status|
-        joins(:proposal_state).where.not(decidim_proposals_proposal_statuses: { token: status })
+        joins(:proposal_status).where.not(decidim_proposals_proposal_statuses: { token: status })
       }
 
       scope :only_status, lambda { |status|
-        joins(:proposal_state).where(decidim_proposals_proposal_statuses: { token: status })
+        joins(:proposal_status).where(decidim_proposals_proposal_statuses: { token: status })
       }
 
       scope :accepted, -> { state_published.only_status(:accepted) }
@@ -137,7 +137,7 @@ module Decidim
 
       scope :with_any_state, lambda { |*value_keys|
         possible_scopes = [:state_not_published, :state_published]
-        custom_states = Decidim::Proposals::ProposalState.distinct.pluck(:token)
+        custom_states = Decidim::Proposals::ProposalStatus.distinct.pluck(:token)
 
         search_values = value_keys.compact.compact_blank
 
@@ -268,7 +268,7 @@ module Decidim
         return amendment.state if emendation?
         return nil unless published_state? || withdrawn?
 
-        proposal_state&.token || "not_answered"
+        proposal_status&.token || "not_answered"
       end
 
       # Public: Returns the internal state of the proposal.
@@ -277,7 +277,7 @@ module Decidim
       def internal_state
         return amendment.state if emendation?
 
-        proposal_state&.token || "not_answered"
+        proposal_status&.token || "not_answered"
       end
 
       # Public: Checks if the organization has published the state for the proposal.
@@ -437,7 +437,7 @@ module Decidim
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(taxonomies proposal_state)
+        %w(taxonomies proposal_status)
       end
 
       ransacker :state_published do

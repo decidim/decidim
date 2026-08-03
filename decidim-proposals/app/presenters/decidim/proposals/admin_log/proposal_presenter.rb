@@ -26,7 +26,7 @@ module Decidim
           {
             title: :i18n,
             body: "Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter",
-            state: "Decidim::Proposals::AdminLog::ValueTypes::ProposalStatePresenter",
+            state: "Decidim::Proposals::AdminLog::ValueTypes::ProposalStatusPresenter",
             answered_at: :date,
             answer: :i18n
           }

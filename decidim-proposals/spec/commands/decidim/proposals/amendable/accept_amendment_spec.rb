@@ -29,8 +29,8 @@ module Decidim
 
       include_examples "accept amendment" do
         it "changes the emendation state" do
-          not_answered = Decidim::Proposals::ProposalState.where(component:, token: "not_answered").pick(:id)
-          accepted = Decidim::Proposals::ProposalState.where(component:, token: "accepted").pick(:id)
+          not_answered = Decidim::Proposals::ProposalStatus.where(component:, token: "not_answered").pick(:id)
+          accepted = Decidim::Proposals::ProposalStatus.where(component:, token: "accepted").pick(:id)
           expect { command.call }.to change { emendation.reload[:decidim_proposals_proposal_state_id] }.from(not_answered).to(accepted)
         end
       end

@@ -16,13 +16,13 @@ describe "Admin filters proposals" do
   end
 
   def proposal_with_state(token)
-    proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
-    Decidim::Proposals::Proposal.where(component:).find_by(proposal_state:)
+    proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token:).first
+    Decidim::Proposals::Proposal.where(component:).find_by(proposal_status:)
   end
 
   def proposal_without_state(token)
-    proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
-    Decidim::Proposals::Proposal.where(component:).where.not(proposal_state:).sample
+    proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token:).first
+    Decidim::Proposals::Proposal.where(component:).where.not(proposal_status:).sample
   end
 
   context "when filtering by answered" do

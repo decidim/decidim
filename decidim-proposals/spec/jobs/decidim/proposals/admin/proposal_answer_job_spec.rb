@@ -8,11 +8,11 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
   let(:component) { create(:proposal_component, :with_creation_enabled) }
   let(:organization) { component.organization }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:old_state) { create(:proposal_state, component:, token: "old_state") }
-  let(:proposal) { create(:proposal, component:, proposal_state: old_state) }
+  let(:old_state) { create(:proposal_status, component:, token: "old_state") }
+  let(:proposal) { create(:proposal, component:, proposal_status: old_state) }
   let(:new_state) do
     create(
-      :proposal_state,
+      :proposal_status,
       title: { en: "Custom state" },
       token: "custom_state",
       component:
@@ -50,7 +50,7 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
 
     it "updates the proposal answer" do
       expect(proposal.answer).to eq({ "en" => "Test answer" })
-      expect(proposal.proposal_state).to eq(new_state)
+      expect(proposal.proposal_status).to eq(new_state)
     end
 
     context "when the answer is invalid" do
@@ -63,7 +63,7 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
 
       it "does not update the proposal answer" do
         expect(proposal.answer).not_to eq({ "en" => "Test answer" })
-        expect(proposal.proposal_state).not_to eq(new_state)
+        expect(proposal.proposal_status).not_to eq(new_state)
       end
     end
   end

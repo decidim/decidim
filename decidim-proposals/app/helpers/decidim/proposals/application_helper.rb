@@ -21,15 +21,15 @@ module Decidim
       # state - The String state of the proposal.
       #
       # Returns a String.
-      def humanize_proposal_state(state)
+      def humanize_proposal_status(state)
         I18n.t(state, scope: "decidim.proposals.answers", default: :not_answered)
       end
 
-      def proposal_state_css_style(proposal)
+      def proposal_status_css_style(proposal)
         return "" if proposal.emendation?
         return "" if proposal.withdrawn?
 
-        proposal.proposal_state&.css_style
+        proposal.proposal_status&.css_style
       end
 
       # Public: The css class applied based on the proposal state.
@@ -37,7 +37,7 @@ module Decidim
       # proposal - The proposal to evaluate.
       #
       # Returns a String.
-      def proposal_state_css_class(proposal)
+      def proposal_status_css_class(proposal)
         return "alert" if proposal.withdrawn?
         return if proposal.state.blank?
 
@@ -161,7 +161,7 @@ module Decidim
           [
             Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered"))
           ] +
-            Decidim::Proposals::ProposalState.where(component: current_component).where.not(token: "not_answered").map do |state|
+            Decidim::Proposals::ProposalStatus.where(component: current_component).where.not(token: "not_answered").map do |state|
               Decidim::CheckBoxesTreeHelper::TreePoint.new(state.token, translated_attribute(state.title))
             end
         )

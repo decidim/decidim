@@ -33,7 +33,7 @@ module Decidim
       field :official, GraphQL::Types::Boolean, "Whether this proposal is official or not", method: :official?, null: true
       field :participatory_text_level, GraphQL::Types::String, description: "If it is a participatory text, the level indicates the type of paragraph", null: true
       field :position, GraphQL::Types::Int, "Position of this proposal in the participatory text", null: true
-      field :proposal_state, Decidim::Proposals::ProposalStateType, "The proposal state for this proposal", null: true
+      field :proposal_status, Decidim::Proposals::ProposalStatusType, "The proposal state for this proposal", null: true
       field :published_at, Decidim::Core::DateTimeType, description: "The date and time this proposal was published", null: true
       field :state, GraphQL::Types::String, "The answer status in which proposal is in", null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title for this proposal", null: true

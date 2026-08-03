@@ -187,8 +187,8 @@ module Decidim
                 let(:states) { %w(not_answered rebutjada) }
 
                 it "only imports proposals from the selected states" do
-                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "rejected").update(token: "rebutjada")
-                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "accepted").update(token: "acceptada")
+                  Decidim::Proposals::ProposalStatus.where(component: proposal_component).where(token: "rejected").update(token: "rebutjada")
+                  Decidim::Proposals::ProposalStatus.where(component: proposal_component).where(token: "accepted").update(token: "acceptada")
 
                   expect do
                     I18n.with_locale(:ca) { call_command_and_perform_enqueued_jobs }

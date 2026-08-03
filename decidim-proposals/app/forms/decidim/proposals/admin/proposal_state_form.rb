@@ -3,10 +3,10 @@
 module Decidim
   module Proposals
     module Admin
-      class ProposalStateForm < Decidim::Form
+      class ProposalStatusForm < Decidim::Form
         include Decidim::TranslatableAttributes
 
-        mimic :proposal_state
+        mimic :proposal_status
 
         translatable_attribute :title, String
         translatable_attribute :announcement_title, String

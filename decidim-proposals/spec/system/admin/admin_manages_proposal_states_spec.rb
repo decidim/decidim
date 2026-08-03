@@ -32,7 +32,7 @@ describe "Admin manages proposals states" do
   end
 
   describe "creating a proposal state" do
-    let(:attributes) { attributes_for(:proposal_state) }
+    let(:attributes) { attributes_for(:proposal_status) }
 
     before do
       click_on "Statuses"
@@ -40,10 +40,10 @@ describe "Admin manages proposals states" do
     end
 
     it "creates a new proposal state" do
-      expect(Decidim::Proposals::ProposalState.find_by(token: "custom")).to be_nil
+      expect(Decidim::Proposals::ProposalStatus.find_by(token: "custom")).to be_nil
       within ".new_proposal_state" do
-        fill_in_i18n(:proposal_state_title, "#proposal_state-title-tabs", **attributes[:title].except("machine_translations"))
-        fill_in_i18n(:proposal_state_announcement_title, "#proposal_state-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
+        fill_in_i18n(:proposal_state_title, "#proposal_status-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:proposal_state_announcement_title, "#proposal_status-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
 
         within ".proposal-status__color" do
           find_by_id("proposal_state_text_color_9a6700").click
@@ -59,7 +59,7 @@ describe "Admin manages proposals states" do
         expect(page).to have_text(translated(attributes[:title]))
       end
 
-      state = Decidim::Proposals::ProposalState.find_by(token: "script_alert_proposal_state_title_script_not_answered")
+      state = Decidim::Proposals::ProposalStatus.find_by(token: "script_alert_proposal_state_title_script_not_answered")
       expect(state).to be_present
       expect(translated(state.title)).to eq(translated(attributes[:title]))
       expect(translated(state.announcement_title)).to eq(translated(attributes[:announcement_title]))
@@ -70,11 +70,11 @@ describe "Admin manages proposals states" do
     end
 
     it "updates the label and announcement previews" do
-      expect(Decidim::Proposals::ProposalState.find_by(token: "custom")).to be_nil
+      expect(Decidim::Proposals::ProposalStatus.find_by(token: "custom")).to be_nil
       within ".new_proposal_state" do
         fill_in_i18n(
           :proposal_state_title,
-          "#proposal_state-title-tabs",
+          "#proposal_status-title-tabs",
           en: "Custom state",
           es: "Estado personalizado",
           ca: "Estat personalitzat"
@@ -82,7 +82,7 @@ describe "Admin manages proposals states" do
 
         fill_in_i18n(
           :proposal_state_announcement_title,
-          "#proposal_state-announcement_title-tabs",
+          "#proposal_status-announcement_title-tabs",
           en: "A longer announcement",
           es: "Anuncio más largo",
           ca: "Anunci més llarg"
@@ -115,8 +115,8 @@ describe "Admin manages proposals states" do
         text_color: "#0851A6"
       }
     end
-    let!(:proposal_state) { create(:proposal_state, component: current_component, **state_params) }
-    let(:attributes) { attributes_for(:proposal_state) }
+    let!(:proposal_status) { create(:proposal_status, component: current_component, **state_params) }
+    let(:attributes) { attributes_for(:proposal_status) }
 
     before do
       click_on "Statuses"
@@ -127,14 +127,14 @@ describe "Admin manages proposals states" do
     end
 
     it "updates a proposal state" do
-      within "tr", text: translated(proposal_state.title) do
+      within "tr", text: translated(proposal_status.title) do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
       within ".edit_proposal_state" do
-        fill_in_i18n(:proposal_state_title, "#proposal_state-title-tabs", **attributes[:title].except("machine_translations"))
-        fill_in_i18n(:proposal_state_announcement_title, "#proposal_state-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
+        fill_in_i18n(:proposal_state_title, "#proposal_status-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:proposal_state_announcement_title, "#proposal_status-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
 
         within ".proposal-status__color" do
           find_by_id("proposal_state_text_color_9a6700").click
@@ -149,7 +149,7 @@ describe "Admin manages proposals states" do
         expect(page).to have_text(translated(attributes[:title]))
       end
 
-      state = Decidim::Proposals::ProposalState.find_by(token: "editable_state")
+      state = Decidim::Proposals::ProposalStatus.find_by(token: "editable_state")
 
       expect(translated(state.title)).to eq(translated(attributes[:title]))
       expect(translated(state.announcement_title)).to eq(translated(attributes[:announcement_title]))
@@ -160,14 +160,14 @@ describe "Admin manages proposals states" do
     end
 
     it "updates the label and announcement previews" do
-      within "tr", text: translated(proposal_state.title) do
+      within "tr", text: translated(proposal_status.title) do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
       within ".edit_proposal_state" do
-        fill_in_i18n(:proposal_state_title, "#proposal_state-title-tabs", **attributes[:title].except("machine_translations"))
-        fill_in_i18n(:proposal_state_announcement_title, "#proposal_state-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
+        fill_in_i18n(:proposal_state_title, "#proposal_status-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:proposal_state_announcement_title, "#proposal_status-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
 
         within ".proposal-status__color" do
           find_by_id("proposal_state_text_color_9a6700").click
@@ -202,7 +202,7 @@ describe "Admin manages proposals states" do
         text_color: "#0851A6"
       }
     end
-    let!(:state) { create(:proposal_state, component: current_component, **state_params) }
+    let!(:state) { create(:proposal_status, component: current_component, **state_params) }
 
     before do
       click_on "Statuses"
@@ -215,7 +215,7 @@ describe "Admin manages proposals states" do
       end
       expect(page).to have_callout("Status deleted successfully")
 
-      state = Decidim::Proposals::ProposalState.find_by(token: "editable")
+      state = Decidim::Proposals::ProposalStatus.find_by(token: "editable")
 
       expect(state).to be_nil
     end

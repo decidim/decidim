@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.affected_user.notification_title')
-# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.affected_user.email_subject')
-# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.affected_user.email_outro')
-# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.affected_user.email_intro')
-# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.follower.notification_title')
-# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.follower.email_subject')
-# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.follower.email_outro')
-# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.follower.email_intro')
+# i18n-tasks-use t('decidim.events.proposals.proposal_status_changed.affected_user.notification_title')
+# i18n-tasks-use t('decidim.events.proposals.proposal_status_changed.affected_user.email_subject')
+# i18n-tasks-use t('decidim.events.proposals.proposal_status_changed.affected_user.email_outro')
+# i18n-tasks-use t('decidim.events.proposals.proposal_status_changed.affected_user.email_intro')
+# i18n-tasks-use t('decidim.events.proposals.proposal_status_changed.follower.notification_title')
+# i18n-tasks-use t('decidim.events.proposals.proposal_status_changed.follower.email_subject')
+# i18n-tasks-use t('decidim.events.proposals.proposal_status_changed.follower.email_outro')
+# i18n-tasks-use t('decidim.events.proposals.proposal_status_changed.follower.email_intro')
 module Decidim
   module Proposals
-    class ProposalStateChangedEvent < Decidim::Events::SimpleEvent
+    class ProposalStatusChangedEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent
 
       def resource_text
@@ -27,9 +27,9 @@ module Decidim
 
       def state
         if resource.emendation?
-          humanize_proposal_state(model.state)
+          humanize_proposal_status(model.state)
         else
-          translated_attribute(resource.proposal_state&.title)
+          translated_attribute(resource.proposal_status&.title)
         end
       end
     end

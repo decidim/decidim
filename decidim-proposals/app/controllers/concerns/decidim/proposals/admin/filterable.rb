@@ -39,11 +39,11 @@ module Decidim
           def translated_state_eq(state)
             return t("decidim.admin.filters.proposals.state_eq.values.withdrawn") if state == "withdrawn"
 
-            translated_attribute(ProposalState.where(component: current_component, token: state).first&.title)
+            translated_attribute(ProposalStatus.where(component: current_component, token: state).first&.title)
           end
 
           def state_eq_values
-            ProposalState.where(component: current_component).pluck(:token) + ["withdrawn"]
+            ProposalStatus.where(component: current_component).pluck(:token) + ["withdrawn"]
           end
 
           def evaluator_role_ids

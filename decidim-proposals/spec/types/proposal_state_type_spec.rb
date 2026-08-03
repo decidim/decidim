@@ -5,10 +5,10 @@ require "decidim/api/test"
 
 module Decidim
   module Proposals
-    describe ProposalStateType, type: :graphql do
+    describe ProposalStatusType, type: :graphql do
       include_context "with a graphql class type"
       let!(:component) { create(:proposal_component) }
-      let(:model) { Decidim::Proposals::ProposalState.last }
+      let(:model) { Decidim::Proposals::ProposalStatus.last }
 
       describe "id" do
         let(:query) { "{ id }" }

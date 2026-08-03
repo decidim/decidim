@@ -227,7 +227,7 @@ FactoryBot.define do
     end
   end
 
-  factory :proposal_state, class: "Decidim::Proposals::ProposalState" do
+  factory :proposal_status, class: "Decidim::Proposals::ProposalStatus" do
     transient do
       skip_injection { false }
     end
@@ -280,7 +280,7 @@ FactoryBot.define do
 
     after(:build) do |proposal, evaluator|
       if proposal.component
-        existing_states = Decidim::Proposals::ProposalState.where(component: proposal.component)
+        existing_states = Decidim::Proposals::ProposalStatus.where(component: proposal.component)
 
         Decidim::Proposals.create_default_states!(proposal.component, nil, with_traceability: false) unless existing_states.any?
       end

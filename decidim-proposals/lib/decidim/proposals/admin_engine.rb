@@ -39,7 +39,7 @@ module Decidim
         end
         resource :proposals_merge, only: [:new, :create]
 
-        resources :proposal_states
+        resources :proposal_statuses
 
         resources :participatory_texts, only: [:index] do
           collection do

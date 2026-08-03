@@ -60,7 +60,7 @@ module Decidim
           "created_at",
           "updated_at",
           "state",
-          "decidim_proposals_proposal_state_id",
+          "decidim_proposals_proposal_status_id",
           "state_published_at",
           "answer",
           "answered_at",

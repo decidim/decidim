@@ -73,12 +73,12 @@ module Decidim
         def proposal_answer_attributes(original_proposal)
           return {} unless @form["keep_answers"]
 
-          state = Decidim::Proposals::ProposalState.where(component: target_component, token: original_proposal.proposal_state&.token).first
+          state = Decidim::Proposals::ProposalStatus.where(component: target_component, token: original_proposal.proposal_status&.token).first
 
           {
             answer: original_proposal.answer,
             answered_at: original_proposal.answered_at,
-            proposal_state: state,
+            proposal_status: state,
             state_published_at: original_proposal.state_published_at
           }
         end

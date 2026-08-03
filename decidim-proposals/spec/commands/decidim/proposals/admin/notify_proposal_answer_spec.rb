@@ -33,7 +33,7 @@ module Decidim
             .to receive(:publish)
             .with(
               event: "decidim.events.proposals.proposal_state_changed",
-              event_class: Decidim::Proposals::ProposalStateChangedEvent,
+              event_class: Decidim::Proposals::ProposalStatusChangedEvent,
               resource: proposal,
               followers: contain_exactly(follower)
             )
@@ -47,7 +47,7 @@ module Decidim
             .with(
               hash_including(
                 event: "decidim.events.proposals.proposal_state_changed_for_authors",
-                event_class: Decidim::Proposals::ProposalStateChangedEvent,
+                event_class: Decidim::Proposals::ProposalStatusChangedEvent,
                 resource: proposal,
                 affected_users: proposal.authors,
                 extra: { force_email: true }
@@ -74,7 +74,7 @@ module Decidim
               .to receive(:publish)
               .with(
                 event: "decidim.events.proposals.proposal_state_changed",
-                event_class: Decidim::Proposals::ProposalStateChangedEvent,
+                event_class: Decidim::Proposals::ProposalStatusChangedEvent,
                 resource: proposal,
                 followers: contain_exactly(follower)
               )
@@ -89,7 +89,7 @@ module Decidim
                 .with(
                   hash_including(
                     event: "decidim.events.proposals.proposal_state_changed_for_authors",
-                    event_class: Decidim::Proposals::ProposalStateChangedEvent,
+                    event_class: Decidim::Proposals::ProposalStatusChangedEvent,
                     resource: proposal,
                     affected_users: match_array(proposal.authors),
                     extra: { force_email: true }

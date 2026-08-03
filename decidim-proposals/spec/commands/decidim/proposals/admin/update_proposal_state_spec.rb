@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe UpdateProposalState do
-        let(:form_klass) { Decidim::Proposals::Admin::ProposalStateForm }
+      describe UpdateProposalStatus do
+        let(:form_klass) { Decidim::Proposals::Admin::ProposalStatusForm }
 
         let(:component) { create(:proposal_component) }
         let(:organization) { component.organization }
@@ -20,7 +20,7 @@ module Decidim
             text_color: "#16592e"
           }
         end
-        let!(:state) { create(:proposal_state, component:, **state_params) }
+        let!(:state) { create(:proposal_status, component:, **state_params) }
 
         let(:form) do
           form_klass.from_params(

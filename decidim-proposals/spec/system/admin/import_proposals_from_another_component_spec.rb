@@ -74,7 +74,7 @@ describe "Import proposals from another component" do
   context "with a custom state on the origin component" do
     let(:custom_title) { { "en" => "Under review" } }
     let!(:custom_state) do
-      create(:proposal_state, component: origin_component, token: "under_review", title: custom_title)
+      create(:proposal_status, component: origin_component, token: "under_review", title: custom_title)
     end
 
     it "shows the custom state alongside the default ones" do
@@ -91,7 +91,7 @@ describe "Import proposals from another component" do
 
     context "when importing proposals with the custom state" do
       let!(:custom_state_on_target) do
-        create(:proposal_state, component:, token: "under_review", title: custom_title)
+        create(:proposal_status, component:, token: "under_review", title: custom_title)
       end
       let!(:custom_proposals) { create_list(:proposal, 2, component: origin_component, state: "under_review") }
       let!(:accepted_proposals) { create_list(:proposal, 1, :accepted, component: origin_component) }

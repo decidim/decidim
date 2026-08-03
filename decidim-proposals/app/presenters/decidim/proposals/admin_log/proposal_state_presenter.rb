@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     module AdminLog
-      class ProposalStatePresenter < Decidim::Log::BasePresenter
+      class ProposalStatusPresenter < Decidim::Log::BasePresenter
         private
 
         def diff_fields_mapping

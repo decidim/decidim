@@ -99,7 +99,7 @@ describe "Evaluator manages proposals" do
             text_color: "#ad4910"
           }
         end
-        let!(:custom_state) { create(:proposal_state, **state_params, component: current_component) }
+        let!(:custom_state) { create(:proposal_status, **state_params, component: current_component) }
 
         before do
           visit current_path

@@ -20,7 +20,7 @@ en:
         answer: Answer
         answered_at: Answered at
         body: Body
-        decidim_proposals_proposal_state_id: State
+        decidim_proposals_proposal_status_id: State
         decidim_scope_id: Scope
         has_address: Has address
         latitude: Latitude
@@ -33,7 +33,7 @@ en:
         cost: Cost
         cost_report: Cost report
         execution_period: Execution period
-      proposal_state:
+      proposal_status:
         announcement_title: Answer heading
         bg_color: Background color
         colors:
@@ -125,7 +125,7 @@ en:
             values:
               'false': Proposals
               'true': Amendments
-          proposal_state_id_eq:
+          proposal_status_id_eq:
             label: State
           state_eq:
             label: State
@@ -358,7 +358,7 @@ en:
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
           notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}.
           notification_title_official: The official proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}.
-        proposal_state_changed:
+        proposal_status_changed:
           affected_user:
             email_intro: 'The proposal "%{resource_title}" has changed its state to "%{state}". You can read the answer in this page:'
             email_outro: You have received this notification because you are an author of "%{resource_title}".
@@ -369,7 +369,7 @@ en:
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you are following has changed its state (%{state})
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has changed its state to "%{state}".
-        proposal_state_changed_for_authors:
+        proposal_status_changed_for_authors:
           affected_user:
             email_intro: 'The proposal "%{resource_title}" has changed its state to "%{state}". You can read the answer in this page:'
             email_outro: You have received this notification because you are an author of "%{resource_title}".
@@ -479,15 +479,15 @@ en:
         answer_proposal: Answer proposal
         cancel_coauthor_invitation: Cancel co-author invitation
         cancel_coauthor_invitation_confirm: Are you sure you want to cancel the co-author invitation?
-        delete_proposal_state_confirm: Are you sure you want to delete this state?
+        delete_proposal_status_confirm: Are you sure you want to delete this state?
         destroy: Delete state
         edit_proposal: Edit proposal
-        edit_proposal_state: Edit state
+        edit_proposal_status: Edit state
         import: Import proposals from another component
         mark_as_coauthor: Mark as co-author
         mark_as_coauthor_confirm: Are you sure you want to mark this user as a co-author? The receiver will receive a notification to accept or decline the invitation.
         new: New proposal
-        new_proposal_state: New status
+        new_proposal_status: New status
         participatory_texts: Participatory texts
         show: Show proposal
         title: Actions
@@ -798,7 +798,7 @@ en:
             taxonomies: Taxonomies
             title: Title
             votes: Votes
-        proposal_state:
+        proposal_status:
           css_class: CSS class
           title: Status
       new:

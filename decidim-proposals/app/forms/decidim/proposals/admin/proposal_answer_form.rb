@@ -26,7 +26,7 @@ module Decidim
         private
 
         def proposal_statuses
-          Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s) + ["not_answered"]
+          Decidim::Proposals::ProposalStatus.where(component: current_component).pluck(:token).map(&:to_s) + ["not_answered"]
         end
       end
     end

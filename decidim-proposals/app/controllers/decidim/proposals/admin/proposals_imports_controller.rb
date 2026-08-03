@@ -33,7 +33,7 @@ module Decidim
           component = current_participatory_space.components.find_by(id: params[:origin_id])
 
           if component
-            states = Decidim::Proposals::ProposalState
+            states = Decidim::Proposals::ProposalStatus
                      .where(component:)
                      .map { |s| { token: s.token, title: translated_attribute(s.title) } }
             states << { token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered") }

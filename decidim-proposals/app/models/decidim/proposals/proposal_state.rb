@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    class ProposalState < Proposals::ApplicationRecord
+    class ProposalStatus < Proposals::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Traceable
       include Decidim::Loggable
@@ -18,13 +18,13 @@ module Decidim
 
       has_many :proposals,
                class_name: "Decidim::Proposals::Proposal",
-               foreign_key: "decidim_proposals_proposal_state_id",
-               inverse_of: :proposal_state,
+               foreign_key: "decidim_proposals_proposal_status_id",
+               inverse_of: :proposal_status,
                dependent: :restrict_with_error,
                counter_cache: :proposals_count
 
       def self.log_presenter_class_for(_log)
-        Decidim::Proposals::AdminLog::ProposalStatePresenter
+        Decidim::Proposals::AdminLog::ProposalStatusPresenter
       end
 
       def css_style
@@ -45,7 +45,7 @@ module Decidim
         step = 0
         code = token
         loop do
-          break if Decidim::Proposals::ProposalState.where(component:, token: code).empty?
+          break if Decidim::Proposals::ProposalStatus.where(component:, token: code).empty?
 
           code = "#{token}_#{step}"
           step += 1

@@ -18,11 +18,11 @@ module Decidim
         return if state.blank? || @options.fetch(:skip_state, false)
 
         if model.withdrawn?
-          { text: content_tag(:span, humanize_proposal_state(:withdrawn), class: "label alert") }
+          { text: content_tag(:span, humanize_proposal_status(:withdrawn), class: "label alert") }
         elsif model.emendation?
-          { text: content_tag(:span, humanize_proposal_state(state), class: "label #{state_class}") }
+          { text: content_tag(:span, humanize_proposal_status(state), class: "label #{state_class}") }
         else
-          { text: content_tag(:span, translated_attribute(model.proposal_state&.title), class: "label", style: model.proposal_state.css_style) }
+          { text: content_tag(:span, translated_attribute(model.proposal_status&.title), class: "label", style: model.proposal_status.css_style) }
         end
       end
 
