@@ -29,12 +29,12 @@ The `updateProject` field is deprecated. Use `project(id:) { update }` instead.
 
 [source,graphql]
 ----
-mutation updateProject($componentId: ID!, $budgetId: ID!, $input: UpdateProjectInput!){
+mutation updateProject($componentId: ID!, $budgetId: ID!, $projectId: ID!, $input: UpdateProjectInput!){
    component(id: $componentId){
-    ... on BudgetsMutation {
-      budget(id: $budgetId){
-        project(id: $input.id){
-          update(input: $input){
+     ... on BudgetsMutation {
+       budget(id: $budgetId){
+         project(id: $projectId){
+           update(input: $input){
             id
             url
           }
@@ -70,8 +70,8 @@ Example of submitted variables
 {
   "componentId": "3",
   "budgetId": "5",
+  "projectId": "5",
   "input": {
-    "id": "5",
     "attributes": {
       "budgetAmount": 12300,
       "address": "FOOBAR",
