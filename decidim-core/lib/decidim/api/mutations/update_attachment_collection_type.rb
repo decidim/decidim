@@ -51,6 +51,7 @@ module Decidim
         key = attributes[:key].presence || attachment_collection.key
 
         {
+          id: attachment_collection.id,
           key:,
           description: attachment_collection.description,
           name: attachment_collection.name,

@@ -23,7 +23,7 @@ module Decidim
       private
 
       def key_uniqueness
-        return unless key.present?
+        return if key.blank?
         return unless context&.collection_for
 
         existing = context.collection_for.attachment_collections.where(key:).where.not(id:).first
