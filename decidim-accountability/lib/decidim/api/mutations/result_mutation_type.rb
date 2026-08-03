@@ -18,8 +18,7 @@ module Decidim
 
       def initialize(object, context)
         context.scoped_set!(:scope, :admin) if context[:current_user]
-        @object = object
-        @context = context
+        super
       end
     end
   end

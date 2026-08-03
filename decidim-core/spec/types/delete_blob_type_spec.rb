@@ -47,7 +47,7 @@ module Decidim
 
           expect do
             execute_query(query, variables)
-          end.to change(ActiveStorage::Attachment, :count).by(-1)
+          end.to change { ActiveStorage::Blob.exists?(blob.id) }.from(true).to(false)
         end
 
         it "returns the deleted attachment" do

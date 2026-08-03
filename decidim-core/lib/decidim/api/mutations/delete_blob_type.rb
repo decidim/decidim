@@ -12,7 +12,11 @@ module Decidim
       def resolve(id:)
         resource = find_resource(id)
 
-        return resource if resource.respond_to?(:attachments) && resource.attachments.any? && resource.attachments.destroy_all
+        if resource.respond_to?(:attachments) && resource.attachments.any?
+          resource.attachments.destroy_all
+          resource.purge
+          return resource
+        end
 
         raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.specific.not_attached")
       end
