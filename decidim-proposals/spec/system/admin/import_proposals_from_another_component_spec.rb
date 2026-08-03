@@ -20,16 +20,16 @@ describe "Import proposals from another component" do
     click_on "Import proposals from another component"
   end
 
-  it "does not show state checkboxes before a component is selected" do
-    expect(page).to have_no_css("#states-container input[type='checkbox']")
+  it "does not show status checkboxes before a component is selected" do
+    expect(page).to have_no_css("#statuses-container input[type='checkbox']")
   end
 
-  it "dynamically loads state checkboxes after selecting an origin component" do
+  it "dynamically loads status checkboxes after selecting an origin component" do
     within ".import_proposals" do
       select origin_component.name["en"], from: "Origin component"
     end
 
-    within "#states-container" do
+    within "#statuses-container" do
       expect(page).to have_unchecked_field("Accepted")
       expect(page).to have_unchecked_field("Rejected")
       expect(page).to have_unchecked_field("Evaluating")
@@ -37,25 +37,25 @@ describe "Import proposals from another component" do
     end
   end
 
-  it "hides state checkboxes when the component selection is cleared" do
+  it "hides status checkboxes when the component selection is cleared" do
     within ".import_proposals" do
       select origin_component.name["en"], from: "Origin component"
     end
 
-    expect(page).to have_css("#states-container input[type='checkbox']")
+    expect(page).to have_css("#statuses-container input[type='checkbox']")
 
     within ".import_proposals" do
       select "Please select a component", from: "Origin component"
     end
 
-    expect(page).to have_no_css("#states-container input[type='checkbox']")
+    expect(page).to have_no_css("#statuses-container input[type='checkbox']")
   end
 
-  context "when importing proposals filtered by state" do
+  context "when importing proposals filtered by status" do
     let!(:accepted_proposals) { create_list(:proposal, 2, :accepted, component: origin_component) }
     let!(:rejected_proposals) { create_list(:proposal, 1, :rejected, component: origin_component) }
 
-    it "only imports proposals matching the selected state" do
+    it "only imports proposals matching the selected status" do
       within ".import_proposals" do
         select origin_component.name["en"], from: "Origin component"
         check "Accepted"
@@ -71,32 +71,32 @@ describe "Import proposals from another component" do
     end
   end
 
-  context "with a custom state on the origin component" do
+  context "with a custom status on the origin component" do
     let(:custom_title) { { "en" => "Under review" } }
-    let!(:custom_state) do
+    let!(:custom_status) do
       create(:proposal_status, component: origin_component, token: "under_review", title: custom_title)
     end
 
-    it "shows the custom state alongside the default ones" do
+    it "shows the custom status alongside the default ones" do
       within ".import_proposals" do
         select origin_component.name["en"], from: "Origin component"
       end
 
-      within "#states-container" do
+      within "#statuses-container" do
         expect(page).to have_unchecked_field("Under review")
         expect(page).to have_unchecked_field("Accepted")
         expect(page).to have_unchecked_field("Not answered")
       end
     end
 
-    context "when importing proposals with the custom state" do
-      let!(:custom_state_on_target) do
+    context "when importing proposals with the custom status" do
+      let!(:custom_status_on_target) do
         create(:proposal_status, component:, token: "under_review", title: custom_title)
       end
-      let!(:custom_proposals) { create_list(:proposal, 2, component: origin_component, state: "under_review") }
+      let!(:custom_proposals) { create_list(:proposal, 2, component: origin_component, status: "under_review") }
       let!(:accepted_proposals) { create_list(:proposal, 1, :accepted, component: origin_component) }
 
-      it "only imports proposals in the custom state" do
+      it "only imports proposals in the custom status" do
         within ".import_proposals" do
           select origin_component.name["en"], from: "Origin component"
           check "Under review"
@@ -112,7 +112,7 @@ describe "Import proposals from another component" do
       end
     end
 
-    context "when no states are selected" do
+    context "when no statuses are selected" do
       let!(:proposals) { create_list(:proposal, 3, component: origin_component) }
 
       it "imports all proposals" do

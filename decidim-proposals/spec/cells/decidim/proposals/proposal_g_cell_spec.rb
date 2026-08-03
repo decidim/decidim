@@ -18,7 +18,7 @@ module Decidim::Proposals
     end
 
     describe "show" do
-      it "renders the proposal state item with appropriate class" do
+      it "renders the proposal status item with appropriate class" do
         expect(subject).to have_css("span.label", text: "Evaluating")
         expect(subject).to have_css("span.label", style: "background-color: #FFF1E5; color: #BC4C00; border-color: #BC4C00;")
       end
@@ -58,14 +58,14 @@ module Decidim::Proposals
         end
       end
 
-      context "when the proposal has a custom state" do
-        let!(:state) { create(:proposal_status, component:, token: :finished, title: { en: "Finished" }) }
+      context "when the proposal has a custom status" do
+        let!(:status) { create(:proposal_status, component:, token: :finished, title: { en: "Finished" }) }
 
         before do
-          proposal.update!(proposal_status: state)
+          proposal.update!(proposal_status: status)
         end
 
-        it "renders the custom state" do
+        it "renders the custom status" do
           within ".label" do
             expect(subject).to have_text "Finished"
           end

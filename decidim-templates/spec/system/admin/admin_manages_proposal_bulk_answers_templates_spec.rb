@@ -8,14 +8,14 @@ describe "Admin manages bulk proposal answer templates" do
   let(:participatory_space) { participatory_process }
   let!(:component) { create(:proposal_component, participatory_space:) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
-  let!(:state) { Decidim::Proposals::ProposalState.first }
+  let!(:status) { Decidim::Proposals::ProposalStatus.first }
   let!(:proposal) { create(:proposal, cost: nil, component:) }
   let!(:other_proposals) { create_list(:proposal, 3, component:) }
   let!(:emendation) { create(:proposal, component:) }
   let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
   let!(:template) { create(:template, target: :proposal_answer, templatable: component, description:, field_values:) }
   let(:field_values) do
-    { "proposal_state_id" => state.id }
+    { "proposal_status_id" => status.id }
   end
   let(:description) do
     { en: "Hi %{name}, this proposal will be implemented in %{organization}. Signed: %{admin}" }
@@ -37,7 +37,7 @@ describe "Admin manages bulk proposal answer templates" do
   end
 
   it "applies the template" do
-    expect(proposal.proposal_state).not_to eq(state)
+    expect(proposal.proposal_status).not_to eq(status)
     click_on "Apply answer template"
     expect(page).to have_css("#template_template_id", count: 1)
     select translated(template.name), from: :template_template_id
@@ -46,10 +46,10 @@ describe "Admin manages bulk proposal answer templates" do
     wait_enqueued_jobs do
       expect(page).to have_text("4 proposals will be answered using the template")
       expect(page).to have_text("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
-      expect(proposal.reload.proposal_state).to eq(state)
+      expect(proposal.reload.proposal_status).to eq(status)
       expect(proposal.answer["en"]).to include("Hi #{proposal.creator_author.name}, this proposal will be implemented in #{organization.name["en"]}. Signed: #{user.name}")
       other_proposals.each do |reportable|
-        expect(reportable.reload.proposal_state).to eq(state)
+        expect(reportable.reload.proposal_status).to eq(status)
         expect(reportable.answer["en"]).to include("Hi #{reportable.creator_author.name}, this proposal will be implemented in #{organization.name["en"]}. Signed: #{user.name}")
       end
     end
@@ -59,7 +59,7 @@ describe "Admin manages bulk proposal answer templates" do
     let!(:proposal) { create(:proposal, :official, component:) }
 
     it "applies the template" do
-      expect(proposal.proposal_state).not_to eq(state)
+      expect(proposal.proposal_status).not_to eq(status)
       click_on "Apply answer template"
       expect(page).to have_css("#template_template_id", count: 1)
       select translated(template.name), from: :template_template_id
@@ -68,7 +68,7 @@ describe "Admin manages bulk proposal answer templates" do
       wait_enqueued_jobs do
         expect(page).to have_text("4 proposals will be answered using the template")
         expect(page).to have_text("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
-        expect(proposal.reload.proposal_state).to eq(state)
+        expect(proposal.reload.proposal_status).to eq(status)
         expect(proposal.answer["en"]).to include("Hi #{organization.name["en"]}, this proposal will be implemented in #{organization.name["en"]}. Signed: #{user.name}")
       end
     end
@@ -86,7 +86,7 @@ describe "Admin manages bulk proposal answer templates" do
   end
 
   context "when proposals have costs enabled" do
-    let!(:state) { Decidim::Proposals::ProposalState.find_by(component: component.reload, token: "accepted") }
+    let!(:status) { Decidim::Proposals::ProposalStatus.find_by(component: component.reload, token: "accepted") }
 
     before do
       component.update!(
@@ -99,7 +99,7 @@ describe "Admin manages bulk proposal answer templates" do
     end
 
     it "applies the template" do
-      expect(proposal.proposal_state).to be_nil
+      expect(proposal.proposal_status).to be_nil
       click_on "Apply answer template"
       expect(page).to have_css("#template_template_id", count: 1)
       select translated(template.name), from: :template_template_id
@@ -108,9 +108,9 @@ describe "Admin manages bulk proposal answer templates" do
       wait_enqueued_jobs do
         expect(page).to have_text("4 proposals will be answered using the template")
         expect(page).to have_text("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
-        expect(proposal.reload.proposal_state).to eq(state)
+        expect(proposal.reload.proposal_status).to eq(status)
         other_proposals.each do |reportable|
-          expect(reportable.reload.proposal_state).to eq(state)
+          expect(reportable.reload.proposal_status).to eq(status)
         end
       end
     end

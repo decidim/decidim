@@ -9,7 +9,7 @@ module Decidim
       module ProposalsHelper
         include Decidim::TranslatableAttributes
 
-        def available_states
+        def available_statuses
           [
             Decidim::Proposals::ProposalStatus.where(component: current_component).new(
               token: "not_answered",
@@ -40,7 +40,7 @@ module Decidim
           proposal.likes.for_listing.map { |identity| present(identity.author) }
         end
 
-        def proposal_complete_state(proposal)
+        def proposal_complete_status(proposal)
           return humanize_proposal_status(:withdrawn).html_safe if proposal.withdrawn?
           return humanize_proposal_status("not_answered").html_safe if proposal.proposal_status.nil?
 

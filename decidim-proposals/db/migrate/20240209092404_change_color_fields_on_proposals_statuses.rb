@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeColorFieldsOnProposalsStates < ActiveRecord::Migration[6.1]
+class ChangeColorFieldsOnProposalsStatuses < ActiveRecord::Migration[6.1]
   class ProposalState < ApplicationRecord
     self.table_name = :decidim_proposals_proposal_states
 

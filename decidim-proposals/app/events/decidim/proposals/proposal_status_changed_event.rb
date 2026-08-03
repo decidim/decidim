@@ -22,12 +22,12 @@ module Decidim
       end
 
       def default_i18n_options
-        super.merge({ state: })
+        super.merge({ status: })
       end
 
-      def state
+      def status
         if resource.emendation?
-          humanize_proposal_status(model.state)
+          humanize_proposal_status(model.status)
         else
           translated_attribute(resource.proposal_status&.title)
         end

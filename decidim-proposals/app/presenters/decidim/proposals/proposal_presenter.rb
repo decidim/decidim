@@ -56,18 +56,18 @@ module Decidim
       #
       # Returns an Array.
       def versions
-        version_state_published = false
-        pending_state_change = nil
+        version_status_published = false
+        pending_status_change = nil
 
         proposal.versions.map do |version|
-          state_published_change = version.changeset["state_published_at"]
-          version_state_published = state_published_change.last.present? if state_published_change
+          status_published_change = version.changeset["status_published_at"]
+          version_status_published = status_published_change.last.present? if status_published_change
 
-          if version_state_published
-            version.changeset["decidim_proposals_proposal_status_id"] = parsed_state_change(*pending_state_change) if pending_state_change
-            pending_state_change = nil
+          if version_status_published
+            version.changeset["decidim_proposals_proposal_status_id"] = parsed_status_change(*pending_status_change) if pending_status_change
+            pending_status_change = nil
           elsif version.changeset["decidim_proposals_proposal_status_id"]
-            pending_state_change = version.changeset.delete("decidim_proposals_proposal_status_id")
+            pending_status_change = version.changeset.delete("decidim_proposals_proposal_status_id")
           end
 
           next if version.event == "update" && Decidim::Proposals::DiffRenderer.new(version).diff.empty?
@@ -84,10 +84,10 @@ module Decidim
 
       private
 
-      def parsed_state_change(old_state, new_state)
+      def parsed_status_change(old_status, new_status)
         [
-          translated_attribute(Decidim::Proposals::ProposalStatus.find_by(id: old_state)&.title),
-          translated_attribute(Decidim::Proposals::ProposalStatus.find_by(id: new_state)&.title)
+          translated_attribute(Decidim::Proposals::ProposalStatus.find_by(id: old_status)&.title),
+          translated_attribute(Decidim::Proposals::ProposalStatus.find_by(id: new_status)&.title)
         ]
       end
     end

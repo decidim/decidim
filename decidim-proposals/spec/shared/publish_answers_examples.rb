@@ -10,7 +10,7 @@ shared_examples "publish answers" do
 
     it "publishes some answers" do
       page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
-      page.first("[data-published-state=false] .js-proposal-list-check").set(false)
+      page.first("[data-published-status=false] .js-proposal-list-check").set(false)
 
       click_on "Actions"
       click_on "Publish answers"
@@ -37,7 +37,7 @@ shared_examples "publish answers" do
 
     it "cannot publish answers for non answered proposals" do
       page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
-      page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false) }
+      page.all("[data-published-status=false] .js-proposal-list-check").each { |c| c.set(false) }
 
       click_on "Actions"
       expect(page).to have_no_text("Publish answers")

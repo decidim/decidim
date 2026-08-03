@@ -19,7 +19,7 @@ document.addEventListener("turbo:load", () => {
           return Promise.reject(response);
         }).
         then((data) => {
-          document.getElementById(`proposal_answer_internal_state_${data.state}`).click();
+          document.getElementById(`proposal_answer_internal_status_${data.status}`).click();
 
           let editorContainer = null;
           for (const [key, value] of Object.entries(data.template)) {

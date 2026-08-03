@@ -193,16 +193,16 @@ module Decidim
           with_any_origin: nil,
           activity: "all",
           with_any_taxonomies: nil,
-          with_any_state: default_states,
+          with_any_status: default_statuses,
           related_to: "",
           type: "all"
         }
       end
 
-      def default_states
+      def default_statuses
         [
           Decidim::Proposals::ProposalStatus.where(component: current_component).pluck(:token).map(&:to_s),
-          %w(state_not_published)
+          %w(status_not_published)
         ].flatten - ["rejected"]
       end
 

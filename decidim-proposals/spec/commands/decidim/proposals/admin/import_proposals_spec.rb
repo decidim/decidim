@@ -32,12 +32,12 @@ module Decidim
               current_organization: organization,
               keep_authors:,
               keep_answers:,
-              states:,
+              statuses:,
               current_user: create(:user, organization:),
               valid?: valid,
               as_json: {
                 "origin_component_id" => proposal_component.id,
-                "states" => states,
+                "statuses" => statuses,
                 "keep_authors" => keep_authors,
                 "keep_answers" => keep_answers
               }
@@ -45,7 +45,7 @@ module Decidim
           end
           let(:keep_authors) { false }
           let(:keep_answers) { false }
-          let(:states) { ["accepted"] }
+          let(:statuses) { ["accepted"] }
           let(:command) { described_class.new(form) }
 
           describe "when the form is not valid" do
@@ -124,9 +124,9 @@ module Decidim
               expect(new_proposal.creator_author).to eq(organization)
               expect(new_proposal.taxonomies).to eq(proposal.taxonomies)
 
-              expect(new_proposal.state).to be_nil
-              expect(new_proposal.state_published_at).to be_nil
-              expect(new_proposal.decidim_proposals_proposal_state_id).to be_nil
+              expect(new_proposal.status).to be_nil
+              expect(new_proposal.status_published_at).to be_nil
+              expect(new_proposal.decidim_proposals_proposal_status_id).to be_nil
               expect(new_proposal.answer).to be_nil
               expect(new_proposal.answered_at).to be_nil
               expect(new_proposal.reference).not_to eq(proposal.reference)
@@ -153,26 +153,26 @@ module Decidim
             describe "when keep_answers is true" do
               let(:keep_answers) { true }
 
-              it "keeps the proposal state and answers" do
+              it "keeps the proposal status and answers" do
                 call_command_and_perform_enqueued_jobs
 
                 new_proposal = Proposal.where(component: current_component).last
                 expect(new_proposal.answer).to eq(proposal.answer)
                 expect(new_proposal.answered_at).to be_within(1.second).of(proposal.answered_at)
-                expect(new_proposal.state).to eq(proposal.state)
-                expect(new_proposal.state_published_at).to be_within(1.second).of(proposal.state_published_at)
+                expect(new_proposal.status).to eq(proposal.status)
+                expect(new_proposal.status_published_at).to be_within(1.second).of(proposal.status_published_at)
               end
             end
 
-            describe "proposal states" do
-              let(:states) { %w(not_answered rejected) }
+            describe "proposal statuses" do
+              let(:statuses) { %w(not_answered rejected) }
               let!(:rejected_proposal) { create(:proposal, :rejected, component: proposal_component, taxonomies:) }
               let!(:random_proposal) { create(:proposal, component: proposal_component, taxonomies:) }
               let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposal_component, taxonomies:) }
               let!(:hidden_proposal) { create(:proposal, component: proposal_component, taxonomies:) }
               let!(:moderation) { create(:moderation, reportable: hidden_proposal, hidden_at: 1.day.ago) }
 
-              it "only imports proposals from the selected states" do
+              it "only imports proposals from the selected statuses" do
                 expect do
                   call_command_and_perform_enqueued_jobs
                 end.to change { Proposal.where(component: current_component).count }.by(2)
@@ -184,9 +184,9 @@ module Decidim
               end
 
               context "when using translation" do
-                let(:states) { %w(not_answered rebutjada) }
+                let(:statuses) { %w(not_answered rebutjada) }
 
-                it "only imports proposals from the selected states" do
+                it "only imports proposals from the selected statuses" do
                   Decidim::Proposals::ProposalStatus.where(component: proposal_component).where(token: "rejected").update(token: "rebutjada")
                   Decidim::Proposals::ProposalStatus.where(component: proposal_component).where(token: "accepted").update(token: "acceptada")
 

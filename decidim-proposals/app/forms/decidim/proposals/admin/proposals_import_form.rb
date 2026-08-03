@@ -13,12 +13,12 @@ module Decidim
         attribute :origin_component_id, Integer
         attribute :keep_answers, Boolean
         attribute :keep_authors, Boolean
-        attribute :states, Array[String]
+        attribute :statuses, Array[String]
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
-        validate :valid_states
+        validate :valid_statuses
 
-        def states
+        def statuses
           super.compact_blank
         end
 
@@ -38,14 +38,14 @@ module Decidim
 
         private
 
-        def valid_states
+        def valid_statuses
           return unless origin_component
-          return if states.empty?
+          return if statuses.empty?
 
           valid_tokens = Decidim::Proposals::ProposalStatus.where(component: origin_component).pluck(:token) + ["not_answered"]
-          return if states.all? { |state| valid_tokens.include?(state) }
+          return if statuses.all? { |status| valid_tokens.include?(status) }
 
-          errors.add(:states, :invalid)
+          errors.add(:statuses, :invalid)
         end
       end
     end

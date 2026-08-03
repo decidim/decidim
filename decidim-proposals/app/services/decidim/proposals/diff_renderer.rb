@@ -15,7 +15,7 @@ module Decidim
           address: :string,
           latitude: :string,
           longitude: :string,
-          decidim_proposals_proposal_status_id: :state
+          decidim_proposals_proposal_status_id: :status
         }
       end
 
@@ -23,7 +23,7 @@ module Decidim
       def parse_changeset(attribute, values, type, diff)
         return parse_i18n_changeset(attribute, values, type, diff) if [:i18n, :i18n_html].include?(type)
         return parse_scope_changeset(attribute, values, type, diff) if type == :scope
-        return parse_state_changeset(attribute, values, type, diff) if type == :state
+        return parse_status_changeset(attribute, values, type, diff) if type == :status
 
         values = parse_values(attribute, values)
         old_value = values[0]
@@ -39,7 +39,7 @@ module Decidim
         )
       end
 
-      def parse_state_changeset(attribute, values, type, diff)
+      def parse_status_changeset(attribute, values, type, diff)
         return unless diff
 
         old_scope = Decidim::Proposals::ProposalStatus.find_by(id: values[0])

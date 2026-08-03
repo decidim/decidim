@@ -15,14 +15,14 @@ module Decidim
       def call
         component = create_component!
 
-        Decidim::Proposals.create_default_states!(component, admin_user)
+        Decidim::Proposals.create_default_statuses!(component, admin_user)
 
         number_of_records = slow_seeds? ? rand(25..50) : rand(5..10)
 
         (5..number_of_records).to_a.sample.times do |n|
           proposal = create_proposal!(component:)
 
-          if proposal.state.nil? && component.settings.amendments_enabled?
+          if proposal.status.nil? && component.settings.amendments_enabled?
             emendation = create_emendation!(proposal:)
             create_proposal_votes!(proposal: emendation)
           end
@@ -86,7 +86,7 @@ module Decidim
       end
 
       def create_proposal!(component:)
-        proposal_status, answer, state_published_at = random_state_answer
+        proposal_status, answer, status_published_at = random_status_answer
         proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token: proposal_status).first
 
         params = {
@@ -96,7 +96,7 @@ module Decidim
           proposal_status:,
           answer:,
           answered_at: proposal_status.present? ? Time.current : nil,
-          state_published_at:,
+          status_published_at:,
           published_at: Time.current
         }
 
@@ -134,7 +134,7 @@ module Decidim
         proposal
       end
 
-      def random_state_answer
+      def random_status_answer
         n = rand(5)
 
         if n > 3
@@ -208,7 +208,7 @@ module Decidim
       def create_proposal_votes!(proposal:)
         author = find_or_initialize_user_by(email: random_email(suffix: "vote"))
 
-        Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
+        Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_status? && proposal.rejected?
       end
 
       def create_proposal_notes!(proposal:)

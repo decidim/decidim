@@ -6,7 +6,7 @@ describe "Admin filters proposals" do
   include_context "when admin manages proposals"
   include_context "with filterable context"
 
-  STATES = { evaluating: 10, accepted: 20, rejected: -10 }.keys
+  STATUSES = { evaluating: 10, accepted: 20, rejected: -10 }.keys
 
   let(:model_name) { Decidim::Proposals::Proposal.model_name }
   let(:resource_controller) { Decidim::Proposals::Admin::ProposalsController }
@@ -15,12 +15,12 @@ describe "Admin filters proposals" do
     create(:proposal, trait, component:)
   end
 
-  def proposal_with_state(token)
+  def proposal_with_status(token)
     proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token:).first
     Decidim::Proposals::Proposal.where(component:).find_by(proposal_status:)
   end
 
-  def proposal_without_state(token)
+  def proposal_without_status(token)
     proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token:).first
     Decidim::Proposals::Proposal.where(component:).where.not(proposal_status:).sample
   end
@@ -46,26 +46,26 @@ describe "Admin filters proposals" do
     end
   end
 
-  context "when filtering by state" do
+  context "when filtering by status" do
     let!(:proposals) do
-      STATES.map { |state| create_proposal_with_trait(state) }
+      STATUSES.map { |status| create_proposal_with_trait(status) }
     end
 
     let!(:withdrawn_proposal) { create_proposal_with_trait(:withdrawn) }
 
     before { visit_component_admin }
 
-    STATES.each do |state|
-      context "when filtering proposals by state: #{I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")}" do
-        it_behaves_like "a filtered collection", options: "State", filter: I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values") do
-          let(:in_filter) { translated(proposal_with_state(state).title) }
-          let(:not_in_filter) { translated(proposal_without_state(state).title) }
+    STATUSES.each do |status|
+      context "when filtering proposals by status: #{I18n.t(status, scope: "decidim.admin.filters.proposals.status_eq.values")}" do
+        it_behaves_like "a filtered collection", options: "Status", filter: I18n.t(status, scope: "decidim.admin.filters.proposals.status_eq.values") do
+          let(:in_filter) { translated(proposal_with_status(status).title) }
+          let(:not_in_filter) { translated(proposal_without_status(status).title) }
         end
       end
     end
 
-    context "when filtering proposals by state: Withdrawn" do
-      it_behaves_like "a filtered collection", options: "State", filter: "Withdrawn" do
+    context "when filtering proposals by status: Withdrawn" do
+      it_behaves_like "a filtered collection", options: "Status", filter: "Withdrawn" do
         let(:in_filter) { translated(withdrawn_proposal.title) }
         let(:not_in_filter) { translated(proposals.sample.title) }
       end
@@ -177,7 +177,7 @@ describe "Admin filters proposals" do
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         expect(filter_params["q[taxonomies_part_of_contains]"]).to eq([taxonomy1.id.to_s])
-        expect(filter_params["q[with_any_state]"]).to eq(["state_published"])
+        expect(filter_params["q[with_any_status]"]).to eq(["status_published"])
       end
     end
 

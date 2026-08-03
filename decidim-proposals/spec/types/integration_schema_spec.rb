@@ -82,7 +82,7 @@ describe "Decidim::Api::QueryType" do
           official
           participatoryTextLevel
           position
-          ProposalStatus {
+          proposalStatus {
             announcementTitle { translation(locale: "#{locale}") }
             bgColor
             id
@@ -92,7 +92,7 @@ describe "Decidim::Api::QueryType" do
           }
           publishedAt
           reference
-          state
+          status
           title {
             translation(locale:"#{locale}")
           }
@@ -194,10 +194,10 @@ describe "Decidim::Api::QueryType" do
       "official" => proposal.official?,
       "participatoryTextLevel" => proposal.participatory_text_level,
       "position" => proposal.position,
-      "ProposalStatus" => proposal_status,
+      "proposalStatus" => proposal_status,
       "publishedAt" => proposal.published_at.to_time.iso8601,
       "reference" => proposal.reference,
-      "state" => proposal.state,
+      "status" => proposal.status,
       "title" => { "translation" => proposal.title[locale] },
       "totalCommentsCount" => proposal.comments_count,
       "type" => "Decidim::Proposals::Proposal",
@@ -331,7 +331,7 @@ describe "Decidim::Api::QueryType" do
               official
               participatoryTextLevel
               position
-              ProposalStatus {
+              proposalStatus {
                 announcementTitle { translation(locale: "#{locale}") }
                 bgColor
                 id
@@ -341,7 +341,7 @@ describe "Decidim::Api::QueryType" do
               }
               publishedAt
               reference
-              state
+              status
               title {
                 translation(locale:"#{locale}")
               }

@@ -1228,7 +1228,7 @@ describe "Vote Proposal", slow: true do
       it "cannot be voted" do
         visit_component
 
-        within "#panel-dropdown-menu-state" do
+        within "#panel-dropdown-menu-status" do
           check "All"
           uncheck "All"
           check "Rejected"

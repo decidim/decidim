@@ -3,27 +3,27 @@
 module Decidim
   module Proposals
     module Admin
-      # A command to notify about the change of the published state for a proposal.
+      # A command to notify about the change of the published status for a proposal.
       class NotifyProposalAnswer < Decidim::Command
         # Public: Initializes the command.
         #
         # proposal - The proposal to write the answer for.
-        # initial_state - The proposal state before the current process.
-        def initialize(proposal, initial_state)
+        # initial_status - The proposal status before the current process.
+        def initialize(proposal, initial_status)
           @proposal = proposal
-          @initial_state = initial_state
+          @initial_status = initial_status
         end
 
         # Executes the command. Broadcasts these events:
         #
-        # - :noop when the answer is not published or the state did not changed.
+        # - :noop when the answer is not published or the status did not changed.
         # - :ok when everything is valid.
         #
         # Returns nothing.
         def call
           return broadcast(:invalid) if proposal.blank?
 
-          if proposal.published_state? && state_changed?
+          if proposal.published_status? && status_changed?
             transaction do
               increment_score
               notify_followers
@@ -36,14 +36,14 @@ module Decidim
 
         private
 
-        attr_reader :proposal, :initial_state
+        attr_reader :proposal, :initial_status
 
-        def state_changed?
-          initial_state != proposal.state.to_s
+        def status_changed?
+          initial_status != proposal.status.to_s
         end
 
         def notify_followers
-          return if proposal.state == "not_answered"
+          return if proposal.status == "not_answered"
 
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_status_changed",
@@ -54,7 +54,7 @@ module Decidim
         end
 
         def notify_authors
-          return if proposal.state == "not_answered"
+          return if proposal.status == "not_answered"
 
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_status_changed_for_authors",
@@ -70,7 +70,7 @@ module Decidim
             proposal.coauthorships.find_each do |coauthorship|
               Decidim::Gamification.increment_score(coauthorship.author, :accepted_proposals)
             end
-          elsif initial_state == "accepted"
+          elsif initial_status == "accepted"
             proposal.coauthorships.find_each do |coauthorship|
               Decidim::Gamification.decrement_score(coauthorship.author, :accepted_proposals)
             end

@@ -16,7 +16,7 @@ module Decidim
         let(:proposal1) { create(:proposal, cost: nil, component:, proposal_status: nil) }
         let(:proposal2) { create(:proposal, cost: nil, component:, proposal_status: nil) }
         let(:proposal_status) { create(:proposal_status, component:) }
-        let(:template) { create(:template, skip_injection: true, target: :proposal_answer, templatable: component, field_values: { "proposal_state_id" => proposal_status.id }) }
+        let(:template) { create(:template, skip_injection: true, target: :proposal_answer, templatable: component, field_values: { "proposal_status_id" => proposal_status.id }) }
         let(:proposal_ids) { [proposal1.id, proposal2.id] }
         let(:params) do
           {
@@ -44,7 +44,7 @@ module Decidim
           let(:params) do
             {
               id: proposal1.id,
-              internal_state: "accepted",
+              internal_status: "accepted",
               component_id: component.id,
               participatory_process_slug: component.participatory_space.slug
             }

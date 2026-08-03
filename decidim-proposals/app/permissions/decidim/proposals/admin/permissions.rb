@@ -73,7 +73,7 @@ module Decidim
         private
 
         def proposal_status
-          @state ||= context.fetch(:proposal_status, nil)
+          @status ||= context.fetch(:proposal_status, nil)
         end
 
         def proposal

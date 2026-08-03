@@ -5,12 +5,12 @@ require "spec_helper"
 describe Decidim::Proposals::Import::ProposalAnswerCreator do
   subject { described_class.new(data, context) }
 
-  let(:proposal) { create(:proposal, state, component:) }
+  let(:proposal) { create(:proposal, status, component:) }
   let!(:moment) { Time.current }
   let(:data) do
     {
       id: proposal.id,
-      state:,
+      status:,
       "answer/en": Faker::Lorem.paragraph
     }
   end
@@ -26,7 +26,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
   end
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
-  let(:state) { %w(evaluating accepted rejected).sample }
+  let(:status) { %w(evaluating accepted rejected).sample }
 
   describe "#resource_klass" do
     it "returns the correct class" do
@@ -39,7 +39,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       expect(subject.resource_attributes).to eq(
         id: data[:id],
         "answer/en": data[:"answer/en"],
-        state: data[:state]
+        status: data[:status]
       )
     end
   end
@@ -51,7 +51,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       expect(record).to be_a(Decidim::Proposals::Proposal)
       expect(record.id).to eq(data[:id])
       expect(record.answer["en"]).to eq(data[:"answer/en"])
-      expect(record.state).to eq(data[:state])
+      expect(record.status).to eq(data[:status])
       expect(record.answered_at).to be >= (moment)
     end
 
@@ -83,9 +83,9 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       expect(log.action).to eq("answer")
     end
 
-    context "when proposal state changes" do
+    context "when proposal status changes" do
       let!(:proposal) { create(:proposal, :evaluating, component:) }
-      let(:state) { "accepted" }
+      let(:status) { "accepted" }
 
       it "returns broadcast :ok" do
         expect(subject.finish!).to eq({ ok: [] })
@@ -107,7 +107,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       let(:data) do
         {
           id: 99_999_999,
-          state:,
+          status:,
           "answer/en": Faker::Lorem.paragraph
         }
       end

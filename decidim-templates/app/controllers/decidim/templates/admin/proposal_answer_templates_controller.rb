@@ -8,7 +8,7 @@ module Decidim
         include Decidim::Paginable
         include Decidim::Proposals::Admin::NeedsInterpolations
 
-        helper_method :availability_option_as_text, :availability_options_for_select, :available_states, :proposal_state
+        helper_method :availability_option_as_text, :availability_options_for_select, :available_statuses, :proposal_status
 
         add_breadcrumb_item_from_menu :admin_template_types_menu
 
@@ -60,10 +60,10 @@ module Decidim
 
           return render json: { msg: I18n.t("templates.fetch.error", scope: "decidim.admin") }, status: :unprocessable_content if template.blank?
 
-          state = fetch_proposal_state(template)
+          status = fetch_proposal_status(template)
 
           response_object = {
-            state: state&.token,
+            status: status&.token,
             template: populate_interpolations(template.description, proposal)
           }
 
@@ -125,18 +125,18 @@ module Decidim
 
         private
 
-        def fetch_proposal_state(template)
-          available_states(template.templatable_id).find_by(id: template.field_values["proposal_state_id"])
+        def fetch_proposal_status(template)
+          available_statuses(template.templatable_id).find_by(id: template.field_values["proposal_status_id"])
         end
 
-        def proposal_state(template)
-          state = fetch_proposal_state(template)
+        def proposal_status(template)
+          status = fetch_proposal_status(template)
 
-          state ? translated_attribute(state&.title) : I18n.t("decidim.templates.admin.proposal_answer_templates.index.missing_state")
+          status ? translated_attribute(status&.title) : I18n.t("decidim.templates.admin.proposal_answer_templates.index.missing_status")
         end
 
-        def available_states(component_id = nil)
-          Decidim::Proposals::ProposalState.where(decidim_component_id: component_id)
+        def available_statuses(component_id = nil)
+          Decidim::Proposals::ProposalStatus.where(decidim_component_id: component_id)
         end
 
         def proposal

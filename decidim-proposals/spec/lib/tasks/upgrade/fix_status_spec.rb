@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "rake decidim_proposals:upgrade:fix_state", type: :task do
+describe "rake decidim_proposals:upgrade:fix_status", type: :task do
   let!(:component1) { create(:proposal_component, :with_amendments_enabled) }
   let!(:component2) { create(:proposal_component, :with_amendments_enabled) }
 
@@ -19,7 +19,7 @@ describe "rake decidim_proposals:upgrade:fix_state", type: :task do
     end
   end
 
-  context "when state equivalent exists on proposal component" do
+  context "when status equivalent exists on proposal component" do
     let(:proposal) { create(:proposal, :unpublished, component: component1) }
 
     before do
@@ -27,25 +27,25 @@ describe "rake decidim_proposals:upgrade:fix_state", type: :task do
       proposal.update!(proposal_status:)
     end
 
-    it "sets the state of the correct component" do
-      Rake::Task[:"decidim_proposals:upgrade:fix_state"].reenable
-      Rake::Task["decidim_proposals:upgrade:fix_state"].invoke
+    it "sets the status of the correct component" do
+      Rake::Task[:"decidim_proposals:upgrade:fix_status"].reenable
+      Rake::Task["decidim_proposals:upgrade:fix_status"].invoke
       proposal.reload
       expect(proposal.component.id).to eq(proposal.proposal_status.component.id)
     end
   end
 
-  context "when the proposal has a custom state" do
-    let!(:state) { create(:proposal_status, component: component2, token: :finished, title: { en: "Finished" }) }
+  context "when the proposal has a custom status" do
+    let!(:status) { create(:proposal_status, component: component2, token: :finished, title: { en: "Finished" }) }
     let(:proposal) { create(:proposal, :unpublished, component: component1) }
 
     before do
-      proposal.update!(proposal_status: state)
+      proposal.update!(proposal_status: status)
     end
 
-    it "removes the state" do
-      Rake::Task[:"decidim_proposals:upgrade:fix_state"].reenable
-      Rake::Task["decidim_proposals:upgrade:fix_state"].invoke
+    it "removes the status" do
+      Rake::Task[:"decidim_proposals:upgrade:fix_status"].reenable
+      Rake::Task["decidim_proposals:upgrade:fix_status"].invoke
       proposal.reload
       expect(proposal.proposal_status).to be_nil
     end

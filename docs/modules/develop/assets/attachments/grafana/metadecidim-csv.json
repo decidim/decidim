@@ -181,8 +181,8 @@
               "published_at": true,
               "reference": true,
               "related_proposals": true,
-              "state": true,
-              "state_published_at": true,
+              "status": true,
+              "status_published_at": true,
               "taxonomies/840/ca": true,
               "taxonomies/840/en": true,
               "taxonomies/840/es": true,
@@ -425,8 +425,8 @@
               "published_at": true,
               "reference": true,
               "related_proposals": true,
-              "state": true,
-              "state_published_at": true,
+              "status": true,
+              "status_published_at": true,
               "taxonomies/840/ca": true,
               "taxonomies/840/en": true,
               "taxonomies/840/es": true,
@@ -708,8 +708,8 @@
               "published_at": true,
               "reference": true,
               "related_proposals": true,
-              "state": true,
-              "state_published_at": true,
+              "status": true,
+              "status_published_at": true,
               "taxonomies/840/ca": true,
               "taxonomies/840/en": true,
               "taxonomies/840/es": true,
@@ -918,7 +918,7 @@
           }
         }
       ],
-      "title": "Metadecidim proposals states",
+      "title": "Metadecidim proposals statuses",
       "transformations": [
         {
           "id": "organize",
@@ -972,8 +972,8 @@
               "published_at": true,
               "reference": true,
               "related_proposals": true,
-              "state": false,
-              "state_published_at": true,
+              "status": false,
+              "status_published_at": true,
               "taxonomies/840/ca": true,
               "taxonomies/840/en": true,
               "taxonomies/840/es": true,
@@ -1025,7 +1025,7 @@
                   "id": "isNotNull",
                   "options": {}
                 },
-                "fieldName": "state"
+                "fieldName": "status"
               },
               {
                 "config": {
@@ -1034,7 +1034,7 @@
                     "value": ""
                   }
                 },
-                "fieldName": "state"
+                "fieldName": "status"
               }
             ],
             "match": "all",
@@ -1048,14 +1048,14 @@
               "left": {
                 "matcher": {
                   "id": "byName",
-                  "options": "state"
+                  "options": "status"
                 }
               },
               "operator": "/",
               "right": {
                 "matcher": {
                   "id": "byName",
-                  "options": "state"
+                  "options": "status"
                 }
               }
             },
@@ -1075,7 +1075,7 @@
                 ],
                 "operation": "aggregate"
               },
-              "state": {
+              "status": {
                 "aggregations": [],
                 "operation": "groupby"
               }

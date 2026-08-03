@@ -44,7 +44,7 @@ module Decidim
               expect { subject.call }.to broadcast(:invalid)
             end
 
-            it "does not create a proposal state" do
+            it "does not create a proposal status" do
               expect do
                 subject.call
               end.not_to change(Decidim::Proposals::ProposalStatus, :count)

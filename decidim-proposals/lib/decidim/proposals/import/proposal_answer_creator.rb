@@ -38,7 +38,7 @@ module Decidim
 
         private
 
-        attr_reader :initial_state
+        attr_reader :initial_status
 
         def resource
           @resource ||= fetch_resource
@@ -56,15 +56,15 @@ module Decidim
 
           proposal.answer = answer
           proposal.answered_at = Time.current
-          @initial_state = proposal.proposal_status
+          @initial_status = proposal.proposal_status
 
-          proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token: state).first
+          proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token: status).first
 
           if proposal_status.present?
             proposal.proposal_status = proposal_status
-            proposal.state_published_at = Time.current if component.current_settings.publish_answers_immediately?
+            proposal.status_published_at = Time.current if component.current_settings.publish_answers_immediately?
           else
-            proposal.errors.add(:state, :invalid)
+            proposal.errors.add(:status, :invalid)
           end
           proposal
         end
@@ -73,8 +73,8 @@ module Decidim
           data[:id].to_i
         end
 
-        def state
-          data[:state]
+        def status
+          data[:status]
         end
 
         def answer
@@ -94,8 +94,8 @@ module Decidim
         end
 
         def notify
-          state = initial_state || resource.try(:state)
-          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, state)
+          status = initial_status || resource.try(:status)
+          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, status)
         end
       end
     end

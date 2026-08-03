@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim::Amendable
-  # This cell renders the callout with information about the state of the emendation
+  # This cell renders the callout with information about the status of the emendation
   class AnnouncementCell < Decidim::ViewModel
     def show
       cell "decidim/announcement", announcement, callout_class:, callout_styles:
@@ -14,7 +14,7 @@ module Decidim::Amendable
     end
 
     def emendation_message
-      message(model.state, amendable_type, proposal_link, announcement_date)
+      message(model.status, amendable_type, proposal_link, announcement_date)
     end
 
     def promoted_message
@@ -25,8 +25,8 @@ module Decidim::Amendable
       %(<br><strong>#{proposal_link(proposal, text)}</strong>)
     end
 
-    def message(state, type, link = nil, date = nil)
-      t(state,
+    def message(status, type, link = nil, date = nil)
+      t(status,
         scope: "decidim.amendments.emendation.announcement",
         amendable_type: type,
         proposal_link: link,
@@ -49,14 +49,14 @@ module Decidim::Amendable
     end
 
     def callout_class
-      return "muted" if model.state.blank?
+      return "muted" if model.status.blank?
       return "alert" if model.withdrawn?
     end
 
     def callout_styles
-      return if model.state.blank? || model.withdrawn?
+      return if model.status.blank? || model.withdrawn?
 
-      model.proposal_state&.css_style
+      model.proposal_status&.css_style
     end
   end
 end

@@ -29,16 +29,16 @@ module Decidim
           end
         end
 
-        def component_states
+        def component_statuses
           enforce_permission_to :import_proposals, :projects
           component = current_participatory_space.components.find_by(id: params[:origin_id])
 
           if component
-            states = Decidim::Proposals::ProposalState
-                     .where(component:)
-                     .map { |s| { token: s.token, title: translated_attribute(s.title) } }
-            states << { token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered") }
-            render json: states
+            statuses = Decidim::Proposals::ProposalStatus
+                       .where(component:)
+                       .map { |s| { token: s.token, title: translated_attribute(s.title) } }
+            statuses << { token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered") }
+            render json: statuses
           else
             render json: []
           end

@@ -8,13 +8,13 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
   let(:component) { create(:proposal_component, :with_creation_enabled) }
   let(:organization) { component.organization }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:old_state) { create(:proposal_status, component:, token: "old_state") }
-  let(:proposal) { create(:proposal, component:, proposal_status: old_state) }
-  let(:new_state) do
+  let(:old_status) { create(:proposal_status, component:, token: "old_status") }
+  let(:proposal) { create(:proposal, component:, proposal_status: old_status) }
+  let(:new_status) do
     create(
       :proposal_status,
-      title: { en: "Custom state" },
-      token: "custom_state",
+      title: { en: "Custom status" },
+      token: "custom_status",
       component:
     )
   end
@@ -22,7 +22,7 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
   let(:attributes) do
     {
       "answer" => { "en" => "Test answer" },
-      "internal_state" => new_state.token
+      "internal_status" => new_status.token
     }
   end
 
@@ -50,20 +50,20 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
 
     it "updates the proposal answer" do
       expect(proposal.answer).to eq({ "en" => "Test answer" })
-      expect(proposal.proposal_status).to eq(new_state)
+      expect(proposal.proposal_status).to eq(new_status)
     end
 
     context "when the answer is invalid" do
       let(:attributes) do
         {
           "answer" => { "en" => "Test answer" },
-          "internal_state" => "a-state-that-does-not-exist"
+          "internal_status" => "a-status-that-does-not-exist"
         }
       end
 
       it "does not update the proposal answer" do
         expect(proposal.answer).not_to eq({ "en" => "Test answer" })
-        expect(proposal.proposal_status).not_to eq(new_state)
+        expect(proposal.proposal_status).not_to eq(new_status)
       end
     end
   end

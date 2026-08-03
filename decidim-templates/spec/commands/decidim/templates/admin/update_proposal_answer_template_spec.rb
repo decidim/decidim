@@ -15,7 +15,7 @@ module Decidim
         let(:name) { { "en" => "name" } }
         let(:description) { { "en" => "description" } }
 
-        let!(:proposal_state_id) { rand(1..10) }
+        let!(:proposal_status_id) { rand(1..10) }
 
         let(:form) do
           instance_double(
@@ -26,7 +26,7 @@ module Decidim
             current_organization: organization,
             name:,
             description:,
-            proposal_state_id:,
+            proposal_status_id:,
             component_constraint:
           )
         end
@@ -63,9 +63,9 @@ module Decidim
             expect(action_log.version).to be_present
           end
 
-          it "saves the proposal_state_id" do
+          it "saves the proposal_status_id" do
             subject.call
-            expect(template.reload.field_values["proposal_state_id"]).to eq(proposal_state_id)
+            expect(template.reload.field_values["proposal_status_id"]).to eq(proposal_status_id)
           end
 
           context "when the form has a component constraint" do

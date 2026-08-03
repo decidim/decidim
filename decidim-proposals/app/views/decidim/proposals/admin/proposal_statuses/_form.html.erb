@@ -10,14 +10,14 @@
 
       <div class="row column proposal-status__color">
         <% Decidim::Proposals::ProposalStatus.colors.each do |color_key, color_values| %>
-          <% state_id = "proposal_state_text_color_#{color_values[:foreground].delete("#").downcase}" %>
+          <% status_id = "proposal_status_text_color_#{color_values[:foreground].delete("#").downcase}" %>
           <style>
-            <%= "##{state_id}" %> {
+            <%= "##{status_id}" %> {
               box-shadow:  0 0 0 1.5px <%= color_values[:foreground] %>, 0 0 0 6px <%= color_values[:background] %>;
               accent-color: <%= color_values[:foreground] %>;
             }
 
-            <%= "##{state_id}" %>:checked  {
+            <%= "##{status_id}" %>:checked  {
               box-shadow: 0 0 0 6px <%= color_values[:foreground] %>;
             }
           </style>

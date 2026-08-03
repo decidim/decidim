@@ -13,7 +13,7 @@ module Decidim
       describe "id" do
         let(:query) { "{ id }" }
 
-        it "returns the proposal's state id" do
+        it "returns the proposal's status id" do
           expect(response["id"]).to eq(model.id.to_s)
         end
       end
@@ -21,7 +21,7 @@ module Decidim
       describe "announcement_title" do
         let(:query) { '{ announcementTitle { translation(locale: "en")}}' }
 
-        it "returns the proposal's state announcementTitle" do
+        it "returns the proposal's status announcementTitle" do
           expect(response["announcementTitle"]["translation"]).to eq(translated(model.announcement_title))
         end
       end
@@ -29,7 +29,7 @@ module Decidim
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
-        it "returns the proposal's state title" do
+        it "returns the proposal's status title" do
           expect(response["title"]["translation"]).to eq(translated(model.title))
         end
       end
@@ -37,7 +37,7 @@ module Decidim
       describe "bg_color" do
         let(:query) { "{ bgColor }" }
 
-        it "returns the proposal's state bgColor" do
+        it "returns the proposal's status bgColor" do
           expect(response["bgColor"]).to eq(model.bg_color)
         end
       end
@@ -45,7 +45,7 @@ module Decidim
       describe "text_color" do
         let(:query) { "{ textColor }" }
 
-        it "returns the proposal's state textColor" do
+        it "returns the proposal's status textColor" do
           expect(response["textColor"]).to eq(model.text_color)
         end
       end
@@ -53,7 +53,7 @@ module Decidim
       describe "proposals_count" do
         let(:query) { "{ proposalsCount }" }
 
-        it "returns the proposal's state proposalsCount" do
+        it "returns the proposal's status proposalsCount" do
           expect(response["proposalsCount"]).to eq(model.proposals_count)
         end
       end

@@ -32,12 +32,12 @@ module Decidim
         def proposals
           proposals = Decidim::Proposals::Proposal.includes(:component, :taxonomies, :coauthorships, :attachments).not_hidden.not_withdrawn.where(component: origin_component)
 
-          if @form["states"].blank?
+          if @form["statuses"].blank?
             proposals
-          elsif @form["states"].include?("not_answered")
-            proposals.not_answered.or(proposals.where(id: proposals.only_status(@form["states"]).pluck(:id)))
+          elsif @form["statuses"].include?("not_answered")
+            proposals.not_answered.or(proposals.where(id: proposals.only_status(@form["statuses"]).pluck(:id)))
           else
-            proposals.only_status(@form["states"])
+            proposals.only_status(@form["statuses"])
           end
         end
 
@@ -73,13 +73,13 @@ module Decidim
         def proposal_answer_attributes(original_proposal)
           return {} unless @form["keep_answers"]
 
-          state = Decidim::Proposals::ProposalStatus.where(component: target_component, token: original_proposal.proposal_status&.token).first
+          status = Decidim::Proposals::ProposalStatus.where(component: target_component, token: original_proposal.proposal_status&.token).first
 
           {
             answer: original_proposal.answer,
             answered_at: original_proposal.answered_at,
-            proposal_status: state,
-            state_published_at: original_proposal.state_published_at
+            proposal_status: status,
+            status_published_at: original_proposal.status_published_at
           }
         end
       end

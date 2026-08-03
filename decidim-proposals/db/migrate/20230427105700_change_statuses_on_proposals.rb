@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeStatesOnProposals < ActiveRecord::Migration[6.1]
+class ChangeStatusesOnProposals < ActiveRecord::Migration[6.1]
   class Proposal < ApplicationRecord
     self.table_name = :decidim_proposals_proposals
     STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze

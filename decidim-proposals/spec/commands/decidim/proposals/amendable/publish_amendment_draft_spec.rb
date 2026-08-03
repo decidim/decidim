@@ -24,10 +24,10 @@ module Decidim
       let(:command) { described_class.new(form) }
 
       include_examples "publish amendment draft" do
-        it "changes the emendation state" do
+        it "changes the emendation status" do
           not_answered = Decidim::Proposals::ProposalStatus.where(component:, token: "not_answered").pick(:id)
           evaluating = Decidim::Proposals::ProposalStatus.where(component:, token: "evaluating").pick(:id)
-          expect { command.call }.to change { emendation.reload[:decidim_proposals_proposal_state_id] }.from(not_answered).to(evaluating)
+          expect { command.call }.to change { emendation.reload[:decidim_proposals_proposal_status_id] }.from(not_answered).to(evaluating)
         end
       end
     end

@@ -10,7 +10,7 @@ module Decidim
       include Decidim::Proposals::ApplicationHelper
       include Decidim::LayoutHelper
 
-      delegate :state_item, to: :metadata_cell_instance
+      delegate :status_item, to: :metadata_cell_instance
 
       def show
         render

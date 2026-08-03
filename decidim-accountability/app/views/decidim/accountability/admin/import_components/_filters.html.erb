@@ -1,9 +1,9 @@
 <% if component.manifest_name == "proposals" %>
   <div class="row column">
-    <%= f.select :proposal_state_id,
-                 form.proposal_states_collection,
-                 include_blank: t(".select_state"),
-                 label: t(".proposal_state") %>
+    <%= f.select :proposal_status_id,
+                 form.proposal_statuses_collection,
+                 include_blank: t(".select_status"),
+                 label: t(".proposal_status") %>
   </div>
 <% end %>
 

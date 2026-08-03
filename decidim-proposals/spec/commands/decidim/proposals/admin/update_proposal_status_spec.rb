@@ -11,16 +11,16 @@ module Decidim
         let(:component) { create(:proposal_component) }
         let(:organization) { component.organization }
         let(:user) { create(:user, :admin, :confirmed, organization:) }
-        let(:state_params) do
+        let(:status_params) do
           {
-            title: { "en" => "Editable state" },
+            title: { "en" => "Editable status" },
             announcement_title: { "en" => "Editable announcement title" },
             token: "editable",
             bg_color: "#c4ecd0",
             text_color: "#16592e"
           }
         end
-        let!(:state) { create(:proposal_status, component:, **state_params) }
+        let!(:status) { create(:proposal_status, component:, **status_params) }
 
         let(:form) do
           form_klass.from_params(
@@ -44,7 +44,7 @@ module Decidim
 
         describe "call" do
           let(:command) do
-            described_class.new(form, state)
+            described_class.new(form, status)
           end
 
           describe "when the form is not valid" do
@@ -56,12 +56,12 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "does not update title of the proposal state" do
-              expect { command.call }.not_to change(state, :title)
+            it "does not update title of the proposal status" do
+              expect { command.call }.not_to change(status, :title)
             end
 
-            it "does not update the proposal state" do
-              expect { command.call }.not_to change(state, :token)
+            it "does not update the proposal status" do
+              expect { command.call }.not_to change(status, :token)
             end
           end
 
@@ -70,16 +70,16 @@ module Decidim
               expect { command.call }.to broadcast(:ok)
             end
 
-            it "updates the proposal state" do
+            it "updates the proposal status" do
               expect do
                 command.call
-              end.to change(state, :title)
+              end.to change(status, :title)
             end
 
             it "traces the update", versioning: true do
               expect(Decidim.traceability)
                 .to receive(:update!)
-                .with(state, user, a_kind_of(Hash))
+                .with(status, user, a_kind_of(Hash))
                 .and_call_original
 
               expect { command.call }.to change(Decidim::ActionLog, :count)
@@ -91,12 +91,12 @@ module Decidim
 
             [:title, :announcement_title, :bg_color, :text_color].each do |field|
               it "updates the #{field}" do
-                expect { command.call }.to change(state, field)
+                expect { command.call }.to change(status, field)
               end
             end
 
             it "does not updates the token" do
-              expect { command.call }.not_to change(state, :token)
+              expect { command.call }.not_to change(status, :token)
             end
           end
         end

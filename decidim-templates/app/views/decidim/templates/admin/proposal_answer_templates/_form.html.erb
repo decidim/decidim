@@ -18,10 +18,10 @@
           </ul>
         </div>
         <div class="row column">
-          <%= form.label :proposal_state_id %>
+          <%= form.label :proposal_status_id %>
           <div class="flex items-center gap-x-4 my-2">
-            <%= form.collection_radio_buttons :proposal_state_id,
-                                              available_states( form.object.component_constraint),
+            <%= form.collection_radio_buttons :proposal_status_id,
+                                              available_statuses( form.object.component_constraint),
                                               :id,
                                               lambda { |a|
                                                 translated_attribute(a.title)

@@ -3,7 +3,7 @@
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= t(".title") %>
-      <%= link_to t("actions.new_proposal_state", scope: "decidim.proposals"), new_proposal_state_path, class: "button button__sm button__secondary" if allowed_to? :create, :proposal_status %>
+      <%= link_to t("actions.new_proposal_status", scope: "decidim.proposals"), new_proposal_status_path, class: "button button__sm button__secondary" if allowed_to? :create, :proposal_status %>
     </h1>
   </div>
   <div class="table-stacked mt-16">
@@ -20,37 +20,37 @@
         </tr>
       </thead>
       <tbody>
-        <% proposal_statuses.each do |state| %>
+        <% proposal_statuses.each do |status| %>
           <tr>
             <td data-label="<%= t("models.proposal_status.title", scope: "decidim.proposals") %>">
-              <%= translated_attribute(state.title) %>
+              <%= translated_attribute(status.title) %>
             </td>
             <td data-label="<%= t("models.proposal_status.css_class", scope: "decidim.proposals") %>">
-              <strong class="label" style="<%= state.css_style %>">
-                <%= decidim_sanitize_translated(state.token) %>
+              <strong class="label" style="<%= status.css_style %>">
+                <%= decidim_sanitize_translated(status.token) %>
               </strong>
             </td>
             <td data-label="<%= t("actions.title", scope: "decidim.proposals") %>" class="table-list__actions">
-              <button type="button" data-controller="dropdown" data-target="actions-proposal-state-<%= state.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(state.title)) %>">
+              <button type="button" data-controller="dropdown" data-target="actions-proposal-status-<%= status.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(status.title)) %>">
                 <%= icon "more-fill", class: "text-secondary" %>
               </button>
 
               <div class="inline-block relative">
-                <ul id="actions-proposal-state-<%= state.id %>" class="dropdown dropdown__action" aria-hidden="true">
-                  <% if allowed_to? :update, :proposal_status, proposal_status: state %>
+                <ul id="actions-proposal-status-<%= status.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <% if allowed_to? :update, :proposal_status, proposal_status: status %>
                     <li class="dropdown__item">
-                      <%= link_to edit_proposal_state_path(state), class: "dropdown__button" do %>
+                      <%= link_to edit_proposal_status_path(status), class: "dropdown__button" do %>
                         <%= icon "pencil-line" %>
-                        <%= t("actions.edit_proposal_state", scope: "decidim.proposals") %>
+                        <%= t("actions.edit_proposal_status", scope: "decidim.proposals") %>
                       <% end %>
                     </li>
                   <% end %>
 
                   <hr>
 
-                  <% if allowed_to? :destroy, :proposal_status, proposal_status: state %>
+                  <% if allowed_to? :destroy, :proposal_status, proposal_status: status %>
                     <li class="dropdown__item">
-                      <%= link_to proposal_state_path(state), method: :delete, data: { confirm: t("actions.delete_proposal_state_confirm", scope: "decidim.proposals") }, class: "dropdown__button" do %>
+                      <%= link_to proposal_status_path(status), method: :delete, data: { confirm: t("actions.delete_proposal_status_confirm", scope: "decidim.proposals") }, class: "dropdown__button" do %>
                         <%= icon "delete-bin-line" %>
                         <%= t("actions.destroy", scope: "decidim.proposals") %>
                       <% end %>

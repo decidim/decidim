@@ -33,9 +33,9 @@ module Decidim
       field :official, GraphQL::Types::Boolean, "Whether this proposal is official or not", method: :official?, null: true
       field :participatory_text_level, GraphQL::Types::String, description: "If it is a participatory text, the level indicates the type of paragraph", null: true
       field :position, GraphQL::Types::Int, "Position of this proposal in the participatory text", null: true
-      field :proposal_status, Decidim::Proposals::ProposalStatusType, "The proposal state for this proposal", null: true
+      field :proposal_status, Decidim::Proposals::ProposalStatusType, "The proposal status for this proposal", null: true
       field :published_at, Decidim::Core::DateTimeType, description: "The date and time this proposal was published", null: true
-      field :state, GraphQL::Types::String, "The answer status in which proposal is in", null: true
+      field :status, GraphQL::Types::String, "The answer status in which proposal is in", null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title for this proposal", null: true
       field :vote_count, GraphQL::Types::Int, description: "The total amount of votes the proposal has received", null: true
       field :withdrawn, GraphQL::Types::Boolean, "Whether this proposal has been withdrawn or not", method: :withdrawn?, null: true
@@ -48,13 +48,13 @@ module Decidim
       end
 
       def answered_at
-        return unless object.published_state?
+        return unless object.published_status?
 
         object.answered_at
       end
 
       def answer
-        return unless object.published_state?
+        return unless object.published_status?
 
         object.answer
       end
@@ -64,21 +64,21 @@ module Decidim
       end
 
       def cost_report
-        return unless object.published_state?
+        return unless object.published_status?
         return unless proposal_has_costs? && current_settings.answers_with_costs?
 
         object.cost_report
       end
 
       def execution_period
-        return unless object.published_state?
+        return unless object.published_status?
         return unless proposal_has_costs? && current_settings.answers_with_costs?
 
         object.execution_period
       end
 
       def cost
-        return unless object.published_state?
+        return unless object.published_status?
         return unless proposal_has_costs? && current_settings.answers_with_costs?
 
         number_to_currency(object.cost, unit: Decidim.currency_unit)

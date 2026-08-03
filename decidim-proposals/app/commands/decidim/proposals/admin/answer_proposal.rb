@@ -35,7 +35,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :proposal, :initial_has_state_published, :initial_state
+        attr_reader :form, :proposal, :initial_has_status_published, :initial_status
 
         def answer_proposal
           Decidim.traceability.perform_action!(
@@ -50,14 +50,14 @@ module Decidim
               execution_period: form.execution_period
             }
 
-            if form.state == "not_answered"
+            if form.status == "not_answered"
               attributes[:answered_at] = nil
-              attributes[:state_published_at] = nil
+              attributes[:status_published_at] = nil
               proposal.proposal_status = nil
             else
-              proposal.assign_state(form.state)
+              proposal.assign_status(form.status)
               attributes[:answered_at] = Time.current
-              attributes[:state_published_at] = Time.current if !initial_has_state_published && form.publish_answer?
+              attributes[:status_published_at] = Time.current if !initial_has_status_published && form.publish_answer?
             end
 
             proposal.update!(attributes)
@@ -65,14 +65,14 @@ module Decidim
         end
 
         def notify_proposal_answer
-          return if !initial_has_state_published && !form.publish_answer?
+          return if !initial_has_status_published && !form.publish_answer?
 
-          NotifyProposalAnswer.call(proposal, initial_state)
+          NotifyProposalAnswer.call(proposal, initial_status)
         end
 
         def store_initial_proposal_status
-          @initial_has_state_published = proposal.published_state?
-          @initial_state = proposal.state
+          @initial_has_status_published = proposal.published_status?
+          @initial_status = proposal.status
         end
       end
     end

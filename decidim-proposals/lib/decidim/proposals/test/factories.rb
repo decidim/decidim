@@ -5,13 +5,13 @@ require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 require "decidim/meetings/test/factories"
 
-def generate_state_title(token, skip_injection: false)
+def generate_status_title(token, skip_injection: false)
   value = I18n.t(token, scope: "decidim.proposals.answers")
   Decidim::Faker::Localized.localized do
     if skip_injection
       value
     else
-      "<script>alert(\"proposal_state_title\");</script> #{value}"
+      "<script>alert(\"proposal_status_title\");</script> #{value}"
     end
   end
 end
@@ -26,7 +26,7 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, :with_steps, organization:, skip_injection:) }
 
     after :create do |proposal_component|
-      Decidim::Proposals.create_default_states!(proposal_component, nil, with_traceability: false)
+      Decidim::Proposals.create_default_statuses!(proposal_component, nil, with_traceability: false)
     end
 
     trait :with_likes_enabled do
@@ -232,29 +232,29 @@ FactoryBot.define do
       skip_injection { false }
     end
     token { :not_answered }
-    title { generate_state_title(:not_answered, skip_injection:) }
+    title { generate_status_title(:not_answered, skip_injection:) }
     announcement_title { generate_localized_title(:announcement_title, skip_injection:) }
     component { build(:proposal_component) }
     bg_color { Faker::Color.hex_color(:light) }
     text_color { Faker::Color.hex_color(:dark) }
 
     trait :evaluating do
-      title { generate_state_title(:evaluating, skip_injection:) }
+      title { generate_status_title(:evaluating, skip_injection:) }
       token { :evaluating }
     end
 
     trait :accepted do
-      title { generate_state_title(:accepted, skip_injection:) }
+      title { generate_status_title(:accepted, skip_injection:) }
       token { :accepted }
     end
 
     trait :rejected do
-      title { generate_state_title(:rejected, skip_injection:) }
+      title { generate_status_title(:rejected, skip_injection:) }
       token { :rejected }
     end
 
     trait :withdrawn do
-      title { generate_state_title(:withdrawn, skip_injection:) }
+      title { generate_status_title(:withdrawn, skip_injection:) }
       token { :withdrawn }
     end
   end
@@ -263,7 +263,7 @@ FactoryBot.define do
     transient do
       users { nil }
       skip_injection { false }
-      state { :not_answered }
+      status { :not_answered }
     end
 
     title { generate_localized_title(:proposal_title, skip_injection:) }
@@ -280,12 +280,12 @@ FactoryBot.define do
 
     after(:build) do |proposal, evaluator|
       if proposal.component
-        existing_states = Decidim::Proposals::ProposalStatus.where(component: proposal.component)
+        existing_statuses = Decidim::Proposals::ProposalStatus.where(component: proposal.component)
 
-        Decidim::Proposals.create_default_states!(proposal.component, nil, with_traceability: false) unless existing_states.any?
+        Decidim::Proposals.create_default_statuses!(proposal.component, nil, with_traceability: false) unless existing_statuses.any?
       end
 
-      proposal.assign_state(evaluator.state)
+      proposal.assign_status(evaluator.status)
 
       proposal.title = if evaluator.title.is_a?(String)
                          { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
@@ -341,21 +341,21 @@ FactoryBot.define do
     end
 
     trait :evaluating do
-      state { :evaluating }
+      status { :evaluating }
       answered_at { Time.current }
-      state_published_at { Time.current }
+      status_published_at { Time.current }
     end
 
     trait :accepted do
-      state { :accepted }
+      status { :accepted }
       answered_at { Time.current }
-      state_published_at { Time.current }
+      status_published_at { Time.current }
     end
 
     trait :rejected do
-      state { :rejected }
+      status { :rejected }
       answered_at { Time.current }
-      state_published_at { Time.current }
+      status_published_at { Time.current }
     end
 
     trait :withdrawn do
@@ -363,21 +363,21 @@ FactoryBot.define do
     end
 
     trait :accepted_not_published do
-      state { :accepted }
+      status { :accepted }
       answer { generate_localized_title }
       answered_at { Time.current }
-      state_published_at { nil }
+      status_published_at { nil }
     end
 
     trait :with_answer do
-      state { :accepted }
+      status { :accepted }
       answer { generate_localized_title }
       answered_at { Time.current }
-      state_published_at { Time.current }
+      status_published_at { Time.current }
     end
 
     trait :not_answered do
-      state { :not_answered }
+      status { :not_answered }
     end
 
     trait :draft do

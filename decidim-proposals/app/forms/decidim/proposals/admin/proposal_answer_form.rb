@@ -13,11 +13,11 @@ module Decidim
         translatable_attribute :cost_report, Decidim::Attributes::RichText
         translatable_attribute :execution_period, Decidim::Attributes::RichText
         attribute :cost, Float
-        attribute :internal_state, String
+        attribute :internal_status, String
 
-        validates :internal_state, presence: true, inclusion: { in: :proposal_statuses }
+        validates :internal_status, presence: true, inclusion: { in: :proposal_statuses }
 
-        alias state internal_state
+        alias status internal_status
 
         def publish_answer?
           current_component.current_settings.publish_answers_immediately?

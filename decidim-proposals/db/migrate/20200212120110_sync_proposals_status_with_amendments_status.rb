@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SyncProposalsStateWithAmendmentsState < ActiveRecord::Migration[5.2]
+class SyncProposalsStatusWithAmendmentsStatus < ActiveRecord::Migration[5.2]
   def up
     execute <<~SQL.squish
       UPDATE decidim_proposals_proposals AS proposals

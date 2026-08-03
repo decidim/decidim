@@ -28,10 +28,10 @@ module Decidim
       let(:form) { Decidim::Amendable::ReviewForm.from_params(form_params) }
 
       include_examples "accept amendment" do
-        it "changes the emendation state" do
+        it "changes the emendation status" do
           not_answered = Decidim::Proposals::ProposalStatus.where(component:, token: "not_answered").pick(:id)
           accepted = Decidim::Proposals::ProposalStatus.where(component:, token: "accepted").pick(:id)
-          expect { command.call }.to change { emendation.reload[:decidim_proposals_proposal_state_id] }.from(not_answered).to(accepted)
+          expect { command.call }.to change { emendation.reload[:decidim_proposals_proposal_status_id] }.from(not_answered).to(accepted)
         end
       end
     end

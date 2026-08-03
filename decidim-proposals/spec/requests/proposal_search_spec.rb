@@ -72,11 +72,11 @@ RSpec.describe "Proposal search" do
     end
   end
 
-  context "when searching by state" do
-    let(:filter_params) { { with_any_state: states } }
+  context "when searching by status" do
+    let(:filter_params) { { with_any_status: statuses } }
 
     context "and the status is empty or default" do
-      let(:states) { [] }
+      let(:statuses) { [] }
 
       it "displays all except withdrawn proposals" do
         expect(subject).to have_escaped_html(translated(proposal1.title))
@@ -89,8 +89,8 @@ RSpec.describe "Proposal search" do
       end
     end
 
-    context "and the status is accepted, evaluating or state_not_published" do
-      let(:states) { %w(accepted evaluating state_not_published) }
+    context "and the status is accepted, evaluating or status_not_published" do
+      let(:statuses) { %w(accepted evaluating status_not_published) }
 
       it "does not display withdrawn or rejected proposals" do
         expect(subject).to have_escaped_html(translated(proposal1.title))
@@ -104,7 +104,7 @@ RSpec.describe "Proposal search" do
     end
 
     context "and the status is accepted" do
-      let(:states) { %w(accepted) }
+      let(:statuses) { %w(accepted) }
 
       it "displays only accepted proposals" do
         expect(subject).not_to have_escaped_html(translated(proposal1.title))
@@ -118,7 +118,7 @@ RSpec.describe "Proposal search" do
     end
 
     context "and the status is rejected" do
-      let(:states) { %w(rejected) }
+      let(:statuses) { %w(rejected) }
 
       it "displays only rejected proposals" do
         expect(subject).not_to have_escaped_html(translated(proposal1.title))

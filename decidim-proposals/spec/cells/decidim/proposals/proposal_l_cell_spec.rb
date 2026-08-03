@@ -35,7 +35,7 @@ module Decidim::Proposals
       end
 
       context "and is a proposal" do
-        it "renders the proposal state (nil by default)" do
+        it "renders the proposal status (nil by default)" do
           expect(subject).to have_no_css("span.label")
         end
       end
@@ -62,9 +62,9 @@ module Decidim::Proposals
           expect(subject).to have_css("div.card__list-metadata div", text: "Amendment")
         end
 
-        it "renders the emendation state (evaluating by default)" do
+        it "renders the emendation status (evaluating by default)" do
           expect(subject).to have_css(".warning")
-          expect(subject).to have_css("span.label", text: emendation.state.capitalize)
+          expect(subject).to have_css("span.label", text: emendation.status.capitalize)
         end
       end
     end

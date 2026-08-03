@@ -12,7 +12,7 @@
 
   <% unless current_settings.publish_answers_immediately? %>
     <th>
-      <%= sort_link(query, :state_published, t("models.proposal.fields.published_answer", scope: "decidim.proposals") ) %>
+      <%= sort_link(query, :status_published, t("models.proposal.fields.published_answer", scope: "decidim.proposals") ) %>
     </th>
   <% end %>
 
@@ -37,7 +37,7 @@
   </th>
 
   <th>
-    <%= t("models.proposal.fields.state", scope: "decidim.proposals") %>
+    <%= t("models.proposal.fields.status", scope: "decidim.proposals") %>
   </th>
 
   <th><%= t("actions.title", scope: "decidim.proposals") %></th>

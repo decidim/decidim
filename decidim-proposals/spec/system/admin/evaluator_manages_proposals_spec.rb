@@ -73,10 +73,10 @@ describe "Evaluator manages proposals" do
     end
 
     context "when answering a proposal" do
-      shared_examples "can change state" do |state|
+      shared_examples "can change status" do |status|
         it "can answer proposals" do
           within "form.edit_proposal_answer" do
-            choose state
+            choose status
             fill_in_i18n_editor(
               :proposal_answer_answer,
               "#proposal_answer-answer-tabs",
@@ -88,28 +88,28 @@ describe "Evaluator manages proposals" do
         end
       end
 
-      include_examples "can change state", "Accepted"
+      include_examples "can change status", "Accepted"
 
-      context "when there are custom states involved" do
-        let(:state_params) do
+      context "when there are custom statuses involved" do
+        let(:status_params) do
           {
-            title: { en: "Custom state" },
-            token: "custom_state",
+            title: { en: "Custom status" },
+            token: "custom_status",
             bg_color: "#ffeebd",
             text_color: "#ad4910"
           }
         end
-        let!(:custom_state) { create(:proposal_status, **state_params, component: current_component) }
+        let!(:custom_status) { create(:proposal_status, **status_params, component: current_component) }
 
         before do
           visit current_path
         end
 
-        it "successfully displays the new state" do
-          expect(page).to have_text("Custom state")
+        it "successfully displays the new status" do
+          expect(page).to have_text("Custom status")
         end
 
-        include_examples "can change state", "Custom state"
+        include_examples "can change status", "Custom status"
       end
     end
   end

@@ -21,7 +21,7 @@ module Decidim
 
         let(:form_params) do
           {
-            internal_state: "rejected",
+            internal_status: "rejected",
             answer: { en: "Foo" },
             cost: 2000,
             cost_report: { en: "Cost report" },
@@ -34,11 +34,11 @@ module Decidim
         end
 
         it "publish the proposal answer" do
-          expect { subject }.to change { proposal.reload.published_state? }.to(true)
+          expect { subject }.to change { proposal.reload.published_status? }.to(true)
         end
 
-        it "changes the proposal state" do
-          expect { subject }.to change { proposal.reload.state }.to("rejected")
+        it "changes the proposal status" do
+          expect { subject }.to change { proposal.reload.status }.to("rejected")
         end
 
         it "traces the action", versioning: true do
@@ -54,7 +54,7 @@ module Decidim
         end
 
         it "notifies the proposal answer" do
-          expect(proposal.internal_state).to eq("not_answered")
+          expect(proposal.internal_status).to eq("not_answered")
           expect(NotifyProposalAnswer)
             .to receive(:call)
             .with(proposal, nil)
@@ -71,8 +71,8 @@ module Decidim
             expect { subject }.to broadcast(:invalid)
           end
 
-          it "does not change the proposal state" do
-            expect { subject }.not_to(change { proposal.reload.state })
+          it "does not change the proposal status" do
+            expect { subject }.not_to(change { proposal.reload.status })
           end
         end
 
@@ -83,8 +83,8 @@ module Decidim
             expect { subject }.to broadcast(:ok)
           end
 
-          it "changes the proposal state" do
-            expect { subject }.to change { proposal.reload.state }.to("rejected")
+          it "changes the proposal status" do
+            expect { subject }.to change { proposal.reload.status }.to("rejected")
           end
 
           it "notifies the proposal new answer" do
@@ -106,12 +106,12 @@ module Decidim
             expect { subject }.to broadcast(:ok)
           end
 
-          it "changes the proposal internal state" do
-            expect { subject }.to change { proposal.reload.internal_state }.to("rejected")
+          it "changes the proposal internal status" do
+            expect { subject }.to change { proposal.reload.internal_status }.to("rejected")
           end
 
           it "does not publish the proposal answer" do
-            expect { subject }.not_to change { proposal.reload.published_state? }.from(false)
+            expect { subject }.not_to change { proposal.reload.published_status? }.from(false)
           end
 
           it "does not notify the proposal answer" do
@@ -137,7 +137,7 @@ module Decidim
 
             let(:form_params) do
               {
-                internal_state:,
+                internal_status:,
                 answer: { en: "Example answer" },
                 cost: 2000,
                 cost_report: { en: "Example report" },
@@ -149,19 +149,19 @@ module Decidim
           end
 
           include_context "with correct user scoping in notification digest mail" do
-            let(:internal_state) { "accepted" }
+            let(:internal_status) { "accepted" }
 
             it_behaves_like "when sends the notification digest"
           end
 
           include_context "with correct user scoping in notification digest mail" do
-            let(:internal_state) { "rejected" }
+            let(:internal_status) { "rejected" }
 
             it_behaves_like "when sends the notification digest"
           end
 
           include_context "with correct user scoping in notification digest mail" do
-            let(:internal_state) { "evaluating" }
+            let(:internal_status) { "evaluating" }
 
             it_behaves_like "when sends the notification digest"
           end

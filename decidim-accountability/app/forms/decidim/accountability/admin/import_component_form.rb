@@ -10,7 +10,7 @@ module Decidim
         include Decidim::HasTaxonomyFormAttributes
 
         attribute :origin_component_id, Integer
-        attribute :proposal_state_id, Integer
+        attribute :proposal_status_id, Integer
 
         validates :origin_component_id, presence: true
         validates :filtered_items_count, numericality: { greater_than: 0 }, if: ->(form) { form.origin_component_id }
@@ -29,9 +29,9 @@ module Decidim
           end
         end
 
-        def proposal_states_collection
-          Decidim::Proposals::ProposalState.where(component: origin_component).map do |state|
-            [translated_attribute(state.title), state.id]
+        def proposal_statuses_collection
+          Decidim::Proposals::ProposalStatus.where(component: origin_component).map do |status|
+            [translated_attribute(status.title), status.id]
           end
         end
 
@@ -69,7 +69,7 @@ module Decidim
 
         def filtered_proposals
           scope = Decidim::Proposals::Proposal.where(component: origin_component).not_hidden
-          scope = scope.where(decidim_proposals_proposal_state_id: proposal_state_id) if proposal_state_id
+          scope = scope.where(decidim_proposals_proposal_status_id: proposal_status_id) if proposal_status_id
           scope = filter_taxonomies(scope)
           scope.reject { |proposal| proposal_already_copied?(proposal) }
         end

@@ -8,9 +8,9 @@ module Decidim
       describe NotifyProposalAnswer do
         subject { command.call }
 
-        let(:command) { described_class.new(proposal, initial_state) }
+        let(:command) { described_class.new(proposal, initial_status) }
         let!(:proposal) { create(:proposal, :accepted) }
-        let(:initial_state) { "not_answered" }
+        let(:initial_status) { "not_answered" }
         let(:current_user) { create(:user, :admin) }
         let(:follow) { create(:follow, followable: proposal, user: follower) }
         let(:follower) { create(:user, organization: proposal.organization) }
@@ -32,7 +32,7 @@ module Decidim
           expect(Decidim::EventsManager)
             .to receive(:publish)
             .with(
-              event: "decidim.events.proposals.proposal_state_changed",
+              event: "decidim.events.proposals.proposal_status_changed",
               event_class: Decidim::Proposals::ProposalStatusChangedEvent,
               resource: proposal,
               followers: contain_exactly(follower)
@@ -46,7 +46,7 @@ module Decidim
             .to receive(:publish)
             .with(
               hash_including(
-                event: "decidim.events.proposals.proposal_state_changed_for_authors",
+                event: "decidim.events.proposals.proposal_status_changed_for_authors",
                 event_class: Decidim::Proposals::ProposalStatusChangedEvent,
                 resource: proposal,
                 affected_users: proposal.authors,
@@ -63,7 +63,7 @@ module Decidim
 
         context "when the proposal is rejected after being accepted" do
           let(:proposal) { create(:proposal, :rejected) }
-          let(:initial_state) { "accepted" }
+          let(:initial_status) { "accepted" }
 
           it "broadcasts ok" do
             expect { subject }.to broadcast(:ok)
@@ -73,7 +73,7 @@ module Decidim
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
-                event: "decidim.events.proposals.proposal_state_changed",
+                event: "decidim.events.proposals.proposal_status_changed",
                 event_class: Decidim::Proposals::ProposalStatusChangedEvent,
                 resource: proposal,
                 followers: contain_exactly(follower)
@@ -88,7 +88,7 @@ module Decidim
                 .to receive(:publish)
                 .with(
                   hash_including(
-                    event: "decidim.events.proposals.proposal_state_changed_for_authors",
+                    event: "decidim.events.proposals.proposal_status_changed_for_authors",
                     event_class: Decidim::Proposals::ProposalStatusChangedEvent,
                     resource: proposal,
                     affected_users: match_array(proposal.authors),
@@ -106,8 +106,8 @@ module Decidim
         end
 
         context "when the proposal is not answered after being accepted" do
-          let(:proposal) { create(:proposal, answered_at: Time.current, state_published_at: Time.current) }
-          let(:initial_state) { "accepted" }
+          let(:proposal) { create(:proposal, answered_at: Time.current, status_published_at: Time.current) }
+          let(:initial_status) { "accepted" }
 
           it "broadcasts ok" do
             expect { subject }.to broadcast(:ok)
@@ -125,8 +125,8 @@ module Decidim
           end
         end
 
-        context "when the proposal published state has not changed" do
-          let(:initial_state) { "accepted" }
+        context "when the proposal published status has not changed" do
+          let(:initial_status) { "accepted" }
 
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
@@ -145,7 +145,7 @@ module Decidim
         end
 
         context "when the proposal is nil" do
-          let(:command) { described_class.new(nil, initial_state) }
+          let(:command) { described_class.new(nil, initial_status) }
 
           it "broadcasts invalid" do
             expect { subject }.to broadcast(:invalid)

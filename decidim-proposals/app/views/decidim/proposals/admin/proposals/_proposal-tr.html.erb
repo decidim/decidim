@@ -1,7 +1,7 @@
 
 <tr data-id="<%= proposal.id %>"
     data-allow-answer="<%= allowed_to?(:create, :proposal_answer, proposal:) && !proposal.emendation? %>"
-    <%= "data-published-state=false" if proposal.answered? && !proposal.published_state? %>>
+    <%= "data-published-status=false" if proposal.answered? && !proposal.published_status? %>>
   <td data-label="">
     <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check js-proposal-id-#{proposal.id}" %><br>
   </td>
@@ -27,7 +27,7 @@
   <% unless current_settings.publish_answers_immediately? %>
     <td data-label="<%= t("models.proposal.fields.published_answer", scope: "decidim.proposals") %>">
       <% if proposal.answered? && !proposal.emendation? %>
-        <%= humanize_boolean proposal.published_state? %>
+        <%= humanize_boolean proposal.published_status? %>
       <% else %>
         -
       <% end %>
@@ -54,10 +54,10 @@
     <%= proposal.evaluation_assignments_count %>
   </td>
 
-  <td data-label="<%= t("models.proposal.fields.state", scope: "decidim.proposals") %>">
+  <td data-label="<%= t("models.proposal.fields.status", scope: "decidim.proposals") %>">
     <strong class="label <%= proposal_status_css_class proposal %>" style="<%= proposal_status_css_style proposal %>">
       <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
-      <%= proposal_complete_state proposal %>
+      <%= proposal_complete_status proposal %>
     </strong>
   </td>
 

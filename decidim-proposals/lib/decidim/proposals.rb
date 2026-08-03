@@ -39,7 +39,7 @@ module Decidim
     # process_group_highlighted_elements view hook
     mattr_accessor :process_group_highlighted_proposals_limit, default: Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
 
-    def self.proposal_states_colors
+    def self.proposal_statuses_colors
       {
         gray: {
           background: "#F6F8FA",
@@ -84,11 +84,11 @@ module Decidim
       }
     end
 
-    def self.create_default_states!(component, admin_user, with_traceability: true)
-      colors = Decidim::Proposals.proposal_states_colors
+    def self.create_default_statuses!(component, admin_user, with_traceability: true)
+      colors = Decidim::Proposals.proposal_statuses_colors
 
       locale = Decidim.default_locale
-      default_states = {
+      default_statuses = {
         evaluating: {
           token: :evaluating,
           bg_color: colors[:orange][:background],
@@ -111,16 +111,16 @@ module Decidim
           title: { locale => I18n.with_locale(locale) { I18n.t(:rejected, scope: "decidim.proposals.answers") } }
         }
       }
-      default_states.each_key do |key|
-        default_states[key][:object] = if with_traceability
-                                         Decidim.traceability.create(
-                                           Decidim::Proposals::ProposalStatus, admin_user, component:, **default_states[key]
-                                         )
-                                       else
-                                         Decidim::Proposals::ProposalStatus.create(component:, **default_states[key])
-                                       end
+      default_statuses.each_key do |key|
+        default_statuses[key][:object] = if with_traceability
+                                           Decidim.traceability.create(
+                                             Decidim::Proposals::ProposalStatus, admin_user, component:, **default_statuses[key]
+                                           )
+                                         else
+                                           Decidim::Proposals::ProposalStatus.create(component:, **default_statuses[key])
+                                         end
       end
-      default_states
+      default_statuses
     end
   end
 

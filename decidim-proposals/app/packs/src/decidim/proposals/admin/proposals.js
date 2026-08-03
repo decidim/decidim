@@ -15,7 +15,7 @@ document.addEventListener("turbo:load", () => {
   }
 
   const selectedProposalsNotPublishedAnswerCount = function() {
-    return $(".table-list [data-published-state=false] .js-check-all-proposal:checked").length
+    return $(".table-list [data-published-status=false] .js-check-all-proposal:checked").length
   }
 
   const selectedProposalsAllowsAnswerCount = function() {

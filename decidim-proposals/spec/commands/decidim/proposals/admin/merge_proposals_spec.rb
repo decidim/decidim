@@ -173,7 +173,7 @@ module Decidim
               expect(new_proposal.creator_author).to eq(current_component.organization)
               expect(new_proposal.taxonomies).to eq(proposal.taxonomies)
 
-              expect(new_proposal.state).to be_nil
+              expect(new_proposal.status).to be_nil
               expect(new_proposal.answer).to be_nil
               expect(new_proposal.answered_at).to be_nil
               expect(new_proposal.reference).not_to eq(proposal.reference)

@@ -91,7 +91,7 @@ module Decidim
         end
 
         def answer_form(proposal)
-          form(ProposalAnswerForm).from_params(answer: populate_interpolations(template&.description, proposal), internal_state: proposal_status&.token)
+          form(ProposalAnswerForm).from_params(answer: populate_interpolations(template&.description, proposal), internal_status: proposal_status&.token)
         end
 
         def proposal_status

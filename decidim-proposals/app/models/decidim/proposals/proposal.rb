@@ -32,7 +32,7 @@ module Decidim
       include Decidim::SoftDeletable
       include Decidim::Publicable
 
-      def assign_state(token)
+      def assign_status(token)
         proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token:).first
 
         self.proposal_status = proposal_status
@@ -77,19 +77,19 @@ module Decidim
         joins(:proposal_status).where(decidim_proposals_proposal_statuses: { token: status })
       }
 
-      scope :accepted, -> { state_published.only_status(:accepted) }
-      scope :rejected, -> { state_published.only_status(:rejected) }
-      scope :evaluating, -> { state_published.only_status(:evaluating) }
+      scope :accepted, -> { status_published.only_status(:accepted) }
+      scope :rejected, -> { status_published.only_status(:rejected) }
+      scope :evaluating, -> { status_published.only_status(:evaluating) }
 
       scope :gamified, -> { only_status(:accepted).where(decidim_proposals_proposal_statuses: { gamified: true }) }
 
       scope :answered, -> { where.not(answered_at: nil) }
       scope :not_answered, -> { where(answered_at: nil) }
 
-      scope :state_not_published, -> { where(state_published_at: nil) }
-      scope :state_published, -> { where.not(state_published_at: nil) }
+      scope :status_not_published, -> { where(status_published_at: nil) }
+      scope :status_published, -> { where.not(status_published_at: nil) }
 
-      scope :except_rejected, -> { state_published.not_status(:rejected).or(state_not_published) }
+      scope :except_rejected, -> { status_published.not_status(:rejected).or(status_not_published) }
 
       scope :withdrawn, -> { where.not(withdrawn_at: nil) }
       scope :not_withdrawn, -> { where(withdrawn_at: nil) }
@@ -97,8 +97,8 @@ module Decidim
       scope :drafts, -> { where(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
 
-      scope :with_availability, lambda { |state_key|
-        case state_key
+      scope :with_availability, lambda { |status_key|
+        case status_key
         when "withdrawn"
           withdrawn
         else
@@ -129,15 +129,15 @@ module Decidim
         order(evaluation_assignments_count: :desc)
       }
 
-      scope :state_eq, lambda { |state|
-        return withdrawn if state == "withdrawn"
+      scope :status_eq, lambda { |status|
+        return withdrawn if status == "withdrawn"
 
-        only_status(state)
+        only_status(status)
       }
 
-      scope :with_any_state, lambda { |*value_keys|
-        possible_scopes = [:state_not_published, :state_published]
-        custom_states = Decidim::Proposals::ProposalStatus.distinct.pluck(:token)
+      scope :with_any_status, lambda { |*value_keys|
+        possible_scopes = [:status_not_published, :status_published]
+        custom_statuses = Decidim::Proposals::ProposalStatus.distinct.pluck(:token)
 
         search_values = value_keys.compact.compact_blank
 
@@ -145,8 +145,8 @@ module Decidim
           search_values.member?(scope.to_s) ? try(scope) : nil
         end.compact
 
-        additional_conditions = search_values & custom_states
-        conditions.push(state_published.only_status(additional_conditions)) if additional_conditions.any?
+        additional_conditions = search_values & custom_statuses
+        conditions.push(status_published.only_status(additional_conditions)) if additional_conditions.any?
 
         return self unless conditions.any?
 
@@ -261,30 +261,30 @@ module Decidim
         ProposalVote.where(proposal: self, author: user).any?
       end
 
-      # Public: Returns the published state of the proposal.
+      # Public: Returns the published status of the proposal.
       #
       # Returns Boolean.
-      def state
+      def status
         return amendment.state if emendation?
-        return nil unless published_state? || withdrawn?
+        return nil unless published_status? || withdrawn?
 
         proposal_status&.token || "not_answered"
       end
 
-      # Public: Returns the internal state of the proposal.
+      # Public: Returns the internal status of the proposal.
       #
       # Returns Boolean.
-      def internal_state
+      def internal_status
         return amendment.state if emendation?
 
         proposal_status&.token || "not_answered"
       end
 
-      # Public: Checks if the organization has published the state for the proposal.
+      # Public: Checks if the organization has published the status for the proposal.
       #
       # Returns Boolean.
-      def published_state?
-        emendation? || state_published_at.present?
+      def published_status?
+        emendation? || status_published_at.present?
       end
 
       # Public: Checks if the organization has given an answer for the proposal.
@@ -305,21 +305,21 @@ module Decidim
       #
       # Returns Boolean.
       def accepted?
-        state == "accepted"
+        status == "accepted"
       end
 
       # Public: Checks if the organization has rejected a proposal.
       #
       # Returns Boolean.
       def rejected?
-        state == "rejected"
+        status == "rejected"
       end
 
       # Public: Checks if the organization has marked the proposal as evaluating it.
       #
       # Returns Boolean.
       def evaluating?
-        state == "evaluating"
+        status == "evaluating"
       end
 
       # Returns the presenter for this author, to be used in the views.
@@ -381,7 +381,7 @@ module Decidim
       def editable_by?(user)
         return true if draft? && created_by?(user)
 
-        !published_state? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
+        !published_status? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 
       # Checks whether the user can withdraw the given proposal.
@@ -419,7 +419,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies, :evaluator_role_ids_has]
+        [:with_any_origin, :with_any_status, :status_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies, :evaluator_role_ids_has]
       end
 
       # Create i18n ransackers for :title and :body.
@@ -432,7 +432,7 @@ module Decidim
         %w(
           id_string search_text title translated_title body is_emendation
           comments_count proposal_votes_count published_at proposal_notes_count
-          state_published evaluation_assignments_count
+          status_published evaluation_assignments_count
         )
       end
 
@@ -440,15 +440,15 @@ module Decidim
         %w(taxonomies proposal_status)
       end
 
-      ransacker :state_published do
+      ransacker :status_published do
         Arel.sql("CASE
           WHEN EXISTS (
             SELECT 1 FROM decidim_amendments
             WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
             AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
           ) THEN 0
-          WHEN state_published_at IS NULL AND answered_at IS NOT NULL THEN 2
-          WHEN state_published_at IS NOT NULL THEN 1
+          WHEN status_published_at IS NULL AND answered_at IS NOT NULL THEN 2
+          WHEN status_published_at IS NOT NULL THEN 1
           ELSE 0 END
         ")
       end
@@ -521,8 +521,8 @@ module Decidim
         return unless %w(accepted rejected evaluating).member?(amendment.state)
 
         PaperTrail.request(enabled: false) do
-          assign_state(amendment.state)
-          update!(state_published_at: Time.current)
+          assign_status(amendment.state)
+          update!(status_published_at: Time.current)
         end
       end
 

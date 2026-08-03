@@ -10,14 +10,14 @@
   <div class="<%= classes[:text] %>">
     <div class="card__grid-text-title">
       <%= content_tag title_tag, title, class: title_class %>
-      <%= state_item[:text] if state_item.present? %>
+      <%= status_item[:text] if status_item.present? %>
     </div>
 
     <%= description if show_description? %>
 
     <% if metadata_cell.present? %>
       <div class="<%= classes[:metadata] %>">
-        <%= cell metadata_cell, resource, links: false, skip_state: true, **options %>
+        <%= cell metadata_cell, resource, links: false, skip_status: true, **options %>
       </div>
     <% end %>
   </div>

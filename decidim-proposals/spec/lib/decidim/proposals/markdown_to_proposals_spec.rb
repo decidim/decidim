@@ -11,7 +11,7 @@ module Decidim
         proposals
       end
 
-      def should_have_expected_states(proposal)
+      def should_have_expected_statuses(proposal)
         expect(proposal.draft?).to be true
         expect(proposal.official?).to be true
       end
@@ -39,7 +39,7 @@ module Decidim
             expect(translated(proposal.body)).to eq(title)
             expect(proposal.position).to eq(1)
             expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:section])
-            should_have_expected_states(proposal)
+            should_have_expected_statuses(proposal)
           end
         end
 
@@ -61,7 +61,7 @@ module Decidim
               expect(proposal.position).to eq(expected_pos)
               expected_pos += 1
               expect(proposal.participatory_text_level).to eq("sub-section")
-              should_have_expected_states(proposal)
+              should_have_expected_statuses(proposal)
             end
           end
         end
@@ -83,7 +83,7 @@ module Decidim
           expect(translated(proposal.body)).to eq(paragraph)
           expect(proposal.position).to eq(1)
           expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
-          should_have_expected_states(proposal)
+          should_have_expected_statuses(proposal)
         end
       end
 
@@ -105,7 +105,7 @@ module Decidim
           expect(translated(proposal.body)).to eq(paragraph)
           expect(proposal.position).to eq(1)
           expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
-          should_have_expected_states(proposal)
+          should_have_expected_statuses(proposal)
         end
       end
 
@@ -125,7 +125,7 @@ module Decidim
           expect(translated(proposal.body)).to eq(paragraph)
           expect(proposal.position).to eq(1)
           expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
-          should_have_expected_states(proposal)
+          should_have_expected_statuses(proposal)
         end
       end
 
@@ -175,7 +175,7 @@ module Decidim
           expect(translated(proposal.body)).to eq(paragraph.strip)
           expect(proposal.position).to eq(1)
           expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
-          should_have_expected_states(proposal)
+          should_have_expected_statuses(proposal)
         end
       end
 

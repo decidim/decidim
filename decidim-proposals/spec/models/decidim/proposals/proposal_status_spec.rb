@@ -37,7 +37,7 @@ module Decidim
       end
 
       context "when destroying" do
-        it "destroys the proposal state" do
+        it "destroys the proposal status" do
           proposal_status.destroy
           expect { proposal_status.reload }.to raise_error(ActiveRecord::RecordNotFound)
         end

@@ -9,7 +9,7 @@ module Decidim
         protected
 
         def required_headers
-          %w(id state) + required_localized_headers("answer")
+          %w(id status) + required_localized_headers("answer")
         end
 
         # Check if prepared resource is valid
