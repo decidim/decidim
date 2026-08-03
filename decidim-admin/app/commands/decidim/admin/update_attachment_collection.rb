@@ -47,7 +47,7 @@ module Decidim
           name: form.name,
           weight: form.weight,
           description: form.description,
-          key: form.key.presence&.strip
+          key: form.key
         }
       end
     end

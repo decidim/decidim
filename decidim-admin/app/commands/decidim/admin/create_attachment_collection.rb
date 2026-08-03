@@ -49,7 +49,7 @@ module Decidim
           weight: form.weight,
           description: form.description,
           collection_for: @collection_for,
-          key: form.key.presence&.strip
+          key: form.key
         }
       end
     end
