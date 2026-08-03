@@ -26,7 +26,7 @@ shared_examples "API uploadable file" do
     end
   end
 
-  context "when content type is not supported" do
+  context "when client-reported content type differs from actual file content" do
     let!(:tempfile) { Tempfile.create(["foo", ".jpg"]) }
     let(:file) do
       Rack::Multipart::UploadedFile.new(
@@ -36,8 +36,8 @@ shared_examples "API uploadable file" do
       )
     end
 
-    it "raises execution error" do
-      expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, /File type is not supported./)
+    it "uploads the file using Marcel-detected content type" do
+      expect { response }.to change(ActiveStorage::Blob, :count).by(1)
     end
   end
 

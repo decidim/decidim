@@ -74,7 +74,8 @@ module Decidim
       end
 
       def detect_content_type(file)
-        file.content_type || Marcel::MimeType.for(file.tempfile, name: File.basename(file.original_filename))
+        tempfile = file.respond_to?(:tempfile) ? file.tempfile : file.path
+        Marcel::MimeType.for(tempfile, name: File.basename(file.original_filename)) || file.content_type
       end
     end
   end
