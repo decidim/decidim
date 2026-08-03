@@ -70,18 +70,18 @@ module Decidim
       geocoded_by :address
 
       scope :not_status, lambda { |status|
-        joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: status })
+        joins(:proposal_state).where.not(decidim_proposals_proposal_statuses: { token: status })
       }
 
       scope :only_status, lambda { |status|
-        joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status })
+        joins(:proposal_state).where(decidim_proposals_proposal_statuses: { token: status })
       }
 
       scope :accepted, -> { state_published.only_status(:accepted) }
       scope :rejected, -> { state_published.only_status(:rejected) }
       scope :evaluating, -> { state_published.only_status(:evaluating) }
 
-      scope :gamified, -> { only_status(:accepted).where(decidim_proposals_proposal_states: { gamified: true }) }
+      scope :gamified, -> { only_status(:accepted).where(decidim_proposals_proposal_statuses: { gamified: true }) }
 
       scope :answered, -> { where.not(answered_at: nil) }
       scope :not_answered, -> { where(answered_at: nil) }

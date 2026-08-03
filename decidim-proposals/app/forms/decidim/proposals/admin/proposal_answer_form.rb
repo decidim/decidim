@@ -15,7 +15,7 @@ module Decidim
         attribute :cost, Float
         attribute :internal_state, String
 
-        validates :internal_state, presence: true, inclusion: { in: :proposal_states }
+        validates :internal_state, presence: true, inclusion: { in: :proposal_statuses }
 
         alias state internal_state
 
@@ -25,7 +25,7 @@ module Decidim
 
         private
 
-        def proposal_states
+        def proposal_statuses
           Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s) + ["not_answered"]
         end
       end

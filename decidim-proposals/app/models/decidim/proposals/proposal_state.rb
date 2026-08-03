@@ -32,7 +32,7 @@ module Decidim
       end
 
       def self.colors
-        Decidim::Proposals.proposal_states_colors
+        Decidim::Proposals.proposal_statuses_colors
       end
 
       protected

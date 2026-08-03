@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <% proposal_states.each do |state| %>
+        <% proposal_statuses.each do |state| %>
           <tr>
             <td data-label="<%= t("models.proposal_state.title", scope: "decidim.proposals") %>">
               <%= translated_attribute(state.title) %>
@@ -58,7 +58,7 @@
                   <% else %>
                     <li class="dropdown__item">
                       <div class="dropdown__button-disabled">
-                        <%= with_tooltip t("tooltips.deleted_proposal_states_info", scope: "decidim.admin"), class: :left do %>
+                        <%= with_tooltip t("tooltips.deleted_proposal_statuses_info", scope: "decidim.admin"), class: :left do %>
                           <%= icon "delete-bin-line", class: "text-gray" %>
                           <span>
                             <%= t("actions.destroy", scope: "decidim.proposals") %>
@@ -77,4 +77,4 @@
   </div>
 </div>
 
-<%= decidim_paginate proposal_states %>
+<%= decidim_paginate proposal_statuses %>

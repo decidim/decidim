@@ -146,7 +146,7 @@ en:
               state_published: Answered
       tooltips:
         cannot_edit_proposal_info: Cannot edit this proposal as it is created by a participant or it has received any vote
-        deleted_proposal_states_info: Cannot delete this proposal state because there are proposals assigned to it
+        deleted_proposal_statuses_info: Cannot delete this proposal state because there are proposals assigned to it
         deleted_proposals_info: Cannot delete this proposal
     application:
       geocoding:
@@ -597,9 +597,9 @@ en:
             error: There was a problem creating this proposal note reply.
             success: Proposal note reply successfully created.
           title: Private notes
-        proposal_states:
+        proposal_statuses:
           create:
-            error: Error creating state
+            error: Error creating status
             success: Status created successfully
           destroy:
             success: Status deleted successfully

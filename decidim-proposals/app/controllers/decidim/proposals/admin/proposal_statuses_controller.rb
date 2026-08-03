@@ -6,7 +6,7 @@ module Decidim
       class ProposalStatesController < Admin::ApplicationController
         include Decidim::Paginable
 
-        helper_method :proposal_states, :proposal_state
+        helper_method :proposal_statuses, :proposal_state
         def index
           enforce_permission_to :read, :proposal_state
         end
@@ -23,12 +23,12 @@ module Decidim
 
           CreateProposalState.call(@form) do
             on(:ok) do
-              flash[:notice] = I18n.t("proposal_states.create.success", scope: "decidim.proposals.admin")
-              redirect_to proposal_states_path
+              flash[:notice] = I18n.t("proposal_statuses.create.success", scope: "decidim.proposals.admin")
+              redirect_to proposal_statuses_path
             end
 
             on(:invalid) do
-              flash.keep[:alert] = I18n.t("proposal_states.create.error", scope: "decidim.proposals.admin")
+              flash.keep[:alert] = I18n.t("proposal_statuses.create.error", scope: "decidim.proposals.admin")
 
               render action: :new, status: :unprocessable_content
             end
@@ -46,13 +46,13 @@ module Decidim
 
           UpdateProposalState.call(@form, proposal_state) do
             on(:ok) do
-              flash[:notice] = I18n.t("proposal_states.update.success", scope: "decidim.proposals.admin")
+              flash[:notice] = I18n.t("proposal_statuses.update.success", scope: "decidim.proposals.admin")
 
-              redirect_to proposal_states_path
+              redirect_to proposal_statuses_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("proposal_states.update.error", scope: "decidim.proposals.admin")
+              flash.now[:alert] = I18n.t("proposal_statuses.update.error", scope: "decidim.proposals.admin")
 
               render action: :edit, status: :unprocessable_content
             end
@@ -64,9 +64,9 @@ module Decidim
 
           DestroyProposalState.call(proposal_state, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("proposal_states.destroy.success", scope: "decidim.proposals.admin")
+              flash[:notice] = I18n.t("proposal_statuses.destroy.success", scope: "decidim.proposals.admin")
 
-              redirect_to proposal_states_path
+              redirect_to proposal_statuses_path
             end
           end
         end
@@ -74,11 +74,11 @@ module Decidim
         private
 
         def proposal_state
-          @proposal_state ||= proposal_states.find(params.expect(:id))
+          @proposal_state ||= proposal_statuses.find(params.expect(:id))
         end
 
-        def proposal_states
-          @proposal_states ||= paginate(ProposalState.where(component: current_component))
+        def proposal_statuses
+          @proposal_statuses ||= paginate(ProposalState.where(component: current_component))
         end
       end
     end
