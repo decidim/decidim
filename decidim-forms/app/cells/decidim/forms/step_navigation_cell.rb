@@ -51,7 +51,8 @@ module Decidim
           data: {
             confirm:,
             disable: true,
-            data: "survey-buttons"
+            data: "survey-buttons",
+            confirm_icon: "checkbox-circle-line"
           }
         }
       end
