@@ -38,7 +38,7 @@ module Decidim
       private
 
       def attachment_collection(id = nil)
-        context[:attachment_collection] ||= begin
+        @attachment_collection ||= begin
           id ||= arguments[:id]
           object.attachment_collections.find(id)
         end

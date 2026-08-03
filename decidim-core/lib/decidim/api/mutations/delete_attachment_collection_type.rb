@@ -19,7 +19,7 @@ module Decidim
       private
 
       def find_resource(id = nil)
-        context[:attachment_collection] ||= begin
+        @attachment_collection ||= begin
           id ||= arguments[:id]
           object.attachment_collections.find(id)
         end
