@@ -21,7 +21,7 @@ module Decidim
       def find_resource(id = nil)
         @attachment ||= begin
           id ||= arguments[:id]
-          Decidim::Attachment.find(id)
+          object.attachments.find(id)
         end
       end
     end
