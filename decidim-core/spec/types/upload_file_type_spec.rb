@@ -52,7 +52,7 @@ module Decidim
         end
 
         it "does not upload file" do
-          expect { response }.to raise_error(GraphQL::ExecutionError, /you do not have permission/)
+          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission/)
         end
       end
     end

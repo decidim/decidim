@@ -35,7 +35,7 @@ module Decidim
       return unless permission_action.action == :create &&
                     permission_action.subject == :blob
 
-      allow!
+      toggle_allow(user.admin?)
     end
 
     def public_report_content_action?
