@@ -16,7 +16,7 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
       weight:,
       title:,
       description:,
-      file: { blobId: blob.id }
+      file: { signedId: blob.signed_id }
     }
   end
 
@@ -177,7 +177,7 @@ shared_examples_for "creatable attachment" do |supports_collection:|
       {
         title:,
         description:,
-        file: { blobId: blob.id }
+        file: { signedId: blob.signed_id }
       }
     end
 
@@ -192,7 +192,7 @@ shared_examples_for "creatable attachment" do |supports_collection:|
       {
         weight:,
         title:,
-        file: { blobId: blob.id }
+        file: { signedId: blob.signed_id }
       }
     end
 
@@ -260,7 +260,7 @@ shared_examples_for "updatable attachment" do |supports_collection:|
       {
         title:,
         description:,
-        file: { blobId: blob.id }
+        file: { signedId: blob.signed_id }
       }
     end
 
@@ -275,7 +275,7 @@ shared_examples_for "updatable attachment" do |supports_collection:|
     let(:attributes) do
       {
         title:,
-        file: { blobId: blob.id }
+        file: { signedId: blob.signed_id }
       }
     end
 
@@ -325,7 +325,7 @@ shared_examples_for "create attachment with collection support" do
         weight:,
         title:,
         description:,
-        file: { blobId: blob.id },
+        file: { signedId: blob.signed_id },
         collection: { id: collection.id }
       }
     end
@@ -351,7 +351,7 @@ shared_examples_for "create attachment with collection support" do
           weight:,
           title:,
           description:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { id: nil }
         }
       end
@@ -368,7 +368,7 @@ shared_examples_for "create attachment with collection support" do
         weight:,
         title:,
         description:,
-        file: { blobId: blob.id },
+        file: { signedId: blob.signed_id },
         collection: { key: collection.key }
       }
     end
@@ -386,7 +386,7 @@ shared_examples_for "create attachment with collection support" do
           weight:,
           title:,
           description:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { key: "foo" }
         }
       end
@@ -410,7 +410,7 @@ shared_examples_for "create attachment with collection support" do
           weight:,
           title:,
           description:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { key: "" }
         }
       end
@@ -426,7 +426,7 @@ shared_examples_for "create attachment with collection support" do
           weight:,
           title:,
           description:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { key: nil }
         }
       end
@@ -444,7 +444,7 @@ shared_examples_for "update attachment with collection support" do
     let(:attributes) do
       {
         title:,
-        file: { blobId: blob.id },
+        file: { signedId: blob.signed_id },
         collection: { id: collection.id }
       }
     end
@@ -459,7 +459,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { id: nil }
         }
       end
@@ -474,7 +474,7 @@ shared_examples_for "update attachment with collection support" do
     let(:attributes) do
       {
         title:,
-        file: { blobId: blob.id },
+        file: { signedId: blob.signed_id },
         collection: { key: collection.key }
       }
     end
@@ -490,7 +490,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { key: "foo" }
         }
       end
@@ -512,7 +512,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { key: "" }
         }
       end
@@ -526,7 +526,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { key: nil }
         }
       end
@@ -542,7 +542,7 @@ shared_examples_for "update attachment with collection support" do
     let(:attributes) do
       {
         title:,
-        file: { blobId: blob.id },
+        file: { signedId: blob.signed_id },
         collection: { key: collection.key }
       }
     end
