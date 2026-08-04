@@ -76,7 +76,6 @@ cs:
             update: Aktualizovat debatu
           form:
             add_attachments: Přidat přílohy
-            attachment_legend: Přidat dokument nebo obrázek
             comments_visualization: Vizualizace komentářů
             comments_warning: Jakmile je vložen první komentář, zvolenou možnost zobrazení nelze změnit.
             debate_type: Typ debaty
@@ -206,6 +205,7 @@ cs:
             email_intro: |-
               Ahoj,
               %{author_name} %{author_nickname}, kterého sledujete, vytvořil novou debatu "%{resource_title}". Omrkněte ji a přispějte:
+            email_subject: Nová debata "%{resource_title}" od %{author_name}
         creation_disabled:
           email_intro: 'Tvorba debaty již není aktivní v %{participatory_space_title}. Na otevřených debatách se můžete stále účastnit z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Na předchozím odkazu můžete přestat přijímat oznámení.

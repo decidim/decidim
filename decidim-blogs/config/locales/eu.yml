@@ -76,7 +76,6 @@ eu:
       posts:
         edit:
           add_attachments: Gehitu eranskinak
-          attachment_legend: Gehitu dokumentu edo irudi bat
           back: Itzuli sarrerara
           button: Eguneratu
           edit_attachments: Editatu eranskinak
@@ -99,6 +98,8 @@ eu:
           back: Itzuli sarrerara
           button: Sortu
           title: Sortu beste sarrera bat
+        orders:
+          random: Ausazko ordena
     components:
       blogs:
         actions:

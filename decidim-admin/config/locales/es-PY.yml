@@ -607,6 +607,11 @@ es-PY:
         edit:
           title: Editar miembro
           update: Actualizar
+        form:
+          email: Correo electrónico
+          invite_explanation: Se invitará a la participante a unirse a la organización.
+          name_or_nickname: Nombre o apodo
+          select_user: Seleccionar miembro
         index:
           import_via_csv: Importar vía csv
           publish_all: Publicar todas
@@ -1099,7 +1104,7 @@ es-PY:
           previous_title: Elemento anterior
         attachments:
           add_attachments: Agregar archivo(s) adjunto(s)
-          attachment_legend: Añadir una galería de archivos adjuntos (opcional)
+          attachment_legend: Añadir un documento o una imagen
           edit_attachments: Editar los archivos adjuntos
       static_page_topics:
         create:

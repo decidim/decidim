@@ -11,6 +11,7 @@ de:
         plural: Plural
       attachment:
         attachment_collection_id: Ordner
+        attachments: Anhänge
         description: Beschreibung
         file: Datei
         title: Anhang oder Bildname
@@ -49,6 +50,7 @@ de:
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
+        comments_max_length: Maximale Zeichen pro Kommentar (Lassen Sie 0 für den Standardwert)
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
@@ -231,6 +233,8 @@ de:
         edit:
           title: Bereichstyp bearbeiten
           update: Aktualisieren
+        index:
+          title: Bereichstypen
         new:
           create: Bereichstyp erstellen
           title: Neuer Bereichstyp
@@ -248,6 +252,8 @@ de:
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
+        index:
+          title: Bereiche
         new:
           create: Bereich erstellen
           title: Neues Gebiet
@@ -357,6 +363,8 @@ de:
           unpublished: Unveröffentlicht
       conflicts:
         attempts: Versuche
+        edit:
+          title: Benutzer übertragen
         'false': 'Nein'
         index:
           text: Duchsuche nach aktueller E-Mail-Adresse, Name oder Spitzname
@@ -509,6 +517,7 @@ de:
           promote: Fördern
           search: Suche
           status: Status
+          title: Verwaltbare Teilnehmende
           view_logs: Protokolle anzeigen
       impersonations:
         close_session:
@@ -525,6 +534,7 @@ de:
           impersonate: Imitieren
           impersonate_existing_managed_user: Angenommen, dass der Benutzer "%{name}" verwaltet wird
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
+          title: Identität übernehmen
       imports:
         and: und
         data_errors:
@@ -586,6 +596,7 @@ de:
           new:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
             promote: Fördern
+            title: Neue Beförderung einer übernommenen Identität
       members:
         create:
           error: Beim Hinzufügen eines Mitglieds zu diesem partizipativen Bereich ist ein Fehler aufgetreten.
@@ -596,6 +607,11 @@ de:
         edit:
           title: Mitglied bearbeiten
           update: Aktualisieren
+        form:
+          email: E-Mail
+          invite_explanation: Teilnehmende werden eingeladen, der Organisation beizutreten.
+          name_or_nickname: Name oder Spitzname
+          select_user: Mitglied auswählen
         index:
           import_via_csv: Aus CSV importieren
           publish_all: Alle veröffentlichen
@@ -814,6 +830,7 @@ de:
           title: Newsletter Vorlagen
           use_template: Diese Vorlage verwenden
         show:
+          title: 'Vorschau der Vorlage: %{template_name}'
           use_template: Diese Vorlage verwenden
       newsletters:
         confirm_recipients:
@@ -860,7 +877,7 @@ de:
           members_help: Sendet einen Newsletter an alle bestätigten Teilnehmende, die dem ausgewählten Mitwirkungsbereichen als Mitglieder hinzugefügt wurden.
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
           recipients_count: Dieser Newsletter wird an <strong id='recipients_count'>%{count}</strong> Teilnehmer gesendet.
-          select_assemblies: Gremien auswählen
+          select_assemblies: Versammlungen auswählen
           select_conferences: Konferenzen auswählen
           select_initiatives: Initiativen auswählen
           select_participatory_processes: Beteiligungsprozesse auswählen
@@ -888,6 +905,7 @@ de:
       officializations:
         block:
           error: Bei der Teilnehmendenblockierung ist ein Problem aufgetreten.
+          no_user: Kein Mitglied gefunden
           success: Teilnehmer erfolgreich blockiert.
         bulk_action:
           block:
@@ -897,6 +915,7 @@ de:
             invalid: Es gab ein Problem beim Entsperren der Teilnehmenden.
             success: Teilnehmende erfolgreich entsperrt.
         create:
+          no_user_found: Teilnehmende wurden nicht gefunden.
           success: Benutzer wurde offiziell anerkannt.
         destroy:
           success: Der Benutzer wurde erfolgreich inoffizialisiert.
@@ -923,6 +942,7 @@ de:
           officialize: Offizialisieren
           title: Benutzer "%{name}" offiziellisieren
         show_email:
+          no_user: Kein Mitglied gefunden
           title: E-Mail-Adresse anzeigen
         show_email_modal:
           description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um seine E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
@@ -1003,6 +1023,8 @@ de:
         edit:
           title: Bereichstyp bearbeiten
           update: Aktualisieren
+        index:
+          title: Thementypen
         new:
           create: Erstellen Sie den Geltungsbereichstyp
           title: Neuer Umfang
@@ -1019,6 +1041,8 @@ de:
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
+        index:
+          title: Themen
         new:
           create: Bereich erstellen
           title: Neuer Umfang
@@ -1078,6 +1102,10 @@ de:
           next_title: Nächstes Element
           previous: Zurück
           previous_title: Vorheriges Element
+        attachments:
+          add_attachments: Anhänge hinzufügen
+          attachment_legend: Dokument oder Bild hinzufügen
+          edit_attachments: Anhänge bearbeiten
       static_page_topics:
         create:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
@@ -1228,6 +1256,7 @@ de:
         show:
           items_count: "%{count} Elemente"
           remove: Entfernen
+          title: Taxonomie-Filterauswahl
         taxonomies_select:
           filters: Filter
           select_filter: Filter auswählen
@@ -1284,10 +1313,19 @@ de:
           last_week: Letzte Woche
           no_users_count_statistics_yet: Es gibt noch keine Statistiken über die Teilnehmenden.
           participants: Teilnehmer
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Die Auswahl von Klassifizierungsfiltern ist möglich, nachdem die Komponente erstellt wurde.
     forms:
       errors:
         impersonate_user:
           reason: Sie müssen einen Grund angeben, weshalb Sie sich als nicht-verwaltete Nutzende ausgeben.
+      file_help:
+        attachment:
+          explanation: 'Hinweise für die Datei:'
+          message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
+          message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
     moderations:
       actions:
         expand: Ausklappen
