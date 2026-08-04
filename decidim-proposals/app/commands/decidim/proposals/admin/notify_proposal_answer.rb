@@ -39,7 +39,12 @@ module Decidim
         attr_reader :proposal, :initial_status
 
         def status_changed?
-          initial_status != proposal.status.to_s
+          initial_status_token != proposal.status.to_s
+        end
+
+        def initial_status_token
+          initial_status.respond_to?(:token) ? initial_status.token : initial_status
+        end
         end
 
         def notify_followers
