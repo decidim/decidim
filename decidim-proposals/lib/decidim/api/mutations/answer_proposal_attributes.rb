@@ -10,6 +10,9 @@ module Decidim
       argument :cost, GraphQL::Types::Float, description: "Estimated cost of the proposal", required: false
       argument :cost_report, GraphQL::Types::JSON, description: "Report on expenses", required: false
       argument :execution_period, GraphQL::Types::JSON, description: "Report on the execution period", required: false
+      argument :state, GraphQL::Types::String,
+               description: "The answer status in which the proposal is in. Can be one of 'accepted', 'rejected' or 'evaluating'", required: false,
+               deprecation_reason: "Use status instead"
       argument :status, GraphQL::Types::String,
                description: "The answer status in which the proposal is in. Can be one of 'accepted', 'rejected' or 'evaluating'", required: false
     end

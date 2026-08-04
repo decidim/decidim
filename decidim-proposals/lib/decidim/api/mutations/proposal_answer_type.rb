@@ -13,7 +13,7 @@ module Decidim
 
       def resolve(attributes:)
         answer_content = attributes.to_h.fetch(:answer_content, object.answer)
-        internal_status = attributes.to_h.fetch(:status, object.internal_status)
+        internal_status = attributes.to_h.fetch(:status, attributes.to_h.fetch(:state, object.internal_status))
         params = attributes.to_h.reverse_merge(
           internal_status:,
           answer: answer_content,

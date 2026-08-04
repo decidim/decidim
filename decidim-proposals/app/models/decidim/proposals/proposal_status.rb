@@ -54,5 +54,9 @@ module Decidim
         code
       end
     end
+
+    # Compatibility alias for legacy records (e.g. ActionLog and PaperTrail::Version
+    # entries) still referencing the pre-rename class name.
+    ProposalState = ProposalStatus
   end
 end

@@ -6,10 +6,10 @@ describe "Admin manages component publication" do
   include_context "when managing a component as an admin" do
     let!(:resource) { create(:proposal, :published, component:) }
 
-    context "when cycling through publication statuses" do
+    context "when cycling through publication states" do
       let!(:component) { create(:proposal_component, participatory_space:) }
 
-      include_examples "cycling through publication statuses"
+      include_examples "cycling through publication states"
     end
 
     context "when component is unpublished, and admin publishes" do

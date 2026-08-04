@@ -174,6 +174,14 @@ module Decidim
         end
       end
 
+      describe "state" do
+        let(:query) { "{ state }" }
+
+        it "returns the proposal's status (deprecated alias)" do
+          expect(response["state"]).to eq(model.status)
+        end
+      end
+
       describe "url" do
         let(:query) { "{ url }" }
 
