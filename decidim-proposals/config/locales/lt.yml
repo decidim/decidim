@@ -38,10 +38,6 @@ lt:
               allowed_file_content_types: 'Nevalidus turinio tipas. Leidžiamos rinkmenos tik su šiomis galūnėmis: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Reikia pridėti iš naujo
-            add_photos:
-              needs_to_be_reattached: Reikia pridėti iš naujo
             body:
               cant_be_equal_to_template: negali prilygti šablonui
               identical: IR pavadinimas negali sutapti
@@ -118,7 +114,6 @@ lt:
             attachments_allowed: Leisti failų prisegimus
             collaborative_drafts_enabled: Bendri projektai įjungti
             comments_enabled: Komentarai įjungti
-            comments_max_length: Maksimalus komentarų ilgis (Palikite 0 kaip numatytą vertę)
             default_sort_order: Numatytas pasiūlymų rikiavimas
             default_sort_order_options:
               most_commented: Labiausiai komentuojamas

@@ -23,7 +23,7 @@ module Decidim
 
         describe "author" do
           context "when it is a user" do
-            let(:author) { create(:user, name: "John Doe", organization: component.organization) }
+            let(:author) { create(:user, :confirmed, name: "John Doe", organization: component.organization) }
             let!(:post) { create(:post, component:, author:) }
 
             it "serializes the user name" do
@@ -59,6 +59,10 @@ module Decidim
 
         it "serializes the body" do
           expect(serialized).to include(body: post.body)
+        end
+
+        it "serializes the reference" do
+          expect(serialized).to include(reference: post.reference)
         end
 
         it "serializes the participatory space" do

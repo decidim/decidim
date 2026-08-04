@@ -1,5 +1,3 @@
-/* global jest */
-
 export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => {
   let suggestion = null;
   let suggestionItems = null;
@@ -55,25 +53,25 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       return;
     }
 
-    const command = selectCommand;
-    if (currentRange && !window.isTestEnvironment && typeof jest === "undefined") {
-      // Fixes an issue that after selecting the item, the written text will be
-      // placed after the newly added suggestion.
-      //
-      // NOTE: With JSDom/Jest this does not work even if we add a delay after
-      // changing the text in the selection. This is because the range remains
-      // the same for the `command` below which is why the underlying code is
-      // trying to do an insertion at a position that is out of range after we
-      // have already deleted the content.
-      currentEditor.chain().focus().setTextSelection(currentRange).command(({ tr, dispatch }) => {
-        if (dispatch) {
-          tr.replaceSelectionWith(currentEditor.schema.text("  "));
-        }
+    const item = convertItem(items[idx]);
+    if (currentRange) {
+      const docSize = currentEditor.state.doc.content.size;
+      const isValidRange = currentRange.from >= 0 && currentRange.to <= docSize && currentRange.from <= currentRange.to;
 
-        return true;
-      }).setTextSelection({ from: currentRange.from, to: currentRange.from }).run();
+      if (isValidRange) {
+        const nodeType = currentEditor.schema.nodes[items[idx].__typename === "User"
+          ? "mention"
+          : "mentionResource"];
+        currentEditor.chain().focus().setTextSelection(currentRange).insertContent({
+          type: nodeType.name,
+          attrs: item
+        }).insertContent(" ").run();
+        return;
+      }
     }
-    command(convertItem(items[idx]));
+
+    const command = selectCommand;
+    command(item);
   };
 
   const showSuggestions = ({ items, clientRect }) => {
@@ -146,7 +144,9 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       }
     },
 
-    onUpdate({ clientRect, items }) {
+    onUpdate({ clientRect, items, command }) {
+      selectCommand = command;
+
       if (!clientRect || !suggestion) {
         return;
       }

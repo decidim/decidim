@@ -85,6 +85,8 @@ FactoryBot.define do
     "#{Faker::Lorem.sentence(word_count: 1, supplemental: true, random_words_to_add: 3)} #{n}"
   end
 
+  sequence(:component_position)
+
   factory :category, class: "Decidim::Category" do
     transient do
       skip_injection { false }
@@ -267,6 +269,7 @@ FactoryBot.define do
 
     trait :ephemeral do
       managed
+      confirmed
       extended_data { { ephemeral: true } }
     end
 
@@ -469,6 +472,7 @@ FactoryBot.define do
     manifest_name { "dummy" }
     published_at { Time.current }
     deleted_at { nil }
+    weight { generate(:component_position) }
     settings do
       {
         dummy_global_translatable_text: generate_localized_title(:dummy_global_translatable_text, skip_injection:),
@@ -1000,7 +1004,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     resource { build(:dummy_resource, skip_injection:) }
-    author { resource.try(:creator_author) || resource.try(:author) || build(:user, organization: resource.organization, skip_injection:) }
+    author { resource.try(:creator_author) || resource.try(:author) || build(:user, :confirmed, organization: resource.organization, skip_injection:) }
   end
 
   factory :share_token, class: "Decidim::ShareToken" do

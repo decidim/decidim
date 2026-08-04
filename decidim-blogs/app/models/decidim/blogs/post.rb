@@ -21,6 +21,9 @@ module Decidim
       include Traceable
       include Loggable
       include Decidim::SoftDeletable
+      include Decidim::HasReference
+      include Decidim::FilterableResource
+      include Decidim::Randomable
 
       component_manifest_name "blogs"
 
@@ -100,6 +103,37 @@ module Decidim
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
         [author.name]
+      end
+
+      # Create i18n ransackers for :title and :body.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :body]
+
+      def self.most_commented_available?(component)
+        return false unless component.settings.comments_enabled?
+
+        where(component:)
+          .not_hidden
+          .where("comments_count > 0")
+          .exists?
+      end
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_taxonomies]
+      end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(search_text title body)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(taxonomies)
+      end
+
+      private
+
+      def comments_blocked?
+        component.current_settings.comments_blocked
       end
     end
   end

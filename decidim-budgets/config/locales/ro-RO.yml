@@ -187,7 +187,6 @@ ro:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
             landing_page_content: Pagina pentru bugetare participativă
             more_information_modal: Mai multe informații
             projects_per_page: Proiecte pe pagină

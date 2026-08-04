@@ -43,13 +43,22 @@ describe "Conversations" do
   end
 
   context "when starting a conversation" do
-    let(:recipient) { create(:user, organization:) }
+    let(:recipient) { create(:user, :confirmed, organization:) }
 
     before do
       visit decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
     it_behaves_like "accessible page"
+
+    it "displays an error modal", :slow do
+      recipient.destroy!
+      start_conversation("Is this a Ryanair style democracy?")
+
+      expect(page).to have_css("#messageErrorModal[aria-hidden='false']")
+      expect(page).to have_css(".conversation__modal-error")
+      expect(page).to have_text("Conversation not started. Try again later.")
+    end
 
     it "shows an empty conversation page" do
       expect(page).to have_no_selector(".card--list__item")
@@ -61,7 +70,7 @@ describe "Conversations" do
     it_behaves_like "create new conversation"
 
     context "and recipient has restricted communications" do
-      let(:recipient) { create(:user, direct_message_types: "followed-only", organization:) }
+      let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
@@ -321,7 +330,7 @@ describe "Conversations" do
 
   describe "when having a conversation with multiple participants" do
     context "and it is with only one participant" do
-      let(:user1) { create(:user, organization:) }
+      let(:user1) { create(:user, :confirmed, organization:) }
       let!(:conversation2) do
         Decidim::Messaging::Conversation.start!(
           originator: user,
@@ -370,9 +379,9 @@ describe "Conversations" do
     end
 
     context "and it is with four participants" do
-      let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user, organization:) }
-      let(:user3) { create(:user, organization:) }
+      let(:user1) { create(:user, :confirmed, organization:) }
+      let(:user2) { create(:user, :confirmed, organization:) }
+      let(:user3) { create(:user, :confirmed, organization:) }
       let!(:conversation4) do
         Decidim::Messaging::Conversation.start!(
           originator: user,
@@ -430,15 +439,15 @@ describe "Conversations" do
     end
 
     context "and it is with ten participants" do
-      let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user, organization:) }
-      let(:user3) { create(:user, organization:) }
-      let(:user4) { create(:user, organization:) }
-      let(:user5) { create(:user, organization:) }
-      let(:user6) { create(:user, organization:) }
-      let(:user7) { create(:user, organization:) }
-      let(:user8) { create(:user, organization:) }
-      let(:user9) { create(:user, organization:) }
+      let(:user1) { create(:user, :confirmed, organization:) }
+      let(:user2) { create(:user, :confirmed, organization:) }
+      let(:user3) { create(:user, :confirmed, organization:) }
+      let(:user4) { create(:user, :confirmed, organization:) }
+      let(:user5) { create(:user, :confirmed, organization:) }
+      let(:user6) { create(:user, :confirmed, organization:) }
+      let(:user7) { create(:user, :confirmed, organization:) }
+      let(:user8) { create(:user, :confirmed, organization:) }
+      let(:user9) { create(:user, :confirmed, organization:) }
       let!(:conversation10) do
         Decidim::Messaging::Conversation.start!(
           originator: user,

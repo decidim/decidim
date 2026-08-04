@@ -453,7 +453,6 @@ bg:
           global:
             amendments_enabled: Поправки разрешени
             comments_enabled: Коментари разрешени
-            comments_max_length: Максимална дължина на коментарите
             dummy_global_attribute1: Макетен атрибут 1
             dummy_global_attribute2: Макетен атрибут 2
             dummy_global_translatable_text: Макетен преводим текст
@@ -903,7 +902,6 @@ bg:
         create:
           error: Разговора не започна. Опитайте по-късно.
         error_modal:
-          close: Затвори прозореца
           correct_errors: Моля, коригирайте грешките и опитайте отново.
           intro: 'Имаше следните грешки с вашето съобщение:'
           ok: ОК

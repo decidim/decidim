@@ -130,7 +130,7 @@ tr:
           new:
             send: Doğrulama isteğinde bulun
             title: Kimlik belgenizi yükleyin
-        identification_number: Kimlik Numarası 
+        identification_number: Kimlik Numarası
         passport: Pasaport
       postal_letter:
         admin:

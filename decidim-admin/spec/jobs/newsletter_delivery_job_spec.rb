@@ -9,6 +9,12 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:newsletter) { create(:newsletter, organization:, total_deliveries: 0) }
 
+      before do
+        # The n+1 is caused by the association loading in the newsletter model while performing the job
+        # Since this is meant to run independently, we do not optimize the n+1 here
+        Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Organization", :association => :logo_attachment
+      end
+
       it "delivers the email" do
         expect(ActionMailer::Base.deliveries).to be_empty
         NewsletterDeliveryJob.perform_now(user, newsletter)

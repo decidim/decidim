@@ -39,7 +39,7 @@ fr:
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Commentaires activés
-            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             taxonomy_filters_add: Ajouter un filtre
           step:
             announcement: Annonce
@@ -69,11 +69,12 @@ fr:
           form:
             add_attachments: Ajouter des pièces jointes
             attachment_legend: Ajouter un document ou une image
+            comments_layout_locked_warning: La mise en page du commentaire ne peut pas être modifiée car les commentaires ont déjà été publiés.
             comments_warning: Une fois le premier commentaire publié, l'option d'affichage sélectionnée ne peut pas être modifiée.
             debate_type: Type de débat
             edit_attachments: Modifier les pièces jointes
             errors:
-              comments_layout_locked: Vous ne pouvez pas modifier la mise en page des commentaires une fois que les commentaires ont été publiés.
+              comments_layout_locked: La mise en page du commentaire ne peut pas être modifiée car les commentaires ont déjà été publiés.
             finite: Limité (Avec les heures de début et de fin)
             open: Ouvert (pas de date de début et de fin)
           index:
@@ -188,6 +189,8 @@ fr:
             email_outro: Vous avez reçu cette notification car vous suivez l'espace participatif %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
             email_subject: Nouveau débat "%{resource_title}" sur %{participatory_space_title}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé sur <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          user_followers:
+            email_subject: Nouveau débat "%{resource_title}" par %{author_name}
         creation_disabled:
           email_intro: 'La création de débat n''est plus possible dans %{participatory_space_title}. Vous pouvez toujours participer aux débats ouverts depuis cette page :'
           email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.

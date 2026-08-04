@@ -27,7 +27,7 @@ describe "Admin views proposal details from admin" do
 
   describe "with authors" do
     context "when the proposal's author is other user" do
-      let!(:other_user) { create(:user, organization: current_component.organization) }
+      let!(:other_user) { create(:user, :confirmed, organization: current_component.organization) }
       let!(:proposal) { create(:proposal, component: current_component, users: [other_user]) }
 
       it "has a link to each author profile" do
@@ -82,6 +82,52 @@ describe "Admin views proposal details from admin" do
     expect(page).to have_text(strip_tags(translated(proposal.body)).strip)
   end
 
+  describe "with rich text proposal body" do
+    include_context "with rich text editor content"
+
+    context "when it is an official proposal" do
+      let!(:proposal) { create(:proposal, :official, body: content, component: current_component) }
+
+      before do
+        go_to_admin_proposal_page(proposal)
+      end
+
+      it_behaves_like "rendering safe content", ".editor-content"
+    end
+
+    context "when it is an official meeting proposal" do
+      let!(:proposal) { create(:proposal, :official_meeting, body: content, component: current_component) }
+
+      before do
+        go_to_admin_proposal_page(proposal)
+      end
+
+      it_behaves_like "rendering safe content", ".editor-content"
+    end
+
+    context "when rich text editor is enabled for participants" do
+      let!(:proposal) { create(:proposal, body: content, component: current_component) }
+
+      before do
+        current_component.organization.update(rich_text_editor_in_public_views: true)
+        go_to_admin_proposal_page(proposal)
+      end
+
+      it_behaves_like "rendering safe content", ".editor-content"
+    end
+
+    context "when rich text editor is NOT enabled for participants" do
+      let!(:proposal) { create(:proposal, body: content, component: current_component) }
+
+      before do
+        current_component.organization.update(rich_text_editor_in_public_views: false)
+        go_to_admin_proposal_page(proposal)
+      end
+
+      it_behaves_like "rendering unsafe content", ".editor-content"
+    end
+  end
+
   describe "with an specific creation date" do
     let!(:proposal) { create(:proposal, component: current_component, created_at: Time.zone.parse("2020-01-29 15:00")) }
 
@@ -125,7 +171,7 @@ describe "Admin views proposal details from admin" do
       let!(:likes) do
         # We cannot use `create_list`, as it gives a "Validation failed: Resource has already been taken"
         2.times.collect do
-          create(:like, resource: proposal, author: build(:user, organization:))
+          create(:like, resource: proposal, author: build(:user, :confirmed, organization:))
         end
       end
 
@@ -138,7 +184,7 @@ describe "Admin views proposal details from admin" do
 
       it "shows the ranking by likes" do
         another_proposal = create(:proposal, component:)
-        create(:like, resource: another_proposal, author: build(:user, organization:))
+        create(:like, resource: another_proposal, author: build(:user, :confirmed, organization:))
         go_to_admin_proposal_page(proposal)
 
         expect(page).to have_css("[data-likes] [data-ranking]", text: "1 of ")
@@ -159,7 +205,7 @@ describe "Admin views proposal details from admin" do
         let!(:likes) do
           # We cannot use `create_list`, as it gives a "Validation failed: Resource has already been taken"
           6.times.collect do
-            create(:like, resource: proposal, author: build(:user, organization:))
+            create(:like, resource: proposal, author: build(:user, :confirmed, organization:))
           end
         end
 

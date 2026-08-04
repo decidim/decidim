@@ -61,10 +61,6 @@ pt-BR:
               allowed_file_content_types: 'Tipo de documento inválido. Apenas arquivos com as seguintes extensões são permitidos: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Precisa ser recolocado
-            add_photos:
-              needs_to_be_reattached: Precisa ser recolocado
             body:
               cant_be_equal_to_template: não pode ser igual ao modelo
               identical: E o título não pode ser idêntico
@@ -175,7 +171,6 @@ pt-BR:
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             collaborative_drafts_enabled_help: O recurso de Rascunhos colaborativos será removido no Decidim v0.32. As organizações que o usam, podem alternar para o novo recurso de co-autoria de proposta.
             comments_enabled: Comentários ativados
-            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             default_sort_order: Classificação de proposta padrão
             default_sort_order_help: Automático significa que, se os votos estiverem habilitados, as propostas serão mostradas por ordem aleatória, e se as votações estiverem bloqueadas, serão ordenadas pela maioria das votações.
             default_sort_order_options:

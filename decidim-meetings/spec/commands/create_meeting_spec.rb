@@ -129,6 +129,17 @@ module Decidim::Meetings
         end
       end
 
+      context "when description has a user mention with a hyphen in the nickname" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
+        let(:description) { "Meeting description mentioning @#{mentioned_user.nickname}" }
+
+        it "rewrites the mention to the mentioned user GID" do
+          subject.call
+
+          expect(meeting.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+        end
+      end
+
       it "sets the longitude and latitude" do
         subject.call
         last_meeting = Meeting.last

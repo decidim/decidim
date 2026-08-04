@@ -32,7 +32,7 @@ describe "Explore posts" do
 
       before do
         create(:comment, commentable: old_post)
-        create(:like, resource: old_post, author: build(:user, organization: old_post.participatory_space.organization))
+        create(:like, resource: old_post, author: build(:user, :confirmed, organization: old_post.participatory_space.organization))
 
         visit_component
       end
@@ -120,7 +120,62 @@ describe "Explore posts" do
         expect(page).to have_text(post.created_at.strftime("%d/%m/%Y %H:%M"))
       end
 
+      it "shows the post reference" do
+        within ".layout-container__reference" do
+          expect(page).to have_text(post.reference)
+        end
+      end
+
       it_behaves_like "has embedded video in description", :body
+    end
+  end
+
+  context "when filtering posts by TAXONOMY" do
+    let(:root_taxonomy) { create(:taxonomy, organization:) }
+    let!(:taxonomy) { create(:taxonomy, skip_injection: true, name: { en: "Category A" }, parent: root_taxonomy, organization:) }
+    let!(:taxonomy2) { create(:taxonomy, skip_injection: true, name: { en: "Category B" }, parent: root_taxonomy, organization:) }
+    let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [component.participatory_space.manifest.name]) }
+    let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_item: taxonomy, taxonomy_filter:) }
+    let!(:taxonomy_filter_item2) { create(:taxonomy_filter_item, taxonomy_item: taxonomy2, taxonomy_filter:) }
+
+    let!(:posts_with_taxonomy) { create_list(:post, 2, component:, taxonomies: [taxonomy]) }
+    let!(:post_with_taxonomy2) { create(:post, component:, taxonomies: [taxonomy2]) }
+    let!(:post_no_taxonomy) { create(:post, component:, taxonomies: []) }
+
+    before do
+      component.update!(settings: { taxonomy_filters: [taxonomy_filter.id] })
+      visit_component
+    end
+
+    it "shows the taxonomy filter in the sidebar" do
+      within "form.new_filter" do
+        expect(page).to have_text("Category A")
+        expect(page).to have_text("Category B")
+      end
+    end
+
+    context "when selecting one taxonomy" do
+      it "lists only posts with that taxonomy" do
+        within "#dropdown-menu-filters div.filter-container", text: "Category B" do
+          uncheck "All"
+          check decidim_sanitize_translated(taxonomy.name)
+        end
+
+        expect(page).to have_css("#blogs > a", count: 2)
+      end
+    end
+
+    context "when no taxonomy filter is configured" do
+      before do
+        component.update!(settings: { taxonomy_filters: [] })
+        visit_component
+      end
+
+      it "does not show taxonomy filter" do
+        within "form.new_filter" do
+          expect(page).to have_no_text("Category A")
+        end
+      end
     end
   end
 end

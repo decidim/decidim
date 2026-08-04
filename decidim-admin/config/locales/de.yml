@@ -49,7 +49,6 @@ de:
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
-        comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
@@ -1079,10 +1078,6 @@ de:
           next_title: Nächstes Element
           previous: Zurück
           previous_title: Vorheriges Element
-        gallery:
-          add_images: Bilder hinzufügen
-          edit_images: Bilder bearbeiten
-          gallery_legend: Bildergalerie hinzufügen (Optional)
       static_page_topics:
         create:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.

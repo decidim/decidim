@@ -25,8 +25,8 @@ describe Decidim::Debates::DebateForm do
       taxonomies:,
       title:,
       description:,
-      add_documents: uploaded_files,
-      documents: current_files
+      add_attachments: uploaded_files,
+      attachments: current_files
     }
   end
 
@@ -56,7 +56,7 @@ describe Decidim::Debates::DebateForm do
   context "when a debate exists" do
     subject { described_class.from_model(debate).with_context(context.merge(current_user: user)) }
 
-    let(:debate) { create(:debate, component: current_component) }
+    let(:debate) { create(:debate, component: current_component, description: { en: "A valid description for the debate." }) }
 
     describe "when the user is the author" do
       let(:user) { debate.author }
@@ -81,7 +81,7 @@ describe Decidim::Debates::DebateForm do
 
     it "accepts valid attachments" do
       expect(form).to be_valid
-      expect(form.add_documents.count).to eq(2)
+      expect(form.add_attachments.count).to eq(2)
     end
   end
 
@@ -103,7 +103,37 @@ describe Decidim::Debates::DebateForm do
     end
 
     it "sets the attachments" do
-      expect(subject.documents).to eq(debate.documents)
+      expect(subject.attachments).to eq(debate.attachments)
+    end
+
+    context "when description contains a user mention" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:debate) do
+        create(:debate, component: current_component,
+                        description: { en: "Hello #{mentioned_user.to_global_id}" })
+      end
+
+      context "when rich text editor is enabled" do
+        before { organization.update!(rich_text_editor_in_public_views: true) }
+
+        it "renders the mention with editor span tags" do
+          expect(subject.description).to include(
+            %(<span data-type="mention" data-id="@#{mentioned_user.nickname})
+          )
+        end
+      end
+
+      context "when rich text editor is disabled" do
+        before { organization.update!(rich_text_editor_in_public_views: false) }
+
+        it "renders the mention as plain @nickname" do
+          expect(subject.description).to include("@#{mentioned_user.nickname}")
+        end
+
+        it "does not include editor span tags" do
+          expect(subject.description).not_to include("<span data-type=\"mention\"")
+        end
+      end
     end
   end
 end

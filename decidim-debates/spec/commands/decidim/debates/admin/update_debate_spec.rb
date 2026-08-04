@@ -31,8 +31,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
       comments_enabled: true,
       comments_layout:,
       attachment: attachment_params,
-      add_documents: uploaded_files,
-      documents: current_files,
+      add_attachments: uploaded_files,
+      attachments: current_files,
       errors: ActiveModel::Errors.new(self)
     )
   end
@@ -58,6 +58,17 @@ describe Decidim::Debates::Admin::UpdateDebate do
 
     context "when description has a user mention" do
       let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:description) { { en: "description mentioning @#{mentioned_user.nickname}" } }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+
+        expect(debate.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
+    end
+
+    context "when description has a user mention with a hyphen in the nickname" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
       let(:description) { { en: "description mentioning @#{mentioned_user.nickname}" } }
 
       it "rewrites the mention to the mentioned user GID" do

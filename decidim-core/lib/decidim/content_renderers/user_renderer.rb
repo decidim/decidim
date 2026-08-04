@@ -17,8 +17,12 @@ module Decidim
       # invalid Decidim::User are replaced with an empty string.
       #
       # @return [String] the content ready to display (contains HTML)
-      def render(editor: false, **_)
-        replace_pattern(content, GLOBAL_ID_REGEX, editor:)
+      def render(editor: false, plain: false, **_)
+        if plain
+          replace_plain_text(content)
+        else
+          replace_pattern(content, GLOBAL_ID_REGEX, editor:)
+        end
       end
 
       protected
@@ -36,10 +40,17 @@ module Decidim
         end
       end
 
+      def replace_plain_text(text)
+        text.gsub(GLOBAL_ID_REGEX) do
+          user = GlobalID::Locator.locate(Regexp.last_match[0])
+          user ? presenter_for(user).nickname : ""
+        end
+      end
+
       def render_editor(mentionable)
         mention = render_text(mentionable, editor: true)
         label = CGI.escapeHTML(mention)
-        %(<span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
+        %(<span data-type="mention" data-id="#{label}" data-label="#{label}">#{label}</span>)
       end
 
       def presenter_for(mentionable)

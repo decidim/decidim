@@ -440,7 +440,6 @@ pl:
           global:
             amendments_enabled: Poprawki dozwolone
             comments_enabled: Komentarze włączone
-            comments_max_length: Maksymalna długość komentarzy
             dummy_global_attribute1: Przykładowy atrybut 1
             dummy_global_attribute2: Przykładowy atrybut 2
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
@@ -565,7 +564,7 @@ pl:
           notice: |-
             <p>Hej, czy jesteś pewien, że nie chcesz otrzymywać newslettera?
             Prosimy o ponowne zaznaczenie pola wyboru newslettera poniżej. To dla nas bardzo ważne, abyś mógł otrzymywać sporadyczne e-maile z ważnymi informacjami. Zawsze możesz zmienić to na stronie ustawień o powiadomieniach.</p>
-            <p>Jeśli nie zaznaczysz tego pola, mogą cię ominąć istotne informacje na temat możliwości 
+            <p>Jeśli nie zaznaczysz tego pola, mogą cię ominąć istotne informacje na temat możliwości
             uczestnictwa w procesach na platformie.<br>Jeśli mimo wszystko nie chcesz otrzymywać newsletterów, doskonale rozumiemy twoją decyzję.</p>
             <p>Dziękujemy za uwagę!</p>
           title: Powiadomienia newslettera
@@ -901,7 +900,6 @@ pl:
         create:
           error: Rozmowa nie została rozpoczęta. Spróbuj ponownie później.
         error_modal:
-          close: Zamknij okno
           correct_errors: Popraw daty i spróbuj ponownie.
           intro: 'W wiadomości wystąpiły błędy:'
           ok: ok
@@ -1305,7 +1303,7 @@ pl:
         hello: Witaj %{email},
         ignore: |-
           Jeżeli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail.<br />
-           Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
+          Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administratora %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.

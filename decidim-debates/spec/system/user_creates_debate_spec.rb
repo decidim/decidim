@@ -60,14 +60,14 @@ describe "User creates debate" do
           end
 
           it "does not show the attachments form" do
-            expect(page).to have_no_css("#debate_documents_button")
+            expect(page).to have_no_css("#debate_attachments_button")
           end
         end
 
         context "and attachments are allowed" do
           let(:attachments_allowed) { true }
-          let(:image_filename) { "city2.jpeg" }
-          let(:image_path) { Decidim::Dev.asset(image_filename) }
+          let(:attached_image_filename) { "city2.jpeg" }
+          let(:attached_image_path) { Decidim::Dev.asset(attached_image_filename) }
           let(:document_filename) { "Exampledocument.pdf" }
           let(:document_path) { Decidim::Dev.asset(document_filename) }
 
@@ -84,8 +84,8 @@ describe "User creates debate" do
               fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
             end
 
-            dynamically_attach_file(:debate_documents, image_path)
-            dynamically_attach_file(:debate_documents, document_path)
+            dynamically_attach_file(:debate_attachments, attached_image_path)
+            dynamically_attach_file(:debate_attachments, document_path)
 
             within ".new_debate" do
               find("*[type=submit]").click
@@ -95,7 +95,7 @@ describe "User creates debate" do
             expect(page).to have_text("Should every organization use Decidim?")
             expect(page).to have_text("Add your comments on whether Decidim is useful for every organization.")
             expect(page).to have_css("[data-author]", text: user.name)
-            expect(page).to have_css("img[src*='#{image_filename}']")
+            expect(page).to have_css("img[src*='#{attached_image_filename}']")
 
             click_on "Documents"
 
@@ -104,7 +104,7 @@ describe "User creates debate" do
           end
 
           it "shows validation error when format is not accepted" do
-            dynamically_attach_file(:debate_documents, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
+            dynamically_attach_file(:debate_attachments, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
               expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
             end
             expect(page).to have_text("Validation error!")
@@ -112,7 +112,7 @@ describe "User creates debate" do
 
           context "when attaching an invalid file format" do
             it "shows an error message" do
-              dynamically_attach_file(:debate_documents, Decidim::Dev.asset("participatory_text.odt"), keep_modal_open: true) do
+              dynamically_attach_file(:debate_attachments, Decidim::Dev.asset("participatory_text.odt"), keep_modal_open: true) do
                 expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
               end
               expect(page).to have_text("Validation error! Check that the file has an allowed extension or size.")

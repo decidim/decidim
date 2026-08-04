@@ -43,7 +43,6 @@ sk:
             attachments_allowed: Povoliť prílohy
             clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             no_taxonomy_filters_found: Nenašli sa žiadne taxonomické filtre.
             taxonomy_filters: Vyberte filtre pre komponent
@@ -82,8 +81,6 @@ sk:
             comments_warning: Po zverejnení prvého komentára už nie je možné zmeniť vybranú možnosť zobrazenia.
             debate_type: Typ debaty
             edit_attachments: Upraviť prílohy
-            errors:
-              comments_layout_locked: Po zverejnení komentárov už nemôžete zmeniť rozloženie komentárov.
             finite: Konečná (so začiatočným a koncovým časom)
             open: Otvorená (bez začiatočného alebo koncového času)
             single_column: 'Jeden stĺpec: Komentáre sa zobrazujú v chronologickom poradí a môžu mať odpovede.'
@@ -236,7 +233,7 @@ sk:
           description_own: Zúčastnili ste sa na %{score} debatách.
           name: Debaty
           next_level_in: Podieľajte sa na ďalších %{score} debatách pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník sa nezúčastnil na žiadnej debate. 
+          unearned_another: Tento účastník sa nezúčastnil na žiadnej debate.
           unearned_own: Zatiaľ ste sa nezúčastnili žiadnych debát.
     open_data:
       help:

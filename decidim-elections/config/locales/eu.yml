@@ -220,7 +220,7 @@ eu:
           verify_with_method: Egiaztatu %{name} izenaz
         token_csv:
           example: |
-            e-maila: 
+            e-maila:
             user@example.org;123456
             user2@example.org;ABCXYZ
           info_html: |

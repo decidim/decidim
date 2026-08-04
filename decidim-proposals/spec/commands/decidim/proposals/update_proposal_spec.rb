@@ -20,7 +20,7 @@ module Decidim
       end
 
       let!(:proposal) { create(:proposal, component:, users: [author]) }
-      let(:author) { create(:user, organization:) }
+      let(:author) { create(:user, :confirmed, organization:) }
 
       let(:has_address) { false }
       let(:address) { nil }
@@ -41,8 +41,8 @@ module Decidim
             address:,
             has_address:,
             attachment: attachment_params,
-            documents: current_files,
-            add_documents: uploaded_files,
+            attachments: current_files,
+            add_attachments: uploaded_files,
             errors:
           }
         end
@@ -111,6 +111,18 @@ module Decidim
 
           context "when body has a user mention" do
             let(:mentioned_user) { create(:user, :confirmed, organization:) }
+            let(:body) { "A reasonable proposal body mentioning @#{mentioned_user.nickname}" }
+
+            it "rewrites the mention to the mentioned user GID" do
+              command.call
+              proposal.reload
+
+              expect(proposal.body["en"]).to include(mentioned_user.to_global_id.to_s)
+            end
+          end
+
+          context "when body has a user mention with a hyphen in the nickname" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
             let(:body) { "A reasonable proposal body mentioning @#{mentioned_user.nickname}" }
 
             it "rewrites the mention to the mentioned user GID" do
