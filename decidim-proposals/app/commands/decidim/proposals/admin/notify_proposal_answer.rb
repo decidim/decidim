@@ -45,7 +45,6 @@ module Decidim
         def initial_status_token
           initial_status.respond_to?(:token) ? initial_status.token : initial_status
         end
-        end
 
         def notify_followers
           return if proposal.status == "not_answered"
