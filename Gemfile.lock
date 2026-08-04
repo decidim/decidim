@@ -107,7 +107,7 @@ PATH
       ruby-vips (~> 2.2)
       rubyXL (~> 3.4)
       rubyzip (>= 2, < 4)
-      shakapacker (~> 10.3.0)
+      shakapacker (~> 10.3.1)
       valid_email2 (~> 7.0)
       web-push (~> 3.0)
       wisper (~> 3.0)
@@ -864,7 +864,7 @@ GEM
     selma (0.4.15-arm64-darwin)
     selma (0.4.15-x86_64-linux)
     semantic_range (3.1.1)
-    shakapacker (10.3.0)
+    shakapacker (10.3.1)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
