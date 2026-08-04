@@ -796,7 +796,6 @@ sv:
           instructions: Du kan flytta markören på kartan.
         edit:
           add_attachments: Lägg till bilagor
-          attachment_legend: Lägg till ett dokument eller en bild
           back: Tillbaka
           edit_attachments: Redigera bilagor
           send: Skicka

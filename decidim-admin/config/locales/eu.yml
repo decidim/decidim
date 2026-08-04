@@ -607,6 +607,11 @@ eu:
         edit:
           title: Editatu kidea
           update: Eguneratu
+        form:
+          email: Helbide elektronikoa
+          invite_explanation: Antolaketan parte hartzera gonbidatuko dute parte-hartzailea.
+          name_or_nickname: Izena eda ezeizena
+          select_user: Hautatu kidea
         index:
           import_via_csv: Inportatu CSV bidetik
           publish_all: Argitaratu guztiak
@@ -1099,7 +1104,7 @@ eu:
           previous_title: Aurreko elementua
         attachments:
           add_attachments: Gehitu eranskinak
-          attachment_legend: Gehitu irudi-galeria bat (aukerakoa)
+          attachment_legend: Gehitu dokumentu bat edo irudi bat
           edit_attachments: Editatu eranskinak
       static_page_topics:
         create:

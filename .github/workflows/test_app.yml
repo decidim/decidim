@@ -1,6 +1,11 @@
 on:
   workflow_call:
     inputs:
+      node_version:
+        description: 'Node Version'
+        default: "24.18.0"
+        required: false
+        type: string
       ruby_version:
         description: 'Ruby Version'
         default: "3.4.7"
@@ -44,7 +49,7 @@ on:
 jobs:
   build_app:
     name: Test
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     env:

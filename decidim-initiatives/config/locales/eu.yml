@@ -459,7 +459,6 @@ eu:
       form:
         add_attachments: Eranskinak gehitu
         add_image: Irudia gehitu
-        attachment_legend: Dokumentu bat edo irudi bat gehitu
         edit_attachments: Eranskinak editatu
         edit_image: Editatu irudia
         image_legend: "(Aukerakoa) Gehitu irudi bat"

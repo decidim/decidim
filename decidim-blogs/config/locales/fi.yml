@@ -76,7 +76,6 @@ fi:
       posts:
         edit:
           add_attachments: Lisää liitteitä
-          attachment_legend: Lisää asiakirja tai kuva
           back: Takaisin artikkeliin
           button: Päivitä
           edit_attachments: Muokkaa liitteitä
@@ -99,6 +98,11 @@ fi:
           back: Takaisin artikkeleihin
           button: Luo
           title: Luo artikkeli
+        orders:
+          label: Järjestä artikkelit
+          most_commented: Eniten kommentoidut
+          random: Satunnainen järjestys
+          recent: Viimeisimmät
     components:
       blogs:
         actions:

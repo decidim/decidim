@@ -661,6 +661,7 @@ es-PY:
             number_of_proposals: Se publicarán las respuestas a %{number} propuestas
             select_a_proposal: Por favor, selecciona una propuesta.
           show:
+            address: Dirección
             amendments_count: Número de enmiendas
             assigned_evaluators: Evaluadoras asignadas
             body: Cuerpo
@@ -815,7 +816,6 @@ es-PY:
           instructions: Puedes mover la ubicación en el mapa.
         edit:
           add_attachments: Agregar archivo(s) adjunto(s)
-          attachment_legend: Añadir un documento o una imagen
           back: Volver
           edit_attachments: Editar los archivos adjuntos
           send: Enviar

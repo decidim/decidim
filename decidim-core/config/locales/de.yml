@@ -265,6 +265,10 @@ de:
         results: ergebnisse
       impersonation_log:
         manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
+      member:
+        create: "%{user_name} hat %{resource_name} als Mitglied eingeladen"
+        create_via_csv: "%{user_name} hat %{resource_name} per CSV als Mitglied eingeladen"
+        delete: "%{user_name} hat %{resource_name} als Mitglied entfernt"
       moderation:
         bulk_hide: "%{user_name} hat %{reported_count} Ressourcen verborgen"
         bulk_unhide: "%{user_name} hat %{reported_count} Ressourcen wieder sichtbar gemacht"
@@ -415,6 +419,10 @@ de:
       withdraw:
         error: Beim Zurückziehen der Änderung ist ein Problem aufgetreten.
         success: Die Änderung wurde erfolgreich zurückgezogen.
+      wizard:
+        steps:
+          '1': Erstellen Sie Ihren Änderungsantrag
+          '2': Veröffentlichen Sie Ihren Änderungsantrag
     anonymous_user: Anonym
     application:
       document:
@@ -547,6 +555,7 @@ de:
           global:
             amendments_enabled: Änderungen aktiviert
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Zeichenanzahl pro Kommentar
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             dummy_global_attribute1: Dummy-Attribut 1
             dummy_global_attribute2: Dummy-Attribut 2
@@ -569,6 +578,7 @@ de:
     contact: Kontakt
     content_blocks:
       announcement:
+        body: Ankündigungstext
         name: Ankündigung
       cta:
         name: Bild, Text und Call to Action-Schaltfläche
@@ -651,6 +661,13 @@ de:
           all: Alle
         filter_taxonomy_values:
           all: Alle
+    delete_user_mailer:
+      delete:
+        body_1: Ihr Konto wurde deaktiviert und ist nicht mehr zugänglich. Ihre persönlichen Daten werden gemäss unseren Aufbewahrungsrichtlinien endgültig gelöscht.
+        body_2: Aus Sicherheitsgründen werden einige Daten im Zusammenhang mit Verifizierungen aufbewahrt; wenn Sie ein neues Konto erstellen und sich erneut verifizieren, können diese Daten mit Ihrem neuen Konto verknüpft werden.
+        greetings_html: Freundliche Grüsse<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Liebe/r %{username},
+      subject: Ihr Konto wurde gelöscht
     devise:
       omniauth_registrations:
         create:
@@ -754,6 +771,7 @@ de:
           created_at: Das Erstellungsdatum dieser Unterhaltung
           id: Die eindeutige Bezeichnung dieser Unterhaltung
           messages: Die Nachrichten dieser Unterhaltung
+          updated_at: Das Datum, an dem diese Konversation zuletzt aktualisiert wurde
         notifications:
           created_at: Datum und Uhrzeit, an dem die Benachrichtigung erstellt wurde
           event_class: Die Klasse des Ereignisses, das die Benachrichtigung ausgelöst hat
@@ -762,6 +780,13 @@ de:
           id: Die eindeutige Bezeichnung dieser Benachrichtigung
           resource_type: Der Typ der Ressource, mit der die Benachrichtigung verknüpft ist
           updated_at: Datum und Uhrzeit, an dem die Benachrichtigung zuletzt aktualisiert wurde
+        participatory_space_members:
+          created_at: Das Datum und die Uhrzeit, zu denen dieses Mitglied erstellt wurde
+          id: Die eindeutige Kennung dieses Mitglieds
+          participatory_space: Zu welchem Bereich dieses Mitglied gehört
+          published: Ob dieses Mitglied veröffentlicht ist oder nicht
+          role: Die Rolle, die dieses Mitglied hat
+          updated_at: Das Datum und die Uhrzeit, zu denen dieses Mitglied zuletzt aktualisiert wurde
         reports:
           created_at: Das Datum und die Uhrzeit, an der dieser Bericht erstellt wurde
           details: Die Details dieses Berichts
@@ -771,6 +796,7 @@ de:
           reason: Die Begründung dieser Meldung
           updated_at: Datum und Uhrzeit, an dem diese Meldung zuletzt aktualisiert wurde
         users:
+          about: Die Profilbeschreibung dieser teilnehmenden Person
           accepted_tos_version: Das Datum, an dem die Nutzungsbedingungen dieser Plattform vom Nutzenden akzeptiert wurden
           admin: Ob dieser Benutzer ein Administrator ist
           confirmation_sent_at: Datum und Uhrzeit, an dem die Bestätigung gesendet wurde
@@ -781,6 +807,7 @@ de:
           delete_reason: Der Grund für das Löschen dieses Benutzers
           deleted_at: Datum und Uhrzeit, an dem dieser Benutzer gelöscht wurde
           email: Die E-Mail-Adresse dieses Benutzers
+          followers_count: Die Anzahl Teilnehmender, die diesem Konto folgen
           following_count: Die Anzahl der Teilnehmende, denen dieser Nutzende folgt
           id: Der eindeutige Identifikator dieses Benutzers
           invitation_accepted_at: Datum und Uhrzeit, an dem die Einladung angenommen wurde
@@ -789,12 +816,15 @@ de:
           invitations_count: Die Anzahl der an diesen Benutzer gesendeten Einladungen
           invited_by: Der Benutzer, der diesen Benutzer eingeladen hat
           last_sign_in_at: Datum und Uhrzeit des letzten Logins
+          last_sign_in_ip: Die IP-Adresse der letzten Anmeldung
           locale: Die Plattformsprache, die dieser Benutzer ausgewählt hat
           managed: Ob dieser Benutzer von einem anderen Benutzer verwaltet wird
           name: Der Name des Benutzers
+          newsletter_notifications_at: Das Datum und die Uhrzeit, zu denen diese teilnehmende Person den Newsletter abonniert hat
           nickname: Der Kontoname des Benutzers
           notification_settings: Die Benachrichtigungseinstellungen, die dieser Benutzer ausgewählt hat
           notifications_sending_frequency: Die Häufigkeit der Benachrichtigungen, die dieser Benutzer erhält
+          officialized_as: Die Bezeichnung der Offizialisierung (Gemeinderat, Bürgermeister usw.)
           officialized_at: Das Datum und die Uhrzeit, an der dieser Benutzer offizialisiert wurde
           organization: Die Organisation, zu der dieser Benutzer gehört
           password_updated_at: Das Datum, an dem ihr Passwort zum letzten Mal geändert wurde
@@ -832,6 +862,7 @@ de:
       files:
         file_cannot_be_processed: Datei konnte nicht verarbeitet werden
         file_resolution_too_large: Die Datei-Auflösung ist zu gross
+        not_inside_organization: Die Datei ist keiner Organisation zugeordnet.
       internal_server_error:
         copied: Text Kopiert!
         copy_error_message_clarification: Fehlermeldung in die Zwischenablage kopieren
@@ -854,9 +885,13 @@ de:
           affected_user:
             email_intro: 'Eine Änderung an %{amendable_title} wurde akzeptiert. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
+            email_subject: Angenommener Änderungsantrag für %{amendable_title} von %{emendation_author_name}
+            notification_title: Der von <a href="%{emendation_author_path}">%{emendation_author_name}</a> erstellte <a href="%{emendation_path}">Änderungsantrag</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde angenommen.
           follower:
             email_intro: 'Eine Änderung für %{amendable_title} wurde akzeptiert. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Angenommener Änderungsantrag für %{amendable_title} von %{emendation_author_name}
+            notification_title: Der von <a href="%{emendation_author_path}">%{emendation_author_name}</a> erstellte <a href="%{emendation_path}">Änderungsantrag</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde angenommen.
         amendment_created:
           affected_user:
             email_intro: 'Eine neue Änderung wurde für %{amendable_title} vorgeschlagen. Sehen Sie es sich auf dieser Seite an:'
@@ -872,20 +907,29 @@ de:
           affected_user:
             email_intro: 'Eine abgelehnte Änderung an %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
+            email_subject: Ein Änderungsantrag von %{emendation_author_name} wurde als neue/r/s %{amendable_type} veröffentlicht
+            notification_title: Ein <a href="%{emendation_path}">abgelehnter Änderungsantrag</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_name}</a> als neue/r/s %{amendable_type} veröffentlicht.
           follower:
             email_intro: 'Eine abgelehnte Änderung für %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Ein Änderungsantrag von %{emendation_author_name} wurde als neue/r/s %{amendable_type} veröffentlicht
+            notification_title: Ein <a href="%{emendation_path}">abgelehnter Änderungsantrag</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_name}</a> als neue/r/s %{amendable_type} veröffentlicht.
         amendment_rejected:
           affected_user:
             email_intro: 'Eine Änderung an %{amendable_title} wurde abgelehnt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
+            email_subject: Änderungsantrag für %{amendable_title} von %{emendation_author_name} abgelehnt
+            notification_title: Der von <a href="%{emendation_author_path}">%{emendation_author_name}</a> erstellte <a href="%{emendation_path}">Änderungsantrag</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde abgelehnt.
           follower:
             email_intro: 'Eine Änderung für %{amendable_title} wurde abgelehnt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Änderungsantrag für %{amendable_title} von %{emendation_author_name} abgelehnt
+            notification_title: Der von <a href="%{emendation_author_path}">%{emendation_author_name}</a> erstellte <a href="%{emendation_path}">Änderungsantrag</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde abgelehnt.
         emendation_promoted:
           follower:
             email_intro: 'Eine Änderung wurde für %{amendable_title} abgelehnt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} mitverfasst haben.
+            email_subject: Eine Änderung von %{emendation_author_name} wurde als neue/r/s %{amendable_type} veröffentlicht
       attachments:
         attachment_created:
           email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sehen Sie es sich auf dieser Seite an:'
@@ -918,6 +962,18 @@ de:
         notification_body: Wir haben die Verwendung von Spitznamen so korrigiert, dass es keine Duplikate gibt, und deshalb haben wir die Gross-/Kleinschreibungsregeln entfernt. <br/> Ihr Spitzname wurde nach einem anderen mit dem gleichen Namen erstellt, weshalb wir ihn automatisch umbenannt haben. Sie können ihn in <a href="%{link_to_account_settings}">Ihren Kontoeinstellungen</a> ändern.
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Sie wurden als Mitglied zu einem Beteiligungsbereich hinzugefügt.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil ein Admin Sie zu <a href="%{resource_url}">%{resource_title}</a> hinzugefügt hat. Falls der Zugang zu diesem Bereich eingeschränkt ist, können Sie mit Ihrem Konto darauf zugreifen.<br> Ihr Profil wird in der <a href="%{members_page}">Mitgliederliste</a> des Bereichs angezeigt.
+            email_subject: Sie haben nun Zugang zu %{resource_title}.
+            notification_title: Sie haben nun Zugang zu <a href="%{resource_url}">%{resource_title}</a>.
+          unpublished:
+            email_intro: Sie wurden als Mitglied zu einem Beteiligungsbereich hinzugefügt.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil ein Admin Sie zu <a href="%{resource_url}">%{resource_title}</a> hinzugefügt hat. Falls der Zugang zu diesem Bereich eingeschränkt ist, können Sie mit Ihrem Konto darauf zugreifen.
+            email_subject: Sie haben nun Zugang zu %{resource_title}.
+            notification_title: Sie haben nun Zugang zu <a href="%{resource_url}">%{resource_title}</a>.
       reports:
         parent_hidden:
           email_intro: |-
@@ -936,13 +992,25 @@ de:
           notification_title: |-
             Ein Administrator hat Ihr/e %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name}, dem/der Sie folgen, gefällt gerade "%{resource_title}", und wir denken, das könnte interessant für Sie sein. Schauen Sie es sich an und beteiligen Sie sich:'
+        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{liker_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+        email_subject: "%{liker_name} hat \"Gefällt mir\" geklickt"
+        notification_title: <a href="%{liker_path}">%{liker_name}</a> gefällt %{resource_type} <a href="%{resource_path}">%{resource_title}</a>.
       resources:
         soft_deleted:
           notification_title: Ein Admin hat Ihre "%{resource_type}" "%{resource_title} " gelöscht.
       users:
+        profile_updated:
+          email_intro: Die <a href="%{resource_url}">Profilseite</a> von %{name}, dem/der Sie folgen, wurde aktualisiert.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: "%{name} hat das eigene Profil aktualisiert"
+          notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name}, dem/der Sie folgen, wurde aktualisiert.
         user_officialized:
+          email_intro: Teilnehmende Person %{name} wurde offizialisiert.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Organisation sind.
           email_subject: "%{name} wurde offiziell bestätigt"
+          notification_title: Teilnehmende Person %{name} wurde offizialisiert.
     export_mailer:
       download_your_data_export:
         click_button_html: Klicken Sie auf den nächsten Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis %{date} zum Download zur Verfügung.
@@ -1003,6 +1071,7 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
+          message_2: Falls es sich um ein Bild handelt, sollte es vorzugsweise ein Bild im Querformat ohne Text sein. Die Plattform schneidet das Bild zu.
         icon:
           explanation: 'Hinweise für das Bild:'
           message_1: Muss ein quadratisches Bild sein.
@@ -1012,6 +1081,7 @@ de:
           message_1: Vorzugsweise ein Bild im Querformat, das keinen Text enthält.
           message_2: Der Dienst schneidet die Datei zu.
         import_file:
+          explanation: 'Hinweise zur Importdatei:'
           message_1: Muss ein JSON-Dokument sein, das über die Exportfunktion heruntergeladen wurde.
       file_validation:
         allowed_file_extensions: 'Erlaubte Dateiformate: %{extensions}'
@@ -1070,7 +1140,7 @@ de:
     help:
       main_topic:
         default_page:
-          content: "<p>In %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
+          content: "<p>In %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Versammlungen, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n      "
           title: Was kann ich in %{organization} tun?
         description: Mehr lesen über %{organization}.
         title: Allgemein
@@ -1141,6 +1211,8 @@ de:
       dynamic:
         screen_reader_explanation: Das folgende Element ist eine Karte, die die Elemente auf dieser Seite als Kartenpunkte darstellt. Das Element kann mit einem Screenreader verwendet werden, aber es ist möglicherweise schwer zu verstehen.
         skip_button: Karte überspringen
+        zoom_in: Vergrössern
+        zoom_out: Verkleinern
       static:
         latlng_text: 'Breitengrad: %{latitude}, Längengrad: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1295,6 +1367,7 @@ de:
         own_activity: Meine eigene Tätigkeit, etwa wenn sich jemand in meinem Vorschlag äußert oder mich erwähnt
         push_notifications: Push-Benachrichtigungen
         push_notifications_reminder: Um Benachrichtigungen von der Plattform zu erhalten, müssen Sie diese zuerst in den Browser-Einstellungen zulassen.
+        push_notifications_unsupported_browser: Ihr Browser wird nicht unterstützt.
         receive_notifications_about: Ich möchte Benachrichtigungen erhalten über
         update_notifications_settings: Änderungen speichern
       update:
@@ -1480,9 +1553,22 @@ de:
         log_in: anmelden
         never_logged_in: Nie angemeldet
         subject: Inaktive Kontowarnung
+    participatory_space:
+      labels:
+        reference: Referenz des Bereichs
+        restricted: Eingeschränkter Bereich
+        transparent: Transparenter Bereich
+      pages:
+        user_profile:
+          member_of:
+            member_of: Mitglied von
     participatory_space_members:
       index:
         members: Mitglieder
+    participatory_spaces:
+      show:
+        restricted_space: Dies ist ein eingeschränkter Bereich. Nur Mitglieder und Admins können ihn ansehen und daran teilnehmen.
+        transparent_space: Dies ist ein transparenter Bereich. Die Inhalte können von allen eingesehen werden, teilnehmen können jedoch nur Mitglieder und Admins.
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
@@ -1801,13 +1887,17 @@ de:
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
           Ihr Konto wird erst erstellt, wenn Sie auf den angegebenen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat Sie als Admin von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        invited_you_as_member: "%{invited_by} hat Sie als Mitglied von %{application} eingeladen. Sie können die Einladung über den untenstehenden Link annehmen."
         someone_invited_you: Jemand hat Sie zu %{application} eingeladen. Sie können die EInladung über den folgenden Link akzeptieren.
         someone_invited_you_as_admin: Jemand hat Sie als Admin zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_member: Jemand hat Sie als Mitglied von %{application} eingeladen. Sie können die Einladung über den untenstehenden Link annehmen.
         subject: Anweisungen zur Einladung
       invite_admin:
         subject: Sie wurden eingeladen %{organization} zu verwalten
       invite_collaborator:
         subject: Sie wurden zur Zusammenarbeit auf %{organization} eingeladen
+      invite_member:
+        subject: Sie wurden zu einem privaten Partizipationsprozess auf %{organization} eingeladen
       organization_admin_invitation_instructions:
         subject: Sie wurden eingeladen %{organization} zu verwalten
       password_change:
@@ -1837,6 +1927,8 @@ de:
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
         old_password_help: Um die Änderungen an Ihrem Konto zu bestätigen, geben Sie bitte Ihr aktuelles Passwort ein.
+        password_help: "Mindestens %{minimum_characters} Zeichen, muss mindestens 5 unterschiedliche Zeichen enthalten, darf nicht zu gebräuchlich sein (z. B. 123456) und muss sich von Ihrem Namen, Benutzernamen, Ihrer E-Mail-Adresse und der Domain der Organisation unterscheiden."
+        password_help_admin: "Mindestens %{minimum_characters} Zeichen, muss mindestens 5 unterschiedliche Zeichen enthalten, darf nicht zu gebräuchlich sein (z. B. 123456), muss sich von Ihrem Namen, Benutzernamen, Ihrer E-Mail-Adresse und der Domain der Organisation unterscheiden und darf keinem Ihrer bisherigen Passwörter entsprechen."
         title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
@@ -1965,7 +2057,7 @@ de:
       '3': Mittel-Hell
       '4': Mittel
       '5': Mitteldunkel
-      '6':
+      '6': Dunkel
       choose: Standard-Hautton auswählen
   errors:
     messages:
@@ -2081,6 +2173,7 @@ de:
         confirm_title_close_ephemeral_session: Vor Verlassen dieser Seite…
         log_in: Anmelden
         main_menu: Hauptmenü
+        mobile_account_greeting: Hallo, %{user_name}
         user_menu: Benutzer-Menü
       impersonation_warning:
         close_session: Sitzung schließen
@@ -2088,6 +2181,8 @@ de:
         expire_time_html: Ihre Sitzung läuft in <b><span data-impersonation-warning-target="minutes">%{minutes}</span> Minuten</b> ab.
       language_chooser:
         choose_language: Sprache wählen
+      navigation:
+        aria_label: 'Navigationsmenü: %{title}'
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren
