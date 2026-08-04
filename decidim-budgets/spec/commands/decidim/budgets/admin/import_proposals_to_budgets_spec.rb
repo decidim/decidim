@@ -89,7 +89,7 @@ module Decidim
             end
 
             context "when there are no statuses" do
-              let(:internal_statuses) { [] }
+              let(:statuses) { [] }
 
               it "broadcasts ok" do
                 expect { command.call }.to broadcast(:ok)
