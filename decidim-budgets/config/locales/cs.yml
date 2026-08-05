@@ -85,6 +85,8 @@ cs:
             invalid: Při aktualizaci tohoto rozpočtu došlo k chybě.
             success: Rozpočet byl úspěšně aktualizován.
         exports:
+          formats:
+            pabulib: Pabulib
           projects: Projekty
           voting_results: Výsledky hlasování
         models:
@@ -96,6 +98,11 @@ cs:
             no_votes: Zatím nejsou žádné hlasy pro export.
           show:
             create: Export
+            explanation_html: |
+              <p>
+                Toto zobrazení vytvoří %{format_link} export pro výsledky účastnického hlasování v rozpočtu
+              </p>
+            explanation_link_label_format: Pabulib format
             export_details_data: Atributy dat
             export_details_general: Obecné podrobnosti
             fields:
@@ -104,6 +111,14 @@ cs:
                 label: Země (%{field})
               default_score:
                 label: Výchozí skóre (%{field})
+              description:
+                help: Popis hlasování popisující to, o čem se hlasovalo.
+                label: Popis (%{field})
+              district:
+                help: Hlasovací oblast v rámci hlasování. Pokud například použijete sousedství jako podjednotky, můžete je mapovat do okrsků, které tuto oblast využívají.
+                label: Okresy (%{field})
+              max_length:
+                label: Maximální délka (%{field})
               rule:
                 label: Pravidlo (%{field})
               subunit:
