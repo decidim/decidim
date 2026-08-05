@@ -920,6 +920,7 @@ cs:
             invalid: Při odblokování účastníků došlo k chybě.
             success: Účastníci byli úspěšně odblokováni.
         create:
+          no_user_found: Uživatel nebyl nalezen.
           success: Účastník úspěšně oficiálně zaregistrován.
         destroy:
           success: Účastník úspěšně zbaven oficiální registrace.
