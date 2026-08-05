@@ -618,6 +618,7 @@ cs:
           update: Aktualizovat
         form:
           email: E-mail
+          invite_explanation: Uživatel bude vyzván, aby se připojil k organizaci.
           name_or_nickname: Jméno nebo přezdívka
           select_user: Vybrat člena
         index:
@@ -923,6 +924,7 @@ cs:
             invalid: Při odblokování účastníků došlo k chybě.
             success: Účastníci byli úspěšně odblokováni.
         create:
+          no_user_found: Uživatel nebyl nalezen.
           success: Účastník úspěšně oficiálně zaregistrován.
         destroy:
           success: Účastník úspěšně zbaven oficiální registrace.
@@ -1113,6 +1115,7 @@ cs:
           previous_title: Předchozí položka
         attachments:
           add_attachments: Přidat přílohy
+          attachment_legend: Přidat dokument nebo obrázek
           edit_attachments: Upravit přílohy
       static_page_topics:
         create:
