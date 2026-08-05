@@ -33,7 +33,7 @@ module Decidim
       end
 
       def perform_caching?
-        super && has_replies_in_children? == false && current_user.blank?
+        super && has_replies_in_children? == false && current_user.blank? && !render_chain_reply?
       end
 
       private
@@ -75,7 +75,8 @@ module Decidim
         hash.push(model.cache_key_with_version)
         hash.push(model.author.cache_key_with_version)
         hash.push(extra_actions.to_s)
-        hash.push(expand_replies? ? 1 : 0)
+        hash.push(next_chain_id.to_s)
+        hash.push(target_self? ? 1 : 0)
         @hash = hash.join(Decidim.cache_key_separator)
       end
 
@@ -246,24 +247,26 @@ module Decidim
         @target_chain_ids ||= options[:target_chain_ids] || []
       end
 
-      def on_target_chain?
-        target_chain_ids.include?(model.id)
+      def next_chain_id
+        return @next_chain_id if defined?(@next_chain_id)
+
+        index = target_chain_ids.index(model.id)
+        @next_chain_id = index ? target_chain_ids[index + 1] : nil
       end
 
-      def expand_replies?
-        on_target_chain? && target_chain_ids.last != model.id
+      def render_chain_reply?
+        next_chain_id.present?
       end
 
-      # Returns only the direct child that continues the target chain (an
-      # array of zero or one Comments). Sibling replies under this ancestor
-      # keep their lazy-load behaviour.
-      def next_chain_reply
-        return [] unless on_target_chain?
+      def target_self?
+        target_chain_ids.last == model.id
+      end
 
-        next_id = target_chain_ids[target_chain_ids.index(model.id) + 1]
-        return [] unless next_id
+      # Deleted and hidden comments are kept so a moderated ancestor does not break the chain
+      def chain_reply
+        return [] unless next_chain_id
 
-        model.comment_threads.not_hidden.not_deleted.where(id: next_id).includes(:author, :up_votes, :down_votes).to_a
+        model.comment_threads.where(id: next_chain_id).includes(:author, :up_votes, :down_votes).to_a
       end
 
       # action_authorization_button expects current_component to be available

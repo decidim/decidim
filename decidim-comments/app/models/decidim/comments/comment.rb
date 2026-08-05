@@ -217,17 +217,13 @@ module Decidim
         root_commentable.try(:actions_for_comment, self, current_user)
       end
 
-      # Public: Returns the depth-0 ancestor of this comment's thread. Returns
-      # self when the comment is already the thread root.
       def thread_root
         root = self
         root = root.commentable while root.commentable.is_a?(self.class)
         root
       end
 
-      # Public: Returns the ids of every comment from the thread root down to
-      # self (inclusive). Used to know which replies must be pre-expanded when
-      # rendering a deep-linked comment.
+      # Returns the ids from the thread root down to self, inclusive
       def thread_chain_ids
         ids = [id]
         current = self

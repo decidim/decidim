@@ -2,12 +2,12 @@
      data-show-replies-url-value="<%= decidim_comments.comments_path %>"
      data-show-replies-comment-gid-value="<%= model.to_signed_global_id.to_s %>"
      data-show-replies-order-value="<%= order %>"
-     data-show-replies-loaded-value="<%= expand_replies? %>">
+     data-show-replies-loaded-value="false">
   <div class="show-replies-button">
     <button class="button button__xs button__text-secondary"
             data-action="click->show-replies#toggle"
             data-show-replies-target="button"
-            aria-expanded="<%= expand_replies? %>"
+            aria-expanded="false"
             aria-controls="comment-<%= model.id %>-replies"
             id="comment-<%= model.id %>-replies-trigger">
       <span class="font-normal"><%= t("decidim.components.comment.replies_count", count: replies_count) %></span>
@@ -18,11 +18,6 @@
   </div>
   <div id="comment-<%= model.id %>-replies"
        data-show-replies-target="container"
-       class="comment-reply <%= "hidden" unless expand_replies? %>">
-    <% if expand_replies? %>
-      <% next_chain_reply.each do |reply| %>
-        <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, target_chain_ids: target_chain_ids) %>
-      <% end %>
-    <% end %>
+       class="comment-reply hidden">
   </div>
 </div>

@@ -51,24 +51,69 @@ module Decidim::Comments
         end
 
         context "when the single comment is a reply" do
+          let(:my_cell) { cell("decidim/comments/comments", commentable, single_comment: comment.id) }
           let(:thread_root) { create(:comment, commentable:) }
-          let(:reply_level_1) { create(:comment, commentable: thread_root) }
-          let(:comment) { create(:comment, commentable: reply_level_1) }
+          let(:first_reply) { create(:comment, commentable: thread_root, root_commentable: commentable) }
+          let(:comment) { create(:comment, commentable: first_reply, root_commentable: commentable) }
 
           it "renders the whole thread chain leading to the target comment" do
             expect(subject).to have_text(thread_root.body.values.first)
-            expect(subject).to have_text(reply_level_1.body.values.first)
+            expect(subject).to have_text(first_reply.body.values.first)
             expect(subject).to have_text(comment.body.values.first)
           end
 
-          it "expands the ancestor replies containers" do
+          it "renders the ancestor replies containers unfolded" do
             expect(subject).to have_css("#comment-#{thread_root.id}-replies:not(.hidden)")
-            expect(subject).to have_css("#comment-#{reply_level_1.id}-replies:not(.hidden)")
+            expect(subject).to have_css("#comment-#{first_reply.id}-replies:not(.hidden)")
+          end
+
+          it "highlights only the target comment" do
+            expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted")
+            expect(subject).to have_no_css("#comment_#{thread_root.id}.comment--highlighted")
+            expect(subject).to have_no_css("#comment_#{first_reply.id}.comment--highlighted")
+          end
+
+          it "does not render the replies toggle for the ancestors" do
+            expect(subject).to have_no_css("#comment-#{thread_root.id}-replies-trigger")
+            expect(subject).to have_no_css("#comment-#{first_reply.id}-replies-trigger")
           end
 
           it "does not render unrelated threads on the same commentable" do
             other_comments.each do |other_comment|
               expect(subject).to have_no_text(other_comment.body.values.first)
+            end
+          end
+
+          it "does not render the sibling replies of the ancestors" do
+            sibling = create(:comment, commentable: thread_root, root_commentable: commentable)
+
+            expect(subject).to have_no_text(sibling.body.values.first)
+          end
+
+          context "with a deleted comment in the chain" do
+            before { first_reply.update!(deleted_at: Time.current) }
+
+            it "still renders the target comment" do
+              expect(subject).to have_text(thread_root.body.values.first)
+              expect(subject).to have_css(".comment__deleted")
+              expect(subject).to have_text(comment.body.values.first)
+            end
+          end
+
+          context "with a hidden comment in the chain" do
+            before do
+              create(
+                :moderation,
+                :hidden,
+                reportable: first_reply,
+                participatory_space: commentable.participatory_space
+              )
+            end
+
+            it "still renders the target comment" do
+              expect(subject).to have_text(thread_root.body.values.first)
+              expect(subject).to have_css(".comment__moderated")
+              expect(subject).to have_text(comment.body.values.first)
             end
           end
         end

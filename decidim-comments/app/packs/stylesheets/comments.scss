@@ -137,6 +137,29 @@
     @apply border-0 pr-0 mt-4;
   }
 
+  &.comment--highlighted {
+    @apply -mr-3 pr-3;
+
+    > .comment__header,
+    > .comment__content,
+    > [data-comment-footer] {
+      @apply bg-secondary/10 -ml-6 -mr-3 pl-6 pr-3;
+    }
+
+    > .comment__header {
+      @apply mb-0 pt-3 pb-2 rounded-t-lg;
+    }
+
+    /* the grid's top margin would otherwise collapse out of the tinted footer */
+    > [data-comment-footer] {
+      @apply pt-4 pb-3 rounded-b-lg;
+
+      .comment__footer-grid {
+        @apply mt-0;
+      }
+    }
+  }
+
   &-thread {
     @apply mb-4;
 
