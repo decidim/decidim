@@ -2,6 +2,11 @@
 
 class RenameProposalStatesToProposalStatuses < ActiveRecord::Migration[7.0]
   LEGACY_STATE_INDEXES = { 0 => "not_answered", 10 => "evaluating", 20 => "accepted", -10 => "rejected", -20 => "withdrawn" }.freeze
+  STATE_TO_STATUS_CHANGESET_KEYS = {
+    "state" => "status",
+    "decidim_proposals_proposal_state_id" => "decidim_proposals_proposal_status_id",
+    "state_published_at" => "status_published_at"
+  }.freeze
   class ActionLog < ApplicationRecord
     self.table_name = :decidim_action_logs
   end
@@ -42,27 +47,38 @@ class RenameProposalStatesToProposalStatuses < ActiveRecord::Migration[7.0]
 
   def rename_state_changesets
     Version.where(item_type: "Decidim::Proposals::Proposal")
-           .where("object_changes ->> 'state' IS NOT NULL")
+           .where(changeset_keys_sql(STATE_TO_STATUS_CHANGESET_KEYS.keys))
            .find_each do |version|
       changeset = version.object_changes
-      values = changeset.delete("state")
-      next if values.nil?
+      STATE_TO_STATUS_CHANGESET_KEYS.each do |legacy_key, status_key|
+        next unless changeset.has_key?(legacy_key)
 
-      changeset["status"] = values.map { |value| LEGACY_STATE_INDEXES.fetch(value) { value } }
+        values = changeset.delete(legacy_key)
+        changeset[status_key] = if legacy_key == "state"
+                                  values.map { |value| LEGACY_STATE_INDEXES.fetch(value) { value } }
+                                else
+                                  values
+                                end
+      end
       version.update_column(:object_changes, changeset) # rubocop:disable Rails/SkipsModelValidations
     end
   end
 
   def rename_status_changesets
     Version.where(item_type: "Decidim::Proposals::Proposal")
-           .where("object_changes ->> 'status' IS NOT NULL")
+           .where(changeset_keys_sql(STATE_TO_STATUS_CHANGESET_KEYS.values))
            .find_each do |version|
       changeset = version.object_changes
-      values = changeset.delete("status")
-      next if values.nil?
+      STATE_TO_STATUS_CHANGESET_KEYS.each do |legacy_key, status_key|
+        next unless changeset.has_key?(status_key)
 
-      changeset["state"] = values
+        changeset[legacy_key] = changeset.delete(status_key)
+      end
       version.update_column(:object_changes, changeset) # rubocop:disable Rails/SkipsModelValidations
     end
+  end
+
+  def changeset_keys_sql(keys)
+    keys.map { |key| "object_changes ->> '#{key}' IS NOT NULL" }.join(" OR ")
   end
 end
