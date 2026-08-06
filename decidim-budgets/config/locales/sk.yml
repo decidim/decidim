@@ -91,6 +91,9 @@ sk:
         models:
           project:
             name: Projekt
+        pabulib_exports:
+          show:
+            title: Exportovať výsledky hlasovania rozpočtu %{budget} vo formáte Pabulib
         projects:
           create:
             invalid: Pri vytváraní tohto projektu sa vyskytol problém.
