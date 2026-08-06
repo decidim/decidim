@@ -71,7 +71,7 @@
     .card-accordion-section {
       @apply border-t border-gray mt-2 pt-4 pb-0 text-gray-2;
 
-      ul {
+      > ul {
         @apply list-none m-0 p-0;
       }
     }
