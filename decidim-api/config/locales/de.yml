@@ -1,1 +1,15 @@
+---
 de:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: Introspection ist für diese Anfrage deaktiviert
+        invalid_locale: Ungültige Spracheinstellung angegeben
+        locale_argument_error: Bei der internen Verarbeitung der i18n-Daten ist ein Fehler aufgetreten
+        not_found: "%{type} nicht gefunden"
+        permission_not_set: Für dieses %{type} wurde keine Berechtigung festgelegt
+        recursion_limit_exceeded_error: In der Abfrage wurden zu viele Rekursionen festgestellt
+        too_many_aliases_error: Es wurden zu viele Aliase verwendet. Sie haben %{size} Aliase verwendet, erlaubt sind jedoch nur %{limit}.
+        unauthorized_field: Sie können das Feld %{field} von %{type} nicht ansehen oder bearbeiten, da Ihnen die Berechtigung dafür fehlt
+        unauthorized_mutation: Sie sind nicht berechtigt, diese Änderungsoperation durchzuführen
+        unauthorized_object: Sie können dieses %{type} nicht ansehen oder bearbeiten, da Ihnen die Berechtigung dafür fehlt
