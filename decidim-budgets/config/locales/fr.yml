@@ -209,6 +209,7 @@ fr:
           fields:
             id: ID
             map: Carte
+            taxonomies: Taxonomies
             title: Titre
       order:
         status:
@@ -347,8 +348,10 @@ fr:
             geocoding_enabled: Cartes activées
             landing_page_content: Page d'accueil des budgets
             more_information_modal: Plus d’informations
+            no_taxonomy_filters_found: Aucun filtre de taxonomie n'a été trouvé.
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque projet
+            taxonomy_filters_add: Ajouter un filtre
             title: Titre
             total_budget: Budget total
             vote_minimum_budget_projects_number: Nombre minimum de projets à voter
@@ -401,6 +404,7 @@ fr:
           participatory_space: 'À quel espace (ex : Processus participatif ou Assemblée) appartient ce projet'
           reference: La référence unique du projet
           selected_at: L'heure à laquelle le projet a été sélectionné
+          taxonomies: Les taxonomies du projet
           title: Le titre du projet
           updated_at: La dernière date de mise à jour du projet
           url: L'URL du projet
