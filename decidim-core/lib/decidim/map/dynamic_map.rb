@@ -30,7 +30,9 @@ module Decidim
       def builder_options
         {
           marker_color: organization.colors.fetch("primary", "#e02d2d"),
-          tile_layer: tile_layer_configuration
+          tile_layer: tile_layer_configuration,
+          zoom_in_text: I18n.t("zoom_in", scope: "decidim.map.dynamic"),
+          zoom_out_text: I18n.t("zoom_out", scope: "decidim.map.dynamic")
         }
       end
 

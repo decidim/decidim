@@ -451,7 +451,6 @@ sk:
       form:
         add_attachments: Pridať prílohy
         add_image: Pridať obrázok
-        attachment_legend: Pridať dokument alebo obrázok
         edit_attachments: Upraviť prílohy
         edit_image: Upraviť obrázok
         image_legend: "(Voliteľné) Pridať obrázok"

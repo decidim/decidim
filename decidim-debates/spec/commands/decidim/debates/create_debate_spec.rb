@@ -8,8 +8,9 @@ describe Decidim::Debates::CreateDebate do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:attachments) { [] }
+  let(:description) { "description" }
   let(:taxonomizations) do
     2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
   end
@@ -17,7 +18,7 @@ describe Decidim::Debates::CreateDebate do
     double(
       invalid?: invalid,
       title: "title",
-      description: "description",
+      description:,
       taxonomizations:,
       current_user: user,
       current_component:,
@@ -83,6 +84,28 @@ describe Decidim::Debates::CreateDebate do
     it "sets the description with i18n" do
       subject.call
       expect(debate.description.values.uniq).to eq ["description"]
+    end
+
+    context "when description has a user mention" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:description) { "description mentioning @#{mentioned_user.nickname}" }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+
+        expect(debate.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
+    end
+
+    context "when description has a user mention with a hyphen in the nickname" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
+      let(:description) { "description mentioning @#{mentioned_user.nickname}" }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+
+        expect(debate.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
     end
 
     it "traces the action", versioning: true do
@@ -179,9 +202,9 @@ describe Decidim::Debates::CreateDebate do
   end
 
   describe "events" do
-    let(:author_follower) { create(:user, organization:) }
+    let(:author_follower) { create(:user, :confirmed, organization:) }
     let!(:author_follow) { create(:follow, followable: user, user: author_follower) }
-    let(:space_follower) { create(:user, organization:) }
+    let(:space_follower) { create(:user, :confirmed, organization:) }
     let!(:space_follow) { create(:follow, followable: participatory_process, user: space_follower) }
 
     it "notifies the change to the author followers" do

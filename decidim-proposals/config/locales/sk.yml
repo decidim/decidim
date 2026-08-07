@@ -812,7 +812,6 @@ sk:
           instructions: Bod na mape môžete presunúť.
         edit:
           add_attachments: Pridať prílohy
-          attachment_legend: Pridať dokument alebo obrázok
           back: Zadná
           edit_attachments: Upraviť prílohy
           send: Poslať

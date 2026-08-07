@@ -3,7 +3,7 @@
 shared_examples "participatory space members" do
   let(:blocks_manifests) { [] }
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, organization: participatory_space.organization) }
+  let(:user) { create(:user, :confirmed, organization: participatory_space.organization) }
   let(:unpublished_user) { create(:user, organization: participatory_space.organization) }
 
   before do
@@ -109,12 +109,70 @@ shared_examples "participatory space members" do
       it "lists all the members" do
         within ".layout-main__section" do
           expect(page).to have_css(".profile__user", count: 1)
-          expect(page).to have_no_text(Decidim::ParticipatorySpace::MemberPresenter.new(unpublished_member).name)
+          expect(page).to have_no_text(decidim_sanitize(unpublished_member.name))
         end
 
         click_on(member.name)
 
         expect(page).to have_text("Profile")
+      end
+    end
+
+    context "when there are more members than the pagination per_page limit" do
+      let(:per_page) { Decidim::Paginable::OPTIONS.first }
+      let(:users) { create_list(:user, per_page + 5, organization: participatory_space.organization) }
+      let!(:extra_members) do
+        users.map do |user|
+          create(:member, participatory_space:, user:, published: true)
+        end
+      end
+
+      before do
+        visit members_path
+      end
+
+      it "paginates the members list" do
+        within ".layout-main__section" do
+          expect(page).to have_css(".profile__user", count: per_page)
+        end
+      end
+
+      it "shows pagination controls" do
+        within("div[data-pagination]") do
+          expect(page).to have_css('nav[aria-label="Pagination"]')
+        end
+      end
+
+      it "navigates to the next page" do
+        within "nav[aria-label=\"Pagination\"]" do
+          click_on "Next"
+        end
+
+        within ".layout-main__section" do
+          expect(page).to have_css(".profile__user", count: 6)
+        end
+      end
+
+      it "maintains pagination when navigating back" do
+        within "nav[aria-label=\"Pagination\"]" do
+          click_on "Next"
+        end
+
+        within "nav[aria-label=\"Pagination\"]" do
+          click_on "Prev"
+        end
+
+        within ".layout-main__section" do
+          expect(page).to have_css(".profile__user", count: per_page)
+        end
+      end
+
+      it "shows the correct page number in the URL" do
+        within "nav[aria-label=\"Pagination\"]" do
+          click_on "Next"
+        end
+
+        expect(page).to have_current_path(/page=2/)
       end
     end
   end

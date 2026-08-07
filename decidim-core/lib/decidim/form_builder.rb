@@ -480,8 +480,7 @@ module Decidim
       hidden_options
     end
 
-    # Private: Override from FoundationRailsHelper in order to render
-    # inputs inside the label and to automatically inject validations
+    # Private: Render inputs inside the label and to automatically inject validations
     # from the object.
     #
     # attribute    - The String name of the attribute to build the field.
@@ -608,8 +607,7 @@ module Decidim
       object._validators[attribute.to_sym].find { |validator| validator.instance_of?(klass) }
     end
 
-    # Private: Override method from FoundationRailsHelper to render the text of the
-    # label before the input, instead of after.
+    # Private: Render the text of the label before the input, instead of after.
     #
     # attribute - The String name of the attribute we are build the label.
     # text      - The String text to use as label.
@@ -804,9 +802,8 @@ module Decidim
     end
 
     # Private: Creates a tag from the given options for the field prefix and
-    # suffix. Overridden from FoundationRailsHelper to make the generated HTML
-    # valid since these elements are printed within <label> elements and <div>'s
-    # are not allowed there.
+    # suffix. Make the generated HTML valid since these elements are printed
+    # within <label> elements and <div>'s are not allowed there.
     def tag_from_options(name, options)
       return "".html_safe unless options && options[:value].present?
 
@@ -887,11 +884,19 @@ module Decidim
         upload_dialog_selector: "##{upload_options[:modal_id]}"
       }.transform_keys { |key| key.to_s.camelize(:lower) }
 
-      editor_options[:mention] = options.delete(:mentionable)
+      mentionable = options.delete(:mentionable)
+      editor_options[:mention] = mention_options(mentionable) if mentionable
       editor_options[:emoji] = options.delete(:emojiable)
       @template.append_javascript_pack_tag("decidim_emoji", defer: true) if editor_options[:emoji]
 
       { editor: editor_options, upload: upload_options }
+    end
+
+    def mention_options(mentionable)
+      mention_options = mentionable.is_a?(Hash) ? mentionable.dup : {}
+      mention_options[:searchPromptMessage] ||= I18n.t("decidim.shared.mentions.search_prompt")
+
+      mention_options
     end
 
     # Private: creates an upload modal for the editor that we use to dynamically
