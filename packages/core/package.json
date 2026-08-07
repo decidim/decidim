@@ -51,7 +51,7 @@
     "drag-on-drop": "^3.6.1",
     "emoji-mart": "^5.5.2",
     "graphiql": "^3.0.10",
-    "graphql-ws": "^5.16.2",
+    "graphql-ws": "^6.2.0",
     "regenerator-runtime": "^0.14.1",
     "html5sortable": "0.10.0",
     "identity-obj-proxy": "^3.0.0",
