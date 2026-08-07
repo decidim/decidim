@@ -72,7 +72,12 @@ class RenameProposalStatesToProposalStatuses < ActiveRecord::Migration[7.0]
       STATE_TO_STATUS_CHANGESET_KEYS.each do |legacy_key, status_key|
         next unless changeset.has_key?(status_key)
 
-        changeset[legacy_key] = changeset.delete(status_key)
+        values = changeset.delete(status_key)
+        changeset[legacy_key] = if legacy_key == "state"
+                                  values.map { |value| LEGACY_STATE_INDEXES.key(value) || value }
+                                else
+                                  values
+                                end
       end
       version.update_column(:object_changes, changeset) # rubocop:disable Rails/SkipsModelValidations
     end
