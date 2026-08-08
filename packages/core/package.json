@@ -53,7 +53,7 @@
     "graphiql": "^3.0.10",
     "graphql-ws": "^6.2.0",
     "regenerator-runtime": "^0.14.1",
-    "html5sortable": "0.10.0",
+    "html5sortable": "0.14.0",
     "identity-obj-proxy": "^3.0.0",
     "jquery": "^3.2.1",
     "jquery-serializejson": "3.2.1",
