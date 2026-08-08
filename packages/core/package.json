@@ -50,7 +50,7 @@
     "diff": "^9.0.0",
     "drag-on-drop": "^3.6.1",
     "emoji-mart": "^5.5.2",
-    "graphiql": "^3.0.10",
+    "graphiql": "^5.2.4",
     "graphql-ws": "^6.2.0",
     "regenerator-runtime": "^0.14.1",
     "html5sortable": "0.14.0",
