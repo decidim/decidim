@@ -99,8 +99,8 @@ describe "Datepicker" do
     time = value.is_a?(Time) ? value : Time.zone.parse(value)
 
     find(".datepicker__calendar-button").click(x: 5, y: 10)
-    find('span > input.wc-datepicker__year-select').set(time.year)
-    find('select.wc-datepicker__month-select').find(:option, time.strftime("%B")).select_option
+    find("span > input.wc-datepicker__year-select").set(time.year)
+    find("select.wc-datepicker__month-select").find(:option, time.strftime("%B")).select_option
     find("select.wc-datepicker__month-select").execute_script("this.dispatchEvent(new Event('change'))")
     move_month.abs.times do
       if move_month.positive?
