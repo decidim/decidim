@@ -43,6 +43,7 @@ de:
             allow_editing_responses: Registrierten Benutzern die Bearbeitung eigener Umfrageantworten ermöglichen
             allow_responses: Antworten erlauben
             allow_unregistered: Teilnahme an der Umfrage ohne Registrierung erlauben
+            allow_unregistered_help: Wenn aktiviert, ist keine Anmeldung erforderlich, um die Umfrage zu beantworten. Dies kann zu ungenauen oder unzuverlässigen Daten führen und macht die Umfrage anfälliger für automatisierte Angriffe. Mit Vorsicht verwenden! Beachten Sie, dass dieselbe Umfrage von einer teilnehmenden Person mehrfach beantwortet werden kann, etwa durch die Verwendung unterschiedlicher Browser oder der Funktion "Privates Surfen" des Webbrowsers.
             announcement: Ankündigung
             clean_after_publish: Antworten beim Veröffentlichen der Umfrage löschen
             description: Beschreibung
@@ -179,6 +180,7 @@ de:
         response:
           invalid: Es gab ein Problem beim Antworten auf das Formular.
           max_choices_alert: Es sind zu viele Optionen ausgewählt
+          spam_detected: Beim Beantworten des Formulars ist ein Problem aufgetreten. Vielleicht waren Sie zu schnell – versuchen Sie es bitte erneut.
           success: Formular erfolgreich beantwortet.
         show:
           current_step: Schritt %{step}
@@ -188,6 +190,7 @@ de:
             body: Das Formular ist geschlossen und kann nicht beantwortet werden.
             title: Fragebogen geschlossen
           questionnaire_for_members:
+            body: Das Formular ist nur für Mitglieder verfügbar
             title: Formular geschlossen
           questionnaire_js_disabled:
             body: Manche Funktionen des Formulars werden deaktiviert sein. Aktivieren Sie JavaScript in Ihrem Browser für eine bessere Erfahrung.
