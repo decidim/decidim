@@ -456,7 +456,6 @@ ja:
       form:
         add_attachments: 添付ファイルを追加
         add_image: 画像を追加
-        attachment_legend: ドキュメントまたは画像を追加
         edit_attachments: 添付ファイルを編集
         edit_image: 画像を編集
         image_legend: "(オプション) 画像を追加"

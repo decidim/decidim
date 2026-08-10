@@ -85,6 +85,22 @@ fr:
         models:
           project:
             name: Projet
+        pabulib_exports:
+          show:
+            export_details_general: Informations générales
+            fields:
+              country:
+                help: Le pays où s'est tenu le vote.
+                label: Pays (%{field})
+              description:
+                help: Description précisant l'objet du vote.
+                label: Description (%{field})
+              max_length:
+                help: 'Nombre maximum de projets à sélectionner (par défaut : %{default_value}).'
+                label: Nombre maximum (%{field})
+              max_points:
+                help: 'Nombre maximum de points attribués aux projets sélectionnés (par défaut : %{default_value}).'
+                label: Nombre maximum de points (%{field})
         projects:
           create:
             invalid: Il y a eu un problème lors de la création de ce projet.
@@ -333,6 +349,7 @@ fr:
         settings:
           global:
             announcement: Annonce
+            clear_all: Tout effacer
             comments_enabled: Activer le module de commentaire
             comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.

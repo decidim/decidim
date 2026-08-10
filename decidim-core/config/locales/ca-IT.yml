@@ -664,7 +664,7 @@ ca-IT:
         body_2: Per raons de seguretat, es conservaran algunes dades relacionades amb la verificació; d'aquesta manera si creessis un compte nou i el tornes a verificar, es podria vincular l'autorització amb aquest compte nou.
         greetings_html: Atentament,<br/><a href="%{organization_url}">%{organization_name}</a>
         hello: Hola %{username},
-      subject:
+      subject: El teu compte ha estat eliminat
     devise:
       omniauth_registrations:
         create:
@@ -1204,6 +1204,8 @@ ca-IT:
       dynamic:
         screen_reader_explanation: El següent element és un mapa que presenta els components d'aquesta pàgina com a punts al mapa. L'element es pot fer servir amb un lector de pantalla però pot ser difícil d'entendre.
         skip_button: Saltar el mapa
+        zoom_in: Ampliar
+        zoom_out: Allunyar
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1545,6 +1547,10 @@ ca-IT:
         never_logged_in: mai ha iniciat sessió
         subject: Avís de compte inactiu
     participatory_space:
+      labels:
+        reference: Referència de l'espai de participació
+        restricted: Espai de participació restringit
+        transparent: Espai de participació transparent
       pages:
         user_profile:
           member_of:

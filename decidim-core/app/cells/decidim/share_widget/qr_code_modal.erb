@@ -1,9 +1,7 @@
 <%= decidim_modal id: "QRCodeDialog", class: "qr-modal" do %>
   <div data-dialog-container>
-    <div data-dialog-title>
-      <%= icon "qr-code-line" %>
-      <h2 id="dialog-title-qr-code-dialog" tabindex="-1"><%= t("decidim.share_widget.qr_code") %></h2>
-    </div>
+    <%= icon "qr-code-line" %>
+    <h2 id="dialog-title-qr-code-dialog" tabindex="-1" data-dialog-title><%= t("decidim.share_widget.qr_code") %></h2>
     <div class="content">
       <div>
         <% if current_organization.logo.attached? %>
