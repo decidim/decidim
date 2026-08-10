@@ -33,6 +33,7 @@ de:
           comment: Kommentieren
           create: Debatte erstellen
           like: Unterstützen
+          vote_comment: Kommentar bewerten
         name: Debatten
         settings:
           global:
@@ -40,6 +41,7 @@ de:
             attachments_allowed: Anhänge zulassen
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Zeichenanzahl pro Kommentar (0 für Standardwert)
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             taxonomy_filters: Filter für die Komponente auswählen
@@ -73,10 +75,13 @@ de:
             update: Debatte aktualisieren
           form:
             add_attachments: Anhänge hinzufügen
+            comments_layout_locked_warning: Das Kommentar-Layout kann nicht geändert werden, da bereits Kommentare veröffentlicht wurden.
             comments_visualization: Kommentardarstellung
             comments_warning: Sobald der erste Kommentar veröffentlicht wurde, kann die gewählte Anzeigeoption nicht geändert werden.
             debate_type: Debatten-Typ
             edit_attachments: Anhänge bearbeiten
+            errors:
+              comments_layout_locked: Das Kommentar-Layout kann nicht geändert werden, da bereits Kommentare veröffentlicht wurden.
             finite: Zeitlich begrenzt (mit Start- und Endzeit)
             open: Offen (keine Start- und Endzeit)
             single_column: 'Einzelne Spalte: Kommentare werden in chronologischer Reihenfolge angezeigt und können beantwortet werden.'
@@ -152,6 +157,7 @@ de:
           title: Debatte erstellen
         orders:
           label: Debatten sortieren nach
+          most_commented: Meistkommentiert
           random: Zufällige Reihenfolge
           recent: Neueste zuerst
           updated: Kürzlich aktualisiert
@@ -195,6 +201,13 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Neue Debatte "%{resource_title}" in %{participatory_space_title}
             notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> erstellt.
+          user_followers:
+            email_intro: |-
+              Hallo,
+                    %{author_name}, dem/der Sie folgen, hat eine neue Debatte "%{resource_title}" erstellt. Schauen Sie sie sich an und beteiligen Sie sich:
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Neue Debatte "%{resource_title}" von %{author_name}
+            notification_title: <a href="%{author_path}">%{author_name}</a> hat die Debatte <a href="%{resource_path}">%{resource_title}</a> erstellt.
         creation_disabled:
           email_intro: 'Die Erstellung von Debatten ist in %{participatory_space_title} nicht mehr aktiviert. Sie können weiterhin an offenen Debatten teilnehmen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
@@ -258,7 +271,7 @@ de:
           last_comment_at: Datum, an dem diese Debatte zuletzt kommentiert wurde
           last_comment_by: Der Inhalt des letzten Kommentars der Debatte
           likes_count: Die Anzahl Unterstützungen dieses Beitrags
-          participatory_space: Zu welchem Bereich diese Debatte gehört (z.B. Partizipationsprozesse oder Gremien)
+          participatory_space: Zu welchem Bereich diese Debatte gehört (z.B. Partizipationsprozesse oder Versammlungen)
           reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
           start_time: Wann diese Debatte beginnt, ob es sich um eine offene Debatte handelt oder ob sie eine begrenzte Dauer hat
           taxonomies: Die Klassifizierungen des Projekts
