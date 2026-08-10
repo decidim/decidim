@@ -11,6 +11,7 @@ cs:
         plural: Množné číslo
       attachment:
         attachment_collection_id: Složka
+        attachments: Přílohy
         description: Popis
         file: Soubor
         title: Název přílohy nebo obrázku
@@ -49,7 +50,7 @@ cs:
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
-        comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+        comments_max_length: Maximální počet znaků na komentář (ponechte 0 pro výchozí hodnotu)
         customize_welcome_notification: Přizpůsobit uvítací oznámení
         default_locale: Výchozí jazyk
         description: Popis
@@ -587,6 +588,8 @@ cs:
           participatory_space: Najít participační prostor
           text: Hledat podle e-mailu, jména nebo přezdívky
           user: Uživatel
+        index:
+          title: Záznamy administrátora
         logs_list:
           no_logs_yet: Zatím nejsou žádné logy.
           no_matching_logs: Nebyly nalezeny žádné záznamy s poskytnutými vyhledávacími filtry. Zkuste je změnit a zkuste to znovu.
@@ -613,6 +616,10 @@ cs:
         edit:
           title: Upravit člena
           update: Aktualizovat
+        form:
+          email: E-mail
+          name_or_nickname: Jméno nebo přezdívka
+          select_user: Vybrat člena
         index:
           import_via_csv: Importovat přes CSV
           publish_all: Publikovat vše
@@ -831,6 +838,7 @@ cs:
           title: Šablony zpravodaje
           use_template: Použít tuto šablonu
         show:
+          title: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
         confirm_recipients:
@@ -1103,10 +1111,9 @@ cs:
           next_title: Další položka
           previous: Předchozí
           previous_title: Předchozí položka
-        gallery:
-          add_images: Přidat obrázky
-          edit_images: Upravit obrázky
-          gallery_legend: Přidat galerii obrázků (volitelné)
+        attachments:
+          add_attachments: Přidat přílohy
+          edit_attachments: Upravit přílohy
       static_page_topics:
         create:
           error: Při vytváření nového tématu došlo k chybě.
@@ -1324,6 +1331,11 @@ cs:
       errors:
         impersonate_user:
           reason: Musíte uvést důvod pro správu neřízeného účastníka.
+      file_help:
+        attachment:
+          explanation: 'Pokyny pro soubor:'
+          message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
+          message_2: V CSV souborech musí být oddělovač mezi sloupci středník (";")
     moderations:
       actions:
         expand: Rozbalit

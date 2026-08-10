@@ -36,8 +36,12 @@ ja:
               must_be_ssl: リダイレクト URI は SSL が有効な URI でなければなりません
         organization:
           attributes:
+            host:
+              invalid: は無効な値です
             password:
               secret_key: このフィールドを保存するには、環境変数 SECRET_KEY_BASE を定義する必要があります
+            secondary_hosts:
+              invalid: は無効な値です
   decidim:
     system:
       actions:
@@ -185,15 +189,16 @@ ja:
           application_type_help_html: 'OAuthクライアントの種別は、<a href="%{client_type_link}" target="_blank">RFC 6749 セクション 2.1</a> で定義されています。パブリッククライアントは、<a href="%{pkce_link}" target="_blank">RFC 7636</a> で定義されている PKCE フローを実装する必要があります。'
           refresh_tokens_help_html: 'リフレッシュトークンは、アクセストークンに割り当てられた有効期間よりも長い有効期間が必要な場合に便利です。なお、<strong>リフレッシュトークンの利用には注意が必要です</strong>。不適切に扱うと、ユーザーのセキュリティを弱める可能性があります。 '
           scopes_explanation:
+            "admin:read": ユーザーがGraphQL APIを通じて管理者向けのクエリ操作を実行できるようにします。
+            "admin:write": ユーザーが GraphQL API を使用して管理者向けの変更操作を実行できるようにします。
             "api:read": GraphQL API を使用してクエリ操作を実行できます。
             "api:write": GraphQL API を介して変更操作を実行できるようになります。
             profile: ユーザー自身のプロフィール情報へのアクセスを許可します。OAuthアプリケーションをアイデンティティプロバイダーや認証サービスとしてのみ利用する場合は、このスコープだけで十分です。
             user: "GraphQL API への呼び出し時に、与えられたトークンを使用してサインイン中のユーザーとして操作を行うための権限です。これは、現在のユーザーに関する情報を必要とするすべての api:write 操作や api:read 操作に必要です。\n"
           scopes_help_html: |
             選択したスコープは、認可プロセス中に接続されたアプリケーションがリクエストできるようになります。ユーザーが OAuth を利用してサインインする際には、認可リクエストの詳細が表示されます。 <br>
-            スコープによって、付与されたアクセストークンを用いた認証後に利用できる機能が異なります。 <br> 
+            スコープによって、付与されたアクセストークンを用いた認証後に利用できる機能が異なります。 <br>
             <strong>注意:</strong> 外部アプリケーションでユーザー認証のみを行いたい場合は、<strong>profile</strong> スコープだけで十分です。Decidim API と連携するアプリケーションには、他のスコープも必要になります。
-
           select_organization: 組織を選択
         index:
           confirm_delete: このアプリケーションを削除してもよろしいですか？

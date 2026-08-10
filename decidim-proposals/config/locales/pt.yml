@@ -33,10 +33,6 @@ pt:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Necessita de ser recolocado
-            add_photos:
-              needs_to_be_reattached: Necessita de ser recolocado
             body:
               cant_be_equal_to_template: não pode ser igual ao modelo
               identical: E o título não pode ser idêntico
@@ -101,7 +97,6 @@ pt:
             attachments_allowed: Permitir anexos
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
-            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
             default_sort_order: Ordenamento por defeitos das propostas
             default_sort_order_options:
               most_commented: Mais comentada

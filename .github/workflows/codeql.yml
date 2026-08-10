@@ -16,14 +16,14 @@ on:
         required: false
       node_version:
         description: 'Node version'
-        default: '22.14.0'
+        default: '24.18.0'
         required: false
         type: string
 
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     concurrency:
       group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}-${{ matrix.language }}
@@ -42,14 +42,14 @@ jobs:
         - language: ruby
           build-mode: none
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ inputs.ruby_version }}
         bundler-cache: true
-    - uses: actions/setup-node@v6
+    - uses: actions/setup-node@v7
       with:
         node-version: ${{ inputs.node_version }}
         cache: 'npm'
@@ -58,11 +58,11 @@ jobs:
       name: Tune NPM configuration
       shell: "bash"
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v4
+      uses: github/codeql-action/init@v4.37.6
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v4
+      uses: github/codeql-action/analyze@v4.37.6
       with:
         category: "/language:${{matrix.language}}"

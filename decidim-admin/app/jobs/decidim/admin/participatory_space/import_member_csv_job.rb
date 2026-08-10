@@ -13,7 +13,8 @@ module Decidim
 
           params = {
             name: user_name,
-            email: email.downcase.strip
+            email: email.downcase.strip,
+            member_type: "email"
           }
           member_form = MemberForm.from_params(params, participatory_space:)
                                   .with_context(

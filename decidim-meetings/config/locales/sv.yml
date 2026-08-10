@@ -49,8 +49,6 @@ sv:
       meeting_registration_invite:
         email: E-post
         name: Namn
-      response:
-        add_documents: Lägg till dokument
       validate_registration_code:
         code: Kod
     errors:
@@ -168,7 +166,6 @@ sv:
             announcement: Meddelande
             clear_all: Återställ
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardanmälan
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
@@ -347,10 +344,10 @@ sv:
             success: Deltagaren har bjudits in att delta i mötet.
           form:
             attendee_type: Typ av deltagare
-            existing_user: Befintlig deltagare
+            email: E-post
             invite: Inbjudan
             invite_explanation: Deltagaren kommer att bli inbjuden att delta i mötet och även till organisationen.
-            non_user: Icke befintlig deltagare
+            name_or_nickname: Namn eller smeknamn
             select_user: Välj deltagare
           index:
             invites: Inbjudningar

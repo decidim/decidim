@@ -1,6 +1,11 @@
 on:
   workflow_call:
     inputs:
+      node_version:
+        description: 'Node Version'
+        default: "24.18.0"
+        required: false
+        type: string
       ruby_version:
         description: 'Ruby Version'
         default: "3.4.7"
@@ -26,12 +31,14 @@ on:
       bullet_counter_cache:
         description: 'Enable bullet counter cache testing'
         required: false
-        default: true
+        default: false
         type: boolean
+      # We prefer to disable this check instead of having to create more associations during the tests/seeds that
+      # would make the testing/seeding performance worse
       bullet_unused_eager_loading:
         description: 'Enable bullet unused eager loading testing'
         required: false
-        default: true
+        default: false
         type: boolean
       chrome_version:
         description: 'Chrome & Chromedriver version'
@@ -42,7 +49,7 @@ on:
 jobs:
   build_app:
     name: Test
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     env:
@@ -84,7 +91,7 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
       - run: |
@@ -95,7 +102,7 @@ jobs:
         with:
           ruby-version: ${{ inputs.ruby_version }}
           bundler-cache: true
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: ${{ inputs.node_version }}
           cache: 'npm'
