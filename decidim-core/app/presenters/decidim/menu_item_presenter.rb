@@ -48,7 +48,7 @@ module Decidim
     private
 
     def link_options
-      if active?
+      if is_active_link?(url, :exclusive)
         { aria: { current: "page" } }
       else
         {}

@@ -26,6 +26,8 @@ module Decidim
     end
 
     context "when the link URL is active" do
+      subject { MenuItemPresenter.new(menu_item, view, active_class: "is-active") }
+
       let(:request) { double }
       let(:current_path) { "/boo" }
 
@@ -41,8 +43,12 @@ module Decidim
       context "and the page is a sub-page of the menu link" do
         let(:current_path) { "/boo/bar" }
 
-        it "adds the aria-current attribute to the link" do
-          expect(subject.render).to include('aria-current="page"')
+        it "does not add the aria-current attribute to the link" do
+          expect(subject.render).not_to include('aria-current="page"')
+        end
+
+        it "keeps the active class on the item" do
+          expect(subject.render).to have_css("li.is-active")
         end
       end
     end
