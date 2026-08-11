@@ -23,7 +23,9 @@
             <%= t("activemodel.attributes.organization.machine_translation_display_priority") %>
           </legend>
           <div class="radio-group">
-            <%= form.collection_radio_buttons :machine_translation_display_priority, form.object.machine_translation_priorities, :first, :last  do |builder|%>
+            <%# i18n-tasks-use t("decidim.admin.organization.form.machine_translation_display_priority.options.original") %>
+            <%# i18n-tasks-use t("decidim.admin.organization.form.machine_translation_display_priority.options.translation") %>
+            <%= form.collection_radio_buttons :machine_translation_display_priority, form.object.machine_translation_priorities, :first, :last  do |builder| %>
               <%= builder.label(for: nil, class: "form__wrapper-checkbox-label") do %>
                 <%= builder.radio_button(id: nil, label: false) %>
                 <span>
