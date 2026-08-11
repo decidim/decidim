@@ -714,7 +714,6 @@ fr:
           instructions: Vous pouvez déplacer le point sur la carte.
         edit:
           add_attachments: Ajouter des pièces jointes
-          attachment_legend: Ajouter un document ou une image
           back: Retour
           edit_attachments: Modifier les pièces jointes
           send: Envoyer

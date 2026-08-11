@@ -1065,6 +1065,8 @@ fr:
       dynamic:
         screen_reader_explanation: L'élément suivant est une carte qui présente les éléments de cette page comme des points de carte. L'élément peut être utilisé avec un lecteur d'écran, mais il peut être difficile à comprendre.
         skip_button: Passer la carte
+        zoom_in: Zoomer
+        zoom_out: Dézoomer
       static:
         latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1272,6 +1274,7 @@ fr:
           badge: Le badge de l'utilisateur
           groups: L'identifiant et le nom du groupe d'utilisateurs
           id: L'identifiant unique de l'utilisateur
+          name: Le nom d'affichage de l'utilisateur
           nickname: Le pseudonyme de l'utilisateur
           profile_url: L'url du profil
       index:
@@ -1381,6 +1384,10 @@ fr:
         never_logged_in: jamais connecté
         subject: Avertissement de compte inactif
     participatory_space:
+      labels:
+        reference: Référence de l'espace
+        restricted: Espace restreint
+        transparent: Espace transparent
       pages:
         user_profile:
           member_of:

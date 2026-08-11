@@ -59,7 +59,7 @@ Gem::Specification.new do |s|
   s.add_dependency "net-smtp", "~> 0.5.0"
   s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
   s.add_dependency "omniauth", "~> 2.0"
-  s.add_dependency "omniauth-facebook", ">= 5", "< 11"
+  s.add_dependency "omniauth-facebook", ">= 5", "< 12"
   s.add_dependency "omniauth-google-oauth2", "~> 1.0"
   s.add_dependency "omniauth-rails_csrf_protection", ">= 1", "< 3"
   s.add_dependency "omniauth-twitter", "~> 1.4"
@@ -70,6 +70,9 @@ Gem::Specification.new do |s|
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", ">= 3.2.4", "< 4.0"
   s.add_dependency "rack-attack", ">= 6.7", "< 6.9"
+  # Workaround until shakapacker releases a new version compatible with rack-proxy v1.0
+  # @see https://github.com/shakacode/shakapacker/issues/1220
+  s.add_dependency "rack-proxy", "~> 0.8.3", "< 1.0"
   s.add_dependency "rails", "~> 8.1.0"
   s.add_dependency "rails-i18n", "~> 8.1.0", "< 8.2"
   s.add_dependency "ransack", ">= 4.2", "< 4.5"

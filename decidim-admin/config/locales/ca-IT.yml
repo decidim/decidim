@@ -607,6 +607,11 @@ ca-IT:
         edit:
           title: Editar membre
           update: Actualizar
+        form:
+          email: Correu electrònic
+          invite_explanation: Es convidarà a la participant a unir-se a l'organització.
+          name_or_nickname: Nom o pseudònim
+          select_user: Seleccionar membre
         index:
           import_via_csv: Importar des de CSV
           publish_all: Publicar totes
@@ -1099,7 +1104,7 @@ ca-IT:
           previous_title: Element anterior
         attachments:
           add_attachments: Afegir fitxer(s) adjunt(s)
-          attachment_legend: Afegir una galeria de fitxers adjunts (opcional)
+          attachment_legend: Afegir un document o una imatge
           edit_attachments: Edita els fitxers adjunts
       static_page_topics:
         create:
