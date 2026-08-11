@@ -173,7 +173,7 @@ shared_examples "assembly admin manage assembly components" do
           click_on "Publish"
         end
 
-        expect(page).to have_callout("The component has been successfully published.")
+        expect(page).to have_admin_callout("The component has been successfully published.")
 
         expect(Decidim::EventPublisherJob).to(have_been_enqueued.with(
                                                 "decidim.events.components.component_published", {
