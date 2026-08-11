@@ -4,7 +4,6 @@
 #
 # This file has been copied and modified from https://github.com/sgruhier/foundation_rails_helper/blob/master/lib/foundation_rails_helper/form_builder.rb
 # We have done this so we can decouple Decidim from this dependency, which is not updated to Rails 7.1
-# We also plan to fully remove Foundation CSS legacy code in the future
 
 module Decidim
   class LegacyFormBuilder < ActionView::Helpers::FormBuilder
@@ -31,6 +30,10 @@ module Decidim
         options[:data] ||= {}
         options[:data][:controller] ||= ""
         options[:data][:controller] += " date-picker"
+
+        if (default_time = options.delete(:default_time))
+          options[:data][:default_time] = default_time
+        end
 
         @template.append_javascript_pack_tag "decidim_date_picker", defer: false
 

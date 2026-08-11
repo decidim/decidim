@@ -37,19 +37,20 @@ module Decidim
           template.snippets.add(:decidim_geocoding_scripts, template.append_javascript_pack_tag("decidim_geocoding"))
           template.snippets.add(:decidim_geocoding_styles, template.append_stylesheet_pack_tag("decidim_geocoding"))
 
-          template.content_tag(:div, class: "geocoding-container") do
+          template.content_tag(:div, class: "geocoding") do
             template.text_field(
               object_name,
               method,
               options.merge("data-decidim-geocoding" => view_options.to_json)
             ) +
-              template.content_tag(:div, class: "input-group-button user-device-location") do
-                template.content_tag(:button, class: "button button__sm md:button__sm button__text-secondary", type: "button", data: {
+              template.content_tag(:div, class: "input-group-button geocoding__locate") do
+                template.content_tag(:button, class: "button button__sm md:button__sm button__text-secondary geocoding__button", type: "button", data: {
                                        input: "#{object_name}_#{method}",
                                        latitude: "#{object_name}_latitude",
                                        longitude: "#{object_name}_longitude",
                                        error_no_location: I18n.t("errors.no_device_location", scope: "decidim.proposals.forms"),
                                        error_unsupported: I18n.t("errors.device_not_supported", scope: "decidim.proposals.forms"),
+                                       locating_text: I18n.t("locating", scope: "decidim.proposals.forms"),
                                        url: Decidim::Core::Engine.routes.url_helpers.locate_path
                                      }) do
                   icon("map-pin-line", role: "img", "aria-hidden": true) + " #{I18n.t("use_my_location", scope: "decidim.proposals.forms")}"

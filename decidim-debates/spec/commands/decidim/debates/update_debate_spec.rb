@@ -8,16 +8,17 @@ describe Decidim::Debates::UpdateDebate do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:author) { user }
   let!(:debate) { create(:debate, author:, component: current_component) }
   let(:current_files) { debate.attachments }
   let(:uploaded_files) { [] }
   let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
+  let(:description) { "Description" }
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
       title: "Title",
-      description: "Description",
+      description:,
       attachments: current_files,
       add_attachments: uploaded_files,
       taxonomies:,
@@ -48,7 +49,7 @@ describe Decidim::Debates::UpdateDebate do
   end
 
   describe "when the debate is not editable by the user" do
-    let(:author) { create(:user, organization:) }
+    let(:author) { create(:user, :confirmed, organization:) }
 
     it "broadcasts invalid" do
       expect { subject.call }.to broadcast(:invalid)
@@ -92,6 +93,30 @@ describe Decidim::Debates::UpdateDebate do
       subject.call
       debate.reload
       expect(debate.description.except("machine_translations").values.uniq).to eq ["Description"]
+    end
+
+    context "when description has a user mention" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:description) { "Description mentioning @#{mentioned_user.nickname}" }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+        debate.reload
+
+        expect(debate.description.except("machine_translations").values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
+    end
+
+    context "when description has a user mention with a hyphen in the nickname" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
+      let(:description) { "Description mentioning @#{mentioned_user.nickname}" }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+        debate.reload
+
+        expect(debate.description.except("machine_translations").values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
     end
 
     it "traces the action", versioning: true do

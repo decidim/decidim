@@ -445,6 +445,10 @@ cs:
       withdraw:
         error: Při stahování pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh byl úspěšně stažen.
+      wizard:
+        steps:
+          '1': Vytvořit svůj pozměňovací návrh
+          '2': Publikovat svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       document:
@@ -583,7 +587,7 @@ cs:
           global:
             amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
-            comments_max_length: Maximální délka komentářů
+            comments_max_length: Maximální počet znaků na komentář
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             dummy_global_attribute1: Zástupný atribut 1
             dummy_global_attribute2: Zástupný atribut 2
@@ -689,6 +693,13 @@ cs:
           all: Vše
         filter_taxonomy_values:
           all: Vše
+    delete_user_mailer:
+      delete:
+        body_1: Váš účet byl deaktivován a již není dostupný. Vaše osobní údaje jsou naplánovány na trvalé smazání v souladu s našimi pravidly pro uchovávání údajů.
+        body_2: Z bezpečnostních důvodů budou uchovávány některé údaje týkající se autorizace; pokud vytvoříte nový účet a znovu jej autorizujete, může být propojen s vaším novým účtem.
+        greetings_html: S pozdravem,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Dobrý den %{username},
+      subject: Váš účet byl smazán
     devise:
       omniauth_registrations:
         create:
@@ -972,6 +983,10 @@ cs:
         notification_body: Opravili jsme způsob, jakým jsou přezdívky používány, aby nedocházelo k duplicitám, a proto jsme odstranili pravidlo rozlišení velkých a malých písmen. <br/> Vaše přezdívka byla vytvořena po jiné, se stejným jménem, takže jsme ji automaticky přejmenovali. Můžete to změnit z <a href="%{link_to_account_settings}">vašeho nastavení účtu</a>.
       notification_event:
         notification_title: Objevila se událost na <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Byli jste přidáni jako člen do participačního prostoru.
       reports:
         parent_hidden:
           email_outro: Obdrželi jste toto oznámení, protože jste autorem ovlivněného %{resource_type}.
@@ -1220,7 +1235,6 @@ cs:
         create:
           error: Konverzace nebyla zahájena. Zkuste to znovu později.
         error_modal:
-          close: Zavřít okno
           correct_errors: Opravte chyby a zkuste to znovu.
           intro: 'Došlo k následujícím chybám ve vaší zprávě:'
           ok: OK
@@ -1344,6 +1358,7 @@ cs:
         own_activity: Moje vlastní činnost, jako kdyby někdo komentoval ve svém návrhu nebo mě zmínil
         push_notifications: Push oznámení
         push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
+        push_notifications_unsupported_browser: Váš prohlížeč není podporován.
         receive_notifications_about: Chci dostávat oznámení
         update_notifications_settings: Uložit změny
       update:
@@ -1526,16 +1541,18 @@ cs:
         log_in: přihlásit se
         never_logged_in: nikdy se nepřihlásil
         subject: Upozornění na neaktivní účet
-      removal_notification:
-        body: Váš %{organization_name} účet byl odstraněn z důvodu neaktivity.
-        greetings_html: |
-          S pozdravem,<br>
-          %{organization_name}
-        hello: Dobrý den %{username},
-        subject: Neaktivní účet byl smazán
+    participatory_space:
+      pages:
+        user_profile:
+          member_of:
+            member_of: Je členem
     participatory_space_members:
       index:
         members: Členové
+    participatory_spaces:
+      show:
+        restricted_space: Toto je omezený prostor. Pouze členové a administrátoři jej mohou zobrazit a účastnit se.
+        transparent_space: Toto je transparentní prostor. Kdokoli může zobrazit obsah, ale mohou se účastnit pouze členové a správci.
     passwords:
       update:
         error: Došlo k problému s aktualizací hesla.

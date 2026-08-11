@@ -6,6 +6,42 @@ de:
         title: Titel
         total_budget: Gesamtbudget
         weight: Reihenfolge
+      pabulib_rules:
+        equalshares:
+          help: Methode der "Equal Shares" (MES) ohne "Completion". Bei MES beginnt jede abstimmende Person mit einem virtuellen Budgetanteil gleicher Höhe, und ein Projekt wird ausgewählt, sobald es von seinen Unterstützenden gemeinsam finanziert werden kann.
+          label: Method of Equal Shares (%{rule})
+        equalshares/add1:
+          help: Verwendet "Equalshares", erhöht aber, falls der Vorgang zu früh stoppt, das virtuelle Budget jeder abstimmenden Person schrittweise um je 1 Einheit (Add1) und berechnet neu, solange die final ausgewählten Projekte noch in das reale Budget passen.
+          label: Method of Equal Shares, add1 (%{rule})
+        equalshares/add1_comparison:
+          help: Verwendet "Equalshares/Add1" und wendet anschliessend denselben Vergleichsschritt wie oben an.
+          label: Method of Equal Shares, add1 comparison (%{rule})
+        equalshares_comparison:
+          help: 'Verwendet "Equalshares" und fügt einen zusätzlichen Schritt hinzu: Das Ergebnis wird mit einem "Greedy"-Vergleichswert verglichen, und nur gewechselt, wenn mehr abstimmende Personen das "Greedy"-Ergebnis bevorzugen.'
+          label: Method of Equal Shares, comparison (%{rule})
+        greedy:
+          help: Der Standard-Näherungsansatz nach Art des Rucksackproblems ("Knapsack"). Die Projekte werden nach Stimmenzahl absteigend sortiert. Der Algorithmus durchläuft die Liste und wählt Projekte aus, die in das verbleibende Budget passen. Ist ein Projekt für die aktuell verbleibenden Mittel zu teuer, wird es übersprungen, und der Algorithmus fährt mit dem nächsten Projekt fort, um zu prüfen, ob dieses passt.
+          label: Greedy (%{rule})
+        greedy_custom:
+          help: Wird für Sonderfälle verwendet, die nicht zu den Standardalgorithmen passen, etwa manuelle Budgetumverteilungen oder komplexe Hybridregeln.
+          label: Greedy, custom (%{rule})
+        greedy_exclusive:
+          help: Behandelt Projektgruppen mit Konflikten. Der Algorithmus funktioniert wie der Standard-"Greedy"-Algorithmus, aber wenn mehrere "gewinnende" Projekte im Konflikt stehen (z. B. in derselben exklusiven Zone oder Kategorie liegen), wird eine Rangfolgeregel angewendet (z. B. können Projekte auf Bezirksebene Vorrang vor gesamtstädtischen Projekten haben oder umgekehrt), anstatt sich allein auf die Stimmenzahl zu stützen.
+          label: Greedy, exclusive (%{rule})
+        greedy_no_skip:
+          help: Die Projekte werden nach Stimmenzahl absteigend sortiert. Der Algorithmus wählt Projekte aus, die in das verbleibende Budget passen, stoppt jedoch sofort beim ersten Projekt, das nicht passt. Nachfolgende Projekte werden nicht mehr berücksichtigt, selbst wenn sie passen würden.
+          label: Greedy, no skip (%{rule})
+        greedy_threshold:
+          help: Verhält sich wie der Standard-"Greedy"-Algorithmus, berücksichtigt Projekte jedoch nur, wenn sie einen definierten Schwellenwert (min_project_score_threshold) erreichen.
+          label: Greedy, threshold (%{rule})
+        unknown:
+          help: Entweder liegt die Information nicht vor, oder es gab mehrere Möglichkeiten, und es ist unklar, welche davon zutrifft.
+          label: Unknown (%{rule})
+      pabulib_vote_types:
+        approval: Approval (%{type})
+        cumulative: Cumulative (%{type})
+        ordinal: Ordinal (%{type})
+        scoring: Scoring (%{type})
       project:
         budget_amount: Höhe des Budgets
         description: Beschreibung
@@ -81,15 +117,93 @@ de:
             invalid: Es gab ein Problem beim Aktualisieren dieses Budgets.
             success: Budget erfolgreich aktualisiert.
         exports:
+          formats:
+            pabulib: Pabulib
           projects: Projekte
+          voting_results: Abstimmungsergebnisse
         models:
           project:
             name: Projekt
+        pabulib_exports:
+          create:
+            invalid: Bitte korrigieren Sie die Fehler im Formular.
+            no_votes: Es liegen noch keine Stimmen zum Exportieren vor.
+          show:
+            create: Export
+            explanation_html: |
+              <p>
+                      Diese Ansicht erstellt einen %{format_link}-Export der Abstimmungsergebnisse des Bürgerhaushalts.
+                    </p>
+            explanation_link_label_format: Pabulib-Format
+            export_details_data: Datenattribute
+            export_details_general: Allgemeine Angaben
+            fields:
+              country:
+                help: Das Land, in dem die Abstimmung stattfand.
+                label: Land (%{field})
+              default_score:
+                help: 'Der Standardwert für den Abstimmungstyp "Scoring" (Standard: %{default_value}).'
+                label: Standardwert (%{field})
+              description:
+                help: Beschreibung der Abstimmung, die angibt, worüber abgestimmt wurde.
+                label: Beschreibung (%{field})
+              district:
+                help: Der Wahlbezirk innerhalb der Abstimmung. Wenn Sie beispielsweise Quartiere als Untereinheiten verwenden, können Sie diese mit diesem Feld den Bezirken zuordnen.
+                label: Bezirk (%{field})
+              instance:
+                help: Die Instanz der Abstimmung, zum Beispiel bei jährlich wiederkehrenden Abstimmungen das Jahr der Abstimmung.
+                label: Instanz (%{field})
+              max_length:
+                help: 'Maximale Anzahl der auszuwählenden Projekte (Standard: %{default_value}).'
+                label: Maximale Anzahl (%{field})
+              max_points:
+                help: 'Maximale Punktzahl, die den ausgewählten Projekten zugewiesen wird (Standard: %{default_value}).'
+                help_default_value: für den Abstimmungstyp "Cumulative" der Wert von max_sum_points, für den Abstimmungstyp "Scoring" ∞
+                label: Maximale Punktzahl (%{field})
+              max_sum_cost:
+                help: 'Maximale Summe für die Kosten eines Projekts (Standard: %{default_value}).'
+                label: Maximale Gesamtkosten (%{field})
+              max_sum_points:
+                help: Maximale Summe der zugewiesenen Punkte pro Projekt.
+                label: Maximale Gesamtpunktzahl (%{field})
+              min_length:
+                help: 'Minimale Anzahl der auszuwählenden Projekte (Standard: %{default_value}).'
+                label: Minimale Anzahl (%{field})
+              min_points:
+                help: 'Minimale Punktzahl, die den ausgewählten Projekten zugewiesen wird (Standard: %{default_value}).'
+                label: Minimale Punktzahl (%{field})
+              min_sum_cost:
+                help: 'Minimale Summe für die Kosten eines Projekts (Standard: %{default_value}).'
+                label: Minimale Gesamtkosten (%{field})
+              min_sum_points:
+                help: 'Minimale Summe der zugewiesenen Punkte pro Projekt (Standard: %{default_value}).'
+                label: Minimale Gesamtpunktzahl (%{field})
+              rule:
+                help: Der Algorithmus, mit dem die gewinnenden Projekte anhand der Stimmen ausgewählt werden.
+                label: Regel (%{field})
+              scoring_fn:
+                help: 'Bewertungsfunktion für den Abstimmungstyp "Ordinal" (Standard: %{default_value}).'
+                label: Bewertungsfunktion (%{field})
+              subunit:
+                help: Die Untereinheit innerhalb der Abstimmung, zum Beispiel ein Gebiet innerhalb der Stadt oder Gemeinde.
+                label: Untereinheit (%{field})
+              unit:
+                help: Die Einheit innerhalb der Abstimmung, zum Beispiel der Name der Stadt oder Gemeinde.
+                label: Einheit (%{field})
+              vote_type:
+                help: Wie die Abstimmungsergebnisse ausgewertet werden (weitere Informationen finden Sie in der Dokumentation).
+                label: Abstimmungstyp (%{field})
+            format_info_html: Weitere Informationen zu diesen Angaben finden Sie in der Dokumentation unter %{link}.
+            large_dataset_warning_html: |
+              <p>Ihr Datensatz enthält %{amount} Stimmen und ist daher für einen Export über diese Benutzeroberfläche sehr umfangreich.</p>
+                    <p>Bitte exportieren Sie Ihren Datensatz stattdessen über die Konsole mit folgendem Befehl: <code>%{command}</code></p>
+            title: Abstimmungsergebnisse für %{budget} im Pabulib-Format exportieren
         projects:
           create:
             invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich erstellt.
           edit:
+            title: Projekt bei %{budget} bearbeiten
             update: Aktualisieren
           index:
             actions: Aktionen
@@ -112,6 +226,7 @@ de:
             title: Gelöschte Projekte
           new:
             create: Erstellen
+            title: Neues Projekt bei %{budget}
           update:
             invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich aktualisiert.
@@ -142,6 +257,8 @@ de:
             default_budget: Standardbudget
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             origin_component_id: Ursprungskomponente
+            proposal_states: Vorschlagsstatus
+            proposal_states_help: Wählen Sie einen oder mehrere Vorschlagsstatus aus, die in Projekte importiert werden sollen. Wenn Sie keinen auswählen, werden alle veröffentlichten Vorschläge importiert, die noch nicht in andere Budgets dieser Komponente importiert wurden.
             select_component: Bitte wählen Sie eine Komponente aus
             title: Vorschläge bei Projekten importieren
         reminders:
@@ -342,7 +459,7 @@ de:
             announcement: Ankündigung
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            comments_max_length: Maximale Zeichenanzahl pro Kommentar (0 für Standardwert)
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             form:
               errors:
@@ -415,7 +532,7 @@ de:
           id: Die eindeutige Bezeichnung des Projekts
           latitude: Der Breitengrad des Projekts, falls es einen verortet wurde
           longitude: Der Längengrad des Projekts, falls es verortet wurde
-          participatory_space: Zu welchem Bereich dieses Projekt gehört (z.B. Partizipationsprozesse oder Gremien)
+          participatory_space: Zu welchem Bereich dieses Projekt gehört (z.B. Partizipationsprozesse oder Versammlungen)
           reference: Die eindeutige Referenz des Projekts
           related_proposal_titles: Titel der verknüpften Vorschläge
           related_proposal_urls: URLs der verknüpften Vorschläge

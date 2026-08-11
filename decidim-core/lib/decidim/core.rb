@@ -166,28 +166,51 @@ module Decidim
     # consecutively, reset the column cache before the migrations.
     reset_all_column_information
 
+    # Also reset any overrides and apply the action logger override during
+    # seeds.
+    Rails.application.reloader.reload! if Rails.application.reloader.check!
+    Decidim::ActionLogger.include(Decidim::Seeding::ActionLogger)
+
     # Faker needs to have the `:en` locale in order to work properly, so we
     # must enforce it during the seeds.
     original_locale = I18n.available_locales
     I18n.available_locales = original_locale + [:en] unless original_locale.include?(:en)
 
-    Rails.application.railties.to_a.uniq.each do |railtie|
-      next unless railtie.respond_to?(:load_seed) && railtie.class.name.include?("Decidim::")
+    Decidim::Searchable.skip_indexing do
+      Rails.application.railties.to_a.uniq.each do |railtie|
+        next unless railtie.respond_to?(:load_seed) && railtie.class.name.include?("Decidim::")
 
-      railtie.load_seed
+        railtie.load_seed
+      end
+
+      participatory_space_manifests.each do |manifest|
+        manifest.seed!
+
+        seed_contextual_help_sections!(manifest)
+      end
     end
 
-    participatory_space_manifests.each do |manifest|
-      manifest.seed!
-
-      seed_contextual_help_sections!(manifest)
+    puts "Indexing search resources..." # rubocop:disable Rails/Output
+    Decidim::Searchable.searchable_resources.values.each do |model_class|
+      model_class.find_in_batches(batch_size: 100) do |batch|
+        Decidim::UpdateSearchIndexesJob.perform_later(batch)
+      end
     end
 
     seed_gamification_badges!
 
     seed_likes!
 
+    puts "Committing the action log entries..." # rubocop:disable Rails/Output
+    Decidim::ActionLogger.commit_logs
+
     I18n.available_locales = original_locale
+
+    # Make sure the overrides applied by the seeds are no longer present after
+    # the seeding process completes. This can be a problem when running multiple
+    # tests consecutively.
+    Decidim.send(:remove_const, :ActionLogger)
+    load File.expand_path("#{Decidim::Core::Engine.root}/app/services/decidim/action_logger.rb")
   end
 
   def self.seed_contextual_help_sections!(manifest)
@@ -221,19 +244,26 @@ module Decidim
                              .select { |resource| resource.constantize.include? Decidim::Likeable }
 
     resources_types.each do |resource_type|
+      puts "Seeding likes for \"#{resource_type}\"..." # rubocop:disable Rails/Output
       resource_type.constantize.find_each do |resource|
         # exclude the users that already liked
-        users = resource.likes.map(&:author)
-        remaining_count = Decidim::User.count - users.count
+        user_ids = resource.likes.pluck(:decidim_author_id)
+        remaining_count = Decidim::User.count - user_ids.count
         next if remaining_count < 1
 
-        rand([50, remaining_count].min).times do
-          user = (Decidim::User.all - users).sample
-          next unless user
+        author_ids = Decidim::User.where.not(id: user_ids).sample(rand([50, remaining_count].min)).pluck(:id)
+        next if author_ids.count < 1
 
-          Decidim::Like.create!(resource:, author: user)
-          users << user
-        end
+        # rubocop:disable Rails/SkipsModelValidations
+        resource.likes.insert_all(
+          author_ids.map do |author_id|
+            {
+              decidim_author_type: "Decidim::UserBaseEntity",
+              decidim_author_id: author_id
+            }
+          end
+        )
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end
@@ -288,7 +318,7 @@ module Decidim
   mattr_accessor :default_locale, default: (Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").presence || :en).to_s
 
   # Users that have not logged in for this period of time will be deleted
-  mattr_accessor :delete_inactive_users_after_days, default: Decidim::Env.new("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+  mattr_accessor :delete_inactive_users_after_days, default: Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
 
   # The minimum allowed inactivity period for deleting participants.
   mattr_accessor :minimum_inactivity_period, default: Decidim::Env.new("DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS", 30).to_i

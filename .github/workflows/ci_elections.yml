@@ -31,6 +31,4 @@ jobs:
     secrets: inherit
     with:
       working-directory: "decidim-elections"
-      bullet_n_plus_one: false
-      bullet_unused_eager_loading: false
       test_command: bundle exec parallel_test --type rspec --pattern spec/

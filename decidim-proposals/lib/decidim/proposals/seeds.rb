@@ -17,23 +17,17 @@ module Decidim
 
         Decidim::Proposals.create_default_states!(component, admin_user)
 
-        number_of_records = slow_seeds? ? rand(25..50) : rand(5..10)
-
-        (5..number_of_records).to_a.sample.times do |n|
+        config_value(:proposals_count).times do
           proposal = create_proposal!(component:)
 
           if proposal.state.nil? && component.settings.amendments_enabled?
             emendation = create_emendation!(proposal:)
-            create_proposal_votes!(proposal: emendation)
+            create_proposal_votes!(proposal: emendation, amount: 1)
           end
 
-          (n % 3).times do |_m|
-            create_proposal_votes!(proposal:)
-          end
+          create_proposal_votes!(proposal:, amount: config_value(:proposals_votes_per_proposal_count))
 
-          (n % 3).times do
-            create_proposal_notes!(proposal:)
-          end
+          create_proposal_notes!(proposal:, amount: config_value(:proposals_notes_per_proposal_count))
 
           Decidim::Comments::Seed.comments_for(proposal)
         end
@@ -156,11 +150,13 @@ module Decidim
 
         case n
         when 0
-          Decidim::User.where(organization:).sample
+          Decidim::User.visible.where(organization:).sample || organization
         when 1
           meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
 
-          Decidim::Meetings::Meeting.where(component: meeting_component).sample
+          Decidim::Meetings::Meeting.where(component: meeting_component).sample ||
+            Decidim::User.visible.where(organization:).sample ||
+            organization
         else
           organization
         end
@@ -205,20 +201,36 @@ module Decidim
         emendation
       end
 
-      def create_proposal_votes!(proposal:)
-        author = find_or_initialize_user_by(email: random_email(suffix: "vote"))
+      def create_proposal_votes!(proposal:, amount:)
+        return if proposal.published_state? && proposal.rejected?
 
-        Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
+        emails = amount.times.map do
+          random_email(suffix: "proposal-vote")
+        end
+        authors = bulk_find_or_create_users(emails:)
+
+        # rubocop:disable Rails/SkipsModelValidations
+        proposal.votes.insert_all(
+          authors.map do |author|
+            { decidim_author_id: author.id }
+          end
+        )
+        # rubocop:enable Rails/SkipsModelValidations
       end
 
-      def create_proposal_notes!(proposal:)
-        author_admin = Decidim::User.where(organization:, admin: true).all.sample
+      def create_proposal_notes!(proposal:, amount: 3)
+        author_admins = Decidim::User.where(organization:, admin: true).all.sample(amount)
 
-        Decidim::Proposals::ProposalNote.create!(
-          proposal:,
-          author: author_admin,
-          body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
+        # rubocop:disable Rails/SkipsModelValidations
+        proposal.notes.insert_all(
+          author_admins.map do |author|
+            {
+              decidim_author_id: author.id,
+              body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
+            }
+          end
         )
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

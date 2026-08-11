@@ -13,7 +13,7 @@ describe ChangeUsersInActionLogsInitiatives do
 
   describe "#up" do
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, organization:) }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:group) { create(:user, organization:, extended_data: { group: true }) }
     let(:admin) { create(:user, :admin, :confirmed, organization:) }
     let!(:initiative1) { create(:initiative, organization:, author: group) }

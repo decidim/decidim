@@ -86,9 +86,32 @@ cs:
             success: Rozpočet byl úspěšně aktualizován.
         exports:
           projects: Projekty
+          voting_results: Výsledky hlasování
         models:
           project:
             name: Projekt
+        pabulib_exports:
+          create:
+            invalid: Opravte chyby ve formuláři.
+            no_votes: Zatím nejsou žádné hlasy pro export.
+          show:
+            create: Export
+            export_details_data: Atributy dat
+            export_details_general: Obecné podrobnosti
+            fields:
+              country:
+                help: Země, kde se konalo hlasování.
+                label: Země (%{field})
+              default_score:
+                label: Výchozí skóre (%{field})
+              rule:
+                label: Pravidlo (%{field})
+              subunit:
+                label: Subjednotka (%{field})
+              unit:
+                label: Jednotka (%{field})
+              vote_type:
+                label: Typ hlasování (%{field})
         projects:
           create:
             invalid: Při vytváření tohoto projektu došlo k chybě.
@@ -366,7 +389,7 @@ cs:
             announcement: Oznámení
             clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
-            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            comments_max_length: Maximální počet znaků na komentář (ponechte 0 pro výchozí hodnotu)
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             form:
               errors:

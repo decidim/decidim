@@ -40,9 +40,13 @@ module Decidim
           presenter = DebatePresenter.new(model)
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
-          self.description = presenter.description(all_locales: description.is_a?(Hash))
+          self.description = presenter.editor_locales(model.description, description.is_a?(Hash))
           self.comments_layout = model.comments_layout || "single_column"
           self.attachments = model.attachments
+        end
+
+        def comments_layout_locked?
+          debate&.comments_count&.positive?
         end
 
         def participatory_space_manifest

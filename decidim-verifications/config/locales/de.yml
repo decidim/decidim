@@ -48,6 +48,7 @@ de:
             confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
           destroy_nok: Beim Entziehen der Berechtigungen ist ein Fehler aufgetreten.
+          destroy_ok: Der Widerruf der Verifizierungen läuft. Dies kann einige Minuten in Anspruch nehmen.
           info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
           no_data: Keine verifizierten Teilnehmer.
           title: Berechtigungen widerrufen
@@ -116,10 +117,10 @@ de:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_path}">%{managed_user_name}</a>) zu verifizieren.
+          email_intro: Die teilnehmende Person <a href="%{resource_url}">%{resource_title}</a> hat versucht, sich mit den Daten einer anderen teilnehmenden Person (%{managed_user_name}) zu verifizieren.
           email_outro: Prüfen Sie die <a href="%{conflicts_url}">Konfliktliste der Verifizierungsmethode</a> und wenden Sie sich an den Teilnehmer, um dessen Details zu überprüfen und das Problem zu lösen.
           email_subject: Verifizierungsversuch gegenüber eines anderen Teilnehmers fehlgeschlagen
-          notification_title: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_path}">%{managed_user_name}</a>) zu verifizieren.
+          notification_title: Die teilnehmende Person <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten einer anderen teilnehmenden Person (%{managed_user_name}) zu verifizieren.
     verifications:
       admin_log:
         csv_datum:
@@ -182,6 +183,10 @@ de:
               empty: Es gibt keine Volkszählungsdaten. Verwenden Sie %{import_csv} um eine CSV-Datei zu importieren.
               no_sign_in: Nie angemeldet
               no_user: Kein Mitglied gefunden
+              title: Aktuelle Zählungsdaten
+            instructions:
+              body: Öffnen Sie dazu die Systemverwaltung und fügen Sie der Organisation die Verifizierung "csv_census" hinzu
+              title: Sie müssen die CSV-Zählung für diese Organisation aktivieren
             last_login:
               no_sign_in: Nie angemeldet
               no_user: Kein Mitglied
@@ -250,6 +255,7 @@ de:
               success: Teilnehmer erfolgreich überprüft.
             new:
               reject: Ablehnen
+              title: Geben Sie die Daten aus dem Bild ein
               verify: Überprüfen
           offline_confirmations:
             create:
@@ -257,6 +263,7 @@ de:
               success: Benutzer erfolgreich überprüft.
             new:
               cancel: Abbrechen
+              title: Geben Sie die E-Mail-Adresse der teilnehmenden Person sowie die Dokumentdaten ein
               verify: Überprüfen
           pending_authorizations:
             index:
@@ -297,6 +304,7 @@ de:
           pending_authorizations:
             index:
               address: Adresse
+              already_sent: Der Brief wurde bereits versendet und kann nicht erneut als versendet markiert werden.
               letter_sent_at: Brief an gesendet
               mark_as_sent: Als gesendet markieren
               not_yet_sent: Noch nicht gesendet
