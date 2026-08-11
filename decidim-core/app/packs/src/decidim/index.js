@@ -9,7 +9,6 @@ import "jquery"
 
 // external deps that require initialization
 import Rails from "@rails/ujs"
-import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 import LocalTime from "local-time"
 
