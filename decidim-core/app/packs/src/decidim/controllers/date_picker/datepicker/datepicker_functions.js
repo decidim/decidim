@@ -50,10 +50,7 @@ export const setMinute = (value) => {
 };
 
 export const formatInputDate = (date, formats) => {
-  const dateList = date.split("-");
-  const year = dateList[0];
-  const month = dateList[1];
-  const day = dateList[2];
+  const [year, month, day] = date.split("-");
 
   if (formats.order === "m-d-y") {
     return `${month}${formats.separator}${day}${formats.separator}${year}`;
@@ -63,10 +60,34 @@ export const formatInputDate = (date, formats) => {
   return `${day}${formats.separator}${month}${formats.separator}${year}`;
 };
 
+/**
+ * Splits a time string into two elements: hours and minutes. Ensures a returned
+ * array of size 2 for any kind of strings or `null` values.
+ *
+ * Examples:
+ * splitTime("") => ["00", "00"]
+ * splitTime(null) => ["00", "00"]
+ * splitTime("12") => ["12", "00"]
+ * splitTime("12:30") => ["12", "30"]
+ * splitTime("2:4") => ["02", "04"]
+ * splitTime("12:30:45") => ["12", "30"]
+ *
+ * @param {String} value The original time string, typically hh:ss.
+ * @returns {Array} An array with two elements where the first element is the
+ *   hour part and the second element is the minute part.
+ */
+const splitTime = (value) => {
+  return [...(value || "").split(":"), "00"].splice(0, 2).map((part) => part.padStart(2, "0"));
+};
+
 export const formatInputTime = (time, format, input) => {
-  const timeList = time.split(":");
-  let hour = timeList[0];
-  const minute = timeList[1];
+  if (!time) {
+    return "";
+  } else if (time.length < 1) {
+    return time;
+  }
+
+  let [hour, minute] = splitTime(time);
 
   if (format === 12) {
     if (Number(hour) === 12) {
@@ -80,11 +101,9 @@ export const formatInputTime = (time, format, input) => {
     } else if (Number(hour) === 0) {
       hour = "12";
     }
-
-    return `${hour}:${minute}`;
   };
 
-  return time;
+  return `${hour}:${minute}`;
 };
 
 export const changeHourDisplay = (change, hour, format) => {
@@ -207,29 +226,21 @@ export const formatDate = (value, formats) => {
 };
 
 export const formatTime = (value, format, inputname) => {
-  if (format === 12) {
-    const splitValue = value.split(":");
-    let hour = splitValue[0];
-    const minute = splitValue[1];
-    if (document.getElementById(`period_am_${inputname}`).checked) {
-      switch (hour) {
-      case "12":
-        hour = "00";
+  let [hour, minute] = splitTime(value);
 
-        return `${hour}:${minute}`;
-      default:
-        return value;
-      };
+  if (format === 12) {
+    if (document.getElementById(`period_am_${inputname}`).checked) {
+      if (hour === "12") {
+        hour = "00";
+      }
     } else if (document.getElementById(`period_pm_${inputname}`).checked) {
       if (Number(hour) > 0 && Number(hour) < 12) {
         hour = `${Number(hour) + 12}`;
       };
-
-      return `${hour}:${minute}`
     };
   };
 
-  return value;
+  return `${hour}:${minute}`;
 };
 
 export const updateInputValue = (input, formats, time) => {

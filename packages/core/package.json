@@ -69,7 +69,6 @@
     "react-dom": "^19.2.8",
     "react-i18nify": "^6.1.2",
     "select": "^1.1.2",
-    "svg4everybody": "2.1.9",
     "tom-select": "2.6.2",
     "wc-datepicker": "^0.13.0"
   }
