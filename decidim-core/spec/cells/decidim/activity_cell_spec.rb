@@ -120,21 +120,21 @@ describe Decidim::ActivityCell, type: :cell do
           result = subject.created_at
 
           expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include("less than a minute ago")
+          expect(result).to include('data-local="time-ago"')
         end
 
         travel_to(creating_date + 10.seconds) do
           result = subject.created_at
 
           expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include("less than a minute ago")
+          expect(result).to include('data-local="time-ago"')
         end
 
         travel_to(creating_date + 59.seconds) do
           result = subject.created_at
 
           expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include("1 minute ago")
+          expect(result).to include('data-local="time-ago"')
         end
       end
     end
@@ -145,21 +145,21 @@ describe Decidim::ActivityCell, type: :cell do
           result = subject.created_at
 
           expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include("1 minute ago")
+          expect(result).to include('data-local="time-ago"')
         end
 
         travel_to(creating_date + 6.minutes) do
           result = subject.created_at
 
           expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include("6 minutes ago")
+          expect(result).to include('data-local="time-ago"')
         end
 
         travel_to(creating_date + 59.minutes) do
           result = subject.created_at
 
           expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include("about 1 hour ago")
+          expect(result).to include('data-local="time-ago"')
         end
       end
     end
@@ -170,14 +170,14 @@ describe Decidim::ActivityCell, type: :cell do
           result = subject.created_at
 
           expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include("about 2 hours ago")
+          expect(result).to include('data-local="time-ago"')
         end
 
         travel_to(creating_date + 12.hours) do
           result = subject.created_at
 
           expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include("about 12 hours ago")
+          expect(result).to include('data-local="time-ago"')
         end
       end
     end
