@@ -8,6 +8,7 @@ module Decidim
     include ActionView::Helpers::DateHelper
     include ActionView::Helpers::TagHelper
     include ActionView::Context
+    include LocalTimeHelper
 
     delegate :resource_text, to: :event_class_instance
 
