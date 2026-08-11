@@ -1,7 +1,8 @@
 import "entrypoints/decidim_api_graphiql.scss";
 // Styles from node_modules/graphiql/graphiql.css
 // It needs to be done in JS because postcss-import does not find files in node_modules/
-import "graphiql/graphiql.css";
+// eslint-disable-next-line import/no-unresolved
+import "graphiql/style.css";
 
 import React from "react";
 import { createRoot } from "react-dom/client";
