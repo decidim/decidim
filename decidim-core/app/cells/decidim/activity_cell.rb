@@ -83,16 +83,7 @@ module Decidim
     end
 
     def created_at
-      time_tag(
-        model.created_at,
-        t(
-          "decidim.activity.time_ago",
-          time: time_ago_in_words(model.created_at)
-        ),
-        data: {
-          relative_time: true
-        }
-      )
+      local_time_ago(model.created_at)
     end
 
     def user
