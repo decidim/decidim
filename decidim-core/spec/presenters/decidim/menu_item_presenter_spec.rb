@@ -36,15 +36,19 @@ module Decidim
         allow(request).to receive(:original_fullpath).and_return(current_path)
       end
 
-      it "adds the aria-current attribute to the link" do
-        expect(subject.render).to include('aria-current="page"')
+      it "does not add the aria-current attribute to the link" do
+        expect(subject.render).not_to include("aria-current")
+      end
+
+      it "adds the active class to the item" do
+        expect(subject.render).to have_css("li.is-active")
       end
 
       context "and the page is a sub-page of the menu link" do
         let(:current_path) { "/boo/bar" }
 
         it "does not add the aria-current attribute to the link" do
-          expect(subject.render).not_to include('aria-current="page"')
+          expect(subject.render).not_to include("aria-current")
         end
 
         it "keeps the active class on the item" do

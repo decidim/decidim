@@ -48,11 +48,7 @@ module Decidim
     private
 
     def link_options
-      if is_active_link?(url, :exclusive)
-        { aria: { current: "page" } }
-      else
-        {}
-      end.merge({ class: link_classes, role: menuitem_role })
+      { class: link_classes, role: menuitem_role }
     end
 
     def composed_label
