@@ -16,6 +16,8 @@ module Decidim
     end
 
     def perform(cutoff_days)
+      raise InvalidArgument, "The cutoff days must be a positive integer or zero." unless cutoff_days.is_a?(Integer) && cutoff_days >= 0
+
       cutoff_date = Time.current - cutoff_days.days
 
       versions = PaperTrail::Version.where(
@@ -27,5 +29,7 @@ module Decidim
 
       versions.delete_all
     end
+
+    class InvalidArgument < StandardError; end
   end
 end

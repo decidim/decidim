@@ -18,6 +18,8 @@ describe Decidim::DeleteOldUserVersionsJob, versioning: true do
     Decidim::DestroyAccount.call(destroy_form_for(recently_deleted_user))
   end
 
+  it_behaves_like "delete old versions job"
+
   it "deletes the versions for deleted users created before the cutoff date" do
     expect(versions.where(item_id: old_deleted_user.id).count).to eq(3)
     expect(versions.where(item_id: recently_deleted_user.id).count).to eq(3)

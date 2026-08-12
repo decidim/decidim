@@ -26,6 +26,8 @@ describe Decidim::DeleteRevokedAuthorizationsVersionsJob, versioning: true do
     recently_deleted_authorization.destroy!
   end
 
+  it_behaves_like "delete old versions job"
+
   it "deletes the versions for deleted authorizations created before the cutoff date" do
     expect(versions.where(item_id: old_deleted_authorization_id).count).to eq(2)
     expect(versions.where(item_id: recently_deleted_authorization_id).count).to eq(2)
