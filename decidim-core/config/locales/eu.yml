@@ -1189,6 +1189,8 @@ eu:
       dynamic:
         screen_reader_explanation: Hurrengo elementua orri honetako osagaiak mapan puntu gisa erakusten dituen mapa da. Elementua pantaila-irakurgailu batez erabil daiteke, baina ulergaitza izan daiteke.
         skip_button: Mapa hau ez erabili
+        zoom_in: Zooma
+        zoom_out: Zooma urruntzea
       static:
         latlng_text: 'latitudea: %{latitude}, longitudea: %{longitude}'
         map_service_brand: OpenStreetMap
