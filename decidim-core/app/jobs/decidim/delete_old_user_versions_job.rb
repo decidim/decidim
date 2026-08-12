@@ -11,7 +11,7 @@ module Decidim
 
     # Include only deleted users.
     def include_records
-      Decidim::User.where.not(deleted_at: nil)
+      Decidim::UserBaseEntity.where.not(deleted_at: nil)
     end
   end
 end
