@@ -18,5 +18,13 @@ namespace :decidim do
         Decidim::DeleteInactiveParticipantsJob.perform_later(organization)
       end
     end
+
+    desc "Delete old personal data versions for participants"
+    task :delete_old_versions, [:days] => :environment do |_task, args|
+      cutoff_days = args.days&.to_i || Decidim.delete_old_personal_data_versions_days
+
+      Decidim::DeleteOldUserVersionsJob.perform_later(cutoff_days)
+      Decidim::DeleteRevokedAuthorizationsVersionsJob.perform_later(cutoff_days)
+    end
   end
 end

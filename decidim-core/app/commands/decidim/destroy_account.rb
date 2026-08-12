@@ -19,7 +19,6 @@ module Decidim
         destroy_user_account!
         destroy_user_identities
         destroy_follows
-        destroy_user_versions
         destroy_user_private_exports
         destroy_user_access_grants
         destroy_user_access_tokens
@@ -70,10 +69,6 @@ module Decidim
 
     def destroy_user_identities
       current_user.identities.find_each(&:destroy)
-    end
-
-    def destroy_user_versions
-      current_user.versions.find_each(&:destroy)
     end
 
     def destroy_user_private_exports
