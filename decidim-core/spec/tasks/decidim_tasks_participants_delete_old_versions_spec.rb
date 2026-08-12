@@ -25,14 +25,34 @@ describe "rake decidim:participants:delete_old_versions", type: :task do
     context "with a negative value" do
       let(:cutoff_days) { -1 }
 
-      it "raises InvalidArgument" do
-        expect { task.execute(args) }.to raise_error(RuntimeError, "The cutoff days must be a positive integer or zero.")
+      it "raises RuntimeError" do
+        expect { task.execute(args) }.to raise_error(RuntimeError, "The days argument must be a positive integer or zero.")
+      end
+    end
+
+    context "with incorrectly formed string" do
+      let(:cutoff_days) { "abc" }
+
+      it "raises RuntimeError" do
+        expect { task.execute(args) }.to raise_error(RuntimeError, "The days argument must be a positive integer or zero.")
+      end
+    end
+
+    context "with an empty string" do
+      let(:cutoff_days) { "" }
+
+      it "raises uses the default configured value" do
+        expect do
+          task.execute(args)
+        end
+          .to have_enqueued_job(Decidim::DeleteOldUserVersionsJob).with(300)
+          .and have_enqueued_job(Decidim::DeleteRevokedAuthorizationsVersionsJob).with(300)
       end
     end
   end
 
   context "when a valid days argument is provided" do
-    it "executes the job for each organization" do
+    it "executes the job" do
       ActiveJob::Base.queue_adapter = :test
 
       expect do

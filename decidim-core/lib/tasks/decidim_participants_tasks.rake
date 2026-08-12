@@ -21,9 +21,10 @@ namespace :decidim do
 
     desc "Delete old personal data versions for participants"
     task :delete_old_versions, [:days] => :environment do |_task, args|
-      cutoff_days = args.days&.to_i || Decidim.delete_old_personal_data_versions_days
+      raise "The days argument must be a positive integer or zero." if args.days.is_a?(String) && !args.days.match?(/\A[0-9]+\z/)
 
-      raise "The cutoff days must be a positive integer or zero." unless cutoff_days.is_a?(Integer) && cutoff_days >= 0
+      cutoff_days = args.days&.to_i || Decidim.delete_old_personal_data_versions_days
+      raise "The days argument must be a positive integer or zero." unless cutoff_days.is_a?(Integer) && cutoff_days >= 0
 
       Decidim::DeleteOldUserVersionsJob.perform_later(cutoff_days)
       Decidim::DeleteRevokedAuthorizationsVersionsJob.perform_later(cutoff_days)
