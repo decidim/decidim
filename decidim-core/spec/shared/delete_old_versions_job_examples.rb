@@ -1,7 +1,17 @@
 # frozen_string_literal: true
 
 shared_examples "delete old versions job" do
-  context "when an invalid cutoff days argument" do
+  context "when a valid cutoff days argument is provided" do
+    context "with zero" do
+      let(:cutoff_days) { 0 }
+
+      it "does not raise" do
+        expect { subject }.not_to raise_error
+      end
+    end
+  end
+
+  context "when an invalid cutoff days argument is provided" do
     subject { described_class.perform_now(cutoff_days) }
 
     context "with a negative value" do
