@@ -978,6 +978,10 @@ en:
           logos:
             organization_logos: Organization logos
             preview: Preview
+          machine_translation_display_priority:
+            options:
+              original: The system displays the information in the language used by the author. Content created from admin with manual translations, will display the admin translated values.
+              translation: The system will display a translation if available, otherwise original language will be used.
           rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
           twitter: X
