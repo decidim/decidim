@@ -8,13 +8,12 @@ module Decidim
     include ActionView::Helpers::DateHelper
     include ActionView::Helpers::TagHelper
     include ActionView::Context
-    include LocalTimeHelper
 
     delegate :resource_text, to: :event_class_instance
 
     def created_at_in_words
       if created_at.between?(1.month.ago, Time.current)
-        local_time_ago(created_at)
+        I18n.t("decidim.user_conversations.index.time_ago", time: time_ago_in_words(created_at))
       else
         format = created_at.year == Time.current.year ? :ddmm : :ddmmyyyy
         I18n.l(created_at, format:)

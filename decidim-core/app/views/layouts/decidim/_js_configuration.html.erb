@@ -54,10 +54,10 @@
         monthNames: <%= raw I18n.t("date.month_names").to_json %>,
         abbrMonthNames: <%= raw I18n.t("date.abbr_month_names").to_json %>,
 
-        yesterday: "<%= I18n.t('date.yesterday', default: 'yesterday') %>",
-        today: "<%= I18n.t('date.today', default: 'today') %>",
-        tomorrow: "<%= I18n.t('date.tomorrow', default: 'tomorrow') %>",
-        on: "<%= I18n.t('date.on', default: 'on {date}') %>",
+        yesterday: "<%= I18n.t("date.yesterday", default: "yesterday") %>",
+        today: "<%= I18n.t("date.today", default: "today") %>",
+        tomorrow: "<%= I18n.t("date.tomorrow", default: "tomorrow") %>",
+        on: "<%= I18n.t("date.on", default: "on {date}") %>",
 
         formats: {
           default: "%b %e, %Y",
@@ -66,23 +66,23 @@
       },
 
       time: {
-        am: "<%= I18n.t('time.am') %>",
-        pm: "<%= I18n.t('time.pm') %>",
+        am: "<%= I18n.t("time.am") %>",
+        pm: "<%= I18n.t("time.pm") %>",
 
         singular: "a {time}",
         singularAn: "an {time}",
 
         // Format i18n key values to match local_time key structure
-        elapsed: "<%= I18n.t('datetime.relative.past').gsub('%{time}', '{time}') %>",
+        elapsed: "<%= I18n.t("datetime.relative.past").gsub("%{time}", "{time}") %>",
 
-        second: "<%= I18n.t('datetime.distance_in_words.x_seconds.one', count: 1).sub(/^1\s*/, '') %>",
-        seconds: "<%= I18n.t('datetime.distance_in_words.x_seconds.other', count: '%{count}').gsub('%{count} ', '') %>",
+        second: "<%= I18n.t("datetime.distance_in_words.x_seconds.one", count: 1).sub(/^1\s*/, "") %>",
+        seconds: "<%= I18n.t("datetime.distance_in_words.x_seconds.other", count: "%{count}").gsub("%{count} ", "") %>",
 
-        minute: "<%= I18n.t('datetime.distance_in_words.x_minutes.one', count: 1).sub(/^1\s*/, '') %>",
-        minutes: "<%= I18n.t('datetime.distance_in_words.x_minutes.other', count: '%{count}').gsub('%{count} ', '') %>",
+        minute: "<%= I18n.t("datetime.distance_in_words.x_minutes.one", count: 1).sub(/^1\s*/, "") %>",
+        minutes: "<%= I18n.t("datetime.distance_in_words.x_minutes.other", count: "%{count}").gsub("%{count} ", "") %>",
 
-        hour: "<%= I18n.t('datetime.distance_in_words.x_hours.one', count: 1).sub(/^1\s*/, '') %>",
-        hours: "<%= I18n.t('datetime.distance_in_words.x_hours.other', count: '%{count}').gsub('%{count} ', '') %>",
+        hour: "<%= I18n.t("datetime.distance_in_words.x_hours.one", count: 1).sub(/^1\s*/, "") %>",
+        hours: "<%= I18n.t("datetime.distance_in_words.x_hours.other", count: "%{count}").gsub("%{count} ", "") %>",
 
         formats: {
           default: "%l:%M%P",

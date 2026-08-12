@@ -1,6 +1,6 @@
 <div class="notification" data-notification>
   <div class="notification__wrapper">
-    <div class="notification__time" title="<%= l(notification.created_at) %>"> <%= notification.created_at_in_words %></div>
+    <div class="notification__time" title="<%= l(notification.created_at) %>"> <%= local_time_ago(notification.created_at) %></div>
     <div class="notification__snippet">
       <span class="notification__snippet-title text-gray"><%= t("decidim.notifications.show.moderated") %></span>
     </div>

@@ -117,49 +117,15 @@ describe Decidim::ActivityCell, type: :cell do
     context "when created_at is between zero and 59 seconds" do
       it "returns the correct datetime for client-side rendering and time ago text" do
         travel_to(creating_date) do
-          result = subject.created_at
-
-          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include('data-local="time-ago"')
+          expect(subject.created_at).to eq(creating_date)
         end
 
         travel_to(creating_date + 10.seconds) do
-          result = subject.created_at
-
-          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include('data-local="time-ago"')
+          expect(subject.created_at).to eq(creating_date)
         end
 
         travel_to(creating_date + 59.seconds) do
-          result = subject.created_at
-
-          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include('data-local="time-ago"')
-        end
-      end
-    end
-
-    context "when created_at is between 1 minute and 59 minutes" do
-      it "returns the correct datetime for client-side rendering and time ago text" do
-        travel_to(creating_date + 1.minute) do
-          result = subject.created_at
-
-          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include('data-local="time-ago"')
-        end
-
-        travel_to(creating_date + 6.minutes) do
-          result = subject.created_at
-
-          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include('data-local="time-ago"')
-        end
-
-        travel_to(creating_date + 59.minutes) do
-          result = subject.created_at
-
-          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include('data-local="time-ago"')
+          expect(subject.created_at).to eq(creating_date)
         end
       end
     end
@@ -167,17 +133,11 @@ describe Decidim::ActivityCell, type: :cell do
     context "when created_at is hours ago" do
       it "returns the correct datetime for client-side rendering and time ago text" do
         travel_to(creating_date + 2.hours) do
-          result = subject.created_at
-
-          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include('data-local="time-ago"')
+          expect(subject.created_at).to eq(creating_date)
         end
 
         travel_to(creating_date + 12.hours) do
-          result = subject.created_at
-
-          expect(result).to include("datetime=\"#{creating_date.iso8601}\"")
-          expect(result).to include('data-local="time-ago"')
+          expect(subject.created_at).to eq(creating_date)
         end
       end
     end
