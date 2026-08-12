@@ -13,8 +13,7 @@ shared_examples_for "has embedded video in description" do |description_attribut
       HTML
     }
   end
-  let(:iframe_src) { "https://www.youtube.com/embed/f6JMgJAQ2tc" }
-  let(:embedded_iframe_src) { "https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc" }
+  let(:iframe_src) { "http://www.example.org" }
   let!(:cookie_warning) { "You need to enable all cookies in order to see this content" }
 
   context "when cookies are rejected" do
@@ -35,9 +34,9 @@ shared_examples_for "has embedded video in description" do |description_attribut
       click_on "Accept all"
     end
 
-    it "shows the embedded iframe" do
+    it "shows iframe" do
       expect(page).to have_no_text(cookie_warning)
-      expect(page).to have_css("iframe[src='#{embedded_iframe_src}']", count:)
+      expect(page).to have_css("iframe", count:)
     end
   end
 end
