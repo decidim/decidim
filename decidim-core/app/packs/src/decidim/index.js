@@ -186,8 +186,6 @@ const initializer = (element = document) => {
   // focus guard must be initialized only once
   window.focusGuard = window.focusGuard || new FocusGuard(document.body);
 
-  svg4everybody();
-
   // Configure LocalTime with I18n translations from Rails
   if (window.Decidim && window.Decidim.localTimeConfig) {
     const config = window.Decidim.localTimeConfig;
