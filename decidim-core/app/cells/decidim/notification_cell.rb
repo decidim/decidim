@@ -47,5 +47,9 @@ module Decidim
     def notification
       @notification ||= Decidim::NotificationPresenter.new(model)
     end
+
+    def notification_time
+      ApplicationController.helpers.local_time_ago(model.created_at)
+    end
   end
 end

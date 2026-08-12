@@ -86,6 +86,10 @@ module Decidim
       model.created_at
     end
 
+    def notification_time
+      ApplicationController.helpers.local_time_ago(created_at)
+    end
+
     def user
       return resource.author if resource.respond_to?(:author)
       # As Proposals have Coauthorable concern instead of Authorable
