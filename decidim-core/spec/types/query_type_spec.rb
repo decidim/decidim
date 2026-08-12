@@ -51,5 +51,33 @@ module Decidim::Api
         end
       end
     end
+
+    describe "user" do
+      let!(:user) { create(:user, :confirmed, organization: current_organization) }
+
+      context "with ID" do
+        let(:query) { %({ user(id: "#{user.id}") { id, name } }) }
+
+        it "returns the correct user" do
+          expect(response["user"]).to eq("id" => user.id.to_s, "name" => user.name)
+        end
+      end
+
+      context "with nickname" do
+        let(:query) { %({ user(nickname: "#{user.nickname}") { id, name } }) }
+
+        it "returns the correct user" do
+          expect(response["user"]).to eq("id" => user.id.to_s, "name" => user.name)
+        end
+      end
+
+      context "with no argument" do
+        let(:query) { %({ user { id, name } }) }
+
+        it "returns nothing" do
+          expect(response["user"]).to be_nil
+        end
+      end
+    end
   end
 end
