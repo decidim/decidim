@@ -22,8 +22,24 @@
       </div>
 
       <div class="row column">
-        <%= form.label :machine_translation_display_priority, t("activemodel.attributes.organization.machine_translation_display_priority") %>
-          <%= form.collection_radio_buttons :machine_translation_display_priority, form.object.machine_translation_priorities, :first, :last %>
+        <fieldset class="row column" id="machine_translation_display_priority">
+          <legend>
+            <%= t("activemodel.attributes.organization.machine_translation_display_priority") %>
+          </legend>
+          <div class="radio-group">
+            <%# i18n-tasks-use t("decidim.admin.organization.form.machine_translation_display_priority.options.original") %>
+            <%# i18n-tasks-use t("decidim.admin.organization.form.machine_translation_display_priority.options.translation") %>
+            <%= form.collection_radio_buttons :machine_translation_display_priority, form.object.machine_translation_priorities, :first, :last  do |builder| %>
+              <%= builder.label(for: nil, class: "form__wrapper-checkbox-label") do %>
+                <%= builder.radio_button(id: nil, label: false) %>
+                <span>
+                  <strong class="font-semibold"><%= builder.text %></strong>
+                  <%= t(builder.value, scope: "decidim.admin.organization.form.machine_translation_display_priority.options") %>
+                </span>
+              <% end %>
+            <% end %>
+          </div>
+        </fieldset>
       </div>
     <% end %>
 
