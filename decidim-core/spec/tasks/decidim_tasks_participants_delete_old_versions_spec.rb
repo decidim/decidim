@@ -52,7 +52,7 @@ describe "rake decidim:participants:delete_old_versions", type: :task do
   end
 
   context "when a valid days argument is provided" do
-    it "executes the job" do
+    it "executes the jobs" do
       ActiveJob::Base.queue_adapter = :test
 
       expect do
