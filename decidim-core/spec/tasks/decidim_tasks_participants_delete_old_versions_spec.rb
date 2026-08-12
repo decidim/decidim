@@ -19,6 +19,18 @@ describe "rake decidim:participants:delete_old_versions", type: :task do
     end
   end
 
+  context "when invalid days argument is provided" do
+    let(:args) { Rake::TaskArguments.new([:days], [cutoff_days]) }
+
+    context "with a negative value" do
+      let(:cutoff_days) { -1 }
+
+      it "raises InvalidArgument" do
+        expect { task.execute(args) }.to raise_error(RuntimeError, "The cutoff days must be a positive integer or zero.")
+      end
+    end
+  end
+
   context "when a valid days argument is provided" do
     it "executes the job for each organization" do
       ActiveJob::Base.queue_adapter = :test
