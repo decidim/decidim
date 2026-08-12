@@ -41,7 +41,7 @@ describe "rake decidim:participants:delete_old_versions", type: :task do
     context "with an empty string" do
       let(:cutoff_days) { "" }
 
-      it "raises uses the default configured value" do
+      it "uses the default configured value and enqueues the jobs" do
         expect do
           task.execute(args)
         end
