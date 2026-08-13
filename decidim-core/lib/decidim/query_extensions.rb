@@ -54,6 +54,8 @@ module Decidim
     end
 
     def user(id: nil, nickname: nil)
+      return nil if id.blank? && nickname.blank?
+
       Core::UserEntityFinder.new.call(object, { id:, nickname: }, context)
     end
 
