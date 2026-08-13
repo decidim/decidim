@@ -95,7 +95,6 @@ ar:
               'false': اقتراحات
               'true': تعديلات
           state_eq:
-            label: الحالة
             values:
               accepted: تم قبوله
               evaluating: قيد التقييم
