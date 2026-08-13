@@ -45,7 +45,7 @@ shared_examples_for "update questions" do
       end
 
       click_on "Save"
-      expect(page).to have_css(".panel-error", visible: true)
+      expect(page).to have_css(".panel-error", visible: :visible)
       click_on "Expand all questions"
 
       expect(page).to have_callout(callout_failure)
@@ -513,7 +513,7 @@ shared_examples_for "update questions" do
       end
 
       click_on "Save"
-      expect(page).to have_css(".panel-error", visible: true)
+      expect(page).to have_css(".panel-error", visible: :visible)
       expand_all_questions
 
       within ".questionnaire-question:last-of-type" do

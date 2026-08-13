@@ -263,7 +263,7 @@ shared_examples_for "add questions" do
     select "Long response", from: "Type"
     click_on "Save"
 
-    expect(page).to have_css(".panel-error", visible: true)
+    expect(page).to have_css(".panel-error", visible: :visible)
     expand_all_questions
     expect(page).to have_select("Type", selected: "Long response", wait: 10)
   end
@@ -281,7 +281,7 @@ shared_examples_for "add questions" do
     select "Long response", from: "Type"
 
     click_on "Save"
-    expect(page).to have_css(".panel-error", visible: true)
+    expect(page).to have_css(".panel-error", visible: :visible)
     expand_all_questions
 
     expect(page).to have_text("Type")
@@ -305,7 +305,7 @@ shared_examples_for "add questions" do
     select "Long response", from: "Type"
 
     click_on "Save"
-    expect(page).to have_css(".panel-error", visible: true)
+    expect(page).to have_css(".panel-error", visible: :visible)
     expand_all_questions
 
     expect(page).to have_text("Type")
@@ -335,7 +335,7 @@ shared_examples_for "add questions" do
     select "3", from: "Maximum number of choices"
 
     click_on "Save"
-    expect(page).to have_css(".panel-error", visible: true)
+    expect(page).to have_css(".panel-error", visible: :visible)
     expand_all_questions
 
     expect(page).to have_css(".questionnaire-question-response-option")
@@ -363,7 +363,7 @@ shared_examples_for "add questions" do
     click_on "Add row"
 
     click_on "Save"
-    expect(page).to have_css(".panel-error", visible: true)
+    expect(page).to have_css(".panel-error", visible: :visible)
     expand_all_questions
 
     within ".questionnaire-question-matrix-row:first-of-type" do
