@@ -607,6 +607,11 @@ fr:
         edit:
           title: Modifier le membre
           update: Mettre à jour
+        form:
+          email: Email
+          invite_explanation: Le participant sera invité à rejoindre l'organisation.
+          name_or_nickname: Nom ou pseudonyme
+          select_user: Sélectionner un membre
         index:
           import_via_csv: Importer via CSV
           publish_all: Tout publier
@@ -1099,7 +1104,7 @@ fr:
           previous_title: Élément précédent
         attachments:
           add_attachments: Ajouter des pièces jointes
-          attachment_legend: Ajouter une galerie de pièces jointes (facultatif)
+          attachment_legend: Ajouter un document ou une image
           edit_attachments: Modifier les pièces jointes
       static_page_topics:
         create:
@@ -1235,6 +1240,8 @@ fr:
           confirm_destroy: 'Êtes-vous sûr de vouloir supprimer le filtre %{name}? NOTE : Les ressources qui utilisent ce filtre ne seront pas affectées, mais elles perdront la référence à ce filtre.'
           destroy: Supprimer
           edit: Modifier
+          internal_name: Identifiant interne
+          name: Identifiant
         update:
           error: Il y a eu un problème lors de la mise à jour de ce filtre de taxonomie.
           success: Filtre de taxonomie mis à jour avec succès.
@@ -1346,6 +1353,7 @@ fr:
             unreport:
               failed: 'Un problème a été rencontré lors du dé-signalement de certaines ressources %{errored}'
               invalid: Aucune modération sélectionnée.
+              success: Signalement des ressources annulé succès.
           hide:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.

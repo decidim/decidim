@@ -6,6 +6,8 @@ sk:
         title: Názov
         total_budget: Celkový rozpočet
         weight: Pozícia v poradí
+      pabulib_vote_types:
+        cumulative: Rozdeľovanie hlasov medzi projekty (Hlasujúci má viac hlasov, pričom jednému projektu môže prideliť aj viac než jeden hlas.)
       project:
         budget_amount: Výška rozpočtu
         description: Popis
