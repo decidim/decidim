@@ -59,7 +59,7 @@ describe "Admin filters proposals" do
       i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")
 
       context "when filtering proposals by state: #{i18n_state}" do
-        it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
+        it_behaves_like "a filtered collection", options: "Status", filter: i18n_state do
           let(:in_filter) { translated(proposal_with_state(state).title) }
           let(:not_in_filter) { translated(proposal_without_state(state).title) }
         end
@@ -67,7 +67,7 @@ describe "Admin filters proposals" do
     end
 
     context "when filtering proposals by state: Withdrawn" do
-      it_behaves_like "a filtered collection", options: "State", filter: "Withdrawn" do
+      it_behaves_like "a filtered collection", options: "Status", filter: "Withdrawn" do
         let(:in_filter) { translated(withdrawn_proposal.title) }
         let(:not_in_filter) { translated(proposals.sample.title) }
       end
