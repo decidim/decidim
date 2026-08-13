@@ -121,10 +121,7 @@ ja:
             values:
               'false': 提案
               'true': 修正
-          proposal_state_id_eq:
-            label: ステータス
           state_eq:
-            label: 州(県)
             values:
               accepted: 受理
               evaluating: 評価
