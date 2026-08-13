@@ -6,8 +6,6 @@ module Decidim
   #
   class NotificationPresenter < SimpleDelegator
     include ActionView::Helpers::DateHelper
-    include ActionView::Helpers::TagHelper
-    include ActionView::Context
 
     delegate :resource_text, to: :event_class_instance
 
