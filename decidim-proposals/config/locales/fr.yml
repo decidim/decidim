@@ -123,9 +123,9 @@ fr:
               'false': Propositions
               'true': Amendements
           proposal_state_id_eq:
-            label: État
+            label: État 
           state_eq:
-            label: État
+            label: État 
             values:
               accepted: Acceptée
               evaluating: En cours d'évaluation
