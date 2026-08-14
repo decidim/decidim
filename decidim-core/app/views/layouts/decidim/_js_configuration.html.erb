@@ -49,19 +49,19 @@
     locale: "<%= I18n.locale %>",
     i18n: {
       date: {
-        dayNames: <%= raw I18n.t("date.day_names").to_json %>,
-        abbrDayNames: <%= raw I18n.t("date.abbr_day_names").to_json %>,
-        monthNames: <%= raw I18n.t("date.month_names").to_json %>,
-        abbrMonthNames: <%= raw I18n.t("date.abbr_month_names").to_json %>,
+        dayNames: <%= raw I18n.t("date.day_names").compact.to_json %>,
+        abbrDayNames: <%= raw I18n.t("date.abbr_day_names").compact.to_json %>,
+        monthNames: <%= raw I18n.t("date.month_names").compact.to_json %>,
+        abbrMonthNames: <%= raw I18n.t("date.abbr_month_names").compact.to_json %>,
 
-        yesterday: "<%= I18n.t("date.yesterday", default: "yesterday") %>",
-        today: "<%= I18n.t("date.today", default: "today") %>",
-        tomorrow: "<%= I18n.t("date.tomorrow", default: "tomorrow") %>",
-        on: "<%= I18n.t("date.on", default: "on {date}") %>",
+        yesterday: "<%= I18n.t("date.yesterday") %>",
+        today: "<%= I18n.t("date.today") %>",
+        tomorrow: "<%= I18n.t("date.tomorrow") %>",
+        on: "<%= I18n.t("date.on_date") %>",
 
         formats: {
-          default: "%b %e, %Y",
-          thisYear: "%b %e"
+          default: "<%= I18n.t("date.formats.decidim_with_month_name") %>",
+          thisYear: "<%= I18n.t("date.formats.decidim_with_month_name_short") %>"
         }
       },
 
@@ -69,8 +69,8 @@
         am: "<%= I18n.t("time.am") %>",
         pm: "<%= I18n.t("time.pm") %>",
 
-        singular: "a {time}",
-        singularAn: "an {time}",
+        singular: "<%= I18n.t("decidim.local_time.singular") %>",
+        singularAn: "<%= I18n.t("decidim.local_time.singular_an") %>",
 
         // Format i18n key values to match local_time key structure
         elapsed: "<%= I18n.t("datetime.relative.past").gsub("%{time}", "{time}") %>",
@@ -85,17 +85,17 @@
         hours: "<%= I18n.t("datetime.distance_in_words.x_hours.other", count: "%{count}").gsub("%{count} ", "") %>",
 
         formats: {
-          default: "%l:%M%P",
-          default_24h: "%H:%M"
+          default: "<%= I18n.t("time.formats.time_of_day") %>",
+          default_24h: "<%= I18n.t("time.formats.time_of_day") %>"
         }
       },
 
       datetime: {
-        at: "{date} at {time}",
+        at: "<%= I18n.t("decidim.local_time.at") %>",
 
         formats: {
-          default: "%B %e, %Y at %l:%M%P %Z",
-          default_24h: "%B %e, %Y at %H:%M %Z"
+          default: "<%= I18n.t("time.formats.long_with_particles") %>",
+          default_24h: "<%= I18n.t("time.formats.long_with_particles") %>"
         }
       }
     }
