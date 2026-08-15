@@ -987,6 +987,11 @@ cs:
         member_added:
           published:
             email_intro: Byli jste přidáni jako člen do participačního prostoru.
+            email_subject: Nyní máte přístup k %{resource_title}.
+            notification_title: Nyní máte přístup k <a href="%{resource_url}">%{resource_title}</a>.
+          unpublished:
+            email_intro: Byli jste přidáni jako člen do participačního prostoru.
+            email_outro: Obdrželi jste toto oznámení, protože vás správce přidal do <a href="%{resource_url}">%{resource_title}</a>. Pokud je přístup do tohoto prostoru omezený, budete mít přístup k němu pomocí vašeho účtu.
       reports:
         parent_hidden:
           email_outro: Obdrželi jste toto oznámení, protože jste autorem ovlivněného %{resource_type}.
@@ -1206,6 +1211,8 @@ cs:
       dynamic:
         screen_reader_explanation: Následující prvek je mapa, která prezentuje položky na této stránce jako mapové body. Prvek lze použít s čtečkou obrazovky, ale může být těžko srozumitelný.
         skip_button: Přeskočit mapu
+        zoom_in: Přiblížit
+        zoom_out: Oddálit
       static:
         latlng_text: 'zeměpisná šířka: %{latitude}, zeměpisná délka: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1838,6 +1845,7 @@ cs:
         nickname_help: Vaše přezdívka v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
         submit_button: Uložit
         subtitle: Pokud přijmete pozvánku, nastavte svou přezdívku a heslo.
+        subtitle_no_password: Pokud přijmete pozvánku, nastavte prosím svou přezdívku.
       invitation_removed: Vaše pozvánka byla odstraněna.
       invitation_token_invalid: Předložený token je neplatný!
       new:
@@ -1845,6 +1853,7 @@ cs:
         submit_button: Odeslat pozvánku
       no_invitations_remaining: Žádné zbývající pozvánky
       send_instructions: Pozvánka byla odeslána na %{email}.
+      updated: Pozvánka byla úspěšně přijata. Nyní jste přihlášeni.
       updated_not_active: Pozvánka úspěšně přijata.
     mailer:
       confirmation_instructions:
