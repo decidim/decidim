@@ -503,9 +503,22 @@ cs:
           form:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+          new:
+            title: Importovat participační proces
         participatory_process_steps:
+          edit:
+            title: Upravit fázi participačního procesu
+          index:
+            title: Fáze
           new:
             title: Nová fáze participativního procesu
+        participatory_process_user_roles:
+          edit:
+            title: Aktualizovat správce participačního procesu
+          index:
+            title: Správci participačního procesu
+          new:
+            title: Nový správce participačního procesu
         participatory_processes:
           edit:
             title: O tomto procesu
