@@ -986,6 +986,10 @@ cs:
           logos:
             organization_logos: Loga organizace
             preview: Náhled
+          machine_translation_display_priority:
+            options:
+              original: Systém zobrazuje informace v jazyce, který použil autor. U obsahu vytvořeného v administraci s ručními překlady se zobrazí hodnoty přeložené v administraci.
+              translation: Systém zobrazí překlad, je-li k dispozici, jinak bude použit originální jazyk.
           rich_text_editor_in_public_views_help: V některých textových polích budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
           twitter: X
