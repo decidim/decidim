@@ -72,6 +72,9 @@ module Decidim::Core
             it "configures the session cookie store with the secure flag" do
               expect(Rails.application.config.session_options).to eq(
                 secure: true,
+                httponly: true,
+                key: "_session_id",
+                same_site: :lax,
                 expire_after: 30.minutes
               )
             end
@@ -83,6 +86,9 @@ module Decidim::Core
             it "configures the session cookie store without the secure flag" do
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
+                httponly: true,
+                key: "_session_id",
+                same_site: :lax,
                 expire_after: 30.minutes
               )
             end
@@ -94,6 +100,9 @@ module Decidim::Core
             it "configures the session cookie store with the correct expire after value" do
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
+                httponly: true,
+                key: "_session_id",
+                same_site: :lax,
                 expire_after: 1.hour
               )
             end
