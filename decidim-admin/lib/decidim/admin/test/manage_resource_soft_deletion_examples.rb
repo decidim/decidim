@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "manage soft deletable component or space" do |resource_name|
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-  end
-
   context "when the participatory space is unpublished" do
     before do
       resource.unpublish!

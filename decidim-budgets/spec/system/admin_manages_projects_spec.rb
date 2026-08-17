@@ -17,8 +17,6 @@ describe "Admin manages projects" do
   let!(:component) { create(:component, manifest:, participatory_space:, settings: { taxonomy_filters: taxonomy_filter_ids }) }
 
   before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
     visit_component_admin
 
     within "tr", text: translated(budget.title) do
