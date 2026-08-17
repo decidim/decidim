@@ -154,7 +154,7 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-          RUBY_YJIT_ENABLE: "true"
+          RUBY_YJIT_ENABLE: "false"
       - uses: qltysh/qlty-action/coverage@v2
         with:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
