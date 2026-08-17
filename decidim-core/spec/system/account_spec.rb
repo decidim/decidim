@@ -294,7 +294,6 @@ describe "Account" do
         let!(:user) { create(:user, :confirmed, :admin, password:) }
 
         before do
-          login_as user, scope: :user
           visit decidim.notifications_settings_path
         end
 

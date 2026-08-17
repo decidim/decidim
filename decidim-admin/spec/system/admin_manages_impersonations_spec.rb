@@ -13,14 +13,14 @@ describe "Admin manages impersonations" do
     end
   end
 
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+  end
+
   shared_examples_for "prevent undesired access" do
     let(:impersonatable_user) { create(:user, managed: true, organization: user.organization) }
     let(:impersonatable_user_id) { impersonatable_user.id }
-
-    before do
-      switch_to_host(organization.host)
-      login_as test_user, scope: :user
-    end
 
     context "when accessing impersonation logs" do
       it "restrict access on logs page" do
@@ -51,21 +51,21 @@ describe "Admin manages impersonations" do
 
     context "when logged in as process_collaborator" do
       let(:process) { create(:participatory_process, organization:) }
-      let(:test_user) { create(:process_collaborator, :confirmed, :admin_terms_accepted, participatory_process: process) }
+      let(:user) { create(:process_collaborator, :confirmed, :admin_terms_accepted, participatory_process: process) }
 
       it_behaves_like "prevent undesired access"
     end
 
     context "when logged in as process_evaluator" do
       let(:process) { create(:participatory_process, organization:) }
-      let(:test_user) { create(:process_evaluator, :confirmed, :admin_terms_accepted, participatory_process: process) }
+      let(:user) { create(:process_evaluator, :confirmed, :admin_terms_accepted, participatory_process: process) }
 
       it_behaves_like "prevent undesired access"
     end
 
     context "when logged in as process_moderator" do
       let(:process) { create(:participatory_process, organization:) }
-      let(:test_user) { create(:process_moderator, :confirmed, :admin_terms_accepted, participatory_process: process) }
+      let(:user) { create(:process_moderator, :confirmed, :admin_terms_accepted, participatory_process: process) }
 
       it_behaves_like "prevent undesired access"
     end
