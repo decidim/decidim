@@ -566,10 +566,10 @@ module Decidim
                                  httponly: true,
                                  same_site: :lax
 
-        Warden::Manager.before_logout do |_user, auth, _opts|
-          auth.request.session.options[:drop] = true
-          auth.request.reset_session
-        end
+        # Warden::Manager.before_logout do |_user, auth, _opts|
+        #   auth.request.session.options[:drop] = true
+        #   auth.request.reset_session
+        # end
       end
 
       initializer "decidim_core.register_resources" do
