@@ -56,6 +56,21 @@ This change is based on the GDPR regulation:
 
 You can read more about this change on PR [#11036](https://github.com/decidim/decidim/pull/11036).
 
+### 2.2. Sessions are stored to database
+
+As of this release, the user sessions are stored in the database, for improved security.
+
+There is a new cron job that you need to set, in order to clean obsolete values.
+
+```console
+rake decidim:sessions:cleanup
+```
+
+Additionally, there is an extra variable that you can set, in order to purge the expired sessions (ex: User closes the browser without proper logout).
+Use `DECIDIM_REMOVE_SESSIONS_AFTER` to set up it's value. The default is 120 minutes, which is 4 times the amount of time expiration. Please note that is a stand alone variable, which means is 100% independent of `DECIDIM_EXPIRE_SESSION_AFTER`. If you set the `DECIDIM_EXPIRE_SESSION_AFTER` to have a value bigger than 30 minutes, you may need to ensure that `DECIDIM_REMOVE_SESSIONS_AFTER`'s value is bigger than respective value.
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
 ### 2.3. Sidekiq configuration overwrite
 
 As we are doing changes in the default sidekiq.yml configuration and we want to do them automatically, this file will be overwritten during the upgrade process (on the `bin/rails decidim:upgrade` command).
@@ -68,7 +83,7 @@ sidekiq -C config/sidekiq.yml -C config/sidekiq.local.yml
 
 You can read more about this change on PR [#17596](https://github.com/decidim/decidim/pull/17596).
 
-### 2.2. [[TITLE OF THE ACTION]]
+### 2.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -92,7 +107,16 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
 with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-### 4.1. [[TITLE OF THE TASK]]
+### 4.1. Remove obsolete sessions
+
+```bash
+# Remove obsolete sessions
+0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:sessions:cleanup
+```
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
+### 4.2. [[TITLE OF THE TASK]]
 
 ```bash
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK
