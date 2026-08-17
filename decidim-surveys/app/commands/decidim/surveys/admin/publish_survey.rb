@@ -47,7 +47,6 @@ module Decidim
             survey
           end
         end
-
       end
     end
   end
