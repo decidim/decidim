@@ -9,7 +9,10 @@ describe "GraphiQL" do
     create(:participatory_process, organization:)
   end
 
+  let(:force_api_authentication) { false }
+
   before do
+    allow(Decidim::Api).to receive(:force_api_authentication).and_return(force_api_authentication)
     switch_to_host(organization.host)
     visit decidim_api.graphiql_path
   end
@@ -39,10 +42,7 @@ describe "GraphiQL" do
   end
 
   context "with force_api_authentication enabled" do
-    before do
-      allow(Decidim::Api).to receive(:force_api_authentication).and_return(true)
-      visit decidim_api.graphiql_path
-    end
+    let(:force_api_authentication) { true }
 
     it "forces the user to log in" do
       expect(page).to have_current_path decidim.new_user_session_path
