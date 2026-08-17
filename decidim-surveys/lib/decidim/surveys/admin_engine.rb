@@ -30,6 +30,9 @@ module Decidim
             end
           end
           resources :responses, only: [:index, :show] do
+            collection do
+              delete :destroy_all
+            end
             member do
               get :export_response
             end
