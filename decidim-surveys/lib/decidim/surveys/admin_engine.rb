@@ -70,14 +70,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_surveys_admin.notifications.components" do
-        config.to_prepare do
-          Decidim::EventsManager.subscribe(/^decidim\.events\.components/) do |event_name, data|
-            CleanSurveyResponsesJob.perform_later(event_name, data)
-          end
-        end
-      end
-
       def load_seed
         nil
       end
