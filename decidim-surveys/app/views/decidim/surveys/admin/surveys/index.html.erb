@@ -84,13 +84,6 @@
                           <%= t("actions.unpublish", scope: "decidim.admin") %>
                         <% end %>
                       </li>
-                    <% elsif survey.clean_after_publish? %>
-                      <li class="dropdown__item">
-                        <%= link_to publish_survey_path(survey), method: :put, data: { confirm: t("actions.responses_alert", scope: "decidim.surveys", responses_count: survey.questionnaire.responses.size) }, class: "dropdown__button" do %>
-                          <%= icon "check-line" %>
-                          <%= t("actions.publish", scope: "decidim.admin") %>
-                        <% end %>
-                      </li>
                     <% else %>
                       <li class="dropdown__item">
                         <%= link_to publish_survey_path(survey), method: :put, class: "dropdown__button" do %>

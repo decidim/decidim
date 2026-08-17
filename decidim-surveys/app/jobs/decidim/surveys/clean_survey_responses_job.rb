@@ -19,14 +19,6 @@ module Decidim
       private
 
       attr_reader :survey, :component
-
-      def clean_responses
-        return unless survey.clean_after_publish?
-
-        survey.questionnaire.responses.destroy_all
-        component.settings[:clean_after_publish] = false
-        component.save
-      end
     end
   end
 end
