@@ -153,7 +153,7 @@ en:
           publish_responses: "%{user_name} published the %{resource_name} question's responses on the %{space_name} space"
           unpublish_responses: "%{user_name} unpublished the %{resource_name} question's responses on the %{space_name} space"
         questionnaire:
-          delete_all_responses: "%{user_name} deleted all the responses of the %{resource_name} questionnaire on the %{space_name} space"
+          delete_all_responses: "%{user_name} deleted the responses of the %{resource_name} questionnaire on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:
         response:
