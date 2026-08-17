@@ -18,6 +18,8 @@ module Decidim
         def action_string
           case action
           when "update", "delete_all_responses"
+            # i18n-tasks-use t("decidim.forms.admin_log.questionnaire.update")
+            # i18n-tasks-use t("decidim.forms.admin_log.questionnaire.delete_all_responses")
             "decidim.forms.admin_log.questionnaire.#{action}"
           else
             super
