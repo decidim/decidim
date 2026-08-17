@@ -92,6 +92,16 @@ module Decidim
             expect(survey.questionnaire.reload.responses).to be_empty
           end
 
+          it "does not delete responses from other questionnaires" do
+            other_questionnaire = create(:questionnaire)
+            other_question = create(:questionnaire_question, questionnaire: other_questionnaire)
+            other_response = create(:response, questionnaire: other_questionnaire, question: other_question)
+
+            delete(:destroy_all, params:)
+
+            expect(other_response.reload).to be_present
+          end
+
           it "redirects with a success notice" do
             delete(:destroy_all, params:)
 
