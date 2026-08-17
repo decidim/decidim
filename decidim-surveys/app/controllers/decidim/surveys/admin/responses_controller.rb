@@ -39,7 +39,7 @@ module Decidim
 
           flash[:notice] = I18n.t("responses.destroy_all.success", scope: "decidim.surveys.admin")
 
-          redirect_to survey_responses_path(questionnaire_for)
+          redirect_to Decidim::EngineRouter.admin_proxy(questionnaire_for.component).survey_responses_path(questionnaire_for)
         end
 
         def questionnaire_for
