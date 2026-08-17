@@ -17,7 +17,7 @@ module Decidim
 
         def action_string
           case action
-          when "update"
+          when "update", "delete_all_responses"
             "decidim.forms.admin_log.questionnaire.#{action}"
           else
             super
