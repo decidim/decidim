@@ -100,7 +100,9 @@ en:
         responses:
           actions:
             destroy_all_responses: Delete all responses
-            destroy_all_responses_confirm: Are you sure you want to delete all %{count} responses? This action cannot be undone.
+            destroy_all_responses_confirm:
+              one: Are you sure you want to delete the %{count} response? This action cannot be undone.
+              other: Are you sure you want to delete all %{count} responses? This action cannot be undone.
           destroy_all:
             success: All responses have been successfully deleted.
           index:
