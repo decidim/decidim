@@ -18,7 +18,13 @@ describe "rake decidim:sessions:cleanup", type: :task do
     end
 
     it "removes candidate data" do
+      expect(old_session.reload).to be_present
+      expect(new_session.reload).to be_present
+
       expect { task.invoke }.to change(ActiveRecord::SessionStore::Session, :count).by(-1)
+
+      expect { old_session.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      expect(new_session.reload).to be_present
     end
   end
 end
