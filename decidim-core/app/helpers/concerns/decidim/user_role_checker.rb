@@ -21,26 +21,35 @@ module Decidim
 
     def participatory_process_user_role?(user, participatory_process = nil, broad_check: false)
       return false unless Decidim.module_installed?(:participatory_processes)
-      return Decidim::ParticipatoryProcessUserRole.exists?(user:) if broad_check
       return false unless participatory_process.is_a?(Decidim::ParticipatoryProcess)
 
-      Decidim::ParticipatoryProcessUserRole.exists?(user:, participatory_process:)
+      if broad_check
+        Decidim::ParticipatoryProcessUserRole.exists?(user:)
+      else
+        Decidim::ParticipatoryProcessUserRole.exists?(user:, participatory_process:)
+      end
     end
 
     def assembly_user_role?(user, assembly = nil, broad_check: false)
       return false unless Decidim.module_installed?(:assemblies)
-      return Decidim::AssemblyUserRole.exists?(user:) if broad_check
       return false unless assembly.is_a?(Decidim::Assembly)
 
-      Decidim::AssemblyUserRole.exists?(user:, assembly:)
+      if broad_check
+        Decidim::AssemblyUserRole.exists?(user:)
+      else
+        Decidim::AssemblyUserRole.exists?(user:, assembly:)
+      end
     end
 
     def conference_user_role?(user, conference = nil, broad_check: false)
       return false unless Decidim.module_installed?(:conferences)
-      return Decidim::ConferenceUserRole.exists?(user:) if broad_check
       return false unless conference.is_a?(Decidim::Conference)
 
-      Decidim::ConferenceUserRole.exists?(user:, conference:)
+      if broad_check
+        Decidim::ConferenceUserRole.exists?(user:)
+      else
+        Decidim::ConferenceUserRole.exists?(user:, conference:)
+      end
     end
   end
 end
