@@ -5,6 +5,7 @@ module Decidim
 
   class NotificationCell < Decidim::ViewModel
     include Decidim::Core::Engine.routes.url_helpers
+    include LocalTimeHelper
 
     def show
       if !notification.can_participate?(current_user)
@@ -49,7 +50,7 @@ module Decidim
     end
 
     def notification_time
-      ApplicationController.helpers.local_time_ago(model.created_at)
+      local_time_ago(model.created_at)
     end
   end
 end

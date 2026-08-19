@@ -120,6 +120,10 @@ en:
         date_format: 'Format: dd/mm/yyyy'
       order: d-m-y
       separator: "/"
+    on_date: on {date}
+    today: today
+    tomorrow: tomorrow
+    yesterday: yesterday
   datetime:
     distance_in_words:
       about_x_hours:
@@ -1169,6 +1173,10 @@ en:
         cancel: Cancel
         proceed: Proceed
         title: Open external link
+    local_time:
+      at: "{date} at {time}"
+      singular: a {time}
+      singular_an: an {time}
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
@@ -1762,9 +1770,6 @@ en:
       index:
         no_activities_warning: This participant does not have any activity yet.
     user_contact_disabled: This participant does not accept direct messages.
-    user_conversations:
-      index:
-        time_ago: "%{time} ago"
     user_group_mailer:
       notify_deprecation_to_member:
         body_1: 'We are reaching out to inform you about an important update to the User Group you are a member of: <strong>%{group_name}</strong>.'

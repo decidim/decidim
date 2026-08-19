@@ -142,4 +142,14 @@ describe Decidim::ActivityCell, type: :cell do
       end
     end
   end
+
+  describe "#notification_time" do
+    it "renders the model date using LocalTime" do
+      output = my_cell.send(:notification_time).to_s
+
+      expect(output).to include("<time datetime")
+      expect(output).to include('data-local="time-ago"')
+      expect(output).to include(model.created_at.utc.iso8601)
+    end
+  end
 end
