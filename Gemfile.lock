@@ -81,6 +81,7 @@ PATH
       image_processing (>= 1.2, < 3.0)
       invisible_captcha (>= 0.12, < 3.0)
       kaminari (~> 1.2, >= 1.2.1)
+      local_time (~> 3.0)
       loofah (~> 2.19, >= 2.19.1)
       mime-types (>= 1.16, < 4.0)
       net-smtp (~> 0.5.0)
@@ -961,7 +962,6 @@ DEPENDENCIES
   decidim-templates!
   letter_opener_web (~> 3.0)
   listen (~> 3.10)
-  local_time
   parallel_tests (~> 5.7)
   puma (>= 6.3.1)
   web-console (~> 4.3)
