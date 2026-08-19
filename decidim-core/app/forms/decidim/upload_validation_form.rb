@@ -51,20 +51,14 @@ module Decidim
     def validate_content_block_image
       uploader = Decidim::RecordImageUploader.new(nil, :file)
 
-      check_allowlist(blob.content_type.to_s, uploader.content_type_allowlist, "type")
-
       extension = blob.filename.to_s.split(".").last&.downcase
-      check_allowlist(extension, uploader.extension_allowlist, "extension") if extension.present?
+      check_allowlist(extension, uploader.extension_allowlist) if extension.present?
     end
 
-    def check_allowlist(value, allowlist, kind)
+    def check_allowlist(value, allowlist)
       return if allowlist.include?(value)
 
-      message = format(
-        "The file %{kind} %{value} is not valid. Allowed %{kind}s: %{allowed}",
-        kind:, value:, allowed: allowlist.join(", ")
-      )
-      errors.add(property.to_sym, message)
+      errors.add(property.to_sym, I18n.t("errors.messages.allowed_file_content_types", types: allowlist.join(", ")))
     end
 
     def validate_passthru(target_class, org)
