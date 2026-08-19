@@ -32,45 +32,24 @@ module Decidim
     private
 
     def file_validators
-      org = organization
       target_class = resource_class.constantize
 
       if target_class == Decidim::ContentBlockAttachment && target_class.validators_on(property.to_sym).none?
-        validate_content_block_image
+        extension = blob.filename.to_s.split(".").last&.downcase
+        allowed = Decidim::RecordImageUploader.new(nil, :file).extension_allowlist
+        errors.add(property.to_sym, I18n.t("errors.messages.allowed_file_content_types", types: allowed.join(", "))) if extension.present? && allowed.exclude?(extension)
       else
-        validate_passthru(target_class, org)
+        org = organization
+        PassthruValidator.new(
+          attributes: [property],
+          to: target_class,
+          with: lambda { |record|
+            validate_with.tap do |hash|
+              hash.merge!(organization: record.try(:organization) || org) if !hash[:organization] && record.respond_to?(:organization=)
+            end
+          }
+        ).validate_each(self, property.to_sym, blob)
       end
-    end
-
-    # Content block image uploads (e.g. hero background_image) go through
-    # ContentBlockAttachment which requires a content_block association to
-    # resolve the uploader. The dummy record created by PassthruValidator has
-    # no content_block, so attached_uploader returns nil and validators bail
-    # out silently. Instead, validate the blob directly against the
-    # RecordImageUploader allowlist used by all content block image uploaders.
-    def validate_content_block_image
-      uploader = Decidim::RecordImageUploader.new(nil, :file)
-
-      extension = blob.filename.to_s.split(".").last&.downcase
-      check_allowlist(extension, uploader.extension_allowlist) if extension.present?
-    end
-
-    def check_allowlist(value, allowlist)
-      return if allowlist.include?(value)
-
-      errors.add(property.to_sym, I18n.t("errors.messages.allowed_file_content_types", types: allowlist.join(", ")))
-    end
-
-    def validate_passthru(target_class, org)
-      PassthruValidator.new(
-        attributes: [property],
-        to: target_class,
-        with: lambda { |record|
-          validate_with.tap do |hash|
-            hash.merge!(organization: record.try(:organization) || org) if !hash[:organization] && record.respond_to?(:organization=)
-          end
-        }
-      ).validate_each(self, property.to_sym, blob)
     end
 
     def validate_with
