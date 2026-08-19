@@ -72,6 +72,7 @@ describe Decidim::UserActivityCell, type: :cell do
 
     allow(my_cell).to receive(:url_for).and_return("/")
     allow(my_cell).to receive(:controller).and_return(controller)
+    allow_any_instance_of(Decidim::ActivityCell).to receive(:local_time_ago).and_return("15 seconds ago")
   end
 
   it "displays the latest items on the first page and a pagination" do
