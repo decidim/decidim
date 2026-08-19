@@ -95,12 +95,15 @@ jobs:
         with:
           fetch-depth: 1
       - run: |
-          sudo apt-get update
-          sudo apt-get install -y libu2f-udev libvips libvips-tools
+          sudo apt-get update -o Acquire::ForceIPv4=true
+          sudo apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" libu2f-udev libvips libvips-tools
           wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
           sudo dpkg -i /tmp/chrome.deb
           rm /tmp/chrome.deb
         shell: "bash"
+        name: Install apt dependencies
+        env:
+          DEBIAN_FRONTEND: noninteractive
       - uses: nanasess/setup-chromedriver@v3
         with:
           chromedriver-version: ${{inputs.chrome_version}}
