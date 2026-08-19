@@ -21,7 +21,7 @@ module Decidim
 
     def participatory_process_user_role?(user, participatory_process = nil, broad_check: false)
       return false unless Decidim.module_installed?(:participatory_processes)
-      return false unless participatory_process.is_a?(Decidim::ParticipatoryProcess)
+      return false if participatory_process && !participatory_process.is_a?(Decidim::ParticipatoryProcess)
 
       if broad_check
         Decidim::ParticipatoryProcessUserRole.exists?(user:)
@@ -32,7 +32,7 @@ module Decidim
 
     def assembly_user_role?(user, assembly = nil, broad_check: false)
       return false unless Decidim.module_installed?(:assemblies)
-      return false unless assembly.is_a?(Decidim::Assembly)
+      return false if assembly && !assembly.is_a?(Decidim::Assembly)
 
       if broad_check
         Decidim::AssemblyUserRole.exists?(user:)
@@ -43,7 +43,7 @@ module Decidim
 
     def conference_user_role?(user, conference = nil, broad_check: false)
       return false unless Decidim.module_installed?(:conferences)
-      return false unless conference.is_a?(Decidim::Conference)
+      return false if conference && !conference.is_a?(Decidim::Conference)
 
       if broad_check
         Decidim::ConferenceUserRole.exists?(user:)
