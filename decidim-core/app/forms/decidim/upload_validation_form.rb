@@ -40,7 +40,6 @@ module Decidim
         org = organization
         PassthruValidator.new(
           attributes: [property],
-
           to: resource_class.constantize,
           with: lambda { |record|
             validate_with.tap do |hash|
