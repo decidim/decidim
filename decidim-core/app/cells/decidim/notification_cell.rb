@@ -5,7 +5,7 @@ module Decidim
 
   class NotificationCell < Decidim::ViewModel
     include Decidim::Core::Engine.routes.url_helpers
-    include LocalTimeHelper
+    include ::LocalTimeHelper
 
     def show
       if !notification.can_participate?(current_user)

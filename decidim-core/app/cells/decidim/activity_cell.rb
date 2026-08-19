@@ -7,7 +7,7 @@ module Decidim
   # tweak the necessary methods (usually `title` is enough).
   class ActivityCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include LocalTimeHelper
+    include ::LocalTimeHelper
 
     def show
       return unless renderable?
