@@ -1,5 +1,6 @@
 <% add_decidim_page_title(t(".title")) %>
-<div class="item_show__header">
+<div data-controller="global-moderations">
+  <div class="item_show__header">
   <h1 class="item_show__header-title">
     <div>
       <%= t(".title") %>
@@ -25,4 +26,5 @@
     </tbody>
   </table>
 </div>
-<%= decidim_paginate moderations %>
+  <%= decidim_paginate moderations %>
+</div>
