@@ -94,14 +94,21 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 1
-      - run: |
-          sudo apt-get update -o Acquire::ForceIPv4=true
+      - name: Fix APT mirrors and install dependencies
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i '/azure.archive.ubuntu.com/d' /etc/apt/apt-mirrors.txt
+          fi
+
+          # 2. Înlocuiește orice altă referință Azure din fișierele .sources și .list standard
+          sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list.d/*.sources || true
+          sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list || true
+          sudo apt-get update -o Acquire::ForceIPv4=true -o Acquire::Retries=3 -o Acquire::http::Timeout="10"
           sudo apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" libu2f-udev libvips libvips-tools
           wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
           sudo dpkg -i /tmp/chrome.deb
           rm /tmp/chrome.deb
         shell: "bash"
-        name: Install apt dependencies
         env:
           DEBIAN_FRONTEND: noninteractive
       - uses: nanasess/setup-chromedriver@v3
