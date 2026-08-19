@@ -50,26 +50,19 @@ module Decidim
     # RecordImageUploader allowlist used by all content block image uploaders.
     def validate_content_block_image
       uploader = Decidim::RecordImageUploader.new(nil, :file)
-      allowed_types = uploader.content_type_allowlist
-      allowed_extensions = uploader.extension_allowlist
 
-      content_type = blob.content_type.to_s
+      check_allowlist(blob.content_type.to_s, uploader.content_type_allowlist, "type")
+
       extension = blob.filename.to_s.split(".").last&.downcase
+      check_allowlist(extension, uploader.extension_allowlist, "extension") if extension.present?
+    end
 
-      unless allowed_types.include?(content_type)
-        message = format(
-          "The file type %{content_type} is not valid. Allowed types: %{allowed}",
-          content_type:, allowed: allowed_types.join(", ")
-        )
-        errors.add(property.to_sym, message)
-      end
-
-      return if extension.blank?
-      return if allowed_extensions.include?(extension)
+    def check_allowlist(value, allowlist, kind)
+      return if allowlist.include?(value)
 
       message = format(
-        "The file extension .%{ext} is not valid. Allowed extensions: %{allowed}",
-        ext: extension, allowed: allowed_extensions.join(", ")
+        "The file %{kind} %{value} is not valid. Allowed %{kind}s: %{allowed}",
+        kind:, value:, allowed: allowlist.join(", ")
       )
       errors.add(property.to_sym, message)
     end
