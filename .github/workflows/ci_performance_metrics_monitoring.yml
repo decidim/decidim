@@ -64,6 +64,13 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 1
+      - name: Fix APT mirrors
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i '/azure.archive.ubuntu.com/d' /etc/apt/apt-mirrors.txt
+          fi
+          sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list.d/*.sources || true
+          sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list || true
       - run: |
           sudo apt-get update && sudo apt-get install libvips libvips-tools
         name: Install libvips
