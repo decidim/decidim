@@ -144,6 +144,7 @@ describe "Admin manages meetings polls" do
 
       select "Single option", from: "Type"
       click_on "Save"
+      expect(page).to have_text("There was a problem updating this meeting poll.")
 
       expand_all_questions
       expect(page).to have_select("Type", selected: "Single option")
@@ -168,6 +169,7 @@ describe "Admin manages meetings polls" do
       select "3", from: "Maximum number of choices"
 
       click_on "Save"
+      expect(page).to have_text("There was a problem updating this meeting poll.")
       expand_all_questions
 
       within ".questionnaire-question-response-option:first-of-type" do
@@ -373,6 +375,7 @@ describe "Admin manages meetings polls" do
         end
 
         click_on "Save"
+        expect(page).to have_callout("Meeting poll successfully updated.")
         expand_all_questions
 
         # Reloads and checks persisted order
