@@ -296,6 +296,15 @@ module Decidim
         # Azure: no limitation
         # https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview#best-practices-when-using-sas
         app.config.active_storage.service_urls_expire_in = 7.days
+
+        app.config.active_storage.queues = {
+          analysis: :active_storage,
+          mirror: :active_storage,
+          preview_image: :active_storage,
+          purge: :active_storage,
+          sync_metadata: :active_storage,
+          transform: :active_storage,
+        }
       end
 
       initializer "decidim_core.signed_global_id", after: "global_id" do |app|

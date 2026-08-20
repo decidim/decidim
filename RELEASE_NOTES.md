@@ -64,7 +64,12 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. New ActiveStorage formats
+
+As of this version, we are starting to use more ActiveStorage transformers. As a result, we have decided to add a new Sidekiq queue named `active_storage`.
+Please make sure you edit your `config/sidekiq.yml` to add the new queue.
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
