@@ -31,13 +31,21 @@ module Decidim
     def expire_browser_session(wait: Capybara.default_max_wait_time)
       wait_pending_requests(wait)
 
-      travel Decidim.config.expire_session_after + 1.second
+      travel(Decidim.config.expire_session_after + 1.second) do
+        # Set the browser clock to the same time.
+        page.driver.browser.execute_cdp(
+          "Emulation.setVirtualTimePolicy",
+          policy: "advance",
+          initialVirtualTime: (Time.now.to_f * 1000).to_i
+        )
 
-      # Set the browser clock to the same time.
+        yield
+      end
+    ensure
       page.driver.browser.execute_cdp(
         "Emulation.setVirtualTimePolicy",
         policy: "advance",
-        initialVirtualTime: (Time.now.to_f * 1000).to_i
+        maxVirtualTimeTaskStarvationCount: 0
       )
     end
 

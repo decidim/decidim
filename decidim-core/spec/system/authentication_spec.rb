@@ -495,13 +495,13 @@ describe "Authentication" do
             fill_in :session_user_password, with: "DfyvHn425mYAy2HL"
           end
 
-          expire_browser_session
+          expire_browser_session do
+            within "#session_new_user" do
+              find("*[type=submit]").click
+            end
 
-          within "#session_new_user" do
-            find("*[type=submit]").click
+            expect(page).to have_text("Unable to verify your request. Please retry.")
           end
-
-          expect(page).to have_text("Unable to verify your request. Please retry.")
         end
       end
 

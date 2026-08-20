@@ -54,13 +54,13 @@ describe "Sessions" do
         fill_in :admin_password, with: "decidim123456789"
       end
 
-      expire_browser_session
+      expire_browser_session do
+        within ".new_admin" do
+          find("*[type=submit]").click
+        end
 
-      within ".new_admin" do
-        find("*[type=submit]").click
+        expect(page).to have_text("Unable to verify your request. Please retry.")
       end
-
-      expect(page).to have_text("Unable to verify your request. Please retry.")
     end
   end
 end
