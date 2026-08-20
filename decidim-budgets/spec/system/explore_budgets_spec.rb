@@ -202,8 +202,9 @@ describe "Explore Budgets", :slow do
           expect(item).to have_text("Delete your vote")
           within item do
             accept_confirm { click_on "Delete your vote" }
-            expect(Decidim::Budgets::Order.where(budget:)).to be_blank
           end
+          expect(page).to have_callout("Your vote has been successfully canceled.")
+          expect(Decidim::Budgets::Order.where(budget:)).to be_blank
         end
 
         context "and the voting is disabled" do
