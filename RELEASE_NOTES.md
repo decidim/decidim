@@ -66,7 +66,7 @@ These are one time actions that need to be done after the code is updated in the
 
 ### 3.1. New Active Storage Sidekiq queue
 
-Active Storage analysis/variant/preview jobs now run in the dedicated Sidekiq queue `active_storage` to avoid blocking the default queue.
+Active Storage jobs now run in the dedicated Sidekiq queue `active_storage` to avoid blocking the default queue.
 Please add this queue to your `config/sidekiq.yml` and ensure at least one Sidekiq process is consuming it.
 
 You can read more about this change on PR [#17520](https://github.com/decidim/decidim/pull/17520).
