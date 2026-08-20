@@ -32,22 +32,8 @@ module Decidim
       wait_pending_requests(wait)
 
       travel(Decidim.config.expire_session_after + 1.second) do
-        # Set the browser clock to the same time.
-        page.driver.browser.execute_cdp(
-          "Emulation.setVirtualTimePolicy",
-          policy: "advance",
-          initialVirtualTime: Time.now.to_f
-        )
-
         yield
       end
-    ensure
-      page.driver.browser.execute_cdp(
-        "Emulation.setVirtualTimePolicy",
-        policy: "advance",
-        maxVirtualTimeTaskStarvationCount: 0,
-        initialVirtualTime: Time.now.to_f
-      )
     end
 
     # Clear the buffers and background connections by taking the browser to
