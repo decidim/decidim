@@ -20,6 +20,7 @@ describe "Admin manages conflicts" do
     click_on "Participants"
     click_on "Verification conflicts"
     click_on "Transfer"
+    expect(page).to have_css(".card-title", text: "Transfer User")
   end
 
   context "when resolving a conflict" do
@@ -47,6 +48,7 @@ describe "Admin manages conflicts" do
         end
 
         it "the email of the managed user is replaced with the email passed by the form" do
+          expect(page).to have_content("The current transfer has been successfully completed.")
           expect(managed_user.reload.email).to eq("new_user@example.org")
         end
       end
@@ -59,6 +61,7 @@ describe "Admin manages conflicts" do
         end
 
         it "the email of the managed user is replaced with the email of the conflictive one" do
+          expect(page).to have_content("The current transfer has been successfully completed.")
           expect(managed_user.reload.email).to eq("conflictive@example.org")
         end
       end
@@ -71,6 +74,7 @@ describe "Admin manages conflicts" do
         end
 
         it "the managed user keeps its email" do
+          expect(page).to have_content("The current transfer has been successfully completed.")
           expect(managed_user.reload.email).to eq("managed@example.org")
         end
       end
