@@ -277,7 +277,7 @@ module Decidim
           preview_image: :active_storage,
           purge: :active_storage,
           sync_metadata: :active_storage,
-          transform: :active_storage,
+          transform: :active_storage
         }
 
         next if app.config.active_storage.service_urls_expire_in.present?
