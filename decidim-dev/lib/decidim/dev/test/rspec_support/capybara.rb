@@ -45,7 +45,8 @@ module Decidim
       page.driver.browser.execute_cdp(
         "Emulation.setVirtualTimePolicy",
         policy: "advance",
-        maxVirtualTimeTaskStarvationCount: 0
+        maxVirtualTimeTaskStarvationCount: 0,
+        initialVirtualTime: Time.now.to_f
       )
     end
 
