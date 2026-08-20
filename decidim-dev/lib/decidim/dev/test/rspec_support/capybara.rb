@@ -67,23 +67,19 @@ module Decidim
 
     # Waits for any pending requests to finish and clears any active browser
     # background connections after that.
-    def wait_pending_requests(max_wait_time = Capybara.default_max_wait_time)
+    def wait_pending_requests(max_wait_time = Capybara.default_max_wait_time, idle_time: 1)
       wait_time = 0
       loop do
-        pending_requests = page.evaluate_script(
+        time_since_last_asset = page.evaluate_script(
           <<~JS
-            (() => {
-              const entries = window.performance.getEntriesByType("resource");
-              return entries.filter((e) => e.responseEnd === 0);
-            })()
+            performance.now() - Math.max(...window.performance.getEntriesByType("resource").map((r) => r.responseEnd), 0)
           JS
         )
-        break if pending_requests.count.zero?
-
+        break if time_since_last_asset > (idle_time * 1000)
         raise StandardError, "Requests still pending." if wait_time >= max_wait_time
 
-        sleep 1
-        wait_time += 1
+        sleep idle_time
+        wait_time += idle_time
       end
       force_browser_offline_state
     end
