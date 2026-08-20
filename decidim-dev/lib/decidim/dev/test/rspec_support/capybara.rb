@@ -77,6 +77,7 @@ module Decidim
     # background connections after that.
     def wait_pending_requests(max_wait_time = Capybara.default_max_wait_time, idle_time: 1)
       wait_time = 0
+      max_wait_time = idle_time * 2 if max_wait_time < idle_time * 2
       loop do
         time_since_last_asset = page.evaluate_script(
           <<~JS
