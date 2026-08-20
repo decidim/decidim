@@ -35,10 +35,7 @@ document.addEventListener("turbo:load", () => {
       $("#user_email").html(userEmail);
       $button.hide()
     } else if (response && response.redirectError) {
-      let message = getMessages("unauthorized");
-      if (!(message instanceof String)) {
-        message = "Unauthorized.";
-      }
+      const message = getMessages().unauthorized || "Unauthorized.";
       $("#user_email").text(message);
     } else {
       console.log(`Error-HTTP: " + ${response.status}`);
