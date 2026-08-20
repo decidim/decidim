@@ -36,7 +36,7 @@ module Decidim
         page.driver.browser.execute_cdp(
           "Emulation.setVirtualTimePolicy",
           policy: "advance",
-          initialVirtualTime: (Time.now.to_f * 1000).to_i
+          initialVirtualTime: Time.now.to_f
         )
 
         yield
