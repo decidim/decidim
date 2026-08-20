@@ -54,8 +54,7 @@ describe "Sessions" do
         fill_in :admin_password, with: "decidim123456789"
       end
 
-      page.driver.browser.manage.delete_all_cookies
-      expect(page.driver.browser.manage.all_cookies).to be_empty
+      expire_browser_session
 
       within ".new_admin" do
         find("*[type=submit]").click
