@@ -21,6 +21,7 @@ module Decidim
         @query = Decidim::UserBaseEntity
                  .where(organization: ctx[:current_organization])
                  .confirmed
+                 .not_deleted
                  .not_blocked
         add_filter_keys(args[:filter])
         add_order_keys(args[:order].to_h)
