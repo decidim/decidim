@@ -30,7 +30,7 @@ describe "Admin manages conflicts" do
       end
 
       it "the transfer cannot be sent" do
-        expect(page).to have_callout("There is an error")
+        expect(page).to have_text("There is an error")
       end
     end
 
