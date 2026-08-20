@@ -24,7 +24,7 @@ describe "Admin manages static page content blocks" do
           find("a", text: "Summary").click
         end
       end
-      expect(page).to have_callout("Content block successfully created.")
+      expect(page).to have_content("Content block successfully created.")
 
       expect(Decidim::ContentBlock.count).to eq 1
     end
@@ -43,7 +43,7 @@ describe "Admin manages static page content blocks" do
               find("a", text: "Section").click
             end
           end
-          expect(page).to have_callout("Content block successfully created.")
+          expect(page).to have_content("Content block successfully created.")
         end
       end.to change(Decidim::ContentBlock, :count).by number_of_content_blocks
     end
