@@ -143,9 +143,6 @@ export default class extends Controller {
       form.classList.add("hide");
     });
   }
-
-  // --- Private event handlers ---
-
   _onDropdownButtonClick(event) {
     const bulkActionsDropdown = this.element.querySelector("#js-bulk-actions-dropdown");
     if (bulkActionsDropdown) {
@@ -219,7 +216,6 @@ export default class extends Controller {
       }
     }
 
-    // If all individual checkboxes are checked, check the "select all" checkbox
     const allCheckboxes = Array.from(this.element.querySelectorAll(".js-check-all-moderated_users")).filter((checkboxItem) => checkboxItem.offsetParent !== null);
     const checkedCheckboxes = Array.from(this.element.querySelectorAll(".js-check-all-moderated_users:checked")).filter((checkboxItem) => checkboxItem.offsetParent !== null);
 
