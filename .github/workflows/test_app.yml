@@ -110,6 +110,8 @@ jobs:
           sudo dpkg -i /tmp/chrome.deb
           rm /tmp/chrome.deb
         shell: "bash"
+        env:
+          DEBIAN_FRONTEND: noninteractive
       - uses: nanasess/setup-chromedriver@v3
         with:
           chromedriver-version: ${{inputs.chrome_version}}
