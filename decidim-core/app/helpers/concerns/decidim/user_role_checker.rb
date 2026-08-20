@@ -25,7 +25,7 @@ module Decidim
 
       return Decidim::ParticipatoryProcessUserRole.exists?(user:) if broad_check
 
-      return false unless participatory_process.present?
+      return false if participatory_process.blank?
 
       Decidim::ParticipatoryProcessUserRole.exists?(user:, participatory_process:)
     end
@@ -36,7 +36,7 @@ module Decidim
 
       return Decidim::AssemblyUserRole.exists?(user:) if broad_check
 
-      return false unless assembly.present?
+      return false if assembly.blank?
 
       Decidim::AssemblyUserRole.exists?(user:, assembly:)
     end
@@ -47,7 +47,7 @@ module Decidim
 
       return Decidim::ConferenceUserRole.exists?(user:) if broad_check
 
-      return false unless conference.present?
+      return false if conference.blank?
 
       Decidim::ConferenceUserRole.exists?(user:, conference:)
     end
