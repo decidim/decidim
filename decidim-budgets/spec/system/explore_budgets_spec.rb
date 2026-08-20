@@ -203,7 +203,7 @@ describe "Explore Budgets", :slow do
           within item do
             accept_confirm { click_on "Delete your vote" }
           end
-          expect(page).to have_callout("Your vote has been successfully canceled.")
+          expect(page).to have_content("Your vote has been successfully canceled.")
           expect(Decidim::Budgets::Order.where(budget:)).to be_blank
         end
 
