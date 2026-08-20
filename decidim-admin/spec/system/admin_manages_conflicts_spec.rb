@@ -20,6 +20,7 @@ describe "Admin manages conflicts" do
     click_on "Participants"
     click_on "Verification conflicts"
     click_on "Transfer"
+    expect(page).to have_css(".card-title", text: "Transfer User")
   end
 
   context "when resolving a conflict" do
@@ -29,7 +30,7 @@ describe "Admin manages conflicts" do
       end
 
       it "the transfer cannot be sent" do
-        expect(page).to have_text("There is an error")
+        expect(page).to have_callout("There is an error")
       end
     end
 
@@ -43,10 +44,11 @@ describe "Admin manages conflicts" do
 
       context "when the email is not in use by any other user" do
         it "the transfer is successful" do
-          expect(page).to have_text("The current transfer has been successfully completed.")
+          expect(page).to have_callout("The current transfer has been successfully completed.")
         end
 
         it "the email of the managed user is replaced with the email passed by the form" do
+          expect(page).to have_callout("The current transfer has been successfully completed.")
           expect(managed_user.reload.email).to eq("new_user@example.org")
         end
       end
@@ -55,10 +57,11 @@ describe "Admin manages conflicts" do
         let(:email) { "conflictive@example.org" }
 
         it "the transfer is successful" do
-          expect(page).to have_text("The current transfer has been successfully completed.")
+          expect(page).to have_callout("The current transfer has been successfully completed.")
         end
 
         it "the email of the managed user is replaced with the email of the conflictive one" do
+          expect(page).to have_callout("The current transfer has been successfully completed.")
           expect(managed_user.reload.email).to eq("conflictive@example.org")
         end
       end
@@ -67,10 +70,11 @@ describe "Admin manages conflicts" do
         let(:email) { "managed@example.org" }
 
         it "the transfer is successful" do
-          expect(page).to have_text("The current transfer has been successfully completed.")
+          expect(page).to have_callout("The current transfer has been successfully completed.")
         end
 
         it "the managed user keeps its email" do
+          expect(page).to have_callout("The current transfer has been successfully completed.")
           expect(managed_user.reload.email).to eq("managed@example.org")
         end
       end
@@ -80,7 +84,7 @@ describe "Admin manages conflicts" do
 
         it "the transfer fails" do
           expect(page).to have_no_text("The current transfer has been successfully completed.")
-          expect(page).to have_text("There was a problem transferring the current participant to managed participant")
+          expect(page).to have_callout("There was a problem transferring the current participant to managed participant")
         end
       end
     end
