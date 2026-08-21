@@ -26,9 +26,10 @@ module Decidim
       # these users. There is always only one conversation between the same set
       # of users.
       #
-      # @return [ActiveRecord::Relation] The query for conversation(s) between
-      #   the set of users or nil if not found. The `find` method will fetch the
-      #   first result as there is only one result.
+      # @return [ActiveRecord::Relation, nil] The query for conversation(s)
+      #   between the set of users or nil if the list of users is empty. The
+      #   `find` method will fetch the first result as there is only one
+      #   result.
       def query
         return if users.blank?
 
