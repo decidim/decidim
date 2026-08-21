@@ -13,13 +13,11 @@ ja:
         duplicate_categories: カテゴリを複製
         duplicate_components: コンポーネントを複製
         duplicate_landing_page_blocks: ランディングページブロックを複製
-        duplicate_steps: ステップを複製
         end_date: 終了日
         hero_image: ホーム画像
         import_attachments: 添付ファイルをインポート
         import_categories: カテゴリをインポート
         import_components: コンポーネントをインポート
-        import_steps: フェーズをインポート
         local_area: 組織エリア
         meta_scope: スコープメタデータ
         participatory_process_group_id: 参加型プロセスグループ
