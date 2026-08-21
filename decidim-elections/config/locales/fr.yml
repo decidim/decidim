@@ -36,6 +36,7 @@ fr:
     elections:
       actions:
         confirm_delete_election: Êtes-vous sûr(e) de vouloir supprimer cette élection ?
+        confirm_unpublish_election: Êtes-vous sûr de vouloir annuler la publication de cette élection ?
         deleted_election_info: Les élections supprimées ne sont pas affichées dans la liste. Vous pouvez les voir en cliquant sur le bouton ci-dessous.
         edit: Modifier l'élection
         new: Nouvelle élection
@@ -59,8 +60,10 @@ fr:
         dashboard:
           calendar:
             end_at: 'Heure de fin:'
+            end_election: Clôturer l'élection
             published_results_at: Résultats publiés à
             start_at: 'Heure de début:'
+            start_election: Lancer l'élection
             title: Calendrier
           census:
             title: Recensement
@@ -86,7 +89,13 @@ fr:
               other: "%{count} votes"
           results:
             not_started: L'élection n'a pas encore commencé.
+            per_question_waiting: Le vote n'est pour l'instant activé pour aucune question. Les participants verront s'afficher le message « En attente de la prochaine question » jusqu'à ce qu'au moins une soit activée.
             publish_button: Publier les résultats
+            results_availability:
+              after_end: Vous pouvez publier tous les résultats une fois l'élection terminée. Les résultats resteront masqués jusqu'à ce que vous les publiiez manuellement.
+              per_question: Vous devez activer le vote et publier manuellement les résultats pour chaque question séparément.
+              real_time: Les résultats s'affichent automatiquement pendant l'élection.
+            start_question_button: Activer le vote
             title: Résultats
           status:
             census: 'Recensement:'
@@ -109,14 +118,18 @@ fr:
             attachment_legend: Ajouter une galerie d'images (facultatif)
             basic_title: Informations de base
             calendar: Calendrier
+            calendar_description: Vérifiez que le fuseau horaire de l'organisation est correct dans les paramètres de l'organisation. La configuration actuelle est %{timezone}.
             edit_attachments: Modifier les pièces jointes
             end_at: Heure de fin
             manual_start: Démarrage manuel
             publish: Publier
             results_availability:
               after_end: Après la fin des élections
+              after_end_help: publier les résultats une fois l'élection terminée
               per_question: Question par question
+              per_question_help: gérer manuellement le vote et publier les résultats pour chaque question
               real_time: Temps réel
+              real_time_help: publier automatiquement les résultats pendant l'élection au moment du vote
               title: Disponibilité des résultats
             save: Enregistrer et continuer
             start_at: Heure de début
@@ -148,9 +161,18 @@ fr:
             invalid: Une erreur s'est produite lors de la mise à jour des questions.
             success: Questions mises à jour avec succès.
         statuses:
+          enable_voting:
+            invalid: Un problème est survenu lors de l'activation du vote.
+            success: Vote activé avec succès.
+          end:
+            invalid: Un problème est survenu lors de la clôture de l'élection.
+            success: L'élection a été clôturée avec succès.
           publish_results:
             invalid: Un problème est survenu lors de la publication des résultats.
             success: Résultats publiés avec succès.
+          start:
+            invalid: Un problème est survenu lors du démarrage de l'élection.
+            success: Élection démarrée avec succès.
           unknown: État Inconnu
       admin_log:
         election:
@@ -257,6 +279,7 @@ fr:
         ongoing: En cours
         published_results: Résultats publiés
         unpublished: Non publié
+        voting_enabled: Vote en cours
       votes:
         cast:
           invalid: Il y a eu un problème lors de votre vote. Veuillez vérifier les informations que vous avez fournies et réessayer.
@@ -291,3 +314,6 @@ fr:
     decidim:
       election_votes_header:
         exit: Fermer
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y, %-I:%M %p"
