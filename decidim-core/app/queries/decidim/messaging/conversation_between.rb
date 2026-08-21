@@ -30,6 +30,8 @@ module Decidim
       #   the set of users or nil if not found. The `find` method will fetch the
       #   first result as there is only one result.
       def query
+        return if users.blank?
+
         join_table = Arel::Table.new("participants")
         subquery = Arel::Nodes::As.new(groupped_conversations.arel, join_table)
 
@@ -51,7 +53,7 @@ module Decidim
       # @return [Decidim::Messaging::Conversation, nil] The conversation between
       #   the set of users or nil if not found.
       def find
-        query.first
+        query&.first
       end
 
       private

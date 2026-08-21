@@ -78,11 +78,23 @@ describe Decidim::Messaging::ConversationBetween do
         expect(result.count).to eq(1)
       end
     end
+
+    context "when no users are provided" do
+      let(:users) { [] }
+
+      it { is_expected.to be_nil }
+    end
   end
 
   describe "#find" do
     subject { query.find }
 
     it_behaves_like "working conversations between query"
+
+    context "when no users are provided" do
+      let(:users) { [] }
+
+      it { is_expected.to be_nil }
+    end
   end
 end
