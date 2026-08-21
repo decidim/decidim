@@ -13,13 +13,11 @@ es:
         duplicate_categories: Duplicar las categorías
         duplicate_components: Duplicar los componentes
         duplicate_landing_page_blocks: Duplicar los bloques de contenido de la página de inicio
-        duplicate_steps: Duplicar las fases
         end_date: Fecha de finalización
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
         import_components: Importar componentes
-        import_steps: Importar fases
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
         participatory_process_group_id: Grupo de procesos
