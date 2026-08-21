@@ -73,7 +73,6 @@ pt:
               'false': Propostas
               'true': Revisões
           state_eq:
-            label: Estado
             values:
               accepted: Aceite
               evaluating: Em avaliação

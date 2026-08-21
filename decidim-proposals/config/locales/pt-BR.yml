@@ -122,10 +122,7 @@ pt-BR:
             values:
               'false': Propostas
               'true': Emendas
-          proposal_state_id_eq:
-            label: Estado
           state_eq:
-            label: Estado
             values:
               accepted: Aceitou
               evaluating: Avaliando

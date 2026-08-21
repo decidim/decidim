@@ -125,10 +125,7 @@ eu:
             values:
               'false': Proposamenak
               'true': Zuzenketak
-          proposal_state_id_eq:
-            label: Egoera
           state_eq:
-            label: Egoera
             values:
               accepted: Onartuta
               evaluating: Ebaluatzen

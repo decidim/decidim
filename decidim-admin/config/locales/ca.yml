@@ -973,6 +973,10 @@ ca:
           logos:
             organization_logos: Logotip de l'organització
             preview: Previsualitzar
+          machine_translation_display_priority:
+            options:
+              original: El sistema mostra la informació en l'idioma utilitzat per l'autora. El contingut creat des del tauler d'administració amb traduccions manuals mostrarà els valors traduïts per l'administradora.
+              translation: El sistema mostrarà una traducció si està disponible, en cas contrari es farà servir l'idioma original.
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: X
