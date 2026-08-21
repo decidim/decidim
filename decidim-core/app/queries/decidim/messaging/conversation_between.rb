@@ -66,7 +66,7 @@ module Decidim
       #
       # @return [Array<Integer>]
       def sorted_user_ids
-        users.map(&:id).sort
+        users.map(&:id).uniq.sort
       end
 
       # Generates the following query for all participants in a conversation:
