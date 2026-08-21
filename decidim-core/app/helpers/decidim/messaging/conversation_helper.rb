@@ -121,27 +121,12 @@ module Decidim
 
         active_participant = opts[:nickname].present? ? Decidim::UserBaseEntity.find_by(nickname: opts[:nickname]) : current_user
         participants = users.to_a.prepend(active_participant)
-        conversation = conversation_between_multiple(participants)
+        conversation = conversation_between(*participants)
 
         if opts[:nickname].present?
           current_or_new_profile_conversation_path(opts[:nickname], users, conversation)
         else
           current_or_new_user_conversation_path(users, conversation)
-        end
-      end
-
-      #
-      # Finds the conversation between the given participants
-      #
-      # @param participants [Array<Decidim::User>] The participants to find a
-      #   conversation between.
-      #
-      # @return [Decidim::Messaging::Conversation]
-      def conversation_between_multiple(participants)
-        return if participants.to_set.length <= 1
-
-        UserConversations.for(participants.first).find do |conversation|
-          conversation.participants.to_set == participants.to_set
         end
       end
 
