@@ -37,6 +37,14 @@ module Decidim
           expect { get :show, params: { locale: I18n.locale, nickname: "Nick" } }.to raise_error(ActionController::RoutingError)
         end
       end
+
+      context "with a deleted user" do
+        let!(:user) { create(:user, :confirmed, :deleted, nickname: "nick", organization:) }
+
+        it "does not return the page" do
+          expect { get :show, params: { locale: I18n.locale, nickname: "Nick" } }.to raise_error(ActionController::RoutingError)
+        end
+      end
     end
   end
 end

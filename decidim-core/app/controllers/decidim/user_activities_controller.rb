@@ -14,6 +14,7 @@ module Decidim
     def index
       raise ActionController::RoutingError, "Missing user: #{params[:nickname]}" unless user
       raise ActionController::RoutingError, "Blocked User" if user.blocked? && !current_user&.admin?
+      raise ActionController::RoutingError, "Deleted User" if user.deleted?
     end
 
     private

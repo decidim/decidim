@@ -28,6 +28,26 @@ module Decidim
           expect(response).to render_template(:index)
         end
       end
+
+      context "with blocked user" do
+        let!(:user) { create(:user, :confirmed, :blocked, nickname: "nick", organization:) }
+
+        it "raises an ActionController::RoutingError" do
+          expect do
+            get :index, params: { locale: I18n.locale, nickname: "nick" }
+          end.to raise_error(ActionController::RoutingError, "Blocked User")
+        end
+      end
+
+      context "with deleted user" do
+        let!(:user) { create(:user, :confirmed, :deleted, nickname: "nick", organization:) }
+
+        it "raises an ActionController::RoutingError" do
+          expect do
+            get :index, params: { locale: I18n.locale, nickname: "nick" }
+          end.to raise_error(ActionController::RoutingError, "Deleted User")
+        end
+      end
     end
   end
 end
