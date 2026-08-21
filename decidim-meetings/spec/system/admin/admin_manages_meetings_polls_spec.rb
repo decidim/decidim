@@ -416,7 +416,21 @@ describe "Admin manages meetings polls" do
   end
 
   def expand_all_questions
-    click_on "Expand all questions"
+    page.document.synchronize do
+      click_on "Expand all questions"
+
+      # Check that all questions were expanded correctly or retry if not.
+      all(".questionnaire-question").each do |node|
+        question_id = node["id"].match(/\Aquestionnaire_question_([0-9]+)-field\z/)[1]
+
+        within node do
+          page.find("label[for='questionnaire_questions_#{question_id}_body']")
+        end
+      rescue Capybara::ElementNotFound => e
+        sleep 0.1
+        raise e
+      end
+    end
   end
 
   def visit_questionnaire_edit_path_and_expand_all
