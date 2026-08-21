@@ -13,13 +13,11 @@ de:
         duplicate_categories: Kategorien duplizieren
         duplicate_components: Komponenten duplizieren
         duplicate_landing_page_blocks: Startseiten-Blöcke duplizieren
-        duplicate_steps: Schritte duplizieren
         end_date: Enddatum
         hero_image: Hauptbild
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
         import_components: Komponenten importieren
-        import_steps: Schritte importieren
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
         participatory_process_group_id: Prozessgruppe
