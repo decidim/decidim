@@ -13,13 +13,11 @@ sv:
         duplicate_categories: Duplicera kategorier
         duplicate_components: Duplicera komponenter
         duplicate_landing_page_blocks: Duplicera innehållsblock från landningssidan
-        duplicate_steps: Duplicera steg
         end_date: Slutdatum
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
         import_components: Importera komponenter
-        import_steps: Importera steg
         local_area: Område
         meta_scope: Omfattning
         participatory_process_group_id: Grupp av processer

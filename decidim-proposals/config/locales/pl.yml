@@ -96,10 +96,7 @@ pl:
             values:
               'false': Propozycje
               'true': Poprawki
-          proposal_state_id_eq:
-            label: Stan
           state_eq:
-            label: Stan
             values:
               accepted: Zaakceptowano
               evaluating: Ocena

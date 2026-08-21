@@ -1,1 +1,8 @@
+---
 de:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: Introspection ist für diese Anfrage deaktiviert
+        recursion_limit_exceeded_error: In der Abfrage wurden zu viele Rekursionen festgestellt
+        too_many_aliases_error: Es wurden zu viele Aliase verwendet. Sie haben %{size} Aliase verwendet, erlaubt sind jedoch nur %{limit}.

@@ -416,7 +416,10 @@ fr:
           short_description: Une courte description de l'assemblée
           subtitle: Le sous-titre de l'assemblée
           target: La cible de l'assemblée
+          taxonomies: Les taxonomies du projet
           title: Le titre de l'assemblée
+          updated_at: La dernière date de mise à jour de cet espace
+          url: L'URL de l'espace
     participatory_processes:
       show:
         related_assemblies: Assemblées associées

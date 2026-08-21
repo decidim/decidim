@@ -13,13 +13,11 @@ sk:
         duplicate_categories: Duplikovať kategórie
         duplicate_components: Duplikovať komponenty
         duplicate_landing_page_blocks: Duplikovať bloky vstupnej stránky
-        duplicate_steps: Duplikovať kroky
         end_date: Dátum ukončenia
         hero_image: Domáce obrázok
         import_attachments: Importovať prílohy
         import_categories: Importovať kategórie
         import_components: Importovať komponenty
-        import_steps: Importovať kroky
         local_area: Oblasť organizácie
         meta_scope: Rozsah metadát
         participatory_process_group_id: Skupina procesov

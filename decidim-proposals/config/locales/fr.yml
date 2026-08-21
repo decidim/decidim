@@ -123,9 +123,9 @@ fr:
               'false': Propositions
               'true': Amendements
           proposal_state_id_eq:
-            label: État
+            label: État 
           state_eq:
-            label: État
+            label: État 
             values:
               accepted: Acceptée
               evaluating: En cours d'évaluation
@@ -397,14 +397,21 @@ fr:
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
     open_data:
       help:
+        proposal_comments:
+          id: L'identifiant de ce commentaire
+          locale: Les paramètres régionaux (langue) du participant au moment où il a laissé ce commentaire
+          root_commentable_url: L'URL de la ressource associée à ce commentaire
         proposals:
+          answered_at: Date à laquelle cette proposition a reçu une réponse
           coauthorships_count: Le nombre de coauteurs que la proposition représente
+          comments: Le nombre de commentaires sur cette proposition
           cost: Le coût total de la proposition en question
           cost_report: Un rapport sur les coûts de la proposition
           created_at: La date de création de la proposition
           created_in_meeting: Si la proposition a été créée dans une réunion
           execution_period: La période à laquelle la proposition s'est déroulée du début à la fin
           follows_count: Le nombre de personnes qui suivent cette proposition
+          id: L'identifiant unique de la proposition
           state_published_at: Un horodatage de l'état de la proposition lorsqu'elle est publiée
           updated_at: La date de la dernière mise à jour de la proposition
     participatory_spaces:
@@ -576,6 +583,7 @@ fr:
             number_of_proposals: Les réponses de %{number} propositions seront publiées ?
             select_a_proposal: Veuillez sélectionner une proposition.
           show:
+            address: Adresse
             amendments_count: Nombre d'amendements
             assigned_evaluators: Évaluateurs assignés
             body: Corps
@@ -787,6 +795,7 @@ fr:
             published_answer: Réponse publiée
             published_at: Publiée à
             state: État
+            taxonomies: Taxonomies
             title: Titre
             votes: Votes
         proposal_state:
@@ -901,6 +910,7 @@ fr:
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
           vote: Soutenir
+          votes_blocked: Voter
         votes_count:
           count:
             one: Vote

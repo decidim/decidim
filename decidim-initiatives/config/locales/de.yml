@@ -111,6 +111,8 @@ de:
         initiatives_menu:
           see_initiative: Initiative ansehen
         initiatives_settings: Einstellungen
+        initiatives_submenu:
+          info: Über diese Initiative
         initiatives_types: Arten von Initiativen
         moderations: Moderationen
       models:
@@ -438,11 +440,25 @@ de:
         update: Aktualisieren
       events:
         approve_membership_request:
+          email_intro: "%{author_name} hat Ihre Bewerbung für das Unterstützungskomitee der Initiative %{resource_title} angenommen."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}'
+          email_subject: "%{author_name} hat Ihre Bewerbung für das Unterstützungskomitee angenommen"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> hat Ihre Bewerbung für das Unterstützungskomitee der Initiative <a href="%{resource_url}">%{resource_title}</a> angenommen.
+        create_initiative_event:
+          email_intro: "%{author_name}, dem/der Sie folgen, hat eine neue Initiative erstellt. Schauen Sie sie sich an und beteiligen Sie sich:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Neue Initiative von %{author_name}
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name}</a> erstellt.
         revoke_membership_request:
+          email_intro: "%{author_name} hat Ihre Bewerbung für das Unterstützungskomitee der Initiative %{resource_title} abgelehnt."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}.'
+          email_subject: "%{author_name} hat Ihre Bewerbung für das Unterstützungskomitee abgelehnt"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> hat Ihre Bewerbung für das Unterstützungskomitee der Initiative <a href="%{resource_url}">%{resource_title}</a> abgelehnt.
         spawn_committee_request_event:
+          email_intro: "%{applicant_name} hat sich für das Unterstützungskomitee Ihrer Initiative %{resource_title} beworben. Um die Bewerbung anzunehmen oder abzulehnen, öffnen Sie das Bearbeitungsformular Ihrer Initiative."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind'
+          email_subject: "%{applicant_name} möchte Ihrer Initiative beitreten"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_name}</a> hat sich für das Unterstützungskomitee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um die Bewerbung anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
         add_attachments: Anhänge hinzufügen
         add_image: Bild hinzufügen
@@ -536,6 +552,7 @@ de:
           recent: Neueste zuerst
           recently_published: Zuletzt veröffentlicht
         pending_initiatives:
+          description: Diese Initiativen sind noch nicht öffentlich. Bitte prüfen Sie sie und reichen Sie sie zur technischen Validierung ein, damit sie veröffentlicht werden können.
           title: Entwürfe & ausstehende Initiativen
         print:
           address: Adresse

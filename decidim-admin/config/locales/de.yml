@@ -12,6 +12,7 @@ de:
         plural: Plural
       attachment:
         attachment_collection_id: Ordner
+        attachments: Anhänge
         description: Beschreibung
         file: Datei
         title: Anhang oder Bildname
@@ -45,6 +46,7 @@ de:
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
+        comments_max_length: Maximale Zeichen pro Kommentar (Lassen Sie 0 für den Standardwert)
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
@@ -575,6 +577,7 @@ de:
         promotions:
           new:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
+            new_managed_user_promotion: Neue Beförderung einer übernommenen Identität
             promote: Fördern
       menu:
         admin_log: Admin-Aktivitätsprotokoll
@@ -757,6 +760,7 @@ de:
           title: Newsletter Vorlagen
           use_template: Diese Vorlage verwenden
         show:
+          preview: 'Vorschau der Vorlage: %{template_name}'
           use_template: Diese Vorlage verwenden
       newsletters:
         confirm_recipients:
@@ -803,7 +807,7 @@ de:
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
           private_members_help: Sendet einen Newsletter an alle bestätigten Teilnehmende, die den ausgewählten privaten Teilnahmebereichen hinzugefügt wurden.
           recipients_count: Dieser Newsletter wird an <strong id='recipients_count'>%{count}</strong> Teilnehmer gesendet.
-          select_assemblies: Gremien auswählen
+          select_assemblies: Versammlungen auswählen
           select_conferences: Konferenzen auswählen
           select_initiatives: Initiativen auswählen
           select_participatory_processes: Beteiligungsprozesse auswählen
@@ -831,6 +835,7 @@ de:
       officializations:
         block:
           error: Bei der Teilnehmendenblockierung ist ein Problem aufgetreten.
+          no_user: Kein Mitglied gefunden
           success: Teilnehmer erfolgreich blockiert.
         bulk_action:
           block:
@@ -840,6 +845,7 @@ de:
             invalid: Es gab ein Problem beim Entsperren der Teilnehmenden.
             success: Teilnehmende erfolgreich entsperrt.
         create:
+          no_user_found: Teilnehmende wurden nicht gefunden.
           success: Benutzer wurde offiziell anerkannt.
         destroy:
           success: Der Benutzer wurde erfolgreich inoffizialisiert.
@@ -864,6 +870,8 @@ de:
           badge: Offizielles Abzeichen
           officialize: Offizialisieren
           title: Benutzer "%{name}" offiziellisieren
+        show_email:
+          no_user: Kein Mitglied gefunden
         show_email_modal:
           description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um seine E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
           email_address: E-Mail-Adresse
@@ -1064,6 +1072,10 @@ de:
           next_title: Nächstes Element
           previous: Zurück
           previous_title: Vorheriges Element
+        attachments:
+          add_attachments: Anhänge hinzufügen
+          attachment_legend: Anhanggalerie hinzufügen (optional)
+          edit_attachments: Anhänge bearbeiten
       static_page_topics:
         create:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
@@ -1223,6 +1235,7 @@ de:
         authorization_workflows: Verifizierungsmethoden
         dashboard: Dashboard
         edit_external_domains: Liste erlaubter externer Domains
+        impersonatable_users: Verwaltbare Teilnehmende
         impersonations: Benutzerverwaltung
         menu: Menü
         page_topics: Themen
@@ -1269,10 +1282,19 @@ de:
           last_week: Letzte Woche
           no_users_count_statistics_yet: Es gibt noch keine Statistiken über die Teilnehmenden.
           participants: Teilnehmer
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Die Auswahl von Klassifizierungsfiltern ist möglich, nachdem die Komponente erstellt wurde.
     forms:
       errors:
         impersonate_user:
           reason: Sie müssen einen Grund angeben, weshalb Sie sich als nicht-verwaltete Nutzende ausgeben.
+      file_help:
+        attachment:
+          explanation: 'Hinweise für die Datei:'
+          message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
+          message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
     moderations:
       actions:
         expand: Ausklappen

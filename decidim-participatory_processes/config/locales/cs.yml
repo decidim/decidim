@@ -13,13 +13,11 @@ cs:
         duplicate_categories: Duplikovat kategorie
         duplicate_components: Duplikovat komponenty
         duplicate_landing_page_blocks: Duplikovat bloky vstupní strany
-        duplicate_steps: Duplikovat kroky
         end_date: Datum ukončení
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
         import_components: Importovat komponenty
-        import_steps: Importovat kroky
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
@@ -191,6 +189,7 @@ cs:
         new:
           import: Importovat
           select: Vyberte, které údaje chcete importovat
+          title: Importovat participační proces
       participatory_process_publications:
         create:
           error: Při publikování tohoto procesu participace došlo k chybě.
@@ -220,6 +219,7 @@ cs:
               Nechali jsme zde pro vás migraci CTA, které potřebujete. Pole <i>Cesta výzvy k akci</i> a
               <i>Text výzvy k akci</i> bude v příští verzi odstraněn.
             title: Zastaralá CTA
+          title: Upravit fázi participačního procesu
           update: Aktualizace
         index:
           steps_title: Kroky
@@ -238,9 +238,13 @@ cs:
         destroy:
           success: Uživatel byl úspěšně odstraněn z tohoto participačního procesu.
         edit:
+          title: Aktualizovat správce participačního procesu
           update: Aktualizace
+        index:
+          process_admins_title: Správci participačního procesu
         new:
           create: Vytvořit
+          title: Nový správce participačního procesu
         update:
           error: Došlo k chybě při aktualizaci uživatele pro tento participační proces.
           success: Uživatel byl úspěšně aktualizován pro tento participační proces.

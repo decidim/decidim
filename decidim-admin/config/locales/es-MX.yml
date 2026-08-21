@@ -905,6 +905,10 @@ es-MX:
           logos:
             organization_logos: Logotipo de la organización
             preview: Previsualizar
+          machine_translation_display_priority:
+            options:
+              original: El sistema muestra la información en el idioma utilizado por la autora. El contenido creado desde el tablero de administración con traducciones manuales mostrará los valores traducidos por la administradora.
+              translation: El sistema mostrará una traducción si está disponible, de lo contrario se utilizará el idioma original.
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: X
