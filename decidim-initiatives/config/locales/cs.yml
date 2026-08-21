@@ -420,7 +420,6 @@ cs:
           new: Vytvořit novou iniciativu
           select: Chci tuto iniciativu podpořit
           select_initiative_type_help_html: "<p>Iniciativy jsou prostředkem, který mohou účastníci zasáhnout, aby organizace mohla podniknout kroky na ochranu obecného zájmu. Kterou iniciativu chcete spustit?</p>"
-          show_less: Zobrazit méně
           show_more: Zobrazit více
           subtitle: Jakou iniciativu chcete podporovat?
           verification_required: Ověřte svůj účet pro podporu této iniciativy
