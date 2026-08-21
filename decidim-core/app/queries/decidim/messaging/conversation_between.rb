@@ -69,13 +69,23 @@ module Decidim
         users.map(&:id).uniq.sort
       end
 
-      # Generates the following query for all participants in a conversation:
+      # Generates the following query for all participants in a conversation
+      # where the first user is taking part in (123 in the example represents
+      # the first participant ID):
       #   SELECT
       #       c.id,
       #       CAST(ARRAY_AGG(p.decidim_participant_id ORDER BY p.decidim_participant_id) AS bigint[])
       #     FROM decidim_messaging_conversations c
       #     INNER JOIN decidim_messaging_participations p
       #       ON p.decidim_conversation_id = c.id
+      #     WHERE
+      #       c.id IN (
+      #         SELECT subc.id FROM decidim_messaging_conversations subc
+      #            INNER JOIN decidim_messaging_participations subp
+      #            ON subp.id = subc.id
+      #         WHERE
+      #           subp.id = 123
+      #       )
       #     GROUP BY c.id
       #
       # Returns the following kind of table where we can match the exact
