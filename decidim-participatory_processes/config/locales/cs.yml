@@ -12,14 +12,12 @@ cs:
         duplicate_categories: Duplikovat kategorie
         duplicate_components: Duplikovat komponenty
         duplicate_landing_page_blocks: Duplikovat bloky vstupní strany
-        duplicate_steps: Duplikovat kroky
         end_date: Datum ukončení
         has_members: Tento prostor má členy
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
         import_components: Importovat komponenty
-        import_steps: Importovat kroky
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
