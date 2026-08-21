@@ -79,8 +79,14 @@ fr:
         responses_alert: La suppression des réponses lors de la publication est active pour cette enquête. Il y a actuellement %{responses_count} réponses qui seront supprimées si vous continuez.
         title: Actions
       admin:
+        exports:
+          survey_user_responses: Réponses des participants à l'enquête
         publish_responses:
           index:
+            description: |-
+              En publiant les réponses aux questions, vous les rendrez accessibles au public.
+              Vous pouvez sélectionner les réponses que vous souhaitez publier en cochant la case située à côté de chaque question.
+              Vous ne pouvez publier que les types de questions suivants : « Choix unique », « Choix multiples », « Matrice (choix unique) », « Matrice (choix multiples) » et « Tri ».
             responses:
               one: "%{count} réponse"
               other: "%{count} réponses"
@@ -151,14 +157,25 @@ fr:
             closed: Fermée
             open: Ouverte
       survey_confirmation_mailer:
+        confirmation:
+          body: Vous avez répondu avec succès à l'enquête %{questionnaire_title} au sein de %{participatory_space}
+          subject: Confirmation de réponse à l'enquête %{questionnaire_title}
         export_name: Réponses à l'enquête
       surveys:
+        count:
+          surveys_count:
+            one: "%{count} enquête"
+            other: "%{count} enquêtes"
         filters:
           all: Toutes
           state_values:
             closed: Fermée
             open: Ouverte
         no_surveys_warning: Aucune enquête ne correspond à vos critères de recherche ou aucune enquête n'est actuellement ouverte.
+        response:
+          invalid: Un problème est survenu pendant l'enquête.
+          spam_detected: Un problème est survenu lors du remplissage du formulaire. Vous avez peut-être répondu trop vite. Pouvez-vous réessayer ?
+          success: Les réponses à l'enquête ont été enregistrées avec succès.
         show:
           closed: Fermée
           open: Ouverte
