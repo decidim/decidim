@@ -42,12 +42,15 @@ fr:
             accepting_suggestions: Activer les suggestions dans la prochaine version
             accepting_suggestions_help: Activer les suggestions démarrera une nouvelle série de suggestions pour ce document. Les suggestions actuelles ne seront pas visibles dans la nouvelle version.
             draft: Version préliminaire
+            draft_help_html: Une version préliminaire n'est pas publique et peut être modifiée par les administrateurs. Supprimez le statut « préliminaire » pour rendre ce contenu public. <strong>Notez que tant que la version préliminaire est active, les participants verront la version précédente et ne pourront pas faire de suggestions.</strong>
           edit:
+            document_has_suggestions_html: <a href="%{url}">Ce document contient des suggestions</a> et ne peut pas être modifié directement. Veuillez accepter ou rejeter ces suggestions afin de générer une nouvelle version préliminaire pouvant être modifiée.
             draft: Version préliminaire
             previous_versions: Versions précédentes
             public_version: Version publique
             title: Modifier les textes collaboratifs
             update: Mettre à jour
+            version: La version %{version_number}, créée le %{created_at}, a reçu %{suggestions_count} suggestions.
           edit_settings:
             title: Configurer les textes collaboratifs
             update: Mettre à jour
@@ -59,6 +62,8 @@ fr:
             create: Créer
             title: Créer des textes collaboratifs
           non_draft_options:
+            create_draft: Ignorer les suggestions et créer une nouvelle version préliminaire
+            draft_help_html: Une version préliminaire n'est pas publique et peut être modifiée par les administrateurs. Supprimez le statut « préliminaire » pour rendre ce contenu public. <strong>Notez que tant que la version préliminaire est active, les participants verront la version précédente et ne pourront pas faire de suggestions.</strong>
             enable_suggestions: Activer les suggestions
             enable_suggestions_help: Activer les suggestions permettra aux participants de faire des suggestions sur cette version.
           publish:
@@ -85,17 +90,26 @@ fr:
           soft_delete: "%{user_name} a déplacé le texte collaboratif %{resource_name} en %{space_name} dans la corbeille"
           unpublish: "%{user_name} a dépublié le texte collaboratif %{resource_name} dans %{space_name}"
           update: "%{user_name} a mis à jour le texte collaboratif %{resource_name} dans %{space_name}"
+        suggestion:
+          create: "%{user_name} a proposé des modifications au texte collaboratif %{resource_name} dans %{space_name}"
         version:
           delete: "%{user_name} a supprimé la version du texte collaboratif %{resource_name} de %{space_name}"
           update: "%{user_name} a mis à jour la version du texte collaboratif %{resource_name} dans %{space_name}"
       document:
         apply: Appliquer
         cancel: Annuler
+        consolidate:
+          confirm: Cette action permettra de regrouper toutes les suggestions acceptées dans une nouvelle version du document. Les suggestions non acceptées seront transférées vers la nouvelle version en vue d'un examen plus approfondi. Cette action permettra de conserver le statut « actif » des suggestions.
+          new: Regrouper les suggestions acceptées
+        consolidate_counter: La consolidation fusionnera les suggestions %{applied} déjà appliquées et transférera les suggestions %{pending} en attente vers la nouvelle version.
         controls_label: Contrôles de suggestion
+        draft_counter: La version préliminaire intégrera les suggestions %{applied} déjà appliquées et n'inclura pas les suggestions %{pending} en attente.
         index: Index
         restore: Restaurer
         rollout:
+          confirm: Cette action créera une nouvelle version préliminaire du document et vous serez redirigé vers la page d'édition pour y apporter les dernières modifications. La version actuelle restera publique et les suggestions seront désactivées.
           invalid: Il y a eu un problème lors de la création d'une nouvelle version du document (%{errors}).
+          new: Rédiger une nouvelle version
         save: Suggérer des modifications
         status:
           accepting_suggestions: Pour suggérer des modifications, sélectionnez ou double-cliquez sur le texte que vous souhaitez modifier, puis cliquez sur le bouton « Suggérer des modifications ».
@@ -127,6 +141,7 @@ fr:
           invalid: Il y a eu un problème lors de la création de la suggestion.
           success: Suggestion créée avec succès.
         errors:
+          blank_changeset: L'ensemble de modifications ne peut pas être vide.
           invalid_nodes: Nœuds sélectionnés non valides.
     components:
       collaborative_texts:
