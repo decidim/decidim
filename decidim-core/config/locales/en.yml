@@ -2072,7 +2072,6 @@ en:
   layouts:
     decidim:
       announcements:
-        view_less: Show less
         view_more: More information
       data_consent:
         details:
