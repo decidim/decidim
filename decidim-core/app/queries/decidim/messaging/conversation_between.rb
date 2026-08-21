@@ -107,6 +107,7 @@ module Decidim
 
         Decidim::Messaging::Conversation
           .joins(:participations)
+          .where(decidim_messaging_participations: { decidim_participant_id: users.first.id })
           .group(:id)
           .select(:id, cast.as("participant_ids"))
       end
