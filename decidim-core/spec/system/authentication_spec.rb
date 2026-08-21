@@ -707,7 +707,7 @@ describe "Authentication" do
                   fill_in :session_user_password, with: "not-the-password"
                   find("*[type=submit]").click
                 end
-                expect(page).to have_content("Invalid email address or password")
+                expect(page).to have_content("Invalid Email address or password")
               end
             end
           end
