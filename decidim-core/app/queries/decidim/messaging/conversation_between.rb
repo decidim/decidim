@@ -85,7 +85,7 @@ module Decidim
       #
       # @return [ActiveRecord::Relation]
       def groupped_conversations
-        participants_table = Decidim::Messaging::Participation.arel_table
+        participants_table = Participation.arel_table
         participants_column = participants_table[:decidim_participant_id]
 
         order_clause = Arel::Nodes::InfixOperation.new(
@@ -105,11 +105,15 @@ module Decidim
         )
         cast = Arel::Nodes::NamedFunction.new("CAST", [cast_operation])
 
-        Decidim::Messaging::Conversation
+        Conversation
+          .where(id: candidate_conversations)
           .joins(:participations)
-          .where(decidim_messaging_participations: { decidim_participant_id: users.first.id })
           .group(:id)
           .select(:id, cast.as("participant_ids"))
+      end
+
+      def candidate_conversations
+        Conversation.joins(:participations).where(decidim_messaging_participations: { decidim_participant_id: users.first.id })
       end
     end
   end
