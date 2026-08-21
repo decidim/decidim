@@ -114,6 +114,13 @@ module Decidim
           .select(:id, cast.as("participant_ids"))
       end
 
+      # Returns a relation for the possible candidate conversations where the
+      # first user is participating. This limits the amount of queried
+      # conversations to only the ones where at least one of the participants
+      # is taking part in, rather than comparing the set of users to all
+      # conversations on the platform.
+      #
+      # @return [ActiveRecord::Relation]
       def candidate_conversations
         Conversation.joins(:participations).where(decidim_messaging_participations: { decidim_participant_id: users.first.id })
       end
