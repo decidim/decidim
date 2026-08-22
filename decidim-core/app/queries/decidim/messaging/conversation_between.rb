@@ -103,7 +103,7 @@ module Decidim
 
         order_clause = Arel::Nodes::InfixOperation.new(
           "",
-          Arel::Nodes::SqlLiteral.new("ORDER BY"),
+          Arel.sql("ORDER BY"),
           participants_column.asc
         )
         array_agg = Arel::Nodes::NamedFunction.new(
