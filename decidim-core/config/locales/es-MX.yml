@@ -2092,7 +2092,6 @@ es-MX:
   layouts:
     decidim:
       announcements:
-        view_less: Mostrar menos
         view_more: Más información
       data_consent:
         details:
