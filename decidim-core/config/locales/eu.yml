@@ -2092,7 +2092,6 @@ eu:
   layouts:
     decidim:
       announcements:
-        view_less: Erakutsi gutxiago
         view_more: Informazio gehiago
       data_consent:
         details:
