@@ -1379,7 +1379,6 @@ hu:
   layouts:
     decidim:
       announcements:
-        view_less: Kevesebb mutatása
         view_more: További információk
       data_consent:
         details:
