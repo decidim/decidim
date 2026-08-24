@@ -849,7 +849,7 @@ GEM
     rubyXL (3.4.38)
       nokogiri (>= 1.10.8)
       rubyzip (>= 3.2.2)
-    rubyzip (3.4.1)
+    rubyzip (3.5.0)
     sass-embedded (1.97.3-arm64-darwin)
       google-protobuf (~> 4.31)
     sass-embedded (1.97.3-x86_64-linux-gnu)
