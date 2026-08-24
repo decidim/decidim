@@ -138,7 +138,7 @@ export default class CommentsComponent {
    * @returns {String} - Returns a unique identifier
    */
   _getUID() {
-    return `comments-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
+    return `comments-${new Date().getUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
   }
 
   /**
