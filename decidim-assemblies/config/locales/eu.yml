@@ -349,7 +349,7 @@ eu:
             see_all_spaces: Ikusi batzar guztiak
         user_profile:
           member_of:
-            member_of: 'Honen kidea:'
+            member_of: Honen kidea
       show:
         duration: Iraupena
         private_space: Hau batzar pribatua da
