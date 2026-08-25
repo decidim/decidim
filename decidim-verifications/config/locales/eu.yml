@@ -7,13 +7,13 @@ eu:
         file: Fitxategia
       config:
         available_methods: Metodo erabilgarriak
-        offline: Off-line
-        offline_explanation: Off-line egiaztapenaren jarraibideak
-        online: On-line
+        offline: Offline
+        offline_explanation: Lineaz kanpoko egiaztapenerako jarraibideak
+        online: Online
       confirmation:
         verification_code: Egiaztapen kodea
       id_document_information:
-        document_number: Dokumentu zenbakia
+        document_number: Dokumentu-zenbakia (letrarekin)
         document_type: Dokumentu mota
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letraz)
@@ -47,7 +47,7 @@ eu:
           destroy:
             confirm: Data horren aurreko baimenak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             confirm_all: Baimen guztiak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
-          destroy_nok: Arazo bat izn da baimenak ezeztatzean.
+          destroy_nok: Arazo bat izan da baimenak ezeztatzean.
           destroy_ok: Baimenak ezeztatzen ari dira. Minutu batzuk beharko ditugu hau bukatzeko.
           info: Guztira %{count} parte-hartzaile egiaztatuta daude.
           no_data: Ez dago parte-hartzaile egiaztaturik.
@@ -118,7 +118,7 @@ eu:
       verifications:
         verify_with_managed_user:
           email_intro: <a href="%{resource ce_url}">%{resource_title}</a> parte-hartzailea saiatu da beste parte-hartzaile baten datuekin (%managed_user_name}) bere burua egiaztatzen.
-          email_outro: Egiaztau <a href="%{conflicts_url}"> egiaztapenen gatazken zerrenda </a> eta jarri harremanetan parte-hartzailearekin bere datuak egiaztatu eta arazoa konpontzeko.
+          email_outro: Begiratu <a href="%{conflicts_url}">egiaztapenen gatazken zerrenda</a> eta jarri harremanetan parte-hartzailearekin bere datuak egiaztatzeko eta arazoa konpontzeko.
           email_subject: Errorea beste parte-hartzaile baten bidez egiaztatzean
           notification_title: <a href="%{resource ce_url}">%{resource_title}</a> parte-hartzailea saiatu da beste parte-hartzaile baten datuekin (%managed_user_name}) bere burua egiaztatzen.
     verifications:
@@ -150,13 +150,13 @@ eu:
           unauthorized_methods: Egiaztapen-metodoak
         new:
           authorize: Bidali
-          authorize_with: Egiaztatu %{authorizer} rekin
+          authorize_with: Egiaztatu %{authorizer} bidez
           tos_agreement: 'Zure nortasuna egiaztatzeko, onartu: %{link}.'
         onboarding_pending:
-          completed_verifications: 'Bainema zuzen lortu duzu, orain zuk ahal duzu %{action} hemen: %{resource_name}'
+          completed_verifications: Behar bezala baimendu zaituzte, orain %{resource_name} elementuan %{action} dezakezu
           granted_verifications: Emandako egiaztapenak
           onboarding_message_html: 'Ia prest zaude %{action} ekintzarako hemen: <strong>%{resource_title}</strong> %{resource_name}. Mesedez, egiaztatu zure kontua baimen hauek betez.'
-          pending_admin_approval_verifications: Admin. onespenaren egiaztapenen zain
+          pending_admin_approval_verifications: Administratzailearen onespenaren zain dauden egiaztapenak
           pending_verifications: Egiaztatzeke
           unauthorized: Ez duzu baimenik %{action} ekintzarako baliabide honetan
         renew_modal:
@@ -165,7 +165,7 @@ eu:
           info_renew: Datuak eguneratu nahi badituzu, jarraitu berritzen.
           title: Berritu egiaztapena
         skip_verification: Hau saltatu dezakezu oraingoz eta %{link}
-        start_exploring: Hasi esploratzen
+        start_exploring: hasi esploratzen
       csv_census:
         admin:
           actions:
@@ -231,8 +231,8 @@ eu:
       dummy_authorization:
         extra_explanation:
           postal_codes:
-            one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
-            other: 'Parte-hartzea honako posta-kode hauetakoren bat duten eparte-hartzaileentzat mugatuta dago: %{postal_codes}.'
+            one: Parte-hartzea %{postal_codes} posta-kodea duten parte-hartzaileentzat mugatuta dago.
+            other: 'Parte-hartzea honako posta-kode hauetakoren bat duten parte-hartzaileentzat mugatuta dago: %{postal_codes}.'
           user_postal_codes:
             one: Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.
             other: 'Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.'
@@ -268,8 +268,8 @@ eu:
           pending_authorizations:
             index:
               config: Konfiguratu
-              offline_verification: Off-line egiaztapena
-              title: On-line egiaztapenak zain
+              offline_verification: Offline egiaztapena
+              title: Onlineko egiaztapenen zain
               verification_number: 'Egiaztapena # %{n}'
           rejections:
             create:
@@ -277,16 +277,16 @@ eu:
         authorizations:
           choose:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
-            offline: Off-line
-            online: On-line
+            offline: Offline
+            online: Online
             title: Egiaztatu zure identifikazio dokumentua erabiliz
           create:
             error: Arazo bat egon da zure dokumentua igotzean.
             success: Dokumentua ondo igota.
           edit:
             being_reviewed: Zure dokumentuak berrikusten ari gara. Laster egiaztatuko zaituzte.
-            offline: Erabili off-line egiaztapena
-            online: Erabili on-line egiaztapena
+            offline: Erabili offline egiaztapena
+            online: Erabili online egiaztapena
             rejection_clarity: Ziurtatu informazioa argi eta garbi ageri dela kargatutako irudian.
             rejection_correctness: Ziurtatu sartu duzun informazioa zuzena dela.
             rejection_notice: Arazo bat egon da zure egiaztapenarekin. Mesedez, saiatu berriro.
@@ -298,7 +298,7 @@ eu:
             error: Arazo bat egon da zure dokumentua berriro igotzean.
             success: Dokumentua ondo igota berriro.
         identification_number: Identifikazio zenbakia
-        passport: pasaportea
+        passport: Pasaportea
       postal_letter:
         admin:
           pending_authorizations:
@@ -346,7 +346,7 @@ eu:
             send: Bidal iezadazu SMS bat
             title: Eskatu zure egiaztapen-kodea
           update:
-            error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, begiratu berriro bidali dizugun SMSa.
+            error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, egiaztatu berriro bidali dizugun SMSa.
             success: Zorionak! Zuzen egiaztatu zara.
   errors:
     messages:
