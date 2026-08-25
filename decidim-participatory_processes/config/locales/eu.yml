@@ -13,16 +13,18 @@ eu:
         duplicate_categories: Kategoriak bikoiztu
         duplicate_components: Bikoiztu osagaiak
         duplicate_landing_page_blocks: Bikoiztu lurreratze-orrien blokeak
+        duplicate_steps: Fase bikoiztuak
         end_date: Bukaera-data
         hero_image: Orri nagusiko irudia
         import_attachments: Inportatu eranskinak
         import_categories: Inportatu kategoriak
         import_components: Inportatu osagaiak
+        import_steps: Faseak inportatu
         local_area: Antolakuntza arloa
-        meta_scope: 'Metadatuak: eremua'
+        meta_scope: Eremuaren metadatuak
         participatory_process_group_id: Prozesu-multzoa
         participatory_scope: Zer erabaki da
-        participatory_structure: Nola erabakitzen da?
+        participatory_structure: Nola erabakitzen da
         private_space: Prozesu pribatua
         promoted: Nabarmendua
         published_at: Argitaratze-data
@@ -98,7 +100,7 @@ eu:
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
         see_process: Prozesua ikusi
-        unpublish: Despublikatu
+        unpublish: Desargitaratu
         view_deleted_processes: Ezabatutako prozesuak ikusi
       filters:
         decidim_participatory_process_group_id_eq:
@@ -189,8 +191,8 @@ eu:
           error: Arazo bat egon da partaidetza-prozesua hau argitaratzean.
           success: Partaidetza-prozesua zuzen argitaratua.
         destroy:
-          error: Arazo bat egon da partaidetza-prozesu hau desargitaratzean.
-          success: Partaidetza-prozesua zuzen desargitaratua.
+          error: Arazo bat gertatu da partaidetza-prozesu hau desargitaratzean.
+          success: Partaidetza-prozesua behar bezala desargitaratu da.
       participatory_process_step_activations:
         create:
           error: Arazo bat egon da partaidetza-prozesuaren fase hau aktibatzean.
@@ -223,7 +225,7 @@ eu:
         ordering:
           error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
-          error: Arazo bat egon da partaidetza-prozesu honan fase hau eguneratzean.
+          error: Arazo bat egon da partaidetza-prozesu honen fase hau eguneratzean.
           success: Parte hartzeko fasea zuzen eguneratua.
       participatory_process_user_roles:
         create:
@@ -268,7 +270,7 @@ eu:
       participatory_processes_group:
         create:
           error: Arazo bat egon da beste partaidetza-prozesuen multzo bat sortzean.
-          success: Partaidetza-prozesuearen taldea zuzen eguneratua.
+          success: Partaidetza-prozesuen taldea behar bezala sortu da.
       taxonomy_filters:
         space_filter_for:
           participatory_processes: Partaidetza-prozesu guztiak
@@ -278,14 +280,14 @@ eu:
         participatory_processes: Partaidetza-prozesuak
         participatory_processes_deleted: Ezabatutako prozesu parte-hartzaileak
       tooltips:
-        deleted_processes_info: Prozesu bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
+        deleted_processes_info: Prozesu bat soilik ezaba daiteke egoera "Argitaratu gabea" bada.
       users:
         resend_invitation:
           error: Arazo bat egon da gonbidapena berriro bidaltzean.
           success: Gonbidapena zuzen birbidalia.
     admin_log:
       participatory_process:
-        create: "%{user_name} parte-hartzaileak %{resource_name} rozesu parte-hartzailea sortu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesua sortu du"
         duplicate: "%{user_name} parte-hartzaileak bikoiztu du %{resource_name} partaidetza-prozesua"
         export: "%{user_name} parte-hartzaileak esportatu du %{resource_name} partaidetza-prozesua"
         import: "%{user_name} parte-hartzaileak inportatu du %{resource_name} partaidetza-prozesua"
@@ -293,12 +295,12 @@ eu:
         publish_all_members: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesuko kide guztiak argitaratu ditu"
         restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} partaidetza-prozesua"
         soft_delete: "%{user_name} parte-hartzaileak zaborrontzira eraman du %{resource_name} partaidetza-prozesua"
-        unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} partaidetza-prozesua"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesua desargitaratu du"
         unpublish_all_members: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesuko kide guztiak desargitaratu ditu"
         update: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesua eguneratu du"
       participatory_process_group:
         create: "%{user_name} parte-hartzaileak sortu du %{resource_name} partaidetza-prozesuen multzoa"
-        unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} partaidetza-prozesuen multzoa"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesuen taldea desargitaratu du"
         update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} partaidetza-prozesuen multzoa"
       participatory_process_step:
         activate: "%{user_name} parte-hartzaileak %{resource_name} urratsa aktibatu du %{space_name} partaidetza-prozesuan"
@@ -319,9 +321,9 @@ eu:
     events:
       participatory_process:
         role_assigned:
-          email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> partaidetza-prozesuan.'
+          email_intro: '"%{resource_title}" partaidetza-prozesuan %{role} rola esleitu zaizu.'
           email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizulako "%{resource_title}" espazioan.
-          email_subject: '%{role} rola esleitu zaizu hemen "%{resource_title}".'
+          email_subject: '"%{resource_title}" jardunaldirako %{role} rola esleitu zaizu.'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> partaidetza-prozesuan.'
         step_activated:
           email_intro: '%{participatory_space_title} espazioko %{resource_title} fasea aktibatu egin da. Orrialde honetan ikusi dezakezu:'
@@ -357,7 +359,7 @@ eu:
           follows_count: Espazio hau zenbat parte-hartzailek jarraitzen duten
           id: Prozesu honen identifikatzaile bakarra
           local_area: Prozesuaren tokiko arloa. Hau da prozesua garatzen ari den erakundearen arloa.
-          meta_scope: Prozesuaren eremu-metadatuak
+          meta_scope: Prozesuaren eremuaren metadatuak
           participatory_process_group: Prozesuaren taldea, baten parte bada
           participatory_process_type: Prozesu mota
           participatory_scope: Prozesuaren parte-hartze eremua
@@ -369,9 +371,9 @@ eu:
           scope: Prozesuaren eremua
           scopes_enabled: Eremuak gaituta dauden ala ez
           short_description: Prozesuaren deskribapen laburra
-          slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
+          slug: Prozesuaren slug-a (identifikaziorako erabiltzen da, URLan)
           start_date: Prozesuaren hasiera-data
-          subtitle: Prosezuaren azpititulua
+          subtitle: Prozesuaren azpititulua
           target: Prozesuaren helburuak. Honi deitzen zaio prozesuan parte hartzeko.
           title: Prozesuaren izenburua
           updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
@@ -402,7 +404,7 @@ eu:
         title:
           meta_scope: Eremua
           participatory_processes:
-            one: Prozesu bat
+            one: 1 prozesu
             other: "Prozesu bat"
       related_processes:
         help: Hautatutako prozesu guztiak talde honi esleituko zaizkio, beste talde batzuei esleitutakoak barne.
@@ -418,19 +420,19 @@ eu:
             announcement:
               body_html: |-
                 <ul>
-                <li>Hauek automatikoki kalkulatzen dira Decidim-en datuetatik. Ikusi ahal izango dira edukien blokea argitaratzen duzunean.</li>
-                <li>Zure erantzunetan oinarritzen dira. Ikusi ahal izango dira galdera guztiak erantzuten dituzunean.</li>
+                <li>Hauek automatikoki kalkulatzen dira Decidim-en datuetatik abiatuta. Eduki-blokea argitaratzen duzunean ikusgai egongo dira.</li>
+                <li>Hauek hurrengo formularioko zure erantzunetan oinarritzen dira. Galdera guztiak erantzun dituzunean ikusgai egongo dira.</li>
                 </ul>
               title: 'Eduki-multzo honek bi metrika-mota ditu:'
             citizen_influence:
               citizen_decisional_intervention:
                 legend: Prozesuaren fase guztietatik kanpo (gaiak hautatzetik exekuzioa gainbegiratzeraino), zenbatek dute gaitasuna erabakiak hartzeko edo ekintza exekutiboa egiteko?
                 options:
-                  five: '%80 - 100 ='
-                  four: '%60 - 80 ='
-                  one: '%0 - 20 ='
-                  three: '%40 - 60 ='
-                  two: '%20 - 40 ='
+                  five: '% 80 - 100 ='
+                  four: '% 60 - 80 ='
+                  one: '% 0 - 20 ='
+                  three: '% 40 - 60 ='
+                  two: '% 20 - 40 ='
               citizen_influence_level:
                 legend: Zein neurritan dute herritarrek erabakitzeko ahalmena prozesu honetan, informazioa jasotze hutsetik erabakietan eta baliabideen kudeaketan eragin erabakigarrira?
                 options:
@@ -441,7 +443,7 @@ eu:
                   two: Parte-hartzaileei kontsulta moduan galdetu zitzaien edo antolakuntzari iritzia eman zitzaion
               name: Herritarren eragina
             inclusiveness:
-              description: Inklusibitatea jatorri kulturalaren eta dibertsitate funtzionalaren arabera.
+              description: Inklusibotasuna jatorri kulturalaren eta dibertsitate funtzionalaren arabera.
               digital_support_offered:
                 legend: Parte-hartzaileei bozka digitala eskaini zaie?
                 options:
@@ -504,16 +506,16 @@ eu:
           help_html: Inportazio honek aukera ematen du beste prozesu parte-hartzaile bat sortzeko esportatutako JSON fitxategi batetik abiatuta. Prozesu bat esportatu dezakezu beste erakunde batetik edo erakunde horretatik bertatik. Inportatutako prozesuak bere konfigurazioak, osagaiak eta eranskinak barne hartuko ditu (aukeratuz gero).
         participatory_process_duplicates:
           form:
-            slug_help_html: 'URL Slugs erabiltzen da prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak bakarrik onartzen ditu, eta letra batekin hasi behar da. Adibidea: %{url}'
+            slug_help_html: 'URL slugak prozesu honetara zuzentzen duten URLak sortzeko erabiltzen dira. Letrak, zenbakiak eta marratxoak soilik onartzen dituzte, eta letra batekin hasi behar dute. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
-            title: "Prozesu honi buruz\n"
+            title: Prozesu honi buruz
             visibility: Ikusgarritasuna
         participatory_process_imports:
           form:
             document_legend: Dokumentu bat atxikitu
-            slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+            slug_help_html: 'URL slugak prozesu honetara zuzentzen duten URLak sortzeko erabiltzen dira. Letrak, zenbakiak eta marratxoak soilik onartzen dituzte, eta letra batekin hasi behar dute. Adibidea: %{url}'
         participatory_process_steps:
           form:
             cta_path_help_html: 'Erabili ibilbide partzialak, ez dira URL osoak hemen. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Bestela, ez da erakutsiko botoia. Adibidea: %{url}'
@@ -529,7 +531,7 @@ eu:
             private_notice: Kiak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             related_processes: Elkarrekin lotutako prozesuak
             select_process_group: Prozesu-talde bat hautatu
-            slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+            slug_help_html: 'URL slugak prozesu honetara zuzentzen duten URLak sortzeko erabiltzen dira. Letrak, zenbakiak eta marratxoak soilik onartzen dituzte, eta letra batekin hasi behar dute. Adibidea: %{url}'
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
@@ -538,8 +540,8 @@ eu:
           automatic_metrics:
             description: Adierazle horiek automatikoki lortzen dira plataforman jasotako datuetatik abiatuta.
             indicators:
-              hybridization: Hibridizazioa
-              hybridization_tooltip: Adierazle honek prozesuan zehar espazio presentzialen eta digitalen arteko konbinazio-maila neurtzen du
+              hybridization: Hibridazioa
+              hybridization_tooltip: Adierazle honek prozesuan zehar onlineko eta lineaz kanpoko espazioak zenbateraino uztartzen diren neurtzen du
               influence: Herritarren eragina
               influence_tooltip: Adierazle honek herritarrek onartutako proposamenetan duten eragin-maila eta prozesuaren emaitzak neurtzen ditu.
               traceability: Trazabilitatea
@@ -549,9 +551,9 @@ eu:
             name: Metrika automatikoak
           global_score:
             description_html: Jarraian, partaidetza-prozesu horren kalitate demokratikoa ebaluatzeko erabiltzen diren adierazleen multzo bat dago. Nola kalkulatzen diren gehiago jakiteko, ikus <a href="%{info_url}">kalitate demokratikoaren adierazleei buruzko informazio-orria</a>.
-            name: Espzio orokorra
-            note: "*Balio adierazleak 1etik 5erako eskalan neurtzen dira, non 1ek baxuena adierazten duen eta 5ek kalitate adierazle altuena."
-            tooltip: Dimentsio guztien batezbestekoan kalkulatua
+            name: Puntuazio orokorra
+            note: "*Balio adierazgarriak 1etik 5era bitarteko eskalan neurtzen dira, 1ek kalitate-adierazlerik baxuena eta 5ek altuena adierazten dituzte."
+            tooltip: Dimentsio guztien batezbesteko gisa kalkulatzen da
           name: Kalitate-adierazlea
           qualitative_metrics:
             description: Adierazle horiek plataformako administratzaileek betetako autoebaluazioari buruzko inkesta baten erantzunetatik lortzen dira.
@@ -596,7 +598,7 @@ eu:
           counters:
             active:
               one: Prozesu bat aktibo
-              other: "%{count} prozesu aktibo"
+              other: "%{count} prozesu martxan"
             all:
               one: 1 prozesu
               other: "%{count} prozesu"
@@ -631,20 +633,20 @@ eu:
       static_pages:
         democratic_quality_indicators:
           content: |-
-            <h2> Adierazle-sistema Decidimen kalitate-adierazlea neurtzeko.</h2>
+            <h2>Decidim-en kalitate-adierazlea neurtzeko adierazle-sistema.</h2>
 
             <h3>Sarrera</h3>
-            <p>Kalitate demokratikoa Decidimen oinarrizko printzipio bat da. Horri eusteko, plataforman parte hartzeko prozesuen kalitatea ebaluatzen laguntzen duten adierazleen sistema bat garatu dugu. Artikulu honetan azaltzen da nola kalkulatzen diren adierazle horiek.</p>
+            <p>Kalitate demokratikoa Decidim-en oinarrizko printzipioetako bat da. Horri eusteko, plataformako partaidetza-prozesuen kalitatea ebaluatzen laguntzen duen adierazle-sistema bat garatu dugu. Artikulu honetan, adierazle horiek nola kalkulatzen diren azaltzen da.</p>
 
-            <h3> Nola kalkulatzen dira adierazleak? </h3>
-            <p> Bi metodo zehaztu ditugu kalitate-adierazleak biltzeko:</p>
+            <h3>Nola kalkulatzen dira adierazleak?</h3>
+            <p>Kalitate-adierazleak jasotzeko bi metodo definitu ditugu:</p>
 
             <ol>
-            <li><strong>Metrika automatikoak:</strong> Horiek zuzenean kalkulatzen dira Decidim plataformaren datuetatik. <li>
-            <li><strong>Auto-Ebaluaziorako Galderak:</strong> Hauek administratzaile batek betetako inprimaki batean oinarritzen dira.</li>
+            <li><strong>Neurketa automatikoak:</strong> Decidim plataformako datuetatik zuzenean kalkulatzen dira.</li>
+            <li><strong>Autoebaluaziorako galderak:</strong> Administratzaile batek betetako formulario batean oinarritzen dira.</li>
             </ol>
 
-            <p> Adierazle bakoitza ehunekotan adierazten da. (zk./guztira). Ehuneko hori puntuazio bihurtzen da 1etik 5era eskalan.:</p>
+            <p>Adierazle bakoitza ehuneko gisa adierazten da (n/guztira). Ondoren, ehuneko hori 1etik 5era bitarteko eskalako puntuazio bihurtzen da:</p>
 
             <ul>
             <li>1 = 0–20%</li>
@@ -655,155 +657,155 @@ eu:
             </ul>
 
             <br><br>
-            <h3>Metrika Automatikoak</h3>
-            <p> Metrika horiek automatikoki kalkulatzen dira Decidimen dauden datuetatik abiatuta. Prozesu parte-hartzaile bidez ebaluatzen dira, eta administratzaileek publiko egin ditzakete, parte-hartzaile guztiak sartu ahal izateko.</p>
+            <h3>Neurketa automatikoak</h3>
+            <p>Neurketa horiek automatikoki kalkulatzen dira Decidim-en eskuragarri dauden datuetatik abiatuta. Partaidetza-prozesu bakoitzeko ebaluatzen dira, eta administratzaileek publiko egin ditzakete, parte-hartzaile guztiek eskuratu ahal izan ditzaten.</p>
 
-            <p> Lau adierazle nagusi zehaztu ditugu: Herritarren Eragina, Hibridazioa, Erantzuteko gaitasuna eta Trazabilitatea:</p>
+            <p>Lau adierazle nagusi definitu ditugu: Herritarren eragina, Hibridazioa, Erantzuteko gaitasuna eta Trazabilitatea:</p>
 
-            <h3>Herritarren Eragina</h3>
+            <h3>Herritarren eragina</h3>
 
-            <p> Adierazle honek herritarren eragin-maila neurtzen du onartutako proposamenetan eta prozesuaren emaitzetan.</p>
+            <p>Adierazle honek herritarrek onartutako proposamenetan eta prozesuaren emaitzetan duten eragin-maila neurtzen du.</p>
 
             <ul>
             <li>
-            Herritarren Eragina proposamenetan
+            Herritarren eragina proposamenetan
             <ul>
-            <li>Onartutako proposamenen ehunekoa (zk./guztira)</li>
-            <li> Onartutako proposamenen ehunekoa < em>herritarra </em>, herritarren proposamen guztiekiko (herritarrek onartutako proposamenetan duten eragin osoa) < /onartutako proposamenen ehunekoa</li>
-            <li> Onartutako herritarren proposamenen ehunekoa, onartutako proposamenen guztizkoaren aldean (onartutako proposamenarekiko herritarren eragin erlatiboa)</li>
+            <li>Onartutako proposamenen ehunekoa (n/guztira)</li>
+            <li>Onartutako <em>herritarren</em> proposamenen ehunekoa, herritarren proposamen guztiekiko (herritarren eragin osoa onartutako proposamenetan)</li>
+            <li>Onartutako herritarren proposamenen ehunekoa, onartutako proposamen guztiekiko (herritarren eragin erlatiboa onartutako proposamenetan)</li>
             </ul>
             </li>
             <li>
-            Herritarren eragina produktuetan/emaitzetan
+            Herritarren eragina emaitzetan
             <ul>
-            <li> Herritarren proposamenekin lotutako emaitzen ehunekoa, emaitza guztiekiko (herritarren eragina, guztira, produktuetan)</li>
+            <li>Herritarren proposamenei lotutako emaitzen ehunekoa, emaitza guztiekiko (herritarren eragin osoa emaitzetan)</li>
             </ul>
             </li>
             </ul>
 
             <h3>Hibridazioa</h3>
 
-            <p> Adierazle honek lineako eta lineaz kanpoko espazioen arteko konbinazio-maila neurtzen du prozesuan zehar. </p>
+            <p>Adierazle honek prozesuan zehar onlineko eta aurrez aurreko espazioak zenbateraino uztartzen diren neurtzen du.</p>
 
             <ul>
-            <li>Bilera-osagai bat aktibo dago? (Bai=5, Ez=0)</li>
-            <li>Ba al dago aurrez aurreko bilerarik? (Bai=5, Ez=0)</li>
-            <li>Ba al dago online bilerarik? (Bai=5, Ez=0)</li>
-            <li>Ba al dago bilera hibridorik? (Bai=5, Ez=0)</li>
-            <li>Ba al dago bileretatik sorturiko proposamenik? (Bai=5, Ez=0)</li>
+            <li>Topaketen osagaia aktibo dago? (Bai=5, Ez=0)</li>
+            <li>Aurrez aurreko topaketak daude? (Bai=5, Ez=0)</li>
+            <li>Onlineko topaketak daude? (Bai=5, Ez=0)</li>
+            <li>Topaketa hibridoak daude? (Bai=5, Ez=0)</li>
+            <li>Topaketetatik sortutako proposamenak daude? (Bai=5, Ez=0)</li>
             </ul>
 
             <h3>Erantzuteko gaitasuna</h3>
 
-            <p> Adierazle honek erakundeak parte-hartzaileen ekarpenekiko duen erantzun-maila neurtzen du. Haien konpromisoa islatzen du erantzun ofizialen eta hartutako erabakien bidez.</p>
+            <p>Adierazle honek erakundeak parte-hartzaileen ekarpenei erantzuteko duen gaitasun-maila neurtzen du. Erakundearen inplikazioa islatzen du, erantzun ofizialen eta gauzatutako erabakien bidez.</p>
 
             <ul>
-            <li>Erantzuna duten proposamenen ehunekoa (zk./guztira) – Erakundeen erantzun-gaitasuna proposatzea </li>
-            <li>%100 osatutako emaitzen ehunekoa (zk./guztira)</li>
+            <li>Erantzuna duten proposamenen ehunekoa (n/guztira) – Proposamenekiko erantzun instituzionala</li>
+            <li>100%ean osatutako emaitzen ehunekoa (n/guztira)</li>
             </ul>
 
             <h3>Trazabilitatea</h3>
 
-            <p>Adierazle honek prozesu parte-hartzailearen gardentasuna eta trazabilitatea neurtzen ditu. Parte-hartzaileek proposamenen bilakaera zein erraz jarrai dezaketen islatzen du eta ekintza instituzionalak egiaztatzen ditu argitaratutako erregistroen bidez.</p>
+            <p>Adierazle honek partaidetza-prozesuaren gardentasuna eta trazabilitatea neurtzen ditu. Parte-hartzaileek proposamenen bilakaera zer erraztasunez jarrai dezaketen eta argitaratutako erregistroen bidez erakundearen jarduerak egiazta ditzaketen islatzen du.</p>
 
             <ul>
-            <li>Historia duten proposamen kopurua (zk./guztira)</li>
-            <li>Proposamenei lotutako emaitzen ehunekoa (zk./guztira)</li>
-            <li>Minutuak argitaratuta itxitako bileren ehunekoa (zk./guztira)</li>
-            <li> Open data modulua aktibatzea (dikotomikoa: 0 edo 5)</li>
-            <li> Aurrekontuekin zerikusia duten proposamenen ehunekoa (zk./guztira)</li>
+            <li>Historia duten proposamenen kopurua (n/guztira)</li>
+            <li>Proposamenei lotutako emaitzen ehunekoa (n/guztira)</li>
+            <li>Aktak argitaratuta dituzten itxitako topaketen ehunekoa (n/guztira)</li>
+            <li>Datu irekien modulua aktibatzea (dikotomikoa: 0 edo 5)</li>
+            <li>Aurrekontuekin lotutako proposamenen ehunekoa (n/guztira)</li>
             </ul>
 
             <br><br>
-            <h3>Autoebaluaziorako Metrikak</h3>
+            <h3>Autoebaluazioko neurketak</h3>
 
-            <p> Metrika automatikoez gain, <strong>parte</strong> hartze prozesu bakoitzaren dimentsio kualitatiboak ebaluatzeko autoebaluazio modu bat erabiltzea proposatzen dugu. Inprimaki hori plataformaren administratzaileek beteko dute prozesu bakoitzaren amaieran, eta erantzunak jendaurrean erakutsiko dira adierazleen eduki-blokean.</p>
+            <p>Neurketa automatikoez gain, <strong>autoebaluazio-formulario</strong> bat erabiltzea proposatzen dugu, partaidetza-prozesu bakoitzaren dimentsio kualitatiboak ebaluatzeko. Plataformako administratzaileek prozesu bakoitzaren amaieran beteko dute formulario hori, eta erantzunak publikoki bistaratuko dira adierazleen eduki-blokean.</p>
 
-            <p>Galdera horiek kalitate demokratikoko alderdiak atzematea dute helburu, datu kuantitatiboen bidez bakarrik ebaluatu ezin daitezkeenak. Garrantzitsua da azpimarratzea inkesta honen erantzunen partziala plataformaren administratzaileen iritzia dela.</p>
+            <p>Galdera horien helburua datu kuantitatiboen bidez soilik ebaluatu ezin diren kalitate demokratikoaren alderdiak jasotzea da. Garrantzitsua da kontuan hartzea inkesta honetako erantzunak plataformako administratzaileen iritziak baldintzatzen dituela.</p>
 
             <br><br>
             <h3>Autoebaluaziorako galderak</h3>
 
-            <p>Ondoren, administratzaileek erantzun duten autoebaluazioko formularioa osatzen duten galderak azaltzen dira, bai eta erantzun bakoitzari lotutako balioak ere.</p>
+            <p>Jarraian, administratzaileek erantzuten duten autoebaluazio-formularioa osatzen duten galderak eta erantzun bakoitzari lotutako balioak jasotzen dira.</p>
 
-            <h4>Informatzeko gaitasuna</h4>
+            <h4>Informazio-maila</h4>
 
             <ol>
-            <li> Argitaratutako informazioak erabakiak hartzeko mekanismoei buruzko argitasuna ematen al du (adibidez, botoa, adostasuna, zuzeneko negoziazioak)?
+            <li>Argitaratutako informazioak argi azaltzen al ditu erabakiak hartzeko mekanismoak (adibidez, bozketa, adostasuna edo zuzeneko negoziazioak)?
             <ul>
-            <li>Ez oso argi = 0</li>
-            <li>Ez argi = 1</li>
-            <li>Nahiko argi = 2,5</li>
-            <li>Erabat argi = 5</li>
+            <li>Argitasunik ez = 0</li>
+            <li>Argitasun txikia = 1</li>
+            <li>Behar besteko argitasuna = 2,5</li>
+            <li>Erabateko argitasuna = 5</li>
             </ul>
             </li>
-            <li> Eman al da informaziorik parte-hartzaileek eztabaidagai den gaian eragiteko duten gaitasunari buruz (bai prozesuaren komunikazioan, bai deialdietan, bai eztabaida-saio bakoitzaren hasieran)?
+            <li>Informaziorik eman al da parte-hartzaileek eztabaidagai den gaian eragiteko duten gaitasunari buruz (bai prozesuaren komunikazioan eta gonbidapenetan, bai eztabaida-saio bakoitzaren hasieran)?
             <ul>
             <li>Inoiz ez = 0</li>
             <li>Ia inoiz ez = 1</li>
-            <li>Batzuetan = 2,5</li>
+            <li>Normalean = 2,5</li>
             <li>Beti = 5</li>
             </ul>
             </li>
             </ol>
 
-            <h4>Herritarren Eragina</h4>
+            <h4>Herritarren eragina</h4>
 
             <ol>
-            <li>Prozesuan izandako parte-hartze mailaren balorazioa
+            <li>Prozesuko partaidetza-mailaren balorazioa
             <ul>
-            <li> Parte hartzaileek erakundearen informazioa jaso dute. = 1</li>
-            <li> Parte hartzaileei kontsulta egin zaie edo erakundeari feedbacka eman diote. = 2</li>
-            <li> Parte-hartzaileek parte hartu dute erabakitzeko ahalmena partekatzeko. = 3</li>
-            <li>Parte-hartzaileak erabakigarriak izan dira erabakiak hartzeko. = 4</li>
-            <li> Parte hartzaileek parte hartu dute erabakiak hartzen eta baliabideak kudeatzen edo ezartzen. = 5</li>
+            <li>Parte-hartzaileek erakundearen informazioa jaso zuten. = 1</li>
+            <li>Parte-hartzaileei kontsulta egin zitzaien edo erakundeari iritzia eman zioten. = 2</li>
+            <li>Parte-hartzaileek erabakiak hartzeko ahalmena partekatu zuten. = 3</li>
+            <li>Parte-hartzaileek modu erabakigarrian parte hartu zuten erabakiak hartzean. = 4</li>
+            <li>Parte-hartzaileek erabakiak hartzean eta baliabideen kudeaketan edo gauzapenean parte hartu zuten. = 5</li>
             </ul>
             </li>
-            <li> Faseen ehunekoa, 0-5 herritarren esku-hartze erabakitzailearekin.
-            <p> Prozesuaren fase guztietatik kanpo (gaiak hautatzetik exekuzioa gainbegiratzeraino), zenbatek dute erabakiak hartzeko edo ekintza exekutiboa egiteko gaitasuna?</p>
+            <li>Herritarrek erabakietan 0-5 mailako esku-hartzea duten faseen ehunekoa.
+            <p>Prozesuaren fase guztietatik (gaiak hautatzetik gauzapena gainbegiratzera arte), zenbatetan dute herritarrek erabakiak hartzeko edo ekintza exekutiboak gauzatzeko ahalmena?</p>
             <ul>
-            <li>%0-20 = 1</li>
-            <li>%20-40 = 2</li>
-            <li>%40-60 = 3</li>
-            <li>%60-80 = 4</li>
-            <li>%80-100 = 5</li>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
             </ul>
             </li>
             </ol>
 
-            <h4>Informatzeko gaitasuna</h4>
+            <h4>Inklusibitatea</h4>
 
             <ol>
-            <li>Nola ebaluatzen da eragileen eta parte-hartzaileen aniztasun-maila prozesuan erreferentziazko biztanleriari dagokionez?
+            <li>Nola baloratzen da eragileen eta parte-hartzaileen aniztasun-maila, prozesuko erreferentziazko biztanleriarekin alderatuta?
             <ul>
-            <li>Ezertxo ere ez = 0</li>
-            <li>Gutxi = 1</li>
-            <li>Nahiko = 2,5</li>
-            <li>Ondo = 5</li>
+            <li>Batere ez = 0</li>
+            <li>Txikia = 1</li>
+            <li>Nahikoa = 2,5</li>
+            <li>Ona = 5</li>
             </ul>
             </li>
-            <li> Zenbat hizkuntzatan jakinarazi da prozesua?
+            <li>Zenbat hizkuntzatan komunikatu da prozesua?
             <ul>
-            <li>Hizkuntza bat = 1</li>
-            <li>Erkidegoan erabiltzen diren hizkuntzetan baino gutxiagotan = 2,5</li>
-            <li> Erkidegoan erabiltzen diren hizkuntzetan baino gehiagotan = 5</li>
+            <li>Hizkuntza batean = 1</li>
+            <li>Komunitatean hitz egiten diren hizkuntzen erdia baino gutxiagotan = 2,5</li>
+            <li>Komunitatean hitz egiten diren hizkuntzen erdia baino gehiagotan = 5</li>
             </ul>
             </li>
-            <li> Aurrez aurreko bileren egoitzak irisgarriak al ziren mugikortasun urriko pertsonentzat?
-            <ul>
-            <li>Ez = 0</li>
-            <li>Partzialki = 2,5</li>
-            <li>Bai = 5</li>
-            </ul>
-            </li>
-            <li> Parte hartzeko saioak hainbat ordutan antolatu dira (goizez, eguerdiz, arratsaldez, arratsaldez eta asteburuetan).
+            <li>Aurrez aurreko topaketen lekuak irisgarriak izan al ziren mugikortasun urriko pertsonentzat?
             <ul>
             <li>Ez = 0</li>
             <li>Partzialki = 2,5</li>
             <li>Bai = 5</li>
             </ul>
             </li>
-            <li>Laguntza digitala eskaini zaie parte-hartzaileei?
+            <li>Partaidetza-saioak ordutegi desberdinetan programatu dira (goizez, eguerdian, arratsaldez, iluntzean eta asteburuetan).
+            <ul>
+            <li>Ez = 0</li>
+            <li>Partzialki = 2,5</li>
+            <li>Bai = 5</li>
+            </ul>
+            </li>
+            <li>Laguntza digitala eskaini al zaie parte-hartzaileei?
             <ul>
             <li>Ez = 0</li>
             <li>Partzialki = 2,5</li>
