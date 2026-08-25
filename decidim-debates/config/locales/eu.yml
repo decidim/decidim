@@ -51,8 +51,8 @@ eu:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
-            likes_blocked: Likeak blokeatuta
-            likes_enabled: Likeak gaituta
+            likes_blocked: Atsegin dut aukerak blokeatuta
+            likes_enabled: Atsegin dut aukerak gaituta
     debates:
       actions:
         close: Itxi
@@ -250,12 +250,12 @@ eu:
           author: Iruzkin hau egin duen parte-hartzailearen izena
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
-          commentable_type: Komentagarri mota (emaitza izan bada, proposamena, etab.)
+          commentable_type: Iruzkin daitekeen elementuaren mota (emaitza, proposamena eta abar)
           created_at: Zein datatan sortu da iruzkin hau
           depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
-          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          root_commentable_url: Iruzkin honi lotutako baliabidearen URLa
         debates:
           author: Eztabaida honen egilearen data
           closed_at: Zein datatan itxi da eztabaida hau
@@ -270,9 +270,9 @@ eu:
           id: Eztabaidaren identifikatzaile bakarra
           information_updates: Egileak eztabaidari egin dizkion eguneraketak
           instructions: Eztabaida honetan iruzkina egiteko jarraibideak
-          last_comment_at: Zein datatan aipatu zen eztabaida hau azkenekoz?
+          last_comment_at: Eztabaida hau azkenekoz iruzkindu zen data
           last_comment_by: Eztabaidan egindako azken iruzkinaren datuak
-          likes_count: Eztabaida honek duen like kopurua
+          likes_count: Eztabaidak duen Atsegin dut kopurua
           participatory_space: Zein espaziotakoa da eztabaida hau (adibidez, Partaidetza-prozesua edo Batzarra)
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
           start_time: Eztabaida hau hasten denean, eztabaida irekia bada eta denbora mugatua badu
