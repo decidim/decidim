@@ -72,7 +72,7 @@ module Decidim
           end
 
           context "when it is a user" do
-            let!(:user) { create(:user, name: "John Doe", organization: component.organization) }
+            let!(:user) { create(:user, :confirmed, name: "John Doe", organization: component.organization) }
             let(:component) { create(:proposal_component) }
             let!(:proposal) { create(:proposal, component:, users: [user]) }
 

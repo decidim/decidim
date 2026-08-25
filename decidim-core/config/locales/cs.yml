@@ -445,6 +445,10 @@ cs:
       withdraw:
         error: Při stahování pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh byl úspěšně stažen.
+      wizard:
+        steps:
+          '1': Vytvořit svůj pozměňovací návrh
+          '2': Publikovat svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       document:
@@ -689,6 +693,13 @@ cs:
           all: Vše
         filter_taxonomy_values:
           all: Vše
+    delete_user_mailer:
+      delete:
+        body_1: Váš účet byl deaktivován a již není dostupný. Vaše osobní údaje jsou naplánovány na trvalé smazání v souladu s našimi pravidly pro uchovávání údajů.
+        body_2: Z bezpečnostních důvodů budou uchovávány některé údaje týkající se autorizace; pokud vytvoříte nový účet a znovu jej autorizujete, může být propojen s vaším novým účtem.
+        greetings_html: S pozdravem,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Dobrý den %{username},
+      subject: Váš účet byl smazán
     devise:
       omniauth_registrations:
         create:
@@ -972,6 +983,15 @@ cs:
         notification_body: Opravili jsme způsob, jakým jsou přezdívky používány, aby nedocházelo k duplicitám, a proto jsme odstranili pravidlo rozlišení velkých a malých písmen. <br/> Vaše přezdívka byla vytvořena po jiné, se stejným jménem, takže jsme ji automaticky přejmenovali. Můžete to změnit z <a href="%{link_to_account_settings}">vašeho nastavení účtu</a>.
       notification_event:
         notification_title: Objevila se událost na <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Byli jste přidáni jako člen do participačního prostoru.
+            email_subject: Nyní máte přístup k %{resource_title}.
+            notification_title: Nyní máte přístup k <a href="%{resource_url}">%{resource_title}</a>.
+          unpublished:
+            email_intro: Byli jste přidáni jako člen do participačního prostoru.
+            email_outro: Obdrželi jste toto oznámení, protože vás správce přidal do <a href="%{resource_url}">%{resource_title}</a>. Pokud je přístup do tohoto prostoru omezený, budete mít přístup k němu pomocí vašeho účtu.
       reports:
         parent_hidden:
           email_outro: Obdrželi jste toto oznámení, protože jste autorem ovlivněného %{resource_type}.
@@ -1191,6 +1211,8 @@ cs:
       dynamic:
         screen_reader_explanation: Následující prvek je mapa, která prezentuje položky na této stránce jako mapové body. Prvek lze použít s čtečkou obrazovky, ale může být těžko srozumitelný.
         skip_button: Přeskočit mapu
+        zoom_in: Přiblížit
+        zoom_out: Oddálit
       static:
         latlng_text: 'zeměpisná šířka: %{latitude}, zeměpisná délka: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1343,6 +1365,7 @@ cs:
         own_activity: Moje vlastní činnost, jako kdyby někdo komentoval ve svém návrhu nebo mě zmínil
         push_notifications: Push oznámení
         push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
+        push_notifications_unsupported_browser: Váš prohlížeč není podporován.
         receive_notifications_about: Chci dostávat oznámení
         update_notifications_settings: Uložit změny
       update:
@@ -1822,6 +1845,7 @@ cs:
         nickname_help: Vaše přezdívka v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
         submit_button: Uložit
         subtitle: Pokud přijmete pozvánku, nastavte svou přezdívku a heslo.
+        subtitle_no_password: Pokud přijmete pozvánku, nastavte prosím svou přezdívku.
       invitation_removed: Vaše pozvánka byla odstraněna.
       invitation_token_invalid: Předložený token je neplatný!
       new:
@@ -1829,6 +1853,7 @@ cs:
         submit_button: Odeslat pozvánku
       no_invitations_remaining: Žádné zbývající pozvánky
       send_instructions: Pozvánka byla odeslána na %{email}.
+      updated: Pozvánka byla úspěšně přijata. Nyní jste přihlášeni.
       updated_not_active: Pozvánka úspěšně přijata.
     mailer:
       confirmation_instructions:
@@ -2065,7 +2090,6 @@ cs:
   layouts:
     decidim:
       announcements:
-        view_less: Zobrazit méně
         view_more: Více informací
       data_consent:
         details:

@@ -8,7 +8,7 @@ module Decidim
 
     let(:organization) { create(:organization) }
     let(:scope1) { create(:scope, organization:) }
-    let!(:user) { create(:user, nickname: "the_solitary_man", name: "Neil Diamond", organization:) }
+    let!(:user) { create(:user, :confirmed, nickname: "the_solitary_man", name: "Neil Diamond", organization:) }
 
     describe "Indexing of users" do
       context "when implementing Searchable" do
@@ -21,7 +21,7 @@ module Decidim
           end
 
           context "when User has been deleted" do
-            let!(:user) { create(:user, :deleted, name: "Neil Diamond", organization:) }
+            let!(:user) { create(:user, :confirmed, :deleted, name: "Neil Diamond", organization:) }
 
             it "does not inserts a SearchableResource" do
               organization.available_locales.each do |locale|
@@ -33,7 +33,7 @@ module Decidim
           end
 
           context "when User has been blocked" do
-            let!(:user) { create(:user, :blocked, name: "Neil Diamond", organization:) }
+            let!(:user) { create(:user, :confirmed, :blocked, name: "Neil Diamond", organization:) }
 
             it "does not inserts a SearchableResource" do
               organization.available_locales.each do |locale|
@@ -107,7 +107,7 @@ module Decidim
 
     describe "Search" do
       context "when searching by User resource_type" do
-        let!(:user2) { create(:user, nickname: "the_loner", name: "Neil Young", organization:) }
+        let!(:user2) { create(:user, :confirmed, nickname: "the_loner", name: "Neil Young", organization:) }
 
         context "when searching by name" do
           it "returns User results" do
@@ -130,7 +130,7 @@ module Decidim
         end
 
         context "when User has been deleted" do
-          let!(:user2) { create(:user, :deleted, name: "Neil Young", organization:) }
+          let!(:user2) { create(:user, :confirmed, :deleted, name: "Neil Young", organization:) }
 
           it "does not returns User results" do
             expect_searched_user_results("Neil", 1, [user])
@@ -138,7 +138,7 @@ module Decidim
         end
 
         context "when User has been blocked" do
-          let!(:user2) { create(:user, :blocked, name: "Neil Young", organization:) }
+          let!(:user2) { create(:user, :confirmed, :blocked, name: "Neil Young", organization:) }
 
           it "does not returns User results" do
             expect_searched_user_results("Neil", 1, [user])

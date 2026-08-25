@@ -20,9 +20,6 @@ import Configuration from "src/decidim/refactor/implementation/configuration";
 // so tests are not able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");
 
-// Create a dummy foundation jQuery method for the comments component to call
-$.fn.foundation = () => {};
-
 // Create the configuration object to make the configurations available for the tests
 window.Decidim = {}
 window.Decidim.config = new Configuration()
@@ -401,6 +398,12 @@ describe("CommentsComponent", () => {
 
   it("exists", () => {
     expect(CommentsComponent).toBeDefined();
+  });
+
+  it("generates an ID if not defined", () => {
+    const dummyElement = document.createElement("div");
+    const component = new CommentsComponent($(dummyElement), {});
+    expect(component.id).toMatch(/^comments-\d{1,3}-\d+$/);
   });
 
   it("initializes unmounted", () => {

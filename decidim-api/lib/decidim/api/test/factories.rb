@@ -16,6 +16,7 @@ FactoryBot.define do
     organization
     locale { organization.default_locale }
     tos_agreement { "1" }
+    confirmed_at { Time.current }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     admin { true }

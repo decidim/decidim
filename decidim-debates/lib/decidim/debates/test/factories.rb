@@ -41,7 +41,7 @@ FactoryBot.define do
       start_time { nil }
       end_time { nil }
       author do
-        build(:user, organization: component.organization, skip_injection:) if component
+        build(:user, :confirmed, organization: component.organization, skip_injection:) if component
       end
     end
 
@@ -62,7 +62,7 @@ FactoryBot.define do
 
     after(:build) do |debate|
       debate.title = Decidim::ContentProcessor.parse(debate.title, current_organization: debate.organization).rewrite
-      debate.description = Decidim::ContentProcessor.parse_with_processor(:inline_images, debate.description, current_organization: debate.organization).rewrite
+      debate.description = Decidim::ContentProcessor.parse(debate.description, current_organization: debate.organization).rewrite
     end
   end
 

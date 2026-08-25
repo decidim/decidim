@@ -14,9 +14,9 @@ module Decidim
       def call
         component = create_component!
 
-        number_of_records.times do
+        config_value(:elections_count).times do
           election = create_election!(component:)
-          create_questions_for!(election) if ::Faker::Boolean.boolean(true_ratio: 0.3)
+          create_questions_for!(election) if ::Faker::Boolean.boolean(true_ratio: config_value(:elections_create_questions_probability))
           create_voters_for!(election) if election.census_manifest == "token_csv"
         end
       end
@@ -68,7 +68,7 @@ module Decidim
       end
 
       def create_questions_for!(election)
-        number_of_records.times do |position|
+        config_value(:elections_questions_per_election_count).times do |position|
           question = Decidim::Elections::Question.create!(
             election:,
             position:,
@@ -87,7 +87,7 @@ module Decidim
       end
 
       def create_voters_for!(election)
-        number_of_records.times do |i|
+        config_value(:elections_voters_per_election_count).times do |i|
           Decidim::Elections::Voter.create!(
             election:,
             data: {

@@ -75,7 +75,6 @@ eu:
             update: Eguneratu eztabaida
           form:
             add_attachments: Gehitu eranskinak
-            attachment_legend: Gehitu dokumentu bat edo irudi bat
             comments_layout_locked_warning: Iruzkinen formatoa ezin da aldatu iruzkinak argitaratu direlako.
             comments_visualization: Iruzkinak bistaratzea
             comments_warning: Lehen iruzkina argitaratu ondoren, ezin da aldatu aukeratutako bistaratze-aukera.

@@ -31,7 +31,9 @@ module Decidim
       return unless author.is_a?(Decidim::User)
       return unless coauthorable.is_a?(Decidim::Followable)
 
-      Decidim::Follow.find_or_create_by!(followable: coauthorable, user: author)
+      # The author method can return a dummy user record if the author is not visible.
+      mapped_author = Decidim::User.find(decidim_author_id)
+      Decidim::Follow.find_or_create_by!(followable: coauthorable, user: mapped_author)
     end
   end
 end
