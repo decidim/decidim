@@ -34,10 +34,10 @@ eu:
             test_options:
               bar: Bar
               baz: Baz
-              foo: foo
+              foo: Foo
           step:
-            likes_blocked: Likeak blokeatuta
-            likes_enabled: Likeak gaituta
+            likes_blocked: Atsegin dut aukerak blokeatuta
+            likes_enabled: Atsegin dut aukerak gaituta
             readonly_step_attribute: Soilik irakurtzeko atributua
             test_options:
               bar: Bar
@@ -51,7 +51,7 @@ eu:
       badges:
         test:
           conditions:
-            - Erabili probako ingurune bat Decidim-erako.
+            - Erabili proba-ingurune bat Decidim-erako.
           description: Parte-hartzaileek garaikur hau lortzen dute probak sortzeagatik.
           description_another: Parte-hartzaile honek %{score} proba egin ditu.
           description_own: '%{score} proba sortu dituzu.'
