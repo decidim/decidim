@@ -18,7 +18,7 @@ eu:
   decidim:
     admin:
       actions:
-        confirm_unpublish_survey: Ziur zaude inkesta hau despublikatu nahi duzula?
+        confirm_unpublish_survey: Ziur zaude inkesta hau desargitaratu nahi duzula?
         see_survey: Inkesta ikusi
       admin_log:
         changeset:
@@ -113,8 +113,8 @@ eu:
             invalid: Arazo bat egon da inkesta hau argitaratzean.
             success: Inkesta zuzen argitaratua.
           unpublish:
-            invalid: Arazo bat egon da inkesta hau despublikatzean.
-            success: Inkesta zuzen despublikatua.
+            invalid: Arazo bat egon da inkesta hau desargitaratzean.
+            success: Inkesta behar bezala desargitaratu da.
           update:
             invalid: Arazo bat egon da inkesta gordetzean.
             success: Inkesta ondo gorde da.
@@ -141,7 +141,7 @@ eu:
             title: Izenburua
           published:
             published: Argitaratua
-            unpublished: Desargitaratua
+            unpublished: Argitaratu gabea
           status:
             closed: Itxita
             open: Zabaldu
