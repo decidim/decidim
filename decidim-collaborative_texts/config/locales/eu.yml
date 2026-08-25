@@ -71,8 +71,8 @@ eu:
             invalid: Arazo bat egon da dokumentu hau argitaratzean.
             success: Dokumentua zuzen argitaratua.
           unpublish:
-            invalid: Arazo bat egon da dokumentu hau despublikatzean.
-            success: Dokumentua behar bezala despublikatua.
+            invalid: Arazo bat gertatu da dokumentu honen argitalpena kentzean.
+            success: Dokumentuaren argitalpena behar bezala kendu da.
           update:
             invalid: Arazo bat egon da dokumentua eguneratzean.
             success: Dokumentua zuzen eguneratua.
@@ -92,7 +92,7 @@ eu:
           unpublish: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa argitaratzeari utzi dio %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa aldatu du %{space_name} espazioan"
         suggestion:
-          create: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboan aldaketak iradoki ditu %{space_name} partaidetza-espazioan"
+          create: "%{user_name} parte-hatzaileak aldaketak iradoki ditu %{space_name} espazioko %{resource_name} testu kolaboratiboan"
         version:
           delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa ezabatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa aldatu du %{space_name} espazioan"
@@ -131,7 +131,7 @@ eu:
         collaborative_text:
           fields:
             published: Argitaratuta
-            suggestions: Onartu iradokina(k)
+            suggestions: Iradokizunak onartu
             title: Izenburua
       suggestion:
         add_html: <span class="type">Erantsi:</span> <span class="text">%{text}</span>
