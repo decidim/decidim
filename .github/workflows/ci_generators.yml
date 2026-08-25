@@ -88,7 +88,7 @@ jobs:
           sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list.d/*.sources || true
           sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list || true
       - run: |
-          sudo apt-get update && sudo apt-get install libvips libvips-tools
+          sudo apt-get update && sudo apt-get install libvips libvips-tools libheif-plugin-libde265 libheif-plugin-aomdec libheif-plugin-aomenc
         name: Install libvips
         shell: "bash"
       - uses: ruby/setup-ruby@v1
