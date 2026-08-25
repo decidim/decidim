@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob, :versioning do
+describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
   subject { described_class }
 
   describe "queue" do
