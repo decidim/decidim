@@ -57,9 +57,9 @@ eu:
       questions:
         age:
           options:
-          - 15-29 urte bitartekoak
-          - 30-44 urte bitartekoak
-          - 45-64 urte bitartekoak
+          - 15 eta-29 urte bitartekoak
+          - 30 eta 44 urte bitartekoak
+          - 45 eta 64 urte bitartekoak
           - 65 urtekoak edo nagusiagoak
           question: Zein da zure adina?
         gender:
