@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
+describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob, :versioning do
   subject { described_class }
 
   describe "queue" do
@@ -285,7 +285,6 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
     end
 
     context "with traceability logging" do
-      let!(:user) { create(:user, :admin, :confirmed, organization:) }
       let!(:step_one) do
         create(
           :participatory_process_step,
@@ -310,31 +309,11 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
             .to change(Decidim::ActionLog, :count).by(1)
 
           activation_log = Decidim::ActionLog.last
-          expect(activation_log.action).to eq("activate")
+          expect(activation_log.action).to eq("system_activate")
           expect(activation_log.resource_id).to eq(step_two.id)
-          expect(activation_log.user).to eq(user)
-          expect(user.organization).to eq(organization)
+          expect(activation_log.user).to be_nil
+          expect(activation_log.organization).to eq(organization)
           expect(activation_log.extra["details"]["automatic_action"]).to be(true)
-        end
-      end
-
-      context "when no users exist" do
-        let!(:user) { nil }
-
-        it "completes without error" do
-          expect { subject.perform_now }.not_to raise_error
-        end
-
-        it "activates and deactivates steps without traceability" do
-          subject.perform_now
-
-          expect(step_one.reload).not_to be_active
-          expect(step_two.reload).to be_active
-        end
-
-        it "does not create action logs" do
-          expect { subject.perform_now }
-            .not_to change(Decidim::ActionLog, :count)
         end
       end
     end
