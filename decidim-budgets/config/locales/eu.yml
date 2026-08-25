@@ -12,7 +12,7 @@ eu:
           label: Akzio Berdinen Metodoa (%{rule})
         equalshares/add1:
           help: Erabili oinarrizko berdinketak, baina goizegi gelditzen bada, jarraitu hautesle bakoitzaren aurrekontu birtuala unitate batean handitzen (Add 1) eta birkonputatu, beti ere aukeratutako azken proiektuak aurrekontu errealean sartzen badira.
-          label: Partaidetza berdinen metodoa, add1 (%{araua})
+          label: Partaidetza berdinen metodoa, add1 (%{rule})
         equalshares/add1_comparison:
           help: Erabili equalshares/add1, eta, ondoren, aplikatu aurreko konparazio-urrats bera.
           label: Partaidetza berdinen metodoa, add1 konparaketa (%{rule})
