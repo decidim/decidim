@@ -439,7 +439,7 @@ eu:
             title: Beste erregistro mota bat
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: < a href = " %{url}" >%{title} jardunaldira joan izanaren ziurtagiria aurkituko duzu eranskinetan.
+            diploma_html: <a href="%{url}">%{title}</a> jardunaldian parte hartu izanaren ziurtagiria eranskinetan aurkituko duzu.
           diploma_user:
             attendance_verified_by: Bertaratzea nork egiaztatua
             certificate_of_attendance: Parte-hartze ziurtagiria
@@ -610,7 +610,7 @@ eu:
         role_assigned:
           email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> jardunaldian.'
           email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu dizutelako "%{resource_title}" jardunaldian.
-          email_subject: '%{role} rola esleitu zaizu <a href="%{resource_title}"> batzarrean.'
+          email_subject: '%{role} rola esleitu zaizu "%{resource_title}" baliabiderako.'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> batzarrean.'
         upcoming_conference:
           email_intro: '"%{resource_title}" jardunaldia egiten ari da 2 egunetan. Deskribapena bere orrialdetik irakur dezakezu:'
@@ -620,8 +620,8 @@ eu:
     help:
       participatory_spaces:
         conferences:
-          contextual: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita jardunaldi handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Jardunaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
-          page: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita jardunaldi handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Jardunaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
+          contextual: "<p><strong>Jardunaldi</strong> bat programa batean antolatutako topaketen multzoa da; hainbat pertsona hizlari gisa gonbidatzen dira, eta kongresu handietan edo gizarte-ekitaldietan ohikoak diren beste informazio-eremu batzuk ere biltzen ditu (izen-ematea, ekitaldia babesten edo finantzatzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: jardunaldi bat erakunde batentzat eta haren kideentzat ekitaldi esanguratsua izan daiteke; partaidetza-prozesu baten barruan egin daiteke, edo kontsulta baten ondoren.</p>\n"
+          page: "<p><strong>Jardunaldi</strong> bat programa batean antolatutako topaketen multzoa da; hainbat pertsona hizlari gisa gonbidatzen dira, eta kongresu handietan edo gizarte-ekitaldietan ohikoak diren beste informazio-eremu batzuk ere biltzen ditu (izen-ematea, ekitaldia babesten edo finantzatzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: jardunaldi bat erakunde batentzat eta haren kideentzat ekitaldi garrantzitsua izan daiteke; partaidetza-prozesu baten barruan egin daiteke, edo kontsulta baten ondoren.</p>\n"
           title: Zer dira jardunaldiak?
     log:
       value_types:
