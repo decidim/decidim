@@ -319,6 +319,8 @@ describe "Admin manages meetings polls" do
 
       it "keeps the content of blocked questions" do
         expect(page).to have_text("There was a problem updating this meeting poll")
+        # The expand call is needed here as we are also checking questions with no errors.
+        expand_all_questions
 
         expect(page).to have_css("input[value='#{translated_attribute(unpublished_question.body)}']:not([disabled])")
         expect(page).to have_css("input[value='#{translated_attribute(published_question.body)}'][disabled='disabled']")
