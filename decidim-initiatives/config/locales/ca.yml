@@ -414,7 +414,6 @@ ca:
           new: Crea una nova iniciativa
           select: Vull promoure aquesta iniciativa
           select_initiative_type_help_html: "<p>Les iniciatives ciutadanes són un mitjà a través del qual les participants poden sol·licitar que l'organització, dins de les seves competències, adopti mesures en defensa de l'interès general. Quina iniciativa vols engegar?</p>"
-          show_less: Mostra menys
           show_more: Mostra'n més
           subtitle: Quin tipus d'iniciativa vols promoure?
           verification_required: Verifica el teu compte per a impulsar la iniciativa

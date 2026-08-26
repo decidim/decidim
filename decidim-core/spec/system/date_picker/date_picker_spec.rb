@@ -109,7 +109,7 @@ describe "Datepicker" do
         find(".wc-datepicker__previous-month-button").click
       end
     end
-    find("td > span", text: time.day, match: :first).click
+    find("td > span[aria-hidden=true]", text: time.day, match: :first).click
   end
 
   def move_clock(hours:, minutes:)
@@ -212,7 +212,7 @@ describe "Datepicker" do
             it "hides the datepicker calendar" do
               find(".datepicker__calendar-button").click
               yesterday = Date.yesterday.strftime("%-d")
-              find("td > span", text: yesterday, match: :first).click
+              find("td > span[aria-hidden=true]", text: yesterday, match: :first).click
               expect(find_by_id("example_input_date").value).not_to eq("")
               expect(page).to have_css("#example_input_date_datepicker", visible: :hidden)
             end
@@ -233,7 +233,7 @@ describe "Datepicker" do
             find(".datepicker__calendar-button").click
             find("span > input.wc-datepicker__year-select").set("1994")
             find(".wc-datepicker__next-month-button").click
-            find("td > span", text: "20", match: :first).click
+            find("td > span[aria-hidden=true]", text: "20", match: :first).click
             find(".datepicker__calendar-button").click
             element = find("td.wc-datepicker__date--selected")
             expect(element).to have_text("20")
