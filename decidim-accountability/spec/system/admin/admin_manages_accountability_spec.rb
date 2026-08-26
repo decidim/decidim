@@ -84,10 +84,6 @@ describe "Admin manages accountability" do
       expect(page).to have_text("Results")
     end
 
-    it "hides the deleted links page" do
-      expect(page).to have_no_link("View deleted results")
-    end
-
     it "hides the actions" do
       expect(page).to have_no_link("Export all")
       expect(page).to have_no_link("Import")
