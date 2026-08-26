@@ -170,7 +170,6 @@ describe "Admin manages meetings polls" do
 
       click_on "Save"
       expect(page).to have_text("There was a problem updating this meeting poll.")
-      expand_all_questions
 
       within ".questionnaire-question-response-option:first-of-type" do
         expect(page).to have_nested_field("body_en", with: "Something")
@@ -320,7 +319,6 @@ describe "Admin manages meetings polls" do
 
       it "keeps the content of blocked questions" do
         expect(page).to have_text("There was a problem updating this meeting poll")
-        expand_all_questions
 
         expect(page).to have_css("input[value='#{translated_attribute(unpublished_question.body)}']:not([disabled])")
         expect(page).to have_css("input[value='#{translated_attribute(published_question.body)}'][disabled='disabled']")
