@@ -39,8 +39,10 @@ describe "Admin reminds users with pending orders" do
     end
 
     it "sends reminders" do
-      perform_enqueued_jobs { click_on "Send" }
-      expect(page).to have_text("2 users will be reminded")
+      perform_enqueued_jobs do
+        click_on "Send"
+        expect(page).to have_text("2 users will be reminded")
+      end
 
       expect(emails.count).to eq(2)
       emails.each do |email|
@@ -51,11 +53,15 @@ describe "Admin reminds users with pending orders" do
     end
 
     it "does not send reminders twice" do
-      perform_enqueued_jobs { click_on "Send" }
-      expect(page).to have_text("2 users will be reminded")
+      perform_enqueued_jobs do
+        click_on "Send"
+        expect(page).to have_text("2 users will be reminded")
+      end
       click_on "Send voting reminders"
-      perform_enqueued_jobs { click_on "Send" }
-      expect(page).to have_text("0 users will be reminded")
+      perform_enqueued_jobs do
+        click_on "Send"
+        expect(page).to have_text("0 users will be reminded")
+      end
     end
   end
 end
