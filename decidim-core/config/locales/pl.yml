@@ -1513,7 +1513,6 @@ pl:
   layouts:
     decidim:
       announcements:
-        view_less: Pokaż mniej
         view_more: Więcej informacji
       data_consent:
         details:

@@ -1709,6 +1709,8 @@ ca:
       login_modal:
         please_log_in: Si us plau, inicia la sessió
         sign_up: Crea un compte
+      mentions:
+        search_prompt: Escriu aquí per cercar entre les participants
       mentions_modal:
         remove_recipient: Eliminar destinatària %{name}
       progress: Progrés
@@ -2091,7 +2093,6 @@ ca:
   layouts:
     decidim:
       announcements:
-        view_less: Mostra menys
         view_more: Més informació
       data_consent:
         details:

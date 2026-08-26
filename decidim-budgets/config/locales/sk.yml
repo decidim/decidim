@@ -91,6 +91,9 @@ sk:
         models:
           project:
             name: Projekt
+        pabulib_exports:
+          show:
+            title: Exportovať výsledky hlasovania rozpočtu %{budget} vo formáte Pabulib
         projects:
           create:
             invalid: Pri vytváraní tohto projektu sa vyskytol problém.
@@ -207,7 +210,7 @@ sk:
         see_results: Zobraziť výsledky
         show: Zobraziť projekty
         vote: Hlasovať
-        voted_budgets: Odohlasované rozpočty
+        voted_budgets: Odhlasované rozpočty
         voted_on: Hlasovali ste za %{links}.
       creation:
         text: Boli pridané do tohto rozpočtu
@@ -225,7 +228,7 @@ sk:
         project:
           fields:
             map: Mapa
-            taxonomies: Taxónomie
+            taxonomies: Taxonómie
             title: Názov
       order:
         status:
