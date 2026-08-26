@@ -71,4 +71,35 @@ describe "Admin manages accountability" do
     it_behaves_like "manage soft deletable resource", "result"
     it_behaves_like "manage trashed resource", "result"
   end
+
+  describe "when component is trashed" do
+    before do
+      component.destroy!
+      visit current_path
+
+      expect(page).to have_callout("You are currently viewing deleted items. To make any edits or changes, you must first restore them.")
+    end
+
+    it "shows page title" do
+      expect(page).to have_text("Results")
+    end
+
+    it "hides the deleted links page" do
+      expect(page).to have_no_link("View deleted results")
+    end
+
+    it "hides the actions" do
+      expect(page).to have_no_link("Export all")
+      expect(page).to have_no_link("Import")
+      expect(page).to have_no_link("Statuses")
+      expect(page).to have_no_link("Configure")
+      expect(page).to have_no_link("New result")
+    end
+
+    it "displays the result in the trash" do
+      within "table" do
+        expect(page).to have_text(translated(result.title))
+      end
+    end
+  end
 end
