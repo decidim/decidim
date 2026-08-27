@@ -52,6 +52,23 @@ module Decidim
       AssetRouter::Storage.new(representable).url(**options)
     end
 
+    def avif_variant(key)
+      if key && variants[key].present?
+        model.send(mounted_as).variant(avif_variant_options(key)).processed
+      else
+        model.send(mounted_as).variant(format: :avif).processed
+      end
+    rescue ActiveStorage::InvariableError
+      model.send(mounted_as)
+    end
+
+    def avif_url(key, options = {})
+      return unless attached?
+
+      representable = avif_variant(key)
+      AssetRouter::Storage.new(representable).url(**options)
+    end
+
     def path(options = {})
       representable = model.send(mounted_as)
       return super() unless representable.is_a? ActiveStorage::Attached
@@ -61,6 +78,12 @@ module Decidim
 
     def variant_path(key, options = {})
       variant_url(key, **options, only_path: true)
+    end
+
+    def avif_variant_options(key)
+      return unless variants[key]
+
+      variants[key].merge(format: :avif)
     end
 
     def remote_url=(url)

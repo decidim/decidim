@@ -6,6 +6,7 @@ module Decidim
     include Decidim::OrganizationHelper
     include Decidim::ModalHelper
     include Decidim::TooltipHelper
+    include Decidim::ImageHelper
 
     # Public: Generates a set of meta tags that generate the different favicon
     # versions for an organization.

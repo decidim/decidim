@@ -6,7 +6,7 @@ module Decidim
   describe UserPresenter, type: :helper do
     let(:presenter) { described_class.new(user) }
     let(:organization) { create(:organization) }
-    let(:user) { build(:user, :confirmed, organization:) }
+    let(:user) { create(:user, :confirmed, organization:) }
 
     describe "name" do
       subject { presenter.name }
@@ -121,6 +121,26 @@ module Decidim
 
       it { is_expected.to start_with("http://#{user.organization.host}:#{Capybara.server_port}/rails/active_storage/disk/") }
       it { is_expected.to end_with("avatar.jpg") }
+    end
+
+    describe "#avatar_avif_url" do
+      subject { described_class.new(user).avatar_avif_url }
+
+      let(:avatar_path) { File.join(ENV.fetch("ENGINE_ROOT", "."), "spec", "assets", "avatar.jpg") }
+
+      before do
+        user.avatar.attach(
+          io: File.open(avatar_path),
+          filename: "avatar.jpg",
+          content_type: "image/jpeg"
+        )
+      end
+
+      it { is_expected.to start_with("http://#{user.organization.host}:#{Capybara.server_port}/rails/active_storage/disk/") }
+
+      context "when AVIF is supported by libvips" do
+        it { is_expected.to end_with("avatar.avif") }
+      end
     end
 
     describe "#default_avatar_url" do

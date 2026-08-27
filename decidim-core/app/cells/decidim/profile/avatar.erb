@@ -1,5 +1,5 @@
 <div class="profile__avatar-container">
   <div class="profile__avatar">
-    <%= image_tag avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(presented_profile.name)) %>
+    <%= decidim_picture_tag(presented_profile, :avatar, image: { alt: t("decidim.author.avatar", name: decidim_sanitize(presented_profile.name)) }) %>
   </div>
 </div>

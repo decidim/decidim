@@ -38,6 +38,58 @@ module Decidim
       end
     end
 
+    describe "#avif_variant" do
+      subject { test_class.new(model, mounted_as) }
+
+      let(:test_class) do
+        Class.new(described_class) do
+          set_variants do
+            { testing: { resize_to_fit: [200, 100] } }
+          end
+        end
+      end
+
+      context "when the file is attached" do
+        it "returns an ActiveStorage variant" do
+          expect(subject.avif_variant(:testing)).to respond_to(:processed)
+        end
+      end
+
+      context "when the provided file is invariable" do
+        before do
+          allow(ActiveStorage).to receive(:variable_content_types).and_return(%w(image/bmp))
+        end
+
+        it "returns the non-variant" do
+          expect(subject.avif_variant(:testing)).to be(model.official_img_footer)
+        end
+      end
+    end
+
+    describe "#avif_url" do
+      subject { test_class.new(model, mounted_as) }
+
+      let(:test_class) do
+        Class.new(described_class) do
+          set_variants do
+            { testing: { resize_to_fit: [200, 100] } }
+          end
+        end
+      end
+
+      context "when AVIF is supported by libvips" do
+        before do
+          subject.avif_variant(:testing).processed
+        rescue Vips::Error
+          skip "AVIF not supported by libvips"
+        end
+
+        it "returns a URL to the avif variant" do
+          expect(subject.avif_url(:testing)).to match(/\.avif$/)
+        end
+      end
+    end
+
     describe "#variant_url" do
       shared_context "with force_ssl enabled" do
         before do

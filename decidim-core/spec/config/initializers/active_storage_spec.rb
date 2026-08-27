@@ -6,4 +6,8 @@ describe ActiveStorage do
   it "active storage has .webp in content types" do
     expect(Rails.application.config.active_storage[:variable_content_types]).to include("image/webp")
   end
+
+  it "active storage has .avif in content types" do
+    expect(Rails.application.config.active_storage[:variable_content_types]).to include("image/avif")
+  end
 end
