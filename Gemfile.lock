@@ -575,7 +575,7 @@ GEM
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.2)
+    net-protocol (0.3.0)
       timeout
     net-smtp (0.5.1)
       net-protocol
@@ -897,7 +897,7 @@ GEM
     uniform_notifier (1.18.0)
     uri (1.1.1)
     useragent (0.16.11)
-    valid_email2 (7.0.15)
+    valid_email2 (7.1.0)
       activemodel (>= 6.0)
       mail (~> 2.5)
     version_gem (1.1.14)
