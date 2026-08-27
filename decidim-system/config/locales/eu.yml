@@ -27,7 +27,7 @@ eu:
           default: Fitxategi-luzapenak, erantsita
           image: Irudien artxibo-luzapenak
         maximum_file_size:
-          avatar: Abatar-fitxategiaren tamaina
+          avatar: Avatar-fitxategiaren tamaina
           default: Fitxategi-tamaina, lehenetsita
     errors:
       models:
@@ -182,7 +182,7 @@ eu:
         form:
           application_type:
             confidential:
-              explanation: Baimen-zerbitzariarekin modu seguruan autentifika daitezkeen aplikazioak, adibidez erregistratutako bezero-sekretua seguru gorde dezaketenak. Normalean bezero-sekretua gordeta dagoen zerbitzari batean exekutatzen den aplikazio bat da.
+              explanation: Baimen-zerbitzariarekin modu seguruan autentifikatzeko gai diren aplikazioak, adibidez, erregistratutako bezero-sekretua seguru gordetzeko gai direnak. Normalean, bezero-sekretua gordeta dagoen zerbitzari batean exekutatzen den aplikazio bat izaten da.
               name: Konfidentziala
             public:
               explanation: Erregistratutako bezeroen sekretuak erabili ezin dituzten aplikazioak, hala nola nabigatzaile batean edo gailu mugikor batean exekutatzen diren aplikazioak.
@@ -195,11 +195,11 @@ eu:
             profile: Parte-hartzailearen profilaren xehetasunak eskuratzeko aukera ematen du. Irismen hau soilik behar da OAuth aplikazioa identitate-hornitzaile edo autentifikazio-zerbitzu gisa bakarrik erabiltzen bada.
             user: Emandako tokenarekin saioa hasita duen parte-hartzaile gisa jarduteko aukera ematen du GraphQL APIrako deietan. Hau beharrezkoa da api:write eragiketa guztietarako edo uneko parte-hartzaileari buruzko informazioa behar duten api:read eragiketetarako.
           scopes_help_html: |
-            Hautatutako irismenak konektatutako aplikazioek baimen-prozesuan eskatzeko erabilgarri egongo dira. Parte-hartzaileari baimen-eskaeraren xehetasunak erakutsiko zaizkio OAuth erabiliz saioa hasten duenean.
+            Hautatutako eremuak konektatutako aplikazioek baimen-prozesuan eskatzeko erabilgarri egongo dira. Parte-hartzaileari baimen-eskaerari buruzko xehetasunak erakutsiko zaizkio OAuth erabiliz saioa hasten duenean.
             <br>
-            Irismen desberdinek funtzio desberdinak eskaintzen dizkiote autentifikatutako parte-hartzaileari emandako sarbide-tokenak erabiliz.
+            Eremu desberdinek funtzio desberdinak eskaintzen dizkiote autentifikatutako parte-hartzaileari, emandako sarbide-tokenak erabiliz.
             <br>
-            <strong>Oharra:</strong> Parte-hartzaileak kanpoko aplikazioetan autentifikatu besterik ez badituzu behar, <strong>profile</strong> irismena baino ez duzu behar. Decidim APIarekin elkarreragiten duten aplikazioek beste irismen batzuk ere behar dituzte.
+            <strong>Oharra:</strong> Zure kanpoko aplikazioetan parte-hartzaileak autentifikatu besterik ez baduzu behar, <strong>profile</strong> eremua baino ez duzu behar. Decidim APIarekin elkarreragiten duten aplikazioek beste eremu batzuk ere behar dituzte.
           select_organization: Aukeratu antolatzaile bat
         index:
           confirm_delete: Ziur zaude aplikazio hau ezabatu nahi duzula?
@@ -282,7 +282,7 @@ eu:
             image_hint: Fitxategi-luzapen hauek baimenduta daude edozein motatako irudi-igoeratarako.
             title: Baimendutako fitxategi-luzapenak
           file_sizes:
-            avatar_hint: Megabytes (MB). This file size limit is used for the avatar image uploads.
+            avatar_hint: Megabyteak (MB). Fitxategi-tamainaren muga hau avatar-irudiak igotzeko erabiltzen da.
             default_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori fitxategien igoera guztietarako erabiltzen den lehenetsia da, kontrakoa zehaztu ezean.
             title: Gehieneko fitxategi tamaina
           intro: |
