@@ -198,10 +198,6 @@ module Decidim
           t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
         end
       end
-
-      def decidim_verifications
-        Decidim::Verifications::Engine.routes.url_helpers
-      end
     end
   end
 end
