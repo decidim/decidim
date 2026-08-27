@@ -26,7 +26,7 @@ eu:
         longitude: Longitudea
         scope_id: Eremua
         state: Egoera
-        title: Izena
+        title: Izenburua
       proposal_answer:
         answer: Erantzuna
         cost: Kostua
@@ -108,7 +108,7 @@ eu:
         one: Oharra
         other: Oharrak
       decidim/proposals/proposal_vote:
-        one: Babesa
+        one: Babes bat
         other: Babesak
   decidim:
     admin:
@@ -144,7 +144,7 @@ eu:
               state_not_published: Erantzun gabe
               state_published: Erantzun da
       tooltips:
-        cannot_edit_proposal_info: Ezin da editatu proposamen hau parte-hartzaile batek sortua bezala edo botorik jaso badu
+        cannot_edit_proposal_info: Ezin da proposamen hau editatu, parte-hartzaile batek sortu duelako edo babesik jaso duelako
         deleted_proposal_states_info: Ezin da ezabatu proposamen-egoera hau, proposamen batzuk esleitu baitzaizkio
         deleted_proposals_info: Ezin da ezabatu proposamen hau
     application:
@@ -157,8 +157,8 @@ eu:
           comment: Iruzkindu
           create: Proposamena sortu
           like: Atsegin dut
-          vote: Eman babesa
-          vote_comment: Bozkatu iruzkina
+          vote: Babesa eman
+          vote_comment: Iruzkinari babesa eman
           withdraw: Kendu
         name: Proposamenak
         settings:
@@ -169,14 +169,14 @@ eu:
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
             attachments_allowed_help: Aukera hau gaitzean, besterik adierazi ezean, proposamenak lauki moduan agertuko dira eta lehen irudia txartelan agertuko da.
-            can_accumulate_votes_beyond_threshold: Babesak metatu ditzake atalasetik haratago
+            can_accumulate_votes_beyond_threshold: Babesak atalasetik harago metatu daitezke
             clear_all: Garbitu dena
             collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
-            collaborative_drafts_enabled_help: Zirriborro kolaboratiboen funtzioa Decidim-en v0.32 bertsioan kenduko da. Erabiltzen duten erakundeek proposamenen egilekidetzako funtzio berria erabil dezakete.
+            collaborative_drafts_enabled_help: Zirriborro kolaboratiboen funtzioa Decidim v0.32 bertsioan kenduko da. Erabiltzen duten erakundeek proposamenen egilekidetzaren funtzio berria erabil dezakete.
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             default_sort_order: Proposamenen hurrenkera lehenetsia
-            default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
+            default_sort_order_help: Automatikoak esan nahi du babesak gaituta badaude proposamenak ausaz ordenatuta erakutsiko direla, eta babesak blokeatuta badaude, babes gehien jaso dutenen arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
@@ -186,7 +186,7 @@ eu:
               random: Ausazko ordena
               recent: Berrienetatik zaharrenetara
               with_more_authors: Egile gehien dituztenak
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             edit_time: Egileek proposamenak edita ditzakete denbora tarte honen barruan
             edit_time_units:
               days: Egunak
@@ -235,15 +235,15 @@ eu:
             answers_with_costs: Proposamenei erantzunetan kostua gaitu
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek proposamenak sor ditzakete
-            creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
+            creation_enabled_readonly: Ezarpen hau desgaitu egiten da Partaidetza-testuak funtzionalitatea aktibatzen duzunean. Proposamenak partaidetza-testu gisa igotzeko, egin klik Partaidetza-testuak botoian eta jarraitu argibideei.
             default_sort_order: Proposamenen lehenetsitako hurrenkera
-            default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
+            default_sort_order_help: Automatikoa izateak esan nahi du babesak gaituta badaude proposamenak ausaz ordenatuta erakutsiko direla, eta babesak blokeatuta badaude, babes gehien jaso dutenen arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
               most_liked: Atsegin gehien
-              most_voted: Botu gehien dituztenak
+              most_voted: Babes gehien dituztenak
               random: Ausazko ordena
               recent: Berrienetatik zaharrenetara
               with_more_authors: Egile gehiago dituztenak
@@ -252,9 +252,9 @@ eu:
             proposal_answering_enabled: Proposamenei erantzuna gaituta
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             publish_answers_immediately_help_html: 'Kontuz, proposamenen bati hau gaitu gabe erantzuten badiozu, aukeratu eta argitaratzeko ekintza erabiliz argitaratu beharko dituzula. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
-            votes_blocked: Botoak blokeatuta
-            votes_enabled: Botoak gaituta
-            votes_hidden: Boto ezkutuak (babesak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
+            votes_blocked: Babesak blokeatuta
+            votes_enabled: Babesak gaituta
+            votes_hidden: Babesak ezkutatuta (babesak gaituta badaude, hau markatzean babes kopurua ezkutatuko da)
     download_your_data:
       show:
         proposal_comments: Esportatu proposamenen iruzkinak
@@ -332,10 +332,10 @@ eu:
           email_subject: 'Proposamenak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: Orain <a href="%{resource_path}">proposamen berriak</a> aurkez ditzakezu <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan.
         liking_enabled:
-          email_intro: 'Proposamenak atsegin ditzakezu hemen: %{participatory_space_title} Hasi orri honetan parte hartzen:'
+          email_intro: '%{participatory_space_title} partaidetza-espazioan proposamenei Atsegin dut eman diezaiekezu! Hasi parte hartzen orri honetan:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: 'Proposamenak atxikitzen hasi dira hemen: %{participatory_space_title}'
-          notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+          notification_title: Orain <a href="%{resource_path}">proposamenei Atsegin dut ematen</a> has zaitezke <a href="%{participatory_space_url}">%{participatory_space_title}</a> partaidetza-espazioan.
         proposal_mentioned:
           email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilea zarelako.
@@ -382,10 +382,10 @@ eu:
         rejected_coauthorship:
           notification_title: Baztertu duzu <a href="%{author_path}">%{author_name}</a> parte-hartzailearen gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         voting_enabled:
-          email_intro: 'Proposamenak bozkatu ditzakezu hemen: %{participatory_space_title} Hasi orri honetan parte hartzen:'
+          email_intro: 'Proposamenei babesa eman diezaiekezu %{participatory_space_title} partaidetza-espazioan! Hasi parte hartzen orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Aurreko esteka erabilita jakinarazpenak jasotzeari utz diezaiokezu.
-          email_subject: 'Proposamenak bozkatzen hasi dira hemen: %{participatory_space_title}'
-          notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
+          email_subject: '%{participatory_space_title} partaidetza-espazioan proposamenei babesa emateko epea hasi da'
+          notification_title: Orain <a href="%{resource_path}">proposamenei babesa ematen</a> has zaitezke <a href="%{participatory_space_url}">%{participatory_space_title}</a> partaidetza-espazioan
     gamification:
       badges:
         accepted_proposals:
@@ -402,14 +402,14 @@ eu:
         proposal_votes:
           conditions:
             - Nabigatu eta irakurri besteen proposamenak
-            - Eman botoa gustuko dituzun edo interesgarriak iruditzen zaizkizun proposamenei
+            - Babesa eman gustuko dituzun edo interesgarriak iruditzen zaizkizun proposamenei
           description: Garaikur hau beste pertsona batzuen proposamenei babesa ematen diezunean lortzen duzu.
-          description_another: Parte-hartzaile honek %{score} proposamen bozkatu ditu.
-          description_own: '%{score} proposamen bozkatu dituzu.'
-          name: Proposamenetarako botoak
-          next_level_in: Bozkatu %{score} proposamen gehiago hurrengo mailara iristeko!
-          unearned_another: Parte-hartzaile honek oraindik ez du proposamenik bozkatu.
-          unearned_own: Oraindik ez duzu proposamenik bozkatu.
+          description_another: Parte-hartzaile honek %{score} proposameni babesa eman die.
+          description_own: Babesa eman diezu %{score} proposameni.
+          name: Proposamenaren babesak
+          next_level_in: Babesa eman beste %{score} proposameni hurrengo mailara iristeko!
+          unearned_another: Parte-hartzaile honek oraindik ez dio proposamen bati ere babesik eman.
+          unearned_own: Oraindik ez diozu proposamen bati ere babesik eman.
         proposals:
           conditions:
             - Aukeratu proposamenak aurkeztea gaituta duen intereseko partaidetza-espazioa
@@ -428,7 +428,7 @@ eu:
           author: Iruzkin hau egin duen parte-hartzailearen izena
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
-          commentable_type: Iruzkingarri mota (emaitza bat, proposamen bat, etab. izan bazen)
+          commentable_type: Iruzkin daitekeen elementuaren mota (emaitza, proposamena eta abar)
           created_at: Zein datatan sortu zen iruzkin hau
           depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
@@ -455,7 +455,7 @@ eu:
           latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
           likes: Proposamen honek dituen atseginen kopurua ("Atsegin dut")
           longitude: Proposamenaren luzera, baldin eta kokagune fisikoa badu
-          meeting_urls: Proposamen hau aurkeztu edo eztabaidatu den topaketen URLak
+          meeting_urls: Proposamen hau aurkeztu edo eztabaidatu zen topaketen URLak
           original_proposal: Hasierako proposamenaren erreferentzia, zuzenketa bat bada
           participatory_space: Zein espaziotakoa den proposamen hau (adibidez, Partaidetza-prozesua edo Batzarra)
           published_at: Zein datatan argitaratu zen proposamen hau
@@ -481,7 +481,7 @@ eu:
         delete_proposal_state_confirm: Ziur zaude egoera hau ezabatu nahi duzula?
         destroy: Ezabatu egoera
         edit_proposal: Proposamena editatu
-        edit_proposal_state: Egoera editaru
+        edit_proposal_state: Egoera editatu
         import: Inportatu proposamenak beste osagai batetik
         mark_as_coauthor: Markatu egilekide gisa
         mark_as_coauthor_confirm: Ziur zaude parte-hartzaile hau egilekide gisa markatu nahi duzula? Parte-hartzaileak jakinarazpena jasoko du gonbidapena onartzeko edo baztertzeko.
@@ -501,8 +501,8 @@ eu:
             invalid: Arazo bat izan da proposamenak ebaluatzaile bati esleitzean.
             success: Proposamenak zuzen esleituta ebaluatzaileari.
           delete:
-            invalid: Arazo bat izan da ebaluatzaile bati proposamenak desesleitzean.
-            success: Ebaluatzailea behar bezala desesleitu da proposamenetatik.
+            invalid: Arazo bat gertatu da proposamenak ebaluatzaileari esleitzeari uztean.
+            success: Ebaluatzailea proposamenetatik behar bezala desesleitu da.
         exports:
           proposal_comments: Iruzkinak
           proposals: Proposamenak
@@ -678,7 +678,7 @@ eu:
             ranking: "%{total} tik %{ranking}"
             related_meetings: Erlazionatutako topaketak
             remove_assignment: Desegin esleipena
-            remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
+            remove_assignment_confirmation: Ziur zaude ebaluatzailea proposamen honetatik kendu nahi duzula?
             title: Erantzun proposamenari
             votes_count: Babes kopurua
           update_taxonomies:
@@ -715,7 +715,7 @@ eu:
           delete: "%{user_name} parte-hartzaileak ebaluatzaile bat desesleitu du %{proposal_title} proposamenetik"
         proposal:
           answer: "%{user_name} parte-hartzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
-          create: "%{user_name} parte-hartzaileak sortu zuen %{resource_name} proposamena %{space_name} esparruko %{merged_count} proposamenen bat egitetik"
+          create: "%{user_name} parte-hartzaileak sortu zuen %{resource_name} proposamena %{space_name} eremuko %{merged_count} proposamenen bat egitetik"
           publish_answer: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
           restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} osagaia %{space_name} espazioan"
           soft_delete: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
@@ -726,7 +726,7 @@ eu:
         accepted: Onartuta
         evaluating: Ebaluatzen
         not_answered: Erantzun gabe
-        rejected: Bazteruta
+        rejected: Baztertuta
         withdrawn: Kendu
       application_helper:
         filter_origin_values:
@@ -758,7 +758,7 @@ eu:
       exit_modal:
         cancel: Ezeztatu
         exit: Jarraitu
-        message: Proposamen ezberdinen artean %{number} babes gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.
+        message: Zure babesak kontuan hartzeko, beste %{number} babesa eman behar dituzu proposamen desberdinei.
         title: Gogoratu babesen %{number} geratzen zaizula
       forms:
         errors:
@@ -795,7 +795,7 @@ eu:
             published_at: Argitaratze-data
             state: Egoera
             taxonomies: Taxonomiak
-            title: Titulua
+            title: Izenburua
             votes: Babesak
         proposal_state:
           css_class: CSS klasea
@@ -809,10 +809,10 @@ eu:
           comment: Iruzkina
       proposal_votes:
         create:
-          error: Arazo bat egon da proposamena bozkatzean.
+          error: Arazo bat gertatu da proposamenari babesa ematean.
       proposals:
         dynamic_map_instructions:
-          description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Hala ere, helbidea ez da aldatzen.
+          description: Koordenatuak eguneratuko dira 'aurrebista' botoian klik egitean. Hala ere, helbidea ez da aldatuko.
           instructions: Kokapena mugitu ahal duzu mapan.
         edit:
           add_attachments: Gehitu eranskinak
@@ -834,12 +834,12 @@ eu:
           my_proposals: Nire proposamenak
           origin: Jatorria
           related_to: Honekin lotuta
-          scope: Esparrua
+          scope: Eremua
           search: Bilatu
           state: Egoera
           taxonomy_filters: Iragazkiak
           type: Mota
-          voted: Bozkatuta
+          voted: Babestua
         index:
           click_here: Ikusi proposamen guztiak
           count:
@@ -895,21 +895,21 @@ eu:
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
-          withdraw_btn_hint: Zure proposamena atzera babes eman dezakezu iritziz aldatzen baduzu, botorik jaso ez baduzu. Proposamena ez da ezabatzen, baztertutako proposamenen zerrendan agertuko da.
+          withdraw_btn_hint: Zure proposamena atzera babesa eman dezakezu iritziz aldatzen baduzu, botorik jaso ez baduzu. Proposamena ez da ezabatzen, baztertutako proposamenen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
           withdraw_proposal: Kendu
         update:
           title: Eguneratu proposamena
         vote_button:
-          already_voted: Botoa emanda
+          already_voted: Babesa emanda
           already_voted_hover: Kendu babesa
           maximum_votes_reached: Babesen muga lortua
-          no_votes_remaining: Ez da gelditzen babesik
+          no_votes_remaining: Ez da babesik gelditzen
           vote: Babesa eman
           votes_blocked: Eman botoa
         votes_count:
           count:
-            one: Babesa
+            one: Babes bat
             other: Babesak
         voting_rules:
           already_vote:
@@ -957,7 +957,7 @@ eu:
           title: Bertsioak
       withdraw:
         errors:
-          has_votes: Proposamen hau ezin da kendu dagoeneko botoak dituelako.
+          has_votes: Proposamen hau ezin da kendu dagoeneko babesak dituelako.
     resource_links:
       copied_from_component:
         proposal_proposal: Lotutako proposamenak
@@ -970,6 +970,6 @@ eu:
       participatory_space_proposals_count: Proposamenak
       proposals_accepted: Onartutako proposamenak
       proposals_count: Proposamenak
-      proposals_count_tooltip: Aurkeztutako proposamenen eta emandako botoen kopurua, guztira.
-      votes: 'Botoak:'
+      proposals_count_tooltip: Aurkeztutako proposamenen eta emandako babesen kopurua, guztira.
+      votes: 'Babesak:'
       votes_count: Babesak
