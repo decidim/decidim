@@ -17,16 +17,16 @@ eu:
           help: Erabili equalshares/add1, eta, ondoren, aplikatu aurreko konparazio-urrats bera.
           label: Partaidetza berdinen metodoa, add1 konparaketa (%{rule})
         equalshares_comparison:
-          help: 'Oinarrizko berdinketak erabili, eta gero beste urrats bat gehitu: bere emaitza erreferentziako diruzale batekin alderatu, eta boto-emaile gehiagok emaitza diruzalea nahiago badute bakarrik aldatu.'
+          help: 'Oinarrizko berdinketak erabili, eta gero beste urrats bat gehitu: bere emaitza erreferentziako diruzale batekin alderatu, eta babesle gehiagok emaitza diruzalea nahiago badute bakarrik aldatu.'
           label: Akzio berdinen metodoa, (%{rule}) konparazioa 
         greedy:
-          help: Knapsack-estiloaren hurbilketa estandarraren ikuspegia. Proiektuak boto zenbaketaren arabera ordenatzen dira (beheranzkoa). Algoritmoak zerrendaren bidez iteratzen du, geratzen den aurrekontuan sartzen diren proiektuak aukeratuz. Proiektu bat garestiegia bada gaur egun geratzen diren funtsetarako, alboratu egiten da, eta algoritmoak hurrengo proiektura jarraitzen du, egokitzen den ikusteko.
+          help: Knapsack estiloko hurbilketa estandarra. Proiektuak babes kopuruaren arabera ordenatzen dira (handienetik txikienera). Algoritmoak zerrenda zeharkatzen du, geratzen den aurrekontuan sartzen diren proiektuak hautatuz. Proiektu bat une horretan geratzen diren funtsentzat garestiegia bada, saltatu egiten da, eta algoritmoak hurrengo proiektuarekin jarraitzen du, ea aurrekontuan sartzen den ikusteko.
           label: Algoritmo jatuna  (%{rule})
         greedy_custom:
           help: Algoritmo estandarrak betetzen ez dituen kasu berezietan erabiltzen da, hala nola eskuzko erregogor-lokazioak edo erregal-arau osagarriak.
           label: Algoritmo jatuna, pertonalizatua  (%{rule})
         greedy_exclusive:
-          help: Gatazkan dauden proiektu-taldeak kudeatzen ditu. Diruzalekeria estandar gisa funtzionatzen du, baina proiektu 'irabazle' ugari gatazkan sartzen badira (adibidez, eremu edo kategoria esklusibo berean badaude), hierarkia-arau bat aplikatzen da (adibidez, barruti mailako proiektuek lehentasuna izan lezakete hiri osokoen aurrean, edo alderantziz) boto-zenbaketan soilik oinarritu beharrean.
+          help: Proiektu-talde gatazkatsuak kudeatzen ditu. Greedy metodo estandarraren antzera funtzionatzen du, baina hainbat proiektu 'irabazle' elkarren artean gatazkan badaude (adibidez, eremu edo kategoria esklusibo berean badaude), hierarkia-arau bat aplikatzen da (adibidez, barruti-mailako proiektuek hiri osoko proiektuen aurrean lehentasuna izan dezakete, edo alderantziz), babes kopuruan soilik oinarritu beharrean.
           label: Algoritmo jatuna, pertonalizatua (%{rule})
         greedy_no_skip:
           help: Proiektuak boto zenbaketaren arabera ordenatzen dira (beheranzkoa). Algoritmoak geratzen den aurrekontuan sartzen diren proiektuak aukeratzen ditu baina berehala gelditzen da sartzen ez den lehenengo proiektuan. Ez da ondorengo proiekturik kontuan hartzen, egokituko balira ere.
@@ -127,7 +127,7 @@ eu:
         pabulib_exports:
           create:
             invalid: Mesedez, zuzendu formularioko akatsak.
-            no_votes: Oraindik ez dago botorik esportatzeko.
+            no_votes: Oraindik ez dago esportatzeko babesik.
           show:
             create: Esportazioa
             explanation_html: |
@@ -145,10 +145,10 @@ eu:
                 help: 'Puntuazio-boto motaren puntuazio lehenetsia (lehenetsia:  %{default_value}).'
                 label: Lehenetsitako putuazioa (%{field})
               description:
-                help: Bozketaren deskribapena, bozkatutakoa azalduz.
+                help: Babes-prozesuaren deskribapena, zeri eman zaion babesa azaltzen duena.
                 label: Deskribapena (%{field})
               district:
-                help: Bozkatzeko barrutia bozketaren barruan. Adibidez, auzoak azpiunitate gisa erabiltzen badituzu, barrutien mapa egin dezakezu eremu hau erabiliz.
+                help: Babes emateko barrutia bozketaren barruan. Adibidez, auzoak azpiunitate gisa erabiltzen badituzu, barrutien mapa egin dezakezu eremu hau erabiliz.
                 label: Barrutia (%{field})
               instance:
                 help: Bozketaren instantzia, adibidez, urtero errepikatzen diren bozketen kasuan, bozketaren urtea izango litzateke.
@@ -158,7 +158,7 @@ eu:
                 label: Gehienezko luzera (%{field})
               max_points:
                 help: 'Hautatutako proiektuei esleitutako puntu maximoak (lehenetsia: %{default_value}).'
-                help_default_value: 'max_sum_points-en boto-motaren balio metaturako, boto-motaren puntuaziorako:'
+                help_default_value: babes metagarriko motarako max_sum_points balioa, puntuazio bidezko babes motarako ∞
                 label: Puntu maximoak (%{field})
               max_sum_cost:
                 help: 'Proiektu baten kostuaren gehienezko batura (lehenetsia: %{default_value}).'
@@ -179,24 +179,23 @@ eu:
                 help: 'Proiektu baten kostuaren gehienezko batura (lehenetsia: %{default_value}).'
                 label: Baturaren gehieneko kostua (%{field})
               rule:
-                help: Botoen arabera proiektu irabazleak hautatzeko erabiltzen den algoritmoa.
+                help: Babesen arabera proiektu irabazleak hautatzeko erabiltzen den algoritmoa.
                 label: Erregela (%{field})
               scoring_fn:
                 help: 'Tipo ordinalaren bozketarako puntuazio-funtzioa (lehenetsia: %{default_value}).'
                 label: Puntuazio-funtzioa (%{field})
               subunit:
-                help: Bozketaren barruko bozka azpiunitatea, adibidez, hiri edo udalerri barruko eremu bat.
+                help: Babes-ematearen barruko azpiunitatea, adibidez, hiriaren edo udalerriaren barruko eremu bat.
                 label: Azpiunitatea (%{field})
               unit:
                 help: The voting unit within the voting, for example, the city or municipality name.
                 label: Unitatea (%{field})
               vote_type:
-                help: Nola ebaluatzen dira bozketaren emaitzak (ikusi dokumentazioa informazio gehiagorako).
-                label: Boto mota (%{field})
+                help: Nola ebaluatzen dira babes-prozesuaren emaitzak (ikusi dokumentazioa informazio gehiago lortzeko).
+                label: Babes mota (%{field})
             format_info_html: Xehetasun horiei buruz gehiago jakiteko, jo %{link} dokumentaziora.
             large_dataset_warning_html: |
-              <p>Zure datu-multzoak %{amount} boto ditu, eta, beraz, oso handia da erabiltzaile-interfaze honen bidez esportatzeko.</p>
-              <p>Mesedez, kontuan izan datu-multzoa esportatu behar duzula kontsolatik komando honekin: <code>%{command}</code></p>
+              <p>Zure datu-multzoak %{amount} babes ditu eta, beraz, handiegia da parte-hartzailearen interfaze honen bidez esportatzeko.</p> <p>Kontuan hartu zure datu-multzoa kontsolatik esportatzeko aukera, komando hau erabiliz: <code>%{command}</code></p>
             title: Esportatu bozketaren emaitzak %{budget} (r) entzat Pabulib formatura
         projects:
           create:
@@ -288,7 +287,7 @@ eu:
       budgets_list:
         budgets: Aurrekontuak
         cancel_order:
-          more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
+          more_than_one: ezabatu %{name} aukerari emandako babesa eta hasi berriro
           only_one: ezabatu zure babesa eta hasi berriro.
         completed: Amaituta
         count:
@@ -329,26 +328,26 @@ eu:
           fields:
             map: Mapa
             taxonomies: Taxonomiak
-            title: Titulua
+            title: Izenburua
       order:
         status:
-          continue_voting: Jarraitu bozkatzen
+          continue_voting: Babesa ematen jarraitu
           download_vote: Deskargatu zure hautaketa
           pending_to_vote_budgets:
-            one: Beste aurrekontu batean bozkatu dezakezu
+            one: Beste aurrekontu batean eman dezakezu babesa
             other: Beste aurrekontu batzuetan bozkatu dezakezu
-          share_text: "Botoa eman diet nire proiekturik gogokoenei hemen %{space_name}! 🎉 Eman botoa orain: %{component_url}"
+          share_text: "Nire proiektu gogokoenei babesa eman berri diet %{space_name} partaidetza-espazioan! 🎉 Eman babesa orain: %{component_url}"
           share_vote: Partekatu zure hautaketa
-          title: Zure botua zuzen onartu da
+          title: Zure babesa zuzen onartu da
           view_votes:
-            one: Ikusi babesa
-            other: Ikusi botoak
+            one: Babesa ikusi
+            other: Babesak ikusi
           votes_count:
-            one: 'Zure babesa honentzat: %{budget_name} erregistratu da.'
-            other: 'Zure %{count} botoak honentzat: %{budget_name} erregistratu dira.'
+            one: Zure %{count} babesak dagoeneko erregistratu dira %{budget_name} aurrekontuan.
+            other: Zure %{count} babesak dagoeneko erregistratu dira %{budget_name} aurrekontuan.
       order_pdf:
-        text: Botoa eman duzu hemen %{space_name}, honako proiektu hauetan
-        title: Zure botua zuzen onartu da.
+        text: Babesa eman duzu %{space_name} partaidetza-espazioan, honako proiektu hauei
+        title: Zure babesa zuzen onartu da.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
@@ -364,19 +363,19 @@ eu:
           title: Baieztatu babesa
         budget_excess:
           budget_excess:
-            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu, zure lehenespenen arabera emateko botoa.
+            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu, zure hobespenen arabera babesa emateko.
             title: Gehieneko aurrekontua gainditu egin da
-          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu, zure lehenespenen arabera emateko babesa.
+          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu, zure hobespenen arabera babesa emateko.
           ok: Ados
           projects_excess:
-            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu, zure lehenespenen arabera emateko babesa.
+            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu, zure hobespenen arabera babesa emateko.
             title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure babesa ezeztatu nahi duzula?
-          cancel_order: Ezabatu ezazu botoa
+          cancel_order: Ezabatu ezazu zure babesa
           checked_out:
             description: Jada babesa eman duzu aurrekonturako. Iritzia aldatu baduzu, ezabatu ahal duzu zure babesa.
-            title: Aurrekontuen bozketa amaituta
+            title: Aurrekontuko babes ematea osatu da
           vote: Aurrekontuari babesa eman
         count:
           projects_count:
@@ -384,10 +383,10 @@ eu:
             other: "%{count} proiektu"
         empty: Oraindik ez dago proiekturik
         exit_modal:
-          cancel: Itzuli bozketara
+          cancel: Berriro babesa eman
           exit: Irten bozketatik
           message: Zure babesa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
-          title: Oraindik ez duzu bozkatu
+          title: Oraindik ez duzu babesik eman
         filters:
           search: Bilatu
           status: Egoera
@@ -402,18 +401,18 @@ eu:
             minimum_reached: Gutxieneko babesak lortu dituzu
           minimum: Gutxienekoa
           minimum_projects_rule:
-            description: "<b>Hautatu gutxienez %{minimum_number} proiektu</b> eta bozkatu zure lehentasunen arabera."
+            description: "<b>Aukeratu nahi dituzun gutxienez %{minimum_number} proiektu</b> eta eman babesa zure hobespenen arabera."
           projects_rule:
-            description: "<b>Hautatu gutxienez %{maximum_number} eta %{minimum_number} %{maximum_number}</b> nahi dituzun proiektuak, eta eman botoa zure lehentasunen arabera."
+            description: "<b>Aukeratu nahi dituzun gutxienez %{minimum_number} eta gehienez %{maximum_number} proiektu</b> eta eman babesa zure hobespenen arabera."
           projects_rule_maximum_only:
-            description: "<b>Hautatu nahi dituzun proiektuen %{maximum_number} </b> arte, eta bozkatu zure lehentasunen arabera."
+            description: "<b>Aukeratu nahi dituzun gehienez %{maximum_number} proiektu</b> eta eman babesa zure hobespenen arabera."
           vote_threshold_percent_rule:
-            description: "<b>Banatu gutxienez %{minimum_budget}</b> nahi dituzun proiektuei, eta eman botoa zure lehentasunen arabera."
+            description: "<b>Esleitu gutxienez %{minimum_budget}</b> nahi dituzun proiektuei eta eman babesa zure hobespenen arabera."
         orders:
           highest_cost: Kostu handiena
           label: Antolatu proiektuak honen arabera
           lowest_cost: Kostu txikiena
-          most_voted: Bozkatuenak
+          most_voted: Babes gehien dituztenak
           random: Ausazko ordena
           selected: Hautatua
         project:
@@ -436,23 +435,23 @@ eu:
         select_projects: Gehitu proiektuak
         show:
           budget: Aurrekontua
-          votes: Botoak
+          votes: Babesak
       prompt: Aukeratu aurrekontua
       vote_reminder_mailer:
         vote_reminder:
-          email_budgets: 'Arlo hauetan duzu amaitu gabeko bozketa:'
-          email_intro: Aurrekontu parte-hartzaileen bozketa hasi duzu, baina ez duzu osatu.
-          email_link: 'Joan hona: Jarraitu bozkatzen'
-          email_outro: Mesedez, gogoratu bozketa osatzea. Botoa emateko, lehenik eta behin, zein proiekturi buruz bozkatu nahi duzun aukeratu behar duzu, eta, ondoren, zure botoa berretsi, "Bozkatu" botoia sakatuz.
+          email_budgets: 'Amaitu gabeko babesa duzun arloak:'
+          email_intro: Partaidetza-aurrekontuan babesa ematen hasi zara, baina ez duzu amaitu.
+          email_link: 'Joan hona: Jarraitu babesa emanten'
+          email_outro: Gogoratu babesa emateko prozesua osatzea. Babesa emateko, lehenik babesa eman nahi diozun proposamena edo proposamenak hautatu behar dituzu, eta ondoren zure babesa berretsi "Eman babesa" botoiarekin.
           email_subject:
             one: Aurrekontu parte-hartzaileen babes ematea amaitu gabeko babes bat duzu
-            other: Aurrekontu parte-hartzaileen babes jasotzea amaitu gabeko babesak dituzu
+            other: AurreAmaitu gabeko babesak dituzu partaidetza-aurrekontuko babes-prozesuan
     components:
       budgets:
         actions:
           comment: Egin iruzkina
           vote: Babesa eman
-          vote_comment: Bozkatu iruzkina
+          vote_comment: Iruzkinari babesa eman
         name: Aurrekontuak
         settings:
           global:
@@ -460,7 +459,7 @@ eu:
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             form:
               errors:
                 budget_voting_rule_only_one: Soilik bozketa-arau bat gaitu behar da.
@@ -475,13 +474,13 @@ eu:
             taxonomy_filters_add: Erantsi iragazkia
             title: Izenburua
             total_budget: Aurrekontu osoa
-            vote_minimum_budget_projects_number: Bozkatzeko gutxieneko proiektu kopurua
-            vote_rule_minimum_budget_projects_enabled: 'Aktibatu araua: Bozkatzeko gutxieneko proiektu kopurua'
-            vote_rule_selected_projects_enabled: 'Gaitu araua: Bozkatzeko gutxieneko eta gehieneko proiektu kopurua'
+            vote_minimum_budget_projects_number: Babesa eman beharreko gutxieneko proiektu kopurua
+            vote_rule_minimum_budget_projects_enabled: 'Gaitu araua: babesa eman beharreko gutxieneko proiektu kopurua'
+            vote_rule_selected_projects_enabled: 'Gaitu araua: babesa eman beharreko gutxieneko eta gehieneko proiektu kopurua'
             vote_rule_threshold_percent_enabled: 'Aktibatu araua: aurrekontuaren gutxieneko ehunekoa'
             vote_selected_projects_maximum: Gehieneko proiektu kopurua hautatzeko
             vote_selected_projects_minimum: Gutxieneko proiektu kopurua hautatzeko
-            vote_threshold_percent: Bozketen ehunekoa
+            vote_threshold_percent: Babes-atalasearen ehunekoa
             voting_rule: Bozketa mota
             voting_rule_choices:
               minimum_projects: Bozkatuko diren proiektuen gutxieneko kopurua
@@ -490,7 +489,7 @@ eu:
             workflow: Lan-fluxua
             workflow_choices:
               all: 'Bozkatu guztietan: utzi parte-hartzaileei aurrekontu guztietan babesa ematen.'
-              one: 'Bozkatu batean: utzi parte-hartzaileei edozein aurrekontutan babesa ematen, baina batean baino ez.'
+              one: 'Aurrekontu bakarrean babesa eman: parte-hartzaileei edozein aurrekontutan babesa emateko aukera ematen die, baina bakar batean soilik.'
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
@@ -498,13 +497,13 @@ eu:
             landing_page_content: Aurrekontuen hasierako orrialdea
             list_heading: Zerrendaren izenburua
             more_information_modal: '"Informazio gehiago" leihoa'
-            show_votes: Erakutsi babesak
+            show_votes: Babesak erakutsi
             title: Izenburua
-            votes: Bozketa
+            votes: Babes ematea
             votes_choices:
-              disabled: Bozketa desgaituta
+              disabled: Babes-ematea desgaituta
               enabled: Babes ematea gaituta
-              finished: Bozketa amaituta
+              finished: Babes ematea amaituta
     download_your_data:
       help:
         orders:
@@ -513,7 +512,7 @@ eu:
           component: Osagaien ordena honako hau da
           created_at: Zein datatan eta zein ordutan sortu zen ordena
           id: Ordenaren identifikatzaile bakarra
-          projects: Proiektuak ordena honetan bozkatu dira
+          projects: Eskaeraren bidez babesa eman zaien proiektuak
           updated_at: Zein datatan eta zein ordutan eguneratu zen ordena
       show:
         projects: Esportatu proiektuak
@@ -547,13 +546,13 @@ eu:
         error: Arazo bat egon da zure babesa prozesatzean.
       destroy:
         error: Arazo bat egon da zure babesa ezeztatzean.
-        success: Zure botoa behar bezala ezeztatu da.
+        success: Zure babesa zuzen ezeztatu da.
     resource_links:
       included_proposals:
         project_proposal: Proiektu honetan sartuta dauden proposamenak
     statistics:
       orders_count: Aldeko babesak
       projects_count: Aurrekontuak
-      projects_count_tooltip: Aurrekontu parte-hartzaileen kopurua eta emandako boto guztiak.
+      projects_count_tooltip: Aurrekontu parte-hartzaileen kopurua eta emandako babes guztiak.
   index:
     confirmed_orders_count: Babesen zenbaketa
