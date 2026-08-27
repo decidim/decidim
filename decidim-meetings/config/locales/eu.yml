@@ -22,7 +22,7 @@ eu:
         id: ID
         iframe_access_level: Iframe sarbide-maila
         iframe_embed_type: Txertatutako iframe mota
-        iframe_embed_type_html: Zerbitzu gutxi batzuek bakarrik ematen dute aukera "Bileraren orrian sartzeko" edo "Ekitaldiaren orrian zuzenean irekitzeko". Kontuan izan telefono mugikorretan "Sartu bilera-orrian" aukerarekin, pantailak hainbat dimentsio heredatzen baititu, benetan "Ireki ekitaldiaren orrian zuzenean" gisa funtzionatuko duela.
+        iframe_embed_type_html: Zerbitzu gutxi batzuek bakarrik ematen dute aukera "Topaketaren orrian sartzeko" edo "Ekitaldiaren orrian zuzenean irekitzeko". Kontuan izan telefono mugikorretan "Sartu bilera-orrian" aukerarekin, pantailak hainbat dimentsio heredatzen baititu, benetan "Ireki ekitaldiaren orrian zuzenean" gisa funtzionatuko duela.
         location: Kokapena
         location_hints: Kokapen-argibideak
         online_meeting_url: Online topaketaren URL helbidea
@@ -37,7 +37,7 @@ eu:
         registrations_enabled: Izen-emateak gaituta
         reserved_slots: Erreserbatuta dauden plazak
         start_time: Hasiera-ordua
-        title: Titulua
+        title: Izenburua
         transparent: Gardena
         type_of_meeting: Mota
       meeting_agenda:
@@ -219,7 +219,7 @@ eu:
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
-          button_text: Eman izena bileran
+          button_text: Eman izena topaketan
           email_intro: '"%{resource_title}" topaketa jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekatik jarraitzeari utz diezaiokezu.
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
@@ -242,7 +242,7 @@ eu:
             start_time: hasiera-ordua
           notification_title: '%<a href="%{resource_path}">{resources ce_title}</a> bilera eguneratu egin da zenbait aldaketa sartzeko: %{changed_fields}.'
         meeting_waitlist_added:
-          notification_title: Itxarote-zerrendan sartu zaituzte <a href="%{resource_url}">%{resource_title}</a> bilerarako.
+          notification_title: Itxarote-zerrendan sartu zaituzte <a href="%{resource_url}">%{resource_title}</a> topaketarako.
         registration_code_validated:
           email_intro: '"%{resource_title}" topakerarako zure "%{registration_code}" erregistro-kodea baliozkotu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketarako zure erregistro-kodea baliozkotu delako.
@@ -339,7 +339,7 @@ eu:
           invite:
             decline: Gonbidapena deuseztatu
             invited_you_to_join_a_meeting: "%{invited_by} administratzaileak %{application} topaketan parte hartzera gonbidatu zaitu. Beheko estekan onar dezakezu gobidapena."
-            join: Erregistratu '%{meeting_title}' topaketa
+            join: '''%{meeting_title}'' topaketan izena eman'
         invites:
           create:
             error: Arazo bat egon da parte-hartzailea topaketara gonbidatzean.
@@ -689,7 +689,7 @@ eu:
             published: Argitaratua
             start_time: Hasiera-data
             taxonomies: Taxonomiak
-            title: Titulua
+            title: Izenburua
         registration:
           actions: Ekintzak
           fields:
