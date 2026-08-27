@@ -220,7 +220,7 @@ eu:
           info_initiative:
             created_at: Noiz sortua
             description: Deskribapena
-            initiative_votes_count: Botoen zenbaketa
+            initiative_votes_count: Babesen zenbaketa
             initiatives: Ekimenak
             state: Egoera
         committee_requests:
@@ -531,7 +531,7 @@ eu:
           area: Arloa
           author: Egilea
           myself: Nire ekimenak
-          scope: Esparrua
+          scope: Eremua
           state: Egoera
           type: Mota
         index_header:
@@ -684,7 +684,7 @@ eu:
       initiative:
         actions:
           comment: Iruzkindu
-          vote_comment: Iruzkina bozkatu
+          vote_comment: Iruzkinari babesa eman
       initiatives_type:
         actions:
           create: Ekimen bat sortu
