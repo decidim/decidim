@@ -60,7 +60,7 @@ eu:
         designation_date: Izendapen-data
         full_name: Izen osoa
         gender: Generoa
-        non_user_avatar: Abatarra
+        non_user_avatar: Avatarra
         position: Posizioa
         user_id: Parte-hartzailea edo taldea
         weight: Kokapenaren hurrenkera
@@ -237,7 +237,7 @@ eu:
         create: "%{user_name} parte-hartzaileak %{resource_name} batzar mota sortu du"
         delete: "%{user_name} parte-hartzaileak %{resource_name} batzar mota ezabatu du"
         publish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota argitaratu du"
-        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota despublikatu du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota desargitaratu du"
         update: "%{user_name} parte-hartzaileak %{resource_name} batzar mota eguneratu du"
       assembly_user_role:
         create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} batzarrera"
@@ -248,7 +248,7 @@ eu:
         assemblies:
           form:
             announcement_help: Hemen sartzen duzun testua batzarreko informazioaren azpian agertuko zaio parte-hartzaileari.
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
             images: Irudiak
@@ -281,7 +281,7 @@ eu:
             max_results: Erakusteko elementu gehienen kopurua
         imports:
           attachment_error: Ezin izan da "%{title}" eranskina inportatu (%{error}).
-          banner_image_error: Ezin izan da bannerraren irudia inportatu (%{error}).
+          banner_image_error: Banner-irudia ezin izan da inportatu (%{error}).
           hero_image_error: Ezin izan da heroiaren irudia inportatu (%{error}).
         new_import:
           accepted_types:
