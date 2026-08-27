@@ -57,7 +57,7 @@ eu:
           min_max_length_description: Testu motako sarreretan eta testu eremuan soilik funtzionatzen du
           multiselect: Hautaketa anitza
           multiselect_description_html: Hautaketa anizkoitzak JavaScript funtzioak dira <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a> izeneko kanpoko liburutegi bati esker erabilgarri daudenak.
-          regular_inputs_description: 'Mota arruntak baino ez ditu bistaratzen, eskuragarri dagoen zerrenda osoa: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          regular_inputs_description: 'Mota arruntak soilik bistaratzen ditu, eskuragarri dagoen zerrenda osoa: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
           textarea_required: eskatutako testu-eremua
           title: Inprimakiak
         report:
@@ -70,7 +70,7 @@ eu:
           demo: Demoa
           demo_description: Osagai honek funtziona dezan, parte-hartzaileak elementuan egon behar du.
           description: Tresna-punta osagai bat da eta parte-hartzaileek sagua haren gainean jar dezakete informazio gehigarria ikusteko.
-          github_source_html: Iturburu-kodea GitHuben %{github_link}
+          github_source_html: Iturburu-kodea GitHub sarean %{github_link}
           title: Argibidea
           usage: Erabilera
           usage_p: 'Tresna-punta batek `with_tooltip` laguntzailea erabiltzea eskatzen du, hiru argumenturekin:'
@@ -123,13 +123,13 @@ eu:
           centered: Zentratuta
           code: Kodea
           columns: Zutabe kopurua 10, 8 edo 6 izanik.
-          description_layout_p1: Mahaigaineko bertsioan, Decidim-ek 12 zutabeko sareta bat erabiltzen du txantiloi kopuru mugatuarekin (sare-konfigurazioak) eduki mota desberdinetarako. Helburua da eduki mota jakin batek (hasiera-orria, elementuen zerrenda, elementu indibiduala) diseinu bereizgarria izatea, parte-hartzaileek orriaren itxura orokorrari esker zein eduki motatan dauden uler dezaten.
+          description_layout_p1: Mahaigaineko bertsioan, Decidim-ek 12 zutabeko sare bat erabiltzen du, eta eduki mota desberdinetarako txantiloi kopuru mugatu bat (sare-konfigurazioak) ditu. Helburua da eduki mota bakoitzak (hasierako orria, elementuen zerrenda, elementu indibiduala) diseinu bereizgarria izatea, parte-hartzaileek orriaren itxura orokorrari begiratuta zein eduki motatan dauden ulertu ahal izan dezaten.
           description_layout_p2: Arau sinple horiek jarraitu behar dira modulu berriak sortzean edo daudenak pertsonalizatzean, Decidim gune batek bere koherentzia mantendu dezan.
           desktop: Mahaigaina
           full_width: Zabalera osoa
           layout_list_1: 'Hasierako orria (eskaerarena, parte hartzeko espazio batena): zabalera osoa'
           layout_list_2: 'Elementuen zerrenda (parte hartzeko espazioena, espazio baten barruko elementuena...): ezkerreko aldean'
-          layout_list_3: 'Elementu indibiduala (proposamena, blogeko argitalpena): zentratuta, aukeran eskuineko albo-zutabe batekin'
+          layout_list_3: 'Elementu indibiduala (proposamena, blogeko argitalpena): erdian, aukeran eskuineko alboko atala duena'
           left_aside: Ezker aldean
           mobile: Mugikorra
           not_required: Ez da beharrezkoa
@@ -298,7 +298,7 @@ eu:
         variations: Aldakuntzak
         variations_cards_description: Txartel bakoitza desberdina izango da erakutsitako baliabidearen propietateei dagokienez. Zelula espezifikoan horrelako portaera deuseztatu dezakezu.
         variations_description: Hiru bertsio ezberdin daude gelaxka honi buruz. Bakoitza hobeto egokitzen da erakusten ari den testuingurura.
-        variations_text: Jarduera motari dagokionez, zelulak eduki ezberdinak erakuts ditzake, baliabide ezberdinen berri emanez, espazio parte-hartzaile batekoak izan ala ez, autore bat duena ala ez.
+        variations_text: Jarduera motari dagokionez, zelulak eduki ezberdinak erakuts ditzake, baliabide ezberdinen berri emanez, partaidetza-espazio batekoak izan ala ez, autore bat duena ala ez.
       home:
         index:
           by_sharing_principles: Diseinu-erabakien printzipioak, filosofia eta oinarriak partekatzean, komunitatea koherentziaz lagundu dezan gaitu nahi dugu, parte-hartzaileentzako esperientziarik onena lor dezagun.
