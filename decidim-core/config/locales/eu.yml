@@ -21,7 +21,7 @@ eu:
         file: Fitxategia
       group:
         about: Honi buruz
-        avatar: Abatarra
+        avatar: Avatarra
         document_number: Dokumentu-zenbakia
         email: Helbide elektronikoa
         name: Izena
@@ -42,7 +42,7 @@ eu:
         space_filter: Iragazki gisa eskuragarri honetarako
       user:
         about: Honi buruz
-        avatar: Abatarra
+        avatar: Avatarra
         email: Zure helbide elektronikoa
         encrypted_password: Pasahitza
         locale: Tokikoa
@@ -52,7 +52,7 @@ eu:
         password: Pasahitza
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
-        remove_avatar: Kendu abatarra
+        remove_avatar: Kendu avatarra
         tos_agreement: Erabilera-terminoak eta -baldintzak
     errors:
       models:
@@ -97,8 +97,8 @@ eu:
         one: Zuzenketa
         other: Zuzenketak
       decidim/like:
-        one: Likea
-        other: Likeak
+        one: Atsegin dut
+        other: Atsegin dut kopurua
       decidim/user:
         one: Parte-hartzailea
         other: Parte-hartzaileak
@@ -256,7 +256,7 @@ eu:
         publish: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espazioan argitaratu du"
         restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} osagaia %{space_name} espazioan"
         soft_delete: "%{user_name} parte-hartzaileak eraman du %{resource_name} osagaia %{space_name} espaziora"
-        unpublish: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espaziotik despublikatu du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espaziotik desargitaratu du"
         update_permissions_with_space: "%{user_name} parte-hartzaileak %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
       contextual_help_section:
         update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} laguntza-arloa"
@@ -446,7 +446,7 @@ eu:
         one: iruzkina
         other: iruzkinak
       likes:
-        one: likea
+        one: atsegin dut
         other: likeak
       official_author: Ofiziala
     authorization_handlers:
@@ -556,7 +556,7 @@ eu:
             amendments_enabled: Zuzenketak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             dummy_global_attribute1: Balizko atributua 1
             dummy_global_attribute2: Balizko atributua 2
             dummy_global_translatable_text: Itzul daitekeen balizko testua
@@ -627,7 +627,7 @@ eu:
         title: Azken jarduera
         view_all: Ikusi dena
       last_activity_settings_form:
-        max_last_activity_users: Abatar parte-hartzaileen gehieneko kopurua oraintsuko jarduera erakusteko
+        max_last_activity_users: Bistaratzeko azken jarduera duten parte-hartzaileen avatarren gehieneko kopurua
       main_data:
         name: Datu nagusiak
       metadata:
@@ -971,11 +971,12 @@ eu:
             Hori gertatu da zuk erantzun duzun proposamena, bilera, eztabaida edo iruzkina moderatu egin delako. Berriro erabilgarri jartzen bada, zure iruzkina automatikoki leheneratuko da.
             <i>%{resource_content}</i>
         resource_hidden:
-          email_intro: Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.
+          email_intro: Administratzaile batek zure %{resource_type} kendu du, %{report_reasons} gisa salatu delako.
           email_outro: Jakinarazpen hau jaso duzu ezabatutako edukiaren egileetako bat zarelako.
           email_subject: Zure %{resource_type} ezabatu egin da
           notification_title: |-
-            Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.</br><i>%{resource_content}</i>
+            Administratzaile batek zure %{resource_type} kendu du, %{report_reasons} gisa salatu delako.</br>
+            <i>%{resource_content}</i>
       resource_liked:
         email_intro: '%{liker_name} parte-hartzaileari, jarraitzen ari zarenari, %{resource_title}" gustatu zaio, eta zuretzat interesgarria izan daitekeela uste dugu. Egiaztatu eta lagundu:'
         email_outro: Jakinarazpen hau jaso duzu %{liker_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
@@ -1330,7 +1331,7 @@ eu:
         allow_push_notifications: Bidali mezuak plataforman ez zaudenean zer gertatzen den jakiteko. Nahi duzunean desgaitu ditzakezu.
         assigned_to_proposal: Mezu elektroniko bat jaso nahi dut norbaitek ebaluatzeko proposamen bat ematen didanean
         direct_messages: Jaso edonoren mezu zuzenak
-        email_on_moderations: Mezu elektroniko bat jaso nahi dut, edozein ordutan, edo bat moderaziorako bidaltzen da.
+        email_on_moderations: Zerbait edo norbait moderaziorako salatzen den bakoitzean mezu elektroniko bat jaso nahi dut.
         evaluators: Ebaluatzaileak
         everything_followed: Jarraitzen dudan guztia
         newsletter_notifications: Buletinak jaso nahi ditut
@@ -1386,7 +1387,7 @@ eu:
           blocked_at: Zein egunetan eta ordutan blokeatu den parte-hartzailea
           blocking_user: Blokeoa egin duen parte-hartzailearen izena
           details: Txostenen xehetasunak
-          reasons: Erabiltzailearen profilaren berri emateko arrazoien zerrenda
+          reasons: Parte-hartzailearen profilaren berri emateko arrazoien zerrenda
           user_id: Salatutako parte-hartzailearen ID bakarra
         moderations:
           hidden_at: Zein egunetan eta ordutan ezkutatu den edukia
@@ -1412,7 +1413,7 @@ eu:
           weight: Zein ordenatan erakusten den taxonomia hau
         users:
           about: Parte-hartzailearen testuari buruzkoa
-          avatar_url: Parte-hartzailearen abatarra
+          avatar_url: Parte-hartzailearen avatarra
           badge: Parte-hartzailearen garaikurra
           deleted: Parte-hartzailea ezabatuta dagoen ala ez
           direct_messages_enabled: Parte-hartzaileak mezu zuzenak bidaltzeko aukera ematen duen
@@ -1564,16 +1565,16 @@ eu:
         title: 'QR kodea honetarako: %{resource_title}'
     reported_mailer:
       hidden_automatically:
-        content: Erreportatutako edukia
+        content: Salatutako edukia
         details: Xehetasunak
         hello: 'Kaixo, %{name}:'
         manage_moderations: Kudeatu moderazioak
-        participatory_space: Espazio parte-hartzailea
+        participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: Eduki bat automatikoki ezkutatu da
       hidden_manually:
-        content: Erreportatutako edukia
+        content: Salatutako edukia
         details: Xehetasunak
         hello: 'Kaixo, %{name}:'
         manage_moderations: Moderazioak kudeatu
@@ -1583,13 +1584,13 @@ eu:
         subject: '%{moderator} -k baliabidea ezkutatu du'
       report:
         authors: Egileak
-        content: Erreportatutako edukia
+        content: Salatutako edukia
         content_original_language: Jatorrizko edukiaren hizkuntza
-        date: Noiz erreportatua
+        date: Noiz salatu den
         details: Xehetasunak
         hello: Kaixo, %{name},
         id: ID
-        participatory_space: Espazio parte-hartzailea
+        participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}"> edukia </a> salatua izan da.</p>
         see_report: Ikusi txostena
@@ -1707,7 +1708,7 @@ eu:
       followers_count: Jarraitzaileak
       followers_count_tooltip: Zenbat parte-hartzailek jarraitzen duten espazio honen parteren bat eguneratuta egoteko.
       headline: Estatistikak
-      likes_count: Likeak
+      likes_count: Atsegin dut kopurua
       no_stats: Oraindik ez dago estatistikarik.
       pages_count: Orrialdeak
       participants_count: Parte-hartzaileak
@@ -1762,12 +1763,12 @@ eu:
         subject: Zure taldearen profilari buruzko eguneratze garrantzitsua
     user_report_mailer:
       notify:
-        body_1: '%{user} parte-hartzailea %{token}-ek erreportatu du'
+        body_1: '%{token} tokenak %{user} parte-hartzailea  salatu du'
         body_2: 'Arrazoia: %{reason}'
         details: Parte-hartzaileak emandako datuak
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo %{admin},
-        subject: Beste parte-hartzaile bat erreportatu dute hemen %{organization_name}
+        subject: Parte-hartzaile berri bat salatu da %{organization_name} erakundean
     user_update_mailer:
       notify:
         body_1: Mezu hau bidali dizugu zure kontuaren eguneratze baten berri emateko.
@@ -1853,10 +1854,10 @@ eu:
           Gonbidapena onartu nahi ez baduzu, ez egin jaramonik mezu elektroniko honi.<br />
           Zure kontua ez da sortuko goiko estekan sartu eta zure ezizena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} administratzaileak %{application} aplikazioaren administratzaile gisa gonbidatu zaitu. Beheko estekaren bidez onar dezakezu."
-        invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
+        invited_you_as_private_user: "%{invited_by} parte-hartzaileak aplikazioko parte-hartzaile pribatu gisa gonbidatu zaitu. Beheko estekaren bidez onar dezakezu."
         someone_invited_you: Norbaitek %{application} aplikaziora gonbidatu zaitu. Beheko estekan onar dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} administratzaile gisa gonbidatu zaitu, beheko estekan onar dezakezu.
-        someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
+        someone_invited_you_as_private_user: Norbaitek %{application} aplikazioaren parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         subject: Gonbidapenaren argibideak
       invite_admin:
         subject: '%{organization} kudeatzeko gonbita jaso duzu'
@@ -2100,14 +2101,14 @@ eu:
             title: Analitikak eta estatistikak
           description: Cookieak erabiltzen ditugu webgunearen oinarrizko funtzionalitateak bermatzeko eta zure onlineko esperientzia hobetzeko. Cookieen erabilera konfiguratu eta onartu dezakezu, eta zure baimen-aukerak edozein unetan aldatu.
           essential:
-            description: Cookie horiek webgunearen funtsezko funtzionaltasuna ahalbidetzen dute eta parte-hartzaileak seguru mantentzen laguntzen dute. Automatikoki gordetzen dira nabigatzailean eta ezin dira desaktibatu.
+            description: Cookie hauek webgunearen funtsezko funtzionalitateak gaitzen dituzte eta parte-hartzaileak seguru mantentzen laguntzen dute. Automatikoki gordetzen dira nabigatzailean eta ezin dira desgaitu.
             title: Funtsezkoak
           marketing:
             description: Cookie hauek web orria erabiltzeko moduari buruzko informazioa biltzen dute eta erabil daitezke zuri zerbitzu pertsonalizatuagoa emateko parte hartzen duzun gune desberdinetan.
             title: Marketina
           preferences:
-            description: Cookie horiei esker, webguneak gogora ditzake iraganean webgune honetan hautatu diren aukerak, parte-hartzaileei esperientzia pertsonalizatuagoa emateko.
-            title: Lehentasunak
+            description: Cookie hauei esker, webguneak webgune honetan iraganean egin dituzun aukerak gogora ditzake, webguneko parte-hartzaileei esperientzia pertsonalizatuagoa eskaintzeko.
+            title: Hobespenak,
           save_settings: Gorde ezarpenak
           title: Cookieen ezarpenak
           toggle: Aktibatu/desaktibatu %{consent_category}
