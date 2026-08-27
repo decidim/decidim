@@ -101,7 +101,7 @@ eu:
         name: Izena
         organization: Erakundea
         parent_id: Nagusia
-        scope_type: Esparru mota
+        scope_type: Eremu mota
         scope_type_id: Eremua mota
       scope_type:
         name: Izena
@@ -116,7 +116,7 @@ eu:
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
         slug: URL sluga
-        title: Titulua
+        title: Izenburua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
       static_page_topic:
@@ -158,7 +158,7 @@ eu:
       decidim/static_page:
         content: Contenido
         slug: URL laburra
-        title: Titulua
+        title: Izenburua
       doorkeeper/application:
         authorize_url: Baimendu URLa
         client_id: Bezeroaren IDa
@@ -667,7 +667,7 @@ eu:
         moderation: Moderazio globalak
         newsletters: Buletinak
         participants: Parte-hartzaileak
-        reported_users: Parte-hartzaile erreportatuak
+        reported_users: Salatutako parte-hartzaileak
         scope_types: Eremu motak
         scopes: Eremuak
         see_site: Ikusi web-orria
@@ -693,7 +693,7 @@ eu:
             collection: Karpeta
             content_type: Mota
             file_size: Tamaina
-            title: Titulua
+            title: Izenburua
           name: Eranskina
         attachment_collection:
           name: Karpeta
@@ -735,7 +735,7 @@ eu:
         static_page:
           fields:
             created_at: Noiz sortua
-            title: Titulua
+            title: Izenburua
         user:
           fields:
             created_at: Sortze-data
@@ -760,9 +760,9 @@ eu:
                 title: Desblokeatu
                 update_moderated_user_button: Desblokeatu parte-hartzaileak
               unreport:
-                title: Ez erreportatu
+                title: Salaketa kendu
             ignore:
-              update_moderated_user_button: Ez erreportatu parte-hartzaileak
+              update_moderated_user_button: Parte-hartzaileen salaketak kendu
             title: Ekintzak
             unblock: Desblokeatu parte-hartzailea
             unreport: Desegin salaketa
@@ -772,7 +772,7 @@ eu:
           reason: Arrazoia
           reports: Txosten kopurua
           selected: Hautatua
-          title: Parte-hartzaile erreportatuak
+          title: Salatutako parte-hartzaileak
         report:
           reasons:
             does_not_belong: Ez dagokio
@@ -793,10 +793,10 @@ eu:
               update_moderation_button: Erakutsi berriro hautatutako edukiak
             unreport:
               title: Desegin salaketa
-              update_moderation_button: Ez erreportatu hautatutako edukiak
+              update_moderation_button: Hautatutako baliabideen salaketak kendu
           cancel: Ezeztatu
           selected: hautatua
-          title: Eduki erreportatua
+          title: Salatutako edukia
         report:
           reasons:
             does_not_belong: Ez dagokio
@@ -810,7 +810,7 @@ eu:
             callout_html: Eduki bat moderazio-panelean agertzen da parte-hartzaile batek (erregistratutako kontu bat duen edozein pertsona izan daiteke) txostena bidaltzen duenean, edukiaren ondoan dagoen %{icon} ikonoan klik eginez.
             content_original_language: Jatorrizko edukiaren hizkuntza
             participatory_space: Partaidetza-espazioa
-            reported_content: Erreportatutako edukia
+            reported_content: Salatutako edukia
             see_current: Ikusi egungoa
             see_original: Ikusi jatorrizkoa
             title: Moderazio-txostenak
@@ -1021,7 +1021,7 @@ eu:
       scope_types:
         create:
           error: Arazo bat egon da beste eremu mota bat sortzean.
-          success: Esparru mota arrakastaz sortu da.
+          success: Eremua mota arrakastaz sortu da.
         destroy:
           success: Eremu mota behar bezala suntsitua
         edit:
@@ -1357,7 +1357,7 @@ eu:
             unreport:
               failed: 'Arazo bat izan da eduki batzuk %{errored} berriro erakustean'
               invalid: Ez dago moderaziorik hautatuta.
-              success: Edukiak zuzen ez erreportatuak.
+              success: Baliabideen salaketak behar bezala kendu dira.
           hide:
             invalid: Arazo bat egon da baliabidea ezkutatzean.
             success: Edukia zuzen ezkutatua.
@@ -1371,7 +1371,7 @@ eu:
       models:
         moderation:
           fields:
-            created_at: Noiz erreportatua
+            created_at: Noiz salatu den
             deleted_resource: Baliabide ezabatua.
             hidden_at: Ezkutatze-data
             participatory_space: Partaidetza-espazioa
