@@ -127,8 +127,8 @@ eu:
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
-            likes_blocked: Likeak blokeatuta
-            likes_enabled: Likeak gaituta
+            likes_blocked: Atsegin dut blokeatuta
+            likes_enabled: Atsegin dut gaituta
     events:
       blogs:
         post_created:
