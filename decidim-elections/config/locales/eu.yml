@@ -37,7 +37,7 @@ eu:
     elections:
       actions:
         confirm_delete_election: Ziur zaude hauteskundea hau ezabatu nahi duzula?
-        confirm_unpublish_election: Ziur zaude bozketa hau despublikatu nahi duzula?
+        confirm_unpublish_election: Ziur zaude bozketa hau desargitaratu nahi duzula?
         deleted_election_info: Ezabatutako hauteskundeak ez dira agertzen zerrendan. Beheko botoia sakatuz ikus ditzakezu.
         edit: Editatu hauteskundea
         new: Beste hauteskunde bat
@@ -88,7 +88,7 @@ eu:
             answer: Erantzunak
             percentage: Ehunekoa
             total: Guztira
-            votes: Babesak
+            votes: Botoak
             votes_count:
               one: Boto 1
               other: "%{count} boto"
@@ -103,7 +103,7 @@ eu:
             start_question_button: Botoa eman daiteke
             title: Emaitzak
           status:
-            allow_census_check_before_start: Parte hartzaileek botoa ematen duten ala ez egiaztatu ahal izango dute aukeraketa hasi aurretik
+            allow_census_check_before_start: Parte hartzaileek babesa ematen duten ala ez egiaztatu ahal izango dute aukeraketa hasi aurretik
             census: 'Errolda:'
             results_availability:
               after_end: Emaitzak eskuragarri bozketak amaitu ondoren
@@ -231,10 +231,10 @@ eu:
           upload_new_census: Igo CSV fitxategia
         token_csv_form:
           email: Helbide elektronikoa
-          email_placeholder: Sartu hauteslearen helbide elektronikoa
+          email_placeholder: Boto-emailearen helbide elektronikoa sartu
           invalid: Posta elektronikoa edo fitxa ez da baliozkoa. Mesedez, begiratu xehetasunak eta saiatu berriro.
           token: Identifikatzailea
-          token_placeholder: Sartu boto-emailearen tokena
+          token_placeholder: Boto-emailearen tokena sartu
       elections:
         count:
           elections_count:
@@ -263,7 +263,7 @@ eu:
           check_census_button: Begiratu ea botoa eman dezakedan
           check_census_explanation: Hauteskunde hauek oraindik ez dira hasi, baina erroldan sartuta zauden egiazta dezakezu.
           edit_vote_button: Editatu botoak
-          vote_button: Eman babesa
+          vote_button: Botoa eman
           voted: Bozkatu duzu. Berriz bozkatu dezakezu, zure azken botoa baino ez da kontuan hartuko.
           votes_count:
             one: Boto 1
@@ -272,13 +272,13 @@ eu:
         vote_results:
           subtitle:
             after_end: Aukeraketa amaitu egin da. Emaitzak ikus ditzakezu.
-            per_question: Emaitzak kontsulta daitezke galderaren arabera. Galdera bakoitzaren emaitzak ikus ditzakezu botoa eman eta emaitzak argitaratu ondoren.
+            per_question: Emaitzak galdera bakoitzeko daude eskuragarri. Galdera bakoitzaren emaitzak ikus ditzakezu bozketa gaitu eta emaitzak argitaratu ondoren.
             real_time: Emaitzak denbora errealean daude eskuragarri. Emaitzak ikus ditzakezu bozketa egiten den bitartean.
           title: Emaitzak
           total: 'GUZTIRA:'
           total_votes:
             one: Bozka 1
-            other: "%{count} bozka"
+            other: "%{count} boto"
       models:
         election:
           fields:
@@ -291,7 +291,7 @@ eu:
         waiting:
           description: Hemen itxaron dezakezu hurrengo galdera egin arte. Automatikoki hurrengo galderara itzuliko zara prest dagoenean.
           edit_vote: Zure botoa editau
-          exit_button: Irten itxarongelatik
+          exit_button: Itxarongelatik irten
           title: Hurrengo galderaren zain
       status:
         active: Aktibo
@@ -311,23 +311,23 @@ eu:
           election_not_open: Aukeraketa oraindik ez dago zabalik. Mesedez, begiratu datak eta saiatu berriro.
           failed: Zure nortasuna ezin izan da egiaztatu. Mesedez, begiratu emandako informazioa eta saiatu berriro.
           form_title: Zure nortasuna egiaztatu
-          invalid: Erabiltzailea ez dago erroldan.
+          invalid: Parte-hartzailea ez dago erroldan.
         confirm:
-          cast_vote: Eman botoa
-          edit_vote: Editatu zure botoa
+          cast_vote: Botoa eman
+          edit_vote: Zure botoa editau
           not_answered: Ez duzu erantzun galdera hau.
-          title: Baieztatu babesa
+          title: Botota baieztatu
         not_authorized: Ez duzu baimenik aukeraketa honetan bozkatzeko.
         question:
           back: Atzera
-          cast_vote: Eman botoa
+          cast_vote: Botoa eman
           max_choices: 'Gehieneko aukerak: %{count}'
           max_choices_alert: Aukera gehiegi aukeratu dituzu. Mesedez, utzi batzuk jarraitzeko.
           max_choices_exceeded: Ezin da aukeratu % {max} aukera baino gehiago. Mesedez, itzuli eta doitu zure aukeraketa.
           next: Hurrengoa
         receipt:
           description: Bozkatzeko epea zabalik dagoen bitartean edozein unetan eman daiteke berriro botoa. Zure aurreko botoa berriaz gainidatziko da.
-          edit_vote: Editatu zure botoa
+          edit_vote: Zure botoa editatu
           exit_button: Irten bozkatzeko kabinatik
           title: Zure botoak zuzen eman dira
     metadata:
