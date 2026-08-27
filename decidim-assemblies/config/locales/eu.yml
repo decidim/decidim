@@ -59,7 +59,7 @@ eu:
         designation_date: Izendapen-data
         full_name: Izen osoa
         gender: Generoa
-        non_user_avatar: Abatarra
+        non_user_avatar: Avatarra
         position: Posizioa
         user_id: Parte-hartzailea edo taldea
         weight: Kokapenaren hurrenkera
@@ -225,7 +225,7 @@ eu:
         create: "%{user_name} parte-hartzaileak %{resource_name} batzar mota sortu du"
         delete: "%{user_name} parte-hartzaileak %{resource_name} batzar mota ezabatu du"
         publish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota argitaratu du"
-        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota despublikatu du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota desargitaratu du"
         update: "%{user_name} parte-hartzaileak %{resource_name} batzar mota eguneratu du"
       assembly_user_role:
         create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} batzarrera"
@@ -244,7 +244,7 @@ eu:
                 restricted: Kideek eta administratzaileek soilik ikusi eta parte hartu ahal dute. Ez da agertuko bilaketa orokorrean, APIn, ezta datu-fitxategirik ere.
                 transparent: Edonork ikus dezake batzarra, baina soilik kideek eta administratzaileek har dezakete parte.
               set_this_space_as: Partaidetza-espazio hau ondorengo izenarekin ezarri
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
             has_members_help: Kideak sortu eta argitaratu ahal izango dituzu
