@@ -97,7 +97,7 @@ eu:
           type_id_eq:
             label: Mota
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egiletzaren arabera
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egilearen izenaren arabera
       initiatives_settings:
         update:
           error: Arazo bat izan da ekimenen konfigurazioak eguneratzean.
@@ -228,7 +228,7 @@ eu:
           info_initiative:
             created_at: Noiz sortua
             description: Deskribapena
-            initiative_votes_count: Botoen zenbaketa
+            initiative_votes_count: Babesen zenbaketa
             initiatives: Ekimenak
             state: Egoera
         committee_requests:
@@ -535,7 +535,7 @@ eu:
           area: Arloa
           author: Egilea
           myself: Nire ekimenak
-          scope: Esparrua
+          scope: Eremua
           state: Egoera
           type: Mota
         index_header:
