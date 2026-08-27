@@ -523,7 +523,7 @@ eu:
                 restricted: Kideek eta administratzaileek soilik ikusi eta parte hartu ahal dute. Ez da agertuko bilaketa orokorrean, APIan, ezta datu irekien fitxategietan ere.
                 transparent: Edonork ikus dezake prozesua, baina soilik kideek eta administratzaileek har dezakete parte.
               set_this_space_as: Partaidetza-espazio hau ondorengo izenarekin ezarri
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             duration: Iraupena
             has_members_help: Kideak sortu eta argitaratu ahal izango dituzu
             images: Irudiak
