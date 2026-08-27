@@ -210,10 +210,9 @@ eu:
         edit:
           cta_deprecated:
             body_html: |-
-              CTAren konfigurazioa, partaidetza-prozesuaren fasearen bidez, zaharkituta dago diseinu berriarekin.
-              Orain, <b>Hasierako orrian</b> egiten da hori, <b>Irudi nagusia</b> eduki-blokea eta ekintza-botoia erabilita.
-              Hemen utzi dugu behar dituzun CTAak egin ditzazun. <i>Ekintzaren ibilbidea</i> eta
-              <i>Ekintza botoiaren</i> testuak hurrengo bertsioan ezabatuko dira.
+              Partaidetza-prozesuaren fasearen bidez CTA konfiguratzea zaharkituta dago diseinu berriarekin.
+              Orain <b>Landing Page</b> atalean egiten da, <b>Hero eta irudia</b> eduki-blokea erabiliz.
+              Hemen utzi dugu behar dituzun CTAk migratu ahal izateko. <i>Ekintzarako deiaren bidea</i> eta <i>Ekintzarako deiaren testua</i> eremuak hurrengo bertsioan kenduko dira.
             title: CTA zaharkituta
           title: Editatu prozesu parte-hartzailearen fasea
           update: Eguneratu
@@ -523,7 +522,7 @@ eu:
         participatory_processes:
           form:
             announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             duration: Iraupena
             images: Irudiak
             metadata: Metadatuak
