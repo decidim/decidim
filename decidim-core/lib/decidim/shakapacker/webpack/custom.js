@@ -82,6 +82,7 @@ module.exports = {
   optimization: {
     minimizer: [
       new EsbuildPlugin({
+        minify: true,
         target: "es2015",
         css: true
       })
