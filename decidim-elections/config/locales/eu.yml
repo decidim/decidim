@@ -9,8 +9,8 @@ eu:
   activerecord:
     models:
       decidim/elections/election:
-        one: Bozketa
-        other: Bozketak
+        one: Hauteskunde
+        other: Hauteskundeak
   decidim:
     admin:
       menu:
@@ -31,9 +31,9 @@ eu:
         name: Hauteskundeak
         settings:
           global:
-            announcement: Iragarpena
+            announcement: Jakinarazpena
           step:
-            announcement: Iragarpena
+            announcement: Jakinarazpena
     elections:
       actions:
         confirm_delete_election: Ziur zaude hauteskundea hau ezabatu nahi duzula?
@@ -124,7 +124,7 @@ eu:
             basic_title: Oinarrizko informazioa
             calendar: Egutegia
             calendar_description: Egiaztatu ordutegi-eremua egokia dela antolamenduaren konfigurazioan. Egungo konfigurazioa da %{timezone}.
-            edit_attachments: Editatu eranskinak
+            edit_attachments: Eranskinak editatu
             end_at: Amaiera-ordua
             manual_start: Eskuz hastea
             publish: Argitaratu
@@ -197,7 +197,7 @@ eu:
           exit_button: Irten errolda egiaztatzetik
           title: Behar bezala egiaztatu zaituzte
       censuses:
-        census_ready_html: Erroldako datuak kargatuta eta prest daude % <b>{eleccion_title}</b> bozketan erabiltzeko.
+        census_ready_html: Erroldako datuak kargatuta eta prest daude % <b>%{election_title}</b> bozketan erabiltzeko.
         census_size_html:
           one: Gaur egun <strong>1</strong> pertsonak du botoa emateko eskubidea hauteskunde honetan (errolda dinamikoa bada kopurua alda daiteke).
           other: Gaur egun <strong>%{count}</strong> pertsonak dute botoa emateko eskubidea hauteskunde honetan (errolda dinamikoa bada kopurua alda daiteke).
@@ -210,7 +210,7 @@ eu:
           internal_type_title: Baimen gehigarriak behar dira botoa emateko (aukerakoa)
           label: Parte-hartzaile erregistratuak (dinamikoa)
           sign_in_description: Hasi zure saioa hauteskunde hauetan bozkatzeko
-          sign_up_description: Sortu kontu bat hauteskunde hauetan bozkatzeko
+          sign_up_description: Kontu bat sortu hauteskunde hauetan bozkatzeko
         internal_users_form:
           authorization_options_invalid: Zoritxarrez, nahiz eta baimen guztiak dituzun, batzuk ez dira baliozkoak hautapen honetarako.
           exit_button: Irten bozkatzeko kabinatik
@@ -223,10 +223,9 @@ eu:
             user@example.org;123456
             user2@example.org;ABCXYZ
           info_html: |
-            CSV formatuko fitxategia izan behar da, bi zutaberekin, bata posta elektronikoko helbidearekin eta bestea erabiltzaileak botoa emateko sartu beharko duen fitxa baten balioarekin.
-            Puntu eta koma batez bereizi behar da (;)
+            CSV formatuko fitxategi bat izan behar du, bi zutaberekin: batean helbide elektronikoa eta bestean parte-hartzaileak bozkatu ahal izateko sartu beharko duen tokenaren balioa. Zutabeak puntu eta komaz (;) bereizi behar dira
           label: Fitxekin erregistratu gabeko parte-hartzaileak (finkoa)
-          remove_before_upload: Errolda berri bat igo nahi baduzu, aurretik dagoena kendu behar duzu.
+          remove_before_upload: Errolda berri bat igo nahi baduzu, aurretik dagoena ezabatu behar duzu.
           upload_file: Igo fitxategia
           upload_new_census: Igo CSV fitxategia
         token_csv_form:
@@ -290,7 +289,7 @@ eu:
       per_question_votes:
         waiting:
           description: Hemen itxaron dezakezu hurrengo galdera egin arte. Automatikoki hurrengo galderara itzuliko zara prest dagoenean.
-          edit_vote: Zure botoa editau
+          edit_vote: Zure botoa editatu
           exit_button: Itxarongelatik irten
           title: Hurrengo galderaren zain
       status:
@@ -314,16 +313,16 @@ eu:
           invalid: Parte-hartzailea ez dago erroldan.
         confirm:
           cast_vote: Botoa eman
-          edit_vote: Zure botoa editau
+          edit_vote: Zure botoa editatu
           not_answered: Ez duzu erantzun galdera hau.
-          title: Botota baieztatu
+          title: Botoa baieztatu
         not_authorized: Ez duzu baimenik aukeraketa honetan bozkatzeko.
         question:
           back: Atzera
           cast_vote: Botoa eman
           max_choices: 'Gehieneko aukerak: %{count}'
           max_choices_alert: Aukera gehiegi aukeratu dituzu. Mesedez, utzi batzuk jarraitzeko.
-          max_choices_exceeded: Ezin da aukeratu % {max} aukera baino gehiago. Mesedez, itzuli eta doitu zure aukeraketa.
+          max_choices_exceeded: Ezin da aukeratu %{max} aukera baino gehiago. Mesedez, itzuli eta doitu zure aukeraketa.
           next: Hurrengoa
         receipt:
           description: Bozkatzeko epea zabalik dagoen bitartean edozein unetan eman daiteke berriro botoa. Zure aurreko botoa berriaz gainidatziko da.
