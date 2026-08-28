@@ -43,7 +43,7 @@ eu:
           delete_my_data: Ezabatu datua
           modal_close: Ezeztatu
           modal_ok: Ados
-          modal_question: Zure datu demografiko guztiak kendu egingo dira.
+          modal_question: Zure datu demografiko guztiak ezabatu egingo dira.
           modal_title: Ezabatu datua
           submit: Gorde datua
           terms_of_service: zerbitzuaren baldintzak
