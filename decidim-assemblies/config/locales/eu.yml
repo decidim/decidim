@@ -27,7 +27,7 @@ eu:
         facebook: Facebook
         github: GitHub
         hero_image: Hasierako orriko irudia
-        import_attachments: Inportatu erantsitako fitxategiak
+        import_attachments: Erantsitako fitxategiak inportatu
         import_categories: Inportatu kategoriak
         import_components: Inportatu osagaiak
         included_at: 'Honen barne:'
@@ -143,10 +143,10 @@ eu:
           error: Arazo bat egon da administratzailea gehitzean batzar honetarako.
           success: Batzar honetarako administratzailea zuzen gehitua.
         destroy:
-          success: Batzar honetatik administratzailea zuzen kendua.
+          success: Batzar honetatik administratzailea zuzen ezabatu da.
         edit:
           title: Batzarraren administratzailea eguneratu
-          update: Onartu
+          update: Eguneratu
         index:
           assembly_admins_title: Batzarraren administratzaileak
         new:
@@ -180,7 +180,7 @@ eu:
         assembly:
           fields:
             actions: Ekintzak
-            created_at: Noiz sortua
+            created_at: Sortze-data
             private: Pribatua
             promoted: Nabarmendua
             published: Argitaratua
@@ -229,7 +229,7 @@ eu:
         update: "%{user_name} parte-hartzaileak %{resource_name} batzarra eguneratu du"
       assembly_member:
         create: "%{user_name} parte-hartzaileak %{resource_name} kidea sortu du %{space_name} batzarrean"
-        delete: "%{user_name} parte-hartzaileak kendu du %{resource_name} kidea %{space_name} batzarretik"
+        delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} kidea %{space_name} batzarretik"
         update: "%{user_name} parte-hartzaileak %{resource_name} kidea eguneratu du %{space_name} batzarrean"
       assembly_setting:
         update: "%{user_name} parte-hartzaileak batzarren konfigurazioa eguneratu du"
@@ -241,18 +241,18 @@ eu:
         update: "%{user_name} parte-hartzaileak %{resource_name} batzar mota eguneratu du"
       assembly_user_role:
         create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} batzarrera"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea %{space_name} muntaia ezabatu du"
         update: "%{user_name} parte-hartzaileak %{resource_name} rola aldatu du %{space_name} batzarrerako"
     assemblies:
       admin:
         assemblies:
           form:
             announcement_help: Hemen sartzen duzun testua batzarreko informazioaren azpian agertuko zaio parte-hartzaileari.
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, zehaztu partaidetza-espazio honetarako iragazki batzuk ezarpen hau erabili aurretik.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
             images: Irudiak
-            included_at_help: Hautatu zein egunetan gehitu zen batzar hori plataformara. Ez du zertan sortze-data bera izan.
+            included_at_help: Hautatu zein egunetan gehitu den batzar hori plataformara. Ez du zertan sortze-data bera izan.
             metadata: Metadata
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste bat
@@ -394,9 +394,9 @@ eu:
           area: Batzarraren arloa
           assembly_type: Batzar mota
           closing_date: Zein datatan ixten den batzarra
-          closing_date_reason: Zergatik itxi zen batzarra
+          closing_date_reason: Zergatik itxi den batzarra
           composition: Batzarraren osaera
-          created_at: Zein datatan sortu zen espazio hau
+          created_at: Zein datatan sortu den espazio hau
           created_by: Nork sortu du batzar hau
           created_by_other: Batzarraren beste sortzaile bat
           creation_date: Zein datatan sortu da batzar hau
@@ -408,7 +408,7 @@ eu:
           follows_count: Espazio hau zenbat parte-hartzailek jarraitzen duten
           github_handler: Sare sozialetako arduraduna GitHuberako
           id: Batzar honen identifikatzaile bakarra
-          included_at: Zein datatan sartu zen batzar hau
+          included_at: Zein datatan sartu den batzar hau
           instagram_handler: Sare sozialetako arduraduna Instagram-erako
           internal_organisation: Batzar honen barne-antolaketa
           is_transparent: Batzarra gardena ala ez gardena
@@ -417,7 +417,7 @@ eu:
           participatory_scope: Batzarraren parte-hartze eremua
           participatory_structure: Batzarraren egitura parte-hartzailea
           promoted: Batzarra sustatzen den edo ez
-          published_at: Zein egunetan argitaratu zen espazio hau
+          published_at: Zein egunetan argitaratu den espazio hau
           purpose_of_action: Batzarraren ekintzaren helburua
           reference: Espazioaren erreferentzia bakarra
           remote_banner_image_url: Batzarraren URLak irudia du
@@ -432,7 +432,7 @@ eu:
           taxonomies: Proiektuaren taxonomiak
           title: Batzarraren izenburua
           twitter_handler: Sare sozialetako arduraduna X sarerako
-          updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
+          updated_at: Zein egunetan eguneratu den azken aldiz espazio hau
           url: Espazioaren URLa
           youtube_handler: Sare sozialetako arduraduna You Tuberako
     participatory_processes:
