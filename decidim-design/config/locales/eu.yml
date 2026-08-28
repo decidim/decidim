@@ -8,7 +8,7 @@ eu:
           demo: Demoa
           demo_description: Aplikazioan zehar akordeoiak erabiltzen dira, batez ere edukiak erlaitzetan erakusteko/ezkutatzeko edo testu ikusgarriak tolesteko/ez tolesteko.
           description_accordions_html: Akordeoiak JavaScript funtzioak dira %{link_code} a11y-accordion-component izeneko kanpoko liburutegi bati esker erabilgarri daudenak.
-          github_source_html: Iturburu-kodea GitHube sarean %{github_link}
+          github_source_html: Iturburu-kodea GitHub sarean %{github_link}
           panel: Panela
           title: Akordeoiak
           trigger: Eragin
@@ -25,7 +25,7 @@ eu:
           iam_an_announcement: Ni iragarpena naiz
           this_is_the_body: Hau testua da
           this_is_the_title: Hau izenburua da
-          title: Iragarpena
+          title: Jakinarazpena
         author:
           title: Egilea
         buttons:
