@@ -24,7 +24,7 @@ eu:
       mobile_phone:
         mobile_phone_number: Telefono mugikorraren zenbakia
       offline_confirmation:
-        email: Parte-hartzaileren helbide elektronikoa
+        email: Parte-hartzailearen helbide elektronikoa
       postal_letter_address:
         full_address: Helbide osoa
       postal_letter_confirmation:
@@ -176,7 +176,7 @@ eu:
           census:
             create_import:
               error: Arazo bat izan da erroldak inportatzean.
-              no_user: Ez da aurkitu parte-hartzailea
+              no_user: Ez da parte-hartzailerik aurkitu
               success: Zuzen inportatu dira %{count} elementu. Datuak prozesatzen ari gara. Eguneratu orrialdea minutu batzuetan aldaketak ikusteko.
             destroy:
               success: Errolda-datuen erregistroa ezabatu da.
@@ -220,7 +220,7 @@ eu:
             authorized: Parte-hartzailea baimendua
             fields:
               actions: Ekintzak
-              created_at: Noiz sortua
+              created_at: Sortze-data
               email: Helbide elektronikoa
               user_authorized: Parte-hartzailea baimendua?
             import_csv: Inportatu CSV fitxategia
@@ -274,7 +274,7 @@ eu:
               verification_number: 'Egiaztapena # %{n}'
           rejections:
             create:
-              success: Egiaztapena ukatua. Parte-hartzaileak bere dokumentuak aldatu beharko ditu.
+              success: Egiaztapena baztertua. Parte-hartzaileak bere dokumentuak aldatu beharko ditu.
         authorizations:
           choose:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
@@ -344,7 +344,7 @@ eu:
             send: Berretsi
             title: Sartu jasotako egiaztapen-kodea
           new:
-            send: Bidal iezadazu SMS bat
+            send: SMS bat bidali
             title: Eskatu zure egiaztapen-kodea
           update:
             error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, egiaztatu berriro bidali dizugun SMSa.
