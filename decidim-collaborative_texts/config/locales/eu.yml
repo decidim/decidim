@@ -43,7 +43,7 @@ eu:
             accepting_suggestions: Egin iradokizunak hurrengo bertsioan
             accepting_suggestions_help: Iradokizun egokiek dokumentu honetarako iradokizun sorta berri bat hasiko dute. Oraingo iradokizunak ez dira ikusiko bertsio berrian.
             draft: Zirriborro-bertsioa
-            draft_help_html: Zirriborro-bertsio bat ez da publikoa eta administratuek edita dezakete. Kendu zirriborro-egoera bertsio publikoan egiteko eduki hau. <strong>Kontuan izan zirriborroa aktibo dagoen bitartean, parte-hartzaileek aurreko bertsioa ikusiko dutela eta ezin izango dutela iradokizunik egin.</strong>
+            draft_help_html: Zirriborro-bertsio bat ez da publikoa eta administratuek edita dezakete. Ezabatu zirriborro-egoera bertsio publikoan egiteko eduki hau. <strong>Kontuan izan zirriborroa aktibo dagoen bitartean, parte-hartzaileek aurreko bertsioa ikusiko dutela eta ezin izango dutela iradokizunik egin.</strong>
           edit:
             document_has_suggestions_html: <a href="%{url}">Dokumentu honek iradokizunak ditu</a> eta ezin da zuzenean editatu. Mesedez, onartu edo baztertu iradokizunak, editatu daitekeen bertsio berri bat sortzeko.
             draft: Zirriborro-bertsioa
@@ -56,7 +56,7 @@ eu:
             title: Konfiguratu testu kolaboratzaileak
             update: Eguneratu
           index:
-            title: Testu kolaboratzaileak
+            title: Testu kolaboratiboak
           manage_trash:
             title: Ezabatutako dokumentuak
           new:
@@ -64,7 +64,7 @@ eu:
             title: Sortu testu kolaboratzaileak
           non_draft_options:
             create_draft: Baztertu iradokizunak eta sortu bertsio berri bat
-            draft_help_html: Zirriborro-bertsio bat ez da publikoa eta administratuek edita dezakete. Kendu zirriborro-egoera bertsio publikoan egiteko eduki hau. <strong>Kontuan izan zirriborroa aktibo dagoen bitartean, parte-hartzaileek aurreko bertsioa ikusiko dutela eta ezin izango dutela iradokizunik egin.</strong>
+            draft_help_html: Zirriborro-bertsio bat ez da publikoa eta administratuek edita dezakete. Ezabatu zirriborro-egoera bertsio publikoan egiteko eduki hau. <strong>Kontuan izan zirriborroa aktibo dagoen bitartean, parte-hartzaileek aurreko bertsioa ikusiko dutela eta ezin izango dutela iradokizunik egin.</strong>
             enable_suggestions: Egin iradokizunak
             enable_suggestions_help: Iradokizun egokiei esker, parte-hartzaileek bertsio honi buruzko iradokizunak egin ahal izango dituzte.
           publish:
@@ -80,7 +80,7 @@ eu:
             invalid: Arazo bat egon da dokumentua eguneratzean.
             success: Dokumentua zuzen eguneratua.
         index:
-          published: Argitaratuta
+          published: Argitaratua
           unpublished: Argitaratu gabea
       admin_log:
         document:
@@ -92,13 +92,13 @@ eu:
           unpublish: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa argitaratzeari utzi dio %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa aldatu du %{space_name} espazioan"
         suggestion:
-          create: "%{user_name} parte-hatzaileak aldaketak iradoki ditu %{space_name} espazioko %{resource_name} testu kolaboratiboan"
+          create: "%{user_name} parte-hartzaileak aldaketak iradoki ditu %{space_name} espazioko %{resource_name} testu kolaboratiboan"
         version:
           delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa ezabatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa aldatu du %{space_name} espazioan"
       document:
         apply: Aplikatu
-        cancel: Utzi
+        cancel: Ezeztatu
         consolidate:
           confirm: Ekintza honek dokumentuaren bertsio berri batean finkatuko ditu onartutako iradokizun guztiak. Onartu ez diren iradokizunak bertsio berrira eramango dira berrikusi ahal izateko. Ekintza honek baimendutako iradokizunei eutsiko die.
           new: Sendotu onartutako iradokizunak
@@ -130,12 +130,12 @@ eu:
       models:
         collaborative_text:
           fields:
-            published: Argitaratuta
+            published: Argitaratua
             suggestions: Iradokizunak onartu
             title: Izenburua
       suggestion:
         add_html: <span class="type">Erantsi:</span> <span class="text">%{text}</span>
-        remove_html: <span class="type">Kendu:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Ezabatu:</span> <span class="text">%{text}</span>
         replace_html: <span class="type">Ordezkatu:</span> <span class="text">%{text}</span>
       suggestions:
         create:
@@ -159,5 +159,5 @@ eu:
             announcement: Oharra
     statistics:
       all_collaborative_texts_count: Testu kolaboratzaile guztiak
-      collaborative_texts_count: Testu kolaboratzaileak
+      collaborative_texts_count: Testu kolaboratiboak
       collaborative_texts_count_tooltip: Lankidetzan idatzitako testuen kopurua
