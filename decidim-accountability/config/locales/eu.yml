@@ -10,12 +10,12 @@ eu:
         decidim_category_id: Kategoria
         decidim_scope_id: Eremua
         description: Deskribapena
-        end_date: Bukaera-data
+        end_date: Amaiera-data
         progress: Aurrerapena
         start_date: Hasiera-data
         subresults: Azpiemaitzak
         title: Izenburua
-        updated_at: Noiz eguneratua
+        updated_at: Eguneratze-data
       status:
         description: Deskribapena
         key: Gakoa
@@ -43,7 +43,7 @@ eu:
         add_milestone: Gehitu mugarria
         add_result: Gehitu emaitza
         confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
-        confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula?
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
         destroy: Ezabatu
         edit: Editatu
@@ -52,7 +52,7 @@ eu:
         new_milestone: Beste mugarri bat
         new_result: Beste emaitza bat
         new_status: Beste egoera bat
-        preview: Aurreikusi
+        preview: Aurrebistaratu
         title: Ekintzak
         view_deleted_results: Ikusi ezabatutako emaitzak
       admin:
@@ -61,7 +61,7 @@ eu:
           results: Emaitzak
         import_components:
           create:
-            invalid: Arazo bat gertatu da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
+            invalid: Arazo bat egon da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
           filters:
             new_items_projects:
               one: Hautatutako proiektu 1 inportatuko da
@@ -215,7 +215,7 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} egoera eguneratu du"
         value_types:
           parent_presenter:
-            not_found: 'Nagusia ez zen aurkitu (ID: %{id}) datu-basean'
+            not_found: 'Nagusia ez da aurkitu (ID: %{id}) datu-basean'
       content_blocks:
         highlighted_results:
           results: Emaitzak
@@ -251,7 +251,7 @@ eu:
             title: Izenburua
         result:
           fields:
-            created_at: Noiz sortua
+            created_at: Sortze-data
             end_date: Amaiera-data
             progress: Aurrerapena
             start_date: Hasiera-data
@@ -294,7 +294,7 @@ eu:
       accountability:
         actions:
           comment: Iruzkina
-          vote_comment: Bozkatu iruzkina
+          vote_comment: Iruzkinari babesa eman
         name: Jarraipena
         settings:
           global:
@@ -303,15 +303,15 @@ eu:
             comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             default_taxonomy: Taxonomia akatsa
             default_taxonomy_help: Aukeratu zein taxonomia erakutsi nahi duzun akatsez. Taxonomiarik aukeratzen ez bada, emaitzak zerrenda formatuan agertuko dira.
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk partaidetza-espazio honetarako.
+            define_taxonomy_filters: Mesedez, zehaztu partaidetza-espazio honetarako iragazki batzuk ezarpen hau erabili aurretik.
             display_progress_enabled: Erakutsi aurrerapena
             geocoding_enabled: Mapak gaituta
             intro: Sarrera
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            taxonomy_filters: Hautatu iragazkiak osagairako
+            taxonomy_filters: Osagairako iragazkiak hautatu
             taxonomy_filters_add: Erantsi iragazkia
           step:
-            comments_blocked: Iruzkin blokeatuak
+            comments_blocked: Iruzkinak blokeatuta
           visualization: Bistaratzea
     download_your_data:
       show:
@@ -337,8 +337,8 @@ eu:
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
           commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
-          created_at: Zein datatan sortu zen iruzkin hau
-          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna bada edo erantzun batren erantzuna)
+          created_at: Zein datatan sortu den iruzkin hau
+          depth: Iruzkin honek iruzkinen zuhaitzean duen kokapena (erantzun bat edo erantzun baten erantzuna bada)
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uztean zuen lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
@@ -347,7 +347,7 @@ eu:
           children_count: Emaitza txikien kopurua
           comments_count: Ekimen honek zenbat iruzkin dituen
           component: Emaitzaren osagaia honi dagokio
-          created_at: Zein datatan sortu zen emaitza
+          created_at: Zein datatan sortu den emaitza
           description: Emaitzaren deskribapena
           end_date: Zein datatan exekutatzen eta amaitzen den emaitza
           id: Emaitzaren identifikatzaile bakarra
@@ -361,11 +361,11 @@ eu:
           status: Emaitza honen egungo egoera
           taxonomies: Emaitzaren taxonomiak
           title: Emaitzaren izenburua
-          updated_at: Zein egunetan eguneratu da azken aldiz emaitza hau
+          updated_at: Zein egunetan eguneratu den azken aldiz emaitza hau
           url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
       highlighted_results:
-        see_all: Ikusi emaitza guztiak (%{count})
+        see_all: Ikusi emaitza guztiak
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
