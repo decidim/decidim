@@ -8,10 +8,10 @@ eu:
         created_at: Sortua
         decidim_scope_id: Eremua
         field: Nire datu-eremua
-        start_date: Hasiera data
+        start_date: Hasiera-data
         title: Izenburua
         translatable_text: Itzul daitekeen testua
-        updated_at: Eguneratuta
+        updated_at: Eguneratze-data
   decidim:
     components:
       dummy:
@@ -36,8 +36,8 @@ eu:
               baz: Baz
               foo: Foo
           step:
-            likes_blocked: Atsegin dut aukerak blokeatuta
-            likes_enabled: Atsegin dut aukerak gaituta
+            likes_blocked: Atsegin dut blokeatuta
+            likes_enabled: Atsegin dut gaituta
             readonly_step_attribute: Soilik irakurtzeko atributua
             test_options:
               bar: Bar
