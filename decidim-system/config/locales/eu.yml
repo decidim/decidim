@@ -4,12 +4,12 @@ eu:
       oauth_application:
         name: OAuth aplikazioaren izena
         organization_logo: Antolatzailearen logoa (karratua)
-        organization_name: Antolatzailea
-        organization_url: Antolatzailearen URLa
+        organization_name: Erakundea
+        organization_url: Erakundearen URLa
         redirect_uri: Birbideratze-URIa
         refresh_tokens: Freskatu fitxak
         refresh_tokens_enabled: Freskatu fitxa eguneratuak
-        scopes: Esparru erabilgarriak
+        scopes: Eremu erabilgarriak
       organization:
         address: SMTP ostalariaren izena
         from_email: Helbide elektronikoa
@@ -54,7 +54,7 @@ eu:
         api_users:
           create: Sortu
           new: API erabiltzaile berria
-          remove: Kendu erabiltzailea
+          remove: Erabiltzailea ezabatu
         confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
         confirm_refresh_api_secret: Ziur zaude API erabiltzaile honen sekretua freskatu nahi duzula? Freskatu ondoren, sekretu zaharra ez da baliozkoa izango eta ezin izango da gehiago erabili.
         confirm_remove_api_user: Ziur zaude API erabiltzaile hau ezabatu nahi duzula?
@@ -99,7 +99,7 @@ eu:
         index:
           explanation_html: |
             <p>API erabiltzaileek integrazio-garatzaileei administraziorako makina-erabiltzaileen kontuak sistemara gehitzeko aukera ematen diete. Makina-erabiltzaile horiek plataforman administratzaile gisa jardun dezakete administratzaile arruntek administrazio-panelaren bidez egingo lituzketen eguneraketak egiteko. Ohiko erabilera-kasu bat kanpoko kudeaketa-plataforma bat da eta bertan script automatizatu batek plataformarekin administrazio-lanak egiten ditu benetako parte-hartzaile batek sisteman autentifikatu beharrik izan gabe. Adibidez, automatizazio-sistema batek proposamenei erantzunak bidali nahi badizkie integrazio-erabiltzaile bat behar dugu zeregin hori plataforma honetan egiteko.</p>
-            <p>Kontu hauen eta administratzaile arrunten arteko desberdintasun nagusia da erabiltzaile hauek makinek erabiltzeko direla eta horregatik pasahitzaren eskakizunak desberdinak direla. Erabiltzaile hauek ez dute pasahitza aldian-aldian eguneratu beharrik eta kontuaren pasahitza modu kudeatuan alda daiteke behar denean.</p>
+            <p>Kontu hauen eta administratzaile arrunten arteko desberdintasun nagusia da parte-hartzaile hauek makinek erabiltzeko direla eta horregatik pasahitzaren eskakizunak desberdinak direla. Parte-hartzaile hauek ez dute pasahitza aldian-aldian eguneratu beharrik eta kontuaren pasahitza modu kudeatuan alda daiteke behar denean.</p>
             <p>Kredentzial hauek makinek erabiltzeko dira. Parte-hartzaileei zuzendutako aplikazioak <a href="%{oauth_link}">OAuth aplikazioekin</a> integratu behar dira.</p>
           manage: Kudeatu API erabiltzaileak
         new:
@@ -130,7 +130,7 @@ eu:
             did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko jarraibiderik jaso?
             forgot_your_password?: Pasahitza ahaztu duzu?
             log_in: Hasi saioa
-            sign_up: Sortu kontu bat
+            sign_up: Kontu bat sortu
       menu:
         admins: Administratzaileak
         api_credentials: API kredentzialak
@@ -140,13 +140,13 @@ eu:
       models:
         admin:
           fields:
-            created_at: Noiz sortua
+            created_at: Sortze-data
             email: Helbide elektronikoa
           validations:
             email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
         api_user:
           fields:
-            created_at: Noiz sortua
+            created_at: Sortze-data
             key: Gakoa
             name: Izena
             organization: Erakundea
@@ -157,13 +157,13 @@ eu:
           fields:
             created_at: Sortze-data
             name: OAuth aplikazioaren izena
-            organization_name: Antolatzailea
+            organization_name: Erakundea
         organization:
           actions:
             save_and_invite: Sortu antolatzailea eta gonbidatu administratzailea
           fields:
             content_security_policy: Edukien segurtasun-politika
-            created_at: Noiz sortua
+            created_at: Sortze-data
             file_upload_settings: Fitxategiak igotzearen doikuntzak
             name: Izena
             omniauth_settings: Omniauth ezarpenak
@@ -247,19 +247,19 @@ eu:
             Font-src jarraibideak @font-face erabiliz karga daitezkeen URLak mugatzen ditu. Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           frame_src: Frame src
           frame_src_hint: |
-            Frame-src direktibak <frame>, <iframe> eta <object> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
+            Frame-src jarraibideak <frame>, <iframe> eta <object> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
             Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           img_src: Img src
           img_src_hint: |
-            Img-src direktibak <img>, <image>, <picture> eta <svg> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
+            Img-src jarraibideak <img>, <image>, <picture> eta <svg> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
             Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           media_src: Multimedia src
           media_src_hint: |
-            Media-src direktibak <video>, <audio> eta <source> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
+            Media-src jarraibideak <video>, <audio> eta <source> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
             Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           script_src: Script-src
           script_src_hint: |
-            Script-src direktibak <script> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
+            Script-src jarraibideak <script> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
             Plataformak "'self' 'unsafe-inline' 'unsafe-eval'" gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           style_src: Style src
           style_src_hint: |
@@ -327,7 +327,7 @@ eu:
           fieldsets:
             sender: Bidaltzailea
           instructions:
-            from_label: 'Mezu elektronikoaren bidaltzailea hau izango da: "zure-erakundearen-izena [zure-erakundea@example.org](mailto:zure-erakundea@example.org)". Utzi hutsik erakundearentzat zehaztutako izen bera erabiltzeko.'
+            from_label: 'Mezu elektronikoaren bidaltzailea hau izango da: "your-organization-name your-<your-organization@example.org>". Utzi hutsik erakundearentzat zehaztutako izen bera erabiltzeko.'
           placeholder:
             from_email: zure-erakundea@example.org
             from_label: erakundearen izena
