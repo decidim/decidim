@@ -11,7 +11,7 @@ eu:
         plural: Plurala
       attachment:
         attachment_collection_id: Karpeta
-        attachments: Erantsitako fitxategiak
+        attachments: Eranskinak
         description: Deskribapena
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
@@ -40,7 +40,7 @@ eu:
       member_csv_import:
         file: Fitxategia
       newsletter:
-        body: Gorputza
+        body: Testua
         send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
@@ -245,12 +245,12 @@ eu:
         create:
           error: Arazo bat egon da beste arlo bat sortzean.
           success: Arloa zuzen sortua.
-        deprecated: Kontuan izan arloak ez daudela erabilgarri eta etorkizuneko bertsioetan kenduko direla. Mesedez, erabili taxonomiak horien ordez. Gaur egun arloakak erabiltzen dituen modulua bakarra ekimenen modulua da.
+        deprecated: Kontuan izan arloak zaharkitutzat jotzen direla eta etorkizuneko bertsioetan kendu egingo direla. Mesedez, erabili taxonomiak horien ordez. Gaur egun arloak erabiltzen dituen modulu bakarra ekimenen modulua da.
         destroy:
-          has_spaces: Arlo honek mendekotasuna duten espazioak ditu. Kendu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
+          has_spaces: Arlo honek mendekotasuna duten espazioak ditu. Ezabatu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
           success: Arloa behar bezala suntsitua.
         edit:
-          title: Editatu arloa
+          title: Arloa editau
           update: Eguneratu
         index:
           title: Arloak
@@ -288,7 +288,7 @@ eu:
           title: Editatu fitxategi erantsia
           update: Eguneratu
         index:
-          title: Erantsitako fitxategiak
+          title: Eranskinak
         new:
           create: Sortu fitxategi erantsia
           title: Beste fitxategi erantsi bat
@@ -322,7 +322,7 @@ eu:
       component_permissions:
         update:
           error: Arazo bat egon da osagai honen baimenak eguneratzean.
-          success: Baimenak zuzen eguneratuak.
+          success: Baimenak behar bezala eguneratuak.
       components:
         create:
           error: Arazo bat egon da osagai hau sortzean.
@@ -367,7 +367,7 @@ eu:
           title: Transferitu parte-hartzailea
         'false': 'Ez'
         index:
-          text: Bilatu gaur egungo parte-hartzailearen posta elektronikoaren, izenren edo ezizenaren bidez
+          text: Bilatu uneko parte-hartzailearen helbide elektronikoaren, izenaren edo ezizenaren arabera
           title: Egiaztapen-arazoak
         managed_user_name: Parte-hartzailearen kudeatua
         solved: Ebatzita
@@ -402,7 +402,7 @@ eu:
           goto_moderation: Joan moderazio globaletara
           title: Zain dauden moderazioak
         show:
-          dropdown: Goitibeherako zerrrenda
+          dropdown: Goitibeherako zerrenda
           title: Kontrol-panela
           view_more_logs: Ikusi erregistro gehiago
       domain_allowlist:
@@ -480,7 +480,7 @@ eu:
           values:
             all: Guztiak
             pending: Zain
-            rejected: Ukatua
+            rejected: Baztertua
             verified: Egiaztatua
         taxonomies:
           taxonomy_id_eq:
@@ -542,7 +542,7 @@ eu:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
             message:
               one: Bikoiztu %{columns} zutabe.
-              other: Bikoiztu %{columns} zutabe.
+              other: '%{columns} zutabe bikoiztu.'
           invalid_indexes:
             lines:
               detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
@@ -552,8 +552,8 @@ eu:
             records:
               detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
               message:
-                one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
-                other: Erroreak aurkitu dira %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                one: Inportazio-fitxategian errore bat aurkitu da %{indexes} ordena-zenbakiak dituzten erregistroetan.
+                other: Inportazio-fitxategian erroreak aurkitu dira %{indexes} ordena-zenbakiak dituzten erregistroetan.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
             message:
@@ -711,7 +711,7 @@ eu:
           name: Kidea
         newsletter:
           fields:
-            created_at: Noiz sortua
+            created_at: Sortze-data
             progress: ' Aurrerapena '
             sent_at: ' Bidaltze-data:'
             sent_to: Hona bidalia
@@ -734,7 +734,7 @@ eu:
             token: Sarbide-esteka
         static_page:
           fields:
-            created_at: Noiz sortua
+            created_at: Sortze-data
             title: Izenburua
         user:
           fields:
@@ -760,9 +760,9 @@ eu:
                 title: Desblokeatu
                 update_moderated_user_button: Desblokeatu parte-hartzaileak
               unreport:
-                title: Salaketa kendu
+                title: Salaketa ezabatu
             ignore:
-              update_moderated_user_button: Parte-hartzaileen salaketak kendu
+              update_moderated_user_button: Parte-hartzaileen salaketak ezabatu
             title: Ekintzak
             unblock: Desblokeatu parte-hartzailea
             unreport: Desegin salaketa
@@ -793,7 +793,7 @@ eu:
               update_moderation_button: Erakutsi berriro hautatutako edukiak
             unreport:
               title: Desegin salaketa
-              update_moderation_button: Hautatutako baliabideen salaketak kendu
+              update_moderation_button: Hautatutako baliabideen salaketak ezabatu
           cancel: Ezeztatu
           selected: hautatua
           title: Salatutako edukia
@@ -826,7 +826,7 @@ eu:
           xlsx: XLSX
       newsletter_templates:
         index:
-          preview_template: Aurreikusi
+          preview_template: Aurrebistaratu
           title: Buletinerako txantiloiak
           use_template: Erabili txantiloi hau
         show:
@@ -916,14 +916,14 @@ eu:
             success: Parte-hartzaileak zuzen desblokeatuta.
         create:
           no_user_found: Ez da Parte-hartzailerik aurkitu.
-          success: Pate-hartzailea zuzen ofizializatua.
+          success: Parte-hartzailea zuzen ofizializatua.
         destroy:
           success: Parte-hartzailearen ofizializazioa behar bezala desgaitua.
         index:
           actions: Ekintzak
           badge: Garaikurra
           block: Blokeatu
-          created_at: Noiz sortua
+          created_at: Sortze-data
           name: Izena
           nickname: Ezizena
           not_officialized: Ez ofizializatua
@@ -976,7 +976,7 @@ eu:
           instagram: Instagram
           logos:
             organization_logos: Erakundearen logoak
-            preview: Aurreikusi
+            preview: Aurrebistaratu
           machine_translation_display_priority:
             options:
               original: Sistemak informazioa egileak erabilitako hizkuntzan erakusten du. Administratzailetik eskuzko itzulpenekin sortutako edukiak, administratzailera itzulitako balioak bistaratuko ditu.
@@ -1028,7 +1028,7 @@ eu:
           title: Editatu eremu mota
           update: Eguneratu
         index:
-          title: Esparru motak
+          title: Eremu motak
         new:
           create: Sortu eremu mota
           title: Beste eremu mota bat
@@ -1039,7 +1039,7 @@ eu:
         create:
           error: Arazo bat egon da beste eremu bat sortzean.
           success: Eremua zuzen sortua.
-        deprecated: Kontuz, eremuak desinformatuta daude eta hurrengo bertsioetan kenduko dira. Mesedez, erabili taxonomiak. Gaur egun eskopioak erabiltzen dituen modulu bakarra ekimenen modulua da.
+        deprecated: Kontuz, eremuak desinformatuta daude eta hurrengo bertsioetan ezabatuko dira. Mesedez, erabili taxonomiak. Gaur egun eskopioak erabiltzen dituen modulu bakarra ekimenen modulua da.
         destroy:
           success: Eremua behar bezala suntsitua.
         edit:
@@ -1060,7 +1060,7 @@ eu:
           copy_link: Kopiatu esteka
           destroy: Ezabatu
           edit: Editatu
-          preview: Aurreikusi
+          preview: Aurrebistaratu
         create:
           invalid: Arazo bat izan da sarbide-esteka sortzean.
           success: Esteka zuzen sortua.
@@ -1107,9 +1107,9 @@ eu:
           previous: Aurrekoa
           previous_title: Aurreko elementua
         attachments:
-          add_attachments: Gehitu eranskinak
+          add_attachments: Eranskinak gehitu
           attachment_legend: Gehitu dokumentu bat edo irudi bat
-          edit_attachments: Editatu eranskinak
+          edit_attachments: Eranskinak editatu
       static_page_topics:
         create:
           error: Arazo bat egon da beste gai bat sortzean.
@@ -1193,7 +1193,7 @@ eu:
         new:
           create: Sortu taxonomia
           title: Beste taxonomia bat
-        no_taxonomies: Gaur egun ez dago taxonomiarik. Sortutaxonomia-zerrenda bat hemen eta zehaztu elementuak horietako bakoitzean baliabideak sailkatu edo iragazteko.
+        no_taxonomies: Gaur egun ez dago taxonomiarik. Sortu taxonomia-zerrenda bat hemen eta zehaztu elementuak horietako bakoitzean baliabideak sailkatu edo iragazteko.
         table:
           to_next_page: Arrastatu hurrengo orrira
           to_prev_page: Arrastatu aurreko orrira
@@ -1224,7 +1224,7 @@ eu:
         form:
           all: Guztiak
           items:
-            one: "Item bat hautatuta"
+            one: "Item %{count} hautatuta"
             other: "%{count} item hautatuta"
           name_help: Aurrealdean erakutsiko den iragazkiaren izenburua.
           no_items: Taxonomia honetarako ez dago elementurik. Artikuluak sor ditzakezu taxonomia konfiguratzeko ezarpenetan.
@@ -1259,7 +1259,7 @@ eu:
           title: Beste taxonomia-iragazk bat hautatzeko
         show:
           items_count: "Elementu %{count}"
-          remove: Kendu
+          remove: Ezabatu
           title: Taxonomiako iragazki-hautatzailea
         taxonomies_select:
           filters: Iragazkiak
@@ -1327,7 +1327,7 @@ eu:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
       file_help:
         attachment:
-          explanation: 'Fitxategiako jarraibieak:'
+          explanation: 'Fitxategirako jarraibieak:'
           message_1: CSV, JSON eta Excel (.xlsx) fitxategiak onartzen dira
           message_2: CSV fitxategietarako, zutabeen arteko bereizgailuak erdikolona (";") izan behar du
     moderations:
@@ -1357,7 +1357,7 @@ eu:
             unreport:
               failed: 'Arazo bat izan da eduki batzuk %{errored} berriro erakustean'
               invalid: Ez dago moderaziorik hautatuta.
-              success: Baliabideen salaketak behar bezala kendu dira.
+              success: Baliabideen salaketak behar bezala ezabatu dira.
           hide:
             invalid: Arazo bat egon da baliabidea ezkutatzean.
             success: Edukia zuzen ezkutatua.
