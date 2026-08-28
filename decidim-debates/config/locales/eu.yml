@@ -27,38 +27,38 @@ eu:
         changeset:
           debates: Eztabaidak
       tooltips:
-        deleted_debates_info: Ezin da ezabatu eztabaida hau
+        deleted_debates_info: Eztabaida hau ezin da ezabatu
     components:
       debates:
         actions:
           comment: Iruzkina
           create: Sortu eztabaida bat
           like: Atsegin dut
-          vote_comment: Bozkatu iruzkina
+          vote_comment: Iruzkinari babesa eman
         name: Eztabaidak
         settings:
           global:
-            announcement: Iragarpena
+            announcement: Jakinarazpena
             attachments_allowed: Baimendu eranskinak
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazioa honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, zehaztu partaidetza-espazio honetarako iragazki batzuk ezarpen hau erabili aurretik.
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            taxonomy_filters: Hautatu iragazkiak osagairako
+            taxonomy_filters: Osagairako iragazkiak hautatu
             taxonomy_filters_add: Erantsi iragazkia
           step:
-            announcement: Iragarpena
+            announcement: Jakinarazpena
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
-            likes_blocked: Atsegin dut aukerak blokeatuta
-            likes_enabled: Atsegin dut aukerak gaituta
+            likes_blocked: Atsegin dut blokeatuta
+            likes_enabled: Atsegin dut gaituta
     debates:
       actions:
         close: Itxi
         confirm_delete_debate: Ziur zaude eztabaida hau ezabatu nahi duzula?
         deleted_debate_info: Ezabatutako eztabaida zaborretik berreskura daiteke.
-        edit: Aldatu
+        edit: Editatu
         new: Beste eztabaida bat
         title: Ekintzak
         view_deleted_debates: Ikusi ezabatutako eztabaidak
@@ -69,13 +69,13 @@ eu:
             title: Itxi eztabaida
         debates:
           create:
-            invalid: Arazo bat gertatu da eztabaida sortzean.
+            invalid: Arazo bat egon da eztabaida sortzean.
             success: Eztabaida zuzen sortu da.
           edit:
             title: Editatu eztabaida
             update: Eguneratu eztabaida
           form:
-            add_attachments: Gehitu eranskinak
+            add_attachments: Eranskinak gehitu
             attachment_legend: Gehitu dokumentu bat edo irudi bat
             comments_layout_locked_warning: Iruzkinen formatoa ezin da aldatu iruzkinak argitaratu direlako.
             comments_visualization: Iruzkinak bistaratzea
@@ -198,18 +198,16 @@ eu:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Kaixo:
-              "%{resources ce_title}" eztabaida berria sortu da %{participatory_space_title}} partaidetza-espazioan, egiaztatu eta egin ekarpenak:
+              Kaixo, "%{resource_title}" eztabaida berria sortu da %{participatory_space_title} partaidetza-espazioan, begiratu eta parte hartu:
             email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} parte hartzeko espazioa jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
             email_subject: '"%{resource_title}" eztabaida berria hemen %{participatory_space_title}'
             notification_title: '<a href="%{resource_path}">%{resource_title}</a> eztabaida sortu da hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
           user_followers:
             email_intro: |-
-              Kaixo,
-              Jarraitzen ari zaren %{author_name} %{author_nickname} parte-hartzaileak "%{resource_title}" beste eztabaida bat sortu du. Sartu eztabaidan eta zure ekarpena egin:
+              Kaixo, jarraitzen duzun %{author_name} parte-hartzaileak "%{resource_title}" eztabaida berria sortu du. Begiratu eta parte hartu:
             email_outro: Jakinarazpen hau jaso duzu %{author_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
             email_subject: '%{author_name} parte-hartzaileak beste eztabaida bat sortu du hemen: "%{resource_title}"'
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu du.
+            notification_title: <a href="%{author_path}">%{author_name}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu du.
         creation_disabled:
           email_intro: 'Eztabaida sortzea dagoeneko ez dago aktibo %{participatory_space_title}. Oraindik irekita dauden eztabaidetan parte har dezakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
@@ -263,14 +261,14 @@ eu:
           comments_enabled: Eztabaida honek iruzkinak ditu baimenduta edo ez
           component: Emaitzaren osagaia honi dagokio
           conclusions: Eztabaidaren ondorioak itxita dago
-          created_at: Zein datatan eta zein ordutan sortu zen eztabaida
+          created_at: Zein datatan eta zein ordutan sortu den eztabaida
           description: Eztabaidaren deskribapena
           end_time: Eztabaida hau amaitzen denean, eztabaida irekia bada eta denbora mugatua badu
           follows_count: Eztabaida honek duen jarraitzaile kopurua
           id: Eztabaidaren identifikatzaile bakarra
           information_updates: Egileak eztabaidari egin dizkion eguneraketak
           instructions: Eztabaida honetan iruzkina egiteko jarraibideak
-          last_comment_at: Eztabaida hau azkenekoz iruzkindu zen data
+          last_comment_at: Azken aldiz eztabaida hau iruzkindu den data
           last_comment_by: Eztabaidan egindako azken iruzkinaren datuak
           likes_count: Eztabaidak duen Atsegin dut kopurua
           participatory_space: Zein espaziotakoa da eztabaida hau (adibidez, Partaidetza-prozesua edo Batzarra)
