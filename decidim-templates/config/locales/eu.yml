@@ -43,7 +43,7 @@ eu:
           title: Galdeketaren Izenburua
       template:
         fields:
-          created_at: Noiz sortua
+          created_at: Sortze-data
         name: Txantiloia
     templates:
       admin:
