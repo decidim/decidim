@@ -3,6 +3,14 @@ document.addEventListener("turbo:load", () => {
     "#js-bulk-actions-wrapper"
   );
 
+  const bulkActionsContainer = wrapper.closest(
+    '[data-controller~="bulk-actions"]'
+  );
+
+  if (!bulkActionsContainer) {
+    return;
+  }
+
   if (!wrapper) {
     return;
   }
@@ -63,7 +71,7 @@ document.addEventListener("turbo:load", () => {
     queueMicrotask(selectedResourcesCountUpdate);
   };
 
-  wrapper.addEventListener("change", onSelectionChange);
+  bulkActionsContainer.addEventListener("change", onSelectionChange)
 
   selectedResourcesCountUpdate();
 

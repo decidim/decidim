@@ -220,7 +220,7 @@ describe("BulkActionsController", () => {
       ).toBe("1");
     });
 
-    it("exposes the legacy bridge functions", async () => {
+    it("exposes the legacy functions", async () => {
       await startApplication();
 
       expect(
@@ -297,22 +297,6 @@ describe("BulkActionsController", () => {
           getElementById("js-bulk-actions-button").
           classList.contains("hide")
       ).toBe(true);
-    });
-
-    it("synchronizes the mirrored input", () => {
-      const checkbox = itemCheckboxes()[0];
-      const mirroredInput =
-        document.querySelector(".js-resource-id-1");
-
-      checkbox.checked = true;
-      dispatchChange(checkbox);
-
-      expect(mirroredInput.checked).toBe(true);
-
-      checkbox.checked = false;
-      dispatchChange(checkbox);
-
-      expect(mirroredInput.checked).toBe(false);
     });
   });
 
@@ -433,7 +417,7 @@ describe("BulkActionsController", () => {
   });
 
   describe("disconnect()", () => {
-    it("removes the legacy bridge functions", async () => {
+    it("removes the legacy functions", async () => {
       await startApplication();
 
       controllerElement().remove();
