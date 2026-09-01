@@ -92,7 +92,7 @@ NOTE: When you bump the version, the generator tests will fail because the gems 
 .... Update the version on the antora.yml files for all the languages too. See example: https://github.com/decidim/documentation/commit/452c54bf2247a73f2a04f1457ff4ccc0e6b7b944
 ... On the `develop` branch (see example: https://github.com/decidim/documentation/pull/263):
 .... Add the new version on the https://github.com/decidim/documentation/blob/develop/antora-playbook.yml[antora-playbook.yml] `branches` key, for the both sources (decidim and documentation repository)
-.... Remove the oldest branch 
+.... Replace the oldest maintained branch 
 .... Change the new default in the `start_page` key
 
 After you commit this change in `develop` branch you will have to wait a couple minutes for the automatic deployment to see it live at https://docs.decidim.org.
