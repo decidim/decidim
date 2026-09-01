@@ -905,6 +905,9 @@ de:
           logos:
             organization_logos: Organisationslogo
             preview: Vorschau
+          machine_translation_display_priority:
+            options:
+              translation: Das System zeigt, falls vorhanden, eine Übersetzung an, andernfalls wird die Originalsprache verwendet.
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
           twitter: X

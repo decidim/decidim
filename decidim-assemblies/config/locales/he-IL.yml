@@ -69,17 +69,14 @@ he:
       decidim/assembly:
         one: אסיפה
         two: אסיפות
-        many: אסיפות
         other: אסיפות
       decidim/assembly_member:
         one: חבר אסיפה
         two: חברי אסיפה
-        many: חברי אסיפה
         other: חברי אסיפה
       decidim/assembly_user_role:
         one: תפקיד באסיפה
         two: תפקידים באסיפה
-        many: תפקידים באסיפה
         other: תפקידים באסיפה
   decidim:
     admin:
