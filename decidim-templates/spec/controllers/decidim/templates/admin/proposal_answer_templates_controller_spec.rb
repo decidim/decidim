@@ -95,6 +95,13 @@ describe Decidim::Templates::Admin::ProposalAnswerTemplatesController do
     let!(:state) { create(:proposal_state, component:) }
     let!(:proposal) { create(:proposal, component:) }
 
+    context "without proposalId" do
+      it "returns an error" do
+        get :fetch, params: { id: template.id, format: :json }
+        expect(response).to have_http_status(:unprocessable_content)
+      end
+    end
+
     context "with a cross-org template id" do
       let(:other_template) { create(:template, organization: other_org, target: :proposal_answer) }
 
