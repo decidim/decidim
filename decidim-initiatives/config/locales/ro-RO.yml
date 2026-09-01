@@ -348,7 +348,6 @@ ro:
           more_information: (Mai multe informații)
           select: Doresc să promovez această iniţiativă
           select_initiative_type_help_html: "<p>Inițiativele sunt un mijloc prin care participanții pot interveni astfel încât organizația să poată întreprinde acțiuni de apărare a interesului general. Ce inițiativă doriți să lansați?</p>"
-          show_less: Afișați mai puțin
           show_more: Afișați mai mult
           subtitle: Ce inițiativă doriți să promovați?
         send_to_technical_validation_button:

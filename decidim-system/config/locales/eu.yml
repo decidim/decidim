@@ -3,16 +3,16 @@ eu:
   activemodel:
     attributes:
       oauth_application:
-        name: OAuth Aplikazioaren izena
+        name: OAuth aplikazioaren izena
         organization_logo: Antolatzailearen logoa (karratua)
-        organization_name: Antolatzailea
-        organization_url: Antolatzailearen URLa
-        redirect_uri: Berbideratu URI
+        organization_name: Erakundea
+        organization_url: Erakundearen URLa
+        redirect_uri: Birbideratze-URIa
         refresh_tokens: Freskatu fitxak
         refresh_tokens_enabled: Freskatu fitxa eguneratuak
-        scopes: Esparru erabilgarriak
+        scopes: Eremu erabilgarriak
       organization:
-        address: SMTP host-aren izena
+        address: SMTP ostalariaren izena
         from_email: Helbide elektronikoa
         from_label: Etiketa
         password: Pasahitza
@@ -27,14 +27,14 @@ eu:
           default: Fitxategi-luzapenak, erantsita
           image: Irudien artxibo-luzapenak
         maximum_file_size:
-          avatar: Abatar-fitxategiaren tamaina
+          avatar: Avatar-fitxategiaren tamaina
           default: Fitxategi-tamaina, lehenetsita
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: Berbideratzeko URIa URI SSL izan behar da
+              must_be_ssl: Birbideratze-URIak SSL URI bat izan behar du
         organization:
           attributes:
             host:
@@ -49,13 +49,13 @@ eu:
         api_user:
           hidden_secret: Sekretua ezkutuan dago
           hide_secret: Ezkutatu sekretua
-          secret_can_not_be_shown: API sekretua sortu ondoren soilik ikus edo kopiatu daiteke
+          secret_can_not_be_shown: API pasahitza sekretua sortu ondoren bakarrik ikusi edo kopiatu daiteke
           show_secret: Erakutsi sekretua
           shown_secret: Sekretua ikusgai dago
         api_users:
           create: Sortu
-          new: APIren beste erabiltzaile bat
-          remove: Kendu erabiltzailea
+          new: API erabiltzaile berria
+          remove: Erabiltzailea ezabatu
         confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
         confirm_refresh_api_secret: Ziur zaude API erabiltzaile honen sekretua freskatu nahi duzula? Freskatu ondoren, sekretu zaharra ez da baliozkoa izango eta ezin izango da gehiago erabili.
         confirm_remove_api_user: Ziur zaude API erabiltzaile hau ezabatu nahi duzula?
@@ -89,7 +89,7 @@ eu:
           success: Administratzailea zuzen eguneratua.
       api_user:
         create:
-          error: APIren erabiltzaileen sorkuntzak porrot egin du.
+          error: Ezin izan da API erabiltzailea sortu.
           success: API erabiltzailea zuzen sortu da. Erabiltzailearentzako sekretua sortu ondoren baino ez da ikusten. Mesedez, kopiatu eta gorde segurtasunez orri hau utzi aurretik!
         destroy:
           success: API erabiltzailea zuzen ezabatu da.
@@ -99,13 +99,13 @@ eu:
       api_users:
         index:
           explanation_html: |
-            <p>APIren erabiltzaileek integrazio-garatzaileei aukera ematen diete makina administratzaileen erabiltzaile-kontuak sistemara gehitzeko. Makina-erabiltzaile horiek administratzaile gisa jardun dezakete plataforman, administratzaile normalek administrazio-panelaren bidez egingo lituzketen eguneraketak egiteko. Ohiko erabilera-kasu bat kanpoko kudeaketa-plataforma bat da, non gidoi automatizatu batek plataformarekin administrazio-lanak egingo lituzkeen, benetako erabiltzaile batek sistemara autentifikatu beharrik izan gabe. Adibidez, automatizazio-sistema batek proposamenei erantzunak bidali nahiko lizkioke, eta, kasu horretan, integrazio-erabiltzaile bat beharko litzateke plataforma horren barruan lan hori egiteko.</p>
-            <p>Kontu horien eta administrari arrunten arteko desberdintasun nagusia da erabiltzaile horiek makinek erabili behar dituztela eta, beraz, pasahitzaren eskakizunak desberdinak direla. Erabiltzaile horiek ez dute beren pasahitza aldian-aldian eguneratu beharrik, eta kontuaren pasahitza aldatzea modu kudeatuan gerta daiteke behar denean.</p>
-            <p>Kredentzial horiek makinek erabili behar dituzte. <a href="%{oauth_link}"></a></p>
-          manage: Kudeatu APIren erabiltzaileak
+            <p>API erabiltzaileek integrazio-garatzaileei administraziorako makina-erabiltzaileen kontuak sistemara gehitzeko aukera ematen diete. Makina-erabiltzaile horiek plataforman administratzaile gisa jardun dezakete administratzaile arruntek administrazio-panelaren bidez egingo lituzketen eguneraketak egiteko. Ohiko erabilera-kasu bat kanpoko kudeaketa-plataforma bat da eta bertan script automatizatu batek plataformarekin administrazio-lanak egiten ditu benetako parte-hartzaile batek sisteman autentifikatu beharrik izan gabe. Adibidez, automatizazio-sistema batek proposamenei erantzunak bidali nahi badizkie integrazio-erabiltzaile bat behar dugu zeregin hori plataforma honetan egiteko.</p>
+            <p>Kontu hauen eta administratzaile arrunten arteko desberdintasun nagusia da parte-hartzaile hauek makinek erabiltzeko direla eta horregatik pasahitzaren eskakizunak desberdinak direla. Parte-hartzaile hauek ez dute pasahitza aldian-aldian eguneratu beharrik eta kontuaren pasahitza modu kudeatuan alda daiteke behar denean.</p>
+            <p>Kredentzial hauek makinek erabiltzeko dira. Parte-hartzaileei zuzendutako aplikazioak <a href="%{oauth_link}">OAuth aplikazioekin</a> integratu behar dira.</p>
+          manage: Kudeatu API erabiltzaileak
         new:
           select_organization: Aukeratu zure erakundea
-          title: Sortu APIren beste erabiltzaile bat
+          title: Sortu API erabiltzaile berria
       dashboard:
         show:
           admins: Administratzaileak
@@ -113,7 +113,7 @@ eu:
           system_checks: Sistemaren egiaztapenak
       default_pages:
         placeholders:
-          content: Mesedez, gehitu eduki adierazgarria %{page} (a) ren orri estatikoaren administrazio-panelean.
+          content: Mesedez, gehitu eduki esanguratsua %{page} orri estatikoan administrazio-paneletik.
           summary: Gehitu laburpen adierazgarri %{page} orri estatikoari administrazio-panelean.
           title: 'Orri honetarako izenburu lehenetsia: %{page}'
         terms-of-service: Zerbitzu-baldintzak
@@ -131,23 +131,23 @@ eu:
             did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko jarraibiderik jaso?
             forgot_your_password?: Pasahitza ahaztu duzu?
             log_in: Hasi saioa
-            sign_up: Sortu kontu bat
+            sign_up: Kontu bat sortu
       menu:
         admins: Administratzaileak
-        api_credentials: APIren kredentzialak
+        api_credentials: API kredentzialak
         dashboard: Kontrol-panela
-        oauth_applications: OAuth Aplikazioak
+        oauth_applications: OAuth aplikazioak
         organizations: Erakundeak
       models:
         admin:
           fields:
-            created_at: Noiz sortua
+            created_at: Sortze-data
             email: Helbide elektronikoa
           validations:
             email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
         api_user:
           fields:
-            created_at: Noiz sortua
+            created_at: Sortze-data
             key: Gakoa
             name: Izena
             organization: Erakundea
@@ -157,17 +157,17 @@ eu:
         oauth_application:
           fields:
             created_at: Sortze-data
-            name: OAuth Aplikazioaren izena
-            organization_name: Antolatzailea
+            name: OAuth aplikazioaren izena
+            organization_name: Erakundea
         organization:
           actions:
             save_and_invite: Sortu antolatzailea eta gonbidatu administratzailea
           fields:
             content_security_policy: Edukien segurtasun-politika
-            created_at: Noiz sortua
+            created_at: Sortze-data
             file_upload_settings: Fitxategiak igotzearen doikuntzak
             name: Izena
-            omniauth_settings: Omniauth doikuntzak
+            omniauth_settings: Omniauth ezarpenak
             smtp_settings: SMTP konfigurazioa
       oauth_applications:
         create:
@@ -182,24 +182,24 @@ eu:
         form:
           application_type:
             confidential:
-              explanation: Baimen-zerbitzariarekin modu seguruan autentifikatzeko gai diren aplikazioak, adibidez, erregistratutako bezero-sekretua salbu mantentzeko gai direnak. Normalean, bezeroaren sekretua gordetzen den zerbitzari batean exekutatzen den aplikazio bat da.
+              explanation: Baimen-zerbitzariarekin modu seguruan autentifikatzeko gai diren aplikazioak, adibidez, erregistratutako bezero-sekretua seguru gordetzeko gai direnak. Normalean, bezero-sekretua gordeta dagoen zerbitzari batean exekutatzen den aplikazio bat izaten da.
               name: Konfidentziala
             public:
               explanation: Erregistratutako bezeroen sekretuak erabili ezin dituzten aplikazioak, hala nola nabigatzaile batean edo gailu mugikor batean exekutatzen diren aplikazioak.
               name: Publikoa
-          application_type_help_html: 'OAuth bezero-mota <a href="%{client_type_link}" target="_blank">, RFC 6749, 2.1 sekzioak</a>definitzen duen bezala. Bezero publikoek PKCE fluxua ezarri behar dute <a href="%{pkce_link}" target="_blank">, RFC 7636</a>arauak zehazten duen bezala '
+          application_type_help_html: 'OAuth bezero mota <a href="%{client_type_link}" target="_blank">RFC 6749ren 2.1 atalak</a> definitzen duen bezala. Bezero publikoek PKCE fluxua ezarri behar dute <a href="%{pkce_link}" target="_blank">RFC 7636</a> arauak definitzen duen bezala. '
           refresh_tokens_help_html: 'Freskatzeko fitxak erabilgarriak dira baldin eta fitxak sarbide-fitxari esleitutakoa baino bizialdi luzeagoa behar badu. Kontuan izan <strong>freskatzeko fitxak kontuz erabili behar</strong> direla zure erabiltzaileen segurtasuna ahuldu dezaketelako '
           scopes_explanation:
             "api:read": Parte-hartzaileari kontsultak egiteko aukera ematen dio API grafikoaren bidez.
-            "api:write": Parte-harlzaileari mutazio-eragiketak egiteko aukera ematen dio API grafikoaren bidez.
-            profile: Parte-hartzailearen profilaren datuak eskuratzeko aukera ematen du. Irismen hori soilik behar da OAuth aplikazioa identitate hornitzaile edo autentifikazio zerbitzu gisa bakarrik erabiltzen bada.
-            user: 'Gaitasuna GrafoQL APIra egindako deietan parte-hartzailearen fitxarekin sinatuta bezala jarduteko. Hau beharrezkoa da api guztientzat: idatzi eragiketak edo api: irakurri egungo parte-hartzaileari buruzko informazioa behar duten eragiketak.'
+            "api:write": Parte-hartzaileari GraphQL APIaren bidez mutazio-eragiketak egiteko aukera ematen dio.
+            profile: Parte-hartzailearen profilaren xehetasunak eskuratzeko aukera ematen du. Irismen hau soilik behar da OAuth aplikazioa identitate-hornitzaile edo autentifikazio-zerbitzu gisa bakarrik erabiltzen bada.
+            user: Emandako tokenarekin saioa hasita duen parte-hartzaile gisa jarduteko aukera ematen du GraphQL APIrako deietan. Hau beharrezkoa da api:write eragiketa guztietarako edo uneko parte-hartzaileari buruzko informazioa behar duten api:read eragiketetarako.
           scopes_help_html: |
-            Hautatutako eskemak eskuragarri egongo dira konektatutako aplikazioek baimena eskatzeko prozesuan zehar. Baimen-eskaerari buruzko xehetasunak emango zaizkio parte-hartzalieari OAuth erabiliz sinatzen duenean.
+            Hautatutako eremuak konektatutako aplikazioek baimen-prozesuan eskatzeko erabilgarri egongo dira. Parte-hartzaileari baimen-eskaerari buruzko xehetasunak erakutsiko zaizkio OAuth erabiliz saioa hasten duenean.
             <br>
-            Esparru ezberdinek ezaugarri desberdinak ematen dizkiote baimendutako erabiltzaileari, emandako sarbide-fitxak erabiliz.
+            Eremu desberdinek funtzio desberdinak eskaintzen dizkiote autentifikatutako parte-hartzaileari, emandako sarbide-tokenak erabiliz.
             <br>
-            <strong>Oharra:</strong> Parte-hartzalieak kanpoko aplikazioetara autentifikatu behar badituzu, profilaren irismena besterik ez duzu behar. <strong>profila</strong> Decidim APIrekin interakzioan ari diren aplikazioek beste aplikazio batzuk ere behar dituzte.
+            <strong>Oharra:</strong> Zure kanpoko aplikazioetan parte-hartzaileak autentifikatu besterik ez baduzu behar, <strong>profile</strong> eremua baino ez duzu behar. Decidim APIarekin elkarreragiten duten aplikazioek beste eremu batzuk ere behar dituzte.
           select_organization: Aukeratu antolatzaile bat
         index:
           confirm_delete: Ziur zaude aplikazio hau ezabatu nahi duzula?
@@ -219,52 +219,51 @@ eu:
           error_invitation: Arazo bat sortu da erakunde berri bat sortzean. Berrikusi erakundearen administratzailearen izena.
           success_html: |
             <p>
-            Arrakastaz sortutako erakundea.
+              Erakundea behar bezala sortu da.
             </p>
             <ol>
-            <li>Zure eskaera-kodea eguneratu beharko duzu; %{host} eskaerak baimentzeari dagokionez, honakoa gehitu behar duzu zure ingurunearen konfiguraziora (adib. <code>config/environment/production.rb</code>) or your <code>config/application.rb</code>:
-               <p> config.hosts << "%{host}" </p>
+              <li>Baliteke aplikazioaren kodea eguneratu behar izatea, %{host} helbiderako eskaerak baimentzeko honako hau gehitu behar baituzu
+              ingurunearen konfigurazioan (h.d. <code>config/environment/production.rb</code>) edo <code>config/application.rb</code> fitxategian:
+                <p> config.hosts << "%{host}" </p>
               </li>
               <li>
-            Hori amaitu ondoren, zure plataformara sartu ahal izango zara hemendik  <a href="http://%{host}">http://%{host}</a>
-             </li>
+                Hori egin ondoren, zure plataformara sartu ahal izango zara <a href="http://%{host}">http://%{host}</a> helbidearen bidez
+              </li>
               <li>
-            E-mail bat bidali dugu hona <b>%{email}</b> eta baieztatu behar duzu.
-             </li>
+                Baieztatu behar duzun mezu elektroniko bat bidali dugu <b>%{email}</b> helbidera.
+              </li>
             </ol>
         csp_settings:
           connect_src: Connect src
           connect_src_hint: |
-            Connect-src zuzentarauak murriztu egiten ditu < script> elementuen bidez karga daitezkeen URLak.
-            Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera emango dizu.
-          default_src: src lehenetsita
+            Connect-src zuzentarauak <script> elementuen bidez karga daitezkeen URLak mugatzen ditu.
+            Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera ematen dizu. Zalantzarik baduzu, utzi hutsik.
+          default_src: Src lehenetsia
           default_src_hint: |
-            Default-src kanpoko eduki osorako konbentzio lehenetsia da, hala nola, JavaScript, irudiak, CSS, iturriak, dei asinkronikoak, markoak eta multimedia fitxategiak HTML5.
-            Plataformak "'self' 'unsafe-inline'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
-          font_src: Font src
+            Default-src jarraibidea JavaScript, irudiak, CSS, letra-tipoak, AJAX eskaerak, frameak eta HTML5 multimedia-edukiak kargatzeko politika lehenetsia da. Plataformak "'self' 'unsafe-inline'" gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
+          font_src: Letra-tipoaren src-a
           font_src_hint: |
-            font-src ereduko direktibak using @font-face erabiliz kargatu daitezkeen URLak murrizten ditu.
-            Plataformak "'self' erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+            Font-src jarraibideak @font-face erabiliz karga daitezkeen URLak mugatzen ditu. Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           frame_src: Frame src
           frame_src_hint: |
-            frame-src ereduko direktibak <frame>, <iframe> eta <object> elementuetan kargatu daitezkeen URLak murrizten ditu.
-            Plataformak "'self' erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+            Frame-src jarraibideak <frame>, <iframe> eta <object> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
+            Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           img_src: Img src
           img_src_hint: |
-            img-src direktibak <img>, <image>, <picture> amd <svg> elementuetan kargatu daitezkeen URLak murrizten ditu.
-            Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+            Img-src jarraibideak <img>, <image>, <picture> eta <svg> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
+            Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           media_src: Multimedia src
           media_src_hint: |
-            media-src ereduko helbideek <video>, <audio> eta <source> elementuetan kargatu daitezkeen URLak murrizten dituzte.
-            Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+            Media-src jarraibideak <video>, <audio> eta <source> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
+            Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           script_src: Script-src
           script_src_hint: |
-            (style-src) ereduko helbideek <script> elementuetan kargatu daitezkeen URLak murrizten dituzte.
-            Plataformak "'self' 'unsafe-inline' 'unsafe-eval'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+            Script-src jarraibideak <script> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
+            Plataformak "'self' 'unsafe-inline' 'unsafe-eval'" gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
           style_src: Style src
           style_src_hint: |
-            (style-src) ereduko helbideek <style> elementuetan kargatu daitezkeen URLak murrizten dituzte.
-            Plataformak "'self' 'unsafe-inline'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+            Style-src jarraibideak <style> elementuak erabiliz karga daitezkeen URLak mugatzen ditu.
+            Plataformak "'self' 'unsafe-inline'" gehituko du, baina gehiago gehitzeko aukera ematen dizu. Ziur ez bazaude, utzi hutsik.
         edit:
           confirm_resend_invitation: Ziur zaude gonbidapena birbidali nahi duzula?
           resend_invitation: Birbidali gonbidapena
@@ -283,14 +282,14 @@ eu:
             image_hint: Fitxategi-luzapen hauek baimenduta daude edozein motatako irudi-igoeratarako.
             title: Baimendutako fitxategi-luzapenak
           file_sizes:
-            avatar_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori erabiltzen da abatar-irudiak igotzeko.
+            avatar_hint: Megabyteak (MB). Fitxategi-tamainaren muga hau avatar-irudiak igotzeko erabiltzen da.
             default_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori fitxategien igoera guztietarako erabiltzen den lehenetsia da, kontrakoa zehaztu ezean.
             title: Gehieneko fitxategi tamaina
           intro: |
             Mesedez, kontuz ibili doikuntza horiek aldatzean.
             Zenbat eta aukera gutxiago, hobe.
             Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren parte-hartzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
-        header_snippets_help_html: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz <a href="https://docs.decidim.org/en/develop/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
+        header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/en/develop/customize/content_security_policy">on the documentation site</a> .
         index:
           title: Erakundeak
         new:
@@ -310,7 +309,7 @@ eu:
           enabled: Gaituta
           enabled_by_default: Hornitzaile hau lehenetsiz gaituta dago. Editatu ahal da, baina ezin da desaktibatu.
           facebook:
-            app_id: Apparen IDa
+            app_id: Aplikazioaren IDa
             app_secret: Aplikazio-sekretua
           google_oauth2:
             client_id: Bezeroaren IDa
@@ -327,7 +326,7 @@ eu:
           fieldsets:
             sender: Bidaltzailea
           instructions:
-            from_label: 'Posta elektronikoaren bidaltzailea hau izango da: "your-organization-name <your-organization@example.org>". Utzi hutsik erakunderako zehaztutako izen bera erabiltzeko.'
+            from_label: 'Mezu elektronikoaren bidaltzailea hau izango da: "your-organization-name your-<your-organization@example.org>". Utzi hutsik erakundearentzat zehaztutako izen bera erabiltzeko.'
           placeholder:
             from_email: zure-erakundea@example.org
             from_label: erakundearen izena
@@ -347,8 +346,8 @@ eu:
           resend_invitation: Birbidali gonbidapena
       system_checks:
         active_job_queue:
-          decidim_documentation: Dokumentazioa Decidimez
-          error: 'ActiveJob ilara ez dago konfiguratuta. Hau ez da ekoizpenerako gomendatutako muntaia. Irakurri gehiago hemen: %{error_extra}.'
+          decidim_documentation: Decidim-en dokumentazioa
+          error: 'ActiveJob ilara ez dago konfiguratuta. Hau ez da produkziorako gomendatutako muntaia. Irakurri gehiago hemen: %{error_extra}.'
           success: ActiveJob ilara behar bezala konfiguratuta dago.
         secret_key:
           error: 'Gako sekretua ez dago ondo definituta. Gorde, mesedez, SECRET_KEY_BASE aldagaia eta berrabiarazi zerbitzaria: %{error_extra}'
@@ -360,4 +359,4 @@ eu:
     decidim:
       system:
         login_items:
-          logout: Logout
+          logout: Saioa amaitu

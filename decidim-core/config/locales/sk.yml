@@ -2087,7 +2087,6 @@ sk:
   layouts:
     decidim:
       announcements:
-        view_less: Zobraziť menej
         view_more: Viac informácií
       data_consent:
         details:
