@@ -607,6 +607,11 @@ eu:
         edit:
           title: Editatu kidea
           update: Eguneratu
+        form:
+          email: Helbide elektronikoa
+          invite_explanation: Antolaketan parte hartzera gonbidatuko dute parte-hartzailea.
+          name_or_nickname: Izena eda ezeizena
+          select_user: Hautatu kidea
         index:
           import_via_csv: Inportatu CSV bidetik
           publish_all: Argitaratu guztiak
@@ -972,6 +977,10 @@ eu:
           logos:
             organization_logos: Erakundearen logoak
             preview: Aurreikusi
+          machine_translation_display_priority:
+            options:
+              original: Sistemak informazioa egileak erabilitako hizkuntzan erakusten du. Administratzailetik eskuzko itzulpenekin sortutako edukiak, administratzailera itzulitako balioak bistaratuko ditu.
+              translation: Sistemak itzulpen bat erakutsiko du erabilgarri badago, bestela jatorrizko hizkuntza erabiliko da.
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
           social_handlers: Soziala
           twitter: X
@@ -1099,7 +1108,7 @@ eu:
           previous_title: Aurreko elementua
         attachments:
           add_attachments: Gehitu eranskinak
-          attachment_legend: Gehitu irudi-galeria bat (aukerakoa)
+          attachment_legend: Gehitu dokumentu bat edo irudi bat
           edit_attachments: Editatu eranskinak
       static_page_topics:
         create:

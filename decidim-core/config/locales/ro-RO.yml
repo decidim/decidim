@@ -1841,7 +1841,6 @@ ro:
   layouts:
     decidim:
       announcements:
-        view_less: Afișați mai puțin
         view_more: Mai multe informații
       data_consent:
         details:

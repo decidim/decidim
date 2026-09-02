@@ -429,6 +429,7 @@ fr-CA:
         explanation: Procédure d'autorisation factice
         name: Procédure d'autorisation factice
       ephemeral_dummy_authorization_handler:
+        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par « X ».
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
           document_number: Numéro du document
@@ -621,6 +622,8 @@ fr-CA:
     delete_user_mailer:
       delete:
         body_1: Votre compte a été désactivé et n'est plus accessible. La suppression permanente de vos données personnelles a été programmée, conformément à nos politiques de conservation.
+        body_2: Pour des raisons de sécurité, certaines données relatives à l’autorisation seront conservées ; si vous créez un nouveau compte et que vous l'autorisez à nouveau, elles peuvent être reliées à votre nouveau compte.
+        greetings_html: Cordialement,<br/><a href="%{organization_url}">%{organization_name}</a>
         hello: Cher(ère) %{username},
       subject: Votre compte a été supprimé
     devise:
@@ -1062,6 +1065,8 @@ fr-CA:
       dynamic:
         screen_reader_explanation: L'élément suivant est une carte qui présente les éléments de cette page comme des points de carte. L'élément peut être utilisé avec un lecteur d'écran, mais il peut être difficile à comprendre.
         skip_button: Passer la carte
+        zoom_in: Zoomer
+        zoom_out: Dézoomer
       static:
         latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1269,6 +1274,7 @@ fr-CA:
           badge: Le badge de l'utilisateur
           groups: L'identifiant et le nom du groupe d'utilisateurs
           id: L'identifiant unique de l'utilisateur
+          name: Le nom d'affichage de l'utilisateur
           nickname: Le pseudonyme de l'utilisateur
           profile_url: L'url du profil
       index:
@@ -1378,6 +1384,10 @@ fr-CA:
         never_logged_in: jamais connecté
         subject: Avertissement de compte inactif
     participatory_space:
+      labels:
+        reference: Référence de l'espace
+        restricted: Espace restreint
+        transparent: Espace transparent
       pages:
         user_profile:
           member_of:
@@ -1531,6 +1541,8 @@ fr-CA:
       login_modal:
         please_log_in: Veuillez vous connecter
         sign_up: Créer un compte
+      mentions:
+        search_prompt: Tapez pour rechercher des participants
       mentions_modal:
         remove_recipient: Supprimer le destinataire %{name}
       progress: Avancement
@@ -1907,7 +1919,6 @@ fr-CA:
   layouts:
     decidim:
       announcements:
-        view_less: Afficher moins
         view_more: Plus d'informations
       data_consent:
         details:

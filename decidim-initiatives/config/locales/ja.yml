@@ -411,7 +411,6 @@ ja:
           new: 新しいイニシアチブを作成
           select: 私はこのイニシアチブを推進したいです
           select_initiative_type_help_html: "<p>イニシアチブとは、一般的な利益を守るために組織が行動を起こすよう、参加者が介入するための手段です。 どのようなイニシアチブを立ち上げたいですか？</p>"
-          show_less: 一部のみ表示
           show_more: もっと見る
           subtitle: どのような取り組みを推進したいですか？
           verification_required: このイニシアチブを推進するためにあなたのアカウントを確認してください
@@ -456,7 +455,6 @@ ja:
       form:
         add_attachments: 添付ファイルを追加
         add_image: 画像を追加
-        attachment_legend: ドキュメントまたは画像を追加
         edit_attachments: 添付ファイルを編集
         edit_image: 画像を編集
         image_legend: "(オプション) 画像を追加"
