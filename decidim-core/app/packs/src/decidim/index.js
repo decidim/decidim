@@ -9,7 +9,6 @@ import "jquery"
 
 // external deps that require initialization
 import Rails from "@rails/ujs"
-import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
 /**
@@ -184,8 +183,6 @@ Rails.start()
 const initializer = (element = document) => {
   // focus guard must be initialized only once
   window.focusGuard = window.focusGuard || new FocusGuard(document.body);
-
-  svg4everybody();
 
   element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
     // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
