@@ -56,10 +56,9 @@ module Decidim
         end
 
         def attributes
-          parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
           parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
           {
-            title: parsed_title,
+            title: form.title,
             body: parsed_body,
             taxonomizations: form.taxonomizations,
             component: form.component,
