@@ -168,9 +168,17 @@ module RuboCop
 
         def consumed_by_finder?(node)
           return false unless node.method_name == :where
-          return false unless node.parent&.send_type?
 
-          FINDER_METHODS.include?(node.parent.method_name)
+          ancestor = node.parent
+          while ancestor&.send_type?
+            return true if FINDER_METHODS.include?(ancestor.method_name)
+            break unless ancestor.receiver == node
+
+            node = ancestor
+            ancestor = node.parent
+          end
+
+          false
         end
       end
     end

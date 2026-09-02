@@ -54,6 +54,27 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "does not double-offense when where is consumed by a finder through intermediate order" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").order(:id).first
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "does not double-offense when where is consumed by a finder through intermediate relation calls" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").order(:id).find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for where used as an argument" do
+    expect_offense(<<~RUBY)
+      current_organization.things.where(value: Template.where(name: "foo"))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "accepts current_organization scoped find_by" do
     expect_no_offenses(<<~RUBY)
       current_organization.templates.find_by(id: params[:id])
