@@ -80,7 +80,9 @@ module RuboCop
         end
 
         def scope_root?(node)
-          SCOPE_ROOT_METHODS.include?(node.method_name)
+          return false unless SCOPE_ROOT_METHODS.include?(node.method_name)
+
+          node.receiver.nil? || node.receiver.self_type?
         end
 
         def scoped_finder_arguments?(node)

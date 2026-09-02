@@ -66,6 +66,32 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts explicit self current_organization scoped find_by" do
+    expect_no_offenses(<<~RUBY)
+      self.current_organization.templates.find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts explicit self collection scoped find" do
+    expect_no_offenses(<<~RUBY)
+      self.collection.find(params.expect(:id))
+    RUBY
+  end
+
+  it "registers an offense for current_organization called on an explicit unsafe_scope receiver" do
+    expect_offense(<<~RUBY)
+      Template.unsafe_scope.current_organization.find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for collection called on an explicit unsafe_scope receiver" do
+    expect_offense(<<~RUBY)
+      Template.unsafe_scope.collection.find(params.expect(:id))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "accepts explicit decidim_organization_id scoping in find_by" do
     expect_no_offenses(<<~RUBY)
       Template.where(decidim_organization_id: current_organization.id).find_by(id: params[:id])
