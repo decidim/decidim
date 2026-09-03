@@ -119,6 +119,8 @@ module Decidim
     describe "#avatar_url" do
       subject { described_class.new(user).avatar_url }
 
+      before { allow(Rails.env).to receive(:local?).and_return(false) }
+
       it { is_expected.to start_with("http://#{user.organization.host}:#{Capybara.server_port}/rails/active_storage/disk/") }
       it { is_expected.to end_with("avatar.jpg") }
     end
