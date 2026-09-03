@@ -20,11 +20,6 @@ When you want to update a project inside your budget component, you need to rely
 
 The `UpdateProject` mutation allows authenticated administrators to update existing projects within a budget in a Decidim budget component. This mutation uses the existing `UpdateProject` command from the admin controller.
 
-[NOTE]
-====
-The `updateProject` field is deprecated. Use `project(id:) { update }` instead.
-====
-
 === Using the `project(id:)` entry point
 
 [source,graphql]
@@ -38,24 +33,6 @@ mutation updateProject($componentId: ID!, $budgetId: ID!, $projectId: ID!, $inpu
             id
             url
           }
-        }
-      }
-    }
-  }
-}
-----
-
-=== Using the deprecated `updateProject` entry point
-
-[source,graphql]
-----
-mutation updateProject($componentId: ID!, $budgetId: ID!, $input: UpdateProjectInput!){
-   component(id: $componentId){
-    ... on BudgetsMutation {
-      budget(id: $budgetId){
-      	updateProject(input: $input){
-        	id
-          url
         }
       }
     }
