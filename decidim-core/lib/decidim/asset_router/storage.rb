@@ -26,8 +26,12 @@ module Decidim
     class Storage
       # Initializes the router.
       #
-      # @param asset [ActiveStorage::Attached, ActiveStorage::Blob] The asset to route
-      #   to
+      # @param asset [
+      #   ActiveStorage::Attached,
+      #   ActiveStorage::Blob,
+      #   ActiveStorage::VariantWithRecord,
+      #   ActiveStorage::Variant
+      # ] The asset to route to
       def initialize(asset)
         @asset = asset
         @blob =
@@ -47,18 +51,11 @@ module Decidim
       def url(**options)
         case asset
         when ActiveStorage::Attached
-          ensure_current_host(asset.record, **options)
           blob_url(**options.except(:host))
         when ActiveStorage::Blob
           blob_url(**options)
         else # ActiveStorage::VariantWithRecord, ActiveStorage::Variant
-          if blob && blob.attachments.any?
-            ensure_current_host(blob.attachments.first&.record, **options)
-            representation_url(**options.except(:host))
-          else
-            ensure_current_host(nil, **options)
-            representation_url(**options.except(:host), only_path: true)
-          end
+          representation_url(**options)
         end
       end
 
@@ -115,18 +112,27 @@ module Decidim
       # already when the logic below is unnecessary. This logic is needed e.g.
       # for serializers where the request context is not available.
       #
-      # @param record [Object] The record for which to check the organization
       # @param opts [Hash] Options for building the URL
       # @return [void]
-      def ensure_current_host(record, **opts)
-        return if asset_url_available?
+      def ensure_current_host(**opts)
+        return true if asset_url_available?
 
-        options = remote? ? remote_storage_options : routes.default_url_options
-        options = options.merge(opts)
+        default_options = remote? ? remote_storage_options : routes.default_url_options
+        options = default_options.merge(opts)
 
-        if opts[:host].blank? && record.present?
-          organization = organization_for(record)
-          options[:host] = organization.host if organization
+        # First try to set the default host through the default or remote URL
+        # options because fetching the organization can be extremely expensive
+        # if the page has a lot of assets displayed on it. Normally this should
+        # not be needed when ActiveStorage::SetCurrent has set the current URL
+        # options for the request but a request does not exist for example
+        # during the background jobs. Note that in some cases the default URL
+        # options also may not be set, in which case fetching the organization
+        # is needed.
+        options[:host] ||= default_options[:host]
+        if options[:host].blank?
+          return false unless organization
+
+          options[:host] = organization&.host
         end
 
         uri =
@@ -136,20 +142,35 @@ module Decidim
             URI::HTTP.build(options)
           end
 
-        ActiveStorage::Current.url_options = { host: uri.to_s }
+        ActiveStorage::Current.url_options = { protocol: uri.scheme, host: uri.to_s, port: uri.port }
+
+        true
       end
 
-      # Determines the organization for the passed record.
+      # Determines the organization for the asset's record, if available and it
+      # knows its organization.
       #
-      # @param record [Object] The record for which to fetch the organization
       # @return [Decidim::Organization, nil] The organization for the record or
       #   `nil` if the organization cannot be determined
-      def organization_for(record)
-        if record.is_a?(Decidim::Organization)
-          record
-        elsif record.respond_to?(:organization)
-          record.organization
-        end
+      def organization
+        # Prevent fetching the organization multiple times in case record is
+        # nil.
+        return @organization if instance_variable_defined?(:@organization)
+
+        record =
+          case asset
+          when ActiveStorage::Attached
+            asset.record
+          else # ActiveStorage::Blob, ActiveStorage::VariantWithRecord, ActiveStorage::Variant
+            blob.attachments.first&.record if blob && blob.attachments.any?
+          end
+
+        @organization =
+          if record.is_a?(Decidim::Organization)
+            record
+          elsif record.respond_to?(:organization)
+            record.organization
+          end
       end
 
       # Returns the URL for the given blob object.
@@ -160,9 +181,15 @@ module Decidim
       def blob_url(**options)
         return unless blob
 
-        if options[:only_path] || remote? || !asset_url_available?
+        if options[:host] || options[:only_path] || remote?
           routes.rails_blob_url(blob, **default_options, **options)
         else
+          unless ensure_current_host(**options)
+            return blob_url(**ActiveStorage::Current.url_options, **options) if asset_url_available?
+
+            return blob_url(**options, only_path: true)
+          end
+
           blob.url(**options)
         end
       end
@@ -174,7 +201,14 @@ module Decidim
       #
       # @return [String] The representation URL for the image variant
       def representation_url(**options)
+        return unless asset
         return rails_representation_url(**options) if options[:only_path] || remote?
+
+        unless ensure_current_host(**options)
+          return rails_representation_url(**options) if options[:host]
+
+          return rails_representation_url(**options.except(:host), only_path: true)
+        end
 
         representation_url = variant_url(**options)
         return representation_url if representation_url.present?
@@ -185,6 +219,8 @@ module Decidim
         # processed).
         if options[:host]
           rails_representation_url(**options)
+        elsif asset_url_available?
+          representation_url(**ActiveStorage::Current.url_options, **options)
         else
           representation_url(**options, only_path: true)
         end
