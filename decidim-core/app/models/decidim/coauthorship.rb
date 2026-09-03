@@ -3,10 +3,12 @@
 module Decidim
   class Coauthorship < ApplicationRecord
     include Decidim::Authorable
+    include Decidim::SoftDeletable
 
     belongs_to :coauthorable, polymorphic: true, counter_cache: true
 
     after_commit :author_is_follower, on: [:create]
+    after_restore :reset_coauthorable_counter
 
     def identity
       author
@@ -34,6 +36,12 @@ module Decidim
       # The author method can return a dummy user record if the author is not visible.
       mapped_author = Decidim::User.find(decidim_author_id)
       Decidim::Follow.find_or_create_by!(followable: coauthorable, user: mapped_author)
+    end
+
+    def reset_coauthorable_counter
+      return unless coauthorable
+
+      coauthorable.class.unscoped.reset_counters(coauthorable.id, :coauthorships)
     end
   end
 end

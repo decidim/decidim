@@ -4,10 +4,13 @@ module Decidim
   # A resource can have a like for each user.
   class Like < ApplicationRecord
     include Decidim::Authorable
+    include Decidim::SoftDeletable
 
     belongs_to :resource,
                polymorphic: true,
                counter_cache: true
+
+    after_restore :reset_like_counter
 
     validates :resource_id, uniqueness: { scope: [:resource_type, :author] }
     validate :author_and_resource_same_organization
@@ -25,6 +28,12 @@ module Decidim
       return if !resource || !author
 
       errors.add(:resource, :invalid) unless author.organization == resource.organization
+    end
+
+    def reset_like_counter
+      return unless resource
+
+      resource.update_columns(likes_count: Decidim::Like.unscoped.where(resource:, deleted_at: nil).count) # rubocop:disable Rails/SkipsModelValidations
     end
   end
 end

@@ -32,6 +32,28 @@ module Decidim
       include Decidim::SoftDeletable
       include Decidim::Publicable
 
+      before_destroy(prepend: true) do
+        # rubocop:disable Rails/SkipsModelValidations
+        attachments.update_all(deleted_at: Time.current)
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
+      before_destroy do
+        # rubocop:disable Rails/SkipsModelValidations
+        coauthorships.update_all(deleted_at: Time.current)
+        likes.update_all(deleted_at: Time.current)
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
+      after_restore do
+        # rubocop:disable Rails/SkipsModelValidations
+        update_columns(
+          likes_count: Decidim::Like.unscoped.where(resource: self, deleted_at: nil).count,
+          coauthorships_count: Decidim::Coauthorship.unscoped.where(coauthorable: self, deleted_at: nil).count
+        )
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
       def assign_state(token)
         proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
 
@@ -56,11 +78,10 @@ module Decidim
                  optional: true,
                  counter_cache: true
 
-      has_many :votes,
+      has_many :votes, # rubocop:disable Rails/HasManyOrHasOneDependent
                -> { final },
                foreign_key: "decidim_proposal_id",
                class_name: "Decidim::Proposals::ProposalVote",
-               dependent: :destroy,
                counter_cache: "proposal_votes_count"
 
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
