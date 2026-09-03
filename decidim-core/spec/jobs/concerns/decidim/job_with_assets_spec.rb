@@ -166,6 +166,15 @@ describe Decidim::JobWithAssets do
 
           it_behaves_like "unchanged current URL options"
         end
+
+        context "and another argument has a valid organization association" do
+          let(:arguments) { ["first", record, "third", valid_record] }
+          let(:valid_record) { build(:user) }
+
+          it_behaves_like "changed current URL options with host" do
+            let(:expected_host) { valid_record.organization.host }
+          end
+        end
       end
     end
 
@@ -211,6 +220,7 @@ describe Decidim::JobWithAssets do
         record.class.insert(record.attributes.compact_blank) # rubocop:disable Rails/SkipsModelValidations
         record.id = record.class.order(:id).last.id
       end
+      valid_record.save! if respond_to?(:valid_record)
     end
 
     it_behaves_like "working job with assets"
