@@ -171,8 +171,8 @@ module RuboCop
 
           ancestor = node.parent
           while ancestor&.send_type?
-            return true if FINDER_METHODS.include?(ancestor.method_name)
             break unless ancestor.receiver == node
+            return true if FINDER_METHODS.include?(ancestor.method_name)
 
             node = ancestor
             ancestor = node.parent
