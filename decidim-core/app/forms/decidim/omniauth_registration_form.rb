@@ -15,6 +15,7 @@ module Decidim
     attribute :oauth_signature, String
     attribute :avatar_url, String
     attribute :raw_data, Hash
+    attribute :pending_oauth_token, String
 
     validates :email, presence: true
     validates :name, presence: true

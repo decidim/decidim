@@ -24,9 +24,7 @@
 
       <%= render partial: "decidim/devise/shared/tos_fields", locals: { form: f, user: :user } %>
 
-      <%= f.hidden_field :uid %>
-      <%= f.hidden_field :provider %>
-      <%= f.hidden_field :oauth_signature %>
+      <%= f.hidden_field :pending_oauth_token %>
     </div>
 
     <div class="form__wrapper-block">
