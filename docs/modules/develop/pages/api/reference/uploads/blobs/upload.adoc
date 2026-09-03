@@ -9,7 +9,11 @@ The `uploadFile` mutation allows authenticated administrators to upload and crea
 mutation ($input: UploadFileInput!) {
   uploadFile(input: $input) {
     blob {
-      id filename byteSize signedId checksum
+      id
+      filename
+      byteSize
+      signedId
+      checksum
     }
   }
 }
