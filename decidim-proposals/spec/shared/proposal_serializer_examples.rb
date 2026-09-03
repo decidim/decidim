@@ -166,7 +166,7 @@ shared_examples_for "a proposal serializer" do
 
     it "serializes the original proposal" do
       expect(serialized[:original_proposal]).to include(title: proposal&.amendable&.title)
-      expect(serialized[:original_proposal][:url]).to be_nil || include("http", proposal.id.to_s)
+      expect(serialized[:original_proposal][:url]).to be_nil.or include("http", proposal.id.to_s)
     end
 
     it "serialize the created at date" do
@@ -359,7 +359,7 @@ shared_examples_for "a proposal serializer with author" do
     end
 
     context "when it is a user" do
-      let!(:user) { create(:user, name: "John Doe", organization: component.organization) }
+      let!(:user) { create(:user, :confirmed, name: "John Doe", organization: component.organization) }
       let(:component) { create(:proposal_component) }
       let!(:proposal) { create(:proposal, component:, users: [user]) }
 
