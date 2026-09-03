@@ -699,7 +699,7 @@ module Decidim
       ),
       CoreDataManifest.new(
         name: :users,
-        collection: ->(organization) { Decidim::User.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
+        collection: ->(organization) { Decidim::User.includes(:organization).where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
         serializer: Decidim::Exporters::OpenDataUserSerializer,
         include_in_open_data: true
       ),
