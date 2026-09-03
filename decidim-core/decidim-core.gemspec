@@ -72,6 +72,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rack-attack", ">= 6.7", "< 6.9"
   # Workaround until shakapacker releases a new version compatible with rack-proxy v1.0
   # @see https://github.com/shakacode/shakapacker/issues/1220
+  s.add_dependency "local_time", "~> 3.0"
   s.add_dependency "rack-proxy", "~> 0.8.3", "< 1.0"
   s.add_dependency "rails", "~> 8.1.0"
   s.add_dependency "rails-i18n", "~> 8.1.0", "< 8.2"

@@ -105,4 +105,51 @@ describe Decidim::ActivityCell, type: :cell do
       end
     end
   end
+
+  describe "#created_at" do
+    subject { described_class.new(model) }
+
+    let(:creating_date) { Time.zone.parse("2026-01-15 10:00:00") }
+    let(:model) do
+      create(:action_log, action: "publish", visibility: "all", resource:, organization: component.organization, participatory_space: component.participatory_space, created_at: creating_date)
+    end
+
+    context "when created_at is between zero and 59 seconds" do
+      it "returns the correct datetime for client-side rendering and time ago text" do
+        travel_to(creating_date) do
+          expect(subject.created_at).to eq(creating_date)
+        end
+
+        travel_to(creating_date + 10.seconds) do
+          expect(subject.created_at).to eq(creating_date)
+        end
+
+        travel_to(creating_date + 59.seconds) do
+          expect(subject.created_at).to eq(creating_date)
+        end
+      end
+    end
+
+    context "when created_at is hours ago" do
+      it "returns the correct datetime for client-side rendering and time ago text" do
+        travel_to(creating_date + 2.hours) do
+          expect(subject.created_at).to eq(creating_date)
+        end
+
+        travel_to(creating_date + 12.hours) do
+          expect(subject.created_at).to eq(creating_date)
+        end
+      end
+    end
+  end
+
+  describe "#notification_time" do
+    it "renders the model date using LocalTime" do
+      output = my_cell.send(:notification_time).to_s
+
+      expect(output).to include("<time datetime")
+      expect(output).to include('data-local="time-ago"')
+      expect(output).to include(model.created_at.utc.iso8601)
+    end
+  end
 end
