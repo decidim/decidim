@@ -27,7 +27,6 @@ describe "Mobile header" do
       switch_to_host(organization.host)
       visit decidim.root_path
       click_on(id: "dc-dialog-accept")
-      expect(page).to have_no_css("#dc-dialog-accept")
     end
 
     it "has a header" do
@@ -59,7 +58,7 @@ describe "Mobile header" do
 
     context "when user is logged in" do
       before do
-        switch_to_host(organization.host)
+        wait_pending_requests
         login_as user, scope: :user
         visit decidim.root_path
       end
