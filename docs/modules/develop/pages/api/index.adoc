@@ -94,7 +94,10 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 ***** xref:develop:api/reference/components/proposals/vote.adoc[Vote Proposal]
 ***** xref:develop:api/reference/components/proposals/answer.adoc[Answer Proposal]
 ** API file upload handling
-*** xref:develop:api/reference/uploads/attachments.adoc[Attachments]
+*** xref:develop:api/reference/uploads/attachments.adoc[Blobs (Handling Files)]
+**** xref:develop:api/reference/uploads/blobs/upload.adoc[Upload files]
+**** xref:develop:api/reference/uploads/blobs/delete.adoc[Delete files]
+*** xref:develop:api/reference/uploads/attachments.adoc#attachments[Attachments]
 **** xref:develop:api/reference/uploads/attachments/create.adoc[Create Attachments]
 **** xref:develop:api/reference/uploads/attachments/update.adoc[Update Attachments]
 **** xref:develop:api/reference/uploads/attachments/delete.adoc[Delete Attachments]
@@ -102,9 +105,6 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 **** xref:develop:api/reference/uploads/attachment_collections/create.adoc[Create Attachment Collections]
 **** xref:develop:api/reference/uploads/attachment_collections/update.adoc[Update Attachment Collections]
 **** xref:develop:api/reference/uploads/attachment_collections/delete.adoc[Delete Attachment Collections]
-*** xref:develop:api/reference/uploads/attachments.adoc#handling-files[Handling Files]
-**** xref:develop:api/reference/uploads/blobs/upload.adoc[Upload files]
-**** xref:develop:api/reference/uploads/blobs/delete.adoc[Delete files]
 
 == Usage limits
 
