@@ -56,6 +56,18 @@ This change is based on the GDPR regulation:
 
 You can read more about this change on PR [#11036](https://github.com/decidim/decidim/pull/11036).
 
+### 2.3. Sidekiq configuration overwrite
+
+As we are doing changes in the default sidekiq.yml configuration and we want to do them automatically, this file will be overwritten during the upgrade process (on the `bin/rails decidim:ugprade` command).
+
+If you have queues or any configuration particular to your environment that you do not want to get overwriten, you can do so by calling another configuration file on the sidekiq daemon call. For instance:
+
+```bash
+sidekiq -C config/sidekiq.yml -C config/sidekiq.local.yml
+```
+
+You can read more about this change on PR [#17596](https://github.com/decidim/decidim/pull/17596).
+
 ### 2.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
