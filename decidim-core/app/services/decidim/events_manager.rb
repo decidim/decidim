@@ -23,7 +23,7 @@ module Decidim
     # extra - a Hash with extra information to be included in the notification.
     #
     # Returns nothing.
-    # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable-next Metrics/ParameterLists
     def self.publish(event:, resource:, event_class: Decidim::Events::BaseEvent, affected_users: [], followers: [], extra: {}, force_send: false)
       ActiveSupport::Notifications.publish(
         event,
@@ -35,7 +35,6 @@ module Decidim
         extra:
       )
     end
-    # rubocop:enable Metrics/ParameterLists
 
     # Subscribes to the given event, and runs the block every time that event
     # is received.
