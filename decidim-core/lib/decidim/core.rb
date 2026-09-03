@@ -329,6 +329,9 @@ module Decidim
   # Users will be warned for the last time this amount of days before the final removal
   mattr_accessor :delete_inactive_users_last_warning_days_before, default: Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE", 7).to_i
 
+  # For authorizations that have been revoked/deleted, delete their version data after retention period
+  mattr_accessor :delete_old_personal_data_versions_days, default: Decidim::Env.new("DECIDIM_DELETE_OLD_PERSONAL_DATA_VERSIONS_DAYS", 365).to_i
+
   # Returns the inactivity threshold (in days) to trigger the first warning email.
   def self.first_warning_inactive_users_after_days
     delete_inactive_users_after_days - delete_inactive_users_first_warning_days_before
