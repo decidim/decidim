@@ -2,7 +2,8 @@
 
 if defined?(Bullet) && !Rails.application.config.try(:boost_performance)
   Rails.application.config.after_initialize do
-    Bullet.enable = true
+    # This should be enabled by default only on development and test.
+    Bullet.enable = Rails.env.local?
     Bullet.raise = true
     Bullet.bullet_logger = true
     Bullet.rails_logger = true
