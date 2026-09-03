@@ -184,7 +184,8 @@ module Decidim
       private
 
       def search_collection
-        Proposal.where(component: current_component).published.not_hidden.with_availability(params.fetch(:filter, {}).fetch(:with_availability, {}))
+        Proposal.includes(:taxonomies, :amended,
+                          :amendable).where(component: current_component).published.not_hidden.with_availability(params.fetch(:filter, {}).fetch(:with_availability, {}))
       end
 
       def default_filter_params

@@ -160,7 +160,7 @@ module Decidim
         end
 
         def template
-          @template ||= collection.find(params.expect(:id))
+          @template ||= collection.includes(templatable: { questions: [:response_options, :display_conditions, :matrix_rows] }).find(params.expect(:id))
         end
 
         def search(term)

@@ -31,9 +31,9 @@ module Decidim
           Meeting.where(component: meeting_components).published.not_hidden.visible_for(current_user).with_availability(
             filter_params[:availability]
           ).includes(
-            :component,
+            :taxonomies,
             attachments: :file_attachment
-          )
+          ).preload(component: { participatory_space: :organization })
         end
 
         def default_filter_params

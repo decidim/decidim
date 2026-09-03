@@ -18,6 +18,7 @@ module Decidim
       def query
         Conversation
           .joins(:participations)
+          .includes(participants: { avatar_attachment: :blob })
           .where(decidim_messaging_participations: { decidim_participant_id: user.id })
       end
 

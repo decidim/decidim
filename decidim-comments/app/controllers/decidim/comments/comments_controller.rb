@@ -19,7 +19,7 @@ module Decidim
         enforce_permission_to(:read, :comment, commentable:)
 
         if commentable.is_a?(Decidim::Comments::Comment)
-          @comments = commentable.descendants.includes(:author, :up_votes, :down_votes).to_a
+          @comments = commentable.descendants
           @has_more_comments = false
         else
           @sorted_comments_query = SortedComments.new(
@@ -31,7 +31,8 @@ module Decidim
           @comments = @sorted_comments_query.query
           @has_more_comments = @sorted_comments_query.has_more?
         end
-        @comments = @comments.reject do |comment|
+        @comments = @comments.includes(:up_votes, :down_votes, :root_commentable, :commentable, :moderation,
+                                       author: [:organization, { avatar_attachment: :blob }]).reject do |comment|
           next if comment.depth < 1
           next if !comment.deleted? && !comment.hidden?
 

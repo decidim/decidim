@@ -34,7 +34,7 @@ module Decidim
     def documents_visible_for(user)
       return documents unless resource_model.respond_to?(:visible_for)
 
-      attachments.merge(resource_model.visible_for(user)).with_attached_file.order(:weight).select(&:document?)
+      attachments.merge(resource_model.visible_for(user)).includes(attached_to: :component).with_attached_file.order(:weight).select(&:document?)
     end
 
     def unused?
