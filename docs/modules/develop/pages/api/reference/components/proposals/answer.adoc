@@ -51,7 +51,7 @@ Using cURL to make the GraphQL request:
 
 [source,bash]
 ----
-curl -X POST https://your-decidim-instance.org/api \
+curl -X POST https://example.org/api \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_TOKEN" \
   -d '{

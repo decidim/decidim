@@ -6,12 +6,20 @@ module Decidim
       graphql_name "ResultMutation"
       description "Result mutation"
 
+      include Decidim::Core::AttachableMutations
+      include Decidim::Core::AttachableCollectionMutations
+
       field :delete, mutation: DeleteResultType, description: "Deletes a result"
       field :update, mutation: UpdateResultType, description: "Updates a result"
 
       field :create_milestone, mutation: CreateMilestoneType, description: "Creates a milestone"
       field :delete_milestone, mutation: Decidim::Accountability::DeleteMilestoneType, description: "Deletes a milestone"
       field :update_milestone, mutation: UpdateMilestoneType, description: "Updates a milestone"
+
+      def initialize(object, context)
+        context.scoped_set!(:scope, :admin) if context[:current_user]
+        super
+      end
     end
   end
 end

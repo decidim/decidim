@@ -10,8 +10,13 @@ module Decidim
       field :update, mutation: Decidim::Budgets::UpdateBudgetType, description: "Updates a budget"
 
       field :create_project, mutation: Decidim::Budgets::CreateProjectType, description: "Creates a project"
-      field :delete_project, mutation: Decidim::Budgets::DeleteProjectType, description: "Deletes a project"
-      field :update_project, mutation: Decidim::Budgets::UpdateProjectType, description: "Updates a project"
+      field :project, type: Decidim::Budgets::ProjectMutationType, description: "A project mutation" do
+        argument :id, GraphQL::Types::ID, description: "id of the project", required: true
+      end
+
+      def project(**args)
+        Project.find_by!(id: args[:id], budget: object)
+      end
     end
   end
 end

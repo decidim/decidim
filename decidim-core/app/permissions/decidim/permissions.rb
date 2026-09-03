@@ -14,6 +14,8 @@ module Decidim
 
       return permission_action unless user
 
+      user_can_upload
+
       user_manager_permissions
       manage_self_user_action?
       authorization_action?
@@ -28,6 +30,13 @@ module Decidim
     end
 
     private
+
+    def user_can_upload
+      return unless permission_action.action == :create &&
+                    permission_action.subject == :blob
+
+      toggle_allow(user.admin?)
+    end
 
     def public_report_content_action?
       return unless permission_action.action == :create &&

@@ -425,6 +425,13 @@ en:
           '1': Create your amendment
           '2': Publish your amendment
     anonymous_user: Anonymous
+    api:
+      file_upload:
+        errors:
+          file_ext_not_supported: File extension is not supported.
+          file_no_exists: File does not exist.
+          file_too_large: File is too large.
+          type_not_supported: File type is not supported.
     application:
       document:
         download: Download file
