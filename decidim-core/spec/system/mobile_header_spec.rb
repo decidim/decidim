@@ -27,6 +27,7 @@ describe "Mobile header" do
       switch_to_host(organization.host)
       visit decidim.root_path
       click_on(id: "dc-dialog-accept")
+      expect(page).to have_no_css("#dc-dialog-accept")
     end
 
     it "has a header" do
