@@ -38,11 +38,11 @@ module Decidim
           end
 
           def translated_type_id_eq(id)
-            translated_attribute(Decidim::InitiativesType.find_by(id:).title[I18n.locale.to_s])
+            translated_attribute(Decidim::InitiativesType.where(organization: current_organization).find_by(id:)&.title&.[](I18n.locale.to_s))
           end
 
           def translated_decidim_area_id_eq(id)
-            translated_attribute(Decidim::Area.find_by(id:).name[I18n.locale.to_s])
+            translated_attribute(Decidim::Area.where(organization: current_organization).find_by(id:)&.name&.[](I18n.locale.to_s))
           end
         end
       end
