@@ -19,6 +19,7 @@ module Decidim::Meetings
     let(:start_time) { 1.day.from_now }
     let(:private_meeting) { false }
     let(:transparent) { true }
+    let(:title) { { en: "title" } }
     let(:services) do
       build_list(:service, 2, meeting:)
     end
@@ -30,7 +31,7 @@ module Decidim::Meetings
     let(:form) do
       double(
         invalid?: invalid,
-        title: { en: "title" },
+        title:,
         description: { en: "description" },
         location: { en: "location" },
         location_hints: { en: "location hints" },
@@ -92,6 +93,19 @@ module Decidim::Meetings
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
+      end
+
+      context "when title has a user mention" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:) }
+        let(:title) { { en: "Meeting title mentioning @#{mentioned_user.nickname}" } }
+
+        it "does not rewrite the mention to the mentioned user GID" do
+          subject.call
+
+          new_meeting = Meeting.last
+          expect(translated(new_meeting.title)).not_to include(mentioned_user.to_global_id.to_s)
+          expect(translated(new_meeting.title)).to include("@#{mentioned_user.nickname}")
+        end
       end
 
       context "and saves the correct meeting type" do

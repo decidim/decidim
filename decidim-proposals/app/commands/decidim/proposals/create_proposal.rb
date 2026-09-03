@@ -72,9 +72,7 @@ module Decidim
             visibility: "public-only"
           ) do
             proposal = Proposal.new(
-              title: {
-                I18n.locale => Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
-              },
+              title: { I18n.locale => form.title },
               body: {
                 I18n.locale => Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
               },
