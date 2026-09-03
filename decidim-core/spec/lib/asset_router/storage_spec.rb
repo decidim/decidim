@@ -8,6 +8,7 @@ module Decidim::AssetRouter
 
     let(:router) { described_class.new(asset) }
     let(:asset) { organization.official_img_footer }
+    let(:filename) { "avatar.jpg" }
     let(:organization) { create(:organization) }
 
     describe "#url" do
@@ -16,31 +17,90 @@ module Decidim::AssetRouter
       let(:options) { {} }
       let(:default_port) { Capybara.server_port }
 
+      shared_context "with current URL options host" do
+        before do
+          uri = URI.parse(expected_host_url)
+          ActiveStorage::Current.url_options = { protocol: uri.scheme, host: uri.host, port: uri.port }
+        end
+      end
+
+      shared_context "without default URL options host" do
+        before { allow(Rails.env).to receive(:local?).and_return(false) }
+      end
+
+      shared_examples "disk service URL" do
+        it "creates the disk service URL to the blob" do
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
+          expect(subject).to match(%r{\A#{expected_host_url.sub(".", "\\.")}/rails/active_storage/disk/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+        end
+      end
+
+      shared_examples "blob redirect URL" do
+        it "creates the redirect route to the blob" do
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
+          expect(subject).to match(%r{\A#{expected_host_url.sub(".", "\\.")}/rails/active_storage/blobs/redirect/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+        end
+      end
+
+      shared_examples "blob redirect path" do
+        it "creates the redirect route to the blob" do
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
+          expect(subject).to match(%r{\A/rails/active_storage/blobs/redirect/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+        end
+      end
+
+      shared_examples "representation redirect URL" do
+        it "creates the redirect URL to the blob representation" do
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
+          expect(subject).to match(%r{\A#{expected_host_url.sub(".", "\\.")}/rails/active_storage/representations/redirect/[^/]+/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+        end
+      end
+
+      shared_examples "representation redirect path" do
+        it "creates the redirect URL to the blob representation" do
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
+          expect(subject).to match(%r{\A/rails/active_storage/representations/redirect/[^/]+/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+        end
+      end
+
+      shared_examples "no blob attachments fetched" do
+        it "does not fetch the attachments for the blob" do
+          expect(asset.blob).not_to receive(:attachments)
+          subject
+        end
+      end
+
       context "with an ActiveStorage::Attached" do
-        it "creates the disk service route to the blob" do
-          ActiveStorage::Current.url_options = { host: "http://localhost:#{default_port}" }
-          expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+        context "when the host is set" do
+          let(:expected_host_url) { "http://localhost:#{default_port}" }
+
+          include_context "with current URL options host"
+          it_behaves_like "disk service URL"
         end
 
         context "when the host is not set" do
-          it "sets the host based on the asset" do
-            expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+          let(:expected_host_url) { "http://localhost:#{default_port}" }
+
+          it_behaves_like "disk service URL"
+
+          context "and default URL options do not define the host" do
+            let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+            include_context "without default URL options host"
+            it_behaves_like "disk service URL"
           end
         end
 
         context "when requesting the local redirect path to the asset" do
           let(:options) { { only_path: true } }
 
-          it "creates the redirect route to the blob" do
-            expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
-          end
+          it_behaves_like "blob redirect path"
 
           context "with extra URL options" do
             let(:options) { { only_path: true, utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
+            let(:expected_url_suffix) { "?utm_campaign=testing&utm_medium=email&utm_source=website" }
 
-            it "handles the extra URL options correctly" do
-              expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
-            end
+            it_behaves_like "blob redirect path"
           end
         end
       end
@@ -48,30 +108,48 @@ module Decidim::AssetRouter
       context "with an ActiveStorage::Blob" do
         let(:asset) { organization.official_img_footer.blob }
 
-        it "creates the disk service route to the blob" do
-          ActiveStorage::Current.url_options = { host: "http://localhost:#{default_port}" }
-          expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+        context "when the host is set" do
+          let(:expected_host_url) { "http://localhost:#{default_port}" }
+
+          include_context "with current URL options host"
+          it_behaves_like "disk service URL"
         end
 
         context "when the host is not set" do
-          it "creates the redirect route to the blob" do
-            expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
+          let(:expected_host_url) { "http://localhost:#{default_port}" }
+
+          it_behaves_like "disk service URL"
+
+          context "and default URL options do not define the host" do
+            let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+            include_context "without default URL options host"
+            it_behaves_like "disk service URL"
+          end
+
+          context "and the resource does not have an attached organization record" do
+            let(:asset) { create(:blob) }
+            let(:filename) { asset.filename.to_s }
+
+            it_behaves_like "disk service URL"
+
+            context "and default URL options do not define the host" do
+              include_context "without default URL options host"
+              it_behaves_like "blob redirect path"
+            end
           end
         end
 
         context "when requesting the local redirect path to the asset" do
           let(:options) { { only_path: true } }
 
-          it "creates the redirect route to the blob" do
-            expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
-          end
+          it_behaves_like "blob redirect path"
 
           context "with extra URL options" do
             let(:options) { { only_path: true, utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
+            let(:expected_url_suffix) { "?utm_campaign=testing&utm_medium=email&utm_source=website" }
 
-            it "handles the extra URL options correctly" do
-              expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
-            end
+            it_behaves_like "blob redirect path"
           end
         end
       end
@@ -79,6 +157,7 @@ module Decidim::AssetRouter
       context "with a variant" do
         let(:asset) { organization.official_img_footer.variant(resize_to_fit: [160, 160]) }
         let(:track_variants) { true }
+        let(:expected_host_url) { "http://localhost:#{default_port}" }
 
         before do
           # This is typically set through `config.active_storage.track_variants`
@@ -89,15 +168,51 @@ module Decidim::AssetRouter
           allow(ActiveStorage).to receive(:track_variants).and_return(track_variants)
         end
 
-        it "creates the route to the variant" do
-          expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})
+        it_behaves_like "representation redirect URL"
+        it_behaves_like "no blob attachments fetched"
+
+        context "when default URL options do not define the host" do
+          let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+          include_context "without default URL options host"
+        end
+
+        context "when the url_options have been set" do
+          let(:expected_host_url) { "https://another.example.org:8080" }
+
+          before do
+            ActiveStorage::Current.url_options = { protocol: "https", host: "another.example.org", port: 8080 }
+          end
+
+          it_behaves_like "representation redirect URL"
+          it_behaves_like "no blob attachments fetched"
+        end
+
+        context "when the resource does not have an attached organization record" do
+          let(:asset) { blob.variant(resize_to_fit: [160, 160]) }
+          let(:blob) { create(:blob) }
+          let(:filename) { blob.filename.to_s }
+
+          it_behaves_like "representation redirect URL"
+          it_behaves_like "no blob attachments fetched"
+
+          context "and default URL options do not define the host" do
+            include_context "without default URL options host"
+            it_behaves_like "representation redirect path"
+          end
         end
 
         context "when the asset has been processed" do
           before { asset.processed }
 
-          it "creates the route to the variant through the storage service" do
-            expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+          it_behaves_like "disk service URL"
+          it_behaves_like "no blob attachments fetched"
+
+          context "and default URL options do not define the host" do
+            let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+            include_context "without default URL options host"
+            it_behaves_like "disk service URL"
           end
 
           # Note that this situation should not normally happen but it is
@@ -109,11 +224,35 @@ module Decidim::AssetRouter
               File.delete(path)
             end
 
-            it "creates the redirect route to the variant" do
+            # Ensure the preconditions are met for the tests in this context.
+            it "ensures the asset does not exist" do
               expect(asset.send(:processed?)).to be(true)
               expect(asset.key).to be_present
               expect(asset.blob.service.exist?(asset.key)).to be(false)
-              expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})
+            end
+
+            it_behaves_like "representation redirect URL"
+            it_behaves_like "no blob attachments fetched"
+
+            context "and default URL options do not define the host" do
+              let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+              include_context "without default URL options host"
+              it_behaves_like "representation redirect URL"
+            end
+          end
+
+          context "and the resource does not have an attached organization record" do
+            let(:asset) { blob.variant(resize_to_fit: [160, 160]) }
+            let(:blob) { create(:blob) }
+            let(:filename) { blob.filename.to_s }
+
+            it_behaves_like "disk service URL"
+            it_behaves_like "no blob attachments fetched"
+
+            context "and default URL options do not define the host" do
+              include_context "without default URL options host"
+              it_behaves_like "representation redirect path"
             end
           end
         end
@@ -121,15 +260,27 @@ module Decidim::AssetRouter
         context "when track_variants is disabled" do
           let(:track_variants) { false }
 
-          it "creates the route to the variant" do
-            expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})
+          it_behaves_like "representation redirect URL"
+          it_behaves_like "no blob attachments fetched"
+
+          context "and default URL options do not define the host" do
+            let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+            include_context "without default URL options host"
+            it_behaves_like "representation redirect URL"
           end
 
           context "and the asset has been processed" do
             before { asset.processed }
 
-            it "creates the route to the variant through the storage service" do
-              expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+            it_behaves_like "disk service URL"
+            it_behaves_like "no blob attachments fetched"
+
+            context "and default URL options do not define the host" do
+              let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+              include_context "without default URL options host"
+              it_behaves_like "disk service URL"
             end
 
             context "and when passing incompatible URL options" do
@@ -138,9 +289,23 @@ module Decidim::AssetRouter
               # which is why this test is testing that it does not lead to an
               # error.
               let(:options) { { host: "example.lvh.me" } }
+              let(:expected_host_url) { "http://example.lvh.me:#{default_port}" }
 
-              it "creates the route to the variant" do
-                expect(subject).to match(%r{^http://example\.lvh\.me:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+              it_behaves_like "disk service URL"
+              it_behaves_like "no blob attachments fetched"
+            end
+
+            context "and the resource does not have an attached organization record" do
+              let(:asset) { blob.variant(resize_to_fit: [160, 160]) }
+              let(:blob) { create(:blob) }
+              let(:filename) { blob.filename.to_s }
+
+              it_behaves_like "disk service URL"
+              it_behaves_like "no blob attachments fetched"
+
+              context "and default URL options do not define the host" do
+                include_context "without default URL options host"
+                it_behaves_like "representation redirect path"
               end
             end
           end
@@ -148,31 +313,112 @@ module Decidim::AssetRouter
 
         context "when the variant has a different file extension" do
           let(:asset) { organization.official_img_footer.variant(resize_to_fit: [160, 160], format: "png") }
+          let(:filename) { "avatar.png" }
 
-          it "creates the route to the variant with converted file extension" do
-            expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.png$})
+          it_behaves_like "representation redirect URL"
+          it_behaves_like "no blob attachments fetched"
+
+          context "and default URL options do not define the host" do
+            let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+            include_context "without default URL options host"
+            it_behaves_like "representation redirect URL"
+          end
+
+          context "when the resource does not have an attached organization record" do
+            let(:asset) { blob.variant(resize_to_fit: [160, 160], format: "png") }
+            let(:blob) { create(:blob) }
+            let(:filename) { blob.filename.to_s.ext("png") }
+
+            it_behaves_like "representation redirect URL"
+            it_behaves_like "no blob attachments fetched"
+
+            context "and default URL options do not define the host" do
+              include_context "without default URL options host"
+              it_behaves_like "representation redirect path"
+            end
           end
 
           context "when the asset has been processed" do
             before { asset.processed }
 
-            it "creates the route to the variant through the storage service" do
-              expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
+            it_behaves_like "disk service URL"
+            it_behaves_like "no blob attachments fetched"
+
+            context "and default URL options do not define the host" do
+              let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+              include_context "without default URL options host"
+              it_behaves_like "disk service URL"
+            end
+
+            context "and the resource does not have an attached organization record" do
+              let(:asset) { blob.variant(resize_to_fit: [160, 160], format: "png") }
+              let(:blob) { create(:blob) }
+              let(:filename) { blob.filename.to_s.ext("png") }
+
+              it_behaves_like "disk service URL"
+              it_behaves_like "no blob attachments fetched"
+
+              context "and default URL options do not define the host" do
+                include_context "without default URL options host"
+                it_behaves_like "representation redirect path"
+              end
             end
           end
 
           context "when track_variants is disabled" do
             let(:track_variants) { false }
 
-            it "creates the route to the variant with converted file extension" do
-              expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.png$})
+            it_behaves_like "representation redirect URL"
+            it_behaves_like "no blob attachments fetched"
+
+            context "and default URL options do not define the host" do
+              let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+              include_context "without default URL options host"
+              it_behaves_like "representation redirect URL"
             end
 
             context "and the asset has been processed" do
               before { asset.processed }
 
-              it "creates the route to the variant through the storage service" do
-                expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
+              it_behaves_like "disk service URL"
+              it_behaves_like "no blob attachments fetched"
+
+              context "and default URL options do not define the host" do
+                let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+                include_context "without default URL options host"
+                it_behaves_like "disk service URL"
+              end
+
+              context "and the resource does not have an attached organization record" do
+                let(:asset) { blob.variant(resize_to_fit: [160, 160], format: "png") }
+                let(:blob) { create(:blob) }
+                let(:filename) { blob.filename.to_s.ext("png") }
+
+                it_behaves_like "disk service URL"
+                it_behaves_like "no blob attachments fetched"
+
+                context "and default URL options do not define the host" do
+                  include_context "without default URL options host"
+                  it_behaves_like "representation redirect path"
+                end
+              end
+            end
+
+            context "and the resource does not have an attached organization record" do
+              let(:asset) { blob.variant(resize_to_fit: [160, 160], format: "png") }
+              let(:blob) { create(:blob) }
+              let(:filename) { blob.filename.to_s.ext("png") }
+
+              it_behaves_like "representation redirect URL"
+              it_behaves_like "no blob attachments fetched"
+
+              context "and default URL options do not define the host" do
+                include_context "without default URL options host"
+                it_behaves_like "representation redirect path"
               end
             end
           end
@@ -188,20 +434,21 @@ module Decidim::AssetRouter
       end
 
       context "when the CDN host is defined" do
+        let(:expected_host_url) { "https://cdn.example.org" }
+
         before do
           allow(Decidim).to receive(:storage_cdn_host).and_return("https://cdn.example.org")
         end
 
-        it "creates the route to the CDN blob" do
-          expect(subject).to match(%r{^https://cdn\.example\.org/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
-        end
+        it_behaves_like "blob redirect URL"
+        it_behaves_like "no blob attachments fetched"
 
         context "with extra URL options" do
           let(:options) { { utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
+          let(:expected_url_suffix) { "?utm_campaign=testing&utm_medium=email&utm_source=website" }
 
-          it "handles the extra URL options correctly" do
-            expect(subject).to match(%r{^https://cdn\.example\.org/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
-          end
+          it_behaves_like "blob redirect URL"
+          it_behaves_like "no blob attachments fetched"
         end
       end
     end
