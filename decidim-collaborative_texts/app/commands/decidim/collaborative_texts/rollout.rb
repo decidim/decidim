@@ -21,13 +21,12 @@ module Decidim
       def resource_class = Decidim::CollaborativeTexts::Version
 
       # move pending suggestions to the new version
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       def move_pending_suggestions
         return if form.pending_suggestions.empty?
 
         form.pending_suggestions.update_all(document_version_id: resource.id)
       end
-      # rubocop:enable Rails/SkipsModelValidations
 
       # Add as co-authors and change the status of the suggestions to accepted
       def process_accepted_suggestions

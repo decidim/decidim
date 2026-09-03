@@ -9,10 +9,9 @@ class FixUserFollows < ActiveRecord::Migration[5.2]
   end
 
   def change
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     Follow.where(
       decidim_followable_type: "Decidim::User"
     ).update_all(decidim_followable_type: "Decidim::UserBaseEntity")
-    # rubocop:enable Rails/SkipsModelValidations
   end
 end

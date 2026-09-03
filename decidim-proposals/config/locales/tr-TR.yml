@@ -76,10 +76,7 @@ tr:
             values:
               'false': Teklifler
               'true': Değişiklikler
-          proposal_state_id_eq:
-            label: Durum
           state_eq:
-            label: Durum
             values:
               accepted: Kabul Edildi
               evaluating: Değerlendiriliyor

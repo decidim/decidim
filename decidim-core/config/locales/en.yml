@@ -1724,6 +1724,8 @@ en:
       login_modal:
         please_log_in: Please log in
         sign_up: Create an account
+      mentions:
+        search_prompt: Type to search participants
       mentions_modal:
         remove_recipient: Remove recipient %{name}
       progress: Progress
@@ -2107,7 +2109,6 @@ en:
   layouts:
     decidim:
       announcements:
-        view_less: Show less
         view_more: More information
       data_consent:
         details:
