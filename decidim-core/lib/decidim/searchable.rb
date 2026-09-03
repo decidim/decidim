@@ -131,7 +131,7 @@ module Decidim
 
       # Public: after_update callback to update index information of the model.
       #
-      # rubocop:disable Metrics/PerceivedComplexity
+      # rubocop:disable-next Metrics/PerceivedComplexity
       def try_update_index_for_search_resource(current_depth = 0)
         return unless Decidim::Searchable.indexing_enabled?
         return unless self.class.searchable_resource?(self)
@@ -163,7 +163,6 @@ module Decidim
 
         find_and_update_descendants(current_depth)
       end
-      # rubocop:enable Metrics/PerceivedComplexity
 
       private
 

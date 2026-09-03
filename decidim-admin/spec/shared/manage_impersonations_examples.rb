@@ -264,9 +264,11 @@ shared_examples "manage impersonations examples" do
         fill_in :managed_user_promotion_email, with: "foo@example.org"
       end
 
-      perform_enqueued_jobs { click_on "Promote" }
+      perform_enqueued_jobs do
+        click_on "Promote"
+        expect(page).to have_callout("The managed participant has been successfully promoted.")
+      end
 
-      expect(page).to have_callout("The managed participant has been successfully promoted.")
       expect(page).to have_text(managed_user.name)
 
       logout :user
@@ -338,7 +340,7 @@ shared_examples "manage impersonations examples" do
       fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      fill_in_datepicker :impersonate_user_authorization_birthday_date, with: Time.new.utc.strftime("%d/%m/%Y")
+      fill_in_datepicker :impersonate_user_authorization_birthday_date, with: Time.now.utc.strftime("%d/%m/%Y")
     end
 
     within "[data-content]" do
@@ -357,6 +359,7 @@ shared_examples "manage impersonations examples" do
     end
 
     fill_in_the_impersonation_form("123456789X", reason:)
+    expect(page).to have_callout("You are managing the participant") if reason && reason.length.positive?
   end
 
   def simulate_session_expiration
