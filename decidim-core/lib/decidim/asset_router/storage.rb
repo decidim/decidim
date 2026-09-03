@@ -162,7 +162,7 @@ module Decidim
           when ActiveStorage::Attached
             asset.record
           else # ActiveStorage::Blob, ActiveStorage::VariantWithRecord, ActiveStorage::Variant
-            blob.attachments.first&.record if blob && blob.attachments.any?
+            blob.attachments.first&.record if blob
           end
 
         @organization =
