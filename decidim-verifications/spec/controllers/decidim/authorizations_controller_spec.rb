@@ -108,6 +108,46 @@ module Decidim::Verifications
             end
           end
         end
+
+        context "when both the current user and the duplicate user are ephemeral" do
+          let(:handler_name) { "ephemeral_dummy_authorization_handler" }
+          # Non-parseable model values keep OnboardingManager#valid? false so the
+          # ephemeral session checker does not interfere; the test only cares that
+          # the pending action data is carried over on transfer.
+          let(:pending_action) { { "action" => "vote", "model" => "budget" } }
+          let(:stale_action) { { "action" => "answer", "model" => "survey" } }
+          let(:user) do
+            create(:user, :ephemeral, :confirmed, extended_data: { "ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => pending_action })
+          end
+          let!(:other_user) do
+            create(:user, :ephemeral, :confirmed, organization: user.organization, extended_data: { "ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => stale_action })
+          end
+          let!(:duplicate_authorization) do
+            create(:authorization, :granted, user: other_user, unique_id: document_number, name: handler_name)
+          end
+
+          it "transfers the session and redirects to the onboarding pending page" do
+            expect do
+              post :create, params: {
+                handler: handler_name,
+                authorization_handler: handler_params
+              }
+            end.not_to change(Decidim::Authorization, :count)
+
+            expect(response).to redirect_to(onboarding_pending_authorizations_path)
+          end
+
+          it "carries the current session's pending onboarding action onto the transferred user" do
+            post :create, params: {
+              handler: handler_name,
+              authorization_handler: handler_params
+            }
+
+            # The transferred user keeps the action the current session was trying
+            # to complete instead of its own stale action.
+            expect(other_user.reload.extended_data[Decidim::OnboardingManager::DATA_KEY]).to eq(pending_action)
+          end
+        end
       end
 
       context "when the handler is not valid" do
