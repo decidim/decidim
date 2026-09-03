@@ -50,6 +50,12 @@ describe Decidim::Proposals::Import::ProposalCreator do
     end
   end
 
+  describe ".batch_notifier_klass" do
+    it "returns the batch notifier class" do
+      expect(described_class.batch_notifier_klass).to eq(Decidim::Proposals::Import::BatchNotifier)
+    end
+  end
+
   describe "#resource_attributes" do
     it "returns the attributes hash" do
       expect(subject.resource_attributes).to eq(
@@ -81,6 +87,47 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(record.published_at).to be >= (moment)
     end
 
+    context "when import data comes from flattened JSON" do
+      let(:data) do
+        {
+          "id" => "101",
+          :"taxonomies/ids" => [taxonomy1.id, taxonomy2.id],
+          :"scope/id" => [scope.id],
+          :"title/en" => Faker::Lorem.sentence,
+          :"body/en" => Faker::Lorem.paragraph(sentence_count: 3),
+          :address => nil,
+          :latitude => nil,
+          :longitude => nil
+        }
+      end
+
+      it "parses taxonomy IDs from array values" do
+        record = subject.produce
+
+        expect(record.taxonomies).to contain_exactly(taxonomy1, taxonomy2)
+      end
+
+      it "parses scope ID from array values" do
+        record = subject.produce
+
+        expect(record.scope).to eq(scope)
+      end
+
+      it "parses taxonomy IDs from CSV strings" do
+        data[:"taxonomies/ids"] = "#{taxonomy1.id},#{taxonomy2.id}"
+
+        record = subject.produce
+
+        expect(record.taxonomies).to contain_exactly(taxonomy1, taxonomy2)
+      end
+
+      it "does not fail when scope is missing" do
+        data.delete(:"scope/id")
+        record = subject.produce
+
+        expect(record.scope).to be_nil
+      end
+    end
     it "sets the organization as author (official proposal)" do
       record = subject.produce
 
@@ -97,6 +144,23 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(record.new_record?).to be(false)
     end
 
+    it "publishes proposal notifications for followers" do
+      record = subject.produce
+      allow(Decidim::EventsManager).to receive(:publish)
+
+      subject.finish!
+
+      expect(Decidim::EventsManager).to have_received(:publish).with(
+        event: "decidim.events.proposals.proposal_published",
+        event_class: Decidim::Proposals::PublishProposalEvent,
+        resource: record,
+        followers: record.participatory_space.followers,
+        extra: {
+          participatory_space: true
+        }
+      )
+    end
+
     it "creates admin log" do
       record = subject.produce
 
@@ -104,6 +168,18 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(Decidim::ActionLog.last.user).to eq(user)
       expect(Decidim::ActionLog.last.resource).to eq(record)
       expect(Decidim::ActionLog.last.visibility).to eq("admin-only")
+    end
+  end
+
+  describe "#finish_without_notify!" do
+    it "saves proposal without publishing events" do
+      record = subject.produce
+      allow(Decidim::EventsManager).to receive(:publish)
+
+      subject.finish_without_notify!
+
+      expect(record.new_record?).to be(false)
+      expect(Decidim::EventsManager).not_to have_received(:publish)
     end
   end
 end
