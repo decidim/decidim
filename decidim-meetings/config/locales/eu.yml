@@ -58,7 +58,7 @@ eu:
             iframe_embed_type:
               not_embeddable: URL hau ezin da txertatu topaketen edo zuzeneko ekitaldien orrian.
             online_meeting_url:
-              url_format: URL baliozkoa izan behar du
+              url_format: URL onargarria izan behar da
         meeting_agenda:
           attributes:
             base:
@@ -218,7 +218,7 @@ eu:
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
-          button_text: Eman izena topaketan
+          button_text: Topaketan izena eman
           email_intro: '"%{resource_title}" topaketa jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekatik jarraitzeari utz diezaiokezu.
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
@@ -270,7 +270,7 @@ eu:
       badges:
         attended_meetings:
           conditions:
-            - Eman izena parte hartu nahi duzun topaketan
+            - Parte hartu nahi duzun topaketan izena eman
           description: Garaikur hau aurrez aurre egiten diren bileretara joaten zarenean ematen da.
           description_another: Parte-hartzaile hau %{score} topaketatara bertaratu da.
           description_own: '%{score} topaketatan hartu duzu parte.'
@@ -634,7 +634,7 @@ eu:
         show:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
-          join: Eman izena
+          join: Izena eman
           join_waitlist: Sartu itxarote-zerrendan
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
