@@ -6,8 +6,7 @@ class RenameUpcomingEventsContentBlockToUpcomingMeetings < ActiveRecord::Migrati
   end
 
   def change
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     ContentBlock.where(manifest_name: "upcoming_events").update_all(manifest_name: "upcoming_meetings")
-    # rubocop:enable Rails/SkipsModelValidations
   end
 end
