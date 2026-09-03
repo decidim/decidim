@@ -31,7 +31,6 @@ module Decidim
           address: resource.address,
           location: include_location? ? resource.location : nil,
           reference: resource.reference,
-          attachments: resource.attachments.size,
           url:,
           related_proposals:,
           related_results:,

@@ -364,7 +364,6 @@ el:
           global:
             amendments_enabled: Οι τροποποιήσεις ενεργοποιήθηκαν
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
-            comments_max_length: Μέγιστο μήκος σχολίων
             dummy_global_attribute1: Εικονικό χαρακτηριστικό 1
             dummy_global_attribute2: Εικονικό χαρακτηριστικό 2
             dummy_global_translatable_text: Εικονικό μετατρέψιμο κείμενο

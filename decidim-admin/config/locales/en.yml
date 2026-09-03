@@ -608,6 +608,11 @@ en:
         edit:
           title: Edit member
           update: Update
+        form:
+          email: Email
+          invite_explanation: The participant will be invited to join the organization.
+          name_or_nickname: Name or nickname
+          select_user: Select member
         index:
           import_via_csv: Import via CSV
           publish_all: Publish all
@@ -973,6 +978,10 @@ en:
           logos:
             organization_logos: Organization logos
             preview: Preview
+          machine_translation_display_priority:
+            options:
+              original: The system displays the information in the language used by the author. Content created from admin with manual translations, will display the admin translated values.
+              translation: The system will display a translation if available, otherwise original language will be used.
           rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
           twitter: X
@@ -1100,7 +1109,7 @@ en:
           previous_title: Previous item
         attachments:
           add_attachments: Add attachments
-          attachment_legend: Add an attachment gallery (Optional)
+          attachment_legend: Add a document or an image
           edit_attachments: Edit attachments
       static_page_topics:
         create:

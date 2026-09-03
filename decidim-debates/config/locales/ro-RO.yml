@@ -38,7 +38,6 @@ ro:
             attachments_allowed: Permite atașamente
             clear_all: Ștergeți toate
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
             define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
             no_taxonomy_filters_found: Nici un filtru de taxonomie găsit.
             taxonomy_filters: Selectați filtrele pentru componentă

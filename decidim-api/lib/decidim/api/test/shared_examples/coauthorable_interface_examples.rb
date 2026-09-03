@@ -12,6 +12,16 @@ shared_examples_for "coauthorable interface" do
       it "returns the user's name as the author name" do
         expect(response["author"]["name"]).to eq(author.name)
       end
+
+      context "when unconfirmed" do
+        before do
+          model.creator_author.update!(confirmed_at: nil)
+        end
+
+        it "returns blank string as the author name" do
+          expect(response["author"]["name"]).to eq("")
+        end
+      end
     end
 
     describe "with a several coauthors" do
@@ -36,6 +46,17 @@ shared_examples_for "coauthorable interface" do
 
         it "returns a main author" do
           expect(response["author"]["name"]).to eq(author.name)
+        end
+
+        context "and the coauthor is unconfirmed" do
+          let(:coauthor) { create(:user, organization: model.participatory_space.organization) }
+
+          it "returns an array of authors" do
+            expect(response["authors"].count).to eq(2)
+            expect(response["authors"]).to include("name" => author.name)
+            expect(response["authors"]).to include("name" => "")
+            expect(response["authors"]).not_to include("name" => coauthor.name)
+          end
         end
       end
 

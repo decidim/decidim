@@ -6,6 +6,42 @@ ja:
         title: タイトル
         total_budget: 予算の合計
         weight: 順番の位置
+      pabulib_rules:
+        equalshares:
+          help: 補完なしの均等シェア法（MES）。MESでは、各投票者に同額の仮想予算を割り当て、あるプロジェクトの支持者全員の残り予算を合わせて事業費を賄える場合に、そのプロジェクトを採択します。
+          label: 均等持分法 (%{rule})
+        equalshares/add1:
+          help: まず基本均等シェア法を適用します。予算を十分に使わないまま処理が終了した場合には、選定されたプロジェクトの総費用が実予算を超えない範囲で、各投票者に割り当てる仮想予算を1単位ずつ増額し、その都度、選定結果を再計算します。この補完方法をAdd1と呼びます。
+          label: 均等シェア法, Add1 (%{rule})
+        equalshares/add1_comparison:
+          help: 均等シェア法/Add1を使用したうえで、上記と同じ比較処理を適用します。
+          label: 均等シェア法・Add1比較（%{rule}）
+        equalshares_comparison:
+          help: '基本均等シェア法を使用し、その後に追加の処理を行います。具体的には、その結果を貪欲法による基準結果と比較し、より多くの投票者が貪欲法の結果を支持する場合に限って、そちらへ切り替えます。'
+          label: 均等シェア法・比較（%{rule}）
+        greedy:
+          help: 標準的なナップサック問題型の近似手法です。プロジェクトを得票数の多い順に並べ、一覧を順に確認しながら、残りの予算に収まるプロジェクトを採択します。あるプロジェクトの費用が現在の残予算を上回る場合はそのプロジェクトを飛ばし、次のプロジェクトが予算内に収まるかを確認します。
+          label: 貪欲法 (%{rule})
+        greedy_custom:
+          help: 手動による予算の再配分や複雑なハイブリッドルールなど、標準的なアルゴリズムでは扱えない特殊なケースに使用します。
+          label: 貪欲法、カスタム (%{rule})
+        greedy_exclusive:
+          help: 競合するプロジェクトのグループを処理します。基本的には標準的な貪欲法として動作しますが、複数の採択候補が競合する場合（たとえば、同じ排他的な区域やカテゴリに属する場合）は、得票数だけで決定せず、優先順位に関するルールを適用します。たとえば、地区単位のプロジェクトを市全体のプロジェクトより優先する、またはその逆といったルールです。
+          label: 貪欲法、排他的 (%{rule})
+        greedy_no_skip:
+          help: プロジェクトを得票数の多い順に並べます。アルゴリズムは、残りの予算に収まるプロジェクトを順に採択しますが、予算に収まらないプロジェクトが最初に現れた時点で直ちに処理を終了します。それ以降のプロジェクトは、予算内に収まる場合でも考慮しません。
+          label: 貪欲法、スキップなし (%{rule})
+        greedy_threshold:
+          help: 標準的な貪欲法と同様に動作しますが、定義されたプロジェクトの最低得点しきい値（min_project_score_threshold）を満たすプロジェクトのみを採択候補とします。
+          label: 貪欲法、しきい値あり (%{rule})
+        unknown:
+          help: 情報が得られないか、複数の可能性があり、どれに該当するのかが不明です。
+          label: 不明 (%{rule})
+      pabulib_vote_types:
+        approval: 承認 (%{type})
+        cumulative: 累積値 (%{type})
+        ordinal: 順位式（%{type}）
+        scoring: スコアリング（%{type}）
       project:
         budget_amount: 予算額
         description: 説明
@@ -79,10 +115,87 @@ ja:
             invalid: 予算の更新中に問題が発生しました。
             success: 予算を更新しました。
         exports:
+          formats:
+            pabulib: Pabulib
           projects: プロジェクト
+          voting_results: 投票結果
         models:
           project:
             name: プロジェクト
+        pabulib_exports:
+          create:
+            invalid: フォームのエラーを修正してください。
+            no_votes: エクスポートする投票がまだありません。
+          show:
+            create: エクスポート
+            explanation_html: |
+              <p>
+              この画面では、参加型予算の投票結果を%{format_link}形式でエクスポートできます。
+              </p>
+            explanation_link_label_format: Pabulib 形式
+            export_details_data: データ属性
+            export_details_general: 一般的な詳細
+            fields:
+              country:
+                help: 投票が行われた国。
+                label: 国 (%{field})
+              default_score:
+                help: '採点式投票におけるデフォルトの得点です（デフォルト：%{default_value}）。'
+                label: デフォルトのスコア（%{field}）
+              description:
+                help: 何を対象に投票が行われたかを説明する、投票の説明文です。
+                label: 説明 (%{field})
+              district:
+                help: この投票の投票区域です。たとえば、近隣地区を下位区分として使用する場合、この項目を使ってそれらを投票区域に対応付けることができます。
+                label: 区域 (%{field})
+              instance:
+                help: 投票の実施回を示します。たとえば、毎年実施される投票の場合は、投票が行われた年を指定します。
+                label: 実施回（%{field}）
+              max_length:
+                help: '選択できるプロジェクトの最大数です（デフォルト：%{default_value}）。'
+                label: 最大数 (%{field})
+              max_points:
+                help: '選択したプロジェクトに割り当てられる最大ポイント数(デフォルト: %{default_value})。'
+                help_default_value: 累積式投票では max_sum_points の値、採点式投票では∞です。
+                label: 最大ポイント (%{field})
+              max_sum_cost:
+                help: 'プロジェクト案の費用の最大値です（デフォルト：%{default_value}）。'
+                label: 最大合計コスト (%{field})
+              max_sum_points:
+                help: 各プロジェクトに割り当てられたポイントの最大合計値です。
+                label: ポイント合計の上限（%{field}）
+              min_length:
+                help: '選択できるプロジェクト案の最小数です（デフォルト：%{default_value}）。'
+                label: 最小数 (%{field})
+              min_points:
+                help: '選択したプロジェクトに割り当てられる最小ポイント数(デフォルト: %{default_value})。'
+                label: 最小ポイント (%{field})
+              min_sum_cost:
+                help: 'プロジェクト案の費用の最小値です（デフォルト：%{default_value}）。'
+                label: 最小合計コスト (%{field})
+              min_sum_points:
+                help: '各プロジェクト案に割り当てられた得点の合計の最小値です（デフォルト：%{default_value}）。'
+                label: ポイント合計の下限（%{field}）
+              rule:
+                help: 投票結果に基づいて採択するプロジェクトを選定するためのアルゴリズムです。
+                label: ルール (%{field})
+              scoring_fn:
+                help: '順位式投票で使用するスコアリング関数です（デフォルト：%{default_value}）。'
+                label: スコアリング関数 (%{field})
+              subunit:
+                help: 投票の下位単位です。たとえば、市や自治体の内部にある地域を指定します。
+                label: サブユニット (%{field})
+              unit:
+                help: "投票の実施単位です。たとえば、市や自治体の名称を指定します。\n"
+                label: ユニット (%{field})
+              vote_type:
+                help: 投票結果の評価方法です（詳しくはドキュメントをご覧ください）。
+                label: 投票タイプ (%{field})
+            format_info_html: これらの詳細についてさらに詳しく知りたい場合は、%{link}のドキュメントを参照してください。
+            large_dataset_warning_html: |
+              <p>あなたのデータセットには %{amount} 件の投票が含まれており、現在のユーザーインターフェースではこの規模のデータのエクスポートには適していません。</p>
+              <p>以下のコマンドを使用してコンソールからデータセットをエクスポートすることをご検討ください: <code>%{command}</code></p>
+            title: '%{budget} の投票結果をPabulib形式にエクスポートします'
         projects:
           create:
             invalid: プロジェクトの作成中に問題が発生しました。
@@ -336,7 +449,7 @@ ja:
             announcement: お知らせ
             clear_all: すべてクリア
             comments_enabled: コメントを有効にする
-            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            comments_max_length: 各コメントの最大文字数 (0はデフォルト値のまま)
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             form:
               errors:

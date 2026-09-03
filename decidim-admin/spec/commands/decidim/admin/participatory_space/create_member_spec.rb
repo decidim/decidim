@@ -20,6 +20,7 @@ module Decidim::Admin::ParticipatorySpace
         email:,
         current_user:,
         name:,
+        member_type: "email",
         role:,
         published:
       )
@@ -52,7 +53,7 @@ module Decidim::Admin::ParticipatorySpace
 
         expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1
 
-        form = double(invalid?: false, email:, current_user:, name:, role:, published: false)
+        form = double(invalid?: false, email:, current_user:, name:, member_type: "email", role:, published: false)
         described_class.new(form, participatory_space, via_csv:).call
 
         expect(Decidim::ParticipatorySpace::Member.where(user:).count).to eq 1

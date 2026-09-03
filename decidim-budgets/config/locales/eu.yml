@@ -6,6 +6,42 @@ eu:
         title: Izenburua
         total_budget: Aurrekontua guztira
         weight: Kokapenaren hurrenkera
+      pabulib_rules:
+        equalshares:
+          help: Akzio Berdinen Metodo (MEES) amaierarik gabe. EAetan, boto-emaile bakoitza aurrekontuaren zati birtual berdinarekin hasten da, eta proiektu bat hautatzen da bere aldekoek elkarrekin ordaindu dezaketenean.
+          label: Akzio Berdinen Metodoa (%{rule})
+        equalshares/add1:
+          help: Erabili oinarrizko berdinketak, baina goizegi gelditzen bada, jarraitu hautesle bakoitzaren aurrekontu birtuala unitate batean handitzen (Add 1) eta birkonputatu, beti ere aukeratutako azken proiektuak aurrekontu errealean sartzen badira.
+          label: Partaidetza berdinen metodoa, add1 (%{araua})
+        equalshares/add1_comparison:
+          help: Erabili equalshares/add1, eta, ondoren, aplikatu aurreko konparazio-urrats bera.
+          label: Partaidetza berdinen metodoa, add1 konparaketa (%{rule})
+        equalshares_comparison:
+          help: 'Oinarrizko berdinketak erabili, eta gero beste urrats bat gehitu: bere emaitza erreferentziako diruzale batekin alderatu, eta boto-emaile gehiagok emaitza diruzalea nahiago badute bakarrik aldatu.'
+          label: Akzio berdinen metodoa, (%{rule}) konparazioa 
+        greedy:
+          help: Knapsack-estiloaren hurbilketa estandarraren ikuspegia. Proiektuak boto zenbaketaren arabera ordenatzen dira (beheranzkoa). Algoritmoak zerrendaren bidez iteratzen du, geratzen den aurrekontuan sartzen diren proiektuak aukeratuz. Proiektu bat garestiegia bada gaur egun geratzen diren funtsetarako, alboratu egiten da, eta algoritmoak hurrengo proiektura jarraitzen du, egokitzen den ikusteko.
+          label: Algoritmo jatuna  (%{rule})
+        greedy_custom:
+          help: Algoritmo estandarrak betetzen ez dituen kasu berezietan erabiltzen da, hala nola eskuzko erregogor-lokazioak edo erregal-arau osagarriak.
+          label: Algoritmo jatuna, pertonalizatua  (%{rule})
+        greedy_exclusive:
+          help: Gatazkan dauden proiektu-taldeak kudeatzen ditu. Diruzalekeria estandar gisa funtzionatzen du, baina proiektu 'irabazle' ugari gatazkan sartzen badira (adibidez, eremu edo kategoria esklusibo berean badaude), hierarkia-arau bat aplikatzen da (adibidez, barruti mailako proiektuek lehentasuna izan lezakete hiri osokoen aurrean, edo alderantziz) boto-zenbaketan soilik oinarritu beharrean.
+          label: Algoritmo jatuna, pertonalizatua (%{rule})
+        greedy_no_skip:
+          help: Proiektuak boto zenbaketaren arabera ordenatzen dira (beheranzkoa). Algoritmoak geratzen den aurrekontuan sartzen diren proiektuak aukeratzen ditu baina berehala gelditzen da sartzen ez den lehenengo proiektuan. Ez da ondorengo proiekturik kontuan hartzen, egokituko balira ere.
+          label: Algoritmo jatuna, esklusiboa (%{rule})
+        greedy_threshold:
+          help: Diruzalekeria estandar gisa jokatzen du, baina proiektuak soilik kontuan hartzen dira definitutako min_project_score_threshold betetzen badute.
+          label: Algoritmo jatuna, atalase (%{rule})
+        unknown:
+          help: Edo informazioa ez dago eskuragarri, edo aukera anitz zeuden, eta ez dago argi zein aplikatzen den.
+          label: Ezezaguna (%{rule})
+      pabulib_vote_types:
+        approval: Onarpena (%{type})
+        cumulative: Metatua (%{type})
+        ordinal: Ordinala (%{type})
+        scoring: Puntuazioa (%{type})
       project:
         budget_amount: Aurrekontuaren zenbatekoa
         description: Descripción
@@ -81,10 +117,87 @@ eu:
             invalid: Arazo bat egon da aurrekontu hau eguneratzean.
             success: Aurrekontua zuzen eguneratua.
         exports:
+          formats:
+            pabulib:
           projects: Proiektuak
+          voting_results: Bozketaren emaitzak
         models:
           project:
             name: Proiektua
+        pabulib_exports:
+          create:
+            invalid: Mesedez, zuzendu formularioko akatsak.
+            no_votes: Oraindik ez dago botorik esportatzeko.
+          show:
+            create: Esportazioa
+            explanation_html: |
+              <p>
+              Ikuspegi honek %{format_link} esportazioa sortuko du aurrekontu parte-hartzaileen bozketen emaitzetarako.
+              </p>
+            explanation_link_label_format: Pabulib formatua
+            export_details_data: Datuen atributuak
+            export_details_general: Xehetasun orokorrak
+            fields:
+              country:
+                help: Bozketa egin den herrialdea.
+                label: Herrialdea (%{field})
+              default_score:
+                help: 'Puntuazio-boto motaren puntuazio lehenetsia (lehenetsia:  %{default_value}).'
+                label: Lehenetsitako putuazioa (%{field})
+              description:
+                help: Bozketaren deskribapena, bozkatutakoa azalduz.
+                label: Deskribapena (%{field})
+              district:
+                help: Bozkatzeko barrutia bozketaren barruan. Adibidez, auzoak azpiunitate gisa erabiltzen badituzu, barrutien mapa egin dezakezu eremu hau erabiliz.
+                label: Barrutia (%{field})
+              instance:
+                help: Bozketaren instantzia, adibidez, urtero errepikatzen diren bozketen kasuan, bozketaren urtea izango litzateke.
+                label: (%{field}) instantzia
+              max_length:
+                help: 'Hautatu beharreko proiektuen gehienezko kopurua (lehenetsia: %{default_value}).'
+                label: Gehienezko luzera (%{field})
+              max_points:
+                help: 'Hautatutako proiektuei esleitutako puntu maximoak (lehenetsia: %{default_value}).'
+                help_default_value: 'max_sum_points-en boto-motaren balio metaturako, boto-motaren puntuaziorako:'
+                label: Puntu maximoak (%{field})
+              max_sum_cost:
+                help: 'Proiektu baten kostuaren gehienezko batura (lehenetsia: %{default_value}).'
+                label: Baturaren gehieneko kostua (%{field})
+              max_sum_points:
+                help: Proiektu bakoitzari esleitutako puntuen batuketa maximoa.
+                label: Baturaren gehieneko kostua (%{field})
+              min_length:
+                help: 'Hautatu beharreko proiektuen gehienezko kopurua (lehenetsia: %{default_value}).'
+                label: Gehienezko luzera (%{field})
+              min_points:
+                help: 'Hautatutako proiektuei esleitutako puntu maximoak (lehenetsia: %{default_value}).'
+                label: Puntu maximoak (%{field})
+              min_sum_cost:
+                help: 'Proiektu baten kostuaren gehienezko batura (lehenetsia: %{default_value}).'
+                label: Baturaren gehieneko kostua (%{field})
+              min_sum_points:
+                help: 'Proiektu baten kostuaren gehienezko batura (lehenetsia: %{default_value}).'
+                label: Baturaren gehieneko kostua (%{field})
+              rule:
+                help: Botoen arabera proiektu irabazleak hautatzeko erabiltzen den algoritmoa.
+                label: Erregela (%{field})
+              scoring_fn:
+                help: 'Tipo ordinalaren bozketarako puntuazio-funtzioa (lehenetsia: %{default_value}).'
+                label: Puntuazio-funtzioa (%{field})
+              subunit:
+                help: Bozketaren barruko bozka azpiunitatea, adibidez, hiri edo udalerri barruko eremu bat.
+                label: Azpiunitatea (%{field})
+              unit:
+                help: The voting unit within the voting, for example, the city or municipality name.
+                label: Unitatea (%{field})
+              vote_type:
+                help: Nola ebaluatzen dira bozketaren emaitzak (ikusi dokumentazioa informazio gehiagorako).
+                label: Boto mota (%{field})
+            format_info_html: Xehetasun horiei buruz gehiago jakiteko, jo %{link} dokumentaziora.
+            large_dataset_warning_html: |
+              <p>Zure datu-multzoak %{amount} boto ditu, eta, beraz, oso handia da erabiltzaile-interfaze honen bidez esportatzeko.</p>
+              <p>Mesedez, kontuan izan datu-multzoa esportatu behar duzula kontsolatik komando honekin: <code>%{command}</code></p>
+            title: Esportatu bozketaren emaitzak %{budget} (r) entzat Pabulib formatura
         projects:
           create:
             invalid: Arazo bat egon da proiektu hau sortzean.
@@ -152,7 +265,7 @@ eu:
           orders:
             description: Parte-hatzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
             title:
-              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} partte-hartzaileari
+              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} erabiltzaileri
               other: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} parte-hartzaileri
       admin_log:
         budget:
@@ -179,7 +292,7 @@ eu:
           only_one: ezabatu zure babesa eta hasi berriro.
         completed: Amaituta
         count:
-          one: "%{count} aurrekontu"
+          one: "Aurrekontu %{count}"
           other: "%{count} aurrekontu"
         empty: Oraindik ez dago aurrekonturik
         finished_message: Amaitu duzu babesa emateko prozesua. Eskerrik asko parte hartzeagatik!
@@ -346,7 +459,7 @@ eu:
             announcement: Oharra
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (uzti 0 defektuz konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             form:
               errors:

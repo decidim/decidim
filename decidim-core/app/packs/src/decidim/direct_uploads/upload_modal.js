@@ -253,7 +253,8 @@ export default class UploadModal {
   }
 
   setProgressBar(name, value) {
-    const item = Array.from(this.uploadItems.querySelectorAll("[data-filename]")).find((el) => el.dataset.filename === name);
+    const items = Array.from(this.uploadItems.querySelectorAll("[data-filename]"));
+    const item = items.filter((el) => el.dataset.filename === name).pop();
     if (item) {
       item.querySelector("progress").value = value;
     }

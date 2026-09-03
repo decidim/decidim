@@ -138,10 +138,6 @@ shared_examples_for "a proposal serializer" do
       expect(serialized).to include(withdrawn_at: proposal.withdrawn_at)
     end
 
-    it "serializes the amount of attachments" do
-      expect(serialized).to include(attachments: proposal.attachments.count)
-    end
-
     it "serializes the state at which the proposal was published at" do
       expect(serialized).to include(state_published_at: proposal.state_published_at)
     end

@@ -41,10 +41,9 @@ module Decidim
           votes: (proposal.proposal_votes_count unless proposal.component.current_settings.votes_hidden?),
           likes: {
             total_count: proposal.likes.size,
-            user_likes:
+            user_likes: user_likes
           },
           comments: proposal.comments_count,
-          attachments: proposal.attachments.size,
           follows_count: proposal.follows_count,
           published_at: proposal.published_at,
           url:,
@@ -89,7 +88,7 @@ module Decidim
       end
 
       def user_likes
-        proposal.likes.for_listing.map { |identity| identity.author&.name }
+        proposal.likes.includes(:author).for_listing.map { |identity| identity.author&.name }
       end
 
       def original_proposal_url

@@ -33,10 +33,6 @@ gl:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: É preciso anexar de novo o ficheiro
-            add_photos:
-              needs_to_be_reattached: É preciso anexar de novo o ficheiro
             body:
               cant_be_equal_to_template: non pode ser igual ao modelo
               identical: E o título non pode ser idéntico
@@ -75,7 +71,6 @@ gl:
             values:
               'false': Propostas
           state_eq:
-            label: Estado
             values:
               accepted: Aceptada
               evaluating: En avaliación
