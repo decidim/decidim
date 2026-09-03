@@ -504,9 +504,9 @@ eu:
           already_have_an_account?: Ba al duzu kontu bat?
           are_you_new?: Beste parte-hartzaile bat?
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
-          make_conference_registration: Eman izena jardunaldian
+          make_conference_registration: Jardunaldianizena eman
           manage_registration: Kudeatu erregistroa
-          register: Eman izena
+          register: Izena eman
           sign_in_description: Hasi saioa hitzaldian erregistratzeko
           sign_up_description: Sortu kontu bat jardunaldian erregistratzeko
       content_blocks:
@@ -559,7 +559,7 @@ eu:
         index:
           choose_an_option: 'Hautatu zure erregistro-aukera:'
           no_registrations: Ez dago izen-ematerik
-          register: Eman izena
+          register: Izena eman
           title: Izen-emate motak
       show:
         details: Xehetasunak
@@ -671,7 +671,7 @@ eu:
     decidim:
       conference_hero:
         manage_registration: Kudeatu erregistroak
-        register: Eman izena
+        register: Izena eman
       conferences:
         conference:
           more_info: Informazio gehiago
