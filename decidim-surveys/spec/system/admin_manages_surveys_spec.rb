@@ -15,7 +15,7 @@ describe "Admin manages surveys" do
            published_at: nil)
   end
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
+  let!(:survey) { create(:survey, :published, component:, questionnaire:) }
 
   include_context "when managing a component as an admin"
   it_behaves_like "access component permissions form"
@@ -88,112 +88,6 @@ describe "Admin manages surveys" do
           find("button[data-controller='dropdown']").click
           click_on "Unpublish"
           expect(accept_confirm).to eq("Are you sure you want to unpublish this survey?")
-        end
-      end
-
-      it "deletes responses after published" do
-        within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-controller='dropdown']").click
-          click_on "Questions"
-        end
-        click_on "Expand all"
-
-        within "#accordion-questionnaire_question_#{question.id}-field" do
-          find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
-        end
-        click_on "Save"
-        expect(page).to have_callout "Survey questions successfully saved"
-
-        all("a", text: translated_attribute(component.name))[0].click
-
-        within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-controller='dropdown']").click
-          accept_confirm { click_on "Unpublish" }
-        end
-
-        expect(page).to have_callout "Survey successfully unpublished"
-
-        within "tr", text: decidim_sanitize_translated(survey.title) do
-          expect(page).to have_text "Unpublished"
-        end
-
-        within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-controller='dropdown']").click
-          accept_confirm { click_on("Publish") }
-        end
-
-        expect(page).to have_callout "Survey successfully published"
-
-        within "tr", text: decidim_sanitize_translated(survey.title) do
-          expect(page).to have_text "Published"
-        end
-        expect(questionnaire.responses).to be_empty
-      end
-
-      context "when publishing the survey" do
-        let!(:participatory_process) do
-          create(:participatory_process, organization:)
-        end
-        let(:participatory_space_path) do
-          decidim_admin_participatory_processes.components_path(participatory_process)
-        end
-        let(:components_path) { participatory_space_path }
-
-        before do
-          visit components_path
-        end
-
-        context "when clean_after_publish is set to true" do
-          context "when deletes previous responses after publishing" do
-            it "show popup with an alert" do
-              all("a", text: translated_attribute(component.name))[0].click
-
-              within "tr", text: decidim_sanitize_translated(survey.title) do
-                find("button[data-controller='dropdown']").click
-                accept_confirm { click_on "Unpublish" }
-              end
-
-              within "tr", text: decidim_sanitize_translated(survey.title) do
-                find("button[data-controller='dropdown']").click
-                click_on "Publish"
-              end
-
-              within "#confirm-modal" do
-                expect(page).to have_text("Confirm")
-              end
-            end
-
-            it "deletes previous responses" do
-              all("a", text: translated_attribute(component.name))[0].click
-
-              within "tr", text: decidim_sanitize_translated(survey.title) do
-                find("button[data-controller='dropdown']").click
-                click_on "Edit"
-              end
-
-              expect(survey.clean_after_publish).to be true
-
-              perform_enqueued_jobs do
-                Decidim::Admin::PublishComponent.call(component, user)
-              end
-
-              expect(questionnaire.responses).to be_empty
-            end
-          end
-        end
-
-        context "when clean_after_publish is set to false" do
-          let!(:survey) { create(:survey, :published, clean_after_publish: false, component:, questionnaire:) }
-
-          it "does not delete previous responses after publishing" do
-            expect(survey.clean_after_publish?).to be false
-
-            perform_enqueued_jobs do
-              Decidim::Admin::PublishComponent.call(component, user)
-            end
-
-            expect(questionnaire.responses).not_to be_empty
-          end
         end
       end
 
@@ -360,6 +254,28 @@ describe "Admin manages surveys" do
       within "tr", text: decidim_sanitize_translated(survey.title) do
         find("button[data-controller='dropdown']").click
         expect(page).to have_link("Responses")
+      end
+    end
+
+    context "when managing the responses page" do
+      before do
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Questions"
+        end
+        click_on "Responses"
+      end
+
+      it "shows the delete all responses button" do
+        expect(page).to have_link("Delete all responses")
+      end
+
+      it "deletes all responses when confirmed" do
+        accept_confirm { click_on "Delete all responses" }
+
+        expect(page).to have_callout("All responses have been successfully deleted.")
+        expect(page).to have_text("There are no responses yet")
+        expect(questionnaire.reload.responses).to be_empty
       end
     end
   end

@@ -72,6 +72,44 @@ module Decidim
             expect(flash[:notice]).to be_present
           end
         end
+
+        describe "destroy_all" do
+          let!(:responses) do
+            survey.questionnaire.questions.map do |question|
+              create(:response, questionnaire: survey.questionnaire, question:, user:)
+            end
+          end
+          let(:params) do
+            {
+              component_id: survey.component.id,
+              participatory_process_slug: survey.component.participatory_space.slug,
+              survey_id: survey.id
+            }
+          end
+
+          it "deletes all responses" do
+            expect { delete(:destroy_all, params:) }.to change(Decidim::Forms::Response, :count).by(-responses.size)
+            expect(survey.questionnaire.reload.responses).to be_empty
+          end
+
+          it "does not delete responses from other questionnaires" do
+            other_questionnaire = create(:questionnaire)
+            other_question = create(:questionnaire_question, questionnaire: other_questionnaire)
+            other_response = create(:response, questionnaire: other_questionnaire, question: other_question)
+
+            delete(:destroy_all, params:)
+
+            expect(other_response.reload).to be_present
+          end
+
+          it "redirects with a success notice" do
+            delete(:destroy_all, params:)
+
+            expect(response).to be_redirect
+            expect(response.location).to include("/surveys/#{survey.id}/responses")
+            expect(flash[:notice]).to eq("All responses have been successfully deleted.")
+          end
+        end
       end
     end
   end
