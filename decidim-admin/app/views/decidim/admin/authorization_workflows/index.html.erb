@@ -7,53 +7,44 @@
 </div>
 
 <div class="card">
-  <%= cell("decidim/verifications/revocations", @authorizations) %>
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t("decidim.admin.titles.authorization_workflows") %>
-    </h2>
-  </div>
   <div class="card-section">
-    <table class="table-list">
-      <thead>
-        <tr>
-          <th><%= t("decidim.authorization_handlers.name") %></th>
-          <th class="!text-left"><%= t("decidim.authorization_handlers.help") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @workflows.each do |manifest| %>
-          <tr>
-            <% workflow = Decidim::Verifications::Adapter.new(manifest) %>
-            <td>
-              <% if workflow.has_admin_root_path? %>
-                <%= link_to workflow.fullname, workflow.admin_root_path %>
-              <% else %>
-                <%= workflow.fullname %>
+    <p class="whitespace-pre-line"><%= t(".intro") %></p>
+
+    <% @workflows.each do |manifest| %>
+      <% workflow = Decidim::Verifications::Adapter.new(manifest) %>
+      <section class="mt-8">
+        <h2 class="text-lg font-semibold mb-2">
+          <% if workflow.has_admin_root_path? %>
+            <%= link_to workflow.fullname, workflow.admin_root_path, class: "text-secondary underline" %>
+          <% else %>
+            <%= workflow.fullname %>
+          <% end %>
+        </h2>
+
+        <% i18n_key = "decidim.authorization_handlers.admin.#{workflow.key}.help" %>
+        <% if I18n.exists?(i18n_key, current_locale) %>
+          <ol class="list-decimal ml-4">
+            <% t(i18n_key).each do |tip| %>
+              <li><%= tip %></li>
+            <% end %>
+          </ol>
+        <% else %>
+          <div class="flash warning">
+            <ul>
+              <% t("decidim.authorization_handlers.admin.default.help", authorization_handler: i18n_key).each do |tip| %>
+                <li><%= tip %></li>
               <% end %>
-            </td>
-            <td class="!text-left">
-              <% i18n_key = "decidim.authorization_handlers.admin.#{workflow.key}.help" %>
-              <% if I18n.exists?(i18n_key, current_locale) %>
-                <ul class="list-decimal ml-4">
-                  <% t(i18n_key).each do |tip| %>
-                    <li><%= tip %></li>
-                  <% end %>
-                </ul>
-              <% else %>
-                <div class="flash warning">
-                  <ul>
-                    <% default_help = t("decidim.authorization_handlers.admin.default.help", authorization_handler: i18n_key) %>
-                    <% default_help.each do |tip| %>
-                      <li><%= tip %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              <% end %>
-            </td>
-          </tr>
+            </ul>
+          </div>
         <% end %>
-      </tbody>
-    </table>
+
+        <%= cell(
+              "decidim/verifications/revocations",
+              workflow,
+              total: @revocation_counts[manifest][:total],
+              impersonated: @revocation_counts[manifest][:impersonated]
+            ) %>
+      </section>
+    <% end %>
   </div>
 </div>
