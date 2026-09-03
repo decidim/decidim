@@ -113,8 +113,13 @@ module Decidim
       # @return [Decidim::Organization, nil] The resolved organization record or
       #   nil if not found.
       def from_argument_value_associations
-        org = values.find { |arg| arg.respond_to?(:organization) }&.organization
-        org if org.is_a?(Decidim::Organization)
+        values.each do |arg|
+          next unless arg.respond_to?(:organization)
+
+          return arg.organization if arg.organization.is_a?(Decidim::Organization)
+        end
+
+        nil
       end
     end
   end
