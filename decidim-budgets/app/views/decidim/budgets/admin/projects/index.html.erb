@@ -1,5 +1,11 @@
 <% add_decidim_page_title(t(".title")) %>
-<div class="card">
+<div class="card"
+   data-controller="bulk-actions"
+   data-bulk-actions-item-selector-value=".js-check-all-resources"
+   data-bulk-actions-count-selector-value="#js-selected-resources-count"
+   data-bulk-actions-select-all-selector-value=".js-check-all"
+   data-bulk-actions-mirror-class-prefix-value="js-resource-id-"
+>
   <div class="item_show__header item_show__header--with-action-options">
     <h1 class="item_show__header-title">
       <div>
