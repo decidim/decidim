@@ -243,9 +243,8 @@ module Decidim
       transferrable_records = resource_class.where(user_column => source_user_id)
       transferrable_ids = transferrable_records.pluck(:id)
 
-      # rubocop:disable Rails::SkipsModelValidations
+      # rubocop:disable-next Rails::SkipsModelValidations
       transferrable_records.update_all(user_column => user_id)
-      # rubocop:enable Rails::SkipsModelValidations
 
       records.create!(
         transferrable_ids.map do |resource_id|

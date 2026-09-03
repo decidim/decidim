@@ -213,9 +213,8 @@ FactoryBot.define do
 
     trait :malicious do
       after :create do |user|
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         user.update_column(:name, "user_#{user.id}\n<script>alert('name')</script>")
-        # rubocop:enable Rails/SkipsModelValidations
       end
     end
 

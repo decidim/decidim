@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"
 
-  s.add_dependency "bullet", "~> 8.1.0"
+  s.add_dependency "bullet", ">= 8.1", "< 8.3"
   s.add_dependency "byebug", ">= 11", "< 14"
   s.add_dependency "erb_lint", ">= 0.8", "< 0.10"
   s.add_dependency "i18n-tasks", "~> 1.0"
@@ -52,7 +52,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
   s.add_dependency "rspec-rails", ">= 6", "< 9"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", ">= 1.78", "< 1.90"
+  s.add_dependency "rubocop", ">= 1.78", "< 1.91"
   s.add_dependency "rubocop-capybara", ">= 2.22.1", "< 3.1"
   s.add_dependency "rubocop-factory_bot", ">= 2.27", "< 2.29"
   s.add_dependency "rubocop-faker", "~> 1.3", ">= 1.3.0"

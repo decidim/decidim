@@ -22,11 +22,10 @@ module Decidim
       value.blank? || FALSE_VALUES.include?(value.to_s.downcase)
     end
 
-    # rubocop:disable Rails/Present
+    # rubocop:disable-next Rails/Present
     def present?
       !blank?
     end
-    # rubocop:enable Rails/Present
 
     def to_boolean_string
       present?.to_s

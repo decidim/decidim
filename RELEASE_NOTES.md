@@ -64,7 +64,14 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. New Active Storage Sidekiq queue
+
+Active Storage jobs now run in the dedicated Sidekiq queue `active_storage` to avoid blocking the default queue.
+Please add this queue to your `config/sidekiq.yml` and ensure at least one Sidekiq process is consuming it.
+
+You can read more about this change on PR [#17520](https://github.com/decidim/decidim/pull/17520).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
