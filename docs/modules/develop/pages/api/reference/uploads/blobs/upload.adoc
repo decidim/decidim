@@ -9,7 +9,11 @@ The `uploadFile` mutation allows authenticated administrators to upload and crea
 mutation ($input: UploadFileInput!) {
   uploadFile(input: $input) {
     blob {
-      id filename byteSize signedId checksum
+      id
+      filename
+      byteSize
+      signedId
+      checksum
     }
   }
 }
@@ -21,7 +25,7 @@ The file variable must be `null` in the `operations` payload, and the uploaded f
 
 [source,bash]
 ----
-curl -X POST http://localhost:3000/api/ \
+curl -X POST https://example.org/api/ \
   -F 'operations={"query":"mutation ($input: UploadFileInput!) { uploadFile(input: $input) { blob { id filename byteSize signedId checksum } } }","variables":{"input":{"file":null}}}' \
   -F 'map={"0":["variables.input.file"]}' \
   -F '0=@/path/to/file.jpg'
