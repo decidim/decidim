@@ -57,9 +57,8 @@ module Decidim
       def reset(attribute)
         attribute_value = @proposal[attribute]
         PaperTrail.request(enabled: false) do
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           @proposal.update_attribute attribute, ""
-          # rubocop:enable Rails/SkipsModelValidations
         end
         attribute_value
       end

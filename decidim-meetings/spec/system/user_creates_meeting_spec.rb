@@ -127,7 +127,7 @@ describe "User creates meeting" do
         let(:meeting_address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
-        let(:base_date) { Time.new.utc }
+        let(:base_date) { Time.now.utc }
         let(:meeting_start_date) { base_date.strftime("%d/%m/%Y") }
         let(:start_month) { base_date.strftime("%b") }
         let(:start_day) { base_date.day }

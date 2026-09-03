@@ -34,7 +34,7 @@ module Decidim
       #   end
       #
       # Returns nothing.
-      # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+      # rubocop:disable-next Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def translatable_attribute(name, type, **)
         attribute(name, { String => Object }, default: {})
 
@@ -70,7 +70,6 @@ module Decidim
           yield(attribute_name, locale) if block_given?
         end
       end
-      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
       def locales
         Decidim.available_locales
