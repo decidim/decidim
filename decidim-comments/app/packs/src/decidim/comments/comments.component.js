@@ -68,23 +68,42 @@ export default class CommentsComponent {
   }
 
   /**
-   * Adds a new thread to the comments section.
-   * If the layout is a two-column layout, the comment is added to either
-   * the "in favor" or "against" column based on the alignment provided.
-   * If the layout is a single column or on a mobile screen,
-   * the comment is added to the general comment thread with interleaved ordering.
-   *
+   * Appends a new thread to the comments section. See _insertThread for column
+   * routing.
    * @public
-   * @param {String} threadHtml - The HTML content for the thread to be added.
-   * @param {Number|null} alignment - Specifies the alignment of the comment.
-   *   If -1, the comment is added to the "against" column.
-   *   If 1, the comment is added to the "in favor" column.
-   *   If null or if on a mobile screen, the comment is added to the general thread.
-   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
-   *   is the author of the new thread. Defaults to false.
+   * @param {String} threadHtml - HTML for the new thread.
+   * @param {Number|null} alignment - 1 (in favor), -1 (against), or null.
+   * @param {Boolean} fromCurrentUser - True when the user authored this thread.
    * @returns {Void} - Does not return a value.
    */
   addThread(threadHtml, alignment = null, fromCurrentUser = false) {
+    this._insertThread(threadHtml, alignment, fromCurrentUser, "append");
+  }
+
+  /**
+   * Prepends a new thread to the comments section so screen readers and
+   * sighted users see it immediately after publishing.
+   * @public
+   * @param {String} threadHtml - HTML for the new thread.
+   * @param {Number|null} alignment - 1 (in favor), -1 (against), or null.
+   * @param {Boolean} fromCurrentUser - True when the user authored this thread.
+   * @returns {Void} - Does not return a value.
+   */
+  prependThread(threadHtml, alignment = null, fromCurrentUser = false) {
+    this._insertThread(threadHtml, alignment, fromCurrentUser, "prepend");
+  }
+
+  /**
+   * Inserts a thread into the right column based on alignment / layout.
+   * @private
+   * @param {String} threadHtml - HTML for the new thread.
+   * @param {Number|null} alignment - 1 (in favor), -1 (against), or null.
+   * @param {Boolean} fromCurrentUser - True when the user authored this thread.
+   * @param {String} position - "append" or "prepend".
+   * @returns {Void} - Does not return a value.
+   */
+  // eslint-disable-next-line max-params
+  _insertThread(threadHtml, alignment, fromCurrentUser, position) {
     const $comment = $(threadHtml);
     let $parent = null;
 
@@ -107,7 +126,7 @@ export default class CommentsComponent {
       $parent = $(".comment-threads", this.$element);
     }
 
-    this._addComment($parent, $comment);
+    this._addComment($parent, $comment, position);
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
@@ -179,9 +198,10 @@ export default class CommentsComponent {
    * @private
    * @param {jQuery} $target - The target element to add the comment to.
    * @param {jQuery} $container - The comment container element to add.
+   * @param {String} position - "append" (default) or "prepend".
    * @returns {Void} - Returns nothing
    */
-  _addComment($target, $container) {
+  _addComment($target, $container, position = "append") {
     let $comment = $(".comment", $container);
     if ($comment.length < 1) {
       // In case of a reply
@@ -189,7 +209,11 @@ export default class CommentsComponent {
     }
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
 
-    $target.append($container);
+    if (position === "prepend") {
+      $target.prepend($container);
+    } else {
+      $target.append($container);
+    }
 
     this._initializeComments($container);
     document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [this.lastCommentId] } }));

@@ -9,8 +9,10 @@
             data-show-replies-target="button"
             aria-expanded="false"
             aria-controls="comment-<%= model.id %>-replies"
+            data-replies-count="<%= replies_count %>"
+            data-replies-label-templates="<%= I18n.t('decidim.components.comment.replies_count').to_json %>"
             id="comment-<%= model.id %>-replies-trigger">
-      <span class="font-normal"><%= t("decidim.components.comment.replies_count", count: replies_count) %></span>
+      <span class="font-normal" data-replies-count-label><%= t("decidim.components.comment.replies_count", count: replies_count) %></span>
       <%= icon "arrow-down-s-line" %>
       <%= icon "arrow-up-s-line" %>
     </button>

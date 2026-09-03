@@ -2,60 +2,67 @@
   var rootCommentableId = <%== "comments-for-#{@comment.root_commentable.commentable_type.demodulize}-#{@comment.root_commentable.id}".to_json %>;
   var commentHtml = '<%== j(render @comment).strip %>';
   var inReplyTo = <%== (reply?(@comment) ? @commentable.id : nil).to_json %>;
-  var alignment = <%= @comment.alignment.nil? ? "null" : @comment.alignment %>;
+  var alignment = <%== @comment.alignment.to_json %>;
+  var newCommentId = <%== @comment.id.to_json %>;
+  var locale = document.documentElement.lang || "en";
+  var pluralRules = typeof Intl !== "undefined" && Intl.PluralRules ? new Intl.PluralRules(locale) : null;
+
+  function renderPluralLabel(templatesJson, count) {
+    if (!templatesJson) { return null; }
+    var templates;
+    try { templates = JSON.parse(templatesJson); } catch (_) { return null; }
+    var key = pluralRules ? pluralRules.select(count) : (count === 1 ? "one" : "other");
+    var template = templates[key] || templates.other || templates.one;
+    return template ? template.replace("%{count}", count) : null;
+  }
 
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");
   if (inReplyTo) {
     component.addReply(inReplyTo, commentHtml, true);
-
-    var hideButton = $("#comment_" + <%= root_comment.id %>).find("[data-comment-hide]").first();
-    hideButton.find("[data-show-comment-reply]").first().html('<%= t("decidim.components.comment.show_replies", count: Decidim::Comments::SortedComments.for(root_comment.reload).size) %>');
-
+    // Walk ancestors via the data-parent chain and bump each replies counter
+    // by one. Plural templates are emitted as a JSON map per locale.
+    var cursor = document.getElementById("comment_" + inReplyTo);
+    while (cursor) {
+      var trigger = document.getElementById("comment-" + cursor.dataset.commentId + "-replies-trigger");
+      if (trigger) {
+        var newCount = (parseInt(trigger.dataset.repliesCount || "0", 10) || 0) + 1;
+        var rendered = renderPluralLabel(trigger.dataset.repliesLabelTemplates, newCount);
+        trigger.dataset.repliesCount = newCount;
+        var label = trigger.querySelector("[data-replies-count-label]");
+        if (label && rendered) { label.textContent = rendered; }
+      }
+      var parentRef = cursor.dataset.parent;
+      cursor = parentRef ? document.getElementById(parentRef) : null;
+    }
   } else {
-    var params = new URLSearchParams({
-      "commentable_gid": component.commentableGid,
-      "root_depth": component.rootDepth,
-      "order": component.order,
-      "reload": 1
-    });
-
-    var csrfToken = document.querySelector('meta[name="csrf-token"]');
-    var headers = {
-      "Accept": "text/javascript",
-      "X-Requested-With": "XMLHttpRequest"
-    };
-    if (csrfToken) { headers["X-CSRF-Token"] = csrfToken.getAttribute("content"); }
-
-    fetch(component.commentsUrl + "?" + params.toString(), {
-      method: "GET",
-      headers: headers,
-      credentials: "same-origin"
-    }).then(function(response) {
-      if (!response.ok) { throw new Error("Network response was not ok"); }
-      return response.text();
-    }).then(function(script) {
-      var scriptElement = document.createElement("script");
-      scriptElement.textContent = script;
-      document.body.appendChild(scriptElement);
-      document.body.removeChild(scriptElement);
-      component._finalizeCommentCreation(null, true);
-    }).catch(function() {
-      var commentsContainer = document.getElementById(rootCommentableId);
-      var loadingElement = commentsContainer.querySelector(".loading-comments");
-      var commentsElement = commentsContainer.querySelector(".comments");
-      if (loadingElement) { loadingElement.classList.add("hidden"); }
-      if (commentsElement) { commentsElement.classList.remove("hidden"); }
-      component._finalizeCommentCreation(null, true);
-    });
+    // Always prepend new top-level comments: predictable for screen-reader
+    // users (next focus-stop after the form), visible immediately for sighted
+    // users. Canonical sort order is restored on next page load / order change.
+    component.prependThread(commentHtml, alignment, true);
   }
 
-  document.dispatchEvent(new CustomEvent("comments:loaded", {
-    detail: { commentsIds: [<%= @comment.id %>, <%= @comment.commentable.id %>] }
-  }));
+  // Move focus to the new comment so screen readers announce it (the element
+  // is briefly highlighted via the .comment--just-posted class).
+  var newCommentEl = document.getElementById("comment_" + newCommentId);
+  if (newCommentEl) {
+    newCommentEl.setAttribute("tabindex", "-1");
+    newCommentEl.classList.add("comment--just-posted");
+    newCommentEl.focus();
+    setTimeout(function() {
+      var el = document.getElementById("comment_" + newCommentId);
+      if (el) { el.classList.remove("comment--just-posted"); }
+    }, 2000);
+  }
 
-  // Update the comments count
-  $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+  // Bump the top-level comments count by one using locale-aware templates.
+  var countEl = $comments.find(".comments-count")[0];
+  if (countEl) {
+    var newTotal = (parseInt(countEl.dataset.commentsCount || "0", 10) || 0) + 1;
+    var titleRendered = renderPluralLabel(countEl.dataset.commentsTitleTemplates, newTotal);
+    countEl.dataset.commentsCount = newTotal;
+    if (titleRendered) { countEl.textContent = titleRendered; }
+  }
 
   var $addCommentCard = $("#add-comment-anchor");
 
