@@ -1,5 +1,44 @@
 = API file upload handling
 
+In order to create attachments using the API, you need first to handle the file upload, and after that, you can create the attachment record.
+
+The following snippet, will handle the file upload, returning you a blob id.
+
+[source,bash]
+----
+curl -X POST https://example.org/api/ \
+  -F 'operations={"query":"mutation ($input: UploadFileInput!) { uploadFile(input: $input) { blob { id filename byteSize signedId checksum } } }","variables":{"input":{"file":null}}}' \
+  -F 'map={"0":["variables.input.file"]}' \
+  -F '0=@/path/to/file.jpg'
+----
+
+Having the blob id, you will be able to pass it as a parameter for the createAttachment mutation, obtaining this way a new attachment record.
+
+[source,json]
+----
+{
+  "componentId": "3",
+  "resultId": "5",
+  "input": {
+    "attributes": {
+      "weight": 1,
+      "title": {
+        "en": "Your english title"
+      },
+      "description": {
+        "en": "Your english description"
+      },
+      "file": {
+        "blobId": 00000 // The id obtained from file upload
+      }
+    }
+  }
+}
+
+----
+
+For additional details feel free to browse associated resources.
+
 == Blobs (Handling Files)
 
 * xref:develop:api/reference/uploads/blobs/upload.adoc[Upload files]
