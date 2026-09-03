@@ -303,7 +303,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         )
       end
 
-      context "when users exist" do
+      context "when user is missing" do
         it "logs activation in activity log" do
           expect { subject.perform_now }
             .to change(Decidim::ActionLog, :count).by(1)
