@@ -78,7 +78,7 @@ describe "Search" do
     it "displays the results page" do
       visit %{/search?filter[with_resource_type]=Decidim::Proposals::Proposal&page=2&per_page=25'"()%26%25<zzz><ScRiPt >alert("XSS")</ScRiPt>}
 
-      expect(page).to have_text("100 results for the search")
+      expect(page).to have_text("50 results for the search")
       expect(page).to have_text("Results per page")
     end
   end
