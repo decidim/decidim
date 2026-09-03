@@ -285,6 +285,7 @@ en:
         activate: "%{user_name} activated the %{resource_name} phase in the %{space_name} participatory process"
         create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
         delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name} participatory process"
+        system_activate: The %{resource_name} phase was automatically activated in the %{space_name} participatory process.
         update: "%{user_name} updated the %{resource_name} phase in the %{space_name} participatory process"
       participatory_process_user_role:
         create: "%{user_name} invited the participant %{resource_name} to the %{space_name} participatory process"
