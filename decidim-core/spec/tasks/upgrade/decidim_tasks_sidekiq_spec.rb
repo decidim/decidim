@@ -33,6 +33,7 @@ describe "rake decidim:upgrade:sidekiq", type: :task do
         - [exports, 1]
         - [close_meeting_reminder, 1]
         - [spam_analysis, 1]
+        - [active_storage, 1]
     YAML
   end
 end
