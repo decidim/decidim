@@ -101,10 +101,21 @@ jobs:
           fi
           sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list.d/*.sources || true
           sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list || true
-      - run: |
-          sudo apt-get update && sudo apt-get install libvips libvips-tools
-        name: Install libvips
         shell: "bash"
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libu2f-udev libvips libvips-tools
+          wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
+          sudo dpkg -i /tmp/chrome.deb
+          rm /tmp/chrome.deb
+        shell: "bash"
+        env:
+          DEBIAN_FRONTEND: noninteractive
+      - uses: nanasess/setup-chromedriver@v3
+        with:
+          chromedriver-version: ${{inputs.chrome_version}}
+        name: Install Chrome version ${{inputs.chrome_version}}
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
@@ -117,16 +128,6 @@ jobs:
       - run: npm config set fetch-retries 5 && npm config set fetch-retry-mintimeout 20000 && npm config set fetch-retry-maxtimeout 120000
         name: Tune NPM configuration
         shell: "bash"
-      - run: |
-          sudo apt update
-          sudo apt install libu2f-udev
-          wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
-          sudo dpkg -i /tmp/chrome.deb
-          rm /tmp/chrome.deb
-      - uses: nanasess/setup-chromedriver@v3
-        with:
-          chromedriver-version: ${{inputs.chrome_version}}
-        name: Install Chrome version ${{inputs.chrome_version}}
       - run: bundle exec brakeman --rails7 --force-scan .
         name: Scanning Security issues on module
         working-directory: ${{ inputs.working-directory }}
