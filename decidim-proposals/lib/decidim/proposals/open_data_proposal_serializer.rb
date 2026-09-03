@@ -41,7 +41,7 @@ module Decidim
           votes: (proposal.proposal_votes_count unless proposal.component.current_settings.votes_hidden?),
           likes: {
             total_count: proposal.likes.size,
-            user_likes: user_likes
+            user_likes:
           },
           comments: proposal.comments_count,
           follows_count: proposal.follows_count,
