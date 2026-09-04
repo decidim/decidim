@@ -20,8 +20,9 @@ module ActiveStorage
     # @see ActiveStorage::Service#upload
     def upload(key, io, checksum: nil, **)
       instrument :upload, key:, checksum: do
-        @storage[key] = StringIO.new("".b)
-        IO.copy_stream(io, @storage[key])
+        stored = StringIO.new("".b)
+        IO.copy_stream(io, stored)
+        @storage[key] = stored
       end
     ensure
       io.rewind
@@ -41,7 +42,7 @@ module ActiveStorage
         end
       end
     ensure
-      io.rewind
+      io&.rewind
     end
 
     # @see ActiveStorage::Service#download_chunk
@@ -54,7 +55,7 @@ module ActiveStorage
         io.read(range.size)
       end
     ensure
-      io.rewind
+      io&.rewind
     end
 
     # @see ActiveStorage::Service#delete
