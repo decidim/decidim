@@ -496,13 +496,11 @@ module Decidim::AssetRouter
 
             def download_chunk(key, range)
               io = io_for(key)
-              endpos = range.exclude_end? ? range.end - 1 : range.end
-              length = endpos - range.begin
               instrument :download_chunk, key:, range: do
-                return "".b if length <= 0
+                return "".b if range.size <= 0
 
                 io.seek(range.begin)
-                io.read(length)
+                io.read(range.size)
               end
             ensure
               io.rewind
