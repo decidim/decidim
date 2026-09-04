@@ -117,7 +117,6 @@ module Decidim
       #   in case fetching the asset's organization host fails (e.g. if the
       #   asset is not attached to an organization).
       def ensure_current_host(**opts)
-        return true unless current_host_required?
         return true if current_host_available?
 
         default_options = remote? ? remote_storage_options : routes.default_url_options
@@ -195,11 +194,8 @@ module Decidim
         if options[:host] || options[:only_path] || remote?
           routes.rails_blob_url(blob, **default_options, **options)
         else
-          unless ensure_current_host(**options)
-            return blob_url(**ActiveStorage::Current.url_options, **options) if current_host_available?
-
-            return blob_url(**options, only_path: true)
-          end
+          ensured_host = !current_host_required? || ensure_current_host(**options)
+          return blob_url(**options, only_path: true) unless ensured_host
 
           blob.url(**options)
         end
@@ -215,11 +211,7 @@ module Decidim
         return unless asset
         return rails_representation_url(**options) if options[:only_path] || remote?
 
-        unless ensure_current_host(**options)
-          return rails_representation_url(**options) if options[:host]
-
-          return rails_representation_url(**options, only_path: true)
-        end
+        ensure_current_host(**options) if current_host_required? || !asset.send(:processed?)
 
         representation_url = variant_url(**options)
         return representation_url if representation_url.present?
@@ -287,7 +279,6 @@ module Decidim
       #   the variant has not been processed yet and does not yet exist at the
       #   storage service or `nil` when the asset is not defined
       def variant_url(**options)
-        return unless asset
         return if current_host_required? && !current_host_available?
         return unless asset_exist?
 
@@ -332,13 +323,12 @@ module Decidim
       # If the service is an external service, the URL can be generated
       # regardless of the current host being set. Except for variants when the
       # asset has to be served through Rails URL if it has not been processed
-      # yet.
+      # yet. The `representation_url` handles the case for variants.
       #
       # @return [Boolean] A boolean indicating if the current host is required
       #   to build the asset URL.
       def current_host_required?
         return false unless blob
-        return true if variant? && !asset.send(:processed?)
         return false unless defined?(ActiveStorage::Service::DiskService)
 
         blob.service.is_a?(ActiveStorage::Service::DiskService)
@@ -352,13 +342,6 @@ module Decidim
         # For the disk service, the URL can be only generated if the current
         # host has been set.
         ActiveStorage::Current.url_options&.dig(:host).present?
-      end
-
-      # Determines if the asset is an ActiveStorage variant.
-      #
-      # @return [Boolean] A boolean indicating if the asset is a variant.
-      def variant?
-        asset.is_a?(ActiveStorage::Variant) || asset.is_a?(ActiveStorage::VariantWithRecord)
       end
     end
   end
