@@ -19,17 +19,17 @@ module ActiveStorage
 
     # @see ActiveStorage::Service#upload
     def upload(key, io, checksum: nil, **)
-      raise ActiveStorage::IntegrityError if exist?(key)
+      @upload_mutex ||= Mutex.new
+      @upload_mutex.synchronize do
+        raise ActiveStorage::IntegrityError if exist?(key)
 
-      # Reserve the spot so that two different threads cannot upload the same
-      # key at the same time.
-      @storage[key] = nil
-      instrument :upload, key:, checksum: do
-        stored = StringIO.new("".b)
-        IO.copy_stream(io, stored)
-        stored.string.freeze
-        stored.rewind
-        @storage[key] = stored if @storage.has_key?(key)
+        instrument :upload, key:, checksum: do
+          stored = StringIO.new("".b)
+          IO.copy_stream(io, stored)
+          stored.string.freeze
+          stored.rewind
+          @storage[key] = stored
+        end
       end
     ensure
       io.rewind
@@ -86,10 +86,9 @@ module ActiveStorage
     # @raise [ActiveStorage::FileNotFoundError] If the key does not exist
     # @return [StringIO] The IO object for the key
     def io_for(key)
-      orig = @storage[key]
-      raise ActiveStorage::FileNotFoundError unless orig
+      raise ActiveStorage::FileNotFoundError unless exist?(key)
 
-      StringIO.new(orig.string)
+      StringIO.new(@storage[key].string)
     end
 
     # Generates a private URL for the key.
