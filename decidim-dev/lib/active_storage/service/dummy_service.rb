@@ -67,8 +67,6 @@ module ActiveStorage
 
     # @see ActiveStorage::Service#delete
     def delete(key)
-      return unless exist?(key)
-
       @access_mutex.synchronize { @storage.delete(key) }
     end
 
