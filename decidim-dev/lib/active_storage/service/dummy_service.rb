@@ -19,9 +19,13 @@ module ActiveStorage
 
     # @see ActiveStorage::Service#upload
     def upload(key, io, checksum: nil, **)
+      raise ActiveStorage::IntegrityError if exist?(key)
+
       instrument :upload, key:, checksum: do
         stored = StringIO.new("".b)
         IO.copy_stream(io, stored)
+        stored.string.freeze
+        stored.rewind
         @storage[key] = stored
       end
     ensure
@@ -72,14 +76,18 @@ module ActiveStorage
 
     private
 
-    # Finds the IO object for the key or raises if it does not exist.
+    # Finds the IO object for the key or raises if it does not exist. Creates a
+    # new copy of the item so that the position is not mixed with concurrent
+    # read operations.
     #
     # @raise [ActiveStorage::FileNotFoundError] If the key does not exist
     # @return [StringIO] The IO object for the key
     def io_for(key)
       raise ActiveStorage::FileNotFoundError unless exist?(key)
 
-      @storage[key]
+      io = StringIO.new(@storage[key].string)
+      io.binmode
+      io
     end
 
     # Generates a private URL for the key.
