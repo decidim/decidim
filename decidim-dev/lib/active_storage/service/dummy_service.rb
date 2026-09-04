@@ -16,12 +16,12 @@ module ActiveStorage
       @public = public
       @storage = {}
       @read_mutex = Mutex.new
-      @upload_mutex = Mutex.new
+      @write_mutex = Mutex.new
     end
 
     # @see ActiveStorage::Service#upload
     def upload(key, io, checksum: nil, **)
-      @upload_mutex.synchronize do
+      @write_mutex.synchronize do
         raise ActiveStorage::IntegrityError if @storage.has_key?(key)
 
         instrument :upload, key:, checksum: do
@@ -70,7 +70,7 @@ module ActiveStorage
     def delete(key)
       return unless exist?(key)
 
-      @read_mutex.synchronize { @storage.delete(key) }
+      @write_mutex.synchronize { @storage.delete(key) }
     end
 
     # @see ActiveStorage::Service#exist?
