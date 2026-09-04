@@ -147,8 +147,13 @@ module Decidim
       # @param options [Hash] The options for generating the current URL options
       # @return [void]
       def setup_current_url_options(options)
+        https = options[:protocol] == "https"
+        https ||= options[:protocol] == "https://"
+        https ||= options[:scheme] == "https"
+        https ||= options[:scheme] == "https://"
+
         uri =
-          if options[:protocol] == "https" || options[:scheme] == "https"
+          if https
             URI::HTTPS.build(options)
           else
             URI::HTTP.build(options)
