@@ -18,10 +18,9 @@ module Decidim::AssetRouter
       let(:options) { {} }
       let(:default_port) { Capybara.server_port }
 
-      shared_context "with current URL options host" do
+      shared_context "with current URL options host" do |host:, protocol: nil, port: nil|
         before do
-          uri = URI.parse(expected_host_url)
-          ActiveStorage::Current.url_options = { protocol: uri.scheme, host: uri.host, port: uri.port }
+          ActiveStorage::Current.url_options = { protocol:, host:, port: }.compact
         end
       end
 
@@ -32,14 +31,14 @@ module Decidim::AssetRouter
       shared_examples "disk service URL" do
         it "creates the disk service URL to the blob" do
           suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
-          expect(subject).to match(%r{\A#{expected_host_url.sub(".", "\\.")}/rails/active_storage/disk/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+          expect(subject).to match(%r{\A#{expected_host_url.gsub(".", "\\.")}/rails/active_storage/disk/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
         end
       end
 
       shared_examples "blob redirect URL" do
         it "creates the redirect route to the blob" do
           suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
-          expect(subject).to match(%r{\A#{expected_host_url.sub(".", "\\.")}/rails/active_storage/blobs/redirect/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+          expect(subject).to match(%r{\A#{expected_host_url.gsub(".", "\\.")}/rails/active_storage/blobs/redirect/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
         end
       end
 
@@ -53,7 +52,7 @@ module Decidim::AssetRouter
       shared_examples "representation redirect URL" do
         it "creates the redirect URL to the blob representation" do
           suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
-          expect(subject).to match(%r{\A#{expected_host_url.sub(".", "\\.")}/rails/active_storage/representations/redirect/[^/]+/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+          expect(subject).to match(%r{\A#{expected_host_url.gsub(".", "\\.")}/rails/active_storage/representations/redirect/[^/]+/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
         end
       end
 
@@ -73,10 +72,17 @@ module Decidim::AssetRouter
 
       context "with an ActiveStorage::Attached" do
         context "when the host is set" do
-          let(:expected_host_url) { "http://localhost:#{default_port}" }
+          let(:expected_host_url) { "http://another.example.org:#{default_port}" }
 
-          include_context "with current URL options host"
+          include_context "with current URL options host", host: "another.example.org"
           it_behaves_like "disk service URL"
+
+          context "when requesting the blob URL with a different host" do
+            let(:expected_host_url) { "http://passed.example.org:#{default_port}" }
+            let(:options) { { host: "passed.example.org" } }
+
+            it_behaves_like "disk service URL"
+          end
         end
 
         context "when the host is not set" do
@@ -117,10 +123,17 @@ module Decidim::AssetRouter
         let(:asset) { organization.official_img_footer.blob }
 
         context "when the host is set" do
-          let(:expected_host_url) { "http://localhost:#{default_port}" }
+          let(:expected_host_url) { "http://another.example.org:#{default_port}" }
 
-          include_context "with current URL options host"
+          include_context "with current URL options host", host: "another.example.org"
           it_behaves_like "disk service URL"
+
+          context "when requesting the blob URL with a different host" do
+            let(:expected_host_url) { "http://passed.example.org:#{default_port}" }
+            let(:options) { { host: "passed.example.org" } }
+
+            it_behaves_like "disk service URL"
+          end
         end
 
         context "when the host is not set" do
@@ -196,12 +209,16 @@ module Decidim::AssetRouter
         context "when the url_options have been set" do
           let(:expected_host_url) { "https://another.example.org:8080" }
 
-          before do
-            ActiveStorage::Current.url_options = { protocol: "https", host: "another.example.org", port: 8080 }
-          end
-
+          include_context "with current URL options host", protocol: "https", host: "another.example.org", port: 8080
           it_behaves_like "representation redirect URL"
           it_behaves_like "no blob attachments fetched"
+
+          context "when requesting the blob URL with a different host" do
+            let(:expected_host_url) { "https://passed.example.org:8080" }
+            let(:options) { { host: "passed.example.org" } }
+
+            it_behaves_like "representation redirect URL"
+          end
         end
 
         context "when the resource does not have an attached organization record" do

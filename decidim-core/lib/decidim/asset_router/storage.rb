@@ -119,9 +119,6 @@ module Decidim
       def ensure_current_host(**opts)
         return true if current_host_available?
 
-        default_options = remote? ? remote_storage_options : routes.default_url_options
-        options = default_options.merge(opts)
-
         # First try to set the default host through the default or remote URL
         # options because fetching the organization can be extremely expensive
         # if the page has a lot of assets displayed on it. Normally this should
@@ -130,7 +127,10 @@ module Decidim
         # during the background jobs. Note that in some cases the default URL
         # options also may not be set, in which case fetching the organization
         # is needed.
-        options[:host] ||= default_options[:host]
+        default_options = remote? ? remote_storage_options : routes.default_url_options
+        options = default_options.merge(opts)
+
+        # options[:host] ||= default_options[:host]
         if options[:host].blank?
           return false unless organization
 
@@ -155,6 +155,40 @@ module Decidim
           end
 
         ActiveStorage::Current.url_options = { protocol: uri.scheme, host: uri.to_s, port: uri.port }
+      end
+
+      # Sets the current URL options for the DiskService with the passed options
+      # combined with the default URL options. Needed when the the current URL
+      # options have been configured with different options.
+      #
+      # This is only needed with the DiskService as it uses
+      # ActiveStorage::Current.url_options to generate the URLs.
+      #
+      # For example:
+      #   ActiveStorage::Current.url_options = { host: "example.org" }
+      #   Decidim::AssetRouter::Storage.new(asset).url(host: "sub.example.org")
+      #   => http://sub.example.org/...
+      #
+      # @yield The block to be executed with the temporary host configuration
+      # @return The result provided by the provided block.
+      def with_current_url_options(options)
+        return yield unless disk_service?
+
+        tmp_options = routes.default_url_options
+        tmp_options.merge!(ActiveStorage::Current.url_options) if ActiveStorage::Current.url_options.present?
+        tmp_options.merge!(options.slice(:protocol, :scheme, :host, :port))
+        if (scheme = tmp_options.delete(:scheme))
+          tmp_options[:protocol] ||= scheme
+        end
+        return yield if ActiveStorage::Current.url_options == tmp_options
+
+        begin
+          orig_conf = ActiveStorage::Current.url_options.dup
+          ActiveStorage::Current.url_options = tmp_options
+          yield
+        ensure
+          ActiveStorage::Current.url_options[:host] = orig_conf
+        end
       end
 
       # Determines the organization for the asset's record, if available and it
@@ -194,10 +228,12 @@ module Decidim
         if options[:only_path] || remote?
           routes.rails_blob_url(blob, **default_options, **options)
         else
-          ensured_host = !current_host_required? || ensure_current_host(**options)
-          return blob_url(**options, only_path: true) unless ensured_host
+          with_current_url_options(options) do
+            ensured_host = !disk_service? || ensure_current_host(**options)
+            return blob_url(**options, only_path: true) unless ensured_host
 
-          blob.url(**options)
+            blob.url(**options)
+          end
         end
       end
 
@@ -211,7 +247,7 @@ module Decidim
         return unless asset
         return rails_representation_url(**options) if options[:only_path] || remote?
 
-        ensure_current_host(**options) if current_host_required? || !asset.send(:processed?)
+        ensure_current_host(**options) if disk_service? || !asset.send(:processed?)
 
         representation_url = variant_url(**options)
         return representation_url if representation_url.present?
@@ -252,7 +288,9 @@ module Decidim
       def rails_representation_url(**)
         return unless asset
 
-        representation_url = routes.rails_representation_url(asset, **default_options, **)
+        base_options = default_options
+        base_options.merge!(ActiveStorage::Current.url_options) if ActiveStorage::Current.url_options
+        representation_url = routes.rails_representation_url(asset, **base_options, **)
 
         variation = asset.try(:variation)
         return representation_url unless variation
@@ -279,32 +317,34 @@ module Decidim
       #   the variant has not been processed yet and does not yet exist at the
       #   storage service or `nil` when the asset is not defined
       def variant_url(**options)
-        return if current_host_required? && !current_host_available?
+        return if disk_service? && !current_host_available?
         return unless asset_exist?
 
-        case asset
-        when ActiveStorage::VariantWithRecord
-          # This is used when `ActiveStorage.track_variants` is enabled through
-          # `config.active_storage.track_variants`. In case the variant has not
-          # been processed yet, the `#url` method would return nil.
-          #
-          # Note that if the `asset.processed?` returns `true`, the variant
-          # record has been created in the database but it does not mean that
-          # it has been uploaded to the storage service yet. Likely a bug in
-          # ActiveStorage but to be sure that the asset is uploaded to the
-          # storage service, we also check that.
-          asset.processed.url(**options)
-        else # ActiveStorage::Variant
-          # Check whether the variant exists at the storage service before
-          # returning its URL. Otherwise the URL would be returned even when the
-          # variant is not yet processed causing 404 errors for the images on
-          # the page.
-          #
-          # Note that the `ActiveStorage::Variant#url` method only accepts
-          # certain keyword arguments where as the other objects allow any
-          # keyword arguments.
-          possible_kwargs = asset.method(:url).parameters.select { |p| p[0] == :key }.map { |p| p[1] }
-          asset.url(**options.slice(*possible_kwargs))
+        with_current_url_options(options) do
+          case asset
+          when ActiveStorage::VariantWithRecord
+            # This is used when `ActiveStorage.track_variants` is enabled through
+            # `config.active_storage.track_variants`. In case the variant has not
+            # been processed yet, the `#url` method would return nil.
+            #
+            # Note that if the `asset.processed?` returns `true`, the variant
+            # record has been created in the database but it does not mean that
+            # it has been uploaded to the storage service yet. Likely a bug in
+            # ActiveStorage but to be sure that the asset is uploaded to the
+            # storage service, we also check that.
+            asset.processed.url(**options)
+          else # ActiveStorage::Variant
+            # Check whether the variant exists at the storage service before
+            # returning its URL. Otherwise the URL would be returned even when the
+            # variant is not yet processed causing 404 errors for the images on
+            # the page.
+            #
+            # Note that the `ActiveStorage::Variant#url` method only accepts
+            # certain keyword arguments where as the other objects allow any
+            # keyword arguments.
+            possible_kwargs = asset.method(:url).parameters.select { |p| p[0] == :key }.map { |p| p[1] }
+            asset.url(**options.slice(*possible_kwargs))
+          end
         end
       end
 
@@ -318,16 +358,16 @@ module Decidim
         blob.service.exist?(asset.key)
       end
 
-      # Determines if the current host is required to build the asset URL.
+      # Determines if the configured storage service is the disk service.
       #
       # If the service is an external service, the URL can be generated
       # regardless of the current host being set. Except for variants when the
       # asset has to be served through Rails URL if it has not been processed
       # yet. The `representation_url` handles the case for variants.
       #
-      # @return [Boolean] A boolean indicating if the current host is required
-      #   to build the asset URL.
-      def current_host_required?
+      # @return [Boolean] A boolean indicating if the asset is using
+      #   DiskService.
+      def disk_service?
         return false unless blob
         return false unless defined?(ActiveStorage::Service::DiskService)
 
