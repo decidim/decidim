@@ -89,9 +89,11 @@ module ActiveStorage
     # @raise [ActiveStorage::FileNotFoundError] If the key does not exist
     # @return [StringIO] The IO object for the key
     def io_for(key)
-      raise ActiveStorage::FileNotFoundError unless exist?(key)
+      @read_mutex.synchronize do
+        raise ActiveStorage::FileNotFoundError unless exist?(key)
 
-      @read_mutex.synchronize { StringIO.new(@storage[key].string) }
+        StringIO.new(@storage[key].string)
+      end
     end
 
     # Generates a private URL for the key.
