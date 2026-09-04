@@ -217,6 +217,26 @@ module Decidim::AssetRouter
           end
         end
 
+        context "when requesting the local redirect path to the asset" do
+          let(:options) { { only_path: true } }
+
+          it_behaves_like "representation redirect path"
+
+          context "with extra URL options" do
+            let(:options) { { only_path: true, utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
+            let(:expected_url_suffix) { "?utm_campaign=testing&utm_medium=email&utm_source=website" }
+
+            it_behaves_like "representation redirect path"
+          end
+        end
+
+        context "when requesting the blob URL with a different host" do
+          let(:expected_host_url) { "http://another.example.org:#{default_port}" }
+          let(:options) { { host: "another.example.org" } }
+
+          it_behaves_like "representation redirect URL"
+        end
+
         context "when the asset has been processed" do
           before { asset.processed }
 
@@ -269,6 +289,26 @@ module Decidim::AssetRouter
               include_context "without default URL options host"
               it_behaves_like "representation redirect path"
             end
+          end
+
+          context "and requesting the local redirect path to the asset" do
+            let(:options) { { only_path: true } }
+
+            it_behaves_like "representation redirect path"
+
+            context "with extra URL options" do
+              let(:options) { { only_path: true, utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
+              let(:expected_url_suffix) { "?utm_campaign=testing&utm_medium=email&utm_source=website" }
+
+              it_behaves_like "representation redirect path"
+            end
+          end
+
+          context "and requesting the blob URL with a different host" do
+            let(:expected_host_url) { "http://another.example.org:#{default_port}" }
+            let(:options) { { host: "another.example.org" } }
+
+            it_behaves_like "disk service URL"
           end
         end
 
