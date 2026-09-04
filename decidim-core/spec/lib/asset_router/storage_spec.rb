@@ -88,6 +88,7 @@ module Decidim::AssetRouter
             let(:expected_host_url) { "http://passed.example.org:#{default_port}" }
             let(:options) { { host: "passed.example.org" } }
 
+            it_behaves_like "current URL options override"
             it_behaves_like "disk service URL"
           end
         end
@@ -140,6 +141,7 @@ module Decidim::AssetRouter
             let(:expected_host_url) { "http://passed.example.org:#{default_port}" }
             let(:options) { { host: "passed.example.org" } }
 
+            it_behaves_like "current URL options override"
             it_behaves_like "disk service URL"
           end
         end
@@ -226,6 +228,7 @@ module Decidim::AssetRouter
             let(:expected_host_url) { "https://passed.example.org:8080" }
             let(:options) { { host: "passed.example.org" } }
 
+            it_behaves_like "current URL options override"
             it_behaves_like "representation redirect URL"
           end
         end
