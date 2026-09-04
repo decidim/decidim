@@ -159,7 +159,7 @@ module Decidim
             URI::HTTP.build(options)
           end
 
-        ActiveStorage::Current.url_options = { protocol: uri.scheme, host: uri.to_s, port: uri.port }
+        ActiveStorage::Current.url_options = { protocol: uri.scheme, host: uri.host, port: uri.port }
       end
 
       # Sets the current URL options for the DiskService with the passed options
