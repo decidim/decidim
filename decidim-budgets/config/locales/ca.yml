@@ -6,6 +6,42 @@ ca:
         title: Títol
         total_budget: Pressupost total
         weight: Ordre de posició
+      pabulib_rules:
+        equalshares:
+          help: Mètode de Equal Shares (MES), repartiment equitatiu sense finalització. En el MES, cada votant inicia amb una quota virtual igual del pressupost, i un projecte s'aprova quan els seus partidaris tenen fons suficients per pagar-lo conjuntament.
+          label: Mètode d'Equal Shares (repartiment equitatiu) (%{rule})
+        equalshares/add1:
+          help: Fa servir l'equalshares (repartiment equitatiu) bàsic, però si s'atura massa aviat, continua incrementant el pressupost virtual de cada votant 1 unitat cada vegada (Add1) i torna a calcular, sempre que els projectes seleccionats finalment encara càpiguen dins del pressupost real.
+          label: Mètode de Equal Shares (repartiment equitatiu), add1 (%{rule})
+        equalshares/add1_comparison:
+          help: Fa servir equalshares/add1 i després aplica el mateix pas de comparació que s'ha descrit anteriorment.
+          label: Mètode d'Equal Shares (repartiment equitatiu), comparació add1 (%{rules})
+        equalshares_comparison:
+          help: 'Fa servir equalshares (repartiment equitatiu) com a base i, després, afegiu un pas extra: compara el seu resultat amb un enfocament de maximització immediata i canvia només si més votants prefereixen el resultat d''aquest enfocament.'
+          label: Mètode d'Equal Shares (repartiment equitatiu), comparació (%{rule})
+        greedy:
+          help: L'aproximació estàndard d'estil Knapsack (motxilla). Els projectes s'ordenen per nombre de vots (de més a menys). L'algorisme recorre la llista, seleccionant els projectes que encaixen en el pressupost restant. Si un projecte és massa car per als fons restants actuals, s'omet i l'algorisme passa al següent projecte per comprovar si hi encaixa.
+          label: Maximització immediata (%{rule})
+        greedy_custom:
+          help: Es fa servir per a casos especials que no s'adapten als algorismes estàndard, com ara reassignacions manuals del pressupost o regles híbrides complexes.
+          label: Maximització immediata, personalitzada (%{rule})
+        greedy_exclusive:
+          help: Gestiona grups de projectes en conflicte. Funciona com a greedy estàndard, però si múltiples projectes "seleccionats" entren en conflicte (per exemple, si es troben a la mateixa zona o categoria exclusiva), s'aplica una regla de jerarquia (per exemple, els projectes a nivell de districte poden tenir prioritat sobre els de tota la ciutat, o viceversa) en lloc de confiar només en el nombre de vots.
+          label: Maximització immediata, exclusiva (%{rule})
+        greedy_no_skip:
+          help: Els projectes s'ordenen per nombre de vots (de més a menys). L'algorisme selecciona els projectes que encaixen en el pressupost restant, però s'atura immediatament al primer projecte que no hi cap. Cap projecte posterior es considera, fins i tot si hi encaixaria.
+          label: Maximització immediata, sense salts (%{rule})
+        greedy_threshold:
+          help: Es comporta com l'algorisme de maximització immediata estàndard, però només es consideren els projectes que compleixen un llindar mínim de puntuació (min_project_score_threshold) definit.
+          label: Maximització immediata, llindar (%{rule})
+        unknown:
+          help: O bé la informació no està disponible, o hi havia diverses possibilitats i no està clar quina s'aplica.
+          label: Desconeguda (%{rule})
+      pabulib_vote_types:
+        approval: Aprovació (%{type})
+        cumulative: Acumulatiu (%{type})
+        ordinal: Ordinal (%{type})
+        scoring: Puntuació (%{type})
       project:
         budget_amount: Import del pressupost
         description: Descripció
@@ -81,10 +117,87 @@ ca:
             invalid: S'ha produït un error en actualitzar aquest pressupost.
             success: Pressupost actualitzat correctament.
         exports:
+          formats:
+            pabulib: Pabulib (Biblioteca de Pressupostos Participatius)
           projects: Projectes
+          voting_results: Resultats de la votació
         models:
           project:
             name: Projecte
+        pabulib_exports:
+          create:
+            invalid: Si us plau, corregeix els errors al formulari.
+            no_votes: Encara no hi ha vots per exportar.
+          show:
+            create: Exportar
+            explanation_html: |
+              <p>
+              Aquesta vista generarà una exportació en format %{format_link} dels resultats de la votació dels pressupostos participatius.
+              </p>
+            explanation_link_label_format: Format Pabulib (Biblioteca de Pressupostos Participatius)
+            export_details_data: Atributs de dades
+            export_details_general: Dades generals
+            fields:
+              country:
+                help: El país on es va celebrar la votació
+                label: País (%{field})
+              default_score:
+                help: 'La puntuació predeterminada per al tipus de votació per puntuació (per defecte: %{default_value}).'
+                label: Puntuació per defecte (%{field})
+              description:
+                help: Descripció de la votació que detalla sobre què es va votar.
+                label: Descripció (%{field})
+              district:
+                help: El districte electoral dins de la votació. Per exemple, si utilitzeu els barris com a subunitats, podeu assignar-los als districtes utilitzant aquest camp.
+                label: Districte (%{field})
+              instance:
+                help: L'edició de la votació; per exemple, per a votacions recurrents anuals, seria l'any de la votació.
+                label: Edició (%{field})
+              max_length:
+                help: 'Nombre màxim de projectes que se seleccionaran (per defecte: %{default_value}).'
+                label: Longitud màxima (%{field})
+              max_points:
+                help: 'Puntuació màxima assignada als projectes seleccionats (per defecte: %{default_value}).'
+                help_default_value: per al tipus de vot acumulatiu amb valor max_sum_points, per al tipus de vot de puntuació ∞
+                label: Puntuació màxima (%{field})
+              max_sum_cost:
+                help: 'Import màxim del cost d''un projecte (per defecte: %{default_value}).'
+                label: Cost total màxim (%{field})
+              max_sum_points:
+                help: Suma màxima dels punts assignats a cada projecte.
+                label: Suma máxima de puntos (%{field})
+              min_length:
+                help: 'Nombre mínim de projectes que se seleccionaran (per defecte: %{default_value}).'
+                label: Longitud màxima (%{field})
+              min_points:
+                help: 'Puntuació mínima assignada als projectes seleccionats (per defecte: %{default_value}).'
+                label: Puntuació mínima (%{field})
+              min_sum_cost:
+                help: 'Import mínim del cost d''un projecte (per defecte: %{default_value}).'
+                label: Cost mínim (%{field})
+              min_sum_points:
+                help: 'Suma mínima dels punts assignats a cada projecte (per defecte: %{default_value}).'
+                label: Puntuació mínima (%{field})
+              rule:
+                help: L'algorisme utilitzat per seleccionar els projectes guanyadors en funció dels vots.
+                label: Regla (%{field})
+              scoring_fn:
+                help: 'Funció de puntuació per a la votació de tipus ordinal (per defecte: %{default_value}).'
+                label: Funció de puntuació (%{field})
+              subunit:
+                help: La subunitat electoral dins de la circumscripció electoral; per exemple, una zona dins de la ciutat o del municipi.
+                label: Subunitat (%{field})
+              unit:
+                help: La unitat de votació dins del procés electoral; per exemple, el nom de la ciutat o del municipi.
+                label: Unitat (%{field})
+              vote_type:
+                help: Com s'avaluen els resultats de la votació? (Consulta la documentació per obtenir més informació).
+                label: Tipus de vot (%{field})
+            format_info_html: Consulta la documentació de %{link} per obtenir-ne més informació.
+            large_dataset_warning_html: |
+              <p>El vostre conjunt de dades conté %{amount} vots i, per tant, és massa gran per exportar-lo a través d'aquesta interfície d'usuari.</p>
+              <p>Et recomanem que exportis el teu conjunt de dades des de la consola amb la següent ordre: <code>%{command}</code></p>
+            title: Exportar els resultats de la votació sobre %{budget} al format Pabulib (Biblioteca de Pressupostos Participatius)
         projects:
           create:
             invalid: S'ha produït un error en crear aquest projecte.
@@ -346,7 +459,7 @@ ca:
             announcement: Avís
             clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             form:
               errors:

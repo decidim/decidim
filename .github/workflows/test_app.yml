@@ -1,6 +1,11 @@
 on:
   workflow_call:
     inputs:
+      node_version:
+        description: 'Node Version'
+        default: "24.18.0"
+        required: false
+        type: string
       ruby_version:
         description: 'Ruby Version'
         default: "3.4.7"
@@ -38,13 +43,13 @@ on:
       chrome_version:
         description: 'Chrome & Chromedriver version'
         required: false
-        default: "139.0.7258.66"
+        default: "151.0.7922.108"
         type: string
 
 jobs:
   build_app:
     name: Test
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     env:
@@ -89,6 +94,13 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 1
+      - name: Fix APT mirrors
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i '/azure.archive.ubuntu.com/d' /etc/apt/apt-mirrors.txt
+          fi
+          sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list.d/*.sources || true
+          sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list || true
       - run: |
           sudo apt-get update && sudo apt-get install libvips libvips-tools
         name: Install libvips
@@ -97,7 +109,7 @@ jobs:
         with:
           ruby-version: ${{ inputs.ruby_version }}
           bundler-cache: true
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: ${{ inputs.node_version }}
           cache: 'npm'

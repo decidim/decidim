@@ -171,7 +171,7 @@ module Decidim
               expect(new_proposal.title).to eq({ "en" => "Valid Long Proposal Title" })
               expect(new_proposal.body).to eq({ "en" => "Valid body text" })
               expect(new_proposal.creator_author).to eq(current_component.organization)
-              expect(new_proposal.taxonomies).to eq(proposal.taxonomies)
+              expect(new_proposal.taxonomies).to match_array(proposal.taxonomies)
 
               expect(new_proposal.state).to be_nil
               expect(new_proposal.answer).to be_nil

@@ -5,8 +5,8 @@ document.addEventListener("turbo:load", () => {
 
   createFieldDependentInputs({
     controllerField: $attendeeType,
-    wrapperSelector: ".attendee-fields",
-    dependentFieldsSelector: ".attendee-fields--name",
+    wrapperSelector: ".user-picker-fields",
+    dependentFieldsSelector: ".user-picker-fields--name",
     dependentInputSelector: "input, select",
     enablingCondition: () => {
       return $("#meeting_registration_invite_attendee_type_name").is(":checked")
@@ -15,8 +15,8 @@ document.addEventListener("turbo:load", () => {
 
   createFieldDependentInputs({
     controllerField: $attendeeType,
-    wrapperSelector: ".attendee-fields",
-    dependentFieldsSelector: ".attendee-fields--email",
+    wrapperSelector: ".user-picker-fields",
+    dependentFieldsSelector: ".user-picker-fields--email",
     dependentInputSelector: "input",
     enablingCondition: () => {
       return $("#meeting_registration_invite_attendee_type_email").is(":checked")

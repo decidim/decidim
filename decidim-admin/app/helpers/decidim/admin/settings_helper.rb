@@ -59,7 +59,7 @@ module Decidim
 
       private
 
-      # rubocop:disable Metrics/ParameterLists
+      # rubocop:disable-next Metrics/ParameterLists
       def render_field_form_method(form_method, form, attribute, name, i18n_scope, options)
         case form_method
         when :collection_radio_buttons
@@ -82,7 +82,6 @@ module Decidim
           form.send(form_method, name, options)
         end
       end
-      # rubocop:enable Metrics/ParameterLists
 
       # Renders a select field collection input for the given attribute
       #
@@ -143,7 +142,7 @@ module Decidim
       end
 
       # Get the translation for a given attribute
-      # Returns a translation or nil. If nil, FoundationRailsHelper will not add the help_text.
+      # Returns a translation or nil. If nil, LegacyFormBuilder will not add the help_text.
       #
       # @param name (see #settings_attribute_input)
       # @param suffix [String] What suffix the i18n key has

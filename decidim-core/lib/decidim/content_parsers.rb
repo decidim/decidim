@@ -20,7 +20,6 @@ module Decidim
     autoload :UserParser, "decidim/content_parsers/user_parser"
     autoload :NewlineParser, "decidim/content_parsers/newline_parser"
     autoload :LinkParser, "decidim/content_parsers/link_parser"
-    autoload :InlineImagesParser, "decidim/content_parsers/inline_images_parser"
     autoload :ResourceParser, "decidim/content_parsers/resource_parser"
     autoload :TagParser, "decidim/content_parsers/tag_parser"
     autoload :MentionResourceParser, "decidim/content_parsers/mention_resource_parser"

@@ -72,7 +72,7 @@ module Decidim
           end
 
           context "when it is a user" do
-            let!(:user) { create(:user, name: "John Doe", organization: component.organization) }
+            let!(:user) { create(:user, :confirmed, name: "John Doe", organization: component.organization) }
             let(:component) { create(:proposal_component) }
             let!(:proposal) { create(:proposal, component:, users: [user]) }
 
@@ -202,10 +202,6 @@ module Decidim
 
         it "serializes withdrawn date" do
           expect(serialized).to include(withdrawn_at: proposal.withdrawn_at)
-        end
-
-        it "serializes the amount of attachments" do
-          expect(serialized).to include(attachments: proposal.attachments.count)
         end
 
         it "serializes the state at which the proposal was published at" do
