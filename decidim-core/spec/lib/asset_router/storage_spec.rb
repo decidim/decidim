@@ -70,11 +70,18 @@ module Decidim::AssetRouter
         end
       end
 
+      shared_examples "current URL options override" do
+        it "does not permanently change the current URL options" do
+          expect { subject }.not_to change(ActiveStorage::Current, :url_options)
+        end
+      end
+
       context "with an ActiveStorage::Attached" do
         context "when the host is set" do
           let(:expected_host_url) { "http://another.example.org:#{default_port}" }
 
           include_context "with current URL options host", host: "another.example.org"
+          it_behaves_like "current URL options override"
           it_behaves_like "disk service URL"
 
           context "when requesting the blob URL with a different host" do
@@ -126,6 +133,7 @@ module Decidim::AssetRouter
           let(:expected_host_url) { "http://another.example.org:#{default_port}" }
 
           include_context "with current URL options host", host: "another.example.org"
+          it_behaves_like "current URL options override"
           it_behaves_like "disk service URL"
 
           context "when requesting the blob URL with a different host" do
@@ -210,6 +218,7 @@ module Decidim::AssetRouter
           let(:expected_host_url) { "https://another.example.org:8080" }
 
           include_context "with current URL options host", protocol: "https", host: "another.example.org", port: 8080
+          it_behaves_like "current URL options override"
           it_behaves_like "representation redirect URL"
           it_behaves_like "no blob attachments fetched"
 
