@@ -68,11 +68,9 @@ module ActiveStorage
 
     # @see ActiveStorage::Service#delete
     def delete(key)
-      @read_mutex.synchronize do
-        return unless exist?(key)
+      return unless exist?(key)
 
-        @storage.delete(key)
-      end
+      @read_mutex.synchronize { @storage.delete(key) }
     end
 
     # @see ActiveStorage::Service#exist?
@@ -89,11 +87,9 @@ module ActiveStorage
     # @raise [ActiveStorage::FileNotFoundError] If the key does not exist
     # @return [StringIO] The IO object for the key
     def io_for(key)
-      @read_mutex.synchronize do
-        raise ActiveStorage::FileNotFoundError unless exist?(key)
+      raise ActiveStorage::FileNotFoundError unless exist?(key)
 
-        StringIO.new(@storage[key].string)
-      end
+      @read_mutex.synchronize { StringIO.new(@storage[key].string) }
     end
 
     # Generates a private URL for the key.
