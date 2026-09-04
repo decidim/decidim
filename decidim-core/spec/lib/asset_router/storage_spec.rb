@@ -604,6 +604,20 @@ module Decidim::AssetRouter
           it "generates the URL to the storage service" do
             expect(subject).to eq("#{service.host}/public/#{asset.blob.key}")
           end
+
+          context "when requesting the local redirect path to the asset" do
+            let(:options) { { only_path: true } }
+
+            it_behaves_like "blob redirect path"
+          end
+
+          context "with the host option" do
+            let(:options) { { host: "another.example.org" } }
+
+            it "generates the URL to the storage service" do
+              expect(subject).to eq("#{service.host}/public/#{asset.blob.key}")
+            end
+          end
         end
 
         context "with an ActiveStorage::Blob" do
@@ -611,6 +625,20 @@ module Decidim::AssetRouter
 
           it "generates the URL to the storage service" do
             expect(subject).to eq("#{service.host}/public/#{asset.key}")
+          end
+
+          context "when requesting the local redirect path to the asset" do
+            let(:options) { { only_path: true } }
+
+            it_behaves_like "blob redirect path"
+          end
+
+          context "with the host option" do
+            let(:options) { { host: "another.example.org" } }
+
+            it "generates the URL to the storage service" do
+              expect(subject).to eq("#{service.host}/public/#{asset.key}")
+            end
           end
         end
 
@@ -626,11 +654,39 @@ module Decidim::AssetRouter
           it_behaves_like "representation redirect URL"
           it_behaves_like "no blob attachments fetched"
 
-          context "and the asset has been processed" do
+          context "when requesting the local redirect path to the asset" do
+            let(:options) { { only_path: true } }
+
+            it_behaves_like "representation redirect path"
+          end
+
+          context "with the host option" do
+            let(:expected_host_url) { "http://another.example.org:#{default_port}" }
+            let(:options) { { host: "another.example.org" } }
+
+            it_behaves_like "representation redirect URL"
+          end
+
+          context "when the asset has been processed" do
             before { asset.processed }
 
             it "generates the URL to the storage service" do
               expect(subject).to eq("#{service.host}/public/#{asset.key}")
+            end
+
+            context "when requesting the local redirect path to the asset" do
+              let(:options) { { only_path: true } }
+
+              it_behaves_like "representation redirect path"
+            end
+
+            context "with the host option" do
+              let(:expected_host_url) { "http://another.example.org:#{default_port}" }
+              let(:options) { { host: "another.example.org" } }
+
+              it "generates the URL to the storage service" do
+                expect(subject).to eq("#{service.host}/public/#{asset.key}")
+              end
             end
           end
 
@@ -640,11 +696,39 @@ module Decidim::AssetRouter
             it_behaves_like "representation redirect URL"
             it_behaves_like "no blob attachments fetched"
 
+            context "when requesting the local redirect path to the asset" do
+              let(:options) { { only_path: true } }
+
+              it_behaves_like "representation redirect path"
+            end
+
+            context "with the host option" do
+              let(:expected_host_url) { "http://another.example.org:#{default_port}" }
+              let(:options) { { host: "another.example.org" } }
+
+              it_behaves_like "representation redirect URL"
+            end
+
             context "and the asset has been processed" do
               before { asset.processed }
 
               it "generates the URL to the storage service" do
                 expect(subject).to eq("#{service.host}/public/#{asset.key}")
+              end
+
+              context "when requesting the local redirect path to the asset" do
+                let(:options) { { only_path: true } }
+
+                it_behaves_like "representation redirect path"
+              end
+
+              context "with the host option" do
+                let(:expected_host_url) { "http://another.example.org:#{default_port}" }
+                let(:options) { { host: "another.example.org" } }
+
+                it "generates the URL to the storage service" do
+                  expect(subject).to eq("#{service.host}/public/#{asset.key}")
+                end
               end
             end
           end
