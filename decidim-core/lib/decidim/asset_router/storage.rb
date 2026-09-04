@@ -192,7 +192,7 @@ module Decidim
           ActiveStorage::Current.url_options = tmp_options
           yield
         ensure
-          ActiveStorage::Current.url_options[:host] = orig_conf
+          ActiveStorage::Current.url_options = orig_conf
         end
       end
 
