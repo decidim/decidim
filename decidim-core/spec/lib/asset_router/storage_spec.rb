@@ -103,6 +103,13 @@ module Decidim::AssetRouter
             it_behaves_like "blob redirect path"
           end
         end
+
+        context "when requesting the blob URL with a different host" do
+          let(:expected_host_url) { "http://another.example.org:#{default_port}" }
+          let(:options) { { host: "another.example.org" } }
+
+          it_behaves_like "disk service URL"
+        end
       end
 
       context "with an ActiveStorage::Blob" do
@@ -151,6 +158,13 @@ module Decidim::AssetRouter
 
             it_behaves_like "blob redirect path"
           end
+        end
+
+        context "when requesting the blob URL with a different host" do
+          let(:expected_host_url) { "http://another.example.org:#{default_port}" }
+          let(:options) { { host: "another.example.org" } }
+
+          it_behaves_like "disk service URL"
         end
       end
 

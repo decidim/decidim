@@ -191,7 +191,7 @@ module Decidim
       def blob_url(**options)
         return unless blob
 
-        if options[:host] || options[:only_path] || remote?
+        if options[:only_path] || remote?
           routes.rails_blob_url(blob, **default_options, **options)
         else
           ensured_host = !current_host_required? || ensure_current_host(**options)
