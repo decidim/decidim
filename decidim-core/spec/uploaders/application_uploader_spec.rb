@@ -14,6 +14,7 @@ module Decidim
       allow(ENV).to receive(:fetch).and_call_original
       allow(ENV).to receive(:fetch).with("HTTP_PORT", instance_of(Integer)).and_return(local_port) if respond_to?(:local_port)
       allow(ENV).to receive(:fetch).with("HOSTNAME", nil).and_return(hostname) if respond_to?(:hostname)
+      allow(Rails.env).to receive(:local?).and_return(false)
     end
 
     describe "#variant" do
@@ -88,7 +89,7 @@ module Decidim
           end
 
           it "returns a URL to the variant" do
-            expect(subject.variant_url(:testing)).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})
+            expect(subject.variant_url(:testing)).to match(%r{^http://#{Regexp.escape(hostname)}:#{default_port}/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})
           end
 
           context "when the provided file is invariable" do
@@ -114,7 +115,7 @@ module Decidim
           end
 
           it "returns a URL to the variant with the correct extension" do
-            expect(subject.variant_url(:testing)).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.png$})
+            expect(subject.variant_url(:testing)).to match(%r{^http://#{Regexp.escape(hostname)}:#{default_port}/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.png$})
           end
 
           context "and the variant has been processed" do
