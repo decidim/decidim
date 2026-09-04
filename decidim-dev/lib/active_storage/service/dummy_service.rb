@@ -15,11 +15,12 @@ module ActiveStorage
       @name = :dummy
       @public = public
       @storage = {}
+      @read_mutex = Mutex.new
+      @upload_mutex = Mutex.new
     end
 
     # @see ActiveStorage::Service#upload
     def upload(key, io, checksum: nil, **)
-      @upload_mutex ||= Mutex.new
       @upload_mutex.synchronize do
         raise ActiveStorage::IntegrityError if exist?(key)
 
@@ -69,7 +70,7 @@ module ActiveStorage
     def delete(key)
       return unless exist?(key)
 
-      @storage.delete(key)
+      @read_mutex.synchronize { @storage.delete(key) }
     end
 
     # @see ActiveStorage::Service#exist?
@@ -88,7 +89,7 @@ module ActiveStorage
     def io_for(key)
       raise ActiveStorage::FileNotFoundError unless exist?(key)
 
-      StringIO.new(@storage[key].string)
+      @read_mutex.synchronize { StringIO.new(@storage[key].string) }
     end
 
     # Generates a private URL for the key.
