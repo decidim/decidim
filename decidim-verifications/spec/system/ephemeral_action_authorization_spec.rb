@@ -48,7 +48,10 @@ describe "ephemeral action authorization" do
       end
 
       it "creates an ephemeral user session" do
-        expect { click_on "New proposal" }.to change { Decidim::User.ephemeral.count }.by(1)
+        expect do
+          click_on "New proposal"
+          expect(page).to have_callout("Please verify your identity to proceed.")
+        end.to change { Decidim::User.ephemeral.count }.by(1)
 
         expect(page).to have_link("Close", href: decidim.destroy_user_session_path)
       end
@@ -199,11 +202,12 @@ describe "ephemeral action authorization" do
 
       it "redirects to authorization" do
         visit main_component_path(component)
-        expect { click_on "New proposal" }.not_to change(Decidim::User, :count)
-
-        expect(page).to have_no_text("Verify with Example authorization")
-        expect(page).to have_css("#loginModal", visible: :visible)
-        expect(page).to have_text("Please log in")
+        expect do
+          click_on "New proposal"
+          expect(page).to have_no_text("Verify with Example authorization")
+          expect(page).to have_css("#loginModal", visible: :visible)
+          expect(page).to have_text("Please log in")
+        end.not_to change(Decidim::User, :count)
       end
     end
   end
@@ -251,7 +255,10 @@ describe "ephemeral action authorization" do
         end
 
         it "transfers the authorization" do
-          expect { click_on "Send" }.not_to change(Decidim::Authorization, :count)
+          expect do
+            click_on "Send"
+            expect(page).to have_callout("You have been successfully authorized")
+          end.not_to change(Decidim::Authorization, :count)
           expect(Decidim::Authorization.where(user: ephemeral_user)).to be_blank
           expect(authorization.reload.user).to eq(user)
         end
@@ -259,6 +266,7 @@ describe "ephemeral action authorization" do
         it "transfers the authorship of the proposal" do
           expect(proposal.authors).to contain_exactly(ephemeral_user)
           click_on "Send"
+          expect(page).to have_callout("You have been successfully authorized")
           expect(proposal.reload.authors).to contain_exactly(user)
         end
       end
