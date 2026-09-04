@@ -451,6 +451,152 @@ module Decidim::AssetRouter
           it_behaves_like "no blob attachments fetched"
         end
       end
+
+      context "when using an external storage service" do
+        let(:storage_class) do
+          Class.new(ActiveStorage::Service) do
+            def self.name
+              "ActiveStorage::Service::DummyService"
+            end
+
+            attr_reader :host
+
+            def initialize(host:, public: true, **)
+              @host = host
+              @name = :dummy
+              @public = public
+              @storage = {}
+            end
+
+            def upload(key, io, checksum: nil, **)
+              instrument :upload, key:, checksum: do
+                @storage[key] = StringIO.new("".b)
+                IO.copy_stream(io, @storage[key])
+              end
+            ensure
+              io.rewind
+            end
+
+            def download(key)
+              io = io_for(key)
+              if block_given?
+                instrument :streaming_download, key: do
+                  buffer = "".b
+                  yield buffer while io.read(5.megabytes, buffer)
+                end
+              else
+                instrument :download, key: do
+                  io.read
+                end
+              end
+            ensure
+              io.rewind
+            end
+
+            def download_chunk(key, range)
+              io = io_for(key)
+              endpos = range.exclude_end? ? range.end - 1 : range.end
+              length = endpos - range.begin
+              instrument :download_chunk, key:, range: do
+                return "".b if length <= 0
+
+                io.seek(range.begin)
+                io.read(length)
+              end
+            ensure
+              io.rewind
+            end
+
+            def delete(key)
+              return unless exist?(key)
+
+              @storage.delete(key)
+            end
+
+            def exist?(key)
+              @storage.has_key?(key)
+            end
+
+            private
+
+            def io_for(key)
+              raise ActiveStorage::FileNotFoundError unless exist?(key)
+
+              @storage[key]
+            end
+
+            def private_url(key, **)
+              "#{host}/private/#{key}"
+            end
+
+            def public_url(key, **)
+              "#{host}/public/#{key}"
+            end
+          end
+        end
+        let(:service) { storage_class.new(host: "https://storage.lvh.me") }
+        let(:service_registry) { double }
+
+        before do
+          allow(ActiveStorage::Blob).to receive(:services).and_return(service_registry)
+          allow(ActiveStorage::Blob).to receive(:service).and_return(service)
+          allow(service_registry).to receive(:fetch) do |name|
+            raise KeyError, "Unknown storage service: #{name}" unless name.to_sym == :dummy
+
+            service
+          end
+        end
+
+        context "with an ActiveStorage::Attached" do
+          it "generates the URL to the storage service" do
+            expect(subject).to eq("#{service.host}/public/#{asset.blob.key}")
+          end
+        end
+
+        context "with an ActiveStorage::Blob" do
+          let(:asset) { organization.official_img_footer.blob }
+
+          it "generates the URL to the storage service" do
+            expect(subject).to eq("#{service.host}/public/#{asset.key}")
+          end
+        end
+
+        context "with a variant" do
+          let(:asset) { organization.official_img_footer.variant(resize_to_fit: [160, 160]) }
+          let(:expected_host_url) { "http://localhost:#{default_port}" }
+          let(:track_variants) { true }
+
+          before do
+            allow(ActiveStorage).to receive(:track_variants).and_return(track_variants)
+          end
+
+          it_behaves_like "representation redirect URL"
+          it_behaves_like "no blob attachments fetched"
+
+          context "and the asset has been processed" do
+            before { asset.processed }
+
+            it "generates the URL to the storage service" do
+              expect(subject).to eq("#{service.host}/public/#{asset.key}")
+            end
+          end
+
+          context "when track_variants is disabled" do
+            let(:track_variants) { false }
+
+            it_behaves_like "representation redirect URL"
+            it_behaves_like "no blob attachments fetched"
+
+            context "and the asset has been processed" do
+              before { asset.processed }
+
+              it "generates the URL to the storage service" do
+                expect(subject).to eq("#{service.host}/public/#{asset.key}")
+              end
+            end
+          end
+        end
+      end
     end
   end
 end
