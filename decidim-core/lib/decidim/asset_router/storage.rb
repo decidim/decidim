@@ -113,7 +113,11 @@ module Decidim
       # for serializers where the request context is not available.
       #
       # @param opts [Hash] Options for building the URL
-      # @return [void]
+      # @return [Boolean] Returns true if ensuring the current host is not
+      #   necessary for the asset, the host has been already set or setting the
+      #   host based on the asset's record object was successful. Returns false
+      #   in case fetching the asset's organization host fails (e.g. if the
+      #   asset is not attached to an organization).
       def ensure_current_host(**opts)
         return true unless current_host_required?
         return true if current_host_available?
