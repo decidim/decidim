@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "active_storage/service/dummy_service"
 
 module Decidim::AssetRouter
   describe Storage do
@@ -508,86 +509,7 @@ module Decidim::AssetRouter
       end
 
       context "when using an external storage service" do
-        let(:storage_class) do
-          Class.new(ActiveStorage::Service) do
-            def self.name
-              "ActiveStorage::Service::DummyService"
-            end
-
-            attr_reader :host
-
-            def initialize(host:, public: true, **)
-              @host = host
-              @name = :dummy
-              @public = public
-              @storage = {}
-            end
-
-            def upload(key, io, checksum: nil, **)
-              instrument :upload, key:, checksum: do
-                @storage[key] = StringIO.new("".b)
-                IO.copy_stream(io, @storage[key])
-              end
-            ensure
-              io.rewind
-            end
-
-            def download(key)
-              io = io_for(key)
-              if block_given?
-                instrument :streaming_download, key: do
-                  buffer = "".b
-                  yield buffer while io.read(5.megabytes, buffer)
-                end
-              else
-                instrument :download, key: do
-                  io.read
-                end
-              end
-            ensure
-              io.rewind
-            end
-
-            def download_chunk(key, range)
-              io = io_for(key)
-              instrument :download_chunk, key:, range: do
-                return "".b if range.size <= 0
-
-                io.seek(range.begin)
-                io.read(range.size)
-              end
-            ensure
-              io.rewind
-            end
-
-            def delete(key)
-              return unless exist?(key)
-
-              @storage.delete(key)
-            end
-
-            def exist?(key)
-              @storage.has_key?(key)
-            end
-
-            private
-
-            def io_for(key)
-              raise ActiveStorage::FileNotFoundError unless exist?(key)
-
-              @storage[key]
-            end
-
-            def private_url(key, **)
-              "#{host}/private/#{key}"
-            end
-
-            def public_url(key, **)
-              "#{host}/public/#{key}"
-            end
-          end
-        end
-        let(:service) { storage_class.new(host: "https://storage.lvh.me") }
+        let(:service) { ActiveStorage::Service::DummyService.new(host: "https://storage.lvh.me") }
         let(:service_registry) { double }
 
         before do
