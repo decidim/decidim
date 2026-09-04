@@ -30,36 +30,36 @@ module Decidim::AssetRouter
 
       shared_examples "disk service URL" do
         it "creates the disk service URL to the blob" do
-          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
-          expect(subject).to match(%r{\A#{expected_host_url.gsub(".", "\\.")}/rails/active_storage/disk/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix : nil
+          expect(subject).to match(%r{\A#{Regexp.escape(expected_host_url)}/rails/active_storage/disk/[^/]+/#{Regexp.escape("#{filename}#{suffix}")}\z})
         end
       end
 
       shared_examples "blob redirect URL" do
         it "creates the redirect route to the blob" do
-          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
-          expect(subject).to match(%r{\A#{expected_host_url.gsub(".", "\\.")}/rails/active_storage/blobs/redirect/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix : nil
+          expect(subject).to match(%r{\A#{Regexp.escape(expected_host_url)}/rails/active_storage/blobs/redirect/[^/]+/#{Regexp.escape("#{filename}#{suffix}")}\z})
         end
       end
 
       shared_examples "blob redirect path" do
         it "creates the redirect route to the blob" do
-          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
-          expect(subject).to match(%r{\A/rails/active_storage/blobs/redirect/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix : nil
+          expect(subject).to match(%r{\A/rails/active_storage/blobs/redirect/[^/]+/#{Regexp.escape("#{filename}#{suffix}")}\z})
         end
       end
 
       shared_examples "representation redirect URL" do
         it "creates the redirect URL to the blob representation" do
-          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
-          expect(subject).to match(%r{\A#{expected_host_url.gsub(".", "\\.")}/rails/active_storage/representations/redirect/[^/]+/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix : nil
+          expect(subject).to match(%r{\A#{Regexp.escape(expected_host_url)}/rails/active_storage/representations/redirect/[^/]+/[^/]+/#{Regexp.escape("#{filename}#{suffix}")}\z})
         end
       end
 
       shared_examples "representation redirect path" do
         it "creates the redirect URL to the blob representation" do
-          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix.sub("?", "\\?") : nil
-          expect(subject).to match(%r{\A/rails/active_storage/representations/redirect/[^/]+/[^/]+/#{filename.sub(".", "\\.")}#{suffix}\z})
+          suffix = respond_to?(:expected_url_suffix) ? expected_url_suffix : nil
+          expect(subject).to match(%r{\A/rails/active_storage/representations/redirect/[^/]+/[^/]+/#{Regexp.escape("#{filename}#{suffix}")}\z})
         end
       end
 
