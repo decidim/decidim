@@ -22,7 +22,7 @@ module ActiveStorage
     # @see ActiveStorage::Service#upload
     def upload(key, io, checksum: nil, **)
       @upload_mutex.synchronize do
-        raise ActiveStorage::IntegrityError if exist?(key)
+        raise ActiveStorage::IntegrityError if @storage.has_key?(key)
 
         instrument :upload, key:, checksum: do
           stored = StringIO.new("".b)
