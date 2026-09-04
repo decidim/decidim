@@ -604,8 +604,8 @@ GEM
     omniauth-facebook (11.0.0)
       bigdecimal
       omniauth-oauth2 (>= 1.2, < 3)
-    omniauth-google-oauth2 (1.2.2)
-      jwt (>= 2.9.2)
+    omniauth-google-oauth2 (1.2.3)
+      jwt (>= 2.9.2, < 4)
       oauth2 (~> 2.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
@@ -888,7 +888,7 @@ GEM
     valid_email2 (7.1.0)
       activemodel (>= 6.0)
       mail (~> 2.5)
-    version_gem (1.1.14)
+    version_gem (1.1.15)
     w3c_rspec_validators (0.3.0)
       rails
       rspec
