@@ -10,6 +10,7 @@ import "jquery"
 // external deps that require initialization
 import Rails from "@rails/ujs"
 import morphdom from "morphdom"
+import LocalTime from "local-time"
 
 /**
  * Local dependencies
@@ -46,6 +47,7 @@ import {
 
 
 window.Rails = window.Rails || Rails;
+window.LocalTime = window.LocalTime || LocalTime;
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referenced through a single Decidim.I18n object
@@ -183,6 +185,15 @@ Rails.start()
 const initializer = (element = document) => {
   // focus guard must be initialized only once
   window.focusGuard = window.focusGuard || new FocusGuard(document.body);
+
+  // Configure LocalTime with I18n translations from Rails
+  if (window.Decidim && window.Decidim.localTimeConfig) {
+    const config = window.Decidim.localTimeConfig;
+    LocalTime.config.i18n[config.locale] = config.i18n;
+    LocalTime.config.locale = config.locale;
+  }
+
+  LocalTime.start()
 
   element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
     // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
