@@ -229,9 +229,6 @@ shared_examples "comments" do
 
     context "when user visit a computer browser" do
       before do
-        # switch_to_host(organization.host)
-        # visit decidim.root_path
-        # login_as user, scope: :user
         visit resource_path
       end
 
