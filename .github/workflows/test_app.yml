@@ -105,13 +105,11 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libu2f-udev libvips libvips-tools
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y libu2f-udev libvips libvips-tools
           wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
-          sudo dpkg -i /tmp/chrome.deb
+          sudo DEBIAN_FRONTEND=noninteractive dpkg -i /tmp/chrome.deb
           rm /tmp/chrome.deb
         shell: "bash"
-        env:
-          DEBIAN_FRONTEND: noninteractive
       - uses: nanasess/setup-chromedriver@v3
         with:
           chromedriver-version: ${{inputs.chrome_version}}
