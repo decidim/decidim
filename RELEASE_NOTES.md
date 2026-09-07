@@ -66,10 +66,10 @@ There is a new cron job that you need to set, in order to clean obsolete values.
 rake decidim:sessions:cleanup
 ```
 
-Additionally, there is an extra variable that you can set, in order to purge the expired sessions (ex: User closes the browser without proper logout).
-Use `DECIDIM_REMOVE_SESSIONS_AFTER` to set up it's value. The default is 120 minutes, which is 4 times the amount of time expiration. Please note that is a stand alone variable, which means is 100% independent of `DECIDIM_EXPIRE_SESSION_AFTER`. If you set the `DECIDIM_EXPIRE_SESSION_AFTER` to have a value bigger than 30 minutes, you may need to ensure that `DECIDIM_REMOVE_SESSIONS_AFTER`'s value is bigger than respective value.
+Additionally, you can set `DECIDIM_REMOVE_SESSIONS_AFTER` to purge expired sessions (e.g., when a user closes the browser without logging out).
+The default is 3 days. This setting is independent of `DECIDIM_EXPIRE_SESSION_AFTER`, but it should typically be greater than the session expiry to avoid removing still-valid sessions.
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
 
 ### 2.3. Sidekiq configuration overwrite
 
