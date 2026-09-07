@@ -125,6 +125,13 @@ module Decidim::AssetRouter
             it_behaves_like "blob redirect URL"
             it_behaves_like "no blob attachments fetched"
           end
+
+          context "when current URL options have been set" do
+            include_context "with current URL options host", host: "another.example.org"
+
+            it_behaves_like "blob redirect URL"
+            it_behaves_like "no blob attachments fetched"
+          end
         end
 
         context "when requesting the local redirect path to the asset" do
@@ -248,6 +255,32 @@ module Decidim::AssetRouter
             let(:options) { { host: "another.example.org" } }
 
             it_behaves_like "representation redirect URL"
+          end
+
+          context "when the CDN host is defined" do
+            let(:expected_host_url) { "https://cdn.example.org" }
+
+            before do
+              allow(Decidim).to receive(:storage_cdn_host).and_return("https://cdn.example.org")
+            end
+
+            it_behaves_like "representation redirect URL"
+            it_behaves_like "no blob attachments fetched"
+
+            context "with extra URL options" do
+              let(:options) { { utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
+              let(:expected_url_suffix) { "?utm_campaign=testing&utm_medium=email&utm_source=website" }
+
+              it_behaves_like "representation redirect URL"
+              it_behaves_like "no blob attachments fetched"
+            end
+
+            context "when current URL options have been set" do
+              include_context "with current URL options host", host: "another.example.org"
+
+              it_behaves_like "representation redirect URL"
+              it_behaves_like "no blob attachments fetched"
+            end
           end
 
           context "when the asset has been processed" do

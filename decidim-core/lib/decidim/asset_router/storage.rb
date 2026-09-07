@@ -186,6 +186,7 @@ module Decidim
         tmp_options.merge!(options.slice(:protocol, :scheme, :host, :port))
         if (scheme = tmp_options.delete(:scheme))
           tmp_options[:protocol] ||= scheme
+          tmp_options[:protocol] = "https" if tmp_options[:protocol] != scheme && (scheme == "https" || scheme == "https://")
         end
         return yield if ActiveStorage::Current.url_options == tmp_options
 
@@ -292,8 +293,9 @@ module Decidim
       # @return [String, nil] The converted representation URL or `nil` if the
       #   asset is not defined.
       def rails_representation_url(**)
-        base_options = default_options
-        base_options.merge!(ActiveStorage::Current.url_options) if ActiveStorage::Current.url_options
+        base_options = {}
+        base_options.merge!(ActiveStorage::Current.url_options) if ActiveStorage::Current.url_options && !remote?
+        base_options.merge!(default_options)
         representation_url = routes.rails_representation_url(asset, **base_options, **)
 
         variation = asset.try(:variation)
