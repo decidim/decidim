@@ -217,6 +217,7 @@ shared_examples "proposals wizards" do |options|
 
       it "shows the activity logs" do
         click_on "Publish"
+        expect(page).to have_callout("Proposal successfully published.")
 
         visit decidim.last_activities_path
         expect(page).to have_text("New proposal: #{translated(proposal_draft.title)}")
@@ -272,6 +273,7 @@ shared_examples "proposals wizards" do |options|
       login_as user, scope: :user
       visit_component
       click_on "New proposal"
+      expect(page).to have_css("h1", text: "Create new proposal")
     end
 
     it_behaves_like "with address" if options[:with_address]
