@@ -504,7 +504,7 @@ GEM
       logger
       ostruct
     ice_cube (0.17.0)
-    image_processing (2.0.3)
+    image_processing (2.1.0)
     invisible_captcha (2.3.0)
       rails (>= 5.2)
     io-console (0.9.2)
