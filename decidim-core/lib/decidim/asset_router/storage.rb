@@ -49,6 +49,8 @@ module Decidim
       #   Rails route helpers accept
       # @return [String] The URL of the asset
       def url(**)
+        return unless asset
+
         case asset
         when ActiveStorage::Attached, ActiveStorage::Blob
           blob_url(**)
@@ -249,7 +251,6 @@ module Decidim
       #
       # @return [String] The representation URL for the image variant
       def representation_url(**options)
-        return unless asset
         return rails_representation_url(**options) if options[:only_path] || remote?
 
         ensure_current_host(**options) if disk_service? || !asset.send(:processed?)
@@ -291,8 +292,6 @@ module Decidim
       # @return [String, nil] The converted representation URL or `nil` if the
       #   asset is not defined.
       def rails_representation_url(**)
-        return unless asset
-
         base_options = default_options
         base_options.merge!(ActiveStorage::Current.url_options) if ActiveStorage::Current.url_options
         representation_url = routes.rails_representation_url(asset, **base_options, **)
