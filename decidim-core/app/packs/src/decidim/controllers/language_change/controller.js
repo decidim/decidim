@@ -39,8 +39,12 @@ export default class extends Controller {
 
   handleChange(event) {
     this.setActiveTab(event.target.value);
-    let activePane = this.tabsContent.querySelector(event.target.value);
 
-    autofocus(activePane);
+    if (!this.tabsContent) return;
+
+    const activePane = this.tabsContent.querySelector(event.target.value);
+    if (activePane) {
+      autofocus(activePane);
+    }
   }
 }
