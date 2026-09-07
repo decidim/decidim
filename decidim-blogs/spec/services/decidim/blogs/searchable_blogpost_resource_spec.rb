@@ -33,9 +33,8 @@ module Decidim
         context "when on update" do
           context "when it is updated" do
             before do
-              # rubocop:disable Rails/SkipsModelValidations
+              # rubocop:disable-next Rails/SkipsModelValidations
               resource.touch
-              # rubocop:enable Rails/SkipsModelValidations
             end
 
             it "updates the associated SearchableResource after update" do

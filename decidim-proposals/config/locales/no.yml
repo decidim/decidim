@@ -72,7 +72,6 @@
               'false': Forslag
               'true': Endringer
           state_eq:
-            label: Tilstand
             values:
               accepted: Aksepterte
               evaluating: Vurderer

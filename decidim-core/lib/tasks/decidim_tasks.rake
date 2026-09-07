@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "thor"
+
 namespace :decidim do
   desc "Performs upgrade tasks (migrations, node, docs )."
   task upgrade: [
@@ -9,10 +11,28 @@ namespace :decidim do
     :"railties:install:migrations",
     :"decidim:upgrade:migrations",
     :"decidim:upgrade:shakapacker",
+    :"decidim:upgrade:sidekiq",
     :"decidim_api:generate_docs"
   ]
 
   task update: [:upgrade]
+
+  namespace :upgrade do
+    desc "Copy the sidekiq configuration file"
+    task :sidekiq do
+      actions :template, "sidekiq.yml.erb", "config/sidekiq.yml"
+    end
+
+    class SidekiqConfigActions < Thor
+      include Thor::Actions
+
+      source_root File.join(Gem.loaded_specs["decidim-generators"].full_gem_path, "lib", "decidim", "generators", "app_templates")
+    end
+
+    def actions(*)
+      SidekiqConfigActions.new.send(*)
+    end
+  end
 
   desc "Sets up environment so that only decidim migrations are installed."
   task :choose_target_plugins do

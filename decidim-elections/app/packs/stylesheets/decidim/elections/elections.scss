@@ -53,7 +53,7 @@
     @apply border border-gray rounded-lg py-2 px-4;
 
     h3 {
-      @apply font-bold text-secondary text-lg mb-2 pt-2 pb-1;
+      @apply font-bold text-secondary text-lg pt-2 pb-1;
     }
 
     h4 {
@@ -64,14 +64,14 @@
       @apply text-left items-start;
 
       svg {
-        @apply mt-1 fill-secondary;
+        @apply mt-2 fill-secondary;
       }
     }
 
     .card-accordion-section {
-      @apply border-t border-gray mt-2 pt-4 pb-0 text-gray-2;
+      @apply border-t border-gray mt-3 pt-4 pb-0 text-gray-2;
 
-      ul {
+      > ul {
         @apply list-none m-0 p-0;
       }
     }

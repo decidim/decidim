@@ -34,6 +34,8 @@ fi:
             body: Sisältöteksti
         pages:
           edit:
+            add_attachments: Lisää liitteitä
+            edit_attachments: Muokkaa liitteitä
             save: Päivitä
             title: Muokkaa sivua
           update:

@@ -11,23 +11,20 @@ module Decidim
 
       def safe
         flash[:html_safe] = true
-        # rubocop:disable Rails/I18nLocaleTexts
+        # rubocop:disable-next Rails/I18nLocaleTexts
         flash[:notice] = "<p>HTML content</p>"
-        # rubocop:enable Rails/I18nLocaleTexts
         render plain: "Hello World"
       end
 
       def unsafe
-        # rubocop:disable Rails/I18nLocaleTexts
+        # rubocop:disable-next Rails/I18nLocaleTexts
         flash[:notice] = "Decidim & Democracy"
-        # rubocop:enable Rails/I18nLocaleTexts
         render plain: "Hello World"
       end
 
       def display
-        # rubocop:disable Rails/RenderInline
+        # rubocop:disable-next Rails/RenderInline
         render inline: "<%= flash[:notice] %>"
-        # rubocop:enable Rails/RenderInline
       end
     end
 
