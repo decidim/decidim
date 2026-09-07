@@ -219,7 +219,7 @@ shared_examples "proposals wizards" do |options|
 
       it "shows the activity logs" do
         click_on "Publish"
-        expect(page).to have_callout("Proposal successfully published.")
+        expect(page).to have_content("Proposal successfully published.")
 
         visit decidim.last_activities_path
         expect(page).to have_content("New proposal: #{translated(proposal_draft.title)}")
