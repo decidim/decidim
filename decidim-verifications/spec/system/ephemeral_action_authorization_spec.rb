@@ -121,6 +121,8 @@ describe "ephemeral action authorization" do
                 find("#main-bar [data-close]").click
               end
 
+              expect(page).to have_no_css("#main-bar [data-close]")
+
               visit main_component_path(component)
 
               click_on "New proposal"
