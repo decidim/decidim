@@ -15,11 +15,22 @@ class DisplayCondition {
   bindEvent() {
     this.checkCondition();
     this.getInputsToListen().on("change", this.checkCondition.bind(this));
+
+    const conditionWrapper = document.querySelector(`.question[data-question-id='${this.conditionQuestion}']`);
+    conditionWrapper?.addEventListener("display-conditions:visibility", this.checkCondition.bind(this));
   }
 
   getInputValue() {
     const $conditionWrapperField = $(`.question[data-question-id='${this.conditionQuestion}']`);
     const $textInput = $conditionWrapperField.find("textarea, input[type='text']:not([name$=\\[custom_body\\]])");
+
+    // A hidden question counts as unanswered, like the server sees it: its inputs are
+    // disabled, so it submits nothing. The response itself is left alone.
+    if ($conditionWrapperField.is("[data-condition-hidden]")) {
+      return $textInput.length
+        ? ""
+        : [];
+    }
 
     if ($textInput.length) {
       return $textInput.val();
@@ -181,6 +192,7 @@ class DisplayConditionsComponent {
     this.wrapperField.fadeIn();
     this.wrapperField.find("input, textarea").prop("disabled", null);
     this.showCount++;
+    this.setHidden(false);
   }
 
   hideQuestion() {
@@ -192,6 +204,21 @@ class DisplayConditionsComponent {
     }
 
     this.wrapperField.find("input, textarea").prop("disabled", "disabled");
+    this.setHidden(true);
+  }
+
+  // A hidden question stops counting as answered, so questions conditioned on this
+  // one have to re-evaluate, which the visibility event asks them to do. Only a real
+  // change is propagated, so the cascade settles after one pass and cannot loop.
+  setHidden(hidden) {
+    const [wrapper] = this.wrapperField;
+
+    if (wrapper.hasAttribute("data-condition-hidden") === hidden) {
+      return;
+    }
+
+    wrapper.toggleAttribute("data-condition-hidden", hidden);
+    wrapper.dispatchEvent(new CustomEvent("display-conditions:visibility"));
   }
 }
 
