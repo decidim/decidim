@@ -40,7 +40,9 @@ export default class extends Controller {
   handleChange(event) {
     this.setActiveTab(event.target.value);
 
-    if (!this.tabsContent) return;
+    if (!this.tabsContent) {
+      return;
+    }
 
     const activePane = this.tabsContent.querySelector(event.target.value);
     if (activePane) {
