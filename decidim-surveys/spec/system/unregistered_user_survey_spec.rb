@@ -52,7 +52,7 @@ describe "Respond a survey" do
       survey.update!(allow_responses: true, allow_unregistered: true)
     end
 
-    # rubocop:disable Naming/VariableNumber
+    # rubocop:disable-next Naming/VariableNumber
     context "when survey allows editing" do
       let(:question_description) do
         {
@@ -93,7 +93,6 @@ describe "Respond a survey" do
         expect(page).to have_text("Already responded")
       end
     end
-    # rubocop:enable Naming/VariableNumber
 
     it "allows responding the questionnaire" do
       visit_component

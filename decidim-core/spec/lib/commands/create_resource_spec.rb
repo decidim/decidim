@@ -15,7 +15,7 @@ module Decidim
       klass.new(form)
     end
 
-    let(:user) { create(:user, organization: current_component.organization) }
+    let(:user) { create(:user, :confirmed, organization: current_component.organization) }
     let(:current_component) { create(:dummy_component) }
 
     let(:invalid) { false }

@@ -148,18 +148,28 @@ describe "Admin edits proposals" do
 
         click_on("Edit attachments")
 
+        filename = "Exampledocument.pdf"
         within ".upload-modal" do
-          find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset("Exampledocument.pdf"))
+          find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(filename))
+          within "li[data-filename='#{filename}']:not([data-attachment-id])" do
+            expect(page).to have_css("progress[value='100']")
+          end
+          expect(page).to have_css("button[data-dropzone-save]:not([disabled])")
+          click_on("Save")
         end
 
-        click_on("Save")
+        expect(page).to have_no_css(".upload-modal")
+
         click_on("Update")
+
+        expect(page).to have_text("Proposal successfully updated.")
 
         within "tr", text: translated_attribute(proposal.title) do
           find("button[data-controller='dropdown']").click
           click_on "Edit proposal"
         end
 
+        click_on "Edit attachments"
         expect(page).to have_text("Exampledocument.pdf")
       end
 

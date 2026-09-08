@@ -126,9 +126,9 @@ en:
               'false': Proposals
               'true': Amendments
           proposal_state_id_eq:
-            label: State
+            label: Status
           state_eq:
-            label: State
+            label: Status
             values:
               accepted: Accepted
               evaluating: Evaluating
@@ -662,6 +662,7 @@ en:
             number_of_proposals: Answers for %{number} proposal's will be published?
             select_a_proposal: Please select a proposal.
           show:
+            address: Address
             amendments_count: Amendments count
             assigned_evaluators: Assigned evaluators
             body: Body

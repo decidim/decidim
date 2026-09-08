@@ -22,9 +22,8 @@ describe "rake decidim:upgrade:clean:remove_private_exports_attachments", type: 
     let(:attachment) { ActiveStorage::Attachment.create!(name: "file", record: create(:dummy_resource), blob:) }
 
     it "removes ActiveStorage entries" do
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       ActiveStorage::Attachment.where(id: attachment.id).update_all(record_type: "Decidim::PrivateExport", record_id: 0)
-      # rubocop:enable Rails/SkipsModelValidations
       expect { task.execute }.to change(ActiveStorage::Attachment, :count)
     end
   end

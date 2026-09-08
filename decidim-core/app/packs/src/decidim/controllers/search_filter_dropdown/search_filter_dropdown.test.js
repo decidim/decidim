@@ -17,7 +17,7 @@ describe("SearchFilterDropdownController", () => {
 
     document.body.innerHTML = `
       <div class="filter-container search__filter" data-controller="search-filter-dropdown">
-        <button id="dropdown-trigger-search" aria-expanded="true" data-search-filter-dropdown-target="trigger" data-action="keydown->search-filter-dropdown#toggle">
+        <button id="dropdown-trigger-search" data-search-filter-dropdown-target="trigger" data-action="keydown->search-filter-dropdown#toggle">
           <span>Filter by</span>
           <svg class="arrow-down"><use href="#arrow-down-s-line"></use></svg>
           <svg class="arrow-up"><use href="#arrow-up-s-line"></use></svg>
@@ -47,11 +47,11 @@ describe("SearchFilterDropdownController", () => {
   });
 
   describe("initial state", () => {
-    it("keeps aria-expanded when the list is visible", () => {
+    it("sets aria-expanded to true when the list is visible", () => {
       expect(trigger.getAttribute("aria-expanded")).toBe("true");
     });
 
-    it("corrects aria-expanded when the list starts hidden", async () => {
+    it("sets aria-expanded to false when the list starts hidden", async () => {
       application.stop();
       await setup({ listHidden: true });
 

@@ -76,12 +76,11 @@ describe "FixBlockedUserNamesInActionLog", type: :migration do
       context "with the user's extended data being empty" do
         before do
           users.each do |u|
-            # rubocop:disable Rails/SkipsModelValidations
+            # rubocop:disable-next Rails/SkipsModelValidations
             u.update_columns(
               name: generate(:name),
               extended_data: nil
             )
-            # rubocop:enable Rails/SkipsModelValidations
           end
         end
 

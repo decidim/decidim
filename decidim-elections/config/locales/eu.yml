@@ -121,7 +121,6 @@ eu:
             title: Editatu hauteskundea
           form:
             add_images: Irudiak gehitu
-            attachment_legend: Gehitu irudi-galeria bat (aukerakoa)
             basic_title: Oinarrizko infoa
             calendar: Egutegia
             calendar_description: Egiaztatu ordutegi-eremua egokia dela antolamenduaren konfigurazioan. Egungo konfigurazioa da %{timezone}.

@@ -71,7 +71,6 @@ gl:
             values:
               'false': Propostas
           state_eq:
-            label: Estado
             values:
               accepted: Aceptada
               evaluating: En avaliación

@@ -30,39 +30,26 @@
     <p><%= category[:description] %></p>
 
     <% if category[:items].present? %>
-    <div>
-      <div class="cookies__category-panel__tr">
-        <div class="cookies__category-panel__th">
-          <%= t("layouts.decidim.data_consent.details.columns.type") %>
-        </div>
-        <div class="cookies__category-panel__th">
-          <%= t("layouts.decidim.data_consent.details.columns.name") %>
-        </div>
-        <div class="cookies__category-panel__th">
-          <%= t("layouts.decidim.data_consent.details.columns.service") %>
-        </div>
-        <div class="cookies__category-panel__th">
-          <%= t("layouts.decidim.data_consent.details.columns.description") %>
-        </div>
-      </div>
-
-      <% category[:items].each do |item| %>
-        <div class="cookies__category-panel__tr">
-          <div class="cookies__category-panel__td">
-            <%= t("layouts.decidim.data_consent.details.types.#{item[:type]}") %>
-          </div>
-          <div class="cookies__category-panel__td">
-            <%= item[:name] %>
-          </div>
-          <div class="cookies__category-panel__td">
-            <%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.service") %>
-          </div>
-          <div class="cookies__category-panel__td">
-            <%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.description") %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th><%= t("layouts.decidim.data_consent.details.columns.type") %></th>
+          <th><%= t("layouts.decidim.data_consent.details.columns.name") %></th>
+          <th><%= t("layouts.decidim.data_consent.details.columns.service") %></th>
+          <th><%= t("layouts.decidim.data_consent.details.columns.description") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% category[:items].each do |item| %>
+          <tr>
+            <td><%= t("layouts.decidim.data_consent.details.types.#{item[:type]}") %></td>
+            <td><%= item[:name] %></td>
+            <td><%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.service") %></td>
+            <td><%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.description") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <% end %>
   </div>
 </div>

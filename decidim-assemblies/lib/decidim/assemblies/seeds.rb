@@ -9,7 +9,7 @@ module Decidim
         create_content_block!
 
         taxonomy = create_taxonomy!(name: "Assembly Types", parent: nil)
-        number_of_records.times do
+        config_value(:assemblies_types_taxonomies_count).times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
         # filters for assemblies only
@@ -17,7 +17,7 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:assemblies])
 
-        number_of_records.times do |_n|
+        config_value(:assemblies_count).times do |_n|
           assembly = create_assembly!
 
           create_assembly_user_roles!(assembly:)
@@ -25,8 +25,6 @@ module Decidim
           child = create_assembly!(parent: assembly)
 
           [assembly, child].each do |current_assembly|
-            current_assembly.add_to_index_as_search_resource
-
             create_attachments!(attached_to: current_assembly)
 
             seed_components_manifests!(participatory_space: current_assembly)

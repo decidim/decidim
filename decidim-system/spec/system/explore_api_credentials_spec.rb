@@ -137,8 +137,8 @@ describe "Explore API credentials" do
       secret_input = find("input#token_#{masked_user.id}")
       expect(secret_input[:type]).to eq("password")
       expect(secret_input.value).to eq(dummy_token)
-      expect(page).to have_css('button[aria-label="Show password"]', count: 1)
-      find('button[aria-label="Show password"]').click
+      expect(page).to have_css('button[aria-label="Show secret"]', count: 1)
+      find('button[aria-label="Show secret"]').click
       expect(secret_input[:type]).to eq("text")
     end
   end

@@ -18,11 +18,13 @@ export default class extends Controller {
     this.expand = this.expand.bind(this);
     this.collapse = this.collapse.bind(this);
 
-    // The server-rendered `aria-expanded="true"` fits desktop only; sync it
-    // with the actual visibility (the CSS hides the list on small screens).
-    if (window.getComputedStyle(this.listTarget).display === "none") {
-      this.triggerTarget.setAttribute("aria-expanded", "false");
-    }
+    // The markup ships without `aria-expanded`; derive the initial state from
+    // the actual visibility (the CSS shows the list on desktop and hides it on
+    // small screens).
+    const listHidden = window.getComputedStyle(this.listTarget).display === "none";
+    this.triggerTarget.setAttribute("aria-expanded", listHidden
+      ? "false"
+      : "true");
 
     // The `icon` helper strips `data-*` attributes, so the chevron listeners
     // cannot be declared on the svg and are wired here instead.

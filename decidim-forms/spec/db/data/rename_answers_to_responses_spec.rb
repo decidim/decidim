@@ -20,7 +20,7 @@ describe RenameAnswersToResponses do
     create_list(:action_log, 2, resource: create(:dummy_resource, organization:))
   end
   let!(:action_logs_with_old_type) do
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     Decidim::ActionLog.insert_all([
                                     {
                                       decidim_organization_id: organization.id,
@@ -65,7 +65,6 @@ describe RenameAnswersToResponses do
                                       updated_at: Time.current
                                     }
                                   ])
-    # rubocop:enable Rails/SkipsModelValidations
   end
 
   it "updates properly the action logs" do
@@ -110,9 +109,8 @@ describe RenameAnswersToResponses do
     let!(:other_attachment) { create(:attachment, attached_to: participatory_process) }
 
     it "updates properly the attachments" do
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       Decidim::Attachment.where(attached_to_type: "Decidim::Forms::Response").update_all(attached_to_type: "Decidim::Forms::Answer")
-      # rubocop:enable Rails/SkipsModelValidations
 
       expect(Decidim::Attachment.where(attached_to_type: "Decidim::Forms::Answer").first).to be_present
 

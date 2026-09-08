@@ -26,7 +26,6 @@ import StickyButtonsController from "src/decidim/controllers/sticky_buttons/cont
 import ToggleController from "src/decidim/controllers/toggle/controller";
 import TooltipController from "src/decidim/controllers/tooltip/controller"
 import UserRegistrationFormController from "src/decidim/controllers/user_registration_form/controller";
-import ViewMoreToggleController from "src/decidim/controllers/view_more_toggle/controller";
 import TabsController from "src/decidim/controllers/tabs/controller";
 import SelectiveDisplay from "src/decidim/controllers/selective_display/controller";
 import AutofocusController from "src/decidim/controllers/autofocus/controller";
@@ -61,7 +60,6 @@ application.register("sticky-buttons", StickyButtonsController);
 application.register("toggle", ToggleController);
 application.register("tooltip", TooltipController)
 application.register("user-registration-form", UserRegistrationFormController);
-application.register("view-more-toggle", ViewMoreToggleController);
 application.register("tabs", TabsController);
 application.register("selective-display", SelectiveDisplay);
 application.register("autofocus", AutofocusController);

@@ -4,7 +4,7 @@ require "spec_helper"
 
 shared_examples_for "likeable" do
   context "when likeable" do
-    let(:user) { create(:user, organization: subject.organization) }
+    let(:user) { create(:user, :confirmed, organization: subject.organization) }
 
     describe "#liked_by?" do
       context "with User like" do

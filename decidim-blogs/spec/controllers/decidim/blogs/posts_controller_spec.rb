@@ -26,7 +26,12 @@ module Decidim
 
           it "lists only published posts" do
             get :index
-            expect(controller.helpers.posts).to eq([another_published, published])
+            expect(controller.helpers.posts).to match_array([another_published, published]) # rubocop:disable RSpec/MatchArray
+          end
+
+          it "orders posts by most recently published first" do
+            get :index
+            expect(controller.helpers.paginate_posts).to eq([another_published, published])
           end
 
           it "shows published posts" do

@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe Decidim::Messaging::Conversation do
   describe ".start_conversation" do
-    let(:originator) { create(:user) }
-    let(:interlocutor) { create(:user) }
+    let(:originator) { create(:user, :confirmed) }
+    let(:interlocutor) { create(:user, :confirmed) }
     let(:from) { nil }
     let(:conversation) do
       described_class.start!(
@@ -26,7 +26,7 @@ describe Decidim::Messaging::Conversation do
           body: "Hei!"
         )
       end
-      let(:interlocutor2) { create(:user) }
+      let(:interlocutor2) { create(:user, :confirmed) }
 
       before do
         allow(interlocutor).to receive(:accepts_conversation?).and_return(true)

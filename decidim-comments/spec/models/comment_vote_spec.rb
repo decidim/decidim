@@ -9,7 +9,7 @@ module Decidim
       let!(:participatory_process) { create(:participatory_process, organization:) }
       let!(:component) { create(:component, participatory_space: participatory_process) }
       let!(:commentable) { create(:dummy_resource, component:) }
-      let!(:author) { create(:user, organization:) }
+      let!(:author) { create(:user, :confirmed, organization:) }
       let!(:comment) { create(:comment, commentable:, author:) }
       let!(:comment_vote) { create(:comment_vote, comment:, author:) }
 

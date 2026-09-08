@@ -33,7 +33,7 @@ module Decidim
           Decidim::Component.create!(params)
         end
 
-        number_of_records.times do |x|
+        config_value(:debates_open_count).times do |x|
           finite = x != 2
           if finite
             start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
@@ -66,31 +66,30 @@ module Decidim
           Decidim::Comments::Seed.comments_for(debate)
         end
 
-        closed_debate = Decidim::Debates::Debate.last
-        closed_debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
+        config_value(:debates_closed_count).times do
+          params = {
+            component:,
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
+            end,
+            instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
+            end,
+            author: user,
+            conclusions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
+            end,
+            closed_at: Time.current
+          }
+
+          Decidim.traceability.create!(
+            Decidim::Debates::Debate,
+            user,
+            params,
+            visibility: "all"
+          )
         end
-        closed_debate.closed_at = Time.current
-        closed_debate.save!
-
-        params = {
-          component:,
-          title: Decidim::Faker::Localized.sentence(word_count: 2),
-          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(sentence_count: 3)
-          end,
-          instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(sentence_count: 3)
-          end,
-          author: user
-        }
-
-        Decidim.traceability.create!(
-          Decidim::Debates::Debate,
-          user,
-          params,
-          visibility: "all"
-        )
       end
     end
   end

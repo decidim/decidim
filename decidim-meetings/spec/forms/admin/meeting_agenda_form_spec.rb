@@ -114,5 +114,88 @@ module Decidim::Meetings
 
       it { is_expected.not_to be_valid }
     end
+
+    describe "when deleting an item with longer than meeting duration and adding a new one with shorter duration" do
+      let(:agenda) { create(:agenda, meeting:) }
+      let(:existing_item) { create(:agenda_item, agenda:, duration: meeting.meeting_duration + 2.hours) }
+      let(:agenda_items) do
+        [
+          {
+            id: existing_item.id,
+            title: existing_item.title,
+            description: existing_item.description,
+            deleted: true,
+            duration: existing_item.duration,
+            position: 0
+          },
+          {
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.sentence(word_count: 5),
+            deleted: false,
+            duration: meeting.meeting_duration - 3.hours,
+            position: 1
+          }
+        ]
+      end
+
+      it { is_expected.to be_valid }
+    end
+
+    describe "when adding an item with less than meeting duration" do
+      let(:agenda) { create(:agenda, meeting:) }
+      let(:existing_item) { create(:agenda_item, agenda:, duration: meeting.meeting_duration - 3.hours) }
+      let(:agenda_items) do
+        [
+          {
+            id: existing_item.id,
+            title: existing_item.title,
+            description: existing_item.description,
+            deleted: false,
+            duration: existing_item.duration,
+            position: 0
+          }
+        ]
+      end
+
+      it { is_expected.to be_valid }
+    end
+
+    describe "when deleting shorter than meeting items and keeping longer than meeting items" do
+      let(:agenda) { create(:agenda, meeting:) }
+      let(:existing_item1) { create(:agenda_item, agenda:, duration: meeting.meeting_duration - 3.hours) }
+      let(:existing_item2) { create(:agenda_item, agenda:, duration: meeting.meeting_duration + 2.hours) }
+      let(:existing_item3) { create(:agenda_item, agenda:, duration: meeting.meeting_duration - 2.hours) }
+
+      let(:agenda_items) do
+        [
+          {
+            id: existing_item1.id,
+            title: existing_item1.title,
+            description: existing_item1.description,
+            deleted: true,
+            duration: existing_item1.duration,
+            position: 0
+          },
+          {
+            id: existing_item2.id,
+            title: existing_item2.title,
+            description: existing_item2.description,
+            deleted: false,
+            duration: existing_item2.duration,
+            position: 1
+          },
+          {
+            id: existing_item3.id,
+            title: existing_item3.title,
+            description: existing_item3.description,
+            deleted: true,
+            duration: existing_item3.duration,
+            position: 0
+          }
+        ]
+      end
+
+      it { is_expected.not_to be_valid }
+    end
   end
 end

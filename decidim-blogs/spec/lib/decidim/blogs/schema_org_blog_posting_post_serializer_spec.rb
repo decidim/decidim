@@ -65,7 +65,7 @@ module Decidim::Blogs
         end
 
         context "with participant author" do
-          let(:author) { create(:user, organization:) }
+          let(:author) { create(:user, :confirmed, organization:) }
 
           it "serializes the author" do
             expect(serialized[:author][:@type]).to eq("Person")
@@ -74,7 +74,7 @@ module Decidim::Blogs
           end
 
           context "when author is deleted" do
-            let(:author) { create(:user, :deleted, organization:) }
+            let(:author) { create(:user, :confirmed, :deleted, organization:) }
 
             it "serializes the author" do
               expect(serialized[:author][:@type]).to eq("Person")

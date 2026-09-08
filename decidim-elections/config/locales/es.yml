@@ -121,7 +121,6 @@ es:
             title: Editar la elección
           form:
             add_images: Añadir imágenes
-            attachment_legend: Añadir galería de imágenes (opcional)
             basic_title: Información básica
             calendar: Calendario
             calendar_description: Compruebe que la zona horaria es correcta en la configuración de la organización. La configuración actual es %{timezone}.

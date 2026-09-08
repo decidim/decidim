@@ -70,6 +70,29 @@ describe("MainMenuController", () => {
       expect(closeSpy).toHaveBeenCalledWith("click", controller.handleCloseButtonClick)
     })
 
+    it("sets aria-expanded to false when missing", async () => {
+      document.body.innerHTML = `
+        <button data-controller="main-menu" data-target="main-menu-container" data-close-button="main-menu-close">
+          Menu
+        </button>
+        <div id="main-menu-container" aria-hidden="true"></div>
+        <button id="main-menu-close">Close</button>
+      `
+
+      application.stop()
+      application = Application.start()
+      application.register("main-menu", MainMenuController)
+
+      const newButton = document.querySelector('[data-controller="main-menu"]')
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(application.getControllerForElementAndIdentifier(newButton, "main-menu"))
+        }, 0)
+      })
+
+      expect(newButton.getAttribute("aria-expanded")).toBe("false")
+    })
+
     it("returns early when menu container is missing", async () => {
       document.body.innerHTML = `
         <button data-controller="main-menu" data-target="missing-menu"></button>
