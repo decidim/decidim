@@ -49,6 +49,10 @@ module Decidim
         !officialized_at.nil?
       end
 
+      def profile_published?
+        true
+      end
+
       def confirmed?
         true
       end

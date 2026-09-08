@@ -119,7 +119,6 @@ sv:
             title: Redigera omröstning
           form:
             add_images: Lägg till bilder
-            attachment_legend: Lägg till ett bildgalleri (valfritt)
             basic_title: Grundläggande info
             calendar: Kalender
             calendar_description: Kontrollera att organisationens tidszon är korrekt i organisationsinställningarna. Den aktuella inställningen är %{timezone}.

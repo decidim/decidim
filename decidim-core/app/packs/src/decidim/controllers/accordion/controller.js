@@ -2,6 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 import Accordions from "a11y-accordion-component";
 import { screens } from "tailwindcss/defaultTheme"
 export default class extends Controller {
+  initialize() {
+    this._originalOpenValues = new WeakMap();
+  }
 
   /**
    * Create accordion from a component
@@ -16,21 +19,8 @@ export default class extends Controller {
     accordionOptions.isMultiSelectable = this.element.dataset.multiselectable !== "false";
     accordionOptions.isCollapsible = this.element.dataset.collapsible !== "false";
 
-    // This snippet allows to change the OPEN data-attribute based on the current viewport
-    // Just include the breakpoint where the different value will be applied from.
-    // Ex:
-    // data-open="false" data-open-md="true"
-    Object.keys(screens).forEach((key) => {
-      if (!this.isScreenSize(key)) {
-        return;
-      }
-
-      const elementsToOpen = this.element.querySelectorAll(`[data-controls][data-open-${key}]`);
-
-      elementsToOpen.forEach((elem) => {
-        (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])
-      })
-    })
+    this._applyBreakpointOpenAttributes();
+    this._listenForBreakpointChanges();
 
     if (!this.element.id) {
       // when component has no id, we enforce to have it one
@@ -40,6 +30,8 @@ export default class extends Controller {
     Accordions.render(this.element.id, accordionOptions);
 
     this.fixPanelRole();
+
+    this._setupInertPanels();
 
     this.expandIfNeeded();
 
@@ -59,18 +51,106 @@ export default class extends Controller {
     }
 
     if (this.boundExpand) {
-      this.toggleButton.addEventListener("click", this.boundExpand);
+      this.toggleButton.removeEventListener("click", this.boundExpand);
     }
+
+    this._teardownInertPanels();
+
+    this._stopListeningForBreakpointChanges();
   }
 
   reconnect(event) {
     this.disconnect();
 
-    if (event.detail && event.detail.collapse) {
+    if (event && event.detail && event.detail.collapse) {
       this.previouslyExpanded = false;
     }
 
     this.connect();
+  }
+
+  /**
+   * Applies viewport-conditional data-open attributes and resets
+   * previously applied values when the viewport no longer matches.
+   *
+   * @returns {void}
+   */
+  _applyBreakpointOpenAttributes() {
+    const controlledTriggers = new Set();
+
+    Object.keys(screens).forEach((key) => {
+      this.element.querySelectorAll(`[data-controls][data-open-${key}]`).forEach((elem) => {
+        controlledTriggers.add(elem);
+
+        if (!this._originalOpenValues.has(elem)) {
+          this._originalOpenValues.set(elem, elem.getAttribute("data-open"));
+        }
+      });
+    });
+
+    // Reset all controlled triggers to their original data-open state
+    controlledTriggers.forEach((elem) => {
+      const original = this._originalOpenValues.get(elem);
+      if (original === null) {
+        elem.removeAttribute("data-open");
+      } else {
+        elem.setAttribute("data-open", original);
+      }
+    });
+
+    // Apply breakpoint-specific values for the current viewport
+    Object.keys(screens).forEach((key) => {
+      if (!this.isScreenSize(key)) {
+        return;
+      }
+
+      this.element.querySelectorAll(`[data-controls][data-open-${key}]`).forEach((elem) => {
+        elem.dataset.open = elem.getAttribute(`data-open-${key}`);
+      });
+    });
+  }
+
+  /**
+   * Listens for viewport changes that cross breakpoints relevant
+   * to this accordion and reconnects to keep state in sync.
+   *
+   * @returns {void}
+   */
+  _listenForBreakpointChanges() {
+    this._mediaQueries = [];
+
+    Object.keys(screens).forEach((key) => {
+      const hasRelevantTriggers = this.element.querySelector(`[data-controls][data-open-${key}]`);
+      if (!hasRelevantTriggers) {
+        return;
+      }
+
+      const mql = window.matchMedia(`(min-width: ${screens[key]})`);
+      const handler = () => {
+        this.reconnect({ detail: { collapse: true } });
+      };
+
+      if (mql.addEventListener) {
+        mql.addEventListener("change", handler);
+      } else if (mql.addListener) {
+        mql.addListener(handler);
+      }
+
+      this._mediaQueries.push({ mql, handler });
+    });
+  }
+
+  _stopListeningForBreakpointChanges() {
+    if (this._mediaQueries) {
+      this._mediaQueries.forEach(({ mql, handler }) => {
+        if (mql.removeEventListener) {
+          mql.removeEventListener("change", handler);
+        } else if (mql.removeListener) {
+          mql.removeListener(handler);
+        }
+      });
+      this._mediaQueries = [];
+    }
   }
 
   expandIfNeeded()
@@ -88,6 +168,45 @@ export default class extends Controller {
   }
   expandToggle() {
     this.previouslyExpanded = this.toggleButton.getAttribute("aria-expanded");
+  }
+
+  /**
+   * Syncs the `inert` attribute of partially visible panels (those rendered
+   * inert) with their `aria-hidden` state, moving focus to the panel on expand.
+   *
+   * @returns {void}
+   */
+  _setupInertPanels() {
+    this._panelObservers = [];
+
+    this.element.querySelectorAll("[data-controls]").forEach((trigger) => {
+      const panel = document.getElementById(trigger.dataset.controls);
+      if (!panel || (!panel.hasAttribute("inert") && !("inertManaged" in panel.dataset))) {
+        return;
+      }
+
+      panel.dataset.inertManaged = "";
+      panel.toggleAttribute("inert", panel.getAttribute("aria-hidden") === "true");
+
+      const observer = new MutationObserver(() => {
+        if (panel.getAttribute("aria-hidden") === "true") {
+          panel.setAttribute("inert", "");
+        } else {
+          panel.removeAttribute("inert");
+          panel.focus();
+        }
+      });
+      observer.observe(panel, { attributes: true, attributeFilter: ["aria-hidden"] });
+
+      this._panelObservers.push(observer);
+    });
+  }
+
+  _teardownInertPanels() {
+    if (this._panelObservers) {
+      this._panelObservers.forEach((observer) => observer.disconnect());
+      this._panelObservers = [];
+    }
   }
 
   fixPanelRole() {

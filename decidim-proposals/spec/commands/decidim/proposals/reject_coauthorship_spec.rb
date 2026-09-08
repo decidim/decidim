@@ -64,7 +64,7 @@ module Decidim
       end
 
       describe "when the coauthor is already an author" do
-        let!(:coauthor) { create(:user, organization: proposal.organization) }
+        let!(:coauthor) { create(:user, :confirmed, organization: proposal.organization) }
 
         before do
           proposal.add_coauthor(coauthor)

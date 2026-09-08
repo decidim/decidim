@@ -588,6 +588,8 @@ cs:
           participatory_space: Najít participační prostor
           text: Hledat podle e-mailu, jména nebo přezdívky
           user: Uživatel
+        index:
+          title: Záznamy administrátora
         logs_list:
           no_logs_yet: Zatím nejsou žádné logy.
           no_matching_logs: Nebyly nalezeny žádné záznamy s poskytnutými vyhledávacími filtry. Zkuste je změnit a zkuste to znovu.
@@ -614,6 +616,11 @@ cs:
         edit:
           title: Upravit člena
           update: Aktualizovat
+        form:
+          email: E-mail
+          invite_explanation: Uživatel bude vyzván, aby se připojil k organizaci.
+          name_or_nickname: Jméno nebo přezdívka
+          select_user: Vybrat člena
         index:
           import_via_csv: Importovat přes CSV
           publish_all: Publikovat vše
@@ -832,6 +839,7 @@ cs:
           title: Šablony zpravodaje
           use_template: Použít tuto šablonu
         show:
+          title: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
         confirm_recipients:
@@ -916,6 +924,7 @@ cs:
             invalid: Při odblokování účastníků došlo k chybě.
             success: Účastníci byli úspěšně odblokováni.
         create:
+          no_user_found: Uživatel nebyl nalezen.
           success: Účastník úspěšně oficiálně zaregistrován.
         destroy:
           success: Účastník úspěšně zbaven oficiální registrace.
@@ -977,6 +986,10 @@ cs:
           logos:
             organization_logos: Loga organizace
             preview: Náhled
+          machine_translation_display_priority:
+            options:
+              original: Systém zobrazuje informace v jazyce, který použil autor. U obsahu vytvořeného v administraci s ručními překlady se zobrazí hodnoty přeložené v administraci.
+              translation: Systém zobrazí překlad, je-li k dispozici, jinak bude použit originální jazyk.
           rich_text_editor_in_public_views_help: V některých textových polích budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
           twitter: X
@@ -1106,6 +1119,7 @@ cs:
           previous_title: Předchozí položka
         attachments:
           add_attachments: Přidat přílohy
+          attachment_legend: Přidat dokument nebo obrázek
           edit_attachments: Upravit přílohy
       static_page_topics:
         create:
@@ -1328,6 +1342,7 @@ cs:
         attachment:
           explanation: 'Pokyny pro soubor:'
           message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
+          message_2: V CSV souborech musí být oddělovač mezi sloupci středník (";")
     moderations:
       actions:
         expand: Rozbalit

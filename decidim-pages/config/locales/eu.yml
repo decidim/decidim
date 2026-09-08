@@ -34,6 +34,8 @@ eu:
             body: Gorputza
         pages:
           edit:
+            add_attachments: Gehitu eranskinak
+            edit_attachments: Editatu eranskinak
             save: Eguneratu
             title: Editatu orria
           update:

@@ -118,7 +118,6 @@ ja:
             title: 選挙を編集
           form:
             add_images: 画像を追加
-            attachment_legend: 画像ギャラリーを追加 (オプション)
             basic_title: 基本情報
             calendar: カレンダー
             calendar_description: 組織のタイムゾーンが正しいことを確認してください。現在の設定は %{timezone} です。

@@ -14,23 +14,7 @@ document.addEventListener("stimulus:load", () => {
   window.Stimulus.load(window.definitionsFromContext(context))
 }, { once: true });
 
-
-// REDESIGN_PENDING: deprecated
-window.initFoundation = (element) => {
-  $(element).foundation();
-};
-
 document.addEventListener("turbo:load", () => {
-  window.initFoundation(document);
-
-  $(document).on("show.zf.dropdownMenu", function(event, $element) {
-    $element.attr("aria-hidden", "false");
-  });
-
-  $(document).on("hide.zf.dropdownMenu", function(event, $element) {
-    $element.children(".is-dropdown-submenu").attr("aria-hidden", "true");
-  });
-
   toggleNav();
 
   createSortList("#steps tbody", {

@@ -7,7 +7,7 @@ module Decidim
     subject { described_class.new(form) }
 
     let(:current_component) { create(:component) }
-    let!(:current_user) { create(:user, organization: current_component.organization) }
+    let!(:current_user) { create(:user, :confirmed, organization: current_component.organization) }
     let(:title) { { "en" => "Dummy resource title" } }
     let(:body) { "Dummy resource body" }
     let(:uploaded_images) { [] }

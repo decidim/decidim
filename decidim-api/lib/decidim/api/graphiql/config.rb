@@ -20,7 +20,7 @@ module Decidim
           "X-CSRF-Token" => ->(view_context) { view_context.form_authenticity_token }
         }.freeze
 
-        # rubocop:disable Metrics/ParameterLists
+        # rubocop:disable-next Metrics/ParameterLists
         def initialize(query_params: false, initial_query: nil, title: nil, logo: nil, csrf: true, headers: DEFAULT_HEADERS)
           @query_params = query_params
           @headers = headers.dup
@@ -29,7 +29,6 @@ module Decidim
           @logo = logo
           @csrf = csrf
         end
-        # rubocop:enable Metrics/ParameterLists
 
         # Call defined procs, add CSRF token if specified
         def resolve_headers(view_context)

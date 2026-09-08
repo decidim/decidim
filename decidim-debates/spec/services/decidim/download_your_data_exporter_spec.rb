@@ -7,7 +7,7 @@ module Decidim
   describe DownloadYourDataExporter do
     subject { DownloadYourDataExporter.new(user, "download-your-data", "CSV") }
 
-    let(:user) { create(:user, organization:) }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:organization) { create(:organization) }
 
     describe "#readme" do

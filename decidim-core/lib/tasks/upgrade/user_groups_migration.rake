@@ -145,9 +145,8 @@ namespace :decidim do
         items = Decidim::ActionLog.where(resource_type: "Decidim::UserGroup")
 
         if (count = items.count).positive?
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           items.update_all(resource_type: "Decidim::User")
-          # rubocop:enable Rails/SkipsModelValidations
 
           puts "===== Transformed #{count} action log entries."
         else

@@ -247,7 +247,7 @@ describe "Participatory Process Groups" do
 
     context "when the html block is enabled" do
       before do
-        # rubocop:disable Naming/VariableNumber
+        # rubocop:disable-next Naming/VariableNumber
         create(
           :content_block,
           organization:,
@@ -260,7 +260,6 @@ describe "Participatory Process Groups" do
             html_content_es: nil
           }
         )
-        # rubocop:enable Naming/VariableNumber
 
         visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
       end
@@ -330,7 +329,7 @@ describe "Participatory Process Groups" do
       let!(:proposals_component) { create(:component, :published, participatory_space: process, manifest_name: :proposals) }
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
       let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
-      let!(:user) { create(:user, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
       let!(:out_of_group_process_proposals_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :proposals) }
       let!(:out_of_group_process_meetings_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :meetings) }
 

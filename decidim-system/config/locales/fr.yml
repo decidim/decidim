@@ -42,7 +42,13 @@ fr:
   decidim:
     system:
       actions:
+        api_users:
+          create: Créer
+          new: Nouvel utilisateur de l'API
+          remove: Retirer l'utilisateur
         confirm_destroy: Êtes-vous certain de vouloir supprimer cela ?
+        confirm_remove_api_user: Êtes-vous sûr de vouloir retirer cet utilisateur de l'API ?
+        copied: Copié
         destroy: Supprimer
         edit: Modifier
         new_admin: Nouvel administrateur
@@ -67,6 +73,23 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
           success: Administrateur mis à jour avec succès.
+      api_user:
+        create:
+          error: Échec de la création d'un utilisateur pour l'API.
+        destroy:
+          success: L'utilisateur de l'API a été supprimé avec succès.
+        refresh:
+          error: Une erreur s'est produite ! Veuillez réessayer plus tard.
+      api_users:
+        index:
+          explanation_html: |
+            <p>Les utilisateurs API permettent aux développeurs d'intégration d'ajouter au système des comptes machines administratifs. Ces comptes machines peuvent agir en tant qu'administrateurs sur la plateforme pour effectuer des mises à jour que les administrateurs habituels réaliseraient via leur interface dédiée. Un cas d'utilisation typique est celui d'une plateforme de gestion externe où un script automatisé effectuerait des tâches administratives sur la plateforme sans qu'un utilisateur réel ait à s'authentifier. Par exemple, un système d'automatisation pourrait vouloir envoyer des réponses à des propositions ; dans ce cas, un compte d'intégration est nécessaire pour effectuer cette tâche au sein de la plateforme.</p>
+            <p>La principale différence entre ces comptes et les comptes d'administrateur classiques est qu'ils sont destinés à être utilisés par des machines. Les exigences en matière de mot de passe sont donc spécifiques. Ces utilisateurs n'ont pas besoin de mettre à jour régulièrement leur mot de passe, et la modification de celui-ci s'effectue de manière contrôlée lorsque cela s'avère indispensable.</p>
+            <p>Ces identifiants sont conçus pour les machines. Les applications destinées aux participants doivent être intégrées à des <a href="%{oauth_link}">programmes OAuth</a>.</p>
+          manage: Gérer les utilisateurs API
+        new:
+          select_organization: Sélectionner votre organisation
+          title: Créer un nouvel utilisateur API
       dashboard:
         show:
           admins: Administrateurs
@@ -95,6 +118,7 @@ fr:
             sign_up: Créer un compte
       menu:
         admins: Administrateurs
+        api_credentials: Identifiants API
         dashboard: Tableau de bord
         oauth_applications: Applications OAuth
         organizations: Organisations
@@ -105,6 +129,14 @@ fr:
             email: Courriel
           validations:
             email_uniqueness: un autre administrateur avec la même adresse email existe déjà
+        api_user:
+          fields:
+            created_at: Créé le
+            key: Clé
+            name: Nom
+            organization: Organisation
+          validations:
+            name_uniqueness: Un utilisateur API portant ce nom existe déjà.
         oauth_application:
           fields:
             created_at: Créée le
@@ -131,9 +163,14 @@ fr:
           save: Enregistrer
           title: Modifier l'application
         form:
+          application_type:
+            confidential:
+              name: Confidentiel
           scopes_explanation:
             "admin:read": Permet à un utilisateur d'effectuer des opérations de requête relatives à l'administration à travers l'API GraphQL.
             "admin:write": Permet à l'utilisateur d'effectuer des opérations de mutation relatives à l'administration à travers l'API GraphQL.
+            "api:read": Permet à l'utilisateur d'effectuer des requêtes via l'API GraphQL.
+            user: Capacité d'agir en tant qu'utilisateur connecté avec le jeton fourni lors des appels à l'API GraphQL. Cette fonctionnalité est requise pour toutes les opérations « api:write » ou « api:read » qui nécessitent des informations sur l'utilisateur actuel.
           select_organization: Sélectionnez une organisation
         index:
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?

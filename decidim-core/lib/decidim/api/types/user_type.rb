@@ -28,6 +28,10 @@ module Decidim
       field :personal_url, GraphQL::Types::String, "The user's personal url", null: true
       field :profile_path, GraphQL::Types::String, "The user's profile url", null: false
 
+      def name
+        object.presenter.name
+      end
+
       def nickname
         object.presenter.nickname
       end
@@ -45,7 +49,7 @@ module Decidim
       end
 
       def organization_name
-        object.organization.name
+        object.organization&.name || ""
       end
 
       def deleted
@@ -63,7 +67,7 @@ module Decidim
       end
 
       def self.authorized?(object, context)
-        super && object.confirmed? && !object.blocked? && !object.deleted?
+        super && object.visible?
       end
     end
   end

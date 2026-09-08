@@ -10,7 +10,7 @@ describe Decidim::Accountability::ResultsCsvImporter do
   let(:current_user) { create(:user, organization:) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:accountability_component, participatory_space: participatory_process, id: 16) }
-  let!(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:root_taxonomy) { create(:taxonomy, id: 15, organization:) }
   let!(:taxonomy1) { create(:taxonomy, id: 16, parent: root_taxonomy, organization:) }
   let!(:taxonomy2) { create(:taxonomy, id: 17, parent: root_taxonomy, organization:) }
   let!(:taxonomy3) { create(:taxonomy, id: 18, parent: root_taxonomy, organization:) }
