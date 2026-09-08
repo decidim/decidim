@@ -151,7 +151,7 @@ de:
         new:
           authorize: Senden
           authorize_with: Bestätigen Sie mit %{authorizer}
-          tos_agreement: Durch die Überprüfung Ihrer Identität akzeptieren Sie %{link}.
+          tos_agreement: Durch die Überprüfung Ihrer Identität erklären Sie sich einverstanden mit den %{link}.
         onboarding_pending:
           completed_verifications: Sie wurden erfolgreich autorisiert, jetzt können Sie %{action} auf %{resource_name}
           granted_verifications: Verifizierung erfolgeich
