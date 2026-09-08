@@ -304,7 +304,7 @@ GEM
       smart_properties
     bigdecimal (4.1.2)
     bindex (0.8.1)
-    bootsnap (1.25.0)
+    bootsnap (1.26.0)
       msgpack (~> 1.5)
     brakeman (8.0.6)
       racc
@@ -945,7 +945,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap (~> 1.25)
+  bootsnap (~> 1.26)
   brakeman (~> 8.0)
   byebug (~> 13.0)
   decidim!
