@@ -8,7 +8,7 @@ module Decidim
       class UpdateDebate < Decidim::Commands::UpdateResource
         include Decidim::MultipleAttachmentsMethods
 
-        fetch_form_attributes :taxonomizations, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
+        fetch_form_attributes :title, :taxonomizations, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
 
         def call
           return broadcast(:invalid) if invalid?
@@ -33,7 +33,6 @@ module Decidim
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
 
           attrs = {
-            title: form.title,
             description: parsed_description
           }
 
