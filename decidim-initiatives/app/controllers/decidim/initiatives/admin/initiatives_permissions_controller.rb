@@ -17,6 +17,16 @@ module Decidim
                              ::Decidim::Initiatives::Permissions,
                              ::Decidim::Admin::Permissions)
 
+        def edit
+          enforce_permission_to :update, :initiative, initiative: resource
+          super
+        end
+
+        def update
+          enforce_permission_to :update, :initiative, initiative: resource
+          super
+        end
+
         def resource
           current_initiative
         end
