@@ -15,13 +15,11 @@ import InputTagsController from "src/decidim/controllers/input_tags/controller"
 import LanguageChangeController from "src/decidim/controllers/language_change/controller";
 import MainMenuController from "src/decidim/controllers/main_menu/controller"
 import MentionController from "src/decidim/controllers/mention/controller";
-import MobileAccountMenuController from "src/decidim/controllers/mobile_account_menu/controller";
 import MultipleMentionsController from "src/decidim/controllers/multiple_mentions/controller"
 import NotificationActionController from "src/decidim/controllers/notification_action/controller"
 import PasswordTogglerController from "src/decidim/controllers/password_toggler/controller";
 import ReportFormController from "src/decidim/controllers/report_form/controller";
 import ScrollToLastController from "src/decidim/controllers/scroll_to_last/controller";
-import SearchFilterDropdownController from "src/decidim/controllers/search_filter_dropdown/controller";
 import StickyButtonsController from "src/decidim/controllers/sticky_buttons/controller";
 import ToggleController from "src/decidim/controllers/toggle/controller";
 import TooltipController from "src/decidim/controllers/tooltip/controller"
@@ -49,13 +47,11 @@ application.register("input-tags", InputTagsController)
 application.register("language-change", LanguageChangeController);
 application.register("main-menu", MainMenuController)
 application.register("mention", MentionController);
-application.register("mobile-account-menu", MobileAccountMenuController);
 application.register("multiple-mentions", MultipleMentionsController);
 application.register("notification-action", NotificationActionController)
 application.register("password-toggler", PasswordTogglerController);
 application.register("report-form", ReportFormController);
 application.register("scroll-to-last", ScrollToLastController);
-application.register("search-filter-dropdown", SearchFilterDropdownController);
 application.register("sticky-buttons", StickyButtonsController);
 application.register("toggle", ToggleController);
 application.register("tooltip", TooltipController)

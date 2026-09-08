@@ -1,4 +1,4 @@
-<div id="dropdown-menu-account-mobile" class="main-bar__links-mobile__account" aria-hidden="true" data-controller="assign-role mobile-account-menu" data-role="dialog">
+<div id="dropdown-menu-account-mobile" class="main-bar__links-mobile__account" aria-hidden="true" data-controller="assign-role" data-role="dialog">
   <div class="main-bar">
     <div class="main-bar__logo">
       <div class="main-bar__logo-desktop">
@@ -10,10 +10,10 @@
     </div>
 
     <div>
-      <div id="dropdown-trigger-links-mobile-close" class="main-bar__links-mobile__trigger" tabindex="0" data-action="keydown->mobile-account-menu#close">
+      <button type="button" id="dropdown-trigger-links-mobile-close" class="main-bar__links-mobile__trigger">
         <%= icon "close-line" %>
-        <p class="sr-only"><%= t("close", scope: "decidim.shared.flag_modal") %></p>
-      </div>
+        <span class="sr-only"><%= t("close", scope: "decidim.shared.flag_modal") %></span>
+      </button>
     </div>
   </div>
 
