@@ -1,5 +1,4 @@
 /* global jest */
-/* eslint max-lines: ["error", 360] */
 import { Application } from "@hotwired/stimulus"
 import LanguageChangeController from "src/decidim/controllers/language_change/controller";
 

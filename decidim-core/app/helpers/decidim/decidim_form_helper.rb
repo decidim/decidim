@@ -194,7 +194,7 @@ module Decidim
       options[:data] ||= {}
       options[:data].update(live_validate: true, validate_on_blur: true)
       options[:data].update(controller: "") unless options[:data].has_key?(:controller)
-      options[:data][:controller] += " form-validator"
+      options[:data][:controller] += " form-validator autofocus"
       options[:data][:controller].strip!
 
       options[:html] ||= {}

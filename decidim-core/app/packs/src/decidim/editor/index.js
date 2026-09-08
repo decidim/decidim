@@ -87,5 +87,9 @@ export default function createEditor(container) {
       : editor.getHTML();
   });
 
+  editor.view.dom.addEventListener("move-cursor-to-end", () => {
+    editor.chain().focus("end").run();
+  });
+
   return editor;
 }
