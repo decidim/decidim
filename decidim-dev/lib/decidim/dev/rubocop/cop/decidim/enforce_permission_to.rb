@@ -55,9 +55,9 @@ module RuboCop
               "Add `enforce_permission_to` or `action_authorized_to` at the start of the action, " \
               "or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere."
 
-        AUTHORIZATION_METHODS = %i[enforce_permission_to action_authorized_to].freeze
+        AUTHORIZATION_METHODS = [:enforce_permission_to, :action_authorized_to].freeze
 
-        BEFORE_ACTION_AUTH_KEYWORDS = %w[permission authorize enforce].freeze
+        BEFORE_ACTION_AUTH_KEYWORDS = %w(permission authorize enforce).freeze
 
         def on_class(node)
           reset_state
@@ -163,7 +163,7 @@ module RuboCop
         end
 
         def action_name?(name)
-          %w[index show new edit create update destroy].include?(name)
+          %w(index show new edit create update destroy).include?(name)
         end
 
         def contains_authorization_check?(node)
