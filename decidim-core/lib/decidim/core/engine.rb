@@ -558,9 +558,9 @@ module Decidim
 
       initializer "decidim_core.session_store_override" do
         ActiveRecord::SessionStore::Session.class_eval do
-          def data=(data)
-            attribute_will_change!("data") if data != self.class.deserialize(read_attribute("data"))
-            @data = data
+          def data=(local_data)
+            attribute_will_change!(self.class.data_column_name) if local_data != self.class.deserialize(send(self.class.data_column_name))
+            @data = local_data
           end
         end
       end

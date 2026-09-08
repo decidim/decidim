@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "rake decidim:sessions:cleanup", type: :task do
   context "when there are no sessions" do
-    it "it passes run successfully when there are no sessions" do
+    it "runs successfully when there are no sessions" do
       expect { task.execute }.not_to raise_error
     end
   end

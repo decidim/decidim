@@ -550,9 +550,9 @@ Notice that this is also maximum time that user can idle before getting automati
 |No
 
 |DECIDIM_REMOVE_SESSIONS_AFTER
-|In days, How long can a session reside in system after the expiration.
+|In days, how long an expired session can remain in the system before it is purged.
 
-Notice that user logout action will remove it independently
+Notice that logging out removes the session immediately, regardless of this setting.
 |3
 |No
 
