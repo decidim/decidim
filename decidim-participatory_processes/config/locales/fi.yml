@@ -20,7 +20,7 @@ fi:
         import_attachments: Tuo liitteitä
         import_categories: Kopioi aihepiirejä
         import_components: Tuo komponentteja
-        import_steps: Tuo vaiheita
+        import_steps: Tuo vaiheet
         local_area: Järjestöalue
         meta_scope: Teeman metadata
         participatory_process_group_id: Prosessiryhmä

@@ -3,7 +3,7 @@ de:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Ähnliche Gremien
+        assemblies_ids: Ähnliche Versammlungen
         available_slots: Verfügbare Plätze
         banner_image: Banner-Bild
         decidim_scope_id: Umfang
@@ -430,10 +430,14 @@ de:
           new:
             title: Neuer Partner
         registration_types:
+          edit:
+            title: Anmeldeart aktualisieren
           form:
             select_conference_meetings: Konferenzveranstaltungen auswählen
           index:
             title: Registrierungsarten
+          new:
+            title: Neue Anmeldeart
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Die Teilnahmebestätigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
@@ -443,6 +447,7 @@ de:
             certificate_of_attendance_description: Hiermit wird bestätigt, dass <strong>%{user}</strong> an den <strong>%{title}</strong> teilgenommen hat, die am <strong>%{location}</strong> am <strong>%{start} - %{end}</strong>abgehalten wurden
         send_diploma:
           error: Beim Senden der Teilnahmebestätigung der Konferenz ist ein Problem aufgetreten.
+          success: Teilnahmebescheinigungen für die Konferenz erfolgreich versendet.
       conference:
         registration_confirm:
           cancel: Abbrechen
@@ -561,7 +566,7 @@ de:
         details: Einzelheiten
         introduction: Einführung
         objectives: Ziele
-        related_assemblies: Ähnliche Gremien
+        related_assemblies: Ähnliche Versammlungen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
     download_your_data:
       help:
@@ -632,6 +637,7 @@ de:
     open_data:
       help:
         conferences:
+          component_settings: Komponenteneinstellungen des Konferenzbereichs
           created_at: Erstellungsdatum dieses Bereichs
           decidim_scope_id: Das Thema der Konferenz
           description: Eine lange Beschreibung der Konferenz

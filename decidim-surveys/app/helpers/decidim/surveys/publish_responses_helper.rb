@@ -80,7 +80,7 @@ module Decidim
       end
 
       def options_column_chart_wrapper(question)
-        tally = question.responses.map { |response| response.choices.map { |choice| translated_attribute(choice.response_option.body) } }.tally
+        tally = question.responses.flat_map { |response| response.choices.map { |choice| translated_attribute(choice.response_option.body) } }.tally
 
         column_chart(tally, download: true)
       end

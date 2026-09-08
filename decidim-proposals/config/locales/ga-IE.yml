@@ -37,7 +37,6 @@ ga:
             values:
               'false': Moltaí
           state_eq:
-            label: Staid
             values:
               accepted: Glactha
               rejected: Diúltaithe

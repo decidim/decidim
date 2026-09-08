@@ -15,6 +15,7 @@ module Decidim
     before_action :ensure_profile_holder
     before_action :ensure_profile_holder_is_a_user, only: :following
     before_action :ensure_user_not_blocked
+    before_action :ensure_user_not_deleted
 
     def show
       redirect_to profile_activity_path(nickname: params[:nickname].downcase)
@@ -45,6 +46,13 @@ module Decidim
     end
 
     private
+
+    # Deleted users should not normally have a nickname, so in normal situation
+    # this should not be possible, but in some edge cases there may be accounts
+    # left behind with the username field still available.
+    def ensure_user_not_deleted
+      raise ActionController::RoutingError, "Deleted User" if profile_holder&.deleted?
+    end
 
     def ensure_user_not_blocked
       raise ActionController::RoutingError, "Blocked User" if profile_holder&.blocked? && !current_user&.admin?

@@ -15,7 +15,6 @@ el:
         import_attachments: Εισαγωγή συνημμένων
         import_categories: Εισαγωγή κατηγοριών
         import_components: Εισαγωγή στοιχείων
-        import_steps: Εισαγωγή βημάτων
         local_area: Τομέας οργανισμού
         meta_scope: Μεταδεδομένα πεδίου εφαρμογής
         participatory_process_group_id: Ομάδα διαδικασιών

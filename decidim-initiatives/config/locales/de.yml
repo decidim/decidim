@@ -260,6 +260,7 @@ de:
             reject: Initiative ablehnen
             send_to_technical_validation: An technische Validierung senden
             success: Die Initiative wurde an die technische Validierung gesendet.
+            title: Über diese Initiative
             update: Aktualisieren
           form:
             attachments_title: Anhänge
@@ -269,6 +270,7 @@ de:
             actions_title: Aktion
             preview: Vorschau
             print: Drucken
+            title: Initiativen
           initiative_attachments:
             documents: Unterlagen
             edit: Bearbeiten
@@ -285,6 +287,7 @@ de:
             success: Die Initiative wurde erfolgreich aktualisiert.
         initiatives_settings:
           edit:
+            title: Initiativeneinstellungen
             update: Aktualisieren
           form:
             comments: Am meisten kommentiert
@@ -314,12 +317,15 @@ de:
           destroy:
             success: Der Initiativentyp wurde erfolgreich entfernt.
           edit:
+            title: Initiativentyp bearbeiten
             update: Aktualisieren
           form:
             child_scope_threshold_enabled_help_html: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen zur Konfiguration finden Sie auf der <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Dokumentationsseite für Admins von Initiativen.</a>.'
             only_global_scope_enabled_help_html: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
             signature_workflow_settings: Einstellungen zum Unterzeichnungsablauf
+          index:
+            title: Initiativentypen
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
           new:
@@ -432,11 +438,25 @@ de:
         update: Aktualisieren
       events:
         approve_membership_request:
+          email_intro: "%{author_name} hat Ihre Bewerbung für das Unterstützungskomitee der Initiative %{resource_title} angenommen."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}'
+          email_subject: "%{author_name} hat Ihre Bewerbung für das Unterstützungskomitee angenommen"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> hat Ihre Bewerbung für das Unterstützungskomitee der Initiative <a href="%{resource_url}">%{resource_title}</a> angenommen.
+        create_initiative_event:
+          email_intro: "%{author_name}, dem/der Sie folgen, hat eine neue Initiative erstellt. Schauen Sie sie sich an und beteiligen Sie sich:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Neue Initiative von %{author_name}
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name}</a> erstellt.
         revoke_membership_request:
+          email_intro: "%{author_name} hat Ihre Bewerbung für das Unterstützungskomitee der Initiative %{resource_title} abgelehnt."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}.'
+          email_subject: "%{author_name} hat Ihre Bewerbung für das Unterstützungskomitee abgelehnt"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> hat Ihre Bewerbung für das Unterstützungskomitee der Initiative <a href="%{resource_url}">%{resource_title}</a> abgelehnt.
         spawn_committee_request_event:
+          email_intro: "%{applicant_name} hat sich für das Unterstützungskomitee Ihrer Initiative %{resource_title} beworben. Um die Bewerbung anzunehmen oder abzulehnen, öffnen Sie das Bearbeitungsformular Ihrer Initiative."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind'
+          email_subject: "%{applicant_name} möchte Ihrer Initiative beitreten"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_name}</a> hat sich für das Unterstützungskomitee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um die Bewerbung anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
         add_attachments: Anhänge hinzufügen
         add_image: Bild hinzufügen
@@ -530,6 +550,7 @@ de:
           recent: Neueste zuerst
           recently_published: Zuletzt veröffentlicht
         pending_initiatives:
+          description: Diese Initiativen sind noch nicht öffentlich. Bitte prüfen Sie sie und reichen Sie sie zur technischen Validierung ein, damit sie veröffentlicht werden können.
           title: Entwürfe & ausstehende Initiativen
         print:
           address: Adresse

@@ -84,7 +84,6 @@ lt:
               'false': Pasiūlymai
               'true': Pataisos
           state_eq:
-            label: Būsena
             values:
               accepted: Priimta
               evaluating: Vertinamas

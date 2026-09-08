@@ -968,6 +968,10 @@ ja:
           logos:
             organization_logos: 組織のロゴ
             preview: プレビュー
+          machine_translation_display_priority:
+            options:
+              original: システムは、作成者が使用した言語で情報を表示します。管理画面で作成され、手動で翻訳が入力されたコンテンツについては、管理画面で入力された翻訳内容が表示されます。
+              translation: システムは、翻訳が利用可能な場合は翻訳を表示し、利用できない場合は元の言語で表示します。
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
           twitter: X

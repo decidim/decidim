@@ -13,14 +13,12 @@ pt-BR:
         duplicate_categories: Categoria duplicada
         duplicate_components: Componente duplicado
         duplicate_landing_page_blocks: Bloco da página principal duplicada
-        duplicate_steps: Etapa duplicada
         end_date: Data final
         has_members: Este espaço tem membros
         hero_image: Imagem inicial
         import_attachments: Importar anexos
         import_categories: Importar categorias
         import_components: Importar componentes
-        import_steps: Importar etapas
         local_area: Área da organização
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos

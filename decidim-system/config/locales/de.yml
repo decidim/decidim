@@ -9,6 +9,8 @@ de:
         organization_url: URL der Organisation
         redirect_uri: Weiterleitungs-URI
         refresh_tokens: Token aktualisieren
+        refresh_tokens_enabled: Refresh-Tokens aktiviert
+        scopes: Verfügbare Scopes
       organization:
         address: SMTP Hostname
         from_email: E-Mail-Adresse
@@ -35,14 +37,28 @@ de:
               must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
         organization:
           attributes:
+            host:
+              invalid: ist ungültig
             password:
               secret_key: Sie müssen die SECRET_KEY_BASE Umgebungsvariable definieren, um dieses Feld speichern zu können
+            secondary_hosts:
+              invalid: ist ungültig
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: Secret ist ausgeblendet
+          hide_secret: Secret ausblenden
+          secret_can_not_be_shown: das API-Secret kann nur unmittelbar nach der Erstellung angezeigt oder kopiert werden
+          show_secret: Secret anzeigen
+          shown_secret: Secret wird angezeigt
         api_users:
           create: Erstellen
+          new: Neues API-Konto
+          remove: Konto entfernen
         confirm_destroy: Möchtest du das wirklich löschen?
+        confirm_refresh_api_secret: Sind Sie sicher, dass Sie das Secret für dieses API-Konto erneuern möchten? Nach der Erneuerung ist das alte Secret ungültig und kann nicht mehr verwendet werden.
+        confirm_remove_api_user: Sind Sie sicher, dass Sie dieses API-Konto entfernen möchten?
         copied: Kopiert
         copy_secret: Geheimnis kopieren
         copy_secret_clarification: Geheimnis in die Zwischenablage kopieren
@@ -74,6 +90,22 @@ de:
       api_user:
         create:
           error: API-Benutzer konnte nicht erstellt werden.
+          success: API-Konto erfolgreich erstellt. Das Secret ist nur unmittelbar nach der Erstellung sichtbar. Bitte kopieren Sie es und bewahren Sie es sicher auf, bevor Sie diese Seite verlassen!
+        destroy:
+          success: API-Konto erfolgreich gelöscht.
+        refresh:
+          error: Etwas ist schiefgelaufen! Bitte versuchen Sie es später erneut.
+          success: Secret erfolgreich erneuert. Das Secret ist nur unmittelbar nach der Erstellung sichtbar. Bitte kopieren Sie es und bewahren Sie es sicher auf, bevor Sie diese Seite verlassen!
+      api_users:
+        index:
+          explanation_html: |
+            <p>Mit API-Konten können Integrationsentwickler:innen administrative Maschinenkonten zum System hinzufügen. Diese Maschinenkonten können auf der Plattform als Admin agieren, um Aktualisierungen vorzunehmen, die normale Admins sonst über den Administrationsbereich durchführen würden. Ein typischer Anwendungsfall ist eine externe Verwaltungsplattform, bei der ein automatisiertes Skript administrative Aufgaben auf der Plattform ausführt, ohne dass sich eine reale Person am System authentifizieren muss. Ein Automatisierungssystem möchte beispielsweise Antworten auf Vorschläge senden; in diesem Fall benötigen wir ein Integrationskonto, das diese Aufgabe innerhalb der Plattform übernimmt.</p>
+                  <p>Der Hauptunterschied zwischen diesen Konten und normalen Admin-Konten besteht darin, dass diese Konten für die Nutzung durch Maschinen bestimmt sind und daher andere Anforderungen an das Passwort gelten. Diese Konten müssen ihr Passwort nicht regelmässig aktualisieren, und das Kontopasswort kann bei Bedarf kontrolliert geändert werden.</p>
+                  <p>Diese Zugangsdaten sind für die Nutzung durch Maschinen bestimmt. Anwendungen mit direktem Kontakt zu Teilnehmenden sollten stattdessen über <a href="%{oauth_link}">OAuth-Anwendungen</a> eingebunden werden.</p>
+          manage: API-Konten verwalten
+        new:
+          select_organization: Wählen Sie Ihre Organisation aus
+          title: Neues API-Konto erstellen
       dashboard:
         show:
           admins: Admins
@@ -102,6 +134,7 @@ de:
             sign_up: Konto erstellen
       menu:
         admins: Admins
+        api_credentials: API-Zugangsdaten
         dashboard: Instrumententafel
         oauth_applications: OAuth-Anwendungen
         organizations: Organisationen
@@ -112,6 +145,15 @@ de:
             email: Email
           validations:
             email_uniqueness: ein anderer Administrator mit der gleichen E-Mail existiert bereits
+        api_user:
+          fields:
+            created_at: Erstellt am
+            key: Schlüssel
+            name: Name
+            organization: Organisation
+            secret: Secret
+          validations:
+            name_uniqueness: Es existiert bereits ein API-Konto mit diesem Namen.
         oauth_application:
           fields:
             created_at: Erstellt am
@@ -138,6 +180,26 @@ de:
           save: Speichern
           title: Anwendung bearbeiten
         form:
+          application_type:
+            confidential:
+              explanation: Anwendungen, die sich sicher gegenüber dem Autorisierungsserver authentifizieren können, zum Beispiel indem sie ihr registriertes Client-Secret sicher aufbewahren können. Typischerweise eine Anwendung, die auf einem Server läuft, auf dem das Client-Secret gespeichert ist.
+              name: Vertraulich
+            public:
+              explanation: Anwendungen, die kein registriertes Client-Secret verwenden können, etwa Anwendungen, die in einem Browser oder auf einem Mobilgerät laufen.
+              name: Öffentlich
+          application_type_help_html: 'Der OAuth-Client-Typ gemäss <a href="%{client_type_link}" target="_blank">RFC 6749, Abschnitt 2.1</a>. Öffentliche Clients müssen den PKCE-Ablauf gemäss <a href="%{pkce_link}" target="_blank">RFC 7636</a> implementieren. '
+          refresh_tokens_help_html: 'Refresh-Tokens sind nützlich, wenn ein Token eine längere Lebensdauer benötigt, als für das Access-Token vorgesehen ist. Beachten Sie, dass <strong>Refresh-Tokens mit Vorsicht verwendet werden sollten</strong>, da sie die Sicherheit Ihrer Nutzenden beeinträchtigen können. '
+          scopes_explanation:
+            "api:read": Ermöglicht es, über die GraphQL-API Abfragen (Query-Operationen) durchzuführen.
+            "api:write": Ermöglicht es, über die GraphQL-API Änderungsoperationen (Mutation-Operationen) durchzuführen.
+            profile: Gewährt Zugriff auf die eigenen Profildetails. Dieser Scope genügt, wenn die OAuth-Anwendung nur als Identitätsanbieter oder Authentifizierungsdienst genutzt wird.
+            user: Ermöglicht es, bei Aufrufen der GraphQL-API mit dem angegebenen Token als die angemeldete Person zu agieren. Dies ist für alle api:write-Operationen sowie für api:read-Operationen erforderlich, die Informationen über die aktuell angemeldete Person benötigen.
+          scopes_help_html: |
+            Die ausgewählten Scopes stehen den verbundenen Anwendungen zur Verfügung, um sie während des Autorisierungsprozesses anzufordern. Beim Anmelden über OAuth werden der jeweiligen Person Details zur Autorisierungsanfrage angezeigt.
+                  <br>
+                  Unterschiedliche Scopes bieten unterschiedliche Funktionen für die angemeldete Person über die gewährten Access-Tokens.
+                  <br>
+                  <strong>Hinweis:</strong> Wenn Sie Ihre Nutzenden nur gegenüber Ihren externen Anwendungen authentifizieren müssen, benötigen Sie lediglich den Scope <strong>profile</strong>. Anwendungen, die mit der Decidim-API interagieren, benötigen zusätzliche Scopes.
           select_organization: Organisation wählen
         index:
           confirm_delete: Möchten Sie diese Anwendung wirklich löschen?
@@ -200,6 +262,7 @@ de:
           confirm_resend_invitation: Sind Sie sicher, das Sie die Einladung erneut senden möchten?
           resend_invitation: Einladung erneut senden
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
+          short_name_hint: Kurzname für die Progressive Web App. Er darf maximal 12 Zeichen umfassen.
           title: Organisation bearbeiten
         file_upload_settings:
           content_types:
@@ -219,6 +282,7 @@ de:
           intro: |
             Bitte seien Sie besonders vorsichtig, wenn Sie überlegen, diese Einstellungen zu ändern. Je weniger Sie erlauben, desto besser.
             Wenn bestimmte Dateierweiterungen oder MIME-Typen zugelassen werden, können Benutzer Sicherheitsrisiken ausgesetzt werden und es kann auch die Zugänglichkeit der Website beeinträchtigen.
+        header_snippets_help_html: Verwenden Sie dieses Feld, um Inhalte im HTML-Head-Bereich zu ergänzen. Der häufigste Anwendungsfall ist die Einbindung von Drittanbieterdiensten, die zusätzliches JavaScript oder CSS benötigen. Sie können es auch verwenden, um zusätzliche Meta-Tags ins HTML einzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten dargestellt wird, nicht im Admin-Bereich. Wenn der Code mit externen APIs interagiert oder nicht den Sicherheitsrichtlinien der Anwendung entspricht, muss die Content Security Policy angepasst werden. Weitere Informationen finden Sie <a href="https://docs.decidim.org/en/develop/customize/content_security_policy">auf der Dokumentationsseite</a> .
         index:
           title: Organisationen
         new:
@@ -228,6 +292,7 @@ de:
           organization_admin_email_hint: Wir senden Ihnen eine E-Mail an diese Adresse, die Sie bestätigen müssen um Ihr Passwort einrichten zu können.
           reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet.
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein.
+          short_name_hint: Kurzname für die Progressive Web App. Er darf maximal 12 Zeichen umfassen.
           title: Neue Organisation
         omniauth_settings:
           decidim:

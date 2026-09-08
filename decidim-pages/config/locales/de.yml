@@ -24,7 +24,7 @@ de:
           component: Die Komponente, zu der die Seite gehört
           created_at: Erstellungsdatum dieser Seite
           id: Die eindeutige Bezeichnung des Seite
-          participatory_space: Zu welchem Bereich diese Seite gehört (z.B. Partizipationsprozesse oder Gremien)
+          participatory_space: Zu welchem Bereich diese Seite gehört (z.B. Partizipationsprozesse oder Versammlungen)
           title: Der Seitentitel
           updated_at: Letztes Aktualisierungsdatum dieser Seite
           url: Die URL für diese Seite

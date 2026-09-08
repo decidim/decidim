@@ -36,17 +36,21 @@ cs:
     elections:
       actions:
         confirm_delete_election: Opravdu chcete odstranit tuto volbu?
+        confirm_unpublish_election: Opravdu chcete zrušit zveřejnění těchto voleb?
         deleted_election_info: Smazané volby nejsou zobrazeny v seznamu. Můžete je zobrazit kliknutím na tlačítko níže.
         edit: Upravit volby
         new: Nové volby
         preview: Náhled
         title: Akce
+        view: Zobrazit volby
         view_deleted_elections: Zobrazit odstraněné volby
       admin:
         census:
           edit:
+            choose_census: Vyberte typ seznamu voličů, který chcete použít pro tyto volby
             created_at: Vytvořeno v
             identifier: Identifikátor uživatele
+            title: Upravit volby
         dashboard:
           calendar:
             end_at: 'Čas ukončení:'
@@ -116,6 +120,8 @@ cs:
             publish: Publikovat
             results_availability:
               after_end: Po ukončení voleb
+              per_question: Otázka po otázce
+              per_question_help: ručně zpracovat hlasování a publikovat výsledky pro každou otázku
               real_time: V reálném čase
               title: Dostupnost výsledků
             save: Uložit a pokračovat
@@ -152,11 +158,13 @@ cs:
             success: Hlasování bylo úspěšně aktivováno.
           end:
             invalid: Vyskytl se problém s ukončením voleb.
+            success: Volba byla úspěšně ukončena.
           publish_results:
             invalid: Při publikování výsledků došlo k chybě.
             success: Výsledky byly úspěšně zveřejněny.
           start:
             invalid: Vyskytl se problém při zahájení voleb.
+            success: Volba byla úspěšně zahájena.
           unknown: Neznámý stav
       admin_log:
         election:
@@ -260,12 +268,14 @@ cs:
           failed: Vaši identitu nelze ověřit. Zkontrolujte zadané informace a zkuste to znovu.
           form_title: Ověřte svou identitu
         confirm:
+          cast_vote: Odevzdat hlas
           edit_vote: Upravte svůj hlas
           not_answered: Na tuto otázku jste neodpověděl.
           title: Potvrďte svůj hlas
         not_authorized: V těchto volbách nemáte oprávnění volit.
         question:
           back: Zpět
+          cast_vote: Odevzdat hlas
           next: Další
     statistics:
       elections_count: Volby

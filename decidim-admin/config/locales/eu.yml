@@ -973,6 +973,10 @@ eu:
           logos:
             organization_logos: Erakundearen logoak
             preview: Aurreikusi
+          machine_translation_display_priority:
+            options:
+              original: Sistemak informazioa egileak erabilitako hizkuntzan erakusten du. Administratzailetik eskuzko itzulpenekin sortutako edukiak, administratzailera itzulitako balioak bistaratuko ditu.
+              translation: Sistemak itzulpen bat erakutsiko du erabilgarri badago, bestela jatorrizko hizkuntza erabiliko da.
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
           social_handlers: Soziala
           twitter: X

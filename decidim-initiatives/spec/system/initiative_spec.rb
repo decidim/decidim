@@ -149,6 +149,14 @@ describe "Initiative" do
           expect(page).to have_no_content("0 comments")
         end
       end
+
+      context "when the description contains an embedded video" do
+        let(:base_initiative) do
+          create(:initiative, organization:, state:, description:)
+        end
+
+        it_behaves_like "has embedded video in description", :description
+      end
     end
 
     context "when I am the author of the initiative" do
