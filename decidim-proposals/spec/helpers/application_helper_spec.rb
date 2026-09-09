@@ -185,6 +185,71 @@ module Decidim
           expect(translated_values).to contain_exactly("All", "Proposals", "Amendments")
         end
       end
+
+      describe "#filter_origin_values" do
+        subject { helper.filter_origin_values }
+
+        let(:organization) { create(:organization) }
+        let(:component) { create(:proposal_component, organization:) }
+        let(:origin_values) { subject.node.map(&:value) }
+
+        before do
+          allow(helper).to receive(:current_component).and_return(component)
+          allow(helper).to receive(:component_settings) { component.settings }
+        end
+
+        context "when there are no proposals" do
+          it { is_expected.to be_nil }
+        end
+
+        context "when there are only official proposals" do
+          before { create(:proposal, :official, component:) }
+
+          it "includes only the official origin" do
+            expect(origin_values).to eq(%w(official))
+          end
+        end
+
+        context "when there are only participant proposals" do
+          before { create(:proposal, component:) }
+
+          it "includes only the participants origin" do
+            expect(origin_values).to eq(%w(participants))
+          end
+        end
+
+        context "when there are only meeting proposals" do
+          before { create(:proposal, :official_meeting, component:) }
+
+          it "includes only the meeting origin" do
+            expect(origin_values).to eq(%w(meeting))
+          end
+        end
+
+        context "when there are proposals from all origins" do
+          before do
+            create(:proposal, :official, component:)
+            create(:proposal, component:)
+            create(:proposal, :official_meeting, component:)
+          end
+
+          it "includes all origins" do
+            expect(origin_values).to contain_exactly("official", "participants", "meeting")
+          end
+        end
+
+        context "when official proposals are disabled" do
+          before do
+            component.update!(settings: { official_proposals_enabled: false })
+            create(:proposal, :official, component:)
+            create(:proposal, component:)
+          end
+
+          it "does not include the official origin" do
+            expect(origin_values).to eq(%w(participants))
+          end
+        end
+      end
     end
   end
 end

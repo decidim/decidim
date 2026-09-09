@@ -149,14 +149,24 @@ module Decidim
       def filter_origin_values
         scope = "decidim.proposals.application_helper.filter_origin_values"
         origin_values = []
-        origin_values << TreePoint.new("official", t("official", scope:)) if component_settings.official_proposals_enabled
-        origin_values << TreePoint.new("participants", t("participants", scope:))
-        origin_values << TreePoint.new("meeting", t("meetings", scope:))
+        origin_values << TreePoint.new("official", t("official", scope:)) if component_settings.official_proposals_enabled && proposals_with_origin?(:official)
+        origin_values << TreePoint.new("participants", t("participants", scope:)) if proposals_with_origin?(:participants)
+        origin_values << TreePoint.new("meeting", t("meetings", scope:)) if proposals_with_origin?(:meeting)
+
+        return if origin_values.empty?
 
         TreeNode.new(
           TreePoint.new("", t("all", scope:)),
           origin_values
         )
+      end
+
+      def proposals_with_origin?(origin)
+        filterable_proposals.public_send("with_#{origin}_origin").exists?
+      end
+
+      def filterable_proposals
+        @filterable_proposals ||= Decidim::Proposals::Proposal.where(component: current_component).published.not_hidden.not_withdrawn
       end
 
       def filter_proposals_state_values

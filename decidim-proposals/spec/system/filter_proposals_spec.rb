@@ -60,6 +60,7 @@ describe "Filter Proposals", :slow do
       end
 
       it "can be filtered by origin" do
+        create(:proposal, :official, component:)
         visit_component
 
         within "form.new_filter" do
@@ -96,6 +97,63 @@ describe "Filter Proposals", :slow do
           expect(page).to have_css("[id^='proposals__proposal']", count: 2)
         end
       end
+
+      context "when there are no proposals" do
+        it "does not show the origin filter" do
+          visit_component
+
+          within "form.new_filter" do
+            expect(page).to have_no_text(/Origin/i)
+          end
+        end
+      end
+
+      context "when there are no official proposals" do
+        it "does not show the official origin option" do
+          create(:proposal, component:)
+          visit_component
+
+          within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+            expect(page).to have_no_text(/Official/i)
+            expect(page).to have_text(/Participants/i)
+          end
+        end
+      end
+
+      context "when there are no participant proposals" do
+        it "does not show the participants origin option" do
+          create(:proposal, :official, component:)
+          visit_component
+
+          within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+            expect(page).to have_text(/Official/i)
+            expect(page).to have_no_text(/Participants/i)
+          end
+        end
+      end
+
+      context "when there are no meeting proposals" do
+        it "does not show the meetings origin option" do
+          create(:proposal, :official, component:)
+          create(:proposal, component:)
+          visit_component
+
+          within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+            expect(page).to have_no_text(/Meetings/i)
+          end
+        end
+      end
+
+      context "when there are meeting proposals" do
+        it "shows the meetings origin option" do
+          create(:proposal, :official_meeting, component:)
+          visit_component
+
+          within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+            expect(page).to have_text(/Meetings/i)
+          end
+        end
+      end
     end
 
     context "when official_proposals setting is not enabled" do
@@ -104,6 +162,7 @@ describe "Filter Proposals", :slow do
       end
 
       it "cannot be filtered by origin" do
+        create(:proposal, component:)
         visit_component
 
         within "form.new_filter" do
@@ -114,6 +173,7 @@ describe "Filter Proposals", :slow do
   end
 
   it "collapses the accordions on click" do
+    create(:proposal, :official, component:)
     visit_component
 
     within ".layout-2col__aside" do
