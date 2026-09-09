@@ -124,6 +124,49 @@ describe Decidim::Meetings::MeetingsController do
       end
     end
 
+    context "with previous_space parameter" do
+      let(:other_process) { create(:participatory_process, organization:) }
+
+      it "accepts valid participatory space class names" do
+        get :show, params: { id: meeting.id, previous_space: "Decidim::ParticipatoryProcess##{other_process.id}" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+      end
+
+      it "rejects non-participatory space class names" do
+        get :show, params: { id: meeting.id, previous_space: "Decidim::User#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
+      it "rejects arbitrary class names" do
+        get :show, params: { id: meeting.id, previous_space: "Decidim::System::Admin#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
+      it "rejects non-existent class names" do
+        get :show, params: { id: meeting.id, previous_space: "NonExistent::Class#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
+      it "rejects blank class names" do
+        get :show, params: { id: meeting.id, previous_space: "#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+    end
+
     context "with signed in user" do
       before { sign_in user }
 
