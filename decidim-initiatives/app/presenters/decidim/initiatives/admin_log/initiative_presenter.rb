@@ -15,9 +15,15 @@ module Decidim
       class InitiativePresenter < Decidim::Log::BasePresenter
         private
 
+        # i18n-tasks-use t("decidim.initiatives.admin_log.initiative.publish")
+        # i18n-tasks-use t("decidim.initiatives.admin_log.initiative.unpublish")
+        # i18n-tasks-use t("decidim.initiatives.admin_log.initiative.update")
+        # i18n-tasks-use t("decidim.initiatives.admin_log.initiative.send_to_technical_validation")
+        # i18n-tasks-use t("decidim.initiatives.admin_log.initiative.soft_delete")
+        # i18n-tasks-use t("decidim.initiatives.admin_log.initiative.restore")
         def action_string
           case action
-          when "publish", "unpublish", "update", "send_to_technical_validation"
+          when "publish", "unpublish", "update", "send_to_technical_validation", "soft_delete", "restore"
             "decidim.initiatives.admin_log.initiative.#{action}"
           else
             super

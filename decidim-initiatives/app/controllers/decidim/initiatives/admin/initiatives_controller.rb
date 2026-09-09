@@ -12,6 +12,7 @@ module Decidim
         include Decidim::Initiatives::TypeSelectorOptions
         include Decidim::Initiatives::Admin::Filterable
         include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
+        include Decidim::Admin::HasTrashableResources
 
         helper ::Decidim::Admin::ResourcePermissionsHelper
         helper Decidim::Initiatives::InitiativeHelper
@@ -196,6 +197,18 @@ module Decidim
 
         def collection
           @collection ||= ManageableInitiatives.for(current_user)
+        end
+
+        def trashable_deleted_resource_type
+          :initiative
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= current_initiative
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
         end
 
         def pdf_signature_service

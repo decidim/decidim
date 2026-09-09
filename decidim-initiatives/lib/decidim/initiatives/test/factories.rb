@@ -123,6 +123,7 @@ FactoryBot.define do
     author { create(:user, :confirmed, organization:, skip_injection:) }
     state { "open" }
     published_at { Time.current.utc }
+    deleted_at { nil }
     signature_type { "online" }
     signature_start_date { Date.current - 1.day }
     signature_end_date { Date.current + 120.days }
@@ -242,6 +243,10 @@ FactoryBot.define do
           )
         end
       end
+    end
+
+    trait :trashed do
+      deleted_at { Time.current }
     end
   end
 

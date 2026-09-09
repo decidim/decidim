@@ -27,6 +27,7 @@ module Decidim
     include Decidim::FilterableResource
     include Decidim::Reportable
     include Decidim::ShareableWithToken
+    include Decidim::SoftDeletable
 
     translatable_fields :title, :description, :answer
 

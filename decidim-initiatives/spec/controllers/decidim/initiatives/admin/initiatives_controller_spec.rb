@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 describe Decidim::Initiatives::Admin::InitiativesController do
   routes { Decidim::Initiatives::AdminEngine.routes }
@@ -16,6 +17,17 @@ describe Decidim::Initiatives::Admin::InitiativesController do
     initiative.author.update(admin_terms_accepted_at: Time.current)
     initiative.committee_members.approved.first.user.update(admin_terms_accepted_at: Time.current)
     created_initiative.author.update(admin_terms_accepted_at: Time.current)
+  end
+
+  context "when soft deletable" do
+    before do
+      sign_in admin_user, scope: :user
+    end
+
+    it_behaves_like "a soft-deletable space",
+                    space_name: :initiative,
+                    space_path: :initiatives_path,
+                    trash_path: :manage_trash_initiatives_path
   end
 
   context "when index" do

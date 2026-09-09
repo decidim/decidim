@@ -78,8 +78,10 @@ en:
     admin:
       actions:
         cannot_answer: Cannot answer this initiative
+        confirm_delete_initiative: Are you sure you want to delete this initiative? If you change your mind, you can restore it later.
         new_initiative_type: New initiative type
         new_initiative_type_scope: New initiative type scope
+        view_deleted_initiatives: View deleted initiatives
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -154,6 +156,8 @@ en:
       taxonomy_filters:
         space_filter_for:
           initiatives: All initiatives
+      tooltips:
+        deleted_initiatives_info: An initiative can only be deleted if status is "Unpublished".
     download_your_data:
       show:
         initiatives: Initiatives export
@@ -276,6 +280,8 @@ en:
             edit: Edit
             new: New
             photos: Photos
+          manage_trash:
+            title: Deleted initiatives
           publish:
             success: The initiative has been successfully published.
           reject:
@@ -337,7 +343,9 @@ en:
       admin_log:
         initiative:
           publish: "%{user_name} published the %{resource_name} initiative"
+          restore: "%{user_name} restored the %{resource_name} initiative"
           send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
+          soft_delete: "%{user_name} moved to trash the %{resource_name} initiative"
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
         initiatives_settings:

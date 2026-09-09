@@ -1,0 +1,30 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+</div>
+<div class="card" id="initiatives">
+  <%= admin_filter_selector(:initiatives) %>
+</div>
+<div class="table-stacked">
+  <table class="table-list">
+    <thead>
+      <tr>
+        <th class="!text-left"><%= t("models.initiatives.fields.title", scope: "decidim.admin") %></th>
+        <th><%= t("models.initiatives.fields.state", scope: "decidim.admin") %></th>
+        <th><%= t("models.initiatives.fields.supports_count", scope: "decidim.admin") %></th>
+        <th><%= t("models.initiatives.fields.created_at", scope: "decidim.admin") %></th>
+        <th><%= t("models.initiatives.fields.published_at", scope: "decidim.admin") %></th>
+        <th><%= t("decidim.initiatives.admin.initiatives.index.actions_title") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "decidim/initiatives/admin/initiatives/initiative_row",
+                 collection: trashable_deleted_collection,
+                 as: :initiative,
+                 locals: { view: :deleted } %>
+    </tbody>
+  </table>
+</div>

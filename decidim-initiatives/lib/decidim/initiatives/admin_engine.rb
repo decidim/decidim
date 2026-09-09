@@ -35,9 +35,12 @@ module Decidim
               get :export_pdf_signatures
               post :accept
               delete :reject
+              patch :soft_delete
+              patch :restore
             end
 
             collection do
+              get :manage_trash, to: "initiatives#manage_trash"
               post :export
             end
 
