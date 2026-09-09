@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# Keep this after the RAILS_ENV definition because some of the dev
+# engines/railties call the "path" method which would set RAILS_ENV to
+# "development".
+# ENV["RAILS_ENV"] ||= "test"
+
 require "decidim/dev/railtie"
 
 require "decidim/dev/admin"
