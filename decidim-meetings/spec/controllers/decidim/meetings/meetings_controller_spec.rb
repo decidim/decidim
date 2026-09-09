@@ -132,6 +132,15 @@ describe Decidim::Meetings::MeetingsController do
 
         expect(subject).to render_template(:show)
         expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to eq(
+          I18n.t(
+            "meetings.show.redirect_notice",
+            scope: "decidim.meetings",
+            previous_space_url: request.referer,
+            previous_space_name: decidim_escape_translated(other_process.title),
+            current_space_name: decidim_escape_translated(participatory_process.title)
+          )
+        )
       end
 
       it "rejects non-participatory space class names" do
