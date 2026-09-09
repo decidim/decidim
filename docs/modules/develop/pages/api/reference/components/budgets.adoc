@@ -7,6 +7,7 @@ In the budgets module we are providing a few mutations that we find useful for d
 * xref:develop:api/reference/components/budgets/create.adoc[Create Budget]
 * xref:develop:api/reference/components/budgets/delete.adoc[Delete Budget]
 * xref:develop:api/reference/components/budgets/update.adoc[Update Budget]
+* xref:develop:api/reference/components/budgets/projects.adoc[Project mutations]
 * xref:develop:api/reference/components/budgets/projects/create.adoc[Create Project]
-* xref:develop:api/reference/components/budgets/projects/update.adoc[Update Project]
 * xref:develop:api/reference/components/budgets/projects/delete.adoc[Delete Project]
+* xref:develop:api/reference/components/budgets/projects/update.adoc[Update Project]

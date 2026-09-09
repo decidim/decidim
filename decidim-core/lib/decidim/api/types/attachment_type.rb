@@ -7,8 +7,10 @@ module Decidim
       description "A file attachment"
       implements Decidim::Core::TimestampsInterface
 
+      field :collection, Decidim::Core::AttachmentCollectionType, "The attachment collection this resource belongs to", method: :attachment_collection, null: true
       field :content_type, GraphQL::Types::String, "The content type of this attachment (could be 'text/uri-list', 'image/jpeg', or any allowed content types)", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description of this attachment", null: false
+      field :file_blob, Decidim::Core::BlobType, "The file blob for this attachment", null: true
       field :file_size, GraphQL::Types::String, "The file size of this attachment", null: true
       field :id, GraphQL::Types::ID, "Internal ID of this attachment", null: false
       field :link, GraphQL::Types::String, "The attached link of this attachment", null: true

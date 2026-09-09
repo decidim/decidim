@@ -1,0 +1,66 @@
+= Result mutations
+
+When you access a result through the `result(id:)` entry point, you have the following available mutations.
+
+== Fields
+
+[source]
+----
+• delete                            - Deletes a result
+• update                            - Updates a result
+• create_milestone                  - Creates a milestone
+• delete_milestone                  - Deletes a milestone
+• update_milestone                  - Updates a milestone
+• create_attachment                 - Creates an attachment for this result
+• delete_attachment                 - Deletes a result attachment
+• update_attachment                 - Updates a result attachment
+• create_attachment_collection      - Creates an attachment collection for this result
+• delete_attachment_collection      - Deletes an attachment collection from this result
+• update_attachment_collection      - Updates an attachment collection for this result
+----
+
+== Handling Attachments and Attachment Collections
+
+You can read how to properly handle the Attachment and Attachment Collections by following the links below.
+
+* xref:develop:api/reference/uploads/attachments/create.adoc[create_attachment]
+* xref:develop:api/reference/uploads/attachments/delete.adoc[delete_attachment]
+* xref:develop:api/reference/uploads/attachments/update.adoc[update_attachment]
+* xref:develop:api/reference/uploads/attachment_collections/create.adoc[create_attachment_collection]
+* xref:develop:api/reference/uploads/attachment_collections/delete.adoc[delete_attachment_collection]
+* xref:develop:api/reference/uploads/attachment_collections/update.adoc[update_attachment_collection]
+
+== Sample request
+
+[source,graphql]
+----
+mutation updateResult($componentId: ID!, $resultId: ID!, $input: UpdateResultInput!){
+  component(id: $componentId){
+    ... on AccountabilityMutation {
+      result(id: $resultId){
+        update(input: $input){
+          id
+        }
+      }
+    }
+  }
+}
+----
+
+Example of submitted variables
+
+[source,json]
+----
+{
+  "componentId": "3",
+  "resultId": "5",
+  "input": {
+    "id": "5",
+    "attributes": {
+      "title": {
+        "en": "Result title changed from API"
+      }
+    }
+  }
+}
+----
