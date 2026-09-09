@@ -1704,6 +1704,8 @@ eu:
       login_modal:
         please_log_in: Mesedez, hasi saioa
         sign_up: Kontu bat sortu
+      mentions:
+        search_prompt: Parte-hartzaileak bilatzeko mota
       mentions_modal:
         remove_recipient: '%{name} Hartzailea ezabatu'
       progress: Aurrerapena 
