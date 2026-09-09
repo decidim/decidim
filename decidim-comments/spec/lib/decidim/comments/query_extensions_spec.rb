@@ -8,7 +8,7 @@ describe Decidim::Comments::QueryExtensions do
   let(:context) do
     {
       current_organization: organization,
-      current_user: current_user,
+      current_user:,
       scopes: Doorkeeper::OAuth::Scopes.from_string("api:read"),
       can_introspect: false
     }
@@ -35,7 +35,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).to be_present
         expect(result["errors"].first["message"]).to eq("Invalid commentable type")
       end
@@ -48,7 +48,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).to be_present
         expect(result["errors"].first["message"]).to eq("Invalid commentable type")
       end
@@ -61,7 +61,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).to be_present
         expect(result["errors"].first["message"]).to eq("Invalid commentable type")
       end
@@ -74,7 +74,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).to be_present
         expect(result["errors"].first["message"]).to eq("Invalid commentable type")
       end
@@ -87,7 +87,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).to be_present
         expect(result["errors"].first["message"]).to eq("Invalid commentable type")
       end
@@ -102,7 +102,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).not_to be_present
       end
 
@@ -114,7 +114,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).not_to be_present
       end
 
@@ -126,7 +126,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).not_to be_present
       end
 
@@ -138,7 +138,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).not_to be_present
       end
 
@@ -150,7 +150,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).not_to be_present
       end
 
@@ -162,7 +162,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).not_to be_present
       end
 
@@ -174,7 +174,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).not_to be_present
       end
 
@@ -186,7 +186,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).not_to be_present
       end
     end
@@ -200,7 +200,7 @@ describe Decidim::Comments::QueryExtensions do
           toggleTranslations: false
         }
 
-        result = Decidim::Api::Schema.execute(query, variables: variables, context: context)
+        result = Decidim::Api::Schema.execute(query, variables:, context:)
         expect(result["errors"]).to be_present
         expect(result["errors"].first["message"]).to include("is not a valid locale")
       end
