@@ -514,6 +514,11 @@ Mind that this depends on your environment, for instance you could also need to 
 |30
 |No
 
+|DECIDIM_VERIFICATION_CODE_EXPIRY_MINUTES
+|Time window (in number of minutes) after which a verification code expires. Applies only to SMS verification.
+|10
+|No
+
 |DECIDIM_UNCONFIRMED_ACCESS_FOR
 |Time window (in number of days) were users can access the website even if their email is not confirmed.
 |0

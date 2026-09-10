@@ -351,6 +351,7 @@ en:
             title: Request your verification code
           update:
             error: Your verification code does not match ours. Please double-check the SMS we sent you.
+            expired: The verification code has expired. Please request a new one.
             locked: Too many failed attempts. Please try again later or request a new code.
             success: Congratulations. You have been successfully verified.
   errors:

@@ -18,6 +18,7 @@ module Decidim
       # - :ok when everything is valid.
       # - :invalid if the handler was not valid and we could not proceed.
       # - :locked if too many failed attempts and the authorization is locked.
+      # - :expired if the verification code has expired.
       #
       # Returns nothing.
       def call
@@ -28,6 +29,8 @@ module Decidim
         authorization.clear_expired_lock!
 
         return locked! if authorization.locked_for_confirmation?
+
+        return expired! if code_expired?
 
         if confirmation_successful?
           valid!
@@ -66,6 +69,20 @@ module Decidim
 
       def locked!
         broadcast(:locked)
+      end
+
+      def code_expired?
+        sent_at = authorization.verification_metadata["code_sent_at"]
+        return false unless sent_at
+
+        sent_at = Time.parse(sent_at.to_s) if sent_at.is_a?(String)
+        sent_at < Decidim.verification_code_expiry_minutes.minutes.ago
+      end
+
+      def expired!
+        authorization.update!(verification_metadata: {})
+        authorization.reset_failed_attempts!
+        broadcast(:expired)
       end
 
       attr_reader :authorization, :form

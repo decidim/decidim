@@ -59,6 +59,11 @@ module Decidim
               flash.now[:alert] = t("authorizations.update.locked", scope: "decidim.verifications.sms")
               render :edit, status: :too_many_requests
             end
+
+            on(:expired) do
+              flash[:alert] = t("authorizations.update.expired", scope: "decidim.verifications.sms")
+              redirect_to redirect_url || decidim_verifications.authorizations_path
+            end
           end
         end
 

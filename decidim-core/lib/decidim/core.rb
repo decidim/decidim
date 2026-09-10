@@ -482,6 +482,9 @@ module Decidim
   # Time window after which a locked verification is automatically unlocked.
   mattr_accessor :verification_unlock_in, default: Decidim::Env.new("DECIDIM_VERIFICATION_UNLOCK_IN", "30").to_i.minutes
 
+  # Time window (in minutes) after which a verification code expires (SMS only).
+  mattr_accessor :verification_code_expiry_minutes, default: Decidim::Env.new("DECIDIM_VERIFICATION_CODE_EXPIRY_MINUTES", "10").to_i
+
   # Time window were users can access the website even if their email is not confirmed.
   mattr_accessor :unconfirmed_access_for, default: Decidim::Env.new("DECIDIM_UNCONFIRMED_ACCESS_FOR", "0").to_i.days
 
