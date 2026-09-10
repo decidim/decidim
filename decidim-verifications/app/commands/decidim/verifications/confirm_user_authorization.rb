@@ -75,7 +75,7 @@ module Decidim
         sent_at = authorization.verification_metadata["code_sent_at"]
         return false unless sent_at
 
-        sent_at = Time.parse(sent_at.to_s) if sent_at.is_a?(String)
+        sent_at = Time.zone.parse(sent_at.to_s) if sent_at.is_a?(String)
         sent_at < Decidim.verification_code_expiry_minutes.minutes.ago
       end
 

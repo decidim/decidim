@@ -25,7 +25,7 @@ describe "Rack::Attack configuration" do
     end
 
     it "matches SMS authorization path with different locales" do
-      %w[en es ca fr de].each do |locale|
+      %w(en es ca fr de).each do |locale|
         request = request_class.new("/#{locale}/sms/authorizations", "1.2.3.4", :put, {})
         expect(request.path).to match(%r{^/[^/]+/sms/authorizations$})
         expect(request).to be_put
@@ -33,7 +33,7 @@ describe "Rack::Attack configuration" do
     end
 
     it "matches SMS authorization path with hyphenated locales" do
-      %w[es-MX pt-BR zh-CN en-US].each do |locale|
+      %w(es-MX pt-BR zh-CN en-US).each do |locale|
         request = request_class.new("/#{locale}/sms/authorizations", "1.2.3.4", :put, {})
         expect(request.path).to match(%r{^/[^/]+/sms/authorizations$})
         expect(request).to be_put
@@ -75,7 +75,7 @@ describe "Rack::Attack configuration" do
     end
 
     it "matches postal letter authorization path with different locales" do
-      %w[en es ca fr de].each do |locale|
+      %w(en es ca fr de).each do |locale|
         request = request_class.new("/#{locale}/postal_letter/authorizations", "1.2.3.4", :put, {})
         expect(request.path).to match(%r{^/[^/]+/postal_letter/authorizations$})
         expect(request).to be_put
@@ -83,7 +83,7 @@ describe "Rack::Attack configuration" do
     end
 
     it "matches postal letter authorization path with hyphenated locales" do
-      %w[es-MX pt-BR zh-CN en-US].each do |locale|
+      %w(es-MX pt-BR zh-CN en-US).each do |locale|
         request = request_class.new("/#{locale}/postal_letter/authorizations", "1.2.3.4", :put, {})
         expect(request.path).to match(%r{^/[^/]+/postal_letter/authorizations$})
         expect(request).to be_put
