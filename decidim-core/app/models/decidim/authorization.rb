@@ -99,10 +99,12 @@ module Decidim
     end
 
     def record_failed_attempt!
-      increment!(:failed_attempts) # rubocop:disable Rails/SkipsModelValidations
-      return unless failed_attempts > Decidim.verification_max_failed_attempts
+      with_lock do
+        increment!(:failed_attempts) # rubocop:disable Rails/SkipsModelValidations
+        return unless failed_attempts > Decidim.verification_max_failed_attempts
 
-      update!(locked_at: Time.current)
+        update!(locked_at: Time.current)
+      end
     end
 
     def reset_failed_attempts!

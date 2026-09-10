@@ -199,6 +199,25 @@ module Decidim
           expect(authorization.reload.locked_at).to be_nil
         end
       end
+
+      context "with concurrent calls" do
+        let!(:authorization) { create(:authorization, :pending, failed_attempts: 0) }
+
+        it "atomically increments and locks when threshold is reached" do
+          threads = Decidim.verification_max_failed_attempts.times.map do
+            Thread.new do
+              auth = Decidim::Authorization.find(authorization.id)
+              auth.record_failed_attempt!
+            end
+          end
+
+          threads.each(&:join)
+
+          reloaded = authorization.reload
+          expect(reloaded.failed_attempts).to eq(Decidim.verification_max_failed_attempts)
+          expect(reloaded.locked_at).to be_present
+        end
+      end
     end
 
     describe "#reset_failed_attempts!" do
