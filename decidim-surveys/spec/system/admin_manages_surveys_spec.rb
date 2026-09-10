@@ -244,7 +244,7 @@ describe "Admin manages surveys" do
     let!(:question) do
       create(:questionnaire_question, questionnaire:)
     end
-    let!(:response) { create(:response, questionnaire:, question:) }
+    let!(:response) { create_list(:response, 10, questionnaire:, question:) }
 
     before do
       visit manage_questionnaire_path
@@ -281,7 +281,7 @@ describe "Admin manages surveys" do
       it "displays the warning modal before deleting all responses" do
         click_on "Delete all responses"
 
-        expect(page).to have_text("Are you sure you want to delete the #{questionnaire.responses.count} response? This action cannot be undone.")
+        expect(page).to have_text("Are you sure you want to delete the #{questionnaire.responses.count} responses? This action cannot be undone.")
       end
 
       it "displays the flash notice after deleting all responses" do
