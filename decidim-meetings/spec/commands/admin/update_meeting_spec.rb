@@ -33,6 +33,7 @@ module Decidim::Meetings
     let(:reminder_enabled) { true }
     let(:send_reminders_before_hours) { 50 }
     let(:reminder_message_custom_content) { { "en" => "Custom reminder message!", "es" => "Mensaje de recordatorio personalizado", "ca" => "Missatge de recordatori personalitzat" } }
+    let(:title) { { en: "title" } }
     let(:description) { { en: "description" } }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
@@ -41,7 +42,7 @@ module Decidim::Meetings
     let(:form) do
       double(
         invalid?: invalid,
-        title: { en: "title" },
+        title:,
         description:,
         location: { en: "location" },
         location_hints: { en: "location_hints" },
@@ -129,6 +130,18 @@ module Decidim::Meetings
           subject.call
 
           expect(meeting.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+        end
+      end
+
+      context "when title has a user mention" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:) }
+        let(:title) { { en: "title mentioning @#{mentioned_user.nickname}" } }
+
+        it "does not rewrite the mention to the mentioned user GID" do
+          subject.call
+
+          expect(translated(meeting.title)).not_to include(mentioned_user.to_global_id.to_s)
+          expect(translated(meeting.title)).to include("@#{mentioned_user.nickname}")
         end
       end
 
