@@ -451,8 +451,6 @@ module Decidim::AssetRouter
         end
       end
 
-      # This is used by the generator specs to check that some default
-      # configurations are set correctly.
       context "with nil" do
         let(:asset) { nil }
 
