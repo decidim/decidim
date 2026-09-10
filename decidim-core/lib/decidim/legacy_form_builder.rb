@@ -89,7 +89,7 @@ module Decidim
       end
     end
 
-    # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable-next Metrics/ParameterLists
     def collection_select(attribute, collection, value_method, text_method, options = {}, html_options = {})
       field attribute, options, html_options do |html_opts|
         html_options[:autocomplete] ||= :off
@@ -97,7 +97,6 @@ module Decidim
               html_opts)
       end
     end
-    # rubocop:enable Metrics/ParameterLists
 
     def autocomplete(attribute, url, options = {})
       field attribute, options do |opts|

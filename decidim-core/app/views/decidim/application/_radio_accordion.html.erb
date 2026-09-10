@@ -12,7 +12,7 @@
   </label>
 
   <div data-controller="accordion" class="radio-accordion-section content-block__description editor-content">
-    <div id="panel-title--<%= panel_id %>" aria-hidden="true">
+    <div id="panel-title--<%= panel_id %>" aria-hidden="true" inert>
       <%= yield %>
     </div>
 
@@ -21,10 +21,6 @@
         <%= show_more_text %>
       </span>
       <%= icon "arrow-down-s-line" %>
-      <span>
-        <%= show_less_text %>
-      </span>
-      <%= icon "arrow-up-s-line" %>
     </button>
   </div>
 </div>

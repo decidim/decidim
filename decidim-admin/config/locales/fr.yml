@@ -977,6 +977,10 @@ fr:
           logos:
             organization_logos: Logos de l'organisation
             preview: Aperçu
+          machine_translation_display_priority:
+            options:
+              original: Le système affiche les informations dans la langue utilisée par l'auteur. Le contenu créé par un administrateur avec des traductions manuelles, affichera les valeurs traduites par cet administrateur.
+              translation: Le système affichera une traduction si elle est disponible, sinon la langue originale sera utilisée.
           rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: X

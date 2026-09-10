@@ -977,6 +977,10 @@ fi-pl:
           logos:
             organization_logos: Organisaation logot
             preview: Esikatsele
+          machine_translation_display_priority:
+            options:
+              original: Järjestelmä näyttää tiedot samalla kielellä kuin millä sisältö on laadittu. Hallintapaneelista luotu sisältö, joka on käännetty hallintakäyttäjän toimesta, näytetään niin kuin hallintakäyttäjä sisällön on määrittänyt.
+              translation: Järjestelmä näyttää käännöksen, jos se on saatavilla. Muussa tapauksessa sisältö näytetään alkuperäisellä kielellään.
           rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
           twitter: X
@@ -1104,6 +1108,7 @@ fi-pl:
           previous_title: Edellinen kohde
         attachments:
           add_attachments: Lisää liitteitä
+          attachment_legend: Lisää asiakirja tai kuva
           edit_attachments: Muokkaa liitteitä
       static_page_topics:
         create:

@@ -1,3 +1,4 @@
+/* eslint max-lines: ["error", 350] */
 /* global jest */
 
 import AccordionController from "src/decidim/controllers/accordion/controller";
@@ -96,6 +97,69 @@ describe("AccordionController", () => {
       trigger.dataset.controls = "nonexistent-panel";
       accordionElement.appendChild(trigger);
       expect(() => controller.fixPanelRole()).not.toThrow();
+    });
+  });
+
+  describe("_setupInertPanels", () => {
+    const nextTick = () => new Promise((resolve) => setTimeout(resolve, 0));
+
+    beforeEach(() => {
+      panel1.setAttribute("inert", "");
+      panel1.setAttribute("aria-hidden", "true");
+      panel1.setAttribute("tabindex", "-1");
+      panel2.setAttribute("aria-hidden", "true");
+    });
+
+    it("only manages panels with the inert attribute", async () => {
+      controller._setupInertPanels();
+      expect(controller._panelObservers.length).toBe(1);
+
+      panel2.setAttribute("aria-hidden", "false");
+      await nextTick();
+      expect(panel2.hasAttribute("inert")).toBe(false);
+      expect("inertManaged" in panel2.dataset).toBe(false);
+    });
+
+    it("removes inert and moves focus to the panel when it gets expanded", async () => {
+      controller._setupInertPanels();
+
+      panel1.setAttribute("aria-hidden", "false");
+      await nextTick();
+      expect(panel1.hasAttribute("inert")).toBe(false);
+      expect(document.activeElement).toBe(panel1);
+    });
+
+    it("restores inert when the panel gets collapsed again", async () => {
+      controller._setupInertPanels();
+
+      panel1.setAttribute("aria-hidden", "false");
+      await nextTick();
+      panel1.setAttribute("aria-hidden", "true");
+      await nextTick();
+      expect(panel1.hasAttribute("inert")).toBe(true);
+    });
+
+    it("keeps managing an expanded panel across teardown and setup", async () => {
+      controller._setupInertPanels();
+
+      panel1.setAttribute("aria-hidden", "false");
+      await nextTick();
+      controller._teardownInertPanels();
+
+      panel1.setAttribute("aria-hidden", "true");
+      controller._setupInertPanels();
+      expect(controller._panelObservers.length).toBe(1);
+      expect(panel1.hasAttribute("inert")).toBe(true);
+    });
+
+    it("stops syncing after teardown", async () => {
+      controller._setupInertPanels();
+      controller._teardownInertPanels();
+      expect(controller._panelObservers.length).toBe(0);
+
+      panel1.setAttribute("aria-hidden", "false");
+      await nextTick();
+      expect(panel1.hasAttribute("inert")).toBe(true);
     });
   });
 

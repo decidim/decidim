@@ -102,6 +102,11 @@ cs:
           back: Zpět na příspěvky
           button: Vytvořit
           title: Vytvořit nový příspěvek
+        orders:
+          label: Seřadit příspěvky podle
+          most_commented: Nejvíce komentované
+          random: Náhodné pořadí
+          recent: Nejnovější
     components:
       blogs:
         actions:

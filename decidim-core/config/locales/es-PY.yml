@@ -1712,6 +1712,8 @@ es-PY:
       login_modal:
         please_log_in: Por favor, inicia la sesión
         sign_up: Crea una cuenta
+      mentions:
+        search_prompt: Escribe aquí para buscar entre las participantes
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
       progress: Progreso
@@ -2091,7 +2093,6 @@ es-PY:
   layouts:
     decidim:
       announcements:
-        view_less: Mostrar menos
         view_more: Más información
       data_consent:
         details:

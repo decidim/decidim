@@ -17,7 +17,7 @@ describe MoveAnnouncementToContentBlockOnParticipatoryProcesses do
       let!(:participatory_process) { create(:participatory_process, organization:) }
 
       before do
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         participatory_process.update_column(
           :announcement,
           {
@@ -26,7 +26,6 @@ describe MoveAnnouncementToContentBlockOnParticipatoryProcesses do
             "machine_translations" => { "ca" => "Avís" }
           }
         )
-        # rubocop:enable Rails/SkipsModelValidations
       end
 
       it "creates an inactive announcement content block with settings" do

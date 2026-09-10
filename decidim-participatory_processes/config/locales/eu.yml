@@ -12,14 +12,12 @@ eu:
         duplicate_categories: Kategoriak bikoiztu
         duplicate_components: Bikoiztu osagaiak
         duplicate_landing_page_blocks: Bikoiztu lurreratze-orrien blokeak
-        duplicate_steps: Bikoiztu urratsak
         end_date: Bukaera-data
         has_members: Partaidetza-espazio honek kideak ditu
         hero_image: Orri nagusiko irudia
         import_attachments: Inportatu eranskinak
         import_categories: Inportatu kategoriak
         import_components: Inportatu osagaiak
-        import_steps: Inportatu faseak
         local_area: Antolakuntza arloa
         meta_scope: 'Metadatuak: eremua'
         participatory_process_group_id: Prozesu-multzoa

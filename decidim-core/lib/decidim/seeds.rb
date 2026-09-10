@@ -146,7 +146,7 @@ module Decidim
       existing_emails = Decidim::User.where(organization:, email: emails).pluck(:email)
 
       result = Decidim::User.transaction do
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         Decidim::User.insert_all(
           (emails - existing_emails).map do |email|
             details = generate_user_details.except(:organization, :tos_agreement, :avatar)
@@ -154,7 +154,6 @@ module Decidim
             { decidim_organization_id: organization.id, email:, encrypted_password:, **details }
           end
         )
-        # rubocop:enable Rails/SkipsModelValidations
       end
       return result.rows.map(&:first) if only_ids
 

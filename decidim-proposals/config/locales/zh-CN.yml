@@ -58,7 +58,6 @@ zh-CN:
               'false': 建议
               'true': 修 正 案
           state_eq:
-            label: 状态
             values:
               accepted: 已接受
               evaluating: 评价

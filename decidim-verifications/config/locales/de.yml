@@ -164,8 +164,8 @@ de:
           continue: Weiter
           info_renew: Wenn Sie die Daten aktualisieren möchten, fahren Sie mit der Erneuerung fort.
           title: Verifizierung erneuern
-        skip_verification: Sie können dies für jetzt und %{link}überspringen
-        start_exploring: Fang an zu erforschen
+        skip_verification: Sie können dies vorübergehend überspringen und %{link}
+        start_exploring: mit der Erkundung beginnen
       csv_census:
         admin:
           actions:
