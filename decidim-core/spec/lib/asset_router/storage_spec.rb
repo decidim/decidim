@@ -157,6 +157,15 @@ module Decidim::AssetRouter
 
       context "with an ActiveStorage::Attached" do
         it_behaves_like "working router with asset"
+
+        context "when the blob is nil" do
+          before do
+            organization.official_img_footer.attachment.destroy!
+            organization.reload
+          end
+
+          it { is_expected.to be_nil }
+        end
       end
 
       context "with an ActiveStorage::Blob" do
