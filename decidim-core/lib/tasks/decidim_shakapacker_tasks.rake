@@ -100,7 +100,11 @@ namespace :decidim do
 
   def install_decidim_npm
     decidim_npm_packages.each do |type, packages|
-      system! "npm i --save-#{type} #{packages.join(" ")}"
+      # NPM installation can sometimes fail with 404 error when a new version of
+      # one of the dependencies has just been published but the upload of the
+      # package has not yet been completed. This tries the install command
+      # multiple times to avoid this situation.
+      system! "npm i --save-#{type} #{packages.join(" ")}", attempts: 5
     end
   end
 
@@ -217,8 +221,19 @@ namespace :decidim do
     File.write(file, contents)
   end
 
-  def system!(command)
-    system("cd #{rails_app_path} && #{command}") || abort("\n== Command #{command} failed ==")
+  def system!(command, attempts: 1)
+    status = false
+    attempts.times do |n|
+      if n.positive?
+        # Doubles the wait time on every attempt, starting from 5s.
+        wait = 5 * (2**(n - 1))
+        puts "Command #{command} failed. Retrying in #{wait}s..."
+        sleep wait
+      end
+
+      break if (status = system("cd #{rails_app_path} && #{command}"))
+    end
+    status || abort("\n== Command #{command} failed ==")
   end
 end
 
