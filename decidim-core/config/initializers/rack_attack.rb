@@ -37,12 +37,12 @@ if Rails.env.production? || Rails.env.test?
 
       # Throttle SMS verification confirmation attempts per IP to 10 reqs/minute
       Rack::Attack.throttle("limit sms verification attempts per ip", limit: 10, period: 60.seconds) do |request|
-        request.ip if request.path.match?(%r{^/[^/]+/sms/authorizations$}) && request.put?
+        request.ip if request.path.match?(%r{^/[^/]+/sms/authorizations(?:\.[^/]+)?$}) && request.put?
       end
 
       # Throttle postal letter verification confirmation attempts per IP to 10 reqs/minute
       Rack::Attack.throttle("limit postal letter verification attempts per ip", limit: 10, period: 60.seconds) do |request|
-        request.ip if request.path.match?(%r{^/[^/]+/postal_letter/authorizations$}) && request.put?
+        request.ip if request.path.match?(%r{^/[^/]+/postal_letter/authorizations(?:\.[^/]+)?$}) && request.put?
       end
     end
   end
