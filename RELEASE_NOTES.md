@@ -56,7 +56,7 @@ This change is based on the GDPR regulation:
 
 You can read more about this change on PR [#11036](https://github.com/decidim/decidim/pull/11036).
 
-### 2.3. Sidekiq configuration overwrite
+### 2.2. Sidekiq configuration overwrite
 
 As we are doing changes in the default sidekiq.yml configuration and we want to do them automatically, this file will be overwritten during the upgrade process (on the `bin/rails decidim:upgrade` command).
 
@@ -68,7 +68,21 @@ sidekiq -C config/sidekiq.yml -C config/sidekiq.local.yml
 
 You can read more about this change on PR [#17596](https://github.com/decidim/decidim/pull/17596).
 
-### 2.2. [[TITLE OF THE ACTION]]
+### 2.3. Verification code security hardening
+
+The verification code confirmation flow has been enhanced with multiple security improvements. Failed attempt tracking has been moved from client-side session to server-side database storage, with three layers of protection:
+
+1. **Server-side failed attempt tracking**: Failed attempts are now tracked in the database with automatic lockout after 5 failed attempts (configurable via `DECIDIM_VERIFICATION_MAX_FAILED_ATTEMPTS`) and automatic unlock after 30 minutes (configurable via `DECIDIM_VERIFICATION_UNLOCK_IN`).
+
+2. **Code expiration**: SMS verification codes now expire after 10 minutes (configurable via `DECIDIM_VERIFICATION_CODE_EXPIRY_MINUTES`), reducing the window of opportunity for unauthorized access.
+
+3. **HTTP-level rate limiting**: Rack::Attack now throttles verification confirmation endpoints to 10 requests per minute per IP.
+
+These changes apply to all verification handlers (SMS, postal letter, ID documents, CSV census).
+
+You can read more about this change on PR [#17639](https://github.com/decidim/decidim/pull/17639).
+
+### 2.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
