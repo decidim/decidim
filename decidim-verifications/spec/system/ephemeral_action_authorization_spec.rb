@@ -78,6 +78,7 @@ describe "ephemeral action authorization" do
 
         before do
           click_on "New proposal"
+          expect(page).to have_css("form#new_authorization_handler")
 
           fill_in :authorization_handler_document_number, with: document_number
           fill_in :authorization_handler_postal_code, with: postal_code
@@ -100,6 +101,7 @@ describe "ephemeral action authorization" do
           before do
             check :authorization_handler_tos_agreement
             click_on "Send"
+            expect(page).to have_no_css("form#new_authorization_handler")
           end
 
           context "when data matches the authorization criteria" do
