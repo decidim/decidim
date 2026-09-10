@@ -6,11 +6,16 @@ export const adjustPickerPosition = (input, datePickerContainer, selector) => {
   if (getComputedStyle(parent).position === "static") {
     parent.style.position = "relative";
   }
+  const stickyFooterItem = document.querySelector(".item__edit-sticky");
 
-  const rect = input.getBoundingClientRect();
+  const availableBottom = stickyFooterItem
+    ? stickyFooterItem.getBoundingClientRect().top
+    : window.innerHeight;
+
   const calendarHeight = datePickerContainer.offsetHeight;
+  const rect = input.getBoundingClientRect();
+  const spaceBelow = availableBottom - rect.bottom;
   const spaceAbove = rect.top;
-  const spaceBelow = window.innerHeight - rect.bottom;
   const openBelow = spaceBelow >= calendarHeight || spaceBelow >= spaceAbove;
 
   if (openBelow) {
