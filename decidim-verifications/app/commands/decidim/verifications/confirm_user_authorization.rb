@@ -24,11 +24,11 @@ module Decidim
       def call
         return already_confirmed! if authorization.granted?
 
-        return invalid! unless form.valid?
-
         authorization.clear_expired_lock!
 
         return locked! if authorization.locked_for_confirmation?
+
+        return invalid! unless form.valid?
 
         return expired! if code_expired?
 

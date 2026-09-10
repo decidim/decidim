@@ -80,6 +80,20 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
       expect { subject.call }.to broadcast(:locked)
     end
 
+    context "when the form is invalid" do
+      let(:secret_code) { nil }
+
+      it "broadcasts locked instead of invalid" do
+        expect { subject.call }.to broadcast(:locked)
+      end
+
+      it "does not increment failed_attempts" do
+        initial_attempts = authorization.failed_attempts
+        subject.call
+        expect(authorization.reload.failed_attempts).to eq(initial_attempts)
+      end
+    end
+
     context "when the lock has expired" do
       before do
         authorization.update!(locked_at: Decidim.verification_unlock_in.ago - 1.minute)
