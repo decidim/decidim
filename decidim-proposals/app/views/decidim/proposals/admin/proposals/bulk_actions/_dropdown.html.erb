@@ -22,7 +22,7 @@
       </li>
     <% end %>
     <li class="dropdown__item">
-      <button type="button" class="dropdown__button" data-action="merge-proposals" data-merge-dialog="merge-proposals_drawer" data-merge-url="<%= new_proposals_merge_path %>">
+      <button type="button" class="dropdown__button" data-bulk-actions-preserve-controls="true" data-action="merge-proposals" data-merge-dialog="merge-proposals_drawer" data-merge-url="<%= new_proposals_merge_path %>">
         <%= t("decidim.proposals.admin.proposals.index.merge") %>
       </button>
     </li>
