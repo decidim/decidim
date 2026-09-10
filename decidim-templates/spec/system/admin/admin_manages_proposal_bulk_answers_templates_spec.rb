@@ -13,7 +13,7 @@ describe "Admin manages bulk proposal answer templates" do
   let!(:other_proposals) { create_list(:proposal, 3, component:) }
   let!(:emendation) { create(:proposal, component:) }
   let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
-  let!(:template) { create(:template, target: :proposal_answer, templatable: component, description:, field_values:) }
+  let!(:template) { create(:template, organization:, target: :proposal_answer, templatable: component, description:, field_values:) }
   let(:field_values) do
     { "proposal_state_id" => state.id }
   end

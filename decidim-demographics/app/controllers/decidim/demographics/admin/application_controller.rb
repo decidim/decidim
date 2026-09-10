@@ -20,7 +20,7 @@ module Decidim
         private
 
         def questionnaire
-          @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_create
+          @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_create # rubocop:disable Decidim/OrganizationScopedFinder -- questionnaire_for returns a demographic scoped to current_organization
           @questionnaire.override_edit!
           @questionnaire
         end

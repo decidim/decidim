@@ -58,7 +58,7 @@ module Decidim
         def fetch
           enforce_permission_to(:read, :template, template:, proposal:)
 
-          return render json: { msg: I18n.t("templates.fetch.error", scope: "decidim.admin") }, status: :unprocessable_content if template.blank?
+          return render json: { msg: I18n.t("templates.fetch.error", scope: "decidim.admin") }, status: :unprocessable_content if template.blank? || proposal.blank?
 
           state = fetch_proposal_state(template)
 
@@ -136,11 +136,16 @@ module Decidim
         end
 
         def available_states(component_id = nil)
-          Decidim::Proposals::ProposalState.where(decidim_component_id: component_id)
+          Decidim::Proposals::ProposalState.where(decidim_component_id: component_id) # rubocop:disable Decidim/OrganizationScopedFinder -- component_id comes from template.templatable_id, templates are scoped to current_organization
         end
 
         def proposal
-          @proposal ||= Decidim::Proposals::Proposal.find(params.expect(:proposalId))
+          @proposal ||= begin
+            component_ids = current_organization.participatory_spaces
+                                                .flat_map { |s| s.components.where(manifest_name: :proposals).pluck(:id) }
+            Decidim::Proposals::Proposal.where(decidim_component_id: component_ids) # rubocop:disable Decidim/OrganizationScopedFinder -- scoped via component_ids derived from current_organization.participatory_spaces
+                                        .find_by(id: params[:proposalId].to_i)
+          end
         end
 
         def availability_option_as_text(template)
@@ -155,7 +160,7 @@ module Decidim
 
         def availability_options
           @availability_options = []
-          Decidim::Component.includes(:participatory_space).where(manifest_name: [:proposals])
+          Decidim::Component.includes(:participatory_space).where(manifest_name: [:proposals]) # rubocop:disable Decidim/OrganizationScopedFinder -- result is filtered in-memory below by current_organization
                             .select { |a| a.participatory_space.decidim_organization_id == current_organization.id }.each do |component|
             @availability_options.push [formatted_name(component), component.id]
           end
@@ -169,7 +174,7 @@ module Decidim
         end
 
         def template
-          @template ||= Template.find_by(id: params[:id])
+          @template ||= current_organization.templates.find_by(id: params[:id])
         end
 
         def collection

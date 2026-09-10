@@ -56,7 +56,7 @@ module Decidim
           respond_to do |format|
             format.json do
               question_id = params["id"]
-              question = Decidim::Meetings::Question.find_by(id: question_id)
+              question = questionnaire.questions.find_by(id: question_id)
               render json: question.response_options.map { |response_option| ResponseOptionPresenter.new(response_option).as_json } if question.present?
             end
           end

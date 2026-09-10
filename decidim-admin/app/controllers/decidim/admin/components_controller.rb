@@ -87,7 +87,7 @@ module Decidim
 
         Decidim::Commands::SoftDeleteResource.call(trashable_deleted_resource, current_user) do
           on(:ok) do
-            Decidim::Reminder.where(component: resource).destroy_all
+            Decidim::Reminder.where(component: resource).destroy_all # rubocop:disable Decidim/OrganizationScopedFinder -- resource is the soft-deleted component, already scoped to current_participatory_space via query_scope
             flash[:notice] = I18n.t("soft_delete.success", scope: trashable_i18n_scope, resource_name: human_readable_resource_name.capitalize)
             redirect_to_resource_index
           end

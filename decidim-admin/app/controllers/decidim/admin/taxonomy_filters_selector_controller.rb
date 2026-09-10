@@ -66,7 +66,7 @@ module Decidim
       end
 
       def component
-        @component ||= Component.find_by(id: params[:component_id])
+        @component ||= Component.find_by(id: params[:component_id]) # rubocop:disable Decidim/OrganizationScopedFinder -- validated by before_action: component.organization == current_organization
       end
 
       def root_taxonomy

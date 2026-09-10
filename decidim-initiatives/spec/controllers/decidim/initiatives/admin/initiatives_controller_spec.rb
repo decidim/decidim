@@ -76,6 +76,41 @@ describe Decidim::Initiatives::Admin::InitiativesController do
     end
   end
 
+  describe "cross-organization filter scoping" do
+    render_views
+
+    let(:other_org) { create(:organization) }
+    let(:other_type) { create(:initiatives_type, organization: other_org, title: { en: "Foreign InitiativesType" }) }
+    let(:own_type) { create(:initiatives_type, organization:, title: { en: "Own InitiativesType" }) }
+    let!(:own_initiative) { create(:initiative, organization:, scoped_type: create(:initiatives_type_scope, type: own_type)) }
+    let(:other_area) { create(:area, organization: other_org, name: { en: "Foreign Area" }) }
+    let(:own_area) { create(:area, organization:, name: { en: "Own Area" }) }
+
+    before do
+      sign_in admin_user, scope: :user
+    end
+
+    it "does not expose type names from other organizations" do
+      get :index, params: { q: { type_id_eq: other_type.id } }
+      expect(response.body).not_to include("Foreign InitiativesType")
+    end
+
+    it "shows type names from the current organization" do
+      get :index, params: { q: { type_id_eq: own_type.id } }
+      expect(response.body).to include("Own InitiativesType")
+    end
+
+    it "does not expose area names from other organizations" do
+      get :index, params: { q: { decidim_area_id_eq: other_area.id } }
+      expect(response.body).not_to include("Foreign Area")
+    end
+
+    it "shows area names from the current organization" do
+      get :index, params: { q: { decidim_area_id_eq: own_area.id } }
+      expect(response.body).to include("Own Area")
+    end
+  end
+
   context "when edit" do
     context "and Users without initiatives" do
       before do
