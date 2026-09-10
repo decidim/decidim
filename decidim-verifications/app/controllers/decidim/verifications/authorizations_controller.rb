@@ -78,6 +78,7 @@ module Decidim
           end
 
           on(:transfer_user) do |authorized_user|
+            transfer_onboarding_action(current_user, authorized_user)
             authorized_user.update(last_sign_in_at: Time.current, deleted_at: nil)
             sign_out(current_user)
             sign_in(authorized_user)
@@ -185,6 +186,19 @@ module Decidim
       end
 
       private
+
+      # Preserves the pending onboarding action of the transferring session on
+      # the user that takes over it, so the onboarding flow resumes the action
+      # the visitor was trying to complete (e.g. voting a budget) instead of the
+      # transferred user's stale action (e.g. a survey already answered).
+      def transfer_onboarding_action(from_user, to_user)
+        pending_action = from_user.extended_data[Decidim::OnboardingManager::DATA_KEY]
+        return if pending_action.blank?
+
+        to_user.update!(
+          extended_data: to_user.extended_data.merge(Decidim::OnboardingManager::DATA_KEY => pending_action)
+        )
+      end
 
       def authorization
         @authorization ||= Decidim::Authorization.find_by(
