@@ -33,9 +33,8 @@ module Decidim
       include Decidim::Publicable
 
       before_destroy(prepend: true) do
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         attachments.update_all(deleted_at: Time.current)
-        # rubocop:enable Rails/SkipsModelValidations
       end
 
       before_destroy do
@@ -46,12 +45,11 @@ module Decidim
       end
 
       after_restore do
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         update_columns(
           likes_count: Decidim::Like.unscoped.where(resource: self, deleted_at: nil).count,
           coauthorships_count: Decidim::Coauthorship.unscoped.where(coauthorable: self, deleted_at: nil).count
         )
-        # rubocop:enable Rails/SkipsModelValidations
       end
 
       def assign_state(token)
@@ -84,7 +82,7 @@ module Decidim
                class_name: "Decidim::Proposals::ProposalVote",
                counter_cache: "proposal_votes_count"
 
-      has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
+      has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", counter_cache: "proposal_notes_count" # rubocop:disable Rails/HasManyOrHasOneDependent
 
       validates :title, :body, presence: true
 

@@ -524,6 +524,8 @@ module Decidim
         let!(:attachment) { create(:attachment, :with_pdf, attached_to: proposal) }
         let(:voter) { create(:user, :confirmed, organization:) }
         let!(:vote) { create(:proposal_vote, proposal:, author: voter) }
+        let!(:note) { create(:proposal_note, proposal:) }
+        let!(:evaluation_assignment) { create(:evaluation_assignment, proposal:) }
 
         it "preserves its votes when soft-deleting the proposal" do
           expect { proposal.destroy! }.not_to change(Decidim::Proposals::ProposalVote, :count)
@@ -536,6 +538,22 @@ module Decidim
 
           expect(Decidim::Proposals::ProposalVote.where(proposal:, author: voter)).to exist
           expect(proposal.reload.proposal_votes_count).to eq(1)
+        end
+
+        it "preserves its notes when soft-deleting the proposal" do
+          expect { proposal.destroy! }.not_to change(Decidim::Proposals::ProposalNote, :count)
+        end
+
+        it "preserves its evaluation assignments when soft-deleting the proposal" do
+          expect { proposal.destroy! }.not_to change(Decidim::Proposals::EvaluationAssignment, :count)
+        end
+
+        it "keeps its notes and evaluation assignments after restoring the proposal" do
+          proposal.destroy!
+          proposal.restore(recursive: true)
+
+          expect(Decidim::Proposals::ProposalNote.where(proposal:)).not_to be_empty
+          expect(Decidim::Proposals::EvaluationAssignment.where(proposal:)).not_to be_empty
         end
 
         context "when the proposal is soft-deleted" do
