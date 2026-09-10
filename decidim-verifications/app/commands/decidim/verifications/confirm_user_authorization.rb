@@ -24,18 +24,21 @@ module Decidim
       def call
         return already_confirmed! if authorization.granted?
 
-        authorization.clear_expired_lock!
+        Decidim::Authorization.transaction do
+          authorization.lock!
+          authorization.clear_expired_lock!
 
-        return locked! if authorization.locked_for_confirmation?
+          return locked! if authorization.locked_for_confirmation?
 
-        return invalid! unless form.valid?
+          return invalid! unless form.valid?
 
-        return expired! if code_expired?
+          return expired! if code_expired?
 
-        if confirmation_successful?
-          valid!
-        else
-          invalid!
+          if confirmation_successful?
+            valid!
+          else
+            invalid!
+          end
         end
       rescue StandardError => e
         invalid!(e.message)
