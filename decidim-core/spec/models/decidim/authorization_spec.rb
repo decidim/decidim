@@ -170,5 +170,117 @@ module Decidim
         expect(Time.current - start).to be < 1
       end
     end
+
+    describe "#record_failed_attempt!" do
+      let!(:authorization) { create(:authorization, :pending) }
+
+      it "increments the failed_attempts counter" do
+        expect { authorization.record_failed_attempt! }.to change(authorization, :failed_attempts).by(1)
+      end
+
+      context "when failed_attempts exceeds the maximum" do
+        before do
+          authorization.update!(failed_attempts: Decidim.verification_max_failed_attempts)
+        end
+
+        it "sets locked_at" do
+          authorization.record_failed_attempt!
+          expect(authorization.reload.locked_at).to be_present
+        end
+      end
+
+      context "when failed_attempts does not exceed the maximum" do
+        before do
+          authorization.update!(failed_attempts: Decidim.verification_max_failed_attempts - 1)
+        end
+
+        it "does not set locked_at" do
+          authorization.record_failed_attempt!
+          expect(authorization.reload.locked_at).to be_nil
+        end
+      end
+    end
+
+    describe "#reset_failed_attempts!" do
+      let!(:authorization) { create(:authorization, :pending, failed_attempts: 3, locked_at: Time.current) }
+
+      it "resets failed_attempts to 0" do
+        authorization.reset_failed_attempts!
+        expect(authorization.failed_attempts).to eq(0)
+      end
+
+      it "clears locked_at" do
+        authorization.reset_failed_attempts!
+        expect(authorization.locked_at).to be_nil
+      end
+    end
+
+    describe "#locked_for_confirmation?" do
+      let!(:authorization) { create(:authorization, :pending) }
+
+      context "when locked_at is nil" do
+        it "returns false" do
+          expect(authorization.locked_for_confirmation?).to be false
+        end
+      end
+
+      context "when locked_at is within the unlock window" do
+        before do
+          authorization.update!(locked_at: Time.current)
+        end
+
+        it "returns true" do
+          expect(authorization.locked_for_confirmation?).to be true
+        end
+      end
+
+      context "when locked_at is outside the unlock window" do
+        before do
+          authorization.update!(locked_at: Decidim.verification_unlock_in.ago - 1.minute)
+        end
+
+        it "returns false" do
+          expect(authorization.locked_for_confirmation?).to be false
+        end
+      end
+    end
+
+    describe "#clear_expired_lock!" do
+      let!(:authorization) { create(:authorization, :pending) }
+
+      context "when locked_at is nil" do
+        it "does nothing" do
+          authorization.clear_expired_lock!
+          expect(authorization.locked_at).to be_nil
+        end
+      end
+
+      context "when locked_at is within the unlock window" do
+        before do
+          authorization.update!(locked_at: Time.current, failed_attempts: 5)
+        end
+
+        it "does not clear the lock" do
+          authorization.clear_expired_lock!
+          expect(authorization.reload.locked_at).to be_present
+        end
+      end
+
+      context "when locked_at is outside the unlock window" do
+        before do
+          authorization.update!(locked_at: Decidim.verification_unlock_in.ago - 1.minute, failed_attempts: 5)
+        end
+
+        it "clears the lock" do
+          authorization.clear_expired_lock!
+          expect(authorization.reload.locked_at).to be_nil
+        end
+
+        it "resets failed_attempts" do
+          authorization.clear_expired_lock!
+          expect(authorization.reload.failed_attempts).to eq(0)
+        end
+      end
+    end
   end
 end

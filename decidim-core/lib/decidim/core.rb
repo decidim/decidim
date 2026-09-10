@@ -476,6 +476,12 @@ module Decidim
   # Time window in which the throttling is applied.
   mattr_accessor :throttling_period, default: Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
 
+  # Max failed attempts for verification code confirmation before lockout.
+  mattr_accessor :verification_max_failed_attempts, default: Decidim::Env.new("DECIDIM_VERIFICATION_MAX_FAILED_ATTEMPTS", "5").to_i
+
+  # Time window after which a locked verification is automatically unlocked.
+  mattr_accessor :verification_unlock_in, default: Decidim::Env.new("DECIDIM_VERIFICATION_UNLOCK_IN", "30").to_i.minutes
+
   # Time window were users can access the website even if their email is not confirmed.
   mattr_accessor :unconfirmed_access_for, default: Decidim::Env.new("DECIDIM_UNCONFIRMED_ACCESS_FOR", "0").to_i.days
 

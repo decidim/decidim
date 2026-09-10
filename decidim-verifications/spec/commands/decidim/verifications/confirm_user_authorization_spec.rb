@@ -3,9 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Verifications::ConfirmUserAuthorization do
-  subject { described_class.new(authorization, form, session) }
-
-  let(:session) { {} }
+  subject { described_class.new(authorization, form) }
 
   let(:authorization) do
     create(
@@ -49,9 +47,9 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
       expect { subject.call }.to broadcast(:invalid)
     end
 
-    it "remembers the failed attempt in the session" do
+    it "records the failed attempt on the authorization" do
       subject.call
-      expect(session[:failed_attempts]).to eq(1)
+      expect(authorization.reload.failed_attempts).to eq(1)
     end
   end
 
@@ -64,19 +62,41 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
       expect { subject.call }.to broadcast(:already_confirmed)
     end
 
-    it "resets the failed attempts in the session" do
+    it "resets the failed attempts on the authorization" do
+      authorization.update!(failed_attempts: 3)
       subject.call
-      expect(session[:failed_attempts]).to eq(0)
+      expect(authorization.reload.failed_attempts).to eq(0)
     end
   end
 
-  context "when the authorization fails too many times in a row" do
+  context "when the authorization is locked" do
     let(:secret_code) { "XX42YY" }
-    let(:session) { { failed_attempts: 3 } }
 
-    it "throttles before proceeding" do
-      expect(subject).to receive(:throttle!) # rubocop:disable RSpec/SubjectStub
-      expect { subject.call }.to broadcast(:ok)
+    before do
+      authorization.update!(locked_at: Time.current, failed_attempts: Decidim.verification_max_failed_attempts + 1)
+    end
+
+    it "broadcasts locked" do
+      expect { subject.call }.to broadcast(:locked)
+    end
+
+    context "when the lock has expired" do
+      before do
+        authorization.update!(locked_at: Decidim.verification_unlock_in.ago - 1.minute)
+      end
+
+      it "clears the expired lock and proceeds" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+    end
+  end
+
+  context "when the authorization fails too many times" do
+    let(:secret_code) { "wrong" }
+
+    it "locks the authorization after exceeding max attempts" do
+      (Decidim.verification_max_failed_attempts + 1).times { subject.call }
+      expect(authorization.reload.locked_at).to be_present
     end
   end
 
@@ -91,9 +111,10 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
       expect { subject.call }.to change(authorizations, :count).by(1)
     end
 
-    it "resets the failed attempts in the session" do
+    it "resets the failed attempts on the authorization" do
+      authorization.update!(failed_attempts: 3)
       subject.call
-      expect(session[:failed_attempts]).to eq(0)
+      expect(authorization.reload.failed_attempts).to eq(0)
     end
 
     context "when there is a problem with the SMS service" do
