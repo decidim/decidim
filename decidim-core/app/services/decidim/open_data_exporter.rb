@@ -98,8 +98,7 @@ module Decidim
 
             collection.push(filename)
 
-            collection_count = exported.read.split("\n").count - 1
-            get_help_definition(:components, exporter, export_manifest, collection_count) unless collection.empty?
+            get_help_definition(:components, exporter, export_manifest, batch.size) unless collection.empty?
           end
         end
       end

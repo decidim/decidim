@@ -69,4 +69,27 @@ describe Decidim::OpenDataExporter do
 
     it_behaves_like "open data exporter"
   end
+
+  describe "proposals with multi-paragraph bodies" do
+    let(:organization) { create(:organization) }
+    let(:path) { "/tmp/test-open-data-multiline-proposals.zip" }
+    let(:component) do
+      create(:proposal_component, organization:, published_at: Time.current)
+    end
+    # Bodies are exported through `convert_to_plain_text`, which wraps the text and
+    # keeps the paragraph breaks, so a single proposal spans several physical lines
+    # of the generated CSV.
+    let(:body) do
+      { "en" => "<p>#{"lorem ipsum " * 12}</p><p>#{"dolor sit amet " * 12}</p>" }
+    end
+    let!(:proposals) { create_list(:proposal, 2, component:, body:) }
+    let(:readme) do
+      subject.export
+      Zip::File.open(path).glob("README.md").first.get_input_stream.read
+    end
+
+    it "counts resources, not lines of the generated CSV" do
+      expect(readme[/^### proposals \(.*\)$/]).to eq("### proposals (2 resources)")
+    end
+  end
 end
