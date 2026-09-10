@@ -41,7 +41,9 @@ module Decidim
     def reset_coauthorable_counter
       return unless coauthorable
 
-      coauthorable.class.unscoped.reset_counters(coauthorable.id, :coauthorships)
+      coauthorable.with_lock do
+        coauthorable.class.unscoped.reset_counters(coauthorable.id, :coauthorships)
+      end
     end
   end
 end

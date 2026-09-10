@@ -45,11 +45,13 @@ module Decidim
       end
 
       after_restore do
-        # rubocop:disable-next Rails/SkipsModelValidations
-        update_columns(
-          likes_count: Decidim::Like.unscoped.where(resource: self, deleted_at: nil).count,
-          coauthorships_count: Decidim::Coauthorship.unscoped.where(coauthorable: self, deleted_at: nil).count
-        )
+        with_lock do
+          # rubocop:disable-next Rails/SkipsModelValidations
+          update_columns(
+            likes_count: Decidim::Like.unscoped.where(resource: self, deleted_at: nil).count,
+            coauthorships_count: Decidim::Coauthorship.unscoped.where(coauthorable: self, deleted_at: nil).count
+          )
+        end
       end
 
       def assign_state(token)

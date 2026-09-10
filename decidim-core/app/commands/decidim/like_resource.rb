@@ -22,8 +22,10 @@ module Decidim
     def call
       like = find_existing_like
 
-      if like
+      if like&.deleted?
         return broadcast(:invalid) unless restore_like(like)
+      elsif like
+        return broadcast(:invalid)
       else
         like = build_resource_like
         return broadcast(:invalid) unless like.save
@@ -42,7 +44,6 @@ module Decidim
     end
 
     def restore_like(like)
-      return true unless like.deleted?
       return false unless like.valid?
 
       like.restore

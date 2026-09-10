@@ -33,7 +33,9 @@ module Decidim
     def reset_like_counter
       return unless resource
 
-      resource.update_columns(likes_count: Decidim::Like.unscoped.where(resource:, deleted_at: nil).count) # rubocop:disable Rails/SkipsModelValidations
+      resource.with_lock do
+        resource.update_columns(likes_count: Decidim::Like.unscoped.where(resource:, deleted_at: nil).count) # rubocop:disable Rails/SkipsModelValidations
+      end
     end
   end
 end
