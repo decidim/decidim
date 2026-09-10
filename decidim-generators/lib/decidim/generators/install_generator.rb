@@ -92,7 +92,7 @@ module Decidim
         bundle_install
 
         # Create package.json
-        @app_name = options[:app_name]&.dasherize || "decidim-app"
+        @app_name = options[:app_name]&.dasherize.presence || "decidim-app"
         template "package.json.erb", "package.json"
 
         rails "shakapacker:binstubs"
