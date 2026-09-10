@@ -205,11 +205,20 @@ module Decidim
         return unless params[:previous_space]
 
         previous_space_class, previous_space_id = params.expect(:previous_space).split("#")
+        return unless valid_participatory_space_class?(previous_space_class)
 
         @previous_space = previous_space_class.constantize.find_by(id: previous_space_id)
         @previous_space
       rescue NameError, LoadError
         nil
+      end
+
+      def valid_participatory_space_class?(class_name)
+        return false if class_name.blank?
+
+        Decidim.participatory_space_manifests.any? do |manifest|
+          manifest.model_class_name == class_name
+        end
       end
 
       def conference_context?
