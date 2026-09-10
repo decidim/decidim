@@ -531,6 +531,13 @@ module Decidim::AssetRouter
               it_behaves_like "representation redirect path"
             end
 
+            context "and default URL options do not define the host" do
+              let(:expected_host_url) { "http://#{organization.host}:#{default_port}" }
+
+              include_context "without default URL options host"
+              it_behaves_like "representation redirect URL"
+            end
+
             context "with the host option" do
               let(:expected_host_url) { "http://another.example.org:#{default_port}" }
               let(:options) { { host: "another.example.org" } }
