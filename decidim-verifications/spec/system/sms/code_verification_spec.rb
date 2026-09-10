@@ -34,7 +34,7 @@ describe "sms code verification" do
     let(:prior_verification_metadata) do
       {
         verification_code: "111111",
-        code_sent_at: 1.day.ago
+        code_sent_at: 1.minute.ago
       }
     end
 
