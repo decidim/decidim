@@ -80,6 +80,8 @@ The verification code confirmation flow has been enhanced with multiple security
 
 Server-side failed attempt tracking applies to all verification handlers (SMS, postal letter, ID documents, CSV census). Code expiration applies only to SMS verification. HTTP-level rate limiting applies only to SMS and postal letter authorization paths.
 
+We strongly recommend that implementers review any custom authorization handlers for code that may still rely on the old session-based attempt tracking patterns, which have been replaced by the new server-side mechanism.
+
 You can read more about this change on PR [#17639](https://github.com/decidim/decidim/pull/17639).
 
 ### 2.4. [[TITLE OF THE ACTION]]
