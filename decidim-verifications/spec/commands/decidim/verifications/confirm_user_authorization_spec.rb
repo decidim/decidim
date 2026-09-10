@@ -149,8 +149,8 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
   context "when the authorization fails too many times" do
     let(:secret_code) { "wrong" }
 
-    it "locks the authorization after exceeding max attempts" do
-      (Decidim.verification_max_failed_attempts + 1).times { subject.call }
+    it "locks the authorization after reaching max attempts" do
+      Decidim.verification_max_failed_attempts.times { subject.call }
       expect(authorization.reload.locked_at).to be_present
     end
   end

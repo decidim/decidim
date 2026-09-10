@@ -178,9 +178,9 @@ module Decidim
         expect { authorization.record_failed_attempt! }.to change(authorization, :failed_attempts).by(1)
       end
 
-      context "when failed_attempts exceeds the maximum" do
+      context "when failed_attempts reaches the maximum" do
         before do
-          authorization.update!(failed_attempts: Decidim.verification_max_failed_attempts)
+          authorization.update!(failed_attempts: Decidim.verification_max_failed_attempts - 1)
         end
 
         it "sets locked_at" do
@@ -189,9 +189,9 @@ module Decidim
         end
       end
 
-      context "when failed_attempts does not exceed the maximum" do
+      context "when failed_attempts does not reach the maximum" do
         before do
-          authorization.update!(failed_attempts: Decidim.verification_max_failed_attempts - 1)
+          authorization.update!(failed_attempts: Decidim.verification_max_failed_attempts - 2)
         end
 
         it "does not set locked_at" do
