@@ -277,6 +277,12 @@ describe "Admin manages surveys" do
         expect(page).to have_text("There are no responses yet")
         expect(questionnaire.reload.responses).to be_empty
       end
+
+      it "displays the warning modal before deleting all responses" do
+        click_on "Delete all responses"
+
+        expect(page).to have_text("Are you sure you want to delete the #{questionnaire.responses.count} response? This action cannot be undone.")
+      end
     end
   end
 
