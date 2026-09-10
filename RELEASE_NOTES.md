@@ -78,7 +78,7 @@ The verification code confirmation flow has been enhanced with multiple security
 
 3. **HTTP-level rate limiting**: Rack::Attack now throttles verification confirmation endpoints to 10 requests per minute per IP.
 
-These changes apply to all verification handlers (SMS, postal letter, ID documents, CSV census).
+Server-side failed attempt tracking applies to all verification handlers (SMS, postal letter, ID documents, CSV census). Code expiration applies only to SMS verification. HTTP-level rate limiting applies only to SMS and postal letter authorization paths.
 
 You can read more about this change on PR [#17639](https://github.com/decidim/decidim/pull/17639).
 
