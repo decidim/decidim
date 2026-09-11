@@ -13,7 +13,6 @@ describe "Admin manages participatory process soft delete" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit admin_resource_path
   end
 
   it_behaves_like "manage soft deletable component or space", "participatory process"
@@ -27,6 +26,10 @@ describe "Admin manages participatory process soft delete" do
              user:,
              participatory_process:,
              role: :collaborator)
+    end
+
+    before do
+      visit admin_resource_path
     end
 
     it "does not allow collaborators to view deleted processes" do
@@ -45,6 +48,10 @@ describe "Admin manages participatory process soft delete" do
              role: :evaluator)
     end
 
+    before do
+      visit admin_resource_path
+    end
+
     it "does not allow evaluators to view deleted processes" do
       expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
@@ -61,6 +68,10 @@ describe "Admin manages participatory process soft delete" do
              role: :moderator)
     end
 
+    before do
+      visit admin_resource_path
+    end
+
     it "does not allow moderators to view deleted processes" do
       expect(page).to have_text("Processes")
       expect(page).to have_no_link("View deleted processes", href: /.*processes.*trash.*/)
@@ -75,6 +86,10 @@ describe "Admin manages participatory process soft delete" do
              user:,
              participatory_process:,
              role: :admin)
+    end
+
+    before do
+      visit admin_resource_path
     end
 
     it "does not allow space admins to view deleted processes" do

@@ -566,8 +566,6 @@ module Decidim
       end
 
       initializer "decidim_core.session_store" do |app|
-        next if app.config.session_store?
-
         app.config.session_store :active_record_store,
                                  key: "_session_id",
                                  secure: Decidim.config.force_ssl,
