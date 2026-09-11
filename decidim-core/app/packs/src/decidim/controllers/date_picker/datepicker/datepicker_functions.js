@@ -191,16 +191,24 @@ export const updateTimeValue = (time, hour, minute) => {
 };
 
 export const formatDate = (value, formats) => {
-  let newValue = value;
-  const splitValue = value.split(formats.separator);
+  const splitValue = value.split(formats.separator).splice(0, 3).map((part) => part.replace(/[^0-9]/g, ""));
 
-  if (formats.order === "d-m-y") {
-    newValue = `${splitValue[1]}/${splitValue[0]}/${splitValue[2]}`;
+  let newValue = null;
+  if (formats.order === "m-d-y") {
+    newValue = splitValue;
   } else if (formats.order === "y-m-d") {
-    newValue = `${splitValue[1]}/${splitValue[2]}/${splitValue[0]}`
-  };
+    newValue = [splitValue[1], splitValue[2], splitValue[0]];
+  } else {
+    // Assuming d-m-y
+    newValue = [splitValue[1], splitValue[0], splitValue[2]];
+  }
 
-  const date = new Date(newValue)
+  // Fill missing parts
+  let fallback = new Date();
+  fallback = [fallback.getMonth() + 1, fallback.getDate(), fallback.getFullYear()];
+  newValue = newValue.map((val, idx) => (val || fallback[idx]));
+
+  const date = new Date(newValue.join("/"))
 
   let day = date.getDate();
   let month = date.getMonth() + 1;
