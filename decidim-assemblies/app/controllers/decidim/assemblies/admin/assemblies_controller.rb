@@ -74,6 +74,12 @@ module Decidim
 
         private
 
+        def filtered_collection
+          return query.result if request.format.js? && ransack_params[:parent_id_eq].present?
+
+          paginate(query.result)
+        end
+
         def collection
           @collection ||= OrganizationAssemblies.new(current_user.organization).query
         end

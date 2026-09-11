@@ -201,6 +201,21 @@ describe "Admin manages assemblies" do
         expect(page).to have_no_text(translated(child_assembly.title))
       end
     end
+
+    describe "listing more child assemblies than the results per page" do
+      let!(:other_child_assemblies) { create_list(:assembly, 25, organization:, parent: parent_assembly) }
+
+      it "shows all the children without paginating them" do
+        within "tr", text: translated(parent_assembly.title) do
+          find("a[data-arrow-down]").click
+        end
+
+        expect(page).to have_text(translated(child_assembly.title))
+        other_child_assemblies.each do |child|
+          expect(page).to have_text(translated(child.title))
+        end
+      end
+    end
   end
 
   context "when navigating grandchild assemblies (3rd level)" do
