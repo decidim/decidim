@@ -21,7 +21,7 @@ module Decidim
       end
 
       def block_reasons
-        object.blocking.justification
+        object.blocking&.justification
       end
 
       def blocked_at
@@ -29,7 +29,7 @@ module Decidim
       end
 
       def blocking_user
-        object.blocking.blocking_user
+        object.blocking&.blocking_user
       end
     end
   end
