@@ -24,6 +24,6 @@
     <%= l result.created_at, format: :decidim_short %>
   </td>
   <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.accountability") %>">
-    <%= render partial: "decidim/accountability/admin/results/actions", locals: { result:, view: } %>
+    <%= render partial: "decidim/accountability/admin/results/actions", locals: { result:, view: } unless current_component.deleted? %>
   </td>
 </tr>
