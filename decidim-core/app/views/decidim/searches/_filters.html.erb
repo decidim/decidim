@@ -16,7 +16,7 @@
         </button>
       <% end %>
     </div>
-    <button id="dropdown-trigger-search" data-controller="dropdown" data-target="dropdown-menu-search" data-auto-close="true">
+    <button id="dropdown-trigger-search" data-controller="dropdown" data-target="dropdown-menu-search" data-auto-close="true" data-open-md="true">
       <%= content_tag :span, t("decidim.searches.filters_small_view.filter_by"), class: "#{"is-active" if params.dig(:filter, :with_resource_type) == nil}" %>
       <% @blocks.each do |elements| %>
         <% elements.each do |type, results| %>
@@ -62,36 +62,3 @@
     </ul>
   </div>
 </nav>
-<script type="text/javascript">
-  const button = document.querySelector('#dropdown-trigger-search');
-  const arrowDown = button.querySelector('svg:first-of-type');
-  const arrowUp = button.querySelector('svg:last-of-type');
-  const list = document.querySelector('#dropdown-menu-search');
-  // the arrow is up when user arrives on the page, with the list displayed
-  arrowUp.addEventListener('click', function(){
-    setTimeout(() => {
-      button.setAttribute('aria-expanded', 'false');
-      list.style.display = "none";
-      }, 300)
-  })
-  arrowDown.addEventListener('click', function(){
-    setTimeout(() => {
-      button.setAttribute('aria-expanded', 'true');
-      list.style.display = "block";
-    }, 300)
-  })
-  // 32 is code for space bar and 13 is code for enter
-  button.addEventListener('keydown', function(e){
-    if ((e.keyCode === 13 || e.keyCode === 32) && button.getAttribute('aria-expanded') === 'true') {
-      setTimeout(() => {
-        button.setAttribute('aria-expanded', 'false');
-        list.style.display = "none";
-      }, 300)
-    } else if ((e.keyCode === 13 || e.keyCode === 32) && button.getAttribute('aria-expanded') === 'false'){
-        setTimeout(() => {
-          button.setAttribute('aria-expanded', 'true');
-          list.style.display = "block";
-        }, 300)
-    }
-  })
-</script>
