@@ -30,6 +30,9 @@ module Decidim
             end
           end
           resources :responses, only: [:index, :show] do
+            collection do
+              delete :destroy_all
+            end
             member do
               get :export_response
             end
@@ -64,14 +67,6 @@ module Decidim
                         I18n.t("settings", scope: "decidim.admin.menu.surveys_menu"),
                         @survey.nil? ? "#" : Decidim::EngineRouter.admin_proxy(@survey.component).edit_settings_survey_path(@survey),
                         icon_name: "settings-4-line"
-        end
-      end
-
-      initializer "decidim_surveys_admin.notifications.components" do
-        config.to_prepare do
-          Decidim::EventsManager.subscribe(/^decidim\.events\.components/) do |event_name, data|
-            CleanSurveyResponsesJob.perform_later(event_name, data)
-          end
         end
       end
 

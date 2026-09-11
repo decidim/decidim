@@ -76,7 +76,6 @@ en:
         new_survey: New survey
         preview: Preview
         responses: Responses
-        responses_alert: Delete responses at publish is active for this survey. There are currently %{responses_count} responses that will be destroyed if you continue.
         title: Actions
       admin:
         exports:
@@ -99,6 +98,13 @@ en:
             edit:
               title: Questions
         responses:
+          actions:
+            destroy_all_responses: Delete all responses
+            destroy_all_responses_confirm:
+              one: Are you sure you want to delete the %{count} response? This action cannot be undone.
+              other: Are you sure you want to delete all %{count} responses? This action cannot be undone.
+          destroy_all:
+            success: All responses have been successfully deleted.
           index:
             no_responses: There are no responses yet
             title: "%{total} total responses"

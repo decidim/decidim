@@ -3,9 +3,25 @@
 <div class="item_show__header" style="border-bottom: none;">
   <h1 class="item_show__header-title">
     <%= t ".title", total: @total %>
-    <% if @survey.questionnaire.responses.any? %>
-      <%= export_dropdown(current_component, @survey.id) if allowed_to? :export_responses, :questionnaire %>
-    <% end %>
+    <div class="flex gap-4">
+      <% if @survey.questionnaire.responses.any? %>
+        <%= export_dropdown(current_component, @survey.id) if allowed_to? :export_responses, :questionnaire %>
+      <% end %>
+      <% if allowed_to? :index, :questionnaire_publish_responses, survey: @survey %>
+        <% if @participants.count.zero? %>
+          <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), "#", class: "button button__sm button__transparent-secondary", disabled: true %>
+        <% else %>
+          <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), survey_publish_responses_path(@survey), class: "button button__sm button__transparent-secondary" %>
+        <% end %>
+      <% end %>
+      <% if allowed_to? :destroy_all, :questionnaire_responses %>
+        <% if @participants.count.zero? %>
+          <%= link_to t("actions.destroy_all_responses", scope: "decidim.surveys.admin.responses"), "#", class: "button button__sm button__transparent-secondary", disabled: true %>
+        <% else %>
+          <%= link_to t("actions.destroy_all_responses", scope: "decidim.surveys.admin.responses"), destroy_all_survey_responses_path(@survey), method: :delete, data: { confirm: t("actions.destroy_all_responses_confirm", scope: "decidim.surveys.admin.responses", count: @total) }, class: "button button__sm button__transparent-secondary" %>
+        <% end %>
+      <% end %>
+    </div>
   </h1>
 </div>
 
@@ -88,14 +104,3 @@
   </div>
 </div>
 <%= decidim_paginate @query %>
-<div class="item__edit-sticky">
-  <div class="item__edit-sticky-container">
-    <% if allowed_to? :index, :questionnaire_publish_responses, survey: @survey %>
-      <% if @participants.count.zero? %>
-          <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), "#", class: "button button__sm button__secondary", disabled: true %>
-        <% else %>
-          <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), survey_publish_responses_path(@survey), class: "button button__sm button__secondary" %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
