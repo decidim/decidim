@@ -252,6 +252,7 @@ ca:
         create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         export_component: "%{user_name} ha exportat %{resource_name}%{component_name} de %{space_name} com %{format_name}"
+        menu_hidden: "%{user_name} ha amagat el component %{resource_name} del menú de l'espai de participació: %{space_name}"
         publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
         restore: "%{user_name} ha restaurat el component %{resource_name} a l'espai %{space_name}"
         soft_delete: "%{user_name} ha mogut el component %{resource_name} a l'espai %{space_name} a la paperera"
