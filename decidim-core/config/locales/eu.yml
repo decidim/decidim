@@ -252,6 +252,7 @@ eu:
         create: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espaziora gehitu du"
         delete: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espaziotik ezabatu du"
         export_component: "%{user_name} parte-hartzaileak esportatu du %{resource_name} %{component_name} %{space_name} espazioan %{format_name} gisa"
+        menu_hidden: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espazioko menutik ezkutatu du"
         publish: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espazioan argitaratu du"
         restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} osagaia %{space_name} espazioan"
         soft_delete: "%{user_name} parte-hartzaileak eraman du %{resource_name} osagaia %{space_name} espaziora"
