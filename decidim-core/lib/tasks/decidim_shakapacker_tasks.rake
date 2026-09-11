@@ -231,7 +231,3 @@ if (config_path = Decidim::Shakapacker.configuration.configuration_file)
     config_path: Pathname.new(config_path)
   )
 end
-
-# Add gem overrides path to the beginning in order to override rake tasks
-# Needed because of a bug in Rails 6.0 (see the overridden task for details)
-$LOAD_PATH.unshift "#{Gem.loaded_specs["decidim-core"].full_gem_path}/lib/gem_overrides"
