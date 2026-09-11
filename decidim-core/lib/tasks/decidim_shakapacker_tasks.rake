@@ -225,8 +225,8 @@ namespace :decidim do
     status = false
     attempts.times do |n|
       if n.positive?
-        # Doubles the wait time on every attempt, starting from 5s.
-        wait = 5 * (2**(n - 1))
+        # Doubles the wait time on every attempt, starting from 30s.
+        wait = 30 * (2**(n - 1))
         puts "Command #{command} failed. Retrying in #{wait}s..."
         sleep wait
       end
