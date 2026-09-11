@@ -74,6 +74,30 @@ module Decidim
           expect(response).to eq("userId" => moderation.user.id.to_s)
         end
       end
+
+      # The collection filters on `decidim_users.blocked_at`, but `blocking` is
+      # resolved through `decidim_users.block_id`. Users blocked before #11235
+      # have the former set and the latter still NULL, so the association
+      # returns nil. Both fields are already declared `null: true`.
+      context "when the user is blocked but has no associated block" do
+        before { user.update!(block_id: nil, blocked_at: Time.current) }
+
+        describe "block_reasons" do
+          let(:query) { "{ blockReasons }" }
+
+          it "returns nil instead of raising" do
+            expect(response).to eq("blockReasons" => nil)
+          end
+        end
+
+        describe "blocking_user" do
+          let(:query) { "{ blockingUser { id } }" }
+
+          it "returns nil instead of raising" do
+            expect(response).to eq("blockingUser" => nil)
+          end
+        end
+      end
     end
   end
 end
