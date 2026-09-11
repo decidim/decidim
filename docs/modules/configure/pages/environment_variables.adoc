@@ -504,6 +504,21 @@ Mind that this depends on your environment, for instance you could also need to 
 |1
 |No
 
+|DECIDIM_VERIFICATION_MAX_FAILED_ATTEMPTS
+|Maximum number of failed verification code confirmation attempts before the authorization is locked. Applies to all verification handlers (SMS, postal letter, ID documents, CSV census).
+|5
+|No
+
+|DECIDIM_VERIFICATION_UNLOCK_IN
+|Time window (in number of minutes) after which a locked verification is automatically unlocked.
+|30
+|No
+
+|DECIDIM_VERIFICATION_CODE_EXPIRY_MINUTES
+|Time window (in number of minutes) after which a verification code expires. Applies only to SMS verification.
+|10
+|No
+
 |DECIDIM_UNCONFIRMED_ACCESS_FOR
 |Time window (in number of days) were users can access the website even if their email is not confirmed.
 |0
