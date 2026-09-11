@@ -656,6 +656,11 @@ A content processor is a concept to refer to a set of two classes:
 | 7
 | No
 
+| DECIDIM_DELETE_OLD_PERSONAL_DATA_VERSIONS_DAYS
+| Number of days after which the version data is deleted for deleted users or revoked authorizations.
+| 365
+| No
+
 |*DECIDIM_SERVICE_WORKER_ENABLED*
 |Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it is recommended to be disabled because its aggressive cache configuration might cause some issues when submitting forms.
 |false

@@ -128,6 +128,7 @@ shared_context "with application env vars" do
       "DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS" => "",
       "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "",
+      "DECIDIM_DELETE_OLD_PERSONAL_DATA_VERSIONS_DAYS" => "",
       "DECIDIM_SERVICE_WORKER_ENABLED" => "",
       "STORAGE_PROVIDER" => ""
     }
@@ -220,6 +221,7 @@ shared_context "with application env vars" do
       "DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS" => "30",
       "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "30",
       "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "7",
+      "DECIDIM_DELETE_OLD_PERSONAL_DATA_VERSIONS_DAYS" => "365",
       "RAILS_LOG_LEVEL" => "fatal",
       "RAILS_ASSET_HOST" => "http://assets.example.org",
       "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
