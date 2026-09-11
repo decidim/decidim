@@ -45,14 +45,13 @@ module Decidim
       end
 
       def update_meeting!
-        parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
         parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
 
         Decidim.traceability.update!(
           meeting,
           current_user,
           {
-            title: { I18n.locale => parsed_title },
+            title: { I18n.locale => form.title },
             description: { I18n.locale => parsed_description },
             end_time: form.end_time,
             start_time: form.start_time,

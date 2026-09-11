@@ -118,7 +118,7 @@ describe Decidim::Debates::DebateForm do
 
         it "renders the mention with editor span tags" do
           expect(subject.description).to include(
-            %(<span data-type="mention" data-id="@#{mentioned_user.nickname})
+            %(<span data-type="mention" data-id="@#{mentioned_user.nickname}" data-label="@#{mentioned_user.nickname}">@#{mentioned_user.nickname}</span>)
           )
         end
       end
