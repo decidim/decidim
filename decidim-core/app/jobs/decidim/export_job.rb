@@ -3,6 +3,7 @@
 module Decidim
   class ExportJob < ApplicationJob
     include Decidim::PrivateDownloadHelper
+    include Decidim::JobWithAssets
 
     queue_as :exports
 
