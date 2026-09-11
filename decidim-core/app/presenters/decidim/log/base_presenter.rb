@@ -196,7 +196,7 @@ module Decidim
       # Returns a Hash.
       def i18n_params
         {
-          user_name: user_presenter.present,
+          user_name: action_log.user.present? ? user_presenter.present : nil,
           resource_name: resource_presenter.try(:present),
           space_name: space_presenter.present
         }

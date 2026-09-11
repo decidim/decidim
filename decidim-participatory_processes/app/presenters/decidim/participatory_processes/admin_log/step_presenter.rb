@@ -24,7 +24,7 @@ module Decidim
 
         def action_string
           case action
-          when "activate", "create", "delete", "update"
+          when "activate", "create", "delete", "update", "system_activate"
             "decidim.admin_log.participatory_process_step.#{action}"
           else
             super
