@@ -14,7 +14,11 @@ module Decidim
       private
 
       def touch_session
-        session[:last_seen_at] = Time.current
+        session_record = request.env["rack.session.record"]
+        return unless session_record&.persisted?
+
+        # rubocop:disable-next Rails/SkipsModelValidations
+        session_record.touch
       end
     end
   end

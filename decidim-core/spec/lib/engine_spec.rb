@@ -117,7 +117,7 @@ module Decidim::Core
           it "does not reconfigure it" do
             initializer.run(app)
 
-            expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::CacheStore)
+            expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::ActiveRecordStore)
             expect(Rails.application.config.session_options).to eq(expire_after: 36.minutes)
           end
         end
