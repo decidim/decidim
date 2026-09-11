@@ -70,7 +70,7 @@ module Decidim
         end
 
         def debates
-          @debates ||= Debate.where(component: current_component).not_hidden
+          @debates ||= Debate.includes(:component, :taxonomies).where(component: current_component).not_hidden
         end
 
         def trashable_deleted_collection

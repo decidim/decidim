@@ -53,7 +53,7 @@ module Decidim
 
         @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or(
           organization_participatory_processes.where(id: params["slug"])
-        ).first!
+        ).includes(attachments: { file_attachment: :blob }).first!
       end
 
       def active_content_blocks
@@ -99,6 +99,7 @@ module Decidim
 
       def participatory_process_groups
         @participatory_process_groups ||= OrganizationParticipatoryProcessGroups.new(current_organization).query
+                                                                                .includes(:hero_image_attachment)
                                                                                 .where(id: filtered_processes.grouped.group_ids)
       end
 

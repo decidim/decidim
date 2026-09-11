@@ -108,7 +108,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= Decidim::Surveys::Survey.where(component: current_component)
+          @collection ||= Decidim::Surveys::Survey.where(component: current_component).includes(:component, :questionnaire)
         end
       end
     end

@@ -17,7 +17,11 @@ module Decidim
         end
 
         def project
-          @project ||= Decidim::Budgets::Project.joins(:budget).where(budget: { component: current_component }).find(params.expect(:project_id))
+          @project ||= Decidim::Budgets::Project
+                       .includes(attachment_collections: :attachments)
+                       .joins(:budget)
+                       .where(budget: { component: current_component })
+                       .find(params.expect(:project_id))
         end
       end
     end

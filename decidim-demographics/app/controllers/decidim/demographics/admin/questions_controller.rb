@@ -20,7 +20,7 @@ module Decidim
         def response_options_url(_params) = decidim_admin_demographics.responses_path
 
         def questionnaire
-          @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_initialize
+          @questionnaire ||= Decidim::Forms::Questionnaire.includes(questions: [:response_options, :display_conditions, :matrix_rows]).where(questionnaire_for:).first_or_initialize
           @questionnaire.override_edit!
           Decidim::Demographics.create_default_questionnaire!(@questionnaire)
           @questionnaire

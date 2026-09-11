@@ -23,7 +23,7 @@ module Decidim
       # is used as an indirect way to access the participants
       # (see #participants and #participant)
       def query
-        Response.where(questionnaire: @questionnaire)
+        Response.includes(:questionnaire).where(questionnaire: @questionnaire)
       end
 
       def participant(session_token)
@@ -32,7 +32,7 @@ module Decidim
 
       def participants
         subquery = query.select("DISTINCT ON (decidim_forms_responses.session_token) decidim_forms_responses.*")
-        Response.select("*").from(subquery).order(:created_at)
+        Response.preload(:questionnaire).select("*").from(subquery).order(:created_at)
       end
 
       def count_participants

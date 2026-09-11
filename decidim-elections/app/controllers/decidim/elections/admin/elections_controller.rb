@@ -140,7 +140,7 @@ module Decidim
         end
 
         def elections
-          @elections ||= filtered_collection
+          @elections ||= filtered_collection.includes([:component])
         end
 
         def collection

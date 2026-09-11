@@ -34,10 +34,10 @@
               <%= registration_type.weight %>
             </td>
             <td data-label="<%= t("models.registration_type.fields.conference_meetings", scope: "decidim.admin") %>">
-              <%= registration_type.conference_meeting_registration_types.count %>
+              <%= registration_type.conference_meeting_registration_types.size %>
             </td>
             <td data-label="<%= t("models.registration_type.fields.registrations_count", scope: "decidim.admin") %>">
-              <%= registration_type.conference_registrations.count %>
+              <%= registration_type.conference_registrations.size %>
             </td>
 
             <td class="table-list__actions" data-label="<%= t("models.registration_type.fields.actions", scope: "decidim.admin") %>">

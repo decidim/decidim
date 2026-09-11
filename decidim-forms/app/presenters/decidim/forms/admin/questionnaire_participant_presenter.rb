@@ -55,6 +55,7 @@ module Decidim
 
         def siblings
           Response.not_separator
+                  .includes(:attachments, :question, choices: [:response_option])
                   .not_title_and_description
                   .where(questionnaire:, session_token: participant.session_token)
                   .joins(:question).order("decidim_forms_questions.position ASC")

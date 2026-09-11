@@ -54,7 +54,7 @@ module Decidim
                                highlighted + voted + progress_budgets
                              end
 
-        reorder(budgets).where.not(id: budgets_to_exclude.map(&:id))
+        reorder(budgets).includes(:component).where.not(id: budgets_to_exclude.map(&:id))
       end
 
       def finished?

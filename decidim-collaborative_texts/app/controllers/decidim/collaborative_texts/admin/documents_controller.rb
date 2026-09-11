@@ -134,7 +134,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= Document.where(component: current_component)
+          @collection ||= Document.includes(:component, { document_versions: :suggestions }).where(component: current_component)
         end
       end
     end

@@ -16,7 +16,7 @@ module Decidim
       private
 
       def speakers
-        @speakers ||= current_participatory_space.speakers.published
+        @speakers ||= current_participatory_space.speakers.includes(:conference_meetings, user: [:organization, { avatar_attachment: :blob }]).published
       end
 
       alias collection speakers
