@@ -34,7 +34,6 @@ he:
       decidim/accountability/result:
         one: תוצאה
         two: תוצאות
-        many: תוצאות
         other: תוצאות
   decidim:
     accountability:
@@ -158,7 +157,6 @@ he:
           added_projects:
             one: תוצאה אחת יובאה מפרויקטים.
             two: "שתי תוצאות יובאו מפרויקטים."
-            many: "%{count} תוצאות יובאו מפרויקטים."
             other: "%{count} תוצאות יובאו מפרויקטים."
           subject: ייבוא ​​מוצלח של תוצאות
           success: פרויקטים מיובאים בהצלחה לתוצאות ברכיב %{component_name}. ניתן לעיין בתוצאות בממשק הניהול.
@@ -184,7 +182,6 @@ he:
           results_count:
             one: תוצאה אחת
             two: "שתי תוצאות"
-            many: "%{count} תוצאות"
             other: "%{count} תוצאות"
         home_header:
           global_status: סטטוס ביצוע גלובלי

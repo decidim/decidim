@@ -10,8 +10,8 @@ eu:
   activerecord:
     models:
       decidim/elections/election:
-        one: Bozketa
-        other: Bozketak
+        one: Hauteskunde
+        other: Hauteskundeak
   decidim:
     admin:
       menu:
@@ -32,13 +32,13 @@ eu:
         name: Hauteskundeak
         settings:
           global:
-            announcement: Iragarpena
+            announcement: Jakinarazpena
           step:
-            announcement: Iragarpena
+            announcement: Jakinarazpena
     elections:
       actions:
         confirm_delete_election: Ziur zaude hauteskundea hau ezabatu nahi duzula?
-        confirm_unpublish_election: Ziur zaude bozketa hau despublikatu nahi duzula?
+        confirm_unpublish_election: Ziur zaude bozketa hau desargitaratu nahi duzula?
         deleted_election_info: Ezabatutako hauteskundeak ez dira agertzen zerrendan. Beheko botoia sakatuz ikus ditzakezu.
         edit: Editatu hauteskundea
         new: Beste hauteskunde bat
@@ -89,7 +89,7 @@ eu:
             answer: Erantzunak
             percentage: Ehunekoa
             total: Guztira
-            votes: Babesak
+            votes: Botoak
             votes_count:
               one: Boto 1
               other: "%{count} boto"
@@ -98,13 +98,13 @@ eu:
             per_question_waiting: Oraindik ez dago botoa emateko aukerarik. Parte-hartzaileek mezu bat ikusiko dute "Hurrengo galderaren zain", gutxienez bat aktibatu arte.
             publish_button: Argitaratu emaitzak
             results_availability:
-              after_end: Emaitza guztik argitaratu ditzakezu bozketa amaitu ondoren. Emaitzak ezkutuan egongo dira eskuz argitaratu arte.
+              after_end: Emaitza guztiak argitaratu ditzakezu hauteskundea amaitu ondoren. Emaitzak ezkutuan egongo dira eskuz argitaratu arte.
               per_question: Aukera eman behar duzu botoa emateko eta eskuz argitaratzeko galdera bakoitzaren emaitzak.
               real_time: Emaitzak automatikoki erakusten dira bozketa bitartean.
             start_question_button: Botoa eman daiteke
             title: Emaitzak
           status:
-            allow_census_check_before_start: Parte hartzaileek botoa ematen duten ala ez egiaztatu ahal izango dute aukeraketa hasi aurretik
+            allow_census_check_before_start: Parte hartzaileek babesa ematen duten ala ez egiaztatu ahal izango dute aukeraketa hasi aurretik
             census: 'Errolda:'
             results_availability:
               after_end: Emaitzak eskuragarri bozketak amaitu ondoren
@@ -123,10 +123,10 @@ eu:
           form:
             add_images: Irudiak gehitu
             attachment_legend: Gehitu irudi-galeria bat (aukerakoa)
-            basic_title: Oinarrizko infoa
+            basic_title: Oinarrizko informazioa
             calendar: Egutegia
             calendar_description: Egiaztatu ordutegi-eremua egokia dela antolamenduaren konfigurazioan. Egungo konfigurazioa da %{timezone}.
-            edit_attachments: Editatu eranskinak
+            edit_attachments: Eranskinak editatu
             end_at: Amaiera-ordua
             manual_start: Eskuz hastea
             publish: Argitaratu
@@ -152,8 +152,8 @@ eu:
           toggle_census_check:
             error: Akats bat gertatu da errolda egiaztatzean.
           unpublish:
-            invalid: Arazo bat egon da hauteskundea despublikatzean.
-            success: Hauteskundea zuzen despublikatua.
+            invalid: Arazo bat egon da hauteskundea desargitaratzean.
+            success: Hauteskundea behar bezala desargitaratu da.
           update:
             invalid: Arazo bat egon da hauteskundea eguneratzean.
             success: Hauteskundea zuzen eguneratua.
@@ -168,11 +168,11 @@ eu:
             form_description: Galderak gutxienez erantzuteko aukera bi eduki behar ditu, hurrengo urratsera pasatzeko.
           update:
             invalid: Arazo bat egon da galderak eguneratzean.
-            success: Galderak zuzen egiuneratu dira.
+            success: Galderak behar bezala eguneratu dira.
         statuses:
           enable_voting:
             invalid: Arazo bat egon da bozketa gaitzean.
-            success: Bozketa zuzen gaitua.
+            success: Bozketa behar bezala gaitu da.
           end:
             invalid: Arazo bat egon da bozketa hau amaitzean.
             success: Aukeraketa zuzen amaitua.
@@ -189,7 +189,7 @@ eu:
           publish: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea argitaratu du %{space_name} espazioan"
           restore: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea berreskuratu du %{space_name} espazioan"
           soft_delete: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea %{space_name} espazioan zaborretara eraman du"
-          unpublish: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea despublikatu du %{space_name} espazioan"
+          unpublish: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea desargitaratu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea eguneratu du %{space_name} espazioan"
         question:
           update: "%{user_name} parte-hartzaileak eguneratu ditu %{resource_name} aukerako galderak"
@@ -199,10 +199,10 @@ eu:
           exit_button: Irten errolda egiaztatzetik
           title: Behar bezala egiaztatu zaituzte
       censuses:
-        census_ready_html: Erroldako datuak kargatuta eta prest daude % <b>{eleccion_title}</b> bozketan erabiltzeko.
+        census_ready_html: Erroldako datuak kargatuta eta prest daude % <b>%{election_title}</b> bozketan erabiltzeko.
         census_size_html:
-          one: Gaur egun <strong>bat</strong> pertsona dago hautesleku honetan botoa jasotzeko gai dena (hau errolda dinamiko batean alda daiteke).
-          other: Gaur egun <strong>bat</strong> pertsona daude hautesleku honetan botoa jasotzeko gai deirnak (hau errolda dinamiko batean alda daiteke).
+          one: Gaur egun <strong>1</strong> pertsonak du botoa emateko eskubidea hauteskunde honetan (errolda dinamikoa bada kopurua alda daiteke).
+          other: Gaur egun <strong>%{count}</strong> pertsonak dute botoa emateko eskubidea hauteskunde honetan (errolda dinamikoa bada kopurua alda daiteke).
         internal_users:
           already_have_an_account?: Baduzu kontu bat?
           are_you_new?: Beste parte-hartzaile bat?
@@ -212,7 +212,7 @@ eu:
           internal_type_title: Baimen gehigarriak behar dira botoa emateko (aukerakoa)
           label: Parte-hartzaile erregistratuak (dinamikoa)
           sign_in_description: Hasi zure saioa hauteskunde hauetan bozkatzeko
-          sign_up_description: Sortu kontu bat hauteskunde hauetan bozkatzeko
+          sign_up_description: Kontu bat sortu hauteskunde hauetan bozkatzeko
         internal_users_form:
           authorization_options_invalid: Zoritxarrez, nahiz eta baimen guztiak dituzun, batzuk ez dira baliozkoak hautapen honetarako.
           exit_button: Irten bozkatzeko kabinatik
@@ -225,18 +225,17 @@ eu:
             user@example.org;123456
             user2@example.org;ABCXYZ
           info_html: |
-            CSV formatuko fitxategia izan behar da, bi zutaberekin, bata posta elektronikoko helbidearekin eta bestea erabiltzaileak botoa emateko sartu beharko duen fitxa baten balioarekin.
-            Puntu eta koma batez bereizi behar da (;)
+            CSV formatuko fitxategi bat izan behar du, bi zutaberekin: batean helbide elektronikoa eta bestean parte-hartzaileak bozkatu ahal izateko sartu beharko duen tokenaren balioa. Zutabeak puntu eta komaz (;) bereizi behar dira
           label: Fitxekin erregistratu gabeko parte-hartzaileak (finkoa)
-          remove_before_upload: Errolda berri bat igo nahi baduzu, aurretik dagoena kendu behar duzu.
+          remove_before_upload: Errolda berri bat igo nahi baduzu, aurretik dagoena ezabatu behar duzu.
           upload_file: Igo fitxategia
           upload_new_census: Igo CSV fitxategia
         token_csv_form:
           email: Helbide elektronikoa
-          email_placeholder: Sartu hauteslearen helbide elektronikoa
+          email_placeholder: Boto-emailearen helbide elektronikoa sartu
           invalid: Posta elektronikoa edo fitxa ez da baliozkoa. Mesedez, begiratu xehetasunak eta saiatu berriro.
           token: Identifikatzailea
-          token_placeholder: Sartu boto-emalearen identifikatzailea
+          token_placeholder: Boto-emailearen tokena sartu
       elections:
         count:
           elections_count:
@@ -244,7 +243,7 @@ eu:
             other: "Bozketa %{count}"
         elections:
           empty: Ez dago bozketa eskuragarri.
-          empty_filters: Ez dago zure irgazkiekin bat datorren bozketarik.
+          empty_filters: Ez dago zure iragazkiekin bat datorren hauteskunderik.
         filters:
           all: Guztiak
           state: Egoera
@@ -265,7 +264,7 @@ eu:
           check_census_button: Begiratu ea botoa eman dezakedan
           check_census_explanation: Hauteskunde hauek oraindik ez dira hasi, baina erroldan sartuta zauden egiazta dezakezu.
           edit_vote_button: Editatu botoak
-          vote_button: Eman babesa
+          vote_button: Botoa eman
           voted: Bozkatu duzu. Berriz bozkatu dezakezu, zure azken botoa baino ez da kontuan hartuko.
           votes_count:
             one: Boto 1
@@ -274,13 +273,13 @@ eu:
         vote_results:
           subtitle:
             after_end: Aukeraketa amaitu egin da. Emaitzak ikus ditzakezu.
-            per_question: Emaitzak kontsulta daitezke galderaren arabera. Galdera bakoitzaren emaitzak ikus ditzakezu botoa eman eta emaitzak argitaratu ondoren.
+            per_question: Emaitzak galdera bakoitzeko daude eskuragarri. Galdera bakoitzaren emaitzak ikus ditzakezu bozketa gaitu eta emaitzak argitaratu ondoren.
             real_time: Emaitzak denbora errealean daude eskuragarri. Emaitzak ikus ditzakezu bozketa egiten den bitartean.
           title: Emaitzak
           total: 'GUZTIRA:'
           total_votes:
             one: Bozka 1
-            other: "%{count} bozka"
+            other: "%{count} boto"
       models:
         election:
           fields:
@@ -292,8 +291,8 @@ eu:
       per_question_votes:
         waiting:
           description: Hemen itxaron dezakezu hurrengo galdera egin arte. Automatikoki hurrengo galderara itzuliko zara prest dagoenean.
-          edit_vote: Zure botoa editau
-          exit_button: Irten itxarongelatik
+          edit_vote: Zure botoa editatu
+          exit_button: Itxarongelatik irten
           title: Hurrengo galderaren zain
       status:
         active: Aktibo
@@ -313,23 +312,23 @@ eu:
           election_not_open: Aukeraketa oraindik ez dago zabalik. Mesedez, begiratu datak eta saiatu berriro.
           failed: Zure nortasuna ezin izan da egiaztatu. Mesedez, begiratu emandako informazioa eta saiatu berriro.
           form_title: Zure nortasuna egiaztatu
-          invalid: Erabiltzailea ez dago erroldan.
+          invalid: Parte-hartzailea ez dago erroldan.
         confirm:
-          cast_vote: Eman botoa
-          edit_vote: Editatu zure botoa
+          cast_vote: Botoa eman
+          edit_vote: Zure botoa editatu
           not_answered: Ez duzu erantzun galdera hau.
-          title: Baieztatu babesa
+          title: Botoa baieztatu
         not_authorized: Ez duzu baimenik aukeraketa honetan bozkatzeko.
         question:
           back: Atzera
-          cast_vote: Eman botoa
+          cast_vote: Botoa eman
           max_choices: 'Gehieneko aukerak: %{count}'
           max_choices_alert: Aukera gehiegi aukeratu dituzu. Mesedez, utzi batzuk jarraitzeko.
-          max_choices_exceeded: Ezin da aukeratu % {max} aukera baino gehiago. Mesedez, itzuli eta doitu zure aukeraketa.
+          max_choices_exceeded: Ezin da aukeratu %{max} aukera baino gehiago. Mesedez, itzuli eta doitu zure aukeraketa.
           next: Hurrengoa
         receipt:
           description: Bozkatzeko epea zabalik dagoen bitartean edozein unetan eman daiteke berriro botoa. Zure aurreko botoa berriaz gainidatziko da.
-          edit_vote: Editatu zure botoa
+          edit_vote: Zure botoa editatu
           exit_button: Irten bozkatzeko kabinatik
           title: Zure botoak zuzen eman dira
     metadata:

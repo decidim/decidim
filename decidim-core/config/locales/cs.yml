@@ -2091,7 +2091,6 @@ cs:
   layouts:
     decidim:
       announcements:
-        view_less: Zobrazit méně
         view_more: Více informací
       data_consent:
         details:
