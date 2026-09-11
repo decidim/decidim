@@ -1716,6 +1716,8 @@ de:
       login_modal:
         please_log_in: Bitte melden Sie sich an
         sign_up: Konto erstellen
+      mentions:
+        search_prompt: Tippe, um Teilnehmende zu suchen
       mentions_modal:
         remove_recipient: Empfänger %{name} entfernen
       progress: Fortschritt

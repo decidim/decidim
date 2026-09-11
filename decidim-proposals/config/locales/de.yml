@@ -124,7 +124,10 @@ de:
             values:
               'false': Vorschläge
               'true': Änderungen
+          proposal_state_id_eq:
+            label: Status
           state_eq:
+            label: Status
             values:
               accepted: Angenommen
               evaluating: In Bearbeitung
