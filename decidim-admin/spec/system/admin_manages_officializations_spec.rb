@@ -350,5 +350,26 @@ describe "Admin manages officializations" do
         expect(page).to have_text("#{admin.name} retrieved the email of the participant #{user.name}")
       end
     end
+
+    context "when the session has expired" do
+      let(:user) { users.first }
+
+      it "displays the correct message" do
+        within "tr[data-user-id=\"#{user.id}\"]" do
+          find("button[data-controller='dropdown']").click
+          click_on "Show email"
+        end
+
+        travel Decidim.expire_session_after + 1.second do
+          within "#show-email-modal" do
+            click_on "Show"
+
+            within "#user_email" do
+              expect(page).to have_text("You are not authorized to perform this action.")
+            end
+          end
+        end
+      end
+    end
   end
 end
