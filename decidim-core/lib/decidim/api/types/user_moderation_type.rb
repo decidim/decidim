@@ -31,6 +31,12 @@ module Decidim
       def blocking_user
         object.blocking.blocking_user
       end
+
+      def self.authorized?(object, context)
+        return false unless context[:current_user]
+
+        super && allowed_to?(:read, :admin_dashboard, object, context)
+      end
     end
   end
 end
