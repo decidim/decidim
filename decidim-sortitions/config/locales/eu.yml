@@ -46,7 +46,7 @@ eu:
           new_sortition: Beste zozketa bat
           show: Zozketaren xehetasunak
           title: Ekintzak
-        deprecation_warning_html: "⚠️ <b>Deprezazioaren Oharra.</b> Zozketen modulua ezabatuko da Decidim v0.32an. Mesedez, planifikatu eta pentsatu irtenbide alternatiboak parte-hartzailearentzat edo proposamenak hautatzeko."
+        deprecation_warning_html: "⚠️ <b>Zaharkitze-oharra.</b> Zozketen modulua Decidim v0.32 bertsioan kenduko da. Planifikatu horren arabera, eta kontuan hartu parte-hartzaileak edo proposamenak hautatzeko bestelako irtenbideak."
         models:
           sortition:
             fields:
@@ -80,7 +80,7 @@ eu:
           index:
             title: Zozketak
           new:
-            confirm: Botoia sakatzean plataformak egun eta ordua (segundu gutxi batzuk gora behera) eta dadoak botatzean ateratako zenbakia gorde egingo ditu ausazko hautaketa bat egiteko. Botoia sakatu ondoren ez dago atzera egiterik eta zozketaren emaitzak zein txantiloi honetan sartutako datuak argitaratuko dira eta ezin izango dira aldatu. Beraz, mesedez, arretaz jarraitu.
+            confirm: Hurrengo botoia sakatzean, plataformak data eta ordua erregistratuko ditu (segundoko zehaztasunez), eta informazio hori, dado-jaurtiketarekin batera, ausazko hautaketa bat sortzeko erabiliko da. Ekintza atzeraezina izango da; botoia sakatu ondoren, zozketa honen emaitza argitaratuko da, formulario honetan sartutako datuekin batera, eta ezin izango da aldatu. Mesedez, berrikusi edukia arretaz.
             create: Sortu
             title: Beste zozketa bat
           show:
@@ -120,10 +120,10 @@ eu:
           algorithm: Zozketaren algoritmoaren kodea
           any_taxonomy: taxonomia guztietatik
           cancelled: Zozketa beran behera utzita
-          candidate_proposal_ids: Zozketako proposamenen hurrenkera eta IDak
-          candidate_proposals_info: 'Zozketa honako proposamenen artean egin zen (%{taxonomy_labels}), honako identifikazio-agiri hauekin (letra lodiz hautatutako proposamenak)  '
+          candidate_proposal_ids: Zozketako proposamenen ordena eta IDak
+          candidate_proposals_info: 'Zozketa honako proposamenen artean egin da (%{taxonomy_labels}), honako identifikazio-agiri hauekin (letra lodiz hautatutako proposamenak)  '
           dice_result: Dadoen emaitza
-          introduction: 'Orrialde honek %{reference} zozketaren emaitzak ditu. Zozketa honen bidez, %{target_items} emaitza kopurua ausaz eta banaketa probabilistiko berdinarekin aukeratu dira proposamen multzotik. Orri honek, emaitzak ezezik, berme guztiak izateko behar den informazioa ere jaso du. Zozketa honen kalitateak bi gako ditu. Alde batetik, dadoa hainbat lekukoren aurrean bota dela. Bestetik, zozketaren une zehatzean sortu den algoritmoak eman duen ausazko hautaketa. Sailkapenerako hazi-denbora hain da zehatza (segunduak) gizakiak ezin baitu hori kontrolatu. Honi esker, bidezko emaitza bermatzen duen sarrera bikoitz "kontrolaezina" sortzen da.  '
+          introduction: 'Orrialde honek %{reference} zozketaren emaitzak jasotzen ditu. Zozketa honen bidez, %{target_items} emaitza ausaz eta probabilitate-banaketa berdinarekin hautatu dira behean bistaratzen diren proposamenen multzotik. Emaitzekin batera, orri honetan bistaratzen den informazioak bermeak ahalik eta gehien handitzeko eta emaitzak erreproduzitzeko behar den informazio guztia eskaintzen du. Zozketa honen kalitatearen gakoa dado bat jaurtitzeak (lekukoek egiaztatuta) ematen duen ausazkotasun bikoitza eta zozketaren une zehatza dira; une horrek ausazko hautaketa sortzen duen algoritmo baterako sarrera ematen du. Zozketaren denbora-hazia hain zehatza da (segundotan), ezen gizakiek ezin baitute kontrolatu; horrela, emaitza bidezkoa bermatzeko "kontrolaezina" den sarrera bikoitza ematen da  '
           mathematical_result: Emaitza (Dadoa x Hazia)
           proposals_selected_by_sortition: Zozketa bidez aukeratutako proposamenak
           sortition_reproducibility_details: Zozketaren errepikagarritasuna

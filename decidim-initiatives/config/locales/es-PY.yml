@@ -417,7 +417,6 @@ es-PY:
           new: Crea una nueva iniciativa
           select: Quiero promover esta iniciativa.
           select_initiative_type_help_html: "<p>Las iniciativas ciudadanas son un medio a través del cual las participantes pueden solicitar que la organización, dentro de sus competencias, adopte medidas en defensa del interés general. ¿Qué iniciativa quieres poner en marcha?</p>"
-          show_less: Mostrar menos
           show_more: Mostrar más
           subtitle: '¿Qué tipo de iniciativa quieres promover?'
           verification_required: Verifica tu cuenta para impulsar la iniciativa

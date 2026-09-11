@@ -423,7 +423,6 @@ sk:
           new: Vytvoriť novú iniciatívu
           select: Chcem túto iniciatívu podporiť
           select_initiative_type_help_html: "<p>Iniciatívy sú prostriedkom, prostredníctvom ktorého môžu účastníci zasiahnuť, aby organizácia mohla podniknúť kroky na obranu všeobecného záujmu. Ktorú iniciatívu chcete spustiť?</p>"
-          show_less: Zobraziť menej
           show_more: Zobraziť viac
           subtitle: Akú iniciatívu chcete presadzovať?
           verification_required: Overte svoj účet, aby ste mohli presadzovať túto iniciatívu

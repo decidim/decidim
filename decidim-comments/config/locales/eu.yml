@@ -61,8 +61,8 @@ eu:
           neutral_selected: Zure iritzia gai honi buruz neutroa da
           positive: Positiboa
           positive_selected: Zure iritzia gai honi buruz positiboa da
-        remaining_characters: "%{count} kakaktere geratzen dira"
-        remaining_characters_1: "%{count} kakaktere geratzen dira"
+        remaining_characters: "Karaktere %{count} geratzen da"
+        remaining_characters_1: "%{count} karaktere geratzen dira"
         title: Gehitu zure iruzkina
       comment:
         alignment:
@@ -96,11 +96,11 @@ eu:
             does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
             offensive: Arrazakeria, sexismoa, laidoak, eraso pertsonalak, heriotza-mehatxuak, suizidio eskaerak edo gorrotozko edozein diskurtso.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
-          title: Jakinarazi eduki desegokia
+          title: Eduki desegokia salatu
         show_replies:
-          one: Erakutsi %{count} erantzun
+          one: Erakutsi erantzun %{count}
           other: Erakutsi %{count} erantzun
-        single_comment_link_title: Lortu esteka
+        single_comment_link_title: Esteka lortu
         sort_by: 'Nork sortua:'
       comment_order_selector:
         order:
@@ -120,7 +120,7 @@ eu:
         single_comment_warning: <a href="%{url}"> iruzkin guztiak ikusgai </a>
         single_comment_warning_title: Iruzkin bakar bat ikusten ari zara
         title:
-          one: "Iruzkin bat"
+          one: "Iruzkin %{count}"
           other: "%{count} iruzkin"
         top_comment_label: Babes gehien galdu dituztenak
       down_vote_button:
@@ -145,9 +145,9 @@ eu:
       help:
         comment_votes:
           comment: Bozkatutako iruzkinaren identifikazioa
-          created_at: Zein datatan sortu zen bozketa hau
+          created_at: Zein datatan sortu den bozketa hau
           id: Babesaren identifikazioa
-          updated_at: Zein datatan eguneratu zen azken aldiz bozketa hau
+          updated_at: Zein datatan eguneratu den azken aldiz bozketa hau
           weight: Babesaren balioa (1 boto gehiago, -1 boto gutxiago)
         comments:
           alignment: Iruzkin hau aldekoa bazen, kontrakoa edo neutrala
@@ -155,7 +155,7 @@ eu:
           body: Iruzkina bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
           commentable_type: Iruzkingarri mota (emaitza, proposamena... bazen)
-          created_at: Zein datatan sortu zen iruzkin hau
+          created_at: Zein datatan sortu den iruzkin hau
           depth: Zein lekutan dago iruzkin hau hiru iruzkinetan (iruzkinaren erantzuna bada edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uztean erabili du tokiko hizkuntza
