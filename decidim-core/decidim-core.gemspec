@@ -28,6 +28,8 @@ Gem::Specification.new do |s|
     end
   end
 
+  s.add_dependency "decidim-verifications", version
+
   s.add_dependency "concurrent-ruby", "~> 1.3.0"
 
   s.add_dependency "active_link_to", "~> 1.0"
