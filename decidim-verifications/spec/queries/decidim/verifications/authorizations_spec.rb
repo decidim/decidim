@@ -208,4 +208,48 @@ describe Decidim::Verifications::Authorizations do
       let(:expectation) { [] }
     end
   end
+
+  describe "impersonated_only and before_date filters" do
+    let(:other_name) { "other_method" }
+    let(:managed_user) { create(:user, organization:, managed: true) }
+    let(:user4) { create(:user, organization:) }
+    let(:prev_week) { Time.zone.today.prev_week }
+    let(:prev_month) { Time.zone.today.prev_month }
+
+    let!(:granted_managed) { create(:authorization, :granted, name: other_name, user: managed_user, created_at: prev_week) }
+
+    let!(:granted_old) { create(:authorization, :granted, name: other_name, user: user4, created_at: prev_month) }
+
+    describe "impersonated_only" do
+      it_behaves_like "a correct usage of the query" do
+        let(:parameters) { { organization:, name: other_name, granted: true, impersonated_only: true } }
+
+        let(:expectation) { [granted_managed] }
+      end
+    end
+
+    describe "before_date" do
+      it_behaves_like "a correct usage of the query" do
+        let(:parameters) { { organization:, name: other_name, granted: true, before_date: prev_week } }
+
+        let(:expectation) { [granted_old] }
+      end
+    end
+
+    describe "impersonated_only and before_date combined" do
+      it_behaves_like "a correct usage of the query" do
+        let(:parameters) { { organization:, name: other_name, granted: true, impersonated_only: true, before_date: prev_week } }
+
+        let(:expectation) { [] }
+      end
+    end
+
+    describe "without the new filters" do
+      it_behaves_like "a correct usage of the query" do
+        let(:parameters) { { organization:, name: other_name, granted: true } }
+
+        let(:expectation) { [granted_managed, granted_old] }
+      end
+    end
+  end
 end

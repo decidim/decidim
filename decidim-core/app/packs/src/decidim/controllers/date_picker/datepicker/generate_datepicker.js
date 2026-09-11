@@ -14,6 +14,9 @@ export default function generateDatePicker(input, row, formats) {
   date.setAttribute("id", `${input.id}_date`);
   date.setAttribute("type", "text");
   date.setAttribute("aria-label", input.dataset.dateLabel);
+  if (input.attributes.placeholder) {
+    date.setAttribute("placeholder", input.attributes.placeholder.value);
+  };
   if (input.attributes.disabled) {
     date.setAttribute("disabled", input.attributes.disabled);
   };
@@ -90,6 +93,14 @@ export default function generateDatePicker(input, row, formats) {
       } else if (input.type === "datetime-local") {
         input.value = `${formatDate(date.value, formats)}T${formatTime(document.querySelector(`#${input.id}_time`).value || defaultTime, formats.time, input.id)}`;
       };
+    };
+  });
+
+  // An erased or incomplete visible date must not keep the synced value;
+  // `input` also covers cut, drag and drop and autofill.
+  date.addEventListener("input", () => {
+    if (date.value.length !== 10 && input.value !== "") {
+      input.value = "";
     };
   });
 
