@@ -6,6 +6,13 @@ module Decidim
       # This class is responsible for creating the imported proposals
       # and must be included in proposals component's import manifest.
       class ProposalCreator < Decidim::Admin::Import::Creator
+        class << self
+          def batch_notifier_klass
+            require_dependency "decidim/proposals/import/batch_notifier"
+            Decidim::Proposals::Import::BatchNotifier
+          end
+        end
+
         # Returns the resource class to be created with the provided data.
         def self.resource_klass
           Decidim::Proposals::Proposal
@@ -33,12 +40,16 @@ module Decidim
 
         # Saves the proposal
         def finish!
+          finish_without_notify!
+          notify(resource)
+          publish(resource)
+        end
+
+        def finish_without_notify!
           Decidim.traceability.perform_action!(:create, self.class.resource_klass, context[:current_user], visibility: "admin-only") do
             resource.save!
             resource
           end
-          notify(resource)
-          publish(resource)
         end
 
         private
@@ -58,12 +69,12 @@ module Decidim
         end
 
         def taxonomies
-          id = data.has_key?(:taxonomies) ? data[:taxonomies]["ids"] : data[:"taxonomies/ids"]&.split(",")&.map(&:to_i)
+          id = normalize_ids(taxonomies_raw_ids)
           Decidim::Taxonomy.where(id:)
         end
 
         def scope
-          id = data.has_key?(:scope) ? data[:scope]["id"] : data[:"scope/id"].to_i
+          id = normalize_id(scope_raw_id)
           Decidim::Scope.find_by(id:)
         end
 
@@ -115,6 +126,60 @@ module Decidim
               participatory_space: true
             }
           )
+        end
+
+        def coauthors_followers(proposal)
+          proposal.authors.flat_map(&:followers)
+        end
+
+        def taxonomies_raw_ids
+          return extract_ids(data[:taxonomies]) if data.has_key?(:taxonomies)
+
+          data[:"taxonomies/ids"]
+        end
+
+        def scope_raw_id
+          return extract_id(data[:scope]) if data.has_key?(:scope)
+
+          data[:"scope/id"]
+        end
+
+        def extract_ids(value)
+          return value["ids"] if value.is_a?(Hash)
+          return value.map { |item| extract_id(item) } if value.is_a?(Array)
+
+          value
+        end
+
+        def extract_id(value)
+          return value["id"] if value.is_a?(Hash)
+          return value.id if value.respond_to?(:id)
+
+          value
+        end
+
+        def normalize_ids(raw_ids)
+          values = case raw_ids
+                   when nil
+                     []
+                   when String
+                     raw_ids.split(",")
+                   when Array
+                     raw_ids.flatten
+                   else
+                     [raw_ids]
+                   end
+
+          values.filter_map do |value|
+            next if value.blank?
+            next unless value.respond_to?(:to_i)
+
+            value.to_i
+          end
+        end
+
+        def normalize_id(raw_id)
+          normalize_ids(raw_id).first
         end
       end
     end

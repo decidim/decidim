@@ -41,7 +41,9 @@ module Decidim
 
         # Save resources
         def import!
-          collection.map(&:finish!)
+          finished_collection = collection.map(&:finish_without_notify!)
+          notify_collection_import(finished_collection)
+          finished_collection
         end
 
         # Returns a collection of creators
@@ -79,6 +81,8 @@ module Decidim
               if index.zero?
                 @data_headers = rowdata.map { |d| d.to_s.to_sym }
               else
+                next if blank_row?(rowdata)
+
                 @collection_data << rowdata.each_with_index.to_h do |val, ind|
                   [@data_headers[ind], val]
                 end
@@ -89,12 +93,33 @@ module Decidim
           @collection_data
         end
 
+        def blank_row?(rowdata)
+          Array(rowdata).all?(&:blank?)
+        end
+
         def component
           context[:current_component]
         end
 
         def available_locales
           @available_locales ||= component.participatory_space.organization.available_locales
+        end
+
+        def notify_collection_import(finished_collection)
+          notifier_klass = creator.batch_notifier_klass
+          return if notifier_klass.blank?
+
+          notifier_klass.new(
+            collection: finished_collection,
+            context: notifier_context
+          ).notify!
+        end
+
+        def notifier_context
+          return context.merge(import_creator_class: creator) if context.is_a?(Hash)
+
+          base_context = context.respond_to?(:to_h) ? context.to_h : {}
+          base_context.merge(import_creator_class: creator)
         end
       end
     end
