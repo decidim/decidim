@@ -97,6 +97,12 @@ module Decidim
         single_comment.depth
       end
 
+      def target_chain_ids
+        return @target_chain_ids if defined?(@target_chain_ids)
+
+        @target_chain_ids = target_comment ? target_comment.thread_chain_ids : []
+      end
+
       def commentable_path(params = {})
         return resource_locator(Array(options[:polymorphic]).push(model)).path(params) if options[:polymorphic]
 
@@ -147,9 +153,16 @@ module Decidim
       end
 
       def single_comment
-        return if options[:single_comment].blank?
+        return if target_comment.blank?
 
-        @single_comment ||= SortedComments.for(model, id: options[:single_comment], order_by: order).first
+        @single_comment ||= target_comment.thread_root
+      end
+
+      def target_comment
+        return @target_comment if defined?(@target_comment)
+        return @target_comment = nil if options[:single_comment].blank?
+
+        @target_comment = SortedComments.for(model, id: options[:single_comment], order_by: order).first
       end
 
       def machine_translations_toggled?
