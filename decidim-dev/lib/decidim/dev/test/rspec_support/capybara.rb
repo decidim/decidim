@@ -79,6 +79,7 @@ module Decidim
         sleep sleep_time
         wait_time += sleep_time
       end
+      ActiveRecord::SessionStore::Session.delete_all
       force_browser_offline_state
     end
   end
