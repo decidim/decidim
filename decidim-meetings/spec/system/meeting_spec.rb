@@ -50,7 +50,7 @@ describe "Meeting", download: true do
   end
 
   context "when component is not commentable" do
-    let!(:resources) { create_list(:meeting, 3, :published, :with_services, component:) }
+    let!(:resources) { create_list(:meeting, 3, :published, component:) }
 
     it_behaves_like "an uncommentable component"
   end
