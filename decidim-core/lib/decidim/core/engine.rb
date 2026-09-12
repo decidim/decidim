@@ -566,12 +566,31 @@ module Decidim
       end
 
       initializer "decidim_core.session_store" do |app|
-        app.config.session_store :active_record_store,
-                                 key: "_session_id",
-                                 secure: Decidim.config.force_ssl,
-                                 expire_after: Decidim.config.expire_session_after,
-                                 httponly: true,
-                                 same_site: :lax
+        if app.config.session_store?
+          Decidim.deprecator.warn(
+            <<~DEPRECATION.strip
+              Configuring sessions has changed
+
+              To improve the security, by default Decidim stores now the session data in the database, having the following setup.
+
+              Rails.application.config.session_store :active_record_store,
+                                       key: "_decidim_session_id",
+                                       secure: Decidim.config.force_ssl,
+                                       expire_after: Decidim.config.expire_session_after,
+                                       httponly: true,
+                                       same_site: :lax
+
+              You are seeing this message because we have detected that your application already configures the the session store.
+            DEPRECATION
+          )
+        else
+          app.config.session_store :active_record_store,
+                                   key: "_decidim_session_id",
+                                   secure: Decidim.config.force_ssl,
+                                   expire_after: Decidim.config.expire_session_after,
+                                   httponly: true,
+                                   same_site: :lax
+        end
       end
 
       initializer "decidim_core.register_resources" do

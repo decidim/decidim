@@ -73,7 +73,7 @@ module Decidim::Core
               expect(Rails.application.config.session_options).to eq(
                 secure: true,
                 httponly: true,
-                key: "_session_id",
+                key: "_decidim_session_id",
                 same_site: :lax,
                 expire_after: 30.minutes
               )
@@ -87,7 +87,7 @@ module Decidim::Core
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
                 httponly: true,
-                key: "_session_id",
+                key: "_decidim_session_id",
                 same_site: :lax,
                 expire_after: 30.minutes
               )
@@ -101,7 +101,7 @@ module Decidim::Core
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
                 httponly: true,
-                key: "_session_id",
+                key: "_decidim_session_id",
                 same_site: :lax,
                 expire_after: 1.hour
               )
@@ -115,9 +115,12 @@ module Decidim::Core
           end
 
           it "does not reconfigure it" do
+            deprecator = instance_double(ActiveSupport::Deprecation, warn: nil)
+            allow(Decidim).to receive(:deprecator).and_return(deprecator)
+
             initializer.run(app)
 
-            expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::ActiveRecordStore)
+            expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::CacheStore)
             expect(Rails.application.config.session_options).to eq(expire_after: 36.minutes)
           end
         end
