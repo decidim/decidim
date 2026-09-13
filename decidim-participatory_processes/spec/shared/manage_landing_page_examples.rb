@@ -34,7 +34,7 @@ shared_examples "manage landing page examples" do
             find("a", text: "Hero image and CTA", exact_text: true).click
           end
         end
-        expect(page).to have_callout("Content block successfully created.")
+        expect(page).to have_admin_callout("Content block successfully created.")
       end.to change(active_content_blocks, :count).by(1)
     end
 
