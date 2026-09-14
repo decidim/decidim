@@ -1,0 +1,68 @@
+
+:root {
+    --measure-size-range-maxwidth: 1728px;     
+    --measure-font-size-typography-fontsize-5xl: 48px; /* 48 */    
+    --measure-font-size-typography-fontsize-4xl: 36px; /* 36 */    
+    --measure-font-size-typography-fontsize-3xl: 32px; /* 32 */    
+    --measure-font-size-typography-fontsize-2xl: 24px; /* 24 */    
+    --measure-font-size-typography-fontsize-xl: 20px; /* 20 */    
+    --measure-line-height-typography-lineheight-5xl: 48px; /* 48 */    
+    --measure-line-height-typography-lineheight-4xl: 45px; /* 45 */    
+    --measure-line-height-typography-lineheight-3xl: 40px; /* 40 */    
+    --measure-line-height-typography-lineheight-2xl: 30px; /* 30 */    
+    --measure-line-height-typography-lineheight-xl: 28px; /* 28 */    
+    --measure-font-size-typography-fontsize-lg: 18px; /* 18 */    
+    --measure-line-height-typography-lineheight-lg: 25px; /* 25 */    
+    --measure-font-size-typography-fontsize-md: 16px; /* 16 */    
+    --measure-line-height-typography-lineheight-md: 24px; /* 24 */    
+    --measure-font-size-typography-fontsize-sm: 14px; /* 14 */    
+    --measure-line-height-typography-lineheight-sm: 21px; /* 21 */    
+    --measure-opacity-color-opacity-40: 40%; /* disabled */    
+    --measure-font-size-typography-fontsize-xs: 12px; /* 12 */    
+    --measure-dimension-typography-fontweight-regular: 400px; /* 400 */    
+    --measure-dimension-typography-fontweight-semibold: 600px; /* 600 */    
+    --measure-dimension-typography-fontweight-bold: 700px; /* 700 */    
+    --measure-line-height-typography-lineheight-xs: 18px; /* 18 */    
+    --measure-size-breakpoint-2xl: 1536px;     
+    --measure-size-breakpoint-xl: 1280px;     
+    --measure-size-breakpoint-lg: 1024px;     
+    --measure-size-breakpoint-md: 768px;     
+    --measure-size-breakpoint-sm: 640px;     
+    --measure-size-breakpoint-xs: 375px;     
+    --measure-space-space-5xl: 120px; /* 120 */    
+    --measure-space-space-4xl: 64px; /* 64 */    
+    --measure-space-space-3xl: 48px; /* 48 */    
+    --measure-space-space-2xl: 40px; /* 40 */    
+    --measure-space-space-xl: 32px; /* 32 */    
+    --measure-space-space-lg: 24px; /* 24 */    
+    --measure-space-space-md: 16px; /* 16 */    
+    --measure-space-space-sm: 12px; /* 12 */    
+    --measure-space-space-xs: 8px; /* 8 */    
+    --measure-space-space-2xs: 4px; /* 4 */    
+    --measure-border-width-border-width-none: 0px; /* 0 */    
+    --measure-border-width-border-width-xs: 1px; /* 1, Container, divider, inputs, cards */    
+    --measure-border-width-border-width-sm: 2px; /* 2, tabs, sorting, indicadores pequeños */    
+    --measure-border-width-border-width-md: 4px; /* 4, accent line decorativa (headers), tooltip, notification, menu */    
+    --measure-border-radius-border-radius-none: 0px; /* 0, Pill, Edition-text, Navigation, Footer, Sidebar, Index, Banner, Notification, Cookies */    
+    --measure-border-radius-border-radius-xs: 2px; /* 2 */    
+    --measure-border-radius-border-radius-sm: 4px; /* 4, Tooltip, Button, Checkbox, Dropdown, Pill, Tabs-steps, Cards, Form-elements, Menu, Modal, All Cards */    
+    --measure-border-radius-border-radius-md: 6px; /* 6 */    
+    --measure-border-radius-border-radius-lg: 8px; /* 8, cards */    
+    --measure-border-radius-border-radius-xl: 12px; /* 12 */    
+    --measure-border-radius-border-radius-2xl: 16px; /* 16, modals */    
+    --measure-border-radius-border-radius-3xl: 24px; /* 24 */    
+    --measure-border-radius-border-radius-4xl: 32px; /* 32 */    
+    --measure-border-radius-border-radius-full: 1000px; /* 1000, Radio button, Dropdown-pagination, Item-navegation, Progress bar, Avatar, Toggle */    
+    --measure-size-range-minwidth: 1536px;     
+    --measure-font-size-typography-fontsize-5xl: 48px; /* header, 48 */    
+    --measure-font-size-typography-fontsize-4xl: 36px; /* header, 36 */    
+    --measure-font-size-typography-fontsize-3xl: 32px; /* header, 32 */    
+    --measure-font-size-typography-fontsize-2xl: 24px; /* header, 24 */    
+    --measure-font-size-typography-fontsize-xl: 20px; /* header, 20 */    
+    --measure-line-height-typography-lineheight-5xl: 48px;     
+    --measure-line-height-typography-lineheight-4xl: 45px;     
+    --measure-line-height-typography-lineheight-3xl: 40px;     
+    --measure-line-height-typography-lineheight-2xl: 30px;     
+    --measure-line-height-typography-lineheight-xl: 28px;     
+    --measure-space-container-padding-padding: 64px;     
+}
