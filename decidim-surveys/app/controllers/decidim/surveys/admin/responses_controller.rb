@@ -29,15 +29,11 @@ module Decidim
         def destroy_all
           enforce_permission_to :destroy_all, :questionnaire_responses
 
-          Decidim.traceability.perform_action!(
-            "delete_all_responses",
-            questionnaire,
-            current_user
-          ) do
-            questionnaire.responses.destroy_all
+          DeleteSurvey.call(survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("responses.destroy_all.success", scope: "decidim.surveys.admin")
+            end
           end
-
-          flash[:notice] = I18n.t("responses.destroy_all.success", scope: "decidim.surveys.admin")
 
           redirect_to Decidim::EngineRouter.admin_proxy(questionnaire_for.component).survey_responses_path(questionnaire_for)
         end
