@@ -50,7 +50,7 @@ describe "rake decidim:shakapacker:install", type: :task do
 
       expect { task.execute }.not_to raise_error
 
-      expected_sleeps = [5, 10, 20, 40]
+      expected_sleeps = [30, 60, 120, 240]
       expect(attempts).to be(5)
       expect(sleeps).to eq(expected_sleeps)
       expect(messages).to eq(expected_sleeps.map { |amt| "Command #{npm_command} failed. Retrying in #{amt}s..." })
