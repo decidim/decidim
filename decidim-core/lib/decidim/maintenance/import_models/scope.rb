@@ -117,7 +117,7 @@ module Decidim
           }
         end
 
-        def self.filter_item_for_component(component, space)
+        def self.filter_item_for_component(component, space) # rubocop:disable Metrics/CyclomaticComplexity
           return unless component.settings.respond_to?(:taxonomy_filters)
 
           scopes_enabled = component.attributes.dig("settings", "global", "scopes_enabled")
