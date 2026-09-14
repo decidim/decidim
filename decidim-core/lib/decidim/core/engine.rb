@@ -130,6 +130,8 @@ module Decidim
         Decidim.icons.register(name: "file-3-line", icon: "file-3-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "play-fill", icon: "play-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "fingerprint-line", icon: "fingerprint-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "smartphone-line", icon: "smartphone-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "key-2-line", icon: "key-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "list-check-2", icon: "list-check-2", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "notification-3-fill", icon: "notification-3-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "pages-line", icon: "pages-line", category: "system", description: "", engine: :core)
@@ -567,6 +569,10 @@ module Decidim
           resource.card = "decidim/user_profile"
           resource.searchable = true
         end
+      end
+
+      initializer "decidim_core.two_factor_methods" do
+        require "decidim/two_factor/methods"
       end
 
       initializer "decidim_core.homepage_content_blocks" do

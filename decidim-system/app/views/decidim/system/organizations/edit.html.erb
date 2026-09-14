@@ -41,6 +41,8 @@
       <%= f.text_area :header_snippets, help_text: t("decidim.system.organizations.header_snippets_help_html"), rows: 10 %>
     <% end %>
 
+    <%= render partial: "two_factor_settings", locals: { f: } %>
+
     <%= render partial: "advanced_settings", locals: { f: } %>
   </div>
 

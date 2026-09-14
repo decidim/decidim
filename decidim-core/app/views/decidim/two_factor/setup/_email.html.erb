@@ -1,0 +1,18 @@
+<%= render layout: "decidim/two_factor/setup/row", locals: {
+      icon_name: two_factor_method.icon,
+      title: t("decidim.two_factor.setup.email.title"),
+      description: authenticator ? two_factor_usage(authenticator, t("decidim.two_factor.setup.email.codes_sent_to", email: current_user.email)) : t("decidim.two_factor.setup.email.description")
+    } do %>
+  <% if authenticator %>
+    <span class="label success"><%= t("decidim.two_factor.setup.enabled") %></span>
+    <%= button_to t("decidim.two_factor.setup.email.disable"),
+                  two_factor_authentication_authenticator_path(authenticator),
+                  method: :delete,
+                  class: "button button__xs button__transparent-secondary",
+                  data: { confirm: t("decidim.two_factor.setup.email.disable_confirm") } %>
+  <% else %>
+    <%= button_to t("decidim.two_factor.setup.email.add"),
+                  two_factor_authentication_email_authenticator_path,
+                  class: "button button__sm button__transparent-secondary" %>
+  <% end %>
+<% end %>

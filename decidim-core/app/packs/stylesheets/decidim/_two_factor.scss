@@ -1,0 +1,85 @@
+.two-factor {
+  &__error {
+    @apply text-sm text-alert;
+  }
+
+  &__form {
+    @apply mt-4;
+  }
+
+  &__list {
+    @apply rounded border border-gray-3 p-4 divide-y divide-gray-3;
+
+    > * {
+      @apply py-4;
+    }
+
+    > *:first-child {
+      @apply pt-0;
+    }
+
+    > *:last-child {
+      @apply pb-0;
+    }
+  }
+
+  &__row {
+    @apply flex flex-wrap items-center justify-between gap-4;
+
+    &-summary {
+      @apply flex items-center gap-3;
+    }
+
+    &-icon {
+      @apply w-6 h-6 fill-current text-secondary flex-none;
+    }
+
+    &-text {
+      h3,
+      h4 {
+        @apply m-0;
+      }
+
+      span {
+        @apply text-sm text-gray-2;
+      }
+    }
+
+    &-actions {
+      @apply flex items-center gap-3 flex-none;
+    }
+  }
+
+  &__devices {
+    @apply mt-4 space-y-2 pl-9;
+  }
+
+  &__enrollment {
+    @apply flex flex-col md:flex-row gap-6 mt-6;
+
+    &-qr {
+      @apply w-40 h-40 flex-none;
+    }
+
+    &-steps {
+      @apply grow;
+    }
+  }
+
+  &__secret {
+    @apply text-black tracking-widest;
+  }
+
+  &__codes {
+    @apply my-6 rounded border border-gray-3 p-4 flex items-start justify-between gap-4;
+
+    ul {
+      @apply space-y-1;
+    }
+
+    code {
+      @apply text-black break-all;
+    }
+  }
+
+}

@@ -1,0 +1,18 @@
+<% confirmed = authenticator&.confirmed? %>
+
+<%= render layout: "decidim/two_factor/setup/row", locals: {
+      icon_name: two_factor_method.icon,
+      title: t("decidim.two_factor.setup.totp.title"),
+      description: confirmed ? two_factor_usage(authenticator) : t("decidim.two_factor.setup.totp.description")
+    } do %>
+  <% if confirmed %>
+    <span class="label success"><%= t("decidim.two_factor.setup.enabled") %></span>
+    <%= button_to t("decidim.two_factor.setup.remove"),
+                  two_factor_authentication_authenticator_path(authenticator),
+                  method: :delete,
+                  class: "button button__xs button__transparent-secondary",
+                  data: { confirm: t("decidim.two_factor.setup.totp.remove_confirm") } %>
+  <% else %>
+    <%= link_to t("decidim.two_factor.setup.totp.add"), new_two_factor_authentication_totp_authenticator_path, class: "button button__sm button__secondary" %>
+  <% end %>
+<% end %>

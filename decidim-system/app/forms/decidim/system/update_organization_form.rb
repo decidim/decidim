@@ -10,11 +10,34 @@ module Decidim
       translatable_attribute :name, String
       translatable_attribute :short_name, String
 
+      attribute :two_factor_authentication_enabled, Boolean, default: false
+      attribute :available_two_factor_methods, Array[String]
+
       validate :validate_organization_name_presence
       validate :validate_organization_short_name_presence
       validate :validate_short_name_format
 
+      validates :available_two_factor_methods, presence: true, if: :two_factor_authentication_enabled
+      validate :available_two_factor_methods_offered
+
+      def map_model(model)
+        super
+
+        self.available_two_factor_methods = Decidim::TwoFactor.available_methods(model).map(&:name)
+      end
+
+      def available_two_factor_methods
+        super.compact_blank
+      end
+
       private
+
+      def available_two_factor_methods_offered
+        offered = Decidim::TwoFactor.available_methods.map(&:name)
+        return if (available_two_factor_methods - offered).empty?
+
+        errors.add(:available_two_factor_methods, :inclusion)
+      end
 
       def validate_organization_name_presence
         translated_attr = :"name_#{current_organization.try(:default_locale) || Decidim.default_locale.to_s}"

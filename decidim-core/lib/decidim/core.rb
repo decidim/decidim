@@ -126,6 +126,8 @@ module Decidim
   autoload :OAuth, "decidim/oauth"
   autoload :PdfSignatureExample, "decidim/pdf_signature_example"
   autoload :HasWorkflows, "decidim/has_workflows"
+  autoload :TwoFactor, "decidim/two_factor"
+  autoload :TwoFactorAuthenticatable, "decidim/two_factor_authenticatable"
   autoload :StatsFollowersCount, "decidim/stats_followers_count"
   autoload :StatsParticipantsCount, "decidim/stats_participants_count"
   autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
@@ -961,6 +963,15 @@ module Decidim
   # The etiquette validator is applied to the create and edit forms of Proposals, Meetings,
   # and Debates for both regular and admin users.
   mattr_accessor :enable_etiquette_validator, default: true
+
+  # Second-factor methods available on this installation, out of the registered ones
+  mattr_accessor :two_factor_methods, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_METHODS", "totp,email").to_array.map(&:to_sym)
+
+  # Allowed clock drift (seconds) when verifying authenticator app codes
+  mattr_accessor :two_factor_totp_drift, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_TOTP_DRIFT", "30").to_i
+
+  # How many recovery codes a user gets
+  mattr_accessor :two_factor_recovery_codes_count, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_RECOVERY_CODES_COUNT", "10").to_i
 
   def self.machine_translation_service_klass
     return unless Decidim.enable_machine_translations

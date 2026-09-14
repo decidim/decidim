@@ -15,6 +15,7 @@ module Decidim
 
         context "when the form is valid" do
           let(:from_label) { "Decide Gotham" }
+          let(:two_factor_authentication_enabled) { true }
           let(:params) do
             {
               name: { en: "Gotham City" },
@@ -23,6 +24,8 @@ module Decidim
               secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
               force_users_to_authenticate_before_access_organization: false,
               users_registration_mode: "existing",
+              two_factor_authentication_enabled:,
+              available_two_factor_methods: %w(totp email),
               **smtp_settings,
               **omniauth_settings,
               file_upload_settings: params_for_uploads(upload_settings)
@@ -72,6 +75,13 @@ module Decidim
             expect(
               Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_secret"])
             ).to eq("facebook-app-secret")
+          end
+
+          it "saves the two-factor settings" do
+            command.call
+            organization.reload
+
+            expect(organization.available_two_factor_methods).to eq(%w(totp email))
           end
 
           describe "encrypted smtp settings" do
@@ -135,6 +145,7 @@ module Decidim
               short_name: { en: "GothamCity" },
               host: "decide.example.org",
               users_registration_mode: "existing",
+              available_two_factor_methods: %w(totp email),
               file_upload_settings: params_for_uploads(upload_settings),
               header_snippets: "<script>alert('Hello world')</script>"
             }

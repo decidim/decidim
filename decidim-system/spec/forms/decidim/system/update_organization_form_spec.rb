@@ -17,6 +17,8 @@ module Decidim::System
         default_locale: "en",
         users_registration_mode: "enabled",
         force_users_to_authenticate_before_access_organization: "false",
+        two_factor_authentication_enabled: true,
+        available_two_factor_methods: %w(totp email),
         **smtp_settings,
         **omniauth_settings
       )
@@ -126,6 +128,29 @@ module Decidim::System
     end
 
     describe "validations" do
+      describe "two-factor settings" do
+        context "when all the two-factor methods are unchecked" do
+          before { subject.available_two_factor_methods = [""] }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when two-factor is disabled and all the methods are unchecked" do
+          before do
+            subject.two_factor_authentication_enabled = false
+            subject.available_two_factor_methods = [""]
+          end
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when a two-factor method is not offered by the installation" do
+          before { subject.available_two_factor_methods = %w(totp bogus) }
+
+          it { is_expected.not_to be_valid }
+        end
+      end
+
       describe "organization name presence" do
         let(:organization) { create(:organization, default_locale: "en") }
 
@@ -848,6 +873,7 @@ module Decidim::System
 
       it "maps the organization attributes correctly" do
         expect(subject.secondary_hosts).to eq(organization.secondary_hosts.join("\n"))
+        expect(subject.available_two_factor_methods).to eq(%w(totp email))
         expect(subject.omniauth_settings).to eq(
           {
             "omniauth_settings_facebook_app_id" => "foo",

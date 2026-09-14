@@ -25,6 +25,7 @@ module Decidim
         destroy_user_access_tokens
         destroy_user_reminders
         destroy_user_notifications
+        destroy_user_two_factor_records
         destroy_user_badges
         destroy_user_likes
         destroy_user_reports
@@ -94,6 +95,11 @@ module Decidim
 
     def destroy_user_notifications
       current_user.notifications.find_each(&:destroy)
+    end
+
+    def destroy_user_two_factor_records
+      current_user.two_factor_authenticators.find_each(&:destroy)
+      current_user.two_factor_recovery_codes.find_each(&:destroy)
     end
 
     def destroy_follows

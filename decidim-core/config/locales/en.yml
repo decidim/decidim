@@ -1761,6 +1761,74 @@ en:
       help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
       show_original: Show original text
       show_translated: Show automatically-translated text
+    two_factor:
+      authenticators:
+        destroy:
+          error: The second factor could not be removed.
+          success: The second factor was removed from your account.
+        recovery_codes:
+          copied: Copied!
+          copied_message: The recovery codes were copied to the clipboard.
+          copy: Copy codes
+          download: Download .txt
+          explanation: Each code works once. If you lose the authenticator app, a recovery code lets you log in.
+          saved: I have saved the codes
+          store_them: Store these codes like a password.
+          title: Recovery codes
+      email_authenticators:
+        create:
+          error: The email code could not be enabled.
+          success: The email code was enabled for your account.
+      recovery_codes:
+        create:
+          success: The recovery codes were regenerated.
+      setup:
+        added_on: Added on %{date}
+        last_used_on: Last used on %{date}
+        email:
+          add: Enable email code
+          codes_sent_to: Codes are sent to %{email}
+          description: A one-time code sent to your account email.
+          disable: Disable
+          disable_confirm: Are you sure you want to disable the email code?
+          title: Email code
+        enabled: Enabled
+        remove: Remove
+        totp:
+          add: Add authenticator app
+          description: A one-time code from an app on your phone.
+          remove_confirm: Are you sure you want to remove the authenticator app?
+          title: Authenticator app
+      totp_authenticators:
+        create:
+          error: The code is not correct. Check the app and try again.
+          success: The authenticator app was added to your account.
+        new:
+          cancel: Cancel
+          code_step: Enter the 6-digit code the app shows
+          confirm: Confirm
+          error: The authenticator app is already set up.
+          manual_key: 'Can''t scan? Enter the key manually:'
+          qr_code_alt: QR code to add this account to an authenticator app
+          scan_step: Scan this QR code with the app
+          title: Add authenticator app
+          works_with: Works with Google Authenticator, Microsoft Authenticator, FreeOTP and similar apps.
+    two_factor_authentications:
+      show:
+        intro: Two-factor authentication protects your account by requiring more than just the password to log in.
+        methods: Two-factor methods
+        regenerate: Regenerate
+        regenerate_confirm: Are you sure? The codes you have now will stop working.
+        unused_codes:
+          one: "%{count} unused code"
+          other: "%{count} unused codes"
+    two_factor_mailer:
+      factors_reset:
+        action: Set up a new second factor
+        advice: If you did not ask for this, contact the platform administrators right away and change your password.
+        instruction: An administrator removed all the second factors and recovery codes from your account. Your password alone signs you in now.
+        subject: Two-factor authentication was reset on your account
+      greeting: Hello %{name}!
     user_activity:
       index:
         no_activities_warning: This participant does not have any activity yet.
@@ -2222,6 +2290,7 @@ en:
         notifications_settings: Notifications settings
         profile: Profile
         title: Participant settings
+        two_factor_authentication: Two-factor authentication
   locale:
     name: English
     name_with_error: English (error!)

@@ -717,6 +717,22 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |120
 |No
 
+
+|DECIDIM_TWO_FACTOR_METHODS
+|Second-factor methods available on this installation, out of the registered ones (comma separated).
+|totp,email
+|No
+
+|DECIDIM_TWO_FACTOR_TOTP_DRIFT
+|In seconds, the allowed clock drift when verifying authenticator app codes.
+|30
+|No
+
+|DECIDIM_TWO_FACTOR_RECOVERY_CODES_COUNT
+|How many recovery codes a user gets.
+|10
+|No
+
 |===
 
 .Optional Env Vars fine tuning some Decidim modules (such the API or Proposal behaviors)

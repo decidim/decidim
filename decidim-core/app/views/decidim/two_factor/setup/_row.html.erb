@@ -1,0 +1,12 @@
+<div class="two-factor__row">
+  <div class="two-factor__row-summary">
+    <%= icon icon_name, class: "two-factor__row-icon" %>
+    <div class="two-factor__row-text">
+      <h3 class="h5"><%= title %></h3>
+      <span><%= description %></span>
+    </div>
+  </div>
+  <div class="two-factor__row-actions">
+    <%= yield %>
+  </div>
+</div>

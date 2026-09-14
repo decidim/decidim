@@ -12,6 +12,7 @@ module Decidim
     include Decidim::ActsAsAuthor
     include Decidim::UserReportable
     include Decidim::Traceable
+    include Decidim::TwoFactorAuthenticatable
 
     class Roles
       def self.all

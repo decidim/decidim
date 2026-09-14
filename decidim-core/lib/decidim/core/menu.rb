@@ -11,6 +11,12 @@ module Decidim
                         position: 1.0,
                         active: :exact
 
+          menu.add_item :two_factor_authentication,
+                        t("two_factor_authentication", scope: "layouts.decidim.user_profile"),
+                        decidim.two_factor_authentication_path,
+                        position: 1.05,
+                        if: current_organization.two_factor_authentication_enabled?
+
           menu.add_item :notifications_settings,
                         t("notifications_settings", scope: "layouts.decidim.user_profile"),
                         decidim.notifications_settings_path,

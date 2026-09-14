@@ -1,0 +1,10 @@
+<%= render layout: "decidim/two_factor/setup/row", locals: {
+      icon_name: "key-2-line",
+      title: t("decidim.two_factor.authenticators.recovery_codes.title"),
+      description: t("decidim.two_factor_authentications.show.unused_codes", count: current_user.two_factor_recovery_codes.unused.count)
+    } do %>
+  <%= button_to t("decidim.two_factor_authentications.show.regenerate"),
+                two_factor_authentication_recovery_codes_path,
+                class: "button button__xs button__transparent-secondary",
+                data: { confirm: t("decidim.two_factor_authentications.show.regenerate_confirm") } %>
+<% end %>

@@ -1,0 +1,35 @@
+<% add_decidim_page_title(t("title", scope: "decidim.two_factor.totp_authenticators.new")) %>
+<% content_for(:subtitle) { t("two_factor_authentication", scope: "layouts.decidim.user_profile") } %>
+
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <h2 class="h5"><%= t("title", scope: "decidim.two_factor.totp_authenticators.new") %></h2>
+  <p class="help-text"><%= t("works_with", scope: "decidim.two_factor.totp_authenticators.new") %></p>
+
+  <div class="two-factor__enrollment">
+    <img src="<%= totp_qr_code_data_uri(@authenticator) %>" alt="<%= t("qr_code_alt", scope: "decidim.two_factor.totp_authenticators.new") %>" class="two-factor__enrollment-qr">
+
+    <div class="two-factor__enrollment-steps">
+      <h3 class="h6"><%= t("scan_step", scope: "decidim.two_factor.totp_authenticators.new") %></h3>
+      <p class="help-text">
+        <%= t("manual_key", scope: "decidim.two_factor.totp_authenticators.new") %>
+        <br>
+        <code class="two-factor__secret"><%= totp_manual_key(@authenticator) %></code>
+      </p>
+
+      <%= decidim_form_for(@form, url: two_factor_authentication_totp_authenticator_path, method: :post, html: { class: "two-factor__form" }) do |f| %>
+        <div class="form__wrapper">
+          <%= f.text_field :code,
+                           label: t("code_step", scope: "decidim.two_factor.totp_authenticators.new"),
+                           placeholder: "123456",
+                           autocomplete: "one-time-code",
+                           inputmode: "numeric" %>
+
+          <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+            <%= link_to t("cancel", scope: "decidim.two_factor.totp_authenticators.new"), two_factor_authentication_path, class: "button button__sm md:button__lg button__transparent-secondary" %>
+            <%= f.submit t("confirm", scope: "decidim.two_factor.totp_authenticators.new"), class: "button button__sm md:button__lg button__secondary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

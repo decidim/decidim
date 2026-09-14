@@ -1,0 +1,18 @@
+<% add_decidim_page_title(t("two_factor_authentication", scope: "layouts.decidim.user_profile")) %>
+<% content_for(:subtitle) { t("two_factor_authentication", scope: "layouts.decidim.user_profile") } %>
+
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <p class="help-text"><%= t("intro", scope: "decidim.two_factor_authentications.show") %></p>
+
+  <h2 class="h5 mt-6 mb-2"><%= t("methods", scope: "decidim.two_factor_authentications.show") %></h2>
+
+  <div class="two-factor__list">
+    <% two_factor_methods.each do |two_factor_method| %>
+      <%= render partial: two_factor_method.setup_partial, locals: { two_factor_method:, authenticator: authenticator_for(two_factor_method), authenticators: authenticators_for(two_factor_method) } %>
+    <% end %>
+
+    <% if current_user.two_factor_enabled? %>
+      <%= render partial: "recovery_codes_row" %>
+    <% end %>
+  </div>
+<% end %>

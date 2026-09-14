@@ -43,6 +43,18 @@ Decidim::Core::Engine.routes.draw do
           post :cancel_email_change
         end
       end
+
+      resource :two_factor_authentication, only: [:show], controller: "two_factor_authentications" do
+        resource :totp_authenticator, only: [:show, :new, :create], controller: "two_factor/totp_authenticators"
+        resource :email_authenticator, only: [:show, :create], controller: "two_factor/email_authenticators"
+        resource :recovery_codes, only: [:show, :create], controller: "two_factor/recovery_codes"
+
+        resources :authenticators, only: [:destroy], controller: "two_factor/authenticators"
+
+        Decidim::TwoFactor.workflows.select(&:engine).each do |manifest|
+          mount manifest.engine, at: "/#{manifest.name}", as: "decidim_two_factor_#{manifest.name}"
+        end
+      end
     end
 
     scope "/:locale", **locale_scope_options do

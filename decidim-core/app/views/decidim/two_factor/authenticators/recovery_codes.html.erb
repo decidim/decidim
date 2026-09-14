@@ -1,0 +1,41 @@
+<% add_decidim_page_title(t("recovery_codes.title", scope: "decidim.two_factor.authenticators")) %>
+<% content_for(:subtitle) { t("two_factor_authentication", scope: "layouts.decidim.user_profile") } %>
+
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <h2 class="h5"><%= t("recovery_codes.title", scope: "decidim.two_factor.authenticators") %></h2>
+
+  <%= cell(
+        "decidim/announcement",
+        {
+          title: t("recovery_codes.store_them", scope: "decidim.two_factor.authenticators"),
+          body: t("recovery_codes.explanation", scope: "decidim.two_factor.authenticators")
+        },
+        callout_class: "warning"
+      ) %>
+
+  <div class="two-factor__codes">
+    <ul id="recovery-codes-list">
+      <% @recovery_codes.each do |recovery_code| %>
+        <li>
+          <code><%= recovery_code %></code>
+        </li>
+      <% end %>
+    </ul>
+
+    <button type="button"
+            class="button button__sm button__text-secondary"
+            data-controller="clipboard-copy"
+            data-clipboard-copy="#recovery-codes-list"
+            data-clipboard-content="<%= @recovery_codes.join("\n") %>"
+            data-clipboard-copy-label="<%= t("recovery_codes.copied", scope: "decidim.two_factor.authenticators") %>"
+            data-clipboard-copy-message="<%= t("recovery_codes.copied_message", scope: "decidim.two_factor.authenticators") %>">
+      <span><%= t("recovery_codes.copy", scope: "decidim.two_factor.authenticators") %></span>
+      <%= icon "file-copy-line" %>
+    </button>
+  </div>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to t("recovery_codes.download", scope: "decidim.two_factor.authenticators"), "data:text/plain;charset=utf-8,#{ERB::Util.url_encode(@recovery_codes.join("\n"))}", download: "decidim-recovery-codes.txt", class: "button button__sm md:button__lg button__transparent-secondary" %>
+    <%= link_to t("recovery_codes.saved", scope: "decidim.two_factor.authenticators"), after_setup_path, class: "button button__sm md:button__lg button__secondary" %>
+  </div>
+<% end %>

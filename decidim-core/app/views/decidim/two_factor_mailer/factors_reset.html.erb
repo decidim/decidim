@@ -1,0 +1,7 @@
+<p class="email-greeting"><%= t("greeting", scope: "decidim.two_factor_mailer", name: @user.name) %></p>
+
+<p class="email-instructions"><%= t(".instruction") %></p>
+
+<p class="email-instructions"><%= t(".advice") %></p>
+
+<p class="email-button email-button__cta"><%= link_to t(".action"), decidim.two_factor_authentication_url(host: @organization.host) %></p>

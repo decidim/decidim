@@ -37,7 +37,6 @@ module Decidim
         Decidim.icons.register(name: "download-line", icon: "download-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "mail-open-line", icon: "mail-open-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "forbid-2-line", icon: "forbid-2-line", category: "system", description: "", engine: :admin)
-        Decidim.icons.register(name: "key-2-line", icon: "key-2-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-go-back-line", icon: "arrow-go-back-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "computer-line", icon: "computer-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-right-s-line", icon: "arrow-right-s-line", category: "system", description: "", engine: :admin)

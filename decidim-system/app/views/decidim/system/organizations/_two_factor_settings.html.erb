@@ -1,0 +1,24 @@
+<div id="two_factor_settings" class="flex flex-col gap-5">
+  <h3 class="h4"><%= t(".title") %></h3>
+
+  <div>
+    <%= f.check_box :two_factor_authentication_enabled,
+                    data: { controller: :toggle, "toggle-toggle-value": "two_factor_settings_details" },
+                    help_text: t(".two_factor_authentication_enabled_help") %>
+  </div>
+
+  <div id="two_factor_settings_details" <%= f.object.two_factor_authentication_enabled ? nil : "hidden" %>>
+    <div class="flex flex-col gap-5">
+      <%= field_set_tag f.label(:available_two_factor_methods, nil, for: nil) do %>
+        <%= f.collection_check_boxes :available_two_factor_methods,
+                                     Decidim::TwoFactor.available_methods,
+                                     :name,
+                                     ->(manifest) { t("decidim.two_factor.setup.#{manifest.name}.title") } do |builder| %>
+          <div>
+            <%= builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.check_box(id: nil) + builder.text } %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

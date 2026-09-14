@@ -56,6 +56,8 @@ module Decidim
         organization.file_upload_settings = form.file_upload_settings.final
         organization.content_security_policy = form.content_security_policy
         organization.header_snippets = form.header_snippets if Decidim.enable_html_header_snippets
+        organization.two_factor_authentication_enabled = form.two_factor_authentication_enabled
+        organization.available_two_factor_methods = form.available_two_factor_methods
 
         organization.save!
       end
