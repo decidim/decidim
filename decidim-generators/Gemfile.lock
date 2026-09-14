@@ -80,6 +80,7 @@ PATH
       hexapdf (>= 1.1, < 1.11)
       image_processing (>= 1.2, < 3.0)
       invisible_captcha (>= 0.12, < 3.0)
+      json (< 3.0)
       kaminari (~> 1.2, >= 1.2.1)
       loofah (~> 2.19, >= 2.19.1)
       mime-types (>= 1.16, < 4.0)
