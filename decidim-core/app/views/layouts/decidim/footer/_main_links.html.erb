@@ -1,31 +1,59 @@
-<%= footer_menu.render %>
+<div data-controller="accordion" data-multiselectable="true" class="contents">
+  <nav class="footer__nav" role="navigation" aria-label="<%= t("layouts.decidim.footer.decidim_title") %>">
+    <button type="button" id="panel-footer-menu-trigger" data-controls="panel-footer-menu" data-open-lg="true">
+      <span class="h4"><%= t("layouts.decidim.footer.decidim_title") %></span>
+      <%= icon "arrow-down-s-line" %>
+    </button>
+    <div id="panel-footer-menu" aria-hidden="true">
+      <%= footer_menu.render_menu_items %>
+    </div>
+  </nav>
 
-<nav role="navigation" aria-label="<%= t("layouts.decidim.user_menu.profile") %>">
-  <h2 class="h4 mb-4"><%= t("layouts.decidim.user_menu.profile") %></h2>
-  <ul class="space-y-4 break-inside-avoid">
-    <% if current_user %>
-      <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.configuration"), decidim.account_path %></li>
-      <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.public_profile"), decidim.profile_path(current_user.nickname) %></li>
-      <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.notifications"), decidim.notifications_path %></li>
-      <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.conversations"), decidim.conversations_path %></li>
-    <% else %>
-      <% if current_organization.sign_up_enabled? %>
-        <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.sign_up"), decidim.new_user_registration_path %></li>
-      <% end %>
-      <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.log_in"), decidim.new_user_session_path %></li>
-    <% end %>
-  </ul>
-</nav>
+  <nav class="footer__nav" role="navigation" aria-label="<%= t("layouts.decidim.user_menu.profile") %>">
+    <button type="button" id="panel-profile-trigger" data-controls="panel-profile" data-open-lg="true">
+      <span class="h4"><%= t("layouts.decidim.user_menu.profile") %></span>
+      <%= icon "arrow-down-s-line" %>
+    </button>
+    <div id="panel-profile" aria-hidden="true">
+      <ul>
+        <% if current_user %>
+          <li><%= link_to t("layouts.decidim.user_menu.configuration"), decidim.account_path %></li>
+          <li><%= link_to t("layouts.decidim.user_menu.public_profile"), decidim.profile_path(current_user.nickname) %></li>
+          <li><%= link_to t("layouts.decidim.user_menu.notifications"), decidim.notifications_path %></li>
+          <li><%= link_to t("layouts.decidim.user_menu.conversations"), decidim.conversations_path %></li>
+        <% else %>
+          <% if current_organization.sign_up_enabled? %>
+            <li><%= link_to t("layouts.decidim.footer.sign_up"), decidim.new_user_registration_path %></li>
+          <% end %>
+          <li><%= link_to t("layouts.decidim.footer.log_in"), decidim.new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
-<nav role="navigation" aria-label="<%= t("layouts.decidim.footer.resources") %>">
-  <h2 class="h4 mb-4"><%= t("layouts.decidim.footer.resources") %></h2>
-  <ul class="space-y-4 break-inside-avoid">
-    <li class="font-semibold underline"><%= link_to t("decidim.profiles.show.activity"), decidim.last_activities_path %></li>
-    <% if Decidim.module_installed?(:meetings) %>
-      <li class="font-semibold underline"><%= link_to t("decidim.pages.home.extended.meetings"), Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path %></li>
-    <% end %>
-    <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.open_data"), decidim.open_data_path %></li>
-  </ul>
-</nav>
+  <nav class="footer__nav" role="navigation" aria-label="<%= t("layouts.decidim.footer.resources") %>">
+    <button type="button" id="panel-resources-trigger" data-controls="panel-resources" data-open-lg="true">
+      <span class="h4"><%= t("layouts.decidim.footer.resources") %></span>
+      <%= icon "arrow-down-s-line" %>
+    </button>
+    <div id="panel-resources" aria-hidden="true">
+      <ul>
+        <li><%= link_to t("decidim.profiles.show.activity"), decidim.last_activities_path %></li>
+        <% if Decidim.module_installed?(:meetings) %>
+          <li><%= link_to t("decidim.pages.home.extended.meetings"), Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path %></li>
+        <% end %>
+        <li><%= link_to t("layouts.decidim.footer.open_data"), decidim.open_data_path %></li>
+      </ul>
+    </div>
+  </nav>
 
-<%= cell("decidim/footer_topics", nil) %>
+  <nav class="footer__nav" role="navigation" aria-label="<%= t("layouts.decidim.footer.help") %>">
+    <button type="button" id="panel-help-trigger" data-controls="panel-help" data-open-lg="true">
+      <span class="h4"><%= t("layouts.decidim.footer.help") %></span>
+      <%= icon "arrow-down-s-line" %>
+    </button>
+    <div id="panel-help" aria-hidden="true">
+      <%= cell("decidim/footer_topics", nil) %>
+    </div>
+  </nav>
+</div>

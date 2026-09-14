@@ -12,14 +12,12 @@ cs:
         duplicate_categories: Duplikovat kategorie
         duplicate_components: Duplikovat komponenty
         duplicate_landing_page_blocks: Duplikovat bloky vstupní strany
-        duplicate_steps: Duplikovat kroky
         end_date: Datum ukončení
         has_members: Tento prostor má členy
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
         import_components: Importovat komponenty
-        import_steps: Importovat kroky
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
@@ -503,6 +501,22 @@ cs:
           form:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+          new:
+            title: Importovat participační proces
+        participatory_process_steps:
+          edit:
+            title: Upravit fázi participačního procesu
+          index:
+            title: Fáze
+          new:
+            title: Nová fáze participativního procesu
+        participatory_process_user_roles:
+          edit:
+            title: Aktualizovat správce participačního procesu
+          index:
+            title: Správci participačního procesu
+          new:
+            title: Nový správce participačního procesu
         participatory_processes:
           edit:
             title: O tomto procesu
@@ -633,6 +647,187 @@ cs:
         related_processes: Související procesy
       static_pages:
         democratic_quality_indicators:
+          content: |-
+            <h2>Systém indikátorů na měření indikátoru kvality v Decidim.</h2>
+
+            <h3>Úvod</h3>
+            <p>Demokratická kvalita je základním principem Decidim. Na její udržení jsme vyvinuli systém indikátorů, které pomáhají hodnotit kvalitu participativních procesů na platformě. Tento článek vysvětluje, jak se tyto indikátory počítají.</p>
+
+            <h3>Jak se počítají indikátory?</h3>
+            <p>Definovali jsme dvě metody sběru indikátorů kvality:</p>
+
+            <ol>
+            <li><strong>Automatické metriky:</strong> Tyto se počítají přímo z údajů platformy Decidim.</li>
+            <li><strong>Otázky sebehodnocení:</strong> Tyto jsou založeny na formuláři, který vyplní administrátor.</li>
+            </ol>
+
+            <p>Každý indikátor je vyjádřen v procentech (n/celkem). Toto procento se pak převede na skóre na stupnici od 1 do 5:</p>
+
+            <ul>
+            <li>1 = 0–20%</li>
+            <li>2 = 20–40%</li>
+            <li>3 = 40–60%</li>
+            <li>4 = 60–80%</li>
+            <li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Automatické metriky</h3>
+            <p>Tyto metriky se automaticky počítají z údajů dostupných v Decidim. Hodnotí se pro každý participativní proces a administrátoři je mohou zveřejnit, aby k nim měli přístup všichni účastníci.</p>
+
+            <p>Definovali jsme čtyři hlavní indikátory: Dopad občanů, Hybridizace, Reakceschopnost a Sledovatelnost:</p>
+
+            <h3>Vliv občanů</h3>
+
+            <p>Tento indikátor měří úroveň dopadu občanů na přijaté návrhy a výsledky procesu.</p>
+
+            <ul>
+            <li>
+            Vliv občanů na návrhy
+            <ul>
+            <li>Procento přijatých návrhů (n/celkem)</li>
+            <li>Procento schválených <em>občanských</em> návrhů z celkového počtu občanských návrhů (celkový dopad občanů na schválené návrhy)</li>
+            <li>Procento schválených občanských návrhů z celkového počtu schválených návrhů (relativní dopad občanů na schválený návrh)</li>
+            </ul>
+            </li>
+            <li>
+            Vliv občanů na výstupy/výsledky
+            <ul>
+            <li>Procento výsledků spojených s občanskými návrhy z celkového počtu výsledků (celkový dopad občanů na výstupy)</li>
+            </ul>
+            </li>
+            </ul>
+
+            <h3>Hybridizace</h3>
+
+            <p>Tento indikátor měří úroveň kombinace mezi online a offline prostory během procesu.</p>
+
+            <ul>
+            <li>Je aktivní komponenta setkání? (Ano=5, Ne=0)</li>
+            <li>Konají se osobní schůzky? (Ano=5, Ne=0)</li>
+            <li>Konají se online schůzky? (Ano=5, Ne=0)</li>
+            <li>Konají se hybridní schůzky? (Ano=5, Ne=0)</li>
+            <li>Jsou vytvořeny návrhy ze setkání? (Ano=5, Ne=0)</li>
+            </ul>
+
+            <h3>Reakceschopnost</h3>
+
+            <p>Tento indikátor měří úroveň reakceschopnosti organizace na podněty účastníků. Odráží jejich zapojení prostřednictvím oficiálních odpovědí a implementovaných rozhodnutí.</p>
+
+            <ul>
+            <li>Procento návrhů s odpověďmi (n/celkem) – Institucionální reakceschopnost na návrhy</li>
+            <li>Procento výsledků dokončených na 100 % (n/celkem)</li>
+            </ul>
+
+            <h3>Sledovatelnost</h3>
+
+            <p>Tento indikátor měří transparentnost a sledovatelnost participativního procesu. Odráží, jak snadno mohou účastníci sledovat vývoj návrhů a ověřovat institucionální kroky prostřednictvím zveřejněných záznamů.</p>
+
+            <ul>
+            <li>Počet návrhů s historií (n/celkem)</li>
+            <li>Procento výsledků spojených s návrhy (n/celkem)</li>
+            <li>Procento uzavřených schůzek se zveřejněným zápisem (n/celkem)</li>
+            <li>Aktivace modulu otevřených dat (dichotomické: 0 nebo 5)</li>
+            <li>Procento návrhů souvisejících s rozpočty (n/celkem)</li>
+            </ul>
+
+            <br><br>
+            <h3>Metriky sebehodnocení</h3>
+
+            <p>Kromě automatických metrik navrhujeme použít <strong>formulář sebehodnocení</strong> k posouzení kvalitativních dimenzí každého participativního procesu. Tento formulář vyplní administrátoři platformy na konci každého procesu a odpovědi se veřejně zobrazí v bloku obsahu indikátorů.</p>
+
+            <p>Tyto otázky mají za cíl zachytit aspekty demokratické kvality, které nelze posoudit pouze prostřednictvím kvantitativních údajů. Je důležité poznamenat, že odpovědi na tento průzkum jsou ovlivněny názorem administrátorů platformy.</p>
+
+            <br><br>
+            <h3>Otázky sebehodnocení</h3>
+
+            <p>Otázky, které tvoří formulář sebehodnocení, na které odpovídají administrátoři, jakož i hodnoty spojené s každou odpovědí, jsou uvedeny níže.</p>
+
+            <h4>Informativnost</h4>
+
+            <ol>
+            <li>Poskytují zveřejněné informace jasnost o mechanismech rozhodování (např. hlasování, konsensus, přímá jednání)?
+            <ul>
+            <li>Žádná jasnost = 0</li>
+            <li>Nízká jasnost = 1</li>
+            <li>Dostatečná jasnost = 2,5</li>
+            <li>Úplná jasnost = 5</li>
+            </ul>
+            </li>
+            <li>Byly poskytnuty informace týkající se schopnosti účastníků ovlivnit diskutované téma (jak v komunikaci procesu a pozvánkách, tak i na začátku každé diskuse)?
+            <ul>
+            <li>Nikdy = 0</li>
+            <li>Téměř nikdy = 1</li>
+            <li>Obvykle = 2,5</li>
+            <li>Vždy = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Vliv občanů</h4>
+
+            <ol>
+            <li>Hodnocení stupně účasti v procesu
+            <ul>
+            <li>Účastníci obdrželi informace od organizace. = 1</li>
+            <li>Účastníci byli požádáni konzultativním způsobem nebo poskytli zpětnou vazbu organizaci. = 2</li>
+            <li>Účastníci byli zapojeni do sdílení rozhodovací pravomoci. = 3</li>
+            <li>Účastníci byli rozhodujícím způsobem zapojeni do rozhodování. = 4</li>
+            <li>Účastníci byli zapojeni do rozhodování a řízení zdrojů nebo implementace. = 5</li>
+            </ul>
+            </li>
+            <li>Procento fází s 0-5 rozhodovacím zásahem občanů.
+            <p>Z celkového počtu fází v procesu (od výběru problémů po dohled nad realizací), v kolika má veřejnost možnost přijímat rozhodnutí nebo provádět exekutivní kroky?</p>
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Inkluzivnost</h4>
+
+            <ol>
+            <li>Jak se hodnotí stupeň rozmanitosti aktérů a účastníků vzhledem k referenční populaci v procesu?
+            <ul>
+            <li>Žádný = 0</li>
+            <li>Nízký = 1</li>
+            <li>Dostatečný = 2,5</li>
+            <li>Dobrý = 5</li>
+            </ul>
+            </li>
+            <li>V kolika jazycích byl proces komunikován?
+            <ul>
+            <li>Jeden jazyk = 1</li>
+            <li>Méně než polovina jazyků, kterými se hovoří v komunitě = 2,5</li>
+            <li>Více než polovina jazyků, kterými se mluví v komunitě = 5</li>
+            </ul>
+            </li>
+            <li>Byla místa osobních setkání přístupná pro osoby se sníženou pohyblivostí?
+            <ul>
+            <li>Ne = 0</li>
+            <li>Částečně = 2,5</li>
+            <li>Ano = 5</li>
+            </ul>
+            </li>
+            <li>Zasedání s účastí byla naplánována na různé časy (ráno, v poledne, odpoledne, večer a o víkendech).
+            <ul>
+            <li>Ne = 0</li>
+            <li>Částečně = 2,5</li>
+            <li>Ano = 5</li>
+            </ul>
+            </li>
+            <li>Byla účastníkům nabídnuta digitální podpora?
+            <ul>
+            <li>Ne = 0</li>
+            <li>Částečně = 2,5</li>
+            <li>Ano = 5</li>
+            </ul>
+            </li>
+            </ol>
           title: Ukazatele kvality demokracie
     statistics:
       processes_count: Procesy

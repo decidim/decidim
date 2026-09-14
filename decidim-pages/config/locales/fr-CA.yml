@@ -34,6 +34,8 @@ fr-CA:
             body: Corps du texte
         pages:
           edit:
+            add_attachments: Ajouter des pièces jointes
+            edit_attachments: Modifier les pièces jointes
             save: Mettre à jour
             title: Modifier la page
           update:

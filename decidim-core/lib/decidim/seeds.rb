@@ -8,17 +8,102 @@ module Decidim
   # Base class to be inherited from the different modules' seeds classes
   class Seeds
     SEEDS_CONFIG = {
-      comments_count: { slow: 6, fast: 2 },
+      comments_per_resource_count: { slow: 0..6, fast: 0..2 },
       comments_nested_probability: { slow: 0.5, fast: 0.2 },
       comments_vote_skip_probability: { slow: 0.5, fast: 0.7 },
-      comments_votes_count: { slow: 12, fast: 3 },
-      budgets_votes_count: { slow: 50, fast: 10 },
-      surveys_responses_count: { slow: 200, fast: 20 },
+      comments_votes_per_comment_count: { slow: 0..12, fast: 0..3 },
+      # Note that the slow seeds for the budgets component are heavy because of
+      # the amount of votes per budget:
+      # - Maximum amount of votes in each budgets component: 3 * 100 = 300
+      # - Amount of spaces: 2 processes + 4 assemblies + 2 conferences = 6
+      # - Maximum total amount of votes: 300 * 6 = 1800
+      budgets_count: { slow: 1..3, fast: 1 },
+      budgets_projects_per_budget_count: { slow: 3..5, fast: 1 },
+      budgets_votes_per_budget_count: { slow: 10..100, fast: 2..20 },
+      # Note that the slow seeds for the meetings component are heavy because of
+      # these values:
+      # - Maximum amount of surveys per component: 5
+      # - Maximum amount of responses per component: 5 * 200 = 1000
+      # - Amount of spaces: 2 processes + 4 assemblies + 2 conferences = 6
+      # - Maximum total amount of surveys: 6 * 5 = 30
+      # - Maximum total amount of responses for all surveys: 6 * 1000 = 6000
+      surveys_count: { slow: 3..5, fast: 1 },
+      surveys_responses_count: { slow: 0..200, fast: 0..20 },
       surveys_response_options_count: { slow: 3, fast: 2 },
       surveys_matrix_rows_count: { slow: 3, fast: 2 },
-      initiatives_votes_count: { slow: 50, fast: 10 },
+      initiatives_types_count: { slow: 3..5, fast: 1 },
+      initiatives_votes_count: { slow: 0..50, fast: 0..10 },
+      # Note that the slow seeds for the accountability component are heavy
+      # because of these values (particularly because of the amount of comments
+      # created):
+      # - Maximum amount of result taxonomies for each space: 5
+      # - Maximum amount of parent results for each space: 5 * 5 = 25
+      # - Maximum amount of child results for each space: 25 * 2 = 50
+      # - Maximum total amount of results for each space: 75
+      # - Maximum amount of top-level comments for all results in a space: 75 * 6 = 450
+      # - Maximum amount of nested comments for all results in a space (one for each top-level comment): 450
+      # - Maximum total amount of comments for all results in a space: 900
+      # - Amount of spaces: 2 processes + 4 assemblies + 2 conferences = 6
+      # - Maximum total amount of results: 6 * 75 = 450
+      # - Maximum total amount of comments for all results: 6 * 900 = 5400
       accountability_statuses_count: { slow: 5, fast: 3 },
-      accountability_taxonomies_count: { slow: 2, fast: 1 }
+      accountability_taxonomies_count: { slow: 3..5, fast: 1 },
+      accountability_results_per_taxonomy_count: { slow: 3..5, fast: 1 },
+      accountability_children_per_result_count: { slow: 0..2, fast: 0..1 },
+      accountability_milestones_per_result_count: { slow: 3..5, fast: 1 },
+      # For each assembly also a child assembly is created, so the total number
+      # of assemblies is actually two times the defined amount.
+      assemblies_count: { slow: 2, fast: 1 },
+      assemblies_types_taxonomies_count: { slow: 3..5, fast: 1 },
+      conferences_count: { slow: 2, fast: 1 },
+      participatory_processes_count: { slow: 2, fast: 1 },
+      participatory_processes_groups_count: { slow: 2, fast: 1 },
+      participatory_processes_types_taxonomies_count: { slow: 3..5, fast: 1 },
+      conferences_speakers_count: { slow: 3..5, fast: 1 },
+      conferences_partners_per_type_count: { slow: 3..5, fast: 1 },
+      conferences_media_links_count: { slow: 3..5, fast: 1 },
+      conferences_registration_types_count: { slow: 3..5, fast: 1 },
+      # Note that the slow seeds for the meetings component are heavy because of
+      # these values:
+      # - Amount of meeting types: 4
+      # - Maximum amount of meetings per component: 4 * 5 = 20
+      # - Maximum total amount of comments for all meetings in a space: 20 * 6 * 2 = 240
+      # - Amount of spaces: 2 processes + 4 assemblies + 2 conferences = 6
+      # - Maximum total amount of meetings: 6 * 20 = 120
+      # - Maximum total amount of comments for all meetings: 6 * 240 = 1440
+      meetings_per_type_count: { slow: 3..5, fast: 1 },
+      meetings_services_per_meeting_count: { slow: 3..5, fast: 1 },
+      meetings_registrations_per_meeting_count: { slow: 3..5, fast: 1 },
+      # Note that the slow seeds for the meetings component are heavy because of
+      # these values:
+      # - Maximum amount of proposals per component: 50
+      # - Maximum total amount of comments for all proposals in a space: 50 * 6 * 2 = 600
+      # - Amount of spaces: 2 processes + 4 assemblies + 2 conferences = 6
+      # - Maximum total amount of proposals: 6 * 50 = 300
+      # - Maximum total amount of comments for all meetings: 6 * 600 = 3600
+      proposals_count: { slow: 5..50, fast: 5..10 },
+      proposals_votes_per_proposal_count: { slow: 0..2, fast: 0..2 },
+      proposals_notes_per_proposal_count: { slow: 0..2, fast: 0..2 },
+      blogs_posts_count: { slow: 3..5, fast: 1 },
+      collaborative_texts_published_documents_count: { slow: 3..5, fast: 1 },
+      collaborative_texts_unpublished_documents_count: { slow: 3..5, fast: 1 },
+      collaborative_texts_versions_per_document_count: { slow: 3..5, fast: 1 },
+      debates_open_count: { slow: 3..5, fast: 1 },
+      debates_closed_count: { slow: 1, fast: 1 },
+      elections_count: { slow: 3..5, fast: 1 },
+      elections_create_questions_probability: { slow: 0.3, fast: 0.3 },
+      elections_questions_per_election_count: { slow: 3..5, fast: 1 },
+      elections_voters_per_election_count: { slow: 3..5, fast: 1 },
+      root_taxonomies_states_count: { slow: 3..5, fast: 1 },
+      root_taxonomies_cities_per_state_count: { slow: 3..5, fast: 1 },
+      root_taxonomies_territories_count: { slow: 3..5, fast: 1 },
+      root_taxonomies_sectors_count: { slow: 3..5, fast: 1 },
+      root_taxonomies_categories_count: { slow: 3..5, fast: 1 },
+      root_taxonomies_subcategories_per_category_count: { slow: 3..5, fast: 1 },
+      scopes_count: { slow: 3..5, fast: 1 },
+      scopes_subscopes_per_scope_count: { slow: 3..5, fast: 1 },
+      areas_territories_count: { slow: 3..5, fast: 1 },
+      areas_sectors_count: { slow: 3..5, fast: 1 }
     }.freeze
 
     protected
@@ -27,12 +112,11 @@ module Decidim
       Decidim::Env.new("SLOW_SEEDS").present?
     end
 
-    def number_of_records
-      slow_seeds? ? rand(3..5) : 1
-    end
-
     def config_value(key)
-      slow_seeds? ? SEEDS_CONFIG[key][:slow] : SEEDS_CONFIG[key][:fast]
+      value = slow_seeds? ? SEEDS_CONFIG[key][:slow] : SEEDS_CONFIG[key][:fast]
+      return rand(value) if value.is_a?(Range)
+
+      value
     end
 
     def organization
@@ -53,7 +137,32 @@ module Decidim
     def find_or_initialize_user_by(email:, with_random_avatar: true)
       user = Decidim::User.find_or_initialize_by(email:)
       avatar = with_random_avatar ? random_avatar : nil
-      user.update!(
+      user.update!(generate_user_details(avatar:))
+
+      user
+    end
+
+    def bulk_find_or_create_users(emails:, only_ids: false)
+      existing_emails = Decidim::User.where(organization:, email: emails).pluck(:email)
+
+      result = Decidim::User.transaction do
+        # rubocop:disable Rails/SkipsModelValidations
+        Decidim::User.insert_all(
+          (emails - existing_emails).map do |email|
+            details = generate_user_details.except(:organization, :tos_agreement, :avatar)
+            encrypted_password = ::Devise::Encryptor.digest(Decidim::User, details.delete(:password))
+            { decidim_organization_id: organization.id, email:, encrypted_password:, **details }
+          end
+        )
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+      return result.rows.map(&:first) if only_ids
+
+      Decidim::User.where(organization:, email: emails)
+    end
+
+    def generate_user_details(avatar: nil)
+      {
         name: ::Faker::Name.name,
         nickname: generate_nickname,
         password: "decidim123456789",
@@ -67,9 +176,7 @@ module Decidim
         newsletter_notifications_at: Time.current,
         tos_agreement: true,
         password_updated_at: Time.current
-      )
-
-      user
+      }
     end
 
     def seeds_root = File.join(__dir__, "..", "..", "db", "seeds")

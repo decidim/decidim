@@ -68,7 +68,6 @@ fr:
             update: Actualiser le débat
           form:
             add_attachments: Ajouter des pièces jointes
-            attachment_legend: Ajouter un document ou une image
             comments_layout_locked_warning: La mise en page du commentaire ne peut pas être modifiée car les commentaires ont déjà été publiés.
             comments_warning: Une fois le premier commentaire publié, l'option d'affichage sélectionnée ne peut pas être modifiée.
             debate_type: Type de débat

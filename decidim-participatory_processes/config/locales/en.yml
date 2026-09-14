@@ -13,14 +13,14 @@ en:
         duplicate_categories: Duplicate categories
         duplicate_components: Duplicate components
         duplicate_landing_page_blocks: Duplicate landing page blocks
-        duplicate_steps: Duplicate steps
+        duplicate_steps: Duplicate phases
         end_date: End date
         has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
         import_components: Import components
-        import_steps: Import steps
+        import_steps: Import phases
         local_area: Organization area
         meta_scope: Scope metadata
         participatory_process_group_id: Processes group
