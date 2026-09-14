@@ -53,6 +53,40 @@ module Decidim::Debates
           expect(subject).to have_text("This is a description with a link to example.org")
         end
       end
+
+      context "when the description has a user mention" do
+        let(:mentioned_user) { create(:user, :confirmed, organization: component.participatory_space.organization) }
+        let(:raw_description) { "This mentions @#{mentioned_user.nickname} in the debate" }
+        let(:parsed_description) do
+          parsed = Decidim::ContentProcessor.parse(raw_description, current_organization: component.participatory_space.organization)
+          { en: parsed.rewrite }
+        end
+        let!(:debate) { create(:debate, description: parsed_description, component:, created_at:) }
+
+        it "renders the mention as plain text without a link" do
+          expect(subject).to have_text("@#{mentioned_user.nickname}")
+          expect(subject).to have_no_text("gid://")
+          expect(subject).to have_no_css(".card__list-text a")
+        end
+      end
+
+      context "when the description has multiple user mentions" do
+        let(:mentioned_user1) { create(:user, :confirmed, organization: component.participatory_space.organization) }
+        let(:mentioned_user2) { create(:user, :confirmed, organization: component.participatory_space.organization) }
+        let(:raw_description) { "Debate between @#{mentioned_user1.nickname} and @#{mentioned_user2.nickname}" }
+        let(:parsed_description) do
+          parsed = Decidim::ContentProcessor.parse(raw_description, current_organization: component.participatory_space.organization)
+          { en: parsed.rewrite }
+        end
+        let!(:debate) { create(:debate, description: parsed_description, component:, created_at:) }
+
+        it "renders all mentions as plain text without links" do
+          expect(subject).to have_text("@#{mentioned_user1.nickname}")
+          expect(subject).to have_text("@#{mentioned_user2.nickname}")
+          expect(subject).to have_no_text("gid://")
+          expect(subject).to have_no_css(".card__list-text a")
+        end
+      end
     end
   end
 end

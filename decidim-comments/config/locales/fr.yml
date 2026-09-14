@@ -145,6 +145,7 @@ fr:
         comment_votes:
           id: L'id du vote
         comments:
+          author: Le nom du participant qui a laissé ce commentaire
           body: Le commentaire lui-même
           commentable_id: L'identifiant unique de l"élément commenté
           commentable_type: Le type de l'élément commenté (si c'était un résultat, une proposition, etc.)

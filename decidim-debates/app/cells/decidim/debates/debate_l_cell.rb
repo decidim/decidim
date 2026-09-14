@@ -32,8 +32,13 @@ module Decidim
       def description
         attribute = model.try(:short_description) || model.try(:body) || model.description
         text = translated_attribute(attribute)
+        text = html_truncate(text, length: 240)
 
-        decidim_sanitize(html_truncate(text, length: 240), strip_tags: true)
+        text = Decidim::ContentRenderers::BlobRenderer.new(text).render
+        text = Decidim::ContentRenderers::UserRenderer.new(text).render(plain: true)
+        text = Decidim::ContentRenderers::MentionResourceRenderer.new(text).render(plain: true)
+
+        decidim_sanitize(text, strip_tags: true)
       end
 
       private

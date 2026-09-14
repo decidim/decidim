@@ -77,7 +77,6 @@ ro:
       posts:
         edit:
           add_attachments: Adaugați atașamente
-          attachment_legend: Adăugați un document sau o imagine
           back: Înapoi la postare
           button: Actualizați
           edit_attachments: Actualizați atașamente

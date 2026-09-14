@@ -9,11 +9,9 @@
   %>
 
   <%= decidim_form_for(Decidim::User.new, namespace: "login", as: :user, url: path, html: { class: nil }) do |f| %>
-    <div>
-      <div class="flex flex-row">
-        <%= icon "user-line", class: "w-6 h-6 text-gray fill-current" %>
-        <h3 id="dialog-title-loginModal" class="h3 ml-1"><%= t(".please_log_in") %></h3>
-      </div>
+    <div data-dialog-container>
+      <%= icon "user-line" %>
+      <h3 id="dialog-title-loginModal" tabindex="-1" data-dialog-title><%= t(".please_log_in") %></h3>
 
       <div>
         <% if current_organization.sign_in_enabled? %>
@@ -44,16 +42,16 @@
             <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
           <% end %>
         <% end %>
-        <% if current_organization.sign_in_enabled? %>
-          <div data-dialog-actions>
-            <div class="form__wrapper-block w-full mb-4">
-              <button type="submit" class="button button__lg button__secondary">
-                <%= t("devise.sessions.new.log_in") %>
-              </button>
-            </div>
-          </div>
-        <% end %>
       </div>
     </div>
+    <% if current_organization.sign_in_enabled? %>
+      <div data-dialog-actions>
+        <div class="form__wrapper-block w-full mb-4">
+          <button type="submit" class="button button__lg button__secondary">
+            <%= t("devise.sessions.new.log_in") %>
+          </button>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 <% end %>

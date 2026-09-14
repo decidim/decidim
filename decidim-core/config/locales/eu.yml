@@ -207,7 +207,7 @@ eu:
         cancel_error: Ezin izan da ezeztatu helbide elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
         resend_error: Ezin izan da birbidali berresteko helbide elektronikoa.
-        resend_successfully: Correo de confirmación reenviado con éxito a %{unconfirmed_email}.
+        resend_successfully: 'Berresteko posta elektronikoa zuzen birbidalia hona: %{unconfirmed_email}.'
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -995,7 +995,7 @@ eu:
           notification_title: Administratzaile batek ezabatu du zure "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
-          email_intro: </a> de %{name} profilaren <a href="%{resource_url}"> orria, jarraitzen ari zarena, eguneratu egin da.
+          email_intro: '%{name} erabiltzailearen <a href="%{resource_url}">profilaren orria</a>, jarraitzen ari zarena, eguneratu egin da.'
           email_outro: Jakinarazpen hau jaso duzu %{name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
           email_subject: "%{name} parte-hartzaileak bere profila eguneratu du"
           notification_title: </a> de %{name} profilaren <a href="%{resource_path}"> orria, jarraitzen ari zarena, eguneratu egin da.
@@ -1204,6 +1204,8 @@ eu:
       dynamic:
         screen_reader_explanation: Hurrengo elementua orri honetako osagaiak mapan puntu gisa erakusten dituen mapa da. Elementua pantaila-irakurgailu batez erabil daiteke, baina ulergaitza izan daiteke.
         skip_button: Mapa hau ez erabili
+        zoom_in: Zooma
+        zoom_out: Zooma urruntzea
       static:
         latlng_text: 'latitudea: %{latitude}, longitudea: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1545,6 +1547,10 @@ eu:
         never_logged_in: inoiz ez konektatua
         subject: Kontu inaktiboaren abisua
     participatory_space:
+      labels:
+        reference: Espazioaren erreferentzia
+        restricted: Espazio mugatua
+        transparent: Espazio gardena
       pages:
         user_profile:
           member_of:
@@ -1703,6 +1709,8 @@ eu:
       login_modal:
         please_log_in: Mesedez, hasi saioa
         sign_up: Sortu kontu bat
+      mentions:
+        search_prompt: Parte-hartzaileak bilatzeko mota
       mentions_modal:
         remove_recipient: Kendu %{name} hartzailea
       progress: Aurrerapena 
@@ -2085,7 +2093,6 @@ eu:
   layouts:
     decidim:
       announcements:
-        view_less: Erakutsi gutxiago
         view_more: Informazio gehiago
       data_consent:
         details:

@@ -11,17 +11,14 @@ module Decidim
       def call
         print "Creating seeds for decidim-core...\n" unless Rails.env.test? # rubocop:disable Rails/Output
 
-        Rails.application.reloader.reload! if Rails.application.reloader.check!
-        reset_column_information
-
         organization = create_organization!
 
         if organization.taxonomies.none?
           taxonomy = create_taxonomy!(name: "Scopes", parent: nil)
-          number_of_records.times do
+          config_value(:root_taxonomies_states_count).times do
             sub_taxonomy = create_taxonomy!(name: ::Faker::Address.state, parent: taxonomy)
 
-            number_of_records.times do
+            config_value(:root_taxonomies_cities_per_state_count).times do
               create_taxonomy!(name: ::Faker::Address.city, parent: sub_taxonomy)
             end
           end
@@ -32,12 +29,12 @@ module Decidim
 
           taxonomy = create_taxonomy!(name: "Areas", parent: nil)
           sub_taxonomy = create_taxonomy!(name: "Territorial", parent: taxonomy)
-          number_of_records.times do
+          config_value(:root_taxonomies_territories_count).times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
           end
 
           sub_taxonomy = create_taxonomy!(name: "Sectorial", parent: taxonomy)
-          number_of_records.times do
+          config_value(:root_taxonomies_sectors_count).times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
           end
           # filters for all participatory except conferences
@@ -46,10 +43,10 @@ module Decidim
                                   participatory_space_manifests: Decidim.participatory_space_manifests.pluck(:name) - [:conferences])
 
           taxonomy = create_taxonomy!(name: "Categories", parent: nil)
-          number_of_records.times do
+          config_value(:root_taxonomies_categories_count).times do
             sub_taxonomy = create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: taxonomy)
 
-            number_of_records.times do
+            config_value(:root_taxonomies_subcategories_per_category_count).times do
               create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: sub_taxonomy)
             end
           end
@@ -62,10 +59,10 @@ module Decidim
           province = create_scope_type!(name: "province", plural: "provinces")
           municipality = create_scope_type!(name: "municipality", plural: "municipalities")
 
-          number_of_records.times do
+          config_value(:scopes_count).times do
             parent = create_scope!(scope_type: province, parent: nil)
 
-            number_of_records.times do
+            config_value(:scopes_subscopes_per_scope_count).times do
               create_scope!(scope_type: municipality, parent:)
             end
           end
@@ -74,11 +71,11 @@ module Decidim
         territorial = create_area_type!(name: "territorial", plural: "territorials")
         sectorial = create_area_type!(name: "sectorials", plural: "sectorials")
 
-        number_of_records.times do
+        config_value(:areas_territories_count).times do
           create_area!(area_type: territorial)
         end
 
-        number_of_records.times do
+        config_value(:areas_sectors_count).times do
           create_area!(area_type: sectorial)
         end
 
@@ -126,17 +123,6 @@ module Decidim
         hero_content_block.save!
 
         create_user_report!(reportable: Decidim::User.take, current_user: Decidim::User.take)
-      end
-
-      def reset_column_information
-        # Since we usually migrate and seed in the same process, make sure
-        # that we do not have invalid or cached information after a migration.
-        decidim_tables = ActiveRecord::Base.connection.tables.select do |table|
-          table.starts_with?("decidim_")
-        end
-        decidim_tables.map do |table|
-          table.tr("_", "/").classify.safe_constantize
-        end.compact.each(&:reset_column_information)
       end
 
       def create_organization!

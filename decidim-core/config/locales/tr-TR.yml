@@ -963,8 +963,6 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
-      announcements:
-        view_less: Daha Az Göster
       data_consent:
         details:
           columns:

@@ -40,7 +40,11 @@ module Decidim
       def map_model(model)
         presenter = MeetingEditionPresenter.new(model)
         self.title = presenter.title(all_locales: false)
-        self.description = presenter.editor_description(all_locales: false)
+        self.description = if model.component.organization.rich_text_editor_in_public_views?
+                             presenter.editor_description(all_locales: false)
+                           else
+                             presenter.plain_locales(model.description, false)
+                           end
         self.location = presenter.location(all_locales: false)
         self.location_hints = presenter.location_hints(all_locales: false)
         self.registration_terms = presenter.registration_terms(all_locales: false)

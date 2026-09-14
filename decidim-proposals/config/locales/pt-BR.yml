@@ -121,10 +121,7 @@ pt-BR:
             values:
               'false': Propostas
               'true': Emendas
-          proposal_state_id_eq:
-            label: Estado
           state_eq:
-            label: Estado
             values:
               accepted: Aceitou
               evaluating: Avaliando
@@ -795,7 +792,6 @@ pt-BR:
           instructions: Você pode mover o ponto no mapa.
         edit:
           add_attachments: Adicionar anexos
-          attachment_legend: Adicionar um documento ou uma imagem
           back: Voltar
           edit_attachments: Editar anexos
           send: Enviar

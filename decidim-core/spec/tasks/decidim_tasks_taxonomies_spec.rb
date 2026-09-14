@@ -41,11 +41,10 @@ describe "Executing Decidim Taxonomy importer tasks" do
     another_scope.update!(part_of: [scope.id])
     sub_scope.update!(part_of: [scope.id, sub_scope.id])
     # as scope settings are disabled now, we need to update the settings directly as it was already there
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     dummy_component.update_column(:settings, {
                                     "global" => settings
                                   })
-    # rubocop:enable Rails/SkipsModelValidations
 
     Decidim::Maintenance::ImportModels::Scope.add_resource_class("Decidim::Dev::DummyResource")
   end

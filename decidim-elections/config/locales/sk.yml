@@ -127,7 +127,6 @@ sk:
             title: Upraviť voľby
           form:
             add_images: Pridať obrázky
-            attachment_legend: Pridať galériu obrázkov (voliteľné)
             basic_title: Základné informácie
             calendar: Kalendár
             calendar_description: Skontrolujte, či je časové pásmo organizácie správne v nastaveniach organizácie. Aktuálna konfigurácia je %{timezone}.

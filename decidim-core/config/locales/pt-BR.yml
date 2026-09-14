@@ -2017,7 +2017,6 @@ pt-BR:
   layouts:
     decidim:
       announcements:
-        view_less: Exibir menos
         view_more: Mais informações
       data_consent:
         details:
