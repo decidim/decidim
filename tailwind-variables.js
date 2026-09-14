@@ -1,5 +1,6 @@
 module.exports = {
     'colors': {
+        'don't-apply-this-in-the-designs': '#ffffff05', 
         'color': {
             'black': '#1a1a1a', 
             'white': '#ffffff', 
@@ -109,8 +110,9 @@ module.exports = {
             'info': '#155abf', /* bem */
         },
         'color-bg': {
-            'secondary': '#155abf', /* background */
             'primary': '#e02d2d', /* background */
+            'secondary': '#155abf', /* background */
+            'tertiary': '#d4a81a', /* background */
         },
         'color-bg-neutral': {
             'light': '#ffffff', /* background */
@@ -125,7 +127,7 @@ module.exports = {
             'hover': '#d4d4d4', /* background */
         },
         'color-bg-neutral-high': {
-            'light': '#3f3f3f', /* background */
+            'light': '#3e4c5c', /* background */
             'dark': '#1a1a1a', /* background */
         },
         'color-bg-inverted-interactive-dark': {
@@ -272,7 +274,7 @@ module.exports = {
             'primary': '#e02d2d', 
             'secondary': '#155abf', 
             'tertiary': '#d4a81a', 
-            'inverted': '#ffffff40', 
+            'inverted': '#ffffff', 
         },
         'color-border-primary': {
             'interactive': '#e02d2d', /* typing */

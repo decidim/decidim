@@ -76,6 +76,7 @@
     --color-color-alphas-white-75: #ffffffbf; 
     --color-color-slate-900: #1a2027; 
     --color-color-white: #ffffff; 
+    --color-don-t-apply-this-in-the-designs: #ffffff05; 
     --color-color-black: #1a1a1a; 
     --color-color-primary: #e02d2d; 
     --color-color-secondary: #155abf; 
@@ -125,7 +126,7 @@
     --color-color-bg-base-light: #ecedef; /* background */
     --color-color-bg-base-dark: #65707d; /* background */
     --color-color-bg-info-light: #e8eff9; /* background */
-    --color-color-bg-neutral-high-light: #3f3f3f; /* background */
+    --color-color-bg-neutral-high-light: #3e4c5c; /* background */
     --color-color-bg-neutral-high-dark: #1a1a1a; /* background */
     --color-color-text-link-visited: #92278f; 
     --color-color-text-link-primary-default: #e02d2d; 
@@ -176,7 +177,7 @@
     --color-color-border-secondary-interactive: #155abf; /* typing */
     --color-color-border-neutral-dark: #8f8f8f; /* inputs, checkbox, radio */
     --color-color-border-neutral-light: #d4d4d4; /* dividers */
-    --color-color-border-inverted: #ffffff40; 
+    --color-color-border-inverted: #ffffff; 
     --color-color-border-success-dark: #1c7731; 
     --color-color-border-warning-light: #efcf6f; 
     --color-color-border-warning-dark: #635220; 
@@ -185,4 +186,5 @@
     --color-color-border-info-dark: #155abf; 
     --color-color-border-tertiary: #d4a81a; 
     --color-color-border-tertiary-interactive: #d4a81a; /* card active */
+    --color-color-bg-tertiary: #d4a81a; /* background */
 }
