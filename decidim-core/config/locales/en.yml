@@ -1784,7 +1784,6 @@ en:
           success: The recovery codes were regenerated.
       setup:
         added_on: Added on %{date}
-        last_used_on: Last used on %{date}
         email:
           add: Enable email code
           codes_sent_to: Codes are sent to %{email}
@@ -1793,6 +1792,7 @@ en:
           disable_confirm: Are you sure you want to disable the email code?
           title: Email code
         enabled: Enabled
+        last_used_on: Last used on %{date}
         remove: Remove
         totp:
           add: Add authenticator app
