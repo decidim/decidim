@@ -40,6 +40,7 @@ require "chartkick"
 require "shakapacker"
 require "data_migrate"
 
+require "active_record/session_store"
 require "decidim/api"
 require "decidim/core/content_blocks/registry_manager"
 require "decidim/core/menu"
@@ -555,10 +556,41 @@ module Decidim
         end
       end
 
-      initializer "decidim_core.session_store" do |app|
-        next if app.config.session_store?
+      initializer "decidim_core.session_store_override" do
+        ActiveRecord::SessionStore::Session.class_eval do
+          def data=(local_data)
+            attribute_will_change!(self.class.data_column_name) if local_data != self.class.deserialize(read_attribute(self.class.data_column_name))
+            @data = local_data
+          end
+        end
+      end
 
-        app.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
+      initializer "decidim_core.session_store" do |app|
+        if app.config.session_store?
+          Decidim.deprecator.warn(
+            <<~DEPRECATION.strip
+              Configuring sessions has changed
+
+              To improve the security, by default Decidim stores now the session data in the database, having the following setup.
+
+              Rails.application.config.session_store :active_record_store,
+                                       key: "_decidim_session_id",
+                                       secure: Decidim.config.force_ssl,
+                                       expire_after: Decidim.config.expire_session_after,
+                                       httponly: true,
+                                       same_site: :lax
+
+              You are seeing this message because we have detected that your application already configures the the session store.
+            DEPRECATION
+          )
+        else
+          app.config.session_store :active_record_store,
+                                   key: "_decidim_session_id",
+                                   secure: Decidim.config.force_ssl,
+                                   expire_after: Decidim.config.expire_session_after,
+                                   httponly: true,
+                                   same_site: :lax
+        end
       end
 
       initializer "decidim_core.register_resources" do
