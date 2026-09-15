@@ -126,7 +126,7 @@ module Decidim
                      [raw_id]
                    end
 
-          value = values.find { |item| item.present? }
+          value = values.find(&:present?)
           value.respond_to?(:to_i) ? value.to_i : nil
         end
       end

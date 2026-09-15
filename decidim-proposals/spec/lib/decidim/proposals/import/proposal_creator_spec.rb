@@ -128,6 +128,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
         expect(record.scope).to be_nil
       end
     end
+
     it "sets the organization as author (official proposal)" do
       record = subject.produce
 

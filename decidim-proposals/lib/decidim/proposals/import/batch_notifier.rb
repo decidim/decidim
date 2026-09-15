@@ -14,9 +14,7 @@ module Decidim
 
           recipients.each do |recipient|
             create_import_notification(recipient)
-            if recipient.notifications_sending_frequency == "real_time"
-              deliver_import_email(recipient)
-            end
+            deliver_import_email(recipient) if recipient.notifications_sending_frequency == "real_time"
           end
         end
 
