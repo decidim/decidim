@@ -13,7 +13,7 @@ module RuboCop
       # authorization checks can allow unauthorized access to resources.
       #
       # This cop checks all public method definitions in admin controllers
-      # and flags any that don't contain an authorization call.
+      # and flags any that do not contain an authorization call.
       #
       # Actions are exempt when the controller uses a `before_action` that
       # performs authorization (either by referencing a method that calls
