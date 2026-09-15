@@ -7,6 +7,8 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
         include Decidim::Admin::ParticipatorySpaceExport
 
+        protected
+
         def exportable_space
           current_participatory_process
         end

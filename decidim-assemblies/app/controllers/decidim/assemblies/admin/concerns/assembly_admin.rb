@@ -25,6 +25,8 @@ module Decidim
 
             participatory_space_admin_layout
 
+            protected
+
             def current_assembly
               @current_assembly ||= organization_assemblies.find_by!(
                 slug: params[:assembly_slug] || params[:slug]

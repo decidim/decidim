@@ -7,12 +7,16 @@ module Decidim
         extend ActiveSupport::Concern
 
         class_methods do
+          protected
+
           def add_breadcrumb_item_from_menu(target_menu, opts = {})
             before_action -> { secondary_breadcrumb_menus << target_menu }, opts
           end
         end
 
         included do
+          protected
+
           def secondary_breadcrumb_menus
             @secondary_breadcrumb_menus ||= []
           end

@@ -15,9 +15,13 @@ module Decidim
 
       alias update_content_blocks update
 
+      protected
+
       def content_block_scope
         :static_page
       end
+
+      protected
 
       def scoped_resource
         @scoped_resource ||= collection.find_by(slug: params[:id])
@@ -27,13 +31,19 @@ module Decidim
         enforce_permission_to :update, :static_page, static_page: scoped_resource
       end
 
+      protected
+
       def resource_sort_url
         update_content_blocks_static_page_path(scoped_resource)
       end
 
+      protected
+
       def resource_create_url(manifest_name)
         static_page_content_blocks_path(scoped_resource, manifest_name:)
       end
+
+      protected
 
       def resource_content_block_cell
         "decidim/admin/static_page_content_block"
@@ -120,6 +130,8 @@ module Decidim
       def page
         @page ||= scoped_resource
       end
+
+      protected
 
       def collection
         current_organization.static_pages

@@ -8,6 +8,8 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        protected
+
         # Private: Overwrites the method from the parent controller so that the
         # permission system does not overwrite permissions.
         def authorization_scope

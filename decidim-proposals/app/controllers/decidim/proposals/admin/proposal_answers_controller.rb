@@ -39,6 +39,8 @@ module Decidim
           end
         end
 
+        protected
+
         def update_multiple_answers
           valid_proposals = []
           failed_proposals = []

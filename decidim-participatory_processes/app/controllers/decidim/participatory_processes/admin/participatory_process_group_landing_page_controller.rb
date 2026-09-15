@@ -16,6 +16,8 @@ module Decidim
 
         helper_method :participatory_process_group
 
+        protected
+
         def content_block_scope
           :participatory_process_group_homepage
         end

@@ -25,6 +25,8 @@ module Decidim
 
             participatory_space_admin_layout
 
+            protected
+
             def organization_processes
               @organization_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
             end

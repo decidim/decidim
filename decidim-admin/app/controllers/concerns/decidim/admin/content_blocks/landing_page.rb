@@ -30,6 +30,8 @@ module Decidim
             end
           end
 
+          protected
+
           # Method that specifies the i18n scope for this controller. This can be overwritten in your controller.
           # so that you can pass a different scope to the i18n methods.
           def i18n_scope = "decidim.admin.content_blocks"
