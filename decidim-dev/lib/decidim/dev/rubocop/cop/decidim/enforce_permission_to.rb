@@ -51,7 +51,7 @@ module RuboCop
       #     end
       #   end
       class EnforcePermissionTo < RuboCop::Cop::Base
-        MSG = "Action `%<action>s` is missing an authorization check. " \
+        MSG = "Action `%{action}` is missing an authorization check. " \
               "Add `enforce_permission_to` or `action_authorized_to` at the start of the action, " \
               "or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere."
 
