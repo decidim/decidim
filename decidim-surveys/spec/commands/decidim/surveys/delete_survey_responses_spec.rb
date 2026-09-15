@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Surveys
     module Admin
-      describe DeleteSurvey, type: :command do
+      describe DeleteSurveyResponses, type: :command do
         let(:survey) { create(:survey, published_at: Time.current) }
         let(:current_user) { create(:user, :admin, :confirmed, organization: survey.component.organization) }
         let(:command) { described_class.new(survey, current_user) }

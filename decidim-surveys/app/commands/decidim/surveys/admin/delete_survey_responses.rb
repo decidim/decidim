@@ -5,8 +5,8 @@ module Decidim
     module Admin
       # This command is executed when the user deletes all the responses of a survey
       # from the admin panel.
-      class DeleteSurvey < Decidim::Command
-        # Initializes a DeleteSurvey Command.
+      class DeleteSurveyResponses < Decidim::Command
+        # Initializes a DeleteSurveyResponses Command.
         #
         # survey - The current instance of the survey whose responses will be deleted.
         # current_user - the user performing the action

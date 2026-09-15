@@ -29,7 +29,7 @@ module Decidim
         def destroy_all
           enforce_permission_to :destroy_all, :questionnaire_responses
 
-          DeleteSurvey.call(survey, current_user) do
+          DeleteSurveyResponses.call(survey, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("responses.destroy_all.success", scope: "decidim.surveys.admin")
             end
