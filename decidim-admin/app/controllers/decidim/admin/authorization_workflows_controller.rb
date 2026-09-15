@@ -14,11 +14,24 @@ module Decidim
           current_organization.available_authorizations.include?(manifest.name.to_s)
         end
 
-        # Decidim::Verifications::Authorizations Query
-        @authorizations = Decidim::Verifications::Authorizations.new(
+        @revocation_counts = @workflows.index_with do |manifest|
+          name = manifest.name.to_s
+          {
+            total: authorizations_count(name),
+            impersonated: authorizations_count(name, impersonated_only: true)
+          }
+        end
+      end
+
+      private
+
+      def authorizations_count(name, impersonated_only: false)
+        Decidim::Verifications::Authorizations.new(
           organization: current_organization,
-          granted: true
-        ).query
+          name:,
+          granted: true,
+          impersonated_only:
+        ).query.count
       end
     end
   end
