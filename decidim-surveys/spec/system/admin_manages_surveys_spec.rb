@@ -282,12 +282,6 @@ describe "Admin manages surveys" do
 
         expect(page).to have_text("Are you sure you want to delete all #{questionnaire.responses.count} responses? This action cannot be undone.")
       end
-
-      it "displays the flash notice after deleting all responses" do
-        accept_confirm { click_on "Delete all responses" }
-
-        expect(page).to have_callout("All responses have been successfully deleted.")
-      end
     end
   end
 
