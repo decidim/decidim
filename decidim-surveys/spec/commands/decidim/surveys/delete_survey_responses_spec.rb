@@ -17,6 +17,16 @@ module Decidim
         end
 
         describe "call" do
+          context "when the survey is not valid" do
+            before do
+              allow(survey).to receive(:questionnaire).and_return(nil)
+            end
+
+            it "returns broadcast invalid" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+          end
+
           it "broadcasts ok" do
             expect(command).to broadcast(:ok)
           end
