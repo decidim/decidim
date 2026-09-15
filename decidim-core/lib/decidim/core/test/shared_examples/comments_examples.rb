@@ -871,6 +871,27 @@ shared_examples "comments" do
         expect(page).to have_css("span.comments-count", text: "#{commentable.comments.count} comments")
         expect(page).to have_reply_to(comment, "This is a reply")
       end
+
+      it "collapses the reply form once the reply is published" do
+        visit resource_path
+
+        within "#comments #comment_#{comment.id}" do
+          click_on "Reply"
+        end
+
+        expect(page).to have_css("#panel-comment#{comment.id}-reply", visible: :visible)
+
+        within "form#new_comment_for_#{comment.commentable_type.demodulize}_#{comment.id}" do
+          field = find("#add-comment-#{comment.commentable_type.demodulize}-#{comment.id}")
+          field.set " "
+          field.native.send_keys content
+          click_on "Publish reply"
+        end
+
+        expect(page).to have_reply_to(comment, content)
+        expect(page).to have_no_css("#panel-comment#{comment.id}-reply", visible: :visible)
+        expect(page).to have_css("#panel-comment#{comment.id}-reply-trigger[aria-expanded='false']", visible: :all)
+      end
     end
 
     context "when a comment has been moderated" do

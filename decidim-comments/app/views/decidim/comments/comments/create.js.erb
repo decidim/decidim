@@ -49,6 +49,12 @@
       var parentRef = cursor.dataset.parent;
       cursor = parentRef ? document.getElementById(parentRef) : null;
     }
+    // Collapse the reply form now that the reply is published, so it does not
+    // sit between the reader and the reply they just made.
+    var replyAccordion = document.getElementById("accordion-" + inReplyTo);
+    if (replyAccordion) {
+      replyAccordion.dispatchEvent(new CustomEvent("accordion:reconnect", { detail: { collapse: true } }));
+    }
   } else {
     // Always prepend new top-level comments: predictable for screen-reader
     // users (next focus-stop after the form), visible immediately for sighted
