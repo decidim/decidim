@@ -50,7 +50,7 @@ describe "ephemeral action authorization" do
       it "creates an ephemeral user session" do
         expect do
           click_on "New proposal"
-          expect(page).to have_callout("Please verify your identity to proceed.")
+          expect(page).to have_content("Please verify your identity to proceed.")
         end.to change { Decidim::User.ephemeral.count }.by(1)
 
         expect(page).to have_link("Close", href: "/users/sign_out")
