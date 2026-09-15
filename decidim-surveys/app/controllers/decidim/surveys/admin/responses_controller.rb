@@ -26,6 +26,18 @@ module Decidim
           render template: "decidim/surveys/admin/responses/show"
         end
 
+        def destroy_all
+          enforce_permission_to :destroy_all, :questionnaire_responses
+
+          DeleteSurveyResponses.call(survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("responses.destroy_all.success", scope: "decidim.surveys.admin")
+            end
+          end
+
+          redirect_to Decidim::EngineRouter.admin_proxy(questionnaire_for.component).survey_responses_path(questionnaire_for)
+        end
+
         def questionnaire_for
           @questionnaire_for ||= Decidim::Surveys::Survey.where(component: current_component).find_by(id: params[:survey_id])
         end
