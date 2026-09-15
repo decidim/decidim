@@ -158,6 +158,13 @@
         @apply mt-0;
       }
     }
+
+    /* moderated and deleted targets render a single placeholder instead of the
+       header/content/footer trio, so they need their own tinted surface */
+    > .comment__moderated,
+    > .comment__deleted {
+      @apply bg-secondary/10 -ml-6 -mr-3 pl-6 pr-3 py-3 rounded-lg;
+    }
   }
 
   &-thread {

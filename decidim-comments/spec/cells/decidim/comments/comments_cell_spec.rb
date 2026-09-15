@@ -118,6 +118,34 @@ module Decidim::Comments
           end
         end
 
+        context "when the single comment is a top level comment" do
+          it "highlights the target comment" do
+            expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted")
+          end
+
+          context "when the target has replies" do
+            let!(:reply) { create(:comment, commentable: comment, root_commentable: commentable) }
+
+            it "keeps the standard lazy loaded replies toggle" do
+              expect(subject).to have_css("#comment-#{comment.id}-replies-trigger")
+              expect(subject).to have_no_text(reply.body.values.first)
+            end
+
+            it "highlights the target so it stays identifiable once the replies are loaded" do
+              expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted")
+              expect(subject).to have_no_css("#comment_#{reply.id}")
+            end
+          end
+        end
+
+        context "with the single comment being deleted" do
+          before { comment.update!(deleted_at: Time.current) }
+
+          it "highlights the deleted target" do
+            expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted .comment__deleted")
+          end
+        end
+
         context "with the single comment being moderated" do
           before do
             create(
@@ -132,6 +160,10 @@ module Decidim::Comments
             expect(subject).to have_no_text(comment.body.values.first)
             expect(subject).to have_no_css(".add-comment")
             expect(subject).to have_css(".comment__moderated")
+          end
+
+          it "highlights the moderated target" do
+            expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted .comment__moderated")
           end
 
           it "renders the single comment warning" do
