@@ -176,7 +176,7 @@ module Decidim
         let(:response_option_b) { question.response_options.second }
 
         before do
-          question.update!(question_type: "single_option", max_choices: 1)
+          question.update!(question_type: "single_option")
         end
 
         # Race condition tests are inherently non-deterministic. This test uses
