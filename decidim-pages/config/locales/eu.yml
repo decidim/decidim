@@ -25,17 +25,17 @@ eu:
           id: Orri honen identifikatzaile bakarra
           participatory_space: Zein espaziori dagokio (adibidez, Partaidetza-prozesua edo Batzarra) orri hau
           title: Orriaren izenburua
-          updated_at: Zein egunetan eguneratu zen azken aldiz orri hau
+          updated_at: Zein egunetan eguneratu den azken aldiz orri hau
           url: Orri honetarako URLa
     pages:
       admin:
         models:
           components:
-            body: Gorputza
+            body: Testua
         pages:
           edit:
-            add_attachments: Gehitu eranskinak
-            edit_attachments: Editatu eranskinak
+            add_attachments: Eranskinak gehitu
+            edit_attachments: Eranskinak editatu
             save: Eguneratu
             title: Editatu orria
           update:
