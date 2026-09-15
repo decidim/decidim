@@ -79,6 +79,7 @@ module Decidim
         let(:moderation) { create(:user_moderation, user:) }
         let!(:user_block) { create(:user_block, user:, blocking_user: reporter) }
         let!(:user_report) { create(:user_report, user: reporter, reason: "spam", details: "Lorem ipsum", moderation:) }
+        let!(:current_user) { create(:user, :confirmed, :admin, organization: current_organization) }
 
         let(:query) do
           %({
@@ -129,6 +130,22 @@ module Decidim
             "userId" => user.id.to_s
           )
         end
+
+        context "when user is not an admin" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "returns an empty array" do
+            expect(response["moderatedUsers"]).to eq([])
+          end
+        end
+
+        context "when user is not authenticated" do
+          let!(:current_user) { nil }
+
+          it "returns an empty array" do
+            expect(response["moderatedUsers"]).to eq([])
+          end
+        end
       end
 
       describe "moderations" do
@@ -137,6 +154,7 @@ module Decidim
         let(:commentable) { create(:dummy_resource, :published, component:) }
         let(:moderation) { create(:moderation, reportable: commentable, hidden_at: 2.days.ago, report_count: 1, reported_content: "This is the content") }
         let!(:report) { create(:report, moderation:, details: "This is a report", locale: "en") }
+        let!(:current_user) { create(:user, :confirmed, :admin, organization: current_organization) }
 
         let(:query) do
           %({
@@ -182,6 +200,22 @@ module Decidim
             ],
             "updatedAt" => moderation.updated_at.to_time.iso8601
           )
+        end
+
+        context "when user is not an admin" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "returns an empty array" do
+            expect(response["moderations"]).to eq([])
+          end
+        end
+
+        context "when user is not authenticated" do
+          let!(:current_user) { nil }
+
+          it "returns an empty array" do
+            expect(response["moderations"]).to eq([])
+          end
         end
       end
 
