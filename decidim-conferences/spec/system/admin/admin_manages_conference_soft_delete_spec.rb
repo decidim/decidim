@@ -30,7 +30,7 @@ describe "Admin manages conference soft delete" do
     end
 
     it "does not allow collaborators to view deleted conferences" do
-      expect(page).to have_content("Conferences")
+      expect(page).to have_text("Conferences")
       expect(page).to have_no_link("View deleted conferences", href: /.*conferences.*trash.*/)
     end
   end
@@ -52,7 +52,7 @@ describe "Admin manages conference soft delete" do
     end
 
     it "does not allow evaluators to view deleted conferences" do
-      expect(page).to have_content("Conferences")
+      expect(page).to have_text("Conferences")
       expect(page).to have_no_link("View deleted conferences", href: /.*conferences.*trash.*/)
     end
   end
@@ -74,7 +74,7 @@ describe "Admin manages conference soft delete" do
     end
 
     it "does not allow moderators to view deleted conferences" do
-      expect(page).to have_content("Conferences")
+      expect(page).to have_text("Conferences")
       expect(page).to have_no_link("View deleted conferences", href: /.*conferences.*trash.*/)
     end
   end
@@ -96,7 +96,7 @@ describe "Admin manages conference soft delete" do
     end
 
     it "does not allow space admins to view deleted conferences" do
-      expect(page).to have_content("Conferences")
+      expect(page).to have_text("Conferences")
       expect(page).to have_no_link("View deleted conferences", href: /.*conferences.*trash.*/)
     end
   end

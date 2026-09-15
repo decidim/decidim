@@ -25,7 +25,7 @@ describe "Admin imports projects to accountability" do
     end
 
     it "shows no component to select" do
-      expect(page).to have_content t("import_components.form.no_components", scope: "decidim.accountability.admin")
+      expect(page).to have_text t("import_components.form.no_components", scope: "decidim.accountability.admin")
     end
   end
 
@@ -38,9 +38,9 @@ describe "Admin imports projects to accountability" do
     end
 
     it "link exists only in main list" do
-      expect(page).to have_content("Import results from another component")
+      expect(page).to have_text("Import results from another component")
       page.find(".table-list tr:nth-child(1) td:nth-child(2)").click
-      expect(page).to have_no_content(t("decidim.accountability.actions.import"))
+      expect(page).to have_no_text(t("decidim.accountability.actions.import"))
     end
   end
 
@@ -60,9 +60,9 @@ describe "Admin imports projects to accountability" do
       end
 
       it "shows error message" do
-        expect(page).to have_content "There are no selected projects in this origin component"
+        expect(page).to have_text "There are no selected projects in this origin component"
         click_on "Import"
-        expect(page).to have_content t("import_components.create.invalid", scope: "decidim.accountability.admin")
+        expect(page).to have_text t("import_components.create.invalid", scope: "decidim.accountability.admin")
       end
     end
 
@@ -75,9 +75,9 @@ describe "Admin imports projects to accountability" do
       end
 
       it "imports the projects into results" do
-        expect(page).to have_content("3 selected projects will be imported")
+        expect(page).to have_text("3 selected projects will be imported")
         click_on "Import"
-        expect(page).to have_content "3 results queued to be imported. You will be notified by email, once completed"
+        expect(page).to have_text "3 results queued to be imported. You will be notified by email, once completed"
       end
     end
   end

@@ -43,12 +43,12 @@ describe "Explore meeting directory" do
         expect(page).to have_css(meetings_selector, count: 7)
       end
 
-      expect(page).to have_content(translated(upcoming_meeting.title))
+      expect(page).to have_text(translated(upcoming_meeting.title))
     end
 
     it "does not show past meetings" do
       within "#meetings" do
-        expect(page).to have_no_content(translated(past_meeting.title))
+        expect(page).to have_no_text(translated(past_meeting.title))
       end
     end
   end
@@ -66,8 +66,8 @@ describe "Explore meeting directory" do
         end
       end
 
-      expect(page).to have_no_content("Another meeting")
-      expect(page).to have_content("Foobar meeting")
+      expect(page).to have_no_text("Another meeting")
+      expect(page).to have_text("Foobar meeting")
 
       filter_params = CGI.parse(URI.parse(page.current_url).query)
       expect(filter_params["filter[title_or_description_cont]"]).to eq(["foobar"])
@@ -87,7 +87,7 @@ describe "Explore meeting directory" do
         visit directory
 
         within "#meetings" do
-          expect(page).to have_content(decidim_escape_translated(taxonomy.name))
+          expect(page).to have_text(decidim_escape_translated(taxonomy.name))
         end
       end
 
@@ -98,8 +98,8 @@ describe "Explore meeting directory" do
           click_filter_item decidim_escape_translated(taxonomy.name)
         end
 
-        expect(page).to have_content(translated(meeting.title))
-        expect(page).to have_no_content(translated(meetings.second.title))
+        expect(page).to have_text(translated(meeting.title))
+        expect(page).to have_no_text(translated(meetings.second.title))
       end
     end
   end
@@ -118,7 +118,7 @@ describe "Explore meeting directory" do
         expect(page).to have_css(meetings_selector, count: 1)
 
         within meetings_selector do
-          expect(page).to have_content(translated(official_meeting.title))
+          expect(page).to have_text(translated(official_meeting.title))
         end
       end
     end
@@ -146,8 +146,8 @@ describe "Explore meeting directory" do
           click_filter_item "Online"
         end
 
-        expect(page).to have_content(translated(online_meeting1.title))
-        expect(page).to have_content(translated(online_meeting2.title))
+        expect(page).to have_text(translated(online_meeting1.title))
+        expect(page).to have_text(translated(online_meeting2.title))
       end
 
       it "allows linking to the filtered view using a short link" do
@@ -155,8 +155,8 @@ describe "Explore meeting directory" do
           click_filter_item "Online"
         end
 
-        expect(page).to have_content(translated(online_meeting1.title))
-        expect(page).to have_content(translated(online_meeting2.title))
+        expect(page).to have_text(translated(online_meeting1.title))
+        expect(page).to have_text(translated(online_meeting2.title))
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         base_url = "http://#{organization.host}:#{Capybara.server_port}"
@@ -164,7 +164,7 @@ describe "Explore meeting directory" do
         click_on "Export calendar"
         expect(page).to have_css("#calendarShare", visible: :visible)
         within("#calendarShare") do
-          expect(page).to have_content("Calendar URL")
+          expect(page).to have_text("Calendar URL")
         end
         short_url = nil
         within "#calendarShare" do
@@ -174,8 +174,8 @@ describe "Explore meeting directory" do
         end
 
         visit short_url
-        expect(page).to have_content(translated(online_meeting1.title))
-        expect(page).to have_content(translated(online_meeting2.title))
+        expect(page).to have_text(translated(online_meeting1.title))
+        expect(page).to have_text(translated(online_meeting2.title))
         expect(page).to have_current_path(/^#{directory}/)
 
         current_params = CGI.parse(URI.parse(page.current_url).query)
@@ -191,7 +191,7 @@ describe "Explore meeting directory" do
           click_filter_item "In-person"
         end
 
-        expect(page).to have_content(in_person_meeting.title["en"])
+        expect(page).to have_text(in_person_meeting.title["en"])
       end
     end
 
@@ -203,7 +203,7 @@ describe "Explore meeting directory" do
           click_filter_item "Hybrid"
         end
 
-        expect(page).to have_content(online_meeting.title["en"])
+        expect(page).to have_text(online_meeting.title["en"])
       end
     end
   end
@@ -224,7 +224,7 @@ describe "Explore meeting directory" do
           click_filter_item "All"
         end
 
-        expect(page).to have_content(translated(past_meeting1.title))
+        expect(page).to have_text(translated(past_meeting1.title))
 
         result = page.find("#meetings .card__list-list").text
         expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
@@ -243,7 +243,7 @@ describe "Explore meeting directory" do
           click_filter_item "Past"
         end
 
-        expect(page).to have_no_content(translated(upcoming_meeting1.title))
+        expect(page).to have_no_text(translated(upcoming_meeting1.title))
 
         result = page.find("#meetings .card__list-list").text
         expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
@@ -272,7 +272,7 @@ describe "Explore meeting directory" do
     end
 
     it "allows filtering by space" do
-      expect(page).to have_content(assembly_meeting.title["en"])
+      expect(page).to have_text(assembly_meeting.title["en"])
 
       # Since in the first load all the meeting are present, we need cannot rely on
       # have_content to wait for the card list to change. This is a hack to
@@ -291,7 +291,7 @@ describe "Explore meeting directory" do
         click_filter_item "Upcoming"
       end
 
-      expect(page).to have_content(assembly_meeting.title["en"])
+      expect(page).to have_text(assembly_meeting.title["en"])
       expect(page).to have_css(meetings_selector, count: 1)
     end
   end

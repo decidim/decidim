@@ -3,7 +3,7 @@
   description: translated_attribute(@page.body),
   resource: @page) %>
 
-<%= render layout:"layouts/decidim/shared/layout_center" do %>
+<%= render layout:"layouts/decidim/shared/layout_center", locals: { reference: resource_reference(@page) } do %>
   <div class="py-12 space-y-12">
 
     <div class="text-center">

@@ -31,7 +31,7 @@ module Decidim
             @content_block = content_block
           end
           on(:invalid) do
-            raise "There was a problem persisting the changes to the content block"
+            raise Decidim::Commands::HookError, "There was a problem persisting the changes to the content block"
           end
         end
       end

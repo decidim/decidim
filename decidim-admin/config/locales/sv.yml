@@ -868,6 +868,7 @@ sv:
       officializations:
         block:
           error: Det gick inte att blockera deltagaren.
+          no_user: Ingen användare hittad
           success: Deltagaren har blockerats.
         bulk_action:
           block:

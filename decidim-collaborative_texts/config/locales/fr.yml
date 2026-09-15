@@ -71,6 +71,8 @@ fr:
           update_settings:
             invalid: Un problème est survenu lors de la mise à jour du document.
             success: Document mis à jour avec succès.
+        exports:
+          document_suggestions: Suggestions
         index:
           published: Publié
           unpublished: Non publié

@@ -38,7 +38,7 @@ describe "Postal letter code verification" do
 
     it "shows an informative message to the user" do
       expect(page)
-        .to have_content("We will send a letter to your address with your verification code soon.")
+        .to have_text("We will send a letter to your address with your verification code soon.")
     end
   end
 
@@ -52,7 +52,7 @@ describe "Postal letter code verification" do
     end
 
     it "shows a form to the user to fill in the verification code" do
-      expect(page).to have_content("Introduce the verification code you received")
+      expect(page).to have_text("Introduce the verification code you received")
     end
 
     context "and user verifies the code" do
@@ -71,7 +71,7 @@ describe "Postal letter code verification" do
         end
 
         it "shows an error message" do
-          expect(page).to have_content("Your verification code does not match ours. Please double-check the letter we sent to you.")
+          expect(page).to have_text("Your verification code does not match ours. Please double-check the letter we sent to you.")
         end
       end
 
@@ -79,7 +79,7 @@ describe "Postal letter code verification" do
         let(:attempted_verification_code) { verification_code }
 
         it "shows a success message" do
-          expect(page).to have_content("Congratulations. You have been successfully verified.")
+          expect(page).to have_text("Congratulations. You have been successfully verified.")
         end
       end
     end

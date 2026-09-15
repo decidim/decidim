@@ -36,7 +36,7 @@ eu:
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoa
         online_signature_enabled: Sinadura elektronikoa gaituta
-        only_global_scope_enabled: Eremu globaleko ekimenak soilik sortzeko aukera ematea
+        only_global_scope_enabled: Baimendu soilik esparru globaleko ekimenak sortzea
         promoting_committee_enabled: Gaitu batzorde sustatzailea
         signature_type: Sinadura mota
         title: Izenburua
@@ -136,18 +136,18 @@ eu:
         initiatives_votes:
           fields:
             date_and_time: Data eta ordua
-            date_of_birth: Jaioteguna
+            date_of_birth: Jaiotze-data
             document_number: Dokumentuaren zenbakia
             hash: Hash
-            initiative_end_date: Amaiera data
+            initiative_end_date: Amaiera-data
             initiative_id: Ekimenaren ID-a
             initiative_scope: Eremua
             initiative_signatures_count: Sinadura kopurua
-            initiative_start_date: Hasiera data
+            initiative_start_date: Hasiera-data
             initiative_title: Ekimenaren izenburua
-            name_and_surname: Izena eta abizena
+            name_and_surname: Izen-abizenak
             nickname: Ezizena
-            postal_code: Posta kodea
+            postal_code: Posta-kodea
             signature_count: Sinaduren zenbaketa
             timestamp: Denbora-marka
       taxonomy_filters:
@@ -220,9 +220,9 @@ eu:
           info_initiative:
             created_at: Noiz sortua
             description: Deskribapena
-            initiative_votes_count: Babesen zenbaketa
+            initiative_votes_count: Botoen zenbaketa
             initiatives: Ekimenak
-            state: Estatu
+            state: Egoera
         committee_requests:
           index:
             approve: Onartu
@@ -253,11 +253,11 @@ eu:
             accept: Onartu ekimena
             confirm: Ziur zaude?
             confirm_send_to_technical_validation: Ziur zaude?
-            discard: Ekimena baztertu
+            discard: Kendu ekimena
             export_pdf_signatures: Esportatu sinaduren PDF fitxetagia
             export_votes: Esportatu sinadurak
             reject: Ekimena ukatu
-            send_to_technical_validation: Baliozkotze teknikorako bidali
+            send_to_technical_validation: Bidali balidazio teknikora
             success: Ekimena baliozkotze teknikora bidali da.
             title: Ekimen honi buruz
             update: Eguneratu
@@ -358,7 +358,7 @@ eu:
           all: Guztiak
           answered: Erantzunda
           closed: Itxita
-          open: Open
+          open: Irekita
           rejected: Ez ditu lortu beharrezko sinadurak
         filter_type_values:
           all: Guztiak
@@ -396,7 +396,7 @@ eu:
           go_to_initiatives: Ekimenetara joan
           publish_helper_text_html: "Gogoan izan zure ekimena argitaratzeko teknikoki baliozkotu behar dela, administratzaile batek berrikus dezan.\n"
         previous_form:
-          back: Back
+          back: Atzera
         promotal_committee:
           individual_help_text: Zure ekimena sortu da, eta zirriborro gisa gorde da. Orain jendea gehitu behar zaio batzorde sustatzaileari.
           invite_link_title: Jendea gonbidatzeko esteka
@@ -406,7 +406,7 @@ eu:
         return_to_initiatives_button:
           return_initiatives_html: Oraingoz, joan eta <a href="%{initiatives_path}">itzuli ekimenetara</a>
         select_initiative_type:
-          back: Back
+          back: Atzera
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
           consult_existing_initiatives: Lehendik dauden ekimenak konsultatu
           continue: Jarraitu
@@ -437,25 +437,11 @@ eu:
         update: Eguneratu
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} k onartu du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
           email_outro: 'Jakinarazpen hau jaso duzu %{resource_title} ekimenarekin bat egitea eskatu duzulako'
-          email_subject: "%{author_nickname} k onartu du zure eskaera batzorde bultzatzailean parte hartzeko"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> k onartu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname} k, jarraitzen ari zarenak, beste ekimen bat sortu du, egiaztatu eta lagundu:"
-          email_outro: Jakinarazpen hau jaso duzu %{author_nickname} jarraitzen ari zarelako. Aurreko estekan sartu jakinarazpenak jasotzeari uzteko.
-          email_subject: '%{author_nickname} ren bete ekimen bat'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
         revoke_membership_request:
-          email_intro: "%{author_nickname} k ukatu egin du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
           email_outro: 'Jakinarazpen hau jaso duzu eskatu duzulako parte hartzea %{resource_title} ekimenean.'
-          email_subject: "%{author_nickname} k ukatu egin du zure eskaera batzorde bultzatzailean parte hartzeko"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> k ukatu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} k eskatu du %{resource_title} zure ekimenaren batzorde bultzatzailean parte hartzeko. Eskaera onartzeko edo ukatzeko, zoaz zure ekimenaren edizio-galdetegira."
           email_outro: 'Jakinarazpen hau jaso duzu %{resource_title} ekimenaren egilea zarelako'
-          email_subject: "%{applicant_nickname} k zure ekimenarekin bat egin nahi du"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. Eskaera onartzeko edo ukatzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Eranskinak gehitu
         add_image: Irudia gehitu
@@ -489,7 +475,7 @@ eu:
           invalid_authorization: Ekintzari ekiteko emandako datuak ez dira bateragarriak zure baimenekin edo baimen berri bat lortu behar duzu.
           invalid_data: Zure nortasuna egiaztatzeko emandako datu pertsonal batzuk ez dira baliozkoak.
         finish:
-          back_to_initiative: Ekimenera itzuli
+          back_to_initiative: Itzuli ekimenera
           title: Ekimena sinatu duzu
         sms_phone_number:
           confirmed_data: Zure datuak baieztatu dituzu.
@@ -546,7 +532,7 @@ eu:
           most_commented: Iruzkin gehien dutenak
           most_voted: Sinadura gehien dutenak
           random: Random
-          recent: Berrienetatik zaharrenetara
+          recent: Azkenak
           recently_published: Oraintsu argitaratutakoa
         pending_initiatives:
           description: Ekimen horiek oraindik ez dira publikoak. Berrikus itzazue, mesedez, eta balioztatze teknikorako aurkez itzazue, argitara eman daitezen.
@@ -595,7 +581,7 @@ eu:
           votes_blocked: Sinadura desgaituta dago
         votes_count:
           count:
-            one: SIGNATURE
+            one: Sinadura
             other: Sinadurak
       initiatives_mailer:
         creation_subject: Zure '%{title}'ekimena sortu egin da

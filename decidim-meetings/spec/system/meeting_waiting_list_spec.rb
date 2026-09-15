@@ -52,7 +52,7 @@ describe "Meeting waiting list" do
       end
 
       it "does not show the join waitlist button" do
-        expect(page).to have_no_content("Join the waitlist")
+        expect(page).to have_no_text("Join the waitlist")
       end
     end
 
@@ -67,14 +67,14 @@ describe "Meeting waiting list" do
         end
 
         it "shows the join waitlist button" do
-          expect(page).to have_content("Join waitlist")
-          expect(page).to have_no_content("You have joined the waiting list for this meeting.")
+          expect(page).to have_text("Join waitlist")
+          expect(page).to have_no_text("You have joined the waiting list for this meeting.")
         end
 
         it "shows the login modal when clicking the join waitlist button" do
           click_on "Join waitlist"
           expect(page).to have_css("#loginModal", visible: :visible)
-          expect(page).to have_content("Please log in")
+          expect(page).to have_text("Please log in")
         end
       end
 
@@ -85,7 +85,7 @@ describe "Meeting waiting list" do
         end
 
         it "shows the join waitlist button" do
-          expect(page).to have_content("Join waitlist")
+          expect(page).to have_text("Join waitlist")
         end
 
         it "shows the join waitlist registration form when clicking the join waitlist button" do
@@ -103,7 +103,7 @@ describe "Meeting waiting list" do
           accept_confirm do
             click_on "Submit"
           end
-          expect(page).to have_content("You have joined the meeting waitlist successfully.")
+          expect(page).to have_text("You have joined the meeting waitlist successfully.")
         end
       end
     end
@@ -133,7 +133,7 @@ describe "Meeting waiting list" do
       it "displays the registration confirmation" do
         visit_meeting
         email = last_email
-        expect(page).to have_content("Your registration and QR code")
+        expect(page).to have_text("Your registration and QR code")
         expect(email.subject).to eq("Your meeting's registration has been confirmed")
         expect(email.to).to eq([earliest_waitlist_user.email])
       end

@@ -33,7 +33,7 @@ describe "Organization admins" do
       expect(page).to have_callout("Participant successfully invited.")
 
       within "table" do
-        expect(page).to have_content("New admin")
+        expect(page).to have_text("New admin")
       end
     end
 
@@ -51,8 +51,8 @@ describe "Organization admins" do
       expect(page).to have_callout("Participant successfully invited.")
 
       within "table" do
-        expect(page).to have_content("New user manager")
-        expect(page).to have_content("Participant manager")
+        expect(page).to have_text("New user manager")
+        expect(page).to have_text("Participant manager")
       end
     end
 
@@ -74,18 +74,18 @@ describe "Organization admins" do
           click_on "Resend invitation"
         end
 
-        expect(page).to have_content("Invitation successfully resent")
+        expect(page).to have_text("Invitation successfully resent")
       end
 
       it "can remove the admin rights" do
-        expect(page).to have_content(other_admin.name)
+        expect(page).to have_text(other_admin.name)
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do
           find("button[data-controller='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 
-        expect(page).to have_no_content(other_admin.name)
+        expect(page).to have_no_text(other_admin.name)
       end
 
       it "cannot remove admin rights from self" do

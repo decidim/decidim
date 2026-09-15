@@ -215,7 +215,7 @@ eu:
             actions: Ekintzak
             affiliation: Afiliazioa
             full_name: Izen osoa
-            position: Ardura
+            position: Kokapena
           name: Hizlaria
         conference_user_role:
           fields:
@@ -609,7 +609,7 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> jardunaldiak erregistroak gaitu ditu.
         role_assigned:
           email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> jardunaldian.'
-          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu dizutelako "%{resource_title}" hitzaldian.
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu dizutelako "%{resource_title}" jardunaldian.
           email_subject: '%{role} rola esleitu zaizu <a href="%{resource_title}"> batzarrean.'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> batzarrean.'
         upcoming_conference:
@@ -636,7 +636,7 @@ eu:
     open_data:
       help:
         conferences:
-          component_settings: Konferentzia-espazioaren osagaien konfigurazioa
+          component_settings: Jardunaldi-espazioaren osagaien konfigurazioa
           created_at: Zein datatan sortu da jardunaldi hau
           decidim_scope_id: Jardunaldiaren esparrua
           description: Jardunaldiaren deskribapen luzea
@@ -680,7 +680,7 @@ eu:
           promoted_conferences: Sustatutako jardunaldiak
         order_by_conferences:
           conferences:
-            one: "Jardunaldi %{count}"
+            one: "%{count} jardunaldi"
             other: "%{count} jardunaldi"
       conferences_nav:
         conference_partners_menu_item: Kideak

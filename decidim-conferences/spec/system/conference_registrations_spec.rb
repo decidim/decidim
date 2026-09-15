@@ -97,15 +97,15 @@ describe "Conference registrations" do
         visit_conference
 
         within ".conference__hero" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
         end
 
         within ".conference__content-block" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
         end
 
         within ".conference__box" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
         end
       end
 
@@ -117,7 +117,7 @@ describe "Conference registrations" do
         end
 
         within "#conference-registration-confirm-#{registration_type.id}" do
-          expect(page).to have_content "A legal text"
+          expect(page).to have_text "A legal text"
           click_on "Confirm"
         end
 
@@ -132,13 +132,13 @@ describe "Conference registrations" do
       it "allows to register" do
         visit_conference
         within ".conference__hero" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
         end
         within ".conference__content-block" do
-          expect(page).to have_content "Register"
+          expect(page).to have_text "Register"
           click_on "Register"
         end
-        expect(page).to have_content "CHOOSE YOUR REGISTRATION OPTION:"
+        expect(page).to have_text "CHOOSE YOUR REGISTRATION OPTION:"
       end
     end
 
@@ -150,10 +150,10 @@ describe "Conference registrations" do
       it "does not show the register button" do
         visit_conference
         within ".conference__hero" do
-          expect(page).to have_no_content "Register"
+          expect(page).to have_no_text "Register"
         end
         within ".conference__content-block" do
-          expect(page).to have_no_content "Register"
+          expect(page).to have_no_text "Register"
         end
       end
     end
@@ -164,10 +164,10 @@ describe "Conference registrations" do
       it "does not show the register button" do
         visit_conference
         within ".conference__hero" do
-          expect(page).to have_no_content "Register"
+          expect(page).to have_no_text "Register"
         end
         within ".conference__content-block" do
-          expect(page).to have_no_content "Register"
+          expect(page).to have_no_text "Register"
         end
       end
     end
@@ -183,15 +183,15 @@ describe "Conference registrations" do
       visit_conference
 
       within ".conference__hero" do
-        expect(page).to have_content "Manage registration"
+        expect(page).to have_text "Manage registration"
       end
 
       within ".conference__content-block" do
-        expect(page).to have_content "Manage registration"
+        expect(page).to have_text "Manage registration"
       end
 
       within ".conference__box" do
-        expect(page).to have_content "Manage registration"
+        expect(page).to have_text "Manage registration"
       end
     end
 

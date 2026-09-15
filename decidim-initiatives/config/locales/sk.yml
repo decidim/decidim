@@ -443,25 +443,11 @@ sk:
         update: Aktualizovať
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} prijal/a vašu žiadosť o členstvo vo výbore navrhovateľov pre iniciatívu %{resource_title}."
           email_outro: 'Toto upozornenie ste dostali, pretože ste sa prihlásili do tejto iniciatívy: %{resource_title}'
-          email_subject: "%{author_nickname} prijal/a vašu žiadosť do výboru navrhovateľov"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> prijal/a vašu žiadosť o členstvo vo výbore navrhovateľov pre nasledujúcu iniciatívu <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "% {AUTHOR_NAME}% {author_nickname}, ktorého sledujete, vytvoril novú iniciatívu, skontroloval ju a prispel:"
-          email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-          email_subject: Nová iniciatíva od%{author_nickname}
-          notification_title: Iniciatíva <a href="%{resource_path}">% {resource_title} </a> bola vytvorená <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} zamietol/a vašu žiadosť o členstvo vo výbore navrhovateľov pre nasledujúcu iniciatívu %{resource_title}."
           email_outro: 'Toto upozornenie ste dostali, pretože ste sa prihlásili do tejto iniciatívy: %{resource_title}.'
-          email_subject: "%{author_nickname} zamietol/a vašu žiadosť do výboru navrhovateľov"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> zamietol/a vašu žiadosť o členstvo vo výbore navrhovateľov pre nasledujúcu iniciatívu <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} požiadal/a o členstvo vo výbore navrhovateľov vašej iniciatívy %{resource_title}. Ak chcete žiadosť prijať alebo zamietnuť, prejdite do formulára na úpravu vašej iniciatívy."
           email_outro: 'Toto upozornenie ste dostali, pretože ste autorom tejto iniciatívy: %{resource_title}'
-          email_subject: "%{applicant_nickname} sa chce pripojiť k vašej iniciatíve"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požiadal/a o členstvo vo výbore navrhovateľov vašej iniciatívy <a href="%{resource_url}">%{resource_title}</a>. Ak chcete prijať alebo zamietnuť, kliknite <a href="%{resource_url}/edit">sem</a>.
       form:
         add_attachments: Pridať prílohy
         add_image: Pridať obrázok

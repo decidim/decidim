@@ -171,12 +171,6 @@ is-IS:
         email_intro: 'Það hefur verið uppfært í "%{resource_title}". Þú getur séð það frá þessari síðu:'
         email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
         email_subject: Uppfærsla á %{resource_title}
-      users:
-        profile_updated:
-          email_intro: <a href="%{resource_url}">prófíl síðu</a> af %{name} (%{nickname}), sem þú fylgist með, hefur verið uppfærð.
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
-          email_subject: "%{nickname} uppfærði prófílinn sinn"
-          notification_title: <a href="%{resource_path}">prófíl síðu</a> af %{name} (%{nickname}), sem þú fylgist með, hefur verið uppfærð.
     export_mailer:
       subject: Útflutningur þinn "%{name}" er tilbúinn
     filters:

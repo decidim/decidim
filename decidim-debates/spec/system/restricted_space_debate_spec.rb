@@ -27,7 +27,7 @@ describe "Restricted Space Debate" do
     end
 
     it "disallows the access" do
-      expect(page).to have_content("You are not authorized to perform this action")
+      expect(page).to have_text("You are not authorized to perform this action")
     end
   end
 
@@ -49,7 +49,7 @@ describe "Restricted Space Debate" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Debate successfully created.")
+        expect(page).to have_text("Debate successfully created.")
       end
     end
 
@@ -62,7 +62,7 @@ describe "Restricted Space Debate" do
       end
 
       it "disallows the access" do
-        expect(page).to have_content("You are not authorized to perform this action")
+        expect(page).to have_text("You are not authorized to perform this action")
       end
     end
   end

@@ -68,13 +68,6 @@ lv:
             title: Nosaukums
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              Sveiki,%{author_name}%{author_nickname}, kam jūs sekojat, ir izveidojis jaunas debates "%{resource_title}". Aplūkojiet tās un piedalieties:
-            email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-            email_subject: Jaunas debates "%{resource_title}", ko iesniedza %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> izveidoja <a href="%{resource_path}">%{resource_title}</a> debates.
         creation_disabled:
           email_intro: 'Debašu izveidošana vairs nav pieejama telpā %{participatory_space_title}. Jūs joprojām varat piedalīties atklātajās debatēs šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.

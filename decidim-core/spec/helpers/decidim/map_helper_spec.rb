@@ -17,7 +17,7 @@ module Decidim
 
       it "returns the map" do
         expect(subject).to match(/^<a class="static-map".*/)
-        expect(subject).to match(/img alt/)
+        expect(subject).to include("img alt")
       end
 
       context "when there is a map_html_options parameter defined" do
@@ -25,7 +25,7 @@ module Decidim
 
         it "returns the map with the new html options" do
           expect(subject).to match(/^<a class="another-static-map".*/)
-          expect(subject).to match(/img alt/)
+          expect(subject).to include("img alt")
         end
       end
     end

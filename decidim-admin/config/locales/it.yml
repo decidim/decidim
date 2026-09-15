@@ -173,6 +173,7 @@ it:
           Se cambi idea, puoi ripristinarlo più tardi.
         export: Esporta
         export_all: Esporta tutto
+        export_selection: Esporta selezione
         import: Importazione
         newsletter:
           new: Nuova newsletter

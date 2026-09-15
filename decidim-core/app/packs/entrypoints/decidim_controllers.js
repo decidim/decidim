@@ -3,6 +3,7 @@ import { Application } from "@hotwired/stimulus"
 import AccordionController from "src/decidim/controllers/accordion/controller";
 import AccountFormController from "src/decidim/controllers/account_form/controller"
 import AssignRoleController from "src/decidim/controllers/assign_role/controller";
+import BreadcrumbTruncateController from "src/decidim/controllers/breadcrumb_truncate/controller"
 import CharacterCounterController from "src/decidim/controllers/character_counter/controller";
 import ClipboardCopyController from "src/decidim/controllers/clipboard_copy/controller";
 import DeleteAccountFormController from "src/decidim/controllers/delete_account_form/controller";
@@ -32,6 +33,7 @@ const application = Application.start()
 application.register("accordion", AccordionController);
 application.register("account-form", AccountFormController);
 application.register("assign-role", AssignRoleController);
+application.register("breadcrumb-truncate", BreadcrumbTruncateController)
 application.register("character-counter", CharacterCounterController);
 application.register("clipboard-copy", ClipboardCopyController);
 application.register("delete-account-form", DeleteAccountFormController);

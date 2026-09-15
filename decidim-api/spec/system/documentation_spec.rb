@@ -19,15 +19,15 @@ describe "Documentation" do
       visit decidim_api.documentation_path
 
       within "h1" do
-        expect(page).to have_content(translated(organization.name))
+        expect(page).to have_text(translated(organization.name))
       end
-      expect(page).to have_content("About the GraphQL API")
+      expect(page).to have_text("About the GraphQL API")
     end
 
     it "does not disclose system version by default" do
       visit decidim_api.documentation_path
       expect(page).to have_no_css(".content .version")
-      expect(page).to have_no_content("Decidim #{Decidim.version}")
+      expect(page).to have_no_text("Decidim #{Decidim.version}")
     end
 
     context "when version disclosure is enabled" do

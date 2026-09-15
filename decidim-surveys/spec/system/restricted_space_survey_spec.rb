@@ -46,7 +46,7 @@ describe "Restricted Space Respond a survey" do
     end
 
     it "disallows the access" do
-      expect(page).to have_content("You are not authorized to perform this action")
+      expect(page).to have_text("You are not authorized to perform this action")
     end
   end
 
@@ -72,10 +72,10 @@ describe "Restricted Space Respond a survey" do
         accept_confirm { click_on "Submit" }
 
         within ".success.flash" do
-          expect(page).to have_content("successfully")
+          expect(page).to have_text("successfully")
         end
 
-        expect(page).to have_content("You have already responded this form.")
+        expect(page).to have_text("You have already responded this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
     end
@@ -89,7 +89,7 @@ describe "Restricted Space Respond a survey" do
       end
 
       it "disallows the access" do
-        expect(page).to have_content("You are not authorized to perform this action")
+        expect(page).to have_text("You are not authorized to perform this action")
       end
     end
   end

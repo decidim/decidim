@@ -5,7 +5,7 @@ import Dialogs from "a11y-dialog-component";
  * Create dialog from a component
  *
  * @param {HTMLElement} component - The component to be created
- * @return {void}
+ * @returns {void}
  */
 const createDialog = (component) => {
   const getFocusableElements = (container) => {
@@ -108,7 +108,7 @@ const createDialog = (component) => {
  * @param {String} message The message to be announced
  * @param {String} mode The mode for the announcement, either "assertive"
  *   (default) or "polite".
- * @return {void}
+ * @returns {void}
  */
 const announceForScreenReader = (message, mode = "assertive") => {
   if (!message || typeof message !== "string" || message.length < 1) {

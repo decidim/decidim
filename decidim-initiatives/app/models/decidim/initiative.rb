@@ -380,6 +380,7 @@ module Decidim
     #
     # Returns a Boolean.
     def has_authorship?(user)
+      return false unless user
       return true if author.id == user.id
 
       committee_members.approved.where(decidim_users_id: user.id).any?

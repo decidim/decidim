@@ -29,9 +29,9 @@ module Decidim
             ParticipatoryProcess.transaction do
               duplicate_participatory_process
               duplicate_participatory_process_attachments
+              duplicate_landing_page_blocks
               duplicate_participatory_process_steps if @form.duplicate_steps?
               duplicate_participatory_process_components if @form.duplicate_components?
-              duplicate_landing_page_blocks if @form.duplicate_landing_page_blocks?
             end
           end
 

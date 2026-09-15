@@ -42,7 +42,7 @@ module Decidim
             next unless Decidim::Meetings::Meeting.where(component:).published.not_hidden.visible_for(current_user).exists?
 
             items << {
-              name: decidim_escape_translated(component.name),
+              name: translated_attribute(component.name),
               url: decidim_conferences.conference_conference_program_path(participatory_space, id: component.id)
             }
           end
@@ -63,7 +63,7 @@ module Decidim
 
           other_components.each do |component|
             items << {
-              name: decidim_escape_translated(component.name),
+              name: translated_attribute(component.name),
               url: main_component_path(component)
             }
           end

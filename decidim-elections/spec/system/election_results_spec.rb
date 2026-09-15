@@ -24,30 +24,30 @@ describe "Dashboard" do
 
   def expect_vote_percent(question, option, percent)
     div = find("[data-option-votes-percent-text='#{question.id},#{option.id}']")
-    expect(div).to have_content(percent)
+    expect(div).to have_text(percent)
   end
 
   def expect_vote_count(question, option, count)
     div = find("[data-option-votes-count-text='#{question.id},#{option.id}']")
-    expect(div).to have_content("#{count} vote")
+    expect(div).to have_text("#{count} vote")
   end
 
   def expect_total_votes(question, count)
     div = find("[data-question-total-votes-text='#{question.id}']")
-    expect(div).to have_content("#{count} vote")
+    expect(div).to have_text("#{count} vote")
   end
 
   it "shows the results" do
-    expect(page).to have_content("Results")
+    expect(page).to have_text("Results")
     within "#question-#{question1.id}" do
-      expect(page).to have_content(translated_attribute(question1.body))
-      expect(page).to have_content(translated_attribute(option11.body))
-      expect(page).to have_content(translated_attribute(option12.body))
+      expect(page).to have_text(translated_attribute(question1.body))
+      expect(page).to have_text(translated_attribute(option11.body))
+      expect(page).to have_text(translated_attribute(option12.body))
     end
     within "#question-#{question2.id}" do
-      expect(page).to have_content(translated_attribute(question2.body))
-      expect(page).to have_content(translated_attribute(option21.body))
-      expect(page).to have_content(translated_attribute(option22.body))
+      expect(page).to have_text(translated_attribute(question2.body))
+      expect(page).to have_text(translated_attribute(option21.body))
+      expect(page).to have_text(translated_attribute(option22.body))
     end
 
     expect_vote_percent(question1, option11, "0.0%")
@@ -100,9 +100,9 @@ describe "Dashboard" do
 
     it "shows the results for each question" do
       within "#question-#{question1.id}" do
-        expect(page).to have_content(translated_attribute(question1.body))
-        expect(page).to have_content(translated_attribute(option11.body))
-        expect(page).to have_content(translated_attribute(option12.body))
+        expect(page).to have_text(translated_attribute(question1.body))
+        expect(page).to have_text(translated_attribute(option11.body))
+        expect(page).to have_text(translated_attribute(option12.body))
       end
       expect(page).to have_no_selector("#question-#{question2.id}")
       expect_vote_percent(question1, option11, "0.0%")
@@ -128,9 +128,9 @@ describe "Dashboard" do
       question2.update(published_results_at: Time.current)
       sleep 5
       within "#question-#{question2.id}" do
-        expect(page).to have_content(translated_attribute(question2.body))
-        expect(page).to have_content(translated_attribute(option21.body))
-        expect(page).to have_content(translated_attribute(option22.body))
+        expect(page).to have_text(translated_attribute(question2.body))
+        expect(page).to have_text(translated_attribute(option21.body))
+        expect(page).to have_text(translated_attribute(option22.body))
       end
       expect_vote_percent(question2, option21, "100.0%")
       expect_vote_count(question2, option21, "1")

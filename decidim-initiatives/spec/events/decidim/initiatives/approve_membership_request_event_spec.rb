@@ -13,13 +13,13 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
 
   let(:author) { resource.author }
   let(:author_profile_url) { Decidim::UserPresenter.new(author).profile_url }
-  let(:author_nickname) { Decidim::UserPresenter.new(author).nickname }
+  let(:author_name) { Decidim::UserPresenter.new(author).name }
   let(:user) { create(:initiatives_committee_member, initiative: resource, state: "requested").user }
   let(:resource_url) { resource_locator(resource).url }
-  let(:email_subject) { "#{author_nickname} accepted your application to the promoter committee" }
-  let(:email_intro) { "#{author_nickname} accepted your application to be part of the promoter committee for the initiative #{resource_title}." }
+  let(:email_subject) { "#{author_name} accepted your application to the promoter committee" }
+  let(:email_intro) { "#{author_name} accepted your application to be part of the promoter committee for the initiative #{resource_title}." }
   let(:email_outro) { "You received this notification because you applied to this initiative: #{resource_title}" }
-  let(:notification_title) { "<a href=\"#{author_profile_url}\">#{author_nickname}</a> accepted your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>." }
+  let(:notification_title) { "<a href=\"#{author_profile_url}\">#{author_name}</a> accepted your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>." }
 
   describe "types" do
     subject { described_class }

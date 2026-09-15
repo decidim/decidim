@@ -41,7 +41,7 @@ module Decidim
 
         it "does not ask the user to confirm the email" do
           post(:create, params: request_params)
-          expect(controller.flash.notice).to have_no_content("confirmation")
+          expect(controller.flash.notice).to have_no_text("confirmation")
         end
       end
 
@@ -55,7 +55,7 @@ module Decidim
 
         it "adds the flash message" do
           post(:create, params: request_params)
-          expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
+          expect(controller.flash.now[:alert]).to have_text("There was a problem creating your account.")
         end
 
         context "when all params are invalid" do
@@ -75,7 +75,7 @@ module Decidim
 
           it "adds the flash message" do
             post(:create, params: request_params)
-            expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
+            expect(controller.flash.now[:alert]).to have_text("There was a problem creating your account.")
           end
         end
       end
@@ -90,7 +90,7 @@ module Decidim
         it "informs the user she must accept the pending invitation" do
           post(:create, params: request_params)
           expect(controller).to render_template "new"
-          expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
+          expect(controller.flash.now[:alert]).to have_text("There was a problem creating your account.")
         end
       end
     end

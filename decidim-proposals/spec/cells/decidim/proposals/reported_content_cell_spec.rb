@@ -11,8 +11,8 @@ module Decidim::Proposals
     context "when rendering" do
       it "renders the proposal's title and body" do
         html = cell("decidim/reported_content", proposal).call
-        expect(html).to have_content("a nice title")
-        expect(html).to have_content("we can do this!")
+        expect(html).to have_text("a nice title")
+        expect(html).to have_text("we can do this!")
       end
     end
   end

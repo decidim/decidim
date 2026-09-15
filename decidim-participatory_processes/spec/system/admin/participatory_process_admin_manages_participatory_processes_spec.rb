@@ -32,7 +32,7 @@ describe "Participatory process admin manages participatory processes" do
 
     it "cannot delete a participatory_process" do
       within "tr", text: translated(participatory_process2.title) do
-        expect(page).to have_no_content("Delete")
+        expect(page).to have_no_text("Delete")
       end
     end
   end

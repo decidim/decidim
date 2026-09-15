@@ -36,7 +36,7 @@ RSpec.shared_examples "includes it in the open data CSV file" do
     visit decidim.root_path
     click_on "Open Data"
 
-    expect(page).to have_content("What are these files?")
+    expect(page).to have_text("What are these files?")
     click_on "Download #{resource_type} in CSV format"
 
     expect(File.basename(download_path)).to include("#{resource_type}.csv")

@@ -43,7 +43,7 @@ eu:
         new: Beste hauteskunde bat
         preview: Aurrebistaratu
         title: Ekintzak
-        view: Hauteskundeak ikusi
+        view: Ikusi hauteskundeak
         view_deleted_elections: Ikusi ezabatutako hauteskundeak
       admin:
         census:
@@ -194,11 +194,11 @@ eu:
           update: "%{user_name} parte-hartzaileak eguneratu ditu %{resource_name} aukerako galderak"
       census_checks:
         show:
-          description: Behin hauteskundeak hasita, bertan bozkatu ahal izango da.
-          exit_button: Exit the census check
-          title: Behar bezala egiaztatu da
+          description: Honek esan nahi du behin bozketak hasita, bertan eman ahal duzula botoa.
+          exit_button: Irten errolda egiaztatzetik
+          title: Behar bezala egiaztatu zaituzte
       censuses:
-        census_ready_html: Erroldako datuak kargatuta daude eta prest daude % <b>%{election_title}{@eleccion_title}</b> bozketan erabiltzeko.
+        census_ready_html: Erroldako datuak kargatuta eta prest daude % <b>{eleccion_title}</b> bozketan erabiltzeko.
         census_size_html:
           one: Gaur egun <strong>bat</strong> pertsona dago hautesleku honetan botoa jasotzeko gai dena (hau errolda dinamiko batean alda daiteke).
           other: Gaur egun <strong>bat</strong> pertsona daude hautesleku honetan botoa jasotzeko gai deirnak (hau errolda dinamiko batean alda daiteke).
@@ -267,7 +267,7 @@ eu:
           vote_button: Eman babesa
           voted: Bozkatu duzu. Berriz bozkatu dezakezu, zure azken botoa baino ez da kontuan hartuko.
           votes_count:
-            one: 1 boto
+            one: Boto 1
             other: "%{count} boto"
           voting_began: 'Bozketa hasi zen: %{start_date}'
         vote_results:
@@ -292,7 +292,7 @@ eu:
         waiting:
           description: Hemen itxaron dezakezu hurrengo galdera egin arte. Automatikoki hurrengo galderara itzuliko zara prest dagoenean.
           edit_vote: Zure botoa editau
-          exit_button: Itxarongelatik irten
+          exit_button: Irten itxarongelatik
           title: Hurrengo galderaren zain
       status:
         active: Aktibo
@@ -328,7 +328,7 @@ eu:
           next: Hurrengoa
         receipt:
           description: Bozkatzeko epea zabalik dagoen bitartean edozein unetan eman daiteke berriro botoa. Zure aurreko botoa berriaz gainidatziko da.
-          edit_vote: Zure botoa editau
+          edit_vote: Editatu zure botoa
           exit_button: Irten bozkatzeko kabinatik
           title: Zure botoak zuzen eman dira
     metadata:

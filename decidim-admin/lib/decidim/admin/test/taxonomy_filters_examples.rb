@@ -25,8 +25,8 @@ shared_examples "having no taxonomy filters defined" do
   let!(:another_taxonomy_filter_item) { nil }
 
   it "shows no taxonomy filters" do
-    expect(page).to have_content("Taxonomies")
-    expect(page).to have_content("No taxonomy filters found.")
+    expect(page).to have_text("Taxonomies")
+    expect(page).to have_text("No taxonomy filters found.")
     expect(page).to have_link("Please define some filters for this participatory space before using this setting")
   end
 end

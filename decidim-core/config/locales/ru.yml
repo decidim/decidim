@@ -286,8 +286,6 @@ ru:
           affected_user:
             email_intro: 'Для %{amendable_title} была принята поправка. Вы можете увидеть ее на этой странице:'
             email_outro: Вы получили это уведомление, потому что вы автор %{amendable_title}.
-            email_subject: Принята поправка для %{amendable_title} от %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Эта поправка</a> создана <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> была принята для <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Для %{amendable_title} была принята поправка. Вы можете увидеть ее на этой странице:'
             email_outro: Вы получили это уведомление, потому что вы следите за «%{amendable_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -308,12 +306,6 @@ ru:
         email_intro: '«%{resource_title}» обновили. Вы можете посмотреть его на странице:'
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
-      users:
-        profile_updated:
-          email_intro: Страница <a href="%{resource_url}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: "%{nickname} обновил свой профиль"
-          notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
       download_your_data_export:
         download: Скачать

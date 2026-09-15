@@ -27,7 +27,7 @@ shared_examples "sorted moderations" do
       click_on link_text
     end
     all("tbody tr").each_with_index do |row, _index|
-      expect(row.find("td:nth-child(2)")).to have_content(reportables.first.class.model_name.human)
+      expect(row.find("td:nth-child(2)")).to have_text(reportables.first.class.model_name.human)
     end
   end
 end
@@ -75,7 +75,7 @@ shared_examples "manage moderations" do
       moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
           expect(page).to have_css("a[href='#{moderation.reportable.reported_content_url}']")
-          expect(page).to have_content "Spam"
+          expect(page).to have_text "Spam"
         end
       end
     end
@@ -96,7 +96,7 @@ shared_examples "manage moderations" do
       end
 
       expect(page).to have_callout("Resource successfully hidden")
-      expect(page).to have_no_content(moderation.reportable.reported_content_url)
+      expect(page).to have_no_text(moderation.reportable.reported_content_url)
     end
 
     it "user can sort by report count" do
@@ -108,7 +108,7 @@ shared_examples "manage moderations" do
 
         all("tbody tr").each_with_index do |row, index|
           reportable_type = moderations_ordered_by_report_count_asc[index].reportable.class.model_name.human
-          expect(row.find("td:nth-child(2)")).to have_content(reportable_type)
+          expect(row.find("td:nth-child(2)")).to have_text(reportable_type)
         end
       end
     end
@@ -139,7 +139,7 @@ shared_examples "manage moderations" do
       end
 
       reported_content_slice = moderation.reportable.reported_searchable_content_text.split("\n").first
-      expect(page).to have_content(reported_content_slice)
+      expect(page).to have_text(reported_content_slice)
     end
 
     context "when the reported content does not exist" do
@@ -179,7 +179,7 @@ shared_examples "manage moderations" do
 
       it "renders the reportable types in the selected language" do
         within "tr[data-id=\"#{moderation.id}\"]" do
-          expect(page).to have_content("Objecte informable")
+          expect(page).to have_text("Objecte informable")
         end
       end
     end
@@ -228,8 +228,8 @@ shared_examples "manage moderations" do
     it "user can review them" do
       moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
-          expect(page).to have_content "Deleted resource"
-          expect(page).to have_content "Spam"
+          expect(page).to have_text "Deleted resource"
+          expect(page).to have_text "Spam"
         end
       end
     end

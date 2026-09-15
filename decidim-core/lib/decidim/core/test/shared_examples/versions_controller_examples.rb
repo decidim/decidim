@@ -18,13 +18,13 @@ shared_examples "a version of a hidden object" do
   end
 
   it "shows an error page" do
-    expect(page).to have_content("Changes at")
+    expect(page).to have_text("Changes at")
 
     create(:moderation, reportable: hidden_object, hidden_at: 1.day.ago)
 
     visit current_path
 
-    expect(page).to have_content(ActiveRecord::RecordNotFound)
+    expect(page).to have_text(ActiveRecord::RecordNotFound)
   end
 end
 

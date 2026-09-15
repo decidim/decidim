@@ -102,14 +102,6 @@ ar:
             title: عنوان
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              مرحبًا ،
-              %{author_name} %{author_nickname}، الذي تتابعه ، أنشأ نقاشًا جديدًا "%{resource_title}". التحقق من ذلك والمساهمة:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-            email_subject: نقاش جديد "%{resource_title}" بنسبة %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> أنشأ النقاش <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'إنشاء النقاش لم يعد نشطًا في %{participatory_space_title}. لا يزال بإمكانك المشاركة في المناقشات المفتوحة من هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.

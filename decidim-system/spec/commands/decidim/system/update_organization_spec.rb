@@ -58,6 +58,7 @@ module Decidim
             organization = Organization.last
 
             expect(translated(organization.name)).to eq("Gotham City")
+            expect(translated(organization.short_name)).to eq("GothamCity")
             expect(organization.host).to eq("decide.example.org")
             expect(organization.secondary_hosts).to contain_exactly("foo.example.org", "bar.example.org")
             expect(organization.users_registration_mode).to eq("existing")

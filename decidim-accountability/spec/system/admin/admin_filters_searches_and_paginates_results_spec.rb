@@ -64,7 +64,7 @@ describe "Admin filters, searches, and paginates results" do
     it "can be searched by title" do
       search_by_text(result2_title)
 
-      expect(page).to have_content(result2_title)
+      expect(page).to have_text(result2_title)
     end
   end
 

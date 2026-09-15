@@ -22,11 +22,11 @@ RSpec.shared_examples "manage milestone" do
     expect(page).to have_callout("Milestone successfully updated.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_text(translated(attributes[:title]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("updated the #{translated(attributes[:title])} milestone")
+    expect(page).to have_text("updated the #{translated(attributes[:title])} milestone")
   end
 
   it "creates a milestone", versioning: true do
@@ -43,10 +43,10 @@ RSpec.shared_examples "manage milestone" do
     expect(page).to have_callout("Milestone successfully created.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_text(translated(attributes[:title]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} milestone")
+    expect(page).to have_text("created the #{translated(attributes[:title])} milestone")
   end
 end

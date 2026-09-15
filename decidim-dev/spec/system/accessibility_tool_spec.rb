@@ -86,7 +86,7 @@ describe "Accessibility tool" do
   it "runs the accessibility tool and reports violations" do
     expect(page).to have_css(".decidim-accessibility-badge")
     within ".decidim-accessibility-badge .decidim-accessibility-info" do
-      expect(page).to have_content("4")
+      expect(page).to have_text("4")
     end
     expect(page).to have_no_selector(".decidim-accessibility-report")
 
@@ -127,7 +127,7 @@ describe "Accessibility tool" do
       expect(page).to have_css(".decidim-accessibility-report")
 
       within ".decidim-accessibility-report" do
-        expect(page).to have_content("No accessibility violations found")
+        expect(page).to have_text("No accessibility violations found")
       end
     end
   end

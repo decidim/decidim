@@ -8,7 +8,7 @@ To use the API to vote any proposal that is configured to receive votes, you wil
 ----
 mutation voteProposal($componentId: ID!, $proposalId: ID!){
   component(id: $componentId) {
-    ...on ProposalsMutation{
+    ... on ProposalsMutation {
       proposal(id: $proposalId) {
         vote(input: {}) {
         }
@@ -44,7 +44,7 @@ To use the API to remove a vote on any proposal that you have already voted, you
 ----
 mutation unvoteProposal($componentId: ID!, $proposalId: ID!){
   component(id: $componentId) {
-    ...on ProposalsMutation{
+    ... on ProposalsMutation {
       proposal(id: $proposalId) {
         unvote(input: {}) {
         }

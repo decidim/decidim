@@ -21,7 +21,7 @@ describe "User manages posts" do
     it "cannot see the new post button" do
       visit_component
 
-      expect(page).to have_no_content "New post"
+      expect(page).to have_no_text "New post"
     end
   end
 
@@ -30,7 +30,7 @@ describe "User manages posts" do
       visit_component
 
       click_on "New post"
-      expect(page).to have_content "Please log in"
+      expect(page).to have_text "Please log in"
     end
   end
 
@@ -51,10 +51,10 @@ describe "User manages posts" do
 
           expect(page).to have_css("div.sr-announce")
           within "div.sr-announce" do
-            expect(page).to have_content("There are errors on the form, please correct them to continue.")
+            expect(page).to have_text("There are errors on the form, please correct them to continue.")
           end
 
-          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_text("There is an error in this field.")
           expect(page).to have_no_css("*[type=submit][data-disable='true']")
           expect(find("button[type='submit']")).not_to be_disabled
         end
@@ -66,14 +66,14 @@ describe "User manages posts" do
         visit_component
 
         click_on "New post"
-        expect(page).to have_content "Create new post"
+        expect(page).to have_text "Create new post"
 
         fill_in "post_title", with: "My post"
         fill_in "post_body", with: "This is my post"
         dynamically_attach_file(:post_documents, Decidim::Dev.asset("city.jpeg"))
         click_on "Create"
 
-        expect(page).to have_content "My post"
+        expect(page).to have_text "My post"
         expect(page).to have_css("img[src*=\"city.jpeg\"]")
       end
     end
@@ -98,10 +98,10 @@ describe "User manages posts" do
 
             expect(page).to have_css("div.sr-announce")
             within "div.sr-announce" do
-              expect(page).to have_content("There are errors on the form, please correct them to continue.")
+              expect(page).to have_text("There are errors on the form, please correct them to continue.")
             end
 
-            expect(page).to have_content("There is an error in this field.")
+            expect(page).to have_text("There is an error in this field.")
             expect(page).to have_no_css("*[type=submit][data-disable='true']")
             expect(find("button[type='submit']")).not_to be_disabled
           end
@@ -115,12 +115,12 @@ describe "User manages posts" do
         find("#dropdown-trigger-resource-#{post.id}").click
         click_on "Edit post"
 
-        expect(page).to have_content "Edit post"
+        expect(page).to have_text "Edit post"
 
         fill_in "post_title", with: "My edited post"
         click_on "Update"
 
-        expect(page).to have_content "My edited post"
+        expect(page).to have_text "My edited post"
       end
 
       it "can delete the post" do
@@ -130,11 +130,11 @@ describe "User manages posts" do
         find("#dropdown-trigger-resource-#{post.id}").click
         click_on "Delete post"
 
-        expect(page).to have_content("Are you sure you want to delete this post?")
+        expect(page).to have_text("Are you sure you want to delete this post?")
 
         click_on "OK"
 
-        expect(page).to have_content "Post deleted successfully"
+        expect(page).to have_text "Post deleted successfully"
       end
     end
   end

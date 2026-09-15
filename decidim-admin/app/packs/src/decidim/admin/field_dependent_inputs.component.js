@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 class FieldDependentInputsComponent {
   constructor(options = {}) {
     this.controllerField = options.controllerField;

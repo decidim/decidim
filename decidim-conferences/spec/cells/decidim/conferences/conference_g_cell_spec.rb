@@ -12,7 +12,7 @@ module Decidim::Conferences
 
     context "when rendering" do
       it "renders the card" do
-        expect(subject).to have_content(translated_attribute(model.title))
+        expect(subject).to have_text(translated_attribute(model.title))
       end
     end
   end

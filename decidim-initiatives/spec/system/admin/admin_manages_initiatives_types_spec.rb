@@ -43,7 +43,7 @@ describe "Admin manages initiatives types" do
       expect(page).to have_callout("A new initiative type has been successfully created")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} initiatives type")
+      expect(page).to have_text("created the #{translated(attributes[:title])} initiatives type")
     end
   end
 
@@ -77,7 +77,7 @@ describe "Admin manages initiatives types" do
       expect(page).to have_callout("The initiative type has been successfully updated")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} initiatives type")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} initiatives type")
     end
   end
 

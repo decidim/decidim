@@ -5,6 +5,7 @@ shared_examples "import proposals to projects" do
   let!(:rejected_proposals) { create_list(:proposal, 3, :rejected, component: origin_component) }
   let!(:origin_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
   let!(:default_budget) { 2333 }
+
   include Decidim::ComponentPathHelper
 
   it "imports proposals from one component to a budget component" do
@@ -19,10 +20,10 @@ shared_examples "import proposals to projects" do
 
     click_on "Import proposals to projects"
 
-    expect(page).to have_content("3 proposals successfully imported")
+    expect(page).to have_text("3 proposals successfully imported")
 
     proposals.each do |project|
-      expect(page).to have_content(project.title["en"])
+      expect(page).to have_text(project.title["en"])
     end
   end
 end

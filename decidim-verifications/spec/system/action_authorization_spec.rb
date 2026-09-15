@@ -43,7 +43,7 @@ describe "Action Authorization" do
       end
 
       it "redirects to authorization" do
-        expect(page).to have_content("We need to verify your identity")
+        expect(page).to have_text("We need to verify your identity")
         expect(page).to have_css("h1", text: "Verify with Example authorization")
       end
     end
@@ -66,10 +66,10 @@ describe "Action Authorization" do
       it "redirects to authorization" do
         visit main_component_path(component)
         click_on "New proposal"
-        expect(page).to have_content("We need to verify your identity")
+        expect(page).to have_text("We need to verify your identity")
 
         expect(page).to have_css("h1", text: "Verify with Example authorization")
-        expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
+        expect(page).to have_text("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
       end
 
       context "when the user does not match one of the authorization criteria" do
@@ -90,8 +90,8 @@ describe "Action Authorization" do
             visit main_component_path(component)
             click_on "New proposal"
 
-            expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
+            expect(page).to have_text("Not authorized")
+            expect(page).to have_text("Sorry, you cannot perform this action as some of your authorization data does not match.")
           end
         end
 
@@ -101,9 +101,9 @@ describe "Action Authorization" do
           it "prompts user to check their authorization status" do
             click_on "New proposal"
 
-            expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-            expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
+            expect(page).to have_text("Not authorized")
+            expect(page).to have_text("Sorry, you cannot perform this action as some of your authorization data does not match.")
+            expect(page).to have_text("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
           end
         end
       end
@@ -138,7 +138,7 @@ describe "Action Authorization" do
 
           click_on "New proposal"
 
-          expect(page).to have_content("Your verification has not been completed with all the necessary information")
+          expect(page).to have_text("Your verification has not been completed with all the necessary information")
           expect(page).to have_css("h1", text: "Verify with Example authorization")
         end
       end
@@ -156,8 +156,8 @@ describe "Action Authorization" do
       end
 
       it "redirects to resume authorization when modal clicked" do
-        expect(page).to have_content("Your authorization has expired")
-        expect(page).to have_content("Verify with Example authorization")
+        expect(page).to have_text("Your authorization has expired")
+        expect(page).to have_text("Verify with Example authorization")
       end
     end
 
@@ -189,7 +189,7 @@ describe "Action Authorization" do
       end
 
       it "redirects to onboarding pending" do
-        expect(page).to have_content("You are almost ready to create a proposal")
+        expect(page).to have_text("You are almost ready to create a proposal")
         expect(page).to have_css("a[data-verification]", count: 2)
       end
     end
@@ -213,12 +213,12 @@ describe "Action Authorization" do
       it "redirects to authorization when selected on onboarding page" do
         visit main_component_path(component)
         click_on "New proposal"
-        expect(page).to have_content("You are almost ready to create a proposal")
+        expect(page).to have_text("You are almost ready to create a proposal")
 
         click_on "Example authorization"
 
         expect(page).to have_css("h1", text: "Verify with Example authorization")
-        expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
+        expect(page).to have_text("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
       end
 
       context "when the user does not match one of the authorization criteria" do
@@ -239,8 +239,8 @@ describe "Action Authorization" do
             visit main_component_path(component)
             click_on "New proposal"
 
-            expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
+            expect(page).to have_text("Not authorized")
+            expect(page).to have_text("Sorry, you cannot perform this action as some of your authorization data does not match.")
           end
         end
 
@@ -250,9 +250,9 @@ describe "Action Authorization" do
           it "prompts user to check their authorization status" do
             click_on "New proposal"
 
-            expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-            expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
+            expect(page).to have_text("Not authorized")
+            expect(page).to have_text("Sorry, you cannot perform this action as some of your authorization data does not match.")
+            expect(page).to have_text("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
           end
         end
       end
@@ -270,12 +270,12 @@ describe "Action Authorization" do
       end
 
       it "redirects to resume authorization when selected on onboarding page" do
-        expect(page).to have_content("You are almost ready to create a proposal")
+        expect(page).to have_text("You are almost ready to create a proposal")
 
         page.find("div.verification", text: "Example authorization").click
         click_on "Continue"
 
-        expect(page).to have_content("Verify with Example authorization")
+        expect(page).to have_text("Verify with Example authorization")
       end
     end
 
@@ -307,7 +307,7 @@ describe "Action Authorization" do
       end
 
       it "redirects to authorization" do
-        expect(page).to have_content("DUMMY VERIFICATION")
+        expect(page).to have_text("DUMMY VERIFICATION")
       end
     end
 
@@ -323,7 +323,7 @@ describe "Action Authorization" do
       end
 
       it "redirects to resume authorization" do
-        expect(page).to have_content("CONTINUE YOUR VERIFICATION")
+        expect(page).to have_text("CONTINUE YOUR VERIFICATION")
       end
     end
 
@@ -339,7 +339,7 @@ describe "Action Authorization" do
       end
 
       it "redirects to resume authorization" do
-        expect(page).to have_content("DUMMY VERIFICATION ENGINE")
+        expect(page).to have_text("DUMMY VERIFICATION ENGINE")
       end
     end
 

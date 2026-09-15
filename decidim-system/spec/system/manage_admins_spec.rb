@@ -27,7 +27,7 @@ describe "Manage admins" do
         expect(page).to have_callout("Admin successfully created.")
 
         within "table" do
-          expect(page).to have_content("admin@foo.bar")
+          expect(page).to have_text("admin@foo.bar")
         end
       end
     end
@@ -65,7 +65,7 @@ describe "Manage admins" do
         expect(page).to have_callout("Admin successfully updated.")
 
         within "table" do
-          expect(page).to have_content("admin@another.domain")
+          expect(page).to have_text("admin@another.domain")
         end
       end
     end
@@ -96,7 +96,7 @@ describe "Manage admins" do
     expect(page).to have_callout("Admin successfully deleted.")
 
     within "table" do
-      expect(page).to have_no_content(admin2.email)
+      expect(page).to have_no_text(admin2.email)
     end
   end
 

@@ -410,6 +410,109 @@ module Decidim::Assemblies
               .not_to change(Decidim::Attachment, :count)
           end
         end
+
+        context "when attachment collection is not defined" do
+          let(:attachments_data) do
+            {
+              "files" => [
+                {
+                  "title" => { "en" => "Test File" },
+                  "description" => { "en" => "Test Description" },
+                  "weight" => 1,
+                  "remote_file_url" => remote_file_url
+                }
+              ]
+            }
+          end
+
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "application/pdf" })
+            stub_request(:get, remote_file_url)
+              .to_return(status: 200, body: File.read(Decidim::Dev.asset("Exampledocument.pdf")))
+          end
+
+          it "does not create any attachments collections" do
+            expect { importer.import_folders_and_attachments(attachments_data) }
+              .not_to change(Decidim::AttachmentCollection, :count)
+          end
+        end
+
+        context "when attachment collection is nil" do
+          let(:attachments_data) do
+            {
+              "files" => [
+                {
+                  "title" => { "en" => "Test File" },
+                  "description" => { "en" => "Test Description" },
+                  "weight" => 1,
+                  "remote_file_url" => remote_file_url
+                }
+              ],
+              "attachment_collections" => nil
+            }
+          end
+
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "application/pdf" })
+            stub_request(:get, remote_file_url)
+              .to_return(status: 200, body: File.read(Decidim::Dev.asset("Exampledocument.pdf")))
+          end
+
+          it "does not create any attachments collections" do
+            expect { importer.import_folders_and_attachments(attachments_data) }
+              .not_to change(Decidim::AttachmentCollection, :count)
+          end
+        end
+
+        context "when attachment collection is defined" do
+          let(:attachment_data) do
+            {
+              "files" => [
+                {
+                  "title" => { "en" => "Test File" },
+                  "description" => { "en" => "Test Description" },
+                  "weight" => 1,
+                  "remote_file_url" => remote_file_url,
+                  "attachment_collections" => {
+                    "name" => {
+                      "en" => "Collection name"
+                    },
+                    "weight" => 0,
+                    "description" => {
+                      "en" => "Collection description"
+                    }
+                  }
+                }
+              ],
+              "attachment_collections" => [
+                {
+                  "name" => {
+                    "en" => "Collection name"
+                  },
+                  "weight" => 0,
+                  "description" => {
+                    "en" => "Collection description"
+                  }
+                }
+              ]
+            }
+          end
+
+          before do
+            stub_request(:head, remote_file_url)
+              .to_return(status: 200, headers: { "Content-Type" => "application/pdf" })
+            stub_request(:get, remote_file_url)
+              .to_return(status: 200, body: File.read(Decidim::Dev.asset("Exampledocument.pdf")))
+          end
+
+          it "creates the attachment and the collection" do
+            expect { importer.import_folders_and_attachments(attachment_data) }
+              .to change(Decidim::Attachment, :count).by(1)
+              .and change(Decidim::AttachmentCollection, :count).by(1)
+          end
+        end
       end
     end
   end

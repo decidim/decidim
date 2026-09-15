@@ -35,7 +35,7 @@ export default class extends Controller {
         reasonInput.value = reasonTextarea.value;
       }
     } catch (error) {
-      console.error(error); // eslint-disable-line no-console
+      console.error(error);
     }
 
     event.preventDefault();

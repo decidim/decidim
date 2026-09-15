@@ -19,8 +19,8 @@ module Decidim
       end
 
       it "has expiration date" do
-        expect(mail).to have_content("The file will be available for download until")
-        expect(mail).to have_content(private_download.expires_at.strftime("%d/%m/%Y %H:%M"))
+        expect(mail).to have_text("The file will be available for download until")
+        expect(mail).to have_text(private_download.expires_at.strftime("%d/%m/%Y %H:%M"))
       end
 
       it "has a link" do
@@ -39,8 +39,8 @@ module Decidim
       end
 
       it "has expiration date" do
-        expect(mail).to have_content("The file will be available for download until")
-        expect(mail).to have_content(private_download.expires_at.strftime("%d/%m/%Y %H:%M"))
+        expect(mail).to have_text("The file will be available for download until")
+        expect(mail).to have_text(private_download.expires_at.strftime("%d/%m/%Y %H:%M"))
       end
 
       it "has a link" do

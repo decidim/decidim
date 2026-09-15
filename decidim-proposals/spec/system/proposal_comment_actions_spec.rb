@@ -24,7 +24,7 @@ describe "Interact with commenters" do
       it "has no actions" do
         within "#comment_#{author_comment.id}" do
           find("#dropdown-trigger-toggle-context-menu-#{author_comment.id}").click
-          expect(page).to have_no_content("Mark as co-author")
+          expect(page).to have_no_text("Mark as co-author")
         end
       end
     end
@@ -33,7 +33,7 @@ describe "Interact with commenters" do
       let(:notification) { Decidim::Notification.last }
 
       it "author can invite" do
-        expect(page).to have_content("2 comments")
+        expect(page).to have_text("2 comments")
         within "#comment_#{comment.id}" do
           find("#dropdown-trigger-toggle-context-menu-#{comment.id}").click
           perform_enqueued_jobs do
@@ -41,12 +41,12 @@ describe "Interact with commenters" do
           end
         end
 
-        expect(page).to have_content("has been successfully invited as a co-author")
+        expect(page).to have_text("has been successfully invited as a co-author")
 
         within "#comment_#{comment.id}" do
           find("#dropdown-trigger-toggle-context-menu-#{comment.id}").click
           expect(page).to have_link("Cancel co-author invitation")
-          expect(page).to have_no_content("Mark as co-author")
+          expect(page).to have_no_text("Mark as co-author")
         end
 
         expect(notification.event_class).to eq("Decidim::Proposals::CoauthorInvitedEvent")
@@ -70,12 +70,12 @@ describe "Interact with commenters" do
           end
         end
 
-        expect(page).to have_content("Co-author invitation successfully canceled")
+        expect(page).to have_text("Co-author invitation successfully canceled")
 
         within "#comment_#{comment.id}" do
           find("#dropdown-trigger-toggle-context-menu-#{comment.id}").click
           expect(page).to have_link("Mark as co-author")
-          expect(page).to have_no_content("Cancel co-author invitation")
+          expect(page).to have_no_text("Cancel co-author invitation")
         end
 
         expect { notification.reload }.to raise_error(ActiveRecord::RecordNotFound)
@@ -93,18 +93,18 @@ describe "Interact with commenters" do
     end
 
     it "coauthor can accept invitation" do
-      expect(page).to have_content("#{user.name} would like to invite you as a co-author of the proposal")
+      expect(page).to have_text("#{user.name} would like to invite you as a co-author of the proposal")
 
       perform_enqueued_jobs do
         click_on "Accept"
 
-        expect(page).to have_content("The invitation has been accepted")
+        expect(page).to have_text("The invitation has been accepted")
         expect(proposal.reload.authors).to include(commenter)
         expect { notification.reload }.to raise_error(ActiveRecord::RecordNotFound)
 
         visit decidim.notifications_path
-        expect(page).to have_no_content("would like to invite you as a co-author of the proposal")
-        expect(page).to have_content("You have been added as a co-author of the proposal")
+        expect(page).to have_no_text("would like to invite you as a co-author of the proposal")
+        expect(page).to have_text("You have been added as a co-author of the proposal")
         expect(last_email).to be_nil
         expect(author_notification.event_class).to eq("Decidim::Proposals::CoauthorAcceptedInviteEvent")
         expect(author_notification.extra["coauthor_id"]).to eq(commenter.id)
@@ -115,13 +115,13 @@ describe "Interact with commenters" do
       perform_enqueued_jobs do
         click_on "Decline"
 
-        expect(page).to have_content("The invitation has been declined")
+        expect(page).to have_text("The invitation has been declined")
         expect(proposal.reload.authors).not_to include(commenter)
         expect { notification.reload }.to raise_error(ActiveRecord::RecordNotFound)
 
         visit decidim.notifications_path
-        expect(page).to have_no_content("would like to invite you as a co-author of the proposal")
-        expect(page).to have_content("You have declined the invitation from")
+        expect(page).to have_no_text("would like to invite you as a co-author of the proposal")
+        expect(page).to have_text("You have declined the invitation from")
         expect(last_email).to be_nil
         expect(author_notification.event_class).to eq("Decidim::Proposals::CoauthorRejectedInviteEvent")
         expect(author_notification.extra["coauthor_id"]).to eq(commenter.id)

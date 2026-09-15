@@ -16,23 +16,23 @@ shared_examples "publish answers" do
       click_on "Publish answers"
 
       within "#js-publish-answers-actions" do
-        expect(page).to have_content("Answers for 2 proposal's will be published?")
+        expect(page).to have_text("Answers for 2 proposal's will be published?")
       end
 
       click_on(id: "js-submit-publish-answers")
       20.times do # wait for the ajax call to finish
         sleep(1)
-        expect(page).to have_content(I18n.t("proposals.publish_answers.success", scope: "decidim"))
+        expect(page).to have_text(I18n.t("proposals.publish_answers.success", scope: "decidim"))
         break
       rescue StandardError
         # ignore and loop again if ajax content is still not there
         nil
       end
-      expect(page).to have_content(I18n.t("proposals.publish_answers.success", scope: "decidim"))
+      expect(page).to have_text(I18n.t("proposals.publish_answers.success", scope: "decidim"))
 
       visit current_path
 
-      expect(page).to have_content("Accepted", count: 3)
+      expect(page).to have_text("Accepted", count: 3)
     end
 
     it "cannot publish answers for non answered proposals" do
@@ -40,7 +40,7 @@ shared_examples "publish answers" do
       page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false) }
 
       click_on "Actions"
-      expect(page).to have_no_content("Publish answers")
+      expect(page).to have_no_text("Publish answers")
     end
   end
 end

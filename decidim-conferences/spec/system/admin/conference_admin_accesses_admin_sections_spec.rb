@@ -18,18 +18,18 @@ describe "Conference admin accesses admin sections" do
 
   it "can access all sections" do
     within_admin_sidebar_menu do
-      expect(page).to have_content("About this conference")
-      expect(page).to have_content("Components")
-      expect(page).to have_content("Attachments")
-      expect(page).to have_content("Media links")
-      expect(page).to have_content("Partners")
-      expect(page).to have_content("Speakers")
-      expect(page).to have_content("Registrations")
-      expect(page).to have_content("Registration types")
-      expect(page).to have_content("Invites")
-      expect(page).to have_content("Certificate of attendance")
-      expect(page).to have_content("Conference admins")
-      expect(page).to have_content("Moderations")
+      expect(page).to have_text("About this conference")
+      expect(page).to have_text("Components")
+      expect(page).to have_text("Attachments")
+      expect(page).to have_text("Media links")
+      expect(page).to have_text("Partners")
+      expect(page).to have_text("Speakers")
+      expect(page).to have_text("Registrations")
+      expect(page).to have_text("Registration types")
+      expect(page).to have_text("Invites")
+      expect(page).to have_text("Certificate of attendance")
+      expect(page).to have_text("Conference admins")
+      expect(page).to have_text("Moderations")
     end
   end
 end

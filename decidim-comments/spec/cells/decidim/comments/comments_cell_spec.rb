@@ -19,9 +19,9 @@ module Decidim::Comments
       it "renders the thread" do
         expect(subject).to have_css(".comments-count", text: "1 comment")
         expect(subject).to have_css(".flash.primary.loading-comments", text: "Loading comments ...")
-        expect(subject).to have_no_content(comment.body.values.first)
+        expect(subject).to have_no_text(comment.body.values.first)
         expect(subject).to have_no_css(".add-comment")
-        expect(subject).to have_content("Log in or create an account to add your comment.")
+        expect(subject).to have_text("Log in or create an account to add your comment.")
 
         {
           best_rated: "Best rated",
@@ -38,10 +38,10 @@ module Decidim::Comments
         let!(:other_comments) { create_list(:comment, 10, commentable:) }
 
         it "renders only the single comment" do
-          expect(subject).to have_content(comment.body.values.first)
+          expect(subject).to have_text(comment.body.values.first)
 
           other_comments.each do |other_comment|
-            expect(subject).to have_no_content(other_comment.body.values.first)
+            expect(subject).to have_no_text(other_comment.body.values.first)
           end
         end
 
@@ -61,7 +61,7 @@ module Decidim::Comments
           end
 
           it "renders the thread" do
-            expect(subject).to have_no_content(comment.body.values.first)
+            expect(subject).to have_no_text(comment.body.values.first)
             expect(subject).to have_no_css(".add-comment")
             expect(subject).to have_css(".comment__moderated")
           end

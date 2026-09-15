@@ -139,14 +139,6 @@ lt:
             title: Pavadinimas
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              Sveiki,
-              %{author_name} %{author_nickname}, kurį(-ią) sekate, sukūrė naują diskusiją „%{resource_title}“. Peržiūrėkite ir prisidėkite:
-            email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
-            email_subject: Nauja %{author_nickname} diskusija "%{resource_title}"
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> sukūrė <a href="%{resource_path}">%{resource_title}</a> diskusiją.
         creation_disabled:
           email_intro: 'Diskusijos kūrimas %{participatory_space_title} nebėra aktyvus. Vis dar galite dalyvauti atvirose diskusijose iš šio puslapio:'
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.

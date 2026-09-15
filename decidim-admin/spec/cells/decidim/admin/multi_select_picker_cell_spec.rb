@@ -33,7 +33,7 @@ describe Decidim::Admin::MultiSelectPickerCell, type: :cell do
 
   it "renders the correct options" do
     expect(subject).to match(%r{<option (selected )?value="1">Option 1</option>})
-    expect(subject).to match(%r{<option value="2">Option 2</option>})
+    expect(subject).to include('<option value="2">Option 2</option>')
   end
 
   context "when no options are provided" do
@@ -68,7 +68,7 @@ describe Decidim::Admin::MultiSelectPickerCell, type: :cell do
 
     it "renders the correct options with selected attributes" do
       expect(subject).to match(%r{<option (selected )?value="1">Option 1</option>})
-      expect(subject).to match(%r{<option value="2">Option 2</option>})
+      expect(subject).to include('<option value="2">Option 2</option>')
       expect(subject).to match(%r{<option (selected )?value="3">Option 3</option>})
     end
   end

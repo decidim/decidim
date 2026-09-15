@@ -42,7 +42,7 @@
       <% else %>
         <li class="dropdown__item">
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.edit_elections_info", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.edit_elections_info", scope: "decidim.admin"), class: :left do %>
               <%= icon "pencil-line", class: "text-gray" %>
               <span>
                 <%= t("actions.edit", scope: "decidim.elections") %>
@@ -77,7 +77,7 @@
       <% else %>
         <li class="dropdown__item">
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.deleted_elections_info", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.deleted_elections_info", scope: "decidim.admin"), class: :left do %>
               <%= icon "delete-bin-line", class: "text-gray" %>
               <span>
                 <%= t("actions.soft_delete", scope: "decidim.admin") %>

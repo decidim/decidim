@@ -291,25 +291,11 @@ pt:
         update: Actualizar
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} aceitou a sua candidatura para ser parte da comissão promotora da iniciativa %{resource_title}."
           email_outro: 'Recebeu esta notificação porque se candidatou esta iniciativa: %{resource_title}'
-          email_subject: "%{author_nickname} aceitou a sua candidatura para a comissão promotora"
-          notification_title: <a href=“%{author_profile_url}”>%{author_nickname}</a> aceitou a sua candidatura para ser parte da comissão promotora para a iniciativa seguinte <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que você segue, criou uma nova iniciativa, confira e contribua:"
-          email_outro: Recebeu esta notificação porque segue %{author_nickname}. Pode parar de receber notificações seguindo a hiperligação anterior.
-          email_subject: Nova iniciativa de %{author_nickname}
-          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} aceitou a sua candidatura para fazer parte da comissão promotora da iniciativa %{resource_title}."
           email_outro: 'Recebeu esta notificação porque se candidatou esta iniciativa: %{resource_title}'
-          email_subject: "%{author_nickname} aceitou a sua candidatura para a comissão promotora"
-          notification_title: <a href=“%{author_profile_url}”>%{author_nickname}</a> rejeitou a sua candidatura para fazer parte da comissão promotora da iniciativa seguinte <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} Candidatou-se para a comissão promotora da sua iniciativa %{resource_title}. Para aceitar ou rejeitar a aplicação vá ao formulário de edição da iniciativa."
           email_outro: 'Recebeu esta notificação porque é o autor desta iniciativa: %{resource_title}'
-          email_subject: "%{applicant_nickname} quer juntar-se à sua iniciativa"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a>  candidatou-se para a comissão promotora da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar clique <a href="%{resource_url}/edit">aqui</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Retroceder para a iniciativa

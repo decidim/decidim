@@ -52,7 +52,7 @@ module Decidim
       end
 
       def authorized?(attributes:, locale:, toggle_translations:)
-        unless super && allowed_to?(:create, :meeting, Meeting.new(component: current_component), { current_user:, current_component: })
+        unless super && current_user.present? && allowed_to?(:create, :meeting, Meeting.new(component: current_component), { current_user:, current_component: })
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end
 

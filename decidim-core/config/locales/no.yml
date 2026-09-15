@@ -204,9 +204,6 @@
       update_draft:
         error: Det oppsto et problem med å oppdatere endrings utkastet.
         success: Endrings utkastet ble oppdatert.
-      wizard_step_form:
-        steps:
-          '1': Opprett endringen din
     anonymous_user: Anonym
     application:
       document:
@@ -411,13 +408,9 @@
           affected_user:
             email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
-            email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt godtatt for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-            email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt godtatt for <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
@@ -433,24 +426,16 @@
           affected_user:
             email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
-            email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
-            notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-            email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
-            notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
-            email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt avvist for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-            email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt avvist for <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Et nytt dokument er blitt lagt til %{resource_title}. Du kan se den fra denne siden:'
@@ -481,12 +466,6 @@
           notification_title: |-
             En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      users:
-        profile_updated:
-          email_intro: <a href="%{resource_url}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
-          email_outro: Du har mottatt denne varslingen fordi du følger %{nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: "%{nickname} oppdaterte profilens sin"
-          notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
       download_your_data_export:
         download: Last ned

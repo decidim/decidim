@@ -49,7 +49,7 @@ shared_examples "assembly admin manage assembly components" do
 
     it "is successfully created" do
       expect(page).to have_callout("Component created successfully.")
-      expect(page).to have_content("My component")
+      expect(page).to have_text("My component")
     end
 
     context "and then edit it" do
@@ -122,7 +122,7 @@ shared_examples "assembly admin manage assembly components" do
       end
 
       expect(page).to have_callout("The component was updated successfully.")
-      expect(page).to have_content("My updated component")
+      expect(page).to have_text("My updated component")
 
       within "tr", text: "My updated component" do
         find("button[data-controller='dropdown']").click

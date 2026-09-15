@@ -43,7 +43,6 @@ pl:
           destroy:
             confirm: Unieważnienie przed autoryzacjami dat nie może zostać cofnięte. Czy na pewno chcesz kontynuować?
             confirm_all: Unieważnienie wszystkich autoryzacji nie może zostać cofnięte. Czy na pewno chcesz kontynuować?
-          destroy_ok: Pomyślnie wycofano wszystkie autoryzacje spełniające kryteria.
           info: 'Całkowita liczba zweryfikowanych użytkowników: %{count}.'
           no_data: Brak zweryfikowanych uczestników.
           title: Wycofanie autoryzacji

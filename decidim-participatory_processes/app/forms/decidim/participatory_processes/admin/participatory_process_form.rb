@@ -87,6 +87,7 @@ module Decidim
         def slug_uniqueness
           return unless organization_participatory_processes
                         .where(slug:)
+                        .with_deleted
                         .where.not(id: context[:process_id])
                         .any?
 

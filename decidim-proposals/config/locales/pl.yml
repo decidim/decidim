@@ -211,17 +211,14 @@ pl:
           email_intro: '%{requester_name} otrzymał(a) dostęp jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} otrzymał(a) dostęp jako współtwórca %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> otrzymał(a) <strong>dostęp jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: 'Nie przyznano Ci dostępu jako osobie uczestniczącej w tworzeniu wspólnego projektu dokumentu <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} nie otrzymał(a) dostępu jako współtwórca wspólnego szkicu %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>nie otrzymał(a) dostępu jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} poprosił(a) o dostęp jako współtwórca. Możesz <strong>zaakceptować lub odrzucić prośbę</strong> na stronie wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} prosi o dostęp do współtworzenia %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> prosi o dostęp do współtworzenia wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>. <strong>Zaakceptuj lub odrzuć prośbę</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Zostałeś zaakceptowany(a) jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Otrzymujesz to powiadomienie, ponieważ chcesz współpracować przy <a href="%{resource_path}">%{resource_title}</a>.
@@ -233,10 +230,7 @@ pl:
           email_subject: Zostałeś odrzucony jako współtwórca %{resource_title}.
           notification_title: <strong>Nie otrzymałeś dostępu jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> wycofał(a) wspólny szkic <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} wycofał(a) wspólny szkic %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>wycofał(a)</strong> wspólny szkic <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Możesz teraz tworzyć nowe propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
@@ -247,11 +241,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
           email_subject: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana
           notification_title: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana <a href="%{resource_path}">w tej przestrzeni</a> w komentarzach.
-        proposal_published:
-          email_intro: 'Użytkownik %{author_name} %{author_nickname}, którego obserwujesz, opublikował nową propozycję o nazwie "%{resource_title}". Sprawdź i poprzyj:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Nowa propozycja "%{resource_title}" autorstwa %{author_nickname}
-          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została opublikowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Propozycja "%{resource_title}" została dodana do przestrzeni "%{participatory_space_title}", którą obserwujesz.
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.

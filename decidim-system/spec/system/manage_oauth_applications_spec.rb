@@ -36,7 +36,7 @@ describe "Manage OAuth applications" do
     expect(page).to have_callout("Application created successfully.")
 
     within "table" do
-      expect(page).to have_content("Meta Decidim")
+      expect(page).to have_text("Meta Decidim")
     end
   end
 
@@ -58,8 +58,8 @@ describe "Manage OAuth applications" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("There was a problem creating this application")
-      expect(page).to have_content("is not included in the list")
+      expect(page).to have_text("There was a problem creating this application")
+      expect(page).to have_text("is not included in the list")
     end
   end
 
@@ -83,7 +83,7 @@ describe "Manage OAuth applications" do
       expect(page).to have_callout("Application updated successfully.")
 
       within "table" do
-        expect(page).to have_content("Test application")
+        expect(page).to have_text("Test application")
       end
     end
 
@@ -95,15 +95,15 @@ describe "Manage OAuth applications" do
       expect(page).to have_callout("Application destroyed successfully.")
 
       within "table" do
-        expect(page).to have_no_content(application.name)
+        expect(page).to have_no_text(application.name)
       end
     end
 
     it "view their data" do
       click_on application.name
 
-      expect(page).to have_content(application.uid)
-      expect(page).to have_content(application.secret)
+      expect(page).to have_text(application.uid)
+      expect(page).to have_text(application.secret)
     end
   end
 end

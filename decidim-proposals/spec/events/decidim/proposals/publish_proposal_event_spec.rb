@@ -26,26 +26,26 @@ module Decidim
           let(:resource) { create(:proposal) }
 
           it "is generated correctly" do
-            expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
+            expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by #{author.name}")
           end
         end
 
         it "is generated correctly" do
-          expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
+          expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by #{author.name}")
         end
       end
 
       describe "email_intro" do
         it "is generated correctly" do
           expect(subject.email_intro)
-            .to eq("#{author.name} @#{author.nickname}, who you are following, has published a new proposal called \"#{resource_title}\". Check it out and contribute:")
+            .to eq("#{author.name}, who you are following, has published a new proposal called \"#{resource_title}\". Check it out and contribute:")
         end
       end
 
       describe "email_outro" do
         it "is generated correctly" do
           expect(subject.email_outro)
-            .to eq("You have received this notification because you are following @#{author.nickname}. You can stop receiving notifications following the previous link.")
+            .to eq("You have received this notification because you are following #{author.name}. You can stop receiving notifications following the previous link.")
         end
       end
 
@@ -55,7 +55,7 @@ module Decidim
             .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> proposal was published by ")
 
           expect(subject.notification_title)
-            .to include("<a href=\"/en/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>.")
+            .to include("<a href=\"/en/profiles/#{author.nickname}\">#{author.name}</a>.")
         end
       end
 

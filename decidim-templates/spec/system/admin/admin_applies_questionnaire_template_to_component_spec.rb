@@ -42,9 +42,9 @@ describe "Admin applies questionnaire templates" do
 
     choose("Select template")
     select(translated_attribute(questionnaire_template.name), from: "select-template")
-    expect(page).to have_content("If you are human, ignore this field")
+    expect(page).to have_text("If you are human, ignore this field")
     click_on "Continue"
 
-    expect(page).to have_content("Template applied successfully.")
+    expect(page).to have_text("Template applied successfully.")
   end
 end

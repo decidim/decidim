@@ -6,9 +6,9 @@ When you want to update data in your debates component, you need to rely on the 
 
 [source]
 ----
-• title                 (required) - String
-• description           (required) - String
-• taxonomies            (optional) - Taxonomy ids to assign to this debate
+• title                 (Required) - String
+• description           (Required) - String
+• taxonomies            (Optional) - Taxonomy ids to assign to this debate
 ----
 
 == Sample request
@@ -17,9 +17,9 @@ The `UpdateDebate` mutation allows authenticated users to update debates in a De
 
 [source,graphql]
 ----
-mutation updateDebate($componentId: ID!,$debateId: ID!, $input: UpdateDebateInput!){
+mutation updateDebate($componentId: ID!, $debateId: ID!, $input: UpdateDebateInput!){
   component(id: $componentId) {
-    ...on DebatesMutation{
+    ... on DebatesMutation {
       debate(id: $debateId){
         update(input: $input) {
           id

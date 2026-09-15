@@ -127,18 +127,13 @@ zh-CN:
           email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name} 在 %{resource_title} 协作草稿中的贡献者被拒绝访问。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 已被 <strong>拒绝以贡献者身份访问</strong> <a href="%{resource_path}">%{resource_title}</a> 合作草稿。
         collaborative_draft_access_requested:
           email_subject: "%{requester_name} 请求访问权限为 %{resource_title} 捐款。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 请求访问权限以便为 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。请 <strong>接受或拒绝请求</strong>
         collaborative_draft_access_requester_accepted:
           email_subject: 您已被接受为 %{resource_title} 的贡献者。
         collaborative_draft_access_requester_rejected:
           email_subject: 您已被拒绝为 %{resource_title} 的贡献者。
           notification_title: 您在 <a href="%{resource_path}">%{resource_title}</a> 协作草稿中的 <strong>被拒绝作为贡献者</strong> 访问。
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name} %{author_nickname} 撤销了 %{resource_title} 协作草稿。"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>撤回</strong> <a href="%{resource_path}">%{resource_title}</a> 协作草稿。
         creation_enabled:
           email_intro: '您现在可以在 %{participatory_space_title}中创建新的建议 ！开始参与这个页面：'
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
@@ -146,11 +141,6 @@ zh-CN:
         proposal_mentioned:
           email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
           email_subject: 您的提议 "%{mentioned_proposal_title}" 已被提到了
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, 你关注的人已经发布了一个叫做"%{resource_title}"的新建议。查看它并做出贡献：'
-          email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
-          email_subject: '%{resource_title}的 %{author_nickname} 新提案'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 发布。
         proposal_published_for_space:
           email_intro: 提议 "%{resource_title}" 已被添加到"%{participatory_space_title}"，您正在关注它。
           email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以停止收到跟随上一个链接的通知。

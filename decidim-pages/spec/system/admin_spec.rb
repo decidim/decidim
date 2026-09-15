@@ -34,10 +34,10 @@ describe "Edit a page" do
 
       visit_component
 
-      expect(page).to have_content(translated(component.name))
+      expect(page).to have_text(translated(component.name))
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(component.name)} page")
+      expect(page).to have_text("updated the #{translated(component.name)} page")
     end
   end
 

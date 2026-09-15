@@ -10,14 +10,14 @@ shared_examples "inviting participatory space admins" do |check_members_page: tr
   shared_examples "sees space without members menu" do
     it "can access all sections" do
       within_admin_sidebar_menu do
-        expect(page).to have_content(about_this_space_label)
-        expect(page).to have_content("Landing page") if check_landing_page
-        expect(page).to have_content("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
-        expect(page).to have_content("Components")
-        expect(page).to have_content("Attachments")
-        expect(page).to have_content(space_admins_label)
-        expect(page).to have_no_content("Members") if participatory_space.respond_to?(:has_members)
-        expect(page).to have_content("Moderations")
+        expect(page).to have_text(about_this_space_label)
+        expect(page).to have_text("Landing page") if check_landing_page
+        expect(page).to have_text("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
+        expect(page).to have_text("Components")
+        expect(page).to have_text("Attachments")
+        expect(page).to have_text(space_admins_label)
+        expect(page).to have_no_text("Members") if participatory_space.respond_to?(:has_members)
+        expect(page).to have_text("Moderations")
       end
     end
   end
@@ -25,14 +25,14 @@ shared_examples "inviting participatory space admins" do |check_members_page: tr
   shared_examples "sees space with members menu" do
     it "can access all sections" do
       within_admin_sidebar_menu do
-        expect(page).to have_content(about_this_space_label)
-        expect(page).to have_content("Landing page") if check_landing_page
-        expect(page).to have_content("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
-        expect(page).to have_content("Components")
-        expect(page).to have_content("Attachments")
-        expect(page).to have_content(space_admins_label)
-        expect(page).to have_content("Members") if participatory_space.respond_to?(:has_members)
-        expect(page).to have_content("Moderations")
+        expect(page).to have_text(about_this_space_label)
+        expect(page).to have_text("Landing page") if check_landing_page
+        expect(page).to have_text("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
+        expect(page).to have_text("Components")
+        expect(page).to have_text("Attachments")
+        expect(page).to have_text(space_admins_label)
+        expect(page).to have_text("Members") if participatory_space.respond_to?(:has_members)
+        expect(page).to have_text("Moderations")
       end
     end
   end

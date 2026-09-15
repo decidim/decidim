@@ -40,10 +40,10 @@ describe "Edit proposals" do
 
           expect(page).to have_css("div.sr-announce")
           within "div.sr-announce" do
-            expect(page).to have_content("There are errors on the form, please correct them to continue.")
+            expect(page).to have_text("There are errors on the form, please correct them to continue.")
           end
 
-          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_text("There is an error in this field.")
           expect(page).to have_no_css("*[type=submit][data-disable='true']")
           expect(find("button[type='submit']")).not_to be_disabled
         end
@@ -57,8 +57,8 @@ describe "Edit proposals" do
       find("#dropdown-trigger-resource-#{proposal.id}").click
       click_on "Edit"
 
-      expect(page).to have_content "Edit proposal"
-      expect(page).to have_no_content("You can move the point on the map.")
+      expect(page).to have_text "Edit proposal"
+      expect(page).to have_no_text("You can move the point on the map.")
 
       within "form.edit_proposal" do
         fill_in :proposal_title, with: new_title
@@ -66,8 +66,8 @@ describe "Edit proposals" do
         click_on "Send"
       end
 
-      expect(page).to have_content(new_title)
-      expect(page).to have_content(new_body)
+      expect(page).to have_text(new_title)
+      expect(page).to have_text(new_body)
     end
 
     context "when attachments are allowed" do
@@ -82,9 +82,9 @@ describe "Edit proposals" do
         find("#dropdown-trigger-resource-#{proposal.id}").click
         click_on "Edit"
         dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
-          expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
+          expect(page).to have_text("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
-        expect(page).to have_content("Validation error!")
+        expect(page).to have_text("Validation error!")
       end
 
       context "with a file and photo" do
@@ -94,7 +94,7 @@ describe "Edit proposals" do
         it "can delete attachments" do
           visit current_path
 
-          expect(page).to have_content("Documents")
+          expect(page).to have_text("Documents")
           find("#dropdown-trigger-resource-#{proposal.id}").click
           click_on "Edit"
 
@@ -111,8 +111,8 @@ describe "Edit proposals" do
 
           click_on "Send"
 
-          expect(page).to have_no_content("Documents")
-          expect(page).to have_no_content("Images")
+          expect(page).to have_no_text("Documents")
+          expect(page).to have_no_text("Images")
         end
 
         context "with attachment titles" do
@@ -124,8 +124,8 @@ describe "Edit proposals" do
             click_on "Edit"
             click_on("Edit attachments")
             within ".upload-modal" do
-              expect(page).to have_content("Has to be an image or a document")
-              expect(page).to have_content("If it is an image, it preferably be a landscape image that does not have any text. The platform crops the image.")
+              expect(page).to have_text("Has to be an image or a document")
+              expect(page).to have_text("If it is an image, it preferably be a landscape image that does not have any text. The platform crops the image.")
               within "[data-filename='city.jpeg']" do
                 find("input[type='text']").set(attachment_image_title)
               end
@@ -155,13 +155,13 @@ describe "Edit proposals" do
             find("#dropdown-trigger-resource-#{proposal.id}").click
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
             click_on "Edit"
-            expect(page).to have_content("Required fields are marked with an asterisk")
+            expect(page).to have_text("Required fields are marked with an asterisk")
             click_on("Edit attachments")
             within "[data-dialog]" do
               click_on("Save")
             end
             click_on("Send")
-            expect(page).to have_content("Proposal successfully updated.")
+            expect(page).to have_text("Proposal successfully updated.")
           end
         end
 
@@ -178,13 +178,13 @@ describe "Edit proposals" do
             find("#dropdown-trigger-resource-#{proposal.id}").click
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
             click_on "Edit"
-            expect(page).to have_content("Required fields are marked with an asterisk")
+            expect(page).to have_text("Required fields are marked with an asterisk")
             click_on("Edit attachments")
             within "[data-dialog]" do
               click_on("Save")
             end
             click_on("Send")
-            expect(page).to have_content("Proposal successfully updated.")
+            expect(page).to have_text("Proposal successfully updated.")
           end
         end
       end
@@ -200,15 +200,15 @@ describe "Edit proposals" do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
           click_on "Send"
           click_on "Edit proposal"
-          expect(page).to have_content("city.jpeg")
-          expect(page).to have_content("icon.png")
-          expect(page).to have_content("avatar.jpg")
+          expect(page).to have_text("city.jpeg")
+          expect(page).to have_text("icon.png")
+          expect(page).to have_text("avatar.jpg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
-          expect(page).to have_content("city2.jpeg")
-          expect(page).to have_no_content("city3.jpeg")
+          expect(page).to have_text("city2.jpeg")
+          expect(page).to have_no_text("city3.jpeg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
-          expect(page).to have_content("city2.jpeg")
-          expect(page).to have_content("city3.jpeg")
+          expect(page).to have_text("city2.jpeg")
+          expect(page).to have_text("city3.jpeg")
           click_on "Send"
           expect(page).to have_css("[data-alert-box].success")
           expect(page).to have_css("img.object-cover[alt='city.jpeg']")
@@ -246,15 +246,15 @@ describe "Edit proposals" do
 
         fill_in :proposal_address, with: nil
         fill_in_geocoding :proposal_address, with: new_address
-        expect(page).to have_content("You can move the point on the map.")
+        expect(page).to have_text("You can move the point on the map.")
 
         # Give time for the screen reader announcement to be added since there
         # is a small delay before the message appears.
         sleep 0.5
-        expect(page).to have_content("Marker added to the map.")
+        expect(page).to have_text("Marker added to the map.")
 
         click_on "Send"
-        expect(page).to have_content(new_address)
+        expect(page).to have_text(new_address)
       end
 
       context "when the address is removed from the form" do
@@ -285,9 +285,9 @@ describe "Edit proposals" do
 
           click_on "Send"
 
-          expect(page).to have_content(new_title)
-          expect(page).to have_content(new_body)
-          expect(page).to have_no_content(proposal.address)
+          expect(page).to have_text(new_title)
+          expect(page).to have_text(new_body)
+          expect(page).to have_no_text(proposal.address)
         end
       end
     end
@@ -302,7 +302,7 @@ describe "Edit proposals" do
         find("#dropdown-trigger-resource-#{proposal.id}").click
         click_on "Edit"
 
-        expect(page).to have_content "Edit proposal"
+        expect(page).to have_text "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "A"
@@ -310,14 +310,14 @@ describe "Edit proposals" do
         end
 
         # The character counters are doubled because there is a separate screen reader character counter.
-        expect(page).to have_content("At least 15 characters", count: 4)
+        expect(page).to have_text("At least 15 characters", count: 4)
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "WE DO NOT WANT TO SHOUT IN THE PROPOSAL BODY TEXT!"
           click_on "Send"
         end
 
-        expect(page).to have_content("is using too many capital letters (over 25% of the text)")
+        expect(page).to have_text("is using too many capital letters (over 25% of the text)")
       end
 
       it "keeps the submitted values" do
@@ -327,7 +327,7 @@ describe "Edit proposals" do
         find("#dropdown-trigger-resource-#{proposal.id}").click
         click_on "Edit"
 
-        expect(page).to have_content "Edit proposal"
+        expect(page).to have_text "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_title, with: "A proposal with a title"
@@ -336,7 +336,7 @@ describe "Edit proposals" do
         click_on "Send"
 
         expect(page).to have_css("input[value='A proposal with a title']")
-        expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
+        expect(page).to have_text("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end
 
@@ -385,10 +385,10 @@ describe "Edit proposals" do
       visit_component
 
       click_on proposal_title
-      expect(page).to have_no_content("Edit proposal")
+      expect(page).to have_no_text("Edit proposal")
       visit "#{current_path}/edit"
 
-      expect(page).to have_content("not authorized")
+      expect(page).to have_text("not authorized")
     end
   end
 
@@ -403,10 +403,10 @@ describe "Edit proposals" do
       visit_component
 
       click_on proposal_title
-      expect(page).to have_no_content("Edit proposal")
+      expect(page).to have_no_text("Edit proposal")
       visit "#{current_path}/edit"
 
-      expect(page).to have_content("not authorized")
+      expect(page).to have_text("not authorized")
     end
   end
 end

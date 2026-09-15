@@ -9,7 +9,7 @@ shared_examples "manage resource permissions" do
     end
 
     it "shows the resource permissions settings" do
-      expect(page).to have_content("Edit permissions")
+      expect(page).to have_text("Edit permissions")
     end
 
     context "when setting permissions" do
@@ -22,7 +22,7 @@ shared_examples "manage resource permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Permissions updated successfully.")
+        expect(page).to have_text("Permissions updated successfully.")
 
         expect(resource.reload.permissions[action]).to(
           include(
@@ -63,7 +63,7 @@ shared_examples "manage resource permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Permissions updated successfully.")
+        expect(page).to have_text("Permissions updated successfully.")
 
         expect(resource.reload.permissions[action]).to be_nil
       end
@@ -97,7 +97,7 @@ shared_examples "manage resource permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Permissions updated successfully.")
+        expect(page).to have_text("Permissions updated successfully.")
 
         expect(resource.reload.permissions[action]).to(
           include(
@@ -120,7 +120,7 @@ shared_examples "manage resource permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Permissions updated successfully.")
+        expect(page).to have_text("Permissions updated successfully.")
 
         expect(resource.reload.permissions[action]).to(
           include(

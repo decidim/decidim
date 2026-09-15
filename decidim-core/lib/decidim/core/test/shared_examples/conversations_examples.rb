@@ -13,7 +13,7 @@ shared_examples_for "conversation field with maximum length" do |field|
 
     it "shows character counter" do
       fill_in field, with: message
-      expect(page).to have_content("#{max_length - message.length} characters left")
+      expect(page).to have_text("#{max_length - message.length} characters left")
     end
   end
 end

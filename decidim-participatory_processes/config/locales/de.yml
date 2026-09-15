@@ -102,6 +102,11 @@ de:
       filters:
         decidim_participatory_process_group_id_eq:
           label: Nach Prozessgruppe
+        with_any_access_mode:
+          values:
+            open: Öffentlich
+            restricted: Eingeschränkt
+            transparent: Öffentlich sichtbar
       menu:
         participatory_process_groups: Prozessgruppen
         participatory_process_groups_submenu:
@@ -120,6 +125,7 @@ de:
       models:
         participatory_process:
           fields:
+            access_mode: Zugriffsmodus
             actions: Aktionen
             created_at: Erstellt am
             published: Veröffentlicht
@@ -205,6 +211,7 @@ de:
           error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
         update:
           error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
+          success: Partizipative Prozessphase erfolgreich erstellt.
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
@@ -225,6 +232,10 @@ de:
         edit:
           update: Aktualisieren
         index:
+          access_modes:
+            open: Öffentlich
+            restricted: Eingeschränkt
+            transparent: Öffentlich sichtbar
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
         new:

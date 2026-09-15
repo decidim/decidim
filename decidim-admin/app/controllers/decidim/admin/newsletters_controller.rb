@@ -56,6 +56,7 @@ module Decidim
 
           on(:invalid) do |newsletter|
             @newsletter = newsletter
+            @form.images = content_block.images_container
             flash.now[:error] = I18n.t("newsletters.create.error", scope: "decidim.admin")
             render action: :new, status: :unprocessable_content
           end

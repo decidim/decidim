@@ -34,6 +34,7 @@ Ajuntamentde
 alabs
 alecslupu
 Alexandru
+alexrlpz
 amagat
 amd
 amendables
@@ -906,6 +907,7 @@ traslatable
 trashable
 trgm
 trobada
+truncatable
 trobat
 tsearch
 turbolinks

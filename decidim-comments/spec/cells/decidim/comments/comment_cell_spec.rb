@@ -23,9 +23,9 @@ module Decidim::Comments
         expect(subject).to have_css(".comment__content")
         expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
         expect(subject).to have_css("a[href='/en/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
-        expect(subject).to have_content(comment.body.values.first)
-        expect(subject).to have_content(created_at.strftime("%d/%m/%Y"))
-        expect(subject).to have_content(comment.author.name)
+        expect(subject).to have_text(comment.body.values.first)
+        expect(subject).to have_text(created_at.strftime("%d/%m/%Y"))
+        expect(subject).to have_text(comment.author.name)
 
         expect(subject).to have_no_css(".add-comment")
         expect(subject).to have_no_css(".comment-reply")
@@ -42,10 +42,10 @@ module Decidim::Comments
           expect(subject).to have_css(".comment__deleted")
           expect(subject).to have_no_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
           expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
-          expect(subject).to have_no_content(comment.body.values.first)
-          expect(subject).to have_no_content("less than a minute")
-          expect(subject).to have_content(I18n.l(comment.deleted_at, format: :decidim_short))
-          expect(subject).to have_no_content(comment.author.name)
+          expect(subject).to have_no_text(comment.body.values.first)
+          expect(subject).to have_no_text("less than a minute")
+          expect(subject).to have_text(I18n.l(comment.deleted_at, format: :decidim_short))
+          expect(subject).to have_no_text(comment.author.name)
 
           expect(subject).to have_no_css(".add-comment")
           expect(subject).to have_no_css(".comment-reply")
@@ -62,10 +62,10 @@ module Decidim::Comments
           expect(subject).to have_css(".comment__moderated")
           expect(subject).to have_no_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
           expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
-          expect(subject).to have_no_content(comment.body.values.first)
-          expect(subject).to have_no_content("less than a minute")
-          expect(subject).to have_content(I18n.l(moderation.hidden_at, format: :decidim_short))
-          expect(subject).to have_no_content(comment.author.name)
+          expect(subject).to have_no_text(comment.body.values.first)
+          expect(subject).to have_no_text("less than a minute")
+          expect(subject).to have_text(I18n.l(moderation.hidden_at, format: :decidim_short))
+          expect(subject).to have_no_text(comment.author.name)
 
           expect(subject).to have_no_css(".add-comment")
           expect(subject).to have_no_css(".comment-reply")
@@ -83,10 +83,10 @@ module Decidim::Comments
           expect(subject).to have_css(".comment__content")
           expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
           expect(subject).to have_css("a[href='/en/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
-          expect(subject).to have_content("Edited")
-          expect(subject).to have_content(comment.body.values.first)
-          expect(subject).to have_content(created_at.strftime("%d/%m/%Y"))
-          expect(subject).to have_content(comment.author.name)
+          expect(subject).to have_text("Edited")
+          expect(subject).to have_text(comment.body.values.first)
+          expect(subject).to have_text(created_at.strftime("%d/%m/%Y"))
+          expect(subject).to have_text(comment.author.name)
 
           expect(subject).to have_no_css(".add-comment")
           expect(subject).to have_no_css(".comment-reply")
@@ -150,7 +150,7 @@ module Decidim::Comments
 
         it "renders the load replies button" do
           expect(subject).to have_css("button[data-action='click->show-replies#toggle']")
-          expect(subject).to have_content(I18n.t("decidim.components.comment.replies_count", count: replies.size))
+          expect(subject).to have_text(I18n.t("decidim.components.comment.replies_count", count: replies.size))
           expect(subject).to have_css("#comment-#{comment.id}-replies.hidden")
         end
       end

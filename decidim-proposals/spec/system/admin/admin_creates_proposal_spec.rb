@@ -42,8 +42,8 @@ describe "Admin creates proposals" do
       click_on "Edit proposal"
     end
 
-    expect(page).to have_content(image_filename)
-    expect(page).to have_content(document_filename)
+    expect(page).to have_text(image_filename)
+    expect(page).to have_text(document_filename)
   end
 
   it "displays the correct version link", versioning: true do

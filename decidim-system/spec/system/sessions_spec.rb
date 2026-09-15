@@ -31,7 +31,7 @@ describe "Sessions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("Dashboard")
+      expect(page).to have_text("Dashboard")
     end
   end
 
@@ -43,7 +43,7 @@ describe "Sessions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_no_content("Dashboard")
+      expect(page).to have_no_text("Dashboard")
     end
   end
 
@@ -61,7 +61,7 @@ describe "Sessions" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("Unable to verify your request. Please retry.")
+      expect(page).to have_text("Unable to verify your request. Please retry.")
     end
   end
 end

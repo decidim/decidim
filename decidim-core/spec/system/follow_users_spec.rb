@@ -18,7 +18,7 @@ describe "Follow users" do
         visit decidim.profile_path(followable.nickname)
         expect do
           click_on "Follow"
-          expect(page).to have_content(/stop following/i)
+          expect(page).to have_text(/stop following/i)
         end.to change(Decidim::Follow, :count).by(1)
       end
     end
@@ -34,7 +34,7 @@ describe "Follow users" do
         visit decidim.profile_path(followable.nickname)
         expect do
           click_on "Stop following"
-          expect(page).to have_content "Follow"
+          expect(page).to have_text "Follow"
         end.to change(Decidim::Follow, :count).by(-1)
       end
     end

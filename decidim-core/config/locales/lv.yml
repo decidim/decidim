@@ -178,9 +178,6 @@ lv:
       update_draft:
         error: Grozījuma melnraksta atjaunināšanas laikā radās kļūda.
         success: Grozījuma melnraksts ir veiksmīgi atjaunināts.
-      wizard_step_form:
-        steps:
-          '1': Izveidot savu grozījumu
     anonymous_user: Anonīms
     application:
       document:
@@ -352,13 +349,9 @@ lv:
           affected_user:
             email_intro: '%{amendable_title} ir pieņemts grozījums. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo esat %{amendable_title} autors.
-            email_subject: Pieņemts grozījums %{amendable_title} no %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> Grozījums </a>, ko izveidoja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>, ir pieņemts <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: '%{amendable_title} ir pieņemts grozījums. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{amendable_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-            email_subject: Pieņemts grozījums %{amendable_title} no %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> Grozījums </a>, ko izveidoja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>, ir pieņemts <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: '%{amendable_title} ir izveidots jauns grozījums. To var redzēt šajā lapā.'
@@ -374,24 +367,16 @@ lv:
           affected_user:
             email_intro: 'Noraidītais %{amendable_title} grozījums ir publicēts kā jauns %{amendable_type}. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo esat %{amendable_title} autors.
-            email_subject: '%{emendation_author_nickname} grozījums ir publicēts kā jauns %{amendable_type}'
-            notification_title: <a href="%{emendation_path}">noraidītais grozījums<a href="%{amendable_path}">%{amendable_title}</a> ir publicēts kā jauns %{amendable_type}, to publicēja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Noraidītais %{amendable_title} grozījums ir publicēts kā jauns %{amendable_type}. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{amendable_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-            email_subject: '%{emendation_author_nickname} grozījums ir publicēts kā jauns %{amendable_type}'
-            notification_title: <a href="%{emendation_path}">noraidītais grozījums<a href="%{amendable_path}">%{amendable_title}</a> ir publicēts kā jauns %{amendable_type}, to publicēja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: '%{amendable_title} ir noraidīts grozījums. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo esat %{amendable_title} autors.
-            email_subject: Noraidīts grozījums %{amendable_title} no %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> grozījums </a>, ko izveidoja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>, ir noraidīts <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: '%{amendable_title} ir noraidīts grozījums. To var redzēt šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{amendable_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-            email_subject: Noraidīts grozījums %{amendable_title} no %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}"> grozījums </a>, ko izveidoja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>, ir noraidīts <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: '%{resource_title} ir pievienots jauns dokuments. Jūs to varat redzēt šajā lapā:'
@@ -414,12 +399,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
         level_up:
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
-      users:
-        profile_updated:
-          email_intro: '%{name} (%{nickname}) <a href="%{resource_url}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-          email_subject: "%{nickname} atjaunināja savu profilu"
-          notification_title: '%{name} (%{nickname}) <a href="%{resource_path}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
     export_mailer:
       download_your_data_export:
         download: Lejupielādēt

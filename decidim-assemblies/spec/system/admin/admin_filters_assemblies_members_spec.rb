@@ -61,7 +61,7 @@ describe "Admin filters assemblies members" do
       click_on "Publish all"
       sleep(1)
       visit decidim_admin.root_path
-      expect(page).to have_content("published all members of the #{translated(assembly.title)} assembly")
+      expect(page).to have_text("published all members of the #{translated(assembly.title)} assembly")
     end
   end
 end

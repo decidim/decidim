@@ -62,7 +62,7 @@ Decidim.register_component(:debates) do |component|
                           icon_name: "chat-1-line",
                           tooltip_key: "comments_count",
                           tag: :comments do |components, _start_at, _end_at|
-    Decidim::Debates::Debate.where(component: components).not_hidden.count
+    Decidim::Debates::Debate.where(component: components).not_hidden.sum(:comments_count)
   end
 
   component.register_stat :likes_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|

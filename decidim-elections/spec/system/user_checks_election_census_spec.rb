@@ -38,8 +38,8 @@ describe "Election census check" do
           click_button "Access"
 
           expect(page).to have_current_path(census_check_path)
-          expect(page).to have_content("You have been successfully verified")
-          expect(page).to have_content("This means that, once the election starts, you can vote in it.")
+          expect(page).to have_text("You have been successfully verified")
+          expect(page).to have_text("This means that, once the election starts, you can vote in it.")
 
           click_link "Exit the census check"
 
@@ -147,7 +147,7 @@ describe "Election census check" do
       click_button "Access"
 
       expect(page).to have_current_path(census_check_path)
-      expect(page).to have_content("You have been successfully verified")
+      expect(page).to have_text("You have been successfully verified")
     end
   end
 
@@ -172,8 +172,8 @@ describe "Election census check" do
         click_link "Check if I can vote"
 
         expect(page).to have_current_path(census_check_path)
-        expect(page).to have_content("You have been successfully verified")
-        expect(page).to have_content("This means that, once the election starts, you can vote in it.")
+        expect(page).to have_text("You have been successfully verified")
+        expect(page).to have_text("This means that, once the election starts, you can vote in it.")
 
         click_link "Exit the census check"
 
@@ -194,12 +194,12 @@ describe "Election census check" do
         click_link "Check if I can vote"
 
         expect(page).to have_current_path(new_census_check_path)
-        expect(page).to have_content("Verify your identity")
+        expect(page).to have_text("Verify your identity")
 
         click_button "Access"
 
         expect(page).to have_current_path(new_census_check_path)
-        expect(page).to have_content("You are not authorized to vote in this election.")
+        expect(page).to have_text("You are not authorized to vote in this election.")
       end
     end
   end

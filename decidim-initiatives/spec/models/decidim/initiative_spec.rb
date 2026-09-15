@@ -173,6 +173,10 @@ module Decidim
       it "returns false for any other user" do
         expect(initiative).not_to have_authorship(user)
       end
+
+      it "returns false for any inexistent user" do
+        expect(initiative).not_to have_authorship(nil)
+      end
     end
 
     describe "signatures calculations" do

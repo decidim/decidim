@@ -527,8 +527,6 @@ sk:
               label: Prístup
               options:
                 open: Každý môže vidieť proces a zúčastniť sa.
-                restricted: Iba členovia môžu vidieť a zúčastniť sa.
-                transparent: Každý môže vidieť proces, ale zúčastniť sa môžu iba členovia.
               set_this_space_as: Nastaviť tento priestor ako
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             duration: Čas trvania

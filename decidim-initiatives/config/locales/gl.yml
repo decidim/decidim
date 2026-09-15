@@ -206,12 +206,6 @@ gl:
           choose_html: Quero crear un <strong>%{title}</strong>
           more_information: (Máis información)
           select: Quero promocionar esta iniciativa
-      events:
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, quen está seguindo, creou unha nova iniciativa, revisa e contribúe:"
-          email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: Nova iniciativa por %{author_nickname}
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Volver á iniciativa

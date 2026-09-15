@@ -29,7 +29,7 @@ describe "Admin manages conflicts" do
       end
 
       it "the transfer cannot be sent" do
-        expect(page).to have_content("There is an error")
+        expect(page).to have_text("There is an error")
       end
     end
 
@@ -43,7 +43,7 @@ describe "Admin manages conflicts" do
 
       context "when the email is not in use by any other user" do
         it "the transfer is successful" do
-          expect(page).to have_content("The current transfer has been successfully completed.")
+          expect(page).to have_text("The current transfer has been successfully completed.")
         end
 
         it "the email of the managed user is replaced with the email passed by the form" do
@@ -55,7 +55,7 @@ describe "Admin manages conflicts" do
         let(:email) { "conflictive@example.org" }
 
         it "the transfer is successful" do
-          expect(page).to have_content("The current transfer has been successfully completed.")
+          expect(page).to have_text("The current transfer has been successfully completed.")
         end
 
         it "the email of the managed user is replaced with the email of the conflictive one" do
@@ -67,7 +67,7 @@ describe "Admin manages conflicts" do
         let(:email) { "managed@example.org" }
 
         it "the transfer is successful" do
-          expect(page).to have_content("The current transfer has been successfully completed.")
+          expect(page).to have_text("The current transfer has been successfully completed.")
         end
 
         it "the managed user keeps its email" do
@@ -79,8 +79,8 @@ describe "Admin manages conflicts" do
         let(:email) { "other_user@example.org" }
 
         it "the transfer fails" do
-          expect(page).to have_no_content("The current transfer has been successfully completed.")
-          expect(page).to have_content("There was a problem transferring the current participant to managed participant")
+          expect(page).to have_no_text("The current transfer has been successfully completed.")
+          expect(page).to have_text("There was a problem transferring the current participant to managed participant")
         end
       end
     end

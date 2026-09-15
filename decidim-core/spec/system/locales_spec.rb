@@ -16,14 +16,14 @@ describe "Locales" do
         click_on "Català"
       end
 
-      expect(page).to have_content("Menú")
+      expect(page).to have_text("Menú")
     end
 
     it "only shows the available locales" do
       within_language_menu do
-        expect(page).to have_content("Català")
-        expect(page).to have_content("English")
-        expect(page).to have_no_content("Castellano")
+        expect(page).to have_text("Català")
+        expect(page).to have_text("English")
+        expect(page).to have_no_text("Castellano")
       end
     end
 
@@ -34,7 +34,7 @@ describe "Locales" do
 
       click_on "Menú", match: :first
 
-      expect(page).to have_content("Menú")
+      expect(page).to have_text("Menú")
     end
 
     it "displays devise messages with the right locale when not authenticated" do
@@ -46,7 +46,7 @@ describe "Locales" do
       sleep 2
       visit decidim_admin.root_path
 
-      expect(page).to have_content("Cal iniciar sessió o crear un compte abans de continuar.")
+      expect(page).to have_text("Cal iniciar sessió o crear un compte abans de continuar.")
     end
 
     it "displays devise messages with the right locale when authentication fails" do
@@ -62,7 +62,7 @@ describe "Locales" do
         click_on "Entra"
       end
 
-      expect(page).to have_content("El adreça de correu electrònic o la contrasenya no són vàlids.")
+      expect(page).to have_text("El adreça de correu electrònic o la contrasenya no són vàlids.")
     end
 
     context "with a signed in user" do
@@ -85,19 +85,19 @@ describe "Locales" do
 
       it "uses the user's locale" do
         visit decidim.root_redirect_path
-        expect(page).to have_content("Menú")
+        expect(page).to have_text("Menú")
       end
 
       it "displays not found messages with the right locale" do
         visit decidim_admin.root_path
 
-        expect(page).to have_content("No s'ha trobat la pàgina que busques")
+        expect(page).to have_text("No s'ha trobat la pàgina que busques")
       end
 
       it "displays devise messages with the right locale" do
         visit decidim.new_user_session_path(locale: "ca")
 
-        expect(page).to have_content("Ja has iniciat la sessió.")
+        expect(page).to have_text("Ja has iniciat la sessió.")
       end
     end
   end

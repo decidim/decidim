@@ -39,11 +39,11 @@ describe "Admin manages budgets" do
     expect(page).to have_callout("Budget successfully created.")
 
     within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_text(translated(attributes[:title]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} budget")
+    expect(page).to have_text("created the #{translated(attributes[:title])} budget")
   end
 
   describe "updating a budget", versioning: true do
@@ -63,11 +63,11 @@ describe "Admin manages budgets" do
       expect(page).to have_callout("Budget successfully updated.")
 
       within "table" do
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} budget")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} budget")
     end
   end
 
@@ -95,7 +95,7 @@ describe "Admin manages budgets" do
       expect(page).to have_callout("Budget successfully deleted.")
 
       within "table" do
-        expect(page).to have_no_content(translated(budget.title))
+        expect(page).to have_no_text(translated(budget.title))
       end
     end
   end
@@ -151,16 +151,16 @@ describe "Admin manages budgets" do
       it "shows finished and pending orders" do
         visit current_path
         within find_all(".card-divider").last do
-          expect(page).to have_content("Finished votes: 4")
-          expect(page).to have_content("Pending votes: 1")
+          expect(page).to have_text("Finished votes: 4")
+          expect(page).to have_text("Pending votes: 1")
         end
       end
 
       it "shows count of users with finished and pending orders" do
         visit current_path
         within find_all(".card-divider").last do
-          expect(page).to have_content("Users with finished votes: 3")
-          expect(page).to have_content("Users with pending votes: 1")
+          expect(page).to have_text("Users with finished votes: 3")
+          expect(page).to have_text("Users with pending votes: 1")
         end
       end
     end

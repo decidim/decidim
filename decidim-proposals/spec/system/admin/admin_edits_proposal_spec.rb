@@ -33,7 +33,7 @@ describe "Admin edits proposals" do
         find("button[data-controller='dropdown']").click
         click_on "Edit proposal"
       end
-      expect(page).to have_content "Update proposal"
+      expect(page).to have_text "Update proposal"
 
       fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
       fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", **attributes[:body].except("machine_translations")
@@ -44,15 +44,15 @@ describe "Admin edits proposals" do
         preview_window = window_opened_by { click_on "Preview" }
 
         within_window preview_window do
-          expect(page).to have_content(translated(attributes[:title]))
-          expect(page).to have_content(strip_tags(translated(attributes[:body])).strip)
+          expect(page).to have_text(translated(attributes[:title]))
+          expect(page).to have_text(strip_tags(translated(attributes[:body])).strip)
         end
       end
 
       expect(page).to have_callout("Proposal successfully updated.")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} official proposal")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} official proposal")
     end
 
     it "throws error when updating with empty mandatory field" do
@@ -63,14 +63,14 @@ describe "Admin edits proposals" do
         click_on "Edit proposal"
       end
 
-      expect(page).to have_content "Update proposal"
+      expect(page).to have_text "Update proposal"
 
       fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
       attributes[:body]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
       click_on "Update"
 
       within ".flash__message" do
-        expect(page).to have_content("There was a problem saving the proposal.")
+        expect(page).to have_text("There was a problem saving the proposal.")
       end
     end
 
@@ -82,14 +82,14 @@ describe "Admin edits proposals" do
       it "does not let the user edit it" do
         visit_component_admin
 
-        expect(page).to have_content(translated(proposal.title))
+        expect(page).to have_text(translated(proposal.title))
         within "tr", text: translated_attribute(proposal.title) do
           find("button[data-controller='dropdown']").click
           expect(page).to have_css(".dropdown__button-disabled span", text: "Edit proposal")
         end
         visit current_path + "proposals/#{proposal.id}/edit"
 
-        expect(page).to have_content("not authorized")
+        expect(page).to have_text("not authorized")
       end
     end
 
@@ -129,14 +129,14 @@ describe "Admin edits proposals" do
           click_on "Update"
         end
 
-        expect(page).to have_content("Proposal successfully updated.")
+        expect(page).to have_text("Proposal successfully updated.")
 
         visit_component_admin
         within "tr", text: translated_attribute(proposal.title) do
           find("button[data-controller='dropdown']").click
           click_on "Edit proposal"
         end
-        expect(page).to have_no_content(document.file.blob.filename)
+        expect(page).to have_no_text(document.file.blob.filename)
       end
 
       it "can attach a file" do
@@ -160,7 +160,7 @@ describe "Admin edits proposals" do
           click_on "Edit proposal"
         end
 
-        expect(page).to have_no_content("city.jpeg")
+        expect(page).to have_no_text("city.jpeg")
       end
 
       it "can edit a proposal with an attachment" do
@@ -170,14 +170,14 @@ describe "Admin edits proposals" do
           click_on "Edit proposal"
         end
 
-        expect(page).to have_content("Update proposal")
+        expect(page).to have_text("Update proposal")
         expect(page).to have_field("proposal_title_en")
         expect(page.html).to include(document.file.blob.filename.to_s)
 
         fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Updated proposal title with attachments"
         click_on "Update"
 
-        expect(page).to have_content("Proposal successfully updated.")
+        expect(page).to have_text("Proposal successfully updated.")
 
         visit_component_admin
         within "tr[data-id='#{proposal.id}']" do
@@ -187,7 +187,7 @@ describe "Admin edits proposals" do
 
         expect(page).to have_field("proposal_title_en", with: "Updated proposal title with attachments")
         click_on "Edit attachments"
-        expect(page).to have_content(document.file.blob.filename.to_s)
+        expect(page).to have_text(document.file.blob.filename.to_s)
       end
     end
   end
@@ -198,7 +198,7 @@ describe "Admin edits proposals" do
     it "renders an error" do
       visit_component_admin
 
-      expect(page).to have_content(translated(proposal.title))
+      expect(page).to have_text(translated(proposal.title))
 
       within "tr", text: translated_attribute(proposal.title) do
         find("button[data-controller='dropdown']").click
@@ -207,7 +207,7 @@ describe "Admin edits proposals" do
 
       visit current_path + "proposals/#{proposal.id}/edit"
 
-      expect(page).to have_content("not authorized")
+      expect(page).to have_text("not authorized")
     end
   end
 end

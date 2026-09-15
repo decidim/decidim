@@ -72,12 +72,17 @@ module Decidim::Admin
           .with(
             Decidim::TaxonomyFilter,
             form.current_user,
-            hash_including(:root_taxonomy_id, :name, :internal_name, :filter_items, :participatory_space_manifests),
+            hash_including(:root_taxonomy_id, :name, :internal_name, :participatory_space_manifests),
             hash_including(extra: hash_including(:filter_items_count, :taxonomy_name))
           )
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
+      end
+
+      it "keeps filter_items_count counter cache accurate" do
+        subject.call
+        expect(last_taxonomy_filter.filter_items_count).to eq(taxonomy_items.size)
       end
     end
   end

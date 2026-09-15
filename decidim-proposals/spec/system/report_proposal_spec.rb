@@ -38,7 +38,7 @@ describe "Report Proposal" do
         click_on "Report"
       end
 
-      expect(page).to have_content "report has been created"
+      expect(page).to have_text "report has been created"
     end
 
     context "when reporting user is platform admin" do

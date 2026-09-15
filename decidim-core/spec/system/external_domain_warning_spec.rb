@@ -21,7 +21,7 @@ describe "ExternalDomainWarning" do
   it "reveals warning when clicking link with an external href" do
     click_on "Very nice link"
     expect(page).to have_css("#external-domain-warning")
-    expect(page).to have_content("Open external link")
+    expect(page).to have_text("Open external link")
   end
 
   it "does not show warning on links in the allowlist" do
@@ -34,8 +34,8 @@ describe "ExternalDomainWarning" do
 
     it "does not show invalid url alert" do
       visit url
-      expect(page).to have_no_content("Invalid URL")
-      expect(page).to have_content("b%C3%A0r")
+      expect(page).to have_no_text("Invalid URL")
+      expect(page).to have_text("b%C3%A0r")
     end
   end
 
@@ -46,8 +46,8 @@ describe "ExternalDomainWarning" do
 
     it "does not show invalid url alert" do
       visit url
-      expect(page).to have_no_content("Invalid URL")
-      expect(page).to have_content("https://example.org/test/#/bar/edit/12345")
+      expect(page).to have_no_text("Invalid URL")
+      expect(page).to have_text("https://example.org/test/#/bar/edit/12345")
     end
   end
 
@@ -57,8 +57,8 @@ describe "ExternalDomainWarning" do
 
     it "does not show invalid url alert" do
       visit url
-      expect(page).to have_no_content("Invalid URL")
-      expect(page).to have_content("Me,myself,and,I")
+      expect(page).to have_no_text("Invalid URL")
+      expect(page).to have_text("Me,myself,and,I")
     end
   end
 
@@ -67,7 +67,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
     end
   end
 
@@ -76,7 +76,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
     end
   end
 
@@ -86,8 +86,8 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).to have_no_content("Invalid URL")
-      expect(page).to have_content(destination)
+      expect(page).to have_no_text("Invalid URL")
+      expect(page).to have_text(destination)
       expect(page).to have_link("Proceed", href: destination)
     end
   end
@@ -97,7 +97,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
     end
   end
 
@@ -106,7 +106,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
     end
   end
 
@@ -115,7 +115,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
     end
   end
 
@@ -124,7 +124,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
     end
   end
 
@@ -133,7 +133,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
     end
   end
 
@@ -142,7 +142,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert when using simple scenario" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
       expect(page).to have_current_path(decidim.root_path, ignore_query: true)
     end
   end
@@ -160,7 +160,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert when using complex scenario" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
       expect(page).to have_current_path(decidim.root_path, ignore_query: true)
     end
   end
@@ -170,7 +170,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).to have_content("Invalid URL")
+      expect(page).to have_text("Invalid URL")
       expect(page).to have_current_path decidim.root_path
     end
   end

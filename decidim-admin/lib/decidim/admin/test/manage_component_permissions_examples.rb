@@ -8,7 +8,7 @@ shared_examples "access permissions form" do
       find("button[data-controller='dropdown']").click
       click_on "Manage permissions"
     end
-    expect(page).to have_content("Edit permissions")
+    expect(page).to have_text("Edit permissions")
   end
 end
 
@@ -91,7 +91,7 @@ shared_examples "Managing component permissions" do
     end
 
     it "renders the form again" do
-      expect(page).to have_content("There was a problem updating the permissions of this component.")
+      expect(page).to have_text("There was a problem updating the permissions of this component.")
     end
   end
 
@@ -226,14 +226,14 @@ shared_examples "Managing component permissions" do
     end
 
     it "shows the resource permissions settings" do
-      expect(page).to have_content("Edit permissions")
+      expect(page).to have_text("Edit permissions")
     end
 
     context "when resources permissions are disabled" do
       let(:component_settings) { { resources_permissions_enabled: false } }
 
       it "does not show the resource permissions settings" do
-        expect(page).to have_no_content(resource.title)
+        expect(page).to have_no_text(resource.title)
       end
     end
 
@@ -247,7 +247,7 @@ shared_examples "Managing component permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("DUMMY ADMIN ENGINE")
+        expect(page).to have_text("DUMMY ADMIN ENGINE")
 
         expect(resource.reload.permissions["foo"]).to(
           include(
@@ -289,7 +289,7 @@ shared_examples "Managing component permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("DUMMY ADMIN ENGINE")
+        expect(page).to have_text("DUMMY ADMIN ENGINE")
 
         expect(resource.reload.permissions["foo"]).to be_nil
       end
@@ -323,7 +323,7 @@ shared_examples "Managing component permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("DUMMY ADMIN ENGINE")
+        expect(page).to have_text("DUMMY ADMIN ENGINE")
 
         expect(resource.reload.permissions["foo"]).to(
           include(
@@ -346,7 +346,7 @@ shared_examples "Managing component permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("DUMMY ADMIN ENGINE")
+        expect(page).to have_text("DUMMY ADMIN ENGINE")
 
         expect(resource.reload.permissions["foo"]).to(
           include(
@@ -391,7 +391,7 @@ shared_examples "Managing component permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("DUMMY ADMIN ENGINE")
+        expect(page).to have_text("DUMMY ADMIN ENGINE")
 
         expect(resource.reload.permissions["foo"]).to(
           include(
@@ -414,7 +414,7 @@ shared_examples "Managing component permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("DUMMY ADMIN ENGINE")
+        expect(page).to have_text("DUMMY ADMIN ENGINE")
 
         expect(resource.reload.permissions["foo"]).to(
           include(
@@ -457,7 +457,7 @@ shared_examples "Managing component permissions" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("DUMMY ADMIN ENGINE")
+        expect(page).to have_text("DUMMY ADMIN ENGINE")
 
         expect(resource.reload.permissions["foo"]).to eq({})
       end

@@ -208,17 +208,14 @@ bg:
           email_intro: '%{requester_name} получи достъп като сътрудник в съвместната чернова <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} получи достъп като сътрудник в %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>получи достъп като сътрудник</strong> в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} е отхвърлен като сътрудник в съвместната чернова <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} е отхвърлен като сътрудник в съвместната чернова %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>е отхвърлен като сътрудник</strong> в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} заяви достъп като сътрудник. Можете да <strong>приемете или отхвърлите</strong> от сраницата на колективната чернова <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} заяви достъп като сътрудник в %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> заяви достъп като сътрудник в колективната чернова <a href="%{resource_path}">%{resource_title}</a>. Моля, <strong>приемете или отхвърлете заявката</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Получихте достъп като сътрудник в колективната чернова <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Получихте известие, защото заявихте да бъдете сътрудник в <a href="%{resource_url}">%{resource_title}</a>.
@@ -230,10 +227,7 @@ bg:
           email_subject: Отхвърлен сте като сътрудник в %{resource_title}.
           notification_title: <strong>Отказан Ви е достъп като сътрудник</strong> в колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> оттегли колективната чернова <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} оттегли колективната чернова %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>оттегли</strong> колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Вече може да създавате предложения в %{participatory_space_title}! Участвайте в тази страница:'
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предната връзка.
@@ -244,11 +238,6 @@ bg:
           email_outro: Получавате това известие, защото сте автор на %{resource_title}".
           email_subject: Вашето предложение %{mentioned_proposal_title} е споменато
           notification_title: Вашето предложение "%{mentioned_proposal_title}" беше споменато в коментарите <a href="%{resource_path}">на това пространство</a>.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, което следвате, има публикувано ново предложение "%{resource_title}". Разгледайте го и допринасяйте:'
-          email_outro: Получавате това известие, защото следвате %{author_nickname}. Може да прекратите известията чрез предната връзка.
-          email_subject: Ново предложение "%{resource_title}" от %{author_nickname}
-          notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше публикувано от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.

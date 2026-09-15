@@ -346,9 +346,6 @@ lt:
         success: Pataisos juodraštis sėkmingai atnaujintas.
       withdraw:
         success: Pataisa sėkmingai atsiimta.
-      wizard_step_form:
-        steps:
-          '1': Sukurkite savo pataisą
     anonymous_user: Anonimas
     application:
       document:
@@ -638,13 +635,9 @@ lt:
           affected_user:
             email_intro: 'Pataisa %{amendable_title} buvo priimta. Galite tai pamatyti:'
             email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
-            email_subject: '%{amendable_title} pataisa priimta iš %{emendation_author_nickname}'
-            notification_title: <a href="%{emendation_path}"><a href="%{emendation_path}">Pataisa</a> sukurta <a href="%{emendation_author_path}"><a href="%{emendation_author_path}">%{emendation_author_nickname}</a> buvo priimta <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Pataisa %{amendable_title} buvo priimta. Galite tai pamatyti:'
             email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
-            email_subject: '%{amendable_title} pataisa priimta iš %{emendation_author_nickname}'
-            notification_title: <a href="%{emendation_path}"><a href="%{emendation_path}">Pataisa</a> sukurta <a href="%{emendation_author_path}"><a href="%{emendation_author_path}">%{emendation_author_nickname}</a> buvo priimta <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Nauja pataisa buvo sukurta %{amendable_title}. Galite ją pamatyti šiame puslapyje:'
@@ -660,24 +653,16 @@ lt:
           affected_user:
             email_intro: 'Atmesta pataisa %{amendable_title} buvo paskelbta kaip nauja %{amendable_type}. Galite tai pamatyti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
-            email_subject: '%{emendation_author_nickname} parengtas pakeitimas paskelbtas kaip naujas %{amendable_type}'
-            notification_title: <a href="%{emendation_path}">Atmesta pataisa</a>dėl<a href="%{amendable_path}">%{amendable_title} buvo publikuota kaip nauja%{amendable_type}<a href="%{emendation_author_path}">%{emendation_author_nickname}.
           follower:
             email_intro: 'Atmesta pataisa %{amendable_title} buvo paskelbta kaip nauja %{amendable_type}. Galite tai pamatyti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
-            email_subject: '%{emendation_author_nickname} publikavo naują pataisą kaip %{amendable_type}'
-            notification_title: <a href="%{emendation_path}">Atmesta pataisa</a>dėl<a href="%{amendable_path}">%{amendable_title} buvo publikuota kaip nauja%{amendable_type}<a href="%{emendation_author_path}">%{emendation_author_nickname}.
         amendment_rejected:
           affected_user:
             email_intro: 'Atmesta %{amendable_title} pataisa. Ją galite pamatyti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
-            email_subject: Atmesta %{emendation_author_nickname} parengta %{amendable_title} pataisa
-            notification_title: <a href="%{emendation_path}">Pataisa</a>sukurta<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>buvo atmesta dėl<a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Atmesta %{amendable_title} pataisa. Ją galite pamatyti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
-            email_subject: Atmesta %{emendation_author_nickname} parengta %{amendable_title} pataisa
-            notification_title: <a href="%{emendation_path}">Pataisa</a>sukurta<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>buvo atmesta dėl<a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Prie %{resource_title} pridėtas naujas dokumentas. Jį galite pamatyti šiame puslapyje:'
@@ -716,16 +701,9 @@ lt:
             </br>
             <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: '%{name} (%{nickname}), profilio puslapis, <a href="%{resource_url}">, kurį sekate</a> buvo atnaujintas.'
-          email_outro: Šį pranešimą gavote dėl to, kad sekate %{nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
-          email_subject: "%{nickname} atnaujino savo profilį"
-          notification_title: '%{name} (%{nickname}) profilio puslapis, <a href="%{resource_path}">, kurį sekate</a> buvo atnaujintas.'
         user_officialized:
-          email_intro: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
           email_outro: Šį pranešimą gavote dėl to, kad esate organizacijos administratorius.
           email_subject: "%{name} buvo oficializuotas"
-          notification_title: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
     export_mailer:
       download_your_data_export:
         download: Atsisiųsti

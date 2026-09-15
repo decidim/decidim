@@ -151,13 +151,6 @@ pl:
             email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz przestrzeń partycypacyjną %{participatory_space_title}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
             email_subject: Nowa debata "%{resource_title}" w %{participatory_space_title}
             notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-          user_followers:
-            email_intro: |-
-              Cześć,
-              %{author_name} %{author_nickname}, którego/którą obserwujesz, utworzył(a) nową debatę "%{resource_title}". Sprawdź i dołącz:
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-            email_subject: Nowa debata "%{resource_title}" utworzona przez %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> utworzył(a) debatę <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Tworzenie debaty nie jest już aktywne w %{participatory_space_title}. Nadal możesz uczestniczyć w otwartych debatach na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.

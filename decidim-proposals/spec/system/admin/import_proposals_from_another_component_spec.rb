@@ -63,7 +63,7 @@ describe "Import proposals from another component" do
 
       click_on "Import proposals"
 
-      expect(page).to have_content("The import process has started. We will let you know once it has finished.")
+      expect(page).to have_text("The import process has started. We will let you know once it has finished.")
       perform_enqueued_jobs
       visit current_path
 
@@ -104,7 +104,7 @@ describe "Import proposals from another component" do
 
         click_on "Import proposals"
 
-        expect(page).to have_content("The import process has started. We will let you know once it has finished.")
+        expect(page).to have_text("The import process has started. We will let you know once it has finished.")
         perform_enqueued_jobs
         visit current_path
 
@@ -122,7 +122,7 @@ describe "Import proposals from another component" do
 
         click_on "Import proposals"
 
-        expect(page).to have_content("The import process has started. We will let you know once it has finished.")
+        expect(page).to have_text("The import process has started. We will let you know once it has finished.")
         perform_enqueued_jobs
         visit current_path
 

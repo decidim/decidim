@@ -493,8 +493,6 @@ sv:
               label: Åtkomst
               options:
                 open: Alla kan se processen och delta.
-                restricted: Bara medlemmar kan se och delta.
-                transparent: Alla kan se processen, men bara medlemmar kan delta.
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             has_members_help: Du kommer att kunna skapa och publicera medlemmar

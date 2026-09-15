@@ -30,6 +30,18 @@ module Decidim
       it "returns the correct MIME types" do
         expect(subject).to eq(%w(image/jpeg image/gif image/png))
       end
+
+      context "when the allowlist contains unsupported extensions" do
+        let(:extensions) { %w(jpg asdf silly png) }
+
+        it "does not raise" do
+          expect { subject }.not_to raise_error
+        end
+
+        it "returns only the MIME types for known extensions" do
+          expect(subject).to eq(%w(image/jpeg image/png))
+        end
+      end
     end
   end
 end

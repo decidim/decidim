@@ -59,7 +59,7 @@ shared_examples "manage assemblies" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} assembly")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} assembly")
     end
   end
 
@@ -101,7 +101,7 @@ shared_examples "manage assemblies" do
 
         page.within_window(new_window) do
           within(".participatory-space__container") do
-            expect(page).to have_content(translated(assembly.title))
+            expect(page).to have_text(translated(assembly.title))
           end
         end
       end
@@ -120,7 +120,7 @@ shared_examples "manage assemblies" do
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
-          expect(page).to have_content(translated(assembly.title))
+          expect(page).to have_text(translated(assembly.title))
         end
       end
     end
@@ -149,7 +149,7 @@ shared_examples "manage assemblies" do
 
       within("tr", text: translated_attribute(assembly.title)) do
         find("button[data-controller='dropdown']").click
-        expect(page).to have_content("Unpublish")
+        expect(page).to have_text("Unpublish")
       end
 
       expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
@@ -173,7 +173,7 @@ shared_examples "manage assemblies" do
       end
 
       expect(page).to have_callout("Assembly successfully unpublished.")
-      expect(page).to have_content("Publish")
+      expect(page).to have_text("Publish")
       expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
 
       assembly.reload
@@ -186,7 +186,7 @@ shared_examples "manage assemblies" do
 
     it "does not let the admin manage assemblies form other organizations" do
       within "table" do
-        expect(page).to have_no_content(external_assembly.title["en"])
+        expect(page).to have_no_text(external_assembly.title["en"])
       end
     end
   end

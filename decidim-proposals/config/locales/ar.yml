@@ -186,17 +186,14 @@ ar:
           email_intro: 'تم قبول %{requester_name} لأن يكون مسجلاً كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "تم قبول %{requester_name} للوصول كمساهم في %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> كان <strong>مقبولة للوصول كمساهم</strong> من <a href="%{resource_path}">%{resource_title}</a> مشروع تعاوني.
         collaborative_draft_access_rejected:
           email_intro: 'تم رفض %{requester_name} لأن يكون مسجلاً كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "تم رفض %{requester_name} للوصول كمساهم في المسودة التعاونية %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> تم رفض الوصول إلى <strong>كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: 'طلب %{requester_name} إمكانية المشاركة كمساهم. يمكنك <strong>قبول أو رفض الطلب</strong> من صفحة المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} طلب الوصول للمساهمة في %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> طلب الوصول للمساهمة في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a> . يرجى <strong>قبول أو رفض الطلب</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: تم قبول طلبك للمشاركة كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: لقد تلقيت هذا الإشعار لأنك طلبت أن تصبح مساهماً مع <a href="%{resource_url}">%{resource_title}</a>.
@@ -208,10 +205,7 @@ ar:
           email_subject: لقد تم رفضك كمساهم بـ %{resource_title}.
           notification_title: لقد تم رفض دخولك <strong>كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> سحب <a href="%{resource_url}">%{resource_title}</a> المسودة التعاونية.
           email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} سحب المشروع %{resource_title} التعاوني."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>سحبت</strong> مشروع <a href="%{resource_path}">%{resource_title}</a> التعاوني.
         creation_enabled:
           email_intro: 'يمكنك الآن إنشاء مقترحات جديدة في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
@@ -221,11 +215,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
           email_subject: تم ذكر اقتراحك "%{mentioned_proposal_title}"
           notification_title: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}، الذي تتابعه ، بنشر اقتراح جديد يسمى "%{resource_title}". التحقق من ذلك والمساهمة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: اقتراح جديد "%{resource_title}" من %{author_nickname}
-          notification_title: تم نشر مقترح <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: تمت إضافة الاقتراح "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.

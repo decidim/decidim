@@ -332,10 +332,6 @@ bg:
         success: Черновата на поправка е успешно обновена.
       withdraw:
         success: Изменението беше оттеглено успешно.
-      wizard_step_form:
-        steps:
-          '1': Създайте Ваша поправка
-          '2': Публикувайте своето изменение
     anonymous_user: Анонимен
     application:
       document:
@@ -641,13 +637,9 @@ bg:
           affected_user:
             email_intro: 'Приета е поправка в %{amendable_title}. Можете да я видите на тази страница:'
             email_outro: Получавате това известие, защото сте автор на %{amendable_title}.
-            email_subject: Приета е поправка в %{amendable_title} от %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Поправката</a> направена от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> е приета за <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Приета е поправка в %{amendable_title}. Можете да я видите на тази страница:'
             email_outro: Получавате това известие, защото следвате %{amendable_title}. Може да прекратите известията чрез предната връзка.
-            email_subject: Приета е поправка в %{amendable_title} от %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Поправката</a> направена от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> е приета за <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Нова поправка е създадена в %{amendable_title}. Можете да я видите на тази страница:'
@@ -663,24 +655,16 @@ bg:
           affected_user:
             email_intro: 'Отхвърлена поправка в %{amendable_title} е публикувана като нов %{amendable_type}. Можете да видите на тази страница:'
             email_outro: Получавате това известие, защото сте автор на %{amendable_title}.
-            email_subject: Поправка на %{emendation_author_nickname} е публикувана като нов %{amendable_type}
-            notification_title: Отхвърлената <a href="%{emendation_path}">поправка</a> в <a href="%{amendable_path}">%{amendable_title}</a> беше публикувана като нов %{amendable_type} от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Отхвърлена поправка в %{amendable_title} е публикувана като нов %{amendable_type}. Можете да видите на тази страница:'
             email_outro: Получавате това известие, защото следвате %{amendable_title}. Може да прекратите известията чрез предната връзка.
-            email_subject: Поправка на %{emendation_author_nickname} е публикувана като нов %{amendable_type}
-            notification_title: Отхвърлената <a href="%{emendation_path}">поправка</a> в <a href="%{amendable_path}">%{amendable_title}</a> беше публикувана като нов %{amendable_type} от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Поправка е отхвърлена в %{amendable_title}. Можете да я видите на тази страница:'
             email_outro: Получавате това известие, защото сте автор на %{amendable_title}.
-            email_subject: Отхвърлена е поправка в %{amendable_title} от %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Поправката</a> направена от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> е отхвърлена за <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Поправка е отхвърлена в %{amendable_title}. Можете да я видите на тази страница:'
             email_outro: Получавате това известие, защото следвате %{amendable_title}. Може да прекратите известията чрез предната връзка.
-            email_subject: Отхвърлена е поправка в %{amendable_title} от %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Поправката</a> направена от <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> е отхвърлена за <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Нов документ е създаден в %{resource_title}. Можете да го видите на тази страница:'
@@ -722,16 +706,9 @@ bg:
             Администратор премахна вашия %{resource_type}, защото е докладван като %{report_reasons}.</br>
             <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: Профилната <a href="%{resource_url}">страница</a> на %{name} (%{nickname}), който следвате е обновена.
-          email_outro: Получавате това известие, защото следвате %{nickname}. Може да прекратите известията чрез предната връзка.
-          email_subject: "%{nickname} обнови своя профил"
-          notification_title: Профилната <a href="%{resource_path}">страница</a> на %{name} (%{nickname}), който следвате е обновена.
         user_officialized:
-          email_intro: Участник %{name} (%{nickname}) е официален.
           email_outro: Получихте това известие, защото сте администратор на организацията.
           email_subject: "%{name} е официализиран"
-          notification_title: Участник %{name} (%{nickname}) е официализиран.
     export_mailer:
       download_your_data_export:
         download: Сваляне

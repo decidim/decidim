@@ -241,8 +241,8 @@ fi:
               label: Pääsyoikeudet
               options:
                 open: Kaikki voivat nähdä ryhmän ja osallistua.
-                restricted: Ainoastaan ryhmän jäsenet näkevät ryhmän ja voivat osallistua.
-                transparent: Kaikki voivat nähdä ryhmän, mutta ainoastaan jäsenet voivat osallistua.
+                restricted: Vain jäsenet ja hallintakäyttäjät voivat nähdä ja osallistua. Osallistumistila ei näy yleishaussa, rajapinnassa eikä avoimissa datatiedostoissa.
+                transparent: Kaikki voivat nähdä ryhmän, mutta ainoastaan jäsenet ja hallintakäyttäjät voivat osallistua.
               set_this_space_as: Aseta tämän tilan pääsyoikeudet
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto

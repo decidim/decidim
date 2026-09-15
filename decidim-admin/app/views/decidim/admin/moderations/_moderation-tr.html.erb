@@ -85,7 +85,7 @@
           <li class="dropdown__item">
             <% if moderation.reportable.respond_to?(:commentable) && moderation.reportable.commentable.try(:hidden?) %>
               <div class="dropdown__button-disabled">
-                <%= with_tooltip(t("actions.parent_hidden", scope: "decidim.moderations"), title: t("actions.parent_hidden", scope: "decidim.moderations")) do %>
+                <%= with_tooltip(t("actions.parent_hidden", scope: "decidim.moderations"), title: t("actions.parent_hidden", scope: "decidim.moderations"), class: :left) do %>
                   <%= icon "eye-line", class: "text-gray" %>
                   <span><%= t("actions.unhide", scope: "decidim.moderations") %></span>
                 <% end %>

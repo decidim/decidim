@@ -24,7 +24,7 @@ Decidim.register_component(:pages) do |component|
     end
   end
 
-  component.on(:copy) do |context|
+  component.on(:duplicate) do |context|
     Decidim::Pages::CopyPage.call(context) do
       on(:invalid) { raise "Cannot duplicate page" }
     end

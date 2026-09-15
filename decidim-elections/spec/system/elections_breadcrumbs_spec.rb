@@ -15,8 +15,8 @@ describe "Elections Breadcrumb" do
   describe "index" do
     it "shows the correct information in breadcrumb (space, component)" do
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
       end
     end
   end
@@ -25,9 +25,17 @@ describe "Elections Breadcrumb" do
     it "shows the correct information in breadcrumb (space, component, election)" do
       click_on translated(election.title)
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(election.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(election.title))
+      end
+    end
+
+    it "shows the election reference" do
+      click_on translated(election.title)
+
+      within ".layout-container__reference" do
+        expect(page).to have_text(election.reference)
       end
     end
   end

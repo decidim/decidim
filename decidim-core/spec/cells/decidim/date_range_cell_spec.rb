@@ -54,8 +54,8 @@ describe Decidim::DateRangeCell, type: :cell do
     end
 
     it "renders two year elements" do
-      expect(subject).to have_content(start_time.year.to_s)
-      expect(subject).to have_content(end_time.year.to_s)
+      expect(subject).to have_text(start_time.year.to_s)
+      expect(subject).to have_text(end_time.year.to_s)
     end
   end
 
@@ -64,8 +64,8 @@ describe Decidim::DateRangeCell, type: :cell do
     let(:end_time) { end_time_past_year }
 
     it "renders two year elements" do
-      expect(subject).to have_content(start_time.year.to_s)
-      expect(subject).to have_content(end_time.year.to_s)
+      expect(subject).to have_text(start_time.year.to_s)
+      expect(subject).to have_text(end_time.year.to_s)
     end
   end
 end

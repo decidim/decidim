@@ -19,7 +19,7 @@ describe "Admin imports participatory process" do
     end
 
     it "displays the import help text" do
-      expect(page).to have_content("This import feature allows you to create a new participatory process from an exported JSON file")
+      expect(page).to have_text("This import feature allows you to create a new participatory process from an exported JSON file")
     end
   end
 
@@ -56,9 +56,9 @@ describe "Admin imports participatory process" do
 
     it "imports the json document" do
       expect(page).to have_callout("Participatory process successfully imported.")
-      expect(page).to have_content("Import participatory process")
+      expect(page).to have_text("Import participatory process")
       within "table" do
-        expect(page).to have_content("Unpublished")
+        expect(page).to have_text("Unpublished")
       end
 
       within "tr", text: "Import participatory process" do
@@ -70,7 +70,7 @@ describe "Admin imports participatory process" do
       end
 
       within ".table-list" do
-        expect(page).to have_content(translated("Magni."))
+        expect(page).to have_text(translated("Magni."))
       end
 
       within_admin_sidebar_menu do
@@ -80,7 +80,7 @@ describe "Admin imports participatory process" do
       expect(Decidim::ParticipatoryProcess.last.components.size).to eq(3)
       within ".table-list" do
         Decidim::ParticipatoryProcess.last.components.each do |component|
-          expect(page).to have_content(translated(component.name))
+          expect(page).to have_text(translated(component.name))
         end
       end
 
@@ -91,7 +91,7 @@ describe "Admin imports participatory process" do
       if Decidim::ParticipatoryProcess.last.attachments.any?
         within ".table-list" do
           Decidim::ParticipatoryProcess.last.attachments.each do |attachment|
-            expect(page).to have_content(translated(attachment.title))
+            expect(page).to have_text(translated(attachment.title))
           end
         end
       end
@@ -143,10 +143,10 @@ describe "Admin imports participatory process" do
 
     it "imports successfully and shows a warning about the missing hero image" do
       expect(page).to have_callout("Participatory process successfully imported")
-      expect(page).to have_content("Import process with 404 hero")
+      expect(page).to have_text("Import process with 404 hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_text(/The hero image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -196,10 +196,10 @@ describe "Admin imports participatory process" do
 
     it "imports successfully and shows a warning about the missing group hero image" do
       expect(page).to have_callout("Participatory process successfully imported")
-      expect(page).to have_content("Import process with 404 group hero")
+      expect(page).to have_text("Import process with 404 group hero")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The hero image could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_text(/The hero image could not be imported \(404 Not Found\)\./i)
       end
     end
   end
@@ -254,11 +254,11 @@ describe "Admin imports participatory process" do
     end
 
     it "imports successfully and shows a warning about missing attachments" do
-      expect(page).to have_content("Participatory process successfully imported.")
-      expect(page).to have_content("Import process with 404 attachments")
+      expect(page).to have_text("Participatory process successfully imported.")
+      expect(page).to have_text("Import process with 404 attachments")
 
       within ".flash.warning" do
-        expect(page).to have_content(/The attachment ".+" could not be imported \(404 Not Found\)\./i)
+        expect(page).to have_text(/The attachment ".+" could not be imported \(404 Not Found\)\./i)
       end
     end
   end

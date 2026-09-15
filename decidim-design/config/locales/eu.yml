@@ -98,7 +98,7 @@ eu:
           illogical_heading_paragraph: Orrialde bakoitzak goiburuko ordena logiko bat izan behar du <h1>, <h2>, <h3>, <h4>, <h5> eta <h6> elementuak erabiltzean.
           important_sections_heading: Sail garrantzitsuen goiburuan doa
           important_sections_paragraph: Oso garrantzitsua da orrialdeko atal garrantzitsu bakoitzak sarrera bat izatea, errazago ulertzeko zer atal garrantzitsu dauden orrian bere sarreretan nabigatuz.
-          learn_more_about_html: Irakurri gehiago %{link} (e) ri buruz
+          learn_more_about_html: 'Irakurri gehiago honi buruz: %{link}'
           links_and_buttons: Estekak eta Botoiak
           links_and_buttons_paragraph: Ainguraketa-elementuak (hau da, estekak) orrialde desberdinei lotzeko edo orrialdearen barruan posizioak ainguratzeko erabiltzen dira. Elementuak orri horretan ezkutatutako elementuren bat ireki behar duela uste bada, <button> elementua erabili behar du haren ordez.
           unique_h1: H1 bakarra
@@ -135,11 +135,11 @@ eu:
           not_required: Ez da beharrezkoa
           properties: Ezaugarriak
           right_aside: Eskuin aldean
-          section_p_breakpoints: 'Elementuen responsive zabalera kudeatzeko `container` Tailwind klase lehenetsian oinarritzen gara. Hauek dira babestutako ebazpenak:'
+          section_p_breakpoints: 'Web-diseinu moldagarrian elementuen gehieneko zabalera kudeatzeko, aurrez zehaztutako ''kontainer'' Tailwind klasearen mende gaude. Klase horrek etendura-puntu hauek adierazten ditu:'
           section_p_code: Modulu berriak inplementatzean, HTML egitura konfiguratzeko beharrezkoa den kodea automatikoki ematen dizuten laguntzaile batzuk dituzu. Laguntzaile horiek erabili beharko zenituzke, <div> <class> elementuak zuzenean erabili beharrean, horrela sendotasuna mantenduz.
           section_p_code_html: 'Oinarrizko diseinuak hemen aurki ditzakezu: %{link_section_code}'
           section_p_desktop: Mahaigaineko ordenagailuentzako lauki-sistema 12 zutabe malguk osatzen dute, eta 16px-ko zutabeen eta ezkerreko eta eskuineko marjinen arteko tartea (kanala) 48px-koa da
-          section_p_mobile: Lauki-sare mugikorreko sistema 4 zutabe malguk osatzen dute, 16px-ko zutabeen eta 16px-ko ezkerreko eta eskuineko marjinen arteko erretena dutenak.
+          section_p_mobile: Mugikorretarako lauki-sistema 4 zutabe malguk osatzen dute, zutabeen arteko 16 px-ko eta marjinaren arteko 16 px-ko ezkerreko eta eskuineko tartea dutenak.
           section_p_tablet: Tabletetarako lauki-sistemak 8 zutabe malgu ditu, eta 16px-ko zutabeen eta ezkerreko eta eskuineko ertzen arteko tartea (kanala) 24px-koa da
           tablet: Tableta
           title: Diseinua

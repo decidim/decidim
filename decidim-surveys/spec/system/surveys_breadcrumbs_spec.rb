@@ -21,8 +21,8 @@ describe "Surveys Breadcrumb" do
       visit_component
 
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
       end
     end
   end
@@ -44,9 +44,9 @@ describe "Surveys Breadcrumb" do
       click_on translated_attribute(questionnaire.title)
 
       within(".menu-bar") do
-        expect(page).to have_content(translated(component.participatory_space.title))
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(questionnaire.title))
+        expect(page).to have_text(translated(component.participatory_space.title))
+        expect(page).to have_text(translated(component.name))
+        expect(page).to have_text(translated(questionnaire.title))
       end
     end
   end

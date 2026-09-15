@@ -247,8 +247,8 @@ cs:
               label: Přístup
               options:
                 open: Každý může vidět shromáždění a zúčastnit.
-                restricted: Pouze členové se mohou podívat a zúčastnit.
-                transparent: Každý může shromáždění vidět, ale mohou se účastnit pouze členové.
+                restricted: Pouze členové a administrátoři se mohou podívat a zúčastnit. Neobjeví se v obecném vyhledávání, API ani v otevřených datových souborech.
+                transparent: Každý může shromáždění vidět, ale mohou se účastnit pouze členové a správci.
               set_this_space_as: Nastavit tento prostor jako
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání

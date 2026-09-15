@@ -119,12 +119,10 @@ hu:
           email_intro: "%{author_name} megjegyzést hagyott itt: %{resource_title}. Ezen az oldalon megtalálod:"
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{author_name}". Leiratkozás az előző link segítségével.'
           email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
-          notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:
           email_intro: "A \"%{resource_title}\" témához megjegyzést fűzött valaki. Itt tudod elolvasni:"
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt (vagy ennek szerzőjét) követed: "%{resource_title}". Ha szeretnél, a link segítségével leiratkozhatsz.'
           email_subject: 'Új megjegyzés érkezett ehhez: %{resource_title}, tőle: %{author_name}'
-          notification_title: 'Új megjegyzés tőle: <a href="%{author_path}">%{author_name} %{author_nickname}</a>, ehhez: <a href="%{resource_path}">%{resource_title}</a>'
         comment_downvoted:
           email_intro: A hozzászólásod itt %{resource_title} leszavazásra került. Most %{upvotes} szavazat van mellette és %{downvotes} ellene.
           email_outro: Ezt az értesítést kaptad, mert te vagy a hozzászólás szerzője.
@@ -139,12 +137,10 @@ hu:
           email_intro: "%{author_name} megjegyzést fűzött ehhez: %{resource_title}. Ezen az oldalon megtalálod:"
           email_outro: Ezt az értesítést azért kaptad, mert valaki választolt a mejegyzésedre.
           email_subject: "%{author_name} megjegyzést tett a kommentedhez itt: %{resource_title}"
-          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a megjegyzésedre itt: <a href="%{resource_path}">%{resource_title}</a>'
         user_mentioned:
           email_intro: Valaki említette a neved
           email_outro: Ezt az értesítést azért kaptad, mert korábban megemlítettek a(z) "%{resource_title}" témában.
           email_subject: Megemlítettek a(z) %{resource_title} témában
-          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített itt: <a href="%{resource_path}">%{resource_title}</a>'
   errors:
     messages:
       cannot_have_comments: nem adhat hozzá hozzászólásokat

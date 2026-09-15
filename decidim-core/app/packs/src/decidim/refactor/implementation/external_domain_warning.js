@@ -1,5 +1,3 @@
-/* eslint-disable require-jsdoc */
-
 /**
  * If you want to disable the warning but indicate that the link is an external
  * link, please define the `data-external-link-warning="false"` attribute for

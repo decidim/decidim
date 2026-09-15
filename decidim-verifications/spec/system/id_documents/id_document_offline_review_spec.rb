@@ -41,21 +41,21 @@ describe "Identity document offline review" do
   it "allows the user to verify an identity document" do
     submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXX")
 
-    expect(page).to have_content("Participant successfully verified")
+    expect(page).to have_text("Participant successfully verified")
   end
 
   it "shows an error when there is no authorization for the given email" do
     submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXX", user_email: "this@doesnot.exist")
 
-    expect(page).to have_content("Verification does not match")
-    expect(page).to have_content("Introduce the participant email and the document data")
+    expect(page).to have_text("Verification does not match")
+    expect(page).to have_text("Introduce the participant email and the document data")
   end
 
   it "shows an error when information does not match" do
     submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
 
-    expect(page).to have_content("Verification does not match")
-    expect(page).to have_content("Introduce the participant email and the document data")
+    expect(page).to have_text("Verification does not match")
+    expect(page).to have_text("Introduce the participant email and the document data")
   end
 
   private

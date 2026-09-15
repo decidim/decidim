@@ -39,7 +39,7 @@ describe "sms code verification" do
     end
 
     it "shows a form to the user to fill in the verification code" do
-      expect(page).to have_content("Introduce the verification code you received")
+      expect(page).to have_text("Introduce the verification code you received")
     end
 
     context "and user verifies the code" do
@@ -58,7 +58,7 @@ describe "sms code verification" do
         end
 
         it "shows an error message" do
-          expect(page).to have_content("Your verification code does not match ours. Please double-check the SMS we sent you.")
+          expect(page).to have_text("Your verification code does not match ours. Please double-check the SMS we sent you.")
         end
       end
 
@@ -66,7 +66,7 @@ describe "sms code verification" do
         let(:attempted_verification_code) { verification_code }
 
         it "shows a success message" do
-          expect(page).to have_content("Congratulations. You have been successfully verified.")
+          expect(page).to have_text("Congratulations. You have been successfully verified.")
         end
       end
     end
@@ -75,7 +75,7 @@ describe "sms code verification" do
       it "deletes the verification and asks the user again" do
         accept_confirm { click_on "Reset verification code" }
 
-        expect(page).to have_content("Verification code successfully reset. Please re-enter your phone number.")
+        expect(page).to have_text("Verification code successfully reset. Please re-enter your phone number.")
 
         expect(Decidim::Authorization.count).to eq(0)
       end

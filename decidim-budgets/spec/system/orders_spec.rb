@@ -74,7 +74,7 @@ describe "Orders" do
       context "when voting by percentage threshold" do
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Assign at least € 70,000,000 to the projects you want and vote according to your preferences.")
+            expect(page).to have_text("Assign at least € 70,000,000 to the projects you want and vote according to your preferences.")
           end
         end
       end
@@ -89,7 +89,7 @@ describe "Orders" do
 
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Select at least 3 projects you want and vote according to your preferences.")
+            expect(page).to have_text("Select at least 3 projects you want and vote according to your preferences.")
           end
         end
       end
@@ -105,7 +105,7 @@ describe "Orders" do
 
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Select up to 6 projects you want and vote according to your preferences.")
+            expect(page).to have_text("Select up to 6 projects you want and vote according to your preferences.")
           end
         end
       end
@@ -120,7 +120,7 @@ describe "Orders" do
 
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Select at least 3 and up to 6 projects you want and vote according to your preferences.")
+            expect(page).to have_text("Select at least 3 and up to 6 projects you want and vote according to your preferences.")
           end
         end
       end
@@ -130,7 +130,7 @@ describe "Orders" do
 
         it "displays total budget" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("€ 0")
+            expect(page).to have_text("€ 0")
           end
         end
       end
@@ -150,10 +150,10 @@ describe "Orders" do
           expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content(/€ 25,000,000\sAssigned/)
+            expect(page).to have_text(/€ 25,000,000\sAssigned/)
           end
           within ".budget__list--header" do
-            expect(page).to have_content(/Added\s1/)
+            expect(page).to have_text(/Added\s1/)
           end
 
           within "#order-progress .budget-summary__content", match: :first do
@@ -189,10 +189,10 @@ describe "Orders" do
             expect(page).to have_css ".budget-list__data--added", count: 1
 
             within ".budget-summary__progressbar-marks", match: :first do
-              expect(page).to have_content(/€ 25,000,000\sAssigned/)
+              expect(page).to have_text(/€ 25,000,000\sAssigned/)
             end
             within ".budget__list--header" do
-              expect(page).to have_content(/Added\s1/)
+              expect(page).to have_text(/Added\s1/)
             end
 
             within ".budget-summary__content", match: :first do
@@ -223,10 +223,10 @@ describe "Orders" do
           expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content(/€ 25,000,000\sAssigned/)
+            expect(page).to have_text(/€ 25,000,000\sAssigned/)
           end
           within ".budget__list--header" do
-            expect(page).to have_content(/Added\s1/)
+            expect(page).to have_text(/Added\s1/)
           end
 
           within "#order-progress .budget-summary__content", match: :first do
@@ -257,10 +257,10 @@ describe "Orders" do
           expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content "1 / 6"
+            expect(page).to have_text "1 / 6"
           end
           within ".budget__list--header" do
-            expect(page).to have_content(/Added\s1/)
+            expect(page).to have_text(/Added\s1/)
           end
 
           within "#order-progress .budget-summary__content", match: :first do
@@ -289,10 +289,10 @@ describe "Orders" do
 
           expect(page).to have_css ".budget-list__data--added", count: 1
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content "1 / 6"
+            expect(page).to have_text "1 / 6"
           end
           within ".budget__list--header" do
-            expect(page).to have_content(/Added\s1/)
+            expect(page).to have_text(/Added\s1/)
           end
 
           within "#order-progress .budget-summary__content", match: :first do
@@ -326,8 +326,8 @@ describe "Orders" do
 
           click_on "Add", match: :first
 
-          expect(page).to have_content("We need to verify your identity")
-          expect(page).to have_content("Verify with Example authorization")
+          expect(page).to have_text("We need to verify your identity")
+          expect(page).to have_text("Verify with Example authorization")
         end
       end
 
@@ -350,7 +350,7 @@ describe "Orders" do
 
           click_on "Add", match: :first
 
-          expect(page).to have_content("You are almost ready to vote")
+          expect(page).to have_text("You are almost ready to vote")
           expect(page).to have_css("a[data-verification]", count: 2)
         end
       end
@@ -364,10 +364,10 @@ describe "Orders" do
         visit_budget
 
         within ".budget-summary__progressbar-marks", match: :first do
-          expect(page).to have_content(/€ 25,000,000\sAssigned/)
+          expect(page).to have_text(/€ 25,000,000\sAssigned/)
         end
         within ".budget__list--header" do
-          expect(page).to have_content(/Added\s1/)
+          expect(page).to have_text(/Added\s1/)
         end
 
         within "#project-#{project.id}-item" do
@@ -375,10 +375,10 @@ describe "Orders" do
         end
 
         within ".budget-summary__progressbar-marks", match: :first do
-          expect(page).to have_content(/€ 0\sAssigned/)
+          expect(page).to have_text(/€ 0\sAssigned/)
         end
         within ".budget__list--header" do
-          expect(page).to have_content(/Added\s0/)
+          expect(page).to have_text(/Added\s0/)
         end
         expect(page).to have_css ".budget-summary__progressbar--meter", style: "width: 0%"
         expect(page).to have_no_css ".budget-list__data--added"
@@ -389,15 +389,15 @@ describe "Orders" do
 
         visit_budget
 
-        expect(page).to have_content "€ 25,000,000"
+        expect(page).to have_text "€ 25,000,000"
 
         click_on "Back to budgets"
 
-        expect(page).to have_content "You have not yet voted"
+        expect(page).to have_text "You have not yet voted"
 
         click_on "Return to voting"
 
-        expect(page).to have_no_content("You have not yet voted")
+        expect(page).to have_no_text("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
       end
 
@@ -407,7 +407,7 @@ describe "Orders" do
 
         click_on "Back to budgets"
 
-        expect(page).to have_content("You have not yet voted")
+        expect(page).to have_text("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
       end
 
@@ -449,7 +449,7 @@ describe "Orders" do
             page.find(".button", text: "Confirm").click
           end
 
-          expect(page).to have_content("Your vote has been successfully accepted")
+          expect(page).to have_text("Your vote has been successfully accepted")
 
           page.find(".button", text: "View votes").click
         end
@@ -462,7 +462,7 @@ describe "Orders" do
 
         it "shows the rule description" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Assign at least € 70,000,000 to the projects you want and vote")
+            expect(page).to have_text("Assign at least € 70,000,000 to the projects you want and vote")
           end
         end
 
@@ -505,16 +505,16 @@ describe "Orders" do
 
             it "shows private-only activity log entry" do
               page.visit decidim.profile_activity_path(nickname: user.nickname)
-              expect(page).to have_content("New budgeting vote at #{translated(budget.title)}")
+              expect(page).to have_text("New budgeting vote at #{translated(budget.title)}")
               expect(page).to have_link(translated(budget.title), href: router.budget_path(budget))
             end
 
             it "does not show activity log entry to another user" do
               relogin_as another_user, scope: :user
               page.visit decidim.profile_activity_path(nickname: user.nickname)
-              expect(page).to have_content(user.name)
+              expect(page).to have_text(user.name)
               expect(page).to have_current_path "/#{I18n.locale}/profiles/#{user.nickname}/activity"
-              expect(page).to have_no_content("New budgeting vote at")
+              expect(page).to have_no_text("New budgeting vote at")
               expect(page).to have_no_link(translated(budget.title))
             end
           end
@@ -539,7 +539,7 @@ describe "Orders" do
           visit_budget
 
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Select at least 3 projects you want and vote")
+            expect(page).to have_text("Select at least 3 projects you want and vote")
           end
         end
 
@@ -600,7 +600,7 @@ describe "Orders" do
       it "is not alerted when trying to leave the component" do
         visit_budget
 
-        expect(page).to have_content("Budget vote completed")
+        expect(page).to have_text("Budget vote completed")
 
         click_on "Back to budgets"
 
@@ -610,14 +610,14 @@ describe "Orders" do
       it "has the 'You voted for this' message" do
         visit_budget
 
-        expect(page).to have_content("You voted for this")
+        expect(page).to have_text("You voted for this")
       end
 
       context "when visiting the show page" do
         it "has the 'You voted for this' message" do
           visit resource_locator([budget, project]).path
 
-          expect(page).to have_content("You voted for this")
+          expect(page).to have_text("You voted for this")
         end
       end
     end
@@ -657,7 +657,7 @@ describe "Orders" do
         visit_budget
 
         within "#project-#{project.id}-item" do
-          expect(page).to have_content("1 vote")
+          expect(page).to have_text("1 vote")
         end
       end
     end
@@ -750,12 +750,12 @@ describe "Orders" do
 
         click_on translated(project.title)
 
-        expect(page).to have_content("History")
+        expect(page).to have_text("History")
 
         proposals.each do |proposal|
-          expect(page).to have_content(decidim_sanitize_translated(proposal.title))
-          expect(page).to have_no_content(proposal.creator_author.name)
-          expect(page).to have_content(proposal.likes.size)
+          expect(page).to have_text(decidim_sanitize_translated(proposal.title))
+          expect(page).to have_no_text(proposal.creator_author.name)
+          expect(page).to have_text(proposal.likes.size)
         end
       end
 

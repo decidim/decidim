@@ -90,7 +90,7 @@ module Decidim
         end
 
         def slug_uniqueness
-          return unless OrganizationConferences.new(current_organization).query.where(slug:).where.not(id: context[:conference_id]).any?
+          return unless OrganizationConferences.new(current_organization).query.where(slug:).with_deleted.where.not(id: context[:conference_id]).any?
 
           errors.add(:slug, :taken)
         end

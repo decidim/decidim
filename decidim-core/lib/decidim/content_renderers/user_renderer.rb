@@ -24,17 +24,15 @@ module Decidim
       protected
 
       def replace_pattern(text, pattern, editor:)
-        return text unless text.respond_to?(:gsub)
-
-        text.gsub(pattern) do |mentionable_gid|
-          mentionable = GlobalID::Locator.locate(mentionable_gid)
-          if editor
-            render_editor(mentionable)
+        replace_pattern_by_context(text, pattern) do |user_gid, context|
+          user = GlobalID::Locator.locate(user_gid)
+          if context.attribute?
+            render_profile_path(user)
+          elsif editor
+            render_editor(user)
           else
-            render_text(mentionable)
+            render_text(user)
           end
-        rescue ActiveRecord::RecordNotFound => _e
-          ""
         end
       end
 
@@ -54,6 +52,10 @@ module Decidim
         else
           presenter_for(user).display_mention
         end
+      end
+
+      def render_profile_path(user)
+        presenter_for(user).profile_path
       end
     end
   end

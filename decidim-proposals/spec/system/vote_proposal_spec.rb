@@ -32,11 +32,11 @@ describe "Vote Proposal", slow: true do
         click_on proposal_title
 
         expect_page_not_to_include_votes
-        expect(page).to have_content("Log in or create an account")
+        expect(page).to have_text("Log in or create an account")
         page.find(".main-bar__logo a").click
-        expect(page).to have_no_content("Remember you have")
-        expect(page).to have_no_content("Cancel")
-        expect(page).to have_no_content("Continue")
+        expect(page).to have_no_text("Remember you have")
+        expect(page).to have_no_text("Cancel")
+        expect(page).to have_no_text("Continue")
       end
     end
 
@@ -80,7 +80,7 @@ describe "Vote Proposal", slow: true do
         end
 
         within "#proposal-#{proposal.id}-votes-count" do
-          expect(page).to have_content("0\nVotes")
+          expect(page).to have_text("0\nVotes")
         end
       end
     end
@@ -184,7 +184,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             visit_component
@@ -194,7 +194,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
           end
         end
@@ -211,7 +211,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-vote-button" do
@@ -220,7 +220,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             visit_component
@@ -230,7 +230,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
           end
         end
@@ -242,7 +242,7 @@ describe "Vote Proposal", slow: true do
             visit_component
             click_on translated(first_proposal.title), match: :first
 
-            expect(page).to have_content("You have 2 supports left")
+            expect(page).to have_text("You have 2 supports left")
 
             within "#proposal-#{first_proposal.id}-vote-button" do
               click_on "Vote"
@@ -250,39 +250,39 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("0\nVotes")
+              expect(page).to have_text("0\nVotes")
             end
 
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
 
-            expect(page).to have_content("You have 1 supports left")
+            expect(page).to have_text("You have 1 supports left")
           end
 
           it "it updates the number of votes" do
             visit_component
 
-            expect(page).to have_content("You have 2 supports left")
+            expect(page).to have_text("You have 2 supports left")
 
             within "#proposal-#{first_proposal.id}-vote-button" do
               click_on "Vote"
               expect(page).to have_button("Voted")
             end
 
-            expect(page).to have_content("You have 1 supports left")
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_text("You have 1 supports left")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
 
             within "#proposal-#{second_proposal.id}-vote-button" do
               click_on "Vote"
               expect(page).to have_button("Voted")
             end
-            expect(page).to have_content("Your votes have been successfully accepted")
+            expect(page).to have_text("Your votes have been successfully accepted")
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
             visit_component
 
@@ -295,11 +295,11 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
           end
         end
@@ -312,7 +312,7 @@ describe "Vote Proposal", slow: true do
             visit_component
             click_on translated(first_proposal.title), match: :first
 
-            expect(page).to have_content("You have 2 supports left")
+            expect(page).to have_text("You have 2 supports left")
 
             within "#proposal-#{first_proposal.id}-vote-button" do
               click_on "Vote"
@@ -320,39 +320,39 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("0 2\nVotes")
+              expect(page).to have_text("0 2\nVotes")
             end
 
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
 
-            expect(page).to have_content("You have 1 supports left")
+            expect(page).to have_text("You have 1 supports left")
           end
 
           it "it updates the number of votes" do
             visit_component
 
-            expect(page).to have_content("You have 2 supports left")
+            expect(page).to have_text("You have 2 supports left")
 
             within "#proposal-#{first_proposal.id}-vote-button" do
               click_on "Vote"
               expect(page).to have_button("Voted")
             end
 
-            expect(page).to have_content("You have 1 supports left")
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_text("You have 1 supports left")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
 
             within "#proposal-#{second_proposal.id}-vote-button" do
               click_on "Vote"
               expect(page).to have_button("Voted")
             end
-            expect(page).to have_content("Your votes have been successfully accepted")
+            expect(page).to have_text("Your votes have been successfully accepted")
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             visit_component
@@ -366,11 +366,11 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
           end
         end
@@ -388,10 +388,10 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
           end
 
           it "it updates the number of votes" do
@@ -402,20 +402,20 @@ describe "Vote Proposal", slow: true do
               expect(page).to have_button("Voted")
             end
 
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
 
             within "#proposal-#{second_proposal.id}-vote-button" do
               click_on "Vote"
               expect(page).to have_button("Voted")
             end
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             unvoted_proposal_ids.each do |proposal_id|
@@ -434,11 +434,11 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             unvoted_proposal_ids.each do |proposal_id|
@@ -463,10 +463,10 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1 2\nVote")
+              expect(page).to have_text("1 2\nVote")
             end
 
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
           end
 
           it "it updates the number of votes" do
@@ -483,11 +483,11 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             unvoted_proposal_ids.each do |proposal_id|
@@ -507,11 +507,11 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             unvoted_proposal_ids.each do |proposal_id|
@@ -536,33 +536,33 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("0\nVotes")
+              expect(page).to have_text("0\nVotes")
             end
 
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
           end
 
           it "it updates the number of votes" do
             visit_component
 
-            expect(page).to have_content("You have 2 supports left")
+            expect(page).to have_text("You have 2 supports left")
             within "#proposal-#{first_proposal.id}-vote-button" do
               click_on "Vote"
               expect(page).to have_button("Voted")
             end
 
-            expect(page).to have_content("You have 1 supports left")
+            expect(page).to have_text("You have 1 supports left")
             within "#proposal-#{second_proposal.id}-vote-button" do
               click_on "Vote"
               expect(page).to have_button("Voted")
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             unvoted_proposal_ids.each do |proposal_id|
@@ -571,7 +571,7 @@ describe "Vote Proposal", slow: true do
               end
             end
 
-            expect(page).to have_content("Your votes have been successfully accepted")
+            expect(page).to have_text("Your votes have been successfully accepted")
 
             visit_component
 
@@ -584,11 +584,11 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
 
             unvoted_proposal_ids.each do |proposal_id|
@@ -614,35 +614,35 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("0 2\nVotes")
+              expect(page).to have_text("0 2\nVotes")
             end
 
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
           end
 
           it "it updates the number of votes" do
             visit_component
 
-            expect(page).to have_content("You have 2 supports left")
+            expect(page).to have_text("You have 2 supports left")
 
             within "#proposal-#{first_proposal.id}-vote-button" do
               click_on "Vote"
               expect(page).to have_button("Voted")
             end
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_text("Your votes have been successfully accepted")
 
-            expect(page).to have_content("You have 1 supports left")
+            expect(page).to have_text("You have 1 supports left")
             within "#proposal-#{second_proposal.id}-vote-button" do
               click_on "Vote"
               expect(page).to have_button("Voted")
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             unvoted_proposal_ids.each do |proposal_id|
@@ -651,7 +651,7 @@ describe "Vote Proposal", slow: true do
               end
             end
 
-            expect(page).to have_content("Your votes have been successfully accepted")
+            expect(page).to have_text("Your votes have been successfully accepted")
             visit_component
 
             within "#proposal-#{first_proposal.id}-vote-button" do
@@ -663,11 +663,11 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{first_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             within "#proposal-#{second_proposal.id}-votes-count" do
-              expect(page).to have_content("1\n2\nVote")
+              expect(page).to have_text("1\n2\nVote")
             end
 
             unvoted_proposal_ids.each do |proposal_id|
@@ -693,7 +693,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
           end
         end
@@ -710,7 +710,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
           end
         end
@@ -730,7 +730,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
           end
 
@@ -741,7 +741,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("0\nVotes")
+              expect(page).to have_text("0\nVotes")
             end
           end
         end
@@ -758,7 +758,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
           end
 
@@ -769,7 +769,7 @@ describe "Vote Proposal", slow: true do
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("0\nVotes")
+              expect(page).to have_text("0\nVotes")
             end
           end
         end
@@ -909,8 +909,8 @@ describe "Vote Proposal", slow: true do
                 click_on "Vote"
               end
 
-              expect(page).to have_content("We need to verify your identity")
-              expect(page).to have_content("Verify with Example authorization")
+              expect(page).to have_text("We need to verify your identity")
+              expect(page).to have_text("Verify with Example authorization")
             end
           end
 
@@ -935,7 +935,7 @@ describe "Vote Proposal", slow: true do
                 click_on "Vote"
               end
 
-              expect(page).to have_content("You are almost ready to vote")
+              expect(page).to have_text("You are almost ready to vote")
               expect(page).to have_css("a[data-verification]", count: 2)
             end
           end
@@ -962,7 +962,7 @@ describe "Vote Proposal", slow: true do
               end
 
               within "#proposal-#{proposal.id}-votes-count" do
-                expect(page).to have_content("0\nVotes")
+                expect(page).to have_text("0\nVotes")
               end
             end
           end
@@ -986,7 +986,7 @@ describe "Vote Proposal", slow: true do
               end
 
               within "#proposal-#{proposal.id}-votes-count" do
-                expect(page).to have_content("0\nVotes")
+                expect(page).to have_text("0\nVotes")
               end
             end
           end
@@ -1004,14 +1004,14 @@ describe "Vote Proposal", slow: true do
             it "is not able to vote other proposals" do
               find(".card__list#proposals__proposal_#{proposal.id}").click
               within ".proposal__aside-vote" do
-                expect(page).to have_content("1\nVote")
+                expect(page).to have_text("1\nVote")
               end
 
               other_proposals_titles.each do |title|
                 visit_component
                 click_on title
                 within ".proposal__aside-vote" do
-                  expect(page).to have_content("No votes remaining")
+                  expect(page).to have_text("No votes remaining")
                   expect(page).to have_css(".button[disabled]")
                 end
               end
@@ -1028,14 +1028,14 @@ describe "Vote Proposal", slow: true do
               it "shows the vote count but not the vote button" do
                 find(".card__list#proposals__proposal_#{proposal.id}").click
                 within ".proposal__aside-vote" do
-                  expect(page).to have_content("1\nVote")
+                  expect(page).to have_text("1\nVote")
                 end
 
                 other_proposals_titles.each do |title|
                   visit_component
                   click_on title
                   within ".proposal__aside-vote" do
-                    expect(page).to have_content("Vote")
+                    expect(page).to have_text("Vote")
                     expect(page).to have_css(".button[disabled]")
                   end
                 end
@@ -1050,7 +1050,7 @@ describe "Vote Proposal", slow: true do
               end
 
               within "#proposal-#{proposal.id}-votes-count" do
-                expect(page).to have_content("1\nVote")
+                expect(page).to have_text("1\nVote")
               end
 
               2.times do |index|
@@ -1074,7 +1074,7 @@ describe "Vote Proposal", slow: true do
                 end
 
                 within "#proposal-#{proposal.id}-votes-count" do
-                  expect(page).to have_content("1\nVote")
+                  expect(page).to have_text("1\nVote")
                 end
 
                 2.times do |index|
@@ -1109,8 +1109,8 @@ describe "Vote Proposal", slow: true do
           visit_component
 
           expect(page).to have_css("#voting-rules")
-          expect(page).to have_content("You can support up to 8 proposals.")
-          expect(page).to have_content("You have to distribute a minimum of 5 supports among different proposals so that your supports are taken into account.")
+          expect(page).to have_text("You can support up to 8 proposals.")
+          expect(page).to have_text("You have to distribute a minimum of 5 supports among different proposals so that your supports are taken into account.")
 
           click_on proposal_title, match: :first
 
@@ -1120,19 +1120,19 @@ describe "Vote Proposal", slow: true do
         it "shows a modal dialog" do
           visit_component
           click_on proposal_title, match: :first
-          expect(page).to have_content("Vote")
+          expect(page).to have_text("Vote")
           click_on "Vote"
-          expect(page).to have_content("Voted")
+          expect(page).to have_text("Voted")
           first("a", text: "Proposals").click
 
-          expect(page).to have_content("Remember you have 4 votes left")
-          expect(page).to have_content("You have to give 4 more votes between different proposals for your votes to be taken into account.")
-          expect(page).to have_content("Continue")
-          expect(page).to have_content("Cancel")
+          expect(page).to have_text("Remember you have 4 votes left")
+          expect(page).to have_text("You have to give 4 more votes between different proposals for your votes to be taken into account.")
+          expect(page).to have_text("Continue")
+          expect(page).to have_text("Cancel")
 
           click_on "Continue"
-          expect(page).to have_content("proposals")
-          expect(page).to have_content("Status")
+          expect(page).to have_text("proposals")
+          expect(page).to have_text("Status")
         end
 
         context "when participant vote" do
@@ -1147,11 +1147,11 @@ describe "Vote Proposal", slow: true do
             end
 
             it "shows a notification indicating how many votes participant has left to give" do
-              expect(page).to have_content("You have 1 supports left")
-              expect(page).to have_content("Remember that you still have to give 1 supports between different proposals so that your supports are taken into account.")
+              expect(page).to have_text("You have 1 supports left")
+              expect(page).to have_text("Remember that you still have to give 1 supports between different proposals so that your supports are taken into account.")
 
               click_on "Voted"
-              expect(page).to have_content("You have 2 supports left")
+              expect(page).to have_text("You have 2 supports left")
             end
           end
         end
@@ -1168,7 +1168,7 @@ describe "Vote Proposal", slow: true do
             end
 
             it "shows a notification indicating that participant have correctly given all the minimum votes" do
-              expect(page).to have_content("Your votes have been successfully accepted")
+              expect(page).to have_text("Your votes have been successfully accepted")
             end
 
             context "when participant start voting proposals" do
@@ -1176,41 +1176,41 @@ describe "Vote Proposal", slow: true do
               let!(:minimum_votes_per_user) { 2 }
 
               it "shows the exit modal" do
-                expect(page).to have_content("Voted")
+                expect(page).to have_text("Voted")
 
-                expect(page).to have_content("Proposals")
+                expect(page).to have_text("Proposals")
                 first("a", text: "Proposals").click
 
-                expect(page).to have_content("Remember you have 1 votes left", wait: 10)
-                expect(page).to have_content("You have to give 1 more votes between different proposals for your votes to be taken into account.")
-                expect(page).to have_content("Continue")
-                expect(page).to have_content("Cancel")
+                expect(page).to have_text("Remember you have 1 votes left", wait: 10)
+                expect(page).to have_text("You have to give 1 more votes between different proposals for your votes to be taken into account.")
+                expect(page).to have_text("Continue")
+                expect(page).to have_text("Cancel")
 
                 click_on "Cancel"
 
-                expect(page).to have_content("You have 1 supports left", wait: 10)
-                expect(page).to have_content("Remember that you still have to give")
+                expect(page).to have_text("You have 1 supports left", wait: 10)
+                expect(page).to have_text("Remember that you still have to give")
               end
             end
 
             it "does not show the exit modal" do
-              expect(page).to have_content("Voted")
-              expect(page).to have_content("Your votes have been successfully accepted")
+              expect(page).to have_text("Voted")
+              expect(page).to have_text("Your votes have been successfully accepted")
 
               click_on "Voted"
-              expect(page).to have_content("See other proposals")
-              expect(page).to have_content("You have 1 supports left", wait: 10)
+              expect(page).to have_text("See other proposals")
+              expect(page).to have_text("You have 1 supports left", wait: 10)
 
               click_on "See other proposals"
-              expect(page).to have_content("3 proposals")
+              expect(page).to have_text("3 proposals")
               expect(page).to have_css("#proposals__proposal_#{proposal.id}")
 
               click_on translated_attribute(proposal.title), match: :first
               click_on "Vote"
-              expect(page).to have_content("Your votes have been successfully accepted")
+              expect(page).to have_text("Your votes have been successfully accepted")
 
               page.find(".main-bar__logo a").click
-              expect(page).to have_no_content("Voted", wait: 10)
+              expect(page).to have_no_text("Voted", wait: 10)
             end
           end
         end
@@ -1261,7 +1261,7 @@ describe "Vote Proposal", slow: true do
           find(".card__list#proposals__proposal_#{proposal.id}").click
 
           within "#proposal-#{proposal.id}-vote-button" do
-            expect(page).to have_content("Vote limit reached")
+            expect(page).to have_text("Vote limit reached")
           end
         end
 
@@ -1282,7 +1282,7 @@ describe "Vote Proposal", slow: true do
           visit_component
 
           within "#proposal-#{proposal.id}-vote-button" do
-            expect(page).to have_content("Vote limit reached")
+            expect(page).to have_text("Vote limit reached")
           end
         end
 
@@ -1291,11 +1291,11 @@ describe "Vote Proposal", slow: true do
 
           within "#proposal-#{proposal.id}-vote-button" do
             click_on "Vote"
-            expect(page).to have_content("Voted")
+            expect(page).to have_text("Voted")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1\nVote")
+            expect(page).to have_text("1\nVote")
           end
         end
       end
@@ -1323,7 +1323,7 @@ describe "Vote Proposal", slow: true do
           find(".card__list#proposals__proposal_#{proposal.id}").click
 
           within ".proposal__aside-vote" do
-            expect(page).to have_content("1\nVote")
+            expect(page).to have_text("1\nVote")
           end
         end
       end
@@ -1335,10 +1335,10 @@ describe "Vote Proposal", slow: true do
           within "#proposal-#{proposal.id}-vote-button" do
             click_on "Vote"
             sleep(1)
-            expect(page).to have_content("Voted")
+            expect(page).to have_text("Voted")
           end
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1\nVote")
+            expect(page).to have_text("1\nVote")
           end
         end
       end
@@ -1368,36 +1368,36 @@ describe "Vote Proposal", slow: true do
 
           within ".proposal__aside-vote" do
             click_on "Vote"
-            expect(page).to have_content("Voted")
-            expect(page).to have_content("0\nVotes")
+            expect(page).to have_text("Voted")
+            expect(page).to have_text("0\nVotes")
           end
 
           visit_component
           find(".card__list#proposals__proposal_#{proposal_ids[1]}").click
           within ".proposal__aside-vote" do
             click_on "Vote"
-            expect(page).to have_content("Voted")
-            expect(page).to have_content("0\nVotes")
+            expect(page).to have_text("Voted")
+            expect(page).to have_text("0\nVotes")
           end
 
           visit_component
           find(".card__list#proposals__proposal_#{proposal_ids[2]}").click
           within ".proposal__aside-vote" do
             click_on "Vote"
-            expect(page).to have_content("Voted")
-            expect(page).to have_content("1\nVote")
+            expect(page).to have_text("Voted")
+            expect(page).to have_text("1\nVote")
           end
 
           visit_component
           find(".card__list#proposals__proposal_#{proposal_ids[0]}").click
           within ".proposal__aside-vote" do
-            expect(page).to have_content("1\nVote")
+            expect(page).to have_text("1\nVote")
           end
 
           visit_component
           find(".card__list#proposals__proposal_#{proposal_ids[1]}").click
           within ".proposal__aside-vote" do
-            expect(page).to have_content("1\nVote")
+            expect(page).to have_text("1\nVote")
           end
         end
       end
@@ -1411,30 +1411,30 @@ describe "Vote Proposal", slow: true do
           within "#proposal-#{proposal_ids[0]}-vote-button" do
             click_on "Vote"
             sleep(1)
-            expect(page).to have_content("Voted")
+            expect(page).to have_text("Voted")
           end
           within "#proposal-#{proposal_ids[0]}-votes-count" do
-            expect(page).to have_content("0\nVotes")
+            expect(page).to have_text("0\nVotes")
           end
 
           within "#proposal-#{proposal_ids[1]}-vote-button" do
             click_on "Vote"
             sleep(1)
-            expect(page).to have_content("Voted")
+            expect(page).to have_text("Voted")
           end
           within "#proposal-#{proposal_ids[1]}-votes-count" do
-            expect(page).to have_content("0\nVotes")
+            expect(page).to have_text("0\nVotes")
           end
 
           within "#proposal-#{proposal_ids[2]}-vote-button" do
             click_on "Vote"
             sleep(1)
-            expect(page).to have_content("Voted")
+            expect(page).to have_text("Voted")
           end
 
           3.times do |index|
             within "#proposal-#{proposal_ids[index]}-votes-count" do
-              expect(page).to have_content("1\nVote")
+              expect(page).to have_text("1\nVote")
             end
           end
         end
@@ -1453,7 +1453,7 @@ describe "Vote Proposal", slow: true do
         expect do
           within ".proposal__aside-vote" do
             click_on "Vote"
-            expect(page).to have_content("1\nVote")
+            expect(page).to have_text("1\nVote")
           end
         end.to change { Decidim::Gamification.status_for(user, :proposal_votes).score }.by(1)
       end

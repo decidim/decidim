@@ -32,7 +32,7 @@ describe "Admin manages initiatives types scopes" do
       expect(page).to have_callout("A new scope for the given initiative type has been created")
 
       within ".edit_initiative_type" do
-        expect(page).to have_content("Global scope")
+        expect(page).to have_text("Global scope")
       end
     end
   end

@@ -37,7 +37,7 @@ describe "Profile" do
 
     it "shows the profile page when clicking on the menu" do
       within "[data-content]" do
-        expect(page).to have_content(user.nickname)
+        expect(page).to have_text(user.nickname)
       end
     end
 
@@ -81,40 +81,40 @@ describe "Profile" do
           expect(page).to have_link("Post", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Blogs::Post" }))
         end
 
-        expect(page).to have_content("New comment")
-        expect(page).to have_content("New proposal")
+        expect(page).to have_text("New comment")
+        expect(page).to have_text("New proposal")
 
         within "#filters" do
           click_on "Comment"
         end
-        expect(page).to have_content("New comment")
-        expect(page).to have_no_content("New proposal")
+        expect(page).to have_text("New comment")
+        expect(page).to have_no_text("New proposal")
 
         within "#filters" do
           click_on "Meeting"
         end
 
-        expect(page).to have_no_content("New comment")
-        expect(page).to have_no_content("New proposal")
-        expect(page).to have_content("This participant does not have any activity yet.")
+        expect(page).to have_no_text("New comment")
+        expect(page).to have_no_text("New proposal")
+        expect(page).to have_text("This participant does not have any activity yet.")
       end
     end
 
     it "shows user name in the header, its nickname and a contact link" do
       expect(page).to have_css("h1", text: user.name)
-      expect(page).to have_content(user.nickname)
+      expect(page).to have_text(user.nickname)
       expect(page).to have_link("Message")
     end
 
     it "does not show officialization stuff" do
-      expect(page).to have_no_content("This participant is publicly verified")
+      expect(page).to have_no_text("This participant is publicly verified")
     end
 
     context "and user officialized the standard way" do
       let(:user) { create(:user, :officialized, officialized_as: nil) }
 
       it "shows officialization status" do
-        expect(page).to have_content("Official participant")
+        expect(page).to have_text("Official participant")
       end
     end
 
@@ -125,7 +125,7 @@ describe "Profile" do
 
       it "shows officialization status" do
         click_on "Badges"
-        expect(page).to have_content("Major of Barcelona")
+        expect(page).to have_text("Major of Barcelona")
       end
 
       it "is not indexable by crawlers" do
@@ -149,8 +149,8 @@ describe "Profile" do
       it "shows the number of followers and following" do
         visit decidim.profile_path(nickname: user.nickname)
         within(".profile__details") do
-          expect(page).to have_content("1 follower")
-          expect(page).to have_content("2 follows")
+          expect(page).to have_text("1 follower")
+          expect(page).to have_text("2 follows")
         end
       end
 
@@ -158,7 +158,7 @@ describe "Profile" do
         visit decidim.profile_path(nickname: user.nickname)
         click_on "Followers"
 
-        expect(page).to have_content(other_user.name)
+        expect(page).to have_text(other_user.name)
         expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
@@ -166,10 +166,10 @@ describe "Profile" do
         visit decidim.profile_path(nickname: user.nickname)
         click_on "Follows"
 
-        expect(page).to have_no_content("Some of the resources followed are not public.")
-        expect(page).to have_content(translated(other_user.name))
-        expect(page).to have_content(translated(user_to_follow.name))
-        expect(page).to have_no_content(translated(public_resource.title))
+        expect(page).to have_no_text("Some of the resources followed are not public.")
+        expect(page).to have_text(translated(other_user.name))
+        expect(page).to have_text(translated(user_to_follow.name))
+        expect(page).to have_no_text(translated(public_resource.title))
         expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
@@ -183,15 +183,15 @@ describe "Profile" do
         it "lists only the public followings" do
           visit decidim.profile_path(nickname: user.nickname)
           within(".profile__details") do
-            expect(page).to have_content("3 follows")
+            expect(page).to have_text("3 follows")
           end
 
           click_on "Follows"
-          expect(page).to have_content("Some of the resources followed are not public.")
-          expect(page).to have_content(translated(other_user.name))
-          expect(page).to have_content(translated(user_to_follow.name))
-          expect(page).to have_no_content(translated(public_resource.title))
-          expect(page).to have_no_content(translated(non_public_resource.name))
+          expect(page).to have_text("Some of the resources followed are not public.")
+          expect(page).to have_text(translated(other_user.name))
+          expect(page).to have_text(translated(user_to_follow.name))
+          expect(page).to have_no_text(translated(public_resource.title))
+          expect(page).to have_no_text(translated(non_public_resource.name))
         end
       end
 
@@ -206,10 +206,10 @@ describe "Profile" do
           visit decidim.profile_path(nickname: user.nickname)
 
           click_on "Follows"
-          expect(page).to have_content("Some of the resources followed are not public.")
-          expect(page).to have_content(translated(other_user.name))
-          expect(page).to have_content(translated(user_to_follow.name))
-          expect(page).to have_no_content(translated(public_resource.title))
+          expect(page).to have_text("Some of the resources followed are not public.")
+          expect(page).to have_text(translated(other_user.name))
+          expect(page).to have_text(translated(user_to_follow.name))
+          expect(page).to have_no_text(translated(public_resource.title))
         end
       end
 
@@ -224,8 +224,8 @@ describe "Profile" do
           visit decidim.profile_path(nickname: user.nickname)
 
           click_on "Followers"
-          expect(page).to have_content(translated(other_user.name))
-          expect(page).to have_no_content(translated(blocked_user.name))
+          expect(page).to have_text(translated(other_user.name))
+          expect(page).to have_no_text(translated(blocked_user.name))
         end
       end
     end
@@ -263,7 +263,7 @@ describe "Profile" do
       it "does not show the member of section" do
         visit decidim.profile_path(nickname: user.nickname)
 
-        expect(page).to have_no_content("Member of")
+        expect(page).to have_no_text("Member of")
       end
     end
 
@@ -274,7 +274,7 @@ describe "Profile" do
       it "shows the member of section with the assembly link" do
         visit decidim.profile_path(nickname: user.nickname)
 
-        expect(page).to have_content("Member of")
+        expect(page).to have_text("Member of")
         expect(page).to have_link(translated(assembly.title), href: %r{/assemblies/#{assembly.slug}})
       end
     end
@@ -286,7 +286,7 @@ describe "Profile" do
       it "shows the member of section with the process link" do
         visit decidim.profile_path(nickname: user.nickname)
 
-        expect(page).to have_content("Member of")
+        expect(page).to have_text("Member of")
         expect(page).to have_link(translated(participatory_process.title), href: %r{/processes/#{participatory_process.slug}})
       end
     end
@@ -300,7 +300,7 @@ describe "Profile" do
       it "shows a single member of section with both links" do
         visit decidim.profile_path(nickname: user.nickname)
 
-        expect(page).to have_content("Member of")
+        expect(page).to have_text("Member of")
         expect(page).to have_link(translated(assembly.title), href: %r{/assemblies/#{assembly.slug}})
         expect(page).to have_link(translated(participatory_process.title), href: %r{/processes/#{participatory_process.slug}})
       end

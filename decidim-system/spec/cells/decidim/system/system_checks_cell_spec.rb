@@ -31,7 +31,7 @@ describe Decidim::System::SystemChecksCell, type: :cell do
       let(:secret_key) { "98a143987c91e79d9b587c65f720c030a91131dd70427a305706d9d6652b8e97d1498b1dd329669edfc9302d03039303425732cdb3c1ee8429e2d58dee179c55" }
 
       it "shows the success message" do
-        expect(subject).to have_content "The secret key is configured correctly"
+        expect(subject).to have_text "The secret key is configured correctly"
       end
     end
 
@@ -39,8 +39,8 @@ describe Decidim::System::SystemChecksCell, type: :cell do
       let(:secret_key) { "" }
 
       it "shows the error message" do
-        expect(subject).to have_content "The secret key is not defined correctly"
-        expect(subject).to have_content "Please save to the SECRET_KEY_BASE environment variable and restart the server"
+        expect(subject).to have_text "The secret key is not defined correctly"
+        expect(subject).to have_text "Please save to the SECRET_KEY_BASE environment variable and restart the server"
       end
     end
 
@@ -48,8 +48,8 @@ describe Decidim::System::SystemChecksCell, type: :cell do
       let(:secret_key) { nil }
 
       it "shows the error message" do
-        expect(subject).to have_content "The secret key is not defined correctly"
-        expect(subject).to have_content "Please save to the SECRET_KEY_BASE environment variable and restart the server"
+        expect(subject).to have_text "The secret key is not defined correctly"
+        expect(subject).to have_text "Please save to the SECRET_KEY_BASE environment variable and restart the server"
       end
     end
   end
@@ -63,7 +63,7 @@ describe Decidim::System::SystemChecksCell, type: :cell do
       let(:active_job_queue) { :sidekiq }
 
       it "shows the success message" do
-        expect(subject).to have_content "The ActiveJob queue is configured correctly"
+        expect(subject).to have_text "The ActiveJob queue is configured correctly"
       end
     end
 
@@ -71,8 +71,8 @@ describe Decidim::System::SystemChecksCell, type: :cell do
       let(:active_job_queue) { :async }
 
       it "shows the error message" do
-        expect(subject).to have_content "The ActiveJob queue is not configured."
-        expect(subject).to have_content "This is not a recommended setup for production"
+        expect(subject).to have_text "The ActiveJob queue is not configured."
+        expect(subject).to have_text "This is not a recommended setup for production"
         expect(subject).to have_link("Decidim Documentation", href: "https://docs.decidim.org/en/develop/services/activejob")
       end
     end

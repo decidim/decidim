@@ -21,20 +21,20 @@ describe "Admin manages authorizations users" do
 
     it "displays the menu entries" do
       within ".sidebar-menu" do
-        expect(page).to have_content("Identity documents")
-        expect(page).to have_content("Code by postal letter")
-        expect(page).to have_content("Organization's census")
+        expect(page).to have_text("Identity documents")
+        expect(page).to have_text("Code by postal letter")
+        expect(page).to have_text("Organization's census")
       end
     end
 
     it "displays main view entries" do
       within ".item_show__wrapper" do
-        expect(page).to have_content("Identity documents")
-        expect(page).to have_content("Code by postal letter")
-        expect(page).to have_content("Organization's census")
-        expect(page).to have_content("Example authorization")
-        expect(page).to have_content("Another example authorization")
-        expect(page).to have_content("Code by SMS")
+        expect(page).to have_text("Identity documents")
+        expect(page).to have_text("Code by postal letter")
+        expect(page).to have_text("Organization's census")
+        expect(page).to have_text("Example authorization")
+        expect(page).to have_text("Another example authorization")
+        expect(page).to have_text("Code by SMS")
       end
     end
   end
@@ -44,20 +44,20 @@ describe "Admin manages authorizations users" do
 
     it "displays the menu entries" do
       within ".sidebar-menu" do
-        expect(page).to have_content("Identity documents")
-        expect(page).to have_content("Organization's census")
-        expect(page).to have_no_content("Code by postal letter")
+        expect(page).to have_text("Identity documents")
+        expect(page).to have_text("Organization's census")
+        expect(page).to have_no_text("Code by postal letter")
       end
     end
 
     it "displays main view entries" do
       within ".item_show__wrapper" do
-        expect(page).to have_content("Identity documents")
-        expect(page).to have_content("Organization's census")
-        expect(page).to have_no_content("Code by postal letter")
-        expect(page).to have_no_content("Example authorization")
-        expect(page).to have_no_content("Another example authorization")
-        expect(page).to have_no_content("Code by SMS")
+        expect(page).to have_text("Identity documents")
+        expect(page).to have_text("Organization's census")
+        expect(page).to have_no_text("Code by postal letter")
+        expect(page).to have_no_text("Example authorization")
+        expect(page).to have_no_text("Another example authorization")
+        expect(page).to have_no_text("Code by SMS")
       end
     end
   end
@@ -67,20 +67,20 @@ describe "Admin manages authorizations users" do
 
     it "displays the menu entries" do
       within ".sidebar-menu" do
-        expect(page).to have_no_content("Identity documents")
-        expect(page).to have_no_content("Code by postal letter")
-        expect(page).to have_no_content("Organization's census")
+        expect(page).to have_no_text("Identity documents")
+        expect(page).to have_no_text("Code by postal letter")
+        expect(page).to have_no_text("Organization's census")
       end
     end
 
     it "displays main view entries" do
       within ".item_show__wrapper" do
-        expect(page).to have_no_content("Identity documents")
-        expect(page).to have_no_content("Code by postal letter")
-        expect(page).to have_no_content("Organization's census")
-        expect(page).to have_no_content("Example authorization")
-        expect(page).to have_no_content("Another example authorization")
-        expect(page).to have_no_content("Code by SMS")
+        expect(page).to have_no_text("Identity documents")
+        expect(page).to have_no_text("Code by postal letter")
+        expect(page).to have_no_text("Organization's census")
+        expect(page).to have_no_text("Example authorization")
+        expect(page).to have_no_text("Another example authorization")
+        expect(page).to have_no_text("Code by SMS")
       end
     end
   end

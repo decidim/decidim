@@ -103,17 +103,17 @@ describe "Sorting projects" do
         end
 
         # project2 on first page
-        expect(page).to have_content(translated(project2.title))
-        expect(page).to have_no_content(translated(project1.title))
+        expect(page).to have_text(translated(project2.title))
+        expect(page).to have_no_text(translated(project1.title))
 
         within "#projects [data-pagination]" do
-          expect(page).to have_content("2")
+          expect(page).to have_text("2")
           page.find("a", text: "2").click
         end
 
         # project1 on second page
-        expect(page).to have_no_content(translated(project2.title))
-        expect(page).to have_content(translated(project1.title))
+        expect(page).to have_no_text(translated(project2.title))
+        expect(page).to have_text(translated(project1.title))
       end
     end
   end

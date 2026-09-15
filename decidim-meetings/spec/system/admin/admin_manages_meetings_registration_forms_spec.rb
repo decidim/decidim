@@ -51,7 +51,7 @@ describe "Admin manages meetings registration forms" do
       visit registrations_edit_path
       find_by_id("meeting_customize_registration_email").click
 
-      expect(page).to have_content "This text will appear in the middle of the registration confirmation email"
+      expect(page).to have_text "This text will appear in the middle of the registration confirmation email"
       fill_in_i18n_editor(
         :meeting_registration_email_custom_content,
         "#meeting-registration_email_custom_content-tabs",

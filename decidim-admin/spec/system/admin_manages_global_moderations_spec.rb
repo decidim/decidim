@@ -152,41 +152,41 @@ describe "Admin manages global moderations" do
       visit decidim_admin.moderations_path
       click_on "Not hidden"
       find_by_id("moderations_bulk").set(true)
-      expect(page).to have_content("Reported content 3")
+      expect(page).to have_text("Reported content 3")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
         click_on "Hide"
       end
-      expect(page).to have_content("Hide selected resources")
+      expect(page).to have_text("Hide selected resources")
       click_on "Hide selected resources"
-      expect(page).to have_content("Resources successfully hidden")
+      expect(page).to have_text("Resources successfully hidden")
     end
 
     it "unreports the selected reported content" do
       visit decidim_admin.moderations_path
       find_by_id("moderations_bulk").set(true)
-      expect(page).to have_content("Reported content 3")
+      expect(page).to have_text("Reported content 3")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
         click_on "Undo the report"
       end
-      expect(page).to have_content("Unreport selected resources")
+      expect(page).to have_text("Unreport selected resources")
       click_on "Unreport selected resources"
-      expect(page).to have_content("Resources successfully unreported")
+      expect(page).to have_text("Resources successfully unreported")
     end
 
     it "unhides the selected reported content" do
       visit decidim_admin.moderations_path
       click_on "Hidden"
       find_by_id("moderations_bulk").set(true)
-      expect(page).to have_content("Reported content 1")
+      expect(page).to have_text("Reported content 1")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
         click_on "Undo the hide"
       end
-      expect(page).to have_content("Unhide selected resources")
+      expect(page).to have_text("Unhide selected resources")
       click_on "Unhide selected resources"
-      expect(page).to have_content("Resources successfully unhidden")
+      expect(page).to have_text("Resources successfully unhidden")
     end
 
     context "when unhides the moderation" do

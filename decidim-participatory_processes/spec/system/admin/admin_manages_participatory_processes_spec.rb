@@ -33,7 +33,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       it "shows the member menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_content("Members")
+          expect(page).to have_text("Members")
         end
       end
     end
@@ -43,7 +43,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       it "hides the member menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_no_content("Members")
+          expect(page).to have_no_text("Members")
         end
       end
     end
@@ -103,12 +103,12 @@ describe "Admin manages participatory processes", versioning: true do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
-        expect(page).to have_content("Phases")
-        expect(page).to have_content("Introduction")
+        expect(page).to have_text("Phases")
+        expect(page).to have_text("Introduction")
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:title])} participatory process")
+      expect(page).to have_text("created the #{translated(attributes[:title])} participatory process")
     end
   end
 

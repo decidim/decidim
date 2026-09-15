@@ -30,7 +30,7 @@ describe "Admin manages assembly soft delete" do
     end
 
     it "does not allow collaborators to view deleted assemblies" do
-      expect(page).to have_content("Assemblies")
+      expect(page).to have_text("Assemblies")
       expect(page).to have_no_link("View deleted assemblies", href: /.*assemblies.*trash.*/)
     end
   end
@@ -52,7 +52,7 @@ describe "Admin manages assembly soft delete" do
     end
 
     it "does not allow evaluators to view deleted assemblies" do
-      expect(page).to have_content("Assemblies")
+      expect(page).to have_text("Assemblies")
       expect(page).to have_no_link("View deleted assemblies", href: /.*assemblies.*trash.*/)
     end
   end
@@ -74,7 +74,7 @@ describe "Admin manages assembly soft delete" do
     end
 
     it "does not allow moderators to view deleted assemblies" do
-      expect(page).to have_content("Assemblies")
+      expect(page).to have_text("Assemblies")
       expect(page).to have_no_link("View deleted assemblies", href: /.*assemblies.*trash.*/)
     end
   end
@@ -96,7 +96,7 @@ describe "Admin manages assembly soft delete" do
     end
 
     it "does not allow space admins to view deleted assemblies" do
-      expect(page).to have_content("Assemblies")
+      expect(page).to have_text("Assemblies")
       expect(page).to have_no_link("View deleted assemblies", href: /.*assemblies.*trash.*/)
     end
   end

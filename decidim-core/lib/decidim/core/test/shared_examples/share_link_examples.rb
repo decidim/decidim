@@ -26,18 +26,18 @@ shared_examples "share link" do
     )
 
     within "#socialShare" do
-      expect(page).to have_content("Share")
-      expect(page).to have_content("Copy")
+      expect(page).to have_text("Share")
+      expect(page).to have_text("Copy")
 
       input = find_by_id("urlShareLink")
 
       find("[data-clipboard-copy]").click
 
-      expect(find("[data-clipboard-copy]")).to have_content("Copied!")
-      expect(page).to have_content("The following text was copied to clipboard: #{input.value}")
+      expect(find("[data-clipboard-copy]")).to have_text("Copied!")
+      expect(page).to have_text("The following text was copied to clipboard: #{input.value}")
 
       # Check that the screen reader announcement is properly added.
-      expect(find("[aria-role='alert']")).to have_content("The link was successfully copied to clipboard.")
+      expect(find("[aria-role='alert']")).to have_text("The link was successfully copied to clipboard.")
     end
   end
 end

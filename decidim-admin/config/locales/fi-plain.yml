@@ -899,6 +899,7 @@ fi-pl:
       officializations:
         block:
           error: Osallistujan estäminen epäonnistui.
+          no_user: Käyttäjää ei löytynyt
           success: Osallistujan estäminen onnistui.
         bulk_action:
           block:

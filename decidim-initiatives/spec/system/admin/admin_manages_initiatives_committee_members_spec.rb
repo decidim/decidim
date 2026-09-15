@@ -16,7 +16,7 @@ describe "User manages the initiatives committee members page" do
     let(:initiative_type) { create(:initiatives_type, :promoting_committee_disabled, organization:) }
 
     it "does not have the committee members section" do
-      expect(page).to have_no_content("Committee members")
+      expect(page).to have_no_text("Committee members")
     end
   end
 
@@ -28,7 +28,7 @@ describe "User manages the initiatives committee members page" do
     end
 
     it "has the committee members section" do
-      expect(page).to have_content("Committee members")
+      expect(page).to have_text("Committee members")
     end
   end
 end

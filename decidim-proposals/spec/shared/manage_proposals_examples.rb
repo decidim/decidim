@@ -74,7 +74,7 @@ shared_examples "manage proposals" do
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", **attributes[:body].except("machine_translations")
-              expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
+              expect(page).to have_no_text(decidim_sanitize_translated(root_taxonomy.name))
               find("*[type=submit]").click
             end
 
@@ -83,20 +83,20 @@ shared_examples "manage proposals" do
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
 
-              expect(page).to have_content(translated(attributes[:title]))
+              expect(page).to have_text(translated(attributes[:title]))
               expect(translated(proposal.body)).to eq("<p>#{strip_tags(translated(attributes[:body]))}</p>")
               expect(proposal.taxonomies).to eq([])
             end
             visit decidim_admin.root_path
-            expect(page).to have_content("created the proposal #{translated(attributes[:title])} from the merging of")
+            expect(page).to have_text("created the proposal #{translated(attributes[:title])} from the merging of")
 
             visit decidim.last_activities_path
-            expect(page).to have_content("New proposal: #{translated(attributes[:title])}")
+            expect(page).to have_text("New proposal: #{translated(attributes[:title])}")
 
             within "#filters" do
               find("a", class: "filter", text: "Proposal", match: :first).click
             end
-            expect(page).to have_content("New proposal: #{translated(attributes[:title])}")
+            expect(page).to have_text("New proposal: #{translated(attributes[:title])}")
           end
         end
 
@@ -109,7 +109,7 @@ shared_examples "manage proposals" do
             click_on "New proposal"
 
             within "form" do
-              expect(page).to have_no_content(/Scope/i)
+              expect(page).to have_no_text(/Scope/i)
             end
           end
 
@@ -128,7 +128,7 @@ shared_examples "manage proposals" do
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
 
-              expect(page).to have_content("Make decidim great again")
+              expect(page).to have_text("Make decidim great again")
               expect(translated(proposal.body)).to eq("<p>Decidim is great but it can be better</p>")
               expect(proposal.taxonomies).to eq([taxonomy])
             end
@@ -157,7 +157,7 @@ shared_examples "manage proposals" do
               within "table" do
                 proposal = Decidim::Proposals::Proposal.last
 
-                expect(page).to have_content("Make decidim great again")
+                expect(page).to have_text("Make decidim great again")
                 expect(translated(proposal.body)).to eq("<p>Decidim is great but it can be better</p>")
                 expect(proposal.taxonomies).to eq([taxonomy])
               end
@@ -206,7 +206,7 @@ shared_examples "manage proposals" do
             expect(page).to have_callout("Proposal successfully created.")
 
             visit resource_locator(Decidim::Proposals::Proposal.last).path
-            expect(page).to have_content("Images")
+            expect(page).to have_text("Images")
             expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
           end
         end
@@ -232,7 +232,7 @@ shared_examples "manage proposals" do
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
 
-              expect(page).to have_content("Proposal with meeting as author")
+              expect(page).to have_text("Proposal with meeting as author")
               expect(translated(proposal.body)).to eq("<p>Proposal body of meeting as author</p>")
             end
           end
@@ -314,7 +314,7 @@ shared_examples "manage proposals" do
         expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
-          expect(page).to have_content("Rejected")
+          expect(page).to have_text("Rejected")
         end
 
         proposal.reload
@@ -333,7 +333,7 @@ shared_examples "manage proposals" do
         expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
-          expect(page).to have_content("Accepted")
+          expect(page).to have_text("Accepted")
         end
 
         proposal.reload
@@ -352,7 +352,7 @@ shared_examples "manage proposals" do
         expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
-          expect(page).to have_content("Evaluating")
+          expect(page).to have_text("Evaluating")
         end
 
         proposal.reload
@@ -379,7 +379,7 @@ shared_examples "manage proposals" do
         expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
-          expect(page).to have_content("Not answered")
+          expect(page).to have_text("Not answered")
         end
 
         proposal.reload
@@ -399,7 +399,7 @@ shared_examples "manage proposals" do
         visit_component_admin
 
         within "tr", text: proposal_title do
-          expect(page).to have_content("Rejected")
+          expect(page).to have_text("Rejected")
         end
 
         go_to_admin_proposal_page_answer_section(proposal)
@@ -412,7 +412,7 @@ shared_examples "manage proposals" do
         expect(page).to have_callout("Proposal successfully answered")
 
         within "tr", text: proposal_title do
-          expect(page).to have_content("Accepted")
+          expect(page).to have_text("Accepted")
         end
 
         proposal.reload
@@ -481,7 +481,7 @@ shared_examples "manage proposals" do
       visit current_path
 
       within "thead" do
-        expect(page).to have_no_content("VOTES")
+        expect(page).to have_no_text("VOTES")
       end
     end
   end
@@ -501,7 +501,7 @@ shared_examples "manage proposals" do
       visit current_path
 
       within "thead" do
-        expect(page).to have_content("Votes")
+        expect(page).to have_text("Votes")
       end
     end
   end

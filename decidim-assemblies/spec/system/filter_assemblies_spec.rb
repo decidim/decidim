@@ -31,8 +31,8 @@ describe "Filter Assemblies" do
 
       it "lists all assemblies belonging to that taxonomy" do
         within "#assemblies-grid" do
-          expect(page).to have_content(translated(assembly_with_taxonomy.title))
-          expect(page).to have_no_content(translated(assembly_without_taxonomy.title))
+          expect(page).to have_text(translated(assembly_with_taxonomy.title))
+          expect(page).to have_no_text(translated(assembly_without_taxonomy.title))
         end
 
         within "#panel-dropdown-menu-taxonomy-#{taxonomy_filter.root_taxonomy_id}" do
@@ -42,8 +42,8 @@ describe "Filter Assemblies" do
         end
 
         within "#assemblies-grid" do
-          expect(page).to have_no_content(translated(assembly_with_taxonomy.title))
-          expect(page).to have_no_content(translated(assembly_without_taxonomy.title))
+          expect(page).to have_no_text(translated(assembly_with_taxonomy.title))
+          expect(page).to have_no_text(translated(assembly_without_taxonomy.title))
         end
 
         within "#panel-dropdown-menu-taxonomy-#{taxonomy_filter.root_taxonomy_id}" do
@@ -52,29 +52,29 @@ describe "Filter Assemblies" do
         end
 
         within "#assemblies-grid" do
-          expect(page).to have_content(translated(assembly_with_taxonomy.title))
-          expect(page).to have_content(translated(assembly_without_taxonomy.title))
+          expect(page).to have_text(translated(assembly_with_taxonomy.title))
+          expect(page).to have_text(translated(assembly_without_taxonomy.title))
         end
       end
 
       it "collapses the accordions on click" do
         within "#panel-dropdown-menu-taxonomy-#{second_taxonomy_filter.root_taxonomy_id}" do
-          expect(page).to have_content "All"
-          expect(page).to have_content "Another great taxonomy"
+          expect(page).to have_text "All"
+          expect(page).to have_text "Another great taxonomy"
         end
 
         click_on decidim_sanitize_translated(second_taxonomy_filter.root_taxonomy.name)
         click_on decidim_sanitize_translated(taxonomy_filter.root_taxonomy.name)
 
         within ".layout-2col__aside" do
-          expect(page).to have_no_content "Another great taxonomy"
-          expect(page).to have_no_content "A great taxonomy"
+          expect(page).to have_no_text "Another great taxonomy"
+          expect(page).to have_no_text "A great taxonomy"
         end
 
         click_on decidim_sanitize_translated(taxonomy_filter.root_taxonomy.name)
         within ".layout-2col__aside" do
-          expect(page).to have_no_content "Another great taxonomy"
-          expect(page).to have_content "A great taxonomy"
+          expect(page).to have_no_text "Another great taxonomy"
+          expect(page).to have_text "A great taxonomy"
         end
       end
     end

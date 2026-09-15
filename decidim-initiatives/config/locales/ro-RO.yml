@@ -369,25 +369,11 @@ ro:
         update: Actualizare
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} a acceptat cererea ta de a face parte din comitetul promotorilor pentru inițiativa %{resource_title}."
           email_outro: 'Ai primit această notificare deoarece ai aplicat pentru a face parte din comitetul promotor pentru această inițiativă: %{resource_title}'
-          email_subject: "%{author_nickname} a acceptat cererea ta de a intra în comitetul de promovare"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a acceptat cererea tade a face parte din comitetul de promovare pentru următoarea inițiativă <a href="%{resource_url}">%{resource_title}</a>.
-        create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, pe care îl urmărești, a creat o nouă inițiativă, verifică și contribuie:"
-          email_outro: Ai primit această notificare deoarece urmărești%{author_nickname}. Poți opri notificările accesând linkul anterior.
-          email_subject: O nouă inițiativă a %{author_nickname}
-          notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a fost creată de <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} a respins cererea tapentru a face parte din comitetul de promovare pentru inițiativa următoare %{resource_title}."
           email_outro: 'Ai primit această notificare deoarece ai cerut să iei parte la această inițiativă: %{resource_title}.'
-          email_subject: "%{author_nickname} a respins cererea ta la comitetul de promovare"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a respins cererea ta de a face parte din comitetul de promovare pentru următoarea inițiativă <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} a aplicat pentru comitetul de promovare al inițiativei tale %{resource_title}. Pentru a accepta sau respinge cererea, accesează formularul de editare al inițiativei ta."
           email_outro: 'Ai primit această notificare deoarece ești autorul acestei inițiative: %{resource_title}'
-          email_subject: "%{applicant_nickname} vrea să se alăture inițiativei tale"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a depus cerere pentru comitetul de promovare al inițiativa tale <a href="%{resource_url}">%{resource_title}</a>. Pentru a accepta sau respinge apasă <a href="%{resource_url}/edit">aici</a>.
       initiative_signatures:
         dummy_signature:
           form:

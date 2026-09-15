@@ -55,7 +55,7 @@ module Decidim
 
     def have_callout(text)
       within_flash_messages do
-        have_content text
+        have_text text
       end
     end
 
@@ -200,7 +200,7 @@ module Decidim
 
       # Wait for the file to be uploaded
       within "[data-dropzone-items]" do
-        expect(page).to have_content(filename)
+        expect(page).to have_text(filename)
       end
     end
 

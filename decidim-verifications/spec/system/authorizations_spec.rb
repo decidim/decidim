@@ -33,7 +33,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
         fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
         click_on "Send"
-        expect(page).to have_content("You have been successfully authorized")
+        expect(page).to have_text("You have been successfully authorized")
       end
 
       it "allows the user to skip it" do
@@ -42,7 +42,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
         click_on "start exploring"
         expect(page).to have_current_path decidim.root_path
 
-        expect(page).to have_content("How do I take part in a process?")
+        expect(page).to have_text("How do I take part in a process?")
       end
 
       context "and a duplicate authorization exists for an existing user" do
@@ -58,11 +58,11 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
           fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
           expect { click_on "Send" }.not_to change(Decidim::Authorization, :count)
-          expect(page).to have_content("There was a problem creating the authorization.")
-          expect(page).to have_content("A participant is already authorized with the same data. An administrator will contact you to verify your details.")
+          expect(page).to have_text("There was a problem creating the authorization.")
+          expect(page).to have_text("A participant is already authorized with the same data. An administrator will contact you to verify your details.")
 
           expect { click_on "Send" }.not_to change(Decidim::AuthorizationTransfer, :count)
-          expect(page).to have_content("There was a problem creating the authorization.")
+          expect(page).to have_text("There was a problem creating the authorization.")
         end
       end
 
@@ -79,8 +79,8 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
           fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
           click_on "Send"
-          expect(page).to have_content("You have been successfully authorized.")
-          expect(page).to have_no_content("We have recovered the following participation data based on your authorization:")
+          expect(page).to have_text("You have been successfully authorized.")
+          expect(page).to have_no_text("We have recovered the following participation data based on your authorization:")
         end
 
         context "and the deleted user for the duplicate authorization had transferrable data" do
@@ -106,10 +106,10 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
             fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
             click_on "Send"
-            expect(page).to have_content("You have been successfully authorized.")
-            expect(page).to have_content("We have recovered the following participation data based on your authorization:")
-            expect(page).to have_content("Comments: 10")
-            expect(page).to have_content("Proposals: 5")
+            expect(page).to have_text("You have been successfully authorized.")
+            expect(page).to have_text("We have recovered the following participation data based on your authorization:")
+            expect(page).to have_text("Comments: 10")
+            expect(page).to have_text("Proposals: 5")
           end
         end
       end
@@ -150,12 +150,12 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
 
         click_on "Send"
 
-        expect(page).to have_content("You have been successfully authorized")
+        expect(page).to have_text("You have been successfully authorized")
 
         visit_authorizations
 
         within ".authorizations-list" do
-          expect(page).to have_content("Example authorization")
+          expect(page).to have_text("Example authorization")
           expect(page).to have_no_link(text: /Example authorization/)
         end
       end
@@ -169,7 +169,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
 
         click_on "Send"
 
-        expect(page).to have_content("There was a problem creating the authorization.")
+        expect(page).to have_text("There was a problem creating the authorization.")
       end
     end
 
@@ -184,7 +184,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
         visit_authorizations
 
         within ".authorizations-list" do
-          expect(page).to have_content("Example authorization")
+          expect(page).to have_text("Example authorization")
         end
       end
 
@@ -222,10 +222,10 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
             page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
 
             within "#renew-modal" do
-              expect(page).to have_content("Example authorization")
-              expect(page).to have_content("This is the data of the current verification:")
-              expect(page).to have_content("Continue")
-              expect(page).to have_content("Cancel")
+              expect(page).to have_text("Example authorization")
+              expect(page).to have_text("This is the data of the current verification:")
+              expect(page).to have_text("Continue")
+              expect(page).to have_text("Cancel")
             end
           end
 
@@ -237,7 +237,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
                 click_on "Continue"
               end
 
-              expect(page).to have_content("Document number")
+              expect(page).to have_text("Document number")
               expect(page).to have_button "Send"
             end
           end
@@ -254,7 +254,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
 
           within ".authorizations-list" do
             expect(page).to have_no_link(text: /Example authorization/)
-            expect(page).to have_content(I18n.l(authorization.granted_at, format: :long_with_particles))
+            expect(page).to have_text(I18n.l(authorization.granted_at, format: :long_with_particles))
           end
         end
       end
@@ -279,7 +279,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
           fill_in "Document number", with: "123456789X"
           click_on "Send"
 
-          expect(page).to have_content("You have been successfully authorized")
+          expect(page).to have_text("You have been successfully authorized")
         end
       end
     end
@@ -314,7 +314,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
     context "and there are no authorizations defined for the resource" do
       it "the user is redirected to the resource" do
         expect(page).to have_current_path commentable_path
-        expect(page).to have_content "You have been successfully authorized"
+        expect(page).to have_text "You have been successfully authorized"
       end
     end
 
@@ -345,8 +345,8 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
               postal_codes: "1234,4567",
               redirect_url: decidim_verifications.onboarding_pending_authorizations_path
             )
-            expect(page).to have_content "We need to verify your identity"
-            expect(page).to have_content "Verify with Example authorization"
+            expect(page).to have_text "We need to verify your identity"
+            expect(page).to have_text "Verify with Example authorization"
           end
         end
 
@@ -370,7 +370,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
 
           it "the user is redirected to a page with the authorizations required to perform the action" do
             expect(page).to have_current_path decidim_verifications.onboarding_pending_authorizations_path
-            expect(page).to have_content "You are almost ready to comment on the #{translated_attribute(commentable.title)} dummy resource"
+            expect(page).to have_text "You are almost ready to comment on the #{translated_attribute(commentable.title)} dummy resource"
             expect(page).to have_css("a[data-verification]", text: "Example authorization")
             expect(page).to have_css("a[data-verification]", text: "Another example authorization")
           end
@@ -395,7 +395,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
 
           it "the user is redirected to the resource with a success message" do
             expect(page).to have_current_path commentable_path
-            expect(page).to have_content "You have been successfully authorized"
+            expect(page).to have_text "You have been successfully authorized"
           end
         end
 
@@ -413,7 +413,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
 
           it "the user is redirected to the resource with a failed authorization message" do
             expect(page).to have_current_path commentable_path
-            expect(page).to have_content "You are not authorized to comment in this resource"
+            expect(page).to have_text "You are not authorized to comment in this resource"
           end
         end
       end

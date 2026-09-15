@@ -31,7 +31,7 @@ module Decidim::Accountability
 
         it "shows the progress" do
           html = status_cell(taxonomy).call
-          expect(html).to have_content("75%")
+          expect(html).to have_text("75%")
         end
       end
 
@@ -52,7 +52,7 @@ module Decidim::Accountability
 
       it "shows the progress from the model" do
         html = status_cell(result).call
-        expect(html).to have_content("50%")
+        expect(html).to have_text("50%")
       end
     end
 
@@ -61,8 +61,8 @@ module Decidim::Accountability
 
       it "does not use custom progress when model has progress" do
         html = status_cell(result, progress: 80).call
-        expect(html).to have_content("50%")
-        expect(html).to have_no_content("80%")
+        expect(html).to have_text("50%")
+        expect(html).to have_no_text("80%")
       end
     end
 
@@ -71,7 +71,7 @@ module Decidim::Accountability
 
       it "displays the count" do
         html = status_cell(result, count: 42).call
-        expect(html).to have_content("42")
+        expect(html).to have_text("42")
       end
     end
 

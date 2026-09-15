@@ -10,7 +10,7 @@ shared_examples "manage attachment collections examples" do
 
   it "lists all the attachment collections for the process" do
     within "#attachment_collections table" do
-      expect(page).to have_content(translated(attachment_collection.name, locale: :en))
+      expect(page).to have_text(translated(attachment_collection.name, locale: :en))
     end
   end
 
@@ -47,11 +47,11 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_callout("Folder created successfully.")
 
     within "#attachment_collections table" do
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:name])} attachment collection")
+    expect(page).to have_text("created the #{translated(attributes[:name])} attachment collection")
   end
 
   it "can update an attachment collection" do
@@ -75,11 +75,11 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_callout("Folder updated successfully.")
 
     within "#attachment_collections table" do
-      expect(page).to have_content(translated(attributes[:name]))
+      expect(page).to have_text(translated(attributes[:name]))
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("updated the #{translated(attributes[:name])} attachment collection")
+    expect(page).to have_text("updated the #{translated(attributes[:name])} attachment collection")
   end
 
   context "when deleting a attachment collection" do
@@ -99,7 +99,7 @@ shared_examples "manage attachment collections examples" do
         expect(page).to have_callout("Folder destroyed successfully.")
 
         within "#attachment_collections table" do
-          expect(page).to have_no_content(translated(attachment_collection2.name))
+          expect(page).to have_no_text(translated(attachment_collection2.name))
         end
       end
     end

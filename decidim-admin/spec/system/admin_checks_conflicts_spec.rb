@@ -37,22 +37,22 @@ describe "Admin checks conflicts" do
     it "can be searched by name" do
       search_by_text(first_conflictive_user.name)
 
-      expect(page).to have_content(first_conflictive_user.name)
-      expect(page).to have_no_content(second_conflictive_user.name)
+      expect(page).to have_text(first_conflictive_user.name)
+      expect(page).to have_no_text(second_conflictive_user.name)
     end
 
     it "can be searched by nickname" do
       search_by_text(first_conflictive_user.nickname)
 
-      expect(page).to have_content(first_conflictive_user.name)
-      expect(page).to have_no_content(second_conflictive_user.name)
+      expect(page).to have_text(first_conflictive_user.name)
+      expect(page).to have_no_text(second_conflictive_user.name)
     end
 
     it "can be searched by email" do
       search_by_text(first_conflictive_user.email)
 
-      expect(page).to have_content(first_conflictive_user.name)
-      expect(page).to have_no_content(second_conflictive_user.name)
+      expect(page).to have_text(first_conflictive_user.name)
+      expect(page).to have_no_text(second_conflictive_user.name)
     end
   end
 end

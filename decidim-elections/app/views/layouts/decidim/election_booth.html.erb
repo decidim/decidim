@@ -12,7 +12,7 @@
   </head>
   <body class="text-black text-md form-defaults<%= yield (:body_class) %>">
   <div class="layout-container">
-    <header>
+    <header role="banner">
       <div id="elections-header-container">
         <%= render partial: "layouts/decidim/election_votes_header" %>
       </div>
@@ -22,7 +22,7 @@
         <%= display_flash_messages %>
       </div>
     <% end %>
-    <main class="layout-1col cols-6">
+    <main class="layout-1col cols-6" role="main">
       <div class="py-8 space-y-8 lg:py-12 lg:space-y-12">
         <%= yield %>
       </div>

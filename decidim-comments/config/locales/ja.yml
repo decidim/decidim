@@ -160,12 +160,10 @@ ja:
           email_intro: "%{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:"
           email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのユーザーのフォローを解除することができます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> より <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>.
         comment_created:
           email_intro: "%{resource_title} にコメントがありました。このページでコメントを読むことができます："
           email_outro: '"%{resource_title}" 、またはその参加者をフォローしているためこの通知を受け取りました。前のリンクからフォローを解除することができます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>
         comment_downvoted:
           email_intro: '"%{resource_title}" でのあなたの意見への反対票がありました。現在の合計は、賛成票が %{upvotes} 件、反対票が %{downvotes} 件です。'
           email_outro: このコメントの作成者であるため、この通知を受け取りました。
@@ -180,12 +178,10 @@ ja:
           email_intro: "%{author_name} は %{resource_title}であなたのコメントを返信しました。このページで読むことができます:"
           email_outro: コメントが返信されたため、この通知を受信しました。
           email_subject: "%{author_name} が %{resource_title} であなたのコメントに返信しました"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a> であなたのコメントに返信しました
         user_mentioned:
           email_intro: あなたはメンションされています
           email_outro: あなたが %{resource_title}でメンションされたため、この通知を受け取りました。
           email_subject: あなたは %{resource_title} でメンションされました
-          notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> で <a href="%{author_path}">%{author_name} %{author_nickname}によってメンションされました</a>
   errors:
     messages:
       cannot_have_comments: コメントを持つことはできません

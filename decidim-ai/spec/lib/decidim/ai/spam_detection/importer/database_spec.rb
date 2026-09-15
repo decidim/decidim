@@ -20,6 +20,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let(:reporting_user) { author }
     let(:spam_count) { 2 }
     let!(:parent) { create(:report, reason: "parent_hidden", user: reporting_user, moderation: create(:moderation, :hidden, reportable: resources.last)) }
+
     Decidim::Report::REASONS.excluding("parent_hidden").each do |reason|
       let!(:report) { create(:report, reason:, user: reporting_user, moderation: create(:moderation, :hidden, reportable:)) }
 

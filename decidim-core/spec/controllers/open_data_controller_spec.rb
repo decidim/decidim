@@ -39,7 +39,7 @@ module Decidim
         end
 
         it "warns the user" do
-          expect(controller.flash.alert).to have_content("not yet available")
+          expect(controller.flash.alert).to have_text("not yet available")
         end
 
         it "schedules a generation" do

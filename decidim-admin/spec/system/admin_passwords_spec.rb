@@ -19,23 +19,23 @@ describe "Admin passwords" do
 
     it "can update password successfully" do
       manual_login(user.email, password)
-      expect(page).to have_content("Admin users need to change their password every 90 days")
-      expect(page).to have_content("Password change")
+      expect(page).to have_text("Admin users need to change their password every 90 days")
+      expect(page).to have_text("Password change")
       fill_in :password_user_password, with: new_password
       click_on "Change my password"
       expect(page).to have_css("[data-alert-box].success")
-      expect(page).to have_content("Password successfully updated")
+      expect(page).to have_text("Password successfully updated")
       expect(user.reload.password_updated_at).to be_between(2.seconds.ago, Time.current)
     end
 
     it "cannot dismiss password change" do
       manual_login(user.email, password)
-      expect(page).to have_content("Password change")
+      expect(page).to have_text("Password change")
       within "#admin-bar" do
         click_on "Admin dashboard"
       end
-      expect(page).to have_content("You need to change your password in order to proceed further")
-      expect(page).to have_content("Password change")
+      expect(page).to have_text("You need to change your password in order to proceed further")
+      expect(page).to have_text("Password change")
       expect(page).to have_current_path(decidim.change_password_path)
     end
 
@@ -46,7 +46,7 @@ describe "Admin passwords" do
 
       it "redirects to original path after password update" do
         manual_login(user.email, password)
-        expect(page).to have_content("Password change")
+        expect(page).to have_text("Password change")
         fill_in :password_user_password, with: new_password
         click_on "Change my password"
 
@@ -65,8 +65,8 @@ describe "Admin passwords" do
 
       it "does not prompt to change password" do
         manual_login(user.email, password)
-        expect(page).to have_no_content("Admin users need to change their password every")
-        expect(page).to have_no_content("Password change")
+        expect(page).to have_no_text("Admin users need to change their password every")
+        expect(page).to have_no_text("Password change")
       end
     end
   end
@@ -76,7 +76,7 @@ describe "Admin passwords" do
 
     it "redirects to edit password view" do
       manual_login(user.email, password)
-      expect(page).to have_content("Password change")
+      expect(page).to have_text("Password change")
     end
   end
 

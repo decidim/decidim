@@ -7,7 +7,7 @@ export default class extends Controller {
    * Create accordion from a component
    *
    * @param {HTMLElement} component - The component to be created
-   * @return {void}
+   * @returns {void}
    */
   connect() {
     this.toggleButton = this.element.querySelector("[data-controls]");

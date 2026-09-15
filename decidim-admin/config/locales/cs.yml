@@ -905,6 +905,7 @@ cs:
       officializations:
         block:
           error: Při blokování účastníka došlo k chybě.
+          no_user: Nebyl nalezen žádný uživatel
           success: Účastník byl úspěšně zablokován.
         bulk_action:
           block:
@@ -940,6 +941,7 @@ cs:
           officialize: Ověřit
           title: Oficializovat účastníka "%{name}"
         show_email:
+          no_user: Nebyl nalezen žádný uživatel
           title: Zobrazit e-mail
         show_email_modal:
           description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.

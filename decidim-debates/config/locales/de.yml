@@ -199,13 +199,6 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Neue Debatte "%{resource_title}" in %{participatory_space_title}
             notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> erstellt.
-          user_followers:
-            email_intro: |-
-              Hallo,
-              %{author_name} %{author_nickname}, dem Sie folgen, hat eine neue Debatte "%{resource_title}" erstellt. Sehen Sie es sich an und reden Sie mit:
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Neue Debatte "%{resource_title}" von %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die Debatte <a href="%{resource_path}">%{resource_title}</a> erstellt.
         creation_disabled:
           email_intro: 'Die Erstellung von Debatten ist in %{participatory_space_title} nicht mehr aktiviert. Sie können weiterhin an offenen Debatten teilnehmen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.

@@ -13,37 +13,37 @@ module Decidim::Meetings
       }
     end
 
-    let(:name) { "Foo" }
     let(:email) { "foo@example.org" }
-    let(:existing_user) { false }
+    let(:attendee_type) { "email" }
     let(:user_id) { nil }
     let(:attributes) do
       {
-        name:,
         email:,
-        existing_user:,
+        attendee_type:,
         user_id:
       }
     end
 
-    context "when everything is OK" do
-      it { is_expected.to be_valid }
+    context "when attendee_type is email" do
+      context "when everything is OK" do
+        it { is_expected.to be_valid }
+      end
+
+      context "when email is missing" do
+        let(:email) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context "when email is invalid" do
+        let(:email) { "not-an-email" }
+
+        it { is_expected.to be_invalid }
+      end
     end
 
-    context "when name is missing" do
-      let(:name) { nil }
-
-      it { is_expected.to be_invalid }
-    end
-
-    context "when email is missing" do
-      let(:email) { nil }
-
-      it { is_expected.to be_invalid }
-    end
-
-    context "when existing user is present" do
-      let(:existing_user) { true }
+    context "when attendee_type is name" do
+      let(:attendee_type) { "name" }
 
       context "and no user is provided" do
         it { is_expected.to be_invalid }
@@ -82,6 +82,18 @@ module Decidim::Meetings
           it { is_expected.to be_nil }
         end
       end
+    end
+
+    context "when attendee_type is missing" do
+      let(:attendee_type) { nil }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when attendee_type is invalid" do
+      let(:attendee_type) { "invalid" }
+
+      it { is_expected.to be_invalid }
     end
   end
 end

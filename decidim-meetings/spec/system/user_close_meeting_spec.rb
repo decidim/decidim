@@ -43,10 +43,10 @@ describe "User edit meeting" do
       find("#dropdown-trigger-resource-#{meeting.id}").click
       click_on "Close"
 
-      expect(page).to have_content "Close meeting"
+      expect(page).to have_text "Close meeting"
 
       within "form.edit_close_meeting" do
-        expect(page).to have_content "Proposals"
+        expect(page).to have_text "Proposals"
 
         fill_in :close_meeting_closing_report, with: closing_report
         fill_in :close_meeting_attendees_count, with: 10
@@ -54,9 +54,9 @@ describe "User edit meeting" do
         click_on "Close meeting"
       end
 
-      expect(page).to have_content(closing_report)
-      expect(page).to have_no_content "Close meeting"
-      expect(page).to have_no_content "Organizations"
+      expect(page).to have_text(closing_report)
+      expect(page).to have_no_text "Close meeting"
+      expect(page).to have_no_text "Organizations"
       expect(meeting.reload.closed_at).not_to be_nil
     end
 
@@ -67,10 +67,10 @@ describe "User edit meeting" do
       find("#dropdown-trigger-resource-#{meeting.id}").click
       click_on "Close"
 
-      expect(page).to have_content "Close meeting"
+      expect(page).to have_text "Close meeting"
 
       within "form.edit_close_meeting" do
-        expect(page).to have_content "Proposals"
+        expect(page).to have_text "Proposals"
 
         fill_in :close_meeting_closing_report, with: closing_report
         fill_in :close_meeting_attendees_count, with: 10
@@ -87,12 +87,12 @@ describe "User edit meeting" do
 
       visit current_path
 
-      expect(page).to have_content(closing_report)
+      expect(page).to have_text(closing_report)
       within ".meeting__agenda-item__description" do
         expect(page).to have_no_css("img")
       end
-      expect(page).to have_no_content "Close meeting"
-      expect(page).to have_no_content "Organizations"
+      expect(page).to have_no_text "Close meeting"
+      expect(page).to have_no_text "Organizations"
       expect(meeting.reload.closed_at).not_to be_nil
     end
 
@@ -136,10 +136,10 @@ describe "User edit meeting" do
         find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Edit meeting report"
 
-        expect(page).to have_content "Close meeting"
+        expect(page).to have_text "Close meeting"
 
         within "form.edit_close_meeting" do
-          expect(page).to have_content "Proposals"
+          expect(page).to have_text "Proposals"
 
           fill_in :close_meeting_attendees_count, with: 10
           fill_in :close_meeting_closing_report, with: edit_closing_report
@@ -147,9 +147,9 @@ describe "User edit meeting" do
           click_on "Close meeting"
         end
 
-        expect(page).to have_content(edit_closing_report)
-        expect(page).to have_no_content "Close meeting"
-        expect(page).to have_no_content "Organizations"
+        expect(page).to have_text(edit_closing_report)
+        expect(page).to have_no_text "Close meeting"
+        expect(page).to have_no_text "Organizations"
         expect(meeting.reload.closed_at).not_to be_nil
       end
     end
@@ -166,10 +166,10 @@ describe "User edit meeting" do
         find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Close"
 
-        expect(page).to have_content "Close meeting"
+        expect(page).to have_text "Close meeting"
 
         within "form.edit_close_meeting" do
-          expect(page).to have_no_content "Proposals"
+          expect(page).to have_no_text "Proposals"
         end
       end
     end
@@ -184,7 +184,7 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
-      expect(page).to have_no_content("Close meeting")
+      expect(page).to have_no_text("Close meeting")
     end
   end
 end

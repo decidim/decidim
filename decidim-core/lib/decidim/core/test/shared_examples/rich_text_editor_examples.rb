@@ -35,7 +35,7 @@ shared_examples "rendering safe content" do |css|
   it "sanitizes potentially malicious HTML tags" do
     within css do
       expect(page).to have_no_css("script", visible: :all)
-      expect(page).to have_content("alert('SCRIPT')")
+      expect(page).to have_text("alert('SCRIPT')")
     end
   end
 end
@@ -46,18 +46,18 @@ shared_examples "rendering unsafe content" do |css|
   it "sanitizes potentially safe HTML tags" do
     within css do
       expect(page).to have_no_css("em")
-      expect(page).to have_content("em")
+      expect(page).to have_text("em")
       expect(page).to have_no_css("u")
-      expect(page).to have_content("u")
+      expect(page).to have_text("u")
       expect(page).to have_no_css("strong")
-      expect(page).to have_content("strong")
+      expect(page).to have_text("strong")
     end
   end
 
   it "strips potentially malicious HTML tags" do
     within css do
       expect(page).to have_no_css("script", visible: :all)
-      expect(page).to have_no_content("alert('SCRIPT')")
+      expect(page).to have_no_text("alert('SCRIPT')")
     end
   end
 end

@@ -241,8 +241,8 @@ es-MX:
               label: Acceso
               options:
                 open: Cualquiera puede ver y participar a la asamblea.
-                restricted: Solo las miembros pueden ver y participar en la asamblea.
-                transparent: Cualquiera puede ver la asamblea, pero solo las miembros pueden participar.
+                restricted: Solo miembros y administradoras pueden ver y participar. No aparecerá en la búsqueda general, API, ni en los archivos de datos abiertos.
+                transparent: Cualquiera puede ver la asamblea, pero solo miembros y administradoras pueden participar.
               set_this_space_as: Define el tipo de acceso a este espacio
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración

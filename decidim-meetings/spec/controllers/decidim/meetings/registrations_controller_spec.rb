@@ -156,7 +156,7 @@ module Decidim::Meetings
           delete :destroy, params:
         end.to change(Registration, :count).by(-1)
 
-        expect(flash[:notice]).to match(/successfully/)
+        expect(flash[:notice]).to include("successfully")
         expect(response).to redirect_to(my_meeting_path)
       end
     end

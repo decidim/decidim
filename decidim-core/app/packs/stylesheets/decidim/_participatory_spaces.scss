@@ -210,14 +210,6 @@
       @apply grid grid-cols-1 md:grid-cols-3 auto-rows-max gap-6 md:gap-16;
     }
 
-    &-reference {
-      @apply py-4 bg-background text-center text-gray-2 text-xs font-normal;
-
-      &.alert {
-        @apply bg-alert/25;
-      }
-    }
-
     &-breadcrumb {
       @apply container py-4 flex items-center gap-4 text-left text-secondary text-md font-normal [&>svg]:fill-current;
     }

@@ -23,7 +23,7 @@ describe "AdminAccess" do
 
       it "access the projects' index page" do
         click_on(translated(budget.title))
-        expect(page).to have_content(translated(project.title))
+        expect(page).to have_text(translated(project.title))
       end
     end
   end

@@ -41,8 +41,8 @@ describe "Initiative signing with ephemeral workflows" do
             click_on "Sign"
           end
 
-          expect(page).to have_no_content "Already signed"
-          expect(page).to have_content "Please log in"
+          expect(page).to have_no_text "Already signed"
+          expect(page).to have_text "Please log in"
         end.not_to change(Decidim::InitiativesVote, :count)
       end.not_to change(Decidim::User, :count)
     end
@@ -106,7 +106,7 @@ describe "Initiative signing with ephemeral workflows" do
               click_on "Sign"
             end
 
-            expect(page).to have_content "Verify with Dummy Signature Handler"
+            expect(page).to have_text "Verify with Dummy Signature Handler"
             expect(page).to have_css("form.new_dummy_signature_handler")
           end.to change(Decidim::User.ephemeral, :count).by(1)
         end
@@ -114,7 +114,7 @@ describe "Initiative signing with ephemeral workflows" do
 
       shared_examples "creating an authorization" do
         it "displays a mandatory tos acceptance item" do
-          expect(page).to have_content("By verifying your identity you accept the terms of service.")
+          expect(page).to have_text("By verifying your identity you accept the terms of service.")
 
           expect do
             expect do
@@ -122,7 +122,7 @@ describe "Initiative signing with ephemeral workflows" do
               click_on "Validate your data"
 
               within "#card__tos" do
-                expect(page).to have_content "must be accepted"
+                expect(page).to have_text "must be accepted"
               end
             end.not_to change(Decidim::InitiativesVote, :count)
           end.not_to change(Decidim::Authorization, :count)
@@ -142,7 +142,7 @@ describe "Initiative signing with ephemeral workflows" do
             expect do
               click_on "Validate your data"
               # Wait for the page to update with success message
-              expect(page).to have_content("You have signed the initiative", wait: 10)
+              expect(page).to have_text("You have signed the initiative", wait: 10)
             end.to change { Decidim::Authorization.where(user:, name: "dummy_authorization_handler").count }.by(1)
           end
         end
@@ -173,7 +173,7 @@ describe "Initiative signing with ephemeral workflows" do
           expect do
             click_on "Validate your data"
 
-            expect(page).to have_content "You have signed the initiative"
+            expect(page).to have_text "You have signed the initiative"
           end.to change(Decidim::InitiativesVote.where(author: user), :count).by(1)
         end
 
@@ -199,7 +199,7 @@ describe "Initiative signing with ephemeral workflows" do
           end
 
           it "the user is redirected to the phone number step" do
-            expect(page).to have_content "Please enter your phone number. You will then receive an SMS with a validation code."
+            expect(page).to have_text "Please enter your phone number. You will then receive an SMS with a validation code."
           end
 
           it "the SMS step can be completed and the vote created" do
@@ -208,14 +208,14 @@ describe "Initiative signing with ephemeral workflows" do
             fill_phone_number(phone_number)
 
             click_on "Receive code"
-            expect(page).to have_content "Your confirmation code"
+            expect(page).to have_text "Your confirmation code"
             fill_sms_code("010203")
-            expect(page).to have_content "Your code is correct"
+            expect(page).to have_text "Your code is correct"
 
             expect do
               click_on "Sign initiative"
 
-              expect(page).to have_content "You have signed the initiative"
+              expect(page).to have_text "You have signed the initiative"
             end.to change(Decidim::InitiativesVote.where(author: user), :count).by(1)
           end
         end
@@ -276,7 +276,7 @@ describe "Initiative signing with ephemeral workflows" do
             expect do
               click_on "Validate your data"
 
-              expect(page).to have_content "Some of the personal data provided to verify your identity is not valid."
+              expect(page).to have_text "Some of the personal data provided to verify your identity is not valid."
             end.not_to change(Decidim::Authorization, :count)
           end.not_to change(Decidim::InitiativesVote, :count)
         end
@@ -289,7 +289,7 @@ describe "Initiative signing with ephemeral workflows" do
             expect do
               click_on "Validate your data"
 
-              expect(page).to have_content "You have signed the initiative"
+              expect(page).to have_text "You have signed the initiative"
             end.not_to change(Decidim::Authorization, :count)
           end.to change(Decidim::InitiativesVote.where(author: ephemeral_user), :count).by(1)
         end
@@ -322,9 +322,9 @@ describe "Initiative signing with ephemeral workflows" do
             expect do
               click_on "Validate your data"
 
-              expect(page).to have_content "You have signed the initiative"
-              expect(page).to have_content "We have recovered the following participation data based on your authorization"
-              expect(page).to have_content "Initiatives vote: 1"
+              expect(page).to have_text "You have signed the initiative"
+              expect(page).to have_text "We have recovered the following participation data based on your authorization"
+              expect(page).to have_text "Initiatives vote: 1"
             end.not_to change(Decidim::Authorization, :count)
           end.to change(Decidim::InitiativesVote.where(author: regular_user), :count).by(2)
         end

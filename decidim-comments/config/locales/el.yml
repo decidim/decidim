@@ -117,12 +117,10 @@ el:
           email_intro: "Ο συντάκτης %{author_name} έκανε ένα σχόλιο στο στοιχείο %{resource_title}. Μπορείτε να το διαβάσετε σε αυτήν τη σελίδα:"
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_name}. Μπορείτε να σταματήσετε να ακολουθείτε αυτόν τον χρήστη από τη σελίδα προφίλ του.
           email_subject: Υπάρχει ένα νέο σχόλιο από τον συντάκτη %{author_name} στο στοιχείο %{resource_title}
-          notification_title: Υπάρχει ένα νέο σχόλιο από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a> στο στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "Το στοιχείο %{resource_title} έχει σχολιαστεί. Μπορείτε να διαβάσετε το σχόλιο σε αυτήν τη σελίδα:"
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε το στοιχείο «%{resource_title}» ή τον συντάκτη του. Μπορείτε να σταματήσετε να την ακολουθείτε από τον προηγούμενο σύνδεσμο.
           email_subject: Υπάρχει ένα νέο σχόλιο από τον συντάκτη %{author_name} στο στοιχείο %{resource_title}
-          notification_title: Υπάρχει ένα νέο σχόλιο από τον συντάκτη<a href="%{author_path}">%{author_name} %{author_nickname}</a> στο στοιχείο <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Το σχόλιό σας στο "%{resource_title}" έχει καταψηφιστεί. Τώρα έχει συνολικές ψήφους %{upvotes} υπέρ και %{downvotes} κατά.
           email_outro: Λάβατε αυτή την ειδοποίηση επειδή είστε ο συγγραφέας αυτού του σχολίου.
@@ -137,12 +135,10 @@ el:
           email_intro: "Ο συντάκτης %{author_name} απάντησε στο σχόλιό σας στο στοιχείο %{resource_title}. Μπορείτε να το διαβάσετε σε αυτήν τη σελίδα:"
           email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή το σχόλιό σας απαντήθηκε.
           email_subject: "Ο συντάκτης %{author_name} απάντησε στο σχόλιό σας στο στοιχείο %{resource_title}"
-          notification_title: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> απάντησε στο σχόλιό σας στο στοιχείο <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Έγινε αναφορά σε εσάς
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή έγινε αναφορά σε εσάς στο στοιχείο %{resource_title}.
           email_subject: Έγινε αναφορά σε εσάς στο στοιχείο %{resource_title}
-          notification_title: Έγινε αναφορά σε εσάς στο στοιχείο <a href="%{resource_path}">%{resource_title}</a> από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: δεν μπορεί να έχει σχόλια

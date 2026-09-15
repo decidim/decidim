@@ -19,12 +19,12 @@ describe "Admin manages members via csv import" do
   end
 
   it "show the form to add some members via csv" do
-    expect(page).to have_content("Upload your CSV file")
+    expect(page).to have_text("Upload your CSV file")
   end
 
   context "when there are no existing users" do
     it "does not propose to delete" do
-      expect(page).to have_content("You have no members.")
+      expect(page).to have_text("You have no members.")
     end
   end
 
@@ -41,11 +41,11 @@ describe "Admin manages members via csv import" do
     it "ask you for confirmation and delete existing users" do
       find(".alert").click
 
-      expect(page).to have_content("Are you sure you want to delete all members?")
+      expect(page).to have_text("Are you sure you want to delete all members?")
 
       click_on("OK")
 
-      expect(page).to have_content("You have no members")
+      expect(page).to have_text("You have no members")
     end
   end
 end

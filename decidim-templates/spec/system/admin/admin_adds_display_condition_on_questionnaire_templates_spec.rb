@@ -16,8 +16,8 @@ describe "Admin adds display condition to template's questionnaire question" do
 
   it "adds display condition to questionnaire question" do
     questionnaire = template.templatable
-    question_one = create(:questionnaire_question, mandatory: true, question_type: "matrix_single", rows: matrix_rows, options: response_options, questionnaire:)
-    question_two = create(:questionnaire_question, :with_response_options, questionnaire:)
+    question_one = create(:questionnaire_question, position: 0, mandatory: true, question_type: "matrix_single", rows: matrix_rows, options: response_options, questionnaire:)
+    question_two = create(:questionnaire_question, :with_response_options, position: 1, questionnaire:)
 
     visit decidim_admin_templates.edit_questions_questionnaire_template_path(template.id)
     # expand question two
@@ -30,7 +30,7 @@ describe "Admin adds display condition to template's questionnaire question" do
     select "Equal", from: "questions[questions][#{question_two.id}][display_conditions][questionnaire-display-condition-id][condition_type]"
     # validate we have the 2 response options from question one in the select
     select = find("#questions_questions_#{question_two.id}_display_conditions_questionnaire-display-condition-id_decidim_response_option_id")
-    expect(select).to have_content(translated(question_one.response_options.first.body))
-    expect(select).to have_content(translated(question_one.response_options.last.body))
+    expect(select).to have_text(translated(question_one.response_options.first.body))
+    expect(select).to have_text(translated(question_one.response_options.last.body))
   end
 end

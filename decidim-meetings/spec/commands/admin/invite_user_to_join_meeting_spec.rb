@@ -8,15 +8,13 @@ module Decidim::Meetings
 
     let(:organization) { create(:organization) }
     let!(:current_user) { create(:user, :admin, organization:) }
-    let(:name) { "name" }
     let(:email) { "foo@example.org" }
-    let(:existing_user) { false }
+    let(:attendee_type) { "email" }
     let(:user_id) { nil }
     let(:form_params) do
       {
-        name:,
         email:,
-        existing_user:,
+        attendee_type:,
         user_id:
       }
     end
@@ -64,10 +62,10 @@ module Decidim::Meetings
         expect { subject.call }.to broadcast(:ok)
       end
 
-      context "when the form provides an existing user" do
+      context "when the form provides an existing user by name" do
         let!(:user) { create(:user, :confirmed, organization:) }
         let(:attendee_name) { user.name }
-        let(:existing_user) { true }
+        let(:attendee_type) { "name" }
         let(:user_id) { user.id }
 
         it "does not create another user" do
@@ -86,7 +84,7 @@ module Decidim::Meetings
         end
       end
 
-      context "when a user already exists" do
+      context "when a user already exists for the given email" do
         let!(:user) { create(:user, :confirmed, email: form.email, organization:) }
         let(:attendee_name) { user.name }
 
@@ -107,7 +105,7 @@ module Decidim::Meetings
       end
 
       context "when a user does not exist for the given email" do
-        let(:attendee_name) { "name" }
+        let(:attendee_name) { "foo" }
 
         it "creates it" do
           expect do
@@ -115,6 +113,13 @@ module Decidim::Meetings
           end.to change(Decidim::User, :count).by(1)
 
           expect(Decidim::User.last.email).to eq(form.email)
+        end
+
+        it "sets name and nickname from email local part" do
+          subject.call
+
+          expect(Decidim::User.last.name).to eq("foo")
+          expect(Decidim::User.last.nickname).to eq("foo")
         end
 
         it "sends an invitation email with the given instructions" do
@@ -128,6 +133,44 @@ module Decidim::Meetings
 
         it_behaves_like "creates the invitation and traces the action" do
           let(:attendee) { Decidim::User.last }
+        end
+      end
+
+      context "when a user does not exist for the given email with dots" do
+        let(:email) { "john.doe@example.org" }
+
+        it "sets name and nickname from email local part" do
+          subject.call
+
+          expect(Decidim::User.last.name).to eq("john.doe")
+          expect(Decidim::User.last.nickname).to eq("john_doe")
+        end
+      end
+
+      context "when a user does not exist for the given email with plus sign" do
+        let(:email) { "john.doe+richard@example.org" }
+
+        it "sets name and nickname from email local part" do
+          subject.call
+
+          expect(Decidim::User.last.name).to eq("john.doe+richard")
+          expect(Decidim::User.last.nickname).to eq("john_doe_richard")
+        end
+      end
+
+      context "when a user does not exist for the given email with leading dots" do
+        let(:email) { ".john.doe@example.org" }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+      end
+
+      context "when a user does not exist for the given email with trailing dots" do
+        let(:email) { "john.doe.@example.org" }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
         end
       end
     end

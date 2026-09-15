@@ -18,7 +18,7 @@ describe "Initiatives" do
       visit decidim_initiatives.initiatives_path(locale: I18n.locale)
 
       expect(page).to have_current_path(decidim.root_path)
-      expect(page).to have_content("Initiatives are not yet configured by an administrator")
+      expect(page).to have_text("Initiatives are not yet configured by an administrator")
     end
   end
 
@@ -53,9 +53,9 @@ describe "Initiatives" do
 
         it "lists all the initiatives" do
           within "#initiatives" do
-            expect(page).to have_content("1")
-            expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).to have_no_content(translated(unpublished_initiative.title, locale: :en))
+            expect(page).to have_text("1")
+            expect(page).to have_text(translated(initiative.title, locale: :en))
+            expect(page).to have_no_text(translated(unpublished_initiative.title, locale: :en))
           end
         end
 
@@ -66,7 +66,7 @@ describe "Initiatives" do
 
         it "displays the filter initiative type filter" do
           within ".new_filter[action$='/initiatives']" do
-            expect(page).to have_content(/Type/i)
+            expect(page).to have_text(/Type/i)
           end
         end
 
@@ -75,7 +75,7 @@ describe "Initiatives" do
 
           it "does not display the initiative type filter" do
             within ".new_filter[action$='/initiatives']" do
-              expect(page).to have_no_content(/Type/i)
+              expect(page).to have_no_text(/Type/i)
             end
           end
         end
@@ -91,12 +91,12 @@ describe "Initiatives" do
           end
 
           it "displays a warning" do
-            expect(page).to have_content("Currently, there are no open initiatives, but here you can find all the closed initiatives listed.")
+            expect(page).to have_text("Currently, there are no open initiatives, but here you can find all the closed initiatives listed.")
           end
 
           it "shows closed initiatives" do
             within "#initiatives" do
-              expect(page).to have_content(translated(closed_initiative.title, locale: :en))
+              expect(page).to have_text(translated(closed_initiative.title, locale: :en))
             end
           end
         end
@@ -114,9 +114,9 @@ describe "Initiatives" do
 
         it "lists all the initiatives without errors" do
           within "#initiatives" do
-            expect(page).to have_content("1")
-            expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).to have_no_content(translated(unpublished_initiative.title, locale: :en))
+            expect(page).to have_text("1")
+            expect(page).to have_text(translated(initiative.title, locale: :en))
+            expect(page).to have_no_text(translated(unpublished_initiative.title, locale: :en))
           end
         end
       end
@@ -146,7 +146,7 @@ describe "Initiatives" do
       end
 
       it "shows the correct initiatives count" do
-        expect(page).to have_content("21")
+        expect(page).to have_text("21")
       end
     end
 
@@ -167,27 +167,27 @@ describe "Initiatives" do
 
       it "displays the title for pending initiatives" do
         within "#pending_initiatives" do
-          expect(page).to have_content("Draft & Pending initiatives")
+          expect(page).to have_text("Draft & Pending initiatives")
         end
       end
 
       it "displays the description for pending initiatives" do
         within "#pending_initiatives" do
-          expect(page).to have_content("These initiatives are not public yet. Please review them and submit them for technical validation so they can be made public.")
+          expect(page).to have_text("These initiatives are not public yet. Please review them and submit them for technical validation so they can be made public.")
         end
       end
 
       it "lists the pending initiatives" do
         within "#pending_initiatives" do
-          expect(page).to have_content(translated(pending_initiative.title, locale: :en))
-          expect(page).to have_content(translated(validating_initiative.title, locale: :en))
+          expect(page).to have_text(translated(pending_initiative.title, locale: :en))
+          expect(page).to have_text(translated(validating_initiative.title, locale: :en))
         end
       end
 
       it "does not display pending initiatives in the main list" do
         within "#initiatives" do
-          expect(page).to have_no_content(translated(pending_initiative.title, locale: :en))
-          expect(page).to have_no_content(translated(validating_initiative.title, locale: :en))
+          expect(page).to have_no_text(translated(pending_initiative.title, locale: :en))
+          expect(page).to have_no_text(translated(validating_initiative.title, locale: :en))
         end
       end
     end
@@ -208,7 +208,7 @@ describe "Initiatives" do
       end
 
       it "does not display other users' pending initiatives" do
-        expect(page).to have_no_content(translated(other_user_pending_initiative.title, locale: :en))
+        expect(page).to have_no_text(translated(other_user_pending_initiative.title, locale: :en))
       end
     end
   end

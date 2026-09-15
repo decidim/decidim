@@ -31,7 +31,7 @@ describe "Space admin manages global moderations" do
     end
 
     it "has a message that they need to accept the admin TOS" do
-      expect(page).to have_content("Please take a moment to review the admin terms of service")
+      expect(page).to have_text("Please take a moment to review the admin terms of service")
     end
 
     it "has the main navigation empty" do
@@ -59,11 +59,11 @@ describe "Space admin manages global moderations" do
       visit decidim_admin.moderations_path
 
       within "body", wait: 2 do
-        expect(page).to have_content("Reported content")
+        expect(page).to have_text("Reported content")
         expect(page).to have_link("Visit URL")
 
         find_link("Visit URL").hover
-        expect(page).to have_content("Dummy Title")
+        expect(page).to have_text("Dummy Title")
       end
     end
   end
@@ -90,7 +90,7 @@ describe "Space admin manages global moderations" do
       visit decidim_admin.moderations_path
 
       within "[data-content]" do
-        expect(page).to have_content("Reported content")
+        expect(page).to have_text("Reported content")
 
         expect(page).to have_no_css("table.table-list tbody tr")
       end

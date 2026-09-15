@@ -8,9 +8,9 @@ shared_examples "showing the design page" do |title, content|
 
     within "main" do
       within "h1" do
-        expect(page).to have_content(title)
+        expect(page).to have_text(title)
       end
-      expect(page).to have_content(content)
+      expect(page).to have_text(content)
     end
   end
 end

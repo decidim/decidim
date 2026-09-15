@@ -3,6 +3,7 @@
 shared_examples "manage settings" do
   let(:rich_text_editor_enabled) { true }
   let(:organization) { create(:organization, rich_text_editor_in_public_views: rich_text_editor_enabled) }
+
   before do
     within "#admin-sidebar-menu-settings" do
       click_on "Components"
@@ -21,7 +22,7 @@ shared_examples "manage settings" do
         page.scroll_to(editor)
         expect(page).to have_css(".editor-toolbar")
       end
-      expect(page).to have_content("New proposal body template")
+      expect(page).to have_text("New proposal body template")
     end
   end
 

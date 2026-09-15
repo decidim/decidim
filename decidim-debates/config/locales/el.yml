@@ -132,14 +132,6 @@ el:
             title: Τίτλος
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              Γεια σας,
-              Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημιούργησε μια νέα συζήτηση «%{resource_title}». Δείτε την και συνεισφέρετε:
-            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-            email_subject: Νέα συζήτηση «%{resource_title}» από τον συντάκτη %{author_nickname}
-            notification_title: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> δημιούργησε τη συζήτηση <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Η δημιουργία συζήτησης δεν είναι πλέον ενεργή στον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε ακόμα να συμμετέχετε σε ανοιχτές συζητήσεις από αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.

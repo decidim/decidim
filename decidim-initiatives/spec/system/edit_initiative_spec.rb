@@ -25,14 +25,14 @@ describe "Edit initiative" do
         click_on("Edit")
       end
 
-      expect(page).to have_content "Edit Initiative"
+      expect(page).to have_text "Edit Initiative"
 
       within "form.edit_initiative" do
         fill_in :initiative_title, with: new_title
         click_on "Update"
       end
 
-      expect(page).to have_content(new_title)
+      expect(page).to have_text(new_title)
     end
 
     context "and empties the form" do
@@ -43,7 +43,7 @@ describe "Edit initiative" do
           click_on("Edit")
         end
 
-        expect(page).to have_content "Edit Initiative"
+        expect(page).to have_text "Edit Initiative"
         expect(page).to have_no_css("*[type=submit][data-disable='true']")
 
         fill_in "initiative_title", with: ""
@@ -53,10 +53,10 @@ describe "Edit initiative" do
 
           expect(page).to have_css("div.sr-announce")
           within "div.sr-announce" do
-            expect(page).to have_content("There are errors on the form, please correct them to continue.")
+            expect(page).to have_text("There are errors on the form, please correct them to continue.")
           end
 
-          expect(page).to have_content("There is an error in this field.")
+          expect(page).to have_text("There is an error in this field.")
           expect(page).to have_no_css("*[type=submit][data-disable='true']")
           expect(find("button[type='submit']")).not_to be_disabled
         end
@@ -91,7 +91,7 @@ describe "Edit initiative" do
 
       click_on("Edit")
 
-      expect(page).to have_content "Edit Initiative"
+      expect(page).to have_text "Edit Initiative"
 
       expect(initiative.reload.attachments.count).to eq(0)
 
@@ -120,7 +120,7 @@ describe "Edit initiative" do
         fill_in :initiative_title, with: "New title"
         click_on "Continue"
 
-        expect(page).to have_content("The initiative has been successfully updated.")
+        expect(page).to have_text("The initiative has been successfully updated.")
         expect(translated(initiative.reload.title)).to eq("New title")
       end
 
@@ -128,10 +128,10 @@ describe "Edit initiative" do
         click_on "Back"
         click_on "Discard"
 
-        expect(page).to have_content("Are you sure you want to discard this initiative?")
+        expect(page).to have_text("Are you sure you want to discard this initiative?")
         click_on "OK"
 
-        expect(page).to have_content("The initiative has been successfully discarded.")
+        expect(page).to have_text("The initiative has been successfully discarded.")
         expect(translated(initiative.reload.state)).to eq("discarded")
       end
     end
@@ -142,11 +142,11 @@ describe "Edit initiative" do
       it "cannot be updated" do
         visit initiative_path
 
-        expect(page).to have_no_content "Edit initiative"
+        expect(page).to have_no_text "Edit initiative"
 
         visit edit_initiative_path
 
-        expect(page).to have_content("not authorized")
+        expect(page).to have_text("not authorized")
       end
     end
   end
@@ -174,11 +174,11 @@ describe "Edit initiative" do
     it "renders an error" do
       visit initiative_path
 
-      expect(page).to have_no_content("Edit initiative")
+      expect(page).to have_no_text("Edit initiative")
 
       visit edit_initiative_path
 
-      expect(page).to have_content("not authorized")
+      expect(page).to have_text("not authorized")
     end
   end
 
@@ -191,7 +191,7 @@ describe "Edit initiative" do
 
       click_on("Edit")
 
-      expect(page).to have_content "Edit Initiative"
+      expect(page).to have_text "Edit Initiative"
     end
 
     it_behaves_like "having a rich text editor", "edit_initiative", "content"

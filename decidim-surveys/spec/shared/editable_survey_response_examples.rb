@@ -74,27 +74,27 @@ shared_examples "editable survey responses" do
   end
 
   it "restricts the change of an response when editing is disabled" do
-    expect(page).to have_content("Edit your responses")
+    expect(page).to have_text("Edit your responses")
 
     survey.update!(allow_editing_responses: false)
 
     click_on "Edit your responses"
 
-    expect(page).to have_content("You are not allowed to edit your responses.")
+    expect(page).to have_text("You are not allowed to edit your responses.")
   end
 
   it "restricts the change of an response when form is closed" do
-    expect(page).to have_content("Edit your responses")
+    expect(page).to have_text("Edit your responses")
 
     survey.update!(ends_at: 1.day.ago)
 
     click_on "Edit your responses"
 
-    expect(page).to have_content("You are not allowed to edit your responses.")
+    expect(page).to have_text("You are not allowed to edit your responses.")
   end
 
   it "allows to change the response of a text field" do
-    expect(page).to have_content("Edit your responses")
+    expect(page).to have_text("Edit your responses")
     click_on "Edit your responses"
 
     expect(page).to have_field("questionnaire_responses_0", with: "My first response")
@@ -106,7 +106,7 @@ shared_examples "editable survey responses" do
     expect(page).to have_checked_field(:questionnaire_responses_5_matrix_row_0_choice_0_body)
     expect(page).to have_checked_field(:questionnaire_responses_5_matrix_row_1_choice_0_body)
     expect(page).to have_checked_field(:questionnaire_responses_5_matrix_row_2_choice_0_body)
-    expect(page).to have_content("city.jpeg")
+    expect(page).to have_text("city.jpeg")
 
     fill_in "questionnaire_responses_0", with: "My first response has changed"
     fill_in "questionnaire_responses_1", with: "My long response has changed"
@@ -131,7 +131,7 @@ shared_examples "editable survey responses" do
     check "questionnaire_tos_agreement"
     click_on "Submit"
 
-    expect(page).to have_content("Edit your responses")
+    expect(page).to have_text("Edit your responses")
     click_on "Edit your responses"
 
     expect(page).to have_field("questionnaire_responses_0", with: "My first response has changed")
@@ -146,7 +146,7 @@ shared_examples "editable survey responses" do
     expect(page).to have_checked_field(:questionnaire_responses_5_matrix_row_0_choice_2_body)
     expect(page).to have_checked_field(:questionnaire_responses_5_matrix_row_1_choice_2_body)
     expect(page).to have_checked_field(:questionnaire_responses_5_matrix_row_2_choice_2_body)
-    expect(page).to have_content("city2.jpeg")
+    expect(page).to have_text("city2.jpeg")
 
     page.execute_script "window.scrollBy(0,1800)"
     within ".js-sortable-check-box-collection" do

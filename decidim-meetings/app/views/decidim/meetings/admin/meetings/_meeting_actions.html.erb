@@ -20,7 +20,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.cannot_edit_meetings", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.cannot_edit_meetings", scope: "decidim.admin"), class: :left do %>
               <%= icon "pencil-line", class: "text-gray" %>
               <span><%= t("actions.edit", scope: "decidim.meetings") %></span>
             <% end %>
@@ -38,7 +38,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.cannot_duplicate_meetings", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.cannot_duplicate_meetings", scope: "decidim.admin"), class: :left do %>
               <%= icon "file-copy-line", class: "text-gray" %>
               <span><%= t("actions.duplicate", scope: "decidim.admin") %></span>
             <% end %>
@@ -56,7 +56,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.cannot_manage_attachments_meetings", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.cannot_manage_attachments_meetings", scope: "decidim.admin"), class: :left do %>
               <%= icon "attachment-line", class: "text-gray" %>
               <span><%= t("actions.attachments", scope: "decidim.admin") %></span>
             <% end %>
@@ -72,7 +72,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.cannot_manage_attachments_meetings", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.cannot_manage_attachments_meetings", scope: "decidim.admin"), class: :left do %>
               <%= icon "folder-line", class: "text-gray" %>
               <span><%= t("actions.attachment_collections", scope: "decidim.admin") %></span>
             <% end %>
@@ -90,7 +90,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.cannot_manage_registrations_meetings", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.cannot_manage_registrations_meetings", scope: "decidim.admin"), class: :left do %>
               <%= icon "group-line", class: "text-gray" %>
               <span><%= t("actions.registrations", scope: "decidim.meetings") %></span>
             <% end %>
@@ -106,7 +106,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.cannot_manage_agenda_meetings", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.cannot_manage_agenda_meetings", scope: "decidim.admin"), class: :left do %>
               <%= icon "calendar-line", class: "text-gray" %>
               <span><%= t("actions.agenda", scope: "decidim.meetings") %></span>
             <% end %>
@@ -122,7 +122,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.cannot_manage_poll_meetings", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.cannot_manage_poll_meetings", scope: "decidim.admin"), class: :left do %>
               <%= icon "list-check", class: "text-gray" %>
               <span><%= t("actions.manage_poll", scope: "decidim.meetings") %></span>
             <% end %>
@@ -138,7 +138,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.cannot_close_meetings", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.cannot_close_meetings", scope: "decidim.admin"), class: :left do %>
               <%= icon "lock-line", class: "text-gray" %>
               <span><%= t("actions.close", scope: "decidim.meetings") %></span>
             <% end %>
@@ -189,7 +189,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.deleted_meetings_info", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.deleted_meetings_info", scope: "decidim.admin"), class: :left do %>
               <%= icon "delete-bin-line", class: "text-gray" %>
               <span><%= t("actions.soft_delete", scope: "decidim.admin") %></span>
             <% end %>

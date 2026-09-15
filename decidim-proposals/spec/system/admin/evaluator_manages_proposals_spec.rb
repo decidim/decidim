@@ -30,8 +30,8 @@ describe "Evaluator manages proposals" do
 
   context "when listing the proposals" do
     it "can only see the assigned proposals" do
-      expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).to have_no_content(translated(unassigned_proposal.title))
+      expect(page).to have_text(translated(assigned_proposal.title))
+      expect(page).to have_no_text(translated(unassigned_proposal.title))
     end
   end
 
@@ -45,7 +45,7 @@ describe "Evaluator manages proposals" do
     end
 
     it "cannot unassign others" do
-      expect(page).to have_no_content("Unassign from evaluator")
+      expect(page).to have_no_text("Unassign from evaluator")
     end
   end
 
@@ -58,7 +58,7 @@ describe "Evaluator manages proposals" do
     end
 
     it "can leave proposal notes" do
-      expect(page).to have_content("Private notes")
+      expect(page).to have_text("Private notes")
       click_on "Private notes"
 
       within ".new_proposal_note" do
@@ -68,7 +68,7 @@ describe "Evaluator manages proposals" do
 
       click_on "Private notes"
       within "#panel-notes .comment:last-of-type" do
-        expect(page).to have_content("This is my note")
+        expect(page).to have_text("This is my note")
       end
     end
 
@@ -106,7 +106,7 @@ describe "Evaluator manages proposals" do
         end
 
         it "successfully displays the new state" do
-          expect(page).to have_content("Custom state")
+          expect(page).to have_text("Custom state")
         end
 
         include_examples "can change state", "Custom state"

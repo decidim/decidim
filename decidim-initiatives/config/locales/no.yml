@@ -303,18 +303,9 @@
         update: Oppdater
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} aksepterte din søknad om å være en del av promotørutvalget for initiativ %{resource_title}."
           email_outro: 'Du mottok dette varselet fordi du søkte på dette initiativet: %{resource_title}'
-          email_subject: "%{author_nickname} aksepterte din søknad til promotørkomiteen"
-        create_initiative_event:
-          email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
-          email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: Nytt initiativ av %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet ble opprettet av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_outro: 'Du mottok dette varselet fordi du søkte på dette initiativet: %{resource_title}.'
-          email_subject: "%{author_nickname} avviste din søknad til promotørkomiteen"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> avviste søknaden din om å være en del av promotørutvalget i følgende initiativ <a href="%{resource_url}">%{resource_title}</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Tilbake til initiativ

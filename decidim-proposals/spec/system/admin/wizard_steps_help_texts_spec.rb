@@ -32,7 +32,7 @@ describe "Manage proposal wizard steps help texts" do
 
     visit new_proposal_path(current_component)
     within "#proposal_wizard_help_text" do
-      expect(page).to have_content("This is the first step of the Proposal creation wizard.")
+      expect(page).to have_text("This is the first step of the Proposal creation wizard.")
     end
   end
 
@@ -61,7 +61,7 @@ describe "Manage proposal wizard steps help texts" do
     end
 
     within "#proposal_wizard_help_text" do
-      expect(page).to have_content("This is the second step of the Proposal creation wizard.")
+      expect(page).to have_text("This is the second step of the Proposal creation wizard.")
     end
   end
 

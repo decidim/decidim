@@ -31,7 +31,7 @@ describe "Explore versions", versioning: true do
     it "has only one version" do
       visit initiative_path
 
-      expect(page).to have_content("Version number 1 (of 1)")
+      expect(page).to have_text("Version number 1 (of 1)")
     end
 
     it "shows the versions index" do
@@ -48,7 +48,7 @@ describe "Explore versions", versioning: true do
       it "creates a new version" do
         visit initiative_path
 
-        expect(page).to have_content("Version number 2 (of 2)")
+        expect(page).to have_text("Version number 2 (of 2)")
       end
     end
   end
@@ -78,26 +78,26 @@ describe "Explore versions", versioning: true do
 
     it "shows the creation date" do
       within ".version__author" do
-        expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
+        expect(page).to have_text(Time.zone.today.strftime("%d/%m/%Y"))
       end
     end
 
     it "shows the changed attributes" do
-      expect(page).to have_content("Changes at")
+      expect(page).to have_text("Changes at")
 
       within "#diff-for-title-english" do
-        expect(page).to have_content("Title")
+        expect(page).to have_text("Title")
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(translated(initiative.title, locale: :en))
+          expect(page).to have_text(translated(initiative.title, locale: :en))
         end
       end
 
       within "#diff-for-description-english" do
-        expect(page).to have_content("Description")
+        expect(page).to have_text("Description")
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
+          expect(page).to have_text(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
         end
       end
     end

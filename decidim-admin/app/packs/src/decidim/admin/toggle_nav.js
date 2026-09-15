@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 const showHideNav = (evt) => {
   const navMenu = document.querySelector(".layout-wrapper");
 

@@ -6,31 +6,31 @@ When you want to update your meetings component, you need to rely on the `Meetin
 
 [source]
 ----
-• address               (optional) - String
-• available_slots       (optional) - Int
-• description           (required) - String
-• end_time              (required) - DateTime
-• latitude              (optional) - coordinate
-• longitude             (optional) - coordinate
-• location_hints        (optional) - String
-• location              (optional) - String
-• online_meeting_url    (optional) - String
-• registration_terms    (optional) - String
-• registration_type     (required) - RegistrationTypeType
-• registration_url      (optional) - String
-• registrations_enabled (optional) - Boolean
-• start_time            (required) - DateTime
-• taxonomies            (optional) - Taxonomy ids to assign to this meeting
-• title                 (required) - String
-• type_of_meeting       (required) - TypeOfMeeting
+• address               (Optional) - String
+• available_slots       (Optional) - Integer
+• description           (Required) - String
+• end_time              (Required) - DateTime
+• latitude              (Optional) - coordinate
+• longitude             (Optional) - coordinate
+• location_hints        (Optional) - String
+• location              (Optional) - String
+• online_meeting_url    (Optional) - String
+• registration_terms    (Optional) - String
+• registration_type     (Required) - RegistrationTypeType
+• registration_url      (Optional) - String
+• registrations_enabled (Optional) - Boolean
+• start_time            (Required) - DateTime
+• taxonomies            (Optional) - Taxonomy ids to assign to this meeting
+• title                 (Required) - String
+• type_of_meeting       (Required) - TypeOfMeeting
 ----
 
 You may want to check the following input types:
 
-* http://nightly.decidim.org/api/docs/enum/typeofmeetingenum/[TypeOfMeetingEnum]
-* http://nightly.decidim.org/api/docs/enum/registrationtypeenum/[RegistrationTypeEnum]
-* http://nightly.decidim.org/api/docs/enum/iframeembedtypeenum/[IframeEmbedTypeEnum]
-* http://nightly.decidim.org/api/docs/enum/iframeaccesslevelenum/[IframeAccessLevelEnum]
+* https://nightly.decidim.org/api/docs/enum/typeofmeetingenum/[TypeOfMeetingEnum]
+* https://nightly.decidim.org/api/docs/enum/registrationtypeenum/[RegistrationTypeEnum]
+* https://nightly.decidim.org/api/docs/enum/iframeembedtypeenum/[IframeEmbedTypeEnum]
+* https://nightly.decidim.org/api/docs/enum/iframeaccesslevelenum/[IframeAccessLevelEnum]
 
 == Sample request
 
@@ -40,7 +40,7 @@ The `UpdateMeeting` mutation allows authenticated users to update meetings in a 
 ----
 mutation updateMeeting($componentId: ID!, $meetingId: ID!, $input: UpdateMeetingInput!){
   component(id: $componentId) {
-    ...on MeetingsMutation{
+    ... on MeetingsMutation {
       meeting(id: $meetingId) {
         update(input: $input) {
           id

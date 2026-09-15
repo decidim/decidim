@@ -6,7 +6,7 @@ To use the API to withdraw any meeting that the user has created, you will need 
 ----
 mutation withdrawMeeting($componentId: ID!, $meetingId: ID!){
   component(id: $componentId) {
-    ...on MeetingsMutation{
+    ... on MeetingsMutation {
       meeting(id: $meetingId) {
         withdraw(input: {}) {
           id

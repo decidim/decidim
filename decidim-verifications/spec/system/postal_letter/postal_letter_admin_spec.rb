@@ -41,7 +41,7 @@ describe "Postal letter management" do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin_postal_letter.root_path
-    expect(page).to have_content("Code by postal")
+    expect(page).to have_text("Code by postal")
   end
 
   it "shows the list of pending verifications" do
@@ -66,7 +66,7 @@ describe "Postal letter management" do
       click_on "Mark as sent"
     end
 
-    expect(page).to have_content("Letter successfully marked as sent")
+    expect(page).to have_text("Letter successfully marked as sent")
 
     within "table tbody tr", text: letter_not_sent.user.name do
       expect(page).to have_no_css(".button", text: "Mark as sent")

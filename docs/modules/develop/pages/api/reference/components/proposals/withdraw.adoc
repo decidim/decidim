@@ -6,7 +6,7 @@ To use the API to withdraw any proposal that the user has created, you will need
 ----
 mutation withdrawProposal($componentId: ID!, $proposalId: ID!){
   component(id: $componentId) {
-    ...on ProposalsMutation{
+    ... on ProposalsMutation {
       proposal(id: $proposalId) {
         withdraw(input: {}) {
           id

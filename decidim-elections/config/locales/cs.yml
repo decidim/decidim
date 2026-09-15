@@ -144,9 +144,18 @@ cs:
             form_description: Otázka musí mít alespoň dvě odpovědi, aby mohla jít k dalšímu kroku.
           update:
             invalid: Při aktualizaci otázek došlo k chybě.
+            success: Otázky byly úspěšně aktualizovány.
         statuses:
+          enable_voting:
+            invalid: Při povolování hlasování došlo k chybě.
+            success: Hlasování bylo úspěšně aktivováno.
+          end:
+            invalid: Vyskytl se problém s ukončením voleb.
           publish_results:
             invalid: Při publikování výsledků došlo k chybě.
+            success: Výsledky byly úspěšně zveřejněny.
+          start:
+            invalid: Vyskytl se problém při zahájení voleb.
           unknown: Neznámý stav
       admin_log:
         election:

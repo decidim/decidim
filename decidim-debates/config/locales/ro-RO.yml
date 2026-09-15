@@ -152,14 +152,6 @@ ro:
             title: Titlu
     events:
       debates:
-        create_debate_event:
-          user_followers:
-            email_intro: |-
-              Bună,
-              %{author_name} %{author_nickname}, pe care îl urmărești, a creat o nouă dezbatere "%{resource_title}". Uită-te peste și contribuie:
-            email_outro: Ai primit această notificare deoarece urmărești %{author_nickname}. Poți opri notificările accesând linkul anterior.
-            email_subject: Dezbatere nouă "%{resource_title}" - autor %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a creat dezbaterea <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Crearea de dezbateri nu mai este activă în %{participatory_space_title}. Poți participa în continuare la dezbaterile deschise de pe această pagină:'
           email_outro: Aii primit această notificare deoarece urmărești %{participatory_space_title}. Poți opri notificările accesând linkul anterior.

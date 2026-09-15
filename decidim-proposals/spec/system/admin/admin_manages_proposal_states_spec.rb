@@ -9,7 +9,7 @@ describe "Admin manages proposals states" do
 
   describe "visiting the component admin page" do
     it "lists the proposal states button" do
-      expect(page).to have_content("Statuses")
+      expect(page).to have_text("Statuses")
     end
   end
 
@@ -19,14 +19,14 @@ describe "Admin manages proposals states" do
     end
 
     it "lists the default proposal states" do
-      expect(page).to have_content("Status")
+      expect(page).to have_text("Status")
       expect(page).to have_link("New status")
 
       within "table" do
-        expect(page).to have_content("Status")
-        expect(page).to have_content("Accepted")
-        expect(page).to have_content("Rejected")
-        expect(page).to have_content("Evaluating")
+        expect(page).to have_text("Status")
+        expect(page).to have_text("Accepted")
+        expect(page).to have_text("Rejected")
+        expect(page).to have_text("Evaluating")
       end
     end
   end
@@ -56,7 +56,7 @@ describe "Admin manages proposals states" do
 
       within "table" do
         expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       state = Decidim::Proposals::ProposalState.find_by(token: "script_alert_proposal_state_title_script_not_answered")
@@ -66,7 +66,7 @@ describe "Admin manages proposals states" do
       expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("created #{translated(attributes[:title])} in")
+      expect(page).to have_text("created #{translated(attributes[:title])} in")
     end
 
     it "updates the label and announcement previews" do
@@ -94,12 +94,12 @@ describe "Admin manages proposals states" do
 
         expect(page).to have_css("[data-label-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0);")
         within "[data-label-preview]" do
-          expect(page).to have_content("Estat personalitzat")
+          expect(page).to have_text("Estat personalitzat")
         end
 
         expect(page).to have_css("[data-announcement-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0); border-color: #9A6700/var(--tw-border-opacity);")
         within "[data-announcement-preview]" do
-          expect(page).to have_content("Anunci més llarg")
+          expect(page).to have_text("Anunci més llarg")
         end
       end
     end
@@ -123,7 +123,7 @@ describe "Admin manages proposals states" do
     end
 
     it "displays the proposal state" do
-      expect(page).to have_content("Editable state")
+      expect(page).to have_text("Editable state")
     end
 
     it "updates a proposal state" do
@@ -146,7 +146,7 @@ describe "Admin manages proposals states" do
 
       within "table" do
         expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_text(translated(attributes[:title]))
       end
 
       state = Decidim::Proposals::ProposalState.find_by(token: "editable_state")
@@ -156,7 +156,7 @@ describe "Admin manages proposals states" do
       expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated #{translated(attributes[:title])} in")
+      expect(page).to have_text("updated #{translated(attributes[:title])} in")
     end
 
     it "updates the label and announcement previews" do
@@ -175,20 +175,20 @@ describe "Admin manages proposals states" do
 
         expect(page).to have_css("[data-label-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0);")
         within "[data-label-preview]" do
-          expect(page).to have_content(translated(attributes[:title]))
+          expect(page).to have_text(translated(attributes[:title]))
         end
 
         expect(page).to have_css("[data-announcement-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0); border-color: #9A6700/var(--tw-border-opacity);")
         within "[data-announcement-preview]" do
           # text_copy.js implements a change event that updates the label. The fill_in_i18n is "changing" the fields, and the "ca" locale is the last one that one that is being changed
-          expect(page).to have_content(translated(attributes[:announcement_title], locale: "ca"))
+          expect(page).to have_text(translated(attributes[:announcement_title], locale: "ca"))
         end
         find("*[type=submit]").click
       end
       expect(page).to have_callout("Status updated successfully")
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated #{translated(attributes[:title])} in")
+      expect(page).to have_text("updated #{translated(attributes[:title])} in")
     end
   end
 

@@ -61,7 +61,7 @@ shared_examples_for "add questions" do
     expect(page).to have_css("input[value='This is the first question']")
     expect(page).to have_css("input[value='This is the second question']")
     expect(page).to have_css("input[value='This is the first title and description']")
-    expect(page).to have_content("Separator #2")
+    expect(page).to have_text("Separator #2")
   end
 
   it "adds a question with a rich text description" do
@@ -133,7 +133,7 @@ shared_examples_for "add questions" do
       end
     end
 
-    expect(page).to have_no_content "Add response option"
+    expect(page).to have_no_text "Add response option"
 
     page.all(".questionnaire-question").each do |question|
       within question do
@@ -380,7 +380,7 @@ shared_examples_for "add questions" do
 
       expect(page).to have_nested_field("body_en", with: "Bye")
       expect(page).to have_no_selector(nested_form_field_selector("body_ca"))
-      expect(page).to have_no_content("Adeu")
+      expect(page).to have_no_text("Adeu")
     end
   end
 
@@ -397,7 +397,7 @@ shared_examples_for "add questions" do
         fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
       end
 
-      expect(page).to have_no_content "Add response option"
+      expect(page).to have_no_text "Add response option"
       expect(page).to have_no_select("Maximum number of choices")
     end
 
@@ -475,8 +475,8 @@ shared_examples_for "add questions" do
         fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
       end
 
-      expect(page).to have_no_content "Add response option"
-      expect(page).to have_no_content "Add row"
+      expect(page).to have_no_text "Add response option"
+      expect(page).to have_no_text "Add row"
       expect(page).to have_no_select("Maximum number of choices")
     end
 

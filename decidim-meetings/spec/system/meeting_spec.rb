@@ -89,7 +89,7 @@ describe "Meeting", download: true do
         visit_meeting
 
         expect(page).to have_no_css("div.meeting__calendar-container .static-map")
-        expect(page).to have_content(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
+        expect(page).to have_text(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
       end
     end
 
@@ -144,7 +144,7 @@ describe "Meeting", download: true do
       visit_meeting
 
       within ".meeting__calendar-container .meeting__calendar" do
-        expect(page).to have_content(meeting.start_time.year)
+        expect(page).to have_text(meeting.start_time.year)
       end
     end
   end
@@ -155,7 +155,7 @@ describe "Meeting", download: true do
     it "displays the pending address text" do
       visit_meeting
 
-      expect(page).to have_content(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
+      expect(page).to have_text(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
     end
   end
 
@@ -165,9 +165,9 @@ describe "Meeting", download: true do
     it "displays the location and address" do
       visit_meeting
 
-      expect(page).to have_content("123 Main St")
-      expect(page).to have_content("Central Park")
-      expect(page).to have_no_content(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
+      expect(page).to have_text("123 Main St")
+      expect(page).to have_text("Central Park")
+      expect(page).to have_no_text(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
     end
   end
 
@@ -184,8 +184,8 @@ describe "Meeting", download: true do
       it "does not timeout user" do
         visit_meeting
         travel 1.minute
-        expect(page).to have_no_content("If you continue being inactive", wait: 4)
-        expect(page).to have_no_content("You were inactive for too long")
+        expect(page).to have_no_text("If you continue being inactive", wait: 4)
+        expect(page).to have_no_text("You were inactive for too long")
       end
     end
 
@@ -195,7 +195,7 @@ describe "Meeting", download: true do
       it "timeouts user normally" do
         visit_meeting
         travel 1.minute
-        expect(page).to have_content("You were inactive for too long")
+        expect(page).to have_text("You were inactive for too long")
       end
     end
   end

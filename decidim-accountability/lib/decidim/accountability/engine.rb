@@ -31,6 +31,12 @@ module Decidim
         Decidim.icons.register(name: "briefcase-2-line", icon: "briefcase-2-line", category: "system", description: "", engine: :accountability)
       end
 
+      initializer "decidim_accountability.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Accountability::AccountabilityMutationType
+        )
+      end
+
       initializer "decidim_accountability.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
           view_context.cell("decidim/accountability/highlighted_results", view_context.current_participatory_space)

@@ -26,7 +26,7 @@ describe "Admin manages conference admins" do
 
     it "shows conference admin list" do
       within "#conference_admins table" do
-        expect(page).to have_content(user.email)
+        expect(page).to have_text(user.email)
       end
     end
   end

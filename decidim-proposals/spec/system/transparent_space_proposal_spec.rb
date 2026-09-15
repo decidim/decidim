@@ -45,8 +45,8 @@ describe "Transparent Space Proposal" do
         end
 
         it "can access the page and see the votes" do
-          expect(page).to have_content(proposal.title["en"])
-          expect(page).to have_content("Votes")
+          expect(page).to have_text(proposal.title["en"])
+          expect(page).to have_text("Votes")
         end
       end
 
@@ -56,7 +56,7 @@ describe "Transparent Space Proposal" do
         end
 
         it "can see the votes" do
-          expect(page).to have_content("Votes")
+          expect(page).to have_text("Votes")
         end
       end
     end

@@ -1,14 +1,10 @@
+@use "stylesheets/decidim/editor_suggestions";
+
 .editor-props {
   --editor-active-color: #487bda;
   --editor-disabled-color: #eee;
   --editor-bubble-border-color: #ccc;
   --editor-bubble-shadow-color: #333;
-}
-
-.editor-suggestions-props {
-  --editor-suggestions-border-color: #000;
-  --editor-suggestions-background-color: #eee;
-  --editor-suggestions-selected-highlight-color: #ccc;
 }
 
 .editor-active {
@@ -183,33 +179,6 @@
       [data-suggestion] {
         @apply border border-solid border-[var(--editor-suggestions-border-color)] rounded-md py-0.5 px-1;
       }
-    }
-  }
-}
-
-.editor-suggestions {
-  @apply editor-suggestions-props border-0 bg-[var(--editor-suggestions-background-color)] max-w-sm drop-shadow-md rounded-md;
-
-  &:hover {
-    .editor-suggestions-item[data-selected]:not(:hover) {
-      @apply bg-transparent;
-    }
-  }
-
-  .editor-suggestions-item {
-    @apply block w-full text-left py-[0.375rem] px-1.5 border-0 rounded-none truncate text-sm;
-
-    &:first-child {
-      @apply rounded-t-md;
-    }
-
-    &:last-child {
-      @apply rounded-b-md;
-    }
-
-    &:hover,
-    &[data-selected] {
-      @apply bg-[var(--editor-suggestions-selected-highlight-color)];
     }
   }
 }

@@ -757,7 +757,7 @@ module Decidim
                 :number,
                 ProposalLengthValidator
               )
-              output # Calls the builder
+              builder.text_field :slug
             end
           end
         end
@@ -954,7 +954,6 @@ module Decidim
 
       context "when :help_i18n_scope is passed as option" do
         let(:attributes) { { help_i18n_scope: "custom.scope" } }
-        let(:output) { builder.upload :image, attributes }
 
         it "renders calls I18n.t() with the correct scope" do
           # Upload help messages
@@ -964,13 +963,12 @@ module Decidim
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
           expect(I18n).to receive(:t).with("message_1", scope: "custom.scope")
           expect(I18n).to receive(:t).with("message_2", scope: "custom.scope")
-          output
+          builder.upload :image, attributes
         end
       end
 
       context "when :help_i18n_messages is passed as option" do
         let(:attributes) { { help_i18n_messages: %w(message_1 message_2 message_3) } }
-        let(:output) { builder.upload :image, attributes }
 
         it "renders calls I18n.t() with the correct messages" do
           # Upload help messages
@@ -981,12 +979,11 @@ module Decidim
           expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_3", scope: "decidim.forms.file_help.file")
-          output
+          builder.upload :image, attributes
         end
 
         context "with only one message" do
           let(:attributes) { { help_i18n_messages: "message_1" } }
-          let(:output) { builder.upload :image, attributes }
 
           it "renders calls I18n.t() with the correct messages" do
             # Upload help messages
@@ -995,7 +992,7 @@ module Decidim
             expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: "Image")
             expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
             expect(I18n).not_to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
-            output
+            builder.upload :image, attributes
           end
         end
       end

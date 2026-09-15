@@ -271,17 +271,13 @@ ja:
             email_intro: '%{author_name} は %{resource_title} でプライベートノートを作成しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
             email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: 誰かが提案 %{resource_title} にメモを残しました。
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a>にプライベートノートを作成しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください。
           proposal_note_mentioned:
-            email_intro: '"%{resource_title}" 内の "%{author_name}" "%{author_nickname}" によるプライベートノートで言及されました。<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。'
             email_outro: プライベートノートで言及されているため、この通知を受信しました。
             email_subject: 誰かが提案 %{resource_title} のメモであなたをメンションしました。
-            notification_title: <a href="%{resource_path}">%{resource_title}"</a> 内の<a href="%{author_path}">%{author_name} %{author_nickname}</a> によるプライベートノートで言及されました。<a href="%{admin_proposal_info_path}">管理パネル</a>で確認してください。
           proposal_note_replied:
             email_intro: '%{author_name} は %{resource_title} のプライベートノートに返信しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
             email_outro: あなたがノートの作成者であるため、この通知を受信しました。
             email_subject: "%{author_name} が %{resource_title} 内のあなたのプライベートノートに返信しました。"
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a>内のあなたのプライベートノートに返信しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください。
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> は提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を承諾しました。
         coauthor_invited:
@@ -298,17 +294,14 @@ ja:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} は %{resource_title} の貢献者としてアクセスできるようになりました。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <strong>コントリビューターとして</strong> <a href="%{resource_path}">%{resource_title}</a> 共同草案のコントリビューターとしてアクセスできるようになりました。
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとしてのアクセスを拒否されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} は、 %{resource_title} の共同草案の貢献者としてアクセスするために拒否されました。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> が <strong>コントリビューターとしてアクセスを拒否されました <a href="%{resource_path}">%{resource_title}</a> 共同草案のコントリビューター</strong>
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} がコントリビューターとしてアクセスをリクエストしました。 <strong></strong> <a href="%{resource_url}">%{resource_title}</a> の共同草案ページからリクエストを承認または拒否できます。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} が %{resource_title} に貢献するためにアクセスをリクエストしました。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <a href="%{resource_path}">%{resource_title}</a> の共同草案にアクセスをリクエストしました。 <strong>リクエストを承認または拒否してください</strong>。
         collaborative_draft_access_requester_accepted:
           email_intro: <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターになることをリクエストしたため、この通知を受け取りました。
@@ -320,10 +313,7 @@ ja:
           email_subject: '%{resource_title} の貢献者として拒否されました。'
           notification_title: 共同草稿<a href="%{resource_path}">%{resource_title}</a>の<strong>投稿者としてのアクセスを拒否</strong>されました。
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案を撤回しました。
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
-          email_subject: "%{author_name} %{author_nickname} は %{resource_title} の共同草案を撤回しました。"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が、共同草稿 <a href="%{resource_path}">%{resource_title}</a> を<strong>撤回しました。</strong>
         creation_enabled:
           email_intro: '%{participatory_space_title}で新しい提案を作成できるようになりました! このページに参加してください:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
@@ -344,11 +334,6 @@ ja:
           email_outro: あなたが提案の作成者であるため、この通知を受け取りました。
           email_subject: 提案 %{resource_title} がマージされました
           notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> は管理者によってマージされました。
-        proposal_published:
-          email_intro: 'あなたがフォローしている%{author_name} %{author_nickname}は、「%{resource_title}」という新しい提案を公開しました。チェックして貢献してください：'
-          email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-          email_subject: '%{resource_title}による新しい提案 " %{author_nickname}"'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案は <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって公表されました。
         proposal_published_for_space:
           email_intro: あなたがフォローしている提案「%{resource_title}」が「%{participatory_space_title}」に追加されました。
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止できます。'

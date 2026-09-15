@@ -40,7 +40,7 @@ describe "Space moderator manages global moderations" do
     it "cannot access to the Global moderations page" do
       visit decidim_admin.moderations_path
 
-      expect(page).to have_content("Please take a moment to review the admin terms of service")
+      expect(page).to have_text("Please take a moment to review the admin terms of service")
     end
   end
 
@@ -66,7 +66,7 @@ describe "Space moderator manages global moderations" do
       visit decidim_admin.moderations_path
 
       within "[data-content]" do
-        expect(page).to have_content("Reported content")
+        expect(page).to have_text("Reported content")
 
         expect(page).to have_no_css("table.table-list tbody tr")
       end

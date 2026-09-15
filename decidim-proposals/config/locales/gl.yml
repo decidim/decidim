@@ -134,22 +134,16 @@ gl:
             accept: Aceptar
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} foi aceptado para acceder como colaborador do %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceptado <strong>para acceder como contribuínte</strong> do borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_subject: "%{requester_name} foi rexeitado para acceder como colaborador do %{resource_title} borrador colaborativo."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi rexeitado <strong>para acceder como contribuínte</strong> do borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_subject: "%{requester_name} solicitou acceso para contribuír a %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitou acceso para contribuír ao proxecto colaborativo de <a href="%{resource_path}">%{resource_title}</a> . <strong>acepta ou rexeita a solicitude</strong>.
         collaborative_draft_access_requester_accepted:
           email_subject: Recibiches como colaborador de %{resource_title}.
           notification_title: Recibiches <strong>para acceder como colaborador</strong> do borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
           email_subject: Foi rexeitado como colaborador de %{resource_title}.
           notification_title: Quedaches <strong>rexeitado a acceder como colaborador</strong> do borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-        collaborative_draft_withdrawn:
-          email_subject: "%{author_name} %{author_nickname} retirouse o %{resource_title} borrador colaborativo."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirado</strong> o <a href="%{resource_path}">%{resource_title}</a> borrador de colaboración.
         creation_enabled:
           email_intro: 'Agora podes crear novas propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -158,11 +152,6 @@ gl:
           email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
           email_subject: Enviouse a súa proposta "%{mentioned_proposal_title}"
           notification_title: A túa proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espazo</a> nos comentarios.
-        proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, quen está seguindo, publicou unha nova proposta chamada "%{resource_title}". Consulte e contribúa:'
-          email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: Nova proposta "%{resource_title}" por %{author_nickname}
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> proposta foi publicada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: A proposta "%{resource_title}" engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.

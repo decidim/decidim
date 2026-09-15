@@ -18,8 +18,8 @@ shared_examples "manage processes examples" do
     it "allows the user to filter processes by process_group" do
       filter_by_group(translated(process_group.title))
 
-      expect(page).to have_content(translated(process_with_group.title))
-      expect(page).to have_no_content(translated(process_without_group.title))
+      expect(page).to have_text(translated(process_with_group.title))
+      expect(page).to have_no_text(translated(process_without_group.title))
     end
 
     describe "listing processes" do
@@ -59,7 +59,7 @@ shared_examples "manage processes examples" do
 
         page.within_window(new_window) do
           expect(page).to have_css(".participatory-space__container")
-          expect(page).to have_content(translated(participatory_process.title))
+          expect(page).to have_text(translated(participatory_process.title))
         end
       end
     end
@@ -77,7 +77,7 @@ shared_examples "manage processes examples" do
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
-          expect(page).to have_content(translated(participatory_process.title))
+          expect(page).to have_text(translated(participatory_process.title))
         end
       end
     end
@@ -132,7 +132,7 @@ shared_examples "manage processes examples" do
       end
 
       visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} participatory process")
+      expect(page).to have_text("updated the #{translated(attributes[:title])} participatory process")
     end
   end
 
@@ -153,7 +153,7 @@ shared_examples "manage processes examples" do
 
       within("tr", text: translated_attribute(participatory_process.title)) do
         find("button[data-controller='dropdown']").click
-        expect(page).to have_content("Unpublish")
+        expect(page).to have_text("Unpublish")
       end
 
       expect(page).to have_current_path decidim_admin_participatory_processes.participatory_processes_path
@@ -177,7 +177,7 @@ shared_examples "manage processes examples" do
       end
 
       expect(page).to have_callout("Participatory process successfully unpublished.")
-      expect(page).to have_content("Publish")
+      expect(page).to have_text("Publish")
       expect(page).to have_current_path decidim_admin_participatory_processes.participatory_processes_path
 
       participatory_process.reload
@@ -194,7 +194,7 @@ shared_examples "manage processes examples" do
 
     it "does not let the admin manage processes form other organizations" do
       within "table" do
-        expect(page).to have_no_content(external_participatory_process.title["en"])
+        expect(page).to have_no_text(external_participatory_process.title["en"])
       end
     end
   end

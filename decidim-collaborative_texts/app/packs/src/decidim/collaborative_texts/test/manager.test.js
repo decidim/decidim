@@ -1,4 +1,3 @@
-/* eslint-disable prefer-reflect */
 /* global global, jest, process */
 
 import Manager from "src/decidim/collaborative_texts/manager";
@@ -70,7 +69,7 @@ describe("Manager", () => {
   ];
 
   const fetchResult = {
-    redirect: "#redirect-somewhere"
+    redirect: "https://decidim.dev/#redirect-somewhere"
   }
   global.fetch = jest.fn(() =>
     Promise.resolve({
@@ -85,11 +84,7 @@ describe("Manager", () => {
     };
 
     document.body.innerHTML = content;
-    delete global.window.location;
-    global.window = Object.create(window);
-    global.window.location = {
-      href: "test-url"
-    };
+    window.location.href = "https://decidim.dev/";
 
     doc = {
       doc: document.querySelector("[data-collaborative-texts-document]"),
@@ -144,6 +139,6 @@ describe("Manager", () => {
     window.document.querySelector("[data-confirm-ok]").click();
     await new Promise(process.nextTick);
 
-    expect(global.location.href).toBe(fetchResult.redirect);
+    expect(window.location.href).toBe(fetchResult.redirect);
   });
 });

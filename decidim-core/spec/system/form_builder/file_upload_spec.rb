@@ -139,10 +139,10 @@ describe "File upload" do
       click_on "Submit"
 
       within "h1" do
-        expect(page).to have_content("Form submitted successfully")
+        expect(page).to have_text("Form submitted successfully")
       end
       within "[data-blob]" do
-        expect(page).to have_content("Example doc")
+        expect(page).to have_text("Example doc")
       end
     end
   end
