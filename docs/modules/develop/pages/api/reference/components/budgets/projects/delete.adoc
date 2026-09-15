@@ -4,15 +4,19 @@
 
 The `DeleteProject` mutation allows authenticated administrators to soft-delete projects within a budget in a Decidim budget component. This mutation marks the project as deleted without permanently removing it from the database.
 
+=== Using the `project(id:)` entry point
+
 [source,graphql]
 ----
 mutation deleteProject($componentId: ID!, $budgetId: ID!, $projectId: ID!){
   component(id: $componentId){
     ... on BudgetsMutation {
       budget(id: $budgetId){
-        deleteProject(id: $projectId){
-          id
-          url
+        project(id: $projectId){
+          delete{
+            id
+            url
+          }
         }
       }
     }

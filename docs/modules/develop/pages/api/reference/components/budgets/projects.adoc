@@ -1,0 +1,59 @@
+= Project mutations
+
+When you access a project through the `budget.project(id:)` entry point, you have the following available mutations.
+
+== Fields
+
+[source]
+----
+• delete                            - Deletes a project
+• update                            - Updates a project
+• create_attachment                 - Creates an attachment for this result
+• delete_attachment                 - Deletes a result attachment
+• update_attachment                 - Updates a result attachment
+• create_attachment_collection      - Creates an attachment collection for this result
+• delete_attachment_collection      - Deletes an attachment collection from this result
+• update_attachment_collection      - Updates an attachment collection for this result
+----
+
+== Handling Attachments and Attachment Collections
+
+You can read how to properly handle the Attachment and Attachment Collections by following the links below.
+
+* xref:develop:api/reference/uploads/attachments/create.adoc[create_attachment]
+* xref:develop:api/reference/uploads/attachments/delete.adoc[delete_attachment]
+* xref:develop:api/reference/uploads/attachments/update.adoc[update_attachment]
+* xref:develop:api/reference/uploads/attachment_collections/create.adoc[create_attachment_collection]
+* xref:develop:api/reference/uploads/attachment_collections/delete.adoc[delete_attachment_collection]
+* xref:develop:api/reference/uploads/attachment_collections/update.adoc[update_attachment_collection]
+
+== Sample request
+
+[source,graphql]
+----
+mutation deleteProject($componentId: ID!, $budgetId: ID!, $projectId: ID!){
+  component(id: $componentId){
+    ... on BudgetsMutation {
+      budget(id: $budgetId){
+        project(id: $projectId){
+          delete{
+            id
+            url
+          }
+        }
+      }
+    }
+  }
+}
+----
+
+Example of submitted variables
+
+[source,json]
+----
+{
+  "componentId": "3",
+  "budgetId": "5",
+  "projectId": "10"
+}
+----
