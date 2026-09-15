@@ -340,4 +340,4 @@ eu:
         exit: Itxi
   time:
     formats:
-      short_with_time: "%b %-d, %Y, %-I:%M %p"
+      short_with_time: "%Y, %-d %b, %-I:%M %p"
