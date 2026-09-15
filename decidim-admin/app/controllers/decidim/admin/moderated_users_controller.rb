@@ -34,6 +34,7 @@ module Decidim
       end
 
       def bulk_unreport
+        enforce_permission_to :unreport, :moderated_user
         Admin::BulkUnreportUsers.call(current_user, reportables) do
           on(:ok) do
             flash[:notice] = I18n.t("reportable.bulk_action.ignore.success", scope: "decidim.moderations.admin")

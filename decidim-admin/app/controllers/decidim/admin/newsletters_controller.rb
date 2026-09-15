@@ -114,6 +114,7 @@ module Decidim
       end
 
       def recipients_count
+        enforce_permission_to :read, :newsletter, newsletter:
         @form = form(SelectiveNewsletterForm).from_params(newsletter_params)
         render plain: recipients_count_query
       end

@@ -105,6 +105,7 @@ module Decidim
         end
 
         def apply
+          enforce_permission_to :apply, :questionnaire_template
           questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
           template = Decidim::Templates::Template.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
 
@@ -121,6 +122,7 @@ module Decidim
         end
 
         def preview
+          enforce_permission_to :preview, :questionnaire_template
           respond_to do |format|
             format.js do
               @template = template
