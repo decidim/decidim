@@ -98,6 +98,30 @@ module Decidim
       user == self.user
     end
 
+    def record_failed_attempt!
+      with_lock do
+        increment!(:failed_attempts) # rubocop:disable Rails/SkipsModelValidations
+        return unless failed_attempts >= Decidim.verification_max_failed_attempts
+
+        update!(locked_at: Time.current)
+      end
+    end
+
+    def reset_failed_attempts!
+      update!(failed_attempts: 0, locked_at: nil)
+    end
+
+    def locked_for_confirmation?
+      locked_at.present? && locked_at + Decidim.verification_unlock_in > Time.current
+    end
+
+    def clear_expired_lock!
+      return if locked_at.blank?
+      return if locked_for_confirmation?
+
+      update!(locked_at: nil, failed_attempts: 0)
+    end
+
     private
 
     def active_handler?
