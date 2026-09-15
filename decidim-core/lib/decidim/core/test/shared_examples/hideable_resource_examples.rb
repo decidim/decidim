@@ -2,7 +2,7 @@
 
 shared_examples_for "has hideable resource" do
   let(:organization) { create(:organization) }
-  let(:author) { create(:user, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
   let(:current_user) { create(:user, :admin, :confirmed, organization:) }
   let(:justification) { "This is a spam content" }
   let(:event) { "decidim.admin.block_user:after" }

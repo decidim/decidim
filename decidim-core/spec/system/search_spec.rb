@@ -82,4 +82,16 @@ describe "Search" do
       expect(page).to have_text("Results per page")
     end
   end
+
+  context "when searching for users" do
+    let!(:confirmed) { create_list(:user, 10, :confirmed, organization:) }
+    let!(:unconfirmed) { create_list(:user, 5, organization:) }
+
+    it "finds only the confirmed accounts" do
+      visit "/search?filter[with_resource_type]=Decidim::User"
+
+      expect(page).to have_text("10 results for the search")
+      confirmed.each { |record| expect(page).to have_text(record.name) }
+    end
+  end
 end

@@ -25,7 +25,7 @@ module Decidim
       end
 
       def default_i18n_options
-        super.merge({ conflicts_path:, conflicts_url:, managed_user_path: managed_user.profile_path, managed_user_url: managed_user.profile_url,
+        super.merge({ conflicts_path:, conflicts_url:, managed_user_path: managed_user_presenter.profile_path, managed_user_url: managed_user_presenter.profile_url,
                       managed_user_name: managed_user.name })
       end
 
@@ -36,7 +36,11 @@ module Decidim
       end
 
       def managed_user
-        @managed_user ||= Decidim::UserPresenter.new(resource.managed_user)
+        @managed_user ||= resource.managed_user
+      end
+
+      def managed_user_presenter
+        @managed_user_presenter ||= Decidim::UserPresenter.new(resource.managed_user)
       end
 
       def decidim_admin

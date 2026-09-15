@@ -661,6 +661,13 @@ fi-pl:
           all: Kaikki
         filter_taxonomy_values:
           all: Kaikki
+    delete_user_mailer:
+      delete:
+        body_1: Tilisi on poistettu käytöstä ja se ei ole enää käytettävissä. Henkilötietosi on tarkoitus poistaa pysyvästi tietojen säilyttämiskäytäntöjemme mukaisesti.
+        body_2: Turvallisuussyistä tietyt vahvistuksiin liittyvät tiedot säilytetään. Jos luot uuden tilin ja vahvistat sen uudestaan, tiedot voidaan liittää uuteen tiliisi.
+        greetings_html: Terveisin,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hei %{username},
+      subject: Tilisi on poistettu
     devise:
       omniauth_registrations:
         create:
@@ -951,6 +958,18 @@ fi-pl:
         notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
         notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Sinut on lisätty osallistumistilan jäseneksi.
+            email_outro: Tämä viesti on lähetetty sinulle, koska hallintakäyttäjä lisäsi sinut osallistumistilaan <a href="%{resource_url}">%{resource_title}</a>. Mikäli tämä osallistumistila on rajattu ainoastaan jäsenille, pääset kyseiseen osallistumistilaan omalla käyttäjätililläsi.<br> Profiilisi näytetään osallistumistilan <a href="%{members_page}">jäsenlistauksessa</a>.
+            email_subject: Sinulla on nyt pääsy osallistumistilaan %{resource_title}.
+            notification_title: Sinulla on nyt pääsy osallistumistilaan <a href="%{resource_url}">%{resource_title}</a>.
+          unpublished:
+            email_intro: Sinut on lisätty osallistumistilan jäseneksi.
+            email_outro: Tämä viesti on lähetetty sinulle, koska hallintakäyttäjä lisäsi sinut osallistumistilaan <a href="%{resource_url}">%{resource_title}</a>. Mikäli tämä osallistumistila on rajattu ainoastaan jäsenille, pääset kyseiseen osallistumistilaan omalla käyttäjätililläsi.
+            email_subject: Sinulla on nyt pääsy osallistumistilaan %{resource_title}.
+            notification_title: Sinulla on nyt pääsy osallistumistilaan <a href="%{resource_url}">%{resource_title}</a>.
       reports:
         parent_hidden:
           email_intro: |-
@@ -1187,6 +1206,8 @@ fi-pl:
       dynamic:
         screen_reader_explanation: Seuraavassa elementissä on kartta, joka esittää tämän sivun tietueet karttapisteinä. Elementtiä voi käyttää ruudunlukijalla, mutta se voi olla vaikeaselkoinen.
         skip_button: Ohita kartta
+        zoom_in: Lähennä
+        zoom_out: Loitonna
       static:
         latlng_text: 'leveysaste: %{latitude}, pituusaste: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1528,6 +1549,10 @@ fi-pl:
         never_logged_in: et ole koskaan kirjautunut palveluun
         subject: Varoitus passiivisesta käyttäjätilistä
     participatory_space:
+      labels:
+        reference: Tilan viite
+        restricted: Rajoitettu tila
+        transparent: Läpinäkyvä tila
       pages:
         user_profile:
           member_of:
@@ -1686,6 +1711,8 @@ fi-pl:
       login_modal:
         please_log_in: Kirjaudu sisään
         sign_up: Luo tili
+      mentions:
+        search_prompt: Kirjoita etsiäksesi osallistujia
       mentions_modal:
         remove_recipient: Poista vastaanottaja %{name}
       progress: Edistyminen
@@ -2066,7 +2093,6 @@ fi-pl:
   layouts:
     decidim:
       announcements:
-        view_less: Näytä vähemmän
         view_more: Lisätietoa
       data_consent:
         details:

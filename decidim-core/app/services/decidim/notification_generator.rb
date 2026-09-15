@@ -17,7 +17,7 @@ module Decidim
     # affected_users - a collection of Users that receive the notification because
     #   they are affected by it
     # extra - a Hash with extra information for the event.
-    # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable-next Metrics/ParameterLists
     def initialize(event, event_class, resource, followers, affected_users, extra)
       @event = event
       @event_class = event_class
@@ -26,7 +26,6 @@ module Decidim
       @affected_users = affected_users
       @extra = extra
     end
-    # rubocop:enable Metrics/ParameterLists
 
     # Schedules a job for each recipient to create the notification. Returns `nil`
     # if the resource is not resource or if it is not present.

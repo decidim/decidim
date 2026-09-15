@@ -282,13 +282,13 @@ describe Decidim::Proposals::Permissions do
       end
 
       context "when coauthor is blocked" do
-        let(:coauthor) { create(:user, :blocked, organization: user.organization) }
+        let(:coauthor) { create(:user, :confirmed, :blocked, organization: user.organization) }
 
         it { is_expected.to be false }
       end
 
       context "when coauthor is deleted" do
-        let(:coauthor) { create(:user, :deleted, organization: user.organization) }
+        let(:coauthor) { create(:user, :confirmed, :deleted, organization: user.organization) }
 
         it { is_expected.to be false }
       end

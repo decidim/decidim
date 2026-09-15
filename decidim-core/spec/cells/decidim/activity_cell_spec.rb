@@ -21,7 +21,7 @@ describe Decidim::ActivityCell, type: :cell do
   describe "user" do
     subject { described_class.new(model) }
 
-    let(:author) { create(:user, organization: component.organization) }
+    let(:author) { create(:user, :confirmed, organization: component.organization) }
 
     context "when the author is a user" do
       before do
@@ -92,9 +92,8 @@ describe Decidim::ActivityCell, type: :cell do
         let!(:original_hash) { subject.send(:cache_hash) }
 
         before do
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           resource.author.touch
-          # rubocop:enable Rails/SkipsModelValidations
 
           subject.user.reload
         end

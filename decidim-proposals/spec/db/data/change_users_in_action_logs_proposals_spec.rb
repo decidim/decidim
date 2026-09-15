@@ -13,7 +13,7 @@ describe ChangeUsersInActionLogsProposals do
 
   describe "#up" do
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, organization:) }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:group) { create(:user, organization:, extended_data: { group: true }) }
     let(:admin) { create(:user, :admin, :confirmed, organization:) }
     let!(:component) { create(:proposal_component, organization:) }
@@ -26,7 +26,7 @@ describe ChangeUsersInActionLogsProposals do
       create_list(:action_log, 2, resource: create(:dummy_resource, organization:))
     end
     let!(:action_logs_with_old_type) do
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       Decidim::ActionLog.insert_all([
                                       {
                                         decidim_organization_id: organization.id,
@@ -134,7 +134,6 @@ describe ChangeUsersInActionLogsProposals do
                                         updated_at: Time.current
                                       }
                                     ])
-      # rubocop:enable Rails/SkipsModelValidations
     end
 
     it "updates properly the action logs" do

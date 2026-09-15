@@ -132,9 +132,8 @@ module Decidim
 
         def skip
           questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           questionnaire.touch
-          # rubocop:enable Rails/SkipsModelValidations
           redirect_to URI.parse(params[:url]).path
         end
 

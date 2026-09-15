@@ -22,5 +22,7 @@ edit_link(
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12">
       <%= render(collection) %>
     </div>
+
+    <%= decidim_paginate @members %>
   </section>
 <% end %>

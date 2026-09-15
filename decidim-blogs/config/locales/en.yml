@@ -99,6 +99,11 @@ en:
           back: Back to posts
           button: Create
           title: Create new post
+        orders:
+          label: Order posts by
+          most_commented: Most commented
+          random: Random order
+          recent: Most recent
     components:
       blogs:
         actions:

@@ -25,7 +25,7 @@ describe Decidim::FooterTopicsCell, type: :cell do
     let!(:page) { create(:static_page, organization:, topic:) }
 
     it "returns the list of topics" do
-      expect(subject).to have_css("nav[aria-label='#{I18n.t("layouts.decidim.footer.help")}']")
+      expect(subject).to have_css("ul")
       expect(subject).to have_link(href: "/#{I18n.locale}/pages/#{page.slug}")
     end
 
@@ -37,7 +37,7 @@ describe Decidim::FooterTopicsCell, type: :cell do
       end
 
       it "returns the list of topics" do
-        expect(subject).to have_css("nav[aria-label='#{I18n.t("layouts.decidim.footer.help")}']")
+        expect(subject).to have_css("ul")
         expect(subject).to have_link(href: "/#{locale}/pages/#{page.slug}")
       end
     end

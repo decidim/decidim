@@ -84,11 +84,10 @@ module Decidim
           context "when some proposal fails" do
             before do
               valid = false
-              # rubocop:disable RSpec/AnyInstance
+              # rubocop:disable-next RSpec/AnyInstance
               allow_any_instance_of(Decidim::Proposals::Admin::ProposalAnswerForm).to receive(:valid?) do |_arg|
                 valid = !valid
               end
-              # rubocop:enable RSpec/AnyInstance
             end
 
             it "enqueues ProposalAnswerJob once and redirects" do

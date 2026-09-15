@@ -1,8 +1,6 @@
 import icon from "src/decidim/refactor/moved/icon"
 
 /**
- * A custom confirm dialog for Decidim based on Foundation reveals.
- *
  * Note that this needs to be loaded before the application JS in order for
  * it to gain control over the confirm events BEFORE rails-ujs is loaded.
  */

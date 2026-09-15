@@ -121,7 +121,6 @@ fi-pl:
             title: Muokkaa vaalia
           form:
             add_images: Lisää kuvia
-            attachment_legend: Lisää kuvagalleria (valinnainen)
             basic_title: Perustiedot
             calendar: Kalenteri
             calendar_description: Tarkista, että organisaation aikavyöhyke on oikea organisaation asetuksissa. Nykyinen aikavyöhyke on %{timezone}.

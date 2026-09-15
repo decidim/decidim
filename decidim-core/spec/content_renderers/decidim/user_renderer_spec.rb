@@ -62,12 +62,27 @@ module Decidim
     context "when rendering for editor" do
       let(:content) { "This text contains a valid Decidim::User Global ID: #{user.to_global_id}" }
       let(:mention) { "@#{user.nickname}" }
-      let(:label) { "#{mention} (#{CGI.escapeHTML(user.name)})" }
+      let(:label) { mention }
 
       it "renders the mention wrapper for the editor" do
         expect(renderer.render(editor: true)).to eq(
-          %(This text contains a valid Decidim::User Global ID: <span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
+          %(This text contains a valid Decidim::User Global ID: <span data-type="mention" data-id="#{label}" data-label="#{label}">#{label}</span>)
         )
+      end
+    end
+
+    context "when rendering for editor with a nickname containing HTML special characters" do
+      let(:content) { "Mention: #{user.to_global_id}" }
+
+      it "escapes the data-id attribute to prevent XSS" do
+        renderer = described_class.new(content)
+        allow(renderer).to receive(:render_text).and_return("user<script>alert(1)</script>")
+
+        result = renderer.send(:render_editor, double)
+
+        expect(result).to include("data-id=\"user&lt;script&gt;alert(1)&lt;/script&gt;\"")
+        expect(result).to include("data-label=\"user&lt;script&gt;alert(1)&lt;/script&gt;\"")
+        expect(result).not_to include("data-id=\"user<script>")
       end
     end
 

@@ -20,12 +20,13 @@ module Decidim
         )
       end
 
-      let(:author) { create(:user, organization:) }
+      let(:author) { create(:user, :confirmed, organization:) }
 
       describe "call" do
+        let(:title) { "A reasonable proposal title" }
         let(:form_params) do
           {
-            title: "A reasonable proposal title",
+            title:,
             body: "A reasonable proposal body"
           }
         end
@@ -72,6 +73,53 @@ module Decidim
             expect(proposal.title[I18n.locale.to_s]).to eq form_params[:title]
             expect(proposal.body).to be_a(Hash)
             expect(proposal.body[I18n.locale.to_s]).to eq form_params[:body]
+          end
+
+          context "when body has a user mention" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:) }
+            let(:form_params) do
+              {
+                title: "A reasonable proposal title",
+                body: "A reasonable proposal body mentioning @#{mentioned_user.nickname}"
+              }
+            end
+
+            it "rewrites the mention to the mentioned user GID" do
+              command.call
+              proposal = Decidim::Proposals::Proposal.last
+
+              expect(proposal.body[I18n.locale.to_s]).to include(mentioned_user.to_global_id.to_s)
+            end
+          end
+
+          context "when body has a user mention with a hyphen in the nickname" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
+            let(:form_params) do
+              {
+                title: "A reasonable proposal title",
+                body: "A reasonable proposal body mentioning @#{mentioned_user.nickname}"
+              }
+            end
+
+            it "rewrites the mention to the mentioned user GID" do
+              command.call
+              proposal = Decidim::Proposals::Proposal.last
+
+              expect(proposal.body[I18n.locale.to_s]).to include(mentioned_user.to_global_id.to_s)
+            end
+          end
+
+          context "when title has a user mention" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:) }
+            let(:title) { "A reasonable proposal title mentioning @#{mentioned_user.nickname}" }
+
+            it "does not rewrite the mention to the mentioned user GID" do
+              command.call
+              proposal = Decidim::Proposals::Proposal.last
+
+              expect(translated(proposal.title)).not_to include(mentioned_user.to_global_id.to_s)
+              expect(translated(proposal.title)).to include("@#{mentioned_user.nickname}")
+            end
           end
 
           it "does not create a searchable resource" do

@@ -21,8 +21,8 @@ module Decidim
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :trackable, :lockable,
-           :decidim_validatable, :decidim_newsletterable, :jwt_authenticatable,
-           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys, jwt_revocation_strategy: Decidim::Api::JwtDenylist,
+           :decidim_validatable, :decidim_newsletterable,
+           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
     devise :rememberable if Decidim.enable_remember_me
@@ -48,6 +48,8 @@ module Decidim
     validate :all_roles_are_valid
 
     has_one_attached :download_your_data_file
+
+    scope :tos_accepted, -> { where.not(accepted_tos_version: nil) }
 
     scope :managed, -> { where(managed: true) }
     scope :not_managed, -> { where(managed: false) }
@@ -77,14 +79,22 @@ module Decidim
                         B: :nickname,
                         datetime: :created_at
                       },
-                      index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
-                      index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
+                      index_on_create: ->(user) { user.visible? },
+                      index_on_update: ->(user) { user.visible? })
 
     before_save :ensure_encrypted_password
     before_save :save_password_change
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
+    end
+
+    def profile_published?
+      # Note that we are not calling `tos_accepted?` here to avoid N+1 queries
+      # when querying through e.g. a list of records and their authors.
+      return false if accepted_tos_version.blank?
+
+      super
     end
 
     # Public: Allows customizing the invitation instruction email content when

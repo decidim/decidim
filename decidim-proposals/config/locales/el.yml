@@ -77,7 +77,6 @@ el:
               'false': Προτάσεις
               'true': Τροποποιήσεις
           state_eq:
-            label: Κατάσταση
             values:
               accepted: Έγινε αποδοχή
               evaluating: Υπό αξιολόγηση

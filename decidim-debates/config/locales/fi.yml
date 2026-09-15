@@ -75,7 +75,6 @@ fi:
             update: Päivitä keskustelu
           form:
             add_attachments: Lisää liitteitä
-            attachment_legend: Lisää asiakirja tai kuva
             comments_layout_locked_warning: Kommenttien asettelua ei voi muuttaa, koska kommentteja on jo lähetetty.
             comments_visualization: Kommenttien visualisointi
             comments_warning: Ensimmäisen kommentin jälkeen kommenttien esitysmuotoasetusta ei voi muuttaa.

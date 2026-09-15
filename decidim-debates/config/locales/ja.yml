@@ -74,11 +74,13 @@ ja:
             update: ディベートを更新
           form:
             add_attachments: 添付ファイルを追加
-            attachment_legend: ドキュメントまたは画像を追加
+            comments_layout_locked_warning: コメントがすでに投稿されているため、コメントレイアウトを変更できません。
             comments_visualization: コメントの視覚化
             comments_warning: 最初のコメントが投稿されると、選択した表示オプションは変更できません。
             debate_type: ディベートタイプ
             edit_attachments: 添付ファイルを編集
+            errors:
+              comments_layout_locked: コメントがすでに投稿されているため、コメントレイアウトを変更できません。
             finite: 期間限定 (開始時刻と終了時刻あり)
             open: 無期限 (開始時刻または終了時刻なし)
             single_column: '1カラム: コメントは時系列で表示され、返信を持つことができます。'

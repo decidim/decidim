@@ -109,7 +109,6 @@ fr-CA:
             title: Modifier l'élection
           form:
             add_images: Ajouter des images
-            attachment_legend: Ajouter une galerie d'images (facultatif)
             basic_title: Informations de base
             calendar: Calendrier
             edit_attachments: Modifier les pièces jointes

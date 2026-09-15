@@ -74,7 +74,6 @@ zh-TW:
               'false': 提案
               'true': 修正案
           state_eq:
-            label: 狀態
             values:
               accepted: 已接受
               evaluating: 評估

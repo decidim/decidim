@@ -113,3 +113,8 @@ Style/ModuleMemberExistenceCheck:
 
 Style/OneClassPerFile:
   Enabled: false
+
+Style/ArrayIntersect:
+  Exclude:
+    - decidim-core/lib/decidim/content_renderers/base_renderer.rb
+    - decidim-core/app/controllers/decidim/doorkeeper/authorizations_controller.rb

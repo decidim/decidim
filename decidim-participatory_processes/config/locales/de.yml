@@ -12,14 +12,12 @@ de:
         duplicate_categories: Kategorien duplizieren
         duplicate_components: Komponenten duplizieren
         duplicate_landing_page_blocks: Startseiten-Blöcke duplizieren
-        duplicate_steps: Schritte duplizieren
         end_date: Enddatum
         has_members: Dieser Bereich hat Mitglieder
         hero_image: Hauptbild
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
         import_components: Komponenten importieren
-        import_steps: Schritte importieren
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
         participatory_process_group_id: Prozessgruppe
@@ -65,6 +63,8 @@ de:
           attributes:
             document:
               allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
+              empty: Das Dokument ist leer
+              invalid_json: Das Dokument ist kein gültiges JSON
     models:
       decidim/participatory_process_step_activated_event: Phase aktiviert
       decidim/participatory_process_step_changed_event: Phase geändert
@@ -103,6 +103,7 @@ de:
         decidim_participatory_process_group_id_eq:
           label: Nach Prozessgruppe
         with_any_access_mode:
+          label: Zugriffsmodus
           values:
             open: Öffentlich
             restricted: Eingeschränkt
@@ -317,6 +318,7 @@ de:
     open_data:
       help:
         participatory_processes:
+          access_mode: Zugriffsmodus. Definiert, ob der Prozess öffentlich, eingeschränkt oder transparent ist.
           area: Der Bereich, in dem der Prozess stattfindet,
           component_settings: Die Komponenteneinstellungen des Prozesses
           created_at: Erstellungsdatum dieses Bereichs
@@ -441,7 +443,7 @@ de:
                 legend: Die Teilnahme war zu verschiedenen Zeiten geplant (morgens, mittags, nachmittags, abends oder am Wochenende).
                 options:
                   five: 'Ja'
-                  two_five:
+                  two_five: Teilweise
                   zero: 'Nein'
             informativeness:
               information_provided:
@@ -464,23 +466,60 @@ de:
             all: Alle
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
             selection_criteria: Auswahlkriterien
+        imports:
+          attachment_error: Der Anhang "%{title}" konnte nicht importiert werden (%{error}).
+          hero_image_error: Das Titelbild konnte nicht importiert werden (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Mit dieser Importfunktion können Sie aus einer exportierten JSON-Datei einen neuen Partizipationsprozess erstellen. Sie können einen Prozess von einer anderen Organisation oder von derselben Organisation exportieren. Der importierte Prozess enthält Einstellungen, Komponenten und Anhänge (falls ausgewählt).
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
+          new:
+            title: Partizipationsprozess duplizieren
         participatory_process_groups:
+          edit:
+            title: Prozessgruppe bearbeiten
           form:
             metadata: Metadaten
             title: Über diesen Prozess
             visibility: Sichtbarkeit
+          index:
+            title: Partizipationsprozessgruppen
+          new:
+            title: Neue Prozessgruppe
         participatory_process_imports:
           form:
             document_legend: Dokument hinzufügen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+          new:
+            title: Partizipationsprozess importieren
+        participatory_process_steps:
+          edit:
+            title: Partizipativen Prozessschritt bearbeiten
+          index:
+            title: Phasen
+          new:
+            title: Neuer partizipativer Prozessschritt
+        participatory_process_user_roles:
+          edit:
+            title: Partizipationsprozess-Admin aktualisieren
+          index:
+            title: Partizipationsprozess-Admins
+          new:
+            title: Neuer Partizipationsprozess-Admin
         participatory_processes:
+          edit:
+            title: Über diesen Prozess
           form:
+            access:
+              label: Zugriff
+              options:
+                open: Der Prozess kann von allen eingesehen werden, und alle können daran teilnehmen.
+                restricted: Nur Mitglieder und Admins können ihn ansehen und daran teilnehmen. Er erscheint weder in der allgemeinen Suche, der API noch in den Open-Data-Dateien.
+                transparent: Der Prozess kann von allen eingesehen werden, teilnehmen können jedoch nur Mitglieder und Admins.
+              set_this_space_as: Diesen Bereich festlegen als
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Dauer
             has_members_help: Sie können Mitglieder erstellen und veröffentlichen
@@ -493,6 +532,12 @@ de:
             taxonomies: Klassifizierungen
             title: Allgemeine Information
             visibility: Sichtbarkeit
+          index:
+            title: Partizipationsprozesse
+          manage_trash:
+            title: Gelöschte Partizipationsprozesse
+          new:
+            title: Neuer Partizipationsprozess
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
@@ -586,6 +631,187 @@ de:
         related_processes: Ähnliche Beteiligungsprozesse
       static_pages:
         democratic_quality_indicators:
+          content: |-
+            <h2>Indikatorensystem zur Messung der Qualitätsindikatoren in Decidim.</h2>
+
+                  <h3>Einleitung</h3>
+                  <p>Demokratische Qualität ist ein Grundprinzip von Decidim. Um dies zu gewährleisten, haben wir ein Indikatorensystem entwickelt, das dabei hilft, die Qualität von Partizipationsprozessen auf der Plattform zu bewerten. Dieser Artikel erklärt, wie diese Indikatoren berechnet werden.</p>
+
+                  <h3>Wie werden die Indikatoren berechnet?</h3>
+                  <p>Wir haben zwei Methoden zur Erhebung der Qualitätsindikatoren definiert:</p>
+
+                  <ol>
+                  <li><strong>Automatische Kennzahlen:</strong> Diese werden direkt aus den Daten der Decidim-Plattform berechnet.</li>
+                  <li><strong>Selbstbewertungsfragen:</strong> Diese basieren auf einem von einem Admin ausgefüllten Formular.</li>
+                  </ol>
+
+                  <p>Jeder Indikator wird als Prozentsatz (n/gesamt) ausgedrückt. Dieser Prozentsatz wird anschliessend in eine Bewertung auf einer Skala von 1 bis 5 umgerechnet:</p>
+
+                  <ul>
+                  <li>1 = 0–20 %</li>
+                  <li>2 = 20–40 %</li>
+                  <li>3 = 40–60 %</li>
+                  <li>4 = 60–80 %</li>
+                  <li>5 = 80–100 %</li>
+                  </ul>
+
+                  <br><br>
+                  <h3>Automatische Kennzahlen</h3>
+                  <p>Diese Kennzahlen werden automatisch aus den in Decidim verfügbaren Daten berechnet. Sie werden pro Partizipationsprozess ausgewertet und können von Admins veröffentlicht werden, sodass alle Teilnehmenden darauf zugreifen können.</p>
+
+                  <p>Wir haben vier Hauptindikatoren definiert: Einfluss der Bürgerschaft, Hybridisierung, Reaktionsfähigkeit und Nachvollziehbarkeit:</p>
+
+                  <h3>Einfluss der Bürgerschaft</h3>
+
+                  <p>Dieser Indikator misst das Ausmass des Einflusses der Bürgerschaft auf die angenommenen Vorschläge und die Ergebnisse des Prozesses.</p>
+
+                  <ul>
+                  <li>
+                  Einfluss der Bürgerschaft auf Vorschläge
+                  <ul>
+                  <li>Prozentsatz der angenommenen Vorschläge (n/gesamt)</li>
+                  <li>Prozentsatz der angenommenen <em>Bürger:innen</em>-Vorschläge im Verhältnis zur Gesamtzahl der Bürger:innen-Vorschläge (Gesamteinfluss der Bürgerschaft auf angenommene Vorschläge)</li>
+                  <li>Prozentsatz der angenommenen Bürger:innen-Vorschläge im Verhältnis zur Gesamtzahl der angenommenen Vorschläge (relativer Einfluss der Bürgerschaft auf angenommene Vorschläge)</li>
+                  </ul>
+                  </li>
+                  <li>
+                  Einfluss der Bürgerschaft auf Ergebnisse
+                  <ul>
+                  <li>Prozentsatz der Ergebnisse, die mit Bürger:innen-Vorschlägen verknüpft sind, bezogen auf die Gesamtzahl der Ergebnisse (Gesamteinfluss der Bürgerschaft auf Ergebnisse)</li>
+                  </ul>
+                  </li>
+                  </ul>
+
+                  <h3>Hybridisierung</h3>
+
+                  <p>Dieser Indikator misst das Ausmass der Kombination von Online- und Offline-Formaten während des Prozesses.</p>
+
+                  <ul>
+                  <li>Ist eine Veranstaltungskomponente aktiv? (Ja=5, Nein=0)</li>
+                  <li>Gibt es Präsenzveranstaltungen? (Ja=5, Nein=0)</li>
+                  <li>Gibt es Online-Veranstaltungen? (Ja=5, Nein=0)</li>
+                  <li>Gibt es hybride Veranstaltungen? (Ja=5, Nein=0)</li>
+                  <li>Gibt es Vorschläge, die aus Veranstaltungen entstanden sind? (Ja=5, Nein=0)</li>
+                  </ul>
+
+                  <h3>Reaktionsfähigkeit</h3>
+
+                  <p>Dieser Indikator misst, wie stark die Organisation auf die Beiträge der Teilnehmenden eingeht. Er spiegelt deren Engagement anhand offizieller Antworten und umgesetzter Entscheidungen wider.</p>
+
+                  <ul>
+                  <li>Prozentsatz der beantworteten Vorschläge (n/gesamt) – institutionelle Reaktionsfähigkeit bei Vorschlägen</li>
+                  <li>Prozentsatz der zu 100 % abgeschlossenen Ergebnisse (n/gesamt)</li>
+                  </ul>
+
+                  <h3>Nachvollziehbarkeit</h3>
+
+                  <p>Dieser Indikator misst die Transparenz und Nachvollziehbarkeit des Partizipationsprozesses. Er zeigt, wie leicht Teilnehmende die Entwicklung von Vorschlägen verfolgen und institutionelle Massnahmen anhand veröffentlichter Aufzeichnungen überprüfen können.</p>
+
+                  <ul>
+                  <li>Anzahl der Vorschläge mit Verlauf (n/gesamt)</li>
+                  <li>Prozentsatz der mit Vorschlägen verknüpften Ergebnisse (n/gesamt)</li>
+                  <li>Prozentsatz der abgeschlossenen Veranstaltungen mit veröffentlichtem Protokoll (n/gesamt)</li>
+                  <li>Aktivierung des Open-Data-Moduls (dichotom: 0 oder 5)</li>
+                  <li>Prozentsatz der Vorschläge mit Bezug zu Budgets (n/gesamt)</li>
+                  </ul>
+
+                  <br><br>
+                  <h3>Selbstbewertungs-Kennzahlen</h3>
+
+                  <p>Zusätzlich zu den automatischen Kennzahlen schlagen wir die Verwendung eines <strong>Selbstbewertungsformulars</strong> vor, um die qualitativen Dimensionen jedes Partizipationsprozesses zu bewerten. Dieses Formular wird von den Admins der Plattform am Ende jedes Prozesses ausgefüllt, und die Antworten werden öffentlich im Inhaltsblock der Indikatoren angezeigt.</p>
+
+                  <p>Diese Fragen zielen darauf ab, Aspekte der demokratischen Qualität zu erfassen, die sich nicht allein anhand quantitativer Daten bewerten lassen. Es ist wichtig zu beachten, dass die Antworten auf diese Umfrage durch die Meinung der Admins der Plattform beeinflusst sind.</p>
+
+                  <br><br>
+                  <h3>Selbstbewertungsfragen</h3>
+
+                  <p>Die Fragen, aus denen sich das von den Admins beantwortete Selbstbewertungsformular zusammensetzt, sowie die den einzelnen Antworten zugeordneten Werte, sind im Folgenden aufgeführt.</p>
+
+                  <h4>Informationsgehalt</h4>
+
+                  <ol>
+                  <li>Schaffen die veröffentlichten Informationen Klarheit über die Entscheidungsmechanismen (z. B. Abstimmung, Konsens, direkte Verhandlungen)?
+                  <ul>
+                  <li>Keine Klarheit = 0</li>
+                  <li>Geringe Klarheit = 1</li>
+                  <li>Ausreichende Klarheit = 2,5</li>
+                  <li>Volle Klarheit = 5</li>
+                  </ul>
+                  </li>
+                  <li>Wurden Informationen darüber bereitgestellt, welchen Einfluss die Teilnehmenden auf das diskutierte Thema nehmen können (sowohl in der Kommunikation des Prozesses und den Einladungen als auch zu Beginn jeder Debattensitzung)?
+                  <ul>
+                  <li>Nie = 0</li>
+                  <li>Fast nie = 1</li>
+                  <li>Meistens = 2,5</li>
+                  <li>Immer = 5</li>
+                  </ul>
+                  </li>
+                  </ol>
+
+                  <h4>Einfluss der Bürgerschaft</h4>
+
+                  <ol>
+                  <li>Bewertung des Beteiligungsgrads am Prozess
+                  <ul>
+                  <li>Die Teilnehmenden erhielten Informationen von der Organisation. = 1</li>
+                  <li>Die Teilnehmenden wurden konsultativ befragt oder gaben der Organisation Rückmeldung. = 2</li>
+                  <li>Die Teilnehmenden wurden einbezogen, um Entscheidungsmacht zu teilen. = 3</li>
+                  <li>Die Teilnehmenden wurden massgeblich in die Entscheidungsfindung einbezogen. = 4</li>
+                  <li>Die Teilnehmenden wurden in die Entscheidungsfindung sowie die Verwaltung der Ressourcen oder die Umsetzung einbezogen. = 5</li>
+                  </ul>
+                  </li>
+                  <li>Prozentsatz der Phasen mit Entscheidungsbeteiligung der Bürgerschaft (0–5).
+                  <p>Wie viele der Phasen des Prozesses (von der Auswahl der Themen bis zur Überwachung der Umsetzung) räumen der Öffentlichkeit die Möglichkeit ein, Entscheidungen zu treffen oder ausführende Massnahmen zu ergreifen?</p>
+                  <ul>
+                  <li>0–20 % = 1</li>
+                  <li>20–40 % = 2</li>
+                  <li>40–60 % = 3</li>
+                  <li>60–80 % = 4</li>
+                  <li>80–100 % = 5</li>
+                  </ul>
+                  </li>
+                  </ol>
+
+                  <h4>Inklusion</h4>
+
+                  <ol>
+                  <li>Wie wird der Grad der Vielfalt der Akteure und Teilnehmenden im Verhältnis zur Referenzbevölkerung des Prozesses bewertet?
+                  <ul>
+                  <li>Keine = 0</li>
+                  <li>Gering = 1</li>
+                  <li>Ausreichend = 2,5</li>
+                  <li>Gut = 5</li>
+                  </ul>
+                  </li>
+                  <li>In wie vielen Sprachen wurde der Prozess kommuniziert?
+                  <ul>
+                  <li>Eine Sprache = 1</li>
+                  <li>Weniger als die Hälfte der in der Gemeinschaft gesprochenen Sprachen = 2,5</li>
+                  <li>Mehr als die Hälfte der in der Gemeinschaft gesprochenen Sprachen = 5</li>
+                  </ul>
+                  </li>
+                  <li>Waren die Veranstaltungsorte der Präsenzveranstaltungen für Menschen mit eingeschränkter Mobilität zugänglich?
+                  <ul>
+                  <li>Nein = 0</li>
+                  <li>Teilweise = 2,5</li>
+                  <li>Ja = 5</li>
+                  </ul>
+                  </li>
+                  <li>Die Teilnahmesitzungen wurden zu unterschiedlichen Zeiten angesetzt (morgens, mittags, nachmittags, abends und an Wochenenden).
+                  <ul>
+                  <li>Nein = 0</li>
+                  <li>Teilweise = 2,5</li>
+                  <li>Ja = 5</li>
+                  </ul>
+                  </li>
+                  <li>Wurde den Teilnehmenden digitale Unterstützung angeboten?
+                  <ul>
+                  <li>Nein = 0</li>
+                  <li>Teilweise = 2,5</li>
+                  <li>Ja = 5</li>
+                  </ul>
+                  </li>
+                  </ol>
           title: Demokratische Qualitätsindikatoren
     statistics:
       processes_count: Beteiligungsprozesse

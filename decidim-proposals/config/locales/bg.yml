@@ -92,10 +92,7 @@ bg:
             values:
               'false': Предложения
               'true': Изменения
-          proposal_state_id_eq:
-            label: Състояние
           state_eq:
-            label: Състояние
             values:
               accepted: Прието
               evaluating: Оценяване

@@ -200,7 +200,7 @@ describe Decidim::Permissions do
     let(:amendable) { build(:dummy_resource, component:) }
     let(:emendation) { build(:dummy_resource, component:) }
     let(:amendment) { create(:amendment, emendation:, amendable:, amender: user) }
-    let(:user) { create(:user) }
+    let(:user) { create(:user, :confirmed) }
     let(:context) { { amendable: amendment.amendable, current_component: component } }
     let(:action_name) { nil }
     let(:action) do

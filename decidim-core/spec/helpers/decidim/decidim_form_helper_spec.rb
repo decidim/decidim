@@ -39,30 +39,5 @@ module Decidim
         end
       end
     end
-
-    describe "translated_field_tag" do
-      context "when a single locale is enabled" do
-        before do
-          allow(helper).to receive(:available_locales).and_return [:en]
-        end
-
-        it "renders the correct markup" do
-          actual_markup = helper.translated_field_tag(
-            :text_field_tag,
-            "survey[questions][]",
-            "body",
-            { "en" => "My dummy body" },
-            label: "Guacamole"
-          )
-
-          expected_markup = <<~HTML
-            <label for="body">Guacamole</label>
-            <input type="text" name="survey[questions][][body_en]" id="survey_questions__body_en" value="My dummy body" />
-          HTML
-
-          expect(expected_markup).to have_equivalent_markup_to(actual_markup)
-        end
-      end
-    end
   end
 end

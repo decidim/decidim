@@ -29,7 +29,16 @@ export default class MapController {
   }
 
   load() {
-    this.map = L.map(this.mapId);
+    const zoomControl = L.control.zoom({
+      zoomInTitle: this.config.zoomInText || "Zoom in",
+      zoomOutTitle: this.config.zoomOutText || "Zoom out"
+    });
+
+    this.map = L.map(this.mapId, {
+      zoomControl: false
+    });
+
+    this.map.addControl(zoomControl);
 
     this.map.scrollWheelZoom.disable();
 

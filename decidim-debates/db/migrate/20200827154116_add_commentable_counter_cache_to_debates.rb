@@ -5,10 +5,9 @@ class AddCommentableCounterCacheToDebates < ActiveRecord::Migration[5.2]
     add_column :decidim_debates_debates, :comments_count, :integer, null: false, default: 0, index: true
     Decidim::Debates::Debate.reset_column_information
 
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     Decidim::Debates::Debate.unscoped.includes(:comments).find_each do |debate|
       debate.update_columns(comments_count: debate.comments.not_hidden.count)
     end
-    # rubocop:enable Rails/SkipsModelValidations
   end
 end

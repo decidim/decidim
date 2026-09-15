@@ -1,6 +1,6 @@
 .budget {
   &-list__map {
-    @apply lg:-ml-16 -mt-6 lg:-mt-12 mb-6 aspect-square lg:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 lg:[&+*]:mt-12;
+    @apply lg:-ml-16 -mt-6 lg:-mt-8 mb-0 lg:mb-4 aspect-square lg:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 lg:[&+*]:mt-12;
   }
 
   &-summary {

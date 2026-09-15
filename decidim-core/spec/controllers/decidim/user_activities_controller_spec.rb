@@ -7,7 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let!(:user) { create(:user, nickname: "nick", organization:) }
+    let!(:user) { create(:user, :confirmed, nickname: "nick", organization:) }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -26,6 +26,41 @@ module Decidim
         it "returns the lowercased user" do
           get :index, params: { locale: I18n.locale, nickname: "NICK" }
           expect(response).to render_template(:index)
+        end
+      end
+
+      context "with an unconfirmed user" do
+        let!(:user) { create(:user, nickname: "nick", organization:) }
+
+        it "does not return the page" do
+          expect { get :index, params: { locale: I18n.locale, nickname: "nick" } }.to raise_error(ActionController::RoutingError, "Profile not published: nick")
+        end
+      end
+
+      context "with a blocked user" do
+        let!(:user) { create(:user, :confirmed, :blocked, nickname: "nick", organization:) }
+
+        it "does not return the page" do
+          expect { get :index, params: { locale: I18n.locale, nickname: "nick" } }.to raise_error(ActionController::RoutingError, "Blocked User")
+        end
+
+        context "when inspecting as an admin" do
+          let(:current_user) { create(:user, :confirmed, :admin, organization:) }
+
+          before { sign_in current_user }
+
+          it "renders the view" do
+            get :index, params: { locale: I18n.locale, nickname: "nick" }
+            expect(response).to render_template(:index)
+          end
+        end
+      end
+
+      context "with a deleted user" do
+        let!(:user) { create(:user, :confirmed, :deleted, nickname: "nick", organization:) }
+
+        it "does not return the page" do
+          expect { get :index, params: { locale: I18n.locale, nickname: "nick" } }.to raise_error(ActionController::RoutingError, "Profile not published: nick")
         end
       end
     end

@@ -2,7 +2,7 @@
 
 module Decidim
   module Blogs
-    # This cell renders metadata for an instance of a Proposal
+    # This cell renders metadata for an instance of a Post
     class PostMetadataCell < Decidim::CardMetadataCell
       def initialize(*)
         super
@@ -13,7 +13,7 @@ module Decidim
       private
 
       def post_items
-        [author_item, creation_date, comments_count_item, likes_count_item]
+        [author_item] + taxonomy_items + [creation_date, comments_count_item, likes_count_item]
       end
 
       def creation_date

@@ -76,7 +76,6 @@ de:
       posts:
         edit:
           add_attachments: Anhänge hinzufügen
-          attachment_legend: Dokument oder Bild hinzufügen
           back: Zurück zum Beitrag
           button: Aktualisieren
           edit_attachments: Anhänge bearbeiten
@@ -99,6 +98,11 @@ de:
           back: Zurück zu den Beiträgen
           button: Erstellen
           title: Neuen Beitrag verfassen
+        orders:
+          label: Beiträge sortieren nach
+          most_commented: Meistkommentiert
+          random: Zufällige Reihenfolge
+          recent: Neueste
     components:
       blogs:
         actions:
@@ -114,6 +118,7 @@ de:
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Zeichenanzahl pro Kommentar (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmende können Beiträge erstellen
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
@@ -153,8 +158,9 @@ de:
           follows_count: Die Anzahl Folgende dieses Beitrags
           id: Die eindeutige Bezeichnung des Beitrags
           likes_count: Die Anzahl Likes dieses Beitrags
-          participatory_space: Zu welchem Bereich dieser Beitrag gehört (z.B. Partizipationsprozesse oder Gremien)
+          participatory_space: Zu welchem Bereich dieser Beitrag gehört (z.B. Partizipationsprozesse oder Versammlungen)
           published_at: Veröffentlichungsdatum des Beitrags
+          reference: Die eindeutige Referenz des Beitrags
           title: Der Titel des Beitrags
           updated_at: Letztes Aktualisierungsdatum dieses Beitrags
           url: Die URL für diesen Beitrag

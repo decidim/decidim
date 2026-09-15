@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Meetings::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create(:user, organization: meeting_component.organization) }
+  let(:user) { create(:user, :confirmed, organization: meeting_component.organization) }
   let(:space_allows) { true }
   let(:context) do
     {

@@ -34,6 +34,8 @@ es-MX:
             body: Cuerpo
         pages:
           edit:
+            add_attachments: Agregar archivo(s) adjunto(s)
+            edit_attachments: Editar los archivos adjuntos
             save: Actualizar
             title: Editar página
           update:

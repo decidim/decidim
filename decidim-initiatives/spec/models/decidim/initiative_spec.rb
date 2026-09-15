@@ -7,7 +7,7 @@ module Decidim
     subject { initiative }
 
     let(:organization) { create(:organization) }
-    let(:initiative) { build(:initiative) }
+    let(:initiative) { build(:initiative, organization:) }
 
     let(:initiatives_type_minimum_committee_members) { 2 }
     let(:initiatives_type) do
@@ -22,7 +22,7 @@ module Decidim
     include_examples "has reference"
 
     context "when created initiative" do
-      let(:initiative) { create(:initiative, :created) }
+      let(:initiative) { create(:initiative, :created, organization:) }
       let(:administrator) { create(:user, :admin, organization: initiative.organization) }
       let(:message_delivery) { instance_double(ActionMailer::MessageDelivery) }
       let(:offline_type) { create(:initiatives_type, :online_signature_disabled, organization:) }
@@ -49,13 +49,13 @@ module Decidim
           .at_least(:once)
           .at_most(:once)
           .and_return(message_delivery)
-        initiative = build(:initiative, :created)
+        initiative = build(:initiative, :created, organization:)
         initiative.save!
       end
     end
 
     context "when published initiative" do
-      let(:published_initiative) { build(:initiative) }
+      let(:published_initiative) { build(:initiative, organization:) }
       let(:online_allowed_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
       let(:online_allowed_scope) { create(:initiatives_type_scope, type: online_allowed_type) }
 
@@ -113,7 +113,8 @@ module Decidim
               state: "validating",
               published_at: nil,
               signature_start_date: nil,
-              signature_end_date: nil)
+              signature_end_date: nil,
+              organization:)
       end
 
       it "is valid" do

@@ -62,6 +62,8 @@ ja:
               allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されています: %{types}'
         proposal:
           attributes:
+            add_attachments:
+              needs_to_be_reattached: 再接続が必要
             body:
               cant_be_equal_to_template: はテンプレートと等しくすることはできません
               identical: ANDタイトルは同一にすることはできません
@@ -118,10 +120,7 @@ ja:
             values:
               'false': 提案
               'true': 修正
-          proposal_state_id_eq:
-            label: ステータス
           state_eq:
-            label: 州(県)
             values:
               accepted: 受理
               evaluating: 評価
@@ -272,10 +271,12 @@ ja:
             email_intro: '"%{resource_title}" 内の "%{author_name}" "%{author_nickname}" によるプライベートノートで言及されました。<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。'
             email_outro: プライベートノートで言及されているため、この通知を受信しました。
             email_subject: 誰かが提案 %{resource_title} のメモであなたをメンションしました。
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> において、<a href="%{author_path}">%{author_name}</a> からの非公開ノートで言及されました。<a href="%{admin_proposal_info_path}">管理者パネル</a>でご確認ください。
           proposal_note_replied:
             email_intro: '%{author_name} は %{resource_title} のプライベートノートに返信しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
             email_outro: あなたがノートの作成者であるため、この通知を受信しました。
             email_subject: "%{author_name} が %{resource_title} 内のあなたのプライベートノートに返信しました。"
+            notification_title: <a href="%{author_path}">%{author_name}</a> が <a href="%{resource_path}">%{resource_title}</a> 内のあなたの非公開ノートに返信しました。<a href="%{admin_proposal_info_path}">管理者パネル</a>でご確認ください。
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> は提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を承諾しました。
         coauthor_invited:
@@ -292,14 +293,17 @@ ja:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} は %{resource_title} の貢献者としてアクセスできるようになりました。"
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトについて、<a href="%{requester_path}">%{requester_name}</a> が <strong>協力者としてアクセスを承認されました</strong>。
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとしてのアクセスを拒否されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} は、 %{resource_title} の共同草案の貢献者としてアクセスするために拒否されました。"
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> は <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトの <strong>寄稿者としてのアクセスを却下されました</strong>。
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} がコントリビューターとしてアクセスをリクエストしました。 <strong></strong> <a href="%{resource_url}">%{resource_title}</a> の共同草案ページからリクエストを承認または拒否できます。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} が %{resource_title} に貢献するためにアクセスをリクエストしました。"
+          notification_title: <a href="%{requester_path}">%{requester_name}</a> が <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトに協力するためのアクセスをリクエストしました。<strong>このリクエストを承認または拒否してください</strong>。
         collaborative_draft_access_requester_accepted:
           email_intro: <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターになることをリクエストしたため、この通知を受け取りました。
@@ -311,7 +315,10 @@ ja:
           email_subject: '%{resource_title} の貢献者として拒否されました。'
           notification_title: 共同草稿<a href="%{resource_path}">%{resource_title}</a>の<strong>投稿者としてのアクセスを拒否</strong>されました。
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name}</a> が <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトを撤回しました。
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
+          email_subject: "%{author_name} が %{resource_title} の共同ドラフトを撤回しました。"
+          notification_title: <a href="%{author_path}">%{author_name}</a> が <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトを <strong>取り下げました</strong>。
         creation_enabled:
           email_intro: '%{participatory_space_title}で新しい提案を作成できるようになりました! このページに参加してください:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
@@ -644,6 +651,7 @@ ja:
             number_of_proposals: '%{number} 件の提案に対する回答が公開されますか？'
             select_a_proposal: 提案を選択してください。
           show:
+            address: 住所
             amendments_count: 修正数
             assigned_evaluators: 評価者に割り当てられました
             body: 本文
@@ -745,6 +753,7 @@ ja:
         errors:
           device_not_supported: お使いのデバイスは位置情報サービスをサポートしていません。アドレスを手動で入力してください。
           no_device_location: 申し訳ありませんが、場所を検出できませんでした。アドレスを手動で入力してください。
+        locating: 位置情報を取得中…
         use_my_location: 現在地を使用
       invite_coauthors:
         cancel:
@@ -796,7 +805,6 @@ ja:
           instructions: 地図上のポイントを移動できます。
         edit:
           add_attachments: 添付ファイルを追加
-          attachment_legend: ドキュメントまたは画像を追加
           back: 戻る
           edit_attachments: 添付ファイルを編集
           send: 送信

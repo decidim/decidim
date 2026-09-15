@@ -166,6 +166,7 @@ de:
             announcement: Ankündigung
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Zeichenanzahl pro Kommentar (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmende können Veranstaltungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
@@ -344,16 +345,22 @@ de:
             success: Der Benutzende wurde erfolgreich zur Veranstaltung eingeladen.
           form:
             attendee_type: Teilnehmertyp
+            email: E-Mail
             invite: Einladen
             invite_explanation: Der Benutzende wird eingeladen, der Veranstaltung und der Organisation beizutreten.
+            name_or_nickname: Name oder Benutzername
             select_user: Nutzer wählen
           index:
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
+            title: Teilnehmende einladen
         meeting_closes:
           edit:
             close: Schließen
             title: Veranstaltung abschliessen
+        meeting_copies:
+          new:
+            title: Veranstaltung duplizieren
         meetings:
           close:
             invalid: Beim Abschliessen dieser Veranstaltung ist ein Problem aufgetreten.
@@ -386,6 +393,7 @@ de:
             assign: Zuweisen
             link_a_space: Bereich verknüpfen
             private_meeting_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung privat und nicht transparent ist.
+            restricted_space_warning: Verknüpfte Bereiche werden nicht angewendet, wenn die Veranstaltung zu einem eingeschränkten Bereich gehört.
             select: Einen Bereich auswählen
             table:
               actions: Aktionen
@@ -429,15 +437,21 @@ de:
             invalid: Beim Aktualisieren der Veranstaltungsumfrage ist ein Problem aufgetreten.
             success: Veranstaltungsumfrage erfolgreich aktualisiert.
         poll:
+          edit:
+            title: Umfrage bearbeiten
           form:
             announcement_html:
               - Wenn eine Frage Antworten erhalten hat oder veröffentlicht/geschlossen wird, kann sie nicht mehr bearbeitet werden.
               - Sie können jederzeit eine neue Frage hinzufügen.
               - Die Umfrage wird geschlossen, wenn die Ergebnisse aller erstellten Fragen veröffentlicht wurden.
               - Besuchen Sie die <a href='%{admin_link}'>Umfrageverwaltungsseite</a> um Fragen zu versenden oder Ergebnisse zu veröffentlichen.
+        registration_form:
+          edit_questions:
+            title: Fragen bearbeiten
         registrations:
           edit:
             save: Speichern
+            title: Anmeldungen
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
@@ -801,7 +815,7 @@ de:
           longitude: Der Längengrad des Veranstaltungsorts
           online_meeting_url: Die URL der Online-Veranstaltung
           organizations: Die Organisationen, die an dieser Veranstaltung teilnehmen
-          participatory_space: Zu welchem Bereich diese Veranstaltung gehört (z.B. Beteiligungsprozesse oder Gremien)
+          participatory_space: Zu welchem Bereich diese Veranstaltung gehört (z.B. Beteiligungsprozesse oder Versammlungen)
           private_meeting: Um anzugeben, ob die Veranstaltung privat ist oder nicht
           published: Wann die Veranstaltung veröffentlicht wurde
           reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform

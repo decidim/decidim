@@ -12,7 +12,7 @@ module Decidim
         create_content_block!
 
         process_groups = []
-        number_of_records.times do
+        config_value(:participatory_processes_groups_count).times do
           process_groups << create_process_group!
         end
 
@@ -21,7 +21,7 @@ module Decidim
         end
 
         taxonomy = create_taxonomy!(name: "Process Types", parent: nil)
-        number_of_records.times do
+        config_value(:participatory_processes_types_taxonomies_count).times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
         # filters for processes only
@@ -29,7 +29,7 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:participatory_processes])
 
-        number_of_records.times do |_n|
+        config_value(:participatory_processes_count).times do |_n|
           process = create_process!(process_group: process_groups.sample)
 
           create_follow!(Decidim::User.where(organization:, admin: true).first, process)
@@ -103,7 +103,7 @@ module Decidim
           scope: n.positive? ? nil : Decidim::Scope.all.sample
         }
 
-        process = Decidim.traceability.perform_action!(
+        Decidim.traceability.perform_action!(
           "publish",
           Decidim::ParticipatoryProcess,
           organization.users.first,
@@ -111,9 +111,6 @@ module Decidim
         ) do
           Decidim::ParticipatoryProcess.create!(params)
         end
-        process.add_to_index_as_search_resource
-
-        process
       end
 
       def create_process_step!(process:)

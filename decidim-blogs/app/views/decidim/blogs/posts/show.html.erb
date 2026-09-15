@@ -51,9 +51,11 @@
     </div>
 
     <%= attachments_for post %>
-
-    <%= render partial: "actions" %>
   </section>
+
+  <%= cell "decidim/tags", post %>
+
+  <%= render partial: "actions" %>
 
   <section class="layout-main__section">
     <%= comments_for post %>

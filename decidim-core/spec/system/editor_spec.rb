@@ -893,7 +893,7 @@ describe "Editor" do
       # See:
       # https://github.com/ueberdosis/tiptap/issues/3756
       # https://github.com/ueberdosis/tiptap/issues/3735
-      # rubocop:disable RSpec/ExampleLength
+      # rubocop:disable-next RSpec/ExampleLength
       it "preserves CSS styled ordered list type and marks from desktop Word" do
         content = <<~MARKUP
           <html>
@@ -1177,7 +1177,6 @@ describe "Editor" do
         paste_content(content, prosemirror_selector)
         expect_value(properly_formatted)
       end
-      # rubocop:enable RSpec/ExampleLength
 
       # This is to test the weird markup produced by Office 365 that it is
       # handled properly in the editor.
@@ -1185,7 +1184,7 @@ describe "Editor" do
       # See:
       # https://github.com/ueberdosis/tiptap/issues/3751
       # https://github.com/ueberdosis/tiptap/issues/3735
-      # rubocop:disable RSpec/ExampleLength
+      # rubocop:disable-next RSpec/ExampleLength
       it "preserves CSS styled ordered list type and marks from Office 365" do
         content = <<~HTML
           <div class="ListContainerWrapper">
@@ -1252,7 +1251,6 @@ describe "Editor" do
         paste_content(content, prosemirror_selector)
         expect_value(properly_formatted)
       end
-      # rubocop:enable RSpec/ExampleLength
     end
   end
 
@@ -1406,7 +1404,23 @@ describe "Editor" do
 
       prosemirror.native.send_keys [:enter]
 
-      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> </p>))
+      expect_value(%(<p><span data-type="mention" data-id="@doe_jane" data-label="@doe_jane">@doe_jane</span> </p>))
+    end
+
+    it "allows selecting mentions by clicking" do
+      prosemirror.native.send_keys "@doe"
+
+      expect(page).to have_css(".editor-suggestions-item", text: "@doe_john (John Doe)")
+
+      find(".editor-suggestions-item", text: "@doe_john (John Doe)").click
+
+      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john">@doe_john</span> </p>))
+    end
+
+    it "shows a help message for the first character" do
+      prosemirror.native.send_keys "@d"
+
+      expect(page).to have_css(".editor-suggestions-item", text: "Type to search participants")
     end
   end
 

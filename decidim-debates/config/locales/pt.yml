@@ -68,7 +68,6 @@ pt:
             update: Atualizar debate
           form:
             add_attachments: Adicionar anexos
-            attachment_legend: Adicionar um documento ou uma imagem
             comments_visualization: Visualização de comentários
             comments_warning: Depois de o primeiro comentário ser publicado, a opção de exibição selecionada não poderá ser alterada.
             debate_type: Tipo de debate

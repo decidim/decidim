@@ -74,7 +74,6 @@ sv:
             update: Uppdatera debatt
           form:
             add_attachments: Lägg till bilagor
-            attachment_legend: Lägg till ett dokument eller en bild
             comments_visualization: Visualisering av kommentarer
             comments_warning: Visningsalternativet inte längre ändras efter att den första kommentaren har postats.
             debate_type: Typ av debatt

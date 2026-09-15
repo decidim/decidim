@@ -75,7 +75,6 @@ ca:
             update: Actualitzar debat
           form:
             add_attachments: Afegir fitxer(s) adjunt(s)
-            attachment_legend: Afegir un document o una imatge
             comments_layout_locked_warning: No es pot canviar el disseny dels comentaris perquè ja s'han publicat comentaris.
             comments_visualization: Visualització dels comentaris
             comments_warning: Una vegada que es publica el primer comentari, l'opció de visualització seleccionada no es pot canviar.
