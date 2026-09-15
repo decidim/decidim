@@ -2067,7 +2067,6 @@ fi:
   layouts:
     decidim:
       announcements:
-        view_less: Näytä vähemmän
         view_more: Lisätietoa
       data_consent:
         details:
