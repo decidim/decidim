@@ -184,7 +184,7 @@ module Decidim
       end
 
       def order
-        params.fetch(:order, "older")
+        params.fetch(:order, "recent")
       end
 
       def reload?

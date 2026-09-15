@@ -409,17 +409,17 @@ export default class CommentsComponent {
     });
 
     mobileOrderSelect.addEventListener("focus", function () {
-      const olderOption = mobileOrderSelect.querySelector('option[value="older"]');
-      if (!mobileOrderSelect.value) {
-        olderOption.style.fontWeight = "bold"
+      const defaultOption = mobileOrderSelect.querySelector('option[value="recent"]');
+      if (defaultOption && !mobileOrderSelect.value) {
+        defaultOption.style.fontWeight = "bold"
       }
     });
 
     mobileOrderSelect.addEventListener("change", function(event) {
-      const olderOption = mobileOrderSelect.querySelector('option[value="older"]');
+      const defaultOption = mobileOrderSelect.querySelector('option[value="recent"]');
 
-      if (!olderOption.selected) {
-        olderOption.style.fontWeight = "normal"
+      if (defaultOption && !defaultOption.selected) {
+        defaultOption.style.fontWeight = "normal"
       }
 
       const selectedOption = mobileOrderSelect.querySelector(`[value=${event.target.value}]`);
