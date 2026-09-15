@@ -82,11 +82,9 @@ module RuboCop
           return if @before_action_auth
           return if @helper_methods.include?(method_name)
 
-          action_name = method_name.to_s
-          return unless action_name?(action_name)
-
           return if contains_authorization_check?(node)
 
+          action_name = method_name.to_s
           add_offense(node, message: format(MSG, action: action_name))
         end
 
@@ -160,10 +158,6 @@ module RuboCop
 
           name = arg.value.to_s
           BEFORE_ACTION_AUTH_KEYWORDS.any? { |keyword| name.include?(keyword) }
-        end
-
-        def action_name?(name)
-          %w(index show new edit create update destroy).include?(name)
         end
 
         def contains_authorization_check?(node)

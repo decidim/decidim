@@ -220,51 +220,67 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
     RUBY
   end
 
-  it "does not register an offense for methods starting with set_" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for public methods starting with set_" do
+    expect_offense(<<~RUBY)
       class Admin::ResourcesController < Admin::ApplicationController
         def set_resource
+        ^^^^^^^^^^^^^^^^ Action `set_resource` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
           @resource = Resource.find(params[:id])
         end
       end
     RUBY
   end
 
-  it "does not register an offense for methods starting with load_" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for public methods starting with load_" do
+    expect_offense(<<~RUBY)
       class Admin::ResourcesController < Admin::ApplicationController
         def load_resource
+        ^^^^^^^^^^^^^^^^^ Action `load_resource` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
           @resource = Resource.find(params[:id])
         end
       end
     RUBY
   end
 
-  it "does not register an offense for methods starting with find_" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for public methods starting with find_" do
+    expect_offense(<<~RUBY)
       class Admin::ResourcesController < Admin::ApplicationController
         def find_resource
+        ^^^^^^^^^^^^^^^^^ Action `find_resource` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
           @resource = Resource.find(params[:id])
         end
       end
     RUBY
   end
 
-  it "does not register an offense for methods starting with build_" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for public methods starting with build_" do
+    expect_offense(<<~RUBY)
       class Admin::ResourcesController < Admin::ApplicationController
         def build_resource
+        ^^^^^^^^^^^^^^^^^^ Action `build_resource` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
           @resource = Resource.new
         end
       end
     RUBY
   end
 
-  it "does not register an offense for methods starting with _" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for public methods starting with _" do
+    expect_offense(<<~RUBY)
       class Admin::ResourcesController < Admin::ApplicationController
         def _internal_action
+        ^^^^^^^^^^^^^^^^^^^^ Action `_internal_action` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
           do_something
+        end
+      end
+    RUBY
+  end
+
+  it "registers an offense for custom actions like publish without authorization" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        def publish
+        ^^^^^^^^^^^ Action `publish` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resource.publish
         end
       end
     RUBY
