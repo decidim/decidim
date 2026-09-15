@@ -52,17 +52,16 @@ module Decidim::Api
         end
       end
 
-
       describe "commentable query" do
         let(:query) do
           <<~GRAPHQL
-          query Commentable($id: String!, $type: String!, $locale: String!, $toggleTranslations: Boolean!) {
-            commentable(id: $id, type: $type, locale: $locale, toggleTranslations: $toggleTranslations) {
-              id
-              type
+            query Commentable($id: String!, $type: String!, $locale: String!, $toggleTranslations: Boolean!) {
+              commentable(id: $id, type: $type, locale: $locale, toggleTranslations: $toggleTranslations) {
+                id
+                type
+              }
             }
-          }
-        GRAPHQL
+          GRAPHQL
         end
 
         let(:type_class) { Decidim::Api::QueryType }
@@ -185,7 +184,6 @@ module Decidim::Api
           end
         end
       end
-
     end
 
     describe "user" do
