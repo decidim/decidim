@@ -210,7 +210,14 @@ export default class CommentsComponent {
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
 
     if (position === "prepend") {
-      $target.prepend($container);
+      // In the two columns layout the column starts with its own header, so
+      // the thread has to go right after it instead of at the very top.
+      const $header = $target.children(".comments-section__header").first();
+      if ($header.length > 0) {
+        $header.after($container);
+      } else {
+        $target.prepend($container);
+      }
     } else {
       $target.append($container);
     }

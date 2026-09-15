@@ -47,6 +47,7 @@
   var newCommentEl = document.getElementById("comment_" + newCommentId);
   if (newCommentEl) {
     newCommentEl.setAttribute("tabindex", "-1");
+    newCommentEl.setAttribute("aria-live", "polite");
     newCommentEl.classList.add("comment--just-posted");
     newCommentEl.focus();
     setTimeout(function() {
