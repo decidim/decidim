@@ -150,8 +150,10 @@ shared_examples "comments" do
     it "shows a load more button and loads the next page" do
       visit resource_path
 
-      visible_comments = all_comments.sort_by(&:created_at).first(per_page)
-      hidden_comment = (all_comments.sort_by(&:created_at) - visible_comments).first
+      # Comments are sorted by "recent" by default, so the first page holds the
+      # newest ones and the oldest comment is the one left out.
+      visible_comments = all_comments.sort_by(&:created_at).reverse.first(per_page)
+      hidden_comment = (all_comments.sort_by(&:created_at).reverse - visible_comments).first
 
       visible_comments.each do |comment|
         expect(page).to have_css("#comment_#{comment.id}")
