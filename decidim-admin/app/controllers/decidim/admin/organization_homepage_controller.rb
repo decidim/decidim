@@ -10,6 +10,8 @@ module Decidim
 
       add_breadcrumb_item_from_menu :admin_settings_menu
 
+      protected
+
       def content_block_scope
         :homepage
       end

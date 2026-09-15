@@ -7,6 +7,8 @@ module Decidim
       class ParticipatoryProcessShareTokensController < Decidim::Admin::ShareTokensController
         include Concerns::ParticipatoryProcessAdmin
 
+        protected
+
         def resource
           current_participatory_process
         end

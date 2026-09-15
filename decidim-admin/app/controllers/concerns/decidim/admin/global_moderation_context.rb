@@ -10,6 +10,8 @@ module Decidim
       included do
         # Private: Overwrites the method from the parent controller so that the
         # permission system does not overwrite permissions.
+        protected
+
         def authorization_scope
           :global_moderation
         end

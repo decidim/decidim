@@ -15,6 +15,8 @@ module Decidim
           enforce_permission_to(:index, :demographics)
         end
 
+        protected
+
         def questionnaire_url
           responses_path
         end

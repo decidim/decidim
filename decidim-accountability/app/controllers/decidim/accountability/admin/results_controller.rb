@@ -13,6 +13,8 @@ module Decidim
 
         helper_method :results, :parent_result, :parent_results, :statuses, :present, :bulk_actions_form
 
+        protected
+
         def collection
           parent_id = params[:parent_id].presence
           @collection ||= Result.where(component: current_component, parent_id:).page(params[:page]).per(15).order(created_at: :asc)

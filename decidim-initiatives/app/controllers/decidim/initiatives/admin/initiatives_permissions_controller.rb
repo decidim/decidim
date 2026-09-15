@@ -27,6 +27,8 @@ module Decidim
           super
         end
 
+        protected
+
         def resource
           current_initiative
         end

@@ -16,6 +16,8 @@ module Decidim
         #         on which the layout will be applied.
         #
         # Returns nothing.
+        protected
+
         def participatory_space_admin_layout(options = {})
           layout :layout, options
           before_action :authorize_participatory_space, options

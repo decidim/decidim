@@ -130,6 +130,8 @@ module Decidim
           end
         end
 
+        protected
+
         def skip
           questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
           # rubocop:disable-next Rails/SkipsModelValidations

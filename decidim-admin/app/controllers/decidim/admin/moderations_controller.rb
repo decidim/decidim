@@ -92,6 +92,8 @@ module Decidim
         query_params[:q] || { s: "created_at desc" }
       end
 
+      protected
+
       # Private: This method is used by the `Filterable` concern as the base query
       #          without applying filtering and/or sorting options.
       def collection

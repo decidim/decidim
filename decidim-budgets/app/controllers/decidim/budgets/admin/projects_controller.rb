@@ -15,10 +15,6 @@ module Decidim
 
         helper_method :projects, :finished_orders, :pending_orders, :present, :project_ids
 
-        def collection
-          @collection ||= budget.projects.page(params[:page]).per(15)
-        end
-
         def new
           enforce_permission_to :create, :project
           @form = form(ProjectForm).from_params(
@@ -162,6 +158,10 @@ module Decidim
         end
 
         private
+
+        def collection
+          @collection ||= budget.projects.page(params[:page]).per(15)
+        end
 
         def trashable_deleted_resource_type
           :project

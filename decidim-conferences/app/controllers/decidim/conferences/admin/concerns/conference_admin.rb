@@ -25,6 +25,8 @@ module Decidim
 
             participatory_space_admin_layout
 
+            protected
+
             def current_conference
               @current_conference ||= organization_conferences.find_by!(
                 slug: params[:conference_slug] || params[:slug]

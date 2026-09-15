@@ -25,6 +25,8 @@ module Decidim
 
               helper Decidim::DatalistSelectHelper
 
+              protected
+
               def templatable_type
                 "Decidim::Forms::Questionnaire"
               end
@@ -88,6 +90,8 @@ module Decidim
                 end
               end
             end
+
+            protected
 
             def response_options
               respond_to do |format|

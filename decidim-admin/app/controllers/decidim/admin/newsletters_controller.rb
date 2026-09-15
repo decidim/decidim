@@ -183,6 +183,8 @@ module Decidim
         end
       end
 
+      protected
+
       def collection
         @collection ||= Newsletter.where(organization: current_organization)
       end

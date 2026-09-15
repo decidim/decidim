@@ -10,6 +10,8 @@ module Decidim
 
         layout "decidim/admin/participatory_process"
 
+        protected
+
         def content_block_scope
           current_participatory_space_manifest.content_blocks_scope_name
         end

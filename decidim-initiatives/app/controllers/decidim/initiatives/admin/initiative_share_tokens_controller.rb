@@ -9,6 +9,8 @@ module Decidim
       class InitiativeShareTokensController < Decidim::Admin::ShareTokensController
         include InitiativeAdmin
 
+        protected
+
         def resource
           current_initiative
         end

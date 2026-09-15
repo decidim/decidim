@@ -67,6 +67,8 @@ module Decidim
         Decidim::Admin::ModerationStats.new(current_user).user_reports
       end
 
+      protected
+
       def collection
         @collection ||= if params[:blocked]
                           base_query_finder.blocked

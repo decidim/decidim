@@ -133,6 +133,8 @@ module Decidim
               end
             end
 
+            protected
+
             # Public: Returns a String or Object that will be passed to `redirect_to` after
             # destroying a member. By default it redirects to the participatory_space.
             #
