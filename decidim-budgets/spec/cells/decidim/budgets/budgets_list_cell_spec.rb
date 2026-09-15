@@ -10,8 +10,8 @@ module Decidim::Budgets
     let(:current_workflow) { Workflows::All.new(component, user) }
     let!(:budgets) do
       [
-        create(:budget, component:, weight: 0, total_budget: 20_000, title: Decidim::Faker::Localized.localized { "Higher cost" }),
-        create(:budget, component:, weight: 1, total_budget: 10_000, title: Decidim::Faker::Localized.localized { "Lower cost" })
+        create(:budget, component:, weight: 1, total_budget: 20_000, title: Decidim::Faker::Localized.localized { "Higher cost" }),
+        create(:budget, component:, weight: 0, total_budget: 10_000, title: Decidim::Faker::Localized.localized { "Lower cost" })
       ]
     end
     let(:component) { create(:budgets_component) }
@@ -41,6 +41,32 @@ module Decidim::Budgets
 
         before do
           allow(my_cell).to receive(:params).and_return(params)
+        end
+
+        context "with no order specified" do
+          it "defaults to the admin order position" do
+            expect(titles).to eq(["Lower cost", "Higher cost"])
+          end
+
+          it "marks the order position as the selected order" do
+            expect(subject.css("[data-order='weight'][aria-current='true']").text.strip).to eq("Order position")
+          end
+        end
+
+        context "with an unknown order" do
+          let(:order_value) { "unknown" }
+
+          it "falls back to the admin order position" do
+            expect(titles).to eq(["Lower cost", "Higher cost"])
+          end
+        end
+
+        context "with order position" do
+          let(:order_value) { "weight" }
+
+          it "orders the budgets by weight" do
+            expect(titles).to eq(["Lower cost", "Higher cost"])
+          end
         end
 
         context "with highest cost first" do
