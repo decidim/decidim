@@ -31,6 +31,8 @@ RSpec.configure do |config|
     config.after(:each) do
       Bullet.perform_out_of_channel_notifications if Bullet.notification?
       Bullet.end_request
+      Bullet.clear_safelist
+      Bullet.reset_safelist
     end
   end
 end

@@ -91,10 +91,6 @@ module Decidim
           expect(serialized).to include(reference: meeting.reference)
         end
 
-        it "serializes the amount of attachments" do
-          expect(serialized).to include(attachments: meeting.attachments.count)
-        end
-
         it "serializes related proposals" do
           expect(serialized[:related_proposals].length).to eq(2)
           expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})

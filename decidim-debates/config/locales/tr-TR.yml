@@ -30,7 +30,6 @@ tr:
             announcement: duyuru
             attachments_allowed: Eklere İzin Ver
             comments_enabled: Yorumlar etkin
-            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
@@ -137,8 +136,8 @@ tr:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Merhaba 
-              %{participatory_space_title} katılımcı alanında yeni bir "%{resource_title}" tartışma başlığı oluşturuldu. İnceleyerek katkıda bulunabilirsiniz. 
+              Merhaba
+              %{participatory_space_title} katılımcı alanında yeni bir "%{resource_title}" tartışma başlığı oluşturuldu. İnceleyerek katkıda bulunabilirsiniz.
             email_outro: Bu bildirimi %{participatory_space_title} katılımcılık Başlıklı alanını takip ettiğiniz için aldınız. Bildirim almayı önceki bağlantı linkini izleyerek durdurabilirsiniz.
             email_subject: '%{participatory_space_title} başlıpı ile ilgili yeni tartışma "%{resource_title}"'
             notification_title: <a href="%{resource_path}">%{resource_title</a> tartışması <a href="%{participatory_space_url}">%{participatory_space_title</a> tarihinde oluşturuldu.

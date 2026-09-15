@@ -27,10 +27,12 @@
         <%= t(".change_dates") %>
       </button>
     </li>
-    <li class="dropdown__item">
-      <button type="button" class="dropdown__button" data-action="change-status">
-        <%= t(".change_status") %>
-      </button>
-    </li>
+    <% if statuses.any? %>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="change-status">
+          <%= t(".change_status") %>
+        </button>
+      </li>
+    <% end %>
   </ul>
 </div>

@@ -65,16 +65,24 @@
     &-panel {
       @apply divide-y divide-gray-3 [&>*]:py-4 [&>p]:text-gray-2;
 
-      &__tr {
-        @apply flex items-center justify-between rounded first-of-type:bg-background-4;
+      table {
+        @apply w-full border-collapse;
       }
 
-      &__th {
-        @apply w-1/4 p-2 bg-background-4 text-gray-2 font-bold text-sm;
+      thead tr {
+        @apply bg-background-4;
       }
 
-      &__td {
+      th {
+        @apply w-1/4 p-2 text-gray-2 font-bold text-sm text-left;
+      }
+
+      td {
         @apply w-1/4 p-2 text-gray-2 text-xs;
+      }
+
+      tbody tr {
+        @apply border-b border-gray-3;
       }
     }
 

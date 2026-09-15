@@ -49,8 +49,6 @@ ca-IT:
       meeting_registration_invite:
         email: Correu electrònic
         name: Nom
-      response:
-        add_documents: Afegir documents
       validate_registration_code:
         code: Codi
     errors:
@@ -168,7 +166,7 @@ ca-IT:
             announcement: Avís
             clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
             creation_enabled_for_participants: Les participants poden crear trobades
             default_registration_terms: Termes de registre per defecte
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
@@ -347,10 +345,10 @@ ca-IT:
             success: S'ha convidat correctament a la participant a unir-se a la trobada.
           form:
             attendee_type: Tipus d'assistent
-            existing_user: Participant existent
+            email: Correu electrònic
             invite: Convidar
             invite_explanation: La participant serà convidada a unir-se a la trobada i també a l'organització.
-            non_user: Participant no existent
+            name_or_nickname: Nom o pseudònim
             select_user: Selecciona la participant
           index:
             invites: Invitacions

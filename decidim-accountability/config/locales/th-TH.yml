@@ -109,7 +109,6 @@ th:
         settings:
           global:
             comments_enabled: เปิดใช้งานความคิดเห็นแล้ว
-            comments_max_length: ความคิดเห็นความยาวสูงสุด (ปล่อยให้ 0 เป็นค่าเริ่มต้น)
             display_progress_enabled: แสดงความคืบหน้า
             intro: คำแนะนำ
           step:

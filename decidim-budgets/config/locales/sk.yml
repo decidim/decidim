@@ -6,6 +6,8 @@ sk:
         title: Názov
         total_budget: Celkový rozpočet
         weight: Pozícia v poradí
+      pabulib_vote_types:
+        cumulative: Rozdeľovanie hlasov medzi projekty (Hlasujúci má viac hlasov, pričom jednému projektu môže prideliť aj viac než jeden hlas.)
       project:
         budget_amount: Výška rozpočtu
         description: Popis
@@ -89,6 +91,9 @@ sk:
         models:
           project:
             name: Projekt
+        pabulib_exports:
+          show:
+            title: Exportovať výsledky hlasovania rozpočtu %{budget} vo formáte Pabulib
         projects:
           create:
             invalid: Pri vytváraní tohto projektu sa vyskytol problém.
@@ -205,7 +210,7 @@ sk:
         see_results: Zobraziť výsledky
         show: Zobraziť projekty
         vote: Hlasovať
-        voted_budgets: Odohlasované rozpočty
+        voted_budgets: Odhlasované rozpočty
         voted_on: Hlasovali ste za %{links}.
       creation:
         text: Boli pridané do tohto rozpočtu
@@ -223,7 +228,7 @@ sk:
         project:
           fields:
             map: Mapa
-            taxonomies: Taxónomie
+            taxonomies: Taxonómie
             title: Názov
       order:
         status:
@@ -366,7 +371,6 @@ sk:
             announcement: Oznámenie
             clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             form:
               errors:

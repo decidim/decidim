@@ -62,10 +62,8 @@ cs:
               allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Potřebuje být znovu připojen
-            add_photos:
-              needs_to_be_reattached: Potřebuje být znovu připojen
+            add_attachments:
+              needs_to_be_reattached: Vyžaduje být znovu připojen
             body:
               cant_be_equal_to_template: nelze se rovnat šabloně
               identical: A název nemůže být totožný
@@ -95,6 +93,7 @@ cs:
           proposal:
             budget_text: Návrh <span class="resource-link">%{link} byl vytvořen</span>
             import_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
+            import_to_proposal_text: Tento návrh <span "resource-link">%{link} byl vytvořen</span>
             merge_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
             split_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
@@ -133,10 +132,7 @@ cs:
             values:
               'false': Návrhy
               'true': Pozměňovací návrhy
-          proposal_state_id_eq:
-            label: Stav
           state_eq:
-            label: Stav
             values:
               accepted: Přijato
               evaluating: Hodnocení
@@ -183,7 +179,7 @@ cs:
             collaborative_drafts_enabled: Společné koncepty povoleny
             collaborative_drafts_enabled_help: Funkce „Spolunávrhy“ bude odstraněna v Decidim v0.32. Organizace, které ji používají, mohou přejít na novou funkci spoluautorství.
             comments_enabled: Komentáře povoleny
-            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            comments_max_length: Maximální počet znaků na komentář (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
             default_sort_order_help: Automaticky znamená, že pokud je hlasování povoleno, návrhy se zobrazují seřazené náhodně, a pokud je hlasování zablokováno, pak se zobrazují seřazené podle počtu hlasů.
             default_sort_order_options:
@@ -795,7 +791,6 @@ cs:
           instructions: Můžete přesunout bod na mapě.
         edit:
           add_attachments: Přidat přílohy
-          attachment_legend: Přidat dokument nebo obrázek
           back: Zadní
           edit_attachments: Upravit přílohy
           send: Poslat

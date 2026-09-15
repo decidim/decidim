@@ -441,5 +441,6 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
       fill_in :session_user_password, with: "decidim123456789"
       find("*[type=submit]").click
     end
+    expect(page).to have_button(id: "trigger-dropdown-account")
   end
 end

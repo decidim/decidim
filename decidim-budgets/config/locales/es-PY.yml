@@ -6,6 +6,10 @@ es-PY:
         title: Título
         total_budget: Presupuesto total
         weight: Orden de posición
+      pabulib_rules:
+        equalshares:
+          help: Método de Acciones Equales (MEES) sin terminación. En las EM, cada votante comienza con una parte virtual igual del presupuesto y se selecciona un proyecto cuando sus partidarios pueden pagarlo conjuntamente.
+          label: Método de Acciones Equales (%{rule})
       project:
         budget_amount: Importe del presupuesto
         description: Descripción
@@ -346,7 +350,7 @@ es-PY:
             announcement: Anuncio
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             form:
               errors:

@@ -36,6 +36,14 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
 
   describe "#perform" do
     before do
+      # The n+1 query that we are ignoring here is coming from a background job, and we cannot really optimize it
+      %w(amended amendable component coauthorships).each do |association|
+        Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Proposals::Proposal", :association => association
+      end
+      %w(steps organization area scope active_step).each do |association|
+        Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::ParticipatoryProcess", :association => association
+      end
+      Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Component", :association => :participatory_space
       subject.perform_now(proposal, attributes, context)
       proposal.reload
     end

@@ -43,5 +43,3 @@ jobs:
     with:
       working-directory: "decidim-conferences"
       test_command: ${{ matrix.test.command }}
-      bullet_n_plus_one: false
-      bullet_unused_eager_loading: false

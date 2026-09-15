@@ -31,7 +31,6 @@ zh-CN:
       organization:
         alert_color: 警告
         badges_enabled: 启用徽章
-        comments_max_length: 评论最大长度 (默认值留0)
         customize_welcome_notification: 自定义欢迎通知
         default_locale: 默认区域设置
         description: 描述
@@ -493,10 +492,6 @@ zh-CN:
       share_tokens:
         actions:
           destroy: 删除
-      shared:
-        gallery:
-          add_images: 添加图像
-          gallery_legend: 添加图片库 (可选)
       static_page_topics:
         create:
           error: 创建一个新主题时出现问题。

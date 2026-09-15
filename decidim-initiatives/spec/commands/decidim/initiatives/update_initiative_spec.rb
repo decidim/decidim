@@ -33,8 +33,8 @@ module Decidim
             signature_type:,
             type_id:,
             attachment:,
-            add_documents: uploaded_files,
-            documents: current_files
+            add_attachments: uploaded_files,
+            attachments: current_files
           }
         end
         let(:command) do
@@ -86,8 +86,8 @@ module Decidim
                 signature_type:,
                 type_id: initiative_type.id,
                 attachment:,
-                add_documents: uploaded_files,
-                documents: current_files,
+                add_attachments: uploaded_files,
+                attachments: current_files,
                 signature_end_date: Date.tomorrow
               }
             end
@@ -146,7 +146,7 @@ module Decidim
               it "keeps the new and old attachments" do
                 command.call
                 initiative.reload
-                expect(initiative.documents.count).to eq(3)
+                expect(initiative.attachments.count).to eq(3)
               end
 
               context "when the old attachments are deleted by the user" do
@@ -155,8 +155,8 @@ module Decidim
                 it "deletes the old attachments" do
                   command.call
                   initiative.reload
-                  expect(initiative.documents.count).to eq(2)
-                  expect(initiative.documents).not_to include(document)
+                  expect(initiative.attachments.count).to eq(2)
+                  expect(initiative.attachments).not_to include(document)
                 end
               end
             end

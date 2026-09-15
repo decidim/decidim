@@ -43,7 +43,6 @@ ro:
         alert_color: Alertă
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
-        comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
         customize_welcome_notification: Personalizați notificarea de bun venit
         default_locale: Localizare implicită
         description: Descriere
@@ -764,11 +763,6 @@ ro:
         index:
           copied: Link de acces copiat!
           title: 'Link-uri de acces pentru: %{name}'
-      shared:
-        gallery:
-          add_images: Adaugă imagini
-          edit_images: Editare imagini
-          gallery_legend: Adaugă o galerie de imagini (opțional)
       static_page_topics:
         create:
           error: A apărut o problemă la crearea unui subiect nou.

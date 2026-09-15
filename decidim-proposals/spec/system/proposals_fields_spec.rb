@@ -224,7 +224,7 @@ describe "Proposals" do
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
+            dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("city.jpeg"))
 
             within ".edit_proposal" do
               find("*[type=submit]").click
@@ -254,12 +254,12 @@ describe "Proposals" do
               skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple files https://github.com/decidim/decidim/issues/10961"
 
               # Attach one card image and two document images and go to preview
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
+              dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("city.jpeg"))
               expect(page).to have_text("city.jpeg")
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
+              dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("city2.jpeg"))
               expect(page).to have_text("city.jpeg")
               expect(page).to have_text("city2.jpeg")
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
+              dynamically_attach_file(:proposal_attachments, Decidim::Dev.asset("city3.jpeg"))
               expect(page).to have_text("city.jpeg")
               expect(page).to have_text("city2.jpeg")
               expect(page).to have_text("city3.jpeg")

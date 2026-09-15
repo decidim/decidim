@@ -13,7 +13,7 @@ module Decidim
       attribute :description, String
       attribute :attachment, AttachmentForm
 
-      attachments_attribute :documents
+      attachments_attribute :attachments
 
       validates :title, :description, presence: true
       validates :title, :description, etiquette: true
@@ -24,9 +24,14 @@ module Decidim
         # Debates can be translated in different languages from the admin but
         # the public form does not allow it. When a user creates a debate the
         # user locale is taken as the text locale.
+        presenter = DebatePresenter.new(debate)
         self.title = debate.title.values.first
-        self.description = debate.description.values.first
-        self.documents = debate.attachments
+        self.description = if debate.component.organization.rich_text_editor_in_public_views?
+                             presenter.editor_locales(debate.description, false)
+                           else
+                             presenter.plain_locales(debate.description, false)
+                           end
+        self.attachments = debate.attachments
       end
 
       def participatory_space_manifest

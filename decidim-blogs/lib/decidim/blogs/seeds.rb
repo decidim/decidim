@@ -43,9 +43,9 @@ module Decidim
           Decidim::Component.create!(params)
         end
 
-        number_of_records.times do |n|
+        config_value(:blogs_posts_count).times do |n|
           author = if n >= 3
-                     Decidim::User.where(organization: component.organization).sample
+                     Decidim::User.visible.where(organization: component.organization).sample
                    else
                      component.organization
                    end

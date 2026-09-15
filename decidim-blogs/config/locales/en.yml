@@ -77,7 +77,6 @@ en:
       posts:
         edit:
           add_attachments: Add attachments
-          attachment_legend: Add a document or an image
           back: Back to post
           button: Update
           edit_attachments: Edit attachments
@@ -100,6 +99,11 @@ en:
           back: Back to posts
           button: Create
           title: Create new post
+        orders:
+          label: Order posts by
+          most_commented: Most commented
+          random: Random order
+          recent: Most recent
     components:
       blogs:
         actions:

@@ -99,11 +99,10 @@ describe "DownloadYourData", download: true do
         expect(Decidim::PrivateExport.count).to eq(4)
         perform_enqueued_jobs do
           click_on "Request"
-          sleep 1
-        end
 
-        within_flash_messages do
-          expect(page).to have_text("data is currently in progress")
+          within_flash_messages do
+            expect(page).to have_text("data is currently in progress")
+          end
         end
 
         expect(Decidim::PrivateExport.count).to eq(5)
@@ -114,7 +113,7 @@ describe "DownloadYourData", download: true do
   end
 
   context "when user has not yet accepted tos" do
-    let(:user) { create(:user, :confirmed, name: "Hodor User", accepted_tos_version: nil) }
+    before { user.update!(accepted_tos_version: nil) }
 
     include_examples "downloading data"
   end

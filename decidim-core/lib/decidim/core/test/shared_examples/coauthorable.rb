@@ -5,7 +5,7 @@ require "spec_helper"
 shared_examples_for "coauthorable" do
   describe "authorable interface" do
     let!(:creator_author) { coauthorable.authors.first }
-    let(:other_authors) { create_list(:user, 5, organization: coauthorable.component.participatory_space.organization) }
+    let(:other_authors) { create_list(:user, 5, :confirmed, organization: coauthorable.component.participatory_space.organization) }
     let(:official_author) { creator_author.organization }
 
     describe "authors" do

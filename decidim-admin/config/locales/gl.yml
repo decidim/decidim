@@ -33,7 +33,6 @@ gl:
         alert_color: Alerta
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
-        comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
         customize_welcome_notification: Personalizar a notificación de benvida
         default_locale: Configuración predeterminada
         description: Descrición
@@ -652,11 +651,6 @@ gl:
       share_tokens:
         actions:
           destroy: Eliminar
-      shared:
-        gallery:
-          add_images: Engadir imaxes
-          edit_images: Editar imaxes
-          gallery_legend: Engadir unha galería de imaxes (opcional)
       static_page_topics:
         create:
           error: Produciuse un erro ao crear un tema novo.

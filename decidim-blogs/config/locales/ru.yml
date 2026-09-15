@@ -70,7 +70,6 @@ ru:
           global:
             announcement: Объявление
             comments_enabled: Комментарии включены
-            comments_max_length: Максимальная длина комментариев (оставьте 0 для значения по умолчанию)
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены

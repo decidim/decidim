@@ -1,5 +1,13 @@
-.geocoding-container {
-  .user-device-location button {
+.geocoding {
+  &__locate .geocoding__button {
     @apply mt-4;
+
+    &--locating {
+      @apply opacity-70 cursor-wait;
+    }
+
+    .geocoding__spinner {
+      @apply inline-block w-4 h-4 rounded-full animate-spin border-2 border-l-transparent border-y-transparent border-r-secondary align-middle;
+    }
   }
 }

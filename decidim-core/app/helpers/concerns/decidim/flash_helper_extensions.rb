@@ -18,11 +18,9 @@ module Decidim
         primary: :primary
       }.freeze
 
-      # Displays the flash messages found in ActionDispatch's +flash+ hash using
-      # FoundationRailsHelper's +callout+ component.
+      # Displays the flash messages found in ActionDispatch's +flash+
       #
-      # Overrides original function from foundation_rails_helper gem to allow
-      # flash messages with links inside.
+      # Allow flash messages with links inside.
       #
       # @param closable [Boolean] - Whether the displayed flash messages
       #                             should be closable by the user. Defaults to true.
@@ -46,9 +44,7 @@ module Decidim
 
       private
 
-      # FoundationRailsHelper alert box.
-      #
-      # Overrides the foundation alert box helper for adding accessibility tags.
+      # Adding accessibility tags to announcement boxes.
       #
       # @private
       #
@@ -78,7 +74,7 @@ module Decidim
       #
       # @private
       #
-      # @param alert_class [String] - The foundation class of the alert message.
+      # @param alert_class [String] - The CSS class of the alert message.
       #
       # @return [String] the HTML with the icon
       def flash_icon(alert_class)
@@ -98,10 +94,7 @@ module Decidim
         end
       end
 
-      # FoundationRailsHelper alert box close link.
-      #
-      # Overrides the foundation alert box close link helper for the aria-label
-      # translations.
+      # Adds the alert box close link helper for the aria-label translations.
       #
       # @private
       #

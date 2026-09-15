@@ -1,4 +1,4 @@
-<div class="form__wrapper attendee-fields">
+<div class="form__wrapper user-picker-fields">
   <div class="card" data-controller="accordion" id="accordion-attendee">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-attendee" type="button">
@@ -13,14 +13,14 @@
       <p class="mb-4"><%= t(".invite_explanation") %></p>
 
       <div class="grid grid-cols-2 gap-4">
-        <%= label_tag :meeting_registration_invite_attendee_type_name, class: "attendee-type-card p-4 block border border-background rounded-lg cursor-pointer has-[:checked]:border-secondary has-[:checked]:border-2" do %>
+        <%= label_tag :meeting_registration_invite_attendee_type_name, class: "user-picker-card" do %>
           <%= radio_button_tag "meeting_registration_invite[attendee_type]", "name", form.object.attendee_type == "name", id: "meeting_registration_invite_attendee_type_name", class: "hidden peer !m-0", disabled: %>
           <span class="text-lg font-normal">
             <%= t(".name_or_nickname") %>
           </span>
         <% end %>
 
-        <%= label_tag :meeting_registration_invite_attendee_type_email, class: "attendee-type-card p-4 block border border-background rounded-lg cursor-pointer has-[:checked]:border-secondary has-[:checked]:border-2" do %>
+        <%= label_tag :meeting_registration_invite_attendee_type_email, class: "user-picker-card" do %>
           <%= radio_button_tag "meeting_registration_invite[attendee_type]", "email", form.object.attendee_type == "email", id: "meeting_registration_invite_attendee_type_email", class: "hidden peer !m-0", disabled: %>
           <span class="text-lg font-normal">
             <%= t(".email") %>
@@ -29,14 +29,14 @@
       </div>
 
       <div class="mt-4">
-        <div class="attendee-fields--name hidden">
+        <div class="user-picker-fields--name hidden">
           <% prompt_options = { placeholder: t(".select_user") } %>
           <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, label: t(".name_or_nickname"), class: "autocomplete-field--results-inline" }, prompt_options) do |user|
             { value: user.id, label: "#{user.name} (@#{user.nickname})" }
           end %>
         </div>
 
-        <div class="attendee-fields--email hidden">
+        <div class="user-picker-fields--email hidden">
           <%= form.text_field :email, disabled: %>
         </div>
       </div>

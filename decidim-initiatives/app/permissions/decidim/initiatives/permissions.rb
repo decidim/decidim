@@ -127,9 +127,9 @@ module Decidim
           initiative.promoting_committee_enabled? &&
           !initiative.has_authorship?(user) &&
           (
-          Decidim::Initiatives.do_not_require_authorization ||
-              UserAuthorizations.for(user).any?
-        )
+            Decidim::Initiatives.do_not_require_authorization ||
+                UserAuthorizations.for(user).any?
+          )
       end
 
       def print_initiative?
@@ -200,9 +200,9 @@ module Decidim
 
       def can_user_support?(initiative)
         !initiative.offline_signature_type? && (
-        Decidim::Initiatives.do_not_require_authorization ||
-            UserAuthorizations.for(user).any?
-      )
+          Decidim::Initiatives.do_not_require_authorization ||
+              UserAuthorizations.for(user).any?
+        )
       end
 
       def user_can_preview_space?

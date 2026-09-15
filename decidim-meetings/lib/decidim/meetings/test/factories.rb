@@ -91,7 +91,7 @@ FactoryBot.define do
     end
 
     trait :not_official do
-      author { create(:user, organization: component.organization, skip_injection:) if component }
+      author { create(:user, :confirmed, organization: component.organization, skip_injection:) if component }
     end
 
     trait :with_services do

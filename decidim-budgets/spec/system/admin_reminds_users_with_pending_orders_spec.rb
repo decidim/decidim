@@ -14,6 +14,11 @@ describe "Admin reminds users with pending orders" do
   let!(:order2) { create(:order, budget:, user: user2, created_at: 3.days.ago) }
 
   before do
+    # We do not optimize n+1 here, as the n+1 comes from the enqueue mechanism, which is calling various jobs where the user is required.
+    # Does not make sense to optimize the enqueuer just for tests
+    Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Reminder", :association => :user
+    Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Reminder", :association => :component
+
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
@@ -34,8 +39,10 @@ describe "Admin reminds users with pending orders" do
     end
 
     it "sends reminders" do
-      perform_enqueued_jobs { click_on "Send" }
-      expect(page).to have_text("2 users will be reminded")
+      perform_enqueued_jobs do
+        click_on "Send"
+        expect(page).to have_text("2 users will be reminded")
+      end
 
       expect(emails.count).to eq(2)
       emails.each do |email|
@@ -46,11 +53,15 @@ describe "Admin reminds users with pending orders" do
     end
 
     it "does not send reminders twice" do
-      perform_enqueued_jobs { click_on "Send" }
-      expect(page).to have_text("2 users will be reminded")
+      perform_enqueued_jobs do
+        click_on "Send"
+        expect(page).to have_text("2 users will be reminded")
+      end
       click_on "Send voting reminders"
-      perform_enqueued_jobs { click_on "Send" }
-      expect(page).to have_text("0 users will be reminded")
+      perform_enqueued_jobs do
+        click_on "Send"
+        expect(page).to have_text("0 users will be reminded")
+      end
     end
   end
 end

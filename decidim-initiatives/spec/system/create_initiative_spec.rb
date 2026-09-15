@@ -752,6 +752,8 @@ describe "Initiative" do
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+
+          expect(page).to have_select("Signature collection type")
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
           find_button("Continue").click
@@ -810,7 +812,7 @@ describe "Initiative" do
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
-          dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
+          dynamically_attach_file(:initiative_attachments, Decidim::Dev.asset("Exampledocument.pdf"))
           dynamically_attach_file(:initiative_photos, Decidim::Dev.asset("avatar.jpg"))
           find_button("Continue").click
           expect(page).to have_text("Your initiative has been successfully created.")
@@ -818,7 +820,6 @@ describe "Initiative" do
 
         it "saves the attachments" do
           expect(Decidim::Initiative.last.documents.count).to eq(1)
-          expect(Decidim::Initiative.last.photos.count).to eq(1)
         end
 
         context "when minimum committee size is above zero" do
@@ -844,6 +845,8 @@ describe "Initiative" do
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+
+          expect(page).to have_select("Signature collection type")
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
           find_button("Continue").click
@@ -869,6 +872,8 @@ describe "Initiative" do
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+
+          expect(page).to have_select("Signature collection type")
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
           find_button("Continue").click

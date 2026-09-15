@@ -23,7 +23,7 @@ module Decidim
 
         describe "author" do
           context "when it is a user" do
-            let(:author) { create(:user, name: "John Doe", organization: component.organization) }
+            let(:author) { create(:user, :confirmed, name: "John Doe", organization: component.organization) }
             let!(:post) { create(:post, component:, author:) }
 
             it "serializes the user name" do

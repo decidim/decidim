@@ -6,6 +6,42 @@ fi:
         title: Otsikko
         total_budget: Kokonaisbudjetti
         weight: Järjestysnumero
+      pabulib_rules:
+        equalshares:
+          help: Tasa-arvoisten osuuksien menetelmä (MES) ilman loppuunsaattamista. MES-menetelmässä jokainen äänestäjä aloittaa tasa-arvoisella virtuaalisella osuudella budjetista ja hanke valitaan, mikäli sen kannattajilla on yhdessä varaa kyseiseen hankkeeseen.
+          label: Tasa-arvoisten osuuksien menetelmä (%{rule})
+        equalshares/add1:
+          help: Käytä tasa-arvoisten osuuksien menetelmää, mutta mikäli tulos jää vajaaksi liian aikaisin, kasvata jokaisen äänestäjän virtuaalista budjettia yhdellä (1) yksiköllä kerrallaan (Add1) ja laske tulos uudestaan niin pitkään kuin lopulliset valitut hankkeet mahtuvat edelleen oikeaan budjettiin.
+          label: Tasa-arvoisten osuuksien menetelmä, lisää1 / add1 (%{rule})
+        equalshares/add1_comparison:
+          help: Käytä equalshares/add1-menetelmää ja sovella samaa vertailuvaihetta kuin edellä.
+          label: Tasa-arvoisten osuuksien menetelmä, lisää1 vertailu / add1 comparison (%{rule})
+        equalshares_comparison:
+          help: 'Käytä tasa-arvoisten osuuksien menetelmää ja lisää yksi lisävaihe: vertaile menetelmän tulosta ahnealla menetelmällä laskettuun vertailuarvoon ja muuta valintaa ainoastaan, mikäli suurempi osa äänestäjistä haluaa ahnealla menetelmällä lasketun tuloksen.'
+          label: Tasa-arvoisten osuuksien menetelmä, vertailu / comparison (%{rule})
+        greedy:
+          help: Standardi rahasäkki-tyylinen approksimaatiomenetelmä. Hankkeet lajitellaan niiden äänimäärän mukaisesti (laskevasti). Algoritmi käy listan läpi ja valitsee hankkeet, jotka mahtuvat jäljellä olevaan budjettiin. Mikäli hanke on liian kallis jäljellä oleville varoille, se jätetään huomiotta ja algoritmi jatkaa seuraavaan hankkeeseen tarkastaakseen, mahtuuko se budjettiin.
+          label: Ahne (%{rule})
+        greedy_custom:
+          help: Käytetään erityistapauksissa, jotka eivät sovi vakioalgoritmeihin, kuten erikseen tehtävät budjetin uudelleenkohdistamiset tai monimutkaiset hybridisäännöt.
+          label: Ahne, mukautettu (%{rule})
+        greedy_exclusive:
+          help: Käsittelee ristiriidassa olevat hankeryhmät. Se toimii, kuten vakio ahne-menetelmä, mutta mikäli useampi 'voittava' hanke on ristiriidassa (esim. ne ovat samalla poissulkevalla alueella tai aihepiirissä), sovelletaan hierarkiasääntöä (esim. kaupunginosakohtaiset hankkeet ovat etusijalla kaupunginlaajuisiin hankkeisiin nähden tai päin vastoin) sen sijaan, että tukeuduttaisiin ainoastaan äänten määrään.
+          label: Ahne, poissulkeva (%{rule})
+        greedy_no_skip:
+          help: Hankkeet lajitellaan äänimäärän mukaisesti (laskevassa järjestyksessä). Algoritmi valitsee hankkeet, jotka mahtuvat jäljellä olevaan budjettiin, mutta lopettaa välittömästi ensimmäiseen hankkeeseen, joka ei mahdu budjettiin. Tämän jälkeisiä hankkeita ei sisällytetä, vaikka ne mahtuisivat budjettiin.
+          label: Ahne, ei sivuutusta (%{rule})
+        greedy_threshold:
+          help: Käyttäytyy kuin vakio ahne-menetelmä, mutta hankkeita harkitaan, mikäli ne täyttävät määritellyn kynnysarvon min_project_score_threshold.
+          label: Ahne, kynnysarvo (%{rule})
+        unknown:
+          help: Tietoa ei ole saatavilla tai mahdollisuuksia oli useita ja tästä syystä on epäselvää, mitä menetelmää sovelletaan.
+          label: Tuntematon (%{rule})
+      pabulib_vote_types:
+        approval: Hyväksyntä (%{type})
+        cumulative: Kumulatiivinen (%{type})
+        ordinal: Järjestäminen (%{type})
+        scoring: Pisteytys (%{type})
       project:
         budget_amount: Budjetti
         description: Kuvaus
@@ -81,10 +117,87 @@ fi:
             invalid: Budjetin päivitys epäonnistui.
             success: Budjetin päivitys onnistui.
         exports:
+          formats:
+            pabulib: Pabulib-muodossa
           projects: Projektit
+          voting_results: Äänestyksen tulokset
         models:
           project:
             name: Projekti
+        pabulib_exports:
+          create:
+            invalid: Korjaa lomakkeella olevat virheet.
+            no_votes: Ääniä ei ole vielä kertynyt vietäväksi.
+          show:
+            create: Vie
+            explanation_html: |
+              <p>
+                Tämä luo %{format_link} vientitiedoston osallistuvan budjetoinnin tuloksista.
+              </p>
+            explanation_link_label_format: Pabulib-muotoisen
+            export_details_data: Tarkentavat tiedot
+            export_details_general: Yleiset tiedot
+            fields:
+              country:
+                help: Maa, jossa äänestys suoritettiin.
+                label: Maa (%{field})
+              default_score:
+                help: 'Oletuspisteytys pisteytysmenetelmälle (oletus: %{default_value}).'
+                label: Oletuspisteytys (%{field})
+              description:
+                help: Äänestyksen kuvaus, joka kuvaa, mistä äänestettiin.
+                label: Kuvaus (%{field})
+              district:
+                help: Äänestyksen äänestysalue. Mikäli käytät esimerkiksi kaupunginosia osayksikköinä, voit liittää ne suurempiin alueisiin tämän kentän avulla.
+                label: Alue (%{field})
+              instance:
+                help: Äänestyksen tunniste, esimerkiksi vuosittain toistuville äänestyksille voidaan määritellä äänestyksen vuosiluku.
+                label: Tunniste (%{field})
+              max_length:
+                help: 'Valittavien hankkeiden enimmäismäärä (oletus: %{default_value}).'
+                label: Enimmäispituus (%{field})
+              max_points:
+                help: 'Valittavien hankkeiden enimmäispistemäärä (oletus: %{default_value}).'
+                help_default_value: kumulatiiviselle mentelmälle käytetään arvoa max_sum_points, pisteytysmenetelmälle ∞
+                label: Enimmäispisteet (%{field})
+              max_sum_cost:
+                help: 'Hankkeiden kustannusten suurin summa (oletus: %{default_value}).'
+                label: Kustannusten suurin summa (%{field})
+              max_sum_points:
+                help: Hankkeiden pisteytysten suurin summa.
+                label: Hankkeiden pisteytysten suurin summa (%{field})
+              min_length:
+                help: 'Valittavien hankkeiden vähimmäismäärä (oletus: %{default_value}).'
+                label: Vähimmäispituus (%{field})
+              min_points:
+                help: 'Valittavien hankkeiden vähimmäispistemäärä (oletus: %{default_value}).'
+                label: Vähimmäispistemäärä (%{field})
+              min_sum_cost:
+                help: 'Hankkeiden kustannusten pienin summa (oletus: %{default_value}).'
+                label: Kustannusten pienin summa (%{field})
+              min_sum_points:
+                help: 'Hankkeiden pisteytysten vähimmäissumma (oletus: %{default_value}).'
+                label: Pisteytysten pienin summa (%{field})
+              rule:
+                help: Tätä algoritmia käytetään hankkeiden valitsemiseen niiden äänimäärien perusteella.
+                label: Sääntö (%{field})
+              scoring_fn:
+                help: 'Pisteytysfunktio järjestysmenetelmällä toteutetulle äänestykselle (oletus: %{default_value}).'
+                label: Pisteytysfunktio (%{field})
+              subunit:
+                help: Äänestyksen osayksikkö, esimerkiksi kaupungin tai kunnan alue.
+                label: Osayksikkö (%{field})
+              unit:
+                help: Äänestyksen yksikkö, esimerkiksi kaupungin tai kunnan nimi.
+                label: Yksikkö (%{field})
+              vote_type:
+                help: Miten äänestystulos lasketaan (katso lisätietoja dokumentaatiosta).
+                label: Äänestystapa (%{field})
+            format_info_html: Katso %{link} dokumentaatiosta lisätietoa näistä tiedoista.
+            large_dataset_warning_html: |
+              <p>Tietojoukossa on %{amount} ääntä ja tämän vuoksi se on todella laaja vietäväksi tämän käyttöliittymän kautta.</p>
+              <p>Harkitsethan tietojen vientiä konsolista käsin komennolla: <code>%{command}</code></p>
+            title: Vie budjetin %{budget} äänestyksen tulokset Pabulib-muotoon
         projects:
           create:
             invalid: Projektin luonti epäonnistui.

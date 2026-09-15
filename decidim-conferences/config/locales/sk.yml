@@ -513,7 +513,7 @@ sk:
         show:
           already_have_an_account?: Už máte účet?
           are_you_new?: Nový účastník?
-          login_as: Ste prihlásení ako %{name} %{email} 
+          login_as: Ste prihlásení ako %{name} %{email}
           make_conference_registration: Zaregistrovať sa na konferenciu
           manage_registration: Spravovať registráciu
           register: Registrovať
@@ -603,10 +603,10 @@ sk:
         conference_registration_validation_pending:
           notification_title: Vaša registrácia na konferencii <a href="%{resource_url}">%{resource_title}</a> čaká na potvrdenie.
         conference_registrations_over_percentage:
-          email_intro: Konferencia "%{resource_title}" je obsadená na viac, než%{percentage} %. 
+          email_intro: Konferencia "%{resource_title}" je obsadená na viac, než%{percentage} %.
           email_outro: Túto notifikáciu ste dostali, pretože ste administrátorom participatívneho priestoru konferencie.
-          email_subject: Konferencia "%{resource_title}" je obsadená na viac, než%{percentage} %. 
-          notification_title: Konferencia <a href="%{resource_path}">%{resource_title}</a> je obsadená na viac, než %{percentage} %. 
+          email_subject: Konferencia "%{resource_title}" je obsadená na viac, než%{percentage} %.
+          notification_title: Konferencia <a href="%{resource_path}">%{resource_title}</a> je obsadená na viac, než %{percentage} %.
         conference_updated:
           email_intro: 'Konferencia "%{resource_title}" bola aktualizovaná. Novú verziu si môžete pozrieť na jej stránke:'
           email_outro: Túto notifikáciu ste dostali, pretože sledujete konferenciu "%{resource_title}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.

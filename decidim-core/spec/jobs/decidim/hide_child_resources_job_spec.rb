@@ -11,6 +11,13 @@ describe Decidim::HideChildResourcesJob do
   let!(:component) { create(:dummy_component, participatory_space:) }
   let!(:resource) { create(:dummy_resource, component:) }
 
+  before do
+    # We do not optimize n+1 here, as the n+1 comes from the enqueue mechanism, which is calling various jobs where the user is required.
+    # Does not make sense to optimize the enqueuer just for tests
+    Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Component", :association => :participatory_space
+    Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::ParticipatoryProcess", :association => :organization
+  end
+
   describe "queue" do
     it "is queued to events" do
       expect(subject.queue_name).to eq "user_report"

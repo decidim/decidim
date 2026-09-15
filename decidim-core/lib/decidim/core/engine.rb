@@ -271,6 +271,15 @@ module Decidim
       end
 
       initializer "decidim_core.active_storage", before: "active_storage.configs" do |app|
+        app.config.active_storage.queues = {
+          analysis: :active_storage,
+          mirror: :active_storage,
+          preview_image: :active_storage,
+          purge: :active_storage,
+          sync_metadata: :active_storage,
+          transform: :active_storage
+        }
+
         next if app.config.active_storage.service_urls_expire_in.present?
 
         # Ensure that the ActiveStorage URLs are valid long enough because with
@@ -460,6 +469,14 @@ module Decidim
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:user, :link, :blob, :mention_resource]
+        end
+      end
+
+      initializer "decidim_core.delete_account" do
+        config.to_prepare do
+          ActiveSupport::Notifications.subscribe("decidim.destroy_account:after") do |_event_name, data|
+            Decidim::DeleteUserMailer.delete(user_email: data[:user_email], user_name: data[:user_name], locale: data[:locale], organization: data[:organization]).deliver_later
+          end
         end
       end
 

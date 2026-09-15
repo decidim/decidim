@@ -11,7 +11,6 @@ describe Decidim::DeleteInactiveParticipantsJob do
   before do
     Decidim.delete_inactive_users_after_days = 300
     allow(Decidim::ParticipantsAccountMailer).to receive(:inactivity_notification).and_return(double(deliver_later: true))
-    allow(Decidim::ParticipantsAccountMailer).to receive(:removal_notification).and_return(double(deliver_later: true))
   end
 
   describe "#perform" do
@@ -95,12 +94,28 @@ describe Decidim::DeleteInactiveParticipantsJob do
           "inactivity_notification" => { "notification_type" => "second", "sent_at" => 8.days.ago.to_s }
         }
       end
+      let!(:user) { create(:user, :confirmed, organization:, created_at:, current_sign_in_at:, extended_data:) }
 
       it "removes the user and sends deletion notification" do
         perform_enqueued_jobs { subject.perform_later(organization) }
 
         expect(user.reload.email).to be_empty
-        expect(Decidim::ParticipantsAccountMailer).to have_received(:removal_notification).with(email, name, locale, organization).once
+
+        expect(last_email.subject).to eq("Your account has been deleted")
+        expect(last_email_body).to include("Your account has been deactivated and is no longer accessible.")
+      end
+
+      context "when deleting an inactive participant" do
+        before do
+          allow(Decidim::DeleteUserMailer).to receive(:delete).and_return(double(deliver_later: true))
+        end
+
+        it "removes the user and sends the email" do
+          perform_enqueued_jobs { subject.perform_later(organization) }
+
+          expect(user.reload.email).to be_empty
+          expect(Decidim::DeleteUserMailer).to have_received(:delete).with(user_email: email, user_name: name, locale:, organization:).once
+        end
       end
     end
   end

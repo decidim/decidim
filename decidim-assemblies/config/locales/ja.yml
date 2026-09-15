@@ -98,6 +98,10 @@ ja:
         edit:
           update: 更新
         index:
+          access_modes:
+            open: 参加可能
+            restricted: メンバー限定
+            transparent: 閲覧のみ可能
           published: 公開済み
           unpublished: 未公開
         new:
@@ -164,6 +168,7 @@ ja:
       models:
         assembly:
           fields:
+            access_mode: アクセスモード
             actions: アクション
             created_at: 作成日時
             promoted: 強調表示
@@ -229,6 +234,13 @@ ja:
           edit:
             title: この参加スペースについて
           form:
+            access:
+              label: アクセス
+              options:
+                open: 誰もが参加スペースを閲覧、参加することができます。
+                restricted: この機能はメンバーおよび管理者のみが閲覧・参加可能です。一般的な検索、API、公開データファイルには表示されません。
+                transparent: 誰でも参加スペースの内容は閲覧できますが、参加できるのはメンバーおよび管理者のみです。
+              set_this_space_as: このスペースを以下の設定にします
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 持続期間
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
@@ -375,6 +387,7 @@ ja:
     open_data:
       help:
         assemblies:
+          access_mode: アクセスモードです。参加スペースが参加可能か、メンバー限定か、閲覧のみ可能かを設定します。
           area: 参加スペースのエリア
           assembly_type: 参加スペースの種別
           closing_date: 参加スペースの終了日

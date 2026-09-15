@@ -12,7 +12,7 @@ module Decidim
       attribute :choices, Array[ResponseChoiceForm]
       attribute :matrix_choices, Array[ResponseChoiceForm]
 
-      attachments_attribute :documents
+      attachments_attribute :attachments
 
       validates :body, presence: true, if: :mandatory_body?
       validates :selected_choices, presence: true, if: :mandatory_choices?
@@ -20,7 +20,7 @@ module Decidim
       validate :max_choices, if: -> { question.max_choices }
       validate :all_choices, if: :sorting?
       validate :min_choices, if: -> { question.matrix? && question.mandatory? }
-      validate :documents_present, if: -> { question.question_type == "files" && question.mandatory? }
+      validate :attachments_present, if: -> { question.question_type == "files" && question.mandatory? }
       validate :max_characters, if: -> { question.max_characters.positive? }
 
       delegate :mandatory_body?, :mandatory_choices?, :matrix?, to: :question
@@ -44,7 +44,7 @@ module Decidim
       def map_model(model)
         self.question_id = model.decidim_question_id
         self.question = model.question
-        self.documents = model.attachments
+        self.attachments = model.attachments
 
         self.choices = model.choices.map do |choice|
           ResponseChoiceForm.from_model(choice)
@@ -82,11 +82,11 @@ module Decidim
       end
 
       def has_attachments?
-        question.has_attachments? && errors[:add_documents].empty? && add_documents.present?
+        question.has_attachments? && errors[:add_attachments].empty? && add_attachments.present?
       end
 
       def has_error_in_attachments?
-        errors[:add_documents].present?
+        errors[:add_attachments].present?
       end
 
       def sorting?
@@ -141,8 +141,8 @@ module Decidim
         I18n.t("questionnaires.question.max_choices", scope: "decidim.forms", n: question.max_choices)
       end
 
-      def documents_present
-        errors.add(:add_documents, :blank) if add_documents.empty? && errors[:add_documents].empty?
+      def attachments_present
+        errors.add(:add_attachments, :blank) if add_attachments.empty? && errors[:add_attachments].empty?
       end
     end
   end

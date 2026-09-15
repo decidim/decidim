@@ -10,8 +10,8 @@ describe "User creates debate", type: :system do
       title:,
       description:,
       taxonomizations:,
-      add_documents: attachments,
-      documents: [],
+      add_attachments: attachments,
+      attachments: [],
       current_user: author,
       current_component: component,
       current_organization: organization

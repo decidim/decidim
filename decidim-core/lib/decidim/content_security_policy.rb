@@ -114,7 +114,7 @@ module Decidim
       end
     end
 
-    # rubocop:disable Lint/PercentStringArray
+    # rubocop:disable-next Lint/PercentStringArray
     def default_policy
       {
         "default-src" => %w('self' 'unsafe-inline'),
@@ -127,6 +127,5 @@ module Decidim
         "media-src" => %w('self')
       }
     end
-    # rubocop:enable Lint/PercentStringArray
   end
 end

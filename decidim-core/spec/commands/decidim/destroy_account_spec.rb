@@ -31,6 +31,9 @@ module Decidim
       end
     end
 
+    it_behaves_like "fires an ActiveSupport::Notification event", "decidim.destroy_account:before"
+    it_behaves_like "fires an ActiveSupport::Notification event", "decidim.destroy_account:after"
+
     context "when valid" do
       let(:valid) { true }
 
@@ -42,6 +45,16 @@ module Decidim
         old_salt = user.authenticatable_salt
         command.call
         expect(user.reload.authenticatable_salt).not_to eq(old_salt)
+      end
+
+      it "sends the email" do
+        original_name = user.name
+        command.call
+        perform_enqueued_jobs
+        email = last_email
+        expect(email.subject).to eq("Your account has been deleted")
+        expect(last_email_body).to include("Dear #{original_name}")
+        expect(last_email_body).to include("Your account has been deactivated and is no longer accessible.")
       end
 
       it "stores the deleted_at and delete_reason to the user" do

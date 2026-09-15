@@ -415,7 +415,6 @@ en:
           new: Create a new initiative
           select: I want to promote this initiative
           select_initiative_type_help_html: "<p>Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?</p>"
-          show_less: Show less
           show_more: Show more
           subtitle: What initiative do you want to promote?
           verification_required: Verify your account to promote this initiative
@@ -460,7 +459,6 @@ en:
       form:
         add_attachments: Add attachments
         add_image: Add image
-        attachment_legend: Add a document or an image
         edit_attachments: Edit attachments
         edit_image: Edit image
         image_legend: "(Optional) Add an image"

@@ -423,7 +423,6 @@ it:
           global:
             amendments_enabled: Emendamenti abilitati
             comments_enabled: Commenti abilitati
-            comments_max_length: Lunghezza massima dei commenti
             dummy_global_attribute1: Attributo fittizio 1
             dummy_global_attribute2: Attributo fittizio 2
             dummy_global_translatable_text: Testo traducibile Dummy
@@ -729,7 +728,6 @@ it:
           modal_title: Nuova conversazione
           no_results: Nessun risultato
         error_modal:
-          close: Chiudi modalità
           correct_errors: Correggi gli errori e riprova.
           intro: 'Ci sono stati i seguenti errori con il tuo messaggio:'
           ok: Ok

@@ -46,17 +46,16 @@ module Decidim
       def extra_params = { visibility: "public-only" }
 
       def attributes
-        parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
-        parsed_description = Decidim::ContentProcessor.parse_with_processor(:inline_images, form.description, current_organization: form.current_organization).rewrite
+        parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
         super.merge({
-                      title: { I18n.locale => parsed_title },
+                      title: { I18n.locale => form.title },
                       description: { I18n.locale => parsed_description }
                     })
       end
 
       def run_after_hooks
         @attached_to = resource
-        document_cleanup!(include_all_attachments: true)
+        attachment_cleanup!(include_all_attachments: true)
         create_attachments(first_weight: 1) if process_attachments?
       end
     end

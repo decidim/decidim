@@ -49,8 +49,6 @@ es-MX:
       meeting_registration_invite:
         email: Correo electrónico
         name: Nombre
-      response:
-        add_documents: Añadir documentos
       validate_registration_code:
         code: Código
     errors:
@@ -168,7 +166,7 @@ es-MX:
             announcement: Anuncio
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             creation_enabled_for_participants: Las participantes pueden crear encuentros
             default_registration_terms: Términos de registro predeterminados
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
@@ -347,10 +345,10 @@ es-MX:
             success: El usuario ha sido invitado con éxito a unirse al encuentro.
           form:
             attendee_type: Tipo de Asistente
-            existing_user: Usuario existente
+            email: Correo electrónico
             invite: Invitar
             invite_explanation: El usuario será invitado a unirse a la reunión y también a la organización.
-            non_user: Usuario no existente
+            name_or_nickname: Nombre o apodo
             select_user: Seleccionar usuario
           index:
             invites: Invitaciones

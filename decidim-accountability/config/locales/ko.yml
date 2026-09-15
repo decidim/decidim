@@ -152,7 +152,6 @@ ko:
         settings:
           global:
             comments_enabled: 댓글 활성화됨
-            comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
             display_progress_enabled: 진행사항 보기
             intro: 소개
           step:

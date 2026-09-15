@@ -402,7 +402,6 @@ ar:
           global:
             amendments_enabled: تم تمكين التعديلات
             comments_enabled: تم تمكين التعليقات
-            comments_max_length: الحد الأقصى لطول التعليقات
             dummy_global_attribute1: السمة الدمية 1
             dummy_global_attribute2: السمة الدمية 2
             dummy_global_translatable_text: نص افتراضي قابل للترجمة
@@ -782,7 +781,6 @@ ar:
           modal_title: محادثة جديدة
           no_results: لا توجد نتائج
         error_modal:
-          close: اغلاق النموذج
           correct_errors: يرجى تصحيح الأخطاء والمحاولة مرة أخرى.
           intro: 'حدثت الأخطاء التالية في رسالتك:'
           ok: حسناً

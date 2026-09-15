@@ -94,7 +94,7 @@ es-MX:
               <li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV  (el resto será ignorado):
                 <ul>
                 <li><b>taxonomies/ids:</b> IDs para la taxonomia (si hay más de una, sepárelas con una coma)</li>
-                <li><b>parent/id:</b> ID para el padre (para resultados relacionados). 
+                <li><b>parent/id:</b> ID para el padre (para resultados relacionados).
               <br>Opcional</li>
                 <li><b>title/I18N:</b> título en el idioma X</li>
                 <li><b>description/I18N:</b> descripción en el idioma X</li>
@@ -301,7 +301,7 @@ es-MX:
           global:
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             default_taxonomy: Taxonomía predeterminada
             default_taxonomy_help: Selecciona qué taxonomía quieres mostrar por defecto. Si no se selecciona alguna taxonomía, los resultados se mostrarán en un formato de lista.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.

@@ -39,7 +39,7 @@ module Decidim
             update_proposal
           end
 
-          document_cleanup!(include_all_attachments: true)
+          attachment_cleanup!(include_all_attachments: true)
 
           create_attachments(first_weight: first_attachment_weight) if process_attachments?
         end
@@ -91,11 +91,9 @@ module Decidim
 
       def attributes
         {
-          title: {
-            I18n.locale => Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
-          },
+          title: { I18n.locale => form.title },
           body: {
-            I18n.locale => Decidim::ContentProcessor.parse_with_processor(:inline_images, form.body, current_organization: form.current_organization).rewrite
+            I18n.locale => Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
           },
           taxonomizations: form.taxonomizations,
           address: form.address,

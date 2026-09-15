@@ -49,7 +49,6 @@ sk:
         alert_color: Upozornenie
         available_authorizations: Dostupné autorizácie
         badges_enabled: Povoliť odznaky
-        comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
         customize_welcome_notification: Prispôsobte uvítanie
         default_locale: Predvolený jazyk
         description: Popis
@@ -163,7 +162,7 @@ sk:
         client_id: ID klienta
         client_secret: Tajný kľúč klienta
         organization_name: Názov organizácie
-        organization_url: Odkaz na stránku organizácie 
+        organization_url: Odkaz na stránku organizácie
         redirect_uri: Presmerovanie URI
         site: Webstránka
   decidim:
@@ -1105,10 +1104,8 @@ sk:
           next_title: Nasledujúca položka
           previous: Predchádzajúci
           previous_title: Predchádzajúca položka
-        gallery:
-          add_images: Pridať obrázky
-          edit_images: Upraviť obrázky
-          gallery_legend: Pridať galériu (voliteľné)
+        attachments:
+          add_attachments: Nové prílohy
       static_page_topics:
         create:
           error: Pri tvorbe novej témy nastala chyba.

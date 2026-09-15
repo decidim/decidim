@@ -33,7 +33,6 @@ nl:
         alert_color: Alarm
         available_authorizations: Beschikbare autorisaties
         badges_enabled: Schakel badges in
-        comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
         customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Standaard taal
         description: Beschrijving
@@ -668,11 +667,6 @@ nl:
       share_tokens:
         actions:
           destroy: Verwijderen
-      shared:
-        gallery:
-          add_images: Afbeeldingen toevoegen
-          edit_images: Bewerk afbeeldingen
-          gallery_legend: Voeg een afbeeldingsgalerij toe (optioneel)
       static_page_topics:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw onderwerp.

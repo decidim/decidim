@@ -17,11 +17,10 @@ shared_examples "comments" do
     let!(:user) { create(:user, :malicious, :confirmed, organization:) }
 
     before do
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       comments.each do |comment|
         comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
       end
-      # rubocop:enable Rails/SkipsModelValidations
     end
 
     it "properly displays the user name" do
@@ -173,6 +172,16 @@ shared_examples "comments" do
       expect(page).to have_css(".comment-thread")
     end
 
+    it "opens the login modal when clicking the comment button" do
+      visit resource_path
+
+      expect(page).to have_no_css("#loginModal-content", visible: :visible)
+
+      find(".add-comment-mobile").click
+
+      expect(page).to have_css("#loginModal-content", visible: :visible)
+    end
+
     context "when user visit a mobile browser" do
       before do
         driven_by(:iphone)
@@ -200,6 +209,22 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_css(".add-comment form")
+    end
+
+    it "does not show login modal when clicking the comment button" do
+      visit resource_path
+
+      find("a.add-comment-mobile").click
+
+      expect(page).to have_no_css("#loginModal-content", visible: :visible)
+    end
+
+    it "guides the user to the comment form when clicking the comment button" do
+      visit resource_path
+
+      find("a.add-comment-mobile").click
+
+      expect(page).to have_css("#add-comment-anchor")
     end
 
     context "when user visit a computer browser" do

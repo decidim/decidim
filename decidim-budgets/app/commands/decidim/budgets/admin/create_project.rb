@@ -6,25 +6,25 @@ module Decidim
       # This command is executed when the user creates a Project from the admin
       # panel.
       class CreateProject < Decidim::Commands::CreateResource
-        include ::Decidim::GalleryMethods
+        include ::Decidim::MultipleAttachmentsMethods
 
         fetch_form_attributes :budget, :taxonomizations, :title, :description, :budget_amount, :address, :latitude, :longitude
 
         private
 
-        attr_reader :gallery
+        attr_reader :attachments
 
         def run_after_hooks
           @attached_to = resource
           link_proposals
-          create_gallery if process_gallery?
+          create_attachments if process_attachments?
         end
 
         def run_before_hooks
-          return unless process_gallery?
+          return unless process_attachments?
 
-          build_gallery
-          raise Decidim::Commands::HookError if gallery_invalid?
+          build_attachments
+          raise Decidim::Commands::HookError if attachments_invalid?
         end
 
         def extra_params

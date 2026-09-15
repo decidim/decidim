@@ -10,14 +10,18 @@ module Decidim
 
     # name sanitized
     def name
-      decidim_sanitize_translated(__getobj__.name)
+      if visible? || deleted?
+        decidim_sanitize_translated(__getobj__.name)
+      else
+        ""
+      end
     end
 
     #
     # nickname presented in a twitter-like style
     #
     def nickname
-      return "" if __getobj__.blocked?
+      return "" unless visible?
 
       "@#{__getobj__.nickname}"
     end
@@ -29,7 +33,7 @@ module Decidim
     end
 
     def profile_url
-      return "" if respond_to?(:deleted?) && deleted?
+      return decidim.root_url unless visible?
 
       decidim.profile_url(__getobj__.nickname)
     end
@@ -50,7 +54,7 @@ module Decidim
     end
 
     def profile_path
-      return "" if respond_to?(:deleted?) && deleted?
+      return decidim.root_path unless visible?
 
       decidim.profile_path(__getobj__.nickname)
     end
@@ -76,6 +80,10 @@ module Decidim
 
     def can_follow?
       true
+    end
+
+    def has_tooltip?
+      visible?
     end
 
     private

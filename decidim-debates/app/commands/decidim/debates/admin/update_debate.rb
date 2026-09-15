@@ -8,7 +8,7 @@ module Decidim
       class UpdateDebate < Decidim::Commands::UpdateResource
         include Decidim::MultipleAttachmentsMethods
 
-        fetch_form_attributes :taxonomizations, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
+        fetch_form_attributes :title, :taxonomizations, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
 
         def call
           return broadcast(:invalid) if invalid?
@@ -30,11 +30,9 @@ module Decidim
         private
 
         def attributes
-          parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
-          parsed_description = Decidim::ContentProcessor.parse_with_processor(:inline_images, form.description, current_organization: form.current_organization).rewrite
+          parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
 
           attrs = {
-            title: parsed_title,
             description: parsed_description
           }
 
@@ -45,7 +43,7 @@ module Decidim
 
         def run_after_hooks
           @attached_to = resource
-          document_cleanup!(include_all_attachments: true)
+          attachment_cleanup!(include_all_attachments: true)
           create_attachments(first_weight: 1) if process_attachments?
         end
       end

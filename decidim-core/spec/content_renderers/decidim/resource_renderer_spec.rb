@@ -12,7 +12,7 @@ module Decidim
       end
     end
 
-    let(:user) { create(:user) }
+    let(:user) { create(:user, :confirmed) }
     let(:renderer) { renderer_class.new(content) }
     let(:profile_path) { Decidim::UserPresenter.new(user).profile_path }
 

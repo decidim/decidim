@@ -1,13 +1,6 @@
 @use "sass:meta";
 @use "stylesheets/decidim/legacy/variables";
 
-/* Index:
-  1 - Foundation settings
-  2 - Custom styles
-*/
-
-/* 1 - Foundation settings --------- */
-
 .wrapper {
   width: 100%;
 }
@@ -1724,7 +1717,6 @@ body.outlook p {
 table.body th.decidim-bar,
 table.body td.decidim-bar {
   padding: 10px 0;
-  background-color: #1a181d;
 }
 
 table.body {
@@ -1739,10 +1731,6 @@ table.body {
 .decidim-logo a {
   display: inline-block;
   height: 30px;
-}
-
-.cityhall-bar {
-  background-color: #2c2930;
 }
 
 .cityhall-logo {

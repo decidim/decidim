@@ -32,6 +32,36 @@ shared_examples "admin participatory space edit button" do
   end
 end
 
+shared_examples "admin participatory space access public interface of restricted space" do
+  let(:user) { role }
+
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit participatory_space_path
+  end
+
+  it "displays the page" do
+    expect(page).to have_text("This is a restricted space. Only members and administrators can view it and participate.")
+    expect(page).to have_current_path(participatory_space_path)
+  end
+end
+
+shared_examples "admin participatory space access public interface of transparent space" do
+  let(:user) { role }
+
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit participatory_space_path
+  end
+
+  it "displays the page" do
+    expect(page).to have_text("This is a transparent space. Anyone can view the content, but only members and administrators can participate.")
+    expect(page).to have_current_path(participatory_space_path)
+  end
+end
+
 shared_examples "admin participatory space access" do
   before do
     switch_to_host(organization.host)

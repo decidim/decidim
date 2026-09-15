@@ -223,7 +223,6 @@ zh-TW:
           global:
             announcement: 公告
             comments_enabled: 啟用評論功能
-            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
             form:
               errors:
                 budget_voting_rule_only_one: 僅能啟用一個投票規則。

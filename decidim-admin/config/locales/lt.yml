@@ -41,7 +41,6 @@ lt:
         alert_color: Įspėjimas
         available_authorizations: Leidžiamos autorizacijos
         badges_enabled: Aktyvinti ženklelius
-        comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
         customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
         default_locale: Numatytoji lokalė
         description: Aprašymas
@@ -753,11 +752,6 @@ lt:
       share_tokens:
         actions:
           destroy: Ištrinti
-      shared:
-        gallery:
-          add_images: Pridėti paveikslėlių
-          edit_images: Redaguoti paveikslėlį
-          gallery_legend: Pridėti paveikslėlių galeriją (Neprivaloma)
       static_page_topics:
         create:
           error: Kuriant naują temą iškilo problema.

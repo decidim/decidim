@@ -23,7 +23,9 @@ module Decidim
     end
 
     def path
-      "#add-comment-anchor"
+      return "#add-comment-anchor" if current_user
+
+      nil
     end
 
     def text
@@ -36,6 +38,12 @@ module Decidim
 
     def button_classes
       "button button__sm button__transparent-secondary add-comment-mobile"
+    end
+
+    def html_options
+      return {} if current_user
+
+      { data: { "dialog-open": "loginModal" } }
     end
   end
 end

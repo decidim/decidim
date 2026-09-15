@@ -20,6 +20,8 @@ describe("MainMenuController", () => {
         Menu
       </button>
       <div id="main-menu-container" aria-hidden="true">
+        <a href="/link">Link</a>
+        <button>Action</button>
         <div id="main-menu-item"></div>
       </div>
       <button id="main-menu-close">Close</button>
@@ -66,6 +68,29 @@ describe("MainMenuController", () => {
       expect(buttonSpy).toHaveBeenCalledWith("click", controller.handleButtonClick)
       expect(documentSpy).toHaveBeenCalledWith("keydown", controller.handleKeydown)
       expect(closeSpy).toHaveBeenCalledWith("click", controller.handleCloseButtonClick)
+    })
+
+    it("sets aria-expanded to false when missing", async () => {
+      document.body.innerHTML = `
+        <button data-controller="main-menu" data-target="main-menu-container" data-close-button="main-menu-close">
+          Menu
+        </button>
+        <div id="main-menu-container" aria-hidden="true"></div>
+        <button id="main-menu-close">Close</button>
+      `
+
+      application.stop()
+      application = Application.start()
+      application.register("main-menu", MainMenuController)
+
+      const newButton = document.querySelector('[data-controller="main-menu"]')
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(application.getControllerForElementAndIdentifier(newButton, "main-menu"))
+        }, 0)
+      })
+
+      expect(newButton.getAttribute("aria-expanded")).toBe("false")
     })
 
     it("returns early when menu container is missing", async () => {
@@ -162,6 +187,81 @@ describe("MainMenuController", () => {
       controller.handleCloseButtonClick()
 
       expect(menuContainer.getAttribute("aria-hidden")).toBe("true")
+    })
+  })
+
+  describe("focusTrapHandler", () => {
+    beforeEach(() => {
+      jest.spyOn(HTMLElement.prototype, "offsetParent", "get").mockReturnValue(menuContainer)
+      controller.openMenu()
+    })
+
+    afterEach(() => {
+      controller.closeMenu()
+    })
+
+    it("focuses the first focusable element when menu opens", () => {
+      const focusable = menuContainer.querySelectorAll("a[href], button:not([disabled])")
+      const firstEl = focusable[0]
+      expect(document.activeElement).toBe(firstEl)
+    })
+
+    it("cycles focus to first element when Tab is pressed on last focusable element", () => {
+      const focusable = menuContainer.querySelectorAll("a[href], button:not([disabled])")
+      expect(focusable.length).toBeGreaterThan(1)
+      const lastEl = focusable[focusable.length - 1]
+      const firstEl = focusable[0]
+
+      lastEl.focus()
+      const event = new KeyboardEvent("keydown", { key: "Tab", bubbles: true })
+      jest.spyOn(event, "preventDefault")
+      jest.spyOn(firstEl, "focus")
+
+      menuContainer.dispatchEvent(event)
+
+      expect(event.preventDefault).toHaveBeenCalled()
+      expect(firstEl.focus).toHaveBeenCalledWith({ preventScroll: true })
+    })
+
+    it("cycles focus to last element when Shift+Tab is pressed on first focusable element", () => {
+      const focusable = menuContainer.querySelectorAll("a[href], button:not([disabled])")
+      expect(focusable.length).toBeGreaterThan(1)
+      const firstEl = focusable[0]
+      const lastEl = focusable[focusable.length - 1]
+
+      firstEl.focus()
+      const event = new KeyboardEvent("keydown", { key: "Tab", shiftKey: true, bubbles: true })
+      jest.spyOn(event, "preventDefault")
+      jest.spyOn(lastEl, "focus")
+
+      menuContainer.dispatchEvent(event)
+
+      expect(event.preventDefault).toHaveBeenCalled()
+      expect(lastEl.focus).toHaveBeenCalledWith({ preventScroll: true })
+    })
+
+    it("does nothing when a non-Tab key is pressed", () => {
+      const event = new KeyboardEvent("keydown", { key: "Enter", bubbles: true })
+      jest.spyOn(event, "preventDefault")
+
+      menuContainer.dispatchEvent(event)
+
+      expect(event.preventDefault).not.toHaveBeenCalled()
+    })
+
+    it("does nothing when there are no focusable elements", () => {
+      controller.closeMenu()
+      menuContainer.innerHTML = ""
+      controller.openMenu()
+
+      const event = new KeyboardEvent("keydown", { key: "Tab", bubbles: true })
+      expect(() => menuContainer.dispatchEvent(event)).not.toThrow()
+    })
+
+    it("removes the keydown handler when menu is closed", () => {
+      const spy = jest.spyOn(menuContainer, "removeEventListener")
+      controller.closeMenu()
+      expect(spy).toHaveBeenCalledWith("keydown", controller.focusTrapHandler)
     })
   })
 

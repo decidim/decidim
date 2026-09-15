@@ -125,6 +125,101 @@ describe "Admin manages projects" do
     end
   end
 
+  context "when a project has an attachment" do
+    let!(:budget_with_attachment) { create(:budget, component: current_component) }
+    let!(:project_with_attachment) do
+      create(:project, budget: budget_with_attachment)
+    end
+
+    let!(:attachment) { create(:attachment, :with_image, attached_to: project_with_attachment) }
+
+    before do
+      visit_component_admin
+
+      within "tr", text: translated(budget_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Add projects"
+      end
+    end
+
+    it "can remove an attachment" do
+      within "tr", text: translated(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      click_on("Edit attachments")
+      within "li[data-filename='#{attachment.file.blob.filename}']" do
+        click_on("Remove")
+      end
+
+      click_on("Save")
+
+      expect(page).to have_no_css("img[src*='#{attachment.file.blob.filename}']")
+    end
+
+    it "can attach a file" do
+      within "tr", text: translated(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      click_on("Edit attachments")
+
+      filename = attachment.file.blob.filename.to_s
+      within ".upload-modal" do
+        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(filename))
+        within "li[data-filename='#{filename}']:not([data-attachment-id])" do
+          expect(page).to have_css("progress[value='100']")
+        end
+        expect(page).to have_css("button[data-dropzone-save]:not([disabled])")
+        click_on("Save")
+      end
+
+      expect(page).to have_no_css(".upload-modal")
+
+      click_on("Update")
+
+      expect(page).to have_text("Project successfully updated.")
+
+      within "tr", text: translated_attribute(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page).to have_css("img[src*='#{attachment.file.blob.filename}']")
+    end
+
+    it "can edit a project with an attachment" do
+      within "tr", text: translated(project_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page.html).to include(attachment.file.blob.filename.to_s)
+
+      fill_in_i18n(:project_title, "#project-title-tabs", en: "Updated project title with attachments")
+      click_on "Update"
+
+      expect(page).to have_callout "Project successfully updated."
+
+      visit_component_admin
+
+      within "tr", text: translated(budget_with_attachment.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Add projects"
+      end
+
+      within "tr", text: "Updated project title with attachments" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      expect(page).to have_field("project_title_en", with: "Updated project title with attachments")
+      expect(page.html).to include(attachment.file.blob.filename.to_s)
+    end
+  end
+
   private
 
   def format_title(budget)

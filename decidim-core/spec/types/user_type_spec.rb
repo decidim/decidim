@@ -27,14 +27,21 @@ module Decidim
       end
 
       describe "deleted user" do
-        let(:model) { create(:user, :deleted) }
+        let(:model) { create(:user, :confirmed, :deleted) }
         let(:query) { "{ id }" }
 
         it_behaves_like "unauthorized User object"
       end
 
       describe "moderated user" do
-        let(:model) { create(:user, :blocked) }
+        let(:model) { create(:user, :confirmed, :blocked) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized User object"
+      end
+
+      describe "managed user" do
+        let(:model) { create(:user, :confirmed, :managed) }
         let(:query) { "{ id }" }
 
         it_behaves_like "unauthorized User object"
@@ -122,7 +129,7 @@ module Decidim
         end
 
         context "when user is deleted" do
-          let(:model) { create(:user, :deleted) }
+          let(:model) { create(:user, :confirmed, :deleted) }
 
           it_behaves_like "unauthorized User object"
         end

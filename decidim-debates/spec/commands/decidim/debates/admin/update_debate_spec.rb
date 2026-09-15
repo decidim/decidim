@@ -15,12 +15,14 @@ describe Decidim::Debates::Admin::UpdateDebate do
     2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
   end
   let(:comments_layout) { "two_columns" }
+  let(:title) { { en: "title" } }
+  let(:description) { { en: "description" } }
   let(:form) do
     double(
       invalid?: invalid,
       current_user: user,
-      title: { en: "title" },
-      description: { en: "description" },
+      title:,
+      description:,
       information_updates: { en: "information_updates" },
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
@@ -30,8 +32,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
       comments_enabled: true,
       comments_layout:,
       attachment: attachment_params,
-      add_documents: uploaded_files,
-      documents: current_files,
+      add_attachments: uploaded_files,
+      attachments: current_files,
       errors: ActiveModel::Errors.new(self)
     )
   end
@@ -53,6 +55,40 @@ describe Decidim::Debates::Admin::UpdateDebate do
       expect(translated(debate.information_updates)).to eq "information_updates"
       expect(translated(debate.instructions)).to eq "instructions"
       expect(debate.comments_layout).to eq "two_columns"
+    end
+
+    context "when description has a user mention" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:description) { { en: "description mentioning @#{mentioned_user.nickname}" } }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+
+        expect(debate.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
+    end
+
+    context "when description has a user mention with a hyphen in the nickname" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
+      let(:description) { { en: "description mentioning @#{mentioned_user.nickname}" } }
+
+      it "rewrites the mention to the mentioned user GID" do
+        subject.call
+
+        expect(debate.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
+    end
+
+    context "when title has a user mention" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:title) { { en: "title mentioning @#{mentioned_user.nickname}" } }
+
+      it "does not rewrite the mention to the mentioned user GID" do
+        subject.call
+
+        expect(translated(debate.title)).not_to include(mentioned_user.to_global_id.to_s)
+        expect(translated(debate.title)).to include("@#{mentioned_user.nickname}")
+      end
     end
 
     it "sets the taxonomies" do

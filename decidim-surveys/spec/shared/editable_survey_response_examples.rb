@@ -62,7 +62,7 @@ shared_examples "editable survey responses" do
     check :questionnaire_responses_5_matrix_row_1_choice_0_body
     check :questionnaire_responses_5_matrix_row_2_choice_0_body
 
-    dynamically_attach_file("questionnaire_responses_6_add_documents", Decidim::Dev.asset("city.jpeg"))
+    dynamically_attach_file("questionnaire_responses_6_add_attachments", Decidim::Dev.asset("city.jpeg"))
 
     page.execute_script "window.scrollBy(0,1800)"
     within ".js-sortable-check-box-collection" do
@@ -122,7 +122,7 @@ shared_examples "editable survey responses" do
     check :questionnaire_responses_5_matrix_row_1_choice_2_body
     check :questionnaire_responses_5_matrix_row_2_choice_2_body
 
-    dynamically_attach_file("questionnaire_responses_6_add_documents", Decidim::Dev.asset("city2.jpeg"), remove_before: true)
+    dynamically_attach_file("questionnaire_responses_6_add_attachments", Decidim::Dev.asset("city2.jpeg"), remove_before: true)
 
     page.execute_script "window.scrollBy(0,1800)"
 

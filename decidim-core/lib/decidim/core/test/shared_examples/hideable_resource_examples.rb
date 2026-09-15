@@ -2,7 +2,7 @@
 
 shared_examples_for "has hideable resource" do
   let(:organization) { create(:organization) }
-  let(:author) { create(:user, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
   let(:current_user) { create(:user, :admin, :confirmed, organization:) }
   let(:justification) { "This is a spam content" }
   let(:event) { "decidim.admin.block_user:after" }
@@ -32,6 +32,11 @@ shared_examples_for "has hideable resource" do
   end
 
   describe "#perform" do
+    before do
+      # The n+1 query that we are ignoring here is coming from a background job, and we cannot really optimize it
+      Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::User", :association => :organization
+    end
+
     it "hides all comments created by an author" do
       expect(hideable).not_to be_hidden
       expect(not_hideable).not_to be_hidden

@@ -6,6 +6,42 @@ es:
         title: Título
         total_budget: Presupuesto total
         weight: Orden de posición
+      pabulib_rules:
+        equalshares:
+          help: Método de Equal Shares (MES), reparto equitativo sin terminación. En las EM, cada votante comienza con una parte virtual igual del presupuesto y se selecciona un proyecto cuando sus partidarios pueden pagarlo conjuntamente.
+          label: Método de Equal Shares (reparto equitativo) (%{rule})
+        equalshares/add1:
+          help: Utiliza el equalshares (reparto equitativo) básico, pero si se detiene demasiado pronto, continúa incrementando el presupuesto virtual de cada votante 1 unidad cada vez (Add1) y vuelve a calcular, siempre que los proyectos seleccionados finalmente todavía quepan dentro del presupuesto real.
+          label: Método de Equal Shares (reparto equitativo), add1 (%{rule})
+        equalshares/add1_comparison:
+          help: Utiliza equalshares/add1 y después aplica el mismo paso de comparación que se ha descrito anteriormente.
+          label: Método de Equal Shares (reparto equitativo), comparación add1 (%{rules})
+        equalshares_comparison:
+          help: 'Utiliza equalshares (reparto equitativo) como base y, luego, añade un paso extra: compara su resultado con un enfoque de maximización inmediata y cambia solo si más votantes prefieren el resultado de este enfoque.'
+          label: Métode de Equals Shares (reparto equitativo), comparación (%{rule})
+        greedy:
+          help: La aproximación estándar de estilo Knapsack (mochila). Los proyectos se ordenan por número de votos (de más a menos). El algoritmo recorre la lista, seleccionando los proyectos que encajan en el restante presupuesto. Si un proyecto es demasiado caro para los fondos restantes actuales, se omite y el algoritmo pasa al siguiente proyecto para comprobar si encaja.
+          label: Maximización inmediata (%{rule})
+        greedy_custom:
+          help: Se utiliza para casos especiales que no se adaptan a los algoritmos estándar, tales como reasignaciones manuales del presupuesto o reglas híbridas complejas.
+          label: Maximización inmediata, personalizada (%{rule})
+        greedy_exclusive:
+          help: Gestiona grupos de proyectos en conflicto. Funciona como greedy estándar pero si múltiples proyectos "seleccionados" entran en conflicto (por ejemplo, si se encuentran en la misma zona o categoría exclusiva), se aplica una regla de jerarquía (por ejemplo, los proyectos a nivel de distrito pueden tener prioridad sobre los de toda la ciudad, o viceversa) en lugar de confiar sólo en el número de votos.
+          label: Maximización inmediata, exclusiva (%{rule})
+        greedy_no_skip:
+          help: Los proyectos se ordenan por número de votos (de más a menos). El algoritmo selecciona los proyectos que encajan en el presupuesto restante, pero se detiene inmediatamente al primer proyecto que no cabe. Ningún proyecto posterior se considera, incluso si encajaría con él.
+          label: Maximización inmediata, sin saltos (%{rule})
+        greedy_threshold:
+          help: Se comporta como algoritmo de maximización inmediata estándar, pero solo se consideran los proyectos que cumplen un umbral mínimo de puntuación (min_project_score_threshold) definido.
+          label: Maximización inmediata, umbral (%{rule})
+        unknown:
+          help: O bien la información no está disponible, o existían varias posibilidades y no está claro cuál se aplica.
+          label: Desconocida (%{rule})
+      pabulib_vote_types:
+        approval: Aprobación (%{type})
+        cumulative: Acumulativo (%{type})
+        ordinal: Ordinal (%{type})
+        scoring: Puntuación (%{type})
       project:
         budget_amount: Importe del presupuesto
         description: Descripción
@@ -81,10 +117,87 @@ es:
             invalid: Se ha producido un error al actualizar este presupuesto.
             success: Presupuesto actualizado correctamente.
         exports:
+          formats:
+            pabulib: Pabulib (Biblioteca de Presupuestos Participativos)
           projects: Proyectos
+          voting_results: Resultados de la votación
         models:
           project:
             name: Proyecto
+        pabulib_exports:
+          create:
+            invalid: Por favor, corrige los errores en el formulario.
+            no_votes: Aún no hay votos para exportar.
+          show:
+            create: Exportar
+            explanation_html: |
+              <p>
+              Esta vista creará una exportación en formato %{format_link} de los resultados de la votación de los presupuestos participativos.
+              </p>
+            explanation_link_label_format: Formato Pabulib (Biblioteca de Presupuestos Participativos)
+            export_details_data: Atributos de datos
+            export_details_general: Datos generales
+            fields:
+              country:
+                help: El país donde se celebró la votación
+                label: País (%{field})
+              default_score:
+                help: 'La puntuación predeterminada para el tipo de voto de puntuación (por defecto: %{default_value}).'
+                label: Puntuación por defecto (%{field})
+              description:
+                help: Descripción de la votación que detalla sobre qué se votó.
+                label: Descripción (%{field})
+              district:
+                help: El distrito electoral dentro de la votación. Por ejemplo, si utiliza los barrios como subunidades, puede asignarlos a los distritos utilizando este campo.
+                label: Distrito (%{field})
+              instance:
+                help: La edición de la votación; por ejemplo, para votaciones recurrentes anuales, sería el año de la votación.
+                label: Edición (%{field})
+              max_length:
+                help: 'Número máximo de proyectos que se seleccionarán (por defecto: %{default_value}).'
+                label: Longitud máxima (%{field})
+              max_points:
+                help: 'Puntuación máxima asignada a los proyectos seleccionados (por defecto: %{default_value}).'
+                help_default_value: para el tipo de voto acumulativo con valor «max_sum_points», para el tipo de voto de puntuación ∞
+                label: Puntuación máxima (%{field})
+              max_sum_cost:
+                help: 'Importe máximo del coste de un proyecto (por defecto: %{default_value}).'
+                label: Coste total máximo (%{filed})
+              max_sum_points:
+                help: Suma máxima de los puntos asignados a cada proyecto.
+                label: Suma máxima de puntos (%{field})
+              min_length:
+                help: 'Número mínimo de proyectos que se seleccionarán (por defecto: %{default_value}).'
+                label: Longitud mínima (%{field})
+              min_points:
+                help: 'Puntuación mínima asignada a los proyectos seleccionados (por defecto: %{default_value}).'
+                label: Puntuación mínima (%{field})
+              min_sum_cost:
+                help: 'Importe mínimo del coste de un proyecto (por defecto: %{default_value}).'
+                label: Coste mínimo (%{field})
+              min_sum_points:
+                help: 'Suma mínima de los puntos asignados a cada proyecto (por defecto: %{default_value}).'
+                label: Puntuación mínima (%{field})
+              rule:
+                help: El algoritmo utilizado para seleccionar los proyectos ganadores en función de los votos.
+                label: Regla (%{field})
+              scoring_fn:
+                help: 'Función de puntuación para la votación de tipo ordinal (por defecto: %{default_value}).'
+                label: Función de puntuación (%{field})
+              subunit:
+                help: La subunidad electoral dentro de la circunscripción electoral; por ejemplo, una zona dentro de la ciudad o del municipio.
+                label: Subunidad (%{field})
+              unit:
+                help: La unidad de votación dentro del proceso electoral; por ejemplo, el nombre de la ciudad o del municipio.
+                label: Unidad (%{field})
+              vote_type:
+                help: '¿Cómo se evalúan los resultados de la votación? (Consulta la documentación para obtener más información).'
+                label: Tipo de voto (%{field})
+            format_info_html: Consulta la documentación de %{link} para obtener más información al respecto.
+            large_dataset_warning_html: |
+              <p>Tu conjunto de datos contiene %{amount} votos y, por lo tanto, es demasiado grande para exportarlo a través de esta interfaz de usuario.</p>
+              <p>Te recomendamos que exportes tu conjunto de datos desde la consola con el siguiente comando: <code>%{command}</code></p>
+            title: Exportar los resultados de la votación sobre %{budget} al formato Pabulib (Biblioteca de Presupuestos Participativos)
         projects:
           create:
             invalid: Se ha producido un error al crear este proyecto.
@@ -346,7 +459,7 @@ es:
             announcement: Aviso
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             form:
               errors:

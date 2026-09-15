@@ -45,11 +45,11 @@ module Decidim
             ]
 
             content_block.settings do |settings|
-              settings.attribute :title, type: :text, translated: true
+              settings.attribute :title, type: :text, translated: true, required: true
               settings.attribute :short_description, type: :text, translated: true
-              settings.attribute :action_button_title, type: :text, translated: true
-              settings.attribute :action_button_subtitle, type: :text, translated: true
-              settings.attribute :action_button_url, type: :text
+              settings.attribute :action_button_title, type: :text, translated: true, required: true
+              settings.attribute :action_button_subtitle, type: :text, translated: true, required: true
+              settings.attribute :action_button_url, type: :text, required: true
             end
 
             content_block.default!

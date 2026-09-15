@@ -15,8 +15,8 @@ module Decidim
             created_at: resource.comment.created_at,
             body: resource.comment.body,
             author: {
-              id: resource.comment.author.id,
-              name: resource.comment.author.name
+              id: resource.comment.author&.id,
+              name: resource.comment.author&.name
             },
             alignment: resource.comment.alignment,
             depth: resource.comment.depth,

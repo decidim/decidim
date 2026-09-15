@@ -467,7 +467,6 @@ lt:
           global:
             amendments_enabled: Pataisos leidžiamos
             comments_enabled: Komentarai leidžiami
-            comments_max_length: Komentarų maksimalus ilgis
             dummy_global_attribute1: Fiktyvus atributas 1
             dummy_global_attribute2: Fiktyvus atributas 2
             dummy_global_translatable_text: Testinis verčiamas tekstas
@@ -893,7 +892,6 @@ lt:
         create:
           error: Pokalbis neprasidėjo. Bandykite dar kartą vėliau.
         error_modal:
-          close: Uždaryti modalinį langą
           correct_errors: Ištaisykite klaidas ir bandykite dar kartą.
           intro: 'Jūsų pranešime aptiktos šios klaidos:'
           ok: Gerai

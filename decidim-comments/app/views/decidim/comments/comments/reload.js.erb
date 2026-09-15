@@ -3,6 +3,10 @@
 
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");
+
+  // Save the focused element id to restore focus after reload
+  var activeElementId = document.activeElement ? document.activeElement.id : null;
+
   component.unmountComponent();
 
   var commentsHtml = '<%== j(inline_comments_for(commentable, order:).inline).strip %>';
@@ -15,5 +19,13 @@
 
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+
+  // Restore focus to the previously focused element if it still exists
+  if (activeElementId) {
+    var newActiveElement = document.getElementById(activeElementId);
+    if (newActiveElement) {
+      newActiveElement.focus();
+    }
+  }
 
 }());

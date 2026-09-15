@@ -8,13 +8,21 @@ describe Decidim::AuthorCell, type: :cell do
   controller Decidim::PagesController
 
   let(:my_cell) { cell("decidim/author", model) }
-  let!(:organization) { build(:organization) }
+  let!(:organization) { build(:organization, tos_version: Time.current) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:model) { Decidim::UserPresenter.new(user) }
 
   context "when rendering a user" do
     it "renders a User author card" do
       expect(subject).to have_css("[data-author]")
+    end
+
+    context "when the user profile is not published" do
+      let(:user) { create(:user, organization:) }
+
+      it "does not render the author card" do
+        expect(subject).to have_no_css("[data-author]")
+      end
     end
 
     context "and when this user is officialized" do

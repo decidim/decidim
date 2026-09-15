@@ -469,6 +469,23 @@ describe Decidim::Assemblies::Permissions do
 
         it_behaves_like "allows any action on subject", :space_member
       end
+
+      context "when assembly is restricted and is accessed by different space roles" do
+        let(:assembly) { create(:assembly, organization:, access_mode: :restricted) }
+
+        let(:action) do
+          { scope: :public, action: :read, subject: :assembly }
+        end
+
+        it_behaves_like(
+          "access for roles",
+          org_admin: true,
+          admin: true,
+          collaborator: true,
+          moderator: true,
+          evaluator: true
+        )
+      end
     end
   end
 

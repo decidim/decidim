@@ -32,7 +32,6 @@
 @layer base {
   @include meta.load-css("stylesheets/decidim/fonts");
   @include meta.load-css("stylesheets/decidim/typography");
-  // Keep this in separate file as long as we are maintaining Foundation compatibility
   @include meta.load-css("stylesheets/decidim/rich_text");
 }
 
@@ -83,6 +82,7 @@
   @include meta.load-css("stylesheets/decidim/actions");
   @include meta.load-css("stylesheets/decidim/emoji");
   @include meta.load-css("stylesheets/decidim/success_image");
+  @include meta.load-css("stylesheets/decidim/editor_suggestions");
 }
 
 // This applies the custom style imports registered at the application.

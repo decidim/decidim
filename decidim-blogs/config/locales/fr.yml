@@ -76,7 +76,6 @@ fr:
       posts:
         edit:
           add_attachments: Ajouter des pièces jointes
-          attachment_legend: Ajouter un document ou une image
           back: Retour à l'article
           button: Mettre à jour
           edit_attachments: Modifier les pièces jointes
@@ -99,6 +98,11 @@ fr:
           back: Retour aux articles
           button: Créer
           title: Créer un nouvel article
+        orders:
+          label: Trier les articles par
+          most_commented: Les plus commentés
+          random: Ordre aléatoire
+          recent: Les plus récents
     components:
       blogs:
         actions:
@@ -114,7 +118,7 @@ fr:
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             creation_enabled_for_participants: Les participants peuvent créer des articles
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
@@ -156,6 +160,7 @@ fr:
           likes_count: Le nombre de soutiens à cet article
           participatory_space: 'À quel espace (ex : Concertation ou Assemblée) appartient cet article'
           published_at: La date à laquelle cet article a été publié
+          reference: La référence unique de l'article
           title: Le titre de l'article
           updated_at: La dernière date de mise à jour de cet article
           url: L'URL de cet article

@@ -5,16 +5,16 @@ module Decidim
     private
 
     def build_attachments
-      @documents = []
-      @form.add_documents.compact_blank.each do |attachment|
+      @attachments = []
+      @form.add_attachments.compact_blank.each do |attachment|
         if attachment.is_a?(Hash) && attachment.has_key?(:id)
           update_attachment_title_for(attachment)
           next
         end
 
-        @documents << Attachment.new(
+        @attachments << Attachment.new(
           title: title_for(attachment),
-          attached_to: @attached_to || documents_attached_to,
+          attached_to: @attached_to || attachments_attached_to,
           file: signed_id_for(attachment),
           content_type: content_type_for(attachment)
         )
@@ -26,11 +26,11 @@ module Decidim
     end
 
     def attachments_invalid?
-      @documents.each do |document|
-        next if document.valid? || !document.errors.has_key?(:file)
+      @attachments.each do |attachment|
+        next if attachment.valid? || !attachment.errors.has_key?(:file)
 
-        document.errors[:file].each do |error|
-          @form.errors.add(:add_documents, error)
+        attachment.errors[:file].each do |error|
+          @form.errors.add(:add_attachments, error)
         end
 
         return true
@@ -41,37 +41,38 @@ module Decidim
 
     def create_attachments(first_weight: 0)
       weight = first_weight
-      # Add the weights first to the old documents
-      document_ids = keep_ids
-      Decidim::Attachment.where(id: document_ids).each do |document|
-        document.update!(weight:)
+      # Add the weights first to the old attachments
+      attachment_ids = keep_ids
+      Decidim::Attachment.where(id: attachment_ids).each do |attachment|
+        attachment.update!(weight:)
         weight += 1
       end
-      @documents.map! do |document|
-        document.weight = weight
-        document.attached_to = documents_attached_to
-        document.save!
+      @attachments.map! do |attachment|
+        attachment.weight = weight
+        attachment.attached_to = attachments_attached_to
+        attachment.save!
         weight += 1
-        @form.documents << document
+        @form.attachments << attachment
       end
     end
 
-    def document_cleanup!(include_all_attachments: false)
-      documents = include_all_attachments ? documents_attached_to.attachments.with_attached_file : documents_attached_to.documents
+    def attachment_cleanup!(include_all_attachments: false)
+      attachments = include_all_attachments ? attachments_attached_to.attachments.with_attached_file : attachments_attached_to.attachments
 
-      documents.each do |document|
-        document.destroy! unless keep_ids.include?(document.id)
+      attachments.each do |attachment|
+        attachment.destroy! unless keep_ids.include?(attachment.id)
       end
 
-      documents_attached_to.reload
-      documents_attached_to.instance_variable_set(:@documents, nil)
+      attachments_attached_to.reload
+      attachments_attached_to.instance_variable_set(:@attachments, nil)
+      attachments_attached_to.instance_variable_set(:@photos, nil)
     end
 
     def process_attachments?
-      @form.add_documents.any?
+      @form.add_attachments.any?
     end
 
-    def documents_attached_to
+    def attachments_attached_to
       return @attached_to if @attached_to.present?
       return form.current_organization if form.respond_to?(:current_organization)
 
@@ -101,8 +102,8 @@ module Decidim
     end
 
     def keep_ids
-      documents_array = Array(@form.documents)
-      documents_array.map do |doc|
+      attachments_array = Array(@form.attachments)
+      attachments_array.map do |doc|
         case doc
         when Decidim::Attachment
           doc.id

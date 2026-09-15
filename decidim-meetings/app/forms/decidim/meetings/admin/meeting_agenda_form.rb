@@ -35,12 +35,12 @@ module Decidim
         end
 
         def agenda_duration
-          @agenda_duration ||= agenda_items.sum(&:duration)
+          @agenda_duration ||= agenda_items.reject(&:deleted?).sum(&:duration)
         end
 
         def agenda_items_duration_too_long
-          agenda_items.each do |agenda_item|
-            children_duration = agenda_item.agenda_item_children.sum(&:duration)
+          agenda_items.reject(&:deleted?).each do |agenda_item|
+            children_duration = agenda_item.agenda_item_children.reject(&:deleted?).sum(&:duration)
 
             if children_duration > agenda_item.duration
               difference = children_duration - agenda_item.duration

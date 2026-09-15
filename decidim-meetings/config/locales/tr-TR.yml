@@ -64,7 +64,6 @@ tr:
           global:
             announcement: Duyuru
             comments_enabled: Yorumlar etkin
-            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             creation_enabled_for_participants: Katılımcılar toplantı oluşturabilir
             default_registration_terms: Varsayılan kayıt şartları
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
@@ -175,10 +174,8 @@ tr:
             success: Katılımcı başarıyla toplantıya katılmaya davet edildi.
           form:
             attendee_type: Katılımcı Tipi
-            existing_user: Mevcut katılımcı
             invite: Davet et
             invite_explanation: Katılımcı toplantıya ve organizasyona katılmaya davet edilecektir.
-            non_user: Mevcut olmayan katılımcı
             select_user: Katılımcı seç
           index:
             invites: Davetler

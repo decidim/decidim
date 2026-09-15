@@ -23,7 +23,7 @@ pt-BR:
           component: O componente ao qual a página pertence
           created_at: A data em que esta página foi criada
           id: O identificador exclusivo desta página
-          participatory_space: A qual espaço (por exemplo, processo participativo, ou Assembléia) esta página pertence 
+          participatory_space: A qual espaço (por exemplo, processo participativo, ou Assembléia) esta página pertence
           title: O título da página
           updated_at: A última data que esta página foi atualizada
           url: A URL para esta página

@@ -86,27 +86,66 @@ describe "Edit initiative" do
       expect(page).to have_no_xpath("//select[@id='initiative_state']")
     end
 
-    it "allows adding attachments" do
-      visit initiative_path
+    context "when the initiative has an attachment" do
+      let!(:initiative) { create(:initiative, :created, author: user, scoped_type:, organization:) }
+      let!(:document) { create(:attachment, :with_pdf, attached_to: initiative) }
+      let!(:image) { create(:attachment, :with_image, attached_to: initiative) }
 
-      click_on("Edit")
+      it "can remove an attachment" do
+        visit initiative_path
 
-      expect(page).to have_text "Edit Initiative"
+        click_on("Edit")
 
-      expect(initiative.reload.attachments.count).to eq(0)
+        expect(page).to have_text "Edit Initiative"
 
-      dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
-      dynamically_attach_file(:initiative_photos, Decidim::Dev.asset("avatar.jpg"))
-
-      within "form.edit_initiative" do
-        click_on "Update"
+        within "form.edit_initiative" do
+          find_by_id("initiative_attachments_button").click
+        end
+        within ".upload-modal" do
+          within "[data-filename='#{document.file.blob.filename}']" do
+            click_on "Remove"
+          end
+          click_on "Save"
+        end
+        within "form.edit_initiative" do
+          expect(page).to have_no_css("img[src*='#{document.file.blob.filename}']")
+        end
       end
 
-      perform_enqueued_jobs
+      it "can attach a file" do
+        visit initiative_path
 
-      expect(initiative.reload.documents.count).to eq(1)
-      expect(initiative.photos.count).to eq(1)
-      expect(initiative.attachments.count).to eq(2)
+        click_on("Edit")
+
+        expect(page).to have_text "Edit Initiative"
+
+        dynamically_attach_file(:initiative_attachments, Decidim::Dev.asset("city3.jpeg"))
+
+        within "form.edit_initiative" do
+          click_on "Update"
+        end
+
+        perform_enqueued_jobs
+
+        expect(initiative.reload.attachments.count).to eq(3)
+      end
+
+      it "can edit an initiative with attachments" do
+        visit initiative_path
+
+        click_on("Edit")
+
+        expect(page).to have_text "Edit Initiative"
+
+        fill_in :initiative_title, with: "Updated initiative title with attachments"
+
+        within "form.edit_initiative" do
+          click_on "Update"
+        end
+
+        expect(page).to have_text("Updated initiative title with attachments")
+        expect(initiative.reload.attachments.count).to eq(1)
+      end
     end
 
     context "when using the wizard steps" do

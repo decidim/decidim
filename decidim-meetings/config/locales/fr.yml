@@ -49,8 +49,6 @@ fr:
       meeting_registration_invite:
         email: Email
         name: Nom
-      response:
-        add_documents: Ajouter des documents
       validate_registration_code:
         code: Code
     errors:
@@ -167,7 +165,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             creation_enabled_for_participants: Les participants peuvent créer des rencontres
             default_registration_terms: Conditions d'inscription par défaut
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
@@ -337,10 +335,10 @@ fr:
             success: L'utilisateur a rejoint la rencontre.
           form:
             attendee_type: Type de participant
-            existing_user: Utilisateur existant
+            email: Email
             invite: Inviter
             invite_explanation: L'utilisateur sera invité à se joindre à la réunion et à l'organisation.
-            non_user: Utilisateur non existant
+            name_or_nickname: Nom ou pseudonyme
             select_user: Sélectionner un utilisateur
           index:
             invites: Invitations

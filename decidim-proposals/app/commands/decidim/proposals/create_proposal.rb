@@ -72,17 +72,15 @@ module Decidim
             visibility: "public-only"
           ) do
             proposal = Proposal.new(
-              title: {
-                I18n.locale => Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
-              },
+              title: { I18n.locale => form.title },
               body: {
-                I18n.locale => Decidim::ContentProcessor.parse_with_processor(:inline_images, form.body, current_organization: form.current_organization).rewrite
+                I18n.locale => Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
               },
               component: form.component
             )
 
             proposal.taxonomizations = form.taxonomizations if form.taxonomizations.present?
-            proposal.documents = form.documents if form.documents.present?
+            proposal.attachments = form.attachments if form.attachments.present?
             if form.geocoded?
               proposal.latitude = form.latitude
               proposal.longitude = form.longitude

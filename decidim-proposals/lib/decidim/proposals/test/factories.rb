@@ -299,7 +299,7 @@ FactoryBot.define do
                       end
 
       proposal.title = Decidim::ContentProcessor.parse(proposal.title, current_organization: proposal.organization).rewrite
-      proposal.body = Decidim::ContentProcessor.parse_with_processor(:inline_images, proposal.body, current_organization: proposal.organization).rewrite
+      proposal.body = Decidim::ContentProcessor.parse(proposal.body, current_organization: proposal.organization).rewrite
 
       if proposal.component
         users = evaluator.users || [create(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
@@ -436,7 +436,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     proposal { build(:proposal, skip_injection:) }
-    author { build(:user, organization: proposal.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: proposal.organization, skip_injection:) }
   end
 
   factory :proposal_amendment, class: "Decidim::Amendment" do
@@ -461,7 +461,7 @@ FactoryBot.define do
       end
     end
     proposal { build(:proposal, skip_injection:) }
-    author { build(:user, organization: proposal.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: proposal.organization, skip_injection:) }
   end
 
   factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do

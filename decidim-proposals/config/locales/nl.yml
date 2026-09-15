@@ -33,10 +33,6 @@ nl:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Moet opnieuw worden gekoppeld
-            add_photos:
-              needs_to_be_reattached: Moet opnieuw worden gekoppeld
             body:
               cant_be_equal_to_template: mag niet gelijk zijn aan het template
               identical: EN titel kan niet identiek zijn
@@ -85,7 +81,6 @@ nl:
             attachments_allowed: Bijlagen toestaan
             collaborative_drafts_enabled: Samenwerkingsconcepten ingeschakeld
             comments_enabled: Reacties ingeschakeld
-            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             default_sort_order: Standaardsortering
             default_sort_order_options:
               most_commented: Meeste reacties

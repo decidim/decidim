@@ -277,7 +277,7 @@ describe "Meeting registrations" do
         it "shows errors for invalid file" do
           visit questionnaire_public_path
 
-          dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"), keep_modal_open: true)
+          dynamically_attach_file("questionnaire_responses_0_add_attachments", Decidim::Dev.asset("verify_user_groups.csv"), keep_modal_open: true)
 
           expect(page).to have_text("Validation error!")
         end

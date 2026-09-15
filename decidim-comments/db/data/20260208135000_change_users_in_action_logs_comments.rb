@@ -12,7 +12,7 @@ class ChangeUsersInActionLogsComments < ActiveRecord::Migration[7.2]
   end
 
   def up
-    ActionLog.where(resource_type: "Decidim::Comments::Comment").find_each do |action_log|
+    ActionLog.includes(:user, :resource).where(resource_type: "Decidim::Comments::Comment").find_each do |action_log|
       next unless action_log.resource
 
       author = action_log.resource.author

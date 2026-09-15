@@ -28,10 +28,6 @@ lv:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Jāpievieno no jauna
-            add_photos:
-              needs_to_be_reattached: Jāpievieno no jauna
             body:
               cant_be_equal_to_template: nevar būt vienāds ar veidni
               identical: UN nosaukums nevar būt identisks

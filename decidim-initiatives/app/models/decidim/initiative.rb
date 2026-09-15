@@ -330,9 +330,8 @@ module Decidim
         counters["total"] += count
       end
 
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       update_column("online_votes", online_votes)
-      # rubocop:enable Rails/SkipsModelValidations
     end
 
     def set_offline_votes_total
@@ -387,7 +386,7 @@ module Decidim
     end
 
     def author_users
-      [author].concat(committee_members.excluding_author.map(&:user))
+      [author].concat(committee_members.includes(:user).excluding_author.map(&:user))
     end
 
     def accepts_offline_votes?

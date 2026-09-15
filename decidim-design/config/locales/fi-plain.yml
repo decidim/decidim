@@ -154,7 +154,7 @@ fi-pl:
           typefaces_description_2: Tämä fontti on lisensoitu Open Font License (OFL) -ehtojen mukaisesti
       helpers:
         accountability: Vastuullisuus
-        accountability_cards_html: 'Käytetään <i>Vastuullisuushankkeiden</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>'
+        accountability_cards_html: 'Käytetään <i>Vastuullisuushankkeiden</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag "decidim_accountability"</code>'
         activity: Toiminta
         address_description: Osoitesolu saa tiedokseen tietueen, jolta solu etsii geolokalisoituja tietoja lisätäkseen oikeanlaiset merkinnät näkymään.
         address_description_2: Sisällön tyypistä riippuen osoite voi olla verkko-osoite. Näissä tapauksissa näytettävä tieto on hyvin samankaltainen, mutta se muotoillaan sopimaan sisältöpaikalle.
@@ -170,7 +170,7 @@ fi-pl:
         block_text: Käytä extra_data -lohkoa
         blog_cards_html: Käytetään <i>Blogien</i> korteissa
         blogs: Blogit
-        budget_card_html: 'Käytetään <i>Budjetointiprojektien</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
+        budget_card_html: 'Käytetään <i>Budjetointiprojektien</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag "decidim_budgets"</code>'
         budgets: Budjetit
         callout_class: Huomautuselementin luokka
         callout_description: Tämä attribuutti määrittää ilmoituksen tilan. Oletuksena se käyttää toissijaista väriä.

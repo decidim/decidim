@@ -264,7 +264,6 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
-            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             form:
               errors:
                 budget_voting_rule_only_one: Może być włączona tylko jedna reguła głosowania.

@@ -41,13 +41,13 @@
     <% end %>
 
     <% if initiative_type.attachments_enabled? %>
-      <%= f.attachment :documents,
+      <%= f.attachment :attachments,
                        multiple: true,
                        label: t("decidim.initiatives.form.add_attachments"),
                        button_label: t("decidim.initiatives.form.add_attachments"),
                        button_class: "button button__lg button__transparent-secondary w-full",
                        button_edit_label: t("decidim.initiatives.form.edit_attachments"),
-                       help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
+                       help_text: t("decidim.admin.shared.attachments.attachment_legend") %>
       <%= f.attachment :photos,
                        multiple: true,
                        label: t("decidim.initiatives.form.add_image"),

@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Initiatives::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, organization:) }
   let(:context) { {} }
@@ -31,7 +31,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user belongs to another organization" do
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :confirmed) }
 
       it { is_expected.to be false }
     end
@@ -93,7 +93,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user is admin" do
-      let(:user) { create(:user, :admin, organization:) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
 
       it { is_expected.to be true }
     end
@@ -273,7 +273,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create(:user, :admin, organization:) }
+        let(:user) { create(:user, :confirmed, :admin, organization:) }
         let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
@@ -312,7 +312,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create(:user, :admin, organization:) }
+        let(:user) { create(:user, :confirmed, :admin, organization:) }
         let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
@@ -351,7 +351,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create(:user, :admin, organization:) }
+        let(:user) { create(:user, :confirmed, :admin, organization:) }
         let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
@@ -504,7 +504,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user belongs to another organization" do
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :confirmed) }
 
       it { is_expected.to be false }
     end

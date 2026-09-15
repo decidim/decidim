@@ -153,7 +153,7 @@ fr-CA:
           error_invitation: Il y a eu un problème lors de la création d'une nouvelle organisation. Vérifiez le nom de l'administrateur de votre organisation.
           success_html: |
             <p>
-              Organisation créée avec succès. 
+              Organisation créée avec succès.
             </p>
             <ol>
               <li>Vous devrez peut-être mettre à jour le code de votre application pour autoriser les requêtes à %{host}, vous devez ajouter ce qui suit à la configuration de votre environnement

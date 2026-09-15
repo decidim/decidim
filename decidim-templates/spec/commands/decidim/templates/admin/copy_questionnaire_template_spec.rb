@@ -51,7 +51,8 @@ module Decidim
           end
 
           context "when the questionnaire has all question types and display conditions" do
-            let!(:template) { create(:questionnaire_template, :with_all_questions) }
+            let!(:dummy_questionnaire) { create(:questionnaire_template, :with_all_questions, organization:) }
+            let(:template) { dummy_questionnaire.class.includes(:templatable).find(dummy_questionnaire.id) }
 
             it_behaves_like "copies all questionnaire contents"
           end

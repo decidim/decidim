@@ -35,6 +35,8 @@ en:
             body: Body
         pages:
           edit:
+            add_attachments: Add attachments
+            edit_attachments: Edit attachments
             save: Update
             title: Edit page
           update:

@@ -115,7 +115,7 @@ module Decidim
           end
 
           context "and comment contains a user mention" do
-            let(:mentioned_user) { create(:user, organization:) }
+            let(:mentioned_user) { create(:user, :confirmed, organization:) }
             let(:parser_context) { { current_organization: organization } }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_user.nickname}" }
 

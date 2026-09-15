@@ -301,7 +301,7 @@ fr:
           global:
             clear_all: Tout supprimer
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             default_taxonomy: Taxonomie par défaut
             default_taxonomy_help: Sélectionnez la taxonomie que vous voulez afficher par défaut. Si aucune taxonomie n'est sélectionnée, les résultats seront affichés dans un format de liste.
             define_taxonomy_filters: Pour utiliser ce paramètre, des filtres doivent être définis dans cet espace participatif.

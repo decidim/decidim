@@ -49,8 +49,6 @@ fi:
       meeting_registration_invite:
         email: Sähköpostiosoite
         name: Nimi
-      response:
-        add_documents: Lisää asiakirjoja
       validate_registration_code:
         code: Koodi
     errors:
@@ -347,10 +345,10 @@ fi:
             success: Käyttäjän kutsuminen tapaamiseen onnistui.
           form:
             attendee_type: Osallistujatyyppi
-            existing_user: Olemassa oleva käyttäjä
+            email: Sähköposti
             invite: Kutsu
             invite_explanation: Käyttäjä kutsutaan osallistumaan tapaamiseen sekä liittymään organisaatioon.
-            non_user: Käyttäjää ei ole olemassa
+            name_or_nickname: Nimi tai nimimerkki
             select_user: Valitse käyttäjä
           index:
             invites: Kutsut

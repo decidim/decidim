@@ -75,7 +75,6 @@ sq:
           global:
             announcement: Njoftim
             comments_enabled: Komentet janë aktivizuar
-            comments_max_length: Gjatësia maksimale e komenteve (Lëre 0 për vlerën e paracaktuar)
           step:
             announcement: Njoftim
             comments_blocked: Komentet të bllokuara

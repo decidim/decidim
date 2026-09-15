@@ -43,7 +43,6 @@ bg:
         alert_color: Аларма
         available_authorizations: Активни оторизации
         badges_enabled: Включи значките
-        comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
         customize_welcome_notification: Персонализирайте приветствието
         default_locale: Език по подразбиране
         description: Описание
@@ -807,10 +806,6 @@ bg:
           next_title: Следващ елемент
           previous: Предишен
           previous_title: Предишен елемент
-        gallery:
-          add_images: Добави изображения
-          edit_images: Редактиране на изображения
-          gallery_legend: Добавяне на галерия с изображения (незадължително)
       static_page_topics:
         create:
           error: Възникна проблем при създаването на нова тема.

@@ -296,7 +296,6 @@ pt:
           global:
             amendments_enabled: Modificações ativadas
             comments_enabled: Comentários ativados
-            comments_max_length: Comprimento máximo dos comentários
             dummy_global_attribute1: Atributo Fictício 1
             dummy_global_attribute2: Atributo Fictício 2
             dummy_global_translatable_text: Texto Traduzível Fictício
@@ -590,7 +589,6 @@ pt:
           modal_title: Nova conversa
           no_results: Sem resultados
         error_modal:
-          close: Fechar modal
           correct_errors: Por favor corrija os erros e tente de novo
           intro: 'Há os seguintes erros com a sua mensagem:'
           ok: OK

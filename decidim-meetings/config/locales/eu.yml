@@ -49,8 +49,6 @@ eu:
       meeting_registration_invite:
         email: Helbide elektronikoa
         name: Izena
-      response:
-        add_documents: Dokumentuak gehitu
       validate_registration_code:
         code: Kodea
     errors:
@@ -168,7 +166,7 @@ eu:
             announcement: Iragarpena
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             creation_enabled_for_participants: Parte-hartzaileek topaketak sortu ahal dituzte
             default_registration_terms: Izen-emate baldintzak lehenetsiak
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
@@ -347,10 +345,10 @@ eu:
             success: Parte-hartzailea behar bezala gonbidatu da topaketa batera.
           form:
             attendee_type: Parte-hartzaile mota
-            existing_user: Parte-hartzailea badago
+            email: Helbide elektronikoa
             invite: Gonbidatu
             invite_explanation: Parte-hartzaile topaketaan eta erakundean sartzeko gonbidatuko da.
-            non_user: Parte-hartzailea ez dago
+            name_or_nickname: Izena edo ezizena
             select_user: Hautatu parte-hartzailea
           index:
             invites: Gonbidapenak

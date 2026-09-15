@@ -1,13 +1,48 @@
-<div class="form__wrapper">
+<div class="form__wrapper<%= " user-picker-fields" unless @form.persisted? %>">
   <div class="card pt-4">
     <div id="panel-title" class="card-section">
       <div class="row">
-        <div class="columns">
-          <%= form.text_field :name, readonly: @form.persisted? %>
-        </div>
-        <div class="columns">
-          <%= form.email_field :email, readonly: @form.persisted? %>
-        </div>
+        <% if @form.persisted? %>
+          <div class="columns">
+            <%= form.text_field :name, readonly: true %>
+          </div>
+          <div class="columns">
+            <%= form.email_field :email, readonly: true %>
+          </div>
+        <% else %>
+          <div class="columns">
+            <p class="mb-4"><%= t(".invite_explanation") %></p>
+
+            <div class="grid grid-cols-2 gap-4">
+              <%= label_tag :member_member_type_name, class: "user-picker-card" do %>
+                <%= radio_button_tag "member[member_type]", "name", form.object.member_type == "name", id: "member_member_type_name", class: "hidden peer !m-0" %>
+                <span class="text-lg font-normal">
+                  <%= t(".name_or_nickname") %>
+                </span>
+              <% end %>
+
+              <%= label_tag :member_member_type_email, class: "user-picker-card" do %>
+                <%= radio_button_tag "member[member_type]", "email", form.object.member_type == "email", id: "member_member_type_email", class: "hidden peer !m-0" %>
+                <span class="text-lg font-normal">
+                  <%= t(".email") %>
+                </span>
+              <% end %>
+            </div>
+
+            <div class="mt-4">
+              <div class="user-picker-fields--name hidden">
+                <% prompt_options = { placeholder: t(".select_user") } %>
+                <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, label: t(".name_or_nickname"), class: "autocomplete-field--results-inline" }, prompt_options) do |user|
+                  { value: user.id, label: "#{user.name} (@#{user.nickname})" }
+                end %>
+              </div>
+
+              <div class="user-picker-fields--email hidden">
+                <%= form.email_field :email %>
+              </div>
+            </div>
+          </div>
+        <% end %>
         <div class="columns">
           <%= form.translated :text_field, :role %>
         </div>
@@ -18,3 +53,4 @@
     </div>
   </div>
 </div>
+<%= append_javascript_pack_tag "decidim_admin" unless @form.persisted? %>

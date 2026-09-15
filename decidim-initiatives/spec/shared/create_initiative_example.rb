@@ -3,7 +3,7 @@
 shared_examples "create an initiative" do
   let(:initiative_type) { create(:initiatives_type) }
   let(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
-  let(:current_user) { create(:user, organization: initiative_type.organization) }
+  let(:current_user) { create(:user, :confirmed, organization: initiative_type.organization) }
   let(:form) do
     form_klass
       .from_params(form_params)
@@ -24,8 +24,8 @@ shared_examples "create an initiative" do
         type_id: scoped_type.type.id,
         signature_type: "online",
         scope_id: scoped_type.scope.id,
-        add_documents: uploaded_files,
-        documents: current_files
+        add_attachments: uploaded_files,
+        attachments: current_files
       }
     end
 

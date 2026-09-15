@@ -19,7 +19,7 @@ module Decidim::Meetings
     let(:organization) { create(:organization) }
     let(:participatory_space) { create(:participatory_process, organization:) }
     let!(:component) { create(:component, :published, manifest_name: "meetings", participatory_space:) }
-    let(:user) { create(:user, :admin, organization:, email: "user@example.org") }
+    let(:user) { create(:user, :confirmed, :admin, organization:, email: "user@example.org") }
     let!(:meeting) { create(:meeting, :published, component:, author: user, start_time:, end_time:, closed_at:) }
     let(:closed_at) { nil }
 

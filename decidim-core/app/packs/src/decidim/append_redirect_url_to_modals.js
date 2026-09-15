@@ -1,5 +1,3 @@
-/* eslint-disable multiline-ternary */
-
 /*
  *
  * This is used to make sure users are redirected to
@@ -18,76 +16,44 @@
  * and a data-redirect-url attribute with the URL to redirect
  * the user. If any of this is missing no code will be
  * injected.
- *
  */
-document.addEventListener("turbo:load", () => {
-  const removeUrlParameter = (url, parameter) => {
-    const urlParts = url.split("?");
+document.addEventListener("click", (event) => {
+  const target = event.target.closest("a");
 
-    if (urlParts.length >= 2) {
-      // Get first part, and remove from array
-      const urlBase = urlParts.shift();
-
-      // Join it back up
-      const queryString = urlParts.join("?");
-
-      const prefix = `${encodeURIComponent(parameter)}=`;
-      const parts = queryString.split(/[&;]/g);
-
-      // Reverse iteration as may be destructive
-      for (let index = parts.length - 1; index >= 0; index -= 1) {
-        // Idiom for string.startsWith
-        if (parts[index].lastIndexOf(prefix, 0) !== -1) {
-          parts.splice(index, 1);
-        }
-      }
-
-      if (parts.length === 0) {
-        return urlBase;
-      }
-
-      return `${urlBase}?${parts.join("&")}`;
-    }
-
-    return url;
+  if (!target) {
+    return;
   }
 
-  $(document).on("click.zf.trigger", (event) => {
-    // Try to get the <a> directly or find the closest parent <a>
-    const $target = $(event.target).closest("a");
+  const dialogTarget = document.getElementById(target.dataset.dialogOpen);
+  const redirectUrl = target.dataset.redirectUrl;
 
-    // Check if an <a> was found
-    if (!$target) {
-      return;
+  if (!dialogTarget || !redirectUrl) {
+    return;
+  }
+
+  let redirectUrlInput = dialogTarget.querySelector("#redirect_url");
+
+  if (!redirectUrlInput) {
+    redirectUrlInput = `<input type="hidden" id="redirect_url" name="redirect_url" value="${redirectUrl}">`;
+
+    let form = dialogTarget.querySelector("form");
+
+    if (form) {
+      form.insertAdjacentHTML("beforeend", redirectUrlInput);
+      redirectUrlInput = dialogTarget.querySelector("#redirect_url");
     }
+  }
 
-    const dialogTarget = `#${$target.data("dialog-open")}`;
-    const redirectUrl = $target.data("redirectUrl");
+  if (redirectUrlInput instanceof HTMLElement) {
+    redirectUrlInput.value = redirectUrl;
+  }
 
-    if (!dialogTarget || !redirectUrl) {
-      return;
+  dialogTarget.querySelectorAll("a").forEach((anchor) => {
+    const currentHref = anchor.getAttribute("href");
+    if (currentHref) {
+      const url = new URL(currentHref, window.location.origin);
+      url.searchParams.set("redirect_url", redirectUrl);
+      anchor.setAttribute("href", url.toString());
     }
-
-    $("<input type='hidden' />").
-      attr("id", "redirect_url").
-      attr("name", "redirect_url").
-      attr("value", redirectUrl).
-      appendTo(`${dialogTarget} form`);
-
-    $(`${dialogTarget} a`).attr("href", (index, href) => {
-      const querystring = jQuery.param({"redirect_url": redirectUrl});
-      return href + (href.match(/\?/) ? "&" : "?") + querystring;
-    });
-  });
-
-  $(document).on("closed.zf.reveal", (event) => {
-    $("#redirect_url", event.target).remove();
-    $("a", event.target).attr("href", (index, href) => {
-      if (href && href.indexOf("redirect_url") !== -1) {
-        return removeUrlParameter(href, "redirect_url");
-      }
-
-      return href;
-    });
   });
 });

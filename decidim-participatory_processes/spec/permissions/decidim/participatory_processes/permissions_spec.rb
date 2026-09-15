@@ -431,6 +431,24 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
 
     context "when user is an org admin" do
+      context "when process is restricted and is accessed by different space roles" do
+        let!(:context) { { current_participatory_space: participatory_process } }
+        let(:participatory_process) { create(:participatory_process, :restricted, organization:) }
+
+        let(:action) do
+          { scope: :public, action: :read, subject: :process }
+        end
+
+        it_behaves_like(
+          "access for roles",
+          org_admin: true,
+          admin: true,
+          collaborator: true,
+          moderator: true,
+          evaluator: true
+        )
+      end
+
       context "when creating a process" do
         let(:action) do
           { scope: :admin, action: :create, subject: :process }

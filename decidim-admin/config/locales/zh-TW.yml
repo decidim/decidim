@@ -41,7 +41,6 @@ zh-TW:
         alert_color: 警告
         available_authorizations: 可用認證方式
         badges_enabled: 啟用勳章
-        comments_max_length: 留言字數上限 (0 表示使用預設)
         customize_welcome_notification: 自訂歡迎通知
         default_locale: 預設語言
         description: 說明
@@ -732,11 +731,6 @@ zh-TW:
       share_tokens:
         actions:
           destroy: 刪除
-      shared:
-        gallery:
-          add_images: 添加圖案
-          edit_images: 編輯圖片
-          gallery_legend: 新增圖片庫(可選)
       static_page_topics:
         create:
           error: 建立新主題時發生問題。

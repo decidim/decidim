@@ -17,7 +17,9 @@ module Decidim
           expect(Decidim::Map::DynamicMap::Builder).to receive(:new).with(
             template,
             { marker_color: "#e02d2d",
-              tile_layer: { url: nil, options: {} } }
+              tile_layer: { url: nil, options: {} },
+              zoom_in_text: "Zoom in",
+              zoom_out_text: "Zoom out" }
           ).and_call_original
 
           builder = subject.create_builder(template, options)
@@ -35,8 +37,23 @@ module Decidim
         it "prepares and returns the correct builder options" do
           expect(utility.builder_options).to eq(
             marker_color: "#e02d2d",
-            tile_layer: { url: nil, options: {} }
+            tile_layer: { url: nil, options: {} },
+            zoom_in_text: "Zoom in",
+            zoom_out_text: "Zoom out"
           )
+        end
+      end
+
+      describe "Builder" do
+        include_context "with dynamic map builder" do
+          subject { utility.create_builder(template, options) }
+        end
+
+        describe "#view_options" do
+          it "includes zoom control translations" do
+            view_opts = subject.send(:view_options)
+            expect(view_opts).to include("zoomInText" => "Zoom in", "zoomOutText" => "Zoom out")
+          end
         end
       end
     end

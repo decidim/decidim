@@ -34,7 +34,9 @@ module Decidim
                 tile_layer: {
                   url: "https://tiles.example.org",
                   options: {}
-                }
+                },
+                zoom_in_text: "Zoom in",
+                zoom_out_text: "Zoom out"
               )
             end
 
@@ -55,7 +57,9 @@ module Decidim
                   tile_layer: {
                     url: "https://tiles.example.org",
                     options: { foo: "bar", baz: "foobar" }
-                  }
+                  },
+                  zoom_in_text: "Zoom in",
+                  zoom_out_text: "Zoom out"
                 )
               end
             end
@@ -79,7 +83,9 @@ module Decidim
                   tile_layer: {
                     url: "https://tiles.example.org",
                     options: { api_key: "key1234", foo: "bar", baz: "foobar" }
-                  }
+                  },
+                  zoom_in_text: "Zoom in",
+                  zoom_out_text: "Zoom out"
                 )
               end
             end

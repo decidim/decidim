@@ -112,12 +112,15 @@ fr:
             transparent: Transparent
       menu:
         participatory_process_groups: Groupes de concertations
+        participatory_process_groups_submenu:
+          landing_page: Mise en page de la page d'accueil
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
           components: Fonctionnalités
+          landing_page: Mise en page de la page d'accueil
           members:
           moderations: Modérations
           process_admins: Administrateurs de la concertation
@@ -268,6 +271,8 @@ fr:
         import: "%{user_name} a importé la concertation %{resource_name}"
         publish: "%{user_name} a publié la concertation %{resource_name}"
         publish_all_members: "%{user_name} a publié tous les membres du processus participatif %{resource_name}"
+        restore: "%{user_name} a restauré le processus participatif %{resource_name}"
+        soft_delete: "%{user_name} a déplacé le processus participatif %{resource_name} dans la corbeille"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
         unpublish_all_members: "%{user_name} a dépublié tous les membres du processus participatif %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
@@ -317,6 +322,13 @@ fr:
         participatory_processes:
           access_mode: Mode d'accès. Définit si le processus est ouvert, restreint ou transparent.
           component_settings: Les paramètres de fonctionnalité de la concertation
+          created_at: La date de création de cet espace
+          description: Une description longue de la concertation
+          developer_group: Le groupe promoteur de la concertation. Il s'agit de l'organisation qui porte la concertation.
+          end_date: La date de fin de la concertation
+          promoted: Si la concertation est promue ou non
+          published_at: La date de publication de cet espace
+          reference: La référence unique de l'espace
           updated_at: La dernière date de mise à jour de cet espace
           url: L'URL de l'espace
     participatory_process_groups:

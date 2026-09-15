@@ -43,11 +43,16 @@ module Decidim
 
     def interpolate(template)
       template
-        .gsub("{{name}}", user.presenter.name)
+        .gsub("{{name}}", user_name)
         .gsub("{{organization}}", organization_name(organization))
         .gsub("{{help_url}}", url_helpers.pages_url(host: organization.host, locale: I18n.locale))
         .gsub("{{badges_url}}", url_helpers.gamification_badges_url(host: organization.host))
         .html_safe
+    end
+
+    def user_name
+      # The presenter would not return user's name if the user is not visible.
+      decidim_sanitize_translated(user.name)
     end
   end
 end
