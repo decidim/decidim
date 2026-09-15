@@ -111,7 +111,7 @@ eu:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%e-%h-%U"
-      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_short_with_month_name_short: "%Y %b %d"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
