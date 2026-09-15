@@ -415,7 +415,6 @@ fi:
           new: Luo uusi aloite
           select: Haluan tukea tätä aloitetta
           select_initiative_type_help_html: "<p>Aloitteet ovat keino, jolla osallistujat voivat edistää organisaation toimihenkilöiden toimimista yhteisen edun hyväksi. Millaisen aloitteen haluaisit käynnistää?</p>"
-          show_less: Näytä vähemmän
           show_more: Näytä enemmän
           subtitle: Mitä aloitetta haluat kannattaa?
           verification_required: Vahvista tilisi allekirjoittaaksesi tämän aloitteen
