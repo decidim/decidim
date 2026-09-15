@@ -261,7 +261,7 @@ describe "ephemeral action authorization" do
         it "transfers the authorization" do
           expect do
             click_on "Send"
-            expect(page).to have_callout("You have been successfully authorized")
+            expect(page).to have_content("You have been successfully authorized")
           end.not_to change(Decidim::Authorization, :count)
           expect(Decidim::Authorization.where(user: ephemeral_user)).to be_blank
           expect(authorization.reload.user).to eq(user)
@@ -270,7 +270,7 @@ describe "ephemeral action authorization" do
         it "transfers the authorship of the proposal" do
           expect(proposal.authors).to contain_exactly(ephemeral_user)
           click_on "Send"
-          expect(page).to have_callout("You have been successfully authorized")
+          expect(page).to have_content("You have been successfully authorized")
           expect(proposal.reload.authors).to contain_exactly(user)
         end
       end
