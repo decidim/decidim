@@ -13,7 +13,7 @@ Decidim/EnforcePermissionTo:
   Enabled: true
   Severity: warning
   Include:
-    - "**/app/controllers/**/admin/*.rb"
+    - "**/app/controllers/**/admin/**/*.rb"
   Exclude:
     - "**/decidim-system/**/*.rb"
 
