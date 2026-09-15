@@ -8,7 +8,7 @@ describe Decidim::Proposals::Import::BatchNotifier do
   let(:recipient) { double("Decidim::User") }
   let(:followers_relation) { instance_double(ActiveRecord::Relation) }
   let(:participatory_space) { double("participatory_space", followers: followers_relation) }
-  let(:imported_resource) { instance_double(Decidim::Proposals::Proposal, id: 101, participatory_space:) }
+  let(:imported_resource) { double("Decidim::Proposals::Proposal", id: 101, participatory_space:) }
   let(:collection) { [imported_resource] }
   let(:context) { { import_creator_class: creator_class, current_participatory_space: participatory_space } }
 
@@ -19,6 +19,9 @@ describe Decidim::Proposals::Import::BatchNotifier do
     allow(recipient).to receive(:is_a?).with(Decidim::User).and_return(true)
     allow(recipient).to receive(:id).and_return(123)
     allow(recipient).to receive(:notifications_sending_frequency).and_return("real_time")
+
+    generator = instance_double(Decidim::NotificationGeneratorForRecipient, generate: true)
+    allow(Decidim::NotificationGeneratorForRecipient).to receive(:new).and_return(generator)
   end
 
   describe "#notify!" do
@@ -31,7 +34,15 @@ describe Decidim::Proposals::Import::BatchNotifier do
 
         notifier.notify!
 
-        expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).once.with(collection, recipient)
+        expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).once.with(imported_resource, recipient)
+        expect(Decidim::NotificationGeneratorForRecipient).to have_received(:new).with(
+          "decidim.events.proposals.proposals_imported",
+          Decidim::Proposals::ImportBatchEvent,
+          imported_resource,
+          recipient,
+          :follower,
+          { imported_count: collection.size }
+        )
         expect(delivery).to have_received(:deliver_later)
       end
 
@@ -69,7 +80,7 @@ describe Decidim::Proposals::Import::BatchNotifier do
 
           notifier.notify!
 
-          expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).with(collection, recipient)
+          expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).with(imported_resource, recipient)
           expect(delivery).to have_received(:deliver_later)
         end
       end
@@ -84,7 +95,15 @@ describe Decidim::Proposals::Import::BatchNotifier do
 
         notifier.notify!
 
-        expect(Decidim::Proposals::ImportMailer).to have_received(:proposal_answers_imported).with(collection, recipient)
+        expect(Decidim::Proposals::ImportMailer).to have_received(:proposal_answers_imported).with(imported_resource, recipient)
+        expect(Decidim::NotificationGeneratorForRecipient).to have_received(:new).with(
+          "decidim.events.proposals.proposals_answers_imported",
+          Decidim::Proposals::ImportBatchEvent,
+          imported_resource,
+          recipient,
+          :follower,
+          { imported_count: collection.size }
+        )
         expect(delivery).to have_received(:deliver_later)
       end
     end
@@ -106,7 +125,7 @@ describe Decidim::Proposals::Import::BatchNotifier do
 
         notifier.notify!
 
-        expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).once.with(collection, recipient)
+        expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).once.with(imported_resource, recipient)
       end
     end
 
@@ -114,7 +133,7 @@ describe Decidim::Proposals::Import::BatchNotifier do
       let(:creator_class) { Decidim::Proposals::Import::ProposalCreator }
       let(:other_followers_relation) { instance_double(ActiveRecord::Relation) }
       let(:other_participatory_space) { double("participatory_space", followers: other_followers_relation) }
-      let(:other_imported_resource) { instance_double(Decidim::Proposals::Proposal, id: 102, participatory_space: other_participatory_space) }
+      let(:other_imported_resource) { double("Decidim::Proposals::Proposal", id: 102, participatory_space: other_participatory_space) }
       let(:collection) { [imported_resource, other_imported_resource] }
 
       before do
@@ -129,6 +148,27 @@ describe Decidim::Proposals::Import::BatchNotifier do
 
         expect(followers_relation).to have_received(:where).once.with(notification_types: %w(all followed-only))
         expect(other_followers_relation).not_to have_received(:where)
+      end
+
+      context "when recipient notifications are none" do
+        before do
+          allow(recipient).to receive(:notifications_sending_frequency).and_return("none")
+          allow(Decidim::Proposals::ImportMailer).to receive(:proposals_imported)
+        end
+
+        it "creates one unified digest notification and skips real-time email" do
+          notifier.notify!
+
+          expect(Decidim::NotificationGeneratorForRecipient).to have_received(:new).once.with(
+            "decidim.events.proposals.proposals_imported",
+            Decidim::Proposals::ImportBatchEvent,
+            imported_resource,
+            recipient,
+            :follower,
+            { imported_count: collection.size }
+          )
+          expect(Decidim::Proposals::ImportMailer).not_to have_received(:proposals_imported)
+        end
       end
 
       context "when recipient notifications are daily" do
@@ -166,7 +206,7 @@ describe Decidim::Proposals::Import::BatchNotifier do
         notifier.notify!
 
         expect(followers_relation).to have_received(:where).once.with(notification_types: %w(all followed-only))
-        expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).with(collection, recipient)
+        expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).with(imported_resource, recipient)
       end
     end
   end

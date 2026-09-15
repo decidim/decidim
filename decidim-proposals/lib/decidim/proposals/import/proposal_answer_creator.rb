@@ -32,18 +32,13 @@ module Decidim
         end
 
         def finish!
-          finish_without_notify!
+          persist_resource!
           notify
         end
 
         def finish_without_notify!
-          Decidim.traceability.perform_action!(
-            "answer",
-            resource,
-            current_user
-          ) do
-            resource.try(:save!)
-          end
+          persist_resource!
+          notify
           resource
         end
 
@@ -102,6 +97,16 @@ module Decidim
 
         def current_user
           context[:current_user]
+        end
+
+        def persist_resource!
+          Decidim.traceability.perform_action!(
+            "answer",
+            resource,
+            current_user
+          ) do
+            resource.try(:save!)
+          end
         end
 
         def notify

@@ -13,11 +13,9 @@ module Decidim
           return if collection.blank?
 
           recipients.each do |recipient|
-            case recipient.notifications_sending_frequency
-            when "real_time"
+            create_import_notification(recipient)
+            if recipient.notifications_sending_frequency == "real_time"
               deliver_import_email(recipient)
-            when "daily", "weekly"
-              create_import_notification(recipient)
             end
           end
         end
@@ -36,10 +34,13 @@ module Decidim
         end
 
         def deliver_import_email(recipient)
+          first_record = collection.first
+          return if first_record.blank?
+
           if creator_class_name == "Decidim::Proposals::Import::ProposalCreator"
-            Decidim::Proposals::ImportMailer.proposals_imported(collection, recipient).deliver_later
+            Decidim::Proposals::ImportMailer.proposals_imported(first_record, recipient).deliver_later
           elsif creator_class_name == "Decidim::Proposals::Import::ProposalAnswerCreator"
-            Decidim::Proposals::ImportMailer.proposal_answers_imported(collection, recipient).deliver_later
+            Decidim::Proposals::ImportMailer.proposal_answers_imported(first_record, recipient).deliver_later
           end
         end
 

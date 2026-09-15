@@ -145,14 +145,14 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
   end
 
   describe "#finish_without_notify!" do
-    it "saves answer without notifying followers" do
+    it "saves answer and notifies proposal answer side effects" do
       record = subject.produce
       allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call)
 
       subject.finish_without_notify!
 
       expect(record.new_record?).to be(false)
-      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).not_to have_received(:call)
+      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call).with(record, proposal.proposal_state)
     end
   end
 end

@@ -3,8 +3,8 @@
 module Decidim
   module Proposals
     class ImportMailer < Decidim::ApplicationMailer
-      def proposals_imported(collection, user)
-        setup_import_context(collection, user)
+      def proposals_imported(record, user)
+        setup_import_context(record, user)
 
         with_user(user) do
           mail(
@@ -17,8 +17,8 @@ module Decidim
         end
       end
 
-      def proposal_answers_imported(collection, user)
-        setup_import_context(collection, user)
+      def proposal_answers_imported(record, user)
+        setup_import_context(record, user)
 
         with_user(user) do
           mail(
@@ -33,14 +33,13 @@ module Decidim
 
       private
 
-      def setup_import_context(collection, user)
+      def setup_import_context(record, user)
         @organization = user.organization
         @user = user
-        first = collection.first
-        return if first.blank?
+        return if record.blank?
 
-        @participatory_space_title = decidim_sanitize_translated(first.participatory_space.title)
-        @component_url = Decidim::EngineRouter.main_proxy(first.component).root_url
+        @participatory_space_title = decidim_sanitize_translated(record.participatory_space.title)
+        @component_url = Decidim::EngineRouter.main_proxy(record.component).root_url
       end
     end
   end

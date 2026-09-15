@@ -363,11 +363,13 @@ en:
           email_link: "You can read the answers from this page: <a href='%{participatory_space_url}'>link</a>."
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New responses to proposals in %{participatory_space_title}
+          notification_title: Proposals have been answered in %{participatory_space_title}.
         proposals_imported:
           email_intro: New proposals have been added to "%{participatory_space_title}".
           email_link: You can see the new proposals by following <a href="%{participatory_space_url}">this link</a>.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New proposals added to %{participatory_space_title}
+          notification_title: New proposals have been added to %{participatory_space_title}.
         proposal_state_changed:
           affected_user:
             email_intro: 'The proposal "%{resource_title}" has changed its state to "%{state}". You can read the answer in this page:'
