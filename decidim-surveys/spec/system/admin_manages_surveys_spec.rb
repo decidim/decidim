@@ -240,7 +240,7 @@ describe "Admin manages surveys" do
     end
   end
 
-  context "when the survey has responses or more" do
+  context "when the survey has more than 1 response" do
     let!(:question) do
       create(:questionnaire_question, questionnaire:)
     end
@@ -282,6 +282,25 @@ describe "Admin manages surveys" do
 
         expect(page).to have_text("Are you sure you want to delete all #{questionnaire.responses.count} responses? This action cannot be undone.")
       end
+    end
+  end
+
+  context "when the survey has only 1 response" do
+    let!(:question) { create(:questionnaire_question, questionnaire:) }
+    let!(:response) { create(:response, questionnaire:, question:) }
+
+    before do
+      visit manage_questionnaire_path
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Responses"
+      end
+    end
+
+    it "displays the warning modal before deleting all responses" do
+      click_on "Delete all responses"
+
+      expect(page).to have_text("Are you sure you want to delete the 1 response? This action cannot be undone.")
     end
   end
 
