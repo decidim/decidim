@@ -31,6 +31,20 @@
         trigger.dataset.repliesCount = newCount;
         var label = trigger.querySelector("[data-replies-count-label]");
         if (label && rendered) { label.textContent = rendered; }
+
+        // A comment without replies renders its toggle hidden, so reveal it as
+        // soon as it has one.
+        var wrapper = trigger.closest(".show-replies-button");
+        if (wrapper) { wrapper.classList.remove("show-replies-button--empty"); }
+
+        // The reply is already in the DOM. Without marking the thread as
+        // loaded the lazy loader would fetch the whole list on the next toggle
+        // and duplicate it.
+        var repliesRoot = trigger.closest('[data-controller~="show-replies"]');
+        var repliesContainer = document.getElementById("comment-" + cursor.dataset.commentId + "-replies");
+        if (repliesRoot) { repliesRoot.dataset.showRepliesLoadedValue = "true"; }
+        if (repliesContainer) { repliesContainer.classList.remove("hidden"); }
+        trigger.setAttribute("aria-expanded", "true");
       }
       var parentRef = cursor.dataset.parent;
       cursor = parentRef ? document.getElementById(parentRef) : null;

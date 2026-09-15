@@ -487,6 +487,13 @@
 
   transform: translateY(calc(0.75rem + 1px));
 
+  // The display above outranks the .hidden utility, and a `.hidden` selector
+  // here would redefine that utility, so comments without replies get their
+  // own modifier.
+  &--empty {
+    display: none;
+  }
+
   .button {
     @apply bg-white border-0;
 

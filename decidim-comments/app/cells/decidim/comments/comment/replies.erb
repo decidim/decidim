@@ -3,7 +3,7 @@
      data-show-replies-comment-gid-value="<%= model.to_signed_global_id.to_s %>"
      data-show-replies-order-value="<%= order %>"
      data-show-replies-loaded-value="false">
-  <div class="show-replies-button">
+  <div class="show-replies-button<%= " show-replies-button--empty" if replies_count.zero? %>">
     <%= content_tag :button,
                     class: "button button__xs button__text-secondary",
                     id: "comment-#{model.id}-replies-trigger",

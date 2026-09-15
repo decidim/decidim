@@ -612,6 +612,69 @@ describe("CommentsComponent", () => {
       });
     });
 
+    describe("prependThread", () => {
+      it("adds the new comment thread at the top of the list", () => {
+        const newThread = generateCommentThread(999, "This is a prepended comment");
+        subject.prependThread(newThread);
+
+        const threads = $(".comment-threads .comment-thread", subject.$element);
+
+        expect(threads.first().html()).toEqual(expect.stringContaining(
+          "This is a prepended comment"
+        ));
+      });
+
+      it("leaves addThread appending at the end of the list", () => {
+        const newThread = generateCommentThread(999, "This is an appended comment");
+        subject.addThread(newThread);
+
+        const threads = $(".comment-threads .comment-thread", subject.$element);
+
+        expect(threads.last().html()).toEqual(expect.stringContaining(
+          "This is an appended comment"
+        ));
+      });
+
+      describe("in the two columns layout", () => {
+        beforeEach(() => {
+          $(".comment-threads", subject.$element).before(`
+            <div class="comments-two-columns">
+              <div class="comments-section__in-favor">
+                <div class="comments-section__header"><span class="comments-section__title">In favor</span></div>
+              </div>
+              <div class="comments-section__against">
+                <div class="comments-section__header"><span class="comments-section__title">Against</span></div>
+              </div>
+            </div>
+          `);
+        });
+
+        it("prepends the thread below the column header", () => {
+          const newThread = generateCommentThread(999, "This is a comment in favor");
+          subject.prependThread(newThread, 1);
+
+          const children = $(".comments-section__in-favor", subject.$element).children();
+
+          expect(children.eq(0).hasClass("comments-section__header")).toBe(true);
+          expect(children.eq(1).html()).toEqual(expect.stringContaining(
+            "This is a comment in favor"
+          ));
+        });
+
+        it("routes a negative alignment to the against column", () => {
+          const newThread = generateCommentThread(998, "This is a comment against");
+          subject.prependThread(newThread, -1);
+
+          expect($(".comments-section__against", subject.$element).html()).toEqual(expect.stringContaining(
+            "This is a comment against"
+          ));
+          expect($(".comments-section__in-favor", subject.$element).html()).not.toEqual(expect.stringContaining(
+            "This is a comment against"
+          ));
+        });
+      });
+    });
+
     describe("addReply", () => {
       const newReply = generateSingleComment(999, "This is a dynamically added reply");
 
