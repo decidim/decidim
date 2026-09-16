@@ -137,6 +137,8 @@ describe "Unused examples" do
     end
 
     def record_shared_example(name, node)
+      return if name.nil?
+
       start_line = node.location.expression.line
       end_line = node.location.expression.last_line
       definitions << {
@@ -149,14 +151,21 @@ describe "Unused examples" do
     end
 
     def record_usage(node)
-      name = extract_usage_name(node)
       line = node.location.expression.line
-      usages << {
-        name:,
-        file: current_file,
-        line:,
-        scope: current_scope
-      }
+      extract_usage_names(node).each do |name|
+        usages << {
+          name:,
+          file: current_file,
+          line:,
+          scope: current_scope
+        }
+      end
+    end
+
+    def extract_usage_names(node)
+      node.children[2..].filter_map do |arg|
+        arg.children[0] if arg.is_a?(Parser::AST::Node) && arg.type == :str
+      end
     end
 
     def shared_example_definition?(node)
@@ -184,13 +193,6 @@ describe "Unused examples" do
 
       method_name = node.children[1]
       [:include_examples, :include_context, :it_behaves_like].include?(method_name)
-    end
-
-    def extract_usage_name(node)
-      arg = node.children[2]
-      return unless arg&.type == :str
-
-      arg.children[0]
     end
   end
 end
