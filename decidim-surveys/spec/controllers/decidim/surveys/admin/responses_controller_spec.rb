@@ -109,6 +109,18 @@ module Decidim
             expect(response.location).to include("/surveys/#{survey.id}/responses")
             expect(flash[:notice]).to eq("All responses have been successfully deleted.")
           end
+
+          it "redirects with an error alert if deletion fails" do
+            questionnaire = survey.questionnaire
+            controller.instance_variable_set(:@questionnaire, questionnaire)
+            allow(questionnaire.questionnaire_for).to receive(:questionnaire).and_return(nil)
+
+            delete(:destroy_all, params:)
+
+            expect(response).to be_redirect
+            expect(response.location).to include("/surveys/#{survey.id}/responses")
+            expect(flash[:alert]).to eq("There was a problem deleting all responses.")
+          end
         end
       end
     end
