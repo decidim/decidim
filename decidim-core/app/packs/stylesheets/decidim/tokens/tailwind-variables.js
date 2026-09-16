@@ -4,7 +4,7 @@ module.exports = {
         'color': {
             'black': '#1a1a1a', 
             'white': '#ffffff', 
-            'black': '#1a1a1a', 
+            'black': '#000000', 
             'primary': '#e02d2d', 
             'secondary': '#155abf', 
             'tertiary': '#d4a81a', 
@@ -56,10 +56,10 @@ module.exports = {
             '300': '#6fc482', 
             '400': '#53b96a', 
             '500': '#28a745', 
-            '600': '#24983f', 
+            '600': '#22932d', 
             '700': '#1c7731', 
-            '800': '#165c26', 
-            '900': '#165c26', 
+            '800': '#166129', 
+            '900': '#104b21', 
         },
         'color-purple': {
             '50': '#f4e9f4', 
@@ -98,7 +98,7 @@ module.exports = {
             '900': '#1a2027', 
         },
         'color-alphas-white': {
-            '0': '#ffffff03', 
+            '0': '#ffffff00', 
             '25': '#ffffff40', 
             '50': '#ffffff80', 
             '75': '#ffffffbf', 
@@ -119,7 +119,7 @@ module.exports = {
             'dark': '#fafafa', /* background */
         },
         'color-bg-neutral-interactive-light': {
-            'default': '#ffffff03', /* background */
+            'default': '#ffffff00', /* background */
             'hover': '#fafafa', /* background */
         },
         'color-bg-neutral-interactive-dark': {
@@ -128,7 +128,7 @@ module.exports = {
         },
         'color-bg-neutral-high': {
             'light': '#3e4c5c', /* background */
-            'dark': '#1a1a1a', /* background */
+            'dark': '#000000', /* background */
         },
         'color-bg-inverted-interactive-dark': {
             'default': '#ffffff', /* background */
@@ -136,9 +136,9 @@ module.exports = {
             'active': '#ffffff', /* background */
         },
         'color-bg-inverted-interactive-light': {
-            'default': '#ffffff03', /* background */
+            'default': '#ffffff00', /* background */
             'hover': '#ffffff40', /* background */
-            'active': '#ffffff03', /* background */
+            'active': '#ffffff00', /* background */
         },
         'color-bg-secondary': {
             'light': '#e8eff9', /* background */
@@ -149,9 +149,9 @@ module.exports = {
             'selected': '#155abf', /* background */
         },
         'color-bg-secondary-interactive-light': {
-            'default': '#ffffff03', /* background */
+            'default': '#ffffff00', /* background */
             'hover': '#e8eff9', /* background */
-            'selected': '#ffffff03', /* background */
+            'selected': '#ffffff00', /* background */
         },
         'color-bg-primary': {
             'light': '#fceaea', /* background */
@@ -162,9 +162,9 @@ module.exports = {
             'selected': '#e02d2d', /* background */
         },
         'color-bg-primary-interactive-light': {
-            'default': '#ffffff03', /* background */
+            'default': '#ffffff00', /* background */
             'hover': '#fceaea', /* background */
-            'selected': '#ffffff03', /* background */
+            'selected': '#ffffff00', /* background */
         },
         'color-bg-success': {
             'light': '#eaf6ec', /* background */
