@@ -501,7 +501,7 @@ export default function createEditableForm() {
 
   document.querySelector(".questionnaire-questions-list[data-draggable-table]")?.addEventListener("sortupdate", markFormChanged);
 
-  editableForm.addEventListener("click", (event) => {
+  document.addEventListener("click", (event) => {
     if (event.target.closest([
       ".add-question",
       ".add-separator",
@@ -518,5 +518,5 @@ export default function createEditableForm() {
     ].join(", "))) {
       markFormChanged();
     }
-  });
+  }, true);
 }
