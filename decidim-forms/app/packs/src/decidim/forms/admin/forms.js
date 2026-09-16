@@ -461,4 +461,61 @@ export default function createEditableForm() {
 
   autoLabelByPosition.run();
   autoButtonsByPosition.run();
+
+  const questionsList = document.querySelector("#questionnaire-questions-list");
+  const editableForm = questionsList?.closest("form");
+  if (!editableForm) {
+    return;
+  }
+
+  let exitUrl = editableForm.action;
+
+  document.addEventListener("click", (event) => {
+    const link = event.target?.closest("a");
+    if (link) {
+      exitUrl = link.href;
+    }
+  });
+
+  document.addEventListener("submit", (event) => {
+    const submittedForm = event.target?.closest("form");
+    if (submittedForm) {
+      exitUrl = submittedForm.action;
+    }
+  });
+
+  let formChanged = false;
+  const markFormChanged = () => {
+    if (formChanged) {
+      return;
+    }
+    formChanged = true;
+
+    const safePath = editableForm.action.split("?")[0];
+    preventUnload(() => !exitUrl.includes(safePath));
+  };
+
+  editableForm.addEventListener("change", markFormChanged);
+  editableForm.addEventListener("input", markFormChanged);
+
+  document.querySelector(".questionnaire-questions-list[data-draggable-table]")?.addEventListener("sortupdate", markFormChanged);
+
+  editableForm.addEventListener("click", (event) => {
+    if (event.target.closest([
+      ".add-question",
+      ".add-separator",
+      ".add-title-and-description",
+      ".remove-question",
+      ".move-up-question",
+      ".move-down-question",
+      ".add-response-option",
+      ".remove-response-option",
+      ".add-matrix-row",
+      ".remove-matrix-row",
+      ".add-display-condition",
+      ".remove-display-condition"
+    ].join(", "))) {
+      markFormChanged();
+    }
+  });
 }
