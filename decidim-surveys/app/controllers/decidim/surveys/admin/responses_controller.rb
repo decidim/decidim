@@ -66,7 +66,7 @@ module Decidim
         private
 
         def survey
-          questionnaire.questionnaire_for
+          questionnaire_for
         end
 
         def questionnaire

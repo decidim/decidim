@@ -111,9 +111,7 @@ module Decidim
           end
 
           it "redirects with an error alert if deletion fails" do
-            questionnaire = survey.questionnaire
-            controller.instance_variable_set(:@questionnaire, questionnaire)
-            allow(questionnaire.questionnaire_for).to receive(:questionnaire).and_return(nil)
+            survey.questionnaire.destroy!
 
             delete(:destroy_all, params:)
 
