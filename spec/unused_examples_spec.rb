@@ -35,7 +35,9 @@ describe "Unused examples" do
       definition[:start_line] <= usage[:line] && usage[:line] <= definition[:end_line]
     end
     unused = definitions.reject do |defn|
-      usages.any? { |usage| usage[:name] == defn[:name] }
+      usages.any? do |usage|
+        usage[:name] == defn[:name] && visible_from?(defn[:scope], usage[:scope])
+      end
     end
 
     expect(unused).to(
@@ -52,6 +54,11 @@ describe "Unused examples" do
     end.join("\n")
   end
 
+  def visible_from?(definition_scope, usage_scope)
+    definition_scope.length <= usage_scope.length &&
+      definition_scope == usage_scope.first(definition_scope.length)
+  end
+
   class SharedExampleCollector < Parser::AST::Processor
     attr_reader :definitions, :usages
 
@@ -60,6 +67,7 @@ describe "Unused examples" do
       @definitions = []
       @usages = []
       @current_file = nil
+      @scope_stack = []
     end
 
     def process_file(file_path)
@@ -72,12 +80,18 @@ describe "Unused examples" do
     end
 
     def on_block(node)
-      if shared_example_definition?(node)
-        name = extract_shared_example_name(node.children[0])
-        record_shared_example(name, node)
-      end
+      if example_group?(node)
+        scope_stack << scope_for(node)
+        super
+        scope_stack.pop
+      else
+        if shared_example_definition?(node)
+          name = extract_shared_example_name(node.children[0])
+          record_shared_example(name, node)
+        end
 
-      super
+        super
+      end
     end
 
     def on_send(node)
@@ -98,7 +112,25 @@ describe "Unused examples" do
 
     private
 
-    attr_reader :parser, :current_file
+    attr_reader :parser, :current_file, :scope_stack
+
+    def example_group?(node)
+      return false unless node&.type == :block
+
+      send_node = node.children[0]
+      return false unless send_node&.type == :send
+
+      [:describe, :context].include?(send_node.children[1])
+    end
+
+    def scope_for(node)
+      location = node.location.expression
+      [current_file, location.line, location.column]
+    end
+
+    def current_scope
+      scope_stack.dup
+    end
 
     def relevant_file?(code)
       code.match?(/\b(?:shared_examples(?:_for)?|shared_context|it_behaves_like|include_examples|include_context)\b/)
@@ -111,7 +143,8 @@ describe "Unused examples" do
         name:,
         file: current_file,
         start_line:,
-        end_line:
+        end_line:,
+        scope: current_scope
       }
     end
 
@@ -121,7 +154,8 @@ describe "Unused examples" do
       usages << {
         name:,
         file: current_file,
-        line:
+        line:,
+        scope: current_scope
       }
     end
 
