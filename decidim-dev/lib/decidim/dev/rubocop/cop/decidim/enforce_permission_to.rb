@@ -59,6 +59,10 @@ module RuboCop
 
         BEFORE_ACTION_AUTH_KEYWORDS = %w(permission authorize enforce).freeze
 
+        def on_new_investigation
+          reset_state
+        end
+
         def on_class(node)
           reset_state
           check_helper_methods(node)
@@ -75,8 +79,6 @@ module RuboCop
 
         def on_def(node)
           method_name = node.method_name
-          @defined_methods ||= {}
-          @defined_methods[method_name] = node
 
           return if @in_private_section
           return if @before_action_auth
@@ -100,7 +102,6 @@ module RuboCop
         def reset_state
           @in_private_section = false
           @before_action_auth = false
-          @defined_methods = {}
           @helper_methods = Set.new
         end
 
