@@ -469,7 +469,7 @@ export default function createEditableForm() {
     return;
   }
 
-  let exitUrl = editableForm.action;
+  let exitUrl = "";
 
   document.addEventListener("click", (event) => {
     const link = event.target?.closest("a");
