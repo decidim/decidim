@@ -111,7 +111,15 @@
     }
 
     &-item {
-      @apply flex items-center gap-1 text-white font-semibold hover:underline [&>svg]:fill-current;
+      @apply flex items-center gap-1 text-white font-semibold hover:underline;
+    }
+
+    &-label {
+      @apply flex-1 min-w-0 overflow-hidden whitespace-nowrap text-ellipsis;
+    }
+
+    &-item > svg {
+      @apply shrink-0 fill-current;
     }
   }
 

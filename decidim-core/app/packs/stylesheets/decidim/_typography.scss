@@ -27,7 +27,11 @@
 }
 
 .title-decorator {
-  @apply h2 md:h1 decorator;
+  @apply h2 md:h1 decorator break-normal;
+
+  font-size: clamp(1rem, 2vw, 2.25rem);
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }
 
 .text-with-links {

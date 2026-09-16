@@ -37,7 +37,8 @@
 
       li {
         a {
-          @apply px-2 py-1;
+          @apply px-2 py-1 overflow-hidden text-ellipsis;
+          overflow-wrap: anywhere;
         }
 
         &.is-active a {
