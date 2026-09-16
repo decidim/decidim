@@ -116,15 +116,13 @@ describe "Unused examples" do
     end
 
     def record_usage(node)
-      names = extract_usage_names(node)
+      name = extract_usage_name(node)
       line = node.location.expression.line
-      names.each do |name|
-        usages << {
-          name:,
-          file: current_file,
-          line:
-        }
-      end
+      usages << {
+        name:,
+        file: current_file,
+        line:
+      }
     end
 
     def shared_example_definition?(node)
@@ -154,9 +152,11 @@ describe "Unused examples" do
       [:include_examples, :include_context, :it_behaves_like].include?(method_name)
     end
 
-    def extract_usage_names(node)
-      args = node.children[2..-1]
-      args.select { |arg| arg&.type == :str }.map { |str_node| str_node.children[0] }
+    def extract_usage_name(node)
+      arg = node.children[2]
+      return unless arg&.type == :str
+
+      arg.children[0]
     end
   end
 end
