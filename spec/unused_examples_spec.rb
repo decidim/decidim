@@ -9,7 +9,7 @@ describe "Unused examples" do
   let(:ruby_files) do
     root = File.expand_path("..", __dir__)
     files = Dir.glob(File.join(root, "**", "{spec,test}", "**", "*.rb"))
-    files.reject! { |f| File.fnmatch?(File.join(root, "**", "vendor", "**"), f) }
+    files.reject! { |f| f.include?("/vendor/") }
     files
   end
 
