@@ -30,12 +30,6 @@ module Decidim
             end
           end
 
-          protected
-
-          # Method that specifies the i18n scope for this controller. This can be overwritten in your controller.
-          # so that you can pass a different scope to the i18n methods.
-          def i18n_scope = "decidim.admin.content_blocks"
-
           # Method to be implemented at the controller. Returns a string
           # with the text for the title of content blocks
           #
@@ -72,6 +66,10 @@ module Decidim
           def inactive_content_blocks_title = t("edit.inactive_content_blocks", scope: i18n_scope)
 
           private
+
+          # Method that specifies the i18n scope for this controller. This can be overwritten in your controller.
+          # so that you can pass a different scope to the i18n methods.
+          def i18n_scope = "decidim.admin.content_blocks"
 
           # Method to be implemented at the controller. You need to
           # return a symbol that defines the content block scope.
