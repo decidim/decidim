@@ -42,6 +42,35 @@ module Decidim
         end
       end
 
+      describe "breadcrumb items" do
+        let(:page) { create(:static_page, organization:) }
+
+        it "adds the help index as the active item on index" do
+          get :index, params: { locale: I18n.locale }
+
+          expect(controller.instance_variable_get(:@context_breadcrumb_items)).to eq(
+            [{ label: "Help", active: true, url: pages_path }]
+          )
+        end
+
+        it "adds the help index and the current page on show" do
+          get :show, params: { id: page.slug, locale: I18n.locale }
+
+          expect(controller.instance_variable_get(:@context_breadcrumb_items)).to eq(
+            [
+              { label: "Help", active: false, url: pages_path },
+              { label: page.title, active: true, url: page_path(page) }
+            ]
+          )
+        end
+
+        it "still redirects the legacy terms-and-conditions slug" do
+          get :show, params: { id: "terms-and-conditions", locale: I18n.locale }
+
+          expect(response).to redirect_to(page_path("terms-of-service"))
+        end
+      end
+
       context "when a page does not exist" do
         it "redirects to the 404" do
           expect { get :show, params: { id: "some-page", locale: I18n.locale } }
