@@ -11,8 +11,7 @@
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
     "@decidim/prettier-config": "file:packages/prettier-config",
-    "@decidim/stylelint-config": "file:packages/stylelint-config",
-    "webpack": "~5.109.0"
+    "@decidim/stylelint-config": "file:packages/stylelint-config"
   },
   "browserslist": [
     "extends @decidim/browserslist-config"
