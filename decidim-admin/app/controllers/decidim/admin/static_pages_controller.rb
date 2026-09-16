@@ -11,7 +11,7 @@ module Decidim
 
       before_action :tos_version_formatted, only: [:index, :edit]
 
-      helper_method :topics
+      helper_method :topics, :scoped_resource
 
       alias update_content_blocks update
 
@@ -77,14 +77,14 @@ module Decidim
         end
       end
 
+      def scoped_resource
+        @scoped_resource ||= collection.find_by(slug: params[:id])
+      end
+
       private
 
       def content_block_scope
         :static_page
-      end
-
-      def scoped_resource
-        @scoped_resource ||= collection.find_by(slug: params[:id])
       end
 
       def enforce_permission_to_update_resource

@@ -10,13 +10,17 @@ module Decidim
 
         layout "decidim/admin/assembly"
 
+        helper_method :scoped_resource
+
+        def scoped_resource
+          current_participatory_space
+        end
+
         protected
 
         def content_block_scope
           current_participatory_space_manifest.content_blocks_scope_name
         end
-
-        alias scoped_resource current_participatory_space
 
         def enforce_permission_to_update_resource
           enforce_permission_to :update, :assembly, assembly: scoped_resource

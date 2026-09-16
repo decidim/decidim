@@ -10,7 +10,7 @@ module Decidim
           helper_method :active_blocks, :active_content_blocks_title, :add_content_block_text, :available_manifests,
                         :content_block_destroy_confirmation_text, :content_blocks_title, :inactive_blocks,
                         :inactive_content_blocks_title, :resource_content_block_cell, :resource_create_url,
-                        :resource_sort_url
+                        :resource_sort_url, :scoped_resource
           def edit
             enforce_permission_to_update_resource
 
