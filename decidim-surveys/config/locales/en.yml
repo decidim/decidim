@@ -105,6 +105,7 @@ en:
               other: Are you sure you want to delete all %{count} responses? This action cannot be undone.
           destroy_all:
             success: All responses have been successfully deleted.
+            invalid: There was a problem deleting all responses.
           index:
             no_responses: There are no responses yet
             title: "%{total} total responses"
