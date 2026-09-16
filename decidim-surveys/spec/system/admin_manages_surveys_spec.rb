@@ -344,6 +344,48 @@ describe "Admin manages surveys" do
         end
       end
     end
+
+    context "when the admin is creating a new survey and does not save it" do
+      it "prompts the admin when there is an unsaved question" do
+        visit manage_questions_path
+
+        click_on "Add question"
+        find(".button.expand-all").click
+
+        within ".questionnaire-question:last-of-type" do
+          fill_in first("[id$=body_en]")["id"], with: "This unsaved question"
+        end
+
+        find(".process-title-content-icon-home").click
+
+        expect(page).to have_css("#confirm-modal", visible: :visible, text: "This page contains unsaved changes. Are you sure you want to leave this page?")
+      end
+
+      it "prompts the admin when there is an unsaved separator" do
+        visit manage_questions_path
+
+        click_on "Add separator"
+
+        find(".process-title-content-icon-home").click
+
+        expect(page).to have_css("#confirm-modal", visible: :visible, text: "This page contains unsaved changes. Are you sure you want to leave this page?")
+      end
+
+      it "prompts the admin when there is an unsaved title and description" do
+        visit manage_questions_path
+
+        click_on "Add title and description"
+        find(".button.expand-all").click
+
+        within ".questionnaire-question:last-of-type" do
+          fill_in first("[id$=body_en]")["id"], with: "This unsaved title & description"
+        end
+
+        find(".process-title-content-icon-home").click
+
+        expect(page).to have_css("#confirm-modal", visible: :visible, text: "This page contains unsaved changes. Are you sure you want to leave this page?")
+      end
+    end
   end
 
   context "when the survey has responses or more" do
