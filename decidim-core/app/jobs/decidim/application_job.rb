@@ -2,7 +2,7 @@
 
 module Decidim
   class ApplicationJob < ActiveJob::Base
-    self.enqueue_after_transaction_commit = :always
+    self.enqueue_after_transaction_commit = true
     # Automatically retry jobs that encountered a deadlock
     retry_on ActiveRecord::Deadlocked
 
