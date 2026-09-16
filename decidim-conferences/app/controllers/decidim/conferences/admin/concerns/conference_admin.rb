@@ -20,10 +20,14 @@ module Decidim
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
 
-            helper_method :current_conference
+            helper_method :current_conference, :current_participatory_space
             add_breadcrumb_item_from_menu :conference_admin_menu
 
             participatory_space_admin_layout
+
+            def current_participatory_space
+              current_conference
+            end
 
             protected
 
@@ -32,8 +36,6 @@ module Decidim
                 slug: params[:conference_slug] || params[:slug]
               )
             end
-
-            alias_method :current_participatory_space, :current_conference
 
             def organization_conferences
               @organization_conferences ||= OrganizationConferences.new(current_organization).query
