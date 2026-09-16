@@ -1691,6 +1691,8 @@ ja:
       login_modal:
         please_log_in: ログインしてください
         sign_up: アカウントを作成
+      mentions:
+        search_prompt: 参加者を検索するには入力してください
       mentions_modal:
         remove_recipient: 受信者 %{name} を削除
       progress: 進捗状況
@@ -2070,7 +2072,6 @@ ja:
   layouts:
     decidim:
       announcements:
-        view_less: 一部のみ表示
         view_more: 詳しい情報
       data_consent:
         details:

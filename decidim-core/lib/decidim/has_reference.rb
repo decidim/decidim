@@ -38,9 +38,8 @@ module Decidim
       def store_reference
         self[:reference] ||= calculate_reference
 
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         update_column(:reference, self[:reference])
-        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

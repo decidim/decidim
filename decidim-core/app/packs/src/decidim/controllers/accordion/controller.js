@@ -31,6 +31,8 @@ export default class extends Controller {
 
     this.fixPanelRole();
 
+    this._setupInertPanels();
+
     this.expandIfNeeded();
 
     this.boundReconnect = this.reconnect.bind(this);
@@ -51,6 +53,8 @@ export default class extends Controller {
     if (this.boundExpand) {
       this.toggleButton.removeEventListener("click", this.boundExpand);
     }
+
+    this._teardownInertPanels();
 
     this._stopListeningForBreakpointChanges();
   }
@@ -164,6 +168,45 @@ export default class extends Controller {
   }
   expandToggle() {
     this.previouslyExpanded = this.toggleButton.getAttribute("aria-expanded");
+  }
+
+  /**
+   * Syncs the `inert` attribute of partially visible panels (those rendered
+   * inert) with their `aria-hidden` state, moving focus to the panel on expand.
+   *
+   * @returns {void}
+   */
+  _setupInertPanels() {
+    this._panelObservers = [];
+
+    this.element.querySelectorAll("[data-controls]").forEach((trigger) => {
+      const panel = document.getElementById(trigger.dataset.controls);
+      if (!panel || (!panel.hasAttribute("inert") && !("inertManaged" in panel.dataset))) {
+        return;
+      }
+
+      panel.dataset.inertManaged = "";
+      panel.toggleAttribute("inert", panel.getAttribute("aria-hidden") === "true");
+
+      const observer = new MutationObserver(() => {
+        if (panel.getAttribute("aria-hidden") === "true") {
+          panel.setAttribute("inert", "");
+        } else {
+          panel.removeAttribute("inert");
+          panel.focus();
+        }
+      });
+      observer.observe(panel, { attributes: true, attributeFilter: ["aria-hidden"] });
+
+      this._panelObservers.push(observer);
+    });
+  }
+
+  _teardownInertPanels() {
+    if (this._panelObservers) {
+      this._panelObservers.forEach((observer) => observer.disconnect());
+      this._panelObservers = [];
+    }
   }
 
   fixPanelRole() {

@@ -42,9 +42,8 @@ shared_examples "searchable results" do
           next unless searchable.is_a?(Decidim::Reportable)
 
           create(:moderation, reportable: searchable, hidden_at: Time.current)
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           searchable.reload.touch
-          # rubocop:enable Rails/SkipsModelValidations
         end
 
         visit decidim.root_path

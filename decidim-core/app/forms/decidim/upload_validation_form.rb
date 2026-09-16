@@ -32,16 +32,22 @@ module Decidim
     private
 
     def file_validators
-      org = organization
-      PassthruValidator.new(
-        attributes: [property],
-        to: resource_class.constantize,
-        with: lambda { |record|
-          validate_with.tap do |hash|
-            hash.merge!(organization: record.try(:organization) || org) if !hash[:organization] && record.respond_to?(:organization=)
-          end
-        }
-      ).validate_each(self, property.to_sym, blob)
+      if resource_class.constantize == Decidim::ContentBlockAttachment && resource_class.constantize.validators_on(property.to_sym).none?
+        extension = blob.filename.to_s.split(".").last&.downcase
+        allowed = Decidim::RecordImageUploader.new(nil, :file).extension_allowlist
+        errors.add(property.to_sym, I18n.t("errors.messages.allowed_file_content_types", types: allowed.join(", "))) if extension.present? && allowed.exclude?(extension)
+      else
+        org = organization
+        PassthruValidator.new(
+          attributes: [property],
+          to: resource_class.constantize,
+          with: lambda { |record|
+            validate_with.tap do |hash|
+              hash.merge!(organization: record.try(:organization) || org) if !hash[:organization] && record.respond_to?(:organization=)
+            end
+          }
+        ).validate_each(self, property.to_sym, blob)
+      end
     end
 
     def validate_with

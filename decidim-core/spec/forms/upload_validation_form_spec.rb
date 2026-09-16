@@ -61,5 +61,41 @@ module Decidim
         expect(subject.invalid?).to be(true)
       end
     end
+
+    context "when resource class is ContentBlockAttachment" do
+      let(:resource_class) { "Decidim::ContentBlockAttachment" }
+      let(:property) { "background_image" }
+      let(:form_class) { nil }
+
+      context "with a valid image file" do
+        it "accepts a jpeg image" do
+          expect(subject).to be_valid
+        end
+
+        it "accepts a png image" do
+          form = described_class.from_params(params.merge(blob: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/png"), filename: "photo.png")))
+          expect(form).to be_valid
+        end
+
+        it "accepts a webp image" do
+          form = described_class.from_params(params.merge(blob: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/webp"), filename: "photo.webp")))
+          expect(form).to be_valid
+        end
+      end
+
+      context "with a non-image file" do
+        it "rejects a pdf file" do
+          form = described_class.from_params(params.merge(blob: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "plan.pdf")))
+          expect(form.invalid?).to be(true)
+          expect(form.errors.full_messages.first).to include("jpeg, jpg, png, webp")
+        end
+
+        it "rejects a docx file" do
+          form = described_class.from_params(params.merge(blob: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "document.docx")))
+          expect(form.invalid?).to be(true)
+          expect(form.errors.full_messages.first).to include("jpeg, jpg, png, webp")
+        end
+      end
+    end
   end
 end

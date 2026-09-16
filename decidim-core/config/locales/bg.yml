@@ -1501,7 +1501,6 @@ bg:
   layouts:
     decidim:
       announcements:
-        view_less: Покажи по-малко
         view_more: Още информация
       data_consent:
         details:

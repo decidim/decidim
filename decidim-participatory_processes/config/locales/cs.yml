@@ -12,14 +12,12 @@ cs:
         duplicate_categories: Duplikovat kategorie
         duplicate_components: Duplikovat komponenty
         duplicate_landing_page_blocks: Duplikovat bloky vstupní strany
-        duplicate_steps: Duplikovat kroky
         end_date: Datum ukončení
         has_members: Tento prostor má členy
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
         import_components: Importovat komponenty
-        import_steps: Importovat kroky
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
@@ -503,9 +501,22 @@ cs:
           form:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+          new:
+            title: Importovat participační proces
         participatory_process_steps:
+          edit:
+            title: Upravit fázi participačního procesu
+          index:
+            title: Fáze
           new:
             title: Nová fáze participativního procesu
+        participatory_process_user_roles:
+          edit:
+            title: Aktualizovat správce participačního procesu
+          index:
+            title: Správci participačního procesu
+          new:
+            title: Nový správce participačního procesu
         participatory_processes:
           edit:
             title: O tomto procesu

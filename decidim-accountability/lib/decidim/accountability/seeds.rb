@@ -122,7 +122,7 @@ module Decidim
             res
           end
 
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           child_result.milestones.insert_all(
             config_value(:accountability_milestones_per_result_count).times.map do |i|
               {
@@ -132,7 +132,6 @@ module Decidim
               }
             end
           )
-          # rubocop:enable Rails/SkipsModelValidations
 
           Decidim::Comments::Seed.comments_for(child_result)
         end

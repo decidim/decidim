@@ -86,7 +86,6 @@ ro:
               'false': Propuneri
               'true': Amendamente
           state_eq:
-            label: Stadiu
             values:
               accepted: Acceptat
               evaluating: În evaluare

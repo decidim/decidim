@@ -72,7 +72,6 @@ it:
               'false': Proposte
               'true': Emendamenti
           state_eq:
-            label: Stato
             values:
               accepted: Accettato
               evaluating: Valutato

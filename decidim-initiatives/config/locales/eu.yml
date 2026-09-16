@@ -414,7 +414,6 @@ eu:
           new: Beste ekimen bat sortu
           select: Ekimen hau sustatu nahi dut
           select_initiative_type_help_html: "<p>Ekimenak bide dira parte-hartzaileek parte har dezaten, erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen jarri nahi duzu abian?</p>"
-          show_less: Gutxiago erakutsi
           show_more: Gehiago erakutsi
           subtitle: Zein ekimen sustatu nahi duzu?
           verification_required: Egiaztatu zure kontua ekimen hau sustatzeko.

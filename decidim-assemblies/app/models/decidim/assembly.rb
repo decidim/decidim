@@ -189,11 +189,10 @@ module Decidim
     #
     # Note: updating parents_path in their descendants is done in the `update_children_paths` function.
     #
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     def set_parents_path
       update_column(:parents_path, [parent&.parents_path, id].compact_blank.join("."))
     end
-    # rubocop:enable Rails/SkipsModelValidations
 
     # When an assembly changes their parent, we need to update the parents_path attribute on their descendants
     # E.g. If we have the following tree:
@@ -214,7 +213,7 @@ module Decidim
     #
     # Note: updating parents_path of C (the assembly in which we have changed the parent) is done in the `set_parents_path` function.
     #
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     def update_children_paths
       self.class.where(
         ["#{self.class.table_name}.parents_path <@ :old_path AND #{self.class.table_name}.id != :id", { old_path: parents_path_before_last_save, id: }]
@@ -222,7 +221,6 @@ module Decidim
         ["parents_path = :new_path || subpath(parents_path, nlevel(:old_path))", { new_path: parents_path, old_path: parents_path_before_last_save }]
       )
     end
-    # rubocop:enable Rails/SkipsModelValidations
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker_i18n :title
