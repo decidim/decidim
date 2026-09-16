@@ -21,7 +21,7 @@ module Decidim
     end
 
     def extension_allowlist
-      %w(png jpg jpeg webp)
+      %w(png jpg jpeg webp ico)
     end
   end
 end

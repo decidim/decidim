@@ -54,7 +54,7 @@ namespace :decidim do
         "--locales",
         "en,ca,es",
         "--dev_ssl",
-        "--queue=sidekiq"
+        # "--queue=sidekiq"
       )
     end
   end
