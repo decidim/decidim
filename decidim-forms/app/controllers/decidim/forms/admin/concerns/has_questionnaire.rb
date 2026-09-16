@@ -91,9 +91,9 @@ module Decidim
               end
             end
 
-            protected
-
             def response_options
+              enforce_permission_to(:update, permission_subject, questionnaire:)
+
               respond_to do |format|
                 format.json do
                   question_id = params["id"]
@@ -102,6 +102,8 @@ module Decidim
                 end
               end
             end
+
+            protected
 
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.

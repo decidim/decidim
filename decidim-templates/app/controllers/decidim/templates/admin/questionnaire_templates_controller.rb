@@ -132,14 +132,15 @@ module Decidim
           end
         end
 
-        protected
-
         def skip
+          enforce_permission_to(:update, :template, template:)
           questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
           # rubocop:disable-next Rails/SkipsModelValidations
           questionnaire.touch
           redirect_to URI.parse(params[:url]).path
         end
+
+        protected
 
         def edit_questions_template
           "decidim/templates/admin/questionnaire_templates/edit_questions"
