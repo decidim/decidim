@@ -8,7 +8,9 @@ describe "Unused examples" do
   let(:parser) { Parser.const_get("Ruby#{RUBY_VERSION[0..2].delete(".")}") }
   let(:ruby_files) do
     root = File.expand_path("..", __dir__)
-    Dir.glob(File.join(root, "**", "{spec,test}", "**", "*.rb"))
+    files = Dir.glob(File.join(root, "**", "{spec,test}", "**", "*.rb"))
+    files.reject! { |f| File.fnmatch?(File.join(root, "**", "vendor", "**"), f) }
+    files
   end
 
   it "does not contain unused RSpec shared examples" do
