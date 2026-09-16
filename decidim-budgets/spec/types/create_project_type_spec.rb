@@ -181,7 +181,6 @@ module Decidim::Budgets
       end
     end
 
-    include_examples "admin API access checks"
-    include_examples "API creatable project"
+    include_examples "admin API access checks", "API creatable project"
   end
 end

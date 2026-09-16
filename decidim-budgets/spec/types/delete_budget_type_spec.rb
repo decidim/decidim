@@ -63,7 +63,6 @@ module Decidim::Budgets
       end
     end
 
-    it_behaves_like "admin API access checks"
-    it_behaves_like "API deletable budget"
+    it_behaves_like "admin API access checks", "API deletable budget"
   end
 end

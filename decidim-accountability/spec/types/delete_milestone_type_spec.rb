@@ -82,7 +82,6 @@ module Decidim::Accountability
       end
     end
 
-    it_behaves_like "admin API access checks"
-    it_behaves_like "API deletable milestone"
+    it_behaves_like "admin API access checks", "API deletable milestone"
   end
 end

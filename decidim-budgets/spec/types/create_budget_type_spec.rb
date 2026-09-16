@@ -123,7 +123,6 @@ module Decidim::Budgets
       end
     end
 
-    include_examples "admin API access checks"
-    include_examples "API creatable budget"
+    include_examples "admin API access checks", "API creatable budget"
   end
 end

@@ -118,8 +118,7 @@ module Decidim
         end
       end
 
-      it_behaves_like "admin API access checks"
-      it_behaves_like "manage proposal answer mutation examples"
+      it_behaves_like "admin API access checks", "manage proposal answer mutation examples"
     end
   end
 end
