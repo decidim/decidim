@@ -83,7 +83,7 @@ describe "Unused examples" do
         # Cases such as:
         #   shared_examples "test", -> { it_behaves_like "foobar" }
         block_node = node.children[-1]
-        if block_node&.type == :block
+        if block_node.is_a?(Parser::AST::Node) && block_node.type == :block
           name = extract_shared_example_name(node)
           record_shared_example(name, node)
         end
