@@ -34,11 +34,9 @@ describe "Unused examples" do
 
       definition[:start_line] <= usage[:line] && usage[:line] <= definition[:end_line]
     end
-    unused = definitions.reject do |defn|
-      usages.any? do |usage|
-        usage[:name] == defn[:name] && visible_from?(defn[:scope], usage[:scope])
-      end
-    end
+
+    used = Set.new(resolve_usages(definitions, usages).map(&:object_id))
+    unused = definitions.reject { |defn| used.include?(defn.object_id) }
 
     expect(unused).to(
       be_empty,
@@ -57,6 +55,18 @@ describe "Unused examples" do
   def visible_from?(definition_scope, usage_scope)
     definition_scope.length <= usage_scope.length &&
       definition_scope == usage_scope.first(definition_scope.length)
+  end
+
+  def resolve_usages(definitions, usages)
+    usages.flat_map do |usage|
+      candidates = definitions.select do |defn|
+        defn[:name] == usage[:name] && visible_from?(defn[:scope], usage[:scope])
+      end
+      next [] if candidates.empty?
+
+      depth = candidates.map { |defn| defn[:scope].length }.max
+      candidates.select { |defn| defn[:scope].length == depth }
+    end
   end
 
   class SharedExampleCollector < Parser::AST::Processor
@@ -120,7 +130,9 @@ describe "Unused examples" do
       send_node = node.children[0]
       return false unless send_node&.type == :send
 
-      [:describe, :context].include?(send_node.children[1])
+      # `it_behaves_like` with a customization block creates a nested example
+      # group, so definitions and usages inside it belong to a child scope.
+      [:describe, :context, :it_behaves_like].include?(send_node.children[1])
     end
 
     def scope_for(node)
