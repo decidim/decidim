@@ -99,7 +99,7 @@ describe "Unused examples" do
     attr_reader :parser, :current_file
 
     def relevant_file?(code)
-      code.match?(/\b(?:shared_examples(?:_for)?|it_behaves_like|include_examples)\b/)
+      code.match?(/\b(?:shared_examples(?:_for)?|shared_context|it_behaves_like|include_examples|include_context)\b/)
     end
 
     def record_shared_example(name, node)
@@ -136,7 +136,7 @@ describe "Unused examples" do
       return false unless node&.type == :send
 
       method_name = node.children[1]
-      [:shared_examples, :shared_examples_for].include?(method_name)
+      [:shared_examples, :shared_examples_for, :shared_context].include?(method_name)
     end
 
     def extract_shared_example_name(node)
@@ -149,7 +149,7 @@ describe "Unused examples" do
       return false unless node&.type == :send
 
       method_name = node.children[1]
-      [:include_examples, :it_behaves_like].include?(method_name)
+      [:include_examples, :include_context, :it_behaves_like].include?(method_name)
     end
 
     def extract_usage_names(node)
