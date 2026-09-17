@@ -156,11 +156,13 @@ describe "Unused examples" do
   # @return [Array<Hash>] The usages of shared examples that are not recursive
   #   usages as in the example.
   def filter_recursive_usages(definitions, usages)
+    by_name_and_file = definitions.group_by { |d| [d[:name], d[:file]] }
+
     usages.reject do |usage|
-      definitions.any? do |d|
-        d[:name] == usage[:name] && d[:file] == usage[:file] &&
-          d[:start_line] <= usage[:line] && usage[:line] <= d[:end_line]
-      end
+      candidates = by_name_and_file[[usage[:name], usage[:file]]]
+      next false unless candidates
+
+      candidates.any? { |d| d[:start_line] <= usage[:line] && usage[:line] <= d[:end_line] }
     end
   end
 
@@ -195,14 +197,17 @@ describe "Unused examples" do
   # @param usages [Array<Hash>] All shared example usages.
   # @return [Array<Hash>] The usages of shared examples.
   def resolve_usages(definitions, usages)
-    usages.flat_map do |usage|
-      candidates = definitions.select do |defn|
-        defn[:name] == usage[:name] && visible_from?(defn[:scope], usage[:scope])
-      end
-      next [] if candidates.empty?
+    by_name = definitions.group_by { |d| d[:name] }
 
-      depth = candidates.map { |defn| defn[:scope].length }.max
-      candidates.select { |defn| defn[:scope].length == depth }
+    usages.flat_map do |usage|
+      candidates = by_name[usage[:name]]
+      next [] unless candidates
+
+      visible = candidates.select { |defn| visible_from?(defn[:scope], usage[:scope]) }
+      next [] if visible.empty?
+
+      depth = visible.map { |defn| defn[:scope].length }.max
+      visible.select { |defn| defn[:scope].length == depth }
     end
   end
 
@@ -368,13 +373,12 @@ describe "Unused examples" do
     def record_shared_example(name, node)
       return if name.nil?
 
-      start_line = node.location.expression.line
-      end_line = node.location.expression.last_line
+      expr = node.location.expression
       definitions << {
         name:,
         file: current_file,
-        start_line:,
-        end_line:,
+        start_line: expr.line,
+        end_line: expr.last_line,
         scope: current_scope
       }
     end
@@ -404,7 +408,7 @@ describe "Unused examples" do
     # @param node [Parser::AST::Node] The node to inspect.
     # @return [Array<String>] The names of the shared example usage.
     def extract_usage_names(node)
-      node.children[2..].filter_map do |arg|
+      node.children.drop(2).filter_map do |arg|
         arg.children[0] if arg.is_a?(Parser::AST::Node) && arg.type == :str
       end
     end
