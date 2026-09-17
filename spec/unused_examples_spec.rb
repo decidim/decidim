@@ -20,23 +20,7 @@ describe "Unused examples" do
       collector
     end
 
-    definitions = results.flat_map(&:definitions)
-    usages = results.flat_map(&:usages)
-
-    # Filter out recursive usages (i.e. usage inside the example definition),
-    # such as:
-    #   shared_examples "foobar" do
-    #     it_behaves_like "foobar"
-    #   end
-    usages = usages.reject do |usage|
-      definition = definitions.find { |d| d[:name] == usage[:name] && d[:file] == usage[:file] }
-      next false unless definition
-
-      definition[:start_line] <= usage[:line] && usage[:line] <= definition[:end_line]
-    end
-
-    used = Set.new(resolve_usages(definitions, usages).map(&:object_id))
-    unused = definitions.reject { |defn| used.include?(defn.object_id) }
+    unused = detect_unused(results)
 
     expect(unused).to(
       be_empty,
@@ -45,6 +29,29 @@ describe "Unused examples" do
   end
 
   private
+
+  def detect_unused(results)
+    definitions = results.flat_map(&:definitions)
+    usages = results.flat_map(&:usages)
+    usages = filter_recursive_usages(definitions, usages)
+
+    used = Set.new(resolve_usages(definitions, usages).map(&:object_id))
+    definitions.reject { |defn| used.include?(defn.object_id) }
+  end
+
+  # Filter out recursive usages (i.e. usage inside the example definition), such
+  # as:
+  #   shared_examples "foobar" do
+  #     it_behaves_like "foobar"
+  #   end
+  def filter_recursive_usages(definitions, usages)
+    usages.reject do |usage|
+      definition = definitions.find { |d| d[:name] == usage[:name] && d[:file] == usage[:file] }
+      next false unless definition
+
+      definition[:start_line] <= usage[:line] && usage[:line] <= definition[:end_line]
+    end
+  end
 
   def format_unused(unused)
     unused.map do |definition|
@@ -91,8 +98,22 @@ describe "Unused examples" do
 
     def on_block(node)
       if example_group?(node)
-        scope_stack << scope_for(node)
-        super
+        send_node = node.children[0]
+
+        if customization_block?(send_node)
+          # `it_behaves_like "x" do ... end` both uses "x" in the enclosing
+          # scope and opens a nested scope for whatever the block defines or
+          # uses. Record the usage before pushing, so it isn't misattributed to
+          # the customization block's own scope.
+          record_usage(send_node)
+
+          scope_stack << scope_for(node)
+          process(node.children[1]) # block args
+          process(node.children[2]) # block body
+        else
+          scope_stack << scope_for(node)
+          super
+        end
         scope_stack.pop
       else
         if shared_example_definition?(node)
@@ -205,6 +226,12 @@ describe "Unused examples" do
 
       method_name = node.children[1]
       [:include_examples, :include_context, :it_behaves_like].include?(method_name)
+    end
+
+    def customization_block?(node)
+      return false unless node&.type == :send
+
+      node.children[1] == :it_behaves_like
     end
   end
 end
