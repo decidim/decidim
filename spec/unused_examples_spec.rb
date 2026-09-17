@@ -46,6 +46,32 @@ describe "Unused examples" do
     end
   end
 
+  it "records usages with the same recursive name in another scope" do
+    temp_collector(
+      <<~RUBY
+        describe "another" do
+          shared_examples "foobar" do
+            it { is_expected.to be(true) }
+          end
+
+          it_behaves_like "foobar"
+        end
+
+        describe "test" do
+          shared_examples "foobar" do
+            it { is_expected.to be(true) }
+
+            it_behaves_like "foobar"
+          end
+        end
+      RUBY
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).not_to be_empty
+      expect(unused.count).to be(1)
+    end
+  end
+
   it "does not record out-of-scope shared examples as used" do
     temp_collector(
       <<~RUBY
@@ -100,10 +126,10 @@ describe "Unused examples" do
   #   end
   def filter_recursive_usages(definitions, usages)
     usages.reject do |usage|
-      definition = definitions.find { |d| d[:name] == usage[:name] && d[:file] == usage[:file] }
-      next false unless definition
-
-      definition[:start_line] <= usage[:line] && usage[:line] <= definition[:end_line]
+      definitions.any? do |d|
+        d[:name] == usage[:name] && d[:file] == usage[:file] &&
+          d[:start_line] <= usage[:line] && usage[:line] <= d[:end_line]
+      end
     end
   end
 
