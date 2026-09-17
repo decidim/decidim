@@ -108,6 +108,27 @@ describe "Unused examples" do
     end
   end
 
+  it "registers usages passed as arguments" do
+    temp_collector(
+      <<~RUBY
+        shared_examples "main" do
+          it { is_expected.to be(true) }
+        end
+
+        shared_examples "subexample" do |scenario|
+          it_behaves_like scenario
+        end
+
+        describe "foobar" do
+          it_behaves_like "subexample", "main"
+        end
+      RUBY
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).to be_empty
+    end
+  end
+
   private
 
   # Detects unused shared example definitions from the collector results.
