@@ -3,6 +3,7 @@
 # Not using parser/current because it can print out warnings.
 require "parser/ruby#{RUBY_VERSION[0..2].delete(".")}"
 require "parallel"
+require "tempfile"
 
 describe "Unused examples" do
   let(:parser) { Parser.const_get("Ruby#{RUBY_VERSION[0..2].delete(".")}") }
@@ -26,6 +27,59 @@ describe "Unused examples" do
       be_empty,
       "Found unused RSpec shared examples:\n#{format_unused(unused)}"
     )
+  end
+
+  it "does not record recursive usages" do
+    temp_collector(
+      <<~RUBY
+        describe "test" do
+          shared_examples "foobar" do
+            it { is_expected.to be(true) }
+
+            it_behaves_like "foobar"
+          end
+        end
+      RUBY
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).not_to be_empty
+    end
+  end
+
+  it "does not record out-of-scope shared examples as used" do
+    temp_collector(
+      <<~RUBY
+        describe "outer" do
+          shared_examples "foobar" do
+            it { is_expected.to be(true) }
+          end
+        end
+
+        describe "sibling" do
+          it_behaves_like "foobar"
+        end
+      RUBY
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).not_to be_empty
+    end
+  end
+
+  it "does not record it_behaves_like as a usage when the shared example is under it" do
+    temp_collector(
+      <<~RUBY
+        describe "test" do
+          it_behaves_like "customizable" do
+            shared_examples "customizable" do
+              it { is_expected.to be(true) }
+            end
+          end
+        end
+      RUBY
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).not_to be_empty
+    end
   end
 
   private
@@ -73,6 +127,17 @@ describe "Unused examples" do
 
       depth = candidates.map { |defn| defn[:scope].length }.max
       candidates.select { |defn| defn[:scope].length == depth }
+    end
+  end
+
+  def temp_collector(content)
+    Tempfile.create(["test", "_spec.rb"]) do |f|
+      f.write(content)
+      f.rewind
+
+      collector = SharedExampleCollector.new(parser)
+      collector.process_file(f.path)
+      yield collector
     end
   end
 
