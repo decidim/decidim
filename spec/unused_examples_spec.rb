@@ -14,7 +14,7 @@ describe "Unused examples" do
     files
   end
 
-  it "does not contain unused RSpec shared examples" do
+  it "codebase does not contain unused RSpec shared examples" do
     results = Parallel.map(ruby_files, in_processes: 2) do |file|
       collector = SharedExampleCollector.new(parser)
       collector.process_file(file)
