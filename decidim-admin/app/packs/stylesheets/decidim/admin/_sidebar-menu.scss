@@ -37,7 +37,7 @@
 
       li {
         a {
-          @apply px-2 py-1 overflow-hidden text-ellipsis;
+          @apply px-2 py-1 overflow-hidden;
 
           overflow-wrap: anywhere;
         }

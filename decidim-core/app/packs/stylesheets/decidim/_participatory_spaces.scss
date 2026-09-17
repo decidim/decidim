@@ -115,7 +115,7 @@
     }
 
     &-label {
-      @apply flex-1 min-w-0 overflow-hidden whitespace-nowrap text-ellipsis;
+      @apply flex-1 min-w-0 overflow-hidden text-ellipsis;
     }
 
     &-item > svg {
