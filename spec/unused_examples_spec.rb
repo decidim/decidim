@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 require "prism"
-require "prism/translation/parser"
 require "parallel"
 require "tempfile"
 
 describe "Unused examples" do
-  let(:parser) { Prism::Translation::ParserCurrent }
   let(:ruby_files) do
     root = File.expand_path("..", __dir__)
     files = Dir.glob(File.join(root, "**", "{spec,test}", "**", "*.rb"))
@@ -16,7 +14,7 @@ describe "Unused examples" do
 
   it "codebase does not contain unused RSpec shared examples" do
     results = Parallel.map(ruby_files, in_processes: 2) do |file|
-      collector = SharedExampleCollector.new(parser)
+      collector = SharedExampleCollector.new
       collector.process_file(file)
       collector
     end
@@ -233,22 +231,12 @@ describe "Unused examples" do
 
   # Resolves dynamic usages (e.g. `it_behaves_like scenario`, where `scenario`
   # is a block parameter of the enclosing shared example) against the extra
-  # string arguments passed at call sites that reference that shared example,
-  # such as:
-  #   shared_examples "subexample" do |scenario|
-  #     it_behaves_like scenario
-  #   end
-  #
-  #   it_behaves_like "subexample", "main"
-  #
-  # Here, "main" is only a usage because it's positionally forwarded into
-  # "subexample" as `scenario`; it is not a usage in its own right unless
-  # resolved this way.
+  # arguments passed at call sites that reference that shared example.
   #
   # @param dynamic_usages [Array<Hash>] Recorded dynamic usages, each tied to
   #   the definition whose parameter is being forwarded.
   # @param calls [Array<Hash>] All call sites, with their target name and any
-  #   extra string arguments passed.
+  #   extra arguments passed (by position).
   # @return [Array<Hash>] Synthetic usages resolved from parameter forwarding.
   def resolve_dynamic_usages(dynamic_usages, calls)
     calls_by_target = calls.group_by { |call| call[:target] }
@@ -329,23 +317,21 @@ describe "Unused examples" do
       f.write(content)
       f.rewind
 
-      collector = SharedExampleCollector.new(parser)
+      collector = SharedExampleCollector.new
       collector.process_file(f.path)
       yield collector
     end
   end
 
-  # A shared example collector that parses RSpec files, detects shared example
-  # definitions and their usages and records these with their scopes for further
+  # A shared example collector that walks Prism's native AST directly
+  # (no whitequark translation layer), detecting shared example definitions
+  # and their usages and recording these with their scopes for further
   # inspection.
-  class SharedExampleCollector < Parser::AST::Processor
+  class SharedExampleCollector < Prism::Visitor
     attr_reader :definitions, :usages, :calls, :dynamic_usages
 
-    # Initializes the collector.
-    #
-    # @param parser [Class] The processor class to use.
-    def initialize(parser)
-      @parser = parser
+    def initialize
+      super
       @definitions = []
       @usages = []
       @calls = []
@@ -358,155 +344,146 @@ describe "Unused examples" do
     # Processes a single file.
     #
     # @param file_path [String] Path to the file to process.
-    # @return [AST::Node] (see AST::Processor::Mixin#process)
+    # @return [void]
     def process_file(file_path)
       @current_file = file_path
       code = File.read(file_path)
       return unless relevant_file?(code)
 
-      ast = parser.parse(code)
-      process(ast)
+      Prism.parse(code).value.accept(self)
     end
 
-    # Parses blocks.
+    # Visits every method call node. Prism unifies a call and its attached
+    # block/do-end into a single CallNode (unlike the whitequark AST, which
+    # wraps them as separate :send/:block nodes), so all definition, usage,
+    # and scope handling is driven from here rather than split across
+    # separate block/send visitors.
     #
-    # @param node [Parser::AST::Node] The parsed node.
-    # @return [AST::Node] (see AST::Node#updated)
-    def on_block(node)
-      if example_group?(node)
-        send_node = node.children[0]
-
-        if customization_block?(send_node)
-          # `it_behaves_like "x" do ... end` both uses "x" in the enclosing
-          # scope and opens a nested scope for whatever the block defines or
-          # uses. Record the usage before pushing, so it isn't misattributed to
-          # the customization block's own scope.
-          record_usage(send_node)
-
-          scope_stack << scope_for(node)
-          process(node.children[1]) # block args
-          process(node.children[2]) # block body
-        else
-          scope_stack << scope_for(node)
-          super
-        end
-        scope_stack.pop
-      else
-        defn = nil
-        if shared_example_definition?(node)
-          name = extract_shared_example_name(node.children[0])
-          defn = record_shared_example(name, node, block_param_names(node.children[1]))
-        end
-
-        if defn
-          definition_stack << defn
-          super
-          definition_stack.pop
-        else
-          super
-        end
-      end
-    end
-
-    # Parses method calls.
-    #
-    # @param node [Parser::AST::Node] The parsed node.
-    # @return [AST::Node] (see AST::Node#updated)
-    def on_send(node)
+    # @param node [Prism::CallNode] The call node.
+    # @return [void]
+    def visit_call_node(node)
       if shared_example_call?(node)
-        # Cases such as:
-        #   shared_examples "test", -> { it_behaves_like "foobar" }
-        block_node = node.children[-1]
-        if block_node.is_a?(Parser::AST::Node) && block_node.type == :block
-          name = extract_shared_example_name(node)
-          defn = record_shared_example(name, node, block_param_names(block_node.children[1]))
+        handle_shared_example_definition(node)
+        return
+      end
 
-          # Keep the definition on the stack while traversing the lambda body, so
-          # a dynamic usage inside it (e.g. `it_behaves_like scenario`) resolves
-          # against this definition's params — same treatment as the `do...end`
-          # block form.
-          definition_stack << defn if defn
-          process(block_node)
-          definition_stack.pop if defn
-
-          return node
-        end
+      if example_group?(node)
+        handle_example_group(node)
+        return
       end
 
       record_usage(node) if usage_call?(node)
-
-      super
+      visit_child_nodes(node)
     end
 
     private
 
-    attr_reader :parser, :current_file, :scope_stack, :definition_stack
+    attr_reader :current_file, :scope_stack, :definition_stack
 
-    # Detects if a node represents an example group within a spec.
+    # Handles a `shared_examples`/`shared_examples_for`/`shared_context` call,
+    # in either form:
+    #   shared_examples "foobar" do
+    #     ...
+    #   end
     #
-    # @param node [Parser::AST::Node] The node to inspect.
-    # @return [Boolean] Boolean indicating whether an example group was
-    #   detected.
+    #   shared_examples "foobar", ->(scenario) { ... }
+    #
+    # @param node [Prism::CallNode] The node to inspect.
+    # @return [void]
+    def handle_shared_example_definition(node)
+      body_node = node.block || lambda_argument(node)
+
+      unless body_node
+        visit_child_nodes(node)
+        return
+      end
+
+      name = extract_shared_example_name(node)
+      defn = record_shared_example(name, node, block_param_names(body_node))
+
+      if defn
+        definition_stack << defn
+        visit_child_nodes(node)
+        definition_stack.pop
+      else
+        visit_child_nodes(node)
+      end
+    end
+
+    # Handles `describe`/`context` blocks, and `it_behaves_like` blocks (which
+    # act as a customization block and also count as a usage of the shared
+    # example being customized). The usage is recorded against the enclosing
+    # scope, before the new scope is pushed, so it isn't misattributed to the
+    # customization block's own scope.
+    #
+    # @param node [Prism::CallNode] The node to inspect.
+    # @return [void]
+    def handle_example_group(node)
+      record_usage(node) if node.name == :it_behaves_like
+
+      scope_stack << scope_for(node)
+      visit_child_nodes(node)
+      scope_stack.pop
+    end
+
+    # Detects if a node represents an example group within a spec (only when
+    # a literal block is attached; `it_behaves_like "x"` without a block is a
+    # plain usage, not a group).
+    #
+    # @param node [Prism::CallNode] The node to inspect.
+    # @return [Boolean]
     def example_group?(node)
-      return false unless node&.type == :block
+      return false unless node.block.is_a?(Prism::BlockNode)
 
-      send_node = node.children[0]
-      return false unless send_node&.type == :send
-
-      # `it_behaves_like` with a customization block creates a nested example
-      # group, so definitions and usages inside it belong to a child scope.
-      [:describe, :context, :it_behaves_like].include?(send_node.children[1])
+      [:describe, :context, :it_behaves_like].include?(node.name)
     end
 
-    # Defines a scope for the current node with its file path, call location and
-    # call column.
+    # Defines a scope for the current node with its file path, call location
+    # and call column.
     #
-    # @param node [Parser::AST::Node] The node to determine the scope for.
-    # @return [Array<String, Integer, Integer>] The scope array with the file
-    #   path, call location and call column.
+    # @param node [Prism::CallNode] The node to determine the scope for.
+    # @return [Array<String, Integer, Integer>]
     def scope_for(node)
-      location = node.location.expression
-      [current_file, location.line, location.column]
+      location = node.location
+      [current_file, location.start_line, location.start_column]
     end
 
-    # Returns the current scope stack, i.e. the call path up until the current
-    # parsing state.
-    #
-    # @return [Array<Array<String, Integer, Integer>>] An array representing the
-    #   current scope stack. Each item in the scope has the file name of the
-    #   call path as well as the line an column number where this call happened.
     def current_scope
       scope_stack.dup
     end
 
-    # Searches the file contents for relevant example groups or usages of shared
-    # examples in order to skip irrelevant files from the AST parsing for
+    # Searches the file contents for relevant example groups or usages of
+    # shared examples in order to skip irrelevant files from AST parsing for
     # performance.
     #
     # @param code [String] The code to inspect.
-    # @return [Boolean] Boolean indicating whether the file is relevant.
+    # @return [Boolean]
     def relevant_file?(code)
       code.match?(/\b(?:shared_examples(?:_for)?|shared_context|it_behaves_like|include_examples|include_context)\b/)
     end
 
     # Records a shared example.
     #
-    # @param name [String] The name of the shared example.
-    # @param node [Parser::AST::Node] The node to record.
-    # @param params [Array<Symbol>] The block parameter names the shared
-    #   example's block declares, if any (used to resolve dynamic usages such
-    #   as `it_behaves_like scenario` inside its body).
+    # @param name [String, nil] The name of the shared example.
+    # @param node [Prism::CallNode] The node to record.
+    # @param params [Array<Symbol>] The block/lambda parameter names, used to
+    #   resolve dynamic usages such as `it_behaves_like scenario`.
     # @return [Hash, nil] The recorded definition, or nil if it had no static
     #   name.
     def record_shared_example(name, node, params)
       return nil if name.nil?
 
-      expr = node.location.expression
+      location = node.location
+      # A do-end block's own line span may or may not already be included in
+      # the call node's location; take the wider of the two so recursive-usage
+      # detection covers the full body either way.
+      end_line = [location.end_line, node.block&.location&.end_line].compact.max
+
       defn = {
         name:,
         file: current_file,
-        start_line: expr.line,
-        end_line: expr.last_line,
+        start_line: location.start_line,
+        end_line:,
         scope: current_scope,
         params:
       }
@@ -516,17 +493,15 @@ describe "Unused examples" do
 
     # Records a usage of a shared example. Only the first argument is treated
     # as the shared-example identifier; any remaining string arguments are
-    # recorded separately as call arguments (see #calls), since they are
-    # parameters passed into the shared example rather than usages themselves.
-    # If the identifier is a local variable (e.g. `it_behaves_like scenario`),
-    # it's recorded as a dynamic usage to be resolved against call arguments
-    # later.
+    # recorded separately as call arguments (see #calls). If the identifier is
+    # a local variable (e.g. `it_behaves_like scenario`), it's recorded as a
+    # dynamic usage to be resolved against call arguments later.
     #
-    # @param node [Parser::AST::Node] The node to record.
+    # @param node [Prism::CallNode] The node to record.
     # @return [void]
     def record_usage(node)
-      identifier = node.children[2]
-      line = node.location.expression.line
+      identifier = call_argument(node, 0)
+      line = node.location.start_line
 
       extract_usage_names(node).each do |name|
         usages << { name:, file: current_file, line:, scope: current_scope }
@@ -539,25 +514,26 @@ describe "Unused examples" do
         }
       end
 
-      record_dynamic_usage(identifier.children[0]) if identifier.is_a?(Parser::AST::Node) && identifier.type == :lvar
+      record_dynamic_usage(identifier.name) if identifier.is_a?(Prism::LocalVariableReadNode)
+    end
+
+    # @param node [Prism::CallNode] The node to inspect.
+    # @param index [Integer] Positional argument index.
+    # @return [Prism::Node, nil]
+    def call_argument(node, index)
+      node.arguments&.arguments&.[](index)
     end
 
     # Extracts the shared-example identifier from a usage caller node, i.e.
-    # only the first argument. For example, for
-    #   it_behaves_like "foobar"
+    # only the first argument, when it's a static string.
     #
-    # This would return ["foobar"]. Additional arguments (e.g. "main" in
-    # `it_behaves_like "subexample", "main"`) are not identifiers and are
-    # handled separately by #extract_call_arguments.
-    #
-    # @param node [Parser::AST::Node] The node to inspect.
-    # @return [Array<String>] The name of the shared example usage, or an
-    #   empty array if the identifier isn't a static string.
+    # @param node [Prism::CallNode] The node to inspect.
+    # @return [Array<String>]
     def extract_usage_names(node)
-      identifier = node.children[2]
-      return [] unless identifier.is_a?(Parser::AST::Node) && identifier.type == :str
+      identifier = call_argument(node, 0)
+      return [] unless identifier.is_a?(Prism::StringNode)
 
-      [identifier.children[0]]
+      [identifier.unescaped]
     end
 
     # Extracts any extra arguments passed at a usage call site, beyond the
@@ -565,18 +541,16 @@ describe "Unused examples" do
     # arguments become nil placeholders rather than being dropped, so indices
     # stay aligned with the shared example's block parameter positions.
     #
-    # @param node [Parser::AST::Node] The node to inspect.
-    # @return [Array<String, nil>] The extra arguments, in order; nil where an
-    #   argument isn't a static string.
+    # @param node [Prism::CallNode] The node to inspect.
+    # @return [Array<String, nil>]
     def extract_call_arguments(node)
-      node.children[3..].map do |arg|
-        arg.children[0] if arg.is_a?(Parser::AST::Node) && arg.type == :str
-      end
+      args = node.arguments&.arguments || []
+      args.drop(1).map { |arg| arg.unescaped if arg.is_a?(Prism::StringNode) }
     end
 
     # Records a usage where the identifier is a local variable rather than a
     # static string, tying it to the nearest enclosing shared example whose
-    # block parameters include that variable name.
+    # parameters include that variable name.
     #
     # @param param [Symbol] The local variable name used as the identifier.
     # @return [void]
@@ -587,87 +561,64 @@ describe "Unused examples" do
       dynamic_usages << { defn:, param: }
     end
 
-    # Extracts the block parameter names from a block's arguments node, e.g.
-    # for `shared_examples "x" do |scenario| ... end`, returns [:scenario].
+    # Extracts the block/lambda parameter names, e.g. for
+    # `shared_examples "x" do |scenario| ... end`, returns [:scenario].
+    # Only required/optional/rest positional parameters are considered,
+    # matching prior behavior (keyword parameters are not tracked).
     #
-    # @param args_node [Parser::AST::Node, nil] The block's arguments node.
-    # @return [Array<Symbol>] The parameter names, in order.
-    def block_param_names(args_node)
-      return [] unless args_node&.type == :args
+    # @param body_node [Prism::BlockNode, Prism::LambdaNode]
+    # @return [Array<Symbol>]
+    def block_param_names(body_node)
+      block_params = body_node&.parameters
+      return [] unless block_params.is_a?(Prism::BlockParametersNode)
 
-      args_node.children.filter_map do |arg|
-        arg.children[0] if [:arg, :optarg, :restarg].include?(arg.type)
-      end
+      params = block_params.parameters
+      return [] unless params
+
+      names = params.requireds.map { |p| p.name if p.respond_to?(:name) }
+      names += params.optionals.map { |p| p.name if p.respond_to?(:name) }
+      names << params.rest.name if params.rest.respond_to?(:name)
+      names.compact
     end
 
-    # Detects if a node is a shared example definition.
+    # Detects if a node is a shared example call (definition form, regardless
+    # of whether it has a block or lambda body attached).
     #
-    # @param node [Parser::AST::Node] The node to inspect.
-    # @return [Boolean] Boolean indicating whether a shared example was
-    #   detected.
-    def shared_example_definition?(node)
-      return false unless node&.type == :block
-
-      send_node = node.children[0]
-      shared_example_call?(send_node)
-    end
-
-    # Detects if a node is a shared example call. Detects both cases, such as:
-    #   shared_examples do "block example" do
-    #     # ...
-    #   end
-    #
-    #   shared_examples "callable example", -> { it_behaves_like "..." }
-    #
-    # @param node [Parser::AST::Node] The node to inspect.
-    # @return [Boolean] Boolean indicating whether a shared example call was
-    #   detected.
+    # @param node [Prism::CallNode] The node to inspect.
+    # @return [Boolean]
     def shared_example_call?(node)
-      return false unless node&.type == :send
-
-      method_name = node.children[1]
-      [:shared_examples, :shared_examples_for, :shared_context].include?(method_name)
+      [:shared_examples, :shared_examples_for, :shared_context].include?(node.name)
     end
 
     # Extracts the shared example name from the shared example caller node.
-    # For example, for
-    #   shared_examples "foobar" do
-    #   end
     #
-    # This would return "foobar".
-    #
-    # @param node [Parser::AST::Node] The node to inspect.
-    # @return [String] The name of the shared example.
+    # @param node [Prism::CallNode] The node to inspect.
+    # @return [String, nil]
     def extract_shared_example_name(node)
-      args = node.children[2..-1]
-      str_node = args.find { |arg| arg&.type == :str }
-      str_node&.children&.[](0)
+      args = node.arguments&.arguments || []
+      str_node = args.find { |arg| arg.is_a?(Prism::StringNode) }
+      str_node&.unescaped
     end
 
     # Detects if a node is a shared example usage.
     #
-    # @param node [Parser::AST::Node] The node to inspect.
-    # @return [Boolean] Boolean indicating whether a shared example usage was
-    #   detected.
+    # @param node [Prism::CallNode] The node to inspect.
+    # @return [Boolean]
     def usage_call?(node)
-      return false unless node&.type == :send
-
-      method_name = node.children[1]
-      [:include_examples, :include_context, :it_behaves_like].include?(method_name)
+      [:include_examples, :include_context, :it_behaves_like].include?(node.name)
     end
 
-    # Detects if a node is a customization block for a shared example, such as:
-    #   it_behaves_like "foobar" do
-    #     let(:customized_variable) { "test" }
-    #   end
+    # Finds the lambda argument in a shared example call, if present, e.g.:
+    #   shared_examples "test", -> { it_behaves_like "foobar" }
     #
-    # @param node [Parser::AST::Node] The node to inspect.
-    # @return [Boolean] Boolean indicating whether a customization block was
-    #   detected.
-    def customization_block?(node)
-      return false unless node&.type == :send
+    # @param node [Prism::CallNode] The node to inspect.
+    # @return [Prism::LambdaNode, nil]
+    def lambda_argument(node)
+      args = node.arguments&.arguments
+      return nil unless args&.any?
 
-      node.children[1] == :it_behaves_like
+      last = args.last
+      last if last.is_a?(Prism::LambdaNode)
     end
   end
 end
