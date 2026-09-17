@@ -156,8 +156,10 @@ describe "Unused examples" do
   # Checks whether a definition is visible from the scope where the usage is
   # defined in.
   #
-  # @param definition_scope [Hash] The scope for the definition.
-  # @param usage_scope [Hash] The scope for the usage.
+  # @param definition_scope [Array<Array<String, Integer, Integer>>]
+  #   The scope stack for the definition.
+  # @param usage_scope [Array<Array<String, Integer, Integer>>]
+  #   The scope stack for the usage.
   # @return [Boolean] A boolean indicating whether the definition is visible in
   #   the scope where the usage is defined.
   def visible_from?(definition_scope, usage_scope)
@@ -379,7 +381,7 @@ describe "Unused examples" do
     # This would return "foobar".
     #
     # @param node [Parser::AST::Node] The node to inspect.
-    # @return [String] The name of the shared example.
+    # @return [Array<String>] The names of the shared example usage.
     def extract_usage_names(node)
       node.children[2..].filter_map do |arg|
         arg.children[0] if arg.is_a?(Parser::AST::Node) && arg.type == :str
