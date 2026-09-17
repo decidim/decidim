@@ -129,6 +129,27 @@ describe "Unused examples" do
     end
   end
 
+  it "does not treat an unrelated extra argument as a usage" do
+    temp_collector(
+      <<~RUBY
+        shared_examples "unrelated" do
+          it { is_expected.to be(true) }
+        end
+
+        shared_examples "subexample" do |label|
+          it { expect(label).to eq(label) }
+        end
+
+        describe "foobar" do
+          it_behaves_like "subexample", "unrelated"
+        end
+      RUBY
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused.map { |defn| defn[:name] }).to eq(["unrelated"])
+    end
+  end
+
   private
 
   # Detects unused shared example definitions from the collector results.
@@ -138,8 +159,12 @@ describe "Unused examples" do
   # @return [Array<Hash>] The actual unused shared example definitions.
   def detect_unused(results)
     definitions = results.flat_map(&:definitions)
+    calls = results.flat_map(&:calls)
+    dynamic_usages = results.flat_map(&:dynamic_usages)
+
     usages = results.flat_map(&:usages)
     usages = filter_recursive_usages(definitions, usages)
+    usages += resolve_dynamic_usages(dynamic_usages, calls)
 
     used = Set.new(resolve_usages(definitions, usages).map(&:object_id))
     definitions.reject { |defn| used.include?(defn.object_id) }
@@ -163,6 +188,45 @@ describe "Unused examples" do
       next false unless candidates
 
       candidates.any? { |d| d[:start_line] <= usage[:line] && usage[:line] <= d[:end_line] }
+    end
+  end
+
+  # Resolves dynamic usages (e.g. `it_behaves_like scenario`, where `scenario`
+  # is a block parameter of the enclosing shared example) against the extra
+  # string arguments passed at call sites that reference that shared example,
+  # such as:
+  #   shared_examples "subexample" do |scenario|
+  #     it_behaves_like scenario
+  #   end
+  #
+  #   it_behaves_like "subexample", "main"
+  #
+  # Here, "main" is only a usage because it's positionally forwarded into
+  # "subexample" as `scenario`; it is not a usage in its own right unless
+  # resolved this way.
+  #
+  # @param dynamic_usages [Array<Hash>] Recorded dynamic usages, each tied to
+  #   the definition whose parameter is being forwarded.
+  # @param calls [Array<Hash>] All call sites, with their target name and any
+  #   extra string arguments passed.
+  # @return [Array<Hash>] Synthetic usages resolved from parameter forwarding.
+  def resolve_dynamic_usages(dynamic_usages, calls)
+    calls_by_target = calls.group_by { |call| call[:target] }
+
+    dynamic_usages.flat_map do |dynamic_usage|
+      defn = dynamic_usage[:defn]
+      index = defn[:params].index(dynamic_usage[:param])
+      next [] unless index
+
+      candidates = calls_by_target[defn[:name]] || []
+      candidates.filter_map do |call|
+        next nil unless visible_from?(defn[:scope], call[:scope])
+
+        name = call[:args][index]
+        next nil unless name
+
+        { name:, file: call[:file], line: call[:line], scope: call[:scope] }
+      end
     end
   end
 
@@ -235,7 +299,7 @@ describe "Unused examples" do
   # definitions and their usages and records these with their scopes for further
   # inspection.
   class SharedExampleCollector < Parser::AST::Processor
-    attr_reader :definitions, :usages
+    attr_reader :definitions, :usages, :calls, :dynamic_usages
 
     # Initializes the collector.
     #
@@ -244,8 +308,11 @@ describe "Unused examples" do
       @parser = parser
       @definitions = []
       @usages = []
+      @calls = []
+      @dynamic_usages = []
       @current_file = nil
       @scope_stack = []
+      @definition_stack = []
     end
 
     # Processes a single file.
@@ -285,12 +352,19 @@ describe "Unused examples" do
         end
         scope_stack.pop
       else
+        defn = nil
         if shared_example_definition?(node)
           name = extract_shared_example_name(node.children[0])
-          record_shared_example(name, node)
+          defn = record_shared_example(name, node, block_param_names(node.children[1]))
         end
 
-        super
+        if defn
+          definition_stack << defn
+          super
+          definition_stack.pop
+        else
+          super
+        end
       end
     end
 
@@ -305,7 +379,7 @@ describe "Unused examples" do
         block_node = node.children[-1]
         if block_node.is_a?(Parser::AST::Node) && block_node.type == :block
           name = extract_shared_example_name(node)
-          record_shared_example(name, node)
+          record_shared_example(name, node, [])
         end
       end
 
@@ -316,7 +390,7 @@ describe "Unused examples" do
 
     private
 
-    attr_reader :parser, :current_file, :scope_stack
+    attr_reader :parser, :current_file, :scope_stack, :definition_stack
 
     # Detects if a node represents an example group within a spec.
     #
@@ -369,47 +443,108 @@ describe "Unused examples" do
     #
     # @param name [String] The name of the shared example.
     # @param node [Parser::AST::Node] The node to record.
-    # @return [void]
-    def record_shared_example(name, node)
-      return if name.nil?
+    # @param params [Array<Symbol>] The block parameter names the shared
+    #   example's block declares, if any (used to resolve dynamic usages such
+    #   as `it_behaves_like scenario` inside its body).
+    # @return [Hash, nil] The recorded definition, or nil if it had no static
+    #   name.
+    def record_shared_example(name, node, params)
+      return nil if name.nil?
 
       expr = node.location.expression
-      definitions << {
+      defn = {
         name:,
         file: current_file,
         start_line: expr.line,
         end_line: expr.last_line,
-        scope: current_scope
+        scope: current_scope,
+        params:
       }
+      definitions << defn
+      defn
     end
 
-    # Records a usage of a shared example.
+    # Records a usage of a shared example. Only the first argument is treated
+    # as the shared-example identifier; any remaining string arguments are
+    # recorded separately as call arguments (see #calls), since they are
+    # parameters passed into the shared example rather than usages themselves.
+    # If the identifier is a local variable (e.g. `it_behaves_like scenario`),
+    # it's recorded as a dynamic usage to be resolved against call arguments
+    # later.
     #
     # @param node [Parser::AST::Node] The node to record.
     # @return [void]
     def record_usage(node)
+      identifier = node.children[2]
       line = node.location.expression.line
+
       extract_usage_names(node).each do |name|
-        usages << {
-          name:,
+        usages << { name:, file: current_file, line:, scope: current_scope }
+        calls << {
+          target: name,
+          args: extract_call_arguments(node),
           file: current_file,
           line:,
           scope: current_scope
         }
       end
+
+      record_dynamic_usage(identifier.children[0]) if identifier.is_a?(Parser::AST::Node) && identifier.type == :lvar
     end
 
-    # Extracts the shared example usage name from the shared example usage
-    # caller node. For example, for
+    # Extracts the shared-example identifier from a usage caller node, i.e.
+    # only the first argument. For example, for
     #   it_behaves_like "foobar"
     #
-    # This would return "foobar".
+    # This would return ["foobar"]. Additional arguments (e.g. "main" in
+    # `it_behaves_like "subexample", "main"`) are not identifiers and are
+    # handled separately by #extract_call_arguments.
     #
     # @param node [Parser::AST::Node] The node to inspect.
-    # @return [Array<String>] The names of the shared example usage.
+    # @return [Array<String>] The name of the shared example usage, or an
+    #   empty array if the identifier isn't a static string.
     def extract_usage_names(node)
-      node.children.drop(2).filter_map do |arg|
+      identifier = node.children[2]
+      return [] unless identifier.is_a?(Parser::AST::Node) && identifier.type == :str
+
+      [identifier.children[0]]
+    end
+
+    # Extracts any extra string arguments passed at a usage call site, beyond
+    # the identifier itself. These are potential values being forwarded into
+    # the shared example's block parameters.
+    #
+    # @param node [Parser::AST::Node] The node to inspect.
+    # @return [Array<String>] The extra string arguments, in order.
+    def extract_call_arguments(node)
+      node.children[3..].filter_map do |arg|
         arg.children[0] if arg.is_a?(Parser::AST::Node) && arg.type == :str
+      end
+    end
+
+    # Records a usage where the identifier is a local variable rather than a
+    # static string, tying it to the nearest enclosing shared example whose
+    # block parameters include that variable name.
+    #
+    # @param param [Symbol] The local variable name used as the identifier.
+    # @return [void]
+    def record_dynamic_usage(param)
+      defn = definition_stack.reverse_each.find { |candidate| candidate[:params]&.include?(param) }
+      return unless defn
+
+      dynamic_usages << { defn:, param: }
+    end
+
+    # Extracts the block parameter names from a block's arguments node, e.g.
+    # for `shared_examples "x" do |scenario| ... end`, returns [:scenario].
+    #
+    # @param args_node [Parser::AST::Node, nil] The block's arguments node.
+    # @return [Array<Symbol>] The parameter names, in order.
+    def block_param_names(args_node)
+      return [] unless args_node&.type == :args
+
+      args_node.children.filter_map do |arg|
+        arg.children[0] if [:arg, :optarg, :restarg].include?(arg.type)
       end
     end
 
