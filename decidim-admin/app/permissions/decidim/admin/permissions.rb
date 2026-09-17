@@ -44,6 +44,7 @@ module Decidim
           allow! if user_action?
           allow! if admin_user_action?
           allow! if moderate_user_action?
+          allow! if resource_permission_action?
 
           allow! if permission_action.subject == :component
           allow! if permission_action.subject == :attachment
@@ -253,6 +254,13 @@ module Decidim
         else
           true
         end
+      end
+
+      def resource_permission_action?
+        return unless permission_action.subject == :resource_permission &&
+                      permission_action.action == :update
+
+        true
       end
 
       def organization

@@ -33,9 +33,7 @@ module Decidim
           @current_initiative ||= detect_initiative
         end
 
-        def current_participatory_space
-          current_initiative
-        end
+        alias_method :current_participatory_space, :current_initiative
 
         private
 
