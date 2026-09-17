@@ -130,7 +130,7 @@ with `crontab`, although alternatively you could use `whenever` gem or the sched
 0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:sessions:cleanup
 ```
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
 
 ### 4.2. [[TITLE OF THE TASK]]
 

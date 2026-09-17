@@ -99,7 +99,7 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 
 [source,console]
 ----
-# Remove obsolete sessions
+# Remove old sessions
 0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:sessions:cleanup
 
 # Remove expired download your data files
