@@ -150,6 +150,46 @@ describe "Unused examples" do
     end
   end
 
+  it "records dynamic usages inside a lambda-form shared example" do
+    temp_collector(
+      <<~RUBY
+        shared_examples "main" do
+          it { is_expected.to be(true) }
+        end
+
+        shared_examples "subexample", ->(scenario) { it_behaves_like scenario }
+
+        describe "foobar" do
+          it_behaves_like "subexample", "main"
+        end
+      RUBY
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).to be_empty
+    end
+  end
+
+  it "keeps argument positions aligned when a non-string argument precedes a forwarded name" do
+    temp_collector(
+      <<~RUBY
+        shared_examples "main" do
+          it { is_expected.to be(true) }
+        end
+
+        shared_examples "subexample" do |ignored, scenario|
+          it_behaves_like scenario
+        end
+
+        describe "foobar" do
+          it_behaves_like "subexample", SOME_CONST, "main"
+        end
+      RUBY
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).to be_empty
+    end
+  end
+
   private
 
   # Detects unused shared example definitions from the collector results.
@@ -379,7 +419,17 @@ describe "Unused examples" do
         block_node = node.children[-1]
         if block_node.is_a?(Parser::AST::Node) && block_node.type == :block
           name = extract_shared_example_name(node)
-          record_shared_example(name, node, [])
+          defn = record_shared_example(name, node, block_param_names(block_node.children[1]))
+
+          # Keep the definition on the stack while traversing the lambda body, so
+          # a dynamic usage inside it (e.g. `it_behaves_like scenario`) resolves
+          # against this definition's params — same treatment as the `do...end`
+          # block form.
+          definition_stack << defn if defn
+          process(block_node)
+          definition_stack.pop if defn
+
+          return node
         end
       end
 
@@ -510,14 +560,16 @@ describe "Unused examples" do
       [identifier.children[0]]
     end
 
-    # Extracts any extra string arguments passed at a usage call site, beyond
-    # the identifier itself. These are potential values being forwarded into
-    # the shared example's block parameters.
+    # Extracts any extra arguments passed at a usage call site, beyond the
+    # identifier itself, preserving their original positions. Non-string
+    # arguments become nil placeholders rather than being dropped, so indices
+    # stay aligned with the shared example's block parameter positions.
     #
     # @param node [Parser::AST::Node] The node to inspect.
-    # @return [Array<String>] The extra string arguments, in order.
+    # @return [Array<String, nil>] The extra arguments, in order; nil where an
+    #   argument isn't a static string.
     def extract_call_arguments(node)
-      node.children[3..].filter_map do |arg|
+      node.children[3..].map do |arg|
         arg.children[0] if arg.is_a?(Parser::AST::Node) && arg.type == :str
       end
     end
