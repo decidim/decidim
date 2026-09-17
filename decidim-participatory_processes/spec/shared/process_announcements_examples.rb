@@ -65,7 +65,7 @@ shared_examples "manage processes announcements" do
     end
   end
 
-  it "does not updated the blank announcement element if announcement body is empty" do
+  it "does not update the blank announcement element if the announcement body is empty" do
     visit decidim_admin_participatory_processes.edit_participatory_process_landing_page_content_block_path(participatory_process, content_block)
     expect(page).to have_css("h1", text: "Announcement")
 
