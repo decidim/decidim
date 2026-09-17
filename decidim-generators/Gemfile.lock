@@ -632,7 +632,7 @@ GEM
       activerecord (>= 7.1)
       request_store (~> 1.4)
     parallel (2.2.0)
-    parallel_tests (5.7.0)
+    parallel_tests (5.8.0)
       parallel
     paranoia (3.1.0)
       activerecord (>= 7, < 8.2)
