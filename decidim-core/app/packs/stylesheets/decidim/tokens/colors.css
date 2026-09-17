@@ -66,9 +66,9 @@
     --color-color-slate-200: #a6adb4; 
     --color-color-slate-300: #7e8792; 
     --color-color-slate-400: #65707d; 
-    --color-color-slate-500: #3e4c5c; 
-    --color-color-slate-600: #384554; 
-    --color-color-slate-700: #2c3641; 
+    --color-color-slate-500: #49596a; 
+    --color-color-slate-600: #394858; 
+    --color-color-slate-700: #333e4a; 
     --color-color-slate-800: #222a33; 
     --color-color-alphas-white-0: #ffffff00; 
     --color-color-alphas-white-25: #ffffff40; 
@@ -109,9 +109,9 @@
     --color-color-bg-neutral-interactive-dark-hover: #d4d4d4; /* background */
     --color-color-bg-neutral-light: #ffffff; /* background */
     --color-color-bg-neutral-dark: #fafafa; /* background */
-    --color-color-bg-inverted-interactive-dark-default: #ffffff; /* background */
-    --color-color-bg-inverted-interactive-dark-hover: #ffffffbf; /* background */
-    --color-color-bg-inverted-interactive-dark-active: #ffffff; /* background */
+    --color-color-bg-neutral-interactive-high-light-default: #ffffff00; /* background */
+    --color-color-bg-neutral-interactive-high-light-hover: #333e4a; /* background */
+    --color-color-bg-neutral-interactive-high-light-active: #222a33; /* background */
     --color-color-bg-inverted-interactive-light-default: #ffffff00; /* background */
     --color-color-bg-inverted-interactive-light-hover: #ffffff40; /* background */
     --color-color-bg-inverted-interactive-light-active: #ffffff00; /* background */
@@ -127,7 +127,7 @@
     --color-color-bg-base-light: #ecedef; /* background */
     --color-color-bg-base-dark: #65707d; /* background */
     --color-color-bg-info-light: #e8eff9; /* background */
-    --color-color-bg-neutral-high-light: #3e4c5c; /* background */
+    --color-color-bg-neutral-high-light: #49596a; /* background */
     --color-color-bg-neutral-high-dark: #000000; /* background */
     --color-color-text-link-visited: #92278f; 
     --color-color-text-link-primary-default: #e02d2d; 
@@ -151,7 +151,7 @@
     --color-color-text-alert-light: #fceaea; 
     --color-color-text-alert-dark: #cc2929; 
     --color-color-text-base-light: #ecedef; 
-    --color-color-text-base-dark: #3e4c5c; 
+    --color-color-text-base-dark: #49596a; 
     --color-color-text-info-dark: #155abf; 
     --color-color-icon-link-primary-default: #e02d2d; 
     --color-color-icon-link-primary-hover: #cc2929; /* icon */

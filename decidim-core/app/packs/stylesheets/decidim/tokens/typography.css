@@ -101,7 +101,7 @@
   } 
 
   /* 18 */ 
-  .typography-headline-lg-regular {
+  .typography-text-lg-regular {
     font-family: "Source Sans Pro";
     font-style: normal;
     font-weight: 400;
@@ -112,7 +112,7 @@
   } 
 
   /* 18 */ 
-  .typography-text-18-semibold {
+  .typography-text-lg-semibold {
     font-family: "Source Sans Pro";
     font-style: normal;
     font-weight: 600;
@@ -173,6 +173,17 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
+    letter-spacing: 0px;
+    text-indent: 0px;
+  } 
+
+  /* 16 */ 
+  .typography-text-md-semibold {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
     letter-spacing: 0px;
     text-indent: 0px;
   } 

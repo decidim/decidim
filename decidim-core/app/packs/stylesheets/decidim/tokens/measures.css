@@ -53,6 +53,10 @@
     --measure-border-radius-border-radius-3xl: 24px; /* 24 */    
     --measure-border-radius-border-radius-4xl: 32px; /* 32 */    
     --measure-border-radius-border-radius-full: 1000px; /* 1000, Radio button, Dropdown-pagination, Item-navegation, Progress bar, Avatar, Toggle */    
+    --measure-dimension-typography-fontweight-bold-2: 700px;     
+    --measure-dimension-typography-fontweight-semibold-2: 600px;     
+    --measure-dimension-typography-fontweight-regular-2: 400px;     
+    --measure-dimension-test: 400px;     
     --measure-size-range-minwidth: 1536px;     
     --measure-font-size-typography-fontsize-5xl: 48px; /* header, 48 */    
     --measure-font-size-typography-fontsize-4xl: 36px; /* header, 36 */    
@@ -64,5 +68,5 @@
     --measure-line-height-typography-lineheight-3xl: 40px;     
     --measure-line-height-typography-lineheight-2xl: 30px;     
     --measure-line-height-typography-lineheight-xl: 28px;     
-    --measure-space-container-padding-padding: 64px;     
+    --measure-space-container-padding: 64px;     
 }
