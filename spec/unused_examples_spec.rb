@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-# Not using parser/current because it can print out warnings.
-require "parser/ruby#{RUBY_VERSION[0..2].delete(".")}"
+require "prism"
+require "prism/translation/parser"
 require "parallel"
 require "tempfile"
 
 describe "Unused examples" do
-  let(:parser) { Parser.const_get("Ruby#{RUBY_VERSION[0..2].delete(".")}") }
+  let(:parser) { Prism::Translation::ParserCurrent }
   let(:ruby_files) do
     root = File.expand_path("..", __dir__)
     files = Dir.glob(File.join(root, "**", "{spec,test}", "**", "*.rb"))
