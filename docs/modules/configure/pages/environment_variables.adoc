@@ -564,13 +564,6 @@ Notice that this is also maximum time that user can idle before getting automati
 |30
 |No
 
-|DECIDIM_REMOVE_SESSIONS_AFTER
-|In days, how long an expired session can remain in the system before it is purged.
-
-Notice that logging out removes the session immediately, regardless of this setting.
-|3
-|No
-
 |DECIDIM_ENABLE_REMEMBER_ME
 |If set to true, users have option to "remember me".
 
@@ -1000,6 +993,13 @@ Note that this only applies to production environments.
 |SLOW_SEEDS
 |If seeding an environment that needs to have more data, please use `SLOW_SEEDS` environment variable to add it.
 |false
+|No
+
+|SESSION_DAYS_TRIM_THRESHOLD
+|In days, how long an expired session can remain in the system before it is purged.
+
+Notice that logging out removes the session immediately, regardless of this setting.
+|3
 |No
 
 |===
