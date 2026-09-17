@@ -26,6 +26,7 @@ module Decidim
 
         allow! if user_can_enter_space_area?(require_admin_terms_accepted: true)
 
+        accept_admin_terms_action?
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
@@ -88,6 +89,13 @@ module Decidim
 
       def user_manager?
         user && !user.admin? && user.role?("user_manager")
+      end
+
+      def accept_admin_terms_action?
+        return unless permission_action.subject == :admin_terms &&
+                      permission_action.action == :accept
+
+        allow! if user.admin? || user_has_any_role?(user, nil, broad_check: true)
       end
 
       def read_admin_dashboard_action?

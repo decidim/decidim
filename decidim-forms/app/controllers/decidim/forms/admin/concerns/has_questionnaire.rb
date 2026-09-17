@@ -24,16 +24,6 @@ module Decidim
               include Decidim::Templates::Admin::Concerns::Templatable
 
               helper Decidim::DatalistSelectHelper
-
-              protected
-
-              def templatable_type
-                "Decidim::Forms::Questionnaire"
-              end
-
-              def templatable
-                questionnaire
-              end
             end
 
             def edit
@@ -104,6 +94,16 @@ module Decidim
             end
 
             protected
+
+            if defined?(Decidim::Templates::Admin::Concerns::Templatable)
+              def templatable_type
+                "Decidim::Forms::Questionnaire"
+              end
+
+              def templatable
+                questionnaire
+              end
+            end
 
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.

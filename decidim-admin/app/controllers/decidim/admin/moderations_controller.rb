@@ -73,7 +73,8 @@ module Decidim
       end
 
       def bulk_action
-        enforce_permission_to :bulk_action, :moderation
+        enforce_permission_to :bulk_action, authorization_scope
+
         Admin::BulkAction.call(current_user, params[:bulk_action], selected_moderations) do
           on(:ok) do |ok, ko|
             flash[:notice] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.success", scope: "decidim.moderations.admin", count_ok: ok.count) if ok.count.positive?
