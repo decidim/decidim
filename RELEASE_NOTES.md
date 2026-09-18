@@ -84,7 +84,22 @@ We strongly recommend that implementers review any custom authorization handlers
 
 You can read more about this change on PR [#17639](https://github.com/decidim/decidim/pull/17639).
 
-### 2.4. [[TITLE OF THE ACTION]]
+### 2.4. Sessions are stored to database
+
+As of this release, the user sessions are stored in the database, for improved security.
+
+There is a new cron job that you need to set, in order to clean obsolete values.
+
+```console
+rake db:sessions:trim
+```
+
+Additionally, you can set `SESSION_DAYS_TRIM_THRESHOLD` to purge expired sessions (e.g., when a user closes the browser without logging out).
+The default is 3 days. This setting is independent of `DECIDIM_EXPIRE_SESSION_AFTER`, but it should typically be greater than the session expiry to avoid removing still-valid sessions.
+
+You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
+
+### 2.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -108,7 +123,16 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
 with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-### 4.1. [[TITLE OF THE TASK]]
+### 4.1. Remove obsolete sessions
+
+```bash
+# Remove obsolete sessions
+0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake db:sessions:trim
+```
+
+You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
+
+### 4.2. [[TITLE OF THE TASK]]
 
 ```bash
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK

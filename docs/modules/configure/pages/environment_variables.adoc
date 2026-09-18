@@ -995,6 +995,13 @@ Note that this only applies to production environments.
 |false
 |No
 
+|SESSION_DAYS_TRIM_THRESHOLD
+|In days, how long an expired session can remain in the system before it is purged.
+
+Notice that logging out removes the session immediately, regardless of this setting.
+|3
+|No
+
 |===
 
 Please take care that all these configurations would be the defaults but *some of these could also be changed on a Multitenant's System configuration* (for instance SMTP or OAUTH providers).
