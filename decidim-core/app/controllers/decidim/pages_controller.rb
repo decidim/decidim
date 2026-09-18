@@ -10,6 +10,10 @@ module Decidim
 
     before_action :legacy_redirect, :set_default_request_format
 
+    # Included after the legacy redirect so its before_action does not look the
+    # page up (and 404) before the redirect happens.
+    include HasSpecificBreadcrumb
+
     def index
       enforce_permission_to :read, :public_page
       @topics = StaticPageTopic.where(organization: current_organization)
@@ -17,13 +21,37 @@ module Decidim
     end
 
     def show
-      @page = current_organization.static_pages.find_by!(slug: params.expect(:id))
+      @page = page
       enforce_permission_to :read, :public_page, page: @page
       @topic = @page.topic
       @pages = @topic&.pages
     end
 
     private
+
+    def page
+      @page ||= current_organization.static_pages.find_by!(slug: params.expect(:id))
+    end
+
+    def breadcrumb_item
+      items = [
+        {
+          label: t("decidim.pages.index.title"),
+          active: action_name == "index",
+          url: pages_path
+        }
+      ]
+
+      if action_name == "show"
+        items << {
+          label: page.title,
+          active: true,
+          url: page_path(page)
+        }
+      end
+
+      items
+    end
 
     def legacy_redirect
       return redirect_to decidim.page_path("terms-of-service") if params[:id] == "terms-and-conditions"
