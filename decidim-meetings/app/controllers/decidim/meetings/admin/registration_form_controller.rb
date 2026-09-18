@@ -7,12 +7,18 @@ module Decidim
       class RegistrationFormController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
 
+        protected
+
         def questionnaire_for
           meeting
         end
 
         def update_url
           meeting_registrations_form_path(meeting_id: meeting.id)
+        end
+
+        def response_options_url(params)
+          Decidim::EngineRouter.admin_proxy(meeting.component).response_options_meeting_registrations_form_path(meeting_id: meeting.id, **params)
         end
 
         def after_update_url

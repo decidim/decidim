@@ -43,6 +43,8 @@ module Decidim
           end
         end
 
+        protected
+
         def questionnaire
           @questionnaire ||= Decidim::Forms::Questionnaire.find_by(questionnaire_for:)
         end

@@ -8,6 +8,8 @@ module Decidim
       class ConferenceUserRolesController < Decidim::Admin::ParticipatorySpace::UserRoleController
         include Concerns::ConferenceAdmin
 
+        protected
+
         def authorization_scope = :conference_user_role
 
         def resource_form = form(ConferenceUserRoleForm)

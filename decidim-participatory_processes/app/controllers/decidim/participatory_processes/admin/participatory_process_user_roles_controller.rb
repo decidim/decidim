@@ -8,6 +8,8 @@ module Decidim
       class ParticipatoryProcessUserRolesController < Decidim::Admin::ParticipatorySpace::UserRoleController
         include Concerns::ParticipatoryProcessAdmin
 
+        protected
+
         def authorization_scope = :process_user_role
 
         def resource_form = form(ParticipatoryProcessUserRoleForm)

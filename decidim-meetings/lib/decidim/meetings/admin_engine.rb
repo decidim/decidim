@@ -12,8 +12,6 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        get "/response_options", to: "registration_form#response_options", as: :response_options_meeting
-
         resources :meetings do
           member do
             put :publish
@@ -30,6 +28,7 @@ module Decidim
               member do
                 get :edit_questions
                 patch :update_questions
+                get :response_options
               end
             end
             collection do
@@ -49,7 +48,9 @@ module Decidim
           resources :attachment_collections, except: [:show]
           resources :attachments, except: [:show]
           resources :copies, controller: "meeting_copies", only: [:new, :create]
-          resource :poll, only: [:edit, :update], controller: "meetings_poll"
+          resource :poll, only: [:edit, :update], controller: "meetings_poll" do
+            get :response_options
+          end
           get :manage_trash, on: :collection
         end
         root to: "meetings#index"

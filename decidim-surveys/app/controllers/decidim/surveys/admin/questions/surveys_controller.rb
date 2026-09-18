@@ -11,6 +11,8 @@ module Decidim
 
           helper_method :surveys
 
+          protected
+
           def edit_questions_template
             "decidim/surveys/admin/questions/surveys/edit"
           end
@@ -21,6 +23,10 @@ module Decidim
 
           def after_update_url
             edit_questions_questions_survey_path(survey)
+          end
+
+          def response_options_url(params)
+            Decidim::EngineRouter.admin_proxy(survey.component).response_options_survey_questions_path(survey.id, **params)
           end
 
           def questionnaire_participants_url
@@ -39,7 +45,7 @@ module Decidim
           private
 
           def survey
-            @survey ||= Decidim::Surveys::Survey.where(component: current_component).find(params.expect(:id))
+            @survey ||= Decidim::Surveys::Survey.where(component: current_component).find(params[:survey_id] || params.expect(:id))
           end
         end
       end

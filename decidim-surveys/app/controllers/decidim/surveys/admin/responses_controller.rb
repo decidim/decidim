@@ -26,6 +26,8 @@ module Decidim
           render template: "decidim/surveys/admin/responses/show"
         end
 
+        protected
+
         def questionnaire_for
           @questionnaire_for ||= Decidim::Surveys::Survey.where(component: current_component).find_by(id: params[:survey_id])
         end

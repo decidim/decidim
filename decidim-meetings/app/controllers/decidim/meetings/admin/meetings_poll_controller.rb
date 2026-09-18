@@ -52,6 +52,8 @@ module Decidim
           end
         end
 
+        protected
+
         def response_options
           respond_to do |format|
             format.json do
@@ -69,7 +71,7 @@ module Decidim
         # Returns the url to get the response options json (for the display conditions form)
         # for the question with id = params[:id]
         def response_options_url(params)
-          url_for([questionnaire.questionnaire_for, { action: :response_options, format: :json, **params }])
+          Decidim::EngineRouter.admin_proxy(meeting.component).response_options_meeting_poll_path(meeting_id: meeting.id, **params)
         end
 
         # Implement this method in your controller to set the title

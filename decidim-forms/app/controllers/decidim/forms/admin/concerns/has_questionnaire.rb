@@ -24,14 +24,6 @@ module Decidim
               include Decidim::Templates::Admin::Concerns::Templatable
 
               helper Decidim::DatalistSelectHelper
-
-              def templatable_type
-                "Decidim::Forms::Questionnaire"
-              end
-
-              def templatable
-                questionnaire
-              end
             end
 
             def edit
@@ -90,12 +82,26 @@ module Decidim
             end
 
             def response_options
+              enforce_permission_to(:update, permission_subject, questionnaire:)
+
               respond_to do |format|
                 format.json do
                   question_id = params["id"]
                   question = Question.find_by(id: question_id)
                   render json: question.response_options.map { |response_option| ResponseOptionPresenter.new(response_option).as_json } if question.present?
                 end
+              end
+            end
+
+            protected
+
+            if defined?(Decidim::Templates::Admin::Concerns::Templatable)
+              def templatable_type
+                "Decidim::Forms::Questionnaire"
+              end
+
+              def templatable
+                questionnaire
               end
             end
 

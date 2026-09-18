@@ -17,6 +17,16 @@ module Decidim
                              ::Decidim::Initiatives::Permissions,
                              ::Decidim::Admin::Permissions)
 
+        def edit
+          enforce_permission_to :update, :initiatives_type, initiatives_type: resource
+          super
+        end
+
+        def update
+          enforce_permission_to :update, :initiatives_type, initiatives_type: resource
+          super
+        end
+
         def permission_class_chain
           ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::Admin::InitiativesTypesPermissionsController)
         end

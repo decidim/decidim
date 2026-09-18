@@ -18,9 +18,12 @@ module Decidim
 
         before_action :check_admin_session_filters, only: [:index]
 
-        def index; end
+        def index
+          enforce_permission_to :read, :proposal
+        end
 
         def show
+          enforce_permission_to :read, :proposal
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(Admin::ProposalAnswerForm).from_model(proposal)
         end

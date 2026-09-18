@@ -10,8 +10,6 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        get "/response_options", to: "questions/surveys#response_options", as: :response_options_survey
-
         resources :surveys do
           member do
             put :publish
@@ -20,6 +18,7 @@ module Decidim
             namespace :questions do
               get :edit_questions
               patch :update_questions
+              get :response_options
               get :edit
               patch :update
             end
