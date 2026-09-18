@@ -24,5 +24,6 @@ describe Decidim::FollowingCell, type: :cell do
     subject
 
     expect(Decidim::User).to have_received(:allocate).exactly(20).times
+    expect(my_cell.public_followings.count).to eq(20)
   end
 end
