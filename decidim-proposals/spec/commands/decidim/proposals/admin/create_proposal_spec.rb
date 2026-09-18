@@ -34,11 +34,12 @@ module Decidim
         let(:meeting_id) { nil }
 
         describe "call" do
+          let(:title) { { en: "A reasonable proposal title" } }
           let(:body) { { en: "A reasonable proposal body" } }
 
           let(:form_params) do
             {
-              title: { en: "A reasonable proposal title" },
+              title:,
               body:,
               address:,
               has_address:,
@@ -162,6 +163,19 @@ module Decidim
                 proposal = Decidim::Proposals::Proposal.last
 
                 expect(proposal.body["en"]).to include(mentioned_user.to_global_id.to_s)
+              end
+            end
+
+            context "when title has a user mention" do
+              let(:mentioned_user) { create(:user, :confirmed, organization:) }
+              let(:title) { { en: "A reasonable proposal title mentioning @#{mentioned_user.nickname}" } }
+
+              it "does not rewrite the mention to the mentioned user GID" do
+                command.call
+                proposal = Decidim::Proposals::Proposal.last
+
+                expect(translated(proposal.title)).not_to include(mentioned_user.to_global_id.to_s)
+                expect(translated(proposal.title)).to include("@#{mentioned_user.nickname}")
               end
             end
 

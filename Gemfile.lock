@@ -77,9 +77,10 @@ PATH
       fog-local (~> 0.6)
       geocoder (~> 1.8)
       hashdiff (>= 0.4.0, < 2.0.0)
-      hexapdf (>= 1.1, < 1.10)
+      hexapdf (>= 1.1, < 1.11)
       image_processing (>= 1.2, < 3.0)
       invisible_captcha (>= 0.12, < 3.0)
+      json (< 3.0)
       kaminari (~> 1.2, >= 1.2.1)
       loofah (~> 2.19, >= 2.19.1)
       mime-types (>= 1.16, < 4.0)
@@ -97,7 +98,7 @@ PATH
       premailer-rails (~> 1.10)
       rack (>= 3.2.4, < 4.0)
       rack-attack (>= 6.7, < 6.9)
-      rack-proxy (~> 0.8.3, < 1.0)
+      rack-proxy (>= 0.8.3, < 2.1.0)
       rails (~> 8.1.0)
       rails-i18n (~> 8.1.0, < 8.2)
       ransack (>= 4.2, < 4.5)
@@ -120,7 +121,7 @@ PATH
     decidim-design (0.33.0.dev)
       decidim-core (= 0.33.0.dev)
     decidim-dev (0.33.0.dev)
-      bullet (~> 8.1.0)
+      bullet (>= 8.1, < 8.3)
       byebug (>= 11, < 14)
       capybara (~> 3.39)
       decidim-admin (= 0.33.0.dev)
@@ -143,7 +144,7 @@ PATH
       rspec-rails (>= 6, < 9)
       rspec-retry (~> 0.6.2)
       rspec_junit_formatter (~> 0.6.0)
-      rubocop (>= 1.78, < 1.90)
+      rubocop (>= 1.78, < 1.92)
       rubocop-capybara (>= 2.22.1, < 3.1)
       rubocop-factory_bot (>= 2.27, < 2.29)
       rubocop-faker (~> 1.3, >= 1.3.0)
@@ -155,7 +156,7 @@ PATH
       rubocop-rubycw (~> 0.2.0)
       rubocop-yard (>= 1.0, < 1.4)
       selenium-webdriver (~> 4.9)
-      simplecov (>= 1.0, < 1.2)
+      simplecov (>= 1.0, < 1.4)
       spring (~> 4.0)
       spring-watcher-listen (~> 2.0)
       w3c_rspec_validators (~> 0.3.0)
@@ -302,15 +303,15 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (4.1.2)
+    bigdecimal (4.1.3)
     bindex (0.8.1)
-    bootsnap (1.25.0)
+    bootsnap (1.26.0)
       msgpack (~> 1.5)
     brakeman (8.0.6)
       racc
     browser (6.2.0)
     builder (3.3.0)
-    bullet (8.1.3)
+    bullet (8.2.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (13.0.0)
@@ -386,7 +387,7 @@ GEM
     doc2text (0.4.11)
       nokogiri (~> 1.19)
       rubyzip (~> 3.2)
-    doorkeeper (5.9.6)
+    doorkeeper (5.9.7)
       railties (>= 5)
     doorkeeper-i18n (5.2.9)
       doorkeeper (>= 5.2)
@@ -457,7 +458,7 @@ GEM
     google-protobuf (4.33.5-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    graphql (2.6.9)
+    graphql (2.6.10)
       base64
       fiber-storage
       logger
@@ -473,7 +474,7 @@ GEM
     hashdiff (1.2.1)
     hashie (5.1.0)
       logger
-    hexapdf (1.9.1)
+    hexapdf (1.10.0)
       cmdparse (~> 3.0, >= 3.0.3)
       geom2d (~> 0.4, >= 0.4.1)
       openssl (>= 2.2.1)
@@ -504,10 +505,10 @@ GEM
       logger
       ostruct
     ice_cube (0.17.0)
-    image_processing (2.0.3)
+    image_processing (2.1.0)
     invisible_captcha (2.3.0)
       rails (>= 5.2)
-    io-console (0.9.2)
+    io-console (0.9.3)
     irb (1.18.0)
       pp (>= 0.6.0)
       prism (>= 1.3.0)
@@ -575,7 +576,7 @@ GEM
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.2)
+    net-protocol (0.3.0)
       timeout
     net-smtp (0.5.1)
       net-protocol
@@ -612,8 +613,8 @@ GEM
     omniauth-facebook (11.0.0)
       bigdecimal
       omniauth-oauth2 (>= 1.2, < 3)
-    omniauth-google-oauth2 (1.2.2)
-      jwt (>= 2.9.2)
+    omniauth-google-oauth2 (1.2.3)
+      jwt (>= 2.9.2, < 4)
       oauth2 (~> 2.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
@@ -638,8 +639,8 @@ GEM
     paper_trail (17.0.0)
       activerecord (>= 7.1)
       request_store (~> 1.4)
-    parallel (2.1.0)
-    parallel_tests (5.7.0)
+    parallel (2.2.0)
+    parallel_tests (5.8.0)
       parallel
     paranoia (3.1.0)
       activerecord (>= 7, < 8.2)
@@ -648,9 +649,9 @@ GEM
       racc
     pg (1.6.3-arm64-darwin)
     pg (1.6.3-x86_64-linux)
-    pg_search (2.3.8)
-      activerecord (>= 7.2)
-      activesupport (>= 7.2)
+    pg_search (2.4.0)
+      activerecord (>= 8.0)
+      activesupport (>= 8.0)
     pp (0.6.4)
       prettyprint
     premailer (1.27.0)
@@ -677,8 +678,8 @@ GEM
       base64 (>= 0.1.0)
       logger (>= 1.6.0)
       rack (>= 3.0.0, < 4)
-    rack-proxy (0.8.3)
-      rack
+    rack-proxy (2.0.0)
+      rack (>= 2.0, < 4)
     rack-session (2.1.2)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -732,7 +733,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rbs (4.1.3)
+    rbs (4.2.0)
       logger
       prism (>= 1.6.0)
       tsort
@@ -790,8 +791,8 @@ GEM
     rspec-support (3.13.7)
     rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
-    rubocop (1.89.0)
-      json (~> 2.3)
+    rubocop (1.91.0)
+      json (>= 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
       parallel (>= 1.10)
@@ -849,13 +850,13 @@ GEM
     rubyXL (3.4.38)
       nokogiri (>= 1.10.8)
       rubyzip (>= 3.2.2)
-    rubyzip (3.5.0)
+    rubyzip (3.6.0)
     sass-embedded (1.97.3-arm64-darwin)
       google-protobuf (~> 4.31)
     sass-embedded (1.97.3-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
     securerandom (0.4.1)
-    selenium-webdriver (4.47.0)
+    selenium-webdriver (4.49.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -864,13 +865,13 @@ GEM
     selma (0.4.15-arm64-darwin)
     selma (0.4.15-x86_64-linux)
     semantic_range (3.1.1)
-    shakapacker (10.3.1)
+    shakapacker (10.3.2)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    simplecov (1.1.1)
+    simplecov (1.3.0)
     smart_properties (1.17.0)
     snaky_hash (2.0.7)
       hashie (>= 0.1.0, < 6)
@@ -897,10 +898,10 @@ GEM
     uniform_notifier (1.18.0)
     uri (1.1.1)
     useragent (0.16.11)
-    valid_email2 (7.0.15)
+    valid_email2 (7.1.0)
       activemodel (>= 6.0)
       mail (~> 2.5)
-    version_gem (1.1.14)
+    version_gem (1.1.15)
     w3c_rspec_validators (0.3.0)
       rails
       rspec
@@ -923,7 +924,7 @@ GEM
     web-push (3.1.0)
       jwt (~> 3.0)
       openssl (>= 3.0)
-    webmock (3.26.2)
+    webmock (3.26.4)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -945,7 +946,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap (~> 1.25)
+  bootsnap (~> 1.26)
   brakeman (~> 8.0)
   byebug (~> 13.0)
   decidim!
@@ -960,7 +961,7 @@ DEPENDENCIES
   decidim-templates!
   letter_opener_web (~> 3.0)
   listen (~> 3.10)
-  parallel_tests (~> 5.7)
+  parallel_tests (~> 5.8)
   puma (>= 6.3.1)
   web-console (~> 4.3)
 
