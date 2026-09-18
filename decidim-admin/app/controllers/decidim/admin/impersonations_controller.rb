@@ -82,7 +82,7 @@ module Decidim
         )
         return nil unless handler.unique_id
 
-        existing_authorization = Authorization.find_by(
+        existing_authorization = Authorization.find_by( # rubocop:disable Decidim/OrganizationScopedFinder -- user: subquery scopes to current_organization
           user: User.where(organization: current_organization),
           name: handler_name,
           unique_id: handler.unique_id
