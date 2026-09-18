@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "ostruct"
 
 describe Decidim::Admin::Import::Importer do
   subject { described_class.new(file: blob, reader:, creator:, context:) }
@@ -47,6 +48,47 @@ describe Decidim::Admin::Import::Importer do
           subject.import!
         end.to change(Decidim::Proposals::Proposal, :count).by(3)
       end
+
+      it "calls the creator batch notifier with import creator class in context" do
+        notifier = instance_double(Decidim::Proposals::Import::BatchNotifier, notify!: nil)
+        allow(Decidim::Proposals::Import::BatchNotifier).to receive(:new).and_return(notifier)
+
+        subject.prepare
+        subject.import!
+
+        expect(Decidim::Proposals::Import::BatchNotifier).to have_received(:new).with(
+          collection: kind_of(Array),
+          context: hash_including(
+            current_organization: organization,
+            current_user: user,
+            current_component:,
+            current_participatory_space: participatory_process,
+            import_creator_class: creator
+          )
+        )
+        expect(notifier).to have_received(:notify!)
+      end
+
+      it "calls batch notifier when context is an OpenStruct" do
+        notifier = instance_double(Decidim::Proposals::Import::BatchNotifier, notify!: nil)
+        allow(Decidim::Proposals::Import::BatchNotifier).to receive(:new).and_return(notifier)
+
+        importer = described_class.new(file: blob, reader:, creator:, context: OpenStruct.new(context))
+        importer.prepare
+        importer.import!
+
+        expect(Decidim::Proposals::Import::BatchNotifier).to have_received(:new).with(
+          collection: kind_of(Array),
+          context: hash_including(
+            current_organization: organization,
+            current_user: user,
+            current_component:,
+            current_participatory_space: participatory_process,
+            import_creator_class: creator
+          )
+        )
+        expect(notifier).to have_received(:notify!)
+      end
     end
   end
 
@@ -62,5 +104,24 @@ describe Decidim::Admin::Import::Importer do
     let(:reader) { Decidim::Admin::Import::Readers::XLSX }
 
     it_behaves_like "proposal importer"
+  end
+
+  context "when reader returns blank rows" do
+    let(:blob) { upload_test_file(Decidim::Dev.asset("import_proposals.csv"), return_blob: true) }
+    let(:reader) do
+      Class.new(Decidim::Admin::Import::Readers::Base) do
+        def read_rows
+          yield %w(title/en body/en), 0
+          yield ["Imported title", "Imported body"], 1
+          yield [nil, nil], 2
+          yield ["", ""], 3
+          yield [], 4
+        end
+      end
+    end
+
+    it "ignores blank rows when preparing the collection" do
+      expect(subject.prepare.length).to eq(1)
+    end
   end
 end
