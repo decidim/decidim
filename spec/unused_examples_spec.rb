@@ -188,6 +188,33 @@ describe "Unused examples" do
     end
   end
 
+  it "detects recursive lambda usage" do
+    temp_collector(
+      %(shared_examples "foobar", lambda { it_behaves_like "foobar" })
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).not_to be_empty
+    end
+  end
+
+  it "detects recursive proc usage" do
+    temp_collector(
+      %(shared_examples "foobar", proc { it_behaves_like "foobar" })
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).not_to be_empty
+    end
+  end
+
+  it "detects recursive proc arrow usage" do
+    temp_collector(
+      %(shared_examples "foobar", -> { it_behaves_like "foobar" })
+    ) do |collector|
+      unused = detect_unused([collector])
+      expect(unused).not_to be_empty
+    end
+  end
+
   private
 
   # Detects unused shared example definitions from the collector results.
@@ -608,17 +635,27 @@ describe "Unused examples" do
       [:include_examples, :include_context, :it_behaves_like].include?(node.name)
     end
 
-    # Finds the lambda argument in a shared example call, if present, e.g.:
+    # Finds the lambda/proc argument in a shared example call, if present,
+    # e.g.:
     #   shared_examples "test", -> { it_behaves_like "foobar" }
+    #   shared_examples "test", lambda { it_behaves_like "foobar" }
+    #   shared_examples "test", proc { it_behaves_like "foobar" }
+    #
+    # `->{}` parses as a Prism::LambdaNode, while `lambda{}`/`proc{}` parse as
+    # ordinary CallNodes with a block attached — both are treated the same way
+    # here, matching prior (whitequark-based) behavior.
     #
     # @param node [Prism::CallNode] The node to inspect.
-    # @return [Prism::LambdaNode, nil]
+    # @return [Prism::LambdaNode, Prism::BlockNode, nil]
     def lambda_argument(node)
       args = node.arguments&.arguments
       return nil unless args&.any?
 
       last = args.last
-      last if last.is_a?(Prism::LambdaNode)
+      return last if last.is_a?(Prism::LambdaNode)
+      return last.block if last.is_a?(Prism::CallNode) && [:lambda, :proc].include?(last.name) && last.block
+
+      nil
     end
   end
 end
