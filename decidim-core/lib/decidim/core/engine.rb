@@ -40,6 +40,7 @@ require "chartkick"
 require "shakapacker"
 require "data_migrate"
 
+require "local_time"
 require "decidim/api"
 require "decidim/core/content_blocks/registry_manager"
 require "decidim/core/menu"
@@ -251,7 +252,10 @@ module Decidim
       initializer "decidim_core.action_controller" do |_app|
         config.to_prepare do
           ActiveSupport.on_load :action_controller do
-            helper Decidim::LayoutHelper if respond_to?(:helper)
+            next unless respond_to?(:helper)
+
+            helper Decidim::LayoutHelper
+            helper LocalTimeHelper
           end
         end
       end
