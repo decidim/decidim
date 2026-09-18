@@ -283,5 +283,39 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         end
       end
     end
+
+    context "with traceability logging" do
+      let!(:step_one) do
+        create(
+          :participatory_process_step,
+          participatory_process:,
+          active: true,
+          start_date: Time.zone.local(2022, 3, 10, 10, 0, 0),
+          end_date: Time.zone.local(2022, 3, 14, 10, 59, 59)
+        )
+      end
+      let!(:step_two) do
+        create(
+          :participatory_process_step,
+          participatory_process:,
+          start_date: Time.zone.local(2022, 3, 15, 11, 0, 0),
+          end_date: Time.zone.local(2022, 3, 20, 20, 0, 0)
+        )
+      end
+
+      context "when user is missing" do
+        it "logs activation in activity log" do
+          expect { subject.perform_now }
+            .to change(Decidim::ActionLog, :count).by(1)
+
+          activation_log = Decidim::ActionLog.last
+          expect(activation_log.action).to eq("system_activate")
+          expect(activation_log.resource_id).to eq(step_two.id)
+          expect(activation_log.user).to be_nil
+          expect(activation_log.organization).to eq(organization)
+          expect(activation_log.extra["details"]["automatic_action"]).to be(true)
+        end
+      end
+    end
   end
 end
