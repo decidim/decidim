@@ -217,6 +217,23 @@ module Decidim
         root_commentable.try(:actions_for_comment, self, current_user)
       end
 
+      def thread_root
+        root = self
+        root = root.commentable while root.commentable.is_a?(self.class)
+        root
+      end
+
+      # Returns the ids from the thread root down to self, inclusive
+      def thread_chain_ids
+        ids = [id]
+        current = self
+        while current.commentable.is_a?(self.class)
+          current = current.commentable
+          ids.unshift(current.id)
+        end
+        ids
+      end
+
       private
 
       def body_length
