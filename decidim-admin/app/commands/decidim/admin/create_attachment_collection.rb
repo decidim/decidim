@@ -6,6 +6,9 @@ module Decidim
     # to a participatory space.
     class CreateAttachmentCollection < Decidim::Command
       delegate :current_user, to: :form
+
+      attr_reader :attachment_collection
+
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -25,7 +28,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         create_attachment_collection
-        broadcast(:ok)
+        broadcast(:ok, attachment_collection)
       end
 
       private
@@ -33,7 +36,7 @@ module Decidim
       attr_reader :form
 
       def create_attachment_collection
-        Decidim.traceability.create!(
+        @attachment_collection = Decidim.traceability.create!(
           AttachmentCollection,
           current_user,
           attributes
@@ -45,7 +48,8 @@ module Decidim
           name: form.name,
           weight: form.weight,
           description: form.description,
-          collection_for: @collection_for
+          collection_for: @collection_for,
+          key: form.key
         }
       end
     end

@@ -36,12 +36,12 @@ module Decidim
         # @return Boolean
         # @param [Symbol] scope
         def allowed_to?(action, subject, object, context)
-          unless subject.is_a?(::Symbol)
-            subject = determine_subject_name(object)
-            context[subject] = object
-          end
+          subject = determine_subject_name(object) unless subject.is_a?(::Symbol)
+          context[subject] = object
 
-          permission_action = Decidim::PermissionAction.new(scope: api_scope, action:, subject:)
+          scope = context.fetch(:scope, api_scope)
+
+          permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
 
           permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|
             permission_context = local_user_context(object, context)
