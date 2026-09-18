@@ -39,6 +39,7 @@ shared_examples "manage processes announcements" do
 
   it "can customize a general announcement for the process" do
     visit decidim_admin_participatory_processes.edit_participatory_process_landing_page_content_block_path(participatory_process, content_block)
+    expect(page).to have_css("h1", text: "Announcement")
 
     fill_announcement_editor(
       en: "An important announcement",
@@ -64,11 +65,15 @@ shared_examples "manage processes announcements" do
     end
   end
 
-  it "remove announcement element if announcement body is empty" do
+  it "does not update the blank announcement element if the announcement body is empty" do
     visit decidim_admin_participatory_processes.edit_participatory_process_landing_page_content_block_path(participatory_process, content_block)
+    expect(page).to have_css("h1", text: "Announcement")
+
     clear_announcement_editor([:en, :es, :ca])
 
     click_on "Update"
+
+    expect(page).to have_css(".form-error", text: "cannot be blank")
 
     visit decidim_admin_participatory_processes.participatory_processes_path
 
