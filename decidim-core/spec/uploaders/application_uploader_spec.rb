@@ -15,7 +15,7 @@ module Decidim
       # the environment. Otherwise this spec can behave differently under
       # different random random seed. To ensure this works, try running this
       # spec individually with: -e "with development environment"
-      Rails.application.reload_routes_unless_loaded
+      Rails.application.reload_routes!
 
       allow(ENV).to receive(:fetch).and_call_original
       allow(ENV).to receive(:fetch).with("HTTP_PORT", instance_of(Integer)).and_return(local_port) if respond_to?(:local_port)
