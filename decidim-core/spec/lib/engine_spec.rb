@@ -75,7 +75,8 @@ module Decidim::Core
                 httponly: true,
                 key: "_decidim_session_id",
                 same_site: :lax,
-                expire_after: 30.minutes
+                expire_after: 30.minutes,
+                secure_session_only: true
               )
             end
           end
@@ -89,7 +90,8 @@ module Decidim::Core
                 httponly: true,
                 key: "_decidim_session_id",
                 same_site: :lax,
-                expire_after: 30.minutes
+                expire_after: 30.minutes,
+                secure_session_only: true
               )
             end
           end
@@ -103,7 +105,8 @@ module Decidim::Core
                 httponly: true,
                 key: "_decidim_session_id",
                 same_site: :lax,
-                expire_after: 1.hour
+                expire_after: 1.hour,
+                secure_session_only: true
               )
             end
           end
