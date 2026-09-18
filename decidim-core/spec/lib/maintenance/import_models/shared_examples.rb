@@ -19,12 +19,6 @@ shared_context "with taxonomy importer model context" do
   let!(:external_resource) { create(:dummy_resource, title: { "en" => "INVALID Dummy Resource" }, component: external_component, scope: nil) }
 end
 
-shared_examples "a resource with title" do
-  it "#name returns the title" do
-    expect(subject.name).to eq(subject.title)
-  end
-end
-
 shared_examples "a resource with taxonomies with no children" do
   it "#taxonomies returns the taxonomies" do
     expect(subject.taxonomies).to eq(
@@ -77,23 +71,5 @@ shared_examples "can be converted to taxonomies" do
         end
       end
     end
-  end
-end
-
-shared_examples "a single root taxonomy with no children" do
-  it "returns the participatory process types as taxonomies" do
-    expect(described_class.with(organization).to_h).to eq(
-      {
-        taxonomies: { subject.title[I18n.locale.to_s] => subject.taxonomies },
-        filters: [
-          {
-            name: root_taxonomy_name,
-            participatory_space_manifests:,
-            items: [[subject.title[I18n.locale.to_s]]],
-            components: []
-          }
-        ]
-      }
-    )
   end
 end
