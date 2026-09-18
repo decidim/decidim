@@ -1712,6 +1712,8 @@ fi:
       login_modal:
         please_log_in: Kirjaudu sisään
         sign_up: Luo tili
+      mentions:
+        search_prompt: Kirjoita etsiäksesi osallistujia
       mentions_modal:
         remove_recipient: Poista vastaanottaja %{name}
       progress: Edistyminen
@@ -2095,7 +2097,6 @@ fi:
   layouts:
     decidim:
       announcements:
-        view_less: Näytä vähemmän
         view_more: Lisätietoa
       data_consent:
         details:

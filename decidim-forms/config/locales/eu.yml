@@ -31,7 +31,7 @@ eu:
         responses:
           id: Erantzunaren identifikatzaile bakarra
           question: Erantzun den galdera
-          questionnaire: Erantzun zen galdetegia
+          questionnaire: Galdetegia erantzuna izan da
           response: Galderaren erantzuna
           user: Inkesta erantzun duen parte-hartzailea
       show:
@@ -48,9 +48,9 @@ eu:
             announcement: Oharra
             clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
             description: Deskribapena
-            ends_at: Erantzunak noiz arte onartuta
+            ends_at: Erantzunak noiz arte onartua
             ends_at_help: Utzi zuriz data zehatzik ez badago
-            starts_at: Erantzunak noiztik onartuta
+            starts_at: Erantzunak noiztik onartua
             starts_at_help: Zuriz utzi data zehatzik ez badago
             tos: Zerbitzu-baldintzak
         questionnaires:
@@ -70,7 +70,7 @@ eu:
             condition_value: Testua barne
             display_condition: Bistaratzeko baldintza
             mandatory: Baldintza hau beti bete behar da, beste baldintza batzuen egoera edozein dela ere
-            remove: Kendu
+            remove: Ezabatu
             response_option: Erantzuteko aukera
             save_warning: Gogoratu formularioa gorde behar duzula bistaratzeko baldintzak konfiguratu aurretik
             select_condition_question: Hautatu galdera bat
@@ -78,7 +78,7 @@ eu:
             select_response_option: Hautatu erantzuteko aukera
           edit:
             save: Gorde
-            title: Galdetegia editau
+            title: Galdetegia editatu
           edit_questions:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
@@ -89,11 +89,11 @@ eu:
             add_question: Gehitu galdera
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
-            preview: Aurreikusi
+            preview: Aurrebistaratu
             title: Editatu galdetegia honetarako %{questionnaire_for}
           matrix_row:
             matrix_row: Errenkada
-            remove: Kendu
+            remove: Ezabatu
             statement: Adierazpena
           question:
             add_display_condition: Bistaratzeko baldintza gehitu
@@ -105,7 +105,7 @@ eu:
             description: Deskribapena
             expand: Zabaldu
             question: Galdera
-            remove: Kendu
+            remove: Ezabatu
             statement: Adierazpena
           questions_form:
             already_responded_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
@@ -116,7 +116,7 @@ eu:
               success: Inkestaren galderak zuzen gordeta.
           response_option:
             free_text: Testu librea
-            remove: Kendu
+            remove: Ezabatu
             response_option: Erantzuteko aukera
             statement: Adierazpena
           responses:
@@ -137,7 +137,7 @@ eu:
             show:
               title: '#%{number} erantzun'
           separator:
-            remove: Kendu
+            remove: Ezabatu
             separator: Bereizlea
           title_and_description:
             collapse: Kolapsoa
@@ -181,7 +181,7 @@ eu:
         response:
           invalid: Arazo bat egon da galdetegia erantzutean.
           max_choices_alert: Aukera gehiegi hautatuta da
-          spam_detected: Arazo bat egon da galdetegiari rantzuten. Agian azkarregi aritu zara, berriro saia zaitezke?
+          spam_detected: Arazo bat egon da galdetegiari erantzuten. Agian azkarregi aritu zara, berriro saia zaitezke?
           success: Galdetegia zuzen erantzun da.
         show:
           current_step: '%{step} urratsa'
