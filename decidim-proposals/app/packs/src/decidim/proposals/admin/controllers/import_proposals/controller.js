@@ -62,8 +62,10 @@ export default class ImportProposalsController extends Controller {
       return;
     }
 
-    const url = `${this.statesUrlValue}?origin_id=${componentId}`;
-    fetch(url, {
+    const url = new URL(this.statesUrlValue, window.location.origin);
+    url.searchParams.append("origin_id", componentId);
+    
+    fetch(url.toString(), {
       credentials: "same-origin",
       headers: { Accept: "application/json" }
     }).then((res) => {
