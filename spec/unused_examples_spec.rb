@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "prism"
-require "parallel"
 require "tempfile"
 
 describe "Unused examples" do
@@ -13,7 +12,7 @@ describe "Unused examples" do
   end
 
   it "codebase does not contain unused RSpec shared examples" do
-    results = Parallel.map(ruby_files, in_processes: 2) do |file|
+    results = ruby_files.map do |file|
       collector = SharedExampleCollector.new
       collector.process_file(file)
       collector
