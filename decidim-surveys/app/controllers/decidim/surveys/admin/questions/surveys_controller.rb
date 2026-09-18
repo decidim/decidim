@@ -25,6 +25,10 @@ module Decidim
             edit_questions_questions_survey_path(survey)
           end
 
+          def response_options_url(params)
+            Decidim::EngineRouter.admin_proxy(survey.component).response_options_survey_questions_path(survey.id, **params)
+          end
+
           def questionnaire_participants_url
             Decidim::EngineRouter.admin_proxy(survey.component).survey_responses_path(survey)
           end
@@ -41,7 +45,7 @@ module Decidim
           private
 
           def survey
-            @survey ||= Decidim::Surveys::Survey.where(component: current_component).find(params.expect(:id))
+            @survey ||= Decidim::Surveys::Survey.where(component: current_component).find(params[:survey_id] || params.expect(:id))
           end
         end
       end
