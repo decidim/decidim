@@ -2,13 +2,29 @@
 
 require "prism"
 require "tempfile"
+require "open3"
 
 describe "Unused examples" do
   let(:ruby_files) do
     root = File.expand_path("..", __dir__)
-    files = Dir.glob(File.join(root, "**", "{spec,test}", "**", "*.rb"))
-    files.reject! { |f| f.include?("/vendor/") }
-    files
+
+    excluded_dirs = %w(.git vendor development_app* decidim_dummy_app)
+    included_dirs = %w(spec test)
+
+    exclude_args = excluded_dirs.flat_map { |f| ["-name", f, "-o"] }[0...-1]
+    include_args = included_dirs.flat_map { |f| ["-path", "*/#{f}/*", "-o"] }[0...-1]
+
+    # Using the find command instead of Ruby's `Dir.glob` because this is many
+    # times faster.
+    cmd = [
+      "find", root,
+      "(", *exclude_args, ")", "-prune", "-o",
+      "(", *include_args, ")",
+      "-type", "f", "-name", "*.rb", "-print0"
+    ]
+
+    output = Open3.capture2(*cmd)[0]
+    output.split("\0")
   end
 
   it "codebase does not contain unused RSpec shared examples" do
