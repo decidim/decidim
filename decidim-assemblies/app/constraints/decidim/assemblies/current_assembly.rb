@@ -32,7 +32,7 @@ module Decidim
       def detect_current_assembly(params)
         organization_assemblies.where(slug: params["assembly_slug"]).or(
           organization_assemblies.where(id: params["assembly_slug"])
-        ).first!
+        ).includes(attachments: { file_attachment: :blob }).first!
       end
 
       def organization_assemblies

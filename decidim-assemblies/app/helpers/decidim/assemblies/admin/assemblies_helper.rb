@@ -19,7 +19,7 @@ module Decidim
         # can be selected as parent assemblies for another assembly; to be used in forms.
         def parent_assemblies_options
           options = []
-          root_assemblies = ParentAssembliesForSelect.for(current_organization, current_assembly).where(parent_id: nil).sort_by(&:weight)
+          root_assemblies = ParentAssembliesForSelect.for(current_organization, current_assembly).where(parent_id: nil).includes(:organization, :children).sort_by(&:weight)
 
           root_assemblies.each do |assembly|
             build_assembly_options(assembly, options)

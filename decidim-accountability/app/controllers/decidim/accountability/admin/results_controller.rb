@@ -15,7 +15,8 @@ module Decidim
 
         def collection
           parent_id = params[:parent_id].presence
-          @collection ||= Result.where(component: current_component, parent_id:).page(params[:page]).per(15).order(created_at: :asc)
+          @collection ||= Result.includes(:taxonomies, :status, :parent, :component).where(component: current_component,
+                                                                                           parent_id:).page(params[:page]).per(15).order(created_at: :asc)
         end
 
         def new
