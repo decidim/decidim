@@ -115,7 +115,9 @@
     }
 
     &-label {
-      @apply flex-1 min-w-0 truncate;
+      @apply flex-1 min-w-0 overflow-hidden text-ellipsis;
+
+      overflow-wrap: anywhere;
     }
 
     &-item > svg {
