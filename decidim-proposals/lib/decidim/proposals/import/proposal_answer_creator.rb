@@ -38,7 +38,6 @@ module Decidim
 
         def finish_without_notify!
           persist_resource!
-          notify
           resource
         end
 
