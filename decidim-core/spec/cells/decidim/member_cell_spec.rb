@@ -14,9 +14,9 @@ describe Decidim::MemberCell, type: :cell do
   let(:model) { Decidim::ParticipatorySpace::MemberPresenter.new(member) }
 
   it "renders the member's name, nickname and role" do
-    expect(subject).to have_content(user.name)
-    expect(subject).to have_content(user.nickname)
-    expect(subject).to have_content("responsible for community outreach")
+    expect(subject).to have_text(user.name)
+    expect(subject).to have_text(user.nickname)
+    expect(subject).to have_text("responsible for community outreach")
   end
 
   it "does not apply a text transform to the role text" do
