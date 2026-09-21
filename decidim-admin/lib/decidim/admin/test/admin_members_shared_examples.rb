@@ -116,6 +116,21 @@ shared_examples "manage admin members examples" do
       visit current_path
     end
 
+    it "edits a member" do
+      expect(member.reload).not_to be_published
+      within "#members tr", text: user.email do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+
+      check "Published"
+
+      click_on "Update"
+
+      expect(page).to have_text("Member successfully updated")
+      expect(member.reload).to be_published
+    end
+
     it "deletes a member" do
       within "#members tr", text: other_user.email do
         find("button[data-controller='dropdown']").click
