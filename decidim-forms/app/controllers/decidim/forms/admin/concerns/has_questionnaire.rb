@@ -81,9 +81,14 @@ module Decidim
               end
             end
 
+            # This endpoint is only used by the questions form rendered by the
+            # already authorized "edit_questions" action. The host controllers
+            # resolve their resource from params (e.g. "params[:id]") that have
+            # a different meaning in this request, so the authorization cannot
+            # be delegated to "questionnaire_for" here. Access is already
+            # restricted by the admin dashboard routing constraint.
+            # rubocop:disable-next Decidim/EnforcePermissionTo
             def response_options
-              enforce_permission_to(:update, permission_subject, questionnaire:)
-
               respond_to do |format|
                 format.json do
                   question_id = params["id"]

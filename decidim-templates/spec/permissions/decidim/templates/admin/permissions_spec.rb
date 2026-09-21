@@ -120,4 +120,31 @@ describe Decidim::Templates::Admin::Permissions do
 
     it { is_expected.to be true }
   end
+
+  context "when subject is a questionnaire_template" do
+    context "when previewing" do
+      it_behaves_like "action is allowed", :admin, :preview, :questionnaire_template
+    end
+
+    context "when applying" do
+      it_behaves_like "action is allowed", :admin, :apply, :questionnaire_template
+    end
+
+    context "with any other action" do
+      let(:action) do
+        { scope: :admin, action: :foo, subject: :questionnaire_template }
+      end
+
+      it_behaves_like "permission is not set"
+    end
+
+    context "when user is not admin" do
+      let(:user) { create(:user, :confirmed, organization:) }
+      let(:action) do
+        { scope: :admin, action: :preview, subject: :questionnaire_template }
+      end
+
+      it_behaves_like "permission is not set"
+    end
+  end
 end
