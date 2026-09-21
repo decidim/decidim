@@ -70,6 +70,7 @@
     "react-i18nify": "^6.1.2",
     "select": "^1.1.2",
     "tom-select": "2.6.2",
-    "wc-datepicker": "^0.13.0"
+    "wc-datepicker": "^0.13.0",
+    "local-time": "^3.0.3"
   }
 }
