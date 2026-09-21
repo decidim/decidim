@@ -59,7 +59,7 @@ module Decidim
     #
     # The result is marked as HTML-safe, so that when the views output it with
     # `<%= %>` (or pass it to a tag helper) Rails does not escape it a second
-    # time. Otherwise, a text such as `it's` would end up as `it&amp;#39;s` in
+    # time. Otherwise, a text such as `O'Neil` would end up as `O&amp;#39;Neil` in
     # the HTML and the browser would display the `&#39;` entity literally.
     #
     # text - A String (or an object responding to `to_str`).
