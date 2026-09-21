@@ -13,11 +13,219 @@ module.exports = {
             'warning': '#d4a81a', 
             'info': '#155abf', 
         },
-        'color-alphas-white': {
-            '0': '#ffffff00', 
-            '25': '#ffffff40', 
-            '50': '#ffffff80', 
-            '75': '#ffffffbf', 
+        'color-fill': {
+            'success': '#28a745', /* bem */
+            'warning': '#d4a81a', /* bem */
+            'alert': '#e02d2d', /* bem */
+            'info': '#155abf', /* bem */
+        },
+        'color-bg': {
+            'primary': '#e02d2d', /* background */
+            'secondary': '#155abf', /* background */
+            'tertiary': '#d4a81a', /* background */
+        },
+        'color-bg-neutral': {
+            'light': '#ffffff', /* background */
+            'dark': '#fafafa', /* background */
+        },
+        'color-bg-neutral-interactive-light': {
+            'default': '#ffffff00', /* background */
+            'hover': '#fafafa', /* background */
+        },
+        'color-bg-neutral-interactive-dark': {
+            'default': '#fafafa', /* background */
+            'hover': '#d4d4d4', /* background */
+        },
+        'color-bg-neutral-interactive-high-light': {
+            'hover': '#333e4a', /* background */
+            'default': '#ffffff00', /* background */
+            'active': '#222a33', /* background */
+        },
+        'color-bg-neutral-high': {
+            'light': '#49596a', /* background */
+            'dark': '#000000', /* background */
+        },
+        'color-bg-primary': {
+            'light': '#fceaea', /* background */
+        },
+        'color-bg-primary-interactive': {
+            'default': '#e02d2d', /* background */
+            'hover': '#cc2929', /* background */
+            'selected': '#e02d2d', /* background */
+        },
+        'color-bg-primary-interactive-light': {
+            'hover': '#fceaea', /* background */
+            'default': '#ffffff00', /* background */
+            'selected': '#ffffff00', /* background */
+        },
+        'color-bg-success': {
+            'light': '#eaf6ec', /* background */
+            'dark': '#1c7731', /* background */
+        },
+        'color-bg-warning': {
+            'light': '#f9ecc7', /* background */
+            'dark': '#efcf6f', /* background */
+        },
+        'color-bg-alert': {
+            'light': '#fceaea', /* background */
+            'dark': '#cc2929', /* background */
+        },
+        'color-bg-base': {
+            'light': '#ecedef', /* background */
+            'dark': '#65707d', /* background */
+        },
+        'color-bg-info': {
+            'light': '#e8eff9', /* background */
+        },
+        'color-bg-secondary': {
+            'light': '#e8eff9', /* background */
+        },
+        'color-bg-secondary-interactive': {
+            'default': '#155abf', /* background */
+            'hover': '#1352ae', /* background */
+            'selected': '#155abf', /* background */
+        },
+        'color-bg-secondary-interactive-light': {
+            'default': '#ffffff00', /* background */
+            'hover': '#e8eff9', /* background */
+            'selected': '#ffffff00', /* background */
+        },
+        'color-bg-inverted-interactive-light': {
+            'default': '#ffffff00', /* background */
+            'hover': '#ffffff40', /* background */
+            'active': '#ffffff00', /* background */
+        },
+        'color-slate': {
+            '50': '#ecedef', 
+            '100': '#c3c8cc', 
+            '200': '#a6adb4', 
+            '300': '#7e8792', 
+            '400': '#65707d', 
+            '500': '#49596a', 
+            '600': '#394858', 
+            '700': '#333e4a', 
+            '800': '#222a33', 
+            '900': '#1a2027', 
+        },
+        'color-text': {
+            'primary': '#e02d2d', 
+            'secondary': '#155abf', 
+            'inverted': '#ffffff', 
+        },
+        'color-text-link': {
+            'visited': '#92278f', 
+        },
+        'color-text-link-primary': {
+            'default': '#e02d2d', 
+            'hover': '#cc2929', 
+            'pressed': '#e02d2d', 
+        },
+        'color-text-link-secondary': {
+            'default': '#155abf', 
+            'hover': '#1352ae', 
+            'pressed': '#155abf', 
+        },
+        'color-text-alert': {
+            'light': '#fceaea', 
+            'dark': '#cc2929', 
+        },
+        'color-text-info': {
+            'dark': '#155abf', 
+        },
+        'color-text-neutral': {
+            'dark': '#303030', 
+            'light': '#525252', 
+            'placeholder': '#8f8f8f', 
+        },
+        'color-text-neutral-interactive-light': {
+            'default': '#525252', 
+            'hover': '#155abf', 
+            'selected': '#155abf', 
+        },
+        'color-text-success': {
+            'light': '#bce4c5', 
+            'dark': '#1c7731', 
+        },
+        'color-text-warning': {
+            'dark': '#635220', 
+        },
+        'color-text-base': {
+            'light': '#ecedef', 
+            'dark': '#49596a', 
+        },
+        'color-icon': {
+            'primary': '#e02d2d', /* icon */
+            'secondary': '#155abf', /* icon */
+            'inverted': '#ffffff', /* icon */
+        },
+        'color-icon-info': {
+            'dark': '#155abf', /* icon */
+        },
+        'color-icon-success': {
+            'dark': '#1c7731', /* icon */
+        },
+        'color-icon-warning': {
+            'dark': '#635220', /* icon */
+        },
+        'color-icon-link': {
+            'inverted': '#ffffff', /* icon */
+            'visited': '#92278f', /* icon */
+        },
+        'color-icon-link-primary': {
+            'default': '#e02d2d', 
+            'hover': '#cc2929', /* icon */
+            'pressed': '#e02d2d', /* icon */
+        },
+        'color-icon-link-secondary': {
+            'default': '#155abf', 
+            'hover': '#1352ae', /* icon */
+            'pressed': '#155abf', /* icon */
+        },
+        'color-icon-neutral': {
+            'light': '#525252', /* icon */
+            'dark': '#1a1a1a', /* icon */
+        },
+        'color-icon-alert': {
+            'dark': '#cc2929', /* icon */
+        },
+        'color-icon-base': {
+            'dark': '#65707d', /* icon */
+        },
+        'color-border': {
+            'focus': '#155abf', 
+            'primary': '#e02d2d', 
+            'secondary': '#155abf', 
+            'tertiary': '#d4a81a', 
+            'inverted': '#ffffff', 
+        },
+        'color-border-info': {
+            'dark': '#155abf', 
+        },
+        'color-border-success': {
+            'dark': '#1c7731', 
+        },
+        'color-border-warning': {
+            'light': '#efcf6f', 
+            'dark': '#635220', 
+        },
+        'color-border-primary': {
+            'interactive': '#e02d2d', /* typing */
+        },
+        'color-border-secondary': {
+            'interactive': '#155abf', /* typing */
+        },
+        'color-border-tertiary': {
+            'interactive': '#d4a81a', /* card active */
+        },
+        'color-border-neutral': {
+            'dark': '#8f8f8f', /* inputs, checkbox, radio */
+            'light': '#d4d4d4', /* dividers */
+        },
+        'color-border-alert': {
+            'dark': '#cc2929', 
+        },
+        'color-border-base': {
+            'dark': '#65707d', 
         },
         'color-blue': {
             '50': '#e8eff9', 
@@ -91,219 +299,11 @@ module.exports = {
             '800': '#3f3f3f', 
             '900': '#303030', 
         },
-        'color-slate': {
-            '50': '#ecedef', 
-            '100': '#c3c8cc', 
-            '200': '#a6adb4', 
-            '300': '#7e8792', 
-            '400': '#65707d', 
-            '500': '#49596a', 
-            '600': '#394858', 
-            '700': '#333e4a', 
-            '800': '#222a33', 
-            '900': '#1a2027', 
-        },
-        'color-fill': {
-            'success': '#28a745', /* bem */
-            'warning': '#d4a81a', /* bem */
-            'alert': '#e02d2d', /* bem */
-            'info': '#155abf', /* bem */
-        },
-        'color-bg': {
-            'primary': '#e02d2d', /* background */
-            'secondary': '#155abf', /* background */
-            'tertiary': '#d4a81a', /* background */
-        },
-        'color-bg-inverted-interactive-light': {
-            'default': '#ffffff00', /* background */
-            'hover': '#ffffff40', /* background */
-            'active': '#ffffff00', /* background */
-        },
-        'color-bg-neutral': {
-            'light': '#ffffff', /* background */
-            'dark': '#fafafa', /* background */
-        },
-        'color-bg-neutral-interactive-light': {
-            'default': '#ffffff00', /* background */
-            'hover': '#fafafa', /* background */
-        },
-        'color-bg-neutral-interactive-high-light': {
-            'default': '#ffffff00', /* background */
-            'hover': '#333e4a', /* background */
-            'active': '#222a33', /* background */
-        },
-        'color-bg-neutral-interactive-dark': {
-            'default': '#fafafa', /* background */
-            'hover': '#d4d4d4', /* background */
-        },
-        'color-bg-neutral-high': {
-            'light': '#49596a', /* background */
-            'dark': '#000000', /* background */
-        },
-        'color-bg-secondary': {
-            'light': '#e8eff9', /* background */
-        },
-        'color-bg-secondary-interactive': {
-            'default': '#155abf', /* background */
-            'hover': '#1352ae', /* background */
-            'selected': '#155abf', /* background */
-        },
-        'color-bg-secondary-interactive-light': {
-            'default': '#ffffff00', /* background */
-            'selected': '#ffffff00', /* background */
-            'hover': '#e8eff9', /* background */
-        },
-        'color-bg-primary': {
-            'light': '#fceaea', /* background */
-        },
-        'color-bg-primary-interactive': {
-            'default': '#e02d2d', /* background */
-            'hover': '#cc2929', /* background */
-            'selected': '#e02d2d', /* background */
-        },
-        'color-bg-primary-interactive-light': {
-            'default': '#ffffff00', /* background */
-            'selected': '#ffffff00', /* background */
-            'hover': '#fceaea', /* background */
-        },
-        'color-bg-success': {
-            'light': '#eaf6ec', /* background */
-            'dark': '#1c7731', /* background */
-        },
-        'color-bg-warning': {
-            'light': '#f9ecc7', /* background */
-            'dark': '#efcf6f', /* background */
-        },
-        'color-bg-alert': {
-            'light': '#fceaea', /* background */
-            'dark': '#cc2929', /* background */
-        },
-        'color-bg-base': {
-            'light': '#ecedef', /* background */
-            'dark': '#65707d', /* background */
-        },
-        'color-bg-info': {
-            'light': '#e8eff9', /* background */
-        },
-        'color-text': {
-            'primary': '#e02d2d', 
-            'secondary': '#155abf', 
-            'inverted': '#ffffff', 
-        },
-        'color-text-link': {
-            'visited': '#92278f', 
-        },
-        'color-text-link-primary': {
-            'default': '#e02d2d', 
-            'hover': '#cc2929', 
-            'pressed': '#e02d2d', 
-        },
-        'color-text-link-secondary': {
-            'default': '#155abf', 
-            'hover': '#1352ae', 
-            'pressed': '#155abf', 
-        },
-        'color-text-neutral': {
-            'dark': '#303030', 
-            'light': '#525252', 
-            'placeholder': '#8f8f8f', 
-        },
-        'color-text-neutral-interactive-light': {
-            'default': '#525252', 
-            'hover': '#155abf', 
-            'selected': '#155abf', 
-        },
-        'color-text-success': {
-            'light': '#bce4c5', 
-            'dark': '#1c7731', 
-        },
-        'color-text-warning': {
-            'dark': '#635220', 
-        },
-        'color-text-alert': {
-            'light': '#fceaea', 
-            'dark': '#cc2929', 
-        },
-        'color-text-base': {
-            'light': '#ecedef', 
-            'dark': '#49596a', 
-        },
-        'color-text-info': {
-            'dark': '#155abf', 
-        },
-        'color-icon': {
-            'primary': '#e02d2d', /* icon */
-            'secondary': '#155abf', /* icon */
-            'inverted': '#ffffff', /* icon */
-        },
-        'color-icon-link': {
-            'inverted': '#ffffff', /* icon */
-            'visited': '#92278f', /* icon */
-        },
-        'color-icon-link-primary': {
-            'default': '#e02d2d', 
-            'hover': '#cc2929', /* icon */
-            'pressed': '#e02d2d', /* icon */
-        },
-        'color-icon-link-secondary': {
-            'default': '#155abf', 
-            'hover': '#1352ae', /* icon */
-            'pressed': '#155abf', /* icon */
-        },
-        'color-icon-neutral': {
-            'light': '#525252', /* icon */
-            'dark': '#1a1a1a', /* icon */
-        },
-        'color-icon-success': {
-            'dark': '#1c7731', /* icon */
-        },
-        'color-icon-warning': {
-            'dark': '#635220', /* icon */
-        },
-        'color-icon-alert': {
-            'dark': '#cc2929', /* icon */
-        },
-        'color-icon-base': {
-            'dark': '#65707d', /* icon */
-        },
-        'color-icon-info': {
-            'dark': '#155abf', /* icon */
-        },
-        'color-border': {
-            'focus': '#155abf', 
-            'primary': '#e02d2d', 
-            'secondary': '#155abf', 
-            'tertiary': '#d4a81a', 
-            'inverted': '#ffffff', 
-        },
-        'color-border-primary': {
-            'interactive': '#e02d2d', /* typing */
-        },
-        'color-border-secondary': {
-            'interactive': '#155abf', /* typing */
-        },
-        'color-border-tertiary': {
-            'interactive': '#d4a81a', /* card active */
-        },
-        'color-border-neutral': {
-            'dark': '#8f8f8f', /* inputs, checkbox, radio */
-            'light': '#d4d4d4', /* dividers */
-        },
-        'color-border-success': {
-            'dark': '#1c7731', 
-        },
-        'color-border-warning': {
-            'light': '#efcf6f', 
-            'dark': '#635220', 
-        },
-        'color-border-alert': {
-            'dark': '#cc2929', 
-        },
-        'color-border-base': {
-            'dark': '#65707d', 
-        },
-        'color-border-info': {
-            'dark': '#155abf', 
+        'color-alphas-white': {
+            '0': '#ffffff00', 
+            '25': '#ffffff40', 
+            '50': '#ffffff80', 
+            '75': '#ffffffbf', 
         },
     },
     'boxShadow': {
