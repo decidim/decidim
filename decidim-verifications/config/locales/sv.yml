@@ -223,6 +223,7 @@ sv:
         authorizations:
           new:
             error: Vi kunde inte verifiera ditt konto, eller så finns du inte i organisationens medlemsuppgifter.
+            locked: För många felaktiga försök. Prova igen senare.
             success: Ditt konto har verifierats.
       dummy_authorization:
         extra_explanation:
@@ -248,6 +249,7 @@ sv:
           confirmations:
             create:
               error: Verifieringen stämmer inte. Försök igen eller avvisa verifieringen så att användaren kan rätta den.
+              locked: För många felaktiga försök. Prova igen senare.
               success: Deltagaren har verifierats.
             new:
               reject: Avvisa
@@ -322,6 +324,7 @@ sv:
             title: Begär din verifieringskod
           update:
             error: Din verifieringskod matchar inte vår. Vänligen dubbelkolla brevet vi skickade till dig.
+            locked: För många felaktiga försök. Prova igen senare.
             success: Grattis. Du har verifierats.
       sms:
         authorizations:
@@ -341,6 +344,8 @@ sv:
             title: Begär din verifieringskod
           update:
             error: Din verifieringskod matchar inte vår. Vänligen dubbelkolla SMS vi skickade dig.
+            expired: Koden har passerat slutdatum. Begär en ny kod tack.
+            locked: För många felaktiga försök. Prova igen senare eller begär en ny kod.
             success: Grattis. Du har verifierats.
   errors:
     messages:
