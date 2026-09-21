@@ -228,6 +228,7 @@ ca:
         authorizations:
           new:
             error: No hem pogut verificar el teu compte o no estàs al cens de l'organització.
+            locked: Massa intents fallits. Si us plau, torna a provar-ho més tard.
             success: El teu compte s'ha verificat correctament.
       dummy_authorization:
         extra_explanation:
@@ -253,6 +254,7 @@ ca:
           confirmations:
             create:
               error: La verificació no coincideix. Si us plau, torna-ho a provar o rebutja la verificació perquè la participant pugui modificar-la.
+              locked: Massa intents fallits. Si us plau, torna a provar-ho més tard.
               success: Participant convidada correctament.
             new:
               reject: Rebutjar
@@ -329,6 +331,7 @@ ca:
             title: Sol·licita el teu codi de verificació
           update:
             error: El teu codi de verificació no coincideix amb el nostre. Si us plau, revisa la carta que t'hem enviat.
+            locked: Massa intents fallits. Si us plau, torna a provar-ho més tard.
             success: Felicitats. T'has verificat correctament.
       sms:
         authorizations:
@@ -348,6 +351,8 @@ ca:
             title: Sol·licita el teu codi de verificació
           update:
             error: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, torna a revisar l'SMS que t'hem enviat.
+            expired: El codi de verificació ha caducat. Si us plau, demana'n un de nou.
+            locked: Massa intents fallits. Si us plau, torna a provar-ho més tard o demana un nou codi de verificació.
             success: Felicitats. T'has verificat correctament.
   errors:
     messages:
