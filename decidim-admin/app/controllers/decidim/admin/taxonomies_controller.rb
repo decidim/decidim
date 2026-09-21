@@ -103,7 +103,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= taxonomy ? taxonomy.children : root_taxonomies
+        @collection ||= taxonomy ? taxonomy.children.includes(:children) : root_taxonomies.includes(:children)
       end
 
       def root_taxonomies

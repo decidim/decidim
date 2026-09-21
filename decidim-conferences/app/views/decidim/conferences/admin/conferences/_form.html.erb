@@ -124,7 +124,7 @@
 
       <div id="registrations_enabled_details" <%= form.object.registrations_enabled ? nil : "hidden" %>>
         <div class="row column">
-          <p><%= t(".registrations_count", count: current_participatory_space.present? ? current_participatory_space.conference_registrations.count : 0) %></p>
+          <p><%= t(".registrations_count", count: current_participatory_space.present? ? current_participatory_space.conference_registrations.size : 0) %></p>
           <%= form.number_field :available_slots, help_text: t(".available_slots_help") %>
         </div>
 
