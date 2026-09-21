@@ -181,30 +181,6 @@ describe RemoveCollaborativeDraftsReferences do
       end
     end
 
-    context "with comment replies" do
-      let!(:reply) do
-        reply = create(:comment)
-        reply.update_column(:decidim_root_commentable_type, collaborative_draft_type) # rubocop:disable Rails/SkipsModelValidations
-        reply.update_column(:decidim_root_commentable_id, draft_id) # rubocop:disable Rails/SkipsModelValidations
-        reply
-      end
-
-      let!(:other_comment) do
-        create(:comment)
-      end
-
-      it "deletes replies whose root commentable is a collaborative draft" do
-        expect(Decidim::Comments::Comment.where(decidim_root_commentable_type: collaborative_draft_type).count).to eq(1)
-        migrator.migrate(:up)
-        expect(Decidim::Comments::Comment.where(decidim_root_commentable_type: collaborative_draft_type).count).to eq(0)
-      end
-
-      it "keeps other comments" do
-        migrator.migrate(:up)
-        expect(Decidim::Comments::Comment.find_by(id: other_comment.id)).to be_present
-      end
-    end
-
     context "with paper trail versions" do
       let!(:version_for_draft) do
         Version.create!(

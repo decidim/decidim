@@ -93,10 +93,7 @@ class RemoveCollaborativeDraftsReferences < ActiveRecord::Migration[7.2]
   end
 
   def delete_comments
-    Comment
-      .where(decidim_commentable_type: COLLABORATIVE_DRAFT_TYPE)
-      .or(Comment.where(decidim_root_commentable_type: COLLABORATIVE_DRAFT_TYPE))
-      .delete_all
+    Comment.where(decidim_commentable_type: COLLABORATIVE_DRAFT_TYPE).delete_all
   end
 
   def delete_resource_links
