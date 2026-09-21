@@ -70,18 +70,20 @@ module Decidim
         end
 
         def recipients
-          return [] unless participatory_space
-
-          participatory_space
-            .followers
-            .where(notification_types: %w(all followed-only))
-            .to_a
-            .select { |recipient| recipient.is_a?(Decidim::User) && !recipient.deleted? && !recipient.blocked? }
-            .uniq
+          participatory_spaces.flat_map do |space|
+            space
+              .followers
+              .where(notification_types: %w(all followed-only))
+              .to_a
+              .select { |recipient| recipient.is_a?(Decidim::User) && !recipient.deleted? && !recipient.blocked? }
+          end.uniq
         end
 
-        def participatory_space
-          context[:current_participatory_space] || collection.first&.participatory_space
+        def participatory_spaces
+          collection
+            .map(&:participatory_space)
+            .compact
+            .uniq
         end
       end
     end

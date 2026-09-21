@@ -137,17 +137,26 @@ describe Decidim::Proposals::Import::BatchNotifier do
       let(:collection) { [imported_resource, other_imported_resource] }
 
       before do
-        allow(other_followers_relation).to receive(:where)
+        allow(other_followers_relation).to receive(:where).with(notification_types: %w(all followed-only)).and_return([recipient])
       end
 
-      it "queries followers only once using the current participatory space" do
+      it "queries followers once per participatory space and deduplicates recipients" do
         delivery = instance_double(ActionMailer::MessageDelivery, deliver_later: true)
         allow(Decidim::Proposals::ImportMailer).to receive(:proposals_imported).and_return(delivery)
 
         notifier.notify!
 
         expect(followers_relation).to have_received(:where).once.with(notification_types: %w(all followed-only))
-        expect(other_followers_relation).not_to have_received(:where)
+        expect(other_followers_relation).to have_received(:where).once.with(notification_types: %w(all followed-only))
+        expect(Decidim::NotificationGeneratorForRecipient).to have_received(:new).once.with(
+          "decidim.events.proposals.proposals_imported",
+          Decidim::Proposals::ImportBatchEvent,
+          imported_resource,
+          recipient,
+          :follower,
+          { imported_count: collection.size }
+        )
+        expect(Decidim::Proposals::ImportMailer).to have_received(:proposals_imported).once.with(imported_resource, recipient)
       end
 
       context "when recipient notifications are none" do
