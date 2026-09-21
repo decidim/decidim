@@ -29,7 +29,7 @@ module Decidim
         end
 
         def map_model(model)
-          self.user_id = model.decidim_user_id
+          self.user_id = model.is_a?(UserBaseEntity) ? model.id : model.try(:decidim_user_id)
           super
         end
       end
