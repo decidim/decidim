@@ -38,5 +38,27 @@ describe Decidim::EditorImage do
 
       it { is_expected.not_to be_valid }
     end
+
+    # See UploaderImageContentValidator#validate_image_content
+    context "when the file is a spoofed image" do
+      subject do
+        build(
+          :editor_image,
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.asset("spoofed_image.png")),
+            filename: "image.png",
+            content_type: "image/png",
+            identify: false
+          )
+        )
+      end
+
+      it { is_expected.not_to be_valid }
+
+      it "shows the correct error" do
+        expect(subject.valid?).to be(false)
+        expect(subject.errors[:file]).to contain_exactly("The file is not a valid image")
+      end
+    end
   end
 end
