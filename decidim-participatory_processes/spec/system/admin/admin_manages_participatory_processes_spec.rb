@@ -151,7 +151,7 @@ describe "Admin manages participatory processes", versioning: true do
         visit decidim_admin_participatory_processes.participatory_processes_path
       end
 
-      it "update a participatory process without images does not delete them" do
+      it "removes the start and end dates when updating a participatory process" do
         expect(participatory_process3.start_date).to be_present
         expect(participatory_process3.end_date).to be_present
 
