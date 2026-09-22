@@ -37,8 +37,8 @@ describe Decidim::Templates::Admin::ProposalAnswerTemplatesController do
 
   describe "helper availability_options_for_select" do
     it "includes only components from the current organization" do
-      _own_component = component
-      _other_component = other_component
+      component.reload
+      other_component.reload
       ids = controller.helpers.availability_options_for_select.map(&:last)
       expect(ids).to include(component.id)
       expect(ids).not_to include(other_component.id)
