@@ -27,11 +27,11 @@ module Decidim
           super
         end
 
+        private
+
         def permission_class_chain
           ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::Admin::InitiativesTypesPermissionsController)
         end
-
-        private
 
         def set_controller_breadcrumb
           controller_breadcrumb_items.append(

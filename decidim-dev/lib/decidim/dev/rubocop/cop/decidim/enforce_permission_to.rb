@@ -18,7 +18,13 @@ module RuboCop
       # Actions are exempt when the controller uses a `before_action` that
       # performs authorization (either by referencing a method that calls
       # `enforce_permission_to`, or by using a name containing
-      # "permission", "authorize", or "enforce").
+      # "permission", "authorize", or "enforce"). When such `before_action`
+      # is restricted with `only:` or `except:`, only the actions it covers
+      # are exempt.
+      #
+      # Calls to methods starting with `enforce_permission_to_` or
+      # `action_authorized_to_` (authorization helper wrappers) are also
+      # accepted as authorization checks.
       #
       # @example
       #   # bad
@@ -57,6 +63,10 @@ module RuboCop
 
         AUTHORIZATION_METHODS = [:enforce_permission_to, :action_authorized_to].freeze
 
+        # Prefixes accepted for authorization helper wrappers, such as
+        # `enforce_permission_to_update_resource`.
+        AUTHORIZATION_PREFIXES = %w(enforce_permission_to_ action_authorized_to_).freeze
+
         BEFORE_ACTION_AUTH_KEYWORDS = %w(permission authorize enforce).freeze
 
         def on_new_investigation
@@ -81,7 +91,7 @@ module RuboCop
           method_name = node.method_name
 
           return if @in_private_section
-          return if @before_action_auth
+          return if action_exempted_by_before_action?(method_name)
           return if @helper_methods.include?(method_name)
 
           return if contains_authorization_check?(node)
@@ -101,7 +111,9 @@ module RuboCop
 
         def reset_state
           @in_private_section = false
-          @before_action_auth = false
+          @all_actions_auth = false
+          @only_actions = Set.new
+          @except_sets = []
           @helper_methods = Set.new
         end
 
@@ -119,10 +131,7 @@ module RuboCop
           class_node.body&.each_child_node(:send) do |send_node|
             next unless send_node.method_name == :before_action
 
-            if before_action_handles_auth?(send_node)
-              @before_action_auth = true
-              break
-            end
+            register_auth_before_action(send_node) if before_action_handles_auth?(send_node)
           end
         end
 
@@ -130,10 +139,7 @@ module RuboCop
           class_node.body&.each_descendant(:block) do |block_node|
             next unless block_node.send_node.method_name == :before_action
 
-            if block_contains_auth?(block_node)
-              @before_action_auth = true
-              break
-            end
+            register_auth_before_action(block_node.send_node) if block_contains_auth?(block_node)
           end
         end
 
@@ -141,6 +147,55 @@ module RuboCop
           node.arguments.any? do |arg|
             auth_symbol_argument?(arg)
           end
+        end
+
+        def register_auth_before_action(node)
+          only, except = action_restrictions(node)
+
+          if only
+            @only_actions.merge(only)
+          elsif except
+            @except_sets << except
+          else
+            @all_actions_auth = true
+          end
+        end
+
+        def action_exempted_by_before_action?(method_name)
+          return true if @all_actions_auth
+          return true if @only_actions.include?(method_name)
+          return true if @except_sets.any? { |actions| actions.none?(method_name) }
+
+          false
+        end
+
+        def action_restrictions(node)
+          only = nil
+          except = nil
+
+          node.arguments.each do |arg|
+            next unless arg.hash_type?
+
+            arg.pairs.each do |pair|
+              next unless pair.key.sym_type?
+
+              case pair.key.value
+              when :only
+                only = covered_actions(pair.value)
+              when :except
+                except = covered_actions(pair.value)
+              end
+            end
+          end
+
+          [only, except]
+        end
+
+        def covered_actions(value)
+          nodes = value.array_type? ? value.children : [value]
+
+          nodes.select { |node| node.sym_type? || node.str_type? }
+               .to_set { |node| node.value.to_sym }
         end
 
         def block_contains_auth?(block_node)
@@ -179,7 +234,7 @@ module RuboCop
           return true if AUTHORIZATION_METHODS.include?(send_node.method_name)
 
           method_name = send_node.method_name.to_s
-          BEFORE_ACTION_AUTH_KEYWORDS.any? { |keyword| method_name.include?(keyword) }
+          AUTHORIZATION_PREFIXES.any? { |prefix| method_name.start_with?(prefix) }
         end
       end
     end

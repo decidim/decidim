@@ -322,4 +322,164 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
       end
     RUBY
   end
+
+  it "exempts only the actions covered by a before_action with only" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        before_action :authorize_access, only: [:edit]
+
+        def index
+        ^^^^^^^^^ Action `index` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resources = Resource.all
+        end
+
+        def edit
+          @resource = Resource.find(params[:id])
+        end
+
+        private
+
+        def authorize_access
+          enforce_permission_to :update, :resource
+        end
+      end
+    RUBY
+  end
+
+  it "exempts actions covered by a before_action with a single symbol only" do
+    expect_no_offenses(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        before_action :authorize_access, only: :edit
+
+        def edit
+          @resource = Resource.find(params[:id])
+        end
+
+        private
+
+        def authorize_access
+          enforce_permission_to :update, :resource
+        end
+      end
+    RUBY
+  end
+
+  it "exempts all the actions not covered by a before_action with except" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        before_action :authorize_access, except: [:index]
+
+        def index
+        ^^^^^^^^^ Action `index` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resources = Resource.all
+        end
+
+        def edit
+          @resource = Resource.find(params[:id])
+        end
+
+        private
+
+        def authorize_access
+          enforce_permission_to :update, :resource
+        end
+      end
+    RUBY
+  end
+
+  it "does not exempt actions covered by a non-auth before_action with only" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        before_action :set_breadcrumb, only: [:edit]
+
+        def edit
+        ^^^^^^^^ Action `edit` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resource = Resource.find(params[:id])
+        end
+
+        private
+
+        def set_breadcrumb
+          breadcrumb_items << { label: "Edit" }
+        end
+      end
+    RUBY
+  end
+
+  it "exempts only the actions covered by a before_action block with only" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        before_action only: [:edit] do
+          enforce_permission_to :update, :resource
+        end
+
+        def index
+        ^^^^^^^^^ Action `index` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resources = Resource.all
+        end
+
+        def edit
+          @resource = Resource.find(params[:id])
+        end
+      end
+    RUBY
+  end
+
+  it "does not register an offense when action calls an enforce_permission_to wrapper method" do
+    expect_no_offenses(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        def edit
+          enforce_permission_to_update_resource
+          @resource = Resource.find(params[:id])
+        end
+
+        private
+
+        def enforce_permission_to_update_resource
+          enforce_permission_to :update, :resource
+        end
+      end
+    RUBY
+  end
+
+  it "does not register an offense when action calls an action_authorized_to wrapper method" do
+    expect_no_offenses(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        def edit
+          action_authorized_to_edit_resource
+          @resource = Resource.find(params[:id])
+        end
+      end
+    RUBY
+  end
+
+  it "registers an offense when action only calls a method containing permission" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        def edit
+        ^^^^^^^^ Action `edit` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          resource_permissions
+          @resource = Resource.find(params[:id])
+        end
+
+        private
+
+        def resource_permissions
+          @resource.permissions
+        end
+      end
+    RUBY
+  end
+
+  it "registers an offense when action only calls a method containing authorize" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        def edit
+        ^^^^^^^^ Action `edit` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          authorize_url
+          @resource = Resource.find(params[:id])
+        end
+      end
+    RUBY
+  end
 end
