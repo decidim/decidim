@@ -22,7 +22,7 @@ module Decidim
             when :questionnaire
               allow!
             when :questionnaire_template
-              allow! if [:preview, :apply].include? permission_action.action
+              allow! if [:preview, :apply, :skip].include? permission_action.action
             end
           end
 

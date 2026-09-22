@@ -133,7 +133,7 @@ module Decidim
         end
 
         def skip
-          enforce_permission_to(:update, :template, template:)
+          enforce_permission_to :skip, :questionnaire_template
           questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
           # rubocop:disable-next Rails/SkipsModelValidations
           questionnaire.touch

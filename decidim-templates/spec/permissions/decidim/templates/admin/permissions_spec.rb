@@ -130,6 +130,10 @@ describe Decidim::Templates::Admin::Permissions do
       it_behaves_like "action is allowed", :admin, :apply, :questionnaire_template
     end
 
+    context "when skipping" do
+      it_behaves_like "action is allowed", :admin, :skip, :questionnaire_template
+    end
+
     context "with any other action" do
       let(:action) do
         { scope: :admin, action: :foo, subject: :questionnaire_template }
