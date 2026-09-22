@@ -145,6 +145,36 @@ module Decidim
               expect(flash[:notice]).to be_nil
             end
           end
+
+          context "when user is an evaluator" do
+            let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization: component.organization) }
+            let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: component.participatory_space) }
+
+            before do
+              create(:evaluation_assignment, proposal: proposal1, evaluator_role:)
+            end
+
+            it "enqueues ProposalAnswerJob only for the assigned proposals" do
+              expect { post :update_multiple_answers, params: }.to have_enqueued_job(ProposalAnswerJob).exactly(1).times
+
+              expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
+              expect(flash[:notice]).to include("1 proposals will be answered using the template \"#{template.name["en"]}\".")
+              expect(flash[:alert]).to include("Proposals with IDs [#{proposal2.id}] could not be answered due errors applying the template \"#{template.name["en"]}\".")
+            end
+          end
+
+          context "when user is an evaluator of another participatory space" do
+            let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization: component.organization) }
+            let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: create(:participatory_process, organization: component.organization)) }
+
+            it "does not enqueue any job and redirects with an unauthorized message" do
+              expect { post :update_multiple_answers, params: }.not_to have_enqueued_job(ProposalAnswerJob)
+
+              expect(response).to have_http_status(:found)
+              expect(flash[:alert]).to eq("You are not authorized to perform this action.")
+              expect(flash[:notice]).to be_nil
+            end
+          end
         end
       end
     end
