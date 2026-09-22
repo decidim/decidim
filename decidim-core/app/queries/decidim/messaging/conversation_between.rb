@@ -83,9 +83,9 @@ module Decidim
       #       c.id IN (
       #         SELECT subc.id FROM decidim_messaging_conversations subc
       #            INNER JOIN decidim_messaging_participations subp
-      #            ON subp.id = subc.id
+      #            ON subp.decidim_conversation_id = subc.id
       #         WHERE
-      #           subp.id = 123
+      #           subp.decidim_participant_id = 123
       #       )
       #     GROUP BY c.id
       #
