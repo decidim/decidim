@@ -167,6 +167,9 @@ module.exports = {
         'color-icon-warning': {
             'dark': '#635220', /* icon */
         },
+        'color-icon-base': {
+            'dark': '#65707d', /* icon */
+        },
         'color-icon-link': {
             'inverted': '#ffffff', /* icon */
             'visited': '#92278f', /* icon */
@@ -187,9 +190,6 @@ module.exports = {
         },
         'color-icon-alert': {
             'dark': '#cc2929', /* icon */
-        },
-        'color-icon-base': {
-            'dark': '#65707d', /* icon */
         },
         'color-border': {
             'focus': '#155abf', 
