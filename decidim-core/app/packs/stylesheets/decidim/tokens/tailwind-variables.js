@@ -95,6 +95,42 @@ module.exports = {
             'hover': '#ffffff40', /* background */
             'active': '#ffffff00', /* background */
         },
+        'color-border': {
+            'focus': '#155abf', 
+            'primary': '#e02d2d', 
+            'secondary': '#155abf', 
+            'tertiary': '#d4a81a', 
+            'inverted': '#ffffff', 
+        },
+        'color-border-info': {
+            'dark': '#155abf', 
+        },
+        'color-border-success': {
+            'dark': '#1c7731', 
+        },
+        'color-border-warning': {
+            'light': '#efcf6f', 
+            'dark': '#635220', 
+        },
+        'color-border-primary': {
+            'interactive': '#e02d2d', /* typing */
+        },
+        'color-border-secondary': {
+            'interactive': '#155abf', /* typing */
+        },
+        'color-border-alert': {
+            'dark': '#cc2929', 
+        },
+        'color-border-tertiary': {
+            'interactive': '#d4a81a', /* card active */
+        },
+        'color-border-neutral': {
+            'dark': '#8f8f8f', /* inputs, checkbox, radio */
+            'light': '#d4d4d4', /* dividers */
+        },
+        'color-border-base': {
+            'dark': '#65707d', 
+        },
         'color-slate': {
             '50': '#ecedef', 
             '100': '#c3c8cc', 
@@ -190,42 +226,6 @@ module.exports = {
         },
         'color-icon-alert': {
             'dark': '#cc2929', /* icon */
-        },
-        'color-border': {
-            'focus': '#155abf', 
-            'primary': '#e02d2d', 
-            'secondary': '#155abf', 
-            'tertiary': '#d4a81a', 
-            'inverted': '#ffffff', 
-        },
-        'color-border-info': {
-            'dark': '#155abf', 
-        },
-        'color-border-success': {
-            'dark': '#1c7731', 
-        },
-        'color-border-warning': {
-            'light': '#efcf6f', 
-            'dark': '#635220', 
-        },
-        'color-border-primary': {
-            'interactive': '#e02d2d', /* typing */
-        },
-        'color-border-secondary': {
-            'interactive': '#155abf', /* typing */
-        },
-        'color-border-tertiary': {
-            'interactive': '#d4a81a', /* card active */
-        },
-        'color-border-neutral': {
-            'dark': '#8f8f8f', /* inputs, checkbox, radio */
-            'light': '#d4d4d4', /* dividers */
-        },
-        'color-border-alert': {
-            'dark': '#cc2929', 
-        },
-        'color-border-base': {
-            'dark': '#65707d', 
         },
         'color-blue': {
             '50': '#e8eff9', 
