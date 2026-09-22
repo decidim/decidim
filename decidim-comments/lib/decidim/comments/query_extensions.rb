@@ -21,6 +21,7 @@ module Decidim
 
       def commentable(id:, locale:, toggle_translations:, type:)
         raise GraphQL::ExecutionError, "#{locale} is not a valid locale" unless available_locales.include?(locale)
+        raise GraphQL::ExecutionError, "Invalid commentable type" unless valid_commentable_type?(type)
 
         I18n.locale = locale.presence
         RequestStore.store[:toggle_machine_translations] = toggle_translations
@@ -28,6 +29,14 @@ module Decidim
       end
 
       private
+
+      def valid_commentable_type?(type)
+        klass = type.safe_constantize
+        return false unless klass
+        return false unless klass.is_a?(Class)
+
+        klass.include?(Decidim::Comments::Commentable)
+      end
 
       def available_locales
         if context[:current_organization].present?

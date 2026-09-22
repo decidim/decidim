@@ -228,6 +228,7 @@ en:
         authorizations:
           new:
             error: We could not verify your account or you are not in the organization's census.
+            locked: Too many failed attempts. Please try again later.
             success: Your account has been successfully verified.
       dummy_authorization:
         extra_explanation:
@@ -253,6 +254,7 @@ en:
           confirmations:
             create:
               error: Verification does not match. Please try again or reject the verification so the participant can amend it.
+              locked: Too many failed attempts. Please try again later.
               success: Participant successfully verified.
             new:
               reject: Reject
@@ -329,6 +331,7 @@ en:
             title: Request your verification code
           update:
             error: Your verification code does not match ours. Please double-check the letter we sent to you.
+            locked: Too many failed attempts. Please try again later.
             success: Congratulations. You have been successfully verified.
       sms:
         authorizations:
@@ -348,6 +351,8 @@ en:
             title: Request your verification code
           update:
             error: Your verification code does not match ours. Please double-check the SMS we sent you.
+            expired: The verification code has expired. Please request a new one.
+            locked: Too many failed attempts. Please try again later or request a new code.
             success: Congratulations. You have been successfully verified.
   errors:
     messages:
