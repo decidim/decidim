@@ -8,7 +8,6 @@ module Decidim
       class ProposalAnswerCreator < Decidim::Admin::Import::Creator
         class << self
           def batch_notifier_klass
-            require_dependency "decidim/proposals/import/batch_notifier"
             Decidim::Proposals::Import::BatchNotifier
           end
         end
