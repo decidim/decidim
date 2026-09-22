@@ -400,6 +400,12 @@ describe("CommentsComponent", () => {
     expect(CommentsComponent).toBeDefined();
   });
 
+  it("generates an ID if not defined", () => {
+    const dummyElement = document.createElement("div");
+    const component = new CommentsComponent($(dummyElement), {});
+    expect(component.id).toMatch(/^comments-\d{1,3}-\d+$/);
+  });
+
   it("initializes unmounted", () => {
     expect(subject.mounted).toBeFalsy();
   });

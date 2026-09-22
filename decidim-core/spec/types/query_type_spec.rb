@@ -79,5 +79,28 @@ module Decidim::Api
         end
       end
     end
+
+    describe "users" do
+      let!(:confirmed_users) { create_list(:user, 3, :confirmed, organization: current_organization) }
+      let!(:other_org_user) { create(:user, :confirmed) }
+      let!(:api_user) { create(:api_user, organization: current_organization) }
+      let!(:unconfirmed_user) { create(:user, organization: current_organization) }
+      let!(:managed_user) { create(:user, :confirmed, :managed, organization: current_organization) }
+      let!(:unconfirmed_managed_user) { create(:user, :managed, organization: current_organization) }
+      let!(:blocked_user) { create(:user, :confirmed, :blocked, organization: current_organization) }
+      let!(:deleted_user) { create(:user, :confirmed, :deleted, organization: current_organization) }
+      let!(:unconfirmed_deleted_user) { create(:user, :deleted, organization: current_organization) }
+      let!(:ephemeral_user) { create(:user, :ephemeral, organization: current_organization) }
+
+      let(:expected_users) { [current_user] + confirmed_users }
+
+      context "with no arguments" do
+        let(:query) { "{ users { id name } }" }
+
+        it "returns the visible users" do
+          expect(response["users"]).to match_array(expected_users.map { |u| { "id" => u.id.to_s, "name" => u.name } })
+        end
+      end
+    end
   end
 end

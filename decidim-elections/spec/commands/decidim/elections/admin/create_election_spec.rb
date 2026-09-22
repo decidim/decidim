@@ -61,6 +61,18 @@ module Decidim
             expect(election.component).to eq(component)
           end
 
+          context "when title has a user mention" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:) }
+            let(:title) { { en: "Election title mentioning @#{mentioned_user.nickname}" } }
+
+            it "does not rewrite the mention to the mentioned user GID" do
+              subject.call
+
+              expect(translated(election.title)).not_to include(mentioned_user.to_global_id.to_s)
+              expect(translated(election.title)).to include("@#{mentioned_user.nickname}")
+            end
+          end
+
           it "sets start and end time" do
             subject.call
             expect(election.start_at.to_i).to eq start_at.to_i

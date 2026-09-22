@@ -99,7 +99,10 @@ eu:
           button: Sortu
           title: Sortu beste sarrera bat
         orders:
+          label: Sarrera ordena honetan argitaratuta
+          most_commented: Gehien komentatua
           random: Ausazko ordena
+          recent: Berrienak
     components:
       blogs:
         actions:

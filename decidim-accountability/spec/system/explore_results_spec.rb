@@ -163,6 +163,28 @@ describe "Explore results", :versioning do
           end
         end
       end
+
+      context "when filtering by a taxonomy with special characters in its name" do
+        let(:taxonomy) do
+          create(:taxonomy, :with_parent, skip_injection: true, organization:, name: { en: "Accessibility, inclusion & equal d'opportunities" })
+        end
+        let(:path) do
+          decidim_participatory_process_accountability.results_path(
+            participatory_process_slug: participatory_process.slug,
+            component_id: component.id,
+            locale: I18n.locale,
+            filter: { taxonomies_part_of_contains: taxonomy.id }
+          )
+        end
+
+        it "shows the taxonomy name escaped only once" do
+          within("main h2") do
+            expect(page).to have_text("Accessibility, inclusion & equal d'opportunities")
+            expect(page).to have_no_text("&#39;")
+            expect(page).to have_no_text("&amp;")
+          end
+        end
+      end
     end
 
     describe "show" do

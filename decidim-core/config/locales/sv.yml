@@ -2041,7 +2041,6 @@ sv:
   layouts:
     decidim:
       announcements:
-        view_less: Visa mindre
         view_more: Mer information
       data_consent:
         details:

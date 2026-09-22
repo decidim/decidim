@@ -36,14 +36,13 @@ module Decidim
             hash.update(id => { position: index })
           end
 
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           ParticipatoryProcessStep.transaction do
             collection.update_all(position: nil)
             collection.reload
             collection.update(data.keys, data.values)
             collection.each(&:save!)
           end
-          # rubocop:enable Rails/SkipsModelValidations
         end
 
         def order
