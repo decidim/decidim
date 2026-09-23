@@ -20,7 +20,11 @@ module RuboCop
         MSG = "Unscoped ActiveRecord finder detected. Scope the query to the current organization, " \
               "e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`."
 
-        FINDER_METHODS = [:find, :find_by, :find_by!, :first, :first!, :take, :take!].freeze
+        FINDER_METHODS = [
+          :find, :find_by, :find_by!, :find_sole_by, :first, :first!, :last, :last!,
+          :sole, :sole!, :take, :take!,
+          :find_or_initialize_by, :find_or_create_by, :find_or_create_by!
+        ].freeze
         RESTRICT_ON_SEND = [*FINDER_METHODS, :where].freeze
 
         SCOPE_ROOT_METHODS = [:current_organization, :collection].freeze
