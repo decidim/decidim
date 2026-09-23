@@ -69,6 +69,7 @@ CVE-2026-45378 (identity documents via 7-day signed Active Storage disk URLs), G
 | New SQL search/sort | Spec with SQL metacharacters in input asserting no injection |
 | New file serving / export | Spec asserting unauthenticated and unauthorized users cannot fetch the file |
 | New counter/vote logic | Concurrency or atomicity spec |
+| Changes to organization-scoped queries or API-credential binding | Spec proving same-organization access succeeds and other-organization access is denied |
 
 ## Review Guidance
 
