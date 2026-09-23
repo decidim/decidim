@@ -64,12 +64,12 @@ CVE-2026-45378 (identity documents via 7-day signed Active Storage disk URLs), G
 
 | Change | Required test |
 |---|---|
-| New user-accessible endpoint / mutation / resolver | Permission spec: wrong-role, unauthenticated, and cross-org attempts are denied (not required for internal commands with no user boundary; resource-level authorization inherited from the enclosing type still needs denial coverage) |
-| New rendering of user data | Escaping/sanitization spec with a malicious payload (e.g. `<script>`) |
-| New SQL search/sort | Spec with SQL metacharacters in input asserting no injection |
-| New file serving / export | Spec asserting unauthenticated and unauthorized users cannot fetch the file |
-| New counter/vote logic | Concurrency or atomicity spec |
-| Changes to organization-scoped queries or API-credential binding | Spec proving same-organization access succeeds and other-organization access is denied |
+|New user-accessible endpoint / mutation / resolver |Permission spec: wrong-role, unauthenticated, and cross-org attempts are denied (not required for internal commands with no user boundary; resource-level authorization inherited from the enclosing type still needs denial coverage) |
+|New rendering of user data |Escaping/sanitization spec with a malicious payload (e.g. `<script>`) |
+|New SQL search/sort |Spec with SQL metacharacters in input asserting no injection |
+|New file serving / export |Spec asserting unauthenticated and unauthorized users cannot fetch the file |
+|New counter/vote logic |Concurrency or atomicity spec |
+|Changes to organization-scoped queries or API-credential binding |Spec proving same-organization access succeeds and other-organization access is denied |
 
 ## Review Guidance
 
