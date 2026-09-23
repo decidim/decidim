@@ -58,7 +58,7 @@ CVE-2026-45378 (identity documents via 7-day signed Active Storage disk URLs), G
 - Any feature making the server fetch a URL (webhooks, push subscriptions, imports) must block private/internal addresses and validate redirects. Features with fixed, known destinations (e.g. a webhook you configure once) must additionally restrict targets to an allow-list (GHSA-2g9c-vf8h-prxx). Features that intentionally accept arbitrary public URLs from users (e.g. participatory-process imports) do not need an allow-list, but they must still apply address/redirect validation, scheme restrictions, timeouts, and size limits so the fetch cannot reach internal services.
 - Validate external redirect targets (scheme and host); never `redirect_to params[...]` unchecked (GHSA-469h-mqg8-535r).
 - Tokens (invitations, password resets, uploads) must enforce expiry server-side on every use (GHSA-w3q8-m492-4pwp).
-- Counters and quotas (endorsements, votes, budget allocations) need atomic updates or locking to survive concurrent requests (GHSA-r275-j57c-7mf2).
+- Counters and quotas (endorsements, votes, budget allocations) need database-atomic updates or cross-process-safe locking to survive concurrent requests (GHSA-r275-j57c-7mf2). Process-local thread locks are insufficient.
 
 ## Required Tests
 
