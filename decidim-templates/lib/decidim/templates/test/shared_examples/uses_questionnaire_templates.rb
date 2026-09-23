@@ -2,13 +2,11 @@
 
 require "spec_helper"
 
-# rubocop:disable Rails/SkipsModelValidations
-
 shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
   describe "choose a template" do
     context "when there are no templates" do
       before do
-        questionnaire.update_columns(
+        questionnaire.update!(
           created_at: 1.day.ago,
           updated_at: Time.zone.now
         )
@@ -26,7 +24,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
 
       context "when it is an existing questionnaire" do
         before do
-          questionnaire.update_columns(
+          questionnaire.update!(
             created_at: 1.day.ago,
             updated_at: Time.zone.now
           )
@@ -39,9 +37,10 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
 
       context "when it is a newly created questionnaire" do
         before do
-          questionnaire.update_columns(
-            created_at: Time.zone.now,
-            updated_at: Time.zone.now,
+          time = Time.zone.now
+          questionnaire.update!(
+            created_at: time,
+            updated_at: time,
             title: {},
             description: {},
             tos: {}
@@ -82,9 +81,10 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
     let(:questionnaire_question) { questionnaire.questions.first }
 
     before do
-      questionnaire.update_columns(
-        created_at: Time.zone.now,
-        updated_at: Time.zone.now,
+      time = Time.zone.now
+      questionnaire.update!(
+        created_at: time,
+        updated_at: time,
         title: {},
         description: {},
         tos: {}
@@ -111,7 +111,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
     let!(:templates) { create_list(:questionnaire_template, 6, :with_questions, skip_injection: true, organization: questionnaire.questionnaire_for.organization) }
 
     before do
-      questionnaire.update_columns(
+      questionnaire.update!(
         created_at: 1.hour.ago,
         updated_at: 1.hour.ago,
         title: {},
