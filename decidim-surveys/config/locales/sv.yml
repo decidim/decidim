@@ -72,7 +72,6 @@ sv:
         new_survey: Ny enkät
         preview: Förhandsgranska
         responses: Svar
-        responses_alert: Ta bort svar vid publicering är aktivt för enkäten. Det finns %{responses_count} svar som kommer att tas bort om du fortsätter.
         title: Åtgärder
       admin:
         exports:
