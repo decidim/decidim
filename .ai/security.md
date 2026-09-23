@@ -18,7 +18,7 @@ CVE-2026-40869 (anyone accepts amendments), CVE-2026-40870 (comments API without
 
 CVE-2026-45414 (JWT replayed across organizations), GHSA-86fh-w43w-338c (verification IDs cross-org).
 
-- Scope all queries through the current organization (`current_organization` or `record.organization`). Never look up records by ID alone in controllers, commands, or resolvers.
+- Scope all queries for **organization-owned records** through the current organization (`current_organization` or `record.organization`). Never look up records by ID alone in controllers, commands, or resolvers. This rule does not apply to installation-wide resources that have no organization relation (e.g. `Decidim::System::Admin`, or the `Decidim::Organization` lookup that resolves the tenant root itself) — those are system-level, not tenant data, but their access must still be guarded by the appropriate role/authentication boundary.
 - API credentials (JWT, API users) must be bound to the organization that issued them. A validly-signed token from another organization must be rejected.
 - A role granted in one organization must never grant access to another organization's data.
 
@@ -55,7 +55,7 @@ CVE-2026-45378 (identity documents via 7-day signed Active Storage disk URLs), G
 ## 6. CSRF, SSRF, Redirects, Tokens, Race Conditions
 
 - Never disable or override `protect_from_forgery`, and never skip authenticity token verification for any action (GHSA-f3qm-vfc3-jg6v).
-- Any feature making the server fetch a URL (webhooks, push subscriptions, imports) must validate the target against an allow-list and block private/internal addresses (GHSA-2g9c-vf8h-prxx).
+- Any feature making the server fetch a URL (webhooks, push subscriptions, imports) must block private/internal addresses and validate redirects. Features with fixed, known destinations (e.g. a webhook you configure once) must additionally restrict targets to an allow-list (GHSA-2g9c-vf8h-prxx). Features that intentionally accept arbitrary public URLs from users (e.g. participatory-process imports) do not need an allow-list, but they must still apply address/redirect validation, scheme restrictions, timeouts, and size limits so the fetch cannot reach internal services.
 - Validate external redirect targets (scheme and host); never `redirect_to params[...]` unchecked (GHSA-469h-mqg8-535r).
 - Tokens (invitations, password resets, uploads) must enforce expiry server-side on every use (GHSA-w3q8-m492-4pwp).
 - Counters and quotas (endorsements, votes, budget allocations) need atomic updates or locking to survive concurrent requests (GHSA-r275-j57c-7mf2).
