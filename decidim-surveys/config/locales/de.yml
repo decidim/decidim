@@ -75,7 +75,6 @@ de:
         new_survey: Neue Umfrage
         preview: Vorschau
         responses: Antworten
-        responses_alert: Das Löschen der Antworten bei der Veröffentlichung dieser Umfrage aktiv. Derzeit gibt es %{responses_count} Antworten, die gelöscht werden, wenn Sie fortfahren.
         title: Aktionen
       admin:
         exports:
