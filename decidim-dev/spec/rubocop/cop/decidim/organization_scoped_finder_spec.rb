@@ -203,6 +203,19 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts a finder chained to a scope built with the current organization argument" do
+    expect_no_offenses(<<~RUBY)
+      Decidim::ContentBlock.for_scope(:homepage, organization: current_organization).where(scoped_resource_id: 1)
+    RUBY
+  end
+
+  it "registers an offense for a finder chained to a scope built with untrusted arguments" do
+    expect_offense(<<~RUBY)
+      Widget.custom_scope(name: params[:name]).find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "registers an offense for where value uses current_participatory_space on an unrelated key" do
     expect_offense(<<~RUBY)
       InitiativesCommitteeMember.where(initiative: current_participatory_space).find(params.expect(:id))

@@ -76,7 +76,7 @@ module RuboCop
         def scoped_node?(node)
           return false unless node.send_type?
 
-          scope_root?(node) || scoped_where?(node)
+          scope_root?(node) || scoped_where?(node) || scoped_finder_arguments?(node)
         end
 
         def scope_root?(node)

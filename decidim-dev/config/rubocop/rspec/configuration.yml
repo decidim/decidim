@@ -30,6 +30,7 @@ RSpec/DescribeClass:
     - spec/version_files_spec.rb
     - spec/spellcheck_spec.rb
     - spec/i18n_spec.rb
+    - "**/spec/rubocop/**/*"
     - "**/*/spec/**/*_badge_spec.rb"
     - "**/tasks/**/*"
 
