@@ -1,6 +1,5 @@
 module.exports = {
     'colors': {
-        'don't-apply-this-in-the-designs': '#ffffff05', 
         'color': {
             'black': '#1a1a1a', 
             'white': '#ffffff', 
