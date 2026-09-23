@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user creates a Meeting from the admin
       # panel.
       class CreateMeeting < Decidim::Commands::CreateResource
-        fetch_form_attributes :end_time, :start_time, :online_meeting_url, :registration_type,
+        fetch_form_attributes :title, :end_time, :start_time, :online_meeting_url, :registration_type,
                               :registration_url, :address, :latitude, :longitude, :location, :location_hints,
                               :private_meeting, :transparent, :registrations_enabled, :component, :iframe_embed_type,
                               :comments_enabled, :taxonomizations, :comments_start_time, :comments_end_time, :iframe_access_level,
@@ -21,11 +21,9 @@ module Decidim
         end
 
         def attributes
-          parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
 
           super.merge({
-                        title: parsed_title,
                         description: parsed_description,
                         type_of_meeting: form.clean_type_of_meeting,
                         author: form.current_organization,
