@@ -8,7 +8,7 @@ Advisory sources: <https://github.com/decidim/decidim/security/advisories>
 
 CVE-2026-40869 (anyone accepts amendments), CVE-2026-40870 (comments API without permission checks), GHSA-639h-86hw-qcjq (templates admin, Critical), CVE-2026-45415 (CSV census endpoints), GHSA-vq6j-hj8w-7v39 (forms question editor), GHSA-86fh-w43w-338c (verification cross-org).
 
-- Every new controller action, command, and GraphQL resolver/field must enforce permissions through the permission system (`allowed_to?` / permissions classes). **Authentication is not authorization.**
+- Every **user-accessible operation** (controller action, GraphQL field/resolver/mutation, or other public entry point) must be covered by the permission system (`allowed_to?` / permissions classes). Authorization may be enforced directly at the entry point or inherited from an enclosing boundary — e.g. a GraphQL type's `self.authorized?` (as in `ComponentType`, `UserType`, `ProposalType`) covers its fields. What matters is that no user-reachable path executes without a permission check. Commands are not expected to each perform their own `allowed_to?` (internal commands may have no requesting user); the boundary that accepts user input must be checked. **Authentication is not authorization.**
 - Admin endpoints must verify the admin role per action. Do not rely on controller-level filters that can be skipped, and do not assume "only admins can reach this route".
 - Participant actions must verify the current user's relation to the specific resource (author, co-author, etc.). Never trust client-supplied IDs for authorization decisions.
 - GraphQL is publicly reachable by default (`/api`). Any field exposing a resource must apply the same permission checks as the HTML controllers. Never add root-level fields that bypass resource-level permissions.
@@ -27,7 +27,7 @@ CVE-2026-45414 (JWT replayed across organizations), GHSA-86fh-w43w-338c (verific
 CVE-2026-45376 (admin user search, injection through `ORDER BY`), GHSA-jm79-9pm4-vrw9 (Ransack data exfiltration).
 
 - Never interpolate user input into SQL fragments: `order(Arel.sql("... #{term} ..."))`, `where("... #{...}")`, `pluck` with SQL strings, etc.
-- `sanitize_sql_array` does **not** protect you: interpolation happens before sanitization, so Rails receives an already-built SQL string. This exact mistake caused CVE-2026-45376.
+- `sanitize_sql_array` is safe only when values are passed as bound placeholders: `sanitize_sql_array(["... :term ...", { term: input }])`. It does **not** protect you if user input is interpolated into the SQL template itself — `sanitize_sql_array(["... #{input} ..."])` is vulnerable, because interpolation happens before sanitization and Rails receives an already-built SQL string. This exact mistake caused CVE-2026-45376.
 - For dynamic ordering, map user input to a whitelist of allowed column/direction pairs.
 - Ransack: always define `ransackable_attributes` and `ransackable_associations` allow-lists. Never leave the default allow-all behavior for public controllers.
 - Test search/sort inputs with SQL metacharacters (`'`, `;`, `--`) asserting no injection.
@@ -39,7 +39,7 @@ CVE-2026-23891 (user name, Critical), GHSA-rx9f-5ggv-5rh6 (admin activity log), 
 - Never mark user-controlled content as `html_safe` or pass it to `raw`. This includes names, nicknames, titles, addresses, and values taken from `params`.
 - Escape explicitly wherever Rails does not escape for you: cells, JavaScript data attributes, JSON embedded in views, plain-text emails, log pages.
 - Query-string values rendered into HTML or JS (pagination, filters, search terms) must be escaped/sanitized server-side.
-- Rich text (WYSIWYG) content must be sanitized **server-side on save** using the existing scrubbers/pipeline. Never trust the client editor's output — attackers can POST directly to the endpoint.
+- Rich text (WYSIWYG) content must be sanitized **server-side before output**, using the existing scrubbers/pipeline (`decidim_sanitize` / `decidim_sanitize_editor` / `render_sanitized_content`). Never trust the client editor's output — attackers can POST directly to the endpoint. Sanitizing on save instead of on render is a deliberate architectural change: if you introduce a save-time sanitization invariant, document and validate it (all existing render paths, exports, and API representations must honor it); do not assume the rest of the pipeline already sanitizes at render time.
 - Validate/sanitize embedded content (iframes, embed URLs) and uploaded files (including SVG) server-side.
 - Any new surface that renders user data (activity logs, content blocks, version pages, export titles) must be reviewed for escaping.
 
@@ -64,7 +64,7 @@ CVE-2026-45378 (identity documents via 7-day signed Active Storage disk URLs), G
 
 | Change | Required test |
 |---|---|
-| New endpoint / command / resolver | Permission spec: wrong-role, unauthenticated, and cross-org attempts are denied |
+| New user-accessible endpoint / mutation / resolver | Permission spec: wrong-role, unauthenticated, and cross-org attempts are denied (not required for internal commands with no user boundary; resource-level authorization inherited from the enclosing type still needs denial coverage) |
 | New rendering of user data | Escaping/sanitization spec with a malicious payload (e.g. `<script>`) |
 | New SQL search/sort | Spec with SQL metacharacters in input asserting no injection |
 | New file serving / export | Spec asserting unauthenticated and unauthorized users cannot fetch the file |
