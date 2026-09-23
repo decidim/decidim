@@ -41,7 +41,6 @@ module Decidim
 
           redirect_to Decidim::EngineRouter.admin_proxy(questionnaire_for.component).survey_responses_path(questionnaire_for)
         end
-        
         protected
 
         def questionnaire_for
