@@ -69,7 +69,7 @@ module Decidim
 
       def collection
         @collection ||= Decidim::Verifications::Conflict.joins(:current_user).where(
-          decidim_users: { decidim_organization_id: current_organization.id }
+          decidim_users: { organization: current_organization }
         )
       end
 

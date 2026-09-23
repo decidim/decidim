@@ -113,7 +113,17 @@ module RuboCop
 
           scoped_where_pair?(key, value) ||
             scoped_association_pair?(key, value) ||
-            (value.hash_type? && value.children.any? { |inner| scoped_pair?(inner) })
+            (value.hash_type? && value.children.any? { |inner| ownership_scoped_pair?(inner) })
+        end
+
+        def ownership_scoped_pair?(pair_node)
+          return false unless pair_node.pair_type?
+
+          key = pair_node.children[0]
+          value = pair_node.children[1]
+
+          scoped_association_pair?(key, value) ||
+            (value.hash_type? && value.children.any? { |inner| ownership_scoped_pair?(inner) })
         end
 
         def scoped_where_pair?(key, value)

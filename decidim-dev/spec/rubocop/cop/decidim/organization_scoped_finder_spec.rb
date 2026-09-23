@@ -196,6 +196,19 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts nested ownership paths ending in a scoped association" do
+    expect_no_offenses(<<~RUBY)
+      Project.joins(:budget).where(budget: { project: { component: current_component } }).find(params.expect(:id))
+    RUBY
+  end
+
+  it "registers an offense for a trusted pair nested under an unrelated association" do
+    expect_offense(<<~RUBY)
+      Template.where(unrelated: { organization_id: current_organization.id }).find(params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "registers an offense for where value uses current_organization.participatory_spaces on an unrelated key" do
     expect_offense(<<~RUBY)
       Component.where(participatory_space: current_organization.participatory_spaces).find(params.expect(:component_id))
