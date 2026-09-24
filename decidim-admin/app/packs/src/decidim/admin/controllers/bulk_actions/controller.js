@@ -71,6 +71,10 @@ export default class extends Controller {
     });
 
     this.selectedItemsCountUpdate();
+
+    if (this.selectedItemsCount() > 0) {
+      this.showBulkActionsButton();
+    }
   }
 
   disconnect() {

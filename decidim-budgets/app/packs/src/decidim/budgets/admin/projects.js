@@ -3,15 +3,15 @@ document.addEventListener("turbo:load", () => {
     "#js-bulk-actions-wrapper"
   );
 
+  if (!wrapper) {
+    return;
+  }
+
   const bulkActionsContainer = wrapper.closest(
     '[data-controller~="bulk-actions"]'
   );
 
   if (!bulkActionsContainer) {
-    return;
-  }
-
-  if (!wrapper) {
     return;
   }
 
@@ -78,7 +78,7 @@ document.addEventListener("turbo:load", () => {
   document.addEventListener(
     "turbo:before-cache",
     () => {
-      wrapper.removeEventListener(
+      bulkActionsContainer.removeEventListener(
         "change",
         onSelectionChange
       );
