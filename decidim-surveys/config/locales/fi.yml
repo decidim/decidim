@@ -97,6 +97,14 @@ fi:
             edit:
               title: Kysymykset
         responses:
+          actions:
+            destroy_all_responses: Poista kaikki vastaukset
+            destroy_all_responses_confirm:
+              one: Haluatko varmasti poistaa %{count} vastauksen? Tätä toimintoa ei voi perua.
+              other: Haluatko varmasti poistaa %{count} vastausta? Tätä toimintoa ei voi perua.
+          destroy_all:
+            invalid: Vastausten poisto epäonnistui.
+            success: Kaikkien vastausten poisto onnistui.
           index:
             no_responses: Yhtään vastausta ei ole vielä annettu
             title: "yhteensä %{total} vastausta"
