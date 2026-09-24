@@ -150,6 +150,7 @@ fr:
           publish_responses: "%{user_name} a publié les réponses aux questions de %{resource_name} sur l'espace %{space_name}"
           unpublish_responses: "%{user_name} a dépublié les réponses aux questions de %{resource_name} sur l'espace %{space_name}"
         questionnaire:
+          delete_all_responses: "%{user_name} a supprimé les réponses du questionnaire %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
       errors:
         response:
