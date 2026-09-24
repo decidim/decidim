@@ -1,10 +1,11 @@
 <%= content_tag :div,
                 id: "comment_#{model.id}",
-                class: ["comment", "relative", ("top-comment" if top_comment_label.present?)].compact,
+                class: ["comment", "relative", ("top-comment" if top_comment_label.present?), ("comment--highlighted" if target_self?)].compact,
                 role: "comment",
                 data: { comment_id: model.id, parent: parent_element_id } do %>
   <% if model.hidden? %>
     <%= render :moderation_data %>
+    <%= render :chain_reply if render_chain_reply? %>
   <% elsif model.deleted? %>
     <%= render :deletion_data %>
   <% else %>
@@ -96,7 +97,9 @@
         </div>
       <% end %>
     </div>
-    <% if has_replies_in_children? %>
+    <% if render_chain_reply? %>
+      <%= render :chain_reply %>
+    <% elsif has_replies_in_children? %>
       <%= render :replies %>
     <% elsif can_reply? %>
       <div id="comment-<%= model.id %>-replies" class="comment-reply"></div>
