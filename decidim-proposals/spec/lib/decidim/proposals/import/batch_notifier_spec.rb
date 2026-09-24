@@ -106,6 +106,20 @@ describe Decidim::Proposals::Import::BatchNotifier do
         )
         expect(delivery).to have_received(:deliver_later)
       end
+
+      context "when recipient cannot participate in the resource" do
+        before do
+          allow(imported_resource).to receive(:can_participate?).with(recipient).and_return(false)
+          allow(Decidim::Proposals::ImportMailer).to receive(:proposal_answers_imported)
+        end
+
+        it "does not generate in-app notification nor enqueue email" do
+          notifier.notify!
+
+          expect(Decidim::NotificationGeneratorForRecipient).not_to have_received(:new)
+          expect(Decidim::Proposals::ImportMailer).not_to have_received(:proposal_answers_imported)
+        end
+      end
     end
 
     context "when followers include non-user entries" do

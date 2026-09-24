@@ -13,6 +13,8 @@ module Decidim
           return if collection.blank?
 
           recipients.each do |recipient|
+            next unless eligible_for_delivery?(recipient)
+
             create_import_notification(recipient)
             deliver_import_email(recipient) if recipient.notifications_sending_frequency == "real_time"
           end
@@ -84,6 +86,14 @@ module Decidim
             .map(&:participatory_space)
             .compact
             .uniq
+        end
+
+        def eligible_for_delivery?(recipient)
+          first_record = collection.first
+          return false if first_record.blank?
+          return true unless first_record.respond_to?(:can_participate?)
+
+          first_record.can_participate?(recipient)
         end
       end
     end
