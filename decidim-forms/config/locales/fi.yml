@@ -152,6 +152,7 @@ fi:
           publish_responses: "%{user_name} julkaisi kyselyn %{resource_name} vastaukset osallistumistilassa %{space_name}"
           unpublish_responses: "%{user_name} perui kyselyn %{resource_name} vastausten julkaisun osallistumistilassa %{space_name}"
         questionnaire:
+          delete_all_responses: "%{user_name} poisti kyselyn %{resource_name} vastaukset osallistumistilassa %{space_name}"
           update: "%{user_name} päivitti kyselyä %{resource_name}"
       errors:
         response:
