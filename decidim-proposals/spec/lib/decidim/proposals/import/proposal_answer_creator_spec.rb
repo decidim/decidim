@@ -152,7 +152,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       subject.finish_without_notify!
 
       expect(proposal.reload.answer["en"]).to eq(data[:"answer/en"])
-      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call).with(record, proposal.proposal_state)
+      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).not_to have_received(:call)
     end
   end
 end

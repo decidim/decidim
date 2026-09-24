@@ -69,7 +69,11 @@ describe "Import proposals answers from a file" do
         )
       ).and_return(notifier)
       expect(notifier).to receive(:notify!).once
-      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).not_to receive(:call)
+      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(
+        instance_of(Decidim::Proposals::Proposal),
+        anything,
+        notify_followers: false
+      ).exactly(amount).times
 
       click_on "Import"
       expect(page).to have_text("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
@@ -119,7 +123,11 @@ describe "Import proposals answers from a file" do
           )
         ).and_return(notifier)
         expect(notifier).to receive(:notify!).once
-        expect(Decidim::Proposals::Admin::NotifyProposalAnswer).not_to receive(:call)
+        expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(
+          instance_of(Decidim::Proposals::Proposal),
+          anything,
+          notify_followers: false
+        ).exactly(amount).times
 
         click_on "Import"
         expect(page).to have_text("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
