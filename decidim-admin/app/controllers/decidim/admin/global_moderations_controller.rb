@@ -9,6 +9,8 @@ module Decidim
 
       include Decidim::Admin::GlobalModerationContext
 
+      protected
+
       # Private: This method is used by the `Filterable` concern as the base query
       # without applying filtering and/or sorting options.
       def collection

@@ -24,14 +24,6 @@ module Decidim
               include Decidim::Templates::Admin::Concerns::Templatable
 
               helper Decidim::DatalistSelectHelper
-
-              def templatable_type
-                "Decidim::Forms::Questionnaire"
-              end
-
-              def templatable
-                questionnaire
-              end
             end
 
             def edit
@@ -89,6 +81,13 @@ module Decidim
               end
             end
 
+            # This endpoint is only used by the questions form rendered by the
+            # already authorized "edit_questions" action. The host controllers
+            # resolve their resource from params (e.g. "params[:id]") that have
+            # a different meaning in this request, so the authorization cannot
+            # be delegated to "questionnaire_for" here. Access is already
+            # restricted by the admin dashboard routing constraint.
+            # rubocop:disable-next Decidim/EnforcePermissionTo
             def response_options
               respond_to do |format|
                 format.json do
@@ -96,6 +95,18 @@ module Decidim
                   question = Question.find_by(id: question_id)
                   render json: question.response_options.map { |response_option| ResponseOptionPresenter.new(response_option).as_json } if question.present?
                 end
+              end
+            end
+
+            protected
+
+            if defined?(Decidim::Templates::Admin::Concerns::Templatable)
+              def templatable_type
+                "Decidim::Forms::Questionnaire"
+              end
+
+              def templatable
+                questionnaire
               end
             end
 
