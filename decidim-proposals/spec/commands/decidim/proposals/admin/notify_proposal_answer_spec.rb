@@ -151,6 +151,32 @@ module Decidim
             expect { subject }.to broadcast(:invalid)
           end
         end
+
+        context "when followers notifications are explicitly disabled" do
+          let(:command) { described_class.new(proposal, initial_state, notify_followers: false) }
+
+          it "does not notify followers but still notifies authors" do
+            expect(Decidim::EventsManager)
+              .not_to receive(:publish)
+              .with(
+                hash_including(
+                  event: "decidim.events.proposals.proposal_state_changed"
+                )
+              )
+
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                hash_including(
+                  event: "decidim.events.proposals.proposal_state_changed_for_authors",
+                  affected_users: proposal.authors,
+                  extra: { force_email: true }
+                )
+              )
+
+            subject
+          end
+        end
       end
     end
   end
