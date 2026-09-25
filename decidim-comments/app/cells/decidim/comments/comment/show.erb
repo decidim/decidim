@@ -96,10 +96,8 @@
         </div>
       <% end %>
     </div>
-    <% if has_replies_in_children? %>
+    <% if has_replies_in_children? || can_reply? %>
       <%= render :replies %>
-    <% elsif can_reply? %>
-      <div id="comment-<%= model.id %>-replies" class="comment-reply"></div>
     <% end %>
   <% end %>
   <% if current_user.present? %>
