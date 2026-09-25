@@ -27,7 +27,9 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:create, :result, object, context)
+        unless super && allowed_to?(:create, :result, Decidim::Accountability::Result.new(component: current_component), { current_user:, current_component: })
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
 
         true
       end
