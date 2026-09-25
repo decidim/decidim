@@ -19,8 +19,14 @@ export default class extends Controller {
         return;
       }
 
-      this.dirty = false;
-      window.removeEventListener("beforeunload", this.preventBeforeUnload);
+      queueMicrotask(() => {
+        if (event.defaultPrevented) {
+          return;
+        }
+
+        this.dirty = false;
+        window.removeEventListener("beforeunload", this.preventBeforeUnload);
+      });
     };
 
     this.preventBeforeUnload = (event) => {
@@ -35,7 +41,7 @@ export default class extends Controller {
     this.confirmNavigation = (event) => {
       const link = event.target?.closest("a[href]");
 
-      if (!this.dirty || this.confirming || event.defaultPrevented || !link) {
+      if (!this.dirty || event.defaultPrevented || !link) {
         return;
       }
 
@@ -45,6 +51,11 @@ export default class extends Controller {
       const opensWithModifier = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
 
       if (href.startsWith("#") || link.hasAttribute("download") || link.hasAttribute("data-unsaved-form-ignore") || opensAnotherWindow || opensWithModifier) {
+        return;
+      }
+
+      if (this.confirming) {
+        event.preventDefault();
         return;
       }
 

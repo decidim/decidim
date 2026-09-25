@@ -69,14 +69,42 @@ describe("UnsavedFormController", () => {
     expect(confirmAction).not.toHaveBeenCalled();
   });
 
-  it("allows form submission without an unload prompt", () => {
+  it("blocks navigation while the confirmation is pending", () => {
+    link.setAttribute("href", "/proposals");
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+
+    link.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    const event = new MouseEvent("click", { bubbles: true, cancelable: true });
+    link.dispatchEvent(event);
+
+    expect(event.defaultPrevented).toBe(true);
+    expect(confirmAction).toHaveBeenCalledTimes(1);
+  });
+
+  it("allows form submission without an unload prompt", async () => {
     input.dispatchEvent(new Event("input", { bubbles: true }));
     form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
 
     const event = new Event("beforeunload", { cancelable: true });
     window.dispatchEvent(event);
 
     expect(controller.dirty).toBe(false);
     expect(event.defaultPrevented).toBe(false);
+  });
+
+  it("keeps the form dirty when a later listener prevents the submit", async () => {
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    document.addEventListener("submit", (event) => event.preventDefault(), { once: true });
+
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(controller.dirty).toBe(true);
+
+    const event = new Event("beforeunload", { cancelable: true });
+    window.dispatchEvent(event);
+
+    expect(event.defaultPrevented).toBe(true);
   });
 });
