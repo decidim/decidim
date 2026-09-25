@@ -36,6 +36,7 @@ describe "Admin manages survey display conditions" do
 
     visit Decidim::EngineRouter.admin_proxy(component).response_options_survey_path(
       id: condition_question.id,
+      survey_id: survey.id,
       format: :json
     )
 

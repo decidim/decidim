@@ -19,6 +19,10 @@ module Decidim
             survey
           end
 
+          def response_options_url(params)
+            url_for(params.merge(controller: "questions/surveys", action: "response_options", format: :json, survey_id: survey.id))
+          end
+
           def after_update_url
             edit_questions_questions_survey_path(survey)
           end
@@ -39,7 +43,7 @@ module Decidim
           private
 
           def survey
-            @survey ||= Decidim::Surveys::Survey.where(component: current_component).find(params.expect(:id))
+            @survey ||= Decidim::Surveys::Survey.where(component: current_component).find(params[:survey_id] || params.expect(:id))
           end
         end
       end
