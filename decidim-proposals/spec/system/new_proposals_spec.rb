@@ -76,16 +76,11 @@ describe "Proposals" do
     end
 
     context "with unsaved changes" do
-      it "asks for confirmation before leaving the form" do
+      before do
         click_on "New proposal"
-
-        within ".new_proposal" do
-          fill_in "Title", with: "An unsaved proposal"
-          click_on "Back"
-        end
-
-        expect(page).to have_css("#confirm-modal", visible: :visible, text: "This page contains unsaved changes. Are you sure you want to leave this page?")
       end
+
+      it_behaves_like "a form with unsaved changes", ".new_proposal", "Title", "Back"
     end
 
     context "and draft proposal exists for current users" do
