@@ -152,6 +152,25 @@ module Decidim
           expect(Decidim::TaxonomyFilter).not_to exist(taxonomy.id)
         end
       end
+
+      context "when accessing data from another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:other_taxonomy) { create(:taxonomy, :with_parent, organization: other_organization) }
+        let(:other_root_taxonomy) { other_taxonomy.parent }
+        let!(:other_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: other_root_taxonomy) }
+
+        it "raises not found when accessing a root taxonomy from another organization" do
+          expect do
+            get :index, params: { taxonomy_id: other_root_taxonomy.id }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+
+        it "raises not found when editing a taxonomy filter from another organization" do
+          expect do
+            get :edit, params: { taxonomy_id: other_root_taxonomy.id, id: other_taxonomy_filter.id }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
     end
   end
 end
