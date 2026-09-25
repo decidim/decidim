@@ -152,6 +152,7 @@ eu:
           publish_responses: "%{user_name} parte-hartzaileak argitaratu ditu %{resource_name} inkestari emandako erantzunak %{space_name} espazioan"
           unpublish_responses: "%{user_name} parte-hartzaileak %{resource_name} inkestari emandako erantzunen argitalpena kendu du %{space_name} espazioan"
         questionnaire:
+          delete_all_responses: "%{user_name} parte-hartzailak %{resource_name} galdeketaren erantzunak ezabatu ditu %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
         response:
