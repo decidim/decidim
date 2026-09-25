@@ -50,6 +50,30 @@ module Decidim
           expect(subject.errors[:file]).to contain_exactly("File resolution is too large")
         end
       end
+
+      # See UploaderImageContentValidator#validate_image_content
+      context "when the file is a spoofed image" do
+        subject do
+          build(
+            :attachment,
+            file: ActiveStorage::Blob.create_and_upload!(
+              io: File.open(attachment_path),
+              filename: "image.png",
+              content_type: "image/png",
+              identify: false
+            )
+          )
+        end
+
+        let(:attachment_path) { Decidim::Dev.asset("spoofed_image.png") }
+
+        it { is_expected.not_to be_valid }
+
+        it "shows the correct error" do
+          expect(subject.valid?).to be(false)
+          expect(subject.errors[:file]).to contain_exactly("The file is not a valid image")
+        end
+      end
     end
 
     describe "file_type" do
