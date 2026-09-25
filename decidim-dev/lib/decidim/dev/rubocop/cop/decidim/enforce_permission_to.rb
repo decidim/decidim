@@ -69,6 +69,9 @@ module RuboCop
 
         BEFORE_ACTION_AUTH_KEYWORDS = %w(permission authorize enforce).freeze
 
+        # Visibility switch methods recognized when declared with no arguments.
+        VISIBILITY_METHODS = [:public, :protected, :private].freeze
+
         def on_new_investigation
           reset_state
         end
@@ -101,10 +104,10 @@ module RuboCop
         end
 
         def on_send(node)
-          return unless node.method_name == :private || node.method_name == :protected
-          return unless node.arguments.empty?
+          return unless VISIBILITY_METHODS.include?(node.method_name)
+          return unless node.arguments.empty? || visibility_def_argument?(node)
 
-          @in_private_section = true
+          @in_private_section = node.method_name != :public
         end
 
         private
@@ -115,6 +118,10 @@ module RuboCop
           @only_actions = Set.new
           @except_sets = []
           @helper_methods = Set.new
+        end
+
+        def visibility_def_argument?(node)
+          node.arguments.any?(&:def_type?)
         end
 
         def check_helper_methods(node)
