@@ -127,7 +127,7 @@ with `crontab`, although alternatively you could use `whenever` gem or the sched
 
 ```bash
 # Remove obsolete sessions
-0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake db:sessions:trim
+0 3 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake db:sessions:trim
 ```
 
 You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
