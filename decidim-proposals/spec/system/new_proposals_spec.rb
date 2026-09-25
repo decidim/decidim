@@ -75,6 +75,19 @@ describe "Proposals" do
       end
     end
 
+    context "with unsaved changes" do
+      it "asks for confirmation before leaving the form" do
+        click_on "New proposal"
+
+        within ".new_proposal" do
+          fill_in "Title", with: "An unsaved proposal"
+          click_on "Back"
+        end
+
+        expect(page).to have_css("#confirm-modal", visible: :visible, text: "This page contains unsaved changes. Are you sure you want to leave this page?")
+      end
+    end
+
     context "and draft proposal exists for current users" do
       let!(:draft) { create(:proposal, :draft, component:, users: [user]) }
 
