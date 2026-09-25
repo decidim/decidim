@@ -33,6 +33,7 @@ describe("UnsavedFormController", () => {
   });
 
   afterEach(() => {
+    controller.disconnect();
     application.stop();
     jest.clearAllMocks();
   });
@@ -60,6 +61,10 @@ describe("UnsavedFormController", () => {
     input.dispatchEvent(new Event("input", { bubbles: true }));
     form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
 
-    expect(controller.submitting).toBe(true);
+    const event = new Event("beforeunload", { cancelable: true });
+    window.dispatchEvent(event);
+
+    expect(controller.dirty).toBe(false);
+    expect(event.defaultPrevented).toBe(false);
   });
 });

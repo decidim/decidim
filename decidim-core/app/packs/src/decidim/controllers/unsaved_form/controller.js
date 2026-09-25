@@ -7,7 +7,6 @@ const sameWindowTargets = ["_self", "_top", "_parent"]
 export default class extends Controller {
   connect() {
     this.dirty = false;
-    this.submitting = false;
     this.confirming = false;
 
     this.markDirty = () => {
@@ -15,20 +14,17 @@ export default class extends Controller {
       window.addEventListener("beforeunload", this.preventBeforeUnload);
     };
 
-    this.markSubmitting = () => {
-      this.submitting = true;
+    this.markSubmitting = (event) => {
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      this.dirty = false;
       window.removeEventListener("beforeunload", this.preventBeforeUnload);
-      window.clearTimeout(this.submitTimer);
-      this.submitTimer = window.setTimeout(() => {
-        this.submitting = false;
-        if (this.dirty) {
-          window.addEventListener("beforeunload", this.preventBeforeUnload);
-        }
-      });
     };
 
     this.preventBeforeUnload = (event) => {
-      if (!this.dirty || this.submitting) {
+      if (!this.dirty) {
         return;
       }
 
@@ -39,7 +35,7 @@ export default class extends Controller {
     this.confirmNavigation = (event) => {
       const link = event.target?.closest("a[href]");
 
-      if (!this.dirty || this.submitting || this.confirming || event.defaultPrevented || !link) {
+      if (!this.dirty || this.confirming || event.defaultPrevented || !link) {
         return;
       }
 
@@ -77,7 +73,6 @@ export default class extends Controller {
 
   disconnect() {
     this.dirty = false;
-    window.clearTimeout(this.submitTimer);
     window.removeEventListener("beforeunload", this.preventBeforeUnload);
     this.element.removeEventListener("input", this.markDirty);
     this.element.removeEventListener("change", this.markDirty);
