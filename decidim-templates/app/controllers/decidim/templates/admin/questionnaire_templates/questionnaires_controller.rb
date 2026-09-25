@@ -30,10 +30,22 @@ module Decidim
             t(:title, scope: "decidim.templates.admin.questionnaire_templates.form", questionnaire_for: translated_attribute(template.name))
           end
 
+          def response_options_url(params)
+            url_for(params.merge(controller: "decidim/templates/admin/questionnaire_templates/questionnaires", action: "response_options", format: :json, template_id: template.id))
+          end
+
           private
 
           def template
-            @template ||= current_organization.templates.where(templatable_type: "Decidim::Forms::Questionnaire").find(params.expect(:id))
+            @template ||= current_organization.templates.where(templatable_type: "Decidim::Forms::Questionnaire").find(template_id)
+          end
+
+          def template_id
+            if action_name == "response_options"
+              params.expect(:template_id)
+            else
+              params.expect(:id)
+            end
           end
         end
       end

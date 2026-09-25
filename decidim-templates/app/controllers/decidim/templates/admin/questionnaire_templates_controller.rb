@@ -149,6 +149,10 @@ module Decidim
           "decidim/templates/admin/questionnaire_templates/edit_questions"
         end
 
+        def response_options_url(params)
+          url_for(params.merge(controller: "decidim/templates/admin/questionnaire_templates/questionnaires", action: "response_options", format: :json, template_id: template.id))
+        end
+
         def after_update_url
           edit_questionnaire_template_path(template)
         end
