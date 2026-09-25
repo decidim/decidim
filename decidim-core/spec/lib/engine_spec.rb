@@ -72,7 +72,11 @@ module Decidim::Core
             it "configures the session cookie store with the secure flag" do
               expect(Rails.application.config.session_options).to eq(
                 secure: true,
-                expire_after: 30.minutes
+                httponly: true,
+                key: "_decidim_session_id",
+                same_site: :lax,
+                expire_after: 30.minutes,
+                secure_session_only: true
               )
             end
           end
@@ -83,7 +87,11 @@ module Decidim::Core
             it "configures the session cookie store without the secure flag" do
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
-                expire_after: 30.minutes
+                httponly: true,
+                key: "_decidim_session_id",
+                same_site: :lax,
+                expire_after: 30.minutes,
+                secure_session_only: true
               )
             end
           end
@@ -94,7 +102,11 @@ module Decidim::Core
             it "configures the session cookie store with the correct expire after value" do
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
-                expire_after: 1.hour
+                httponly: true,
+                key: "_decidim_session_id",
+                same_site: :lax,
+                expire_after: 1.hour,
+                secure_session_only: true
               )
             end
           end
@@ -106,6 +118,9 @@ module Decidim::Core
           end
 
           it "does not reconfigure it" do
+            deprecator = instance_double(ActiveSupport::Deprecation, warn: nil)
+            allow(Decidim).to receive(:deprecator).and_return(deprecator)
+
             initializer.run(app)
 
             expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::CacheStore)
