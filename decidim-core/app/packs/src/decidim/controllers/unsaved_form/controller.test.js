@@ -57,6 +57,19 @@ describe("UnsavedFormController", () => {
     expect(confirmAction).toHaveBeenCalledWith("Unsaved changes", link, { iconName: "alert-line" });
   });
 
+  it("does not confirm navigation for ignored form-flow links", () => {
+    link.setAttribute("href", "/proposals");
+    link.setAttribute("data-unsaved-form-ignore", "true");
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    document.addEventListener("click", (event) => event.preventDefault(), { once: true });
+
+    const event = new MouseEvent("click", { bubbles: true, cancelable: true });
+    link.dispatchEvent(event);
+
+    expect(event.defaultPrevented).toBe(false);
+    expect(confirmAction).not.toHaveBeenCalled();
+  });
+
   it("allows form submission without an unload prompt", () => {
     input.dispatchEvent(new Event("input", { bubbles: true }));
     form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));

@@ -44,7 +44,7 @@ export default class extends Controller {
       const opensAnotherWindow = target && !sameWindowTargets.includes(target);
       const opensWithModifier = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
 
-      if (href.startsWith("#") || link.hasAttribute("download") || opensAnotherWindow || opensWithModifier) {
+      if (href.startsWith("#") || link.hasAttribute("download") || link.hasAttribute("data-unsaved-form-ignore") || opensAnotherWindow || opensWithModifier) {
         return;
       }
 
