@@ -9,7 +9,6 @@ import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_po
 import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
-import { preventUnload } from "src/decidim/utilities/dom"
 import sortable from "html5sortable/dist/html5sortable.es"
 
 export default function createEditableForm() {
