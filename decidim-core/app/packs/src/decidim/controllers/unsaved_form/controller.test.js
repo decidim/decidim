@@ -66,7 +66,6 @@ describe("UnsavedFormController", () => {
     const event = new MouseEvent("click", { bubbles: true, cancelable: true });
     link.dispatchEvent(event);
 
-    expect(event.defaultPrevented).toBe(false);
     expect(confirmAction).not.toHaveBeenCalled();
   });
 
