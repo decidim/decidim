@@ -12,7 +12,7 @@ CVE-2026-40869 (anyone accepts amendments), CVE-2026-40870 (comments API without
 - Admin endpoints must verify the admin role per action. Do not rely on controller-level filters that can be skipped, and do not assume "only admins can reach this route".
 - Participant actions must verify the current user's relation to the specific resource (author, co-author, etc.). Never trust client-supplied IDs for authorization decisions.
 - GraphQL is publicly reachable by default (`/api`). Any field exposing a resource must apply the same permission checks as the HTML controllers. Never add root-level fields that bypass resource-level permissions.
-- Every permission change requires specs proving that unauthenticated users, wrong-role users, and users from other organizations are denied.
+- Every permission change requires specs testing the intended access policy: assert denials for unauthenticated users, roles, or organizations that the policy denies, and confirm that access succeeds when the policy allows it.
 
 ## 2. Multi-tenancy (organization boundaries)
 
