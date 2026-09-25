@@ -1,12 +1,12 @@
 import { jest } from "@jest/globals"
 import { Application } from "@hotwired/stimulus"
 import confirmAction from "src/decidim/confirm"
-import UnsavedChangesController from "src/decidim/controllers/unsaved_changes/controller"
+import UnsavedFormController from "src/decidim/controllers/unsaved_form/controller"
 
 jest.mock("src/decidim/confirm", () => jest.fn(() => Promise.resolve(false)))
 jest.mock("src/decidim/refactor/moved/i18n", () => ({ getMessages: () => "Unsaved changes" }))
 
-describe("UnsavedChangesController", () => {
+describe("UnsavedFormController", () => {
   let application = null;
   let controller = null;
   let form = null;
@@ -15,21 +15,21 @@ describe("UnsavedChangesController", () => {
 
   beforeEach(async () => {
     document.body.innerHTML = `
-      <form data-controller="unsaved-changes">
+      <form data-controller="unsaved-form">
         <input name="proposal[title]">
       </form>
       <a href="#">Back</a>
     `;
 
     application = Application.start();
-    application.register("unsaved-changes", UnsavedChangesController);
+    application.register("unsaved-form", UnsavedFormController);
 
     await new Promise((resolve) => setTimeout(resolve, 0));
 
     form = document.querySelector("form");
     input = form.querySelector("input");
     link = document.querySelector("a");
-    controller = application.getControllerForElementAndIdentifier(form, "unsaved-changes");
+    controller = application.getControllerForElementAndIdentifier(form, "unsaved-form");
   });
 
   afterEach(() => {
