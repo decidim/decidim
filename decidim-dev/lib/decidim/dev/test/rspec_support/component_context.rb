@@ -133,6 +133,8 @@ shared_examples "add component resources to search index" do
       click_on "Publish"
     end
 
+    expect(page).to have_callout("The component has been successfully published.")
+
     perform_enqueued_jobs
 
     expect(page).to have_admin_callout("The component has been successfully published")
