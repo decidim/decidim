@@ -16,7 +16,7 @@ describe("UnsavedFormController", () => {
   beforeEach(async () => {
     document.body.innerHTML = `
       <form data-controller="unsaved-form">
-        <input name="proposal[title]">
+        <input name="input name[title]">
       </form>
       <a href="#">Back</a>
     `;
