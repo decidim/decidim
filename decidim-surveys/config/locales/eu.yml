@@ -97,6 +97,14 @@ eu:
             edit:
               title: Galderak
         responses:
+          actions:
+            destroy_all_responses: Erantzun guztiak ezbatu
+            destroy_all_responses_confirm:
+              one: Ziur zaude erantzuna ezabatu nahi duzula? Ekintza hori ezin da desegin.
+              other: Ziur zaude %{count} erantzun guztiak ezabatu nahi dituzula? Ekintza hori ezin da desegin.
+          destroy_all:
+            invalid: Zoritxarrez, arazo bat sortu zen erantzun guztiak ezabatzeko.
+            success: Erantzun guztiak behar bezala ezabatu dira.
           index:
             no_responses: Oraindik ez dago erantzunik
             title: "Guztira, %{total} erantzun"
