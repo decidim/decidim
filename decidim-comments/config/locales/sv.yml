@@ -80,7 +80,11 @@ sv:
         hide_replies:
           one: Dölj svar
           other: Dölj %{count} svar
+        load_replies: Läs in svar
         moderated_at: Kommentar modererad %{date}
+        replies_count:
+          one: "%{count} svar"
+          other: "%{count} svar"
         reply: Svara
         report:
           action: Rapportera
@@ -112,7 +116,9 @@ sv:
         blocked_comments_warning: Kommentarer är inaktiverade, endast administratörer kan svara eller skriva nya.
         comment_details_title: Kommentarsdetaljer
         in_favor: För
+        load_more_comments: Läs in fler kommentarer
         loading: Laddar kommentarer...
+        no_comments_yet: Inga kommentarer ännu
         single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>
         single_comment_warning_title: Du visar en enda kommentar
         title:
