@@ -12,6 +12,7 @@ sv:
         plural: Flertal
       attachment:
         attachment_collection_id: Mapp
+        attachments: Bilagor
         description: Beskrivning
         file: Fil
         title: Bilagans eller bildens namn
@@ -50,6 +51,7 @@ sv:
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
+        comments_max_length: Högsta antal tecken per kommentar (ange 0 för standardvärdet)
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
@@ -207,6 +209,9 @@ sv:
         user:
           new: Ny administratör
         view_deleted_components: Visa borttagna komponenter
+      admin_terms:
+        show:
+          title: Användarvillkor för administratörer
       admin_terms_of_service:
         accept:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
@@ -229,6 +234,8 @@ sv:
         edit:
           title: Redigera områdestyp
           update: Uppdatera
+        index:
+          title: Typer av område
         new:
           create: Skapa områdestyp
           title: Ny områdestyp
@@ -246,6 +253,8 @@ sv:
         edit:
           title: Redigera område
           update: Uppdatera
+        index:
+          title: Områden
         new:
           create: Skapa område
           title: Nytt område
@@ -262,6 +271,8 @@ sv:
         edit:
           title: Redigera mapp
           update: Uppdatera
+        index:
+          title: Bilagemappar
         new:
           create: Skapa
           title: Ny mapp
@@ -277,6 +288,8 @@ sv:
         edit:
           title: Redigera bilaga
           update: Uppdatera
+        index:
+          title: Bilagor
         new:
           create: Skapa bilaga
           title: Ny bifogad fil
@@ -285,6 +298,9 @@ sv:
           success: Bilagan har uppdaterats.
       attachments_privacy_warning:
         message: Var försiktig när du arbetar med bilagor i ett privat utrymme. En deltagare skulle kunna dela dokumentet utanför plattformen.
+      authorization_workflows:
+        index:
+          title: Verifieringsmetoder
       autocomplete:
         no_results: Hittade inga resultat
         search_prompt: Sök genom att skriva minst tre tecken.
@@ -329,6 +345,7 @@ sv:
             name: Komponentnamn
             type: Komponenttyp
             visibility: Synlighet
+          title: Komponenter
         manage_trash:
           title: Borttagna komponenter
         new:
@@ -347,9 +364,12 @@ sv:
           unpublished: Ej publicerad
       conflicts:
         attempts: Försök
+        edit:
+          title: Överför användare
         'false': 'Nej'
         index:
           text: Sök efter e-post, namn eller användarnamn
+          title: Verifieringskonflikter
         managed_user_name: Hanterad användare
         solved: Löst
         transfer:
@@ -384,6 +404,7 @@ sv:
           title: Inväntar moderering
         show:
           dropdown: Rullgardinsmeny
+          title: Översikt
           view_more_logs: Visa fler loggar
       domain_allowlist:
         form:
@@ -480,6 +501,8 @@ sv:
         form:
           save: Spara
         success: Hjälpsidorna har uppdaterats.
+        update:
+          title: Hjälpavsnitt
       impersonatable_users:
         index:
           filter:
@@ -495,6 +518,7 @@ sv:
           promote: Befordra
           search: Sök
           status: Status
+          title: Deltagare som kan hanteras
           view_logs: Visa loggar
       impersonations:
         close_session:
@@ -511,6 +535,7 @@ sv:
           impersonate: Uppträd som
           impersonate_existing_managed_user: Hantera deltagaren "%{name}"
           impersonate_existing_user: Hantera deltagaren "%{name}"
+          title: Agera som deltagare
       imports:
         and: och
         data_errors:
@@ -554,12 +579,17 @@ sv:
           participatory_space: Hitta deltagarutrymme
           text: Sök efter e-post, namn eller användarnamn
           user: Användare
+        index:
+          title: Administratörslogg
         logs_list:
           no_logs_yet: Det finns inga loggar än.
           no_matching_logs: Det finns inga loggar med de angivna sökkriterierna. Försök att ändra dem.
       manage_trash:
         deleted_items_warning: Du visar för närvarande raderade objekt. För att göra ändringar måste du först återställa dem.
       managed_users:
+        impersonation_logs:
+          index:
+            title: Uppträd som
         promotion:
           error: Det gick inte att befordra den hanterade användaren.
           success: Den hanterade användaren har befordrats.
@@ -567,6 +597,7 @@ sv:
           new:
             explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till programmet och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
             promote: Befordra
+            title: Ny uppgradering av hanterad deltagare
       members:
         create:
           error: Det gick inte att lägga till en deltagare till processen.
@@ -795,6 +826,7 @@ sv:
           title: Mallar för nyhetsbrev
           use_template: Använd den här mallen
         show:
+          title: 'Förhandsgranska mall: %{template_name}'
           use_template: Använd den här mallen
       newsletters:
         confirm_recipients:
@@ -862,6 +894,7 @@ sv:
           select_recipients_to_deliver: Välj mottagare
           send_me_a_test_email: Skicka ett testmeddelande till mig
           subject: Ämne
+          title: Förhandsgranska
         update:
           error: Det gick inte att uppdatera nyhetsbrevet.
           success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
@@ -897,12 +930,16 @@ sv:
           send_message: Skicka meddelande
           show_email: Visa e-post
           status: Status
+          title: Deltagare
           unblock: Avblockera
           unofficialize: Återkalla officiell status
         new:
           badge: Officiellt märke
           officialize: Ge officiell status
           title: Gör deltagaren "%{name}" officiell
+        show_email:
+          no_user: Ingen användare hittad
+          title: Visa e-post
         show_email_modal:
           description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se deras e-postadress. Denna åtgärd kommer att loggas.
           email_address: E-postadress
@@ -936,6 +973,10 @@ sv:
           logos:
             organization_logos: Organisationens logotyper
             preview: Förhandsvisning
+          machine_translation_display_priority:
+            options:
+              original: Systemet visar informationen på det språk som författaren använde. För innehåll som har skapats i administrationen och översatts manuellt visas administratörens översättningar.
+              translation: Systemet visar en översättning om det finns någon. Annars används originalspråket.
           rich_text_editor_in_public_views_help: I vissa textområden kommer deltagarna att kunna infoga några HTML-taggar med hjälp av textredigeraren.
           social_handlers: Sociala medier
           twitter: X
@@ -947,6 +988,7 @@ sv:
           success: Organisationen har uppdaterats.
       organization_external_domain_allowlist:
         edit:
+          title: Lista över tillåtna externa domäner
           update: Uppdatera
         external_domain:
           down: Ner
@@ -963,6 +1005,7 @@ sv:
             other: "%{count} användare kommer få påminnelser."
         new:
           submit: Skicka
+          title: Skicka påminnelser
       resource_permissions:
         edit:
           submit: Skicka in
@@ -980,6 +1023,8 @@ sv:
         edit:
           title: Redigera typen av indelning
           update: Uppdatera
+        index:
+          title: Typer av indelning
         new:
           create: Skapa typ av indelning
           title: Ny typ av indelning
@@ -996,6 +1041,8 @@ sv:
         edit:
           title: Redigera indelningen
           update: Uppdatera
+        index:
+          title: Indelningar
         new:
           create: Skapa indelning
           title: Ny indelning
@@ -1055,6 +1102,10 @@ sv:
           next_title: Nästa
           previous: Föregående
           previous_title: Föregående
+        attachments:
+          add_attachments: Lägg till bilagor
+          attachment_legend: Lägg till ett bilagegalleri (valfritt)
+          edit_attachments: Redigera bilagor
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.
@@ -1064,6 +1115,8 @@ sv:
         edit:
           title: Redigera ämne
           update: Uppdatera ämne
+        index:
+          title: Ämnen
         new:
           create: Nytt ämnesområde
           title: Nytt ämne
@@ -1088,6 +1141,7 @@ sv:
           slug_help_html: 'Använd relativa sökvägar, inte fullständiga URL: er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
         index:
           last_notable_change: Senaste större ändring
+          title: Sidor
         new:
           create: Ny sida
           title: Ny sida
@@ -1097,6 +1151,9 @@ sv:
         update:
           error: Det gick inte att uppdatera sidan.
           success: Sidan har uppdaterats.
+      statistics:
+        index:
+          title: Statistik
       taxonomies:
         actions:
           actions: Åtgärder
@@ -1127,6 +1184,7 @@ sv:
           description: Kategorier och filter gör det möjligt för administratörer att sortera och organisera innehåll. Till exempel, lägg till en kategorisering med stadens distrikt och stadsdelar och skapa filter endast med distrikt eller för en specifik stadsdel.
           new_taxonomy: Ny kategorisering
           no_items_found: Inga kategorier stämmer in på kriterierna.
+          title: Kategorier
         name: Namn
         new:
           create: Skapa kategorisering
@@ -1171,6 +1229,7 @@ sv:
           description: Ett kategorifilter gör det möjligt för administratörer att sortera och filtrera deltagarutrymmen baserat på en kategorisering. Använd till exempel filter för att sortera processer efter geografisk omfattning.
           empty: Det finns för närvarande inga kategorifilter. Skapa en lista över filter här för att sortera och filtrera deltagarutrymmen baserat på kategorier.
           new_filter: Nytt filter
+          title: Kategorifilter för ”%{taxonomy}”
         new:
           back: Tillbaka
           create: Skapa filter för kategori
@@ -1187,13 +1246,17 @@ sv:
           error: Det gick inte att uppdatera filtret för kategorin.
           success: Filtret för kategorin har uppdaterats.
       taxonomy_filters_selector:
+        index:
+          title: Kategorifilter
         new:
           add_new_items_html: Om du behöver ställa in ett nytt filter eller objekt, gör det genom konfigurationsinställningarna eller genom att klicka på <a href="%{url}">här</a>.
           items_count: "%{count} objekt"
           save: Spara
+          title: Ny väljare för kategorifilter
         show:
           items_count: "%{count} objekt"
           remove: Ta bort
+          title: Väljare för kategorifilter
         taxonomies_select:
           filters: Filter
           select_filter: Välj ett filter
@@ -1237,6 +1300,8 @@ sv:
           email: E-post
           name: Namn
           role: Roll
+        index:
+          title: Administratörer
         new:
           create: Bjud in
           title: Bjud in ny administratör
@@ -1256,6 +1321,11 @@ sv:
       errors:
         impersonate_user:
           reason: Du måste ange en anledning för att hantera av en icke-hanterad användare.
+      file_help:
+        attachment:
+          explanation: 'Instruktioner för fil:'
+          message_1: Filformaten CSV, JSON och Excel (.xlsx) stöds
+          message_2: För CSV-filer ska avgräsningen mellan kolumner vara semikolon (";")
     moderations:
       actions:
         expand: Expandera
