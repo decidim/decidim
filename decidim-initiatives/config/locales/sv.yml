@@ -259,6 +259,7 @@ sv:
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
             success: Initiativet har skickats till teknisk validering.
+            title: Om det här initiativet
             update: Uppdatera
           form:
             attachments_title: Bilagor
@@ -268,6 +269,7 @@ sv:
             actions_title: Åtgärd
             preview: Förhandsvisning
             print: Skriv ut
+            title: Initiativ
           initiative_attachments:
             documents: Dokument
             edit: Redigera
@@ -284,6 +286,7 @@ sv:
             success: Initiativet har uppdaterats.
         initiatives_settings:
           edit:
+            title: Initiativinställningar
             update: Uppdatera
           form:
             comments: Flest kommentarer
@@ -313,12 +316,15 @@ sv:
           destroy:
             success: Initiativtypen har tagits bort.
           edit:
+            title: Redigera initiativtyp
             update: Uppdatera
           form:
             child_scope_threshold_enabled_help_html: 'Den här konfigurationen har inte stöd för offline-röster. Den aktiverar indelningar och fungerar med en auktorisering som associerar ett utrymme till användaren. Kontrollera att du väljer den auktoriseringen, nedan i auktoriseringsinställningar. För att det ska fungera måste indelningen konfigureras på ett hierarkiskt sätt: 1 Förälder - N barn. För mer information om hur denna konfiguration fungerar, se <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiativs admindokumentationssida</a>.'
             only_global_scope_enabled_help_html: Välj den här om du aktiverade "Child scope signatur" och konfigurerade den globala indelningen som din överordnade indelning. Genom att aktivera detta kommer man att hoppa över valet av initiativtyp i guiden för att skapa initiativ. För mer information om hur denna konfiguration fungerar, se denna <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">länk</a>.
             options: Alternativ
             signature_workflow_settings: Inställningar för underskrifter
+          index:
+            title: Initiativtyper
           initiative_type_scopes:
             title: Indelning för initiativtypen
           new:
@@ -430,11 +436,25 @@ sv:
         update: Uppdatera
       events:
         approve_membership_request:
+          email_intro: "%{author_name} godkände din ansökan om att ingå i kampanjgruppen för initiativet %{resource_title}."
           email_outro: 'Du har fått det här meddelandet eftersom du är författaren av initiativet %{resource_title}'
+          email_subject: "%{author_name} godkände din ansökan till kampanjgruppen"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> godkände din ansökan om att ingå i kampanjgruppen för initiativet <a href="%{resource_url}">%{resource_title}</a>.
+        create_initiative_event:
+          email_intro: "%{author_name}, som du följer, har skapat ett nytt initiativ. Ta en titt och bidra:"
+          email_outro: Du har fått det här meddelandet eftersom du följer %{author_name}. Du kan avsluta meddelandena genom att följa länken ovan.
+          email_subject: Nytt initiativ av %{author_name}
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name}</a>.
         revoke_membership_request:
+          email_intro: "%{author_name} avslog din ansökan om att ingå i kampanjgruppen för initiativet %{resource_title}."
           email_outro: 'Du har fått det här meddelandet eftersom du är författaren av initiativet %{resource_title}.'
+          email_subject: "%{author_name} avslog din ansökan till kampanjgruppen"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> avslog din ansökan om att ingå i kampanjgruppen för initiativet <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
+          email_intro: "%{applicant_name} har ansökt om att ingå i kampanjgruppen för ditt initiativ %{resource_title}. Gå till initiativets redigeringsformulär för att godkänna eller avslå ansökan."
           email_outro: 'Du fick detta meddelande eftersom du är författare till detta initiativ: %{resource_title}'
+          email_subject: "%{applicant_name} vill delta i ditt initiativ"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_name}</a> har ansökt om att ingå i kampanjgruppen för ditt initiativ <a href="%{resource_url}">%{resource_title}</a>. Klicka <a href="%{resource_url}/edit">här</a> för att godkänna eller avslå.
       form:
         add_attachments: Lägg till bilagor
         add_image: Lägg till bild

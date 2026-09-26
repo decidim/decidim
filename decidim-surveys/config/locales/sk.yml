@@ -79,7 +79,6 @@ sk:
         new_survey: Nový prieskum
         preview: Náhľad
         responses: Odpovede
-        responses_alert: Pre tento prieskum je aktívne vymazanie odpovedí pri zverejnení. Momentálne existuje %{responses_count} odpovedí, ktoré budú vymazané, ak budete pokračovať.
         title: Akcie
       admin:
         exports:

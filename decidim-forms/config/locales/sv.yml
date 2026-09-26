@@ -45,7 +45,6 @@ sv:
             allow_unregistered: Tillåt oregistrerade användare att svara på enkäten
             allow_unregistered_help: Om aktiv kommer ingen inloggning att krävas för att besvara enkäten. Detta kan leda till dålig eller opålitlig data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Tänk på att en deltagare kunde svara på samma enkät flera gånger, genom att använda olika webbläsare eller "privat surfning" i sin webbläsare.
             announcement: Meddelande
-            clean_after_publish: Ta bort svar vid publicering av enkäten
             description: Beskrivning
             ends_at: Öppet för svar till
             ends_at_help: Lämna tomt för att inte sätta något datum
@@ -153,6 +152,7 @@ sv:
           publish_responses: "%{user_name} publicerade svaren på %{resource_name} i utrymmet %{space_name}"
           unpublish_responses: "%{user_name} avpublicerade svaren på %{resource_name} i utrymmet %{space_name}"
         questionnaire:
+          delete_all_responses: "%{user_name} raderade svaren i frågeformuläret %{resource_name} i utrymmet %{space_name}"
           update: "%{user_name} uppdaterade enkäten %{resource_name}"
       errors:
         response:
