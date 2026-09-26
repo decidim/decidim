@@ -49,6 +49,7 @@ sv:
             confirm: Återkallande av auktorisering före datum kan inte ångras. Vill du fortsätta?
             confirm_all: Återkallande av auktorisering kan inte ångras. Vill du fortsätta?
           destroy_nok: Det gick inte att återkalla auktoriseringen.
+          destroy_ok: Återkallande av behörigheter pågår. Det kan ta några minuter.
           info: Det finns totalt %{count} verifierade deltagare.
           no_data: Inga verifierade deltagare.
           title: Återkallande av auktoriseringar
@@ -183,6 +184,10 @@ sv:
               empty: Det finns inga medlemsuppgifter. Använd %{import_csv} för att importera en CSV-fil.
               no_sign_in: Aldrig inloggad
               no_user: Ingen användare hittad
+              title: Aktuella uppgifter i röstlängden
+            instructions:
+              body: För att göra detta måste du gå till systemadministrationen och lägga till csv_census-behörigheter för organisationen
+              title: Du måste aktivera CSV-röstlängden för den här organisationen
             last_login:
               no_sign_in: Aldrig loggat in
               no_user: Ingen användare
@@ -253,6 +258,7 @@ sv:
               success: Deltagaren har verifierats.
             new:
               reject: Avvisa
+              title: Ange uppgifterna som visas i bilden
               verify: Verifiera
           offline_confirmations:
             create:
@@ -260,6 +266,7 @@ sv:
               success: Deltagaren har verifierats.
             new:
               cancel: Avbryt
+              title: Ange deltagarens e-postadress och dokumentuppgifterna
               verify: Verifiera
           pending_authorizations:
             index:
