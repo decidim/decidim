@@ -13,11 +13,13 @@ sv:
         duplicate_categories: Duplicera kategorier
         duplicate_components: Duplicera komponenter
         duplicate_landing_page_blocks: Duplicera innehållsblock från landningssidan
+        duplicate_steps: Duplicera faser
         end_date: Slutdatum
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
         import_components: Importera komponenter
+        import_steps: Importera faser
         local_area: Område
         meta_scope: Omfattning
         participatory_process_group_id: Grupp av processer
@@ -162,11 +164,13 @@ sv:
         new:
           duplicate: Duplicera
           select: Välj vilken data du vill duplicera
+          title: Duplicera deltagandeprocess
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera gruppen.
           success: Gruppen för processer har raderats.
         edit:
+          title: Redigera processgrupp
           update: Uppdatera
         new:
           create: Skapa
@@ -181,6 +185,7 @@ sv:
         new:
           import: Importera
           select: Välj vilka data som du vill importera
+          title: Importera deltagandeprocess
       participatory_process_publications:
         create:
           error: Det gick inte att publicera processen.
@@ -209,11 +214,13 @@ sv:
               Det görs istället på <b>Landningssidan</b>, med hjälp av <b>hero- och bild-</b>innehållsblocket.
               Det här finns kvar för att du ska kunna migrera de CTAs som du behöver. Fälten <i>Call to Action-länk</i> och <i>Call to Action-text</i> kommer att tas bort i nästa version.
             title: Call to Action från tidigare version
+          title: Redigera deltagandeprocessens fas
           update: Uppdatera
         index:
           steps_title: Steg
         new:
           create: Skapa
+          title: Ny fas i deltagandeprocess
         ordering:
           error: Det gick inte att ändra ordningen på stegen i processen.
         update:
@@ -226,9 +233,13 @@ sv:
         destroy:
           success: Administratören togs bort från processen.
         edit:
+          title: Uppdatera deltagandeprocessens administratör
           update: Uppdatera
+        index:
+          process_admins_title: Deltagandeprocessens administratörer
         new:
           create: Skapa
+          title: Ny administratör för deltagandeprocess
         update:
           error: Det gick inte att uppdatera administratören för processen.
           success: Administratören har uppdaterats för processen.
@@ -243,8 +254,11 @@ sv:
           public: Offentlig
           published: Publicerad
           unpublished: Ej publicerad
+        manage_trash:
+          title: Raderade deltagandeprocesser
         new:
           create: Skapa
+          title: Ny deltagandeprocess
         update:
           error: Det gick inte att uppdatera processen.
           success: Processen har uppdaterats.
@@ -263,6 +277,7 @@ sv:
         participatory_process_groups: Grupper av deltagandeprocesser
         participatory_process_types: Typer av deltagandeprocesser
         participatory_processes: Deltagandeprocesser
+        participatory_processes_deleted: Raderade deltagandeprocesser
       tooltips:
         deleted_processes_info: En process kan endast raderas om status är "avpublicerad".
       users:
