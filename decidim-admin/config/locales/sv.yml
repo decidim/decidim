@@ -12,6 +12,7 @@ sv:
         plural: Flertal
       attachment:
         attachment_collection_id: Mapp
+        attachments: Bilagor
         description: Beskrivning
         file: Fil
         title: Bilagans eller bildens namn
@@ -45,6 +46,7 @@ sv:
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
+        comments_max_length: Högsta antal tecken per kommentar (ange 0 för standardvärdet)
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
@@ -264,6 +266,8 @@ sv:
         edit:
           title: Redigera mapp
           update: Uppdatera
+        index:
+          attachment_collections_title: Bilagemappar
         new:
           create: Skapa
           title: Ny mapp
@@ -279,6 +283,8 @@ sv:
         edit:
           title: Redigera bilaga
           update: Uppdatera
+        index:
+          attachments_title: Bilagor
         new:
           create: Skapa bilaga
           title: Ny bifogad fil
@@ -355,6 +361,7 @@ sv:
           text: Sök efter e-post, namn eller användarnamn
         managed_user_name: Hanterad användare
         solved: Löst
+        title: Verifieringskonflikter
         transfer:
           email: E-post
           error: Det gick inte att konvertera användaren till hanterad användare.
@@ -570,6 +577,7 @@ sv:
         promotions:
           new:
             explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till programmet och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
+            new_managed_user_promotion: Ny uppgradering av hanterad deltagare
             promote: Befordra
       menu:
         admin_log: Aktivitetslogg
@@ -752,6 +760,7 @@ sv:
           title: Mallar för nyhetsbrev
           use_template: Använd den här mallen
         show:
+          preview: 'Förhandsgranska mall: %{template_name}'
           use_template: Använd den här mallen
       newsletters:
         confirm_recipients:
@@ -861,6 +870,8 @@ sv:
           badge: Officiellt märke
           officialize: Ge officiell status
           title: Gör deltagaren "%{name}" officiell
+        show_email:
+          no_user: Ingen användare hittad
         show_email_modal:
           description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se deras e-postadress. Denna åtgärd kommer att loggas.
           email_address: E-postadress
@@ -894,6 +905,10 @@ sv:
           logos:
             organization_logos: Organisationens logotyper
             preview: Förhandsvisning
+          machine_translation_display_priority:
+            options:
+              original: Systemet visar informationen på det språk som författaren använde. För innehåll som har skapats i administrationen och översatts manuellt visas administratörens översättningar.
+              translation: Systemet visar en översättning om det finns någon. Annars används originalspråket.
           rich_text_editor_in_public_views_help: I vissa textområden kommer deltagarna att kunna infoga några HTML-taggar med hjälp av textredigeraren.
           social_handlers: Sociala medier
           twitter: X
@@ -913,6 +928,7 @@ sv:
           up: Upp
         form:
           add: Lägg till i lista över tillåtna domännamn
+          title: Lista över tillåtna externa domäner
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
@@ -1060,6 +1076,10 @@ sv:
           next_title: Nästa
           previous: Föregående
           previous_title: Föregående
+        attachments:
+          add_attachments: Lägg till bilagor
+          attachment_legend: Lägg till ett bilagegalleri (valfritt)
+          edit_attachments: Redigera bilagor
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.
@@ -1213,9 +1233,13 @@ sv:
           none: Ingen
           title: Ny underkategori i %{taxonomy}
       titles:
+        admin_log: Administratörslogg
         area_types: Typer av område
         areas: Områden
         authorization_workflows: Verifieringsmetoder
+        dashboard: Översikt
+        edit_external_domains: Lista över tillåtna externa domäner
+        impersonatable_users: Deltagare som kan hanteras
         impersonations: Deltagarhantering
         menu: Meny
         page_topics: Ämnesområden
@@ -1226,6 +1250,8 @@ sv:
         scopes: Indelningar
         statistics: Statistik
         taxonomies: Kategorisering
+        taxonomy_filters: Kategorifilter för ”%{taxonomy}”
+        users: Administratörer
       tooltips:
         cannot_destroy_taxonomy_filter: Det går inte att ta bort kategorifiltret
         cannot_edit_taxonomy_filter: Det går inte att redigera kategorifiltret
@@ -1268,6 +1294,11 @@ sv:
       errors:
         impersonate_user:
           reason: Du måste ange en anledning för att hantera av en icke-hanterad användare.
+      file_help:
+        attachment:
+          explanation: 'Instruktioner för fil:'
+          message_1: Filformaten CSV, JSON och Excel (.xlsx) stöds
+          message_2: För CSV-filer ska avgräsningen mellan kolumner vara semikolon (";")
     moderations:
       actions:
         expand: Expandera
