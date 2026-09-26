@@ -98,6 +98,11 @@ sv:
           back: Tillbaka till inlägg
           button: Skapa
           title: Skapa nytt inlägg
+        orders:
+          label: Sortera inlägg efter
+          most_commented: Mest kommenterade
+          random: Slumpmässig ordning
+          recent: Senaste
     components:
       blogs:
         actions:
@@ -113,6 +118,7 @@ sv:
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
             comments_enabled: Aktivera kommentarer
+            comments_max_length: Högsta antal tecken per kommentar (ange 0 för standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa inlägg
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
