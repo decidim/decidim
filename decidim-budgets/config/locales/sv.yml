@@ -91,6 +91,7 @@ sv:
             invalid: Det gick inte att skapa projektet.
             success: Projektet har skapats.
           edit:
+            title: Redigera projekt i %{budget}
             update: Uppdatera
           index:
             actions: Åtgärder
@@ -113,6 +114,7 @@ sv:
             title: Raderade projekt
           new:
             create: Skapa
+            title: Nytt projekt i %{budget}
           update:
             invalid: Det gick inte att uppdatera projektet.
             success: Projektet har uppdaterats.
@@ -345,6 +347,7 @@ sv:
             announcement: Meddelande
             clear_all: Återställ
             comments_enabled: Aktivera kommentarer
+            comments_max_length: Högsta antal tecken per kommentar (ange 0 för standardvärdet)
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             form:
               errors:
