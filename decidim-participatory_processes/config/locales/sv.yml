@@ -13,12 +13,14 @@ sv:
         duplicate_categories: Duplicera kategorier
         duplicate_components: Duplicera komponenter
         duplicate_landing_page_blocks: Duplicera innehållsblock från landningssidan
+        duplicate_steps: Duplicera faser
         end_date: Slutdatum
         has_members: Utrymmet har medlemmar
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
         import_components: Importera komponenter
+        import_steps: Importera faser
         local_area: Område
         meta_scope: Omfattning
         participatory_process_group_id: Grupp av processer
@@ -477,21 +479,50 @@ sv:
         participatory_process_duplicates:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+          new:
+            title: Duplicera deltagandeprocess
         participatory_process_groups:
+          edit:
+            title: Redigera processgrupp
           form:
             metadata: Metadata
             title: Om processen
             visibility: Synlighet
+          index:
+            title: Grupper av deltagandeprocesser
+          new:
+            title: Ny grupp av processer
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+          new:
+            title: Importera deltagandeprocess
+        participatory_process_steps:
+          edit:
+            title: Redigera deltagandeprocessens fas
+          index:
+            title: Steg
+          new:
+            title: Ny fas i deltagandeprocess
+        participatory_process_user_roles:
+          edit:
+            title: Uppdatera deltagandeprocessens administratör
+          index:
+            title: Deltagandeprocessens administratörer
+          new:
+            title: Ny administratör för deltagandeprocess
         participatory_processes:
+          edit:
+            title: Om processen
           form:
             access:
               label: Åtkomst
               options:
                 open: Alla kan se processen och delta.
+                restricted: Endast medlemmar och administratörer kan se och delta. Det visas inte i den allmänna sökningen, i API:et eller i filer med öppna data.
+                transparent: Alla kan se processen, men endast medlemmar och administratörer kan delta.
+              set_this_space_as: Ange det här utrymmet som
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             has_members_help: Du kommer att kunna skapa och publicera medlemmar
@@ -504,6 +535,12 @@ sv:
             taxonomies: Kategorisering
             title: Allmän information
             visibility: Synlighet
+          index:
+            title: Deltagandeprocesser
+          manage_trash:
+            title: Raderade deltagandeprocesser
+          new:
+            title: Ny deltagandeprocess
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
