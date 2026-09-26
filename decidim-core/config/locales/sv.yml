@@ -251,6 +251,7 @@ sv:
         create: "%{user_name} lade till komponenten %{resource_name} till utrymmet %{space_name}"
         delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         export_component: "%{user_name} exporterade %{resource_name} %{component_name} i %{space_name} som %{format_name}"
+        menu_hidden: "%{user_name} dolde komponenten %{resource_name} i menyn i utrymmet %{space_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
         restore: "%{user_name} återställde komponenten %{resource_name} i utrymmet %{space_name}"
         soft_delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
@@ -554,6 +555,7 @@ sv:
           global:
             amendments_enabled: Aktivera ändringsförslag
             comments_enabled: Aktivera kommentarer
+            comments_max_length: Högsta antal tecken per kommentar
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             dummy_global_attribute1: Dummy Attribut 1
             dummy_global_attribute2: Dummy Attribut 2
@@ -659,6 +661,13 @@ sv:
           all: Alla
         filter_taxonomy_values:
           all: Alla
+    delete_user_mailer:
+      delete:
+        body_1: Ditt konto har inaktiverats och är inte längre tillgängligt. Dina personuppgifter kommer att raderas permanent i enlighet med våra rutiner för datalagring.
+        body_2: Av säkerhetsskäl behålls vissa uppgifter som rör behörigheter. Om du skapar ett nytt konto och godkänner behörigheter igen kan uppgifterna kopplas till ditt nya konto.
+        greetings_html: Vänliga hälsningar,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hej %{username},
+      subject: Ditt konto har raderats
     devise:
       omniauth_registrations:
         create:
@@ -894,20 +903,29 @@ sv:
           affected_user:
             email_intro: 'Ett avslaget ändringsförslag till %{amendable_title} har publicerats som en ny %{amendable_type}. Du kan se det på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare av %{amendable_title}.
+            email_subject: Ett ändringsförslag från %{emendation_author_name} har publicerats som en ny %{amendable_type}
+            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> till <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som en ny %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
           follower:
             email_intro: 'En avslaget ändringsförslag till %{amendable_title} har lagts fram som ett nytt %{amendable_type}. Du kan se det på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+            email_subject: Ett ändringsförslag från %{emendation_author_name} har publicerats som en ny %{amendable_type}
+            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> till <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som en ny %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'En ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: Ändringsförslag till %{amendable_title} från %{emendation_author_name} avslogs
+            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> till <a href="%{amendable_path}">%{amendable_title}</a> som skapades av <a href="%{emendation_author_path}">%{emendation_author_name}</a> har avslagits.
           follower:
             email_intro: 'Ett ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden via föregående länk.
+            email_subject: Ändringsförslag till %{amendable_title} från %{emendation_author_name} avslogs
+            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> till <a href="%{amendable_path}">%{amendable_title}</a> som skapades av <a href="%{emendation_author_path}">%{emendation_author_name}</a> har avslagits.
         emendation_promoted:
           follower:
             email_intro: 'Ett ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: Ett ändringsförslag från %{emendation_author_name} har publicerats som en ny %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till i %{resource_title}. Du kan se det från den här sidan:'
@@ -940,6 +958,18 @@ sv:
         notification_body: Vi har ändrat reglerna för användarnamn för att undvika dubbletter och har tagit bort regeln om skriftlägeskänsliga namn. <br/> Ditt användarnamn skapades efter ett annat med samma namn, så vi har automatiskt bytt namn på det. Du kan ändra det i <a href="%{link_to_account_settings}">dina kontoinställningar</a>.
       notification_event:
         notification_title: Något inträffade i <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Du har lagts till som medlem i ett deltagarutrymme.
+            email_outro: Du har fått det här meddelandet eftersom en administratör har lagt till dig i <a href="%{resource_url}">%{resource_title}</a>. Om åtkomsten till utrymmet är begränsad kan du komma åt det med ditt konto.<br> Din profil visas i utrymmets <a href="%{members_page}">medlemslista</a>.
+            email_subject: Du har nu åtkomst till %{resource_title}.
+            notification_title: Du har nu åtkomst till <a href="%{resource_url}">%{resource_title}</a>.
+          unpublished:
+            email_intro: Du har lagts till som medlem i ett deltagarutrymme.
+            email_outro: Du har fått det här meddelandet eftersom en administratör har lagt till dig i <a href="%{resource_url}">%{resource_title}</a>. Om åtkomsten till utrymmet är begränsad kan du komma åt det med ditt konto.
+            email_subject: Du har nu åtkomst till %{resource_title}.
+            notification_title: Du har nu åtkomst till <a href="%{resource_url}">%{resource_title}</a>.
       reports:
         parent_hidden:
           email_intro: |-
@@ -959,13 +989,25 @@ sv:
             En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
             </br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name}, som du följer, har precis gillat ”%{resource_title}” och vi tror att det kan intressera dig. Ta en titt och bidra:'
+        email_outro: Du har fått det här meddelandet eftersom du följer %{liker_name}. Du kan avsluta meddelandena genom att följa länken ovan.
+        email_subject: "%{liker_name} har gillat något nytt"
+        notification_title: '%{resource_type} <a href="%{resource_path}">%{resource_title}</a> har gillats av <a href="%{liker_path}">%{liker_name}</a>.'
       resources:
         soft_deleted:
           notification_title: En administratör har tagit bort ditt "%{resource_type}" "%{resource_title}".
       users:
+        profile_updated:
+          email_intro: <a href="%{resource_url}">Profilsidan</a> för %{name}, som du följer, har uppdaterats.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{name}. Du kan avsluta meddelandena genom att följa länken ovan.
+          email_subject: "%{name} uppdaterade sin profil"
+          notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name}, som du följer, har uppdaterats.
         user_officialized:
+          email_intro: Deltagaren %{name} har fått officiell status.
           email_outro: Du har fått detta meddelande eftersom du är administratör i organisationen.
           email_subject: "%{name} har fått officiell status"
+          notification_title: Deltagaren %{name} har fått officiell status.
     export_mailer:
       download_your_data_export:
         click_button_html: Klicka på nästa länk för att ladda ner dina data.<br/>Filen kommer att finnas tillgänglig för nedladdning fram till %{date}.
@@ -1166,6 +1208,8 @@ sv:
       dynamic:
         screen_reader_explanation: Följande element är en karta som presenterar objekten på denna sida som kartpunkter. Elementet kan användas med en skärmläsare men det kan vara svårt att förstå.
         skip_button: Hoppa över karta
+        zoom_in: Zooma in
+        zoom_out: Zooma ut
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1507,6 +1551,10 @@ sv:
         never_logged_in: har aldrig loggat in
         subject: Varning om inaktivt konto
     participatory_space:
+      labels:
+        reference: Utrymmets referens
+        restricted: Begränsat utrymme
+        transparent: Transparent utrymme
       pages:
         user_profile:
           member_of:
@@ -1514,6 +1562,10 @@ sv:
     participatory_space_members:
       index:
         members: Medlemmar
+    participatory_spaces:
+      show:
+        restricted_space: Det här är ett begränsat utrymme. Endast medlemmar och administratörer kan se det och delta.
+        transparent_space: Det här är ett transparent utrymme. Alla kan se innehållet, men endast medlemmar och administratörer kan delta.
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.
@@ -1661,6 +1713,8 @@ sv:
       login_modal:
         please_log_in: Logga in
         sign_up: Skapa ett konto
+      mentions:
+        search_prompt: Skriv för att söka efter deltagare
       mentions_modal:
         remove_recipient: Ta bort mottagare %{name}
       progress: Framsteg
@@ -1702,6 +1756,9 @@ sv:
       help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
       show_translated: Visa maskinöversatt text
+    user_activity:
+      index:
+        no_activities_warning: Den här deltagaren har ingen aktivitet ännu.
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_conversations:
       index:
