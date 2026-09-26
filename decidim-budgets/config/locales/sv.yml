@@ -6,6 +6,42 @@ sv:
         title: Titel
         total_budget: Total budget
         weight: Position i listan
+      pabulib_rules:
+        equalshares:
+          help: Metoden med lika andelar (MES) utan komplettering. I MES får varje väljare inledningsvis en lika stor virtuell andel av budgeten. Ett projekt väljs när dess anhängare tillsammans har råd med det.
+          label: Metoden med lika andelar (%{rule})
+        equalshares/add1:
+          help: Använd grundvarianten av equalshares. Om den stannar för tidigt ökas dock varje väljares virtuella budget med 1 enhet i taget (Add1) och resultatet beräknas på nytt, så länge de slutligt valda projekten ryms inom den faktiska budgeten.
+          label: Metoden med lika andelar, add1 (%{rule})
+        equalshares/add1_comparison:
+          help: Använd equalshares/add1 och tillämpa sedan samma jämförelsesteg som ovan.
+          label: Metoden med lika andelar, add1 med jämförelse (%{rule})
+        equalshares_comparison:
+          help: 'Använd grundvarianten av equalshares och lägg sedan till ett steg: jämför resultatet med resultatet från en girig algoritm och byt endast om fler väljare föredrar den giriga algoritmens resultat.'
+          label: Metoden med lika andelar, med jämförelse (%{rule})
+        greedy:
+          help: Standardmetoden för approximation av kappsäcksproblemet. Projekten sorteras efter antal röster i fallande ordning. Algoritmen går igenom listan och väljer de projekt som ryms inom den återstående budgeten. Om ett projekt är för dyrt för den återstående budgeten hoppas det över, och algoritmen går vidare till nästa projekt för att se om det ryms.
+          label: Girig algoritm (%{rule})
+        greedy_custom:
+          help: Används i specialfall som inte passar standardalgoritmerna, till exempel vid manuell omfördelning av budgeten eller komplexa kombinationer av regler.
+          label: Girig algoritm, anpassad (%{rule})
+        greedy_exclusive:
+          help: Hanterar grupper av oförenliga projekt. Fungerar som en vanlig girig algoritm, men om flera ”vinnande” projekt är oförenliga (till exempel tillhör samma exklusiva område eller kategori) tillämpas en prioritetsregel i stället för att enbart utgå från antalet röster. Projekt på distriktsnivå kan till exempel ges företräde framför projekt för hela staden, eller tvärtom.
+          label: Girig algoritm, exklusiv (%{rule})
+        greedy_no_skip:
+          help: Projekten sorteras efter antal röster i fallande ordning. Algoritmen väljer de projekt som ryms inom den återstående budgeten men stannar omedelbart vid det första projekt som inte ryms. Inga efterföljande projekt övervägs, även om de skulle rymmas.
+          label: Girig algoritm, utan överhoppning (%{rule})
+        greedy_threshold:
+          help: Fungerar som en vanlig girig algoritm, men bara projekt som uppfyller det angivna tröskelvärdet min_project_score_threshold övervägs.
+          label: Girig algoritm, med tröskelvärde (%{rule})
+        unknown:
+          help: Antingen saknas informationen, eller så finns det flera möjliga alternativ och det är oklart vilket som gäller.
+          label: Okänd (%{rule})
+      pabulib_vote_types:
+        approval: Godkännanderöstning (%{type})
+        cumulative: Kumulativ röstning (%{type})
+        ordinal: Rangordningsröstning (%{type})
+        scoring: Poängröstning (%{type})
       project:
         budget_amount: Belopp
         description: Beskrivning
@@ -81,15 +117,93 @@ sv:
             invalid: Det gick inte att uppdatera budgeten.
             success: Budgeten har uppdaterats.
         exports:
+          formats:
+            pabulib: Pabulib
           projects: Projekt
+          voting_results: Röstningsresultat
         models:
           project:
             name: Projekt
+        pabulib_exports:
+          create:
+            invalid: Rätta felen i formuläret.
+            no_votes: Det finns ännu inga röster att exportera.
+          show:
+            create: Exportera
+            explanation_html: |
+              <p>
+                Den här vyn skapar en export i %{format_link} av röstningsresultaten för medborgarbudgeten.
+              </p>
+            explanation_link_label_format: Pabulib-format
+            export_details_data: Dataattribut
+            export_details_general: Allmänna uppgifter
+            fields:
+              country:
+                help: Landet där omröstningen hölls.
+                label: Land (%{field})
+              default_score:
+                help: 'Standardpoängen för poängröstning (standardvärde: %{default_value}).'
+                label: Standardpoäng (%{field})
+              description:
+                help: En beskrivning av omröstningen och vad den gällde.
+                label: Beskrivning (%{field})
+              district:
+                help: Valdistriktet inom omröstningen. Om du till exempel använder stadsdelar som underenheter kan du koppla dem till distrikt med det här fältet.
+                label: Distrikt (%{field})
+              instance:
+                help: Omröstningstillfället, till exempel året för en årligen återkommande omröstning.
+                label: Omröstningstillfälle (%{field})
+              max_length:
+                help: 'Högsta antal projekt som får väljas (standardvärde: %{default_value}).'
+                label: Största längd (%{field})
+              max_points:
+                help: 'Högsta antal poäng som tilldelas de valda projekten (standardvärde: %{default_value}).'
+                help_default_value: värdet för max_sum_points vid kumulativ röstning, ∞ vid poängröstning
+                label: Högsta poäng (%{field})
+              max_sum_cost:
+                help: 'Högsta kostnadssumma för ett projekt (standardvärde: %{default_value}).'
+                label: Högsta kostnadssumma (%{field})
+              max_sum_points:
+                help: Högsta summa av de poäng som tilldelas varje projekt.
+                label: Högsta poängsumma (%{field})
+              min_length:
+                help: 'Minsta antal projekt som måste väljas (standardvärde: %{default_value}).'
+                label: Minsta längd (%{field})
+              min_points:
+                help: 'Minsta antal poäng som tilldelas de valda projekten (standardvärde: %{default_value}).'
+                label: Lägsta poäng (%{field})
+              min_sum_cost:
+                help: 'Lägsta kostnadssumma för ett projekt (standardvärde: %{default_value}).'
+                label: Lägsta kostnadssumma (%{field})
+              min_sum_points:
+                help: 'Lägsta summa av de poäng som tilldelas varje projekt (standardvärde: %{default_value}).'
+                label: Lägsta poängsumma (%{field})
+              rule:
+                help: Algoritmen som används för att välja vinnande projekt utifrån rösterna.
+                label: Regel (%{field})
+              scoring_fn:
+                help: 'Poängfunktion för rangordningsröstning (standardvärde: %{default_value}).'
+                label: Poängfunktion (%{field})
+              subunit:
+                help: Omröstningens underenhet, till exempel ett område i staden eller kommunen.
+                label: Underenhet (%{field})
+              unit:
+                help: Omröstningens enhet, till exempel stadens eller kommunens namn.
+                label: Enhet (%{field})
+              vote_type:
+                help: Hur röstningsresultaten utvärderas (se dokumentationen för mer information).
+                label: Röstningstyp (%{field})
+            format_info_html: Läs dokumentationen för %{link} för mer information om dessa uppgifter.
+            large_dataset_warning_html: |
+              <p>Din datamängd innehåller %{amount} röster och är därför mycket stor för export via det här användargränssnittet.</p>
+              <p>Överväg att exportera datamängden från konsolen med följande kommando: <code>%{command}</code></p>
+            title: Exportera röstningsresultat för %{budget} till Pabulib-format
         projects:
           create:
             invalid: Det gick inte att skapa projektet.
             success: Projektet har skapats.
           edit:
+            title: Redigera projekt i %{budget}
             update: Uppdatera
           index:
             actions: Åtgärder
@@ -112,6 +226,7 @@ sv:
             title: Raderade projekt
           new:
             create: Skapa
+            title: Nytt projekt i %{budget}
           update:
             invalid: Det gick inte att uppdatera projektet.
             success: Projektet har uppdaterats.
@@ -344,6 +459,7 @@ sv:
             announcement: Meddelande
             clear_all: Återställ
             comments_enabled: Aktivera kommentarer
+            comments_max_length: Högsta antal tecken per kommentar (ange 0 för standardvärdet)
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             form:
               errors:
