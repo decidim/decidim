@@ -106,6 +106,7 @@ sv:
               after_end: Resultat tillgängliga efter omröstningens slut
               per_question: Resultat tillgängliga per fråga
               real_time: Resultat tillgängliga i realtid
+            title: Valstatus
         elections:
           create:
             invalid: Det gick inte att skapa omröstningen.
@@ -170,6 +171,7 @@ sv:
             invalid: Det gick inte att avsluta omröstningen.
             success: Omröstningen har avslutats.
           publish_results:
+            invalid: Det gick inte att publicera resultaten.
             success: Resultaten har publicerats.
           start:
             invalid: Det gick inte att starta omröstningen.
@@ -246,6 +248,7 @@ sv:
           start_at: Startdatum
         questions:
           subtitle: 'Det här är frågorna för omröstningen:'
+          title: Valfrågor
         show:
           active_voting_until: 'Omröstning aktiv till: %{end_date}'
           edit_vote_button: Ändra röst
@@ -286,6 +289,7 @@ sv:
         ongoing: Pågående
         published_results: Publicerade resultat
         scheduled: Planerad
+        unpublished: Opublicerad
         voting_enabled: Röstning pågår
       votes:
         cast:
