@@ -49,6 +49,7 @@ sv:
             confirm: Återkallande av auktorisering före datum kan inte ångras. Vill du fortsätta?
             confirm_all: Återkallande av auktorisering kan inte ångras. Vill du fortsätta?
           destroy_nok: Det gick inte att återkalla auktoriseringen.
+          destroy_ok: Återkallande av behörigheter pågår. Det kan ta några minuter.
           info: Det finns totalt %{count} verifierade deltagare.
           no_data: Inga verifierade deltagare.
           title: Återkallande av auktoriseringar
@@ -220,6 +221,10 @@ sv:
               user_authorized: Användaren är behörig?
             import_csv: Importera CSV
             no_authorized: Användare obehörig
+            title: Aktuella uppgifter i röstlängden
+          instructions:
+            body: För att göra detta måste du gå till systemadministrationen och lägga till csv_census-behörigheter för organisationen
+            title: Du måste aktivera CSV-röstlängden för den här organisationen
         authorizations:
           new:
             error: Vi kunde inte verifiera ditt konto, eller så finns du inte i organisationens medlemsuppgifter.
@@ -252,6 +257,7 @@ sv:
               locked: För många felaktiga försök. Prova igen senare.
               success: Deltagaren har verifierats.
             new:
+              introduce_user_data: Ange uppgifterna som visas i bilden
               reject: Avvisa
               verify: Verifiera
           offline_confirmations:
@@ -260,6 +266,7 @@ sv:
               success: Deltagaren har verifierats.
             new:
               cancel: Avbryt
+              introduce_user_data: Ange deltagarens e-postadress och dokumentuppgifterna
               verify: Verifiera
           pending_authorizations:
             index:
