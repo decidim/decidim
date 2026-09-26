@@ -342,6 +342,8 @@ sv:
         conference_duplicates:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till konferensen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+          new:
+            title: Duplicera konferens
         conference_invites:
           create:
             error: Det gick inte att bjuda in deltagaren till konferensen.
@@ -354,10 +356,17 @@ sv:
             select_user: Välj deltagare
           index:
             invite_attendee: Bjud in deltagare
+            title: Inbjudningar
           new:
             explanation: Deltagaren kommer att bjudas in att delta i en konferens. Om deltagarens e-postadress inte har registrerats kommer deltagaren även att bjudas in till organisationen.
             invite: Inbjudan
+            title: Bjud in deltagare
+        conference_registrations:
+          index:
+            title: Anmälningar
         conference_speakers:
+          edit:
+            title: Uppdatera konferenstalare
           form:
             existing_user: Befintlig deltagare
             non_user: Icke-deltagare
@@ -365,7 +374,19 @@ sv:
             user_type: Deltagartyp
           index:
             search: Sök
+            title: Talare
+          new:
+            title: Ny konferenstalare
+        conference_user_roles:
+          edit:
+            title: Uppdatera konferensadministratör
+          index:
+            title: Konferensadministratörer
+          new:
+            title: Ny konferensadministratör
         conferences:
+          edit:
+            title: Om den här konferensen
           form:
             available_slots_help: Lämna det till 0 om du har obegränsat antal platser.
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
@@ -375,6 +396,12 @@ sv:
               other: Det har gjorts %{count} registreringar.
             slug_help_html: 'URL-slugs används till att generera URL:er till konferensen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             taxonomies: Kategorier
+          index:
+            title: Konferenser
+          manage_trash:
+            title: Raderade konferenser
+          new:
+            title: Ny konferens
         content_blocks:
           highlighted_conferences:
             max_results: Maximalt antal element att visa
@@ -388,14 +415,29 @@ sv:
             invited_existing_user_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller godkänna den via länkarna nedan."
             invited_user_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan tacka ja via länken nedan."
             registration: Registrering till '%{conference_title}'
+        media_links:
+          edit:
+            title: Uppdatera medielänk
+          index:
+            title: Medialänkar
+          new:
+            title: Ny medialänk
         partners:
+          edit:
+            title: Uppdatera partner
           index:
             title: Partners
+          new:
+            title: Ny partner
         registration_types:
+          edit:
+            title: Uppdatera anmälningstyp
           form:
             select_conference_meetings: Välj konferensmöten
           index:
             title: Registreringstyper
+          new:
+            title: Ny registreringstyp
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Närvarointyget för konferensen <a href="%{url}">%{title}</a> finns i bilagorna.
