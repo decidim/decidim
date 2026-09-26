@@ -152,6 +152,7 @@ sv:
           publish_responses: "%{user_name} publicerade svaren på %{resource_name} i utrymmet %{space_name}"
           unpublish_responses: "%{user_name} avpublicerade svaren på %{resource_name} i utrymmet %{space_name}"
         questionnaire:
+          delete_all_responses: "%{user_name} raderade svaren i frågeformuläret %{resource_name} i utrymmet %{space_name}"
           update: "%{user_name} uppdaterade enkäten %{resource_name}"
       errors:
         response:
