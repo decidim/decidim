@@ -102,6 +102,7 @@ sv:
         new:
           duplicate: Duplicera
           select: Välj vad du vill duplicera
+          title: Duplicera konferens
       conference_publications:
         create:
           error: Det gick inte att publicera konferensen.
@@ -120,9 +121,13 @@ sv:
         destroy:
           success: Talaren har tagits bort.
         edit:
+          title: Uppdatera konferenstalare
           update: Uppdatera
+        index:
+          conference_speakers_title: Talare
         new:
           create: Skapa
+          title: Ny konferenstalare
         publish:
           invalid: Det gick inte att publicera talaren.
           success: Konferensens talare har publicerats.
@@ -139,6 +144,7 @@ sv:
         destroy:
           success: Konferensadministratören har tagits bort.
         edit:
+          title: Uppdatera konferensadministratör
           update: Uppdatera
         index:
           conference_admins_title: Konferensadministratörer
@@ -167,6 +173,8 @@ sv:
         index:
           published: Publicerad
           unpublished: Ej publicerad
+        manage_trash:
+          title: Raderade konferenser
         new:
           create: Skapa
           title: Ny konferens
@@ -184,6 +192,7 @@ sv:
         destroy:
           success: Medielänken har raderats.
         edit:
+          title: Uppdatera medielänk
           update: Uppdatera
         index:
           media_links_title: Medialänkar
@@ -204,6 +213,7 @@ sv:
           conference_invites: Inbjudningar
           conference_speakers: Talare
           diploma: Närvarointyg
+          info: Om den här konferensen
           media_links: Medialänkar
           moderations: Moderering
           partners: Partners
@@ -271,6 +281,7 @@ sv:
         destroy:
           success: Konferenspartnern har tagits bort.
         edit:
+          title: Uppdatera partner
           update: Uppdatera
         new:
           create: Skapa
@@ -292,6 +303,7 @@ sv:
         destroy:
           success: Registreringstypen har tagits från konferensen.
         edit:
+          title: Uppdatera anmälningstyp
           update: Uppdatera
         new:
           create: Skapa
@@ -304,6 +316,7 @@ sv:
           conferences: Alla konferenser
       titles:
         conferences: Konferenser
+        conferences_deleted: Raderade konferenser
       tooltips:
         deleted_conferences_info: Konferenser kan endast tas bort om statusen är "Opublicerad".
     admin_log:

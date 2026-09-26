@@ -228,6 +228,7 @@ fi:
         authorizations:
           new:
             error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.
+            locked: Liian monta epäonnistunutta yritystä. Yritä myöhemmin uudelleen.
             success: Tilisi vahvistaminen onnistui.
       dummy_authorization:
         extra_explanation:
@@ -253,6 +254,7 @@ fi:
           confirmations:
             create:
               error: Vahvistustiedot eivät täsmää. Yritä uudestaan tai hylkää vahvistus, jolloin käyttäjä voi muuttaa sitä.
+              locked: Liian monta epäonnistunutta yritystä. Yritä myöhemmin uudelleen.
               success: Osallistujan vahvistaminen onnistui.
             new:
               introduce_user_data: Syötä kuvassa näkyvät tiedot
@@ -329,6 +331,7 @@ fi:
             title: Pyydä vahvistuskoodia
           update:
             error: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan kirje, jonka olemme lähettäneet sinulle.
+            locked: Liian monta epäonnistunutta yritystä. Yritä myöhemmin uudelleen.
             success: Onnittelut. Käyttäjätilisi vahvistaminen onnistui.
       sms:
         authorizations:
@@ -348,6 +351,8 @@ fi:
             title: Pyydä vahvistuskoodia
           update:
             error: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
+            expired: Vahvistuskoodi on vanhentunut. Pyydä uusi koodi.
+            locked: Liian monta epäonnistunutta yritystä. Yritä myöhemmin uudelleen tai pyydä uusi koodi.
             success: Onnittelut. Käyttäjätilisi vahvistaminen onnistui.
   errors:
     messages:

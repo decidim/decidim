@@ -41,6 +41,7 @@ sv:
             attachments_allowed: Tillåt bilagor
             clear_all: Rensa
             comments_enabled: Aktivera kommentarer
+            comments_max_length: Högsta antal tecken per kommentar (ange 0 för standardvärdet)
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             taxonomy_filters: Välj filter för komponenten
@@ -75,10 +76,13 @@ sv:
           form:
             add_attachments: Lägg till bilagor
             attachment_legend: Lägg till ett dokument eller en bild
+            comments_layout_locked_warning: Kommentarslayouten kan inte ändras eftersom kommentarer redan har publicerats.
             comments_visualization: Visualisering av kommentarer
             comments_warning: Visningsalternativet inte längre ändras efter att den första kommentaren har postats.
             debate_type: Typ av debatt
             edit_attachments: Redigera bilagor
+            errors:
+              comments_layout_locked: Kommentarslayouten kan inte ändras eftersom kommentarer redan har publicerats.
             finite: Tidsbegränsad (med start- och sluttid)
             open: Öppen (utan start- eller sluttid)
             single_column: 'En kolumn: Kommentarer visas i kronologisk ordning och kan ha svar.'
@@ -198,6 +202,13 @@ sv:
             email_outro: Du har fått detta meddelande eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Ny debatt "%{resource_title}" i %{participatory_space_title}
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades i <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hej,
+              %{author_name}, som du följer, har skapat en ny debatt, ”%{resource_title}”. Ta en titt och bidra:
+            email_outro: Du har fått det här meddelandet eftersom du följer %{author_name}. Du kan avsluta meddelandena genom att följa länken ovan.
+            email_subject: Ny debatt, ”%{resource_title}”, av %{author_name}
+            notification_title: <a href="%{author_path}">%{author_name}</a> skapade debatten <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Att skapa debatter är inte längre aktivt i %{participatory_space_title}. Du kan fortfarande delta i öppna debatter via den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.

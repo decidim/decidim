@@ -203,6 +203,7 @@ fr:
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
+            locked: Trop d'échecs. Veuillez réessayer plus tard.
             success: Votre compte a été vérifié avec succès.
       dummy_authorization:
         extra_explanation:
@@ -227,6 +228,7 @@ fr:
           confirmations:
             create:
               error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier.
+              locked: Trop d'échecs. Veuillez réessayer plus tard.
               success: Utilisateur vérifié avec succès.
             new:
               reject: Rejeter
@@ -301,6 +303,7 @@ fr:
             title: Demandez votre code de vérification
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée.
+            locked: Trop d'échecs. Veuillez réessayer plus tard.
             success: Félicitations, votre identité a été vérifiée avec succès.
       sms:
         authorizations:
@@ -320,6 +323,8 @@ fr:
             title: Demander votre code de vérification
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez revérifier le SMS que nous vous avons envoyé.
+            expired: Le code de vérification a expiré. Veuillez en demander un nouveau.
+            locked: Trop d'échecs. Veuillez réessayer plus tard ou demander un nouveau code.
             success: Félicitations, votre identité a été vérifiée avec succès.
   errors:
     messages:
