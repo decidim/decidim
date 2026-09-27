@@ -6,6 +6,33 @@ import UnsavedFormController from "src/decidim/controllers/unsaved_form/controll
 jest.mock("src/decidim/confirm", () => jest.fn(() => Promise.resolve(false)))
 jest.mock("src/decidim/refactor/moved/i18n", () => ({ getMessages: () => "Unsaved changes" }))
 
+const markup = (formAttributes = "") => `
+  <div class="questionnaire-questions">
+    <button type="button" class="add-question">Add question</button>
+    <button type="button" class="collapse-all">Collapse all</button>
+  </div>
+  <form data-controller="unsaved-form" ${formAttributes}>
+    <input name="input name[title]">
+    <div class="questionnaire-questions-list" data-draggable-table>
+      <div class="card questionnaire-question">
+        <button type="button" class="remove-question">Remove</button>
+      </div>
+    </div>
+  </form>
+  <a href="#">Back</a>
+`
+
+const dispatchAjaxComplete = (form, status) => {
+  form.dispatchEvent(new CustomEvent("ajax:complete", { bubbles: true, detail: [{ status }] }));
+}
+
+const expectUnloadPrompt = (dirty) => {
+  const event = new Event("beforeunload", { cancelable: true });
+  window.dispatchEvent(event);
+
+  expect(event.defaultPrevented).toBe(dirty);
+}
+
 describe("UnsavedFormController", () => {
   let application = null;
   let controller = null;
@@ -13,13 +40,13 @@ describe("UnsavedFormController", () => {
   let input = null;
   let link = null;
 
-  beforeEach(async () => {
-    document.body.innerHTML = `
-      <form data-controller="unsaved-form">
-        <input name="input name[title]">
-      </form>
-      <a href="#">Back</a>
-    `;
+  const connect = async (formAttributes = "") => {
+    if (application) {
+      controller.disconnect();
+      application.stop();
+    }
+
+    document.body.innerHTML = markup(formAttributes);
 
     application = Application.start();
     application.register("unsaved-form", UnsavedFormController);
@@ -30,11 +57,16 @@ describe("UnsavedFormController", () => {
     input = form.querySelector("input");
     link = document.querySelector("a");
     controller = application.getControllerForElementAndIdentifier(form, "unsaved-form");
+  };
+
+  beforeEach(async () => {
+    await connect();
   });
 
   afterEach(() => {
     controller.disconnect();
     application.stop();
+    application = null;
     jest.clearAllMocks();
   });
 
@@ -81,16 +113,47 @@ describe("UnsavedFormController", () => {
     expect(confirmAction).toHaveBeenCalledTimes(1);
   });
 
+  it("marks the form dirty when a control outside of it adds content", () => {
+    document.querySelector(".add-question").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
+
+  it("marks the form dirty when a control inside of it removes content", () => {
+    // The dynamic fields component stops the click from propagating.
+    form.querySelector(".questionnaire-questions-list").addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+
+    form.querySelector(".remove-question").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
+
+  it("does not mark the form dirty when other controls are clicked", () => {
+    document.querySelector(".collapse-all").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    expect(controller.dirty).toBe(false);
+    expectUnloadPrompt(false);
+  });
+
+  it("marks the form dirty when its content is reordered", () => {
+    form.querySelector(".questionnaire-questions-list").dispatchEvent(new CustomEvent("sortupdate", { detail: {} }));
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
+
   it("allows form submission without an unload prompt", async () => {
     input.dispatchEvent(new Event("input", { bubbles: true }));
     form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
     await new Promise((resolve) => setTimeout(resolve, 0));
 
-    const event = new Event("beforeunload", { cancelable: true });
-    window.dispatchEvent(event);
-
     expect(controller.dirty).toBe(false);
-    expect(event.defaultPrevented).toBe(false);
+    expectUnloadPrompt(false);
   });
 
   it("keeps the form dirty when a later listener prevents the submit", async () => {
@@ -101,10 +164,37 @@ describe("UnsavedFormController", () => {
     await new Promise((resolve) => setTimeout(resolve, 0));
 
     expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
 
-    const event = new Event("beforeunload", { cancelable: true });
-    window.dispatchEvent(event);
+  it("keeps a remote form dirty until the request succeeds", async () => {
+    await connect("data-remote=\"true\"");
 
-    expect(event.defaultPrevented).toBe(true);
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
+
+  it("does not consider a failed remote request as saved", async () => {
+    await connect("data-remote=\"true\"");
+
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    dispatchAjaxComplete(form, 422);
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
+
+  it("considers a successful remote request as saved", async () => {
+    await connect("data-remote=\"true\"");
+
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    dispatchAjaxComplete(form, 200);
+
+    expect(controller.dirty).toBe(false);
+    expectUnloadPrompt(false);
   });
 });
