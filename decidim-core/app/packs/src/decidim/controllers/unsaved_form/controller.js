@@ -10,6 +10,11 @@ import confirmAction from "src/decidim/confirm"
 import { getMessages } from "src/decidim/refactor/moved/i18n"
 
 const sameWindowTargets = ["_self", "_top", "_parent"]
+const isRemote = (element) => {
+  const value = element.getAttribute("data-remote");
+
+  return value !== null && value !== "false";
+}
 
 const structureControls = [
   ".add-question",
@@ -30,8 +35,7 @@ export default class extends Controller {
   connect() {
     this.dirty = false;
     this.confirming = false;
-    const remote = this.element.getAttribute("data-remote");
-    this.remote = remote !== null && remote !== "false";
+    this.remote = isRemote(this.element);
 
     this.markDirty = () => {
       this.dirty = true;
@@ -106,7 +110,7 @@ export default class extends Controller {
       const opensAnotherWindow = target && !sameWindowTargets.includes(target);
       const opensWithModifier = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
 
-      if (href.startsWith("#") || link.hasAttribute("download") || link.hasAttribute("data-unsaved-form-ignore") || opensAnotherWindow || opensWithModifier) {
+      if (href.startsWith("#") || link.hasAttribute("download") || link.hasAttribute("data-unsaved-form-ignore") || isRemote(link) || opensAnotherWindow || opensWithModifier) {
         return;
       }
 
