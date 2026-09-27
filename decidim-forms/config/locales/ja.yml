@@ -152,6 +152,7 @@ ja:
           publish_responses: "%{user_name} が %{resource_name} の質問の回答を %{space_name} スペースに公開しました"
           unpublish_responses: "%{user_name} は %{resource_name} の質問の回答を %{space_name} スペースで非公開にしました"
         questionnaire:
+          delete_all_responses: "%{user_name} は %{space_name} スペースの %{resource_name} アンケートの回答を削除しました"
           update: "%{user_name} が %{resource_name} アンケートを更新しました"
       errors:
         response:
