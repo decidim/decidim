@@ -25,6 +25,8 @@ const markup = (formAttributes = "") => `
   <button type="button" class="add-separator" form="other-form">Add separator</button>
   <button type="button" class="add-display-condition" form="questionnaire">Add condition</button>
   <a href="#">Back</a>
+  <a href="/filters" data-remote="true">Filter</a>
+  <a href="/local-filter" data-remote="false">Local filter</a>
 `
 
 const dispatchAjaxComplete = (form, status) => {
@@ -104,6 +106,38 @@ describe("UnsavedFormController", () => {
     link.dispatchEvent(event);
 
     expect(confirmAction).not.toHaveBeenCalled();
+  });
+
+  it("does not confirm navigation for remote links, because they request in place", () => {
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+
+    const event = new MouseEvent("click", { bubbles: true, cancelable: true });
+    document.querySelector("a[href='/filters']").dispatchEvent(event);
+
+    expect(event.defaultPrevented).toBe(false);
+    expect(confirmAction).not.toHaveBeenCalled();
+  });
+
+  it("keeps the form dirty when a confirmed remote link does not navigate", async () => {
+    jest.mocked(confirmAction).mockResolvedValueOnce(true);
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+
+    document.querySelector("a[href='/filters']").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
+
+  it("confirms navigation for links with a disabled remote flag", () => {
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    document.addEventListener("click", (event) => event.preventDefault(), { once: true });
+
+    const event = new MouseEvent("click", { bubbles: true, cancelable: true });
+    document.querySelector("a[href='/local-filter']").dispatchEvent(event);
+
+    expect(event.defaultPrevented).toBe(true);
+    expect(confirmAction).toHaveBeenCalled();
   });
 
   it("blocks navigation while the confirmation is pending", () => {
