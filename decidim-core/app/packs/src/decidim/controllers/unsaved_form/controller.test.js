@@ -11,7 +11,7 @@ const markup = (formAttributes = "") => `
     <button type="button" class="add-question">Add question</button>
     <button type="button" class="collapse-all">Collapse all</button>
   </div>
-  <form data-controller="unsaved-form" ${formAttributes}>
+  <form data-controller="unsaved-form" ${formAttributes} id="questionnaire">
     <input name="input name[title]">
     <div class="questionnaire-questions-list" data-draggable-table>
       <div class="card questionnaire-question">
@@ -19,6 +19,11 @@ const markup = (formAttributes = "") => `
       </div>
     </div>
   </form>
+  <form id="other-form">
+    <button type="button" class="add-response-option">Add option</button>
+  </form>
+  <button type="button" class="add-separator" form="other-form">Add separator</button>
+  <button type="button" class="add-display-condition" form="questionnaire">Add condition</button>
   <a href="#">Back</a>
 `
 
@@ -135,6 +140,27 @@ describe("UnsavedFormController", () => {
 
   it("does not mark the form dirty when other controls are clicked", () => {
     document.querySelector(".collapse-all").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    expect(controller.dirty).toBe(false);
+    expectUnloadPrompt(false);
+  });
+
+  it("does not mark the form dirty when a control of another form is clicked", () => {
+    document.querySelector("#other-form .add-response-option").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    expect(controller.dirty).toBe(false);
+    expectUnloadPrompt(false);
+  });
+
+  it("marks the form dirty when a control outside of it is associated through a form attribute", () => {
+    document.querySelector(".add-display-condition").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
+
+  it("does not mark the form dirty when a control outside of it is associated to another form", () => {
+    document.querySelector("[form=\"other-form\"].add-separator").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
 
     expect(controller.dirty).toBe(false);
     expectUnloadPrompt(false);

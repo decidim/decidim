@@ -43,8 +43,16 @@ export default class extends Controller {
       window.removeEventListener("beforeunload", this.preventBeforeUnload);
     };
 
+    this.belongsToForm = (control) => {
+      const owner = control.form || control.closest("form");
+
+      return !owner || owner === this.element;
+    };
+
     this.markStructureChanged = (event) => {
-      if (event.target?.closest?.(structureControls)) {
+      const control = event.target?.closest?.(structureControls);
+
+      if (control && this.belongsToForm(control)) {
         this.markDirty();
       }
     };
