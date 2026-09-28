@@ -93,7 +93,12 @@ module RuboCop
         def on_def(node)
           method_name = node.method_name
 
-          return if @in_private_section
+          inline_visibility = @inline_visibility
+          @inline_visibility = nil
+
+          in_private_section = inline_visibility ? inline_visibility != :public : @in_private_section
+
+          return if in_private_section
           return if action_exempted_by_before_action?(method_name)
           return if @helper_methods.include?(method_name)
 
@@ -105,15 +110,21 @@ module RuboCop
 
         def on_send(node)
           return unless VISIBILITY_METHODS.include?(node.method_name)
-          return unless node.arguments.empty? || visibility_def_argument?(node)
 
-          @in_private_section = node.method_name != :public
+          if node.arguments.empty?
+            @in_private_section = node.method_name != :public
+          elsif visibility_def_argument?(node)
+            # `private def foo` only makes that single method private, it does
+            # not change the default visibility for the following methods.
+            @inline_visibility = node.method_name
+          end
         end
 
         private
 
         def reset_state
           @in_private_section = false
+          @inline_visibility = nil
           @all_actions_auth = false
           @only_actions = Set.new
           @except_sets = []

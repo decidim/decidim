@@ -229,6 +229,21 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
     RUBY
   end
 
+  it "registers an offense for a public action after a method made private with the private keyword and def argument" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        private def resource
+          @resource ||= Resource.find(params[:id])
+        end
+
+        def edit
+        ^^^^^^^^ Action `edit` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resource = Resource.find(params[:id])
+        end
+      end
+    RUBY
+  end
+
   it "does not register an offense when before_action handles authorization with permission keyword" do
     expect_no_offenses(<<~RUBY)
       class Admin::ResourcesController < Admin::ApplicationController
