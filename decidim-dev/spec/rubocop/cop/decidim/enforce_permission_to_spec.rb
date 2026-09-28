@@ -458,6 +458,48 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
     RUBY
   end
 
+  it "does not exempt an action excluded by except when only is also given" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        before_action :authorize_access, only: [:edit], except: [:edit]
+
+        def edit
+        ^^^^^^^^ Action `edit` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resource = Resource.find(params[:id])
+        end
+
+        private
+
+        def authorize_access
+          enforce_permission_to :update, :resource
+        end
+      end
+    RUBY
+  end
+
+  it "exempts only the actions covered by both only and except" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        before_action :authorize_access, only: [:edit, :update], except: [:update]
+
+        def edit
+          @resource = Resource.find(params[:id])
+        end
+
+        def update
+        ^^^^^^^^^^ Action `update` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resource = Resource.find(params[:id])
+        end
+
+        private
+
+        def authorize_access
+          enforce_permission_to :update, :resource
+        end
+      end
+    RUBY
+  end
+
   it "does not exempt actions covered by a non-auth before_action with only" do
     expect_offense(<<~RUBY)
       class Admin::ResourcesController < Admin::ApplicationController

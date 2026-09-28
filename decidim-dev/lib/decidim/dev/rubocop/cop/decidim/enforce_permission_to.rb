@@ -160,6 +160,7 @@ module RuboCop
           only, except = action_restrictions(node)
 
           if only
+            only -= except if except
             @only_actions.merge(only)
           elsif except
             @except_sets << except
