@@ -96,9 +96,7 @@ module RuboCop
           inline_visibility = @inline_visibility
           @inline_visibility = nil
 
-          in_private_section = inline_visibility ? inline_visibility != :public : @in_private_section
-
-          return if in_private_section
+          return unless method_public?(node, method_name, inline_visibility)
           return if action_exempted_by_before_action?(method_name)
           return if @helper_methods.include?(method_name)
 
@@ -133,6 +131,41 @@ module RuboCop
 
         def visibility_def_argument?(node)
           node.arguments.any?(&:def_type?)
+        end
+
+        def method_public?(node, method_name, inline_visibility)
+          named_visibility = named_visibility_for(node, method_name)
+          return named_visibility == :public if named_visibility
+
+          visibility = inline_visibility || (@in_private_section ? :private : :public)
+          visibility == :public
+        end
+
+        # Resolves named visibility modifiers such as `public :publish` or
+        # `private :resource`, which apply to the method regardless of where it
+        # is defined in the class body. The last matching modifier wins.
+        def named_visibility_for(node, method_name)
+          scope = node.each_ancestor(:class, :module).first
+          return nil unless scope
+
+          named_visibility_overrides(scope)[method_name]
+        end
+
+        def named_visibility_overrides(scope)
+          scope.body&.each_child_node&.with_object({}) do |child, overrides|
+            next unless named_visibility_modifier?(child)
+
+            child.arguments.each do |arg|
+              next unless arg.sym_type? || arg.str_type?
+
+              overrides[arg.value.to_sym] = child.method_name
+            end
+          end || {}
+        end
+
+        def named_visibility_modifier?(node)
+          node.send_type? && VISIBILITY_METHODS.include?(node.method_name) &&
+            !node.arguments.empty? && !visibility_def_argument?(node)
         end
 
         def check_helper_methods(node)

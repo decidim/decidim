@@ -244,6 +244,62 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
     RUBY
   end
 
+  it "registers an offense for a method made public with the public keyword and a symbol argument" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        private
+
+        def publish
+        ^^^^^^^^^^^ Action `publish` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resource.publish
+        end
+
+        public :publish
+      end
+    RUBY
+  end
+
+  it "does not register an offense for a method made private with the private keyword and a symbol argument" do
+    expect_no_offenses(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        def resource
+          @resource ||= Resource.find(params[:id])
+        end
+
+        private :resource
+      end
+    RUBY
+  end
+
+  it "does not register an offense for a method made private with several symbol arguments" do
+    expect_no_offenses(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        def resource
+          @resource ||= Resource.find(params[:id])
+        end
+
+        def collection
+          @collection ||= Resource.all
+        end
+
+        private :resource, :collection
+      end
+    RUBY
+  end
+
+  it "registers an offense for a method made public after being defined as private with a def argument" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        private def publish
+                ^^^^^^^^^^^ Action `publish` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resource.publish
+        end
+
+        public :publish
+      end
+    RUBY
+  end
+
   it "does not register an offense when before_action handles authorization with permission keyword" do
     expect_no_offenses(<<~RUBY)
       class Admin::ResourcesController < Admin::ApplicationController
