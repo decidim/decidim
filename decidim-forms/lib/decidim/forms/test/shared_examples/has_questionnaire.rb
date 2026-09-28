@@ -150,11 +150,11 @@ shared_examples_for "has questionnaire" do
 
       fill_in question.body["en"], with: "My first response"
 
-      accept_confirm do
+      dismiss_confirm do
         click_on translated_attribute(component.name)
       end
 
-      expect(page).to have_current_path(questionnaire_public_path)
+      expect(page).to have_field(question.body["en"], with: "My first response")
     end
 
     context "when the questionnaire has already been responded by someone else" do
