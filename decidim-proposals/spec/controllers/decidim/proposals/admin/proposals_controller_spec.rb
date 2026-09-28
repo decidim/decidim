@@ -69,6 +69,25 @@ describe Decidim::Proposals::Admin::ProposalsController do
     end
   end
 
+  describe "GET show" do
+    let(:current_user) { create(:user, :confirmed, :admin_terms_accepted, organization: component.organization) }
+    let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user: current_user, participatory_process: component.participatory_space) }
+    let(:assigned_proposal) { create(:proposal, component:) }
+    let(:unassigned_proposal) { create(:proposal, component:) }
+    let!(:assignment) { create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:) }
+
+    it "allows an evaluator to see an assigned proposal" do
+      get :show, params: { id: assigned_proposal.id }
+
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "does not allow an evaluator to see an unassigned proposal" do
+      expect { get :show, params: { id: unassigned_proposal.id } }
+        .to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
+
   it_behaves_like "a soft-deletable resource",
                   resource_name: :proposal,
                   resource_path: :proposals_path,
