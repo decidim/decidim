@@ -13,6 +13,7 @@ const markup = (formAttributes = "") => `
   </div>
   <form data-controller="unsaved-form" ${formAttributes} id="questionnaire">
     <input name="input name[title]">
+    <button type="button" data-remote="true">Remote action</button>
     <div class="questionnaire-questions-list" data-draggable-table>
       <div class="card questionnaire-question">
         <button type="button" class="remove-question">Remove</button>
@@ -28,6 +29,10 @@ const markup = (formAttributes = "") => `
   <a href="/filters" data-remote="true">Filter</a>
   <a href="/local-filter" data-remote="false">Local filter</a>
 `
+
+const dispatchAjaxSend = (element) => {
+  element.dispatchEvent(new CustomEvent("ajax:send", { bubbles: true, detail: [{}] }));
+}
 
 const dispatchAjaxComplete = (form, status) => {
   form.dispatchEvent(new CustomEvent("ajax:complete", { bubbles: true, detail: [{ status }] }));
@@ -242,6 +247,7 @@ describe("UnsavedFormController", () => {
     await connect("data-remote=\"true\"");
 
     input.dispatchEvent(new Event("input", { bubbles: true }));
+    dispatchAjaxSend(form);
     dispatchAjaxComplete(form, 422);
 
     expect(controller.dirty).toBe(true);
@@ -252,9 +258,34 @@ describe("UnsavedFormController", () => {
     await connect("data-remote=\"true\"");
 
     input.dispatchEvent(new Event("input", { bubbles: true }));
+    dispatchAjaxSend(form);
     dispatchAjaxComplete(form, 200);
 
     expect(controller.dirty).toBe(false);
     expectUnloadPrompt(false);
+  });
+
+  it("keeps the form dirty when a successful request comes from a nested remote control", async () => {
+    await connect("data-remote=\"true\"");
+
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    const remoteControl = form.querySelector("[data-remote]");
+    dispatchAjaxSend(remoteControl);
+    dispatchAjaxComplete(remoteControl, 200);
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
+
+  it("keeps the form dirty when it is edited after the request is sent", async () => {
+    await connect("data-remote=\"true\"");
+
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    dispatchAjaxSend(form);
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    dispatchAjaxComplete(form, 200);
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
   });
 });

@@ -36,8 +36,11 @@ export default class extends Controller {
     this.dirty = false;
     this.confirming = false;
     this.remote = isRemote(this.element);
+    this.edits = 0;
+    this.sentEdits = 0;
 
     this.markDirty = () => {
+      this.edits += 1;
       this.dirty = true;
       window.addEventListener("beforeunload", this.preventBeforeUnload);
     };
@@ -78,11 +81,28 @@ export default class extends Controller {
       });
     };
 
+    this.markSending = (event) => {
+      if (event.target !== this.element) {
+        return;
+      }
+
+      this.sentEdits = this.edits;
+    };
+
     this.markSavedOnSuccess = (event) => {
+      if (event.target !== this.element) {
+        return;
+      }
+
       const [xhr] = event.detail || [];
 
       // A failed request leaves the form, and its unsaved contents, in place.
       if (!xhr || !(xhr.status >= 200 && xhr.status < 300)) {
+        return;
+      }
+
+      // Changes made after the request was sent were not part of what it saved.
+      if (this.edits !== this.sentEdits) {
         return;
       }
 
@@ -139,6 +159,7 @@ export default class extends Controller {
     this.element.addEventListener("change", this.markDirty);
     this.element.addEventListener("sortupdate", this.markDirty, true);
     this.element.addEventListener("submit", this.markSubmitting);
+    this.element.addEventListener("ajax:send", this.markSending);
     this.element.addEventListener("ajax:complete", this.markSavedOnSuccess);
     document.addEventListener("click", this.confirmNavigation);
     document.addEventListener("click", this.markStructureChanged, true);
@@ -151,6 +172,7 @@ export default class extends Controller {
     this.element.removeEventListener("change", this.markDirty);
     this.element.removeEventListener("sortupdate", this.markDirty, true);
     this.element.removeEventListener("submit", this.markSubmitting);
+    this.element.removeEventListener("ajax:send", this.markSending);
     this.element.removeEventListener("ajax:complete", this.markSavedOnSuccess);
     document.removeEventListener("click", this.confirmNavigation);
     document.removeEventListener("click", this.markStructureChanged, true);
