@@ -86,6 +86,16 @@ describe Decidim::Proposals::Admin::ProposalsController do
       expect { get :show, params: { id: unassigned_proposal.id } }
         .to raise_error(ActiveRecord::RecordNotFound)
     end
+
+    context "when the evaluator is also an administrator" do
+      let(:current_user) { create(:user, :admin, :confirmed, :admin_terms_accepted, organization: component.organization) }
+
+      it "allows access to an unassigned proposal" do
+        get :show, params: { id: unassigned_proposal.id }
+
+        expect(response).to have_http_status(:ok)
+      end
+    end
   end
 
   it_behaves_like "a soft-deletable resource",
