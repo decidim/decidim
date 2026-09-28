@@ -106,8 +106,13 @@ module Decidim
 
         def apply
           enforce_permission_to :apply, :questionnaire_template
-          questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
-          template = Decidim::Templates::Template.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
+          questionnaire = find_questionnaire(params[:questionnaire_id])
+          template = collection.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
+
+          if questionnaire.blank?
+            flash[:alert] = I18n.t("templates.apply.error", scope: "decidim.admin")
+            return redirect_to URI.parse(params[:url]).path
+          end
 
           ApplyQuestionnaireTemplate.call(questionnaire, template) do
             on(:ok) do
@@ -134,7 +139,10 @@ module Decidim
 
         def skip
           enforce_permission_to :skip, :questionnaire_template
-          questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
+          questionnaire = find_questionnaire(params[:questionnaire_id])
+
+          return redirect_to(URI.parse(params[:url]).path) unless questionnaire
+
           # rubocop:disable-next Rails/SkipsModelValidations
           questionnaire.touch
           redirect_to URI.parse(params[:url]).path
@@ -151,6 +159,22 @@ module Decidim
         end
 
         private
+
+        def find_questionnaire(id)
+          questionnaire = Decidim::Forms::Questionnaire.find_by(id:)
+          return unless questionnaire
+          return unless questionnaire_for_in_organization?(questionnaire)
+
+          questionnaire
+        end
+
+        def questionnaire_for_in_organization?(questionnaire)
+          questionnaire_for = questionnaire.questionnaire_for
+          return false unless questionnaire_for
+          return false unless questionnaire_for.respond_to?(:organization)
+
+          questionnaire_for.organization == current_organization
+        end
 
         def questionnaire
           template.templatable
