@@ -8,14 +8,14 @@ sv:
   activerecord:
     models:
       decidim/elections/election:
-        one: Val
-        other: Val
+        one: Omröstning
+        other: Omröstningar
   decidim:
     admin:
       menu:
         elections_menu:
           basic_elections: Grundläggande
-          election_census: Census
+          election_census: Röstlängd
           election_dashboard: Översikt
           election_questions: Frågor
       tooltips:
@@ -48,7 +48,7 @@ sv:
         census:
           edit:
             choose_census: Välj vilken typ av röstlängd du vill använda för omröstningen
-            created_at: Skapad den
+            created_at: Skapad
             identifier: Identifierare för användare
           preview:
             title:
@@ -67,7 +67,7 @@ sv:
             start_election: Börja omröstning
             title: Kalender
           census:
-            title: Census
+            title: Röstlängd
           main:
             labels:
               calendar: Kalender
@@ -106,7 +106,7 @@ sv:
               after_end: Resultat tillgängliga efter omröstningens slut
               per_question: Resultat tillgängliga per fråga
               real_time: Resultat tillgängliga i realtid
-            title: Valstatus
+            title: Status
         elections:
           create:
             invalid: Det gick inte att skapa omröstningen.
@@ -171,7 +171,7 @@ sv:
             invalid: Det gick inte att avsluta omröstningen.
             success: Omröstningen har avslutats.
           publish_results:
-            invalid: Det gick inte att publicera resultaten.
+            invalid: Det gick inte att publicera resultatet.
             success: Resultaten har publicerats.
           start:
             invalid: Det gick inte att starta omröstningen.
@@ -229,17 +229,17 @@ sv:
       elections:
         count:
           elections_count:
-            one: "%{count} val"
-            other: "%{count} val"
+            one: "%{count} omröstning"
+            other: "%{count} omröstningar"
         elections:
           empty: Det finns inga omröstningar.
           empty_filters: Det finns inga omröstningar som matchar dina filter.
         filters:
-          all: Allt
+          all: Alla
           state: Status
           state_values:
             finished: Avslutad
-            ongoing: Pågående
+            ongoing: Aktiva
             scheduled: Kommande
         orders:
           end_at: Slutdatum
@@ -248,7 +248,7 @@ sv:
           start_at: Startdatum
         questions:
           subtitle: 'Det här är frågorna för omröstningen:'
-          title: Valfrågor
+          title: Frågor
         show:
           active_voting_until: 'Omröstning aktiv till: %{end_date}'
           edit_vote_button: Ändra röst
@@ -271,7 +271,7 @@ sv:
       models:
         election:
           fields:
-            census: Census
+            census: Röstlängd
             end_at: Sluttid
             start_at: Starttid
             status: Status
@@ -286,10 +286,10 @@ sv:
         active: Pågående
         finished: Avslutad
         not_started: Inte påbörjad
-        ongoing: Pågående
+        ongoing: Aktiva
         published_results: Publicerade resultat
         scheduled: Planerad
-        unpublished: Opublicerad
+        unpublished: Opublicerade
         voting_enabled: Röstning pågår
       votes:
         cast:
