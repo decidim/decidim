@@ -12,14 +12,14 @@ sv:
         duplicate_categories: Duplicera kategorier
         duplicate_components: Duplicera komponenter
         duplicate_landing_page_blocks: Duplicera innehållsblock från landningssidan
-        duplicate_steps: Duplicera faser
+        duplicate_steps: Duplicera steg
         end_date: Slutdatum
         has_members: Utrymmet har medlemmar
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
         import_components: Importera komponenter
-        import_steps: Importera faser
+        import_steps: Importera steg
         local_area: Område
         meta_scope: Omfattning
         participatory_process_group_id: Grupp av processer
@@ -108,7 +108,7 @@ sv:
           label: Åtkomstläge
           values:
             open: Öppen
-            restricted: Begränsad
+            restricted: Privat
             transparent: Transparent
       menu:
         participatory_process_groups: Grupper för processer
@@ -237,7 +237,7 @@ sv:
         index:
           access_modes:
             open: Öppen
-            restricted: Begränsad
+            restricted: Privat
             transparent: Transparent
           published: Publicerad
           unpublished: Ej publicerad
@@ -320,7 +320,7 @@ sv:
     open_data:
       help:
         participatory_processes:
-          access_mode: Åtkomstläge. Huruvida processen är öppen, begränsad eller transparent.
+          access_mode: Åtkomstläge. Om samrådet är öppet, privat eller transparent.
           area: Geografiskt område för processen
           component_settings: Inställningar för processen
           created_at: Datum när processen skapades
@@ -479,16 +479,16 @@ sv:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
           new:
-            title: Duplicera deltagandeprocess
+            title: Duplicera process
         participatory_process_groups:
           edit:
-            title: Redigera processgrupp
+            title: Redigera grupp av processer
           form:
             metadata: Metadata
             title: Om processen
             visibility: Synlighet
           index:
-            title: Grupper av deltagandeprocesser
+            title: Grupper av processer
           new:
             title: Ny grupp av processer
         participatory_process_imports:
@@ -496,21 +496,21 @@ sv:
             document_legend: Lägg till ett dokument
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
           new:
-            title: Importera deltagandeprocess
+            title: Importera process
         participatory_process_steps:
           edit:
-            title: Redigera deltagandeprocessens fas
+            title: Redigera steg i processen
           index:
             title: Steg
           new:
-            title: Ny fas i deltagandeprocess
+            title: Nytt steg i processen
         participatory_process_user_roles:
           edit:
-            title: Uppdatera deltagandeprocessens administratör
+            title: Uppdatera administratör för processen
           index:
-            title: Deltagandeprocessens administratörer
+            title: Administratörer för processen
           new:
-            title: Ny administratör för deltagandeprocess
+            title: Ny administratör för processen
         participatory_processes:
           edit:
             title: Om processen
@@ -519,9 +519,9 @@ sv:
               label: Åtkomst
               options:
                 open: Alla kan se processen och delta.
-                restricted: Endast medlemmar och administratörer kan se och delta. Det visas inte i den allmänna sökningen, i API:et eller i filer med öppna data.
+                restricted: Endast medlemmar och administratörer kan se och delta. Visas inte i sökningar, API:et eller öppna data.
                 transparent: Alla kan se processen, men endast medlemmar och administratörer kan delta.
-              set_this_space_as: Ange det här utrymmet som
+              set_this_space_as: Inställning för utrymmet
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             has_members_help: Du kommer att kunna skapa och publicera medlemmar
@@ -535,11 +535,11 @@ sv:
             title: Allmän information
             visibility: Synlighet
           index:
-            title: Deltagandeprocesser
+            title: Processer
           manage_trash:
-            title: Raderade deltagandeprocesser
+            title: Raderade processer
           new:
-            title: Ny deltagandeprocess
+            title: Ny process
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
