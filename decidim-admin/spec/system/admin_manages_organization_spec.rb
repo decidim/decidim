@@ -232,8 +232,29 @@ describe "Admin manages organization" do
         end
 
         it "creates and deletes linebreaks with enter, shift+enter and backspace" do
-          find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys "acd", [:left], [:left]
-          find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter], [:shift, :enter], [:shift, :enter], "b", [:left], [:backspace], [:backspace], [:backspace]
+          # Set the initial content and place the cursor between the "a" and
+          # the "c" through the editor commands. Relying on `send_keys` to type
+          # the text and move the cursor with the arrow keys is flaky because
+          # the browser may not process the cursor movements before the
+          # following key strokes.
+          page.execute_script(
+            <<~JS,
+              var editor = document.querySelector(arguments[0]).editor;
+              editor.commands.setContent("<p>acd</p>");
+              editor.commands.setTextSelection(2);
+            JS
+            "#organization_admin_terms_of_service_body_en div[contenteditable='true'].ProseMirror"
+          )
+
+          # Send the key strokes one by one so that the editor has processed
+          # each of them before the next one is sent. Sending them all at once
+          # makes the browser and the editor race, which also makes this spec
+          # flaky.
+          editor = find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native
+          [:enter, [:shift, :enter], [:shift, :enter], "b", :left, :backspace, :backspace, :backspace].each do |key|
+            editor.send_keys(key)
+          end
+
           expect_editor_content("<p>abcd</p>")
         end
       end
