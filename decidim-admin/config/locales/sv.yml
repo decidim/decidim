@@ -46,7 +46,7 @@ sv:
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
-        comments_max_length: Högsta antal tecken per kommentar (ange 0 för standardvärdet)
+        comments_max_length: Max antal tecken per kommentar (ange 0 för standardvärdet)
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
@@ -267,7 +267,7 @@ sv:
           title: Redigera mapp
           update: Uppdatera
         index:
-          attachment_collections_title: Bilagemappar
+          attachment_collections_title: Mappar för bilagor
         new:
           create: Skapa
           title: Ny mapp
@@ -907,8 +907,8 @@ sv:
             preview: Förhandsvisning
           machine_translation_display_priority:
             options:
-              original: Systemet visar informationen på det språk som författaren använde. För innehåll som har skapats i administrationen och översatts manuellt visas administratörens översättningar.
-              translation: Systemet visar en översättning om det finns någon. Annars används originalspråket.
+              original: Systemet visar informationen på det språk som författaren använde. För innehåll som har skapats av en administratör och översatts manuellt visas administratörens översättningar.
+              translation: Systemet visar en översättning om det finns någon. Annars visas originalspråket.
           rich_text_editor_in_public_views_help: I vissa textområden kommer deltagarna att kunna infoga några HTML-taggar med hjälp av textredigeraren.
           social_handlers: Sociala medier
           twitter: X
@@ -928,7 +928,7 @@ sv:
           up: Upp
         form:
           add: Lägg till i lista över tillåtna domännamn
-          title: Lista över tillåtna externa domäner
+          title: Tillåtna externa domäner
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
@@ -1237,8 +1237,8 @@ sv:
         area_types: Typer av område
         areas: Områden
         authorization_workflows: Verifieringsmetoder
-        dashboard: Översikt
-        edit_external_domains: Lista över tillåtna externa domäner
+        dashboard: Adminpanel
+        edit_external_domains: Tillåtna externa domäner
         impersonatable_users: Deltagare som kan hanteras
         impersonations: Deltagarhantering
         menu: Meny
@@ -1289,7 +1289,7 @@ sv:
     components:
       settings:
         global:
-          taxonomy_filters_unavailable: Klassificering kan göras efter att komponenten är skapad.
+          taxonomy_filters_unavailable: Skapa komponenten innan du kan ställa in kategorifilter.
     forms:
       errors:
         impersonate_user:
