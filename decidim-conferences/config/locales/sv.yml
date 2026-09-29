@@ -297,7 +297,7 @@ sv:
     admin_log:
       conference:
         create: "%{user_name} skapade konferensen %{resource_name}"
-        duplicate: "%{user_name} kopierade konferensen %{resource_name}"
+        duplicate: "%{user_name} duplicerade konferensen %{resource_name}"
         publish: "%{user_name} publicerade konferensen %{resource_name}"
         restore: "%{user_name} återställde konferensen %{resource_name}"
         send_conference_diplomas: "%{user_name} skickade närvarointyg till deltagarna på konferensen %{resource_name}"
@@ -378,14 +378,14 @@ sv:
             title: Ny konferenstalare
         conference_user_roles:
           edit:
-            title: Uppdatera konferensadministratör
+            title: Uppdatera administratör för konferens
           index:
-            title: Konferensadministratörer
+            title: Administratörer för konferens
           new:
-            title: Ny konferensadministratör
+            title: Ny administratör för konferens
         conferences:
           edit:
-            title: Om den här konferensen
+            title: Om konferensen
           form:
             available_slots_help: Lämna det till 0 om du har obegränsat antal platser.
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
@@ -416,7 +416,7 @@ sv:
             registration: Registrering till '%{conference_title}'
         media_links:
           edit:
-            title: Uppdatera medielänk
+            title: Uppdatera medialänk
           index:
             title: Medialänkar
           new:
@@ -430,13 +430,13 @@ sv:
             title: Ny partner
         registration_types:
           edit:
-            title: Uppdatera anmälningstyp
+            title: Uppdatera typ av anmälan
           form:
             select_conference_meetings: Välj konferensmöten
           index:
             title: Registreringstyper
           new:
-            title: Ny registreringstyp
+            title: Ny typ av anmälan
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Närvarointyget för konferensen <a href="%{url}">%{title}</a> finns i bilagorna.
