@@ -17,16 +17,21 @@ namespace :decidim do
           decidim_followable_id: user_id
         ).count
 
-        if badge_score.value != real_count
-          badge_score.update_columns(value: real_count)
-          fixed_count += 1
-        else
+        if badge_score.value == real_count
           skipped_count += 1
+          next
+        else
+          badge_score.update!(value: real_count)
+
+          user = Decidim::User.find(user_id)
+          Decidim::Gamification.set_score(user, :followers, real_count)
+
+          fixed_count += 1
         end
       end
 
       puts "Followers badge scores fix complete."
-      puts "Fixed:   #{fixed_count}"
+      puts "Fixed: #{fixed_count}"
       puts "Skipped: #{skipped_count}"
     end
   end
