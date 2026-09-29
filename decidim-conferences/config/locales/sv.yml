@@ -144,7 +144,7 @@ sv:
         destroy:
           success: Konferensadministratören har tagits bort.
         edit:
-          title: Uppdatera konferensadministratör
+          title: Uppdatera administratör för konferens
           update: Uppdatera
         index:
           conference_admins_title: Konferensadministratörer
@@ -192,7 +192,7 @@ sv:
         destroy:
           success: Medielänken har raderats.
         edit:
-          title: Uppdatera medielänk
+          title: Uppdatera medialänk
           update: Uppdatera
         index:
           media_links_title: Medialänkar
@@ -213,7 +213,7 @@ sv:
           conference_invites: Inbjudningar
           conference_speakers: Talare
           diploma: Närvarointyg
-          info: Om den här konferensen
+          info: Om konferensen
           media_links: Medialänkar
           moderations: Moderering
           partners: Partners
@@ -303,7 +303,7 @@ sv:
         destroy:
           success: Registreringstypen har tagits från konferensen.
         edit:
-          title: Uppdatera anmälningstyp
+          title: Uppdatera typ av anmälan
           update: Uppdatera
         new:
           create: Skapa
@@ -322,7 +322,7 @@ sv:
     admin_log:
       conference:
         create: "%{user_name} skapade konferensen %{resource_name}"
-        duplicate: "%{user_name} kopierade konferensen %{resource_name}"
+        duplicate: "%{user_name} duplicerade konferensen %{resource_name}"
         publish: "%{user_name} publicerade konferensen %{resource_name}"
         restore: "%{user_name} återställde konferensen %{resource_name}"
         send_conference_diplomas: "%{user_name} skickade närvarointyg till deltagarna på konferensen %{resource_name}"
