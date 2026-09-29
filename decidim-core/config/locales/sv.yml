@@ -422,8 +422,8 @@ sv:
         success: Ändringsförslaget har dragits tillbaka.
       wizard_step_form:
         steps:
-          '1': Skapa din korrigering
-          '2': Publicera din korrigering
+          '1': Skapa ändringsförslag
+          '2': Publicera ditt ändringsförslag
     anonymous_user: Anonym
     application:
       document:
@@ -556,7 +556,7 @@ sv:
           global:
             amendments_enabled: Aktivera ändringsförslag
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Högsta antal tecken per kommentar
+            comments_max_length: Max antal tecken per kommentar
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             dummy_global_attribute1: Dummy Attribut 1
             dummy_global_attribute2: Dummy Attribut 2
@@ -882,13 +882,13 @@ sv:
           affected_user:
             email_intro: 'Ett ändringsförslag har godkänts för %{amendable_title}. Visa det från den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare av %{amendable_title}.
-            email_subject: Accepterad förbättring av %{amendable_title} från %{emendation_author_name}
-            notification_title: <a href="%{emendation_path}">Förbättringen</a> gjord av <a href="%{emendation_author_path}">%{emendation_author_name}</a> accepterades för <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Godkänd ändring av %{amendable_title} från %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> från av <a href="%{emendation_author_path}">%{emendation_author_name}</a> till <a href="%{amendable_path}">%{amendable_title}</a> har godkänts.
           follower:
             email_intro: 'Ett ändringsförslag har bifallits för %{amendable_title}. Läs det på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta att ta emot meddelanden genom att följa föregående länk.
-            email_subject: Accepterad förbättring av %{amendable_title} från %{emendation_author_name}
-            notification_title: <a href="%{emendation_path}">Förbättringen</a> gjord av <a href="%{emendation_author_path}">%{emendation_author_name}</a> accepterades för <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Godkänd ändring av %{amendable_title} från %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> av <a href="%{emendation_author_path}">%{emendation_author_name}</a> till <a href="%{amendable_path}">%{amendable_title}</a> har godkänts.
         amendment_created:
           affected_user:
             email_intro: 'Ett nytt ändringsförslag har skapats för %{amendable_title}. Du kan se det från den här sidan:'
@@ -992,16 +992,16 @@ sv:
             <i>%{resource_content}</i>
       resource_liked:
         email_intro: '%{liker_name}, som du följer, har precis gillat ”%{resource_title}” och vi tror att det kan intressera dig. Ta en titt och bidra:'
-        email_outro: Du har fått det här meddelandet eftersom du följer %{liker_name}. Du kan avsluta meddelandena genom att följa länken ovan.
-        email_subject: "%{liker_name} har gillat något nytt"
-        notification_title: '%{resource_type} <a href="%{resource_path}">%{resource_title}</a> har gillats av <a href="%{liker_path}">%{liker_name}</a>.'
+        email_outro: Du har fått det här meddelandet eftersom du följer %{liker_name}. Du kan sluta ta emot meddelandena genom att följa länken ovan.
+        email_subject: "%{liker_name} har gillat något"
+        notification_title: <a href="%{liker_path}">%{liker_name} </a> gillar %{resource_type} <a href="%{resource_path}">%{resource_title}</a>.
       resources:
         soft_deleted:
           notification_title: En administratör har tagit bort ditt "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Profilsidan</a> för %{name}, som du följer, har uppdaterats.
-          email_outro: Du har fått det här meddelandet eftersom du följer %{name}. Du kan avsluta meddelandena genom att följa länken ovan.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{name}. Du kan sluta ta emot meddelandena genom att följa länken ovan.
           email_subject: "%{name} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name}, som du följer, har uppdaterats.
         user_officialized:
@@ -1188,7 +1188,7 @@ sv:
         access_mode_presenter:
           access_modes:
             open: Öppen
-            restricted: Begränsad
+            restricted: Privat
             transparent: Transparent
           not_found: Åtkomstläge %{id} hittades inte
         area_presenter:
@@ -1554,18 +1554,18 @@ sv:
     participatory_space:
       labels:
         reference: Utrymmets referens
-        restricted: Begränsat utrymme
+        restricted: Privat utrymme
         transparent: Transparent utrymme
       pages:
         user_profile:
           member_of:
-            member_of: Medlem av
+            member_of: Medlem i
     participatory_space_members:
       index:
         members: Medlemmar
     participatory_spaces:
       show:
-        restricted_space: Det här är ett begränsat utrymme. Endast medlemmar och administratörer kan se det och delta.
+        restricted_space: Det här är ett privat utrymme. Endast medlemmar och administratörer kan se det och delta.
         transparent_space: Det här är ett transparent utrymme. Alla kan se innehållet, men endast medlemmar och administratörer kan delta.
     passwords:
       update:
@@ -1858,7 +1858,7 @@ sv:
         nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
-        subtitle_no_password: Om du accepterar inbjudan var vänlig ange ditt alias.
+        subtitle_no_password: Om du accepterar inbjudan var vänlig ange ditt användarnamn.
       invitation_removed: Din inbjudan har tagits bort.
       invitation_token_invalid: Ogiltig token för inbjudan!
       new:
@@ -1866,8 +1866,8 @@ sv:
         submit_button: Skicka en inbjudan
       no_invitations_remaining: Inga inbjudningar kvar
       send_instructions: Ett e-brev med inbjudan har skickats till %{email}.
-      updated: Inbjudan godtogs. Du är nu inloggad.
-      updated_not_active: Inbjudan godtogs.
+      updated: Inbjudan accepterades. Du är nu inloggad.
+      updated_not_active: Inbjudan accepterades.
     mailer:
       confirmation_instructions:
         action: Bekräfta mitt konto
