@@ -300,6 +300,22 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
     RUBY
   end
 
+  it "registers an offense when a later public def redefines a method made private with a symbol" do
+    expect_offense(<<~RUBY)
+      class Admin::ResourcesController < Admin::ApplicationController
+        def publish
+        end
+
+        private :publish
+
+        public def publish
+               ^^^^^^^^^^^ Action `publish` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+          @resource.publish
+        end
+      end
+    RUBY
+  end
+
   it "does not register an offense when before_action handles authorization with permission keyword" do
     expect_no_offenses(<<~RUBY)
       class Admin::ResourcesController < Admin::ApplicationController

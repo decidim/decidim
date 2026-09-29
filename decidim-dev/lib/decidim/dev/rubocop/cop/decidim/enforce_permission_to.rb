@@ -142,18 +142,22 @@ module RuboCop
         end
 
         # Resolves named visibility modifiers such as `public :publish` or
-        # `private :resource`, which apply to the method regardless of where it
-        # is defined in the class body. The last matching modifier wins.
+        # `private :resource` that appear after the method definition. In Ruby
+        # these modifiers only apply to methods already defined, so a modifier
+        # placed before a later `def` does not change that definition's
+        # visibility. Among the applicable modifiers, the last one wins.
         def named_visibility_for(node, method_name)
           scope = node.each_ancestor(:class, :module).first
           return nil unless scope
 
-          named_visibility_overrides(scope)[method_name]
+          named_visibility_overrides(scope, node)[method_name]
         end
 
-        def named_visibility_overrides(scope)
+        def named_visibility_overrides(scope, node)
+          def_end = node.source_range.end_pos
+
           scope.body&.each_child_node&.with_object({}) do |child, overrides|
-            next unless named_visibility_modifier?(child)
+            next unless named_visibility_after?(child, def_end)
 
             child.arguments.each do |arg|
               next unless arg.sym_type? || arg.str_type?
@@ -161,6 +165,10 @@ module RuboCop
               overrides[arg.value.to_sym] = child.method_name
             end
           end || {}
+        end
+
+        def named_visibility_after?(child, def_end)
+          named_visibility_modifier?(child) && child.source_range.begin_pos > def_end
         end
 
         def named_visibility_modifier?(node)
