@@ -104,7 +104,7 @@ sv:
         index:
           access_modes:
             open: Öppen
-            restricted: Begränsad
+            restricted: Privat
             transparent: Transparent
           published: Publicerad
           unpublished: Ej publicerade
@@ -236,15 +236,15 @@ sv:
       admin:
         assemblies:
           edit:
-            title: Om det här samrådet
+            title: Om samrådet
           form:
             access:
               label: Åtkomst
               options:
-                open: Alla kan se och delta i sammankomsten.
-                restricted: Endast medlemmar och administratörer kan se och delta. Det visas inte i den allmänna sökningen, i API:et eller i filer med öppna data.
+                open: Alla kan se och delta i samrådet.
+                restricted: Endast medlemmar och administratörer kan se och delta. Visas inte i sökningar, API:et eller öppna data.
                 transparent: Alla kan se samrådet, men endast medlemmar och administratörer kan delta.
-              set_this_space_as: Ange det här utrymmet som
+              set_this_space_as: Inställning för utrymmet
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             duration: Varaktighet
             duration_help: Välj ett slutdatum om samrådet är tidsbegränsat.
@@ -285,11 +285,11 @@ sv:
             non_user_avatar_help: Du bör få medgivande av personerna innan du lägger till dem som medlemmar.
         assembly_user_roles:
           edit:
-            title: Uppdatera samrådsadministratör
+            title: Uppdatera administratör för samråd
           index:
             title: Administratörer för samråd
           new:
-            title: Ny administratör av samråd
+            title: Ny administratör för samråd
         content_blocks:
           highlighted_assemblies:
             max_results: Maximalt antal element att visa
@@ -391,7 +391,7 @@ sv:
     open_data:
       help:
         assemblies:
-          access_mode: Åtkomstläge. Huruvida sammankomsten är öppen, begränsad eller transparent.
+          access_mode: Åtkomstläge. Om samrådet är öppet, slutet eller transparent.
           area: Samrådets område
           assembly_type: Typ av samråd
           closing_date: Slutdatum för samrådet
