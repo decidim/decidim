@@ -145,7 +145,7 @@ sv:
         destroy:
           success: Administratören har tagits bort från samrådet.
         edit:
-          title: Uppdatera samrådsadministratör
+          title: Uppdatera administratör för samråd
           update: Uppdatera
         index:
           assembly_admins_title: Administratörer för samråd
