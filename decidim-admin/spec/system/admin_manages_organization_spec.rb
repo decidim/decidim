@@ -162,6 +162,11 @@ describe "Admin manages organization" do
         # Makes sure in the error screenshots the editor is visible
         editor_selector = "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor"
         page.scroll_to(find(editor_selector))
+
+        # The editor is created by JavaScript, so we need to wait until TipTap
+        # has mounted the ProseMirror instance before interacting with it.
+        expect(page).to have_css("#{editor_selector} .ProseMirror")
+
         # Places the editor focus at the end of the editable area
         page.execute_script(
           <<~JS
@@ -169,6 +174,10 @@ describe "Admin manages organization" do
             pm.editor.commands.focus("end");
           JS
         )
+
+        # TipTap applies the DOM focus in a requestAnimationFrame, so we need to
+        # wait for the focus to be applied before sending any key strokes.
+        expect(page).to have_css("#{editor_selector} .ProseMirror.ProseMirror-focused")
       end
 
       context "when the admin terms of service content is empty" do
