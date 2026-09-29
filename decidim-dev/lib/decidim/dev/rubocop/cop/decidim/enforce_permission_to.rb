@@ -160,9 +160,9 @@ module RuboCop
             next unless named_visibility_after?(child, def_end)
 
             child.arguments.each do |arg|
-              next unless arg.sym_type? || arg.str_type?
-
-              overrides[arg.value.to_sym] = child.method_name
+              covered_actions(arg).each do |name|
+                overrides[name] = child.method_name
+              end
             end
           end || {}
         end
