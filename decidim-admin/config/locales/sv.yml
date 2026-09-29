@@ -51,7 +51,7 @@ sv:
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
-        comments_max_length: Högsta antal tecken per kommentar (ange 0 för standardvärdet)
+        comments_max_length: Max antal tecken per kommentar (ange 0 för standardvärdet)
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
@@ -272,7 +272,7 @@ sv:
           title: Redigera mapp
           update: Uppdatera
         index:
-          title: Bilagemappar
+          title: Mappar för bilagor
         new:
           create: Skapa
           title: Ny mapp
@@ -404,7 +404,7 @@ sv:
           title: Inväntar moderering
         show:
           dropdown: Rullgardinsmeny
-          title: Översikt
+          title: Adminpanel
           view_more_logs: Visa fler loggar
       domain_allowlist:
         form:
@@ -502,7 +502,7 @@ sv:
           save: Spara
         success: Hjälpsidorna har uppdaterats.
         update:
-          title: Hjälpavsnitt
+          title: Hjälpsidor
       impersonatable_users:
         index:
           filter:
@@ -870,7 +870,7 @@ sv:
           confirm_recipients: Bekräfta mottagare
           deliver: Leverera nyhetsbrev
           followers_help: Skickar nyhetsbrevet till alla verifierade användare som följer något av de markerade deltagarutrymmena i listan.
-          members_help: Skickar ett nyhetsbrev till alla användare som har lagts till som medlemmar i valda rum för deltagande.
+          members_help: Skickar ett nyhetsbrev till alla bekräftade användare som har lagts till som medlemmar i de valda deltagarutrymmena.
           participants_help: Skickar nyhetsbrevet till alla verifierade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
           recipients_count: Nyhetsbrevet kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
           select_assemblies: Välj samråd
@@ -975,8 +975,8 @@ sv:
             preview: Förhandsvisning
           machine_translation_display_priority:
             options:
-              original: Systemet visar informationen på det språk som författaren använde. För innehåll som har skapats i administrationen och översatts manuellt visas administratörens översättningar.
-              translation: Systemet visar en översättning om det finns någon. Annars används originalspråket.
+              original: Systemet visar informationen på det språk som författaren använde. För innehåll som har skapats av en administratör och översatts manuellt visas administratörens översättningar.
+              translation: Systemet visar en översättning om det finns någon. Annars visas originalspråket.
           rich_text_editor_in_public_views_help: I vissa textområden kommer deltagarna att kunna infoga några HTML-taggar med hjälp av textredigeraren.
           social_handlers: Sociala medier
           twitter: X
@@ -988,7 +988,7 @@ sv:
           success: Organisationen har uppdaterats.
       organization_external_domain_allowlist:
         edit:
-          title: Lista över tillåtna externa domäner
+          title: Tillåtna externa domäner
           update: Uppdatera
         external_domain:
           down: Ner
@@ -1116,7 +1116,7 @@ sv:
           title: Redigera ämne
           update: Uppdatera ämne
         index:
-          title: Ämnen
+          title: Ämnesområden
         new:
           create: Nytt ämnesområde
           title: Nytt ämne
@@ -1316,7 +1316,7 @@ sv:
     components:
       settings:
         global:
-          taxonomy_filters_unavailable: Klassificering kan göras efter att komponenten är skapad.
+          taxonomy_filters_unavailable: Skapa komponenten innan du kan ställa in kategorifilter.
     forms:
       errors:
         impersonate_user:
