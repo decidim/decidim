@@ -8,32 +8,32 @@ sv:
         weight: Position i listan
       pabulib_rules:
         equalshares:
-          help: Metoden med lika andelar (MES) utan komplettering. I MES får varje väljare inledningsvis en lika stor virtuell andel av budgeten. Ett projekt väljs när dess anhängare tillsammans har råd med det.
-          label: Metoden med lika andelar (%{rule})
+          help: Metoden med lika andelar (MES) utan komplettering. Med MES får varje deltagare inledningsvis en lika stor virtuell andel av budgeten. Ett projekt väljs när de som stöder det tillsammans har råd med det.
+          label: Metod med lika andelar (%{rule})
         equalshares/add1:
-          help: Använd grundvarianten av equalshares. Om den stannar för tidigt ökas dock varje väljares virtuella budget med 1 enhet i taget (Add1) och resultatet beräknas på nytt, så länge de slutligt valda projekten ryms inom den faktiska budgeten.
+          help: Använd grundläggande varianten av equalshares. Om den stannar för tidigt ökas dock varje väljares virtuella budget med 1 enhet i taget (Add1) och resultatet beräknas på nytt, så länge de valda projekten ryms inom den faktiska budgeten.
           label: Metoden med lika andelar, add1 (%{rule})
         equalshares/add1_comparison:
           help: Använd equalshares/add1 och tillämpa sedan samma jämförelsesteg som ovan.
           label: Metoden med lika andelar, add1 med jämförelse (%{rule})
         equalshares_comparison:
-          help: 'Använd grundvarianten av equalshares och lägg sedan till ett steg: jämför resultatet med resultatet från en girig algoritm och byt endast om fler väljare föredrar den giriga algoritmens resultat.'
+          help: 'Använd grundläggande varianten av equalshares och lägg sedan till ett steg: jämför resultatet med resultatet från en girig algoritm och byt endast om fler väljare föredrar den giriga algoritmens resultat.'
           label: Metoden med lika andelar, med jämförelse (%{rule})
         greedy:
-          help: Standardmetoden för approximation av kappsäcksproblemet. Projekten sorteras efter antal röster i fallande ordning. Algoritmen går igenom listan och väljer de projekt som ryms inom den återstående budgeten. Om ett projekt är för dyrt för den återstående budgeten hoppas det över, och algoritmen går vidare till nästa projekt för att se om det ryms.
-          label: Girig algoritm (%{rule})
+          help: Standardmetoden för "knapsack". Projekten sorteras efter antal röster i fallande ordning. Algoritmen går igenom listan och väljer de projekt som ryms inom den återstående budgeten. Om ett projekt är för dyrt för den återstående budgeten hoppas det över, och algoritmen går vidare till nästa projekt för att se om det ryms.
+          label: Snål algoritm (%{rule})
         greedy_custom:
           help: Används i specialfall som inte passar standardalgoritmerna, till exempel vid manuell omfördelning av budgeten eller komplexa kombinationer av regler.
-          label: Girig algoritm, anpassad (%{rule})
+          label: Snål algoritm, anpassad (%{rule})
         greedy_exclusive:
-          help: Hanterar grupper av oförenliga projekt. Fungerar som en vanlig girig algoritm, men om flera ”vinnande” projekt är oförenliga (till exempel tillhör samma exklusiva område eller kategori) tillämpas en prioritetsregel i stället för att enbart utgå från antalet röster. Projekt på distriktsnivå kan till exempel ges företräde framför projekt för hela staden, eller tvärtom.
-          label: Girig algoritm, exklusiv (%{rule})
+          help: Hanterar grupper av oförenliga projekt. Fungerar som en vanlig snål algoritm, men om flera vinnande projekt är oförenliga (till exempel tillhör samma område eller kategori) tillämpas en prioritering i stället för att enbart utgå från antalet röster. Projekt på distriktsnivå kan till exempel ges företräde framför projekt för hela staden, eller tvärtom.
+          label: Snål algoritm, unik (%{rule})
         greedy_no_skip:
-          help: Projekten sorteras efter antal röster i fallande ordning. Algoritmen väljer de projekt som ryms inom den återstående budgeten men stannar omedelbart vid det första projekt som inte ryms. Inga efterföljande projekt övervägs, även om de skulle rymmas.
-          label: Girig algoritm, utan överhoppning (%{rule})
+          help: Projekten sorteras efter antal röster i fallande ordning. Algoritmen väljer de projekt som ryms inom den återstående budgeten men stannar omedelbart vid det första projekt som inte ryms. Inga efterföljande projekt tas med, även om de skulle rymmas.
+          label: Snål algoritm, utan att hoppa över (%{rule})
         greedy_threshold:
-          help: Fungerar som en vanlig girig algoritm, men bara projekt som uppfyller det angivna tröskelvärdet min_project_score_threshold övervägs.
-          label: Girig algoritm, med tröskelvärde (%{rule})
+          help: Fungerar som en vanlig snål algoritm, men bara projekt som uppfyller det angivna tröskelvärdet min_project_score_threshold tas med.
+          label: Snål algoritm, med tröskelvärde (%{rule})
         unknown:
           help: Antingen saknas informationen, eller så finns det flera möjliga alternativ och det är oklart vilket som gäller.
           label: Okänd (%{rule})
@@ -142,22 +142,22 @@ sv:
                 help: Landet där omröstningen hölls.
                 label: Land (%{field})
               default_score:
-                help: 'Standardpoängen för poängröstning (standardvärde: %{default_value}).'
-                label: Standardpoäng (%{field})
+                help: 'Standardvärdet för graderad omröstning (standardvärde: %{default_value}).'
+                label: Standardvärde (%{field})
               description:
-                help: En beskrivning av omröstningen och vad den gällde.
+                help: Beskrivning av omröstningen och vad den gällde.
                 label: Beskrivning (%{field})
               district:
-                help: Valdistriktet inom omröstningen. Om du till exempel använder stadsdelar som underenheter kan du koppla dem till distrikt med det här fältet.
+                help: Distriktet för omröstningen. Om du till exempel använder stadsdelar som underenheter kan du koppla dem till distrikt med det här fältet.
                 label: Distrikt (%{field})
               instance:
                 help: Omröstningstillfället, till exempel året för en årligen återkommande omröstning.
                 label: Omröstningstillfälle (%{field})
               max_length:
-                help: 'Högsta antal projekt som får väljas (standardvärde: %{default_value}).'
-                label: Största längd (%{field})
+                help: 'Högst antal projekt som kan väljas (standardvärde: %{default_value}).'
+                label: Maximal längd (%{field})
               max_points:
-                help: 'Högsta antal poäng som tilldelas de valda projekten (standardvärde: %{default_value}).'
+                help: 'Högst antal poäng som tilldelas de valda projekten (standardvärde: %{default_value}).'
                 help_default_value: värdet för max_sum_points vid kumulativ röstning, ∞ vid poängröstning
                 label: Högsta poäng (%{field})
               max_sum_cost:
@@ -459,7 +459,7 @@ sv:
             announcement: Meddelande
             clear_all: Återställ
             comments_enabled: Aktivera kommentarer
-            comments_max_length: Högsta antal tecken per kommentar (ange 0 för standardvärdet)
+            comments_max_length: Max antal tecken per kommentar (ange 0 för standardvärdet)
             define_taxonomy_filters: Ställ in filter innan du använder den här inställningen.
             form:
               errors:
