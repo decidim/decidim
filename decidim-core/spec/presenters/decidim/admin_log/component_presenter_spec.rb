@@ -8,6 +8,11 @@ describe Decidim::AdminLog::ComponentPresenter, type: :helper do
     let(:action) { "unpublish" }
   end
 
+  include_examples "present admin log entry" do
+    let(:admin_log_resource) { create(:component, organization:) }
+    let(:action) { "menu_hidden" }
+  end
+
   include_examples "present admin log entry", versioning: true do
     let(:admin_log_resource) { create(:component, organization:) }
     let(:root_taxonomy) { create(:taxonomy, organization:, name: { en: "A taxonomy" }) }

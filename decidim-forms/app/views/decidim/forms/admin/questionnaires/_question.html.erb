@@ -12,7 +12,7 @@
         </span>
 
         <span class="ml-auto flex flex-row-reverse items-center gap-2">
-          <button type="button" class="question--collapse <%= "question-error" if is_expanded %>" data-controls="panel-<%= id %>-question-card">
+          <button type="button" class="question--collapse" data-controls="panel-<%= id %>-question-card" data-open="<%= is_expanded %>">
             <span class="icon-collapse">
               <%== icon("arrow-up-s-line", aria_label: t(".collapse"), role: "img") %>
             </span>

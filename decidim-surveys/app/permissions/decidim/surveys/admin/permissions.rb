@@ -19,7 +19,7 @@ module Decidim
             end
           when :questionnaire_responses
             case permission_action.action
-            when :index, :show, :export_response
+            when :index, :show, :export_response, :destroy_all
               permission_action.allow!
             end
           when :questionnaire_publish_responses

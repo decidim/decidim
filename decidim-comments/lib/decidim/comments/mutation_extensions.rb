@@ -30,6 +30,8 @@ module Decidim
       end
 
       def commentable(id:, type:, locale: Decidim.default_locale, toggle_translations: false)
+        raise GraphQL::ExecutionError, "Invalid commentable type" unless valid_commentable_type?(type)
+
         I18n.locale = locale.presence
         RequestStore.store[:toggle_machine_translations] = toggle_translations
         type.constantize.find(id)
@@ -39,6 +41,16 @@ module Decidim
         I18n.locale = locale.presence
         RequestStore.store[:toggle_machine_translations] = toggle_translations
         Comment.find(id)
+      end
+
+      private
+
+      def valid_commentable_type?(type)
+        klass = type.safe_constantize
+        return false unless klass
+        return false unless klass.is_a?(Class)
+
+        klass.include?(Decidim::Comments::Commentable)
       end
     end
   end

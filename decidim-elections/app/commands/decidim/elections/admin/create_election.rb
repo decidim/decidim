@@ -19,12 +19,10 @@ module Decidim
         end
 
         def attributes
-          parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
 
           super.merge({
                         component: form.current_component,
-                        title: parsed_title,
                         description: parsed_description,
                         start_at: form.manual_start ? nil : form.start_at,
                         end_at: form.end_at,

@@ -57,6 +57,10 @@ shared_examples "manage impersonations examples" do
 
     it_behaves_like "impersonating a user" do
       let(:impersonated_user) { Decidim::User.managed.last }
+
+      before do
+        expect(page).to have_callout("The managed participant has been successfully created.")
+      end
     end
   end
 
