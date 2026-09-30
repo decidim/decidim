@@ -1,1 +1,79 @@
+---
 gl:
+  decidim:
+    demographics:
+      actions:
+        title: Accións
+      admin:
+        demographics:
+          tabs_menu:
+            title: Datos demográficos
+        demographics_menu:
+          questions: Preguntas
+          responses: Respostas
+          settings: Configuración
+        publish_responses:
+          index:
+            description: Descrición
+            title: Mostrar respostas
+        questions:
+          edit:
+            save: Gardar
+            title: Preguntas
+          questions_form:
+            add_question: Engadir pregunta
+            collapse: Contraer todas as preguntas
+            expand: Expandir todas as preguntas
+        responses:
+          index:
+            publish_responses: Mostrar respostas
+            title: "%{total} respostas en total"
+        settings:
+          show:
+            collect_data: Activar a recollida de datos demográficos
+            collect_data_help: Ao activar esta configuración, as persoas participantes poderán ceder os seus datos á plataforma.
+            save: Gardar
+            title: Configuración
+          update:
+            invalid: Produciuse un erro ao gardar os datos demográficos
+            success: Os datos demográficos gardáronse correctamente
+        title: Datos demográficos
+      demographics:
+        questionnaire:
+          delete_my_data: Eliminar datos
+          modal_close: Cancelar
+          modal_ok: Aceptar
+          modal_question: Eliminaranse todos os teus datos demográficos.
+          modal_title: Eliminar datos
+          submit: Gardar datos
+          terms_of_service: termos do servizo
+          tos_agreement: Ao participar aceptas os %{link}.
+        show:
+          page_title: Cesión de datos demográficos
+      destroy:
+        error: Produciuse un erro ao eliminar os datos que cediches
+        success: Os datos que cediches elimináronse correctamente
+      name: Cesión de datos demográficos
+      questions:
+        age:
+          options:
+          - De 15 a 29 anos
+          - De 30 a 44 anos
+          - De 45 a 64 anos
+          - 65 anos ou máis
+          question: Que idade tes?
+        gender:
+          options:
+          - Home
+          - Muller
+          - Non binario
+          - O meu xénero non aparece na lista
+          - Prefiro non indicalo
+          question: Cal das seguintes opcións describe mellor o teu xénero?
+        postal:
+          question: Cal é o código postal do teu domicilio?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Ao proporcionar esta información, contribúes á análise estatística que axuda a mellorar o indicador de calidade. Os teus datos agregaranse e utilizaranse unicamente con fins de investigación.
