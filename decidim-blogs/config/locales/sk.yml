@@ -78,7 +78,6 @@ sk:
       posts:
         edit:
           add_attachments: Pridať prílohy
-          attachment_legend: Pridať dokument alebo obrázok
           back: Späť na príspevok
           button: Aktualizovať
           edit_attachments: Upraviť prílohy

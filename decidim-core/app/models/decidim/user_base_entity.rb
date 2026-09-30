@@ -100,7 +100,7 @@ module Decidim
     end
 
     def users_followings
-      @users_followings ||= Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self })
+      @users_followings ||= Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self }).order(decidim_follows: { created_at: :asc, id: :asc })
     end
 
     def followings_blocked?

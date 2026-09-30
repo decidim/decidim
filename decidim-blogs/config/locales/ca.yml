@@ -76,7 +76,6 @@ ca:
       posts:
         edit:
           add_attachments: Afegir fitxer(s) adjunt(s)
-          attachment_legend: Afegir un document o una imatge
           back: Tornar a la publicació
           button: Actualitzar
           edit_attachments: Edita els fitxers adjunts
@@ -99,6 +98,11 @@ ca:
           back: Tornar a la publicació
           button: Nova publicació
           title: Crear una nova publicació
+        orders:
+          label: Ordenar publicacions per
+          most_commented: Més comentades
+          random: Ordre aleatori
+          recent: Més recents
     components:
       blogs:
         actions:

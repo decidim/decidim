@@ -117,5 +117,31 @@ describe "Admin answers proposals" do
         expect(page).to have_css(".flash", text: "Proposal successfully answered.")
       end
     end
+
+    context "when geocoding is enabled" do
+      let!(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space:) }
+      let!(:proposals) { create_list(:proposal, 3, component:, cost_report: {}) }
+
+      before do
+        component.update!(
+          settings: { proposal_answering_enabled: true, geocoding_enabled: true },
+          step_settings: {
+            component.participatory_space.active_step.id => {
+              proposal_answering_enabled: true
+            }
+          }
+        )
+        visit_component_admin
+      end
+
+      it "shows the address on the proposal show page" do
+        within "tr", text: translated(proposals.first.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Answer proposal"
+        end
+        expect(page).to have_css(".component__show-title", text: "Address")
+        expect(page).to have_text(proposals.first.address)
+      end
+    end
   end
 end

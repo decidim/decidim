@@ -36,6 +36,8 @@ cs:
             body: Tělo
         pages:
           edit:
+            add_attachments: Přidat přílohy
+            edit_attachments: Upravit přílohy
             save: Aktualizace
             title: Upravit stránku
           update:

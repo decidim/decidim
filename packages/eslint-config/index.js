@@ -284,7 +284,7 @@ module.exports = {
     "jsdoc/require-jsdoc": "error",
     "jsdoc/require-param": "error",
     "jsdoc/require-param-type": "error",
-    "jsdoc/require-returns": "error",
+    "jsdoc/require-returns": ["error", { "forceRequireReturn": true }],
     "jsdoc/require-returns-type": "error",
     "jsdoc/check-tag-names": ["error", {definedTags: ["jest-environment"]}],
     "jsdoc/check-alignment": "warn",

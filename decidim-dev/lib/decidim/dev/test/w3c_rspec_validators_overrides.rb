@@ -19,8 +19,7 @@ module W3CValidators
 
     def ignore_errors
       @ignore_errors ||= [
-        "An “input” element with a “type” attribute whose value is “hidden” must not have an “autocomplete” attribute whose value is “on” or “off”.",
-        "An “input” element with a “type” attribute whose value is “hidden” must not have any “aria-*” attributes."
+        "An “input” element with a “type” attribute whose value is “hidden” must not have an “autocomplete” attribute whose value is “on” or “off”."
       ]
     end
 

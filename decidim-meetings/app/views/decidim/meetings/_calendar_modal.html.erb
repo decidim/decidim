@@ -4,26 +4,26 @@
 </button>
 
 <%= decidim_modal id: "calendarShare", class: "meeting-list__modal" do %>
-<div class="meeting-list__modal-title">
-  <%= icon "share-forward-2-line", class: "w-6 h-6 text-gray fill-current flex-none" %>
-  <div class="space-y-8">
-    <h3 id="dialog-title-calendarShare" class="h3"><%= t(".calendar_url") %></h3>
+  <div data-dialog-container>
+    <%= icon "share-forward-2-line" %>
+    <h2 id="dialog-title-calendarShare" tabindex="-1" data-dialog-title><%= t(".calendar_url") %></h2>
 
-    <p id="dialog-desc-calendarShare" class="meeting-list__modal-text"><%= t(".copy_calendar_url_description") %></p>
-    <p class="meeting-list__modal-text"><%= t(".copy_calendar_url_explanation") %></p>
+    <div class="space-y-8">
+      <p id="dialog-desc-calendarShare" class="meeting-list__modal-text"><%= t(".copy_calendar_url_description") %></p>
+      <p class="meeting-list__modal-text"><%= t(".copy_calendar_url_explanation") %></p>
 
-    <div class="meeting-list__modal-input">
-      <input id="urlCalendarUrl" type="text" title="<%= t(".calendar_url") %>" value="<%= "#{path}" %>" readonly>
-      <button
-        data-controller="clipboard-copy"
-        data-clipboard-copy="#urlCalendarUrl"
-        data-clipboard-copy-label="<%= t(".copy_calendar_url_copied") %>"
-        data-clipboard-copy-message="<%= t(".copy_calendar_url_message") %>"
-        aria-label="<%= t(".copy_calendar_url_clarification") %>">
-        <%= icon "file-copy-line", class: "w-5 h-6 text-secondary fill-current" %>
-        <span class="sr-only"><%= t(".copy_calendar_url") %></span>
-      </button>
+      <div class="meeting-list__modal-input">
+        <input id="urlCalendarUrl" type="text" title="<%= t(".calendar_url") %>" value="<%= "#{path}" %>" readonly>
+        <button
+          data-controller="clipboard-copy"
+          data-clipboard-copy="#urlCalendarUrl"
+          data-clipboard-copy-label="<%= t(".copy_calendar_url_copied") %>"
+          data-clipboard-copy-message="<%= t(".copy_calendar_url_message") %>"
+          aria-label="<%= t(".copy_calendar_url_clarification") %>">
+          <%= icon "file-copy-line" %>
+          <span class="sr-only"><%= t(".copy_calendar_url") %></span>
+        </button>
+      </div>
     </div>
   </div>
-</div>
 <% end %>

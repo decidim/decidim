@@ -13,7 +13,7 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 3.4.7
-  NODE_VERSION: 22.14.0
+  NODE_VERSION: 24.18.0
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 permissions:
@@ -37,7 +37,7 @@ jobs:
           - ./.github/run_spelling_check.sh
           - npm run linthtml
     name: Lint code
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:

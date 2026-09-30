@@ -49,34 +49,42 @@ describe("setMinute", () => {
 });
 
 describe("formatInputTime", () => {
-  const setupDOM = () => {
-    document.body.innerHTML = `
-      <input type="radio" id="period_am_exampleInput" name="period">
-      <input type="radio" id="period_pm_exampleInput" name="period">
-    `;
-  };
-
   describe("24-hour format", () => {
-    it("returns the value in correct format", () => {
-      setupDOM();
-      const time = "15:30";
-      const format = 24;
-      const input = { id: "exampleInput" };
+    const format = 24;
+    const input = { id: "exampleInput" };
 
-      const result = formatInputTime(time, format, input);
+    it("returns the value in correct format", () => {
+      const result = formatInputTime("15:30", format, input);
 
       expect(result).toBe("15:30");
+    });
+
+    it("returns the value in correct format if seconds are provided", () => {
+      const result = formatInputTime("15:30:04", format, input);
+
+      expect(result).toBe("15:30");
+    });
+
+    it("returns an empty string if an empty string is provided", () => {
+      const result = formatInputTime("", 24, { id: "exampleInput" });
+
+      expect(result).toBe("");
     });
   })
 
   describe("12-hour format", () => {
-    it("returns the value in correct format and checks the PM radio-button", () => {
-      setupDOM();
-      const time = "12:45";
-      const format = 12;
-      const input = { id: "exampleInput" };
+    beforeEach(() => {
+      document.body.innerHTML = `
+        <input type="radio" id="period_am_exampleInput" name="period">
+        <input type="radio" id="period_pm_exampleInput" name="period">
+      `;
+    });
 
-      const result = formatInputTime(time, format, input);
+    const format = 12;
+    const input = { id: "exampleInput" };
+
+    it("returns the value in correct format and checks the PM radio-button", () => {
+      const result = formatInputTime("12:45", format, input);
 
       expect(result).toBe("12:45");
       expect(document.getElementById("period_pm_exampleInput").checked).toBeTruthy();
@@ -84,16 +92,23 @@ describe("formatInputTime", () => {
     });
 
     it("returns the value in correct format", () => {
-      setupDOM();
-      const time = "00:25";
-      const format = 12;
-      const input = { id: "exampleInput" };
-
-      const result = formatInputTime(time, format, input);
+      const result = formatInputTime("00:25", format, input);
 
       expect(result).toBe("12:25");
       // We are not expecting a radio button to be selected here since in a real environment the selected button is not
       // handled by this method for values < 12
+    });
+
+    it("returns the value in correct format if seconds are provided", () => {
+      const result = formatInputTime("00:25:04", format, input);
+
+      expect(result).toBe("12:25");
+    });
+
+    it("returns an empty string if an empty string is provided", () => {
+      const result = formatInputTime("", 24, { id: "exampleInput" });
+
+      expect(result).toBe("");
     });
   })
 });

@@ -76,7 +76,6 @@ ca-IT:
       posts:
         edit:
           add_attachments: Afegir fitxer(s) adjunt(s)
-          attachment_legend: Afegir un document o una imatge
           back: Tornar a la publicació
           button: Actualitzar
           edit_attachments: Edita els fitxers adjunts

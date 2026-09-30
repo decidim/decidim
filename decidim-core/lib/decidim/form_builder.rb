@@ -22,11 +22,10 @@ module Decidim
     # html_options - a Hash with options
     #
     # Renders a collection of check boxes.
-    # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable-next Metrics/ParameterLists
     def collection_check_boxes(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
       error_and_help_text(attribute, options) + super
     end
-    # rubocop:enable Metrics/ParameterLists
 
     # Public: generates a radio buttons input from a collection and adds help
     # text and errors.
@@ -39,11 +38,10 @@ module Decidim
     # html_options    - a Hash with options
     #
     # Renders a collection of radio buttons.
-    # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable-next Metrics/ParameterLists
     def collection_radio_buttons(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
       error_and_help_text(attribute, options) + super
     end
-    # rubocop:enable Metrics/ParameterLists
 
     # Public: Generates a form field for each locale.
     #
@@ -884,11 +882,19 @@ module Decidim
         upload_dialog_selector: "##{upload_options[:modal_id]}"
       }.transform_keys { |key| key.to_s.camelize(:lower) }
 
-      editor_options[:mention] = options.delete(:mentionable)
+      mentionable = options.delete(:mentionable)
+      editor_options[:mention] = mention_options(mentionable) if mentionable
       editor_options[:emoji] = options.delete(:emojiable)
       @template.append_javascript_pack_tag("decidim_emoji", defer: true) if editor_options[:emoji]
 
       { editor: editor_options, upload: upload_options }
+    end
+
+    def mention_options(mentionable)
+      mention_options = mentionable.is_a?(Hash) ? mentionable.dup : {}
+      mention_options[:searchPromptMessage] ||= I18n.t("decidim.shared.mentions.search_prompt")
+
+      mention_options
     end
 
     # Private: creates an upload modal for the editor that we use to dynamically
