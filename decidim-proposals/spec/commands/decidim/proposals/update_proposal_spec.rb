@@ -133,6 +133,19 @@ module Decidim
             end
           end
 
+          context "when title has a user mention" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:) }
+            let(:title) { "A reasonable proposal title mentioning @#{mentioned_user.nickname}" }
+
+            it "does not rewrite the mention to the mentioned user GID" do
+              command.call
+              proposal.reload
+
+              expect(translated(proposal.title)).not_to include(mentioned_user.to_global_id.to_s)
+              expect(translated(proposal.title)).to include("@#{mentioned_user.nickname}")
+            end
+          end
+
           context "with an author" do
             it "sets the author" do
               command.call

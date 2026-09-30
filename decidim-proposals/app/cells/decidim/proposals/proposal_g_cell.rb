@@ -46,7 +46,7 @@ module Decidim
 
       private
 
-      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable-next Metrics/CyclomaticComplexity
       def cache_hash
         @cache_hash ||= begin
           hash = []
@@ -68,7 +68,6 @@ module Decidim
           hash.join(Decidim.cache_key_separator)
         end
       end
-      # rubocop:enable Metrics/CyclomaticComplexity
 
       def classes
         super.merge(metadata: "card__list-metadata")
