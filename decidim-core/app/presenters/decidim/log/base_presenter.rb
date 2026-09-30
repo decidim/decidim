@@ -111,9 +111,18 @@ module Decidim
       # Returns an HTML-safe String.
       def present_explanation
         h.content_tag(:div, class: "logs__log__explanation") do
+          escaped_params = i18n_params.transform_values do |value|
+            if value.is_a?(String) && !value.html_safe?
+              ERB::Util.html_escape(value)
+            else
+              value
+            end
+          end
+
           I18n.t(
             action_string,
-            **i18n_params
+            escape: false,
+            **escaped_params
           ).html_safe
         end
       end

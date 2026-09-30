@@ -24,13 +24,14 @@ module Decidim::Meetings
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
     let(:description) { "The meeting description text" }
+    let(:title) { "The meeting title" }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:form) do
       double(
         invalid?: invalid,
-        title: "The meeting title",
+        title:,
         description:,
         location: "The meeting location text",
         location_hints: "The meeting location hint text",
@@ -108,6 +109,18 @@ module Decidim::Meetings
           subject.call
 
           expect(meeting.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+        end
+      end
+
+      context "when title has a user mention" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:) }
+        let(:title) { "The meeting title mentioning @#{mentioned_user.nickname}" }
+
+        it "does not rewrite the mention to the mentioned user GID" do
+          subject.call
+
+          expect(translated(meeting.title)).not_to include(mentioned_user.to_global_id.to_s)
+          expect(translated(meeting.title)).to include("@#{mentioned_user.nickname}")
         end
       end
 

@@ -32,11 +32,10 @@ module Decidim
 
         validates_upload(:file, **validation_options, uploader: mount_class)
 
-        # rubocop:disable FactoryBot/SyntaxMethods
+        # rubocop:disable-next FactoryBot/SyntaxMethods
         def organization
           @organization ||= FactoryBot.create(:organization)
         end
-        # rubocop:enable FactoryBot/SyntaxMethods
       end
     end
 

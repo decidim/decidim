@@ -55,8 +55,18 @@ module Decidim
       )
     end
 
+    # Public: Escapes the HTML special characters of a user-inputted string.
+    #
+    # The result is marked as HTML-safe, so that when the views output it with
+    # `<%= %>` (or pass it to a tag helper) Rails does not escape it a second
+    # time. Otherwise, a text such as `O'Neil` would end up as `O&amp;#39;Neil` in
+    # the HTML and the browser would display the `&#39;` entity literally.
+    #
+    # text - A String (or an object responding to `to_str`).
+    #
+    # Returns an HTML-safe String.
     def decidim_html_escape(text)
-      ERB::Util.unwrapped_html_escape(text.to_str)
+      ERB::Util.html_escape(text.to_str)
     end
 
     def decidim_url_escape(text)
