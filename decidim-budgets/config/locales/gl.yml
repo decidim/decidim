@@ -11,14 +11,28 @@ gl:
         budget_amount: Importe do orzamento
         description: Descrición
         proposal_ids: Propostas relacionadas
+        proposals: Propostas
+        selected: Seleccionado para implementación
         title: Título
+      proposals_import:
+        scope_id: Ámbito
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Engadiuse a este orzamento: %{link}'
+      decidim/budgets/budget:
+        one: Orzamento
+        other: Orzamentos
       decidim/budgets/project:
         one: Proxecto
         other: Proxectos
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Proxectos
       filters:
         projects:
           selected_at_null:
@@ -26,68 +40,173 @@ gl:
             values:
               'false': Seleccionado para implementación
               'true': Sen seleccionar para implementación
+          taxonomies_part_of_contains:
+            label: Taxonomía
+      tooltips:
+        deleted_projects_info: Non se pode eliminar este proxecto
     budgets:
       actions:
+        confirm_delete_budget: Seguro que queres eliminar este orzamento?
+        confirm_delete_project: Seguro que queres eliminar este proxecto?
+        deleted_budgets_info: Os orzamentos eliminados pódense restaurar desde a papeleira.
         edit: Editar
+        edit_projects: Engadir proxectos
         import: Importa propostas a proxectos
+        new_budget: Novo orzamento
         new_project: Novo proxecto
         preview: Vista previa
+        send_voting_reminders: Enviar recordatorios de apoio
         title: Accións
+        view_deleted_budgets: Ver orzamentos eliminados
+        view_deleted_projects: Ver proxectos eliminados
       admin:
         budgets:
+          create:
+            invalid: Produciuse un problema ao crear este orzamento.
+            success: O orzamento creouse correctamente.
           edit:
             title: Editar orzamento
             update: Actualizar orzamento
           index:
-            pending_orders: Votos pendentes
+            finished_orders: Apoios rematados
+            pending_orders: Apoios pendentes
             title: Orzamentos
-            users_with_pending_orders: Usuarios con votos pendentes
+            users_with_finished_orders: Participantes con apoios rematados
+            users_with_pending_orders: Participantes con apoios pendentes
+          manage_trash:
+            title: Orzamentos eliminados
           new:
             create: Crear orzamento
             title: Novo orzamento
+          update:
+            invalid: Produciuse un problema ao actualizar este orzamento.
+            success: O orzamento actualizouse correctamente.
         exports:
           projects: Proxectos
         models:
           project:
             name: Proxecto
         projects:
+          create:
+            invalid: Produciuse un problema ao crear este proxecto.
+            success: O proxecto creouse correctamente.
           edit:
+            title: Editar proxecto en %{budget}
             update: Actualización
           index:
-            finished_orders: Votos rematados
-            pending_orders: Votos pendentes
+            actions: Accións
+            cancel: Cancelar
+            change_budget: Cambiar orzamento
+            change_selected: Cambiar estado de selección
+            change_taxonomies: Cambiar taxonomías
+            deselect_implementation: Retirar da execución
+            finished_orders: Apoios rematados
+            pending_orders: Apoios pendentes
+            select_for_implementation: Seleccionar para execución
             selected: Seleccionado
+            selected_options:
+              'no': 'Non'
+              'yes': 'Si'
             title: Proxectos
+            update: Actualizar
+            update_budget_button: Actualizar o orzamento do proxecto
+          manage_trash:
+            title: Proxectos eliminados
           new:
             create: Crear
+            title: Novo proxecto en %{budget}
+          update:
+            invalid: Produciuse un problema ao actualizar este proxecto.
+            success: O proxecto actualizouse correctamente.
+          update_budget:
+            invalid: 'Estes proxectos xa están no mesmo orzamento ou os seus orzamentos superan o máximo permitido: %{errored}.'
+            select_a_project: Selecciona un proxecto.
+            success: 'Os proxectos actualizáronse correctamente ao orzamento %{subject_name}: %{successful}.'
+          update_selected:
+            invalid:
+              selected: 'Estes proxectos xa estaban seleccionados para execución: %{errored}.'
+              unselected: 'Estes proxectos xa estaban retirados da execución: %{errored}.'
+            select_a_project: Selecciona un proxecto.
+            select_a_selection: Selecciona un estado de execución.
+            success:
+              selected: 'Estes proxectos seleccionáronse correctamente para execución: %{successful}.'
+              unselected: 'Estes proxectos retiráronse correctamente da execución: %{successful}.'
+          update_taxonomies:
+            invalid: 'As taxonomías %{taxonomies} xa estaban asignadas a estes proxectos: %{errored}.'
+            select_a_project: Selecciona un proxecto.
+            select_a_taxonomy: Selecciona unha taxonomía.
+            success: 'Os proxectos actualizáronse correctamente coas taxonomías %{taxonomies}: %{successful}.'
         proposals_imports:
+          create:
+            invalid: Produciuse un problema ao importar as propostas como proxectos.
+            success: "Importáronse correctamente %{number} propostas como proxectos."
           new:
             create: Importa propostas a proxectos
+            default_budget: Orzamento predeterminado
             no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas en proxectos.
+            origin_component_id: Compoñente de orixe
+            proposal_states: Estados das propostas
+            proposal_states_help: Selecciona un ou máis estados das propostas para importalas como proxectos. Se non seleccionas ningún, importaranse todas as propostas publicadas deste compoñente que aínda non fosen importadas noutros orzamentos.
             select_component: Selecciona un compoñente
+            title: Importa propostas a proxectos
         reminders:
           orders:
-            description: Os usuarios recibirán un correo coas ligazóns aos orzamentos onde teñen ordes pendentes.
+            description: Os participantes recibirán un correo coas ligazóns aos orzamentos onde teñen ordes pendentes.
             title:
-              one: Estás a punto de enviar un correo recordatorio a %{count} usuario
-              other: Estás a punto de enviar un correo recordatorio a %{count} usuarios
+              one: Estás a punto de enviar un correo recordatorio a %{count} participante
+              other: Estás a punto de enviar un correo recordatorio a %{count} participantes
       admin_log:
+        budget:
+          create: "%{user_name} creou o orzamento %{resource_name} no espazo %{space_name}"
+          delete: "%{user_name} eliminou o orzamento %{resource_name} no espazo %{space_name}"
+          restore: "%{user_name} restaurou o orzamento %{resource_name} en %{space_name}"
+          soft_delete: "%{user_name} moveu á papeleira o orzamento %{resource_name} de %{space_name}"
+          update: "%{user_name} actualizou o orzamento %{resource_name} no espazo %{space_name}"
         project:
           create: "%{user_name} creou o proxecto %{resource_name} no espazo %{space_name}"
           delete: "%{user_name} eliminou o %{resource_name} proxecto no espazo %{space_name}"
+          restore: "%{user_name} restaurou o proxecto %{resource_name} en %{space_name}"
+          soft_delete: "%{user_name} moveu á papeleira o proxecto %{resource_name} de %{space_name}"
           update: "%{user_name} actualizou o proxecto %{resource_name} no espazo %{space_name}"
       budget_information_modal:
         back_to: Volver a %{component_name}
         close_modal: Pechar modal
         continue: Continuar
+        more_information: Máis información sobre o orzamento
       budgets_list:
+        budgets: Orzamentos
         cancel_order:
-          more_than_one: eliminar o teu voto de %{name} e comezar de novo
-          only_one: eliminar o teu voto e comezar de novo.
-        highlighted_cta: Votar en %{name}
-        progress: Finalizar votación
+          more_than_one: eliminar o teu apoio de %{name} e comezar de novo
+          only_one: eliminar o teu apoio e comezar de novo.
+        completed: Completado
+        count:
+          one: "%{count} orzamento"
+          other: "%{count} orzamentos"
+        empty: Aínda non hai orzamentos
+        finished_message: Remataches o proceso de apoio. Grazas por participar!
+        highlighted_cta: Apoiar en %{name}
+        if_change_opinion: Se cambiaches de opinión, podes
+        incomplete: Incompleto
+        orders:
+          highest_cost: Maior custo
+          label: Ordenar orzamentos por
+          lowest_cost: Menor custo
+          random: Orde aleatoria
+        progress: Finalizar apoio
+        remove_vote: Eliminar apoio
+        see_projects: Ver proxectos
+        see_results: Ver resultados
         show: Ver proxectos
-        vote: Votar
+        vote: Apoiar
+        voted_budgets: Orzamentos votados
+        voted_on: Apoiaches en %{links}.
+      creation:
+        text: Engadíronse a este orzamento
+      last_activity:
+        new_vote_at: Novo apoio de orzamento en
+      limit_announcement:
+        cant_vote: Non podes apoiar neste orzamento. <a href="%{landing_path}">Proba noutro orzamento</a>.
+        limit_reached: Tes apoios activos en %{links}. Para apoiar neste orzamento debes <a href="%{landing_path}">eliminar o teu apoio e empezar de novo</a>.
       models:
         budget:
           fields:
@@ -96,36 +215,67 @@ gl:
             total_budget: Orzamento total
         project:
           fields:
+            map: Mapa
+            taxonomies: Taxonomías
             title: Título
       order:
         status:
-          title: O teu voto foi aceptado con éxito
+          continue_voting: Continuar votando
+          download_vote: Descargar o teu apoio
+          pending_to_vote_budgets:
+            one: Podes apoiar noutro orzamento
+            other: Podes apoiar noutros orzamentos
+          share_text: "Acabo de apoiar polos meus proxectos favoritos en %{space_name}! 🎉 Vota agora: %{component_url}"
+          share_vote: Compartir o teu apoio
+          title: O teu apoio foi aceptado con éxito
+          view_votes:
+            one: Ver apoio
+            other: Ver apoios
+          votes_count:
+            one: O teu apoio para %{budget_name} xa foi rexistrado.
+            other: Os teus %{count} apoios para %{budget_name} xa foron rexistrados.
+      order_pdf:
+        text: Apoiaches en %{space_name} polos seguintes proxectos
+        title: O teu apoio foi aceptado correctamente.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Os proxectos que seleccionaches son:'
+          subject: Apoiaches no espazo participativo %{space_name}
+          voted_on_space: Apoiaches no orzamento %{budget_name} do espazo participativo %{space_name}.
       projects:
+        back_to_budgets: Volver aos orzamentos
         budget_confirm:
+          are_you_sure: Se cambias de opinión, poderás modificar o teu apoio máis adiante.
           cancel: Cancelar
           confirm: Confirmar
           description: Estes son os proxectos que escolleu para formar parte do orzamento.
-          title: Confirmar voto
+          title: Confirmar apoio
         budget_excess:
           budget_excess:
+            description: Este proxecto supera o orzamento máximo e non se pode engadir. Se queres, podes eliminar un proxecto que xa seleccionaches para poder apoiar de novo segundo as túas preferencias.
             title: Orzamento máximo excedido
+          description: Este proxecto supera o orzamento máximo e non se pode engadir. Se queres, podes eliminar un proxecto que xa seleccionaches para poder apoiar de novo segundo as túas preferencias.
           ok: Ok
+          projects_excess:
+            description: Este proxecto supera o número máximo de proxectos e non se pode engadir. Se queres, podes eliminar un proxecto que xa seleccionaches para poder apoiar de novo segundo as túas preferencias.
+            title: Superouse o máximo de proxectos
         budget_summary:
-          are_you_sure: Estás certo de querer cancelar o teu voto?
+          are_you_sure: Estás certo de querer cancelar o teu apoio?
+          cancel_order: Eliminar o teu apoio
           checked_out:
-            title: A votación do orzamento completada
+            description: Xa apoiaches neste orzamento. Se cambiaches de opinión, podes eliminar o teu apoio.
+            title: A apoio do orzamento completada
+          vote: Apoiar o orzamento
         count:
           projects_count:
             one: 1 proxecto
             other: "%{count} proxectos"
+        empty: Aínda non hai proxectos
         exit_modal:
-          cancel: Volver á votación
-          exit: Saír da votación
-          message: O teu voto non foi rexistrado xa que aínda non completaches o proceso de votación. Estás certo/a de querer saír da votación?
-          title: Aínda non votaches
+          cancel: Volver á apoio
+          exit: Saír da apoio
+          message: O teu apoio non foi rexistrado xa que aínda non completaches o proceso de apoio. Estás certo/a de querer saír da apoio?
+          title: Aínda non apoiaches
         filters:
           search: Busca
           status: Estado
@@ -133,57 +283,165 @@ gl:
             all: Todos
             not_selected: Non seleccionado
             selected: Seleccionado
+        order_progress:
+          assigned: Asignado
+          budget: Orzamento
+          dynamic_help:
+            minimum_reached: Acadaches o mínimo necesario para poder apoiar
+          minimum: Mínimo
+          minimum_projects_rule:
+            description: "<b>Selecciona polo menos %{minimum_number} proxectos</b> e vota segundo as túas preferencias."
+          projects_rule:
+            description: "<b>Selecciona polo menos %{minimum_number} e como máximo %{maximum_number} proxectos</b> e vota segundo as túas preferencias."
+          projects_rule_maximum_only:
+            description: "<b>Selecciona como máximo %{maximum_number} proxectos</b> e vota segundo as túas preferencias."
+          vote_threshold_percent_rule:
+            description: "<b>Asigna polo menos %{minimum_budget}</b> aos proxectos que queiras e vota segundo as túas preferencias."
         orders:
           highest_cost: Maior custo
           label: Ordenar proxectos por
           lowest_cost: Menor custo
-          most_voted: Máis votado
+          most_voted: Máis apoiado
           random: Orde ao chou
           selected: Seleccionado
         project:
+          add: Engadir o proxecto %{resource_name} ao teu apoio.
+          remove: Eliminar o proxecto %{resource_name} do teu apoio.
           selected: Seleccionado
           votes:
-            one: voto
-            other: votos
+            one: apoio
+            other: apoios
+          you_voted: Apoiaches por isto
         project_budget_button:
-          add: Engadir ao teu voto
-          added: Engadido ao teu voto
+          add: Engadir ao teu apoio
+          add_descriptive: Engadir o proxecto %{resource_name} ao teu apoio.
+          added: Engadido ao teu apoio
+          added_descriptive: Engadiuse o proxecto %{resource_name} ao teu apoio.
+        project_filter:
+          added: Engadido ao teu apoio
+          all: Todos
         projects_for: Proxectos para %{name}
+        select_projects: Engadir proxectos
         show:
           budget: Orzamento
+          votes: Apoios
+      prompt: Seleccionar orzamento
       vote_reminder_mailer:
         vote_reminder:
-          email_outro: Por favor, lembra completar a voto. Para votar, tes que seleccionar a proposta ou propostas para as que desexas votar e despois confirmar o teu voto premendo o botón "Votat".
+          email_budgets: 'Áreas nas que tes un apoio sen rematar:'
+          email_intro: Comezaches a apoio dos orzamentos participativos, pero non a remataches.
+          email_link: Ir a continuar votando
+          email_outro: Por favor, lembra completar a apoio. Para apoiar, tes que seleccionar a proposta ou propostas para as que desexas apoiar e despois confirmar o teu apoio premendo o botón "Votat".
+          email_subject:
+            one: Tes un apoio sen rematar na apoio dos orzamentos participativos
+            other: Tes apoios sen rematar na apoio dos orzamentos participativos
     components:
       budgets:
         actions:
+          comment: Comentar
           vote: Vota
+          vote_comment: Valorar comentario
         name: Orzamentos
         settings:
           global:
             announcement: Anuncio
+            clear_all: Limpar todo
             comments_enabled: Comentarios habilitados
+            comments_max_length: Máximo de caracteres por comentario (deixa 0 para usar o valor predeterminado)
+            define_taxonomy_filters: Define algúns filtros para este espazo participativo antes de usar esta configuración.
+            form:
+              errors:
+                budget_voting_rule_only_one: Só se pode activar unha regra de apoio.
+                budget_voting_rule_required: É necesaria unha regra de apoio.
+            geocoding_enabled: Mapas activados
+            landing_page_content: Páxina de inicio dos orzamentos
+            more_information_modal: Modal de "Máis información"
+            no_taxonomy_filters_found: Non se atoparon filtros de taxonomía.
             projects_per_page: Proxectos por páxina
+            resources_permissions_enabled: Pódense definir permisos de acción para cada proxecto
+            taxonomy_filters: Seleccionar filtros para o compoñente
+            taxonomy_filters_add: Engadir filtro
             title: Título
             total_budget: Orzamento total
-            vote_minimum_budget_projects_number: Número mínimo de proxectos a votar
-            vote_threshold_percent: Porcentaxe de límite de voto
+            vote_minimum_budget_projects_number: Número mínimo de proxectos a apoiar
+            vote_rule_minimum_budget_projects_enabled: 'Activar regra: número mínimo de proxectos que se deben apoiar'
+            vote_rule_selected_projects_enabled: 'Activar regra: número mínimo e máximo de proxectos que se deben apoiar'
+            vote_rule_threshold_percent_enabled: 'Activar regra: porcentaxe mínima do orzamento'
+            vote_selected_projects_maximum: Número máximo de proxectos que se poden seleccionar
+            vote_selected_projects_minimum: Número mínimo de proxectos que se deben seleccionar
+            vote_threshold_percent: Porcentaxe de límite de apoio
+            voting_rule: Regra de apoio
+            voting_rule_choices:
+              minimum_projects: Número mínimo de proxectos que se deben apoiar
+              selected_projects: Número mínimo e máximo de proxectos que se deben apoiar
+              threshold_percent: Porcentaxe mínima do orzamento
+            workflow: Fluxo de traballo
+            workflow_choices:
+              all: 'Apoiar en todos: permite ás persoas participantes apoiar en todos os orzamentos.'
+              one: 'Apoiar nun: permite ás persoas participantes apoiar en calquera orzamento, pero só nun.'
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            highlighted_heading: Título destacado
+            landing_page_content: Páxina de inicio dos orzamentos
             list_heading: Título da listaxe
             more_information_modal: Modal de "Máis información"
-            show_votes: Mostrar votos
+            show_votes: Mostrar apoios
             title: Título
-            votes: Votación
+            votes: Apoio
             votes_choices:
-              disabled: Votación deshabilitada
-              enabled: Votación habilitada
-              finished: Votación finalizada
+              disabled: Apoio deshabilitada
+              enabled: Apoio habilitada
+              finished: Apoio finalizada
+    download_your_data:
+      help:
+        orders:
+          budget: O orzamento ao que está relacionado o apoio
+          checked_out_at: A data e hora na que se finalizou o apoio
+          component: O compoñente ao que está relacionado o apoio
+          created_at: A data e hora na que se creou o apoio
+          id: O identificador único do apoio
+          projects: Os proxectos polos que se votou
+          updated_at: A data e hora na que se actualizou o apoio
+      show:
+        projects: Exportación de proxectos
+    open_data:
+      help:
+        projects:
+          address: O enderezo do proxecto (se existe)
+          budget: Datos sobre o orzamento do proxecto (por exemplo, «Orzamento 2021»)
+          budget_amount: O importe total do orzamento deste proxecto
+          comments: O número de comentarios que recibiu este proxecto
+          component: O compoñente ao que pertence o proxecto
+          confirmed_votes: O número de apoios confirmados que recibiu este proxecto
+          created_at: A data e hora na que se creou o proxecto
+          description: A descrición do proxecto
+          follows_count: O número de seguimentos deste proxecto
+          id: O identificador único do proxecto
+          latitude: A latitude do proxecto no caso de ter unha localización física
+          longitude: A lonxitude do proxecto no caso de ter unha localización física
+          participatory_space: O espazo ao que pertence este proxecto (por exemplo, un proceso participativo ou unha asemblea)
+          reference: A referencia única do proxecto
+          related_proposal_titles: Os títulos das propostas relacionadas
+          related_proposal_urls: Os URL das propostas relacionadas
+          related_proposals: As propostas relacionadas con este proxecto
+          selected_at: O momento no que se seleccionou o proxecto
+          taxonomies: As taxonomías do proxecto
+          title: O título do proxecto
+          updated_at: A última data na que se actualizou o proxecto
+          url: O URL do proxecto
+    orders:
+      checkout:
+        error: Produciuse un problema ao procesar o teu apoio.
+      destroy:
+        error: Produciuse un problema ao cancelar o teu apoio.
+        success: O teu apoio cancelouse correctamente.
     resource_links:
       included_proposals:
         project_proposal: Propostas incluídas neste proxecto
     statistics:
       orders_count: Apoios
+      projects_count: Orzamentos
+      projects_count_tooltip: O número de proxectos de orzamentos participativos e o total de apoios emitidos neles.
   index:
-    confirmed_orders_count: Reconto de votos
+    confirmed_orders_count: Reconto de apoios

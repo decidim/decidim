@@ -37,8 +37,12 @@ sv:
               must_be_ssl: Omdirigerings-URI måste vara en SSL URI
         organization:
           attributes:
+            host:
+              invalid: är ogiltig
             password:
               secret_key: Du behöver definiera variabeln SECRET_KEY_BASE för att kunna spara detta fält
+            secondary_hosts:
+              invalid: är ogiltig
   decidim:
     system:
       actions:
