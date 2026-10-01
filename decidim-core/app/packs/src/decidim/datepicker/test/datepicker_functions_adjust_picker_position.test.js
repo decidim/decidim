@@ -128,6 +128,37 @@ describe("adjustDatePickerPosition", () => {
 
     expect(datePickerContainer.style.right).toBe("0px");
   });
+
+  it("opens below when there is enough space above the sticky action area", () => {
+    jest.spyOn(input, "getBoundingClientRect").mockReturnValue({
+      top: 100,
+      bottom: 140
+    });
+
+    Reflect.defineProperty(window, "innerHeight", {
+      writable: true,
+      configurable: true,
+      value: 800
+    });
+
+    const stickyContainer = document.createElement("div");
+    stickyContainer.className = "item__edit-sticky";
+
+    jest.spyOn(stickyContainer, "getBoundingClientRect").mockReturnValue({
+      top: 500
+    });
+
+    document.body.appendChild(stickyContainer);
+
+    try {
+      adjustPickerPosition(input, datePickerContainer, ".datepicker__date-column");
+
+      expect(datePickerContainer.style.top).toBe("40px");
+      expect(datePickerContainer.style.bottom).toBe("");
+    } finally {
+      document.body.removeChild(stickyContainer);
+    }
+  });
 });
 
 
@@ -230,5 +261,38 @@ describe("adjustTimePickerPosition", () => {
     adjustPickerPosition(input, timePicker, ".datepicker__time-column");
 
     expect(timePicker.style.right).toBe("0px");
+  });
+
+  it("opens above when sticky action area reduces the available space below", () => {
+    jest.spyOn(input, "getBoundingClientRect").mockReturnValue({
+      top: 300,
+      bottom: 340
+    });
+
+    Reflect.defineProperty(window, "innerHeight", {
+      writable: true,
+      configurable: true,
+      value: 600
+    });
+
+    const stickyContainer = document.createElement("div");
+    stickyContainer.className = "item__edit-sticky";
+
+    jest.spyOn(stickyContainer, "getBoundingClientRect").mockReturnValue({
+      top: 500
+    });
+
+    document.body.appendChild(stickyContainer);
+
+    adjustPickerPosition(
+      input,
+      timePicker,
+      ".datepicker__time-column"
+    );
+
+    expect(timePicker.style.top).toBe("");
+    expect(timePicker.style.bottom).toBe("30px");
+
+    document.body.removeChild(stickyContainer);
   });
 });
