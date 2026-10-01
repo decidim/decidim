@@ -26,3 +26,4 @@ inherit_from:
   - config/rubocop/factory_bot/configuration.yml
   - config/rubocop/factory_bot/disabled.yml
   - config/rubocop/disabled.yml
+  - config/rubocop/decidim-linters/configuration.yml
