@@ -109,13 +109,11 @@ module Decidim
         end
 
         def notify
-          state = initial_state || resource.try(:state)
-          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, state)
+          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, initial_state)
         end
 
         def notify_without_followers
-          state = initial_state || resource.try(:state)
-          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, state, notify_followers: false)
+          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, initial_state, notify_followers: false)
         end
 
         def normalize_id(raw_id)

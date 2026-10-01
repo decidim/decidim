@@ -119,12 +119,25 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
 
       context "and notifies followers" do
         before do
-          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, proposal.proposal_state)
+          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, proposal.state)
         end
 
         it "notifies followers" do
           subject.finish!
           expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call)
+        end
+      end
+
+      context "when the proposal had no previous published state" do
+        let!(:proposal) { create(:proposal, component:) }
+        let(:state) { "accepted" }
+
+        it "passes the actual previous state to the notification command" do
+          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call)
+
+          subject.finish!
+
+          expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call).with(proposal, nil)
         end
       end
     end
@@ -152,7 +165,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       subject.finish_without_notify!
 
       expect(proposal.reload.answer["en"]).to eq(data[:"answer/en"])
-      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call).with(record, proposal.proposal_state, notify_followers: false)
+      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call).with(record, proposal.state, notify_followers: false)
     end
   end
 end
