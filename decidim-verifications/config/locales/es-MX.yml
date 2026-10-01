@@ -228,6 +228,7 @@ es-MX:
         authorizations:
           new:
             error: No pudimos verificar su cuenta o usted no está en el censo de la organización.
+            locked: Demasiados intentos fallidos. Por favor, inténtalo de nuevo más tarde.
             success: Su cuenta ha sido verificada con éxito.
       dummy_authorization:
         extra_explanation:
@@ -253,6 +254,7 @@ es-MX:
           confirmations:
             create:
               error: La verificación no coincide. Por favor inténtalo de nuevo o rechaza la verificación para que la participante pueda modificarla.
+              locked: Demasiados intentos fallidos. Por favor, inténtalo de nuevo más tarde.
               success: Participante verificada correctamente.
             new:
               introduce_user_data: Introduce los datos que aparecen en la imagen
@@ -329,6 +331,7 @@ es-MX:
             title: Solicita tu código de verificación
           update:
             error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos.
+            locked: Demasiados intentos fallidos. Por favor, inténtalo de nuevo más tarde.
             success: Felicidades. Te has verificado con éxito.
       sms:
         authorizations:
@@ -348,6 +351,8 @@ es-MX:
             title: Solicita tu código de verificación
           update:
             error: El código de verificación no coincide con el nuestro. Por favor, vuelve a revisar el SMS que te enviamos.
+            expired: El código de verificación ha caducado. Por favor, pide uno nuevo.
+            locked: Demasiados intentos fallidos. Inténtalo de nuevo más tarde o pide un código de verificación nuevo.
             success: Felicidades. Te has verificado con éxito.
   errors:
     messages:

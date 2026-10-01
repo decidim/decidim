@@ -151,6 +151,7 @@ fr-CA:
           completed_verifications: Vous avez été autorisé avec succès, maintenant vous pouvez %{action} dans la %{resource_name}
           granted_verifications: Vérifications accordées
           onboarding_message_html: Vous êtes presque prêt à %{action} sur l' <strong>%{resource_title}</strong> %{resource_name}. Veuillez vérifier votre compte en complétant les autorisations suivantes.
+          pending_admin_approval_verifications: Vérifications en attente de validation par l'administrateur
           pending_verifications: Vérifications en attente
           unauthorized: Vous n'êtes pas autorisé(e) à %{action} dans cette ressource
         renew_modal:
@@ -162,8 +163,25 @@ fr-CA:
         start_exploring: commencer à explorer
       csv_census:
         admin:
+          actions:
+            destroy: Supprimer
+            edit: Modifier
           census:
+            create_import:
+              no_user: Aucun utilisateur trouvé
+              success: '%{count} éléments ont été importés avec succès. Les données sont en cours de traitement. Actualisez la page dans quelques minutes pour voir les modifications.'
+            index:
+              no_sign_in: Jamais connecté
+              no_user: Aucun utilisateur trouvé
+            last_login:
+              no_sign_in: Jamais connecté
+              no_user: Aucun utilisateur
             new_import:
+              errors:
+                email_exists: L'adresse e-mail %{email} existe déjà au sein de l'organisation %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
               submit: Déposer un fichier
           census_records:
             edit_record:
@@ -177,6 +195,7 @@ fr-CA:
             authorized: Utilisateur autorisé
             fields:
               actions: Actions
+              created_at: Créée le
               email: Email
               user_authorized: Utilisateur autorisé ?
             import_csv: Importer un CSV
@@ -184,6 +203,7 @@ fr-CA:
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
+            locked: Trop d'échecs. Veuillez réessayer plus tard.
             success: Votre compte a été vérifié avec succès.
       dummy_authorization:
         extra_explanation:
@@ -194,6 +214,7 @@ fr-CA:
             one: La participation est réservée aux participants avec le code postal %{postal_codes}, et votre code postal est %{user_postal_code}.
             other: 'La participation est réservée aux participants avec l''un des codes postaux suivants : %{postal_codes}. Votre code postal est %{user_postal_code}.'
       errors:
+        invalid_emails: 'Les adresses e-mail suivantes sont invalides : %{invalid_emails}.'
         no_emails: Le fichier doit contenir des emails
       id_documents:
         admin:
@@ -207,6 +228,7 @@ fr-CA:
           confirmations:
             create:
               error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier.
+              locked: Trop d'échecs. Veuillez réessayer plus tard.
               success: Utilisateur vérifié avec succès.
             new:
               reject: Rejeter
@@ -281,6 +303,7 @@ fr-CA:
             title: Demandez votre code de vérification
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée.
+            locked: Trop d'échecs. Veuillez réessayer plus tard.
             success: Félicitations, votre identité a été vérifiée avec succès.
       sms:
         authorizations:
@@ -300,6 +323,8 @@ fr-CA:
             title: Demander votre code de vérification
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez revérifier le SMS que nous vous avons envoyé.
+            expired: Le code de vérification a expiré. Veuillez en demander un nouveau.
+            locked: Trop d'échecs. Veuillez réessayer plus tard ou demander un nouveau code.
             success: Félicitations, votre identité a été vérifiée avec succès.
   errors:
     messages:
