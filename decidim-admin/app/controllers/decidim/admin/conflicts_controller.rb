@@ -18,8 +18,6 @@ module Decidim
       def edit
         enforce_permission_to :index, :impersonatable_user
 
-        conflict
-
         @form = form(TransferUserForm).from_params(
           user: conflict.current_user,
           managed_user: conflict.managed_user,
