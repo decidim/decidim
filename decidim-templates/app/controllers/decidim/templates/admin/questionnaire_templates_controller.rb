@@ -180,6 +180,34 @@ module Decidim
           questionnaire_for.organization == current_organization
         end
 
+        # Returns the path of the `url` param only when it points to the same
+        # origin. Absolute same-origin URLs and root-relative paths are
+        # accepted; protocol-relative, external and malformed URLs are rejected
+        # so they can never be used to redirect the user to another site.
+        def internal_redirect_path
+          url = params[:url].to_s
+          return if url.blank?
+
+          uri = URI.parse(url)
+          return if uri.host.present? && !same_origin?(uri)
+
+          safe_path(uri.path)
+        rescue URI::Error
+          nil
+        end
+
+        def same_origin?(uri)
+          uri.host == request.host && (uri.scheme.nil? || uri.scheme == request.scheme)
+        end
+
+        def safe_path(path)
+          return if path.blank? || !path.start_with?("/")
+          return if path.start_with?("//", "/\\") || path.include?("\\")
+          return if path.match?(/[\u0000-\u001f\u007f]/)
+
+          path
+        end
+
         def questionnaire
           template.templatable
         end

@@ -31,9 +31,3 @@ Decidim/OrganizationScopedFinder:
     - "**/app/controllers/**/admin/**/*.rb"
   Exclude:
     - "**/decidim-system/**/*.rb"
-
-Decidim/RSpec/MemoizedName:
-  Enabled: true
-  Include:
-    - "**/spec/system/**/*"
-    - "**/spec/shared/**/*"
