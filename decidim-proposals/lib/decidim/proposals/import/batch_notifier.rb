@@ -7,6 +7,7 @@ module Decidim
         def initialize(collection:, context:)
           @collection = Array(collection).compact
           @context = context
+          @collection.select!(&:published_state?) if creator_class_name == "Decidim::Proposals::Import::ProposalAnswerCreator"
         end
 
         def notify!
