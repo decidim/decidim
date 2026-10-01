@@ -75,14 +75,14 @@
         // Format i18n key values to match local_time key structure
         elapsed: "<%= I18n.t("datetime.relative.past").gsub("%{time}", "{time}") %>",
 
-        second: "<%= I18n.t("datetime.distance_in_words.x_seconds.one", count: 1).sub(/^1\s*/, "") %>",
-        seconds: "<%= I18n.t("datetime.distance_in_words.x_seconds.other", count: "%{count}").gsub("%{count} ", "") %>",
+        second: "<%= I18n.t("datetime.distance_in_words.x_seconds.one", count: "%{count}").gsub("%{count}", "").strip %>",
+        seconds: "<%= I18n.t("datetime.distance_in_words.x_seconds.other", count: "%{count}").gsub("%{count}", "").strip %>",
 
-        minute: "<%= I18n.t("datetime.distance_in_words.x_minutes.one", count: 1).sub(/^1\s*/, "") %>",
-        minutes: "<%= I18n.t("datetime.distance_in_words.x_minutes.other", count: "%{count}").gsub("%{count} ", "") %>",
+        minute: "<%= I18n.t("datetime.distance_in_words.x_minutes.one", count: "%{count}").gsub("%{count}", "").strip %>",
+        minutes: "<%= I18n.t("datetime.distance_in_words.x_minutes.other", count: "%{count}").gsub("%{count}", "").strip %>",
 
-        hour: "<%= I18n.t("datetime.distance_in_words.x_hours.one", count: 1).sub(/^1\s*/, "") %>",
-        hours: "<%= I18n.t("datetime.distance_in_words.x_hours.other", count: "%{count}").gsub("%{count} ", "") %>",
+        hour: "<%= I18n.t("datetime.distance_in_words.x_hours.one", count: "%{count}").gsub("%{count}", "").strip %>",
+        hours: "<%= I18n.t("datetime.distance_in_words.x_hours.other", count: "%{count}").gsub("%{count}", "").strip %>",
 
         formats: {
           default: "<%= I18n.t("time.formats.time_of_day") %>",
