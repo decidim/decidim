@@ -92,7 +92,7 @@ module Decidim
               respond_to do |format|
                 format.json do
                   question_id = params["id"]
-                  question = Question.find_by(id: question_id)
+                  question = questionnaire.questions.find_by(id: question_id)
                   render json: question.response_options.map { |response_option| ResponseOptionPresenter.new(response_option).as_json } if question.present?
                 end
               end
@@ -167,7 +167,7 @@ module Decidim
             end
 
             def questionnaire
-              @questionnaire ||= Questionnaire.find_by(questionnaire_for:)
+              @questionnaire ||= Questionnaire.find_by(questionnaire_for:) # rubocop:disable Decidim/OrganizationScopedFinder -- questionnaire_for is scoped by the host controller
             end
 
             def blank_question

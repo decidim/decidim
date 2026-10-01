@@ -1,6 +1,7 @@
 require:
   - decidim/dev/rubocop/cop/decidim/message_antipattern
   - decidim/dev/rubocop/cop/decidim/enforce_permission_to
+  - decidim/dev/rubocop/cop/decidim/organization_scoped_finder
   - decidim/dev/rubocop/cop/decidim/rspec/memoized_name
 
 Decidim/MessageAntipattern:
@@ -10,6 +11,20 @@ Decidim/MessageAntipattern:
     - "**/test/**/*"
 
 Decidim/EnforcePermissionTo:
+  Enabled: true
+  Severity: warning
+  Include:
+    - "**/app/controllers/**/admin/**/*.rb"
+  Exclude:
+    - "**/decidim-system/**/*.rb"
+
+Decidim/RSpec/MemoizedName:
+  Enabled: true
+  Include:
+    - "**/spec/system/**/*"
+    - "**/spec/shared/**/*"
+
+Decidim/OrganizationScopedFinder:
   Enabled: true
   Severity: warning
   Include:

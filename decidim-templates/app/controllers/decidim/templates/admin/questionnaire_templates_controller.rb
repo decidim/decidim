@@ -154,6 +154,10 @@ module Decidim
           "decidim/templates/admin/questionnaire_templates/edit_questions"
         end
 
+        def response_options_url(params)
+          url_for(params.merge(controller: "decidim/templates/admin/questionnaire_templates/questionnaires", action: "response_options", format: :json, template_id: template.id))
+        end
+
         def after_update_url
           edit_questionnaire_template_path(template)
         end
@@ -161,7 +165,7 @@ module Decidim
         private
 
         def find_questionnaire(id)
-          questionnaire = Decidim::Forms::Questionnaire.find_by(id:)
+          questionnaire = Decidim::Forms::Questionnaire.find_by(id:) # rubocop:disable Decidim/OrganizationScopedFinder -- scoping requires polymorphic questionnaire_for chain; org ownership validated via questionnaire_for_in_organization?
           return unless questionnaire
           return unless questionnaire_for_in_organization?(questionnaire)
 
@@ -174,34 +178,6 @@ module Decidim
           return false unless questionnaire_for.respond_to?(:organization)
 
           questionnaire_for.organization == current_organization
-        end
-
-        # Returns the path of the `url` param only when it points to the same
-        # origin. Absolute same-origin URLs and root-relative paths are
-        # accepted; protocol-relative, external and malformed URLs are rejected
-        # so they can never be used to redirect the user to another site.
-        def internal_redirect_path
-          url = params[:url].to_s
-          return if url.blank?
-
-          uri = URI.parse(url)
-          return if uri.host.present? && !same_origin?(uri)
-
-          safe_path(uri.path)
-        rescue URI::Error
-          nil
-        end
-
-        def same_origin?(uri)
-          uri.host == request.host && (uri.scheme.nil? || uri.scheme == request.scheme)
-        end
-
-        def safe_path(path)
-          return if path.blank? || !path.start_with?("/")
-          return if path.start_with?("//", "/\\") || path.include?("\\")
-          return if path.match?(/[\u0000-\u001f\u007f]/)
-
-          path
         end
 
         def questionnaire
