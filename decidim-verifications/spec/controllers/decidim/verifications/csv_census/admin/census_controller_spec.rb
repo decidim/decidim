@@ -96,5 +96,32 @@ module Decidim::Verifications::CsvCensus::Admin
         expect(response).to have_http_status(:redirect)
       end
     end
+
+    describe "private collection method" do
+      let(:other_org) { create(:organization) }
+      let!(:own_datum) { create(:csv_datum, organization:) }
+      let!(:other_datum) { create(:csv_datum, organization: other_org) }
+
+      it "includes only data from the current organization" do
+        expect(controller.send(:collection)).to include(own_datum)
+        expect(controller.send(:collection)).not_to include(other_datum)
+      end
+    end
+
+    describe "private census_data method" do
+      let(:other_org) { create(:organization) }
+      let!(:own_datum) { create(:csv_datum, organization:) }
+      let!(:other_datum) { create(:csv_datum, organization: other_org) }
+
+      it "finds own datum by id" do
+        controller.params = { id: own_datum.id }
+        expect(controller.send(:census_data)).to eq(own_datum)
+      end
+
+      it "raises RecordNotFound for a cross-org datum id" do
+        controller.params = { id: other_datum.id }
+        expect { controller.send(:census_data) }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
   end
 end
