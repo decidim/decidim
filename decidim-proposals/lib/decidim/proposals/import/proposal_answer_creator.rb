@@ -61,7 +61,7 @@ module Decidim
 
           proposal.answer = answer
           proposal.answered_at = Time.current
-          @initial_state = proposal.proposal_state
+          @initial_state = proposal.state
 
           proposal_state = Decidim::Proposals::ProposalState.where(component:, token: state).first
 
