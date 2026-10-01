@@ -2,7 +2,10 @@
 
 module Decidim
   class ApplicationJob < ActiveJob::Base
+    # Wait until the commits on the transaction are actually on the database
+    # before running the jobs, preventing possible race conditions.
     self.enqueue_after_transaction_commit = true
+
     # Automatically retry jobs that encountered a deadlock
     retry_on ActiveRecord::Deadlocked
 
