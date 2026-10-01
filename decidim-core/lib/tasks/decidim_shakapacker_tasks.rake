@@ -24,29 +24,6 @@ namespace :decidim do
       # Install JS dependencies
       install_decidim_npm
 
-      # Remove the Shakapacker dependencies as they come through Decidim dependencies.
-      # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
-      shakapacker_packages = %w(
-        @babel/core
-        @babel/plugin-transform-runtime
-        @babel/preset-env
-        @babel/runtime
-        babel-loader
-        compression-webpack-plugin
-        shakapacker
-        terser-webpack-plugin
-        webpack
-        webpack-assets-manifest
-        webpack-cli
-        webpack-dev-server
-        webpack-merge
-        @rails/actioncable
-        @rails/activestorage
-        @rails/ujs
-        turbolinks
-      )
-      system! "npm uninstall #{shakapacker_packages.join(" ")}"
-
       # Add the Browserslist configuration to the project
       add_decidim_browserslist_configuration
     end

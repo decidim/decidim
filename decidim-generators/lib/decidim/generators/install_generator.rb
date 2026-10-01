@@ -91,8 +91,9 @@ module Decidim
         remove_file "bin/yarn"
         bundle_install
 
-        # Copy package.json
-        copy_file "package.json", "package.json"
+        # Create package.json
+        @app_name = options[:app_name]&.dasherize.presence || "decidim-app"
+        template "package.json.erb", "package.json"
 
         rails "shakapacker:binstubs"
 
