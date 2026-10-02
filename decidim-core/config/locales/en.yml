@@ -863,6 +863,7 @@ en:
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
+        file_is_not_a_valid_image: The file is not a valid image
         file_resolution_too_large: File resolution is too large
         not_inside_organization: The file is not attached to any organization.
       internal_server_error:
