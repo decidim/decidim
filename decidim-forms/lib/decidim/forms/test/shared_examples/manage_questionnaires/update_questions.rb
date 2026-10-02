@@ -339,20 +339,6 @@ shared_examples_for "update questions" do
       visit_manage_questions_and_expand_all
     end
 
-    shared_examples_for "switching questions order" do
-      it "properly reorders the questions" do
-        within ".questionnaire-question:first-of-type" do
-          expect(page).to have_nested_field("body_en", with: "Second")
-          expect(page).to look_like_first_question
-        end
-
-        within ".questionnaire-question:last-of-type" do
-          expect(page).to have_nested_field("body_en", with: "First")
-          expect(page).to look_like_last_question
-        end
-      end
-    end
-
     describe "collapsible questions" do
       context "when clicking on Expand all button" do
         it "expands all questions" do
@@ -381,18 +367,6 @@ shared_examples_for "update questions" do
           within ".questionnaire-question:last-of-type" do
             expect(page).to have_no_css(".collapsible", visible: :visible)
           end
-        end
-      end
-
-      shared_examples_for "uncollapsing a question" do
-        it "changes the toggle button" do
-          within ".questionnaire-question:last-of-type" do
-            expect(page).to have_css(".icon-collapse")
-          end
-        end
-
-        it "shows the question card section" do
-          expect(page).to have_css(".collapsible", visible: :visible)
         end
       end
 
