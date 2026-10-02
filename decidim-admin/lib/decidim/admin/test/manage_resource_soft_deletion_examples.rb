@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "manage soft deletable component or space" do |resource_name|
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-  end
-
   context "when the participatory space is unpublished" do
     before do
       resource.unpublish!
@@ -66,8 +61,6 @@ shared_examples "manage soft deletable resource" do |resource_name|
   let(:deleted_at) { nil }
 
   before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
     visit admin_resource_path
   end
 
@@ -91,8 +84,6 @@ end
 
 shared_examples "manage trashed resource" do |resource_name|
   before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
     resource.destroy!
   end
 

@@ -8,7 +8,6 @@ describe "Admin manages accountability" do
 
   before do
     switch_to_host(organization.host)
-    login_as user, scope: :user
     visit_component_admin
   end
 
