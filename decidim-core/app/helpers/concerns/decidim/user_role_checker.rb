@@ -10,8 +10,18 @@ module Decidim
     def user_has_any_role?(user, participatory_space = nil, broad_check: false)
       return false unless user
 
-      return true if user.admin || user.roles.any?
+      @user_has_any_role_cache ||= {}
+      cache_key = [user.id, participatory_space&.class&.name, participatory_space&.id, broad_check]
+      return @user_has_any_role_cache[cache_key] if @user_has_any_role_cache.has_key?(cache_key)
 
+      @user_has_any_role_cache[cache_key] = global_user_role?(user) || space_user_role?(user, participatory_space, broad_check:)
+    end
+
+    def global_user_role?(user)
+      user.admin || user.roles.any?
+    end
+
+    def space_user_role?(user, participatory_space, broad_check: false)
       participatory_process_user_role?(user, participatory_space, broad_check:) ||
         assembly_user_role?(user, participatory_space, broad_check:) ||
         conference_user_role?(user, participatory_space, broad_check:)
