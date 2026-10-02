@@ -44,6 +44,19 @@ module Decidim
             expect(subject).to render_template(:index)
             expect(controller.posts.to_a).to eq([oldest_created_latest_published, latest_created_oldest_published])
           end
+
+          context "when there are unpublished posts" do
+            let!(:oldest_unpublished) { create(:post, component:, created_at: 3.days.ago).tap(&:unpublish!) }
+            let!(:latest_unpublished) { create(:post, component:, created_at: 1.minute.ago).tap(&:unpublish!) }
+
+            it "lists them after the published posts, most recently created first" do
+              get :index
+
+              expect(controller.posts.to_a).to eq(
+                [oldest_created_latest_published, latest_created_oldest_published, latest_unpublished, oldest_unpublished]
+              )
+            end
+          end
         end
       end
     end
