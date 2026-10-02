@@ -284,7 +284,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
       end
     end
 
-    context "with traceability logging" do
+    describe "with traceability logging" do
       let!(:step_one) do
         create(
           :participatory_process_step,
@@ -303,7 +303,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         )
       end
 
-      context "when user is missing" do
+      describe "when user is missing" do
         it "logs activation in activity log" do
           expect { subject.perform_now }
             .to change(Decidim::ActionLog, :count).by(1)
