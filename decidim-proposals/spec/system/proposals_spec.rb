@@ -731,6 +731,10 @@ describe "Proposals" do
     context "when component is not commentable" do
       let!(:resources) { create_list(:proposal, 3, component:) }
 
+      before do
+        resources.each(&:try_update_index_for_search_resource)
+      end
+
       it_behaves_like "an uncommentable component"
     end
   end
