@@ -12,7 +12,11 @@ module Decidim
                foreign_key: :decidim_organization_id,
                class_name: "Decidim::Organization"
 
-    belongs_to :user, class_name: "Decidim::UserBaseEntity"
+    # As we need to generate logs that do not have a certain user (see #17282),
+    # we need to allow user to be optional.
+    belongs_to :user,
+               class_name: "Decidim::UserBaseEntity",
+               optional: true
 
     belongs_to :component,
                foreign_key: :decidim_component_id,
