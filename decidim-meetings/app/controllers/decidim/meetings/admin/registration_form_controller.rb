@@ -27,6 +27,10 @@ module Decidim
           "decidim/meetings/admin/registration_form/edit_questions"
         end
 
+        def response_options_url(params)
+          url_for(params.merge(controller: "registration_form", action: "response_options", format: :json, meeting_id: meeting.id))
+        end
+
         private
 
         def i18n_questions_flashes_scope

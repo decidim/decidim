@@ -6,11 +6,10 @@ class AddAllowPublicAccessToStaticPages < ActiveRecord::Migration[5.2]
 
     reversible do |direction|
       direction.up do
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         Decidim::StaticPage.where(slug: ["terms-and-conditions", "terms-of-service"]).update_all(
           allow_public_access: true
         )
-        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

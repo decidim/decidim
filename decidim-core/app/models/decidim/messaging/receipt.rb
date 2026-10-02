@@ -17,11 +17,10 @@ module Decidim
       scope :unread_by, ->(user) { recipient(user).unread }
       scope :unread, -> { where(read_at: nil) }
 
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       def self.mark_as_read(user)
         recipient(user).update_all(read_at: Time.current)
       end
-      # rubocop:enable Rails/SkipsModelValidations
 
       # The number of messages unread by a user
       #

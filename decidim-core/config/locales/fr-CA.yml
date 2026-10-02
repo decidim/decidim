@@ -1541,6 +1541,8 @@ fr-CA:
       login_modal:
         please_log_in: Veuillez vous connecter
         sign_up: Créer un compte
+      mentions:
+        search_prompt: Tapez pour rechercher des participants
       mentions_modal:
         remove_recipient: Supprimer le destinataire %{name}
       progress: Avancement
@@ -1917,7 +1919,6 @@ fr-CA:
   layouts:
     decidim:
       announcements:
-        view_less: Afficher moins
         view_more: Plus d'informations
       data_consent:
         details:

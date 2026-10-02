@@ -28,7 +28,7 @@ module Decidim
 
             @form = InformationForm.from_params(params)
 
-            ConfirmUserAuthorization.call(@pending_authorization, @form, session) do
+            ConfirmUserAuthorization.call(@pending_authorization, @form) do
               on(:ok) do
                 flash[:notice] = t("confirmations.create.success", scope: "decidim.verifications.id_documents.admin")
                 redirect_to pending_authorizations_path
@@ -37,6 +37,11 @@ module Decidim
               on(:invalid) do
                 flash.now[:alert] = t("confirmations.create.error", scope: "decidim.verifications.id_documents.admin")
                 render action: :new, status: :unprocessable_content
+              end
+
+              on(:locked) do
+                flash.now[:alert] = t("confirmations.create.locked", scope: "decidim.verifications.id_documents.admin")
+                render action: :new, status: :too_many_requests
               end
             end
           end

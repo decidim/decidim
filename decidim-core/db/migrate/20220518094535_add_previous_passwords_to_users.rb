@@ -11,9 +11,8 @@ class AddPreviousPasswordsToUsers < ActiveRecord::Migration[6.1]
 
     reversible do |direction|
       direction.up do
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         User.update_all("password_updated_at = updated_at")
-        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

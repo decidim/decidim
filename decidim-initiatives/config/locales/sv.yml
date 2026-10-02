@@ -408,7 +408,6 @@ sv:
           new: Skapa nytt initiativ
           select: Jag vill arbeta för detta initiativ
           select_initiative_type_help_html: "<p>Initiativ är ett sätt för deltagare att påverka och ta initiativ till förbättringar. Vilket initiativ vill du starta?</p>"
-          show_less: Visa mindre
           show_more: Visa mer
           subtitle: Vilket initiativ vill du stödja?
           verification_required: Verifiera ditt konto för att skriva under initiativet

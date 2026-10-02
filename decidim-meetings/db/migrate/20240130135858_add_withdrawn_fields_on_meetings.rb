@@ -15,9 +15,8 @@ class AddWithdrawnFieldsOnMeetings < ActiveRecord::Migration[6.1]
   end
 
   def down
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     CustomMeeting.where.not(withdrawn_at: null).update_all(state: :withdrawn)
-    # rubocop:enable Rails/SkipsModelValidations
     remove_column :decidim_meetings_meetings, :withdrawn_at
   end
 end

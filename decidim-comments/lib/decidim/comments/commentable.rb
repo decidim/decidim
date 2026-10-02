@@ -65,12 +65,11 @@ module Decidim
         # way in order to properly calculate the counter with hidden
         # comments.
         #
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         def update_comments_count
           comments_count = comments.not_hidden.not_deleted.count
           update_columns(comments_count:, updated_at: Time.current)
         end
-        # rubocop:enable Rails/SkipsModelValidations
 
         # Public: Returns an array with extra actions available for a comment and a user.
         # Returns an array of hashes with the following keys:
