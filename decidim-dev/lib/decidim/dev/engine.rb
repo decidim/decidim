@@ -9,6 +9,9 @@ module Decidim
       isolate_namespace Decidim::Dev
       engine_name "decidim_dev"
 
+      paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
+
       routes do
         root to: proc { [200, {}, ["DUMMY ENGINE"]] }
 
