@@ -467,19 +467,21 @@ module Decidim
         end
       end
 
-      describe "conference user role indexes" do
-        it "has a standalone index on decidim_user_id" do
-          connection = ActiveRecord::Base.connection
+      def user_id_index?(table)
+        ActiveRecord::Base.connection.index_exists?(table, :decidim_user_id)
+      end
 
-          expect(connection.index_exists?(:decidim_conference_user_roles, :decidim_user_id)).to be(true)
+      describe "user role table indexes" do
+        it "indexes decidim_user_id on the participatory process user roles table" do
+          expect(user_id_index?(:decidim_participatory_process_user_roles)).to be(true)
         end
 
-        it "indexes decidim_user_id on every user role table" do
-          connection = ActiveRecord::Base.connection
+        it "indexes decidim_user_id on the assembly user roles table" do
+          expect(user_id_index?(:decidim_assembly_user_roles)).to be(true)
+        end
 
-          expect(connection.index_exists?(:decidim_participatory_process_user_roles, :decidim_user_id)).to be(true)
-          expect(connection.index_exists?(:decidim_assembly_user_roles, :decidim_user_id)).to be(true)
-          expect(connection.index_exists?(:decidim_conference_user_roles, :decidim_user_id)).to be(true)
+        it "indexes decidim_user_id on the conference user roles table" do
+          expect(user_id_index?(:decidim_conference_user_roles)).to be(true)
         end
       end
     end
