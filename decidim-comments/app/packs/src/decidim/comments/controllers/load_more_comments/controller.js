@@ -11,7 +11,7 @@ import { Controller } from "@hotwired/stimulus"
  * <div data-controller="load-more-comments"
  *      data-load-more-comments-url-value="/comments"
  *      data-load-more-comments-commentable-gid-value="gid://app/Model/1"
- *      data-load-more-comments-order-value="older"
+ *      data-load-more-comments-order-value="recent"
  *      data-load-more-comments-offset-value="20"
  *      data-load-more-comments-per-page-value="20"
  *      data-load-more-comments-alignment-value="1">
