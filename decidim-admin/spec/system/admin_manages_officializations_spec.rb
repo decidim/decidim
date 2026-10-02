@@ -360,7 +360,7 @@ describe "Admin manages officializations" do
           click_on "Show email"
         end
 
-        travel Decidim.expire_session_after + 1.second do
+        expire_browser_session do
           within "#show-email-modal" do
             click_on "Show"
 
