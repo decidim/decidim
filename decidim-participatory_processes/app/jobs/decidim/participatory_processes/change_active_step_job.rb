@@ -19,15 +19,16 @@ module Decidim
             next_step = process.steps.where(start_date: ..Time.zone.now.to_date).find_by(position: next_position)
             if next_step.present?
               active_step.update(active: false)
-              next_step.update(active: true)
-              log(next_step)
+              activated = next_step.update(active: true)
+              log(next_step) if activated
             end
           else
             step_to_activate = steps.first
             if active_step != step_to_activate
               active_step&.update(active: false)
-              step_to_activate.update(active: true)
-              log(step_to_activate)
+              activated = step_to_activate.update(active: true)
+
+              log(step_to_activate) if activated
             end
           end
         end
