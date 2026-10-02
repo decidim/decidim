@@ -131,6 +131,47 @@ module Decidim
             end
           end
 
+          context "with meetings linked from another component" do
+            let(:content_block) do
+              create(
+                :content_block,
+                organization:,
+                manifest_name: :highlighted_meetings,
+                scope_name: :participatory_process_homepage,
+                scoped_resource_id: participatory_process.id
+              )
+            end
+            let(:participatory_process) { meeting.component.participatory_space }
+            let(:other_component) { create(:meeting_component, organization:) }
+            let!(:linked_meeting) do
+              create(:meeting, :published, start_time: meeting.start_time.advance(days: 1), component: other_component)
+            end
+            let!(:linked_withdrawn_meeting) do
+              create(:meeting, :published, :withdrawn, start_time: meeting.start_time.advance(days: 2), component: other_component)
+            end
+            let!(:not_linked_meeting) do
+              create(:meeting, :published, start_time: meeting.start_time.advance(days: 3), component: other_component)
+            end
+            let(:meetings_ids) { html.find_all("a.card__list").map { |node| node[:id] } }
+
+            before do
+              create(:meeting_link, meeting: linked_meeting, component: meeting.component)
+              create(:meeting_link, meeting: linked_withdrawn_meeting, component: meeting.component)
+            end
+
+            it "renders the component meetings and the linked meetings" do
+              expect(meetings_ids).to eq([item_id(meeting), item_id(linked_meeting)])
+            end
+
+            context "when the linked meeting belongs to a restricted space" do
+              let(:other_component) { create(:meeting_component, participatory_space: create(:assembly, :restricted, organization:)) }
+
+              it "does not render the linked meeting" do
+                expect(meetings_ids).to eq([item_id(meeting)])
+              end
+            end
+          end
+
           context "with upcoming meetings in other month" do
             let!(:second_meeting) do
               create(:meeting, :published, start_time: 1.month.from_now, component: meeting.component)
