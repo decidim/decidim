@@ -300,7 +300,10 @@ en:
         message: Be careful when working with attachments in a private space. Any participant could share this document to others.
       authorization_workflows:
         index:
-          title: Verification methods
+          intro: |-
+            Authorizations allow you to give specific participation rights to participants who have completed a verification process. Depending on the needs of each use case, different verification mechanisms can be used to ensure the validity and security of the verification process.
+            To enable an authorization, you need to have access to the System panel or ask your Decidim implementer. Below you can see the authorization methods available:
+          title: Authorizations
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search.
@@ -1277,7 +1280,6 @@ en:
           title: New item in %{taxonomy}
       titles:
         areas: Areas
-        authorization_workflows: Verification methods
         menu: Menu
         panel: Admin
         scopes: Scopes
