@@ -22,14 +22,11 @@ document.addEventListener("turbo:load", () => {
 
   /* eslint-disable */
   async function getUserEmail(url) {
-    let response = null;
-    try {
-      response = await fetch(url, { redirect: "error" });
-    } catch (error) {
-      if (error instanceof TypeError && error.message === "Failed to fetch") {
-        response = { redirectError: true };
-      }
+    let response = await fetch(url, { redirect: "manual" });
+    if (response.type === "opaqueredirect") {
+      response = { redirectError: true };
     }
+
     if (response && response.ok) {
       let userEmail = await response.text();
       $("#user_email").html(userEmail);
