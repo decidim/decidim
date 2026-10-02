@@ -7,18 +7,21 @@
   .editor-content-videoEmbed {
     @apply my-10 mx-auto;
   }
+}
 
-  .editor-mention {
-    @apply inline-flex items-center align-bottom font-semibold underline text-secondary;
+// Resource mentions are rendered both inside rich text (`.rich-text-display`)
+// and inside comments (`.editor-content`), so they cannot be scoped to one of
+// those wrappers.
+.editor-mention {
+  @apply inline-flex items-center align-bottom font-semibold underline text-secondary;
 
-    img,
-    svg {
-      @apply w-5 h-5 rounded-full;
-    }
+  img,
+  svg {
+    @apply w-5 h-5 m-0 rounded-full;
+  }
 
-    span {
-      @apply ml-1;
-    }
+  span {
+    @apply ml-1;
   }
 }
 
