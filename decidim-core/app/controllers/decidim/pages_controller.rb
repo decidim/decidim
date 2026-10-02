@@ -21,9 +21,9 @@ module Decidim
     end
 
     def show
-      @page = page
-      enforce_permission_to :read, :public_page, page: @page
-      @topic = @page.topic
+      enforce_permission_to :read, :public_page, page:
+
+      @topic = page.topic
       @pages = @topic&.pages
     end
 
