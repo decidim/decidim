@@ -23,6 +23,7 @@ mutation createMilestone($componentId: ID!, $resultId: ID!, $input: CreateMilest
       result(id: $resultId) {
         createMilestone(input: $input) {
           id
+          url
         }
       }
     }
