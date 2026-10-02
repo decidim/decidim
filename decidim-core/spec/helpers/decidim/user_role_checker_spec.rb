@@ -346,5 +346,142 @@ module Decidim
         end
       end
     end
+
+    describe "query efficiency" do
+      let(:participatory_process) { create(:participatory_process, organization:) }
+      let(:assembly) { create(:assembly, organization:) }
+      let(:conference) { create(:conference, organization:) }
+
+      def role_table_queries
+        queries = []
+        callback = lambda do |_name, _start, _finish, _id, payload|
+          sql = payload[:sql]
+          queries << sql if sql&.match?(/decidim_(?:participatory_process|assembly|conference)_user_roles/)
+        end
+
+        ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
+          yield
+        end
+
+        queries
+      end
+
+      context "when the user is an organization admin" do
+        let(:user) { create(:user, :admin, organization:) }
+
+        it "does not query any role table when a broad check is requested" do
+          queries = role_table_queries do
+            checker.send(:user_has_any_role?, user, participatory_process, broad_check: true)
+          end
+
+          expect(queries).to be_empty
+        end
+      end
+
+      context "when the user has a global role" do
+        let(:user) { create(:user, :user_manager, organization:) }
+
+        it "does not query any role table when a broad check is requested" do
+          queries = role_table_queries do
+            checker.send(:user_has_any_role?, user, participatory_process, broad_check: true)
+          end
+
+          expect(queries).to be_empty
+        end
+      end
+
+      context "when the same check is repeated" do
+        before { create(:participatory_process_user_role, user:, participatory_process:) }
+
+        it "does not repeat the role query within the same checker instance" do
+          first = role_table_queries { checker.send(:user_has_any_role?, user, participatory_process) }
+          second = role_table_queries { checker.send(:user_has_any_role?, user, participatory_process) }
+
+          expect(first.size).to eq(1)
+          expect(second).to be_empty
+        end
+
+        it "does not repeat a broad role query within the same checker instance" do
+          first = role_table_queries { checker.send(:user_has_any_role?, user, nil, broad_check: true) }
+          second = role_table_queries { checker.send(:user_has_any_role?, user, nil, broad_check: true) }
+
+          expect(first.size).to be <= 3
+          expect(second).to be_empty
+        end
+
+        it "does not run one query per collection item" do
+          queries = role_table_queries do
+            10.times { checker.send(:user_has_any_role?, user, participatory_process) }
+          end
+
+          expect(queries.size).to eq(1)
+        end
+      end
+
+      context "with a broad check and a concrete space" do
+        before do
+          create(:participatory_process_user_role, user:, participatory_process:)
+          create(:assembly_user_role, user:, assembly:)
+          create(:conference_user_role, user:, conference:)
+        end
+
+        it "only queries the participatory process role table" do
+          queries = role_table_queries do
+            checker.send(:user_has_any_role?, user, participatory_process, broad_check: true)
+          end
+
+          expect(queries.size).to eq(1)
+          expect(queries.first).to include("decidim_participatory_process_user_roles")
+        end
+
+        it "only queries the assembly role table" do
+          queries = role_table_queries do
+            checker.send(:user_has_any_role?, user, assembly, broad_check: true)
+          end
+
+          expect(queries.size).to eq(1)
+          expect(queries.first).to include("decidim_assembly_user_roles")
+        end
+
+        it "only queries the conference role table" do
+          queries = role_table_queries do
+            checker.send(:user_has_any_role?, user, conference, broad_check: true)
+          end
+
+          expect(queries.size).to eq(1)
+          expect(queries.first).to include("decidim_conference_user_roles")
+        end
+
+        it "queries each role table at most once when no space is given" do
+          queries = role_table_queries do
+            checker.send(:user_has_any_role?, user, nil, broad_check: true)
+          end
+
+          table_counts = %w(
+            decidim_participatory_process_user_roles
+            decidim_assembly_user_roles
+            decidim_conference_user_roles
+          ).map { |table| queries.count { |sql| sql.include?(table) } }
+
+          expect(table_counts).to all(be <= 1)
+        end
+      end
+
+      describe "conference user role indexes" do
+        it "has a standalone index on decidim_user_id" do
+          connection = ActiveRecord::Base.connection
+
+          expect(connection.index_exists?(:decidim_conference_user_roles, :decidim_user_id)).to be(true)
+        end
+
+        it "indexes decidim_user_id on every user role table" do
+          connection = ActiveRecord::Base.connection
+
+          expect(connection.index_exists?(:decidim_participatory_process_user_roles, :decidim_user_id)).to be(true)
+          expect(connection.index_exists?(:decidim_assembly_user_roles, :decidim_user_id)).to be(true)
+          expect(connection.index_exists?(:decidim_conference_user_roles, :decidim_user_id)).to be(true)
+        end
+      end
+    end
   end
 end
