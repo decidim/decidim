@@ -34,6 +34,12 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     end
   end
 
+  describe ".batch_notifier_klass" do
+    it "returns the batch notifier class" do
+      expect(described_class.batch_notifier_klass).to eq(Decidim::Proposals::Import::BatchNotifier)
+    end
+  end
+
   describe "#resource_attributes" do
     it "returns the attributes hash" do
       expect(subject.resource_attributes).to eq(
@@ -65,6 +71,26 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
         expect(record).to be_nil
       end
     end
+
+    context "when import data comes from flattened JSON" do
+      it "finds the proposal when ID is an array" do
+        data[:id] = [proposal.id]
+
+        record = subject.produce
+
+        expect(record).to be_a(Decidim::Proposals::Proposal)
+        expect(record.id).to eq(proposal.id)
+      end
+
+      it "finds the proposal when ID is a string" do
+        data[:id] = proposal.id.to_s
+
+        record = subject.produce
+
+        expect(record).to be_a(Decidim::Proposals::Proposal)
+        expect(record.id).to eq(proposal.id)
+      end
+    end
   end
 
   describe "#finish!" do
@@ -93,12 +119,25 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
 
       context "and notifies followers" do
         before do
-          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, proposal.proposal_state)
+          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, proposal.state)
         end
 
         it "notifies followers" do
           subject.finish!
           expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call)
+        end
+      end
+
+      context "when the proposal had no previous published state" do
+        let!(:proposal) { create(:proposal, component:) }
+        let(:state) { "accepted" }
+
+        it "passes the actual previous state to the notification command" do
+          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call)
+
+          subject.finish!
+
+          expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call).with(proposal, nil)
         end
       end
     end
@@ -115,6 +154,18 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       it "broadcasts invalid message" do
         expect(subject.finish!).to eq({ invalid: [] })
       end
+    end
+  end
+
+  describe "#finish_without_notify!" do
+    it "saves answer and notifies proposal answer side effects" do
+      record = subject.produce
+      allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call)
+
+      subject.finish_without_notify!
+
+      expect(proposal.reload.answer["en"]).to eq(data[:"answer/en"])
+      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call).with(record, proposal.state, notify_followers: false)
     end
   end
 end
