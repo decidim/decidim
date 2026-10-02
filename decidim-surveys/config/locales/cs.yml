@@ -71,7 +71,6 @@ cs:
         new_survey: Nový průzkum
         preview: Náhled
         responses: Odpovědi
-        responses_alert: Odstranění odpovědí při publikování je aktivní pro tento průzkum. Momentálně je %{responses_count} odpovědi, které budou zničeny, pokud budete pokračovat.
         title: Akce
       admin:
         exports:

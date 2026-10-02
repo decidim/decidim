@@ -43,7 +43,7 @@ eu:
           delete_my_data: Ezabatu datua
           modal_close: Ezeztatu
           modal_ok: Ados
-          modal_question: Zure datu demografiko guztiak kendu egingo dira.
+          modal_question: Zure datu demografiko guztiak ezabatu egingo dira.
           modal_title: Ezabatu datua
           submit: Gorde datua
           terms_of_service: zerbitzuaren baldintzak
@@ -57,9 +57,9 @@ eu:
       questions:
         age:
           options:
-          - 15-29 urte bitartekoak
-          - 30-44 urte bitartekoak
-          - 45-64 urte bitartekoak
+          - 15 eta-29 urte bitartekoak
+          - 30 eta 44 urte bitartekoak
+          - 45 eta 64 urte bitartekoak
           - 65 urtekoak edo nagusiagoak
           question: Zein da zure adina?
         gender:

@@ -73,7 +73,6 @@ ja:
         new_survey: 新しいアンケート
         preview: プレビュー
         responses: 回答
-        responses_alert: このアンケートでは、公開時に回答を削除する設定が有効になっています。現在%{responses_count}件の回答があり、続行するとそれらは削除されます。
         title: アクション
       admin:
         exports:
@@ -95,6 +94,13 @@ ja:
             edit:
               title: 質問
         responses:
+          actions:
+            destroy_all_responses: すべての回答を削除
+            destroy_all_responses_confirm:
+              other: '%{count} 件の回答すべてを削除してもよろしいですか？この操作は元に戻せません。'
+          destroy_all:
+            invalid: すべての回答を削除する際に問題が発生しました。
+            success: すべての回答を削除しました。
           index:
             no_responses: 回答はまだありません
             title: "総回答数 %{total} 件"
