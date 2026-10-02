@@ -33,7 +33,7 @@ module Decidim
       end
 
       def perform_caching?
-        super && has_replies_in_children? == false && current_user.blank?
+        super && has_replies_in_children? == false && current_user.blank? && !render_chain_reply?
       end
 
       private
@@ -75,6 +75,8 @@ module Decidim
         hash.push(model.cache_key_with_version)
         hash.push(model.author.cache_key_with_version)
         hash.push(extra_actions.to_s)
+        hash.push(next_chain_id.to_s)
+        hash.push(target_self? ? 1 : 0)
         @hash = hash.join(Decidim.cache_key_separator)
       end
 
@@ -239,6 +241,32 @@ module Decidim
 
       def replies_count
         @replies_count ||= model.replies.count
+      end
+
+      def target_chain_ids
+        @target_chain_ids ||= options[:target_chain_ids] || []
+      end
+
+      def next_chain_id
+        return @next_chain_id if defined?(@next_chain_id)
+
+        index = target_chain_ids.index(model.id)
+        @next_chain_id = index ? target_chain_ids[index + 1] : nil
+      end
+
+      def render_chain_reply?
+        next_chain_id.present?
+      end
+
+      def target_self?
+        target_chain_ids.last == model.id
+      end
+
+      # Deleted and hidden comments are kept so a moderated ancestor does not break the chain
+      def chain_reply
+        return [] unless next_chain_id
+
+        model.comment_threads.where(id: next_chain_id).includes(:author, :up_votes, :down_votes).to_a
       end
 
       # action_authorization_button expects current_component to be available
