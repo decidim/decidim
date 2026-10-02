@@ -14,6 +14,7 @@ module Decidim
     autoload :ProposalListHelper, "decidim/api/functions/proposal_list_helper"
     autoload :ProposalFinderHelper, "decidim/api/functions/proposal_finder_helper"
 
+    autoload :OpenDataProposalSerializer, "decidim/proposals/open_data_proposal_serializer"
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
     autoload :DownloadYourDataProposalSerializer, "decidim/proposals/download_your_data_proposal_serializer"
     autoload :CommentableProposal, "decidim/proposals/commentable_proposal"
