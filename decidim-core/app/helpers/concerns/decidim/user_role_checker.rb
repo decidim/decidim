@@ -10,13 +10,11 @@ module Decidim
     def user_has_any_role?(user, participatory_space = nil, broad_check: false)
       return false unless user
 
-      [
-        user.admin,
-        user.roles.any?,
-        participatory_process_user_role?(user, participatory_space, broad_check:),
-        assembly_user_role?(user, participatory_space, broad_check:),
+      return true if user.admin || user.roles.any?
+
+      participatory_process_user_role?(user, participatory_space, broad_check:) ||
+        assembly_user_role?(user, participatory_space, broad_check:) ||
         conference_user_role?(user, participatory_space, broad_check:)
-      ].any?
     end
 
     def participatory_process_user_role?(user, participatory_process = nil, broad_check: false)
