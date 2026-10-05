@@ -40,8 +40,8 @@ module Decidim::Admin
       )
     end
 
-    let(:participatory_process) { create(:participatory_process, :with_steps) }
-    let(:step) { participatory_process.steps.first }
+    let(:participatory_process) { create(:participatory_process, :with_phases) }
+    let(:step) { participatory_process.phases.first }
     let(:current_user) { create(:user, organization: participatory_process.organization) }
 
     describe "when valid" do

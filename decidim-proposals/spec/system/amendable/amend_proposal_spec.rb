@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Amend Proposal", versioning: true do
-  let!(:participatory_space) { create(:participatory_process, :with_steps) }
+  let!(:participatory_space) { create(:participatory_process, :with_phases) }
   let!(:component) { create(:proposal_component, participatory_space:) }
   let!(:proposal) { create(:proposal, title: { en: "Long enough title" }, component:) }
   let!(:emendation) { create(:proposal, title: { en: "Amended Long enough title" }, component:) }
@@ -13,7 +13,7 @@ describe "Amend Proposal", versioning: true do
   let(:emendation_body) { translated(emendation.body) }
   let(:user) { proposal.creator_author }
 
-  let(:active_step_id) { participatory_space.active_step.id }
+  let(:active_step_id) { participatory_space.active_phase.id }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 

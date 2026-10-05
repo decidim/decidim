@@ -19,7 +19,7 @@ describe "Admin answers proposals" do
       component.update!(
         settings: { proposal_answering_enabled: true },
         step_settings: {
-          component.participatory_space.active_step.id => {
+          component.participatory_space.active_phase.id => {
             proposal_answering_enabled: true,
             answers_with_costs: proposal_answers_with_costs?
           }
@@ -126,7 +126,7 @@ describe "Admin answers proposals" do
         component.update!(
           settings: { proposal_answering_enabled: true, geocoding_enabled: true },
           step_settings: {
-            component.participatory_space.active_step.id => {
+            component.participatory_space.active_phase.id => {
               proposal_answering_enabled: true
             }
           }

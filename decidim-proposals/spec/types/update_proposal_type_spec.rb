@@ -17,7 +17,7 @@ module Decidim
       let(:root_klass) { ProposalMutationType }
       let(:organization) { create(:organization, available_locales: [:en, :ca, :es]) }
       let(:current_organization) { organization }
-      let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+      let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process, settings: { taxonomy_filters: [taxonomy_filter.id] }) }
       let(:current_component) { proposal_component }
       let(:author) { create(:user, :confirmed, organization:) }

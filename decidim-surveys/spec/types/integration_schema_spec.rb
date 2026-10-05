@@ -207,9 +207,9 @@ describe "Decidim::Api::QueryType" do
 
       before do
         step_settings = {}
-        if current_component.participatory_space.respond_to?(:active_step)
+        if current_component.participatory_space.respond_to?(:active_phase)
           step_settings = {
-            current_component.participatory_space.active_step.id => {
+            current_component.participatory_space.active_phase.id => {
               allow_responses: true,
               allow_unregistered: true
             }

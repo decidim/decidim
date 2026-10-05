@@ -4,7 +4,7 @@ shared_examples "manage proposals help texts" do
   before do
     current_component.update!(
       step_settings: {
-        current_component.participatory_space.active_step.id => {
+        current_component.participatory_space.active_phase.id => {
           creation_enabled: true
         }
       }

@@ -7,8 +7,8 @@ module Decidim::Admin
     subject { described_class.new(component, user) }
 
     let!(:user) { create(:user, :admin, :confirmed, organization: participatory_process.organization) }
-    let!(:participatory_process) { create(:participatory_process, :with_steps) }
-    let(:step) { participatory_process.steps.first }
+    let!(:participatory_process) { create(:participatory_process, :with_phases) }
+    let(:step) { participatory_process.phases.first }
     let!(:component) { create(:component, :unpublished, participatory_space: participatory_process) }
 
     it "publishes the component" do

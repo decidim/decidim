@@ -20,7 +20,7 @@ describe "Admin creates proposals" do
     component.update!(
       settings: { official_proposals_enabled: true, attachments_allowed: true, creation_enabled: true },
       step_settings: {
-        component.participatory_space.active_step.id => {
+        component.participatory_space.active_phase.id => {
           creation_enabled: creation_enabled?
         }
       }

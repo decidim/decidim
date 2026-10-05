@@ -99,7 +99,7 @@ describe "Vote Proposal", slow: true do
         before do
           component.update!(
             step_settings: {
-              component.participatory_space.active_step.id => {
+              component.participatory_space.active_phase.id => {
                 votes_enabled: true,
                 likes_blocked:,
                 likes_enabled:

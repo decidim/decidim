@@ -14,7 +14,7 @@ describe "Admin edits proposals" do
   before do
     component.update!(
       step_settings: {
-        component.participatory_space.active_step.id => {
+        component.participatory_space.active_phase.id => {
           creation_enabled: creation_enabled?
         }
       }

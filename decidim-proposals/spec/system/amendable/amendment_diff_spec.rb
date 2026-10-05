@@ -125,7 +125,7 @@ describe "Amendment Diff", versioning: true do
       component.update!(
         settings: { amendments_enabled: true },
         step_settings: {
-          component.participatory_space.active_step.id => {
+          component.participatory_space.active_phase.id => {
             amendment_reaction_enabled: true
           }
         }

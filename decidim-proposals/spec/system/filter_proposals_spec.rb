@@ -220,7 +220,7 @@ describe "Filter Proposals", :slow do
         before do
           component.update!(
             step_settings: {
-              component.participatory_space.active_step.id => {
+              component.participatory_space.active_phase.id => {
                 proposal_answering_enabled: true
               }
             }
@@ -313,7 +313,7 @@ describe "Filter Proposals", :slow do
         before do
           component.update!(
             step_settings: {
-              component.participatory_space.active_step.id => {
+              component.participatory_space.active_phase.id => {
                 proposal_answering_enabled: false
               }
             }
@@ -346,7 +346,7 @@ describe "Filter Proposals", :slow do
   end
 
   context "when filtering proposals by ACTIVITY" do
-    let(:active_step_id) { component.participatory_space.active_step.id }
+    let(:active_step_id) { component.participatory_space.active_phase.id }
     let!(:voted_proposal) { create(:proposal, component:) }
     let!(:vote) { create(:proposal_vote, proposal: voted_proposal, author: user) }
     let!(:proposal_list) { create_list(:proposal, 3, component:) }
@@ -472,7 +472,7 @@ describe "Filter Proposals", :slow do
               component.update!(settings: { amendments_enabled: true })
               component.update!(
                 step_settings: {
-                  component.participatory_space.active_step.id => {
+                  component.participatory_space.active_phase.id => {
                     amendments_visibility: "participants"
                   }
                 }
@@ -519,7 +519,7 @@ describe "Filter Proposals", :slow do
               component.update!(settings: { amendments_enabled: true })
               component.update!(
                 step_settings: {
-                  component.participatory_space.active_step.id => {
+                  component.participatory_space.active_phase.id => {
                     amendments_visibility: "participants"
                   }
                 }
@@ -545,7 +545,7 @@ describe "Filter Proposals", :slow do
           before do
             component.update!(
               step_settings: {
-                component.participatory_space.active_step.id => {
+                component.participatory_space.active_phase.id => {
                   amendments_visibility: "participants"
                 }
               }

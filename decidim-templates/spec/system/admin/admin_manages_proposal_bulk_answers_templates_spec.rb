@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages bulk proposal answer templates" do
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:participatory_space) { participatory_process }
   let!(:component) { create(:proposal_component, participatory_space:) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
@@ -91,7 +91,7 @@ describe "Admin manages bulk proposal answer templates" do
     before do
       component.update!(
         step_settings: {
-          component.participatory_space.active_step.id => {
+          component.participatory_space.active_phase.id => {
             answers_with_costs: true
           }
         }

@@ -45,7 +45,7 @@ describe "Explore projects", :slow do
     end
 
     context "when voting is finished" do
-      let(:active_step_id) { participatory_process.active_step.id }
+      let(:active_step_id) { participatory_process.active_phase.id }
 
       before do
         component.update!(step_settings: { active_step_id => { votes: :finished, show_votes: } })
@@ -238,7 +238,7 @@ describe "Explore projects", :slow do
         end
 
         context "and votes are not shown" do
-          let(:active_step_id) { component.participatory_space.active_step.id }
+          let(:active_step_id) { component.participatory_space.active_phase.id }
 
           before do
             component.update!(step_settings: { active_step_id => { show_votes: false } })

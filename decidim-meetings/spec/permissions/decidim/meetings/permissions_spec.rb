@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Meetings::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:participatory_space) { create(:participatory_process, :with_steps) }
+  let(:participatory_space) { create(:participatory_process, :with_phases) }
   let(:user) { create(:user, :confirmed, organization: participatory_space.organization) }
   let(:admin_user) { create(:user, :confirmed, :admin, organization: participatory_space.organization) }
   let(:context) do
@@ -213,7 +213,7 @@ describe Decidim::Meetings::Permissions do
     end
 
     context "when space is restricted and setting is enabled" do
-      let(:participatory_space) { create(:participatory_process, :with_steps, :restricted) }
+      let(:participatory_space) { create(:participatory_process, :with_phases, :restricted) }
       let(:component_settings) do
         double(creation_enabled_for_participants?: true)
       end

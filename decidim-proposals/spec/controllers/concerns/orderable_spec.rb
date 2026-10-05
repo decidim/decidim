@@ -9,8 +9,8 @@ module Decidim
     end
 
     describe OrderableFakeController do
-      let(:participatory_process) { create(:participatory_process, :with_steps) }
-      let(:active_step_id) { participatory_process.active_step.id }
+      let(:participatory_process) { create(:participatory_process, :with_phases) }
+      let(:active_step_id) { participatory_process.active_phase.id }
       let(:component) { create(:component, :with_one_step, participatory_space: participatory_process, manifest_name: "proposals") }
       let(:component_settings) do
         double(

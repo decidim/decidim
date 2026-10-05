@@ -9,7 +9,7 @@ module Decidim
 
       let(:root_klass) { MeetingMutationType }
       let(:organization) { create(:organization, available_locales: [:en]) }
-      let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+      let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
       let(:user) { create(:user, :confirmed, organization:) }
       let(:component) { create(:meeting_component, participatory_space: participatory_process) }
       let!(:model) { create(:meeting, :published, component:, author: user) }

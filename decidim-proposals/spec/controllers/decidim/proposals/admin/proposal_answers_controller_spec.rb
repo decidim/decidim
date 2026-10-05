@@ -54,7 +54,7 @@ module Decidim
             before do
               component.update!(
                 step_settings: {
-                  component.participatory_space.active_step.id => {
+                  component.participatory_space.active_phase.id => {
                     answers_with_costs: true
                   }
                 }
@@ -115,7 +115,7 @@ module Decidim
             before do
               component.update!(
                 step_settings: {
-                  component.participatory_space.active_step.id => {
+                  component.participatory_space.active_phase.id => {
                     answers_with_costs: true
                   }
                 }

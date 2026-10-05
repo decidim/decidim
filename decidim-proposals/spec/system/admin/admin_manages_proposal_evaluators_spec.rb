@@ -6,7 +6,7 @@ describe "Admin manages proposals evaluators" do
   let(:manifest_name) { "proposals" }
   let!(:proposal) { create(:proposal, component: current_component) }
   let!(:reportables) { create_list(:proposal, 3, component: current_component) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end

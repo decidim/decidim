@@ -13,7 +13,7 @@ module Decidim
 
       let(:current_organization) { create(:organization, available_locales: [:en]) }
       let(:organization) { current_organization }
-      let(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
+      let(:participatory_process) { create(:participatory_process, :published, :with_phases, organization:) }
 
       let(:locale) { "en" }
       let(:translation_locale) { "en" }

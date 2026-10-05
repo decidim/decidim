@@ -280,7 +280,7 @@ module Decidim
         let!(:amendable) { create(:proposal, component:) }
         let!(:emendation) { create(:proposal, component:) }
         let!(:amendment) { create(:amendment, amendable:, emendation:) }
-        let(:active_step_id) { component.participatory_space.active_step.id }
+        let(:active_step_id) { component.participatory_space.active_phase.id }
 
         context "when the proposal is an amendable" do
           it "shows the proposal" do

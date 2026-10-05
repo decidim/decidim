@@ -14,7 +14,7 @@ module Decidim
 
       let(:current_organization) { create(:organization, available_locales: [:en]) }
       let(:organization) { current_organization }
-      let(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
+      let(:participatory_process) { create(:participatory_process, :published, :with_phases, organization:) }
       let!(:current_component) do
         create(:debates_component, :published, :with_creation_enabled, participatory_space: participatory_process, settings: {
                  taxonomy_filters: [taxonomy_filter.id]
