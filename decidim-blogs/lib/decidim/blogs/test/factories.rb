@@ -13,7 +13,7 @@ FactoryBot.define do
 
     name { generate_component_name(participatory_space.organization.available_locales, :blogs, skip_injection:) }
     manifest_name { :blogs }
-    participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
+    participatory_space { create(:participatory_process, :with_phases, skip_injection:, organization:) }
 
     trait :with_likes_enabled do
       step_settings do

@@ -14,7 +14,7 @@ FactoryBot.define do
     end
     name { generate_component_name(participatory_space.organization.available_locales, :budgets, skip_injection:) }
     manifest_name { :budgets }
-    participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
+    participatory_space { create(:participatory_process, :with_phases, skip_injection:, organization:) }
 
     trait :with_geocoding_enabled do
       settings do
