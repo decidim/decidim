@@ -64,6 +64,18 @@ module Decidim::Surveys
         end
       end
 
+      context "when the serialized data comes from DataSerializer through JSON" do
+        let(:as_json) do
+          JSON.parse(DataSerializer.new(component).serialize.to_json)
+        end
+
+        it "imports the questions with their matrix rows and display conditions" do
+          questions = subject.first.questionnaire.questions
+          expect(questions.size).to eq(4)
+          imported_questions_should_eq_serialized(questions)
+        end
+      end
+
       describe "#import" do
         let!(:imported) { subject }
 
