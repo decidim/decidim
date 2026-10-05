@@ -18,7 +18,7 @@ module Decidim
         )
 
         step_settings = if participatory_space.allows_steps?
-                          { participatory_space.active_step.id => { comments_enabled: true, comments_blocked: false } }
+                          { participatory_space.active_phase.id => { comments_enabled: true, comments_blocked: false } }
                         else
                           {}
                         end

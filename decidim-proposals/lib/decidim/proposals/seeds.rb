@@ -42,7 +42,7 @@ module Decidim
 
       def create_component!
         step_settings = if participatory_space.allows_steps?
-                          { participatory_space.active_step.id => {
+                          { participatory_space.active_phase.id => {
                             votes_enabled: true,
                             votes_blocked: [false, true].sample,
                             votes_hidden: [false, true].sample,

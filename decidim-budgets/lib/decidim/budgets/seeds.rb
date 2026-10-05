@@ -39,7 +39,7 @@ module Decidim
         end
 
         step_settings = if participatory_space.allows_steps?
-                          { participatory_space.active_step.id => {
+                          { participatory_space.active_phase.id => {
                             votes: %w(enabled disabled finished).sample
                           } }
                         else
