@@ -9,9 +9,12 @@ module Decidim
       required_scopes "api:read", "admin:read", "admin:write"
 
       argument :attributes, ProjectAttributes, description: "Input attributes to update a project", required: true
-      argument :id, GraphQL::Types::ID, "The ID of the project", required: true
+      # The id is resolved from the parent `project(id:)` field when the
+      # mutation is nested, so it is only required when the mutation is
+      # reached with a budget as parent object.
+      argument :id, GraphQL::Types::ID, "The ID of the project", required: false
 
-      def resolve(attributes:, id:)
+      def resolve(attributes:, id: nil)
         project = project(id)
         params = extract_from(attributes, project)
 
@@ -30,7 +33,7 @@ module Decidim
         raise Decidim::Api::Errors::UnauthorizedObjectError, e.message
       end
 
-      def authorized?(attributes:, id:)
+      def authorized?(attributes:, id: nil)
         project = project(id)
 
         unless super && allowed_to?(:update, :project, project, { project:, current_user: })
@@ -47,7 +50,11 @@ module Decidim
       private
 
       def project(id = nil)
-        context[:project] ||= object.projects.find(id)
+        context[:project] ||= if object.is_a?(Decidim::Budgets::Project)
+                                object
+                              else
+                                object.projects.find(id)
+                              end
       end
 
       def extract_from(attributes, project)
