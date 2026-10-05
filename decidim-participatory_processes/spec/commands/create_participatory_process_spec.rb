@@ -126,10 +126,10 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to broadcast(:ok)
       end
 
-      it "adds the default active step" do
+      it "adds the default active phase" do
         subject.call
-        expect(process.steps.count).to eq(1)
-        expect(process.steps.first).to be_active
+        expect(process.phases.count).to eq(1)
+        expect(process.phases.first).to be_active
       end
 
       it "adds the admins as followers" do

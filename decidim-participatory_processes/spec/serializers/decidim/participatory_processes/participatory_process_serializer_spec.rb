@@ -105,26 +105,26 @@ module Decidim::ParticipatoryProcesses
         end
       end
 
-      context "when process has steps" do
-        let(:step) { create(:participatory_process_step) }
+      context "when process has phases" do
+        let(:phase) { create(:participatory_process_phase) }
 
         before do
-          resource.steps << step
+          resource.phases << phase
           resource.save
         end
 
-        it "includes the participatory_process_steps" do
-          serialized_participatory_process_steps = subject.serialize[:participatory_process_steps].first
+        it "includes the participatory_process_phases" do
+          serialized_participatory_process_phases = subject.serialize[:participatory_process_phases].first
 
-          expect(serialized_participatory_process_steps).to be_a(Hash)
+          expect(serialized_participatory_process_phases).to be_a(Hash)
 
-          expect(serialized_participatory_process_steps).to include(id: step.id)
-          expect(serialized_participatory_process_steps).to include(title: step.title)
-          expect(serialized_participatory_process_steps).to include(description: step.description)
-          expect(serialized_participatory_process_steps).to include(start_date: step.start_date)
-          expect(serialized_participatory_process_steps).to include(end_date: step.end_date)
-          expect(serialized_participatory_process_steps).to include(active: step.active)
-          expect(serialized_participatory_process_steps).to include(position: step.position)
+          expect(serialized_participatory_process_phases).to include(id: phase.id)
+          expect(serialized_participatory_process_phases).to include(title: phase.title)
+          expect(serialized_participatory_process_phases).to include(description: phase.description)
+          expect(serialized_participatory_process_phases).to include(start_date: phase.start_date)
+          expect(serialized_participatory_process_phases).to include(end_date: phase.end_date)
+          expect(serialized_participatory_process_phases).to include(active: phase.active)
+          expect(serialized_participatory_process_phases).to include(position: phase.position)
         end
       end
 

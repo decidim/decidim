@@ -11,7 +11,7 @@ module Decidim::ParticipatoryProcesses
     let(:participatory_process_group) { create(:participatory_process_group, organization:, taxonomies: [taxonomy]) }
     let(:taxonomy) { create(:taxonomy, with_parent, organization:) }
     let(:errors) { double.as_null_object }
-    let!(:participatory_process) { create(:participatory_process, :with_steps) }
+    let!(:participatory_process) { create(:participatory_process, :with_phases) }
     let!(:content_block) { create(:content_block, manifest_name: :hero, organization: participatory_process.organization, scope_name: :participatory_process_homepage, scoped_resource_id: participatory_process.id) }
     let!(:component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
     let(:form) do
@@ -133,17 +133,17 @@ module Decidim::ParticipatoryProcesses
     context "when duplicate_phases exists" do
       let(:duplicate_phases) { true }
 
-      it "duplicates a participatory process and the steps" do
-        expect { subject.call }.to change(Decidim::ParticipatoryProcessStep, :count).by(1)
-        expect(Decidim::ParticipatoryProcessStep.distinct.pluck(:decidim_participatory_process_id).count).to eq 2
+      it "duplicates a participatory process and the phases" do
+        expect { subject.call }.to change(Decidim::ParticipatoryProcessPhase, :count).by(1)
+        expect(Decidim::ParticipatoryProcessPhase.distinct.pluck(:decidim_participatory_process_id).count).to eq 2
 
-        old_participatory_process_step = Decidim::ParticipatoryProcessStep.first
-        new_participatory_process_step = Decidim::ParticipatoryProcessStep.last
+        old_participatory_process_phase = Decidim::ParticipatoryProcessPhase.first
+        new_participatory_process_phase = Decidim::ParticipatoryProcessPhase.last
 
-        expect(new_participatory_process_step.title).to eq(old_participatory_process_step.title)
-        expect(new_participatory_process_step.description).to eq(old_participatory_process_step.description)
-        expect(new_participatory_process_step.end_date).to eq(old_participatory_process_step.end_date)
-        expect(new_participatory_process_step.start_date).to eq(old_participatory_process_step.start_date)
+        expect(new_participatory_process_phase.title).to eq(old_participatory_process_phase.title)
+        expect(new_participatory_process_phase.description).to eq(old_participatory_process_phase.description)
+        expect(new_participatory_process_phase.end_date).to eq(old_participatory_process_phase.end_date)
+        expect(new_participatory_process_phase.start_date).to eq(old_participatory_process_phase.start_date)
       end
     end
 
@@ -164,8 +164,8 @@ module Decidim::ParticipatoryProcesses
         expect(last_component.name).to eq(component.name)
         expect(last_component.settings.attributes.except("dummy_global_translatable_text")).to eq(component.settings.attributes.except("dummy_global_translatable_text"))
         expect(last_component.settings.attributes["dummy_global_translatable_text"]).to include(component.settings.attributes["dummy_global_translatable_text"])
-        expect(last_component.step_settings.keys).not_to eq(component.step_settings.keys)
-        expect(last_component.step_settings.values).not_to eq(component.step_settings.values)
+        expect(last_component.phase_settings.keys).not_to eq(component.phase_settings.keys)
+        expect(last_component.phase_settings.values).not_to eq(component.phase_settings.values)
       end
     end
   end

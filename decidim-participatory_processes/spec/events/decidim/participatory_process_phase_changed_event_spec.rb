@@ -2,24 +2,24 @@
 
 require "spec_helper"
 
-describe Decidim::ParticipatoryProcessStepChangedEvent do
+describe Decidim::ParticipatoryProcessPhaseChangedEvent do
   include Rails.application.routes.mounted_helpers
 
   include_context "when a simple event"
 
-  let(:event_name) { "decidim.events.participatory_process.step_changed" }
+  let(:event_name) { "decidim.events.participatory_process.phase_changed" }
   let(:participatory_process) { resource.participatory_process }
   let(:participatory_space) { resource.participatory_process }
-  let(:resource) { create(:participatory_process_step) }
+  let(:resource) { create(:participatory_process_phase) }
   let(:resource_path) do
-    decidim_participatory_processes.participatory_process_path(participatory_process, display_steps: true)
+    decidim_participatory_processes.participatory_process_path(participatory_process, display_phases: true)
   end
 
   let(:resource_url) do
     decidim_participatory_processes
       .participatory_process_url(
         participatory_process,
-        display_steps: true,
+        display_phases: true,
         host: participatory_process.organization.host
       )
   end

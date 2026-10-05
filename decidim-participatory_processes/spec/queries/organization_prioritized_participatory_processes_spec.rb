@@ -10,27 +10,27 @@ module Decidim::ParticipatoryProcesses
     let!(:local_promoted_process_ending_first) do
       create(:participatory_process,
              :promoted,
-             :with_steps,
+             :with_phases,
              organization:,
-             current_step_ends: 1.month.from_now)
+             current_phase_ends: 1.month.from_now)
     end
 
     let!(:local_promoted_process_ending_last) do
       create(:participatory_process,
              :promoted,
-             :with_steps,
+             :with_phases,
              organization:,
-             current_step_ends: 2.months.from_now)
+             current_phase_ends: 2.months.from_now)
     end
 
-    let!(:local_non_promoted_process_with_steps) do
+    let!(:local_non_promoted_process_with_phases) do
       create(:participatory_process,
              :published,
-             :with_steps,
+             :with_phases,
              organization:)
     end
 
-    let!(:local_non_promoted_process_without_steps) do
+    let!(:local_non_promoted_process_without_phases) do
       create(:participatory_process, :published, organization:)
     end
 
@@ -41,8 +41,8 @@ module Decidim::ParticipatoryProcesses
         expect(subject.to_a).to eq [
           local_promoted_process_ending_first,
           local_promoted_process_ending_last,
-          local_non_promoted_process_with_steps,
-          local_non_promoted_process_without_steps
+          local_non_promoted_process_with_phases,
+          local_non_promoted_process_without_phases
         ]
       end
     end
