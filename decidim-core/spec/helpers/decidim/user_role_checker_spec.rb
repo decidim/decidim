@@ -134,6 +134,113 @@ module Decidim
       end
     end
 
+    describe "#space_user_role?" do
+      let(:participatory_process) { create(:participatory_process, organization:) }
+      let(:assembly) { create(:assembly, organization:) }
+      let(:conference) { create(:conference, organization:) }
+
+      context "when all the optional modules are installed" do
+        before { create(:participatory_process_user_role, user:, participatory_process:) }
+
+        it "returns true for the given participatory space type" do
+          expect(checker.send(:space_user_role?, user, participatory_process)).to be(true)
+        end
+
+        it "returns false for another participatory space type" do
+          expect(checker.send(:space_user_role?, user, assembly)).to be(false)
+        end
+
+        it "returns true with a broad check" do
+          expect(checker.send(:space_user_role?, user, nil, broad_check: true)).to be(true)
+        end
+
+        it "returns false without any space" do
+          expect(checker.send(:space_user_role?, user, nil)).to be(false)
+        end
+      end
+
+      context "when the participatory_processes module is not installed" do
+        before do
+          create(:participatory_process_user_role, user:, participatory_process:)
+          create(:conference_user_role, user:, conference:)
+
+          allow(Decidim).to receive(:module_installed?).and_call_original
+          allow(Decidim).to receive(:module_installed?).with(:participatory_processes).and_return(false)
+          hide_const("Decidim::ParticipatoryProcess")
+        end
+
+        it "does not evaluate the missing module class" do
+          expect { checker.send(:space_user_role?, user, participatory_process) }.not_to raise_error
+        end
+
+        it "returns false for a space of the missing module" do
+          expect(checker.send(:space_user_role?, user, participatory_process)).to be(false)
+        end
+
+        it "returns true for a space of an installed module" do
+          expect(checker.send(:space_user_role?, user, conference)).to be(true)
+        end
+
+        it "returns true with a broad check" do
+          expect(checker.send(:space_user_role?, user, nil, broad_check: true)).to be(true)
+        end
+      end
+
+      context "when the assemblies module is not installed" do
+        before do
+          create(:assembly_user_role, user:, assembly:)
+          create(:conference_user_role, user:, conference:)
+
+          allow(Decidim).to receive(:module_installed?).and_call_original
+          allow(Decidim).to receive(:module_installed?).with(:assemblies).and_return(false)
+          hide_const("Decidim::Assembly")
+        end
+
+        it "does not evaluate the missing module class" do
+          expect { checker.send(:space_user_role?, user, assembly) }.not_to raise_error
+        end
+
+        it "returns false for a space of the missing module" do
+          expect(checker.send(:space_user_role?, user, assembly)).to be(false)
+        end
+
+        it "returns true for a space of an installed module" do
+          expect(checker.send(:space_user_role?, user, conference)).to be(true)
+        end
+
+        it "returns true with a broad check" do
+          expect(checker.send(:space_user_role?, user, nil, broad_check: true)).to be(true)
+        end
+      end
+
+      context "when the conferences module is not installed" do
+        before do
+          create(:conference_user_role, user:, conference:)
+          create(:participatory_process_user_role, user:, participatory_process:)
+
+          allow(Decidim).to receive(:module_installed?).and_call_original
+          allow(Decidim).to receive(:module_installed?).with(:conferences).and_return(false)
+          hide_const("Decidim::Conference")
+        end
+
+        it "does not evaluate the missing module class" do
+          expect { checker.send(:space_user_role?, user, conference) }.not_to raise_error
+        end
+
+        it "returns false for a space of the missing module" do
+          expect(checker.send(:space_user_role?, user, conference)).to be(false)
+        end
+
+        it "returns true for a space of an installed module" do
+          expect(checker.send(:space_user_role?, user, participatory_process)).to be(true)
+        end
+
+        it "returns true with a broad check" do
+          expect(checker.send(:space_user_role?, user, nil, broad_check: true)).to be(true)
+        end
+      end
+    end
+
     describe "#participatory_process_user_role?" do
       let(:participatory_process) { create(:participatory_process, organization:) }
 

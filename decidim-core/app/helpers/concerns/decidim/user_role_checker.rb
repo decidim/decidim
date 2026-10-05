@@ -22,14 +22,26 @@ module Decidim
     end
 
     def space_user_role?(user, participatory_space, broad_check: false)
-      return participatory_process_user_role?(user, participatory_space, broad_check:) if participatory_space.is_a?(Decidim::ParticipatoryProcess)
-      return assembly_user_role?(user, participatory_space, broad_check:) if participatory_space.is_a?(Decidim::Assembly)
-      return conference_user_role?(user, participatory_space, broad_check:) if participatory_space.is_a?(Decidim::Conference)
+      return participatory_process_user_role?(user, participatory_space, broad_check:) if participatory_process_space?(participatory_space)
+      return assembly_user_role?(user, participatory_space, broad_check:) if assembly_space?(participatory_space)
+      return conference_user_role?(user, participatory_space, broad_check:) if conference_space?(participatory_space)
       return false unless broad_check
 
       participatory_process_user_role?(user, nil, broad_check: true) ||
         assembly_user_role?(user, nil, broad_check: true) ||
         conference_user_role?(user, nil, broad_check: true)
+    end
+
+    def participatory_process_space?(participatory_space)
+      Decidim.module_installed?(:participatory_processes) && participatory_space.is_a?(Decidim::ParticipatoryProcess)
+    end
+
+    def assembly_space?(participatory_space)
+      Decidim.module_installed?(:assemblies) && participatory_space.is_a?(Decidim::Assembly)
+    end
+
+    def conference_space?(participatory_space)
+      Decidim.module_installed?(:conferences) && participatory_space.is_a?(Decidim::Conference)
     end
 
     def participatory_process_user_role?(user, participatory_process = nil, broad_check: false)
