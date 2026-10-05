@@ -101,7 +101,7 @@ PATH
       rack-attack (>= 6.7, < 6.9)
       rails (~> 8.1.0)
       rails-i18n (~> 8.1.0, < 8.2)
-      ransack (>= 4.2, < 4.5)
+      ransack (>= 4.2, < 5.1)
       redis (>= 4.1, < 7.0)
       request_store (~> 1.7.0)
       rqrcode (>= 2.2, < 3.3)
@@ -374,7 +374,7 @@ GEM
     devise-jwt (0.13.0)
       devise (>= 4.0.0, < 6.0.0)
       warden-jwt_auth (~> 0.10)
-    devise_invitable (2.0.12)
+    devise_invitable (2.0.14)
       actionmailer (>= 5.0)
       devise (>= 4.6)
     diff-lcs (1.6.2)
@@ -382,7 +382,7 @@ GEM
     doc2text (0.4.11)
       nokogiri (~> 1.19)
       rubyzip (~> 3.2)
-    doorkeeper (5.9.7)
+    doorkeeper (5.9.9)
       railties (>= 5)
     doorkeeper-i18n (5.2.9)
       doorkeeper (>= 5.2)
@@ -714,7 +714,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.4.2)
-    ransack (4.4.1)
+    ransack (5.0.2)
       activerecord (>= 7.2)
       activesupport (>= 7.2)
       i18n
@@ -725,7 +725,7 @@ GEM
       logger
       prism (>= 1.6.0)
       tsort
-    rdoc (8.0.0)
+    rdoc (8.1.0)
       erb
       prism (>= 1.6.0)
       rbs (>= 4.0.0)
