@@ -148,13 +148,13 @@ module Decidim::ParticipatoryProcesses
     describe "when import_components exists" do
       let(:import_components) { true }
 
-      it "imports a participatory process and the steps" do
+      it "imports a participatory process and the phases" do
         stub_calls_to_external_files
         expect { subject.call }.to change(Decidim::Component, :count).by(3)
         expect(Decidim::Component.where(participatory_space_id: Decidim::ParticipatoryProcess.last).count).to eq 3
       end
 
-      context "when participatory process steps are null" do
+      context "when participatory process phases are null" do
         let(:document_name) { "participatory_processes_with_null.json" }
 
         it_behaves_like "import participatory_process succeeds"
@@ -164,18 +164,18 @@ module Decidim::ParticipatoryProcesses
     describe "when import_phases exists" do
       let(:import_phases) { true }
 
-      it "imports a participatory process and the steps" do
+      it "imports a participatory process and the phases" do
         stub_calls_to_external_files
-        expect { subject.call }.to change(Decidim::ParticipatoryProcessStep, :count).by(1)
-        expect(Decidim::ParticipatoryProcessStep.distinct.pluck(:decidim_participatory_process_id).count).to eq 1
+        expect { subject.call }.to change(Decidim::ParticipatoryProcessPhase, :count).by(1)
+        expect(Decidim::ParticipatoryProcessPhase.distinct.pluck(:decidim_participatory_process_id).count).to eq 1
 
-        imported_participatory_process_step = Decidim::ParticipatoryProcessStep.last
+        imported_participatory_process_phase = Decidim::ParticipatoryProcessPhase.last
 
-        expect(imported_participatory_process_step.title).to eq("ca" => "Quo.", "en" => "Magni.", "es" => "Praesentium.")
-        expect(imported_participatory_process_step.description).not_to be_nil
+        expect(imported_participatory_process_phase.title).to eq("ca" => "Quo.", "en" => "Magni.", "es" => "Praesentium.")
+        expect(imported_participatory_process_phase.description).not_to be_nil
       end
 
-      context "when participatory process steps are null" do
+      context "when participatory process phases are null" do
         let(:document_name) { "participatory_processes_with_null.json" }
 
         it_behaves_like "import participatory_process succeeds"

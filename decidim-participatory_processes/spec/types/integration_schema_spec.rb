@@ -11,7 +11,7 @@ describe "Decidim::Api::QueryType" do
 
   let!(:taxonomy) { create(:taxonomy, :with_parent, :with_children, organization: current_organization) }
   let!(:participatory_process_group) { create(:participatory_process_group, organization: current_organization) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: current_organization, participatory_process_group:, taxonomies: [taxonomy]) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization: current_organization, participatory_process_group:, taxonomies: [taxonomy]) }
   let!(:follows) { create_list(:follow, 3, followable: participatory_process) }
   let(:participatory_process_query) do
     %(
@@ -128,7 +128,7 @@ describe "Decidim::Api::QueryType" do
         }
         slug
         startDate
-        steps {
+        phases {
           active
           createdAt
           description{
@@ -203,18 +203,18 @@ describe "Decidim::Api::QueryType" do
       "shortDescription" => { "translation" => participatory_process.short_description[locale] },
       "slug" => participatory_process.slug,
       "startDate" => participatory_process.start_date.to_s,
-      "steps" => [
+      "phases" => [
         {
-          "active" => participatory_process.steps.first.active,
-          "createdAt" => participatory_process.steps.first.created_at.to_time.iso8601,
-          "description" => { "translation" => participatory_process.steps.first.description[locale] },
-          "endDate" => participatory_process.steps.first.end_date&.to_time&.iso8601,
-          "id" => participatory_process.steps.first.id.to_s,
+          "active" => participatory_process.phases.first.active,
+          "createdAt" => participatory_process.phases.first.created_at.to_time.iso8601,
+          "description" => { "translation" => participatory_process.phases.first.description[locale] },
+          "endDate" => participatory_process.phases.first.end_date&.to_time&.iso8601,
+          "id" => participatory_process.phases.first.id.to_s,
           "participatoryProcess" => { "id" => participatory_process.id.to_s },
-          "position" => participatory_process.steps.first.position,
-          "startDate" => participatory_process.steps.first.start_date&.to_time&.iso8601,
-          "title" => { "translation" => participatory_process.steps.first.title[locale] },
-          "updatedAt" => participatory_process.steps.first.updated_at.to_time.iso8601
+          "position" => participatory_process.phases.first.position,
+          "startDate" => participatory_process.phases.first.start_date&.to_time&.iso8601,
+          "title" => { "translation" => participatory_process.phases.first.title[locale] },
+          "updatedAt" => participatory_process.phases.first.updated_at.to_time.iso8601
         }
       ],
       "subtitle" => { "translation" => participatory_process.subtitle[locale] },

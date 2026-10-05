@@ -3,32 +3,32 @@
 require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
-  describe Admin::ActivateParticipatoryProcessStep do
-    subject { described_class.new(process_step, user) }
+  describe Admin::ActivateParticipatoryProcessPhase do
+    subject { described_class.new(process_phase, user) }
 
     let(:user) { create(:user, :admin, :confirmed) }
-    let(:process_step) { create(:participatory_process_step) }
-    let(:participatory_process) { process_step.participatory_process }
+    let(:process_phase) { create(:participatory_process_phase) }
+    let(:participatory_process) { process_phase.participatory_process }
 
-    context "when the step is nil" do
-      let(:process_step) { nil }
-
-      it "is not valid" do
-        expect { subject.call }.to broadcast(:invalid)
-      end
-    end
-
-    context "when the step is active" do
-      let(:process_step) { create(:participatory_process_step, :active) }
+    context "when the phase is nil" do
+      let(:process_phase) { nil }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
       end
     end
 
-    context "when the step is not active" do
-      let!(:active_step) do
-        create(:participatory_process_step, :active, participatory_process:)
+    context "when the phase is active" do
+      let(:process_phase) { create(:participatory_process_phase, :active) }
+
+      it "is not valid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "when the phase is not active" do
+      let!(:active_phase) do
+        create(:participatory_process_phase, :active, participatory_process:)
       end
 
       it "is valid" do
@@ -37,13 +37,13 @@ module Decidim::ParticipatoryProcesses
 
       it "activates it" do
         subject.call
-        expect(process_step).to be_active
+        expect(process_phase).to be_active
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(:activate, process_step, user)
+          .with(:activate, process_phase, user)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -52,10 +52,10 @@ module Decidim::ParticipatoryProcesses
         expect(action_log.version.event).to be_present
       end
 
-      it "deactivates the process active steps" do
+      it "deactivates the process active phases" do
         subject.call
-        active_step.reload
-        expect(active_step).not_to be_active
+        active_phase.reload
+        expect(active_phase).not_to be_active
       end
 
       it "notifies the process followers" do
@@ -65,9 +65,9 @@ module Decidim::ParticipatoryProcesses
         expect(Decidim::EventsManager)
           .to receive(:publish)
           .with(
-            event: "decidim.events.participatory_process.step_activated",
-            event_class: Decidim::ParticipatoryProcessStepActivatedEvent,
-            resource: process_step,
+            event: "decidim.events.participatory_process.phase_activated",
+            event_class: Decidim::ParticipatoryProcessPhaseActivatedEvent,
+            resource: process_phase,
             followers: [follower]
           )
 
@@ -82,8 +82,8 @@ module Decidim::ParticipatoryProcesses
         it "publishes the settings change for each component in the process" do
           expect(Decidim::SettingsChange).to receive(:publish).with(
             component,
-            component.step_settings[active_step.id.to_s].to_h,
-            component.step_settings[process_step.id.to_s].to_h
+            component.phase_settings[active_phase.id.to_s].to_h,
+            component.phase_settings[process_phase.id.to_s].to_h
           )
 
           subject.call
