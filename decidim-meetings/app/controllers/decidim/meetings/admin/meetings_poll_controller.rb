@@ -56,7 +56,7 @@ module Decidim
           respond_to do |format|
             format.json do
               question_id = params["id"]
-              question = Decidim::Meetings::Question.find_by(id: question_id)
+              question = questionnaire.questions.find_by(id: question_id)
               render json: question.response_options.map { |response_option| ResponseOptionPresenter.new(response_option).as_json } if question.present?
             end
           end
@@ -81,7 +81,7 @@ module Decidim
         private
 
         def questionnaire
-          @questionnaire ||= Decidim::Meetings::Questionnaire.find_or_initialize_by(questionnaire_for:)
+          @questionnaire ||= poll.questionnaire || Decidim::Meetings::Questionnaire.new(questionnaire_for:)
         end
 
         def blank_question
@@ -111,7 +111,7 @@ module Decidim
         end
 
         def poll
-          @poll ||= Poll.find_or_initialize_by(meeting:)
+          @poll ||= meeting.poll || Decidim::Meetings::Poll.new(meeting:)
         end
       end
     end

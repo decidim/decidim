@@ -35,7 +35,6 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-comments", version
   s.add_dependency "decidim-core", version
   s.add_dependency "decidim-generators", version
-  s.add_dependency "decidim-verifications", version
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"
 
@@ -59,7 +58,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rubocop-faker", "~> 1.3", ">= 1.3.0"
   s.add_dependency "rubocop-graphql", "~> 1.5", ">= 1.5.6"
   s.add_dependency "rubocop-performance", "~> 1.25", ">= 1.25.0"
-  s.add_dependency "rubocop-rails", ">= 2.32", "< 2.38"
+  s.add_dependency "rubocop-rails", ">= 2.32", "< 2.39"
   s.add_dependency "rubocop-rspec", "~> 3.0", ">= 3.6.0"
   s.add_dependency "rubocop-rspec_rails", ">= 2.31", "< 2.33"
   s.add_dependency "rubocop-rubycw", "~> 0.2.0"
