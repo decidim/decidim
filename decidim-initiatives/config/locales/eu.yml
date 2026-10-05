@@ -414,7 +414,6 @@ eu:
           new: Beste ekimen bat sortu
           select: Ekimen hau sustatu nahi dut
           select_initiative_type_help_html: "<p>Ekimenak bide dira parte-hartzaileek parte har dezaten, erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen jarri nahi duzu abian?</p>"
-          show_less: Gutxiago erakutsi
           show_more: Gehiago erakutsi
           subtitle: Zein ekimen sustatu nahi duzu?
           verification_required: Egiaztatu zure kontua ekimen hau sustatzeko.
@@ -459,7 +458,6 @@ eu:
       form:
         add_attachments: Eranskinak gehitu
         add_image: Irudia gehitu
-        attachment_legend: Dokumentu bat edo irudi bat gehitu
         edit_attachments: Eranskinak editatu
         edit_image: Editatu irudia
         image_legend: "(Aukerakoa) Gehitu irudi bat"

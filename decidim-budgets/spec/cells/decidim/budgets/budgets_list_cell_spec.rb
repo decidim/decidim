@@ -25,11 +25,10 @@ module Decidim::Budgets
 
       allow(my_cell).to receive(:url_for).and_return("/")
 
-      # rubocop:disable RSpec/AnyInstance
+      # rubocop:disable-next RSpec/AnyInstance
       allow_any_instance_of(BudgetListItemCell).to receive(:budget_projects_path) do |_subcell, budget, **|
         "/budgets/#{budget.id}/projects"
       end
-      # rubocop:enable RSpec/AnyInstance
     end
 
     describe "#main_list" do

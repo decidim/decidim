@@ -27,6 +27,11 @@ module Decidim
         def user
           @user ||= current_organization.users.find_by(id: user_id)
         end
+
+        def map_model(model)
+          self.user_id = model.is_a?(UserBaseEntity) ? model.id : model.try(:decidim_user_id)
+          super
+        end
       end
     end
   end

@@ -77,7 +77,7 @@ const createUnloadPreventer = () => {
     ev.preventDefault();
     ev.stopPropagation();
 
-    confirmAction(confirmMessage, link).then((answer) => {
+    confirmAction(confirmMessage, link, { iconName: "alert-line" }).then((answer) => {
       if (!answer) {
         return;
       }
@@ -109,7 +109,7 @@ const createUnloadPreventer = () => {
     ev.stopImmediatePropagation();
     ev.stopPropagation();
 
-    confirmAction(confirmMessage, button).then((answer) => {
+    confirmAction(confirmMessage, button, { iconName: "alert-line" }).then((answer) => {
       if (!answer) {
         return;
       }

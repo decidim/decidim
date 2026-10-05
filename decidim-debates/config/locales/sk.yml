@@ -76,7 +76,6 @@ sk:
             update: Aktualizovať debatu
           form:
             add_attachments: Pridať prílohy
-            attachment_legend: Pridať dokument alebo obrázok
             comments_visualization: Zobrazenie komentárov
             comments_warning: Po zverejnení prvého komentára už nie je možné zmeniť vybranú možnosť zobrazenia.
             debate_type: Typ debaty

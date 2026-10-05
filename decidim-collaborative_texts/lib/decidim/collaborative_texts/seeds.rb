@@ -15,11 +15,11 @@ module Decidim
       def call
         component = create_component!
 
-        number_of_records.times do
+        config_value(:collaborative_texts_published_documents_count).times do
           create_document!(component:)
         end
 
-        number_of_records.times do
+        config_value(:collaborative_texts_unpublished_documents_count).times do
           create_document!(component:, published_at: nil)
         end
       end
@@ -61,7 +61,7 @@ module Decidim
         )
 
         # Create some versions
-        number_of_records.times do |num|
+        config_value(:collaborative_texts_versions_per_document_count).times do |num|
           params = {
             document:,
             body: create_body_blocks.join("\n"),
@@ -95,7 +95,9 @@ module Decidim
           changeset:,
           author: document_version.organization.users.sample
         }
-        Decidim::CollaborativeTexts::Suggestion.create!(params)
+        suggestion = Decidim::CollaborativeTexts::Suggestion.new(params)
+        suggestion.save!(validate: false)
+        suggestion
       end
 
       def create_body_blocks

@@ -1,5 +1,6 @@
 /* eslint-disable */
 const { config } = require("shakapacker");
+const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 const { InjectManifest } = require("workbox-webpack-plugin");
 const { EsbuildPlugin } = require("esbuild-loader");
 
@@ -88,6 +89,19 @@ module.exports = {
   },
   entry: config.entrypoints,
   plugins: [
+    new MonacoWebpackPlugin({
+      languages: ['json', 'graphql'],
+      publicPath: '/',
+      customLanguages: [
+        {
+          label: 'graphql',
+          worker: {
+            id: 'graphql',
+            entry: require.resolve('monaco-graphql/esm/graphql.worker.js'),
+          },
+        },
+      ],
+    }),
     new InjectManifest({
       swSrc: "src/decidim/sw/sw.js",
 
