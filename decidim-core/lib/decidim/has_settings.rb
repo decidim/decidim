@@ -45,7 +45,7 @@ module Decidim
     def step_settings
       return {} unless participatory_space.allows_steps?
 
-      participatory_space.steps.to_h do |step|
+      participatory_space.phases.to_h do |step|
         [step.id.to_s, new_settings_schema(:step, self[:settings].dig("steps", step.id.to_s))]
       end
     end
@@ -61,7 +61,7 @@ module Decidim
     def active_step_settings
       return unless participatory_space.allows_steps?
 
-      active_step = participatory_space.active_step
+      active_step = participatory_space.active_phase
       return default_step_settings unless active_step
 
       step_settings.fetch(active_step.id.to_s)

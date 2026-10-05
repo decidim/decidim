@@ -201,11 +201,11 @@ module Decidim::Proposals
       end
 
       context "when the active participatory space step change" do
-        let(:step1) { create(:participatory_process_step, participatory_process:, active: step_1_active) }
+        let(:step1) { create(:participatory_process_phase, participatory_process:, active: step_1_active) }
         let(:step_1_active) { true }
-        let(:step2) { create(:participatory_process_step, participatory_process:, active: step_2_active) }
+        let(:step2) { create(:participatory_process_phase, participatory_process:, active: step_2_active) }
         let(:step_2_active) { false }
-        let(:step3) { create(:participatory_process_step, participatory_process:, active: step_3_active) }
+        let(:step3) { create(:participatory_process_phase, participatory_process:, active: step_3_active) }
         let(:step_3_active) { false }
         let(:component) do
           create(:proposal_component,

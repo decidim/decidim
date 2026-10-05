@@ -38,7 +38,7 @@ shared_examples "manage announcements" do
 
     it "customize an announcement for the current step and it has more priority" do
       visit edit_component_path(current_component)
-      step_id = current_component.participatory_space.steps.first.id
+      step_id = current_component.participatory_space.phases.first.id
 
       fill_in_i18n_editor(
         :"component_step_settings_#{step_id}_announcement",

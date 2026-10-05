@@ -66,7 +66,7 @@ module Decidim
       def override_step_settings_ids(attributes, step_settings)
         return unless @participatory_space.has_steps? && step_settings.present?
 
-        @participatory_space.steps.each do |step|
+        @participatory_space.phases.each do |step|
           old_id = attributes["settings"]["steps"].keys.first
           step_settings[step.id.to_s] = step_settings.delete(old_id)
         end

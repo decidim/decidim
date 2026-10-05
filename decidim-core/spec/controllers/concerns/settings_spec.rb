@@ -38,7 +38,7 @@ module Decidim
 
       context "when there is an active step" do
         let!(:step) do
-          create(:participatory_process_step,
+          create(:participatory_process_phase,
                  participatory_process:,
                  active: true)
         end

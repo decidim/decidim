@@ -49,11 +49,11 @@ module Decidim
       end
 
       def allows_steps?
-        respond_to?(:steps)
+        respond_to?(:phases)
       end
 
       def has_steps?
-        allows_steps? && steps.any?
+        allows_steps? && phases.any?
       end
 
       def manifest
