@@ -15,9 +15,12 @@ module Decidim
       field :metadata, GraphQL::Types::JSON, "The metadata type of this blob", null: false
       field :service_name, GraphQL::Types::String, "The service name of this blob (where the blob is stored at)", null: false
       field :signed_id, GraphQL::Types::String, "The signed id of this blob", null: false
-      field :src, GraphQL::Types::String, "The url of this blob", null: false
+      field :src, GraphQL::Types::String, "The url of this blob. Files requiring a private download return the url of the endpoint that authorizes every request", null: false
 
       def src
+        attachment = private_download_attachment
+        return private_download_path(attachment) if attachment
+
         asset_routes.rails_blob_url(object, **default_url_options)
       end
 
@@ -26,6 +29,23 @@ module Decidim
       end
 
       private
+
+      # Direct Active Storage urls are bearer credentials: anybody holding one
+      # can download the file without any further authorization check. Files
+      # that require a private download must always be served through the
+      # private downloads controller, which authorizes every request.
+      def private_download_attachment
+        @private_download_attachment ||= object.attachments.find do |attachment|
+          record = attachment.record
+          record.respond_to?(:private_download_required?) && record.private_download_required?
+        end
+      end
+
+      def private_download_path(attachment)
+        Decidim::Core::Engine.routes.url_helpers.private_download_path(
+          Decidim::PrivateDownload.for(attachment.record, attachment_name: attachment.name).token
+        )
+      end
 
       def asset_routes
         @asset_routes ||=
