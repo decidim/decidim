@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class RenameParticipatoryProcessStepsToPhases < ActiveRecord::Migration[7.2]
-  class ActionLog < ActiveRecord::Base
+  class ActionLog < ApplicationRecord
     self.table_name = "decidim_action_logs"
   end
 
-  class Version < ActiveRecord::Base
+  class Version < ApplicationRecord
     self.table_name = "versions"
   end
 
