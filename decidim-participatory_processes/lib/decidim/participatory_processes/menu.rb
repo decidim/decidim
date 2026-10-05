@@ -122,12 +122,12 @@ module Decidim
                         icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :process, process: current_participatory_space)
 
-          menu.add_item :participatory_process_steps,
-                        I18n.t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space)),
+          menu.add_item :participatory_process_phases,
+                        I18n.t("phases", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.participatory_process_phases_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_phases_path(current_participatory_space)),
                         icon_name: "direction-line",
-                        if: allowed_to?(:read, :process_step)
+                        if: allowed_to?(:read, :process_phase)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.participatory_processes_submenu"),
