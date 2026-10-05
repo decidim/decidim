@@ -349,7 +349,7 @@ module Decidim
 
     describe ".update_settings" do
       let(:participatory_process) { component.participatory_space }
-      let!(:step) { create(:participatory_process_step, participatory_process:) }
+      let!(:step) { create(:participatory_process_phase, participatory_process:) }
 
       before do
         component.settings = {
@@ -434,7 +434,7 @@ module Decidim
 
     describe ".update_component_settings" do
       let(:participatory_process) { component.participatory_space }
-      let!(:step) { create(:participatory_process_step, participatory_process:) }
+      let!(:step) { create(:participatory_process_phase, participatory_process:) }
 
       before do
         component.settings = {
