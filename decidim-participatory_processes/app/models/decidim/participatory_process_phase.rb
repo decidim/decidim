@@ -5,8 +5,6 @@ module Decidim
   # components that will show up in the depending on what phase is currently
   # active.
   class ParticipatoryProcessPhase < ApplicationRecord
-    self.table_name = "decidim_participatory_process_phases"
-
     include Decidim::TranslatableResource
     include Traceable
     include Loggable
