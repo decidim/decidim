@@ -23,8 +23,17 @@ Decidim::Core::Engine.routes.draw do
 
   post :locate, to: "geolocation#locate"
 
-  Decidim.global_engines.each do |name, engine_data|
-    mount engine_data[:engine], at: engine_data[:at], as: name
+  scope "/:locale", **locale_scope_options do
+    Decidim.global_engines.each do |name, engine_data|
+      mount engine_data[:engine], at: engine_data[:at], as: name
+    end
+  end
+
+  Decidim.global_engines.each do |_name, engine_data|
+    path = engine_data[:at]
+
+    get path, to: redirect(&locale_redirector(path))
+    get "#{path}/*rest", to: redirect { |params, request| locale_redirector("#{path}/#{params[:rest]}").call(params, request) }
   end
 
   authenticate(:user) do
