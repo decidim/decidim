@@ -83,7 +83,7 @@ FactoryBot.define do
     trait :with_comments_blocked do
       step_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             comments_blocked: true
           }
         }
@@ -93,7 +93,7 @@ FactoryBot.define do
     trait :with_creation_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { creation_enabled: true }
+          participatory_space.active_phase.id => { creation_enabled: true }
         }
       end
     end
@@ -105,7 +105,7 @@ FactoryBot.define do
     trait :with_likes_blocked do
       step_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             likes_enabled: true,
             likes_blocked: true
           }
@@ -116,7 +116,7 @@ FactoryBot.define do
     trait :with_likes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: true }
+          participatory_space.active_phase.id => { likes_enabled: true }
         }
       end
     end
@@ -124,7 +124,7 @@ FactoryBot.define do
     trait :with_likes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: false }
+          participatory_space.active_phase.id => { likes_enabled: false }
         }
       end
     end

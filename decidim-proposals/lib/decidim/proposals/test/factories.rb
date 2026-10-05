@@ -32,7 +32,7 @@ FactoryBot.define do
     trait :with_likes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: true }
+          participatory_space.active_phase.id => { likes_enabled: true }
         }
       end
     end
@@ -40,7 +40,7 @@ FactoryBot.define do
     trait :with_likes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: false }
+          participatory_space.active_phase.id => { likes_enabled: false }
         }
       end
     end
@@ -48,7 +48,7 @@ FactoryBot.define do
     trait :with_votes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { votes_enabled: true }
+          participatory_space.active_phase.id => { votes_enabled: true }
         }
       end
     end
@@ -56,7 +56,7 @@ FactoryBot.define do
     trait :with_votes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { votes_enabled: false }
+          participatory_space.active_phase.id => { votes_enabled: false }
         }
       end
     end
@@ -64,7 +64,7 @@ FactoryBot.define do
     trait :with_votes_hidden do
       step_settings do
         {
-          participatory_space.active_step.id => { votes_hidden: true }
+          participatory_space.active_phase.id => { votes_hidden: true }
         }
       end
     end
@@ -108,7 +108,7 @@ FactoryBot.define do
     trait :with_likes_blocked do
       step_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             likes_enabled: true,
             likes_blocked: true
           }
@@ -119,7 +119,7 @@ FactoryBot.define do
     trait :with_votes_blocked do
       step_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             votes_enabled: true,
             votes_blocked: true
           }
@@ -130,7 +130,7 @@ FactoryBot.define do
     trait :with_creation_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { creation_enabled: true }
+          participatory_space.active_phase.id => { creation_enabled: true }
         }
       end
     end
@@ -219,7 +219,7 @@ FactoryBot.define do
     trait :without_publish_answers_immediately do
       step_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             publish_answers_immediately: false
           }
         }

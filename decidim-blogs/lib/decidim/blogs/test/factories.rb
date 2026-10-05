@@ -18,7 +18,7 @@ FactoryBot.define do
     trait :with_likes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: true }
+          participatory_space.active_phase.id => { likes_enabled: true }
         }
       end
     end
@@ -26,7 +26,7 @@ FactoryBot.define do
     trait :with_likes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: false }
+          participatory_space.active_phase.id => { likes_enabled: false }
         }
       end
     end
