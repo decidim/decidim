@@ -23,7 +23,7 @@ FactoryBot.define do
     end
     name { generate_component_name(participatory_space.organization.available_locales, :proposals) }
     manifest_name { :proposals }
-    participatory_space { create(:participatory_process, :with_steps, organization:, skip_injection:) }
+    participatory_space { create(:participatory_process, :with_phases, organization:, skip_injection:) }
 
     after :create do |proposal_component|
       Decidim::Proposals.create_default_states!(proposal_component, nil, with_traceability: false)
