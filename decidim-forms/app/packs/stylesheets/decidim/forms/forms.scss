@@ -1,5 +1,5 @@
 .response-questionnaire {
-  @apply border-t-2 border-background pt-8;
+  @apply border-t-2 border-background pt-8 prose max-w-full text-gray-2 text-lg prose-a:text-secondary break-words prose-ul:pl-8 prose-ol:pl-8;
 
   &__step {
     @apply space-y-10;
