@@ -3,15 +3,15 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # A command that sets a step in a participatory process as active (and
-      # unsets a previous active step)
-      class ActivateParticipatoryProcessStep < Decidim::Command
+      # A command that sets a phase in a participatory process as active (and
+      # unsets a previous active phase)
+      class ActivateParticipatoryProcessPhase < Decidim::Command
         # Public: Initializes the command.
         #
-        # step - A ParticipatoryProcessStep that will be activated
+        # phase - A ParticipatoryProcessPhase that will be activated
         # current_user - the user performing the action
-        def initialize(step, current_user)
-          @step = step
+        def initialize(phase, current_user)
+          @phase = phase
           @current_user = current_user
         end
 
@@ -22,13 +22,13 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) if step.nil? || step.active?
+          return broadcast(:invalid) if phase.nil? || phase.active?
 
-          Decidim::ParticipatoryProcessStep.transaction do
-            deactivate_active_steps
-            activate_step
+          Decidim::ParticipatoryProcessPhase.transaction do
+            deactivate_active_phases
+            activate_phase
             notify_followers
-            publish_step_settings_change
+            publish_phase_settings_change
           end
 
           broadcast(:ok)
@@ -36,52 +36,52 @@ module Decidim
 
         private
 
-        attr_reader :step, :current_user
+        attr_reader :phase, :current_user
 
-        def deactivate_active_steps
-          step.participatory_process.steps.where(active: true).each do |step|
-            @previous_step = step if step.active?
-            step.update!(active: false)
+        def deactivate_active_phases
+          phase.participatory_process.phases.where(active: true).each do |phase|
+            @previous_phase = phase if phase.active?
+            phase.update!(active: false)
           end
         end
 
-        def activate_step
+        def activate_phase
           Decidim.traceability.perform_action!(
             :activate,
-            step,
+            phase,
             current_user
           ) do
-            step.update!(active: true)
+            phase.update!(active: true)
           end
         end
 
         def notify_followers
           Decidim::EventsManager.publish(
-            event: "decidim.events.participatory_process.step_activated",
-            event_class: Decidim::ParticipatoryProcessStepActivatedEvent,
-            resource: step,
-            followers: step.participatory_process.followers
+            event: "decidim.events.participatory_process.phase_activated",
+            event_class: Decidim::ParticipatoryProcessPhaseActivatedEvent,
+            resource: phase,
+            followers: phase.participatory_process.followers
           )
         end
 
-        def publish_step_settings_change
-          step.participatory_process.components.each do |component|
+        def publish_phase_settings_change
+          phase.participatory_process.components.each do |component|
             Decidim::SettingsChange.publish(
               component,
-              previous_step_settings(component).to_h,
-              current_step_settings(component).to_h
+              previous_phase_settings(component).to_h,
+              current_phase_settings(component).to_h
             )
           end
         end
 
-        def current_step_settings(component)
-          component.step_settings.fetch(step.id.to_s)
+        def current_phase_settings(component)
+          component.phase_settings.fetch(phase.id.to_s)
         end
 
-        def previous_step_settings(component)
-          return {} unless @previous_step
+        def previous_phase_settings(component)
+          return {} unless @previous_phase
 
-          component.step_settings.fetch(@previous_step.id.to_s)
+          component.phase_settings.fetch(@previous_phase.id.to_s)
         end
       end
     end

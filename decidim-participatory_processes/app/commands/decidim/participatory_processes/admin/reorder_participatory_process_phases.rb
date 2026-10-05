@@ -3,12 +3,12 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # A command that reorders the steps in a participatory process.
-      class ReorderParticipatoryProcessSteps < Decidim::Command
+      # A command that reorders the phases in a participatory process.
+      class ReorderParticipatoryProcessPhases < Decidim::Command
         # Public: Initializes the command.
         #
-        # collection - an ActiveRecord::Relation of steps
-        # order - an Array holding the order of IDs of steps
+        # collection - an ActiveRecord::Relation of phases
+        # order - an Array holding the order of IDs of phases
         def initialize(collection, order)
           @collection = collection
           @order = order
@@ -23,7 +23,7 @@ module Decidim
         def call
           return broadcast(:invalid) if order.blank?
 
-          reorder_steps
+          reorder_phases
           broadcast(:ok)
         end
 
@@ -31,13 +31,13 @@ module Decidim
 
         attr_reader :collection
 
-        def reorder_steps
+        def reorder_phases
           data = order.each_with_index.inject({}) do |hash, (id, index)|
             hash.update(id => { position: index })
           end
 
           # rubocop:disable-next Rails/SkipsModelValidations
-          ParticipatoryProcessStep.transaction do
+          ParticipatoryProcessPhase.transaction do
             collection.update_all(position: nil)
             collection.reload
             collection.update(data.keys, data.values)

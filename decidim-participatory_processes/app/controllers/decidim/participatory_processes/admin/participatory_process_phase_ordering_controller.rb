@@ -3,16 +3,16 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # Controller that allows managing participatory process step ordering.
+      # Controller that allows managing participatory process phase ordering.
       #
-      class ParticipatoryProcessStepOrderingController < Decidim::Admin::ApplicationController
+      class ParticipatoryProcessPhaseOrderingController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin
 
         def create
-          enforce_permission_to :reorder, :process_step
-          ReorderParticipatoryProcessSteps.call(collection, params[:items_ids]) do
+          enforce_permission_to :reorder, :process_phase
+          ReorderParticipatoryProcessPhases.call(collection, params[:items_ids]) do
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_process_steps.ordering.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("participatory_process_phases.ordering.error", scope: "decidim.admin")
               redirect_to participatory_process_path(current_participatory_process)
             end
           end
@@ -21,7 +21,7 @@ module Decidim
         private
 
         def collection
-          current_participatory_process.steps
+          current_participatory_process.phases
         end
       end
     end

@@ -30,7 +30,7 @@ module Decidim
               duplicate_participatory_process
               duplicate_participatory_process_attachments
               duplicate_landing_page_blocks
-              duplicate_participatory_process_steps if @form.duplicate_phases?
+              duplicate_participatory_process_phases if @form.duplicate_phases?
               duplicate_participatory_process_components if @form.duplicate_components?
             end
           end
@@ -71,41 +71,41 @@ module Decidim
           @duplicated_process.send(:hero_image).attach(@participatory_process.send(:hero_image).blob)
         end
 
-        def duplicate_participatory_process_steps
-          @steps_relationship = {}
+        def duplicate_participatory_process_phases
+          @phases_relationship = {}
 
-          @participatory_process.steps.each do |step|
-            new_step = ParticipatoryProcessStep.create!(
-              title: step.title,
-              description: step.description,
-              start_date: step.start_date,
-              end_date: step.end_date,
+          @participatory_process.phases.each do |phase|
+            new_phase = ParticipatoryProcessPhase.create!(
+              title: phase.title,
+              description: phase.description,
+              start_date: phase.start_date,
+              end_date: phase.end_date,
               participatory_process: @duplicated_process,
-              position: step.position,
-              active: step.active
+              position: phase.position,
+              active: phase.active
             )
-            @steps_relationship[step.id.to_s] = new_step.id.to_s
+            @phases_relationship[phase.id.to_s] = new_phase.id.to_s
           end
         end
 
         def duplicate_participatory_process_components
           @participatory_process.components.each do |component|
-            duplicated_step_settings = @form.duplicate_phases? ? map_step_settings(component.step_settings) : {}
+            duplicated_phase_settings = @form.duplicate_phases? ? map_phase_settings(component.phase_settings) : {}
             new_component = Component.create!(
               manifest_name: component.manifest_name,
               name: component.name,
               participatory_space: @duplicated_process,
               settings: component.settings,
-              step_settings: duplicated_step_settings,
+              phase_settings: duplicated_phase_settings,
               weight: component.weight
             )
             component.manifest.run_hooks(:duplicate, new_component:, old_component: component)
           end
         end
 
-        def map_step_settings(step_settings)
-          step_settings.each_with_object({}) do |(step_id, settings), acc|
-            acc.update(@steps_relationship[step_id.to_s] => settings)
+        def map_phase_settings(phase_settings)
+          phase_settings.each_with_object({}) do |(phase_id, settings), acc|
+            acc.update(@phases_relationship[phase_id.to_s] => settings)
           end
         end
 

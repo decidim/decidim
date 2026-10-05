@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 namespace :decidim_participatory_processes do
-  desc "Changes active step automatically in participatory processes"
-  task :change_active_step, [] => :environment do
-    Decidim::ParticipatoryProcesses::ChangeActiveStepJob.perform_later
+  desc "Changes active phase automatically in participatory processes"
+  task :change_active_phase, [] => :environment do
+    Decidim::ParticipatoryProcesses::ChangeActivePhaseJob.perform_later
   end
 end

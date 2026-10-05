@@ -3,35 +3,35 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # Controller that allows managing participatory process step activations.
+      # Controller that allows managing participatory process phase activations.
       #
-      class ParticipatoryProcessStepActivationsController < Decidim::Admin::ApplicationController
+      class ParticipatoryProcessPhaseActivationsController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin
 
         def create
-          enforce_permission_to(:activate, :process_step, process_step:)
+          enforce_permission_to(:activate, :process_phase, process_phase:)
 
-          ActivateParticipatoryProcessStep.call(process_step, current_user) do
+          ActivateParticipatoryProcessPhase.call(process_phase, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_process_step_activations.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("participatory_process_phase_activations.create.success", scope: "decidim.admin")
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_process_step_activations.create.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("participatory_process_phase_activations.create.error", scope: "decidim.admin")
             end
 
-            redirect_to participatory_process_steps_path(current_participatory_process)
+            redirect_to participatory_process_phases_path(current_participatory_process)
           end
         end
 
         private
 
-        def process_step
-          collection.find(params.expect(:step_id))
+        def process_phase
+          collection.find(params.expect(:phase_id))
         end
 
         def collection
-          current_participatory_process.steps
+          current_participatory_process.phases
         end
       end
     end

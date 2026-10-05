@@ -2,26 +2,26 @@
 
 module Decidim
   module ParticipatoryProcesses
-    class ProcessStepCell < Decidim::ViewModel
+    class ProcessPhaseCell < Decidim::ViewModel
       include ParticipatoryProcessHelper
       include Decidim::ModalHelper
 
-      delegate :steps, :active_step, to: :model
+      delegate :phases, :active_phase, to: :model
 
       def show
-        return if steps.blank?
+        return if phases.blank?
 
         render
       end
 
       private
 
-      def display_steps?
-        [true, "true"].include? options[:display_steps]
+      def display_phases?
+        [true, "true"].include? options[:display_phases]
       end
 
       def data
-        return unless display_steps?
+        return unless display_phases?
 
         { is_open: true }
       end

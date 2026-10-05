@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     module AdminLog
-      # This class holds the logic to present a `Decidim::Step`
+      # This class holds the logic to present a `Decidim::Phase`
       # for the `AdminLog` log.
       #
       # Usage should be automatic and you should not need to call this class
@@ -11,8 +11,8 @@ module Decidim
       #
       #    action_log = Decidim::ActionLog.last
       #    view_helpers # => this comes from the views
-      #    StepPresenter.new(action_log, view_helpers).present
-      class StepPresenter < Decidim::Log::BasePresenter
+      #    PhasePresenter.new(action_log, view_helpers).present
+      class PhasePresenter < Decidim::Log::BasePresenter
         private
 
         def diff_fields_mapping
@@ -25,14 +25,14 @@ module Decidim
         def action_string
           case action
           when "activate", "create", "delete", "update"
-            "decidim.admin_log.participatory_process_step.#{action}"
+            "decidim.admin_log.participatory_process_phase.#{action}"
           else
             super
           end
         end
 
         def i18n_labels_scope
-          "activemodel.attributes.participatory_process_step"
+          "activemodel.attributes.participatory_process_phase"
         end
       end
     end

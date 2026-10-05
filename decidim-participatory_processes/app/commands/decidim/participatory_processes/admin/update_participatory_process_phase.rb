@@ -4,8 +4,8 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       # A command with all the business logic when updating a participatory
-      # process step in the system.
-      class UpdateParticipatoryProcessStep < Decidim::Commands::UpdateResource
+      # process phase in the system.
+      class UpdateParticipatoryProcessPhase < Decidim::Commands::UpdateResource
         fetch_form_attributes :title, :start_date, :end_date, :description
 
         private
@@ -14,8 +14,8 @@ module Decidim
           return unless resource.saved_change_to_start_date || resource.saved_change_to_end_date
 
           Decidim::EventsManager.publish(
-            event: "decidim.events.participatory_process.step_changed",
-            event_class: Decidim::ParticipatoryProcessStepChangedEvent,
+            event: "decidim.events.participatory_process.phase_changed",
+            event_class: Decidim::ParticipatoryProcessPhaseChangedEvent,
             resource:,
             followers: resource.participatory_process.followers
           )

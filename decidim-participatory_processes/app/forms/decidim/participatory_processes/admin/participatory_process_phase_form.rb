@@ -3,16 +3,16 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # A form object used to create participatory processes steps from the admin
+      # A form object used to create participatory processes phases from the admin
       # dashboard.
       #
-      class ParticipatoryProcessStepForm < Form
+      class ParticipatoryProcessPhaseForm < Form
         include TranslatableAttributes
 
         translatable_attribute :title, String
         translatable_attribute :description, String
 
-        mimic :participatory_process_step
+        mimic :participatory_process_phase
 
         attribute :start_date, Decidim::Attributes::TimeWithZone
         attribute :end_date, Decidim::Attributes::TimeWithZone
