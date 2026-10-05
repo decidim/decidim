@@ -116,11 +116,10 @@ module Decidim::Verifications
           # the pending action data is carried over on transfer.
           let(:pending_action) { { "action" => "vote", "model" => "budget" } }
           let(:stale_action) { { "action" => "answer", "model" => "survey" } }
-          let(:user) do
-            create(:user, :ephemeral, :confirmed, extended_data: { "ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => pending_action })
-          end
+          let(:user_extended_data) { { "ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => pending_action } }
+          let(:user) { create(:user, :ephemeral, extended_data: user_extended_data) }
           let!(:other_user) do
-            create(:user, :ephemeral, :confirmed, organization: user.organization, extended_data: { "ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => stale_action })
+            create(:user, :ephemeral, organization: user.organization, extended_data: { "ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => stale_action })
           end
           let!(:duplicate_authorization) do
             create(:authorization, :granted, user: other_user, unique_id: document_number, name: handler_name)
@@ -134,6 +133,7 @@ module Decidim::Verifications
               }
             end.not_to change(Decidim::Authorization, :count)
 
+            expect(controller.current_user).to eq(other_user)
             expect(response).to redirect_to(onboarding_pending_authorizations_path)
           end
 
@@ -144,8 +144,22 @@ module Decidim::Verifications
             }
 
             # The transferred user keeps the action the current session was trying
-            # to complete instead of its own stale action.
-            expect(other_user.reload.extended_data[Decidim::OnboardingManager::DATA_KEY]).to eq(pending_action)
+            # to complete instead of its own stale action, and the rest of its
+            # extended data is preserved.
+            expect(other_user.reload.extended_data).to include("ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => pending_action)
+          end
+
+          context "when the current session has no pending onboarding action" do
+            let(:user_extended_data) { { "ephemeral" => true } }
+
+            it "keeps the transferred user's onboarding action" do
+              post :create, params: {
+                handler: handler_name,
+                authorization_handler: handler_params
+              }
+
+              expect(other_user.reload.extended_data[Decidim::OnboardingManager::DATA_KEY]).to eq(stale_action)
+            end
           end
         end
       end
