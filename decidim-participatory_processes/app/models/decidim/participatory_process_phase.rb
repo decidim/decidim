@@ -47,7 +47,7 @@ module Decidim
     # positioning.
     def set_position
       return if position.present?
-      return self.position = 0 if participatory_process.phases.select(&:persisted?).empty?
+      return self.position = 0 if participatory_process.phases.none?(&:persisted?)
 
       self.position = participatory_process.phases.maximum(:position) + 1
     end
