@@ -2,7 +2,8 @@
 
 == Sample request
 
-The `deleteBlob` mutation allows authenticated administrators to delete any upload blobs.
+The `deleteBlob` mutation allows authenticated administrators to delete upload blobs attached to records of their own organization.
+Blobs attached to records of other organizations (or shared with them) cannot be deleted.
 
 [source,graphql]
 ----

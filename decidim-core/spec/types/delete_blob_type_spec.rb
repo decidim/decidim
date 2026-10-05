@@ -14,7 +14,9 @@ module Decidim
         }
       end
 
-      let(:blob) { create(:attachment, :with_image).reload.file_blob }
+      let(:blob) do
+        create(:attachment, :with_image, attached_to: create(:participatory_process, organization: current_organization)).reload.file_blob
+      end
       let(:blob_id) { blob.id }
       let(:root_klass) { Decidim::Api::MutationType }
       let!(:type_class) { Decidim::Core::DeleteBlobType }
@@ -52,6 +54,30 @@ module Decidim
 
         it "returns the deleted attachment" do
           expect(blob_response).to eq({ "id" => blob.id.to_s })
+        end
+
+        context "when the blob is attached to a record of another organization" do
+          let(:blob) do
+            create(:attachment, :with_image, attached_to: create(:participatory_process, organization: create(:organization))).reload.file_blob
+          end
+
+          it "does not delete the blob" do
+            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+            expect(ActiveStorage::Blob.exists?(blob.id)).to be(true)
+          end
+        end
+
+        context "when the blob is also attached to a record of another organization" do
+          let!(:other_attachment) do
+            attachment = create(:attachment, :with_pdf, attached_to: create(:participatory_process, organization: create(:organization)))
+            attachment.file.attach(blob)
+            attachment
+          end
+
+          it "does not delete the blob" do
+            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+            expect(ActiveStorage::Blob.exists?(blob.id)).to be(true)
+          end
         end
 
         context "when blob does not exists" do

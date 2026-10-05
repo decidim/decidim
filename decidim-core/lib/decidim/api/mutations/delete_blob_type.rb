@@ -23,7 +23,9 @@ module Decidim
 
       def authorized?(id:)
         blob = find_resource(id)
-        raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:delete, :blob, blob, context)
+        unless super && allowed_to?(:delete, :blob, blob, context) && attached_to_current_organization?(blob)
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
 
         true
       end
@@ -35,6 +37,31 @@ module Decidim
           id ||= arguments[:id]
           ActiveStorage::Blob.find(id)
         end
+      end
+
+      def current_organization
+        context[:current_organization]
+      end
+
+      # Blobs are not organization scoped on their own, their ownership is
+      # derived from the records they are attached to. Every record using the
+      # blob must belong to the current organization, otherwise an admin from
+      # one organization could destroy files attached to records of another
+      # organization.
+      def attached_to_current_organization?(blob)
+        records = blob.attachments.map(&:record).compact
+        # Blobs without attachments are rejected in `resolve` with a
+        # validation error, as there is nothing to detach or destroy here.
+        return true if records.empty?
+
+        records.all? { |record| record_organization(record) == current_organization }
+      end
+
+      def record_organization(record)
+        return record if record.is_a?(Decidim::Organization)
+        return unless record.respond_to?(:organization)
+
+        record.organization
       end
     end
   end
