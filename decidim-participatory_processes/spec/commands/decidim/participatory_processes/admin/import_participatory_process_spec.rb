@@ -19,7 +19,7 @@ module Decidim::ParticipatoryProcesses
       {
         title: { en: "title" },
         slug: "imported-slug",
-        import_steps?: import_steps,
+        import_phases?: import_phases,
         import_attachments?: import_attachments,
         import_components?: import_components,
         document: form_doc,
@@ -43,7 +43,7 @@ module Decidim::ParticipatoryProcesses
     let(:invalid) { false }
     let(:document_name) { "participatory_processes.json" }
     let(:document_type) { "application/json" }
-    let(:import_steps) { false }
+    let(:import_phases) { false }
     let(:import_components) { false }
     let(:import_attachments) { false }
 
@@ -161,8 +161,8 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
-    describe "when import_steps exists" do
-      let(:import_steps) { true }
+    describe "when import_phases exists" do
+      let(:import_phases) { true }
 
       it "imports a participatory process and the steps" do
         stub_calls_to_external_files

@@ -20,7 +20,7 @@ en:
         import_attachments: Import attachments
         import_categories: Import categories
         import_components: Import components
-        import_steps: Import phases
+        import_phases: Import phases
         local_area: Organization area
         meta_scope: Scope metadata
         participatory_process_group_id: Processes group
