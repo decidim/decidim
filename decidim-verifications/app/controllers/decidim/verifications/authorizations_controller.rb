@@ -195,7 +195,7 @@ module Decidim
         pending_action = from_user.extended_data[Decidim::OnboardingManager::DATA_KEY]
         return if pending_action.blank?
 
-        to_user.update!(
+        to_user.update(
           extended_data: to_user.extended_data.merge(Decidim::OnboardingManager::DATA_KEY => pending_action)
         )
       end
