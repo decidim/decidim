@@ -24,9 +24,8 @@ module Decidim
             data = @form.data
             return broadcast(:invalid) if data.blank? || data.values.empty?
 
-            # rubocop:disable Rails/SkipsModelValidations
+            # rubocop:disable-next Rails/SkipsModelValidations
             CsvDatum.insert_all(@organization, data.values)
-            # rubocop:enable Rails/SkipsModelValidations
 
             ProcessCensusDataJob.perform_later(data.values, @current_user)
             broadcast(:ok)

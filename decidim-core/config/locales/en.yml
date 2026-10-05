@@ -252,6 +252,7 @@ en:
         create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         export_component: "%{user_name} exported the %{resource_name} %{component_name} in %{space_name} as %{format_name}"
+        menu_hidden: "%{user_name} hid the %{resource_name} component from the menu in the %{space_name} space"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         restore: "%{user_name} restored the %{resource_name} component in the %{space_name} space"
         soft_delete: "%{user_name} moved to trash the %{resource_name} component in the %{space_name} space"
@@ -2102,7 +2103,6 @@ en:
   layouts:
     decidim:
       announcements:
-        view_less: Show less
         view_more: More information
       data_consent:
         details:
