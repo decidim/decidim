@@ -48,7 +48,7 @@ en:
         participatory_structure: How is it decided
         target: Who participates
         title: Title
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Call to Action path
         cta_text: Call to Action text
         description: Description
@@ -69,8 +69,8 @@ en:
               empty: The document is empty
               invalid_json: The document is not valid JSON
     models:
-      decidim/participatory_process_step_activated_event: Phase activated
-      decidim/participatory_process_step_changed_event: Phase changed
+      decidim/participatory_process_phase_activated_event: Phase activated
+      decidim/participatory_process_phase_changed_event: Phase changed
   activerecord:
     models:
       decidim/participatory_process:
@@ -79,7 +79,7 @@ en:
       decidim/participatory_process_group:
         one: Participatory process group
         other: Participatory process groups
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Phase
         other: Phases
   decidim:
@@ -94,7 +94,7 @@ en:
         import_process: Import
         new_process: New process
         new_process_group: New process group
-        new_process_step: New phase
+        new_process_phase: New phase
         new_process_user_role: New process admin
         preview: Preview
         publish: Publish
@@ -124,8 +124,8 @@ en:
           landing_page: Landing page layout
           members: Members
           moderations: Moderations
+          phases: Phases
           process_admins: Process admins
-          steps: Phases
       models:
         participatory_process:
           fields:
@@ -140,7 +140,7 @@ en:
             actions: Actions
             title: Title
           name: Process group
-        participatory_process_step:
+        participatory_process_phase:
           fields:
             actions: Actions
             end_date: End date
@@ -186,26 +186,19 @@ en:
         new:
           import: Import
           select: Select which data you would like to import
-      participatory_process_publications:
-        create:
-          error: There was a problem publishing this participatory process.
-          success: Participatory process successfully published.
-        destroy:
-          error: There was a problem unpublishing this participatory process.
-          success: Participatory process successfully unpublished.
-      participatory_process_step_activations:
+      participatory_process_phase_activations:
         create:
           error: There was a problem activating this participatory process phase.
           success: Participatory process phase successfully activated.
-      participatory_process_steps:
+      participatory_process_phases:
         create:
           error: There was a problem creating a new participatory process phase.
           success: Participatory process phase successfully created.
         default_title: Introduction
         destroy:
           error:
-            active_step: Cannot delete the active phase.
-            last_step: Cannot delete the last phase of a process.
+            active_phase: Cannot delete the active phase.
+            last_phase: Cannot delete the last phase of a process.
           success: Participatory process phase successfully deleted.
         edit:
           update: Update
@@ -216,6 +209,13 @@ en:
         update:
           error: There was a problem updating this phase of the participatory process.
           success: Participatory process phase successfully updated.
+      participatory_process_publications:
+        create:
+          error: There was a problem publishing this participatory process.
+          success: Participatory process successfully published.
+        destroy:
+          error: There was a problem unpublishing this participatory process.
+          success: Participatory process successfully unpublished.
       participatory_process_user_roles:
         create:
           error: There was a problem adding a participant for this participatory process.
@@ -281,7 +281,7 @@ en:
         create: "%{user_name} created the %{resource_name} participatory process group"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process group"
         update: "%{user_name} updated the %{resource_name} participatory process group"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} activated the %{resource_name} phase in the %{space_name} participatory process"
         create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
         delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name} participatory process"
@@ -295,21 +295,17 @@ en:
         participatory_processes: Participatory Processes export
     events:
       participatory_process:
-        role_assigned:
-          email_intro: You have been assigned as %{role} for participatory process "%{resource_title}".
-          email_outro: You have received this notification because you are %{role} of the "%{resource_title}" participatory process.
-          email_subject: You have been assigned as %{role} for "%{resource_title}".
-          notification_title: You have been assigned as %{role} for participatory process <a href="%{resource_url}">%{resource_title}</a>.
-        step_activated:
+        phase_activated:
           email_intro: 'The %{resource_title} phase is now active for %{participatory_space_title}. You can see it from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: An update to %{participatory_space_title}
           notification_title: The %{resource_title} phase is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
+        phase_changed:
           email_intro: 'The dates for the %{resource_title} phase at %{participatory_space_title} have been updated. You can see it from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: An update to %{participatory_space_title}
           notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> phase at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
+        role_assigned:
     help:
       participatory_spaces:
         participatory_processes:
@@ -382,9 +378,9 @@ en:
         help: All the selected processes will be assigned to this group, including the ones that are already assigned to other groups.
       show:
         title: Participatory process groups
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Process phases
+        process_phases: Process phases
     participatory_processes:
       admin:
         content_blocks:
@@ -498,7 +494,7 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
           new:
             title: Import participatory process
-        participatory_process_steps:
+        participatory_process_phases:
           edit:
             title: Edit participatory process phase
           index:
@@ -832,7 +828,7 @@ en:
         index:
           promoted_processes: Highlighted processes
         participatory_process:
-          active_step: Current phase
+          active_phase: Current phase
           more_info: More info
           more_info_about: More info about process %{resource_name}
           take_part: Take part
