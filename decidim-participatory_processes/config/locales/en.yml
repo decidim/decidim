@@ -13,7 +13,7 @@ en:
         duplicate_categories: Duplicate categories
         duplicate_components: Duplicate components
         duplicate_landing_page_blocks: Duplicate landing page blocks
-        duplicate_steps: Duplicate phases
+        duplicate_phases: Duplicate phases
         end_date: End date
         has_members: This space has members
         hero_image: Home image

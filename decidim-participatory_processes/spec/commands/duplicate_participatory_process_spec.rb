@@ -20,14 +20,14 @@ module Decidim::ParticipatoryProcesses
         invalid?: invalid,
         title: { en: "title" },
         slug: "duplicated-slug",
-        duplicate_steps?: duplicate_steps,
+        duplicate_phases?: duplicate_phases,
         duplicate_components?: duplicate_components,
         current_user:
       )
     end
 
     let(:invalid) { false }
-    let(:duplicate_steps) { false }
+    let(:duplicate_phases) { false }
     let(:duplicate_components) { false }
 
     context "when the form is not valid" do
@@ -45,7 +45,7 @@ module Decidim::ParticipatoryProcesses
         Admin::ParticipatoryProcessDuplicateForm.from_params({
                                                                title: { en: "title" },
                                                                slug: "duplicated-slug",
-                                                               duplicate_steps?: duplicate_steps,
+                                                               duplicate_phases?: duplicate_phases,
                                                                duplicate_components?: duplicate_components
                                                              })
                                                 .with_context({
@@ -130,8 +130,8 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
-    context "when duplicate_steps exists" do
-      let(:duplicate_steps) { true }
+    context "when duplicate_phases exists" do
+      let(:duplicate_phases) { true }
 
       it "duplicates a participatory process and the steps" do
         expect { subject.call }.to change(Decidim::ParticipatoryProcessStep, :count).by(1)

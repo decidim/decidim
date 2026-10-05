@@ -61,7 +61,7 @@ describe "Admin copies participatory process" do
     end
 
     it "copies the process with steps" do
-      page.check("participatory_process[duplicate_steps]")
+      page.check("participatory_process[duplicate_phases]")
       click_on "Duplicate"
 
       expect(page).to have_callout("Participatory process successfully duplicated.")

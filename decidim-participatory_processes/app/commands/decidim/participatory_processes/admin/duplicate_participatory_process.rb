@@ -30,7 +30,7 @@ module Decidim
               duplicate_participatory_process
               duplicate_participatory_process_attachments
               duplicate_landing_page_blocks
-              duplicate_participatory_process_steps if @form.duplicate_steps?
+              duplicate_participatory_process_steps if @form.duplicate_phases?
               duplicate_participatory_process_components if @form.duplicate_components?
             end
           end
@@ -90,7 +90,7 @@ module Decidim
 
         def duplicate_participatory_process_components
           @participatory_process.components.each do |component|
-            duplicated_step_settings = @form.duplicate_steps? ? map_step_settings(component.step_settings) : {}
+            duplicated_step_settings = @form.duplicate_phases? ? map_step_settings(component.step_settings) : {}
             new_component = Component.create!(
               manifest_name: component.manifest_name,
               name: component.name,
