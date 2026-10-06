@@ -110,7 +110,7 @@ with `crontab`, although alternatively you could use `whenever` gem or the sched
 
 ### 4.1. Remove unattached blobs
 
-Back in [#11851](https://github.com/decidim/decidim/pull/11851) we have added as a migration step the a rake task aimed to clean up the unattached blobs (`decidim:upgrade:attachments_cleanup`)
+Back in [#11851](https://github.com/decidim/decidim/pull/11851) we have added as a migration step a rake task aimed to clean up the unattached blobs (`decidim:upgrade:attachments_cleanup`)
 We add this as a permanent cron task, so that we can handle better the failed downloads or abandoned file uploads.
 
 ```bash
