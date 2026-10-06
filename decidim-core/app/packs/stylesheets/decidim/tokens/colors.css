@@ -1,6 +1,5 @@
 
 :root {
-    --color-color-black: #1a1a1a; 
     --color-color-blue-50: #e8eff9; 
     --color-color-blue-100: #b6cceb; 
     --color-color-blue-200: #93b3e2; 
@@ -52,7 +51,7 @@
     --color-color-purple-800: #50154f; 
     --color-color-purple-900: #3d103c; 
     --color-color-neutral-50: #fafafa; 
-    --color-color-neutral-100: #d4d4d4; 
+    --color-color-neutral-100: #e7e7e7; 
     --color-color-neutral-200: #bfbfbf; 
     --color-color-neutral-300: #a1a1a1; 
     --color-color-neutral-400: #8f8f8f; 
@@ -77,7 +76,6 @@
     --color-color-slate-900: #1a2027; 
     --color-color-white: #ffffff; 
     --color-color-black: #000000; 
-    --color-color-icon-neutral-dark: #1a1a1a; /* icon */
     --color-color-primary: #e02d2d; 
     --color-color-secondary: #155abf; 
     --color-color-tertiary: #d4a81a; 
@@ -105,7 +103,7 @@
     --color-color-bg-neutral-interactive-light-default: #ffffff00; /* background */
     --color-color-bg-neutral-interactive-light-hover: #fafafa; /* background */
     --color-color-bg-neutral-interactive-dark-default: #fafafa; /* background */
-    --color-color-bg-neutral-interactive-dark-hover: #d4d4d4; /* background */
+    --color-color-bg-neutral-interactive-dark-hover: #e7e7e7; /* background */
     --color-color-bg-neutral-light: #ffffff; /* background */
     --color-color-bg-neutral-dark: #fafafa; /* background */
     --color-color-bg-neutral-interactive-high-light-default: #ffffff00; /* background */
@@ -164,6 +162,7 @@
     --color-color-icon-secondary: #155abf; /* icon */
     --color-color-icon-inverted: #ffffff; /* icon */
     --color-color-icon-neutral-light: #525252; /* icon */
+    --color-color-icon-neutral-dark: #000000; /* icon */
     --color-color-icon-success-dark: #1c7731; /* icon */
     --color-color-icon-warning-dark: #635220; /* icon */
     --color-color-icon-alert-dark: #cc2929; /* icon */
@@ -175,7 +174,7 @@
     --color-color-border-primary-interactive: #e02d2d; /* typing */
     --color-color-border-secondary-interactive: #155abf; /* typing */
     --color-color-border-neutral-dark: #8f8f8f; /* inputs, checkbox, radio */
-    --color-color-border-neutral-light: #d4d4d4; /* dividers */
+    --color-color-border-neutral-light: #e7e7e7; /* dividers */
     --color-color-border-inverted: #ffffff; 
     --color-color-border-success-dark: #1c7731; 
     --color-color-border-warning-light: #efcf6f; 
