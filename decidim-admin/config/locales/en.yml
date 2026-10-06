@@ -335,7 +335,7 @@ en:
         form:
           default_step_settings: Default step settings
           global_settings: Global settings
-          step_settings: Step settings
+          phase_settings: Phase settings
         hide:
           success: The component has been successfully hidden from the menu.
         index:
