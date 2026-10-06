@@ -55,7 +55,7 @@ Example of submitted variables
         "en": "Your english description"
       },
       "file": {
-        "blobId": 32524
+        "signedId": "eyJfcmFpbHMiOnsiZGF0YSI6MzI1MjQsInB1ciI6IkFjdGl2ZVN0b3JhZ2U6OkJsb2IifX0=--3f8a2b1c9d0e4f5a6b7c8d9e0f1a2b3c4d5e6f7a"
       }
     }
   }
