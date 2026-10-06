@@ -54,7 +54,7 @@ module RuboCop
         # body, so there is nothing to separate the permission check from.
         def no_following_statement?(node)
           parent = node.parent
-          return true unless parent&.begin_type?
+          return true unless parent&.begin_type? || parent&.kwbegin_type?
 
           parent.children.last == node
         end

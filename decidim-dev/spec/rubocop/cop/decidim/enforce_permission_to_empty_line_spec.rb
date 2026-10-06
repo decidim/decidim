@@ -70,6 +70,28 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionToEmptyLine, :config, typ
     RUBY
   end
 
+  it "registers an offense inside an explicit begin block" do
+    expect_offense(<<~RUBY)
+      def edit
+        begin
+          enforce_permission_to :update, :resource
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Add an empty line after `enforce_permission_to`.
+          @resource = Resource.find(params[:id])
+        end
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      def edit
+        begin
+          enforce_permission_to :update, :resource
+
+          @resource = Resource.find(params[:id])
+        end
+      end
+    RUBY
+  end
+
   it "registers several offenses in the same method" do
     expect_offense(<<~RUBY)
       def edit
@@ -117,6 +139,27 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionToEmptyLine, :config, typ
       def edit
         @resource = Resource.find(params[:id])
         enforce_permission_to :update, :resource
+      end
+    RUBY
+  end
+
+  it "does not register an offense when enforce_permission_to is the last statement of an explicit begin block" do
+    expect_no_offenses(<<~RUBY)
+      def edit
+        begin
+          @resource = Resource.find(params[:id])
+          enforce_permission_to :update, :resource
+        end
+      end
+    RUBY
+  end
+
+  it "does not register an offense when enforce_permission_to is the only statement of an explicit begin block" do
+    expect_no_offenses(<<~RUBY)
+      def edit
+        begin
+          enforce_permission_to :update, :resource
+        end
       end
     RUBY
   end
