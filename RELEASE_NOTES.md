@@ -118,7 +118,7 @@ We add this as a permanent cron task, so that we can handle better the failed do
 0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:attachments_cleanup
 ```
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#17790](https://github.com/decidim/decidim/pull/17790).
 
 ### 4.2. [[TITLE OF THE TASK]]
 
