@@ -52,4 +52,24 @@ describe "rake decidim:attachments_cleanup", type: :task do
         .to change { ActiveStorage::Blob.exists?(recent_blob.id) }.from(true).to(false)
     end
   end
+
+  context "with an invalid cleanup window" do
+    it "raises an error and purges nothing when the value is not a full integer" do
+      expect { task.execute(clean_up_unattached_blobs_after_in_minutes: "abc") }
+        .to raise_error(ArgumentError, /non-negative integer/)
+
+      expect(ActiveStorage::Blob.exists?(old_blob.id)).to be(true)
+      expect(ActiveStorage::Blob.exists?(recent_blob.id)).to be(true)
+    end
+
+    it "raises an error for negative values" do
+      expect { task.execute(clean_up_unattached_blobs_after_in_minutes: "-5") }
+        .to raise_error(ArgumentError, /non-negative integer/)
+    end
+
+    it "raises an error for fractional values" do
+      expect { task.execute(clean_up_unattached_blobs_after_in_minutes: "1.5") }
+        .to raise_error(ArgumentError, /non-negative integer/)
+    end
+  end
 end
