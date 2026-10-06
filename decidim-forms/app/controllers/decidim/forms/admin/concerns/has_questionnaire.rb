@@ -101,6 +101,8 @@ module Decidim
             protected
 
             if defined?(Decidim::Templates::Admin::Concerns::Templatable)
+              include Decidim::Templates::Admin::Concerns::Templatable
+              
               def templatable_type
                 "Decidim::Forms::Questionnaire"
               end
