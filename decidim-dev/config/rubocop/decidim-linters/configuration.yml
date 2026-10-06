@@ -1,4 +1,5 @@
 require:
+  - decidim/dev/rubocop/cop/decidim/enforce_permission_to_empty_line
   - decidim/dev/rubocop/cop/decidim/message_antipattern
   - decidim/dev/rubocop/cop/decidim/organization_scoped_finder
   - decidim/dev/rubocop/cop/decidim/rspec/memoized_name
@@ -8,6 +9,12 @@ Decidim/MessageAntipattern:
   Include:
     - "**/spec/**/*"
     - "**/test/**/*"
+
+Decidim/EnforcePermissionToEmptyLine:
+  Enabled: true
+  Severity: warning
+  Include:
+    - "**/app/controllers/**/*.rb"
 
 Decidim/OrganizationScopedFinder:
   Enabled: true
