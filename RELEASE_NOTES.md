@@ -108,7 +108,19 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
 with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-### 4.1. [[TITLE OF THE TASK]]
+### 4.1. Remove unattached blobs
+
+Back in [#11851](https://github.com/decidim/decidim/pull/11851) we have added as a migration step the a rake task aimed to clean up the unattached blobs (`decidim:upgrade:attachments_cleanup`)
+We add this as a permanent cron task, so that we can handle better the failed downloads or abandoned file uploads.
+
+```bash
+# Delete unattached upload blobs
+0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:attachments_cleanup
+```
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
+### 4.2. [[TITLE OF THE TASK]]
 
 ```bash
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK
