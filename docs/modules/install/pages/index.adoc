@@ -129,7 +129,7 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 
 [NOTE]
 ====
-The `decidim:attachments_cleanup` task deletes upload blobs that are not attached to any record after 60 minutes by default. This window is intentional: it removes abandoned or potentially dangerous uploads as soon as possible. Keep in mind that a file uploaded in a form that is still open (and not yet submitted) is also unattached, so if the form is submitted more than 60 minutes after the upload, the file is already deleted and the participant loses the upload. If this is a concern for your instance, you can increase the window with the `clean_up_unattached_blobs_after_in_minutes` argument, for instance `bundle exec rake decidim:attachments_cleanup[1440]` keeps unattached blobs for 24 hours.
+The `decidim:attachments_cleanup` task deletes upload blobs that are not attached to any record after 60 minutes by default. This window is intentional: it removes abandoned or potentially dangerous uploads as soon as possible. Keep in mind that a file uploaded in a form that is still open (and not yet submitted) is also unattached, so a submission done after the cleanup window may lose that upload. Note that 60 minutes is only the earliest time a blob becomes eligible for deletion: the recommended cron runs hourly and the task queues deletions with `purge_later`, so a file may still be available well past the window and the exact deletion time is not guaranteed. If this is a concern for your instance, you can increase the window with the `clean_up_unattached_blobs_after_in_minutes` argument, for instance `bundle exec rake decidim:attachments_cleanup[1440]` keeps unattached blobs for at least 24 hours.
 ====
 
 === Scheduled tasks from modules

@@ -5,8 +5,9 @@ namespace :decidim do
   # Blobs are purged when unattached for longer than the given window (60 minutes by
   # default). The short window is intentional: it removes abandoned or potentially
   # dangerous uploads as soon as possible. Files uploaded in a form that is still open
-  # are also unattached, so submissions done after the window lose that file. Increase
-  # clean_up_unattached_blobs_after_in_minutes if that trade-off is not acceptable.
+  # are also unattached, so submissions done after the window may lose that file once
+  # the blob is purged. Increase clean_up_unattached_blobs_after_in_minutes if that
+  # trade-off is not acceptable.
   task :attachments_cleanup, [:clean_up_unattached_blobs_after_in_minutes] => :environment do |_task, args|
     args.with_defaults(clean_up_unattached_blobs_after_in_minutes: 60)
 
