@@ -126,13 +126,13 @@ describe "Decidim::Api::QueryType" do
 
   let(:active_phase) { current_component.participatory_space.respond_to?(:active_phase) && current_component.participatory_space.active_phase.present? }
   let(:cost) do
-    number_to_currency(proposal.cost, unit: Decidim.currency_unit) if active_step
+    number_to_currency(proposal.cost, unit: Decidim.currency_unit) if active_phase
   end
   let(:cost_report) do
-    { "translation" => translated(proposal.cost_report) } if active_step
+    { "translation" => translated(proposal.cost_report) } if active_phase
   end
   let(:execution_period) do
-    { "translation" => translated(proposal.execution_period) } if active_step
+    { "translation" => translated(proposal.execution_period) } if active_phase
   end
   let(:proposal_state) do
     {
@@ -229,7 +229,7 @@ describe "Decidim::Api::QueryType" do
   end
 
   before do
-    if active_step
+    if active_phase
       current_component.update!(
         settings: { proposal_answering_enabled: true },
         step_settings: {
