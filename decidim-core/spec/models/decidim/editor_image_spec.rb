@@ -60,5 +60,21 @@ describe Decidim::EditorImage do
         expect(subject.errors[:file]).to contain_exactly("The file is not a valid image")
       end
     end
+
+    # See UploaderImageContentValidator#attached_signature. When a file is
+    # attached to a new record, its blob is not persisted until the record is
+    # saved, so the bytes are checked from the pending attachable.
+    context "when the file is a spoofed image pending in a new record" do
+      subject do
+        build(:editor_image, file: Decidim::Dev.test_file("spoofed_image_binary.png", "image/png"))
+      end
+
+      it { is_expected.not_to be_valid }
+
+      it "shows the correct error" do
+        expect(subject.valid?).to be(false)
+        expect(subject.errors[:file]).to contain_exactly("The file is not a valid image")
+      end
+    end
   end
 end

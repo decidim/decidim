@@ -164,4 +164,60 @@ describe UploaderImageContentValidator do
 
     it_behaves_like "a spoofed image"
   end
+
+  context "when the file is an ActiveStorage::Attached pending in a new record" do
+    subject { record }
+
+    let(:record) { validatable.new(upload:) }
+    let(:validatable) do
+      # Mimics the deferral of ActiveStorage, which keeps the attachable in the
+      # record's attachment changes and only persists the blob when the record
+      # is saved.
+      Class.new(base_validatable) do
+        attr_reader :attachment_changes
+
+        def initialize(*)
+          @attachment_changes = {}
+          super
+        end
+
+        def attachment_reflections
+          { "upload" => OpenStruct.new(options: {}) }
+        end
+
+        def upload
+          @upload ||= ActiveStorage::Attached::One.new("upload", self)
+        end
+
+        def upload=(attachable)
+          attachment_changes["upload"] = ActiveStorage::Attached::Changes::CreateOne.new("upload", self, attachable)
+        end
+      end
+    end
+    let(:pending_attachment) do
+      ActiveStorage::Attachment.new(
+        name: "upload",
+        record: create(:dummy_resource),
+        blob: record.attachment_changes["upload"].blob
+      )
+    end
+
+    before do
+      allow(record.upload).to receive(:attachment).and_return(pending_attachment)
+    end
+
+    context "with a spoofed image" do
+      # The magic bytes of the file are unknown, so the content type of the
+      # pending blob is identified from the file name extension (image/png).
+      let(:upload) { Decidim::Dev.test_file("spoofed_image_binary.png", "image/png") }
+
+      it_behaves_like "a spoofed image"
+    end
+
+    context "with a valid image" do
+      let(:upload) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+
+      it_behaves_like "a valid image"
+    end
+  end
 end

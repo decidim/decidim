@@ -81,11 +81,52 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   def file_signature(file)
     if uploaded_file?(file)
       File.open(file.path, "rb") { |io| io.read(SIGNATURE_LENGTH) }
-    elsif file.is_a?(ActiveStorage::Attached) && file.blob.persisted?
-      blob_signature(file.blob)
+    elsif file.is_a?(ActiveStorage::Attached)
+      attached_signature(file)
     end
   rescue ActiveStorage::Error, Errno::ENOENT, IOError
     nil
+  end
+
+  # Reads the signature of an attached file. Blobs are only uploaded once the
+  # record is saved, so for still unpersisted blobs (e.g. an image assigned to
+  # a new record) the bytes are read from the pending attachable instead.
+  # Otherwise a spoofed image could be saved without being checked.
+  def attached_signature(attached)
+    blob = attached.blob
+    return blob_signature(blob) if blob&.persisted?
+
+    pending_attachable_signature(attached)
+  end
+
+  # ActiveStorage keeps the attachable of a pending attachment in the record's
+  # attachment changes until the blob is uploaded when the record is saved, so
+  # its contents can already be read during the validation.
+  def pending_attachable_signature(attached)
+    attachable = pending_attachable(attached)
+    if uploaded_file?(attachable) || attachable.is_a?(File)
+      File.open(attachable.path, "rb") { |io| io.read(SIGNATURE_LENGTH) }
+    elsif attachable.is_a?(Pathname)
+      File.open(attachable.to_path, "rb") { |io| io.read(SIGNATURE_LENGTH) }
+    elsif attachable.is_a?(Hash)
+      io_signature(attachable[:io])
+    end
+  end
+
+  def pending_attachable(attached)
+    change = attached.record.try(:attachment_changes)&.[](attached.name.to_s)
+    change.try(:attachable)
+  end
+
+  # Reads the signature without consuming the IO, so ActiveStorage can still
+  # upload it after the validation.
+  def io_signature(io)
+    return unless io.respond_to?(:read) && io.respond_to?(:rewind)
+
+    io.rewind
+    signature = io.read(SIGNATURE_LENGTH)
+    io.rewind
+    signature
   end
 
   # Reads only the leading bytes of the blob to keep the operation cheap for
