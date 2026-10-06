@@ -22,6 +22,10 @@ module Decidim
           it "returns the Active Storage url" do
             expect(response["src"]).to include("/rails/active_storage/")
           end
+
+          it "returns an absolute url" do
+            expect(response["src"]).to start_with("http")
+          end
         end
 
         context "when the blob is attached to an attachment in a restricted space" do
@@ -35,6 +39,10 @@ module Decidim
 
           it "returns the private download url, which authorizes every request" do
             expect(response["src"]).to include("/private_downloads/")
+          end
+
+          it "returns an absolute url pointing to the organization host" do
+            expect(response["src"]).to start_with("http://#{current_organization.host}")
           end
         end
       end

@@ -19,7 +19,7 @@ module Decidim
 
       def src
         attachment = private_download_attachment
-        return private_download_path(attachment) if attachment
+        return private_download_url(attachment) if attachment
 
         asset_routes.rails_blob_url(object, **default_url_options)
       end
@@ -41,9 +41,13 @@ module Decidim
         end
       end
 
-      def private_download_path(attachment)
-        Decidim::Core::Engine.routes.url_helpers.private_download_path(
-          Decidim::PrivateDownload.for(attachment.record, attachment_name: attachment.name).token
+      # Returned as an absolute url so external API clients can use it
+      # directly. Private downloads are served by the application itself,
+      # never by the storage CDN host, so the organization host is always used.
+      def private_download_url(attachment)
+        Decidim::Core::Engine.routes.url_helpers.private_download_url(
+          Decidim::PrivateDownload.for(attachment.record, attachment_name: attachment.name).token,
+          **app_url_options
         )
       end
 
@@ -57,7 +61,11 @@ module Decidim
       end
 
       def default_url_options
-        @default_url_options ||= remote_storage_options.presence || url_option_resolver.options.tap do |opts|
+        @default_url_options ||= remote_storage_options.presence || app_url_options
+      end
+
+      def app_url_options
+        @app_url_options ||= url_option_resolver.options.tap do |opts|
           opts[:host] = default_host if default_host
         end
       end
