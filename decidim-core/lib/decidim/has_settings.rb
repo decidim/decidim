@@ -42,7 +42,7 @@ module Decidim
       self[:settings]["default_step"] = new_settings_schema(:step, data)
     end
 
-    def step_settings
+    def phase_settings
       return {} unless participatory_space.allows_steps?
 
       participatory_space.phases.to_h do |step|
@@ -50,7 +50,7 @@ module Decidim
       end
     end
 
-    def step_settings=(data)
+    def phase_settings=(data)
       self[:settings]["steps"] = data.each_with_object({}) do |(key, value), result|
         result[key.to_s] = new_settings_schema(:step, value)
       end
@@ -64,7 +64,7 @@ module Decidim
       active_step = participatory_space.active_phase
       return default_step_settings unless active_step
 
-      step_settings.fetch(active_step.id.to_s)
+      phase_settings.fetch(active_step.id.to_s)
     end
 
     def new_settings_schema(settings_name, data)
