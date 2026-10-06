@@ -118,6 +118,8 @@ We add this as a permanent cron task, so that we can handle better the failed do
 0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:attachments_cleanup
 ```
 
+By default, the task deletes unattached blobs older than 60 minutes. This window is intentional, as we want to remove abandoned or potentially dangerous uploads as soon as possible. Note that files uploaded in a form that is still open (not yet submitted) are also unattached, so submissions done more than 60 minutes after the upload lose that file. If needed, the window can be configured with the `clean_up_unattached_blobs_after_in_minutes` argument, e.g. `bundle exec rake decidim:attachments_cleanup[1440]` keeps unattached blobs for 24 hours.
+
 You can read more about this change on PR [#17790](https://github.com/decidim/decidim/pull/17790).
 
 ### 4.2. [[TITLE OF THE TASK]]
