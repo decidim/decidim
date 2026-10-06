@@ -486,7 +486,7 @@ FactoryBot.define do
     end
 
     trait :with_one_step do
-      step_settings do
+      phase_settings do
         participatory_space_with_phases if participatory_space.active_phase.nil?
         {
           participatory_space.active_phase.id => { dummy_step_setting: true }
@@ -531,7 +531,7 @@ FactoryBot.define do
     end
 
     trait :with_likes_enabled do
-      step_settings do
+      phase_settings do
         participatory_space_with_phases if participatory_space.active_phase.nil?
         {
           participatory_space.active_phase.id => { likes_enabled: true }
@@ -540,7 +540,7 @@ FactoryBot.define do
     end
 
     trait :with_likes_disabled do
-      step_settings do
+      phase_settings do
         participatory_space_with_phases if participatory_space.active_phase.nil?
         {
           participatory_space.active_phase.id => { likes_enabled: false }
@@ -549,7 +549,7 @@ FactoryBot.define do
     end
 
     trait :with_likes_blocked do
-      step_settings do
+      phase_settings do
         participatory_space_with_phases if participatory_space.active_phase.nil?
         {
           participatory_space.active_phase.id => { likes_blocked: true }

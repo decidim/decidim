@@ -17,10 +17,10 @@ module Decidim
           email: "admin@example.org"
         )
 
-        step_settings = if participatory_space.allows_steps?
-                          { participatory_space.active_phase.id => { comments_enabled: true, comments_blocked: false } }
-                        else
-                          {}
+        phase_settings = if participatory_space.allows_steps?
+                           { participatory_space.active_phase.id => { comments_enabled: true, comments_blocked: false } }
+                         else
+                           {}
                         end
 
         params = {
@@ -31,7 +31,7 @@ module Decidim
           settings: {
             vote_limit: 0
           },
-          step_settings:
+          phase_settings:
         }
 
         component = Decidim.traceability.perform_action!(

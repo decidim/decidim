@@ -206,9 +206,9 @@ describe "Decidim::Api::QueryType" do
       let(:query_result) { survey_single_result }
 
       before do
-        step_settings = {}
+        phase_settings = {}
         if current_component.participatory_space.respond_to?(:active_phase)
-          step_settings = {
+          phase_settings = {
             current_component.participatory_space.active_phase.id => {
               allow_responses: true,
               allow_unregistered: true
@@ -218,7 +218,7 @@ describe "Decidim::Api::QueryType" do
 
         current_component.reload
         current_component.update!(
-          step_settings:,
+          phase_settings:,
           settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
         )
       end

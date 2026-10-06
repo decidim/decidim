@@ -41,15 +41,15 @@ module Decidim
       end
 
       def create_component!
-        step_settings = if participatory_space.allows_steps?
-                          { participatory_space.active_phase.id => {
-                            votes_enabled: true,
-                            votes_blocked: [false, true].sample,
-                            votes_hidden: [false, true].sample,
-                            creation_enabled: true
-                          } }
-                        else
-                          {}
+        phase_settings = if participatory_space.allows_steps?
+                           { participatory_space.active_phase.id => {
+                             votes_enabled: true,
+                             votes_blocked: [false, true].sample,
+                             votes_hidden: [false, true].sample,
+                             creation_enabled: true
+                           } }
+                         else
+                           {}
                         end
 
         params = {
@@ -66,7 +66,7 @@ module Decidim
             amendments_enabled: participatory_space.id.odd?,
             geocoding_enabled: [true, false].sample
           },
-          step_settings:
+          phase_settings:
         }
 
         Decidim.traceability.perform_action!(

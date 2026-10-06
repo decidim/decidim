@@ -41,7 +41,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendment CREATION is enabled" do
       before do
-        component.update!(step_settings: { active_step_id => { amendment_creation_enabled: true } })
+        component.update!(phase_settings: { active_step_id => { amendment_creation_enabled: true } })
       end
 
       context "and visits an amendable proposal" do
@@ -57,7 +57,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendment REACTION is enabled" do
       before do
-        component.update!(step_settings: { active_step_id => { amendment_reaction_enabled: true } })
+        component.update!(phase_settings: { active_step_id => { amendment_reaction_enabled: true } })
       end
 
       context "and the proposal author visits an emendation to their proposal" do
@@ -77,7 +77,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendment PROMOTION is enabled" do
       before do
-        component.update!(step_settings: { active_step_id => { amendment_promotion_enabled: true } })
+        component.update!(phase_settings: { active_step_id => { amendment_promotion_enabled: true } })
       end
 
       context "and the author of a rejected emendation visits their emendation" do
@@ -98,7 +98,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendments VISIBILITY is set to 'participants'" do
       before do
-        component.update!(step_settings: { active_step_id => { amendments_visibility: "participants" } })
+        component.update!(phase_settings: { active_step_id => { amendments_visibility: "participants" } })
       end
 
       context "when the user is logged in" do
@@ -151,7 +151,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendment CREATION is enabled" do
       before do
-        component.update!(step_settings: { active_step_id => { amendment_creation_enabled: true } })
+        component.update!(phase_settings: { active_step_id => { amendment_creation_enabled: true } })
       end
 
       context "and visits an amendable proposal from a transparent space" do
@@ -273,7 +273,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendment CREATION is NOT enabled" do
       before do
-        component.update!(step_settings: { active_step_id => { amendment_creation_enabled: false } })
+        component.update!(phase_settings: { active_step_id => { amendment_creation_enabled: false } })
       end
 
       context "and visits an amendable proposal" do
@@ -289,7 +289,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendment REACTION is enabled" do
       before do
-        component.update!(step_settings: { active_step_id => { amendment_reaction_enabled: true } })
+        component.update!(phase_settings: { active_step_id => { amendment_reaction_enabled: true } })
       end
 
       context "and the proposal author visits an emendation to their proposal" do
@@ -353,7 +353,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendment REACTION is NOT enabled" do
       before do
-        component.update!(step_settings: { active_step_id => { amendment_reaction_enabled: false } })
+        component.update!(phase_settings: { active_step_id => { amendment_reaction_enabled: false } })
       end
 
       context "and the proposal author visits an emendation to their proposal" do
@@ -373,7 +373,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendment PROMOTION is enabled" do
       before do
-        component.update!(step_settings: { active_step_id => { amendment_promotion_enabled: true } })
+        component.update!(phase_settings: { active_step_id => { amendment_promotion_enabled: true } })
       end
 
       context "and the author of a rejected emendation visits their emendation" do
@@ -422,7 +422,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendment PROMOTION is NOT enabled" do
       before do
-        component.update!(step_settings: { active_step_id => { amendment_promotion_enabled: false } })
+        component.update!(phase_settings: { active_step_id => { amendment_promotion_enabled: false } })
       end
 
       context "and the author of a rejected emendation visits their emendation" do
@@ -443,7 +443,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendments VISIBILITY is set to 'participants'" do
       before do
-        component.update!(step_settings: { active_step_id => { amendments_visibility: "participants" } })
+        component.update!(phase_settings: { active_step_id => { amendments_visibility: "participants" } })
       end
 
       context "when the user is logged in" do
@@ -486,7 +486,7 @@ describe "Amend Proposal", versioning: true do
 
     context "when amendments VISIBILITY is set to 'all'" do
       before do
-        component.update!(step_settings: { active_step_id => { amendments_visibility: "all" } })
+        component.update!(phase_settings: { active_step_id => { amendments_visibility: "all" } })
       end
 
       context "when the user is logged in" do

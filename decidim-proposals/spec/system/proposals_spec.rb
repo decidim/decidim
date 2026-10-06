@@ -173,7 +173,7 @@ describe "Proposals" do
 
       before do
         component.update!(
-          step_settings: {
+          phase_settings: {
             component.participatory_space.active_phase.id => {
               answers_with_costs: true
             }
@@ -213,7 +213,7 @@ describe "Proposals" do
 
       it "shows the costs" do
         component.update!(
-          step_settings: {
+          phase_settings: {
             component.participatory_space.active_phase.id => {
               answers_with_costs: true
             }

@@ -219,7 +219,7 @@ describe "Filter Proposals", :slow do
       context "when proposal_answering step setting is enabled" do
         before do
           component.update!(
-            step_settings: {
+            phase_settings: {
               component.participatory_space.active_phase.id => {
                 proposal_answering_enabled: true
               }
@@ -312,7 +312,7 @@ describe "Filter Proposals", :slow do
       context "when proposal_answering step setting is disabled" do
         before do
           component.update!(
-            step_settings: {
+            phase_settings: {
               component.participatory_space.active_phase.id => {
                 proposal_answering_enabled: false
               }
@@ -379,7 +379,7 @@ describe "Filter Proposals", :slow do
 
       context "when votes are enabled" do
         before do
-          component.update!(step_settings: { active_step_id => { votes_enabled: true } })
+          component.update!(phase_settings: { active_step_id => { votes_enabled: true } })
           visit_component
         end
 
@@ -400,7 +400,7 @@ describe "Filter Proposals", :slow do
 
       context "when votes are not enabled" do
         before do
-          component.update!(step_settings: { active_step_id => { votes_enabled: false } })
+          component.update!(phase_settings: { active_step_id => { votes_enabled: false } })
           visit_component
         end
 
@@ -471,7 +471,7 @@ describe "Filter Proposals", :slow do
 
               component.update!(settings: { amendments_enabled: true })
               component.update!(
-                step_settings: {
+                phase_settings: {
                   component.participatory_space.active_phase.id => {
                     amendments_visibility: "participants"
                   }
@@ -518,7 +518,7 @@ describe "Filter Proposals", :slow do
               visit decidim.root_path
               component.update!(settings: { amendments_enabled: true })
               component.update!(
-                step_settings: {
+                phase_settings: {
                   component.participatory_space.active_phase.id => {
                     amendments_visibility: "participants"
                   }
@@ -544,7 +544,7 @@ describe "Filter Proposals", :slow do
         context "and amendments_visibility component step_setting is set to 'participants'" do
           before do
             component.update!(
-              step_settings: {
+              phase_settings: {
                 component.participatory_space.active_phase.id => {
                   amendments_visibility: "participants"
                 }

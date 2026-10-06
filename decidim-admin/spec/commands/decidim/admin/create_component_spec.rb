@@ -31,7 +31,7 @@ module Decidim::Admin
             dummy_step_attribute2: false
           }
         },
-        step_settings: {
+        phase_settings: {
           step.id.to_s => {
             dummy_step_attribute1: true,
             dummy_step_attribute2: false
@@ -59,9 +59,9 @@ module Decidim::Admin
         expect(component.settings.dummy_global_attribute2).to be(false)
         expect(component.weight).to eq 2
 
-        step_settings = component.step_settings[step.id.to_s]
-        expect(step_settings.dummy_step_attribute1).to be(true)
-        expect(step_settings.dummy_step_attribute2).to be(false)
+        phase_settings = component.phase_settings[step.id.to_s]
+        expect(phase_settings.dummy_step_attribute1).to be(true)
+        expect(phase_settings.dummy_step_attribute2).to be(false)
       end
 
       it "traces the action", versioning: true do

@@ -34,7 +34,7 @@ module Decidim::Admin
             readonly_step_attribute: false
           }
         },
-        step_settings: {
+        phase_settings: {
           step.id.to_s => {
             dummy_step_attribute1: true,
             dummy_step_attribute2: false,
@@ -57,10 +57,10 @@ module Decidim::Admin
         expect(component.settings.dummy_global_attribute2).to be(false)
         expect(component.settings.readonly_attribute).to be(true)
 
-        step_settings = component.step_settings[step.id.to_s]
-        expect(step_settings.dummy_step_attribute1).to be(true)
-        expect(step_settings.dummy_step_attribute2).to be(false)
-        expect(step_settings.readonly_step_attribute).to be(true)
+        phase_settings = component.phase_settings[step.id.to_s]
+        expect(phase_settings.dummy_step_attribute1).to be(true)
+        expect(phase_settings.dummy_step_attribute2).to be(false)
+        expect(phase_settings.readonly_step_attribute).to be(true)
       end
 
       it "broadcasts :ok and does not update the weight" do

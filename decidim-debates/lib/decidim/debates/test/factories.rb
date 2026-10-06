@@ -81,7 +81,7 @@ FactoryBot.define do
     end
 
     trait :with_comments_blocked do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => {
             comments_blocked: true
@@ -91,7 +91,7 @@ FactoryBot.define do
     end
 
     trait :with_creation_enabled do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => { creation_enabled: true }
         }
@@ -103,7 +103,7 @@ FactoryBot.define do
     end
 
     trait :with_likes_blocked do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => {
             likes_enabled: true,
@@ -114,7 +114,7 @@ FactoryBot.define do
     end
 
     trait :with_likes_enabled do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => { likes_enabled: true }
         }
@@ -122,7 +122,7 @@ FactoryBot.define do
     end
 
     trait :with_likes_disabled do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => { likes_enabled: false }
         }

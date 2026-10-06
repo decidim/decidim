@@ -210,7 +210,7 @@ module Decidim::Proposals
         let(:component) do
           create(:proposal_component,
                  participatory_space: participatory_process,
-                 step_settings: {
+                 phase_settings: {
                    step1.id => { votes_enabled: false },
                    step2.id => { votes_enabled: true },
                    step3.id => { votes_enabled: false }

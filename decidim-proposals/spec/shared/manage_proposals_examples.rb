@@ -49,7 +49,7 @@ shared_examples "manage proposals" do
       context "when creation is enabled" do
         before do
           current_component.update!(
-            step_settings: {
+            phase_settings: {
               current_component.participatory_space.active_phase.id => {
                 creation_enabled: true
               }
@@ -243,7 +243,7 @@ shared_examples "manage proposals" do
         before do
           current_component.update!(
             settings: { official_proposals_enabled: false },
-            step_settings: {
+            phase_settings: {
               current_component.participatory_space.active_phase.id => {
                 creation_enabled: false
               }
@@ -288,7 +288,7 @@ shared_examples "manage proposals" do
     context "when the proposal_answering step setting is enabled" do
       before do
         current_component.update!(
-          step_settings: {
+          phase_settings: {
             current_component.participatory_space.active_phase.id => {
               proposal_answering_enabled: true
             }
@@ -423,7 +423,7 @@ shared_examples "manage proposals" do
     context "when the proposal_answering step setting is disabled" do
       before do
         current_component.update!(
-          step_settings: {
+          phase_settings: {
             current_component.participatory_space.active_phase.id => {
               proposal_answering_enabled: false
             }
@@ -469,7 +469,7 @@ shared_examples "manage proposals" do
   context "when the votes_enabled component setting is disabled" do
     before do
       current_component.update!(
-        step_settings: {
+        phase_settings: {
           component.participatory_space.active_phase.id => {
             votes_enabled: false
           }
@@ -489,7 +489,7 @@ shared_examples "manage proposals" do
   context "when the votes_enabled component setting is enabled" do
     before do
       current_component.update!(
-        step_settings: {
+        phase_settings: {
           component.participatory_space.active_phase.id => {
             votes_enabled: true
           }

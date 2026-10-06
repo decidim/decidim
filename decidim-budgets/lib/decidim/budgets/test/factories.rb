@@ -66,7 +66,7 @@ FactoryBot.define do
     end
 
     trait :with_votes_disabled do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => {
             votes: :disabled
@@ -76,7 +76,7 @@ FactoryBot.define do
     end
 
     trait :with_show_votes_enabled do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => {
             show_votes: true
@@ -86,7 +86,7 @@ FactoryBot.define do
     end
 
     trait :with_voting_finished do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => {
             votes: :finished,

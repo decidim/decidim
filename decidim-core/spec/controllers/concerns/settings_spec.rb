@@ -45,7 +45,7 @@ module Decidim
 
         it "returns the settings for the active step" do
           expect(controller.current_settings)
-            .to be_equivalent_to(component.step_settings[step.id.to_s])
+            .to be_equivalent_to(component.phase_settings[step.id.to_s])
         end
       end
     end

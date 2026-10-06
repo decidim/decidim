@@ -355,7 +355,7 @@ module Decidim
         component.settings = {
           dummy_global_translatable_text: { en: content }
         }
-        component.step_settings = {
+        component.phase_settings = {
           step.id => {
             dummy_step_translatable_text: { en: content }
           }
@@ -440,7 +440,7 @@ module Decidim
         component.settings = {
           dummy_global_translatable_text: { en: content }
         }
-        component.step_settings = {
+        component.phase_settings = {
           step.id => {
             dummy_step_translatable_text: { en: content }
           }

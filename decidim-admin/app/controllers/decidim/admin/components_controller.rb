@@ -183,9 +183,9 @@ module Decidim
           if hsh[:default_step_settings]
             hsh[:default_step_settings] = new_settings.call(:step, hsh[:default_step_settings])
           else
-            hsh[:step_settings] ||= {}
-            hsh[:step_settings].each do |key, value|
-              hsh[:step_settings][key] = new_settings.call(:step, value)
+            hsh[:phase_settings] ||= {}
+            hsh[:phase_settings].each do |key, value|
+              hsh[:phase_settings][key] = new_settings.call(:step, value)
             end
           end
         end

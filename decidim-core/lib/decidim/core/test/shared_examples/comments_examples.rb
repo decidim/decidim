@@ -1113,7 +1113,7 @@ shared_examples "comments blocked" do
       let(:active_step_id) { component.participatory_space.active_phase.id }
 
       before do
-        component.update!(step_settings: { active_step_id => { comments_blocked: true } })
+        component.update!(phase_settings: { active_step_id => { comments_blocked: true } })
       end
 
       it "shows a message indicating that comments are disabled" do
@@ -1157,7 +1157,7 @@ shared_examples "comments blocked" do
       let(:active_step_id) { component.participatory_space.active_phase.id }
 
       before do
-        component.update!(step_settings: { active_step_id => { comments_blocked: true } })
+        component.update!(phase_settings: { active_step_id => { comments_blocked: true } })
       end
 
       it "shows a message indicating that comments are disabled" do

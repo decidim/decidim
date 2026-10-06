@@ -64,7 +64,7 @@ module Decidim
           context "and costs are enabled" do
             before do
               proposals_component.update!(
-                step_settings: {
+                phase_settings: {
                   proposals_component.participatory_space.active_phase.id => {
                     answers_with_costs: true
                   }

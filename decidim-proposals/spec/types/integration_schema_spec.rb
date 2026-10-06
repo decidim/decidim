@@ -232,7 +232,7 @@ describe "Decidim::Api::QueryType" do
     if active_phase
       current_component.update!(
         settings: { proposal_answering_enabled: true },
-        step_settings: {
+        phase_settings: {
           current_component.participatory_space.active_phase.id => {
             proposal_answering_enabled: true,
             answers_with_costs: true

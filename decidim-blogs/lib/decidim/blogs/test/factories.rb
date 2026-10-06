@@ -16,7 +16,7 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, :with_phases, skip_injection:, organization:) }
 
     trait :with_likes_enabled do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => { likes_enabled: true }
         }
@@ -24,7 +24,7 @@ FactoryBot.define do
     end
 
     trait :with_likes_disabled do
-      step_settings do
+      phase_settings do
         {
           participatory_space.active_phase.id => { likes_enabled: false }
         }

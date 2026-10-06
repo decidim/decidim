@@ -100,14 +100,14 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
-      context "when the form has step_settings" do
+      context "when the form has phase_settings" do
         before do
           params.except("default_step_settings").merge(
-            "step_settings" => { "1" => default_step_settings }
+            "phase_settings" => { "1" => default_step_settings }
           )
         end
 
-        context "and a step_settings required attribute is missing" do
+        context "and a phase_settings required attribute is missing" do
           let(:dummy_step_translatable_text) do
             {
               "dummy_step_translatable_text_ca" => "Dummy text ca",

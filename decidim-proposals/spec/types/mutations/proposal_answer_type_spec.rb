@@ -52,7 +52,7 @@ module Decidim
       before do
         component.update!(
           settings: { proposal_answering_enabled: },
-          step_settings: {
+          phase_settings: {
             component.participatory_space.active_phase.id => {
               proposal_answering_enabled:,
               answers_with_costs: proposal_answers_with_costs?

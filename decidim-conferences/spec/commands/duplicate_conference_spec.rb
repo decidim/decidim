@@ -111,8 +111,8 @@ module Decidim::Conferences
         expect(last_component.participatory_space).to eq(last_conference)
         expect(last_component.name).to eq(component.name)
         expect(last_component.settings.attributes).to eq(component.settings.attributes)
-        expect(last_component.step_settings.keys).to eq(component.step_settings.keys)
-        expect(last_component.step_settings.values).to eq(component.step_settings.values)
+        expect(last_component.phase_settings.keys).to eq(component.phase_settings.keys)
+        expect(last_component.phase_settings.values).to eq(component.phase_settings.values)
       end
     end
   end

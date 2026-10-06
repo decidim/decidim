@@ -301,7 +301,7 @@ module Decidim
         context "when the proposal is an emendation" do
           context "and amendments VISIBILITY is set to 'participants'" do
             before do
-              component.update!(step_settings: { active_step_id => { amendments_visibility: "participants" } })
+              component.update!(phase_settings: { active_step_id => { amendments_visibility: "participants" } })
             end
 
             context "when the user is not logged in" do
@@ -347,7 +347,7 @@ module Decidim
 
           context "and amendments VISIBILITY is set to 'all'" do
             before do
-              component.update!(step_settings: { active_step_id => { amendments_visibility: "all" } })
+              component.update!(phase_settings: { active_step_id => { amendments_visibility: "all" } })
             end
 
             context "when the user is not logged in" do

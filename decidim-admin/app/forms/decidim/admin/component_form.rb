@@ -21,7 +21,7 @@ module Decidim
 
       attribute :settings, Object
       attribute :default_step_settings, Object
-      attribute(:step_settings, { String => Object })
+      attribute(:phase_settings, { String => Object })
 
       attribute :share_tokens, Array[ShareToken]
 
@@ -52,9 +52,9 @@ module Decidim
       end
 
       def validate_step_settings
-        return unless step_settings.respond_to?(:attributes)
+        return unless phase_settings.respond_to?(:attributes)
 
-        errors.add(:step_settings, :invalid) unless step_settings.attributes.values.all? { |v| !v.respond_to?(:valid?) || v.valid? }
+        errors.add(:phase_settings, :invalid) unless phase_settings.attributes.values.all? { |v| !v.respond_to?(:valid?) || v.valid? }
       end
 
       def settings_errors_empty?
@@ -62,7 +62,7 @@ module Decidim
         validations << if default_step_settings.present?
                          default_step_settings.errors.empty?
                        else
-                         step_settings.each_value.map(&:errors).all?(&:empty?)
+                         phase_settings.each_value.map(&:errors).all?(&:empty?)
                        end
         validations.all?
       end

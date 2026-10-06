@@ -44,7 +44,7 @@ module Decidim
         before do
           component.update!(
             settings: { proposal_answering_enabled: true },
-            step_settings: {
+            phase_settings: {
               component.participatory_space.active_phase.id => {
                 proposal_answering_enabled: true,
                 answers_with_costs: true

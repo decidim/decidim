@@ -10,10 +10,10 @@ describe "Participatory texts" do
 
   def update_step_settings(new_step_settings)
     active_step_id = participatory_process.active_phase.id.to_s
-    step_settings = component.step_settings[active_step_id].to_h.merge(new_step_settings)
+    phase_settings = component.phase_settings[active_step_id].to_h.merge(new_step_settings)
     component.update!(
       settings: component.settings.to_h.merge(amendments_enabled: true),
-      step_settings: { active_step_id => step_settings }
+      phase_settings: { active_step_id => phase_settings }
     )
   end
 
