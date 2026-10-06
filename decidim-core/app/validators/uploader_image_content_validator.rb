@@ -122,15 +122,25 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   end
 
   # Reads the leading bytes (signature) of the file. Returns nil when the file
-  # cannot be read, in which case the validation is skipped.
+  # cannot be read, in which case the validation is skipped. Empty files yield
+  # an empty signature, which is rejected.
   def file_signature(file)
     if uploaded_file?(file)
-      File.open(file.path, "rb") { |io| io.read(SIGNATURE_LENGTH) }
+      File.open(file.path, "rb") { |io| read_signature(io) }
     elsif file.is_a?(ActiveStorage::Attached)
       attached_signature(file)
     end
   rescue ActiveStorage::Error, Errno::ENOENT, IOError
     nil
+  end
+
+  # Reads the leading bytes of an IO. IO#read returns nil at the end of the
+  # file, so an empty file would otherwise be indistinguishable from an
+  # unreadable one and skip the validation. Normalizing it to an empty
+  # signature keeps empty files rejected, while nil is kept for files which
+  # cannot be read at all.
+  def read_signature(io)
+    io.read(SIGNATURE_LENGTH) || ""
   end
 
   # Reads the signature of an attached file. Blobs are only uploaded once the
@@ -150,9 +160,9 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   def pending_attachable_signature(attached)
     attachable = pending_attachable(attached)
     if uploaded_file?(attachable) || attachable.is_a?(File)
-      File.open(attachable.path, "rb") { |io| io.read(SIGNATURE_LENGTH) }
+      File.open(attachable.path, "rb") { |io| read_signature(io) }
     elsif attachable.is_a?(Pathname)
-      File.open(attachable.to_path, "rb") { |io| io.read(SIGNATURE_LENGTH) }
+      File.open(attachable.to_path, "rb") { |io| read_signature(io) }
     elsif attachable.is_a?(Hash)
       io_signature(attachable[:io])
     end
@@ -169,18 +179,20 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
     return unless io.respond_to?(:read) && io.respond_to?(:rewind)
 
     io.rewind
-    signature = io.read(SIGNATURE_LENGTH)
+    signature = read_signature(io)
     io.rewind
     signature
   end
 
   # Reads only the leading bytes of the blob to keep the operation cheap for
-  # large files. Falls back to opening the whole blob when the service does not
-  # support ranged downloads.
+  # large files. The services return nil when the blob is empty, which is
+  # normalized to an empty signature so that empty blobs are rejected. Falls
+  # back to opening the whole blob when the service does not support ranged
+  # downloads.
   def blob_signature(blob)
-    blob.download_chunk(0...SIGNATURE_LENGTH)
+    blob.download_chunk(0...SIGNATURE_LENGTH) || ""
   rescue NotImplementedError
-    blob.open { |io| io.read(SIGNATURE_LENGTH) }
+    blob.open { |io| read_signature(io) }
   end
 
   # The image format detected from the file signature, or nil when the

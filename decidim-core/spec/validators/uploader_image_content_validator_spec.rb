@@ -127,6 +127,12 @@ describe UploaderImageContentValidator do
     end
   end
 
+  context "when the file is empty" do
+    let(:upload) { Decidim::Dev.test_file("empty_file.png", "image/png") }
+
+    it_behaves_like "a spoofed image"
+  end
+
   context "when the file format does not match the declared content type" do
     context "with a JPEG declared as a PNG" do
       let(:upload) { Decidim::Dev.test_file("avatar.jpg", "image/png") }
@@ -221,6 +227,19 @@ describe UploaderImageContentValidator do
     end
 
     it_behaves_like "a spoofed image"
+
+    context "with an empty blob" do
+      let(:blob) do
+        ActiveStorage::Blob.create_and_upload!(
+          io: StringIO.new(""),
+          filename: "empty_file.png",
+          content_type: "image/png",
+          identify: false
+        )
+      end
+
+      it_behaves_like "a spoofed image"
+    end
   end
 
   context "when the file is an ActiveStorage::Attached pending in a new record" do
@@ -276,6 +295,12 @@ describe UploaderImageContentValidator do
       let(:upload) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
 
       it_behaves_like "a valid image"
+    end
+
+    context "with an empty file" do
+      let(:upload) { Decidim::Dev.test_file("empty_file.png", "image/png") }
+
+      it_behaves_like "a spoofed image"
     end
   end
 end
