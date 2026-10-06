@@ -73,6 +73,32 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a valid image"
     end
+
+    context "with an SVG" do
+      let(:upload) { Decidim::Dev.test_file("test.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
+  end
+
+  context "when the content type is an alias of the file format" do
+    context "with a JPEG declared as image/jpg" do
+      let(:upload) { Decidim::Dev.test_file("avatar.jpg", "image/jpg") }
+
+      it_behaves_like "a valid image"
+    end
+
+    context "with a HEIF file declared with another HEIF content type" do
+      let(:upload) { Decidim::Dev.test_file("test.heic", "image/heif") }
+
+      it_behaves_like "a valid image"
+    end
+
+    context "with a content type including parameters" do
+      let(:upload) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg;charset=binary") }
+
+      it_behaves_like "a valid image"
+    end
   end
 
   context "when the file is a spoofed image" do
@@ -96,6 +122,38 @@ describe UploaderImageContentValidator do
 
     context "with a video (ftyp) file and an image content type" do
       let(:upload) { Decidim::Dev.test_file("video.mp4", "image/png") }
+
+      it_behaves_like "a spoofed image"
+    end
+  end
+
+  context "when the file format does not match the declared content type" do
+    context "with a JPEG declared as a PNG" do
+      let(:upload) { Decidim::Dev.test_file("avatar.jpg", "image/png") }
+
+      it_behaves_like "a spoofed image"
+    end
+
+    context "with a PNG declared as a JPEG" do
+      let(:upload) { Decidim::Dev.test_file("icon.png", "image/jpeg") }
+
+      it_behaves_like "a spoofed image"
+    end
+
+    context "with an SVG declared as a PNG" do
+      let(:upload) { Decidim::Dev.test_file("test.svg", "image/png") }
+
+      it_behaves_like "a spoofed image"
+    end
+
+    context "with a HEIF declared as an AVIF" do
+      let(:upload) { Decidim::Dev.test_file("test.heic", "image/avif") }
+
+      it_behaves_like "a spoofed image"
+    end
+
+    context "with an AVIF declared as a HEIF" do
+      let(:upload) { Decidim::Dev.test_file("test.avif", "image/heic") }
 
       it_behaves_like "a spoofed image"
     end
