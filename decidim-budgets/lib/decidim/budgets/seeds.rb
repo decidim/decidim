@@ -44,7 +44,7 @@ module Decidim
                            } }
                          else
                            {}
-                        end
+                         end
 
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
