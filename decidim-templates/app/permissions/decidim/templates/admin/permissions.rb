@@ -21,6 +21,8 @@ module Decidim
               allow! if permission_action.action == :index
             when :questionnaire
               allow!
+            when :questionnaire_template
+              allow! if [:preview, :apply, :skip].include? permission_action.action
             end
           end
 

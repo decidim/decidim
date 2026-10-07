@@ -9,6 +9,8 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          protected
+
           def load_pending_authorization!(name, pending_authorization_id)
             Authorizations.new(organization: current_organization, name:, granted: false)
                           .query

@@ -9,6 +9,8 @@ module Decidim
 
         include Decidim::Admin::GlobalModerationContext
 
+        protected
+
         def moderation
           @moderation ||= moderations_for_user.find(params[:moderation_id])
         end

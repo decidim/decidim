@@ -10,12 +10,16 @@ module Decidim
 
       add_breadcrumb_item_from_menu :admin_settings_menu
 
-      def content_block_scope
-        :homepage
-      end
+      helper_method :scoped_resource
 
       def scoped_resource
         nil
+      end
+
+      protected
+
+      def content_block_scope
+        :homepage
       end
 
       def enforce_permission_to_update_resource

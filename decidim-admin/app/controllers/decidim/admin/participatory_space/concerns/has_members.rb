@@ -107,6 +107,7 @@ module Decidim
             end
 
             def publish_all
+              enforce_permission_to :publish_all, :space_member
               PublishAllMembers.call(current_participatory_space, current_user) do
                 on(:ok) do
                   flash[:notice] = I18n.t("members.publish_all.success", scope: "decidim.admin")
@@ -121,6 +122,7 @@ module Decidim
             end
 
             def unpublish_all
+              enforce_permission_to :unpublish_all, :space_member
               UnpublishAllMembers.call(current_participatory_space, current_user) do
                 on(:ok) do
                   flash[:notice] = I18n.t("members.unpublish_all.success", scope: "decidim.admin")
@@ -133,6 +135,8 @@ module Decidim
                 end
               end
             end
+
+            protected
 
             # Public: Returns a String or Object that will be passed to `redirect_to` after
             # destroying a member. By default it redirects to the participatory_space.

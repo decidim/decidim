@@ -9,6 +9,8 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          protected
+
           def populate_interpolations(text, proposal)
             return populate_string_interpolations(text, proposal) if text.is_a?(String)
 

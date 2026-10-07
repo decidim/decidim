@@ -10,12 +10,16 @@ module Decidim
       helper_method :authorizations, :other_authorizations_for, :resource_params, :resource
 
       def edit
+        enforce_permission_to :update, :resource_permission, resource:
+
         @permissions_form = PermissionsForm.new(
           permissions: permission_forms
         )
       end
 
       def update
+        enforce_permission_to :update, :resource_permission, resource:
+
         @permissions_form = PermissionsForm.from_params(params).with_context(current_organization:)
 
         UpdateResourcePermissions.call(@permissions_form, resource) do

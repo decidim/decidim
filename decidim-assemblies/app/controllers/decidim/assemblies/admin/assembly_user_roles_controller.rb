@@ -8,6 +8,8 @@ module Decidim
       class AssemblyUserRolesController < Decidim::Admin::ParticipatorySpace::UserRoleController
         include Concerns::AssemblyAdmin
 
+        protected
+
         def authorization_scope = :assembly_user_role
 
         def resource_form = form(AssemblyUserRoleForm)
