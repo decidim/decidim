@@ -9,6 +9,8 @@ module Decidim
         include Concerns::AssemblyAdmin
         include Decidim::Admin::Concerns::HasPrivateUsersCsvImport
 
+        protected
+
         def after_import_path
           participatory_space_private_users_path(current_assembly)
         end

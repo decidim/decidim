@@ -88,6 +88,13 @@ module Decidim
               end
             end
 
+            # This endpoint is only used by the questions form rendered by the
+            # already authorized "edit_questions" action. The host controllers
+            # resolve their resource from params (e.g. "params[:id]") that have
+            # a different meaning in this request, so the authorization cannot
+            # be delegated to "questionnaire_for" here. Access is already
+            # restricted by the admin dashboard routing constraint.
+            # rubocop:disable-next Decidim/EnforcePermissionTo
             def response_options
               respond_to do |format|
                 format.json do
@@ -98,8 +105,23 @@ module Decidim
               end
             end
 
-            # Public: The only method to be implemented at the controller. You need to
-            # return the object that will hold the questionnaire.
+            protected
+
+            if defined?(Decidim::Templates::Admin::Concerns::Templatable)
+              include Decidim::Templates::Admin::Concerns::Templatable
+
+              helper Decidim::DatalistSelectHelper
+
+              def templatable_type
+                "Decidim::Forms::Questionnaire"
+              end
+
+              def templatable
+                questionnaire
+              end
+            end
+
+            # You need to return the object that will hold the questionnaire.
             def questionnaire_for
               raise "#{self.class.name} is expected to implement #questionnaire_for"
             end

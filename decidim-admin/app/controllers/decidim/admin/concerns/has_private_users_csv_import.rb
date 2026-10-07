@@ -45,6 +45,8 @@ module Decidim
             redirect_to new_participatory_space_private_users_csv_imports_path
           end
 
+          protected
+
           # Public: Returns a String or Object that will be passed to `redirect_to` after
           # importing private users. By default it redirects to the privatable_to.
           #

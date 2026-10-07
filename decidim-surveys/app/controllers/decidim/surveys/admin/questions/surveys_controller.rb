@@ -11,6 +11,8 @@ module Decidim
 
           helper_method :surveys
 
+          protected
+
           def edit_questions_template
             "decidim/surveys/admin/questions/surveys/edit"
           end

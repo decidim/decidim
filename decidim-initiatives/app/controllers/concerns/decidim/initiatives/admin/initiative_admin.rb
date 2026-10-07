@@ -18,8 +18,15 @@ module Decidim
           include Decidim::Admin::ParticipatorySpaceAdminContext
           participatory_space_admin_layout
 
-          alias_method :current_participatory_space, :current_initiative
-          alias_method :current_participatory_space_manifest, :initiatives_manifest
+          helper_method :current_participatory_space, :current_participatory_space_manifest
+
+          def current_participatory_space
+            current_initiative
+          end
+
+          def current_participatory_space_manifest
+            initiatives_manifest
+          end
         end
 
         private
