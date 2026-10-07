@@ -37,9 +37,7 @@ module Decidim
       private
 
       # Since the action is not done by any specific user, we instantiate a new user record
-      # to which we explicitly set the id to equal to 0.
-      # We could have changed the logs table to allow nil users, but that may have generated
-      # other issues. Instead, we make the explicit assignment.
+      # to which we explicitly set the id to 0.
       def log(step)
         Decidim::ActionLogger.log(
           :system_activate,
