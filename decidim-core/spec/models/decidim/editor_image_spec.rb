@@ -61,7 +61,7 @@ describe Decidim::EditorImage do
       end
     end
 
-    # See UploaderImageContentValidator#attached_signature. When a file is
+    # See UploaderImageContentValidator#read_attached. When a file is
     # attached to a new record, its blob is not persisted until the record is
     # saved, so the bytes are checked from the pending attachable.
     context "when the file is a spoofed image pending in a new record" do

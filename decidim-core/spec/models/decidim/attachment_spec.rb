@@ -75,7 +75,7 @@ module Decidim
         end
       end
 
-      # See UploaderImageContentValidator#attached_signature. When a file is
+      # See UploaderImageContentValidator#read_attached. When a file is
       # attached to a new record, its blob is not persisted until the record is
       # saved, so the bytes are checked from the pending attachable.
       context "when the file is a spoofed image pending in a new record" do
@@ -88,6 +88,30 @@ module Decidim
         it "shows the correct error" do
           expect(subject.valid?).to be(false)
           expect(subject.errors[:file]).to contain_exactly("The file is not a valid image")
+        end
+      end
+
+      # See UploaderImageContentValidator#validate_svg_content. SVG documents
+      # can contain scripts and other active content, so their contents are
+      # validated before the file is stored.
+      context "when the file is an SVG with active content" do
+        subject do
+          build(
+            :attachment,
+            file: ActiveStorage::Blob.create_and_upload!(
+              io: File.open(Decidim::Dev.asset("malicious_svg_script.svg")),
+              filename: "logo.svg",
+              content_type: "image/svg+xml",
+              identify: false
+            )
+          )
+        end
+
+        it { is_expected.not_to be_valid }
+
+        it "shows the correct error" do
+          expect(subject.valid?).to be(false)
+          expect(subject.errors[:file]).to contain_exactly("The file contains unsafe content")
         end
       end
     end

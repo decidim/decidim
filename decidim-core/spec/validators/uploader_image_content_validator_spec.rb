@@ -79,6 +79,12 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a valid image"
     end
+
+    context "with an SVG with a prolog, a DTD and embedded content" do
+      let(:upload) { Decidim::Dev.test_file("test_complex.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
   end
 
   context "when the content type is an alias of the file format" do
@@ -124,6 +130,53 @@ describe UploaderImageContentValidator do
       let(:upload) { Decidim::Dev.test_file("video.mp4", "image/png") }
 
       it_behaves_like "a spoofed image"
+    end
+
+    context "with an XML document which is not an SVG" do
+      let(:upload) { Decidim::Dev.test_file("spoofed_svg_xml.svg", "image/svg+xml") }
+
+      it_behaves_like "a spoofed image"
+    end
+  end
+
+  context "when the file is an SVG with active content" do
+    shared_examples "an unsafe SVG" do
+      it { is_expected.not_to be_valid }
+
+      it "adds the correct error" do
+        subject.valid?
+        expect(subject.errors[:upload]).to contain_exactly("The file contains unsafe content")
+      end
+    end
+
+    context "with a script element" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_script.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with an event handler attribute" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_handler.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with a script URI" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_uri.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with an animation targeting an event handler" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_animation.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with an entity declaration" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_entity.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
     end
   end
 

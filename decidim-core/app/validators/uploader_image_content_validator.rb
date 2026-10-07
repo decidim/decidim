@@ -15,6 +15,12 @@
 # files whose contents do not match their declaration (e.g. a JPEG file
 # declared as image/png), so that the stored MIME type is consistent with the
 # file contents.
+#
+# SVG documents are XML-based and can contain scripts and other active content,
+# which is executed when the document is rendered by the browser. Because of
+# that, the contents of files detected as SVG are additionally validated, so
+# that documents which could execute scripts or read external resources are
+# rejected instead of being stored as they are.
 class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeValidator
   # The number of leading bytes to read from the file to detect its signature.
   SIGNATURE_LENGTH = 128
@@ -65,6 +71,33 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
     svg: %w(image/svg+xml)
   }.freeze
 
+  # The elements which are not allowed in SVG documents, because they either
+  # execute scripts themselves (e.g. "script" and the SVG Tiny "handler") or
+  # allow embedding foreign content which can execute them (e.g.
+  # "foreignObject").
+  SVG_FORBIDDEN_ELEMENTS = %w(script handler foreignObject iframe embed object applet).freeze
+
+  # The names of the attributes which are not allowed in SVG documents, as
+  # event handlers execute scripts when the document is rendered.
+  SVG_EVENT_HANDLER_NAME = /\Aon[a-z]/i
+
+  # The URI prefixes which are not allowed in the attribute values of SVG
+  # documents, as they execute scripts.
+  SVG_FORBIDDEN_URI_PREFIXES = %w(javascript: livescript: vbscript: data:text/html).freeze
+
+  # The attributes of the SVG animation elements which define the attribute
+  # modified by the animation. Through them an animation can set an event
+  # handler or another forbidden value at runtime, so the values of these
+  # attributes are validated as element/attribute names.
+  SVG_ANIMATION_TARGET_NAMES = %w(attribute attributeName attributeNames).freeze
+
+  # The declaration of entities in the document type definition of an SVG
+  # document. Entities can be used to read external resources (XXE) or to
+  # expand content exponentially (billion laughs), so documents declaring them
+  # are rejected. External DTD references without entity declarations are
+  # accepted, as the DTDs are never fetched (see #parse_svg).
+  SVG_ENTITY_DECLARATION = /<!ENTITY/i
+
   def validate_each(record, attribute, value)
     begin
       values = parse_values(value)
@@ -91,9 +124,10 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
     signature = file_signature(file)
     return if signature.nil?
 
-    return if valid_image_content?(content_type, signature)
+    detected = image_format(signature)
+    return add_invalid_image(record, attribute) unless valid_image_format?(detected, content_type)
 
-    record.errors.add attribute, I18n.t("decidim.errors.files.file_is_not_a_valid_image")
+    validate_svg_content(record, attribute, file) if detected == :svg
   end
 
   # The content type declared by the file, either through the blob of an
@@ -112,59 +146,141 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
     content_type.to_s.split(";", 2).first.to_s.strip.downcase
   end
 
-  # Whether the signature matches one of the supported image formats and the
-  # detected format is consistent with the content type declared by the file.
-  def valid_image_content?(content_type, signature)
-    detected = image_format(signature)
+  # Whether the format detected from the file signature is one of the
+  # supported image formats and is consistent with the content type declared
+  # by the file.
+  def valid_image_format?(detected, content_type)
     return false if detected.nil?
 
     FORMAT_CONTENT_TYPES.fetch(detected).include?(content_type)
+  end
+
+  # Validates the contents of an SVG document, which can contain active
+  # content. The document must be parseable as XML with an "svg" root element
+  # and must not declare entities nor contain any other content which could
+  # execute scripts or read external resources when the document is rendered.
+  def validate_svg_content(record, attribute, file)
+    content = file_content(file)
+    return add_invalid_image(record, attribute) if content.blank?
+    return add_unsafe_svg(record, attribute) if SVG_ENTITY_DECLARATION.match?(content)
+
+    document = parse_svg(content)
+    return add_invalid_image(record, attribute) if document.nil?
+    return add_unsafe_svg(record, attribute) if forbidden_svg_content?(document)
+
+    true
+  end
+
+  # Parses the SVG document without fetching any external resource (e.g. an
+  # external DTD) and without substituting entities, so that a malicious
+  # document cannot make the server read external resources or expand entities
+  # while it is validated. Returns nil when the contents are not a well formed
+  # XML document with an "svg" root element.
+  def parse_svg(content)
+    document = Nokogiri::XML.parse(content, &:nonet)
+    return nil if document.root.nil? || document.root.name != "svg"
+
+    document
+  rescue Nokogiri::XML::SyntaxError
+    nil
+  end
+
+  def forbidden_svg_content?(document)
+    document.xpath("//*").any? { |node| forbidden_svg_node?(node) }
+  end
+
+  def forbidden_svg_node?(node)
+    return true if SVG_FORBIDDEN_ELEMENTS.include?(node.name.downcase)
+
+    node.attribute_nodes.any? { |attribute| forbidden_svg_attribute?(attribute) }
+  end
+
+  def forbidden_svg_attribute?(attribute)
+    return true if SVG_EVENT_HANDLER_NAME.match?(attribute.name)
+
+    value = normalize_uri_value(attribute.value.to_s)
+    return true if SVG_FORBIDDEN_URI_PREFIXES.any? { |prefix| value.start_with?(prefix) }
+
+    SVG_ANIMATION_TARGET_NAMES.include?(attribute.name) && forbidden_svg_name?(attribute.value.to_s)
+  end
+
+  # Whether the value targets an event handler or a forbidden element, as
+  # used by the animation elements to modify attributes at runtime.
+  def forbidden_svg_name?(name)
+    normalized = name.strip.downcase
+    SVG_EVENT_HANDLER_NAME.match?(normalized) || SVG_FORBIDDEN_ELEMENTS.include?(normalized)
+  end
+
+  # Removes the whitespace and control characters which can be used to
+  # obfuscate URI schemes (e.g. "java\tscript:") and normalizes the casing.
+  def normalize_uri_value(value)
+    value.gsub(/[[:space:][:cntrl:]]/, "").downcase
+  end
+
+  def add_invalid_image(record, attribute)
+    record.errors.add attribute, I18n.t("decidim.errors.files.file_is_not_a_valid_image")
+  end
+
+  def add_unsafe_svg(record, attribute)
+    record.errors.add attribute, I18n.t("decidim.errors.files.file_contains_unsafe_content")
   end
 
   # Reads the leading bytes (signature) of the file. Returns nil when the file
   # cannot be read, in which case the validation is skipped. Empty files yield
   # an empty signature, which is rejected.
   def file_signature(file)
+    read_file(file, SIGNATURE_LENGTH)
+  end
+
+  # Reads the whole contents of the file. Returns nil when the file cannot be
+  # read.
+  def file_content(file)
+    read_file(file)
+  end
+
+  # Reads the contents of the file, or only its leading bytes when a maximum
+  # length is given.
+  def read_file(file, max_length = nil)
     if uploaded_file?(file)
-      File.open(file.path, "rb") { |io| read_signature(io) }
+      File.open(file.path, "rb") { |io| read_io(io, max_length) }
     elsif file.is_a?(ActiveStorage::Attached)
-      attached_signature(file)
+      read_attached(file, max_length)
     end
   rescue ActiveStorage::Error, Errno::ENOENT, IOError
     nil
   end
 
-  # Reads the leading bytes of an IO. IO#read returns nil at the end of the
-  # file, so an empty file would otherwise be indistinguishable from an
-  # unreadable one and skip the validation. Normalizing it to an empty
-  # signature keeps empty files rejected, while nil is kept for files which
-  # cannot be read at all.
-  def read_signature(io)
-    io.read(SIGNATURE_LENGTH) || ""
+  # Reads the contents of an IO, or only its leading bytes when a maximum
+  # length is given. IO#read returns nil at the end of the file, so an empty
+  # file would otherwise be indistinguishable from an unreadable one and skip
+  # the validation. Normalizing it to an empty content keeps empty files
+  # rejected, while nil is kept for files which cannot be read at all.
+  def read_io(io, max_length = nil)
+    (max_length ? io.read(max_length) : io.read) || ""
   end
 
-  # Reads the signature of an attached file. Blobs are only uploaded once the
+  # Reads the contents of an attached file. Blobs are only uploaded once the
   # record is saved, so for still unpersisted blobs (e.g. an image assigned to
-  # a new record) the bytes are read from the pending attachable instead.
-  # Otherwise a spoofed image could be saved without being checked.
-  def attached_signature(attached)
+  # a new record) the bytes are read from the pending attachable. Otherwise a
+  # spoofed image could be saved without being checked.
+  def read_attached(attached, max_length = nil)
     blob = attached.blob
-    return blob_signature(blob) if blob&.persisted?
+    return read_blob(blob, max_length) if blob&.persisted?
 
-    pending_attachable_signature(attached)
+    read_pending_attachable(attached, max_length)
   end
 
   # ActiveStorage keeps the attachable of a pending attachment in the record's
   # attachment changes until the blob is uploaded when the record is saved, so
   # its contents can already be read during the validation.
-  def pending_attachable_signature(attached)
+  def read_pending_attachable(attached, max_length = nil)
     attachable = pending_attachable(attached)
     if uploaded_file?(attachable) || attachable.is_a?(File)
-      File.open(attachable.path, "rb") { |io| read_signature(io) }
+      File.open(attachable.path, "rb") { |io| read_io(io, max_length) }
     elsif attachable.is_a?(Pathname)
-      File.open(attachable.to_path, "rb") { |io| read_signature(io) }
+      File.open(attachable.to_path, "rb") { |io| read_io(io, max_length) }
     elsif attachable.is_a?(Hash)
-      io_signature(attachable[:io])
+      read_io_without_consuming(attachable[:io], max_length)
     end
   end
 
@@ -173,26 +289,28 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
     change.try(:attachable)
   end
 
-  # Reads the signature without consuming the IO, so ActiveStorage can still
+  # Reads the contents without consuming the IO, so ActiveStorage can still
   # upload it after the validation.
-  def io_signature(io)
+  def read_io_without_consuming(io, max_length = nil)
     return unless io.respond_to?(:read) && io.respond_to?(:rewind)
 
     io.rewind
-    signature = read_signature(io)
+    content = read_io(io, max_length)
     io.rewind
-    signature
+    content
   end
 
-  # Reads only the leading bytes of the blob to keep the operation cheap for
-  # large files. The services return nil when the blob is empty, which is
-  # normalized to an empty signature so that empty blobs are rejected. Falls
-  # back to opening the whole blob when the service does not support ranged
-  # downloads.
-  def blob_signature(blob)
-    blob.download_chunk(0...SIGNATURE_LENGTH) || ""
+  # Reads the whole contents of the blob, or only its leading bytes when a
+  # maximum length is given to keep the operation cheap for large files. The
+  # services return nil when the blob is empty, which is normalized to an
+  # empty content so that empty blobs are rejected. Falls back to opening the
+  # whole blob when the service does not support ranged downloads.
+  def read_blob(blob, max_length = nil)
+    return blob.download if max_length.nil?
+
+    blob.download_chunk(0...max_length) || ""
   rescue NotImplementedError
-    blob.open { |io| read_signature(io) }
+    blob.open { |io| read_io(io, max_length) }
   end
 
   # The image format detected from the file signature, or nil when the
