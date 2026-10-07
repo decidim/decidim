@@ -43,9 +43,6 @@ module Decidim
           previous_settings[:allow_responses] == true
       end
 
-      def clean_after_publish_changed?(previous_settings, current_settings)
-        current_settings[:clean_after_publish] != previous_settings[:clean_after_publish]
-      end
       # rubocop:enable Style/DoubleNegation
     end
   end

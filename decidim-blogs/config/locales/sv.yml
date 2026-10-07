@@ -76,7 +76,6 @@ sv:
       posts:
         edit:
           add_attachments: Lägg till bilagor
-          attachment_legend: Lägg till ett dokument eller en bild
           back: Tillbaka till inlägget
           button: Uppdatera
           edit_attachments: Redigera bilagor

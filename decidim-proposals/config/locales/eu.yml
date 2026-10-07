@@ -124,10 +124,7 @@ eu:
             values:
               'false': Proposamenak
               'true': Zuzenketak
-          proposal_state_id_eq:
-            label: Egoera
           state_eq:
-            label: Egoera
             values:
               accepted: Onartuta
               evaluating: Ebaluatzen
@@ -661,6 +658,7 @@ eu:
             number_of_proposals: '%{number} proposamenetarako erantzunak argitaratuko dira?'
             select_a_proposal: Mesedez, hautatu proposamen bat.
           show:
+            address: Helbidea
             amendments_count: Zuzenketa kopurua
             assigned_evaluators: Ebaluatzaileak esleituta
             body: Testua
@@ -815,7 +813,6 @@ eu:
           instructions: Kokapena mugitu ahal duzu mapan.
         edit:
           add_attachments: Gehitu eranskinak
-          attachment_legend: Gehitu dokumentu bat edo irudi bat
           back: Atzera
           edit_attachments: Editatu eranskinak
           send: Bidali

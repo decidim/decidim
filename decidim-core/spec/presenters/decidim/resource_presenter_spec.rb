@@ -39,7 +39,7 @@ module Decidim
 
       def html_mention(mentionable)
         mention = "@#{mentionable.nickname}"
-        label = "#{mention} (#{CGI.escapeHTML(mentionable.name)})"
+        label = mention
         %(<span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
       end
     end

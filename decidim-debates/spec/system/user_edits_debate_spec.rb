@@ -165,6 +165,11 @@ describe "User edits a debate" do
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
+        within ".edit_debate" do
+          fill_in :debate_title, with: "Should every organization use Decidim?"
+          fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
+        end
+
         dynamically_attach_file(:debate_attachments, document_path)
         click_on("Save")
 
@@ -181,6 +186,7 @@ describe "User edits a debate" do
 
         within ".edit_debate" do
           fill_in :debate_title, with: "Should every organization use Decidim?"
+          fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
           find("*[type=submit]").click
         end
 

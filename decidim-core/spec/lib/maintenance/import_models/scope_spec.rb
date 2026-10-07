@@ -34,11 +34,10 @@ module Decidim::Maintenance::ImportModels
       assembly.update!(decidim_scope_id: sub2_scope.id, scopes_enabled: space_scopes_enabled)
       participatory_process.update!(decidim_scope_id: sub2_scope.id)
       # as scope settings are disabled now, we need to update the settings directly as it was already there
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       dummy_component.update_column(:settings, {
                                       "global" => settings
                                     })
-      # rubocop:enable Rails/SkipsModelValidations
       dummy_resource.update!(decidim_scope_id: sub4_scope.id) if dummy_resource
       external_assembly.update!(decidim_scope_id: external_scope.id, scopes_enabled: true)
     end

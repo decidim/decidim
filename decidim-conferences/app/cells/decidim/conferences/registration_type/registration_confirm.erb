@@ -1,15 +1,17 @@
 <%= decidim_modal id: "conference-registration-confirm-#{model.id}", class: "conference__registration-modal" do %>
-  <div class="flex items-center gap-2">
-    <%= icon "ticket-line", class: "w-6 h-6 text-gray fill-current flex-none" %>
-    <div class="font-semibold text-black text-2xl" id="dialog-title-conference-registration-confirm-<%= model.id %>"><%= I18n.t("registration", scope: "decidim.conferences.conference.show") %></div>
-  </div>
+  <div data-dialog-container>
+    <%= icon "ticket-line" %>
+    <h2 id="dialog-title-conference-registration-confirm-<%= model.id %>" tabindex="-1" data-dialog-title><%= I18n.t("registration", scope: "decidim.conferences.conference.show") %></h2>
 
-  <div id="dialog-desc-conference-registration-confirm-<%= model.id %>" class="text-gray-2 text-xl mt-9 prose">
-    <%= decidim_sanitize_editor translated_attribute(conference.registration_terms) %>
-  </div>
+    <div class="meeting-list__modal-input">
+      <div id="dialog-desc-conference-registration-confirm-<%= model.id %>" class="text-gray-2 text-xl mt-9 prose">
+        <%= decidim_sanitize_editor translated_attribute(conference.registration_terms) %>
+      </div>
 
-  <div class="flex justify-between mt-16">
-    <button class="button button__lg button__transparent-secondary" data-dialog-close="<%= model.id %>"><%= t("cancel", scope: "decidim.conferences.conference.registration_confirm") %></button>
-    <%= button_to t("confirm", scope: "decidim.conferences.conference.registration_confirm"), conference_registration_type_conference_registration_path(conference, model), class: "button button__lg button__secondary" %>
+      <div class="flex justify-between mt-16">
+        <button class="button button__lg button__transparent-secondary" data-dialog-close="<%= model.id %>"><%= t("cancel", scope: "decidim.conferences.conference.registration_confirm") %></button>
+        <%= button_to t("confirm", scope: "decidim.conferences.conference.registration_confirm"), conference_registration_type_conference_registration_path(conference, model), class: "button button__lg button__secondary" %>
+      </div>
+    </div>
   </div>
 <% end %>

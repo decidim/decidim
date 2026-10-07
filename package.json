@@ -38,14 +38,14 @@
     "@decidim/eslint-config": "file:packages/eslint-config",
     "@decidim/prettier-config": "file:packages/prettier-config",
     "@decidim/stylelint-config": "file:packages/stylelint-config",
-    "babel-jest": "^30.4.1",
+    "babel-jest": "^30.5.2",
     "concat-stream": "^2.0.0",
     "enzyme": "^3.11.0",
-    "jest": "^30.4.2",
+    "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.4.1",
-    "jest-location-mock": "^4.0.1",
     "jest-localstorage-mock": "^2.4.26",
-    "react-test-renderer": "^19.2.8",
+    "jest-location-mock": "^4.0.1",
+    "react-test-renderer": "^19.3.0",
     "yaml-jest": "^1.2.0"
   },
   "allowScripts": {

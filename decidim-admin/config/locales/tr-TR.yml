@@ -11,6 +11,7 @@ tr:
         plural: Çoğul
       attachment:
         attachment_collection_id: Klasör
+        attachments: Ekler
         description: Açıklama
         file: Dosya
         title: Ek veya resim adı
@@ -49,6 +50,7 @@ tr:
         alert_color: Alarm
         available_authorizations: Uygun yetkilendirmeler
         badges_enabled: Rozetleri etkinleştir
+        comments_max_length: Yorum başına en fazla karakter sayısı (varsayılan değer için 0 bırakın)
         customize_welcome_notification: Karşılama bildirimlerini özelleştir
         default_locale: Varsayılan yerel ayar
         description: Açıklama
@@ -125,6 +127,7 @@ tr:
         weight: Sıra numarası
       taxonomy:
         item_name: Öge adı
+        parent_id: Üst öge
       user_group_csv_verification:
         file: Dosya
     errors:
@@ -177,6 +180,7 @@ tr:
         attachment_collections: Klasör ekle
         attachments: Eklenti ekle
         browse: Araştır
+        configure: Yapılandır
         confirm_delete_component: |
           Bu bileşeni silmek istediğinizden emin misiniz? <br>
 
@@ -185,18 +189,29 @@ tr:
            <li class="font-bold"> %{resources_count} kaynakları </li>
           </ul>
           Fikrinizi değiştirirseniz daha sonra yeniden yükleyebilirsiniz.
+        export: Dışa aktar
         export_all: Tümünü dışa aktar
+        export_selection: Seçimi dışa aktar
         import: İçe aktar
+        member:
+          new: Yeni üye
         menu_hidden: Menüden gizle
+        moderate: İçerik denetimlerini yönet
         newsletter:
           new: Yeni bülten
         per_page: Sayfa başına
+        permissions: İzinleri yönet
         restore: Geri yükle
         send_me_a_test_email: Bana bir test e-postası gönder
         share: Paylaş
+        share_tokens: Bağlantıyı paylaş
+        soft_delete: Çöp kutusuna taşı
         user:
           new: Yeni yönetici
         view_deleted_components: Silinmiş bileşenleri görüntüle
+      admin_terms:
+        show:
+          title: Yönetici hizmet koşulları
       admin_terms_of_service:
         accept:
           error: Yönetici kullanım koşullarını kabul ederken bir hata oluştu.
@@ -219,6 +234,8 @@ tr:
         edit:
           title: Alan türünü düzenle
           update: Güncelleştirme
+        index:
+          title: Alan türleri
         new:
           create: Alan türü oluştur
           title: Yeni alan tipi
@@ -236,6 +253,8 @@ tr:
         edit:
           title: Alanı düzenle
           update: Güncelleştirme
+        index:
+          title: Alanlar
         new:
           create: Alan oluştur
           title: Yeni alan
@@ -252,6 +271,8 @@ tr:
         edit:
           title: Klasörü düzenle
           update: Güncelleştirme
+        index:
+          title: Ek klasörleri
         new:
           create: yaratmak
           title: Yeni dosya
@@ -267,6 +288,8 @@ tr:
         edit:
           title: Eki düzenle
           update: Güncelleştirme
+        index:
+          title: Ekler
         new:
           create: Ek oluştur
           title: Yeni ek
@@ -275,6 +298,9 @@ tr:
           success: Ek başarıyla güncellendi.
       attachments_privacy_warning:
         message: Özel alanlarda eklentilerle çalışırken dikkatli olun. Herhangi bir katılımcı bu belgeyi başkalarıyla paylaşabilir.
+      authorization_workflows:
+        index:
+          title: Doğrulama yöntemleri
       autocomplete:
         no_results: Sonuç bulunamadı
         search_prompt: Arama yapmak için en az üç karakter girin.
@@ -287,6 +313,7 @@ tr:
           title: Kullanıcıları engelle
         new:
           action: Hesabı engelle ve uyarı mesjı gönder
+          already_reported_html: Bu işleme devam ederseniz katılımcının tüm içeriklerini de gizleyeceksiniz.
           description: Bir kullanıcının engellenmesi, hesabının kullanılamaz hale gelmesine neden olur, gerekçenizde ve kullanıcının engellemesini kaldırmayı düşündüğünüz yollarla ilgili yönergeler sağlayabilirsiniz.
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
@@ -318,6 +345,7 @@ tr:
             name: Bileşen Adı
             type: Bileşen tipi
             visibility: Görünürlük
+          title: Bileşenler
         manage_trash:
           title: Silinmiş bileşenler
         new:
@@ -331,11 +359,17 @@ tr:
           error: Bu bileşeni güncellerken bir hata oluştu.
           success: Bileşen başarıyla güncellendi.
         visibility_label:
+          menu_hidden: Menü gizli
           published: Yayınlanmış
           unpublished: Yayınlanmamış
       conflicts:
         attempts: Girişimler
+        edit:
+          title: Kullanıcıyı aktar
         'false': 'Hayır'
+        index:
+          text: Mevcut kullanıcının e posta adresi, adı veya kullanıcı adıyla ara
+          title: Doğrulama çakışmaları
         managed_user_name: Yönetilen Kullanıcı
         solved: Çözüldü
         transfer:
@@ -370,6 +404,7 @@ tr:
           title: Bekleyen denetimler
         show:
           dropdown: Açılır liste
+          title: Gösterge paneli
           view_more_logs: Daha fazla günlükleri görüntüle
       domain_allowlist:
         form:
@@ -397,6 +432,14 @@ tr:
           values:
             'false': 'Hayır'
             'true': 'Evet'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Davet kabul edildi
+          user_invitation_sent_at_not_null:
+            label: Davet gönderildi
+            values:
+              'false': Gönderilmedi
+              'true': Gönderildi
         moderated_users:
           reports_reason_eq:
             label: Rapor nedeni
@@ -426,6 +469,8 @@ tr:
         search_label: Arama
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}''da e-posta, isim veya takma ad ile ara'
+          report_count_eq: Rapor sayısı eşittir
+          title_cont: '%{collection} içinde başlığa göre ara'
           user_name_or_user_nickname_or_user_email_cont: '%{collection}''da e-posta, isim veya takma ad ile ara'
         state_eq:
           label: Durum
@@ -452,6 +497,8 @@ tr:
         form:
           save: Kayıt etmek
         success: Yardım bölümleri başarıyla güncellendi.
+        update:
+          title: Yardım bölümleri
       impersonatable_users:
         index:
           filter:
@@ -467,6 +514,7 @@ tr:
           promote: Desteklemek
           search: Arama
           status: durum
+          title: Yönetilebilir katılımcılar
           view_logs: Günlükleri görüntüle
       impersonations:
         close_session:
@@ -483,6 +531,7 @@ tr:
           impersonate: taklit etmek
           impersonate_existing_managed_user: Yönetilen kullanıcı "%{name}" kimliğine bürün
           impersonate_existing_user: '"%{name}" kullanıcı kimliğine bürün'
+          title: Katılımcı olarak oturum aç
       imports:
         and: ve
         data_errors:
@@ -535,9 +584,14 @@ tr:
           new:
             explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
             promote: Desteklemek
+            title: Yeni yönetilen katılımcı yükseltme işlemi
       members:
         create:
           error: Bu katılımcı alan için bir üye eklenirken hata oluştu.
+          success: Üye erişimi başarıyla oluşturuldu.
+        form:
+          email: E posta
+          select_user: Üye seç
         update:
           error: Bu katılımcı alan için bir üyeyi güncellerken bir hata oluştu.
           success: Üye başarıyla güncellendi

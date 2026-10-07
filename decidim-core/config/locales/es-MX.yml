@@ -1207,6 +1207,8 @@ es-MX:
       dynamic:
         screen_reader_explanation: El siguiente elemento es un mapa que presenta los componentes de esta página como puntos en el mapa. El elemento se puede utilizar con un lector de pantalla pero puede ser difícil de entender.
         skip_button: Saltar el mapa
+        zoom_in: Ampliar
+        zoom_out: Alejar
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1548,6 +1550,10 @@ es-MX:
         never_logged_in: nunca ha iniciado sesión
         subject: Aviso de cuenta inactiva
     participatory_space:
+      labels:
+        reference: Referencia del espacio de participación
+        restricted: Espacio de participación restringido
+        transparent: Espacio de participación transparente
       pages:
         user_profile:
           member_of:
@@ -1706,6 +1712,8 @@ es-MX:
       login_modal:
         please_log_in: Por favor, inicia la sesión
         sign_up: Crea una cuenta
+      mentions:
+        search_prompt: Escribe aquí para buscar entre las participantes
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
       progress: Progreso
@@ -2085,7 +2093,6 @@ es-MX:
   layouts:
     decidim:
       announcements:
-        view_less: Mostrar menos
         view_more: Más información
       data_consent:
         details:
