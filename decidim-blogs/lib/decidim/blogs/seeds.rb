@@ -21,7 +21,7 @@ module Decidim
                            { participatory_space.active_phase.id => { comments_enabled: true, comments_blocked: false } }
                          else
                            {}
-                        end
+                         end
 
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :blogs).i18n_name,
