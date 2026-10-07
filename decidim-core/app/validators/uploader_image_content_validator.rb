@@ -92,6 +92,16 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   # attributes are validated as element/attribute names.
   SVG_ANIMATION_TARGET_NAMES = %w(attribute attributeName attributeNames).freeze
 
+  # The CSS at-rules and functions which load external resources when the
+  # style sheets of an SVG document are rendered. Imports always fetch a
+  # resource, and URL references with a scheme (e.g. "https:") or a
+  # protocol-relative host (e.g. "//example.org") fetch one from another
+  # host, so documents containing them are rejected. Fragment ("#") and
+  # relative references are resolved against the document itself, and
+  # "data:" references are inline, so they are accepted.
+  SVG_CSS_IMPORT = /@import/i
+  SVG_CSS_EXTERNAL_URL = %r{url\(\s*["']?\s*(?!data:)(?:[a-z][a-z0-9+.-]*:|//)}i
+
   # The declaration of entities in the document type definition of an SVG
   # document. Entities can be used to read external resources (XXE) or to
   # expand content exponentially (billion laughs), so documents declaring them
@@ -187,19 +197,26 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   end
 
   def forbidden_svg_content?(document)
+    # The "xml-stylesheet" processing instruction loads an external style
+    # sheet when the document is rendered, so documents declaring one are
+    # rejected.
+    return true if document.xpath("//processing-instruction('xml-stylesheet')").any?
+
     document.xpath("//*").any? { |node| forbidden_svg_node?(node) }
   end
 
   def forbidden_svg_node?(node)
     return true if SVG_FORBIDDEN_ELEMENTS.include?(node.name.downcase)
+    return true if node.attribute_nodes.any? { |attribute| forbidden_svg_attribute?(attribute) }
 
-    node.attribute_nodes.any? { |attribute| forbidden_svg_attribute?(attribute) }
+    node.name.downcase == "style" && forbidden_css_content?(node.content.to_s)
   end
 
   def forbidden_svg_attribute?(attribute)
     return true if SVG_EVENT_HANDLER_NAME.match?(attribute.name)
 
     return true if forbidden_uri_value?(attribute.value.to_s)
+    return true if attribute.name.downcase == "style" && forbidden_css_content?(attribute.value.to_s)
 
     SVG_ANIMATION_TARGET_NAMES.include?(attribute.name) && forbidden_svg_name?(attribute.value.to_s)
   end
@@ -223,6 +240,33 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
     name.split(";").any? do |part|
       normalized = part.strip.downcase
       SVG_EVENT_HANDLER_NAME.match?(normalized) || SVG_FORBIDDEN_ELEMENTS.include?(normalized)
+    end
+  end
+
+  # Whether the CSS of a "style" element or attribute loads external
+  # resources when the document is rendered. The comments are removed and the
+  # escape sequences decoded before checking, as they can otherwise hide the
+  # references (e.g. "u\rl(https://example.org)").
+  def forbidden_css_content?(css)
+    normalized = decode_css_escapes(css.gsub(%r{/\*.*?\*/}m, ""))
+    SVG_CSS_IMPORT.match?(normalized) || SVG_CSS_EXTERNAL_URL.match?(normalized)
+  end
+
+  # Decodes the escape sequences of CSS, which consist of a backslash
+  # followed by up to six hexadecimal digits (with an optional whitespace
+  # terminating the sequence) or by any other character. Invalid codepoints
+  # are replaced with the replacement character.
+  def decode_css_escapes(css)
+    css.gsub(/\\(?:(\h{1,6})[ \t\n\r\f]?|(.))/m) do
+      digits = Regexp.last_match(1)
+      next Regexp.last_match(2) if digits.nil?
+
+      codepoint = digits.to_i(16)
+      if codepoint.zero? || codepoint > 0x10FFFF || codepoint.between?(0xD800, 0xDFFF)
+        "\uFFFD"
+      else
+        [codepoint].pack("U")
+      end
     end
   end
 
