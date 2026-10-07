@@ -22,6 +22,17 @@ module RuboCop
       # is restricted with `only:` or `except:`, only the actions it covers
       # are exempt.
       #
+      # Methods referenced by framework lifecycle callbacks (`before_action`
+      # and its variants, `around_action`, `after_action`, `helper_method`,
+      # `rescue_from`, ...) are treated as lifecycle/helper methods and are
+      # never flagged, as they themselves are not controller actions.
+      #
+      # Controllers that inherit from a configured `AuthorizedBaseClasses`
+      # entry are considered to inherit the base authorization check for the
+      # `AuthorizedBaseActions` actions (typically read-style actions such as
+      # `index`, `show` and `home`). Mutating actions must still be
+      # authorized explicitly.
+      #
       # Calls to methods starting with `enforce_permission_to_` or
       # `action_authorized_to_` (authorization helper wrappers) are also
       # accepted as authorization checks.
@@ -72,20 +83,32 @@ module RuboCop
         # Visibility switch methods recognized when declared with no arguments.
         VISIBILITY_METHODS = [:public, :protected, :private].freeze
 
+        # Framework declarations whose referenced methods are lifecycle or
+        # helper methods rather than controller actions.
+        CALLBACK_METHODS = [
+          :before_action, :prepend_before_action, :append_before_action, :skip_before_action,
+          :around_action, :prepend_around_action, :append_around_action, :skip_around_action,
+          :after_action, :prepend_after_action, :append_after_action, :skip_after_action,
+          :helper_method, :rescue_from
+        ].freeze
+
         def on_new_investigation
-          reset_state
+          @callback_methods = Set.new
+          @base_class_map = {}
+          reset_scope_state
         end
 
         def on_class(node)
-          reset_state
-          check_helper_methods(node)
+          reset_scope_state
+          register_authorized_base(node)
+          collect_callback_methods(node)
           check_before_actions(node)
           check_before_action_blocks(node)
         end
 
         def on_module(node)
-          reset_state
-          check_helper_methods(node)
+          reset_scope_state
+          collect_callback_methods(node)
           check_before_actions(node)
           check_before_action_blocks(node)
         end
@@ -98,7 +121,8 @@ module RuboCop
 
           return unless method_public?(node, method_name, inline_visibility)
           return if action_exempted_by_before_action?(method_name)
-          return if @helper_methods.include?(method_name)
+          return if @callback_methods.include?(method_name)
+          return if authorized_base_action?(method_name)
 
           return if contains_authorization_check?(node)
 
@@ -120,13 +144,16 @@ module RuboCop
 
         private
 
-        def reset_state
+        # Callback methods are accumulated for the whole file so that methods
+        # defined in nested modules (a common concern pattern) are still
+        # recognized as lifecycle/helper methods.
+        def reset_scope_state
           @in_private_section = false
           @inline_visibility = nil
           @all_actions_auth = false
           @only_actions = Set.new
           @except_sets = []
-          @helper_methods = Set.new
+          @authorized_base = false
         end
 
         def visibility_def_argument?(node)
@@ -176,14 +203,135 @@ module RuboCop
             !node.arguments.empty? && !visibility_def_argument?(node)
         end
 
-        def check_helper_methods(node)
-          node.body&.each_descendant(:send) do |send_node|
-            next unless send_node.method_name == :helper_method
+        # Collects the methods that play a lifecycle or helper role for the
+        # controller. These are referenced by framework callback declarations
+        # (and the methods they call) so they are never reported as actions.
+        def collect_callback_methods(node)
+          return unless node.body
 
-            send_node.arguments.each do |arg|
-              @helper_methods << arg.value if arg.sym_type?
+          definitions = callback_definitions(node)
+          collect_callback_declarations(node)
+          collect_callback_dependencies(definitions)
+        end
+
+        def collect_callback_declarations(node)
+          node.body.each_descendant(:send) do |send_node|
+            next unless CALLBACK_METHODS.include?(send_node.method_name)
+
+            callback_method_names(send_node).each { |name| @callback_methods << name }
+          end
+        end
+
+        def callback_definitions(node)
+          node.body.each_descendant(:def).with_object({}) do |def_node, definitions|
+            definitions[def_node.method_name] ||= def_node
+          end
+        end
+
+        # Methods called by a lifecycle callback are helper methods as well,
+        # e.g. a callback delegating to a public helper method.
+        def collect_callback_dependencies(definitions)
+          queue = @callback_methods.to_a
+
+          until queue.empty?
+            definition = definitions[queue.shift]
+            next unless definition&.body
+
+            sends = [definition.body]
+            sends.concat(definition.body.each_descendant(:send).to_a)
+
+            sends.each do |send_node|
+              next unless send_node.send_type?
+
+              callee = send_node.method_name
+              next unless definitions.has_key?(callee)
+              next unless @callback_methods.add?(callee)
+
+              queue << callee
             end
           end
+        end
+
+        def callback_method_names(send_node)
+          send_node.arguments.flat_map do |arg|
+            case arg.type
+            when :sym, :str
+              arg.value.to_sym
+            when :hash
+              rescue_handler_names(arg)
+            else
+              []
+            end
+          end
+        end
+
+        # `rescue_from SomeError, with: :handler` references the handler
+        # method through the `with:` option.
+        def rescue_handler_names(hash_node)
+          hash_node.pairs.filter_map do |pair|
+            next unless pair.key.sym_type? && pair.key.value == :with
+
+            value = pair.value
+            value.value.to_sym if value.sym_type? || value.str_type?
+          end
+        end
+
+        def register_authorized_base(node)
+          register_class_hierarchy(node)
+          @authorized_base = authorized_base_class?(node)
+        end
+
+        # Keeps track of the class hierarchy so authorization inherited from a
+        # configured base class can be recognized through intermediate classes.
+        def register_class_hierarchy(node)
+          name = qualified_class_name(node)
+          return unless name
+
+          parent = node.parent_class
+          @base_class_map ||= {}
+          @base_class_map[name] = parent.const_name if parent&.const_type?
+        end
+
+        def qualified_class_name(node)
+          identifier = node.identifier
+          return nil unless identifier&.const_type?
+
+          namespace = node.each_ancestor(:class, :module).to_a.reverse.filter_map do |ancestor|
+            ancestor.identifier&.const_name
+          end
+
+          (namespace + [identifier.const_name]).join("::")
+        end
+
+        def authorized_base_class?(node)
+          parent = node.parent_class
+          return false unless parent&.const_type?
+
+          authorized_base_name?(parent.const_name)
+        end
+
+        def authorized_base_name?(name)
+          seen = Set.new
+
+          while name && seen.add?(name)
+            return true if authorized_base_classes.include?(name)
+
+            name = @base_class_map[name]
+          end
+
+          false
+        end
+
+        def authorized_base_classes
+          @authorized_base_classes ||= Array(cop_config["AuthorizedBaseClasses"]).map(&:to_s)
+        end
+
+        def authorized_base_actions
+          @authorized_base_actions ||= Array(cop_config["AuthorizedBaseActions"]).map(&:to_s)
+        end
+
+        def authorized_base_action?(method_name)
+          @authorized_base && authorized_base_actions.include?(method_name.to_s)
         end
 
         def check_before_actions(class_node)
