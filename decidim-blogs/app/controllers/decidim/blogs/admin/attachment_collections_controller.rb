@@ -8,6 +8,8 @@ module Decidim
       class AttachmentCollectionsController < Admin::ApplicationController
         include Decidim::Admin::Concerns::HasAttachmentCollections
 
+        protected
+
         def after_destroy_path
           post_attachment_collections_path(post, post.component, current_participatory_space)
         end

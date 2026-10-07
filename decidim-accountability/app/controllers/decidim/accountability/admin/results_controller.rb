@@ -13,11 +13,6 @@ module Decidim
 
         helper_method :results, :parent_result, :parent_results, :statuses, :present, :bulk_actions_form
 
-        def collection
-          parent_id = params[:parent_id].presence
-          @collection ||= Result.where(component: current_component, parent_id:).page(params[:page]).per(15).order(created_at: :asc)
-        end
-
         def new
           enforce_permission_to :create, :result
 
@@ -65,6 +60,13 @@ module Decidim
               render action: "edit", status: :unprocessable_content
             end
           end
+        end
+
+        protected
+
+        def collection
+          parent_id = params[:parent_id].presence
+          @collection ||= Result.where(component: current_component, parent_id:).page(params[:page]).per(15).order(created_at: :asc)
         end
 
         private
