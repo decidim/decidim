@@ -281,15 +281,15 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
         in_url = false
       elsif (quote = scanner.scan(/["']/))
         string = scan_css_string(scanner, quote)
-        # Only the strings immediately following "url(" define a loaded URL.
+        # Only the strings immediately following a "url()" function define a
+        # loaded URL.
         output << string if in_url
         in_url = false
-      elsif scanner.scan(/url\(/i)
-        output << scanner.matched
-        in_url = true
-      elsif (escape = scanner.scan(CSS_ESCAPE))
-        output << escape
-        in_url = false
+      elsif (ident = scan_css_ident(scanner))
+        url = css_url_function?(scanner, ident)
+        output << ident
+        output << scanner.getch if url
+        in_url = url
       elsif (whitespace = scanner.scan(/\s+/))
         output << whitespace
       else
@@ -320,6 +320,37 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
       end
     end
     token
+  end
+
+  # Consumes the identifier token of CSS which starts at the current
+  # position, including its escape sequences, and returns it as it is
+  # written. Returns nil when no identifier starts at the current position.
+  # An identifier starts with a letter, an underscore, a non-ASCII character,
+  # an escape sequence, or a hyphen followed by one of those, and continues
+  # with any of those or a digit: digits are only accepted after the first
+  # character, as "5url(" is a number followed by a function while "url5(" is
+  # another function.
+  def scan_css_ident(scanner)
+    prefix = scanner.scan(/-?(?:[a-zA-Z_]|[^\x00-\x7f])/) || (scanner.match?(CSS_ESCAPE) && "")
+    return nil if prefix.nil?
+
+    ident = prefix.dup
+    loop do
+      char = scanner.scan(CSS_ESCAPE) || scanner.scan(/[-\w]|[^\x00-\x7f]/)
+      break if char.nil?
+
+      ident << char
+    end
+    ident
+  end
+
+  # Whether the identifier consumed just before the current position, when
+  # followed by an opening parenthesis, is the name of a "url()" function. The
+  # name is matched after decoding its escape sequences, as they are processed
+  # before the name is interpreted, so that functions written with escapes
+  # (e.g. "u\72l(...)") are also recognized.
+  def css_url_function?(scanner, ident)
+    scanner.match?(/\(/) && decode_css_escapes(ident).casecmp?("url")
   end
 
   # Decodes the escape sequences of CSS. Invalid codepoints are replaced with
