@@ -74,8 +74,9 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   # The elements which are not allowed in SVG documents, because they either
   # execute scripts themselves (e.g. "script" and the SVG Tiny "handler") or
   # allow embedding foreign content which can execute them (e.g.
-  # "foreignObject").
-  SVG_FORBIDDEN_ELEMENTS = %w(script handler foreignObject iframe embed object applet).freeze
+  # "foreignObject"). The names are kept in lowercase, as the names found in
+  # the documents are compared case insensitively.
+  SVG_FORBIDDEN_ELEMENTS = %w(script handler foreignobject iframe embed object applet).freeze
 
   # The names of the attributes which are not allowed in SVG documents, as
   # event handlers execute scripts when the document is rendered.

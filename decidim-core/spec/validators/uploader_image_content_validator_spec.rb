@@ -173,6 +173,12 @@ describe UploaderImageContentValidator do
       it_behaves_like "an unsafe SVG"
     end
 
+    context "with a foreignObject element" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_foreign_object.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
     context "with an animation targeting an event handler" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_animation.svg", "image/svg+xml") }
 
