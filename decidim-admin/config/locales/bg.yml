@@ -920,6 +920,8 @@ bg:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Нов класификационен филтър
+        form:
+          all: Всички
       titles:
         area_types: Типове области
         areas: Области
