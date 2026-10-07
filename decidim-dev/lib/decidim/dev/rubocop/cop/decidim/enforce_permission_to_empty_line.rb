@@ -44,7 +44,7 @@ module RuboCop
           return if next_line_empty?(node)
 
           add_offense(node, message: MSG) do |corrector|
-            corrector.insert_after(range_by_whole_lines(node.source_range), "\n")
+            corrector.insert_after(correction_range(node), "\n")
           end
         end
 
@@ -60,7 +60,41 @@ module RuboCop
         end
 
         def next_line_empty?(node)
-          processed_source.lines[node.last_line].to_s.strip.empty?
+          processed_source.lines[end_line(node)].to_s.strip.empty?
+        end
+
+        # The line where the call visually ends.
+        #
+        # A trailing hash written with value omission (e.g. `page:`) followed
+        # by another line makes the parser treat that line as the omitted
+        # value, extending the node past the line the developer wrote. In that
+        # case the call visually ends at the omitted key.
+        def end_line(node)
+          pair = trailing_shorthand_pair(node)
+          return node.last_line unless pair
+
+          pair.key.last_line
+        end
+
+        def correction_range(node)
+          pair = trailing_shorthand_pair(node)
+          return range_by_whole_lines(node.source_range) unless pair
+
+          range_by_whole_lines(pair.key.source_range)
+        end
+
+        def trailing_shorthand_pair(node)
+          hash = node.arguments.last
+          return unless hash&.hash_type?
+
+          pair = hash.pairs.last
+          return unless pair
+
+          key = pair.key
+          value = pair.value
+          return unless key && value && value.first_line > key.last_line
+
+          pair
         end
       end
     end

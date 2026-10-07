@@ -164,6 +164,37 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionToEmptyLine, :config, typ
     RUBY
   end
 
+  it "does not register an offense for a trailing shorthand hash followed by an empty line" do
+    expect_no_offenses(<<~RUBY)
+      def show
+        enforce_permission_to :read, :public_page, page:
+
+        @topic = page.topic
+        @pages = @topic&.pages
+      end
+    RUBY
+  end
+
+  it "registers an offense for a trailing shorthand hash without an empty line" do
+    expect_offense(<<~RUBY)
+      def show
+        enforce_permission_to :read, :public_page, page:
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Add an empty line after `enforce_permission_to`.
+        @topic = page.topic
+        @pages = @topic&.pages
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      def show
+        enforce_permission_to :read, :public_page, page:
+
+        @topic = page.topic
+        @pages = @topic&.pages
+      end
+    RUBY
+  end
+
   it "does not register an offense for unrelated method calls" do
     expect_no_offenses(<<~RUBY)
       def edit
