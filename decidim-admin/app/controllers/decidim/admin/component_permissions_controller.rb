@@ -9,6 +9,7 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :component, component:)
+
         @permissions_form = form(PermissionsForm).from_params(permissions: permission_forms)
 
         render template: "decidim/admin/resource_permissions/edit"
@@ -16,6 +17,7 @@ module Decidim
 
       def update
         enforce_permission_to(:update, :component, component:)
+
         @permissions_form = form(PermissionsForm).from_params(params)
 
         UpdateComponentPermissions.call(@permissions_form, component, resource) do

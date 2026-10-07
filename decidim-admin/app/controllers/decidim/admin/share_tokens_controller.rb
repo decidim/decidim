@@ -11,16 +11,19 @@ module Decidim
 
       def index
         enforce_permission_to :read, :share_token
+
         @share_tokens = filtered_collection
       end
 
       def new
         enforce_permission_to :create, :share_token
+
         @form = form(ShareTokenForm).instance
       end
 
       def create
         enforce_permission_to :create, :share_token
+
         @form = form(ShareTokenForm).from_params(params, resource:)
 
         CreateShareToken.call(@form) do
@@ -38,11 +41,13 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :share_token, share_token: current_token)
+
         @form = form(ShareTokenForm).from_model(current_token)
       end
 
       def update
         enforce_permission_to(:update, :share_token, share_token: current_token)
+
         @form = form(ShareTokenForm).from_params(params, resource:)
 
         UpdateShareToken.call(@form, current_token) do

@@ -24,6 +24,7 @@ module Decidim
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
 
         enforce_permission_to :list, :process
+
         enforce_permission_to :list, :process_group
       end
 

@@ -21,6 +21,7 @@ module Decidim
 
         def new
           enforce_permission_to :create, :project
+
           @form = form(ProjectForm).from_params(
             { attachment: form(AttachmentForm).instance },
             budget:
@@ -47,12 +48,14 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :project, project:)
+
           @form = form(ProjectForm).from_model(project, budget:)
           @form.attachment = form(AttachmentForm).instance
         end
 
         def update
           enforce_permission_to(:update, :project, project:)
+
           @form = form(ProjectForm).from_params(params, budget:)
 
           UpdateProject.call(@form, project) do
@@ -138,6 +141,7 @@ module Decidim
 
         def update_budget
           enforce_permission_to :update, :project, project: sample_project
+
           ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids) do
             on(:invalid_project_ids) do
               flash.now[:alert] = t("projects.update_budget.select_a_project", scope: "decidim.budgets.admin")

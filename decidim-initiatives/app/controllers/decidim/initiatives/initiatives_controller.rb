@@ -40,6 +40,7 @@ module Decidim
       # GET /initiatives
       def index
         enforce_permission_to :list, :initiative
+
         return unless search.result.blank? && params.dig("filter", "with_any_state") != %w(closed)
 
         @closed_initiatives ||= search_with(filter_params.merge(with_any_state: %w(closed)))
@@ -78,6 +79,7 @@ module Decidim
       # GET /initiatives/:slug/edit
       def edit
         enforce_permission_to :edit, :initiative, initiative: current_initiative
+
         form_attachment_model = form(AttachmentForm).from_model(current_initiative.attachments.first)
         @form = form(Decidim::Initiatives::InitiativeForm)
                 .from_model(
@@ -124,6 +126,7 @@ module Decidim
 
       def print
         enforce_permission_to :print, :initiative, initiative: current_initiative
+
         output = Decidim::Initiatives::ApplicationFormPDF.new(current_initiative).render
         send_data(output, filename: "initiative_submit_#{current_initiative.id}.pdf", type: "application/pdf")
       end

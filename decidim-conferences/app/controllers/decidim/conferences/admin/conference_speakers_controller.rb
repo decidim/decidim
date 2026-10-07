@@ -21,11 +21,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :conference_speaker
+
           @form = form(ConferenceSpeakerForm).instance
         end
 
         def create
           enforce_permission_to :create, :conference_speaker
+
           @form = form(ConferenceSpeakerForm).from_params(params)
 
           CreateConferenceSpeaker.call(@form) do
@@ -43,11 +45,13 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :conference_speaker, speaker: conference_speaker
+
           @form = form(ConferenceSpeakerForm).from_model(conference_speaker)
         end
 
         def update
           enforce_permission_to :update, :conference_speaker, speaker: conference_speaker
+
           @form = form(ConferenceSpeakerForm).from_params(params)
 
           UpdateConferenceSpeaker.call(@form, conference_speaker) do

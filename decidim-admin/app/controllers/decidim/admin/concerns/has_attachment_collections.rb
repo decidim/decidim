@@ -23,12 +23,14 @@ module Decidim
 
           def new
             enforce_permission_to :create, :attachment_collection
+
             @form = form(AttachmentCollectionForm).from_params({}, collection_for:)
             render template: "decidim/admin/attachment_collections/new"
           end
 
           def create
             enforce_permission_to :create, :attachment_collection
+
             @form = form(AttachmentCollectionForm).from_params(params, collection_for:)
 
             CreateAttachmentCollection.call(@form, collection_for) do
@@ -47,6 +49,7 @@ module Decidim
           def edit
             @attachment_collection = collection.find(params.expect(:id))
             enforce_permission_to :update, :attachment_collection, attachment_collection: @attachment_collection
+
             @form = form(AttachmentCollectionForm).from_model(@attachment_collection, collection_for:)
             render template: "decidim/admin/attachment_collections/edit"
           end
@@ -54,6 +57,7 @@ module Decidim
           def update
             @attachment_collection = collection.find(params.expect(:id))
             enforce_permission_to :update, :attachment_collection, attachment_collection: @attachment_collection
+
             @form = form(AttachmentCollectionForm).from_params(params, collection_for:)
 
             UpdateAttachmentCollection.call(@attachment_collection, @form) do

@@ -17,6 +17,7 @@ module Decidim
 
         def index
           enforce_permission_to :index, :templates
+
           @templates = collection
 
           respond_to do |format|
@@ -33,6 +34,7 @@ module Decidim
 
         def new
           enforce_permission_to :create, :template
+
           @form = form(TemplateForm).instance
         end
 
@@ -72,12 +74,14 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :template, template:)
+
           @form = form(TemplateForm).from_model(template)
           @preview_form = form(Decidim::Forms::QuestionnaireForm).from_model(template.templatable)
         end
 
         def update
           enforce_permission_to(:update, :template, template:)
+
           @form = form(TemplateForm).from_params(params)
           UpdateTemplate.call(template, @form, current_user) do
             on(:ok) do |questionnaire_template|

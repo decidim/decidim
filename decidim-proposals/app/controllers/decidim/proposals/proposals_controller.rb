@@ -56,6 +56,7 @@ module Decidim
 
       def new
         enforce_permission_to :create, :proposal
+
         @step = STEP1
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
@@ -66,6 +67,7 @@ module Decidim
 
       def create
         enforce_permission_to :create, :proposal
+
         @step = STEP1
         @form = form(ProposalForm).from_params(proposal_creation_params)
 
@@ -86,12 +88,14 @@ module Decidim
 
       def preview
         enforce_permission_to :edit, :proposal, proposal: @proposal
+
         @step = STEP2
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def publish
         enforce_permission_to :edit, :proposal, proposal: @proposal
+
         @step = STEP2
         PublishProposal.call(@proposal, current_user) do
           on(:ok) do

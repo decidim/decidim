@@ -7,11 +7,13 @@ module Decidim
 
     def show
       enforce_permission_to(:read, :user, current_user:)
+
       @notifications_settings = form(NotificationsSettingsForm).from_model(current_user)
     end
 
     def update
       enforce_permission_to(:update, :user, current_user:)
+
       @notifications_settings = form(NotificationsSettingsForm).from_params(params)
 
       UpdateNotificationsSettings.call(@notifications_settings) do

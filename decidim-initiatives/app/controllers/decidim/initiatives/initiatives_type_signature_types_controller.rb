@@ -8,6 +8,7 @@ module Decidim
       # GET /initiative_type_signature_types/search
       def search
         enforce_permission_to :search, :initiative_type_signature_types
+
         render layout: false
       end
 

@@ -19,6 +19,7 @@ module Decidim
 
         def create
           enforce_permission_to(:create, :response, question:)
+
           @form = form(ResponseForm).from_params(params.merge(question:, current_user:))
 
           CreateResponse.call(@form, questionnaire) do

@@ -9,6 +9,7 @@ module Decidim
       # GET /initiative_type_scopes/search
       def search
         enforce_permission_to :search, :initiative_type_scope
+
         render layout: false
       end
 

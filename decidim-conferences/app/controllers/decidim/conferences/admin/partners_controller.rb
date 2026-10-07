@@ -17,11 +17,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :partner
+
           @form = form(Decidim::Conferences::Admin::PartnerForm).instance
         end
 
         def create
           enforce_permission_to :create, :partner
+
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_params(params)
 
           CreatePartner.call(@form) do
@@ -40,12 +42,14 @@ module Decidim
         def edit
           @partner = collection.find(params.expect(:id))
           enforce_permission_to :update, :partner, partner: @partner
+
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_model(@partner)
         end
 
         def update
           @partner = collection.find(params.expect(:id))
           enforce_permission_to :update, :partner, partner: @partner
+
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_params(params)
 
           UpdatePartner.call(@form, @partner) do

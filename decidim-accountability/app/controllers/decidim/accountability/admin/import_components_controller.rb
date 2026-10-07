@@ -7,11 +7,13 @@ module Decidim
       class ImportComponentsController < Admin::ApplicationController
         def new
           enforce_permission_to :create, :import_component
+
           @form = form(Admin::ImportComponentForm).from_params(params, accountability_component: current_component)
         end
 
         def create
           enforce_permission_to :create, :import_component
+
           @form = form(Admin::ImportComponentForm).from_params(params, accountability_component: current_component)
 
           ImportComponentToAccountability.call(@form) do

@@ -12,6 +12,7 @@ module Decidim
 
     def index
       enforce_permission_to :read, :public_page
+
       @topics = StaticPageTopic.where(organization: current_organization)
       @orphan_pages = StaticPage.where(topic: nil, organization: current_organization)
     end
@@ -19,6 +20,7 @@ module Decidim
     def show
       @page = current_organization.static_pages.find_by!(slug: params.expect(:id))
       enforce_permission_to :read, :public_page, page: @page
+
       @topic = @page.topic
       @pages = @topic&.pages
     end

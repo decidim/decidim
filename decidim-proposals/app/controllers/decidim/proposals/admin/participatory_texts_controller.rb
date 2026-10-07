@@ -16,12 +16,14 @@ module Decidim
 
         def new_import
           enforce_permission_to :manage, :participatory_texts
+
           participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
           @import = form(Admin::ImportParticipatoryTextForm).from_model(participatory_text)
         end
 
         def import
           enforce_permission_to :manage, :participatory_texts
+
           @import = form(Admin::ImportParticipatoryTextForm).from_params(params)
 
           Admin::ImportParticipatoryText.call(@import) do

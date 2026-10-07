@@ -16,6 +16,7 @@ module Decidim
 
       def index
         enforce_permission_to :read, :officialization
+
         @users = filtered_collection
       end
 
