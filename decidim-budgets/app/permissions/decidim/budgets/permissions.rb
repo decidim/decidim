@@ -22,6 +22,8 @@ module Decidim
           can_export_pdf?
         when [:destroy, :order]
           can_destroy_order?
+        when [:read, :order]
+          can_read_order?
         end
 
         permission_action
@@ -79,6 +81,10 @@ module Decidim
                      current_settings&.votes == "enabled"
 
         toggle_allow(is_allowed)
+      end
+
+      def can_read_order?
+        toggle_allow(user.present? && order&.user == user)
       end
     end
   end

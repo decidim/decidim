@@ -42,6 +42,8 @@ module Decidim
       end
 
       def status
+        enforce_permission_to :read, :order, order: current_order
+
         redirect_to redirect_path unless current_order.persisted?
       end
 

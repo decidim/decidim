@@ -9,7 +9,7 @@ module Decidim
     include Decidim::OnboardingActionMethods
 
     included do
-      def after_sign_in_path_for(user)
+      def after_sign_in_path_for(user) # rubocop:disable Decidim/EnforcePermissionTo
         if user.present? && user.blocked?
           check_user_block_status(user)
         elsif user.needs_password_update?
@@ -25,7 +25,7 @@ module Decidim
       # to check if there is any pending redirect after login I need to call
       # this method and use the value to set a pending redirect. This is the
       # only way to do this without checking the session directly.
-      def pending_redirect?(user)
+      def pending_redirect?(user) # rubocop:disable Decidim/EnforcePermissionTo
         store_location_for(user, stored_location_for(user))
       end
     end

@@ -7,7 +7,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      def redirect_back(fallback_location:, allow_other_host: true, **args) # rubocop:disable Lint/UnusedMethodArgument
+      def redirect_back(fallback_location:, allow_other_host: true, **args) # rubocop:disable Lint/UnusedMethodArgument, Decidim/EnforcePermissionTo
         super(fallback_location:, allow_other_host: Decidim.allow_open_redirects, **args)
       end
     end

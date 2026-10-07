@@ -29,7 +29,7 @@ module Decidim
       # experience a consistent behaviour if they copy or share links.
       #
       # Returns a Hash.
-      def default_url_options
+      def default_url_options # rubocop:disable Decidim/EnforcePermissionTo
         return {} if locale_in_script_name?
 
         { locale: current_locale }
@@ -141,6 +141,8 @@ module Decidim
 
         uri.to_s
       end
+
+      private
 
       def locale_in_script_name?
         script_name = request&.script_name.to_s

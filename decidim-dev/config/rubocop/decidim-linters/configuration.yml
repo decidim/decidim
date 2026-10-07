@@ -58,6 +58,16 @@ Decidim/EnforcePermissionTo:
     - "**/decidim-dev/**/*.rb"
     - "**/decidim-api/**/*.rb"
     - "**/app/controllers/decidim/devise/**/*.rb"
+    - "**/app/controllers/decidim/profiles_controller.rb"
+    - "**/app/controllers/decidim/offline_controller.rb"
+    - "**/app/controllers/decidim/demographics/demographics_controller.rb"
+    - "**/app/controllers/decidim/initiatives/authorization_create_modals_controller.rb"
+    - "**/app/controllers/decidim/initiatives/authorization_sign_modals_controller.rb"
+    - "**/app/controllers/decidim/initiatives/create_initiative_controller.rb"
+    - "**/app/controllers/decidim/meetings/directory/meetings_controller.rb"
+    - "**/app/controllers/decidim/verifications/authorizations_controller.rb"
+    - "**/app/controllers/decidim/forms/concerns/has_questionnaire.rb"
+    - "**/app/controllers/concerns/decidim/resource_versions_concern.rb"
 
 Decidim/RSpec/MemoizedName:
   Enabled: true

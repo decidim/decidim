@@ -2,7 +2,7 @@
 
 module Decidim
   module Elections
-    class ElectionsController < ApplicationController
+    class ElectionsController < Decidim::Elections::ApplicationController
       include Decidim::ApplicationHelper
       include Decidim::AttachmentsHelper
       include Decidim::FilterResource
