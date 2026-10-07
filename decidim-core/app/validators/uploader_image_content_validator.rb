@@ -21,6 +21,8 @@
 # that, the contents of files detected as SVG are additionally validated, so
 # that documents which could execute scripts or read external resources are
 # rejected instead of being stored as they are.
+require "strscan"
+
 class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeValidator
   # The number of leading bytes to read from the file to detect its signature.
   SIGNATURE_LENGTH = 128
@@ -101,6 +103,11 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   # "data:" references are inline, so they are accepted.
   SVG_CSS_IMPORT = /@import/i
   SVG_CSS_EXTERNAL_URL = %r{url\(\s*["']?\s*(?!data:)(?:[a-z][a-z0-9+.-]*:|//)}i
+
+  # The escape sequences of CSS, which consist of a backslash followed by up
+  # to six hexadecimal digits, with an optional whitespace terminating the
+  # sequence, or by any other character.
+  CSS_ESCAPE = /\\(?:(?<hex>\h{1,6})[ \t\n\r\f]?|(?<char>.))/m
 
   # The declaration of entities in the document type definition of an SVG
   # document. Entities can be used to read external resources (XXE) or to
@@ -244,22 +251,83 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   end
 
   # Whether the CSS of a "style" element or attribute loads external
-  # resources when the document is rendered. The comments are removed and the
-  # escape sequences decoded before checking, as they can otherwise hide the
-  # references (e.g. "u\rl(https://example.org)").
+  # resources when the document is rendered. The comments and the strings
+  # which do not define a URL are removed, and the escape sequences decoded,
+  # before checking, as they can otherwise hide the references (e.g.
+  # "u\rl(https://example.org)") or be mistaken for them (e.g. 'content:
+  # "See @import instructions"').
   def forbidden_css_content?(css)
-    normalized = decode_css_escapes(css.gsub(%r{/\*.*?\*/}m, ""))
+    normalized = decode_css_escapes(scrub_css(css))
     SVG_CSS_IMPORT.match?(normalized) || SVG_CSS_EXTERNAL_URL.match?(normalized)
   end
 
-  # Decodes the escape sequences of CSS, which consist of a backslash
-  # followed by up to six hexadecimal digits (with an optional whitespace
-  # terminating the sequence) or by any other character. Invalid codepoints
-  # are replaced with the replacement character.
+  # Removes the comments and the strings of a style sheet, which are not
+  # interpreted as directives when the style sheet is rendered, so that text
+  # which only looks like a reference (e.g. 'content: "See @import"') is not
+  # mistaken for one. The strings which define the URL of a "url()" function
+  # are kept, as those URLs are loaded. Comments and strings are detected
+  # following the tokenization rules of CSS, in which comments are not
+  # recognized inside strings and escape sequences hide the character
+  # following them, so that neither can be used to hide a reference (e.g.
+  # 'content: "/*"; background: url(https://example.org)').
+  def scrub_css(css)
+    scanner = StringScanner.new(css)
+    output = +""
+    in_url = false
+    until scanner.eos?
+      if scanner.scan(%r{/\*})
+        # Unterminated comments extend to the end of the style sheet.
+        scanner.scan_until(%r{\*/}) || (scanner.pos = scanner.string.length)
+        in_url = false
+      elsif (quote = scanner.scan(/["']/))
+        string = scan_css_string(scanner, quote)
+        # Only the strings immediately following "url(" define a loaded URL.
+        output << string if in_url
+        in_url = false
+      elsif scanner.scan(/url\(/i)
+        output << scanner.matched
+        in_url = true
+      elsif (escape = scanner.scan(CSS_ESCAPE))
+        output << escape
+        in_url = false
+      elsif (whitespace = scanner.scan(/\s+/))
+        output << whitespace
+      else
+        output << scanner.getch
+        in_url = false
+      end
+    end
+    output
+  end
+
+  # Consumes the string token of CSS which starts at the given quote, and
+  # returns it with its quotes. Escape sequences hide the following
+  # character, and an unescaped newline or the end of the input end the
+  # token, as in the tokenization rules of CSS.
+  def scan_css_string(scanner, quote)
+    token = quote.dup
+    until scanner.eos?
+      escape = scanner.scan(CSS_ESCAPE)
+      if escape
+        token << escape
+      elsif scanner.match?(quote)
+        token << scanner.getch
+        break
+      elsif scanner.match?(/[\n\r\f]/)
+        break
+      else
+        token << scanner.getch
+      end
+    end
+    token
+  end
+
+  # Decodes the escape sequences of CSS. Invalid codepoints are replaced with
+  # the replacement character.
   def decode_css_escapes(css)
-    css.gsub(/\\(?:(\h{1,6})[ \t\n\r\f]?|(.))/m) do
-      digits = Regexp.last_match(1)
-      next Regexp.last_match(2) if digits.nil?
+    css.gsub(CSS_ESCAPE) do
+      digits = Regexp.last_match[:hex]
+      next Regexp.last_match[:char] if digits.nil?
 
       codepoint = digits.to_i(16)
       if codepoint.zero? || codepoint > 0x10FFFF || codepoint.between?(0xD800, 0xDFFF)

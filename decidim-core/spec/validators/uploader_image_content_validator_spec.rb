@@ -91,6 +91,12 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a valid image"
     end
+
+    context "with an SVG whose style sheet mentions resource references only in quoted text" do
+      let(:upload) { Decidim::Dev.test_file("test_style_text.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
   end
 
   context "when the content type is an alias of the file format" do
@@ -193,6 +199,24 @@ describe UploaderImageContentValidator do
 
     context "with a style sheet importing an external resource" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_style_import.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with a style sheet importing an external resource given as a string" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_style_import_string.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with a style sheet loading an external resource given as a string" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_style_url_string.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with a style sheet hiding an external resource behind a comment opened in quoted text" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_style_comment_string.svg", "image/svg+xml") }
 
       it_behaves_like "an unsafe SVG"
     end
