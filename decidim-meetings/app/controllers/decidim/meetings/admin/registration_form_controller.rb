@@ -7,6 +7,8 @@ module Decidim
       class RegistrationFormController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
 
+        protected
+
         def questionnaire_for
           meeting
         end

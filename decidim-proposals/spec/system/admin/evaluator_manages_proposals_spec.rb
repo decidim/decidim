@@ -35,6 +35,24 @@ describe "Evaluator manages proposals" do
     end
   end
 
+  context "when visiting an unassigned proposal directly" do
+    before do
+      allow(Rails.application).to \
+        receive(:env_config).with(no_args).and_wrap_original do |m, *|
+          m.call.merge(
+            "action_dispatch.show_exceptions" => true,
+            "action_dispatch.show_detailed_exceptions" => false
+          )
+        end
+
+      visit Decidim::EngineRouter.admin_proxy(current_component).proposal_path(unassigned_proposal)
+    end
+
+    it "does not allow access" do
+      expect(page).to have_text("The page you are looking for cannot be found")
+    end
+  end
+
   context "when bulk unassigning evaluators" do
     before do
       within "tr", text: translated(assigned_proposal.title) do
