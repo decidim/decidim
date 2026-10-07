@@ -14,6 +14,8 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" unless result
+
+        enforce_permission_to :read, :result, result:
       end
 
       def home

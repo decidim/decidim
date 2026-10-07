@@ -26,6 +26,8 @@ module Decidim
       end
 
       def destroy
+        enforce_permission_to :destroy, :order, order: current_order
+
         CancelOrder.call(current_order) do
           on(:ok) do
             flash[:notice] = I18n.t("orders.destroy.success", scope: "decidim")

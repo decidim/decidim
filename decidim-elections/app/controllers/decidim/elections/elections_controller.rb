@@ -14,6 +14,10 @@ module Decidim
       def index; end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless election
+
+        enforce_permission_to(:read, :election, election:)
+
         respond_to do |format|
           format.html { render :show }
 

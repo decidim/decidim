@@ -75,6 +75,32 @@ module Decidim
           end
         end
       end
+
+      describe "GET user_diploma" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+
+        context "when the user is signed in" do
+          before do
+            sign_in user, scope: :user
+          end
+
+          it "is allowed to read a published conference" do
+            allow(controller).to receive(:current_participatory_space).and_return(published)
+            expect(controller.send(:allowed_to?, :read, :conference, conference: published)).to be(true)
+          end
+
+          it "is not allowed to read an unpublished conference" do
+            expect(controller.send(:allowed_to?, :read, :conference, conference: unpublished_conference)).to be(false)
+          end
+        end
+
+        context "when the user is not signed in" do
+          it "is not allowed" do
+            get :user_diploma, params: { conference_slug: published.slug, locale: I18n.locale }
+            expect(response).to have_http_status(:found)
+          end
+        end
+      end
     end
   end
 end

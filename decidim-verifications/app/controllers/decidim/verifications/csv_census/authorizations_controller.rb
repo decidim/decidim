@@ -11,6 +11,8 @@ module Decidim
         before_action :load_authorization
 
         def new
+          enforce_permission_to :create, :authorization, authorization: @authorization
+
           @form = CensusForm.from_params(user: current_user)
           ConfirmCensusAuthorization.call(@authorization, @form) do
             on(:ok) do

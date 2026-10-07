@@ -19,6 +19,8 @@ module Decidim
 
       helper_method :collection, :promoted_conferences, :conferences, :stats
 
+      before_action :authenticate_user!, only: :user_diploma
+
       def index
         raise ActionController::RoutingError, "Not Found" if published_conferences.none?
 
@@ -30,16 +32,19 @@ module Decidim
       end
 
       def user_diploma
+        enforce_permission_to :read, :conference, conference: current_participatory_space
+
         render layout: "decidim/diploma"
       end
 
       private
 
       def current_participatory_space
-        return unless params[:slug]
+        slug = params[:slug] || params[:conference_slug]
+        return unless slug
 
-        @current_participatory_space ||= OrganizationConferences.new(current_organization).query.where(slug: params[:slug]).or(
-          OrganizationConferences.new(current_organization).query.where(id: params[:slug])
+        @current_participatory_space ||= OrganizationConferences.new(current_organization).query.where(slug:).or(
+          OrganizationConferences.new(current_organization).query.where(id: slug)
         ).first!
       end
 

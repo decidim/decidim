@@ -55,4 +55,41 @@ describe Decidim::Budgets::Permissions do
 
     it { is_expected.to be true }
   end
+
+  context "when destroying an order" do
+    let(:action) do
+      { scope: :public, action: :destroy, subject: :order }
+    end
+    let(:budget) { create(:budget, component: budgets_component) }
+    let(:order) { create(:order, user:, budget:) }
+    let(:current_settings) { double(votes: "enabled") }
+    let(:context) do
+      {
+        current_component: budgets_component,
+        current_settings:,
+        order:
+      }
+    end
+
+    it { is_expected.to be true }
+
+    context "when the order belongs to another user" do
+      let(:order) { create(:order, budget:) }
+
+      it { is_expected.to be false }
+    end
+
+    context "when the user is not signed in" do
+      let(:user) { nil }
+      let(:order) { create(:order, budget:) }
+
+      it_behaves_like "permission is not set"
+    end
+
+    context "when voting is closed" do
+      let(:current_settings) { double(votes: "disabled") }
+
+      it { is_expected.to be false }
+    end
+  end
 end

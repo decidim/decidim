@@ -35,6 +35,8 @@ module Decidim
       end
 
       def destroy
+        enforce_permission_to :vote, :project, project:, budget:, workflow: current_workflow
+
         respond_to do |format|
           RemoveLineItem.call(current_order, project) do
             on(:ok) do |_order|
