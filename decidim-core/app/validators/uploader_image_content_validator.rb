@@ -198,17 +198,31 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   def forbidden_svg_attribute?(attribute)
     return true if SVG_EVENT_HANDLER_NAME.match?(attribute.name)
 
-    value = normalize_uri_value(attribute.value.to_s)
-    return true if SVG_FORBIDDEN_URI_PREFIXES.any? { |prefix| value.start_with?(prefix) }
+    return true if forbidden_uri_value?(attribute.value.to_s)
 
     SVG_ANIMATION_TARGET_NAMES.include?(attribute.name) && forbidden_svg_name?(attribute.value.to_s)
   end
 
+  # Whether the value is a script URI or contains one. The animation elements
+  # accept lists of values separated by semicolons (e.g. in the "values"
+  # attribute), which are assigned to the target attribute one after another
+  # at runtime, so each value of the list is checked separately.
+  def forbidden_uri_value?(value)
+    value.split(";").any? do |uri|
+      normalized = normalize_uri_value(uri)
+      SVG_FORBIDDEN_URI_PREFIXES.any? { |prefix| normalized.start_with?(prefix) }
+    end
+  end
+
   # Whether the value targets an event handler or a forbidden element, as
-  # used by the animation elements to modify attributes at runtime.
+  # used by the animation elements to modify attributes at runtime. Lists of
+  # names are also accepted by some animation attributes, so each name of the
+  # list is checked separately.
   def forbidden_svg_name?(name)
-    normalized = name.strip.downcase
-    SVG_EVENT_HANDLER_NAME.match?(normalized) || SVG_FORBIDDEN_ELEMENTS.include?(normalized)
+    name.split(";").any? do |part|
+      normalized = part.strip.downcase
+      SVG_EVENT_HANDLER_NAME.match?(normalized) || SVG_FORBIDDEN_ELEMENTS.include?(normalized)
+    end
   end
 
   # Removes the whitespace and control characters which can be used to

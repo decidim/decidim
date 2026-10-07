@@ -85,6 +85,12 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a valid image"
     end
+
+    context "with an SVG with a declarative animation" do
+      let(:upload) { Decidim::Dev.test_file("test_animation.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
   end
 
   context "when the content type is an alias of the file format" do
@@ -169,6 +175,12 @@ describe UploaderImageContentValidator do
 
     context "with an animation targeting an event handler" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_animation.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with an animation assigning a script URI from a list of values" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_animation_values.svg", "image/svg+xml") }
 
       it_behaves_like "an unsafe SVG"
     end
