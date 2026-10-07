@@ -44,6 +44,8 @@ module Decidim
       register_permissions(::Decidim::Admin::ApplicationController,
                            ::Decidim::Admin::Permissions)
 
+      protected
+
       def user_has_no_permission_path
         decidim_admin.root_path
       end

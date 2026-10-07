@@ -1,6 +1,7 @@
 require:
   - decidim/dev/rubocop/cop/decidim/enforce_permission_to_empty_line
   - decidim/dev/rubocop/cop/decidim/message_antipattern
+  - decidim/dev/rubocop/cop/decidim/enforce_permission_to
   - decidim/dev/rubocop/cop/decidim/organization_scoped_finder
   - decidim/dev/rubocop/cop/decidim/rspec/memoized_name
 
@@ -16,7 +17,7 @@ Decidim/EnforcePermissionToEmptyLine:
   Include:
     - "**/app/controllers/**/*.rb"
 
-Decidim/OrganizationScopedFinder:
+Decidim/EnforcePermissionTo:
   Enabled: true
   Severity: warning
   Include:
@@ -29,3 +30,11 @@ Decidim/RSpec/MemoizedName:
   Include:
     - "**/spec/system/**/*"
     - "**/spec/shared/**/*"
+
+Decidim/OrganizationScopedFinder:
+  Enabled: true
+  Severity: warning
+  Include:
+    - "**/app/controllers/**/admin/**/*.rb"
+  Exclude:
+    - "**/decidim-system/**/*.rb"

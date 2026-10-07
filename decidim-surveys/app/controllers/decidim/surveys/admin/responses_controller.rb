@@ -42,6 +42,8 @@ module Decidim
           redirect_to Decidim::EngineRouter.admin_proxy(questionnaire_for.component).survey_responses_path(questionnaire_for)
         end
 
+        protected
+
         def questionnaire_for
           @questionnaire_for ||= Decidim::Surveys::Survey.where(component: current_component).find_by(id: params[:survey_id])
         end

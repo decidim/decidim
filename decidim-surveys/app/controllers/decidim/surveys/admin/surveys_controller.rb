@@ -9,7 +9,9 @@ module Decidim
 
         helper_method :surveys
 
-        def index; end
+        def index
+          enforce_permission_to :read, :questionnaire
+        end
 
         def new
           enforce_permission_to(:create, :questionnaire)

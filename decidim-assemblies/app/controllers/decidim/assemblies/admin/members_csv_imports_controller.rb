@@ -9,6 +9,8 @@ module Decidim
         include Concerns::AssemblyAdmin
         include Decidim::Admin::ParticipatorySpace::Concerns::HasMembersCsvImport
 
+        protected
+
         def after_import_path
           members_path(current_assembly)
         end
