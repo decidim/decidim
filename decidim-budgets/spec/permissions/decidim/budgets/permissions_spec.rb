@@ -92,4 +92,35 @@ describe Decidim::Budgets::Permissions do
       it { is_expected.to be false }
     end
   end
+
+  context "when reading an order" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :order }
+    end
+    let(:budget) { create(:budget, component: budgets_component) }
+    let(:order) { create(:order, user:, budget:) }
+    let(:context) do
+      {
+        current_component: budgets_component,
+        order:
+      }
+    end
+
+    it "allows the order owner" do
+      expect(subject).to be true
+    end
+
+    context "when the order belongs to another user" do
+      let(:order) { create(:order, budget:) }
+
+      it { is_expected.to be false }
+    end
+
+    context "when the user is not signed in" do
+      let(:user) { nil }
+      let(:order) { create(:order, budget:) }
+
+      it_behaves_like "permission is not set"
+    end
+  end
 end
