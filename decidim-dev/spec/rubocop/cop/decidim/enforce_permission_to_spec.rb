@@ -853,6 +853,36 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
       RUBY
     end
 
+    it "registers an offense for an action sharing a name with a callback in an enclosing class" do
+      expect_offense(<<~RUBY)
+        class Admin::OuterController < Admin::ApplicationController
+          helper_method :destroy
+
+          class InnerController < Admin::ApplicationController
+            def destroy
+            ^^^^^^^^^^^ Action `destroy` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+              @resource = Resource.find(params[:id])
+              @resource.destroy
+            end
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a helper in a nested class that owns the callback" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::OuterController < Admin::ApplicationController
+          class InnerController < Admin::ApplicationController
+            helper_method :current_locale
+
+            def current_locale
+              I18n.locale
+            end
+          end
+        end
+      RUBY
+    end
+
     it "keeps callbacks collected from a module when a nested class is declared inside an included block" do
       expect_no_offenses(<<~RUBY)
         module Admin
@@ -873,6 +903,21 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
                 :public
               end
             end
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a helper declared after a nested class in the controller body" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          class Error < StandardError
+          end
+
+          helper_method :resource
+
+          def resource
+            @resource ||= Resource.find(params[:id])
           end
         end
       RUBY

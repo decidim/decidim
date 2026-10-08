@@ -146,9 +146,10 @@ module RuboCop
 
         # Resets the state that is scoped to a single class or module body.
         # Callback methods are intentionally not part of this state: they are
-        # collected per scope in `collect_callback_methods` and inherited
-        # lexically, so nested scopes see their ancestors' callbacks while
-        # sibling scopes do not see each other's.
+        # collected per scope in `collect_callback_methods`, so sibling scopes
+        # do not see each other's callbacks. A definition only inherits the
+        # callbacks of its own scope and of enclosing modules (never across a
+        # class boundary, as nested classes are not subclasses).
         def reset_scope_state
           @in_private_section = false
           @inline_visibility = nil
@@ -284,11 +285,30 @@ module RuboCop
         end
 
         # Whether the method is a lifecycle/helper method of the def's own scope
-        # or of any enclosing scope.
+        # or of an enclosing module. Callbacks declared in a class are not
+        # inherited by definitions inside a nested class: Ruby does not treat a
+        # nested class as a subclass, so an outer controller's `helper_method`
+        # must not exempt an unrelated nested controller's action with the same
+        # name. Enclosing modules are still followed (a common concern pattern),
+        # but the walk stops at the first class boundary.
         def callback_method?(node, method_name)
-          node.each_ancestor(:class, :module).any? do |scope|
-            @scope_callback_methods.fetch(scope, Set.new).include?(method_name)
+          scopes = node.each_ancestor(:class, :module).to_a
+          return false if scopes.empty?
+
+          own_scope = scopes.shift
+          return true if scope_callback?(own_scope, method_name)
+
+          scopes.each do |scope|
+            break if scope.class_type?
+
+            return true if scope_callback?(scope, method_name)
           end
+
+          false
+        end
+
+        def scope_callback?(scope, method_name)
+          @scope_callback_methods.fetch(scope, Set.new).include?(method_name)
         end
 
         # A call is made on the controller itself when the receiver is implicit
