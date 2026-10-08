@@ -58,7 +58,8 @@ module Decidim
         context "when the user is not signed in" do
           it "is not allowed" do
             put(:apply_password, params:)
-            expect(response).to have_http_status(:found)
+            expect(response).to redirect_to(new_user_session_path)
+            expect(flash[:alert]).to eq("You are not authorized to perform this action.")
           end
         end
       end
