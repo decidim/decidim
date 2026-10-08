@@ -236,6 +236,21 @@ module Decidim
             end
           end
         end
+
+        describe "cross-organization scoping" do
+          let(:other_org) { create(:organization) }
+          let(:other_type) { create(:initiatives_type, organization: other_org) }
+
+          before do
+            sign_in admin_user, scope: :user
+          end
+
+          it "does not load initiatives types from other organizations" do
+            expect do
+              get :new, params: { initiatives_type_id: other_type.id }
+            end.to raise_error(ActiveRecord::RecordNotFound)
+          end
+        end
       end
     end
   end

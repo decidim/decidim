@@ -13,6 +13,8 @@ module Decidim
                              ::Decidim::Initiatives::Permissions,
                              ::Decidim::Admin::Permissions)
 
+        protected
+
         def permissions_context
           super.merge(
             current_participatory_space: try(:current_participatory_space)

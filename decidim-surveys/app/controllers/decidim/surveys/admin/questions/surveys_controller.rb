@@ -11,12 +11,18 @@ module Decidim
 
           helper_method :surveys
 
+          protected
+
           def edit_questions_template
             "decidim/surveys/admin/questions/surveys/edit"
           end
 
           def questionnaire_for
             survey
+          end
+
+          def response_options_url(params)
+            url_for(params.merge(controller: "questions/surveys", action: "response_options", format: :json, survey_id: survey.id))
           end
 
           def after_update_url
@@ -40,7 +46,15 @@ module Decidim
 
           def survey
             @survey ||= Decidim::Surveys::Survey.where(component: current_component).includes(questionnaire: { questions: [:matrix_rows, :display_conditions,
-                                                                                                                           :response_options] }).find(params.expect(:id))
+                                                                                                                           :response_options] }).find(survey_id)
+          end
+
+          def survey_id
+            if action_name == "response_options"
+              params.expect(:survey_id)
+            else
+              params.expect(:id)
+            end
           end
         end
       end

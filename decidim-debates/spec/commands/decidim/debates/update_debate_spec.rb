@@ -14,10 +14,11 @@ describe Decidim::Debates::UpdateDebate do
   let(:current_files) { debate.attachments }
   let(:uploaded_files) { [] }
   let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
+  let(:title) { "Title" }
   let(:description) { "Description" }
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
-      title: "Title",
+      title:,
       description:,
       attachments: current_files,
       add_attachments: uploaded_files,
@@ -116,6 +117,19 @@ describe Decidim::Debates::UpdateDebate do
         debate.reload
 
         expect(debate.description.except("machine_translations").values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
+    end
+
+    context "when title has a user mention" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:title) { "Title mentioning @#{mentioned_user.nickname}" }
+
+      it "does not rewrite the mention to the mentioned user GID" do
+        subject.call
+        debate.reload
+
+        expect(translated(debate.title)).not_to include(mentioned_user.to_global_id.to_s)
+        expect(translated(debate.title)).to include("@#{mentioned_user.nickname}")
       end
     end
 

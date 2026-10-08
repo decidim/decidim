@@ -11,7 +11,7 @@ describe "Question ordering", "#reorder_questions" do
            published_at: nil)
   end
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
+  let!(:survey) { create(:survey, :published, component:, questionnaire:) }
   let!(:first_question) { create(:questionnaire_question, questionnaire:, body: { en: "First question" }, position: 0) }
   let!(:second_question) { create(:questionnaire_question, questionnaire:, body: { en: "Second question" }, position: 1) }
 

@@ -28,6 +28,8 @@ describe "Admin manages participatory process publication" do |_options|
       click_on "Publish"
     end
 
+    expect(page).to have_callout(publish_callout_message)
+
     visit decidim.root_path
     visit decidim.last_activities_path
 

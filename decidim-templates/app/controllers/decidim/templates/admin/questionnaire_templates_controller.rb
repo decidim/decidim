@@ -105,13 +105,19 @@ module Decidim
         end
 
         def apply
-          questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
-          template = Decidim::Templates::Template.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
+          enforce_permission_to :apply, :questionnaire_template
+          questionnaire = find_questionnaire(params[:questionnaire_id])
+          template = collection.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
+
+          if questionnaire.blank?
+            flash[:alert] = I18n.t("templates.apply.error", scope: "decidim.admin")
+            return redirect_to(internal_redirect_path || { action: :index })
+          end
 
           ApplyQuestionnaireTemplate.call(questionnaire, template) do
             on(:ok) do
               flash[:notice] = I18n.t("templates.apply.success", scope: "decidim.admin")
-              redirect_to URI.parse(params[:url]).path
+              redirect_to(internal_redirect_path || { action: :index })
             end
             on(:invalid) do
               flash[:error] = I18n.t("templates.apply.error", scope: "decidim.admin")
@@ -121,6 +127,7 @@ module Decidim
         end
 
         def preview
+          enforce_permission_to :preview, :questionnaire_template
           respond_to do |format|
             format.js do
               @template = template
@@ -131,14 +138,24 @@ module Decidim
         end
 
         def skip
-          questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
+          enforce_permission_to :skip, :questionnaire_template
+          questionnaire = find_questionnaire(params[:questionnaire_id])
+
+          return redirect_to(internal_redirect_path || { action: :index }) unless questionnaire
+
           # rubocop:disable-next Rails/SkipsModelValidations
           questionnaire.touch
-          redirect_to URI.parse(params[:url]).path
+          redirect_to(internal_redirect_path || { action: :index })
         end
+
+        protected
 
         def edit_questions_template
           "decidim/templates/admin/questionnaire_templates/edit_questions"
+        end
+
+        def response_options_url(params)
+          url_for(params.merge(controller: "decidim/templates/admin/questionnaire_templates/questionnaires", action: "response_options", format: :json, template_id: template.id))
         end
 
         def after_update_url
@@ -146,6 +163,50 @@ module Decidim
         end
 
         private
+
+        def find_questionnaire(id)
+          questionnaire = Decidim::Forms::Questionnaire.find_by(id:) # rubocop:disable Decidim/OrganizationScopedFinder -- scoping requires polymorphic questionnaire_for chain; org ownership validated via questionnaire_for_in_organization?
+          return unless questionnaire
+          return unless questionnaire_for_in_organization?(questionnaire)
+
+          questionnaire
+        end
+
+        def questionnaire_for_in_organization?(questionnaire)
+          questionnaire_for = questionnaire.questionnaire_for
+          return false unless questionnaire_for
+          return false unless questionnaire_for.respond_to?(:organization)
+
+          questionnaire_for.organization == current_organization
+        end
+
+        # Returns the path of the `url` param only when it points to the same
+        # origin. Absolute same-origin URLs and root-relative paths are
+        # accepted; protocol-relative, external and malformed URLs are rejected
+        # so they can never be used to redirect the user to another site.
+        def internal_redirect_path
+          url = params[:url].to_s
+          return if url.blank?
+
+          uri = URI.parse(url)
+          return if uri.host.present? && !same_origin?(uri)
+
+          safe_path(uri.path)
+        rescue URI::Error
+          nil
+        end
+
+        def same_origin?(uri)
+          uri.host == request.host && (uri.scheme.nil? || uri.scheme == request.scheme)
+        end
+
+        def safe_path(path)
+          return if path.blank? || !path.start_with?("/")
+          return if path.start_with?("//", "/\\") || path.include?("\\")
+          return if path.match?(/[\u0000-\u001f\u007f]/)
+
+          path
+        end
 
         def questionnaire
           template.templatable
