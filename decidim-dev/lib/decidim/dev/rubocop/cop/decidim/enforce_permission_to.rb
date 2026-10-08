@@ -99,6 +99,13 @@ module RuboCop
         end
 
         def on_class(node)
+          # Callback methods must not leak between controller classes defined
+          # in the same file, otherwise a callback in one controller could
+          # exempt a same-named action in a sibling controller. Nested
+          # definitions (e.g. an exception class declared inside an
+          # `included do` block) must keep the callbacks collected from their
+          # enclosing module.
+          @callback_methods = Set.new unless nested_definition?(node)
           reset_scope_state
           register_authorized_base(node)
           collect_callback_methods(node)
@@ -144,9 +151,18 @@ module RuboCop
 
         private
 
-        # Callback methods are accumulated for the whole file so that methods
-        # defined in nested modules (a common concern pattern) are still
-        # recognized as lifecycle/helper methods.
+        # A class is a nested definition when it is declared inside a block or
+        # method body (e.g. an exception class inside an `included do` block).
+        # Such definitions are not controller classes and must not reset the
+        # callback methods collected from their enclosing module.
+        def nested_definition?(node)
+          node.each_ancestor.any? { |ancestor| ancestor.block_type? || ancestor.def_type? }
+        end
+
+        # Callback methods are accumulated across nested modules (a common
+        # concern pattern) so their methods are still recognized as
+        # lifecycle/helper methods. They are intentionally not reset here; each
+        # controller class starts with a fresh set in `on_class`.
         def reset_scope_state
           @in_private_section = false
           @inline_visibility = nil

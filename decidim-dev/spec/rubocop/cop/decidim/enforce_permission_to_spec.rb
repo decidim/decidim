@@ -834,6 +834,50 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
       RUBY
     end
 
+    it "registers an offense for an action sharing a name with a callback in a sibling class" do
+      expect_offense(<<~RUBY)
+        class Admin::AController < Admin::ApplicationController
+          helper_method :resource
+
+          def resource
+            @resource = Resource.find(params[:id])
+          end
+        end
+
+        class Admin::BController < Admin::ApplicationController
+          def resource
+          ^^^^^^^^^^^^ Action `resource` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+            @resource = Resource.find(params[:id])
+          end
+        end
+      RUBY
+    end
+
+    it "keeps callbacks collected from a module when a nested class is declared inside an included block" do
+      expect_no_offenses(<<~RUBY)
+        module Admin
+          module NeedsPermission
+            extend ActiveSupport::Concern
+
+            included do
+              helper_method :allowed_to?
+
+              class ActionForbidden < StandardError
+              end
+
+              def allowed_to?
+                permission_scope
+              end
+
+              def permission_scope
+                :public
+              end
+            end
+          end
+        end
+      RUBY
+    end
+
     it "does not register an offense for a lifecycle method defined in a nested module" do
       expect_no_offenses(<<~RUBY)
         module Admin
