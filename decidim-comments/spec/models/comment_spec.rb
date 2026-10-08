@@ -341,6 +341,93 @@ module Decidim
           end
         end
       end
+
+      describe "#thread_root" do
+        let!(:reply) { create(:comment, commentable: comment, root_commentable: commentable) }
+        let!(:nested_reply) { create(:comment, commentable: reply, root_commentable: commentable) }
+
+        it "returns itself for a top level comment" do
+          expect(comment.thread_root).to eq(comment)
+        end
+
+        it "returns the top level comment for a direct reply" do
+          expect(reply.thread_root).to eq(comment)
+        end
+
+        it "returns the top level comment for a nested reply" do
+          expect(nested_reply.thread_root).to eq(comment)
+        end
+
+        context "when an ancestor has been deleted" do
+          before { reply.update!(deleted_at: Time.current) }
+
+          it "returns the top level comment" do
+            expect(nested_reply.thread_root).to eq(comment)
+          end
+        end
+
+        context "when an ancestor has been hidden" do
+          before do
+            create(
+              :moderation,
+              :hidden,
+              reportable: reply,
+              participatory_space: commentable.participatory_space
+            )
+          end
+
+          it "returns the top level comment" do
+            expect(nested_reply.thread_root).to eq(comment)
+          end
+        end
+      end
+
+      describe "#thread_chain_ids" do
+        let!(:reply) { create(:comment, commentable: comment, root_commentable: commentable) }
+        let!(:nested_reply) { create(:comment, commentable: reply, root_commentable: commentable) }
+
+        it "returns only its own id for a top level comment" do
+          expect(comment.thread_chain_ids).to eq([comment.id])
+        end
+
+        it "returns the ids from the thread root down to itself" do
+          expect(nested_reply.thread_chain_ids).to eq([comment.id, reply.id, nested_reply.id])
+        end
+
+        it "ends with the comment itself" do
+          expect(nested_reply.thread_chain_ids.last).to eq(nested_reply.id)
+        end
+
+        it "returns the whole chain for a comment at the maximum depth" do
+          deepest = create(:comment, commentable: nested_reply, root_commentable: commentable)
+
+          expect(deepest.depth).to eq(described_class::MAX_DEPTH)
+          expect(deepest.thread_chain_ids).to eq([comment.id, reply.id, nested_reply.id, deepest.id])
+        end
+
+        context "when an ancestor has been deleted" do
+          before { reply.update!(deleted_at: Time.current) }
+
+          it "keeps the deleted ancestor in the chain" do
+            expect(nested_reply.thread_chain_ids).to eq([comment.id, reply.id, nested_reply.id])
+          end
+        end
+
+        context "when an ancestor has been hidden" do
+          before do
+            create(
+              :moderation,
+              :hidden,
+              reportable: reply,
+              participatory_space: commentable.participatory_space
+            )
+          end
+
+          it "keeps the hidden ancestor in the chain" do
+            expect(nested_reply.thread_chain_ids).to eq([comment.id, reply.id, nested_reply.id])
+          end
+        end
+      end
     end
   end
 end
