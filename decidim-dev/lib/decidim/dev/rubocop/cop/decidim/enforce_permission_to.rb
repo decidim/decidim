@@ -363,14 +363,20 @@ module RuboCop
         end
 
         # Resolves a superclass reference written relative to the enclosing
-        # namespace (e.g. `BaseController` inside `module Decidim`) to its
-        # qualified form, so it matches the names stored in the hierarchy map.
+        # namespace (e.g. `BaseController` or `Components::BaseController`
+        # inside `module Decidim`) to its qualified form, so it matches the
+        # names stored in the hierarchy map. An explicitly root-qualified
+        # reference (e.g. `::Decidim::Components::BaseController`) is kept as
+        # written, and a name that already carries the enclosing namespace is
+        # not prefixed again.
         def resolved_parent_name(node, parent)
           name = parent.const_name
-          return name if name.include?("::")
+          return name if parent.absolute?
 
           namespace = enclosing_namespace(node)
-          namespace.empty? ? name : "#{namespace}::#{name}"
+          return name if namespace.empty? || name.start_with?("#{namespace}::")
+
+          "#{namespace}::#{name}"
         end
 
         # The lexical namespace that encloses a class or module definition,

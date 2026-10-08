@@ -1024,6 +1024,30 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
         RUBY
       end
 
+      it "resolves a relative qualified parent name within the enclosing namespace" do
+        expect_no_offenses(<<~RUBY)
+          module Decidim
+            class PostsController < Components::BaseController
+              def index; end
+
+              def show; end
+            end
+          end
+        RUBY
+      end
+
+      it "preserves an explicitly root-qualified parent name" do
+        expect_no_offenses(<<~RUBY)
+          module Decidim
+            class PostsController < ::Decidim::Components::BaseController
+              def index; end
+
+              def show; end
+            end
+          end
+        RUBY
+      end
+
       it "registers an offense for a mutating action" do
         expect_offense(<<~RUBY)
           class Decidim::Blogs::PostsController < Decidim::Components::BaseController
