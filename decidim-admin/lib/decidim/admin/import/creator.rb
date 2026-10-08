@@ -32,6 +32,10 @@ module Decidim
               :"#{header}/#{locale}"
             end
           end
+
+          def batch_notifier_klass
+            nil
+          end
         end
 
         attr_reader :data
@@ -66,6 +70,10 @@ module Decidim
 
         def finish!
           resource.save!
+        end
+
+        def finish_without_notify!
+          finish!
         end
 
         protected
