@@ -55,4 +55,37 @@ describe Decidim::Meetings::CalendarsController do
       end
     end
   end
+
+  describe "#meeting_calendar" do
+    let(:params) do
+      {
+        participatory_process_slug: participatory_process.slug,
+        component_id: meeting_component.id,
+        id: meeting.id
+      }
+    end
+
+    before do
+      request.env["decidim.current_participatory_space"] = participatory_process
+      request.env["decidim.current_component"] = meeting_component
+    end
+
+    context "when the meeting is visible" do
+      let(:meeting) { meetings.first }
+
+      it "sends the meeting calendar" do
+        get(:meeting_calendar, params:)
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context "when the meeting is hidden" do
+      let(:meeting) { create(:meeting, :published, :hidden, component: meeting_component) }
+
+      it "is not allowed" do
+        get(:meeting_calendar, params:)
+        expect(response).to have_http_status(:found)
+      end
+    end
+  end
 end

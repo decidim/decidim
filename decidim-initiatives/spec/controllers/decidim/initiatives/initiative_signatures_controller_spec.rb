@@ -75,6 +75,24 @@ module Decidim
           end
         end
       end
+
+      context "when GET index" do
+        context "and Guest user" do
+          it "is not allowed" do
+            get :index, params: { initiative_slug: initiative.slug, locale: I18n.locale }
+            expect(response).to have_http_status(:found)
+          end
+        end
+
+        context "and authorized user with a signature with steps" do
+          it "redirects to the first signature step" do
+            sign_in initiative_with_user_extra_fields.author, scope: :user
+
+            get :index, params: { initiative_slug: initiative_with_user_extra_fields.slug, locale: I18n.locale }
+            expect(response).to redirect_to(fill_personal_data_initiative_signatures_path(initiative_with_user_extra_fields))
+          end
+        end
+      end
     end
   end
 end

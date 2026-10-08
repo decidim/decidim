@@ -10,6 +10,8 @@ module Decidim
                            ::Decidim::Admin::Permissions,
                            ::Decidim::Permissions)
 
+      protected
+
       def permission_class_chain
         ::Decidim.permissions_registry.chain_for(::Decidim::Demographics::ApplicationController)
       end
