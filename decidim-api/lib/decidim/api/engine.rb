@@ -28,6 +28,7 @@ module Decidim
           allow do
             origins "*"
             resource "/api/*", headers: :any, methods: [:post, :options]
+            resource "/api/blobs", headers: :any, methods: [:post]
           end
         end
       end
