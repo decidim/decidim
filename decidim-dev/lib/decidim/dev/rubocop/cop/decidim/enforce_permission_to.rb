@@ -93,19 +93,12 @@ module RuboCop
         ].freeze
 
         def on_new_investigation
-          @callback_methods = Set.new
+          @scope_callback_methods = {}
           @base_class_map = {}
           reset_scope_state
         end
 
         def on_class(node)
-          # Callback methods must not leak between controller classes defined
-          # in the same file, otherwise a callback in one controller could
-          # exempt a same-named action in a sibling controller. Nested
-          # definitions (e.g. an exception class declared inside an
-          # `included do` block) must keep the callbacks collected from their
-          # enclosing module.
-          @callback_methods = Set.new unless nested_definition?(node)
           reset_scope_state
           register_authorized_base(node)
           collect_callback_methods(node)
@@ -128,7 +121,7 @@ module RuboCop
 
           return unless method_public?(node, method_name, inline_visibility)
           return if action_exempted_by_before_action?(method_name)
-          return if @callback_methods.include?(method_name)
+          return if callback_method?(node, method_name)
           return if authorized_base_action?(method_name)
 
           return if contains_authorization_check?(node)
@@ -151,18 +144,11 @@ module RuboCop
 
         private
 
-        # A class is a nested definition when it is declared inside a block or
-        # method body (e.g. an exception class inside an `included do` block).
-        # Such definitions are not controller classes and must not reset the
-        # callback methods collected from their enclosing module.
-        def nested_definition?(node)
-          node.each_ancestor.any? { |ancestor| ancestor.block_type? || ancestor.def_type? }
-        end
-
-        # Callback methods are accumulated across nested modules (a common
-        # concern pattern) so their methods are still recognized as
-        # lifecycle/helper methods. They are intentionally not reset here; each
-        # controller class starts with a fresh set in `on_class`.
+        # Resets the state that is scoped to a single class or module body.
+        # Callback methods are intentionally not part of this state: they are
+        # collected per scope in `collect_callback_methods` and inherited
+        # lexically, so nested scopes see their ancestors' callbacks while
+        # sibling scopes do not see each other's.
         def reset_scope_state
           @in_private_section = false
           @inline_visibility = nil
@@ -219,35 +205,61 @@ module RuboCop
             !node.arguments.empty? && !visibility_def_argument?(node)
         end
 
-        # Collects the methods that play a lifecycle or helper role for the
-        # controller. These are referenced by framework callback declarations
-        # (and the methods they call) so they are never reported as actions.
+        # Collects the lifecycle/helper methods owned by a scope (a class or
+        # module). Only declarations and definitions belonging to the scope
+        # itself are considered; nested classes and modules are excluded so
+        # callbacks cannot leak between sibling scopes. The result is stored per
+        # scope so a definition can inherit the callbacks of its enclosing
+        # scopes without seeing those of its siblings.
         def collect_callback_methods(node)
           return unless node.body
 
-          definitions = callback_definitions(node)
-          collect_callback_declarations(node)
-          collect_callback_dependencies(definitions)
+          definitions = own_scope_definitions(node)
+          declared = own_scope_callback_names(node)
+          @scope_callback_methods[node] = expand_callback_dependencies(declared, definitions)
         end
 
-        def collect_callback_declarations(node)
-          node.body.each_descendant(:send) do |send_node|
-            next unless CALLBACK_METHODS.include?(send_node.method_name)
+        # The methods referenced by callback declarations on the scope itself.
+        def own_scope_callback_names(node)
+          own_scope_nodes(node).each_with_object(Set.new) do |descendant, names|
+            next unless descendant.send_type?
+            next unless CALLBACK_METHODS.include?(descendant.method_name)
 
-            callback_method_names(send_node).each { |name| @callback_methods << name }
+            callback_method_names(descendant).each { |name| names << name }
           end
         end
 
-        def callback_definitions(node)
-          node.body.each_descendant(:def).with_object({}) do |def_node, definitions|
-            definitions[def_node.method_name] ||= def_node
+        # The method definitions belonging to the scope itself, indexed by name.
+        def own_scope_definitions(node)
+          own_scope_nodes(node).each_with_object({}) do |descendant, definitions|
+            next unless descendant.def_type?
+
+            definitions[descendant.method_name] ||= descendant
           end
+        end
+
+        # Walks a scope body without descending into nested classes or modules,
+        # so each scope only sees its own declarations and definitions.
+        def own_scope_nodes(node)
+          nodes = []
+          queue = [node.body].compact
+
+          until queue.empty?
+            current = queue.shift
+            next if current.class_type? || current.module_type?
+
+            nodes << current
+            current.each_child_node { |child| queue << child }
+          end
+
+          nodes
         end
 
         # Methods called by a lifecycle callback are helper methods as well,
         # e.g. a callback delegating to a public helper method.
-        def collect_callback_dependencies(definitions)
-          queue = @callback_methods.to_a
+        def expand_callback_dependencies(declared, definitions)
+          names = Set.new(declared)
+          queue = declared.to_a
 
           until queue.empty?
             definition = definitions[queue.shift]
@@ -262,10 +274,20 @@ module RuboCop
 
               callee = send_node.method_name
               next unless definitions.has_key?(callee)
-              next unless @callback_methods.add?(callee)
+              next unless names.add?(callee)
 
               queue << callee
             end
+          end
+
+          names
+        end
+
+        # Whether the method is a lifecycle/helper method of the def's own scope
+        # or of any enclosing scope.
+        def callback_method?(node, method_name)
+          node.each_ancestor(:class, :module).any? do |scope|
+            @scope_callback_methods.fetch(scope, Set.new).include?(method_name)
           end
         end
 
