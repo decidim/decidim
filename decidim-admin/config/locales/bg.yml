@@ -877,6 +877,8 @@ bg:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Нов класификационен филтър
+        form:
+          all: Всички
       titles:
         areas: Области
         authorization_workflows: Методи за проверка
