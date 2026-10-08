@@ -95,6 +95,7 @@ module RuboCop
         def on_new_investigation
           @scope_callback_methods = {}
           @base_class_map = {}
+          @authorized_base_nodes = Set.new
           reset_scope_state
         end
 
@@ -122,7 +123,7 @@ module RuboCop
           return unless method_public?(node, method_name, inline_visibility)
           return if action_exempted_by_before_action?(method_name)
           return if callback_method?(node, method_name)
-          return if authorized_base_action?(method_name)
+          return if authorized_base_action?(node, method_name)
 
           return if contains_authorization_check?(node)
 
@@ -156,7 +157,6 @@ module RuboCop
           @all_actions_auth = false
           @only_actions = Set.new
           @except_sets = []
-          @authorized_base = false
         end
 
         def visibility_def_argument?(node)
@@ -346,7 +346,7 @@ module RuboCop
 
         def register_authorized_base(node)
           register_class_hierarchy(node)
-          @authorized_base = authorized_base_class?(node)
+          @authorized_base_nodes << node if authorized_base_class?(node)
         end
 
         # Keeps track of the class hierarchy so authorization inherited from a
@@ -440,8 +440,13 @@ module RuboCop
           @authorized_base_actions ||= Array(cop_config["AuthorizedBaseActions"]).map(&:to_s)
         end
 
-        def authorized_base_action?(method_name)
-          @authorized_base && authorized_base_actions.include?(method_name.to_s)
+        def authorized_base_action?(node, method_name)
+          return false unless authorized_base_actions.include?(method_name.to_s)
+
+          scope = node.each_ancestor(:class, :module).first
+          return false unless scope
+
+          @authorized_base_nodes.include?(scope)
         end
 
         def check_before_actions(class_node)
