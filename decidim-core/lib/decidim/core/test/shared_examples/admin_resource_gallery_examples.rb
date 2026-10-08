@@ -168,9 +168,3 @@ shared_examples "admin manages resource gallery" do
     end
   end
 end
-
-shared_examples "admin destroys resource gallery" do
-  it "destroys the attached image" do
-    expect { command.call }.to change(Decidim::Attachment, :count).by(-1)
-  end
-end

@@ -65,6 +65,45 @@ module Decidim::Maintenance::ImportModels
     it_behaves_like "can be converted to taxonomies"
     it_behaves_like "a single root taxonomy"
 
+    context "without children" do
+      let!(:subcategory) { nil }
+      let!(:sub_subcategory) { nil }
+      let!(:another_category) { nil }
+      let(:title) { subject.name }
+      let(:internal_name) { "Assembly: Assembly" }
+      let(:items) { [[internal_name, title[I18n.locale.to_s]]] }
+      let(:participatory_space_manifests) { described_class.participatory_space_classes.map { |cls| cls.name.sub(/\ADecidim::/, "").underscore.pluralize } }
+
+      it "returns the participatory process types as taxonomies" do
+        expect(described_class.with(organization).to_h).to eq(
+          {
+            taxonomies: {
+              "Assembly: Assembly" => {
+                children: { title[I18n.locale.to_s] => subject.taxonomies },
+                name: { "en" => "Assembly: Assembly" },
+                origin: assembly.to_global_id.to_s,
+                resources: {}
+              }
+            },
+            filters: [
+              {
+                name: root_taxonomy_name,
+                internal_name: "Assembly: Assembly",
+                items: [["Assembly: Assembly", title[I18n.locale.to_s]]],
+                components: [dummy_component.to_global_id.to_s]
+              },
+              {
+                name: root_taxonomy_name,
+                internal_name: "Participatory process: Participatory Process",
+                items: [],
+                components: [another_component.to_global_id.to_s]
+              }
+            ]
+          }
+        )
+      end
+    end
+
     describe "#taxonomies" do
       it "returns the taxonomies" do
         expect(subject.taxonomies).to eq(

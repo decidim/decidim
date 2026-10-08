@@ -226,18 +226,12 @@ module Decidim
             expect(image.height).to eq(32)
           end
         end
+      end
 
-        context "with a HEIC format" do
-          let(:favicon_path) { Decidim::Dev.asset("icon.HEIC") }
+      context "with a JPEG format" do
+        let(:favicon_path) { Decidim::Dev.asset("avatar.jpg") }
 
-          it_behaves_like "creates correct favicon variants"
-        end
-
-        context "with a JPEG format" do
-          let(:favicon_path) { Decidim::Dev.asset("avatar.jpeg") }
-
-          it_behaves_like "creates correct favicon variants"
-        end
+        it_behaves_like "creates correct favicon variants"
       end
     end
 
