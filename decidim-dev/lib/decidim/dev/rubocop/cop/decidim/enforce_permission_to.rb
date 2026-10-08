@@ -242,6 +242,7 @@ module RuboCop
 
             sends.each do |send_node|
               next unless send_node.send_type?
+              next unless controller_call?(send_node)
 
               callee = send_node.method_name
               next unless definitions.has_key?(callee)
@@ -250,6 +251,15 @@ module RuboCop
               queue << callee
             end
           end
+        end
+
+        # A call is made on the controller itself when the receiver is implicit
+        # or an explicit `self`. Calls with any other receiver, such as
+        # `Resource.find`, must not be followed because a same-named controller
+        # action could then be mistaken for a lifecycle/helper method, hiding a
+        # missing authorization check.
+        def controller_call?(send_node)
+          send_node.receiver.nil? || send_node.receiver.self_type?
         end
 
         def callback_method_names(send_node)

@@ -799,6 +799,41 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
       RUBY
     end
 
+    it "registers an offense for an action sharing a name with a method called on another object by a lifecycle method" do
+      expect_offense(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          before_action :set_breadcrumb
+
+          def find
+          ^^^^^^^^ Action `find` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+            @resource = Resource.find(params[:id])
+          end
+
+          private
+
+          def set_breadcrumb
+            Resource.find(params[:id])
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a method called with an explicit self receiver by a lifecycle method" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          before_action :set_locale
+
+          def set_locale
+            self.default_locale
+          end
+
+          def default_locale
+            I18n.locale
+          end
+        end
+      RUBY
+    end
+
     it "does not register an offense for a lifecycle method defined in a nested module" do
       expect_no_offenses(<<~RUBY)
         module Admin
