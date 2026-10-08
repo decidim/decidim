@@ -3,17 +3,19 @@
      data-show-replies-comment-gid-value="<%= model.to_signed_global_id.to_s %>"
      data-show-replies-order-value="<%= order %>"
      data-show-replies-loaded-value="false">
-  <div class="show-replies-button">
-    <button class="button button__xs button__text-secondary"
-            data-action="click->show-replies#toggle"
-            data-show-replies-target="button"
-            aria-expanded="false"
-            aria-controls="comment-<%= model.id %>-replies"
-            id="comment-<%= model.id %>-replies-trigger">
-      <span class="font-normal"><%= t("decidim.components.comment.replies_count", count: replies_count) %></span>
+  <div class="show-replies-button<%= " show-replies-button--empty" if replies_count.zero? %>">
+    <%= content_tag :button,
+                    class: "button button__xs button__text-secondary",
+                    id: "comment-#{model.id}-replies-trigger",
+                    aria: { expanded: false, controls: "comment-#{model.id}-replies" },
+                    data: { action: "click->show-replies#toggle",
+                            show_replies_target: "button",
+                            replies_count:,
+                            replies_label_templates: I18n.t("decidim.components.comment.replies_count").to_json } do %>
+      <span class="font-normal" data-replies-count-label><%= t("decidim.components.comment.replies_count", count: replies_count) %></span>
       <%= icon "arrow-down-s-line" %>
       <%= icon "arrow-up-s-line" %>
-    </button>
+    <% end %>
     <span data-show-replies-target="spinner" class="ml-2 hidden"><%= icon "loader-3-line", class: "animate-spin fill-secondary" %></span>
   </div>
   <div id="comment-<%= model.id %>-replies"

@@ -87,7 +87,7 @@ module Decidim
       end
 
       def order
-        options[:order] || "older"
+        options[:order] || "recent"
       end
 
       def extra_actions
