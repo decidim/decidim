@@ -356,8 +356,29 @@ module RuboCop
           return unless name
 
           parent = node.parent_class
+          return unless parent&.const_type?
+
           @base_class_map ||= {}
-          @base_class_map[name] = parent.const_name if parent&.const_type?
+          @base_class_map[name] = resolved_parent_name(node, parent)
+        end
+
+        # Resolves a superclass reference written relative to the enclosing
+        # namespace (e.g. `BaseController` inside `module Decidim`) to its
+        # qualified form, so it matches the names stored in the hierarchy map.
+        def resolved_parent_name(node, parent)
+          name = parent.const_name
+          return name if name.include?("::")
+
+          namespace = enclosing_namespace(node)
+          namespace.empty? ? name : "#{namespace}::#{name}"
+        end
+
+        # The lexical namespace that encloses a class or module definition,
+        # used as the starting point for relative constant resolution.
+        def enclosing_namespace(node)
+          node.each_ancestor(:class, :module).to_a.reverse.filter_map do |ancestor|
+            ancestor.identifier&.const_name
+          end.join("::")
         end
 
         def qualified_class_name(node)
@@ -375,7 +396,7 @@ module RuboCop
           parent = node.parent_class
           return false unless parent&.const_type?
 
-          authorized_base_name?(parent.const_name)
+          authorized_base_name?(resolved_parent_name(node, parent))
         end
 
         def authorized_base_name?(name)
