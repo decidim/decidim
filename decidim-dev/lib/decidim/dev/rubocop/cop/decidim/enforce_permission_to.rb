@@ -363,20 +363,35 @@ module RuboCop
         end
 
         # Resolves a superclass reference written relative to the enclosing
-        # namespace (e.g. `BaseController` or `Components::BaseController`
-        # inside `module Decidim`) to its qualified form, so it matches the
-        # names stored in the hierarchy map. An explicitly root-qualified
-        # reference (e.g. `::Decidim::Components::BaseController`) is kept as
-        # written, and a name that already carries the enclosing namespace is
-        # not prefixed again.
+        # namespace (e.g. `BaseController`, `Components::BaseController` or
+        # `Decidim::Meetings::ApplicationController` inside
+        # `module Decidim::Meetings::Polls`) to its qualified form, so it
+        # matches the names stored in the hierarchy map. An explicitly
+        # root-qualified reference (e.g. `::Decidim::Components::BaseController`)
+        # is kept as written.
         def resolved_parent_name(node, parent)
           name = parent.const_name
           return name if parent.absolute?
 
           namespace = enclosing_namespace(node)
-          return name if namespace.empty? || name.start_with?("#{namespace}::")
+          return name if namespace.empty?
 
-          "#{namespace}::#{name}"
+          resolve_relative_constant(name, namespace)
+        end
+
+        # Ruby resolves the leading constant of a relative reference against
+        # the enclosing lexical scopes, innermost first. Mirror that by
+        # anchoring the reference at the innermost enclosing scope ending with
+        # the reference's leading constant; a name whose leading constant does
+        # not match any enclosing scope is relative to the full namespace.
+        def resolve_relative_constant(name, namespace)
+          first, *rest = name.split("::")
+          scopes = namespace.split("::")
+          anchor = scopes.rindex(first)
+
+          return "#{namespace}::#{name}" unless anchor
+
+          (scopes.first(anchor + 1) + rest).join("::")
         end
 
         # The lexical namespace that encloses a class or module definition,

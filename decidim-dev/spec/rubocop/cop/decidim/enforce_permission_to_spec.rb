@@ -1071,6 +1071,64 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
       end
     end
 
+    context "when a controller in a nested namespace inherits from an outer namespace" do
+      let(:cop_config) do
+        {
+          "AuthorizedBaseClasses" => ["Decidim::Meetings::ApplicationController"],
+          "AuthorizedBaseActions" => %w(index show home)
+        }
+      end
+
+      it "does not register offenses for the existing polls QuestionsController pattern" do
+        expect_no_offenses(<<~RUBY)
+          module Decidim
+            module Meetings
+              module Polls
+                class QuestionsController < Decidim::Meetings::ApplicationController
+                  def index
+                    render :index
+                  end
+                end
+              end
+            end
+          end
+        RUBY
+      end
+
+      it "does not register offenses when the parent is relative to an outer namespace" do
+        expect_no_offenses(<<~RUBY)
+          module Decidim
+            module Meetings
+              module Polls
+                class QuestionsController < Meetings::ApplicationController
+                  def index
+                    render :index
+                  end
+                end
+              end
+            end
+          end
+        RUBY
+      end
+
+      it "registers an offense for a mutating action of the nested controller" do
+        expect_offense(<<~RUBY)
+          module Decidim
+            module Meetings
+              module Polls
+                class QuestionsController < Decidim::Meetings::ApplicationController
+                  def update
+                  ^^^^^^^^^^ Action `update` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+                    @question.update(question_params)
+                  end
+                end
+              end
+            end
+          end
+        RUBY
+      end
+    end
+
     context "when the controller does not inherit from an authorized base class" do
       let(:cop_config) do
         {
