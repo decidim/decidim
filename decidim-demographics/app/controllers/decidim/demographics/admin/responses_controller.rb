@@ -19,6 +19,8 @@ module Decidim
           render template: "decidim/demographics/admin/responses/index"
         end
 
+        protected
+
         def permission_subject = :demographics_responses
 
         def questionnaire_for = demographic
