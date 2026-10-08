@@ -20,15 +20,15 @@ describe "global engines", type: :system do
     expect(page).to have_content("DUMMY ENGINE")
   end
 
-  it "mounts the engine under a route with its own name" do
-    expect(decidim.global_engine_path).to eq("/global_engine")
+  it "mounts the engine under a locale-aware route with its own name" do
+    expect(decidim.global_engine_path).to eq("/en/global_engine")
   end
 
   context "with an explicit mount route" do
     let(:mount_at) { "/foo" }
 
     it "mounts the engine under the right route" do
-      expect(decidim.global_engine_path).to eq("/foo")
+      expect(decidim.global_engine_path).to eq("/en/foo")
     end
 
     it "renders the engine" do
