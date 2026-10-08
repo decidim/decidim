@@ -253,6 +253,7 @@ fi:
         create: "%{user_name} lisäsi komponentin %{resource_name} osallistumistilaan %{space_name}"
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         export_component: "%{user_name} vei komponentin %{component_name} %{resource_name} tilassa %{space_name} tiedostomuodossa %{format_name}"
+        menu_hidden: "%{user_name} piilotti komponentin %{resource_name} osallistumistilan %{space_name} valikosta"
         publish: "%{user_name} julkaisi komponentin %{resource_name} osallistumistilassa %{space_name}"
         restore: "%{user_name} palautti komponentin %{resource_name} tilassa %{space_name}"
         soft_delete: "%{user_name} siirsi komponentin %{resource_name} roskakoriin tilassa %{space_name}"

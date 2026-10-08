@@ -1539,6 +1539,9 @@ cs:
         log_in: přihlásit se
         never_logged_in: nikdy se nepřihlásil
         subject: Upozornění na neaktivní účet
+    participatory_space:
+      labels:
+        reference: Odkaz na prostor
     passwords:
       update:
         error: Došlo k problému s aktualizací hesla.
