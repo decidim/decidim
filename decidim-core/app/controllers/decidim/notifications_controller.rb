@@ -12,11 +12,13 @@ module Decidim
     def destroy
       notification = notifications.find(params.expect(:id))
       enforce_permission_to(:destroy, :notification, notification:)
+
       notification.destroy
     end
 
     def read_all
       enforce_permission_to :destroy, :notification, notification: notifications.first
+
       notifications.destroy_all
     end
 

@@ -9,6 +9,7 @@ module Decidim
 
         def reply
           enforce_permission_to(:create, :proposal_note, proposal:)
+
           parent_note = proposal.notes.find(params.expect(:id))
           @form = form(ProposalNoteForm).from_params(params)
 
@@ -27,6 +28,7 @@ module Decidim
 
         def create
           enforce_permission_to(:create, :proposal_note, proposal:)
+
           @form = form(ProposalNoteForm).from_params(params)
 
           CreateProposalNote.call(@form, proposal) do

@@ -16,6 +16,7 @@ module Decidim
         # GET /admin/initiatives/:id/answer/edit
         def edit
           enforce_permission_to :answer, :initiative, initiative: current_initiative
+
           @form = form(Decidim::Initiatives::Admin::InitiativeAnswerForm)
                   .from_model(
                     current_initiative,

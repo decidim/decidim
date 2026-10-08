@@ -10,11 +10,13 @@ module Decidim
 
         def new
           enforce_permission_to(:promote, :managed_user, user:)
+
           @form = form(ManagedUserPromotionForm).instance
         end
 
         def create
           enforce_permission_to(:promote, :managed_user, user:)
+
           @form = form(ManagedUserPromotionForm).from_params(params)
 
           PromoteManagedUser.call(@form, user) do

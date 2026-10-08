@@ -16,6 +16,7 @@ module Decidim
 
       def show
         enforce_permission_to :read, authorization_scope
+
         @moderation = collection.find(params.expect(:id))
       end
 

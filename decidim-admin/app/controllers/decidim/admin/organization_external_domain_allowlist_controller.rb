@@ -11,11 +11,13 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
+
         @form = form(OrganizationExternalDomainAllowlistForm).from_model(current_organization)
       end
 
       def update
         enforce_permission_to :update, :organization, organization: current_organization
+
         @form = form(OrganizationExternalDomainAllowlistForm).from_params(params)
 
         UpdateExternalDomainAllowlist.call(@form, current_organization) do

@@ -10,11 +10,13 @@ module Decidim
 
         def new
           enforce_permission_to :import, :process
+
           @form = form(ParticipatoryProcessImportForm).instance
         end
 
         def create
           enforce_permission_to :import, :process
+
           @form = form(ParticipatoryProcessImportForm).from_params(params)
 
           ImportParticipatoryProcess.call(@form) do

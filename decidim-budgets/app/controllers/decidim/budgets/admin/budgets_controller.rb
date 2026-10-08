@@ -12,11 +12,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :budget
+
           @form = form(BudgetForm).instance
         end
 
         def create
           enforce_permission_to :create, :budget
+
           @form = form(BudgetForm).from_params(params, current_component:)
 
           CreateBudget.call(@form) do
@@ -34,11 +36,13 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :budget, budget:)
+
           @form = form(BudgetForm).from_model(budget)
         end
 
         def update
           enforce_permission_to(:update, :budget, budget:)
+
           @form = form(BudgetForm).from_params(params, current_component:)
 
           UpdateBudget.call(@form, budget) do

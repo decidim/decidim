@@ -24,11 +24,13 @@ module Decidim
 
       def new
         enforce_permission_to :create, :blogpost
+
         @form = form(Decidim::Blogs::PostForm).instance
       end
 
       def create
         enforce_permission_to :create, :blogpost
+
         @form = form(Decidim::Blogs::PostForm).from_params(params, current_component:)
 
         CreatePost.call(@form) do
@@ -46,11 +48,13 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :blogpost, blogpost: post
+
         @form = form(PostForm).from_model(post)
       end
 
       def update
         enforce_permission_to :update, :blogpost, blogpost: post
+
         @form = form(PostForm).from_params(params, current_component:)
 
         UpdatePost.call(@form, post) do

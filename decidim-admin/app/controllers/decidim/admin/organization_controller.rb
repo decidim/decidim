@@ -13,11 +13,13 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
+
         @form = form(OrganizationForm).from_model(current_organization)
       end
 
       def update
         enforce_permission_to :update, :organization, organization: current_organization
+
         @form = form(OrganizationForm).from_params(params)
         @form.id = current_organization.id
 

@@ -13,6 +13,7 @@ module Decidim
 
         def show
           enforce_permission_to :read, authorization_scope
+
           @report = reports.find(params.expect(:id))
         end
 

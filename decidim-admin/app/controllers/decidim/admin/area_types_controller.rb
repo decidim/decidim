@@ -19,11 +19,13 @@ module Decidim
 
       def new
         enforce_permission_to :create, :area_type
+
         @form = form(AreaTypeForm).instance
       end
 
       def create
         enforce_permission_to :create, :area_type
+
         @form = form(AreaTypeForm).from_params(params)
 
         CreateAreaType.call(@form) do
@@ -41,11 +43,13 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :area_type, area_type:)
+
         @form = form(AreaTypeForm).from_model(area_type)
       end
 
       def update
         enforce_permission_to(:update, :area_type, area_type:)
+
         @form = form(AreaTypeForm).from_params(params)
 
         UpdateAreaType.call(@form, area_type) do

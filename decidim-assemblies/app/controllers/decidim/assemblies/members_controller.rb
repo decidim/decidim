@@ -12,6 +12,7 @@ module Decidim
 
         @members = paginate(members)
         enforce_permission_to :list, :members
+
         redirect_to decidim_assemblies.assembly_path(current_participatory_space) unless can_visit_index?
       end
 
