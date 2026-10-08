@@ -8,7 +8,9 @@
     <% model.each do |item| %>
       <li>
         <%= link_to item[:url], class: "participatory-space__nav-item" do %>
-          <%= decidim_escape_translated(item[:name]) %>
+          <span class="participatory-space__nav-label">
+            <%= decidim_escape_translated(item[:name]) %>
+          </span>
           <%= icon "arrow-right-line" %>
         <% end %>
       </li>

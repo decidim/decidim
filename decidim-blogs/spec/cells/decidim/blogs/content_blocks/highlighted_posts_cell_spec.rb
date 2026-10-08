@@ -25,13 +25,26 @@ describe Decidim::Blogs::ContentBlocks::HighlightedPostsCell, type: :cell do
   end
 
   context "with 4 posts" do
-    let!(:posts) { create_list(:post, 3, component:, created_at: 1.day.ago) }
-    let!(:post) { create(:post, title: { en: "Blog post title" }, component:, created_at: 1.year.ago) }
+    let!(:posts) { create_list(:post, 3, component:, published_at: 1.day.ago) }
+    let!(:post) { create(:post, title: { en: "Blog post title" }, component:, published_at: 1.year.ago) }
 
-    it "renders 3 posts" do
+    it "renders the 3 most recently published posts" do
       expect(subject).to have_text("Last published")
       expect(subject).to have_no_text("Blog post title")
       expect(subject).to have_css(".card__grid", count: 3)
+    end
+  end
+
+  context "with posts published in a different order than they were created" do
+    let!(:oldest_created_latest_published) do
+      create(:post, title: { en: "Latest published post" }, component:, created_at: 2.days.ago, published_at: 1.hour.ago)
+    end
+    let!(:latest_created_oldest_published) do
+      create(:post, title: { en: "First published post" }, component:, created_at: 1.hour.ago, published_at: 2.days.ago)
+    end
+
+    it "orders posts by publication time, most recent first" do
+      expect(subject.text.index("Latest published post")).to be < subject.text.index("First published post")
     end
   end
 

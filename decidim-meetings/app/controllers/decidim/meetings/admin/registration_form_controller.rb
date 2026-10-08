@@ -7,6 +7,8 @@ module Decidim
       class RegistrationFormController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
 
+        protected
+
         def questionnaire_for
           meeting
         end
@@ -25,6 +27,10 @@ module Decidim
 
         def edit_questions_template
           "decidim/meetings/admin/registration_form/edit_questions"
+        end
+
+        def response_options_url(params)
+          url_for(params.merge(controller: "registration_form", action: "response_options", format: :json, meeting_id: meeting.id))
         end
 
         private

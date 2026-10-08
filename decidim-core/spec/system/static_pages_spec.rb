@@ -87,6 +87,54 @@ describe "Static pages" do
     end
   end
 
+  describe "breadcrumb" do
+    context "when visiting the pages index" do
+      before { visit decidim.pages_path(locale: I18n.locale) }
+
+      it "shows the help section as the current item" do
+        within ".menu-bar__breadcrumb-desktop" do
+          expect(page).to have_css("[aria-current='page']", text: "Help")
+          expect(page).to have_no_link("Help")
+        end
+      end
+    end
+
+    context "when visiting a page with topic" do
+      before { visit decidim.page_path(page1, locale: I18n.locale) }
+
+      it "links back to the pages index and shows the page as the current item" do
+        within ".menu-bar__breadcrumb-desktop" do
+          expect(page).to have_link("Help", href: decidim.pages_path(locale: I18n.locale))
+          expect(page).to have_css("[aria-current='page']", text: translated(page1.title))
+        end
+      end
+
+      context "when it is a mobile device" do
+        before do
+          driven_by(:iphone)
+          visit decidim.page_path(page1, locale: I18n.locale)
+        end
+
+        it "links back to the pages index" do
+          within ".menu-bar__breadcrumb-mobile" do
+            expect(page).to have_link("Help", href: decidim.pages_path(locale: I18n.locale))
+          end
+        end
+      end
+    end
+
+    context "when visiting a standalone page" do
+      before { visit decidim.page_path(page3, locale: I18n.locale) }
+
+      it "links back to the pages index and shows the page as the current item" do
+        within ".menu-bar__breadcrumb-desktop" do
+          expect(page).to have_link("Help", href: decidim.pages_path(locale: I18n.locale))
+          expect(page).to have_css("[aria-current='page']", text: translated(page3.title))
+        end
+      end
+    end
+  end
+
   context "with a long list of URL parameters" do
     shared_examples "requesting with very long URL parameters" do
       let(:long_parameters) do

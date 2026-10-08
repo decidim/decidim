@@ -72,13 +72,22 @@ module Decidim::Admin
               .with("deliver", newsletter, current_user)
               .and_call_original
 
+            expect(newsletter.reload.versions.collect(&:event)).not_to include("update")
+
             expect do
               perform_enqueued_jobs { command.call }
-            end.to change(Decidim::ActionLog, :count)
+            end.to change(Decidim::ActionLog, :count).by(1)
 
             action_log = Decidim::ActionLog.last
+            expect(action_log.action).to eq("deliver")
+            expect(action_log.user).to eq(current_user)
+            # The job is deferred until the surrounding transaction commits
+            # (enqueue_after_transaction_commit), so the action log is written
+            # before the job runs and links to the version present at enqueue
+            # time rather than the job's post-update version.
             expect(action_log.version).to be_present
-            expect(action_log.version.event).to eq "update"
+            # The deferred job still runs and updates the newsletter.
+            expect(newsletter.reload.versions.collect(&:event)).to include("update")
           end
         end
       end

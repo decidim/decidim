@@ -11,6 +11,8 @@ module Decidim
         include Decidim::Admin::Concerns::HasAttachments
         include Decidim::Admin::Concerns::HasTabbedMenu
 
+        protected
+
         def after_destroy_path
           conference_attachments_path(current_conference)
         end

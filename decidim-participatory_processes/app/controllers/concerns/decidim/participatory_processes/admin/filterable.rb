@@ -38,7 +38,7 @@ module Decidim
           end
 
           def translated_decidim_participatory_process_group_id_eq(id)
-            translated_attribute(Decidim::ParticipatoryProcessGroup.find(id).title)
+            translated_attribute(Decidim::ParticipatoryProcessGroup.where(organization: current_organization).find_by(id:)&.title)
           end
 
           private

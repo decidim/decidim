@@ -72,6 +72,8 @@ module Decidim
           end
         end
 
+        protected
+
         def set_breadcrumb_items
           context_breadcrumb_items << {
             label: t("components", scope: "decidim.admin.menu"),

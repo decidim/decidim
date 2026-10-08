@@ -32,7 +32,7 @@ module Decidim
       validates :title, presence: true
 
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
-      scope :published_at_desc, -> { order(arel_table[:published_at].desc) }
+      scope :published_at_desc, -> { order(arel_table[:published_at].desc.nulls_last) }
       scope :published, -> { where(published_at: ..Time.current) }
 
       searchable_fields({

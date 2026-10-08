@@ -14,14 +14,16 @@ module Decidim
 
         layout "decidim/admin/participatory_process_group"
 
-        helper_method :participatory_process_group
-
-        def content_block_scope
-          :participatory_process_group_homepage
-        end
+        helper_method :participatory_process_group, :scoped_resource
 
         def scoped_resource
           @scoped_resource ||= collection.find(params.expect(:participatory_process_group_id))
+        end
+
+        protected
+
+        def content_block_scope
+          :participatory_process_group_homepage
         end
 
         def enforce_permission_to_update_resource
