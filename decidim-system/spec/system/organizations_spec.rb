@@ -121,10 +121,6 @@ describe "Organizations" do
     describe "resending the invitation" do
       let(:organization) { create(:organization) }
 
-      before do
-        login_as admin, scope: :admin
-      end
-
       context "when there is an admin without a pending invitation" do
         let!(:organization_admin) { create(:user, :admin, organization:) }
 
@@ -207,6 +203,7 @@ describe "Organizations" do
         end
 
         it "shows the error message" do
+          visit current_path
           fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!"
           fill_in "Host", with: "www.example.org"
           click_on "Save"

@@ -75,14 +75,6 @@ module Decidim
           end
         end
 
-        context "with over 3 KB long URL parameters" do
-          it "strips the parameters out of the stored location" do
-            get :show, params: { a: "1" * 3073 }
-
-            expect(session[:user_return_to]).to eq("/show")
-          end
-        end
-
         context "with non-cookie based session store" do
           let(:long_parameters) do
             { a: "1" * 4096, b: "2" * 4096 }

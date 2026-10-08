@@ -13,6 +13,11 @@ describe "Admin manages participatory process components" do
     let(:title) { { en: "My component" } }
     let!(:resource) { create(:component, manifest_name: "proposals", participatory_space: participatory_process, name: title) }
 
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+    end
+
     it_behaves_like "manage soft deletable component or space", "component"
     it_behaves_like "manage trashed resource", "component"
   end
