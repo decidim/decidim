@@ -11,36 +11,56 @@ gl:
         plural: Plural
       attachment:
         attachment_collection_id: Cartafol
+        attachments: Anexos
         description: Descrición
         file: Ficheiro
         title: Anexo ou nome da imaxe
+        weight: Orde de posición
       attachment_collection:
         description: Descrición
         name: Nome
+        weight: Orde de posición
       category:
         description: Descrición
         name: Nome
         parent_id: Pai
+        weight: Orde de posición
       component:
         name: Nome
         published_at: Publicado en
         weight: Orde de posición
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contido
       id: ID
+      member:
+        email: Correo electrónico
+        name: Nome
+      member_csv_import:
+        file: Ficheiro
       newsletter:
         body: Corpo
+        send_to_all_users: Enviar a todas as persoas participantes
+        send_to_followers: Enviar ás persoas seguidoras
+        send_to_participants: Enviar ás persoas participantes
         subject: Asunto
       organization:
+        admin_terms_of_service_body: Corpo dos termos de servizo de administración
         alert_color: Alerta
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
+        comments_max_length: Máximo de caracteres por comentario (deixa 0 para usar o valor predeterminado)
         customize_welcome_notification: Personalizar a notificación de benvida
         default_locale: Configuración predeterminada
         description: Descrición
+        enable_machine_translations: Activar traducións automáticas
         enable_omnipresent_banner: Mostrar o banner omnipresente
         facebook_handler: Administrador de Facebook
         favicon: Ícona
         force_authentication: Forzar autenticación
-        force_users_to_authenticate_before_access_organization: Forzar aos usuarios a se autenticar antes de acceder á organización
+        force_users_to_authenticate_before_access_organization: Forzar as persoas participantes a autenticarse antes de acceder á organización
+        from: Enderezo de correo da persoa remitente
         github_handler: Xestor de GitHub
         header_snippets: Fragmentos de cabeceira
         highlight_alternative_color: Realzado, alternativo
@@ -67,9 +87,11 @@ gl:
         secondary_hosts: Hosts secundarios
         send_welcome_notification: Enviar notificación de benvida
         success_color: Éxito
+        tertiary_color: Terciaria
         time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
-        users_registration_mode: Modo rexistro de usuarios/as
+        twitter_handler: Identificador en X
+        users_registration_mode: Modo de rexistro das persoas participantes
         warning_color: Aviso
         welcome_notification_body: Corpo da notificación de benvida
         welcome_notification_subject: Asunto da notificación de benvida
@@ -79,8 +101,8 @@ gl:
         name: Nome
         organization: Organización
         parent_id: Pai
-        scope_type: Tipo de alcance
-        scope_type_id: Tipo de alcance
+        scope_type: Tipo de ámbito
+        scope_type_id: Tipo de ámbito
       scope_type:
         name: Nome
         organization: Organización
@@ -95,20 +117,42 @@ gl:
         show_in_footer: Amosar no pé de páxina
         slug: URL slug
         title: Título
+        topic_id: Tema
         weight: Orde de posición
       static_page_topic:
         description: Descrición
+        name: Nome do tema
         show_in_footer: Amosar no pé de páxina
         title: Título
         weight: Orde de posición
+      taxonomy:
+        item_name: Nome do elemento
+        parent_id: Pai
       user_group_csv_verification:
         file: Arquivo
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: O ficheiro de importación non ten un formato válido. Le atentamente as instrucións e asegúrate de que o ficheiro estea codificado en UTF-8.
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecciona polo menos un espazo participativo.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ficheiro de imaxe non válido
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: O ficheiro de importación non ten un formato válido. Le atentamente as instrucións e asegúrate de que o ficheiro estea codificado en UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: O ficheiro indicado non é válido. Comproba que teña o formato correcto.
+            invalid_mime_type: Tipo MIME non válido.
   activerecord:
     attributes:
       decidim/static_page:
@@ -126,43 +170,97 @@ gl:
   decidim:
     admin:
       actions:
+        actions: Accións
+        actions_label: Accións para %{resource}
         add: Engadir
         attachment:
           new: Novo anexo
+        attachment_collection:
+          new: Nova carpeta de anexos
+        attachment_collections: Engadir carpeta
+        attachments: Engadir ficheiro anexo
         browse: Buscar
+        configure: Configurar
+        confirm_delete_component: |
+          Seguro que queres eliminar este compoñente?<br>
+          Este compoñente contén:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} recursos</li>
+          </ul>
+          Se cambias de idea, poderás restauralo máis adiante.
+        export: Exportar
         export_all: Exportar todo
+        export_selection: Exportar selección
         import: Importar
+        member:
+          new: Novo membro
+        menu_hidden: Ocultar do menú
+        moderate: Xestionar moderacións
         newsletter:
           new: Novo boletín
         per_page: Por páxina
+        permissions: Xestionar permisos
+        restore: Restaurar
+        send_me_a_test_email: Enviarme un correo de proba
         share: Compartir
+        share_tokens: Compartir a ligazón
+        soft_delete: Mover á papeleira
         user:
           new: Novo administrador
+        view_deleted_components: Ver compoñentes eliminados
+      admin_terms:
+        show:
+          title: Termos de servizo de administración
+      admin_terms_of_service:
+        accept:
+          error: Produciuse un problema ao aceptar os termos de servizo de administración.
+          success: Aceptaches correctamente os termos de servizo de administración.
+        actions:
+          accept: Acepto os termos
+          are_you_sure: Seguro que queres rexeitar os termos de servizo de administración?
+          refuse: Rexeitar os termos de administración
+          title: Aceptar os termos de servizo
+        required_review:
+          alert: 'Obrigatorio: revisa os termos de servizo de administración'
+          callout: Revisa os termos de servizo de administración. Se non o fas, non poderás xestionar a plataforma.
+          cta: Revisalos agora.
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
           success: Tipo de área creada con éxito.
+        destroy:
+          success: O tipo de área eliminouse correctamente.
         edit:
           title: Editar tipo de área
           update: Actualización
+        index:
+          title: Tipos de área
         new:
           create: Crea un tipo de área
           title: Tipo de área nova
         update:
           error: Produciuse un erro ao actualizar este tipo de área.
+          success: O tipo de área actualizouse correctamente.
       areas:
         create:
           error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
+        deprecated: Ten en conta que as áreas están obsoletas e eliminaranse en versións futuras. Usa taxonomías no seu lugar. O único módulo que actualmente usa áreas é o de iniciativas.
+        destroy:
+          has_spaces: Esta área ten espazos dependentes. Asegúrate de que ningún espazo participativo faga referencia a esta área antes de eliminala.
+          success: A área eliminouse correctamente.
         edit:
           title: Editar área
           update: Actualización
+        index:
+          title: Campos
         new:
           create: Crear área
           title: Nova área
         no_areas: Sen Áreas
         update:
           error: Produciuse un erro ao actualizar esta área.
+          success: A área actualizouse correctamente.
       attachment_collections:
         create:
           error: Produciuse un erro ao crear un cartafol novo.
@@ -172,6 +270,8 @@ gl:
         edit:
           title: Editar carpeta
           update: Actualización
+        index:
+          title: Carpetas de anexos
         new:
           create: Crear
           title: Nova carpeta
@@ -187,6 +287,8 @@ gl:
         edit:
           title: Editar anexo
           update: Actualización
+        index:
+          title: Anexos
         new:
           create: Crear anexo
           title: Novo anexo
@@ -195,13 +297,25 @@ gl:
           success: Adxunto actualizado correctamente.
       attachments_privacy_warning:
         message: Ten coidado ao traballar con ficheiros anexos nun espazo privado. Calquera participante podería compartir este documento con outra xente.
+      authorization_workflows:
+        index:
+          title: Métodos de verificación
       autocomplete:
         no_results: Non se atoparon resultados
+        search_prompt: Escribe polo menos tres caracteres para buscar.
       block_user:
+        bulk_new:
+          action: Bloquear contas e enviar xustificación
+          already_reported_html: Ao continuar con esta acción, tamén ocultarás todo o contido da persoa participante.
+          description: Bloquear unha persoa participante fará que a súa conta quede inutilizable. Na xustificación podes indicar as condicións nas que considerarías desbloqueala.
+          justification: Xustificante
+          title: Bloquear participantes
         new:
           action: Bloquear conta e enviar xustificante
+          already_reported_html: Ao continuar con esta acción, tamén ocultarás todo o contido da persoa participante.
+          description: Bloquear unha persoa participante fará que a súa conta quede inutilizable. Na xustificación podes indicar as condicións nas que considerarías desbloqueala.
           justification: Xustificante
-          title: Bloquear ao usuario %{name}
+          title: Bloquear a persoa participante %{name}
       categories:
         index:
           categories_title: Categorías
@@ -213,6 +327,7 @@ gl:
         create:
           error: Produciuse un erro ao crear este compoñente.
           success: Compoñente creado con éxito.
+          success_landing_page: O compoñente creouse correctamente. Podes engadir un bloque de contido para este compoñente na páxina principal do espazo. Vai á <a href="%{landing_page_path}">páxina de inicio</a> para configuralo.
         edit:
           title: Editar compoñente
           update: Actualización
@@ -220,12 +335,18 @@ gl:
           default_step_settings: Configuración de paso predeterminada
           global_settings: Configuración global
           step_settings: Configuración do paso
+        hide:
+          success: O compoñente ocultouse correctamente do menú.
         index:
           add: Engadir compoñente
           headers:
             actions: Accións
             name: Nome do compoñente
             type: Tipo de compoñente
+            visibility: Visibilidade
+          title: Compoñentes
+        manage_trash:
+          title: Compoñentes eliminados
         new:
           add: Engadir compoñente
           title: 'Engadir compoñente: %{name}'
@@ -236,22 +357,60 @@ gl:
         update:
           error: Houbo un erro ao actualizar este compoñente.
           success: O compoñente foi actualizado correctamente.
+        visibility_label:
+          menu_hidden: Oculto no menú
+          published: Publicado
+          unpublished: Non publicado
       conflicts:
         attempts: Tentativas
+        edit:
+          title: Transferir participante
         'false': 'Non'
-        managed_user_name: Usuario xestionado
+        index:
+          text: Buscar polo correo electrónico, nome ou alcume da persoa participante actual
+          title: Conflitos de verificación
+        managed_user_name: Participante xestionada
         solved: Resolto
         transfer:
           email: Correo electrónico
+          error: Produciuse un problema ao transferir a persoa participante actual a participante xestionada.
           name: Nome
           reason: Motivo
           success: A transferencia actual completouse con éxito.
           title: Transferir
         'true': 'Si'
-        user_name: Usuario
+        user_name: Participante
+      content_blocks:
+        create:
+          error: Produciuse un problema ao crear o bloque de contido.
+          success: O bloque de contido creouse correctamente.
+        destroy:
+          error: Produciuse un problema ao intentar eliminar este bloque de contido.
+          success: O bloque de contido eliminouse correctamente.
+        edit:
+          active_content_blocks: Bloques de contido activos
+          add: Engadir bloque de contido
+          destroy_confirmation: Seguro que queres eliminar este bloque de contido?
+          inactive_content_blocks: Bloques de contido inactivos
+          title: Contidos da páxina
+          update: Actualizar
       dashboard:
+        pending_moderations:
+          announcement:
+            one: Hai %{count} moderación pendente
+            other: Hai %{count} moderacións pendentes
+          goto_moderation: Ir ás moderacións globais
+          title: Moderacións pendentes
         show:
+          dropdown: Menú despregable
+          title: Panel de control
           view_more_logs: Ver máis rexistros
+      domain_allowlist:
+        form:
+          domain_too_short: O dominio é demasiado curto
+        update:
+          error: Non se puido actualizar a lista de dominios externos permitidos.
+          success: A lista de dominios externos permitidos actualizouse correctamente.
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -259,6 +418,7 @@ gl:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: A exportación está en curso. Recibirás un correo cando remate.
       filters:
         filter_label: Filtrar
         invitation_accepted_at_present:
@@ -271,6 +431,17 @@ gl:
           values:
             'false': 'Non'
             'true': 'Si'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Invitación aceptada
+            values:
+              'false': Non aceptada
+              'true': Aceptada
+          user_invitation_sent_at_not_null:
+            label: Invitación enviada
+            values:
+              'false': Sen enviar
+              'true': Enviada
         moderated_users:
           reports_reason_eq:
             label: Motivo do informe
@@ -296,9 +467,14 @@ gl:
           values:
             'false': Publicado
             'true': Publicación borrada
+        remove_all: Eliminar todo
         search_label: Busca
         search_placeholder:
+          name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nome ou alcume
           report_count_eq: Número de denuncias
+          reported_id_string_or_reported_content_cont: Buscar %{collection} por ID ou contido denunciable
+          title_cont: Buscar %{collection} por título
+          user_name_or_user_nickname_or_user_email_cont: Buscar %{collection} por correo electrónico, nome ou alcume
         state_eq:
           label: Estado
           values:
@@ -306,15 +482,26 @@ gl:
             pending: Pendente
             rejected: Rexeitado
             verified: Verificado
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomía
       forms:
         file_help:
           import:
             explanation: 'Instrucións para o ficheiro:'
             message_1: Están soportados os ficheiros CSV, JSON e Excel (.xlsx)
             message_2: Para os ficheiros CSV, o separador entre columnas ten de ser o punto e coa (";")
+          import_csv:
+            explanation: 'Instrucións para o ficheiro:'
+            message_1: Admítense ficheiros CSV
+            message_2: "ficheiro .csv con datos de correo electrónico"
       help_sections:
+        error: Produciuse un problema ao actualizar as seccións de axuda.
         form:
           save: Gardar
+        success: As seccións de axuda actualizáronse correctamente.
+        update:
+          title: Seccións de axuda
       impersonatable_users:
         index:
           filter:
@@ -322,7 +509,7 @@ gl:
             managed: Xestionado
             not_managed: Non se xestiona
           impersonate: Suplantar
-          impersonate_new_managed_user: Substituír o novo usuario xestor
+          impersonate_new_managed_user: Xestionar unha nova persoa participante
           managed: Xestionado
           name: Nome
           needs_authorization_warning: Precisa polo menos unha autorización habilitada para esta organización.
@@ -330,22 +517,24 @@ gl:
           promote: Promover
           search: Busca
           status: Estado
+          title: Participantes xestionables
           view_logs: Ver rexistros
       impersonations:
         close_session:
           error: Houbo un erro ao pechar a sesión de suplantación actual.
           success: A sesión de suplantación actual finalizou con éxito.
         create:
-          error: Produciuse un erro ao personalizar o usuario.
-          success: O usuario xestionado foi creado con éxito.
+          error: Produciuse un problema ao xestionar a persoa participante.
+          success: A persoa participante xestionada creouse correctamente.
         form:
           authorization_method: Método de autorización
           name: Nome
           reason: Motivo
         new:
           impersonate: Suplantar
-          impersonate_existing_managed_user: Substituír o usuario xestionado "%{name}"
-          impersonate_existing_user: Substitúe o usuario "%{name}"
+          impersonate_existing_managed_user: Xestionar a persoa participante «%{name}»
+          impersonate_existing_user: Xestionar a persoa participante «%{name}»
+          title: Suplantar participante
       imports:
         and: e
         data_errors:
@@ -370,6 +559,8 @@ gl:
             message:
               one: Falta a columna %{columns}.
               other: Faltan as columnas %{columns}.
+        error: Produciuse un problema durante a importación.
+        example_error: Produciuse un problema ao crear un exemplo para o tipo indicado.
         new:
           accepted_mime_types:
             csv: csv
@@ -381,35 +572,109 @@ gl:
           download_example_format: Exemplo com %{name}
           file_legend: Engadir un ficheiro de importación para o análise.
           import: Importar
+        notice: "Importáronse correctamente %{count} %{resource_name}."
+      logs:
+        filters:
+          participatory_space: Buscar espazo participativo
+          text: Buscar por correo electrónico, nome ou alcume da persoa participante
+          user: Participante
+        index:
+          title: Rexistro de administración
+        logs_list:
+          no_logs_yet: Aínda non hai rexistros.
+          no_matching_logs: Non hai rexistros cos filtros de busca indicados. Modifícaos e téntao de novo.
+      manage_trash:
+        deleted_items_warning: Estás a ver elementos eliminados. Para editalos ou facer cambios, primeiro debes restauralos.
       managed_users:
+        impersonation_logs:
+          index:
+            title: Impersonacións
         promotion:
-          error: Produciuse un erro ao promover o usuario xestor.
-          success: O usuario xestionado foi promovido con éxito.
+          error: Produciuse un problema ao promover a persoa participante xestionada.
+          success: A persoa participante xestionada promoveuse correctamente.
         promotions:
           new:
-            explanation: Os usuarios xestionados poden ser promocionados a usuarios estándar. Isto significa que serán invitados á aplicación e non poderás suplantarlles de novo. O usuario invitado recibirá un correo electrónico para aceptar a túa invitación.
+            explanation: As persoas participantes xestionadas poden promoverse a participantes estándar. Isto significa que recibirán unha invitación á aplicación e xa non poderás xestionalas de novo. A persoa convidada recibirá un correo electrónico para aceptar a invitación.
             promote: Promover
+            title: Nova promoción de participante xestionada
+      members:
+        create:
+          error: Produciuse un problema ao engadir un membro a este espazo participativo.
+          success: O acceso do membro creouse correctamente.
+        destroy:
+          error: Produciuse un problema ao eliminar un membro deste espazo participativo.
+          success: O acceso do membro eliminouse correctamente.
+        edit:
+          title: Editar membro
+          update: Actualizar
+        form:
+          email: Correo electrónico
+          invite_explanation: A persoa participante recibirá unha invitación para unirse á organización.
+          name_or_nickname: Nome ou alcume
+          select_user: Seleccionar membro
+        index:
+          import_via_csv: Importar mediante CSV
+          publish_all: Publicar todos
+          title: Membro
+          unpublish_all: Retirar a publicación de todos
+        new:
+          create: Crear
+          title: Novo membro
+        publish_all:
+          error: Produciuse un problema ao publicar todos os membros deste espazo participativo.
+          success: Publicáronse correctamente todos os membros deste espazo participativo
+        unpublish_all:
+          error: Produciuse un problema ao retirar a publicación de todos os membros deste espazo participativo.
+          success: Retirouse correctamente a publicación de todos os membros deste espazo participativo
+        update:
+          error: Produciuse un problema ao actualizar o membro deste espazo participativo.
+          success: O membro actualizouse correctamente
       members_csv_imports:
+        create:
+          invalid: Produciuse un problema ao ler o ficheiro CSV. Asegúrate de seguir as instrucións.
+          success: O ficheiro CSV cargouse correctamente. Estamos a enviar un correo de invitación ás persoas participantes; isto pode tardar un pouco.
         new:
           csv_upload:
             title: Carga o teu ficheiro CSV
+          destroy:
+            button: Eliminar todos os membros
+            confirm: Seguro que queres eliminar todos os membros? Esta acción non se pode desfacer e non poderás recuperalos.
+            empty: Non tes membros.
+            explanation: Tes %{count} membros.
+            title: Eliminar membros
+          example_file: 'Ficheiro de exemplo:'
+          explanation: 'Carga o teu ficheiro CSV. Debe ter dúas columnas, co correo electrónico na primeira columna e o nome na última, para as persoas participantes que queiras engadir ao espazo participativo, sen cabeceiras. Evita usar caracteres non válidos como `<>?%&^*#@()[]=+:;"{}\|` no nome da persoa participante.'
+          title: Importar membros mediante CSV
+          upload: Cargar
       menu:
         admin_log: Rexistro de actividade do administrador
         admins: Administradores
         appearance: Aparencia
         area_types: Tipos de área
         areas: Campos
+        components: Compoñentes
         configuration: Configuración
+        content: Contido reportado
+        external_domain_allowlist: Dominios externos permitidos
         help_sections: Seccións de axuda
+        homepage: Deseño da páxina de inicio
         impersonations: Impersonacións
+        insights: Análises
         manage: Xestionar
         moderation: Moderacións globais
         newsletters: Boletíns informativos
         participants: Participantes
-        scope_types: Tipos de alcance
+        reported_users: Participantes denunciados
+        scope_types: Tipos de ámbito
         scopes: Ámbitos
+        see_site: Ver sitio
         settings: Configuración
+        share_tokens: Ligazóns de acceso
+        static_page_topics: Temas
         static_pages: Páxinas
+        statistics: Estatísticas
+        taxonomies: Taxonomías
+        taxonomy_filters: Filtros de taxonomía
         users: Usuarios
       models:
         area:
@@ -439,6 +704,8 @@ gl:
             reason: Motivo
             started_at: Comezou en
             user: Usuario
+        member:
+          name: Membro
         newsletter:
           fields:
             created_at: Creado en
@@ -450,15 +717,18 @@ gl:
         scope:
           fields:
             name: Nome
-            scope_type: Tipo de alcance
+            scope_type: Tipo de ámbito
         scope_type:
           fields:
             name: Nome
             plural: Plural
         share_token:
           fields:
+            actions: Accións
             expires_at: Caduca o
+            registered_only: Só persoas rexistradas?
             times_used: Veces utilizado
+            token: Ligazón de acceso
         static_page:
           fields:
             created_at: Creado en
@@ -467,25 +737,39 @@ gl:
           fields:
             created_at: Data de creación
             email: Correo electrónico
+            last_sign_in_at: Data do último inicio de sesión
             name: Nome
             role: Rol
             roles:
               admin: Admin
-              user_manager: Xestor de usuarios
+              user_manager: Xestor de participantes
           name: Usuario
       moderated_users:
         index:
           actions:
-            block: Bloquear usuario
+            block: Bloquear participante
             bulk_actions:
+              actions_dropdown: Accións
+              block:
+                title: Bloquear
+                update_moderated_user_button: Bloquear participantes
+              unblock:
+                title: Desbloquear
+                update_moderated_user_button: Desbloquear participantes
               unreport:
                 title: Desfacer denuncia
+            ignore:
+              update_moderated_user_button: Retirar denuncias das persoas participantes
             title: Accións
-            unblock: Desbloquear usuario
+            unblock: Desbloquear participante
+            unreport: Desfacer a denuncia
+          cancel: Cancelar
           name: Nome
           nickname: Alcume
           reason: Motivo
           reports: Número de denuncias
+          selected: Seleccionado
+          title: Participantes denunciados
         report:
           reasons:
             does_not_belong: Non pertence
@@ -495,15 +779,32 @@ gl:
           blocked: Bloqueados
           unblocked: Sen bloquear
       moderations:
+        index:
+          actions:
+            actions_dropdown: Accións
+            hide:
+              title: Ocultar
+              update_moderation_button: Ocultar recursos seleccionados
+            unhide:
+              title: Desfacer a ocultación
+              update_moderation_button: Volver mostrar os recursos seleccionados
+            unreport:
+              title: Desfacer a denuncia
+              update_moderation_button: Retirar a denuncia dos recursos seleccionados
+          cancel: Cancelar
+          selected: seleccionado
+          title: Contido reportado
         report:
           reasons:
             does_not_belong: Non pertence
+            hidden_during_block: Oculto durante o bloqueo da persoa participante
             offensive: Ofensivo
+            parent_hidden: Ocultouse o contido principal
             spam: Correo non desexado
         reports:
           index:
             author: Autor(es)
-            callout_html: Un contido aparece no panel de moderación cando é reportado por un usuario/a (pode ser calquera conta rexistrada) ao premer na etiqueta %{icon} xunto ao elemento.
+            callout_html: Un contido aparece no panel de moderación cando o denuncia unha persoa participante (pode ser calquera persoa cunha conta rexistrada) premendo a bandeira %{icon} situada xunto ao elemento.
             content_original_language: Idioma do contido orixinal
             participatory_space: Espazo participativo
             reported_content: Contido reportado
@@ -515,16 +816,27 @@ gl:
             report_language: Idioma do informe
             report_reason: Motivo
             title: Detalles do motivo
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Vista previa
           title: Padróns para boletíns
           use_template: Empregar este padrón
         show:
+          title: 'Vista previa do modelo: %{template_name}'
           use_template: Empregar este padrón
       newsletters:
+        confirm_recipients:
+          email: Correo electrónico
+          name: Nome
+          title: Confirmar destinatarios
         create:
           error: Produciuse un erro ao crear este boletín informativo.
+          success: O boletín creouse correctamente. Revísao antes de envialo.
         deliver:
           error: Produciuse un erro ao enviar este boletín informativo.
           success: Boletín enviado con éxito.
@@ -536,41 +848,78 @@ gl:
           title: Editar boletín informativo
         index:
           all: todos
-          all_users: 'Todos os usuarios '
+          all_users: 'Todas as persoas participantes '
           and: 'e '
           confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado a: '
+          members: 'membros '
           not_sent: Sen enviar
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
           subscribed_count: 'Subscrito/a:'
           title: Boletíns informativos
+          verification_types: 'Tipos de verificación: %{types}'
+          verified_users: Participantes verificados
         new:
           save: Gardar
           title: Novo boletín informativo
         select_recipients_to_deliver:
           all_spaces: Todos
-          all_users_help: Enviar boletíns a todos os usuarios confirmados.
+          all_users_help: Envía o boletín a todas as persoas participantes confirmadas.
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
+          confirm_recipients: Confirmar destinatarios
           deliver: Enviar boletín informativo
-          followers_help: Enviar boletíns a todos os usuarios confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
-          participants_help: Enviar boletíns a todos os usuarios confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
-          recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> usuarios.
+          followers_help: Envía o boletín a todas as persoas participantes confirmadas que seguen algún dos espazos participativos seleccionados na lista.
+          members_help: Envía un boletín a todas as persoas participantes confirmadas que foron engadidas como membros aos espazos participativos seleccionados.
+          participants_help: Envía o boletín a todas as persoas participantes confirmadas que participaron nalgún dos espazos participativos seleccionados na lista.
+          recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> persoas participantes.
+          select_assemblies: Escoller asembleas
+          select_conferences: Escoller conferencias
+          select_initiatives: Escoller iniciativas
+          select_participatory_processes: Escoller procesos participativos
           select_spaces: Seleccionar espazos para segmentar o boletín
+          select_users_for_participatory_space: Enviar o boletín a un ou máis espazos participativos
+          select_users_general: Enviar boletín xeral
+          select_verification_types: Escoller métodos de verificación
           send_to_all_users: Enviar a todos os usuarios
+          send_to_verified_users: Enviar a participantes verificados
           title: Seleccionar os destinatarios
-          warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
+          verified_users_help: Envía un boletín a todas as persoas participantes confirmadas e verificadas mediante calquera dos métodos de verificación seleccionados.
+          warning: "<strong>Atención:</strong> este boletín só se enviará ás persoas participantes que teñan activada a opción <em>Quero recibir boletíns</em> na configuración de notificacións."
+        send:
+          no_recipients: Non hai destinatarios para esta selección.
+        send_to_user:
+          sent_successfully: O boletín enviouse correctamente a %{email}
         show:
           select_recipients_to_deliver: Seleccionar os destinatarios
+          send_me_a_test_email: Enviarme un correo de proba
           subject: Asunto
+          title: Vista previa
         update:
           error: Produciuse un erro ao actualizar este boletín informativo.
           success: Boletín informativo actualizado con éxito. Revisa isto antes de enviar.
       officializations:
+        block:
+          error: Produciuse un problema ao bloquear a persoa participante.
+          no_user: Non se atopou ningunha persoa participante
+          success: A persoa participante bloqueouse correctamente.
+        bulk_action:
+          block:
+            invalid: Produciuse un problema ao bloquear as persoas participantes.
+            success: As persoas participantes bloqueáronse correctamente.
+          unblock:
+            invalid: Produciuse un problema ao desbloquear as persoas participantes.
+            success: As persoas participantes desbloqueáronse correctamente.
+        create:
+          no_user_found: Non se atopou a persoa participante.
+          success: A persoa participante oficializouse correctamente.
+        destroy:
+          success: Retirouse correctamente a oficialización da persoa participante.
         index:
           actions: Accións
           badge: Insignia
+          block: Bloquear
           created_at: Creado en
           name: Nome
           nickname: Alcume
@@ -579,124 +928,381 @@ gl:
           officialized: Oficializado
           reofficialize: Reofficializar
           reports: Informes
+          send_message: Enviar mensaxe
+          show_email: Mostrar correo electrónico
           status: Estado
+          title: Participantes
+          unblock: Desbloquear
           unofficialize: Non oficializar
         new:
           badge: Insignia de oficialización
           officialize: Organizar
-          title: Clasificar o usuario "%{name}"
+          title: Oficializar a persoa participante «%{name}»
+        show_email:
+          no_user: Non se atopou ningunha persoa participante
+          title: Mostrar correo electrónico
         show_email_modal:
+          description: Se precisas contactar directamente cunha persoa participante, podes premer o botón Mostrar para ver o seu enderezo de correo electrónico. Esta acción quedará rexistrada.
           email_address: Enderezo de correo electrónico
           full_name: Nome completo
           hidden: oculto
           show: Amosar
+          title: Mostrar o enderezo de correo da persoa participante
+        unblock:
+          error: Produciuse un problema ao desbloquear a persoa participante.
+          success: A persoa participante desbloqueouse correctamente.
       organization:
         edit:
           title: Editar organización
           update: Actualización
         form:
+          admin_terms_of_service: Termos de servizo de administración
+          basic_configuration: Configuración básica
+          colors:
+            choose_color: Escoller unha cor principal
+            colors_title: Cores da organización
+            colors_warning_html: Advertencia! Cambiar estas cores pode romper os contrastes de accesibilidade. Podes comprobar o contraste escollido co <a href="https://webaim.org/resources/contrastchecker">comprobador de contraste WebAIM</a> ou con outras ferramentas similares.
+            explanation: Esta ferramenta axúdache a escoller un esquema de cores formado por tons distribuídos de maneira uniforme arredor do círculo cromático, que se usará no sitio web da organización.
+            legend_html: Cores principais da aplicación baseadas no <a href="https://www.color-meanings.com/triadic-colors/">algoritmo triádico</a>. A cor <i>secundaria</i> calcúlase automaticamente a partir da cor principal e da saturación escollida.
+            saturation: Saturación
+            title: Selector de cor
+            update_suggested_colors: Actualizar cores suxeridas
+          extra_features: Funcionalidades adicionais
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Logotipos da organización
+            preview: Vista previa
+          machine_translation_display_priority:
+            options:
+              original: O sistema mostra a información na lingua usada pola autoría. O contido creado desde a administración con traducións manuais mostrará os valores traducidos polo equipo de administración.
+              translation: O sistema mostrará unha tradución se está dispoñible; en caso contrario, usarase a lingua orixinal.
           rich_text_editor_in_public_views_help: Nalgúns cadros de texto, os participantes poderán inserir algunhas etiquetas HTML empregando o editor de texto avanzado.
           social_handlers: Social
+          twitter: X
           url: URL
+          welcome_notification: Notificación de benvida
           youtube: YouTube
         update:
           error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.
+      organization_external_domain_allowlist:
+        edit:
+          title: Lista de dominios externos permitidos
+          update: Actualizar
+        external_domain:
+          down: Baixo
+          external_domain: Dominio externo
+          remove: Eliminar
+          up: Arriba
+        form:
+          add: Engadir á lista de permitidos
       reminders:
         create:
           error: Produciuse un problema ao crear os recordatorios.
           success:
-            one: "Lembrarase a %{count} usuario."
-            other: "Lembrarase a %{count} usuarios."
+            one: "Enviarase un recordatorio a %{count} persoa participante."
+            other: "Enviarase un recordatorio a %{count} persoas participantes."
         new:
           submit: Enviar
+          title: Enviar recordatorios
       resource_permissions:
         edit:
           submit: Enviar
           title: Editar permisos
+        options_form:
+          ephemeral_warning: Para activar este método de autorización, debes <a href="%{path}">revogar</a> todas as autorizacións existentes. Isto minimiza o risco de conflitos de verificación. Todas as autorizacións deste tipo revogaranse automaticamente na organización se gardas cambios que engadan este método ou modifiquen a súa configuración unha vez engadido.
         update:
           success: Permisos actualizados correctamente.
       scope_types:
         create:
-          error: Produciuse un erro ao crear un novo tipo de alcance.
-          success: O tipo de alcance creouse con éxito.
+          error: Produciuse un problema ao crear un novo tipo de ámbito.
+          success: O tipo de ámbito creouse correctamente.
         destroy:
-          success: O tipo de alcance foi destruído con éxito
+          success: O tipo de ámbito eliminouse correctamente
         edit:
-          title: Editar o tipo de alcance
+          title: Editar tipo de ámbito
           update: Actualización
+        index:
+          title: Tipos de ámbito
         new:
-          create: Crea un tipo de alcance
-          title: Novo alcance
+          create: Crear tipo de ámbito
+          title: Novo tipo de ámbito
         update:
-          error: Produciuse un erro ao actualizar este tipo de alcance.
-          success: O tipo de alcance actualizouse con éxito
+          error: Produciuse un problema ao actualizar este tipo de ámbito.
+          success: O tipo de ámbito actualizouse correctamente
       scopes:
         create:
-          error: Produciuse un erro ao crear un novo alcance.
-          success: Alcance creado con éxito.
+          error: Produciuse un problema ao crear un novo ámbito.
+          success: O ámbito creouse correctamente.
+        deprecated: Ten en conta que os ámbitos están obsoletos e eliminaranse en versións futuras. Usa taxonomías no seu lugar. O único módulo que actualmente usa ámbitos é o de iniciativas.
+        destroy:
+          success: O ámbito eliminouse correctamente.
         edit:
-          title: Editar alcance
+          title: Editar ámbito
           update: Actualización
+        index:
+          title: Ámbitos
         new:
-          create: Crear alcance
-          title: Novo alcance
+          create: Crear ámbito
+          title: Novo ámbito
         no_scopes: Non hai alcances neste nivel.
         update:
-          error: Produciuse un erro ao actualizar este alcance.
+          error: Produciuse un problema ao actualizar este ámbito.
           success: Ámbito actualizado con éxito
       share_tokens:
         actions:
+          confirm_destroy: Seguro que queres eliminar este acceso?
+          copy_link: Copiar ligazón
           destroy: Eliminar
+          edit: Editar
+          preview: Vista previa
+        create:
+          invalid: Produciuse un problema ao xerar a ligazón de acceso.
+          success: A ligazón de acceso creouse correctamente.
+        destroy:
+          error: Produciuse un problema ao eliminar a ligazón de acceso.
+          success: A ligazón de acceso eliminouse correctamente.
+        edit:
+          title: 'Editar ligazóns de acceso para: %{name}'
+          update: Actualizar
+        form:
+          automatic: Automático
+          custom: Personalizado
+          custom_expiration: Caducidade personalizada
+          custom_token: Palabra personalizada
+          expires_at: Caduca o
+          'false': 'Non'
+          never_expire: Nunca
+          registered_only: Só persoas rexistradas?
+          token: Clave de acceso
+          'true': 'Si'
+        index:
+          back_to_share_tokens: Volver ás ligazóns de acceso
+          copied: Ligazón de acceso copiada!
+          copy_message: O texto copiouse correctamente ao portapapeis.
+          create_new_token: Crea a túa primeira ligazón de acceso!
+          empty_html: Non hai ligazóns de acceso activas. %{new_token_link}
+          never: Nunca
+          new_share_token_button: Nova ligazón de acceso
+          share_tokens_help_html: |
+            Crea e comparte unha ligazón de acceso para permitir que outras persoas vexan este recurso non publicado.
+            As ligazóns de acceso poden ser válidas só para persoas participantes rexistradas ou ter unha data de caducidade, se é necesario.
+            Para compartir unha nova ligazón de acceso con alguén, créaa e despois copia a ligazón usando a icona da acción «%{clipboard} portapapeis».
+          title: 'Ligazóns de acceso para: %{name}'
+        new:
+          create: Crear
+          title: 'Nova ligazón de acceso para: %{name}'
+        update:
+          error: Produciuse un problema ao actualizar este acceso.
+          success: A ligazón de acceso actualizouse correctamente.
+      shared:
+        adjacent_navigation:
+          next: Seguinte
+          next_title: Elemento seguinte
+          previous: Anterior
+          previous_title: Elemento anterior
+        attachments:
+          add_attachments: Engadir anexos
+          attachment_legend: Engadir un documento ou unha imaxe
+          edit_attachments: Editar anexos
       static_page_topics:
         create:
           error: Produciuse un erro ao crear un tema novo.
           success: O tema creouse con éxito.
+        destroy:
+          success: O tema eliminouse correctamente.
         edit:
           title: Editar tema
           update: Actualizar tema
+        index:
+          title: Temas
         new:
+          create: Novo tema
           title: Novo tema
         update:
           error: Produciuse un erro ao actualizar este tema.
+          success: O tema actualizouse correctamente.
       static_pages:
+        actions:
+          view: Ver
         create:
           error: Produciuse un erro ao crear unha nova páxina.
           success: Páxina creada con éxito.
         destroy:
           success: Páxina destruída con éxito
         edit:
+          changed_notably_help: Se está marcado, as persoas participantes recibirán unha notificación para aceptar os novos termos de servizo.
+          last_notable_change: 'Último cambio relevante: %{tos_version_formatted}'
           title: Editar páxina
           update: Actualización
         form:
           none: Nada
+          slug_help_html: 'Usa rutas parciais, non URL completos. Admite letras, números, guións e barras, e debe comezar cunha letra. Exemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
+          title: Páxinas
         new:
+          create: Nova páxina
           title: Nova páxina
         topic:
+          empty: Non hai páxinas neste tema.
           without_topic: Páxinas sen tema
         update:
           error: Produciuse un erro ao actualizar esta páxina.
+          success: A páxina actualizouse correctamente.
+      statistics:
+        index:
+          title: Estatísticas
+      taxonomies:
+        actions:
+          actions: Accións
+          destroy: Eliminar
+          edit: Editar
+          filters: Aplicar filtros
+        breadcrumb:
+          edit: Editar taxonomía
+          new: Nova taxonomía
+        count: Recursos asociados
+        create:
+          invalid: Produciuse un problema ao crear esta taxonomía.
+          success: A taxonomía creouse correctamente.
+        destroy:
+          invalid: Produciuse un problema ao eliminar esta taxonomía.
+          success: A taxonomía eliminouse correctamente.
+        edit:
+          back: Volver
+          description: Os elementos desta taxonomía usaranse para clasificar ou filtrar recursos, como espazos participativos ou compoñentes. Arrastra e solta para reordenar a lista.
+          new_item: Novo elemento
+          no_items: Neste momento non hai elementos nesta taxonomía. Crea aquí unha lista de elementos para clasificar ou filtrar recursos, como espazos participativos ou compoñentes. Os elementos poden aniñarse ata tres niveis.
+          subtitle: Elementos de «%{taxonomy_name}»
+          title: Editar a taxonomía «%{taxonomy_name}»
+          update: Actualizar
+        filters:
+          search_placeholder: Busca
+        index:
+          description: As taxonomías e os filtros permiten ao equipo de administración ordenar e organizar o contido. Por exemplo, podes engadir unha taxonomía cos distritos e barrios da cidade e despois crear filtros só cos distritos ou para un barrio concreto.
+          new_taxonomy: Nova taxonomía
+          no_items_found: Non se atoparon taxonomías que coincidan cos criterios de busca.
+          title: Taxonomías
+        name: Nome
+        new:
+          create: Crear taxonomía
+          title: Nova taxonomía
+        no_taxonomies: Neste momento non hai taxonomías. Crea aquí unha lista de taxonomías e define elementos en cada unha para clasificar ou filtrar recursos.
+        table:
+          to_next_page: Arrastra para ir á páxina seguinte
+          to_prev_page: Arrastra para ir á páxina anterior
+        taxonomy_actions:
+          confirm_destroy: 'Seguro que queres eliminar %{name}? Isto tamén eliminará todos os elementos secundarios. NOTA: os recursos que usan esta taxonomía non se verán afectados, pero perderán a referencia a ela.'
+        total_filters: Filtros
+        total_items: Elementos da taxonomía
+        update:
+          invalid: Produciuse un problema ao actualizar esta taxonomía.
+          success: A taxonomía actualizouse correctamente.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Novo filtro de taxonomía
+        breadcrumb:
+          edit: Editar filtro
+          filters: Filtros
+          new: Novo filtro
+        create:
+          error: Produciuse un problema ao crear este filtro de taxonomía.
+          success: O filtro de taxonomía creouse correctamente.
+        destroy:
+          error: Produciuse un problema ao eliminar este filtro de taxonomía.
+          success: O filtro de taxonomía eliminouse correctamente.
+        edit:
+          back: Volver
+          title: Editar filtro de taxonomía
+          update: Actualizar filtro de taxonomía
+        form:
+          all: Todos
+          items:
+            one: "%{count} elemento seleccionado"
+            other: "%{count} elementos seleccionados"
+          name_help: O título do filtro que se mostrará na interface pública.
+          no_items: Non hai elementos dispoñibles para esta taxonomía. Podes crealos na configuración da taxonomía.
+          space_filter: Dispoñible como filtro para
+        index:
+          description: Un filtro de taxonomía permite ao equipo de administración ordenar e filtrar espazos participativos segundo unha taxonomía. Por exemplo, podes engadir un filtro para ordenar procesos por ámbito xeográfico.
+          empty: Neste momento non hai filtros de taxonomía. Crea aquí unha lista de filtros para ordenar e filtrar espazos participativos segundo unha taxonomía.
+          new_filter: Novo filtro
+          title: Filtros de taxonomía para «%{taxonomy}»
+        new:
+          back: Volver
+          create: Crear filtro de taxonomía
+          title: Novo filtro de taxonomía
+        table:
+          actions: Accións
+          components_count: Compoñentes que o usan
+          confirm_destroy: 'Seguro que queres eliminar o filtro %{name}? NOTA: os recursos que usan este filtro non se verán afectados, pero perderán a referencia a el.'
+          destroy: Eliminar
+          edit: Editar
+          internal_name: Etiqueta interna
+          name: Etiqueta
+        update:
+          error: Produciuse un problema ao actualizar este filtro de taxonomía.
+          success: O filtro de taxonomía actualizouse correctamente.
+      taxonomy_filters_selector:
+        index:
+          title: Filtros de taxonomía
+        new:
+          add_new_items_html: Se precisas definir un novo filtro ou elemento, faino desde a configuración ou premendo <a href="%{url}">aquí</a>.
+          items_count: "%{count} elementos"
+          save: Gardar
+          title: Novo selector de filtros de taxonomía
+        show:
+          items_count: "%{count} elementos"
+          remove: Eliminar
+          title: Selector de filtros de taxonomía
+        taxonomies_select:
+          filters: Filtros
+          select_filter: Seleccionar un filtro
+          select_taxonomy: Seleccionar unha taxonomía
+          taxonomies: Taxonomías
+      taxonomy_items:
+        edit:
+          title: Editar elemento en %{taxonomy}
+          update: Actualizar elemento
+        new:
+          create: Crear elemento
+          none: Nada
+          title: Novo elemento en %{taxonomy}
       titles:
         areas: Campos
         authorization_workflows: Métodos de verificación
+        menu: Menú
         panel: Administrador
         scopes: Ámbitos
+        statistics: Estatísticas
+      tooltips:
+        cannot_destroy_taxonomy_filter: Non se pode eliminar este filtro de taxonomía
+        cannot_edit_taxonomy_filter: Non se pode editar este filtro de taxonomía
+        deleted_attachment_collections_info: Non se pode eliminar esta carpeta porque ten anexos.
+        deleted_component_info: Este compoñente só se pode eliminar se o seu estado é «Non publicado».
+      trash_management:
+        restore:
+          invalid: Produciuse un problema ao restaurar %{resource_name}.
+          success: "%{resource_name} restaurouse correctamente."
+        soft_delete:
+          invalid: Produciuse un problema ao eliminar %{resource_name}.
+          success: "%{resource_name} eliminouse correctamente."
       users:
         create:
-          error: Produciuse un erro ao invitar a este usuario.
-          success: Usuario convidado con éxito.
+          error: Produciuse un problema ao convidar esta persoa administradora.
+          success: A persoa participante foi convidada correctamente.
         destroy:
-          error: Produciuse un erro ao tentar eliminar este usuario.
-          success: O usuario xa non é un administrador.
+          error: Produciuse un problema ao intentar eliminar esta persoa administradora.
+          success: A persoa participante xa non é administradora.
         form:
           email: Correo electrónico
           name: Nome
           role: Rol
+        index:
+          title: Persoas administradoras
         new:
           create: Invitar
           title: Convidar a un novo administrador
@@ -706,21 +1312,55 @@ gl:
           last_day: Último día
           last_month: O mes pasado
           last_week: A semana pasada
+          no_users_count_statistics_yet: Aínda non hai estatísticas do número de participantes.
           participants: Participantes
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Poderás seleccionar filtros de taxonomía despois de crear o compoñente.
+    forms:
+      errors:
+        impersonate_user:
+          reason: Debes indicar un motivo ao xestionar unha persoa participante non xestionada.
+      file_help:
+        attachment:
+          explanation: 'Instrucións para o ficheiro:'
+          message_1: Están soportados os ficheiros CSV, JSON e Excel (.xlsx)
+          message_2: Para os ficheiros CSV, o separador entre columnas ten de ser o punto e coa (";")
     moderations:
       actions:
         expand: Expandir
         hidden: Oculto
         hide: Ocultar
         not_hidden: Non escondido
+        parent_hidden: Non podes volver mostrar este recurso porque o seu elemento principal segue oculto.
         title: Accións
+        unhide: Desfacer a ocultación
+        unreport: Desfacer a denuncia
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Produciuse un problema ao ocultar algúns recursos: %{errored}'
+              invalid: Non se seleccionaron moderacións.
+              success: Os recursos ocultáronse correctamente.
+            ignore:
+              invalid: Non se seleccionaron moderacións de participantes.
+              success: Retiráronse correctamente as denuncias das persoas participantes.
+            unhide:
+              failed: 'Produciuse un problema ao volver mostrar algúns recursos: %{errored}'
+              invalid: Non se seleccionaron moderacións.
+              success: Os recursos volvéronse mostrar correctamente.
+            unreport:
+              failed: 'Produciuse un problema ao retirar a denuncia dalgúns recursos: %{errored}'
+              invalid: Non se seleccionaron moderacións.
+              success: Retiráronse correctamente as denuncias dos recursos.
           hide:
             invalid: Produciuse un problema ao ocultar o recurso.
             success: Recurso escondido con éxito.
           unhide:
             invalid: Produciuse un problema ao abrir o recurso.
+            parent_invalid: Produciuse un problema ao volver mostrar o recurso. O elemento principal non é visible.
             success: Recurso sen éxito.
           unreport:
             invalid: Produciuse un problema ao non informar o recurso.
@@ -728,10 +1368,15 @@ gl:
       models:
         moderation:
           fields:
+            created_at: Denunciado o
+            deleted_resource: Recurso eliminado
             hidden_at: Oculto en
             participatory_space: Espazo participativo
+            report_count: Número de denuncias
+            reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL de contido reportado
+            reports: Motivo
             visit_url: Visita o URL
         report:
           fields:
@@ -746,3 +1391,7 @@ gl:
       admin:
         global_moderations:
           title: Moderacións globais
+        insights:
+          title: Análises
+        taxonomy_filters_selector:
+          title: Filtros

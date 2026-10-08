@@ -1,5 +1,8 @@
 cs:
   activemodel:
+    attributes:
+      response:
+        add_attachments: Přidat přílohy
     models:
       decidim/surveys/closed_survey_event: Průzkum skončil
       decidim/surveys/opened_survey_event: Průzkum začal
@@ -71,7 +74,6 @@ cs:
         new_survey: Nový průzkum
         preview: Náhled
         responses: Odpovědi
-        responses_alert: Odstranění odpovědí při publikování je aktivní pro tento průzkum. Momentálně je %{responses_count} odpovědi, které budou zničeny, pokud budete pokračovat.
         title: Akce
       admin:
         exports:
@@ -91,6 +93,10 @@ cs:
             edit:
               title: Otázky
         responses:
+          actions:
+            destroy_all_responses: Odstranit všechny odpovědi
+          destroy_all:
+            invalid: Při odstraňování všech odpovědí došlo k chybě.
           index:
             no_responses: Zatím nejsou žádné odpovědi
             title: "%{total} odpovědí celkem"

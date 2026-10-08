@@ -75,7 +75,6 @@ fi:
         new_survey: Uusi kysely
         preview: Esikatsele
         responses: Vastaukset
-        responses_alert: Kyselyn vastausten poistaminen julkaisun yhteydessä on otettu käyttöön tälle kyselylle. Kyselyllä on tällä hetkellä %{responses_count} vastausta, jotka poistetaan, mikäli jatkat eteenpäin.
         title: Toiminnot
       admin:
         exports:
@@ -98,6 +97,14 @@ fi:
             edit:
               title: Kysymykset
         responses:
+          actions:
+            destroy_all_responses: Poista kaikki vastaukset
+            destroy_all_responses_confirm:
+              one: Haluatko varmasti poistaa %{count} vastauksen? Tätä toimintoa ei voi perua.
+              other: Haluatko varmasti poistaa %{count} vastausta? Tätä toimintoa ei voi perua.
+          destroy_all:
+            invalid: Vastausten poisto epäonnistui.
+            success: Kaikkien vastausten poisto onnistui.
           index:
             no_responses: Yhtään vastausta ei ole vielä annettu
             title: "yhteensä %{total} vastausta"

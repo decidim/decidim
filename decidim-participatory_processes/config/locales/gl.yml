@@ -7,9 +7,19 @@ gl:
         decidim_area_id: Área
         description: Descrición
         developer_group: Grupo promotor
+        document: Documento
         domain: Dominio
+        duplicate_categories: Duplicar categorías
+        duplicate_components: Duplicar compoñentes
+        duplicate_landing_page_blocks: Duplicar bloques da páxina de inicio
+        duplicate_steps: Duplicar fases
         end_date: Data de finalización
+        has_members: Este espazo ten membros
         hero_image: Imaxe na casa
+        import_attachments: Importar anexos
+        import_categories: Importar categorías
+        import_components: Importar compoñentes
+        import_steps: Importar fases
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
         participatory_process_group_id: Grupo de procesos
@@ -27,8 +37,11 @@ gl:
         weight: Orde de posición
       participatory_process_group:
         description: Descrición
+        developer_group: Grupo promotor
         group_url: Sitio web
         hero_image: Imaxe
+        local_area: Área de organización
+        meta_scope: Metadatos de ámbito
         participatory_process_ids: Procesos relacionados
         participatory_scope: Que se decide
         participatory_structure: Como é decidido
@@ -46,6 +59,14 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento non válido. Só se permiten ficheiros coas seguintes extensións: %{types}'
+              empty: O documento está baleiro
+              invalid_json: O documento non é un JSON válido
     models:
       decidim/participatory_process_step_activated_event: Paso activado
       decidim/participatory_process_step_changed_event: O paso cambiou
@@ -64,6 +85,7 @@ gl:
     admin:
       actions:
         activate: Activar
+        confirm_delete_process: Seguro que queres eliminar este proceso? Se cambias de idea, poderás restauralo máis adiante.
         confirm_destroy: Confirma eliminar
         destroy: Eliminar
         duplicate: Duplicar
@@ -72,55 +94,82 @@ gl:
         new_process: Novo proceso
         new_process_group: Novo grupo de procesos
         new_process_step: Novo paso
-        new_process_user_role: Novo usuario do proceso
+        new_process_user_role: Novo participante do proceso
         preview: Vista previa
         publish: Publicar
         resend_invitation: Reenvio a invitación
+        see_process: Ver proceso
         unpublish: Non publicar
+        view_deleted_processes: Ver os procesos eliminados
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Por grupo de procesos
+        with_any_access_mode:
+          label: Modo de acceso
+          values:
+            open: Aberto
+            restricted: Restrinxido
+            transparent: Transparente
       menu:
         participatory_process_groups: Grupos de procesos
+        participatory_process_groups_submenu:
+          landing_page: Deseño da páxina de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
           attachment_files: Arquivos
           attachments: Anexos
           components: Compoñentes
+          landing_page: Deseño da páxina de inicio
+          members: Membros
           moderations: Moderacións
-          process_admins: Usuarios do proceso
+          process_admins: Participantes do proceso
           steps: Pasos
       models:
         participatory_process:
           fields:
+            access_mode: Modo de acceso
+            actions: Accións
             created_at: Creado en
             published: Publicado
             title: Título
           name: Proceso participativo
         participatory_process_group:
           fields:
+            actions: Accións
             title: Título
           name: Grupo de procesos
         participatory_process_step:
           fields:
+            actions: Accións
             end_date: Data de finalización
             start_date: Data de inicio
             title: Título
           name: Paso de proceso participativo
         participatory_process_user_role:
           fields:
+            actions: Accións
             email: Correo electrónico
             name: Nome
             role: Rol
-          name: Usuario de proceso participativo
+          name: Participante de proceso participativo
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Persoa avaliadora
             moderator: Moderador
         user:
           fields:
             invitation_accepted_at: Invitación aceptada no
             invitation_sent_at: Invitación enviada a
+            published: Publicado
+      participatory_process_duplicates:
+        new:
+          duplicate: Duplicar
+          select: Selecciona os datos que queres duplicar
       participatory_process_groups:
         destroy:
+          error: Produciuse un problema ao eliminar o grupo de procesos participativos.
           success: Grupo de proceso participativo eliminado con éxito.
         edit:
           update: Actualización
@@ -130,8 +179,12 @@ gl:
           error: Produciuse un erro ao actualizar este grupo de procesos participativo.
           success: Grupo de proceso participativo actualizado con éxito.
       participatory_process_imports:
+        create:
+          error: Produciuse un problema ao importar este proceso participativo.
+          success: O proceso participativo importouse correctamente.
         new:
           import: Importar
+          select: Selecciona que tipo de datos desexas importar
       participatory_process_publications:
         create:
           error: Produciuse un erro ao publicar este proceso participativo.
@@ -149,6 +202,9 @@ gl:
           success: Paso de proceso participativo creouse con éxito.
         default_title: Introdución
         destroy:
+          error:
+            active_step: Non se pode eliminar a fase activa.
+            last_step: Non se pode eliminar a última fase dun proceso.
           success: Paso de proceso participativo eliminado con éxito.
         edit:
           update: Actualización
@@ -158,19 +214,20 @@ gl:
           error: Produciuse un erro ao reordenar estes pasos de proceso participativo.
         update:
           error: Produciuse un erro ao actualizar este paso de proceso participativo.
+          success: A fase do proceso participativo actualizouse correctamente.
       participatory_process_user_roles:
         create:
-          error: Houbo un erro engadindo un usuario a este proceso participativo.
-          success: O usuario engadiuse con éxito a este proceso participativo.
+          error: Houbo un erro engadindo un participante a este proceso participativo.
+          success: O participante engadiuse con éxito a este proceso participativo.
         destroy:
-          success: Usuario eliminado con éxito deste proceso participativo.
+          success: Participante eliminado con éxito deste proceso participativo.
         edit:
           update: Actualización
         new:
           create: Crear
         update:
-          error: Houbo un erro actualizado por un usuario para este proceso participativo.
-          success: Usuario actualizado correctamente para este proceso participativo.
+          error: Houbo un erro actualizado por un participante para este proceso participativo.
+          success: Participante actualizado correctamente para este proceso participativo.
       participatory_processes:
         create:
           error: Produciuse un erro ao crear un novo proceso participativo.
@@ -178,16 +235,30 @@ gl:
         edit:
           update: Actualización
         index:
+          access_modes:
+            open: Aberto
+            restricted: Restrinxido
+            transparent: Transparente
           published: Publicado
+          unpublished: Non publicado
         new:
           create: Crear
         update:
           error: Produciuse un erro ao actualizar este proceso participativo.
           success: Proceso participativo actualizado con éxito.
+      participatory_processes_duplicates:
+        create:
+          error: Produciuse un problema ao duplicar este proceso participativo.
+          success: O proceso participativo duplicouse correctamente.
       participatory_processes_group:
         create:
           error: Produciuse un erro ao crear un novo grupo de procesos participativos.
           success: Grupo de proceso participativo creouse con éxito.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Todos os procesos participativos
+      tooltips:
+        deleted_processes_info: Un proceso só se pode eliminar se o seu estado é «Non publicado».
       users:
         resend_invitation:
           error: Produciuse un erro ao reenviar a invitación.
@@ -195,22 +266,39 @@ gl:
     admin_log:
       participatory_process:
         create: "%{user_name} creou o proceso participativo %{resource_name}"
+        duplicate: "%{user_name} duplicou o proceso participativo %{resource_name}"
+        export: "%{user_name} exportou o proceso participativo %{resource_name}"
+        import: "%{user_name} importou o proceso participativo %{resource_name}"
         publish: "%{user_name} publicou o %{resource_name} proceso participativo"
+        publish_all_members: "%{user_name} publicou todos os membros do proceso participativo %{resource_name}"
+        restore: "%{user_name} restaurou o proceso participativo %{resource_name}"
+        soft_delete: "%{user_name} moveu á papeleira o proceso participativo %{resource_name}"
         unpublish: "%{user_name} non publicou o proceso participativo %{resource_name}"
+        unpublish_all_members: "%{user_name} retirou a publicación de todos os membros do proceso participativo %{resource_name}"
         update: "%{user_name} actualizou o proceso participativo %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} creou o grupo de procesos participativos %{resource_name}"
+        unpublish: "%{user_name} retirou a publicación do grupo de procesos participativos %{resource_name}"
+        update: "%{user_name} actualizou o grupo de procesos participativos %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} activou o paso %{resource_name} no proceso participativo %{space_name}"
         create: "%{user_name} creou o paso %{resource_name} no proceso participativo %{space_name}"
         delete: "%{user_name} eliminou o paso %{resource_name} no proceso participativo %{space_name}"
         update: "%{user_name} actualizou o paso %{resource_name} no proceso participativo %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} convidou ao usuario %{resource_name} ao proceso participativo %{space_name}"
-        delete: "%{user_name} eliminou o usuario %{resource_name} do proceso participativo %{space_name}"
-        update: "%{user_name} cambiou o papel do usuario %{resource_name} no proceso participativo %{space_name}"
+        create: "%{user_name} convidou ao participante %{resource_name} ao proceso participativo %{space_name}"
+        delete: "%{user_name} eliminou o participante %{resource_name} do proceso participativo %{space_name}"
+        update: "%{user_name} cambiou o papel do participante %{resource_name} no proceso participativo %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Exportación de procesos participativos
     events:
       participatory_process:
         role_assigned:
           email_intro: Fuches asignado ao rol %{role} no proceso participativo "%{resource_title}".
+          email_outro: Recibiches esta notificación porque tes o rol %{role} no proceso participativo «%{resource_title}».
+          email_subject: Fuches asignado ao rol %{role} de "%{resource_title}".
+          notification_title: Asignóuseche o rol %{role} para o proceso participativo <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'O paso %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -229,15 +317,58 @@ gl:
           title: '¿Que é un proceso participativo?'
     menu:
       processes: Procesos
+    open_data:
+      help:
+        participatory_processes:
+          access_mode: Modo de acceso. Indica se o proceso é aberto, restrinxido ou transparente.
+          area: A área na que se desenvolve o proceso
+          component_settings: A configuración dos compoñentes do proceso
+          created_at: A data na que se creou este espazo
+          description: Unha descrición longa do proceso
+          developer_group: O grupo promotor do proceso. É a organización que promove o proceso.
+          end_date: A data de fin do proceso
+          follows_count: O número de participantes que seguen este espazo
+          id: O identificador único deste proceso
+          local_area: A área local do proceso. É a área da organización na que se desenvolve o proceso.
+          meta_scope: Os metadatos do ámbito do proceso
+          participatory_process_group: O grupo do proceso, se existe
+          participatory_process_type: O tipo de proceso
+          participatory_scope: O ámbito participativo do proceso
+          participatory_structure: A estrutura participativa do proceso. Indica como se toman as decisións no proceso.
+          promoted: Indica se o proceso está destacado ou non
+          published_at: A data na que se publicou este espazo
+          reference: A referencia única do espazo
+          remote_hero_image_url: O URL da imaxe principal do proceso
+          scope: O ámbito do proceso
+          scopes_enabled: Indica se os ámbitos están activados ou non
+          short_description: Unha descrición breve do proceso
+          slug: O slug do proceso (usado para identificalo no URL)
+          start_date: A data de inicio do proceso
+          subtitle: O subtítulo do proceso
+          target: O público destinatario do proceso. É a quen se chama a participar no proceso.
+          title: O título do proceso
+          updated_at: A última data na que se actualizou este espazo
+          url: O URL do espazo
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promovido por
+          name: Metadatos
+          participatory_scope: Que se decide
+          participatory_structure: Como se decide
+          target: Quen participa
+        html:
+          name: Bloque HTML
         html_1:
           name: Primeiro bloque HTML
         html_2:
           name: Segundo bloque HTML
         html_3:
           name: Terceiro bloque HTML
+        main_data:
+          name: Título e descrición
         participatory_processes:
+          active: Procesos participativos activos
           name: Procesos participativos
         stats:
           name: Actividade
@@ -246,6 +377,8 @@ gl:
           participatory_processes:
             one: 1 proceso
             other: "%{count} procesos"
+      related_processes:
+        help: Todos os procesos seleccionados asignaranse a este grupo, incluídos os que xa estean asignados a outros grupos.
       show:
         title: Grupos de procesos participativos
     participatory_process_steps:
@@ -254,33 +387,210 @@ gl:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            announcement:
+              body_html: |-
+                <ul> <li>Calcúlanse automaticamente a partir dos datos de Decidim. Serán visibles cando publiques o bloque de contido.</li> <li>Baséanse nas túas respostas no seguinte formulario. Serán visibles cando respondas todas as preguntas.</li> </ul>
+              title: 'Este bloque de contido inclúe dous tipos de métricas:'
+            citizen_influence:
+              citizen_decisional_intervention:
+                legend: De todas as fases do proceso (desde a selección de temas ata a supervisión da execución), en cantas ten a cidadanía capacidade para tomar decisións ou realizar accións executivas?
+              citizen_influence_level:
+                legend: En que medida ten a cidadanía capacidade de decisión neste proceso, desde recibir simplemente información ata influír de maneira decisiva nas decisións e xestionar recursos?
+                options:
+                  five: As persoas participantes implicáronse na toma de decisións e na xestión de recursos ou na execución
+                  four: As persoas participantes implicáronse de maneira decisiva na toma de decisións
+                  one: As persoas participantes recibiron información da organización
+                  three: As persoas participantes implicáronse compartindo o poder de decisión
+                  two: Consultouse ás persoas participantes ou estas proporcionaron comentarios á organización
+              name: Influencia cidadá
+            inclusiveness:
+              description: Inclusividade segundo a orixe cultural e a diversidade funcional.
+              digital_support_offered:
+                legend: Ofreceuse apoio dixital ás persoas participantes?
+                options:
+                  five: 'Si'
+                  two_five: Parcialmente
+                  zero: 'Non'
+              functional_diversity_invited:
+                legend: Como se avalía o grao de diversidade dos axentes e das persoas participantes respecto da poboación de referencia do proceso?
+                options:
+                  five: Boa
+                  one: Baixa
+                  two_five: Suficiente
+                  zero: Nada
+              languages_communicated:
+                legend: En cantas linguas se comunicou o proceso?
+                options:
+                  five: Máis da metade das linguas faladas na comunidade
+                  one: Unha lingua
+                  two_five: Menos da metade das linguas faladas na comunidade
+              mobility_meeting_access:
+                legend: Eran accesibles para persoas con mobilidade reducida os espazos das reunións presenciais?
+                options:
+                  five: 'Si'
+                  two_five: Parcialmente
+                  zero: 'Non'
+              name: Inclusividade
+              participation_scheduling_times:
+                legend: As sesións de participación programáronse en horarios variados (mañá, mediodía, tarde, noite e fins de semana).
+                options:
+                  five: 'Si'
+                  two_five: Parcialmente
+                  zero: 'Non'
+            informativeness:
+              information_provided:
+                legend: Proporcionouse información sobre a capacidade das persoas participantes para influír no tema en debate? (tanto na comunicación do proceso e nas invitacións como ao inicio de cada sesión de debate)
+                options:
+                  five: Sempre
+                  one: Case nunca
+                  two_five: Habitualmente
+                  zero: Nunca
+              name: Calidade informativa
+              published_information_clarity:
+                legend: A información publicada deixa claros os mecanismos de toma de decisións? (por exemplo, apoios, consenso ou negociacións directas)
+                options:
+                  five: Claridade total
+                  one: Pouca claridade
+                  two_five: Claridade suficiente
+                  zero: Sen claridade
           highlighted_processes:
+            active: Activos
+            all: Todos
             max_results: Cantidade máxima de elementos para mostrar
+            selection_criteria: Criterios de selección
+        imports:
+          attachment_error: Non se puido importar o anexo «%{title}» (%{error}).
+          hero_image_error: Non se puido importar a imaxe principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Esta función de importación permite crear un novo proceso participativo a partir dun ficheiro JSON exportado. Podes exportar un proceso doutra organización ou desta mesma organización. O proceso importado incluirá a súa configuración, os compoñentes e os anexos (se se seleccionan).
+        participatory_process_duplicates:
+          form:
+            slug_help_html: 'Os slugs de URL úsanse para xerar os URL que apuntan a este proceso. Só admiten letras, números e guións e deben comezar cunha letra. Exemplo: %{url}'
+          new:
+            title: Duplicar proceso participativo
         participatory_process_groups:
+          edit:
+            title: Editar grupo de procesos
           form:
             metadata: Metadatos
+            title: Sobre este proceso
             visibility: Visibilidade
+          index:
+            title: Grupos de procesos participativos
+          new:
+            title: Novo grupo de procesos
         participatory_process_imports:
           form:
             document_legend: Engadir un documento
+            slug_help_html: 'Os slugs de URL úsanse para xerar os URL que apuntan a este proceso. Só admiten letras, números e guións e deben comezar cunha letra. Exemplo: %{url}'
+          new:
+            title: Importar proceso participativo
+        participatory_process_steps:
+          edit:
+            title: Editar fase do proceso participativo
+          index:
+            title: Pasos
+          new:
+            title: Nova fase do proceso participativo
+        participatory_process_user_roles:
+          edit:
+            title: Actualizar a persoa administradora do proceso participativo
+          index:
+            title: Persoas administradoras do proceso participativo
+          new:
+            title: Nova persoa administradora do proceso participativo
         participatory_processes:
+          edit:
+            title: Sobre este proceso
           form:
+            access:
+              label: Acceso
+              options:
+                open: Todas as persoas poden ver o proceso e participar.
+                restricted: Só os membros e as persoas administradoras poden velo e participar. Non aparecerá na busca xeral, na API nin nos ficheiros de datos abertos.
+                transparent: Todas as persoas poden ver o proceso, pero só os membros e as persoas administradoras poden participar.
+              set_this_space_as: Definir este espazo como
+            define_taxonomy_filters: Define algúns filtros para este espazo participativo antes de usar esta configuración.
             duration: Duración
+            has_members_help: Poderás crear e publicar membros
             images: Imaxes
             metadata: Metadatos
+            no_taxonomy_filters_found: Non se atoparon filtros de taxonomía.
             related_processes: Procesos relacionados
             select_process_group: Seleccione un grupo de procesos
+            slug_help_html: 'Os slugs de URL úsanse para xerar os URL que apuntan a este proceso. Só admiten letras, números e guións e deben comezar cunha letra. Exemplo: %{url}'
+            taxonomies: Taxonomías
             title: Información xeral
+            visibility: Visibilidade
+          index:
+            title: Procesos participativos
+          manage_trash:
+            title: Procesos participativos eliminados
+          new:
+            title: Novo proceso participativo
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: Estes indicadores obtéñense automaticamente a partir dos datos da plataforma.
+            indicators:
+              hybridization: Hibridación
+              hybridization_tooltip: Este indicador mide o nivel de combinación entre espazos en liña e presenciais durante o proceso
+              influence: Influencia cidadá
+              influence_tooltip: Este indicador mide o nivel de influencia cidadá nas propostas aceptadas e nos resultados do proceso.
+              traceability: Trazabilidade
+              traceability_tooltip: Este indicador mide a transparencia e a trazabilidade do proceso participativo. Reflicte con que facilidade as persoas participantes poden seguir a evolución das propostas e verificar as actuacións institucionais mediante rexistros publicados.
+              transparency: Capacidade de resposta
+              transparency_tooltip: Este indicador mide o nivel de resposta da organización ás achegas das persoas participantes. Reflicte o seu compromiso mediante respostas oficiais e decisións aplicadas.
+            name: Métricas automáticas
+          global_score:
+            description_html: A continuación móstrase un conxunto de indicadores utilizados para avaliar a calidade democrática deste proceso participativo. Para obter máis información sobre o seu cálculo, consulta a <a href="%{info_url}">páxina informativa sobre os indicadores de calidade democrática</a>.
+            name: Puntuación global
+            note: "*Os valores indicativos mídense nunha escala do 1 ao 5, onde 1 representa o nivel máis baixo e 5 o máis alto do indicador de calidade."
+            tooltip: Calcúlase como a media de todas as dimensións
+          name: Indicador de calidade
+          qualitative_metrics:
+            description: Estes indicadores obtéñense das respostas a unha enquisa de autoavaliación cuberta polo equipo de administración da plataforma.
+            indicators:
+              citizen_influence: Influencia cidadá
+              citizen_influence_tooltip: Mide o nivel de impacto das persoas participantes na toma de decisións.
+              inclusiveness: Inclusividade
+              inclusiveness_tooltip: Avalía se as distintas partes interesadas están representadas de maneira equitativa.
+              informativeness: Calidade informativa
+              informativeness_tooltip: Mide o nivel de claridade e de información proporcionada no proceso.
+            name: Métricas de autoavaliación
+        extra_data:
+          name: Fase e duración
+        hero:
+          name: Imaxe principal e chamada á acción
         highlighted_processes:
           name: Procesos destacados
+        related_processes:
+          name: Procesos relacionados
       index:
         title: Procesos participativos
+      last_activity:
+        new_participatory_process: 'Novo proceso participativo:'
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Procesos activos
+            see_all_spaces: Ver todos os procesos
       participatory_processes:
+        description:
+          area_name: Área
+          data: Datos do proceso
+          developer_group: Grupo promotor
+          local_area: Área da organización
+          meta_scope: Ámbito
+          participatory_scope: Que se decide
+          participatory_structure: Como se decide
+          target: Quen participa
+          title: Sobre este proceso
         filters:
+          all_types: Todos os tipos
           counters:
             active:
               one: 1 proceso activo
@@ -294,21 +604,71 @@ gl:
             upcoming:
               one: 1 proceso seguinte
               other: "%{count} próximos procesos"
+          date: Data
           explanations:
+            no_active: Non hai procesos activos.
+            no_active_nor_upcoming: Non hai procesos activos nin próximos.
             no_active_nor_upcoming_callout: Non hai procesos activos nin próximos. Aquí tes unha lista dos últimos.
+          filter_by: Amosar
           names:
             active: Activo
             all: Todo
             past: Pasado
             upcoming: Próximos
           see: Ver
+          type: Tipo
         show:
           title: Sobre este proceso
       show:
         belongs_to_group: Este proceso pertence a
         related_processes: Procesos relacionados
+      static_pages:
+        democratic_quality_indicators:
+          content: |-
+            <h2>Sistema de indicadores para medir a calidade democrática en Decidim.</h2>
+
+            <h3>Introdución</h3>
+            <p>A calidade democrática é un principio fundamental de Decidim. Para garantila, desenvolvemos un sistema de indicadores que axudan a avaliar a calidade dos procesos participativos na plataforma. Este artigo explica como se calculan estes indicadores.</p>
+
+            <h3>Como se calculan os indicadores?</h3>
+            <p>Definimos dous métodos para recoller os indicadores de calidade:</p>
+
+            <ol>
+            <li><strong>Métricas automáticas:</strong> calcúlanse directamente a partir dos datos da plataforma Decidim.</li>
+            <li><strong>Preguntas de autoavaliación:</strong> baséanse nun formulario cuberto por unha persoa administradora.</li>
+            </ol>
+
+            <p>Cada indicador exprésase como unha porcentaxe (n/total). Esta porcentaxe convértese despois nunha puntuación nunha escala do 1 ao 5:</p>
+
+            <ul>
+            <li>1 = 0–20%</li><li>2 = 20–40%</li><li>3 = 40–60%</li><li>4 = 60–80%</li><li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Métricas automáticas</h3>
+            <p>Estas métricas calcúlanse automaticamente a partir dos datos dispoñibles en Decidim. Avalíanse para cada proceso participativo e o equipo de administración pode facelas públicas para que todas as persoas participantes poidan consultalas.</p>
+            <p>Definimos catro indicadores principais: influencia cidadá, hibridación, capacidade de resposta e trazabilidade.</p>
+
+            <h3>Influencia cidadá</h3>
+            <p>Este indicador mide o nivel de influencia cidadá nas propostas aceptadas e nos resultados do proceso.</p>
+
+            <h3>Hibridación</h3>
+            <p>Este indicador mide o nivel de combinación entre espazos en liña e presenciais durante o proceso.</p>
+
+            <h3>Capacidade de resposta</h3>
+            <p>Este indicador mide o nivel de resposta da organización ás achegas das persoas participantes. Reflicte o seu compromiso mediante respostas oficiais e decisións aplicadas.</p>
+
+            <h3>Trazabilidade</h3>
+            <p>Este indicador mide a transparencia e a trazabilidade do proceso participativo. Reflicte con que facilidade as persoas participantes poden seguir a evolución das propostas e verificar as actuacións institucionais mediante rexistros publicados.</p>
+
+            <br><br>
+            <h3>Métricas de autoavaliación</h3>
+            <p>Ademais das métricas automáticas, propoñemos utilizar un <strong>formulario de autoavaliación</strong> para avaliar as dimensións cualitativas de cada proceso participativo. O equipo de administración da plataforma cubrirá este formulario ao final de cada proceso e as respostas mostraranse publicamente no bloque de contido dos indicadores.</p>
+            <p>Estas preguntas pretenden recoller aspectos da calidade democrática que non se poden avaliar só mediante datos cuantitativos. É importante ter en conta que as respostas a esta enquisa están condicionadas pola opinión do equipo de administración da plataforma.</p>
+          title: Indicadores de calidade democrática
     statistics:
       processes_count: Procesos
+      processes_count_tooltip: O número de procesos participativos dispoñibles publicamente.
   layouts:
     decidim:
       participatory_process_groups:
@@ -316,6 +676,8 @@ gl:
           browse: Buscar
           browse_resource: Explorar o grupo de procesos %{resource_name}
           processes_count: 'Procesos:'
+      participatory_process_navigation:
+        member_menu_item: Membros
       participatory_processes:
         index:
           promoted_processes: Procesos destacados
