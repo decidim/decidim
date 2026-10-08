@@ -81,7 +81,12 @@ export default function generateDatePicker(input, row, formats) {
     datePickerContainer.style.display = "none";
   });
 
-  date.addEventListener("keyup", () => {
+  date.addEventListener("input", () => {
+    if (date.value.length === 0) {
+      input.value = "";
+      return;
+    };
+
     if (date.value.length === 10) {
       date.value = date.value.replaceAll(/[/.-]/g, formats.separator);
       prevDate = dateToPicker(date.value, formats);

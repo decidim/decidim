@@ -143,5 +143,35 @@ describe "Admin manages participatory processes", versioning: true do
         expect(src).to be_blob_url(hero_blob)
       end
     end
+
+    context "and participatory has start date and end date" do
+      let!(:participatory_process3) { create(:participatory_process, :past, organization:) }
+
+      before do
+        visit decidim_admin_participatory_processes.participatory_processes_path
+      end
+
+      it "removes the start and end dates when updating a participatory process" do
+        expect(participatory_process3.start_date).to be_present
+        expect(participatory_process3.end_date).to be_present
+
+        within "tr", text: translated(participatory_process3.title) do
+          click_on translated(participatory_process3.title)
+        end
+
+        start_date = find_by_id("participatory_process_start_date_date")
+        start_date.send_keys(:end)
+        10.times { start_date.send_keys(:backspace) }
+
+        end_date = find_by_id("participatory_process_end_date_date")
+        end_date.send_keys(:end)
+        10.times { end_date.send_keys(:backspace) }
+
+        click_on "Update"
+
+        expect(participatory_process3.reload.start_date).not_to be_present
+        expect(participatory_process3.end_date).not_to be_present
+      end
+    end
   end
 end
