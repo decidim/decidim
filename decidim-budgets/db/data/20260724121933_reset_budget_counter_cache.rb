@@ -11,7 +11,10 @@ class ResetBudgetCounterCache < ActiveRecord::Migration[8.1]
 
   def up
     Budget.find_each do |budget|
-      budget.update_column(:projects_count, Project.where(decidim_budgets_budget_id: budget.id).count) # rubocop:disable Rails/SkipsModelValidations
+      # Trashed (soft-deleted) projects are excluded from `budget.projects`, so they
+      # must not be included in the counter cache.
+      count = Project.where(decidim_budgets_budget_id: budget.id, deleted_at: nil).count
+      budget.update_column(:projects_count, count) # rubocop:disable Rails/SkipsModelValidations
     end
   end
 
