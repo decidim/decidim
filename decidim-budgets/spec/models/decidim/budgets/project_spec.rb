@@ -65,6 +65,32 @@ module Decidim::Budgets
       end
     end
 
+    describe "counter cache" do
+      let(:budget) { create(:budget) }
+      let!(:existing_project) { create(:project, budget:) }
+
+      it "increments the budget projects_count when a project is created" do
+        expect do
+          create(:project, budget:)
+        end.to change { budget.reload.projects_count }.by(1)
+      end
+
+      it "decrements the budget projects_count when a project is destroyed" do
+        expect do
+          existing_project.destroy!
+        end.to change { budget.reload.projects_count }.by(-1)
+      end
+
+      it "updates both budgets projects_count when a project is reassigned to another budget" do
+        other_budget = create(:budget)
+
+        existing_project.update!(budget: other_budget)
+
+        expect(budget.reload.projects_count).to eq(0)
+        expect(other_budget.reload.projects_count).to eq(1)
+      end
+    end
+
     describe "#users_to_notify_on_comment_created" do
       let!(:follows) { create_list(:follow, 3, followable: subject) }
 
