@@ -122,6 +122,9 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 
 # Delete inactive participants accounts
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
+
+# Delete unattached upload blobs
+0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:attachments_cleanup
 ----
 
 === Scheduled tasks from modules
