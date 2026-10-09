@@ -485,7 +485,7 @@ FactoryBot.define do
       }
     end
 
-    trait :with_one_step do
+    trait :with_one_phase do
       phase_settings do
         participatory_space_with_phases if participatory_space.active_phase.nil?
         {
