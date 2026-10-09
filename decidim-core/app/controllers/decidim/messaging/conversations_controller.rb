@@ -43,10 +43,7 @@ module Decidim
 
         StartConversation.call(@form) do
           on(:ok) do |conversation|
-            render action: :create, locals: {
-              conversation:,
-              form: MessageForm.new
-            }
+            render action: :create, locals: { conversation: }
           end
 
           on(:invalid) do |messages|
