@@ -11,7 +11,7 @@ module Decidim
     describe OrderableFakeController do
       let(:participatory_process) { create(:participatory_process, :with_phases) }
       let(:active_phase_id) { participatory_process.active_phase.id }
-      let(:component) { create(:component, :with_one_step, participatory_space: participatory_process, manifest_name: "proposals") }
+      let(:component) { create(:component, :with_one_phase, participatory_space: participatory_process, manifest_name: "proposals") }
       let(:component_settings) do
         double(
           default_sort_order: component_default_sort_order,
@@ -20,7 +20,7 @@ module Decidim
       end
       let(:current_settings) do
         double(:current_settings,
-               default_sort_order: step_default_sort_order,
+               default_sort_order: phase_default_sort_order,
                votes_enabled?: votes_enabled,
                votes_blocked?: votes_blocked,
                votes_hidden?: votes_hidden,
@@ -52,7 +52,7 @@ module Decidim
           end
         end
 
-        context "when step has default_sort_order" do
+        context "when phase has default_sort_order" do
           let(:component_default_sort_order) { "random" }
           let(:phase_default_sort_order) { "most_commented" }
           let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
@@ -62,7 +62,7 @@ module Decidim
           end
         end
 
-        context "when step has default default_sort_order" do
+        context "when phase has default default_sort_order" do
           let(:component_default_sort_order) { "most_followed" }
           let(:phase_default_sort_order) { "automatic" }
           let(:votes_blocked) { false }

@@ -17,7 +17,7 @@ module Decidim
     describe FilterableFakeController do
       let(:organization) { create(:organization) }
       let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
-      let(:component) { create(:component, :with_one_step, participatory_space: participatory_process, manifest_name: "proposals") }
+      let(:component) { create(:component, :with_one_phase, participatory_space: participatory_process, manifest_name: "proposals") }
       let(:view) { controller.view_context }
 
       before do
