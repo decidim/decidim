@@ -985,8 +985,8 @@ Note that this only applies to production environments.
 
 *This is NOT the same as the `PORT` variable.* `PORT` is the port the application server listens on, while `HTTP_PORT` defines the public port used to build the URLs exposed to the outside world. Both may differ when the application runs behind a proxy or a load balancer (for example, under Heroku).
 
-If unset, it defaults to `3000` in the development environment, `443` when SSL is forced and `80` otherwise.
-|3000
+If unset, it defaults to `3000` in development, `Capybara.server_port` in test, `443` when SSL is forced outside development and test, and `80` otherwise.
+|Environment-dependent (see description): `3000` (development), `Capybara.server_port` (test), `443` (SSL forced), `80` otherwise
 |No
 
 |RAILS_MAX_THREADS
