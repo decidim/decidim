@@ -25,7 +25,7 @@ module Decidim::Admin
           dummy_global_attribute1: true,
           dummy_global_attribute2: false
         },
-        default_step_settings: {
+        default_phase_settings: {
           step.id.to_s => {
             dummy_step_attribute1: true,
             dummy_step_attribute2: false
@@ -41,7 +41,7 @@ module Decidim::Admin
     end
 
     let(:participatory_process) { create(:participatory_process, :with_phases) }
-    let(:step) { participatory_process.phases.first }
+    let(:phase) { participatory_process.phases.first }
     let(:current_user) { create(:user, organization: participatory_process.organization) }
 
     describe "when valid" do

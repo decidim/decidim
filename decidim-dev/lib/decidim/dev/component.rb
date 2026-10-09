@@ -23,7 +23,7 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :dummy_global_translatable_text, type: :text, translated: true, editor: true, required: true
   end
 
-  component.settings(:step) do |settings|
+  component.settings(:phase) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :dummy_step_attribute1, type: :boolean
     settings.attribute :dummy_step_attribute2, type: :boolean, readonly: ->(_context) { false }

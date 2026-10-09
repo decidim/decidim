@@ -21,7 +21,7 @@ namespace :decidim do
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::InitiativesType", [:description, :extra_fields_legal_information])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Votings::Voting", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::ParticipatoryProcess", [:short_description, :description])
-      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::ParticipatoryProcessStep", [:description])
+      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::ParticipatoryProcessPhase", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::ParticipatoryProcessGroup", [:description])
 
       # Components

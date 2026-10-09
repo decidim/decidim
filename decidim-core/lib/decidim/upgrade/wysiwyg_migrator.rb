@@ -145,7 +145,7 @@ module Decidim
             # hash where each value contains settings for the defined step.
             keys = {}
             keys[:global] = { type: :single, keys: editor_attributes[:global] } if editor_attributes[:global].present?
-            keys[:steps] = { type: :multi, keys: editor_attributes[:step] } if editor_attributes[:step].present?
+            keys[:phases] = { type: :multi, keys: editor_attributes[:phase] } if editor_attributes[:phase].present?
 
             update_settings(
               Decidim::Component.where(manifest_name: manifest.name),

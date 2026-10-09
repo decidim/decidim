@@ -349,7 +349,7 @@ module Decidim
 
     describe ".update_settings" do
       let(:participatory_process) { component.participatory_space }
-      let!(:step) { create(:participatory_process_phase, participatory_process:) }
+      let!(:phase) { create(:participatory_process_phase, participatory_process:) }
 
       before do
         component.settings = {
@@ -412,7 +412,7 @@ module Decidim
       context "with only step editor settings" do
         let(:manifest) do
           Decidim::ComponentManifest.new.tap do |manifest|
-            manifest.settings(:step) do |settings|
+            manifest.settings(:phase) do |settings|
               settings.attribute :example, type: :string, translated: true, editor: true
             end
           end
@@ -434,7 +434,7 @@ module Decidim
 
     describe ".update_component_settings" do
       let(:participatory_process) { component.participatory_space }
-      let!(:step) { create(:participatory_process_phase, participatory_process:) }
+      let!(:phase) { create(:participatory_process_phase, participatory_process:) }
 
       before do
         component.settings = {

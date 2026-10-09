@@ -201,12 +201,12 @@ module Decidim::Proposals
       end
 
       context "when the active participatory space step change" do
-        let(:step1) { create(:participatory_process_phase, participatory_process:, active: step_1_active) }
-        let(:step_1_active) { true }
-        let(:step2) { create(:participatory_process_phase, participatory_process:, active: step_2_active) }
-        let(:step_2_active) { false }
-        let(:step3) { create(:participatory_process_phase, participatory_process:, active: step_3_active) }
-        let(:step_3_active) { false }
+        let(:phase1) { create(:participatory_process_phase, participatory_process:, active: step_1_active) }
+        let(:phase_1_active) { true }
+        let(:phase2) { create(:participatory_process_phase, participatory_process:, active: step_2_active) }
+        let(:phase_2_active) { false }
+        let(:phase3) { create(:participatory_process_phase, participatory_process:, active: step_3_active) }
+        let(:phase_3_active) { false }
         let(:component) do
           create(:proposal_component,
                  participatory_space: participatory_process,
@@ -232,8 +232,8 @@ module Decidim::Proposals
         end
 
         context "when the voting period ends" do
-          let(:step_1_active) { false }
-          let(:step_2_active) { true }
+          let(:phase_1_active) { false }
+          let(:phase_2_active) { true }
 
           it "generates a different hash" do
             old_hash = my_cell.send(:cache_hash)

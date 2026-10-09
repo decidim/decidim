@@ -32,12 +32,12 @@ module Decidim
       context "when no step is active" do
         it "returns the default step settings" do
           expect(controller.current_settings)
-            .to be_equivalent_to(component.default_step_settings)
+            .to be_equivalent_to(component.default_phase_settings)
         end
       end
 
       context "when there is an active step" do
-        let!(:step) do
+        let!(:phase) do
           create(:participatory_process_phase,
                  participatory_process:,
                  active: true)

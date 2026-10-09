@@ -479,7 +479,7 @@ FactoryBot.define do
       }
     end
 
-    default_step_settings do
+    default_phase_settings do
       {
         dummy_step_translatable_text: generate_localized_title(:dummy_step_translatable_text, skip_injection:)
       }

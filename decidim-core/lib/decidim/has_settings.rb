@@ -27,44 +27,44 @@ module Decidim
     end
 
     def current_settings
-      if participatory_space.allows_steps?
-        active_step_settings
+      if participatory_space.allows_phases?
+        active_phase_settings
       else
-        default_step_settings
+        default_phase_settings
       end
     end
 
-    def default_step_settings
-      new_settings_schema(:step, self[:settings]["default_step"])
+    def default_phase_settings
+      new_settings_schema(:phase, self[:settings]["default_phase"])
     end
 
-    def default_step_settings=(data)
-      self[:settings]["default_step"] = new_settings_schema(:step, data)
+    def default_phase_settings=(data)
+      self[:settings]["default_phase"] = new_settings_schema(:phase, data)
     end
 
     def phase_settings
-      return {} unless participatory_space.allows_steps?
+      return {} unless participatory_space.allows_phases?
 
-      participatory_space.phases.to_h do |step|
-        [step.id.to_s, new_settings_schema(:step, self[:settings].dig("steps", step.id.to_s))]
+      participatory_space.phases.to_h do |phase|
+        [phase.id.to_s, new_settings_schema(:phase, self[:settings].dig("phases", phase.id.to_s))]
       end
     end
 
     def phase_settings=(data)
-      self[:settings]["steps"] = data.each_with_object({}) do |(key, value), result|
-        result[key.to_s] = new_settings_schema(:step, value)
+      self[:settings]["phases"] = data.each_with_object({}) do |(key, value), result|
+        result[key.to_s] = new_settings_schema(:phase, value)
       end
     end
 
     private
 
-    def active_step_settings
-      return unless participatory_space.allows_steps?
+    def active_phase_settings
+      return unless participatory_space.allows_phases?
 
-      active_step = participatory_space.active_phase
-      return default_step_settings unless active_step
+      active_phase = participatory_space.active_phase
+      return default_phase_settings unless active_phase
 
-      phase_settings.fetch(active_step.id.to_s)
+      phase_settings.fetch(active_phase.id.to_s)
     end
 
     def new_settings_schema(settings_name, data)

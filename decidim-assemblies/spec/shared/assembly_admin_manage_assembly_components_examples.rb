@@ -36,7 +36,7 @@ shared_examples "assembly admin manage assembly components" do
 
         within ".default-step-settings" do
           fill_in_i18n_editor(
-            :component_default_step_settings_dummy_step_translatable_text,
+            :component_default_phase_settings_dummy_step_translatable_text,
             "#default-step-settings-dummy_step_translatable_text-tabs",
             en: "Dummy Text for Step"
           )

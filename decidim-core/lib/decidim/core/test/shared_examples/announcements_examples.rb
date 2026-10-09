@@ -42,7 +42,7 @@ shared_examples "manage announcements" do
 
       fill_in_i18n_editor(
         :"component_phase_settings_#{phase_id}_announcement",
-        "#step-#{phase_id}-settings-announcement-tabs",
+        "#phase-#{phase_id}-settings-announcement-tabs",
         en: "An announcement for this phase",
         es: "Un aviso para esta fase",
         ca: "Un avís per a aquesta fase"

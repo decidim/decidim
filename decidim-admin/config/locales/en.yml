@@ -333,7 +333,7 @@ en:
           title: Edit component
           update: Update
         form:
-          default_step_settings: Default step settings
+          default_phase_settings: Default step settings
           global_settings: Global settings
           phase_settings: Phase settings
         hide:

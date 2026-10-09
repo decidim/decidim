@@ -36,7 +36,7 @@ module Decidim
             attributes = serialized.with_indifferent_access.except(:id, :participatory_space_id, :participatory_space_type)
             phase_settings = attributes["settings"]["steps"]
             # we override the parent participatory space steps id
-            override_step_settings_ids(attributes, phase_settings)
+            override_phase_settings_ids(attributes, phase_settings)
             import_component_from_attributes(attributes, user)
           end
         end
@@ -63,7 +63,7 @@ module Decidim
         specific_importer.import(serialized[:specific_data], user)
       end
 
-      def override_step_settings_ids(attributes, phase_settings)
+      def override_phase_settings_ids(attributes, phase_settings)
         return unless @participatory_space.has_steps? && phase_settings.present?
 
         @participatory_space.phases.each do |step|

@@ -17,7 +17,7 @@ module Decidim
           email: "admin@example.org"
         )
 
-        phase_settings = if participatory_space.allows_steps?
+        phase_settings = if participatory_space.allows_phases?
                            { participatory_space.active_phase.id => { comments_enabled: true, comments_blocked: false } }
                          else
                            {}

@@ -41,7 +41,7 @@ module Decidim
         restore_readonly_settings!
 
         @component.settings = form.settings
-        @component.default_step_settings = form.default_step_settings
+        @component.default_phase_settings = form.default_phase_settings
         @component.phase_settings = form.phase_settings
 
         @settings_changed = @component.settings_changed?
@@ -68,7 +68,7 @@ module Decidim
         end
 
         browse_readonly_settings("step") do |attribute|
-          form.default_step_settings[attribute] = @previous_settings.dig("default_step", attribute) if form.default_step_settings.present?
+          form.default_phase_settings[attribute] = @previous_settings.dig("default_phase", attribute) if form.default_phase_settings.present?
           if form.phase_settings.present?
             form.phase_settings.each do |step_name, step|
               step[attribute] = @previous_settings.dig("steps", step_name, attribute)

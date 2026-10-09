@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RenameParticipatoryProcessStepReferences < ActiveRecord::Migration[7.2]
+class RenameParticipatoryProcessPhaseReferences < ActiveRecord::Migration[7.2]
   class ActionLog < ApplicationRecord
     self.table_name = "decidim_action_logs"
   end
@@ -9,7 +9,7 @@ class RenameParticipatoryProcessStepReferences < ActiveRecord::Migration[7.2]
     self.table_name = "versions"
   end
 
-  OLD_TYPE = "Decidim::ParticipatoryProcessStep"
+  OLD_TYPE = "Decidim::ParticipatoryProcessPhase"
   NEW_TYPE = "Decidim::ParticipatoryProcessPhase"
 
   def up

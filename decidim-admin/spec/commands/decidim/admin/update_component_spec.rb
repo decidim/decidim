@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Admin
   describe UpdateComponent do
     let!(:participatory_process) { create(:participatory_process, :with_phases) }
-    let(:step) { participatory_process.phases.first }
+    let(:phase) { participatory_process.phases.first }
     let!(:component) { create(:component, :with_one_step, participatory_space: participatory_process, weight: 0) }
     let(:manifest) { component.manifest }
     let(:user) { create(:user) }
@@ -27,7 +27,7 @@ module Decidim::Admin
           dummy_global_attribute2: false,
           readonly_attribute: false
         },
-        default_step_settings: {
+        default_phase_settings: {
           step.id.to_s => {
             dummy_step_attribute1: true,
             dummy_step_attribute2: false,
@@ -93,11 +93,11 @@ module Decidim::Admin
           true,
           hash_including(
             "global" => kind_of(Hash),
-            "default_step" => kind_of(Hash)
+            "default_phase" => kind_of(Hash)
           ),
           hash_including(
             "global" => kind_of(Hash),
-            "default_step" => kind_of(Hash),
+            "default_phase" => kind_of(Hash),
             "steps" => kind_of(Hash)
           )
         )

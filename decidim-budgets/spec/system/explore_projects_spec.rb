@@ -45,10 +45,10 @@ describe "Explore projects", :slow do
     end
 
     context "when voting is finished" do
-      let(:active_step_id) { participatory_process.active_phase.id }
+      let(:active_phase_id) { participatory_process.active_phase.id }
 
       before do
-        component.update!(phase_settings: { active_step_id => { votes: :finished, show_votes: } })
+        component.update!(phase_settings: { active_phase_id => { votes: :finished, show_votes: } })
 
         visit_budget
         click_on translated(project.title)
@@ -238,10 +238,10 @@ describe "Explore projects", :slow do
         end
 
         context "and votes are not shown" do
-          let(:active_step_id) { component.participatory_space.active_phase.id }
+          let(:active_phase_id) { component.participatory_space.active_phase.id }
 
           before do
-            component.update!(phase_settings: { active_step_id => { show_votes: false } })
+            component.update!(phase_settings: { active_phase_id => { show_votes: false } })
           end
 
           it "does not show the votes" do

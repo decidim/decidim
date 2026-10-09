@@ -8,12 +8,12 @@ describe "Participatory texts" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  def update_step_settings(new_step_settings)
-    active_step_id = participatory_process.active_phase.id.to_s
-    phase_settings = component.phase_settings[active_step_id].to_h.merge(new_step_settings)
+  def update_phase_settings(new_phase_settings)
+    active_phase_id = participatory_process.active_phase.id.to_s
+    phase_settings = component.phase_settings[active_phase_id].to_h.merge(new_phase_settings)
     component.update!(
       settings: component.settings.to_h.merge(amendments_enabled: true),
-      phase_settings: { active_step_id => phase_settings }
+      phase_settings: { active_phase_id => phase_settings }
     )
   end
 
@@ -187,7 +187,7 @@ describe "Participatory texts" do
 
       context "without existing amendments" do
         context "when amendment CREATION is enabled" do
-          before { update_step_settings(amendment_creation_enabled: true) }
+          before { update_phase_settings(amendment_creation_enabled: true) }
 
           it_behaves_like "showing the Amend button and amendments counter when hovered" do
             let(:amendments_count) { 0 }
@@ -198,7 +198,7 @@ describe "Participatory texts" do
         end
 
         context "when amendment CREATION is disabled" do
-          before { update_step_settings(amendment_creation_enabled: false) }
+          before { update_phase_settings(amendment_creation_enabled: false) }
 
           it_behaves_like "hiding the Amend button and amendments counter when hovered"
         end
@@ -212,10 +212,10 @@ describe "Participatory texts" do
         let(:user) { amendment1.amender }
 
         context "when amendment CREATION is enabled" do
-          before { update_step_settings(amendment_creation_enabled: true) }
+          before { update_phase_settings(amendment_creation_enabled: true) }
 
           context "and amendments VISIBILITY is set to 'all'" do
-            before { update_step_settings(amendments_visibility: "all") }
+            before { update_phase_settings(amendments_visibility: "all") }
 
             context "when the user is logged in" do
               before { login_as user, scope: :user }
@@ -235,7 +235,7 @@ describe "Participatory texts" do
           end
 
           context "and amendments VISIBILITY is set to 'participants'" do
-            before { update_step_settings(amendments_visibility: "participants") }
+            before { update_phase_settings(amendments_visibility: "participants") }
 
             context "when the user is logged in" do
               before { login_as user, scope: :user }
@@ -258,10 +258,10 @@ describe "Participatory texts" do
         end
 
         context "when amendment CREATION is disabled" do
-          before { update_step_settings(amendment_creation_enabled: false) }
+          before { update_phase_settings(amendment_creation_enabled: false) }
 
           context "and amendments VISIBILITY is set to 'all'" do
-            before { update_step_settings(amendments_visibility: "all") }
+            before { update_phase_settings(amendments_visibility: "all") }
 
             context "when the user is logged in" do
               let(:user) { amendment1.amender }
@@ -283,7 +283,7 @@ describe "Participatory texts" do
           end
 
           context "and amendments VISIBILITY is set to 'participants'" do
-            before { update_step_settings(amendments_visibility: "participants") }
+            before { update_phase_settings(amendments_visibility: "participants") }
 
             context "when the user is logged in" do
               let(:user) { amendment1.amender }

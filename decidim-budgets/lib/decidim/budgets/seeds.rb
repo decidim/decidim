@@ -38,7 +38,7 @@ module Decidim
             "<p>#{::Faker::Lorem.paragraph}</p>"
         end
 
-        phase_settings = if participatory_space.allows_steps?
+        phase_settings = if participatory_space.allows_phases?
                            { participatory_space.active_phase.id => {
                              votes: %w(enabled disabled finished).sample
                            } }

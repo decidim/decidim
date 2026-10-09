@@ -346,7 +346,7 @@ describe "Filter Proposals", :slow do
   end
 
   context "when filtering proposals by ACTIVITY" do
-    let(:active_step_id) { component.participatory_space.active_phase.id }
+    let(:active_phase_id) { component.participatory_space.active_phase.id }
     let!(:voted_proposal) { create(:proposal, component:) }
     let!(:vote) { create(:proposal_vote, proposal: voted_proposal, author: user) }
     let!(:proposal_list) { create_list(:proposal, 3, component:) }
@@ -379,7 +379,7 @@ describe "Filter Proposals", :slow do
 
       context "when votes are enabled" do
         before do
-          component.update!(phase_settings: { active_step_id => { votes_enabled: true } })
+          component.update!(phase_settings: { active_phase_id => { votes_enabled: true } })
           visit_component
         end
 
@@ -400,7 +400,7 @@ describe "Filter Proposals", :slow do
 
       context "when votes are not enabled" do
         before do
-          component.update!(phase_settings: { active_step_id => { votes_enabled: false } })
+          component.update!(phase_settings: { active_phase_id => { votes_enabled: false } })
           visit_component
         end
 

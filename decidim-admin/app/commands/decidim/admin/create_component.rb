@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # This command gets called when a component is created from the admin panel.
     class CreateComponent < Decidim::Commands::CreateResource
-      fetch_form_attributes :name, :participatory_space, :weight, :settings, :default_step_settings, :phase_settings
+      fetch_form_attributes :name, :participatory_space, :weight, :settings, :default_phase_settings, :phase_settings
 
       private
 

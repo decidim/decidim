@@ -34,10 +34,10 @@ module Decidim
         manifest.settings(:global).schema.new(dummy_global_translatable_text, "en")
       end
 
-      let(:default_step_settings) do
+      let(:default_phase_settings) do
         return {} unless manifest
 
-        manifest.settings(:step).schema.new(dummy_step_translatable_text, "en")
+        manifest.settings(:phase).schema.new(dummy_step_translatable_text, "en")
       end
 
       let(:params) do
@@ -46,7 +46,7 @@ module Decidim
           "manifest" => manifest,
           "participatory_space" => participatory_space,
           "settings" => settings,
-          "default_step_settings" => default_step_settings
+          "default_phase_settings" => default_phase_settings
         }
       end
 
@@ -88,7 +88,7 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
-      context "when a default_step_settings required attribute is missing" do
+      context "when a default_phase_settings required attribute is missing" do
         let(:dummy_step_translatable_text) do
           {
             "dummy_step_translatable_text_ca" => "Dummy text ca",
@@ -102,8 +102,8 @@ module Decidim
 
       context "when the form has phase_settings" do
         before do
-          params.except("default_step_settings").merge(
-            "phase_settings" => { "1" => default_step_settings }
+          params.except("default_phase_settings").merge(
+            "phase_settings" => { "1" => default_phase_settings }
           )
         end
 

@@ -41,7 +41,7 @@ module Decidim
       end
 
       def create_component!
-        phase_settings = if participatory_space.allows_steps?
+        phase_settings = if participatory_space.allows_phases?
                            { participatory_space.active_phase.id => {
                              votes_enabled: true,
                              votes_blocked: [false, true].sample,
