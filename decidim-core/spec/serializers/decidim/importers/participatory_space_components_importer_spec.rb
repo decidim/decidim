@@ -59,6 +59,27 @@ module Decidim::Importers
           expect_imported_to_be_equal(component2)
         end
 
+        context "when importing a legacy export using step settings keys" do
+          subject do
+            described_class.new(participatory_space).from_json(legacy_json_as_text, user)
+          end
+
+          let(:legacy_json_as_text) do
+            json = JSON.parse(json_as_text)
+            json.each do |serialized|
+              settings = serialized["settings"]
+              settings["steps"] = settings.delete("phases") if settings.has_key?("phases")
+              settings["default_step"] = settings.delete("default_phase") if settings.has_key?("default_phase")
+            end
+            JSON.generate(json)
+          end
+
+          it "imports the legacy step settings as phase settings" do
+            expect_imported_to_be_equal(component1)
+            expect_imported_to_be_equal(component2)
+          end
+        end
+
         def expect_imported_to_be_equal(component)
           actual_attrs = imported_from(component).attributes.except("id", "updated_at", "created_at", "name")
           imported_name = imported_from(component).attributes["name"]

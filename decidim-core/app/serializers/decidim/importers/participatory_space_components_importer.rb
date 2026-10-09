@@ -34,7 +34,7 @@ module Decidim
         ActiveRecord::Base.transaction do
           json_ary.collect do |serialized|
             attributes = serialized.with_indifferent_access.except(:id, :participatory_space_id, :participatory_space_type)
-            phase_settings = attributes["settings"]["phases"]
+            phase_settings = normalize_legacy_settings(attributes)
             # we override the parent participatory space phases id
             override_phase_settings_ids(attributes, phase_settings)
             import_component_from_attributes(attributes, user)
@@ -61,6 +61,18 @@ module Decidim
       def import_component_specific_data(component, serialized, user)
         specific_importer = component.manifest.specific_data_importer_class.new(component)
         specific_importer.import(serialized[:specific_data], user)
+      end
+
+      # Exports generated before the steps-to-phases rename store the phase
+      # settings under the legacy "steps"/"default_step" keys. Rename them so
+      # components imported from older Decidim versions keep their settings.
+      def normalize_legacy_settings(attributes)
+        settings = attributes["settings"]
+        return unless settings
+
+        settings["phases"] = settings.delete("steps") if settings.has_key?("steps") && !settings.has_key?("phases")
+        settings["default_phase"] = settings.delete("default_step") if settings.has_key?("default_step") && !settings.has_key?("default_phase")
+        settings["phases"]
       end
 
       def override_phase_settings_ids(attributes, phase_settings)
