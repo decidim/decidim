@@ -14,7 +14,7 @@
   })();
 <% end %>
 
-<% if vote_limit_enabled? %>
+<% if vote_limit_rule? %>
   (function() {
     var $remainingVotesCount = $('div[data-remaining-votes-count="true"]');
     var $notVotedButtons = $('*[data-proposal-vote-button="true"]').not('[id^=vote_button-]');
@@ -31,7 +31,7 @@
   }());
 <% end %>
 
-<% if show_voting_rules? %>
+<% if voting_rules_cell.show? %>
   (function() {
     var $remainingVotesNotification = $('#remaining-votes-notification');
     var $exitProposalModal = $('#exit-proposal-notification');
@@ -39,10 +39,10 @@
     var $votingRulesNode = $('.item_voting_rules')
 
     if($votingRules[0]) {
-      morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
+      morphdom($votingRules[0], '<%= j(cell("decidim/proposals/voting_rules", current_component).to_s).strip.html_safe %>');
     }
 
-    <% if minimum_votes_per_user_enabled? && remaining_minimum_votes_count_for_user.zero? %>
+    <% if minimum_votes_per_user_rule? && remaining_minimum_votes_count_for_user.zero? %>
       $votingRulesNode.prepend(`<%= j(render partial: "decidim/proposals/proposals/notification_alert_box").strip.html_safe %>`)
     <% end %>
     if ($exitProposalModal[0]) {

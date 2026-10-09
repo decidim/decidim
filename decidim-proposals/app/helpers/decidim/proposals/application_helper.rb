@@ -57,6 +57,13 @@ module Decidim
         proposal_limit.present?
       end
 
+      # Public: Checks whether creating proposals is enabled in the current step.
+      #
+      # Returns true if proposal creation is enabled, false otherwise.
+      def proposal_creation_enabled?
+        current_settings.respond_to?(:creation_enabled) && current_settings.creation_enabled
+      end
+
       def not_from_participatory_text(proposal)
         proposal.participatory_text_level.nil?
       end
@@ -105,21 +112,56 @@ module Decidim
       end
 
       def layout_item_classes
-        if show_voting_rules?
+        if voting_rules_cell.show?
           "layout-item lg:pt-4"
         else
           "layout-item"
         end
       end
 
-      def show_voting_rules?
-        return false if !votes_enabled? || votes_blocked?
+      # Public: Returns the cell responsible for rendering the voting rules
+      # callout and deciding whether it should be displayed.
+      def voting_rules_cell
+        @voting_rules_cell ||= cell("decidim/proposals/voting_rules", current_component)
+      end
 
-        return true if vote_limit_enabled?
-        return true if threshold_per_proposal_enabled?
-        return true if proposal_limit_enabled?
-        return true if can_accumulate_votes_beyond_threshold?
-        return true if minimum_votes_per_user_enabled?
+      # Public: Checks whether voting is currently open in this step.
+      #
+      # Returns true if voting is enabled and not blocked, false otherwise.
+      def voting_open?
+        votes_enabled? && !votes_blocked?
+      end
+
+      # Public: Checks whether the proposal-creation limit rule is relevant in
+      # the current state.
+      #
+      # The rule is relevant when a limit is configured and either proposals can
+      # be created or voting is not open (in which case it is the only rule that
+      # can be shown).
+      def proposal_limit_rule?
+        return false unless proposal_limit_enabled?
+
+        proposal_creation_enabled? || !voting_open?
+      end
+
+      # Public: Checks whether the vote limit rule is relevant in the current state.
+      def vote_limit_rule?
+        voting_open? && vote_limit_enabled?
+      end
+
+      # Public: Checks whether the threshold per proposal rule is relevant.
+      def threshold_per_proposal_rule?
+        voting_open? && threshold_per_proposal_enabled?
+      end
+
+      # Public: Checks whether the accumulate votes beyond threshold rule is relevant.
+      def can_accumulate_votes_beyond_threshold_rule?
+        voting_open? && can_accumulate_votes_beyond_threshold?
+      end
+
+      # Public: Checks whether the minimum votes per user rule is relevant.
+      def minimum_votes_per_user_rule?
+        voting_open? && minimum_votes_per_user_enabled?
       end
 
       def filter_type_values

@@ -1,0 +1,5 @@
+<div class="item_voting_rules">
+  <%= view_context.render(partial: "decidim/proposals/proposals/remaining_votes_notification") if minimum_votes_per_user_rule? %>
+
+  <%= cell("decidim/announcement", { title: t("title", scope: i18n_scope), body: render(:rules) }, id: "voting-rules") %>
+</div>
