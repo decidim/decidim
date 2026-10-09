@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><image id="pic" width="16" height="16"/><g><animate xlink:href="#pic" attributeName="href" values="#none;https://tracker.example.org/track.gif" dur="1s" fill="freeze"/></g></svg>

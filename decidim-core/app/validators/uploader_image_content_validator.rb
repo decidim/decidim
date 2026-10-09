@@ -1,0 +1,276 @@
+# frozen_string_literal: true
+
+# This validator ensures that files declared as images actually contain valid
+# image data of the declared format. It does so by checking the leading bytes
+# (magic bytes / file signature) of the file against the known signatures of
+# the supported image formats, and by comparing the detected format with the
+# content type declared by the file.
+#
+# This prevents non-image files (e.g. HTML, MATLAB, or arbitrary binary data)
+# from being uploaded with an image extension and a spoofed image content type.
+# Such files would later cause image processing to fail (e.g. in ImageMagick or
+# in libvips when generating a variant) and could lead to a denial of service.
+#
+# Comparing the detected format with the declared content type also prevents
+# files whose contents do not match their declaration (e.g. a JPEG file
+# declared as image/png), so that the stored MIME type is consistent with the
+# file contents.
+#
+# SVG documents are XML-based and can contain scripts and other active content,
+# which is executed when the document is rendered by the browser. Because of
+# that, the contents of files detected as SVG are additionally validated by
+# Decidim::SvgContentValidator, so that documents which could execute scripts
+# or read external resources are rejected instead of being stored as they are.
+class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeValidator
+  # The number of leading bytes to read from the file to detect its signature.
+  SIGNATURE_LENGTH = 128
+
+  # The known signatures of the supported binary image formats. Each entry
+  # associates a format with a list of [offset, bytes] pairs that must all
+  # match at their respective offsets for the file to be considered of that
+  # format.
+  BINARY_IMAGE_SIGNATURES = [
+    [:png, [[0, "\x89PNG\r\n\x1A\n".b]]],
+    [:jpeg, [[0, "\xFF\xD8\xFF".b]]],
+    [:gif, [[0, "GIF87a".b]]],
+    [:gif, [[0, "GIF89a".b]]],
+    [:bmp, [[0, "BM".b]]],
+    [:tiff, [[0, "II*\x00".b]]],
+    [:tiff, [[0, "MM\x00*".b]]],
+    [:webp, [[0, "RIFF".b], [8, "WEBP".b]]]
+  ].freeze
+
+  # The major brands of the ISOBMFF "ftyp" box that identify HEIF and AVIF
+  # images. These formats share the same leading layout as other "ftyp" files
+  # (e.g. MP4 video), so the brand at offset 8 is used to tell images apart.
+  # The brands are grouped per format family, because HEIF files may use any
+  # of the HEIF brands regardless of their extension (e.g. a ".heic" file
+  # with the "mif1" major brand).
+  FTYPE_IMAGE_BRANDS = {
+    heif: %w(heic heix hevc hevx mif1 msf1).map(&:b).freeze,
+    avif: %w(avif avis).map(&:b).freeze
+  }.freeze
+
+  # The leading markup of an SVG document, which is XML-based and therefore has
+  # no fixed binary signature.
+  SVG_SIGNATURES = ["<svg".b, "<?xml".b, "<!DOCTYPE svg".b].freeze
+
+  # The content types accepted for each image format detected from the file
+  # signature. The content type declared by the file must be one of these, so
+  # that the stored MIME type is consistent with the file contents. The lists
+  # include the aliases commonly used in the wild for the same format.
+  FORMAT_CONTENT_TYPES = {
+    png: %w(image/png),
+    jpeg: %w(image/jpeg image/jpg image/pjpeg),
+    gif: %w(image/gif),
+    bmp: %w(image/bmp image/x-ms-bmp image/windows-bmp),
+    tiff: %w(image/tiff image/x-tiff),
+    webp: %w(image/webp),
+    heif: %w(image/heic image/heif image/heic-sequence image/heif-sequence),
+    avif: %w(image/avif image/avis),
+    svg: %w(image/svg+xml)
+  }.freeze
+
+  def validate_each(record, attribute, value)
+    begin
+      values = parse_values(value)
+    rescue JSON::ParserError
+      record.errors.add attribute, :invalid
+      return
+    end
+
+    return if values.empty?
+
+    values.each do |val|
+      validate_image_content(record, attribute, val)
+    end
+  end
+
+  def check_validity!; end
+
+  private
+
+  def validate_image_content(record, attribute, file)
+    content_type = normalize_content_type(declared_content_type(file))
+    return unless content_type.start_with?("image/")
+
+    signature = file_signature(file)
+    return if signature.nil?
+
+    detected = image_format(signature)
+    return add_invalid_image(record, attribute) unless valid_image_format?(detected, content_type)
+
+    validate_svg_content(record, attribute, file) if detected == :svg
+  end
+
+  # The content type declared by the file, either through the blob of an
+  # attached file or through the upload itself.
+  def declared_content_type(file)
+    if file.is_a?(ActiveStorage::Attached)
+      file.blob&.content_type
+    else
+      file.try(:content_type)
+    end
+  end
+
+  # Strips the content type parameters (e.g. "image/png;charset=binary") and
+  # normalizes the casing, as content types are case insensitive.
+  def normalize_content_type(content_type)
+    content_type.to_s.split(";", 2).first.to_s.strip.downcase
+  end
+
+  # Whether the format detected from the file signature is one of the
+  # supported image formats and is consistent with the content type declared
+  # by the file.
+  def valid_image_format?(detected, content_type)
+    return false if detected.nil?
+
+    FORMAT_CONTENT_TYPES.fetch(detected).include?(content_type)
+  end
+
+  # Validates the contents of a file detected as SVG, which can contain active
+  # content. The validation is delegated to Decidim::SvgContentValidator, so
+  # that the SVG specific logic is kept out of this validator. Documents which
+  # are not well formed SVG documents are rejected as invalid images, and the
+  # ones which could execute scripts or read external resources when they are
+  # rendered are rejected as unsafe files.
+  def validate_svg_content(record, attribute, file)
+    case Decidim::SvgContentValidator.validate(file_content(file))
+    when :invalid
+      add_invalid_image(record, attribute)
+    when :unsafe
+      add_unsafe_svg(record, attribute)
+    end
+  end
+
+  def add_invalid_image(record, attribute)
+    record.errors.add attribute, I18n.t("decidim.errors.files.file_is_not_a_valid_image")
+  end
+
+  def add_unsafe_svg(record, attribute)
+    record.errors.add attribute, I18n.t("decidim.errors.files.file_contains_unsafe_content")
+  end
+
+  # Reads the leading bytes (signature) of the file. Returns nil when the file
+  # cannot be read, in which case the validation is skipped. Empty files yield
+  # an empty signature, which is rejected.
+  def file_signature(file)
+    read_file(file, SIGNATURE_LENGTH)
+  end
+
+  # Reads the whole contents of the file. Returns nil when the file cannot be
+  # read.
+  def file_content(file)
+    read_file(file)
+  end
+
+  # Reads the contents of the file, or only its leading bytes when a maximum
+  # length is given.
+  def read_file(file, max_length = nil)
+    if uploaded_file?(file)
+      File.open(file.path, "rb") { |io| read_io(io, max_length) }
+    elsif file.is_a?(ActiveStorage::Attached)
+      read_attached(file, max_length)
+    end
+  rescue ActiveStorage::Error, Errno::ENOENT, IOError
+    nil
+  end
+
+  # Reads the contents of an IO, or only its leading bytes when a maximum
+  # length is given. IO#read returns nil at the end of the file, so an empty
+  # file would otherwise be indistinguishable from an unreadable one and skip
+  # the validation. Normalizing it to an empty content keeps empty files
+  # rejected, while nil is kept for files which cannot be read at all.
+  def read_io(io, max_length = nil)
+    (max_length ? io.read(max_length) : io.read) || ""
+  end
+
+  # Reads the contents of an attached file. Blobs are only uploaded once the
+  # record is saved, so for still unpersisted blobs (e.g. an image assigned to
+  # a new record) the bytes are read from the pending attachable. Otherwise a
+  # spoofed image could be saved without being checked.
+  def read_attached(attached, max_length = nil)
+    blob = attached.blob
+    return read_blob(blob, max_length) if blob&.persisted?
+
+    read_pending_attachable(attached, max_length)
+  end
+
+  # ActiveStorage keeps the attachable of a pending attachment in the record's
+  # attachment changes until the blob is uploaded when the record is saved, so
+  # its contents can already be read during the validation.
+  def read_pending_attachable(attached, max_length = nil)
+    attachable = pending_attachable(attached)
+    if uploaded_file?(attachable) || attachable.is_a?(File)
+      File.open(attachable.path, "rb") { |io| read_io(io, max_length) }
+    elsif attachable.is_a?(Pathname)
+      File.open(attachable.to_path, "rb") { |io| read_io(io, max_length) }
+    elsif attachable.is_a?(Hash)
+      read_io_without_consuming(attachable[:io], max_length)
+    end
+  end
+
+  def pending_attachable(attached)
+    change = attached.record.try(:attachment_changes)&.[](attached.name.to_s)
+    change.try(:attachable)
+  end
+
+  # Reads the contents without consuming the IO, so ActiveStorage can still
+  # upload it after the validation.
+  def read_io_without_consuming(io, max_length = nil)
+    return unless io.respond_to?(:read) && io.respond_to?(:rewind)
+
+    io.rewind
+    content = read_io(io, max_length)
+    io.rewind
+    content
+  end
+
+  # Reads the whole contents of the blob, or only its leading bytes when a
+  # maximum length is given to keep the operation cheap for large files. The
+  # services return nil when the blob is empty, which is normalized to an
+  # empty content so that empty blobs are rejected. Falls back to opening the
+  # whole blob when the service does not support ranged downloads.
+  def read_blob(blob, max_length = nil)
+    return blob.download if max_length.nil?
+
+    blob.download_chunk(0...max_length) || ""
+  rescue NotImplementedError
+    blob.open { |io| read_io(io, max_length) }
+  end
+
+  # The image format detected from the file signature, or nil when the
+  # signature does not match any of the supported image formats.
+  def image_format(signature)
+    return nil if signature.blank?
+
+    binary_image_format(signature) || ftyp_image_format(signature) || svg_format(signature)
+  end
+
+  def binary_image_format(signature)
+    BINARY_IMAGE_SIGNATURES.find do |_format, pairs|
+      pairs.all? { |offset, bytes| signature[offset, bytes.bytesize] == bytes }
+    end&.first
+  end
+
+  # The format of an ISOBMFF-based image (HEIF or AVIF). These files start with
+  # a "ftyp" box at offset 4 followed by a major brand at offset 8.
+  def ftyp_image_format(signature)
+    return nil unless signature[4, 4] == "ftyp".b
+
+    FTYPE_IMAGE_BRANDS.find { |_format, brands| brands.include?(signature[8, 4]) }&.first
+  end
+
+  def svg_format(signature)
+    content = signature.sub(/\A\xEF\xBB\xBF/n, "").lstrip
+    return nil unless SVG_SIGNATURES.any? { |svg_signature| content.start_with?(svg_signature) }
+
+    :svg
+  end
+
+  def uploaded_file?(file)
+    return true if defined?(Rack::Test::UploadedFile) && file.is_a?(Rack::Test::UploadedFile)
+
+    file.is_a?(ActionDispatch::Http::UploadedFile)
+  end
+end

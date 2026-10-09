@@ -15,6 +15,7 @@ module Decidim
           file_size: { less_than_or_equal_to: max_size },
           organization_present: true,
           uploader_content_type: true,
+          uploader_image_content: true,
           uploader_image_dimensions: true
         )
 
