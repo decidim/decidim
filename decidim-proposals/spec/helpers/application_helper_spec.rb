@@ -127,6 +127,110 @@ module Decidim
         end
       end
 
+      describe "#show_voting_rules?" do
+        subject { helper.show_voting_rules? }
+
+        let(:organization) { create(:organization) }
+        let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+        let(:component) { create(:proposal_component, participatory_space:, **component_options) }
+        let(:component_options) { {} }
+
+        before do
+          allow(helper).to receive(:current_component).and_return(component)
+          allow(helper).to receive(:component_settings).and_return(component.settings)
+          allow(helper).to receive(:current_settings).and_return(component.current_settings)
+          allow(helper).to receive(:current_user).and_return(nil)
+          allow(helper).to receive(:proposals_path).and_return("/proposals")
+        end
+
+        def rendered_voting_rules
+          helper.render(partial: "decidim/proposals/proposals/voting_rules")
+        end
+
+        def rule_description(rule, **)
+          I18n.t("decidim.proposals.proposals.voting_rules.#{rule}.description", **)
+        end
+
+        context "when voting is disabled and blocked with a proposal limit configured" do
+          let(:component_options) do
+            {
+              settings: {
+                proposal_limit: 5,
+                vote_limit: 10,
+                threshold_per_proposal: 73,
+                can_accumulate_votes_beyond_threshold: true,
+                minimum_votes_per_user: 2
+              },
+              step_settings: {
+                participatory_space.active_step.id => {
+                  votes_enabled: false,
+                  votes_blocked: true
+                }
+              }
+            }
+          end
+
+          it "returns true" do
+            expect(subject).to be true
+          end
+
+          it "renders only the proposal creation limit rule" do
+            output = rendered_voting_rules
+
+            expect(output).to include(rule_description(:proposal_limit, limit: 5))
+            expect(output).not_to include(rule_description(:vote_limit, limit: 10))
+            expect(output).not_to include(rule_description(:threshold_per_proposal, limit: 73))
+            expect(output).not_to include(rule_description(:can_accumulate_votes_beyond_threshold, limit: 73))
+            expect(output).not_to include(rule_description(:minimum_votes_per_user, votes: 2))
+          end
+        end
+
+        context "when proposal creation is not enabled but voting is enabled and not blocked" do
+          let(:component_options) do
+            {
+              settings: {
+                proposal_limit: 5,
+                vote_limit: 10,
+                threshold_per_proposal: 73,
+                can_accumulate_votes_beyond_threshold: true,
+                minimum_votes_per_user: 2
+              },
+              step_settings: {
+                participatory_space.active_step.id => {
+                  votes_enabled: true,
+                  votes_blocked: false,
+                  creation_enabled: false
+                }
+              }
+            }
+          end
+
+          it "returns true" do
+            expect(subject).to be true
+          end
+
+          it "renders only the vote related rules" do
+            output = rendered_voting_rules
+
+            expect(output).not_to include(rule_description(:proposal_limit, limit: 5))
+            expect(output).to include(rule_description(:vote_limit, limit: 10))
+            expect(output).to include(rule_description(:threshold_per_proposal, limit: 73))
+            expect(output).to include(rule_description(:can_accumulate_votes_beyond_threshold, limit: 73))
+            expect(output).to include(rule_description(:minimum_votes_per_user, votes: 2))
+          end
+        end
+
+        context "when no relevant rule is configured" do
+          it "returns false" do
+            expect(subject).to be false
+          end
+
+          it "does not render the callout" do
+            expect(rendered_voting_rules).to be_blank
+          end
+        end
+      end
+
       describe "#votes_given" do
         subject { helper.send(:votes_given) }
 
