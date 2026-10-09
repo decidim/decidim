@@ -112,19 +112,17 @@ module Decidim
       end
 
       def layout_item_classes
-        if show_voting_rules?
+        if voting_rules_cell.show?
           "layout-item lg:pt-4"
         else
           "layout-item"
         end
       end
 
-      def show_voting_rules?
-        proposal_limit_rule? ||
-          vote_limit_rule? ||
-          threshold_per_proposal_rule? ||
-          can_accumulate_votes_beyond_threshold_rule? ||
-          minimum_votes_per_user_rule?
+      # Public: Returns the cell responsible for rendering the voting rules
+      # callout and deciding whether it should be displayed.
+      def voting_rules_cell
+        @voting_rules_cell ||= cell("decidim/proposals/voting_rules", current_component)
       end
 
       # Public: Checks whether voting is currently open in this step.

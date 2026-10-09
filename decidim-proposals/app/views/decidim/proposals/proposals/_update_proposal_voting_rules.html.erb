@@ -1,6 +1,0 @@
-<% if show_voting_rules? %>
-  <div class="item_voting_rules">
-    <%= render partial: "remaining_votes_notification" if minimum_votes_per_user_rule? %>
-    <%= render partial: "proposal_voting_rules" %>
-  </div>
-<% end %>

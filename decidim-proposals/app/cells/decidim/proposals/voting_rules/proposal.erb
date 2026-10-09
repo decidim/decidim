@@ -1,0 +1,19 @@
+<div class="item_voting_rules">
+  <%= view_context.render(partial: "decidim/proposals/proposals/remaining_votes_notification") if minimum_votes_per_user_rule? %>
+
+  <div id="proposal-voting-rules" class="flash flex-col p-0 gap-0">
+    <button id="dropdown-trigger-proposal-voting-rules" data-controller="dropdown" data-target="dropdown-menu-proposal-voting-rules" class="flash__title">
+      <%= t("title", scope: i18n_scope) %>
+      <%= icon "arrow-down-s-line" %>
+      <%= icon "arrow-up-s-line" %>
+    </button>
+
+    <div class="flash__message">
+      <div class="text-base editor-content">
+        <ul id="dropdown-menu-proposal-voting-rules" class="mt-0 mb-2">
+          <%= render :list_items %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

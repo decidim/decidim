@@ -31,7 +31,7 @@
   }());
 <% end %>
 
-<% if show_voting_rules? %>
+<% if voting_rules_cell.show? %>
   (function() {
     var $remainingVotesNotification = $('#remaining-votes-notification');
     var $exitProposalModal = $('#exit-proposal-notification');
@@ -39,7 +39,7 @@
     var $votingRulesNode = $('.item_voting_rules')
 
     if($votingRules[0]) {
-      morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
+      morphdom($votingRules[0], '<%= j(cell("decidim/proposals/voting_rules", current_component).to_s).strip.html_safe %>');
     }
 
     <% if minimum_votes_per_user_rule? && remaining_minimum_votes_count_for_user.zero? %>

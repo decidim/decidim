@@ -27,9 +27,9 @@ extra_admin_link(
 <% append_javascript_pack_tag "decidim_proposals" %>
 
 <% content_for :item_header do %>
-  <% if show_voting_rules? %>
+  <% if voting_rules_cell.show? %>
     <div class="layout-item-complementary">
-      <%= render partial: "update_proposal_voting_rules" %>
+      <%= voting_rules_cell.proposal_rules %>
     </div>
   <% end %>
 <% end %>
