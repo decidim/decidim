@@ -252,7 +252,7 @@ describe("ConsentManager", () => {
       });
 
       it("sets the cookie with the correct flags", () => {
-        expect(cookie.domain).toEqual("decidim.dev");
+        expect(cookie.domain).toBeUndefined();
         expect(cookie.sameSite).toEqual("Lax");
         expect(cookie.secure).toBe(true);
       });
