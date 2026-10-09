@@ -27,8 +27,8 @@ module Decidim
       before_action :set_participatory_text
 
       # rubocop:disable Naming/VariableNumber
-      STEP1 = :phase_1
-      STEP2 = :phase_2
+      STEP1 = :step_1
+      STEP2 = :step_2
       # rubocop:enable Naming/VariableNumber
 
       def index

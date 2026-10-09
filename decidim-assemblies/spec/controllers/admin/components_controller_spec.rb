@@ -47,7 +47,7 @@ module Decidim
               },
               default_phase_settings: {
                 comments_blocked: true,
-                dummy_step_translatable_text_en: "Dummy text"
+                dummy_phase_translatable_text_en: "Dummy text"
               }
             }
           end

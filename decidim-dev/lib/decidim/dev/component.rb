@@ -25,10 +25,10 @@ Decidim.register_component(:dummy) do |component|
 
   component.settings(:phase) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
-    settings.attribute :dummy_step_attribute1, type: :boolean
-    settings.attribute :dummy_step_attribute2, type: :boolean, readonly: ->(_context) { false }
-    settings.attribute :dummy_step_translatable_text, type: :text, translated: true, editor: true, required: true
-    settings.attribute :readonly_step_attribute, type: :boolean, default: true, readonly: ->(_context) { true }
+    settings.attribute :dummy_phase_attribute1, type: :boolean
+    settings.attribute :dummy_phase_attribute2, type: :boolean, readonly: ->(_context) { false }
+    settings.attribute :dummy_phase_translatable_text, type: :text, translated: true, editor: true, required: true
+    settings.attribute :readonly_phase_attribute, type: :boolean, default: true, readonly: ->(_context) { true }
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true

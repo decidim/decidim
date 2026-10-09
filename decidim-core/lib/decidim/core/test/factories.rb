@@ -481,7 +481,7 @@ FactoryBot.define do
 
     default_phase_settings do
       {
-        dummy_step_translatable_text: generate_localized_title(:dummy_step_translatable_text, skip_injection:)
+        dummy_phase_translatable_text: generate_localized_title(:dummy_phase_translatable_text, skip_injection:)
       }
     end
 
@@ -489,7 +489,7 @@ FactoryBot.define do
       phase_settings do
         participatory_space_with_phases if participatory_space.active_phase.nil?
         {
-          participatory_space.active_phase.id => { dummy_step_setting: true }
+          participatory_space.active_phase.id => { dummy_phase_setting: true }
         }
       end
     end

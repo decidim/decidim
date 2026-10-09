@@ -34,8 +34,8 @@ module Decidim
         ActiveRecord::Base.transaction do
           json_ary.collect do |serialized|
             attributes = serialized.with_indifferent_access.except(:id, :participatory_space_id, :participatory_space_type)
-            phase_settings = attributes["settings"]["steps"]
-            # we override the parent participatory space steps id
+            phase_settings = attributes["settings"]["phases"]
+            # we override the parent participatory space phases id
             override_phase_settings_ids(attributes, phase_settings)
             import_component_from_attributes(attributes, user)
           end
@@ -66,9 +66,9 @@ module Decidim
       def override_phase_settings_ids(attributes, phase_settings)
         return unless @participatory_space.has_steps? && phase_settings.present?
 
-        @participatory_space.phases.each do |step|
-          old_id = attributes["settings"]["steps"].keys.first
-          phase_settings[step.id.to_s] = phase_settings.delete(old_id)
+        @participatory_space.phases.each do |phase|
+          old_id = attributes["settings"]["phases"].keys.first
+          phase_settings[phase.id.to_s] = phase_settings.delete(old_id)
         end
       end
     end

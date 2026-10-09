@@ -356,8 +356,8 @@ module Decidim
           dummy_global_translatable_text: { en: content }
         }
         component.phase_settings = {
-          step.id => {
-            dummy_step_translatable_text: { en: content }
+          phase.id => {
+            dummy_phase_translatable_text: { en: content }
           }
         }
         component.save!
@@ -365,11 +365,11 @@ module Decidim
       end
 
       # settings.attribute :dummy_global_translatable_text, type: :text, translated: true, editor: true, required: true
-      # settings.attribute :dummy_step_translatable_text, type: :text, translated: true, editor: true, required: true
+      # settings.attribute :dummy_phase_translatable_text, type: :text, translated: true, editor: true, required: true
       it "changes the settings attributes" do
         described_class.update_settings(
           Decidim::Component.where(id: component.id),
-          { global: [:dummy_global_translatable_text], steps: { type: :multi, keys: [:dummy_step_translatable_text] } }
+          { global: [:dummy_global_translatable_text], phases: { type: :multi, keys: [:dummy_phase_translatable_text] } }
         )
 
         component.reload
@@ -377,7 +377,7 @@ module Decidim
         expect(settings["global"]["dummy_global_translatable_text"]).to eq(
           "en" => expected_content
         )
-        expect(settings["steps"][step.id.to_s]["dummy_step_translatable_text"]).to eq(
+        expect(settings["phases"][phase.id.to_s]["dummy_phase_translatable_text"]).to eq(
           "en" => expected_content
         )
       end
@@ -388,10 +388,10 @@ module Decidim
 
       let(:manifest) { component.manifest }
 
-      it "returns both global and step editor attributes" do
+      it "returns both global and phase editor attributes" do
         expect(subject).to eq(
           global: ["dummy_global_translatable_text"],
-          step: ["dummy_step_translatable_text"]
+          phase: ["dummy_phase_translatable_text"]
         )
       end
 
@@ -409,7 +409,7 @@ module Decidim
         end
       end
 
-      context "with only step editor settings" do
+      context "with only phase editor settings" do
         let(:manifest) do
           Decidim::ComponentManifest.new.tap do |manifest|
             manifest.settings(:phase) do |settings|
@@ -418,8 +418,8 @@ module Decidim
           end
         end
 
-        it "returns only the step editor settings" do
-          expect(subject).to eq(step: ["example"])
+        it "returns only the phase editor settings" do
+          expect(subject).to eq(phase: ["example"])
         end
       end
 
@@ -441,8 +441,8 @@ module Decidim
           dummy_global_translatable_text: { en: content }
         }
         component.phase_settings = {
-          step.id => {
-            dummy_step_translatable_text: { en: content }
+          phase.id => {
+            dummy_phase_translatable_text: { en: content }
           }
         }
         component.save!
@@ -459,7 +459,7 @@ module Decidim
         expect(settings["global"]["dummy_global_translatable_text"]).to eq(
           "en" => expected_content
         )
-        expect(settings["steps"][step.id.to_s]["dummy_step_translatable_text"]).to eq(
+        expect(settings["phases"][phase.id.to_s]["dummy_phase_translatable_text"]).to eq(
           "en" => expected_content
         )
       end

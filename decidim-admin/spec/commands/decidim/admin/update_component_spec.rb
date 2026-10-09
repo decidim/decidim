@@ -28,17 +28,17 @@ module Decidim::Admin
           readonly_attribute: false
         },
         default_phase_settings: {
-          step.id.to_s => {
-            dummy_step_attribute1: true,
-            dummy_step_attribute2: false,
-            readonly_step_attribute: false
+          phase.id.to_s => {
+            dummy_phase_attribute1: true,
+            dummy_phase_attribute2: false,
+            readonly_phase_attribute: false
           }
         },
         phase_settings: {
-          step.id.to_s => {
-            dummy_step_attribute1: true,
-            dummy_step_attribute2: false,
-            readonly_step_attribute: false
+          phase.id.to_s => {
+            dummy_phase_attribute1: true,
+            dummy_phase_attribute2: false,
+            readonly_phase_attribute: false
           }
         }
       )
@@ -57,10 +57,10 @@ module Decidim::Admin
         expect(component.settings.dummy_global_attribute2).to be(false)
         expect(component.settings.readonly_attribute).to be(true)
 
-        phase_settings = component.phase_settings[step.id.to_s]
-        expect(phase_settings.dummy_step_attribute1).to be(true)
-        expect(phase_settings.dummy_step_attribute2).to be(false)
-        expect(phase_settings.readonly_step_attribute).to be(true)
+        phase_settings = component.phase_settings[phase.id.to_s]
+        expect(phase_settings.dummy_phase_attribute1).to be(true)
+        expect(phase_settings.dummy_phase_attribute2).to be(false)
+        expect(phase_settings.readonly_phase_attribute).to be(true)
       end
 
       it "broadcasts :ok and does not update the weight" do
@@ -98,7 +98,7 @@ module Decidim::Admin
           hash_including(
             "global" => kind_of(Hash),
             "default_phase" => kind_of(Hash),
-            "steps" => kind_of(Hash)
+            "phases" => kind_of(Hash)
           )
         )
       end

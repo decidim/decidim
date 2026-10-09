@@ -56,6 +56,17 @@ describe RenameParticipatoryProcessStepReferences do
     )
   end
 
+  let!(:component) do
+    created = create(:component)
+    new_settings = {
+      "global" => { "comments_max_length" => 10 },
+      "default_step" => { "dummy_phase_attribute1" => true },
+      "steps" => { "1" => { "dummy_phase_attribute1" => false } }
+    }
+    created.update_column(:settings, new_settings) # rubocop:disable Rails/SkipsModelValidations
+    created
+  end
+
   class Version < ApplicationRecord
     self.table_name = "versions"
   end
@@ -74,6 +85,16 @@ describe RenameParticipatoryProcessStepReferences do
       expect(other_action_log.reload.resource_type).not_to eq(new_type)
       expect(Version.find(other_version.id).item_type).to eq("Decidim::ParticipatoryProcess")
     end
+
+    it "renames the component settings keys" do
+      migrator.migrate(:up)
+
+      settings = component.reload[:settings]
+      expect(settings).not_to include("steps", "default_step")
+      expect(settings["phases"]).to eq("1" => { "dummy_phase_attribute1" => false })
+      expect(settings["default_phase"]).to eq("dummy_phase_attribute1" => true)
+      expect(settings["global"]).to eq("comments_max_length" => 10)
+    end
   end
 
   describe "#down" do
@@ -83,6 +104,16 @@ describe RenameParticipatoryProcessStepReferences do
 
       expect(action_log.reload.resource_type).to eq(old_type)
       expect(Version.find(version.id).item_type).to eq(old_type)
+    end
+
+    it "renames the component settings keys back" do
+      migrator.migrate(:up)
+      migrator.migrate(:down)
+
+      settings = component.reload[:settings]
+      expect(settings).not_to include("phases", "default_phase")
+      expect(settings["steps"]).to eq("1" => { "dummy_phase_attribute1" => false })
+      expect(settings["default_step"]).to eq("dummy_phase_attribute1" => true)
     end
   end
 end

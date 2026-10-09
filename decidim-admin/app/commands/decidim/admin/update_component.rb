@@ -67,11 +67,11 @@ module Decidim
           form.settings[attribute] = @previous_settings.dig("global", attribute)
         end
 
-        browse_readonly_settings("step") do |attribute|
+        browse_readonly_settings("phase") do |attribute|
           form.default_phase_settings[attribute] = @previous_settings.dig("default_phase", attribute) if form.default_phase_settings.present?
           if form.phase_settings.present?
-            form.phase_settings.each do |step_name, step|
-              step[attribute] = @previous_settings.dig("steps", step_name, attribute)
+            form.phase_settings.each do |phase_name, phase|
+              phase[attribute] = @previous_settings.dig("phases", phase_name, attribute)
             end
           end
         end

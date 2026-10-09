@@ -58,19 +58,19 @@
         <div class="row column">
           <fieldset>
             <div class="card-section">
-              <% current_participatory_space.phases.each do |step| %>
-                <fieldset class="step-settings-<%= step.id %>">
-                  <legend><%= step.position + 1 %>. <%= translated_attribute step.title %></legend>
-                  <% phase_settings = form.object.phase_settings[step.id.to_s] %>
+              <% current_participatory_space.phases.each do |phase| %>
+                <fieldset class="phase-settings-<%= phase.id %>">
+                  <legend><%= phase.position + 1 %>. <%= translated_attribute phase.title %></legend>
+                  <% phase_settings = form.object.phase_settings[phase.id.to_s] %>
 
                   <%= form.fields_for :phase_settings, nil do |settings_fields| %>
-                    <%= settings_fields.fields_for step.id.to_s, phase_settings do |settings_fields| %>
+                    <%= settings_fields.fields_for phase.id.to_s, phase_settings do |settings_fields| %>
                       <%= render partial: "decidim/admin/components/settings_fields",
                                  locals: {
                                    form: settings_fields,
                                    manifest: form.object.manifest,
                                    settings_name: :phase,
-                                   tabs_prefix: "step-#{step.id}-settings"
+                                   tabs_prefix: "phase-#{phase.id}-settings"
                                  } %>
                     <% end %>
                   <% end %>
@@ -94,7 +94,7 @@
 
       <div id="panel-default_phase_settings" class="card-section">
         <div class="row column">
-          <fieldset class="default-step-settings">
+          <fieldset class="default-phase-settings">
             <div class="card-section">
               <%= form.fields_for :default_phase_settings, form.object.default_phase_settings do |settings_fields| %>
                 <%= render partial: "decidim/admin/components/settings_fields",
@@ -102,7 +102,7 @@
                              form: settings_fields,
                              manifest: form.object.manifest,
                              settings_name: :phase,
-                             tabs_prefix: "default-step-settings"
+                             tabs_prefix: "default-phase-settings"
                            } %>
               <% end %>
             </div>

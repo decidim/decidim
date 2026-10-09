@@ -179,7 +179,7 @@ en:
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
             terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
-          step:
+          phase:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled_for_participants: Meeting creation by participants enabled

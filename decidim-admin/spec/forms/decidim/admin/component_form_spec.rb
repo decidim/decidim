@@ -20,11 +20,11 @@ module Decidim
         }
       end
 
-      let(:dummy_step_translatable_text) do
+      let(:dummy_phase_translatable_text) do
         {
-          "dummy_step_translatable_text_ca" => "",
-          "dummy_step_translatable_text_en" => "Dummy text en",
-          "dummy_step_translatable_text_es" => ""
+          "dummy_phase_translatable_text_ca" => "",
+          "dummy_phase_translatable_text_en" => "Dummy text en",
+          "dummy_phase_translatable_text_es" => ""
         }
       end
 
@@ -37,7 +37,7 @@ module Decidim
       let(:default_phase_settings) do
         return {} unless manifest
 
-        manifest.settings(:phase).schema.new(dummy_step_translatable_text, "en")
+        manifest.settings(:phase).schema.new(dummy_phase_translatable_text, "en")
       end
 
       let(:params) do
@@ -89,11 +89,11 @@ module Decidim
       end
 
       context "when a default_phase_settings required attribute is missing" do
-        let(:dummy_step_translatable_text) do
+        let(:dummy_phase_translatable_text) do
           {
-            "dummy_step_translatable_text_ca" => "Dummy text ca",
-            "dummy_step_translatable_text_en" => "",
-            "dummy_step_translatable_text_es" => "Dummy text es"
+            "dummy_phase_translatable_text_ca" => "Dummy text ca",
+            "dummy_phase_translatable_text_en" => "",
+            "dummy_phase_translatable_text_es" => "Dummy text es"
           }
         end
 
@@ -108,11 +108,11 @@ module Decidim
         end
 
         context "and a phase_settings required attribute is missing" do
-          let(:dummy_step_translatable_text) do
+          let(:dummy_phase_translatable_text) do
             {
-              "dummy_step_translatable_text_ca" => "Dummy text ca",
-              "dummy_step_translatable_text_en" => "",
-              "dummy_step_translatable_text_es" => "Dummy text es"
+              "dummy_phase_translatable_text_ca" => "Dummy text ca",
+              "dummy_phase_translatable_text_en" => "",
+              "dummy_phase_translatable_text_es" => "Dummy text es"
             }
           end
 
