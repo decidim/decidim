@@ -8,8 +8,8 @@
 #
 # This prevents non-image files (e.g. HTML, MATLAB, or arbitrary binary data)
 # from being uploaded with an image extension and a spoofed image content type.
-# Such files would later cause image processing to fail (e.g. in ImageMagick
-# when generating a variant) and could lead to a denial of service.
+# Such files would later cause image processing to fail (e.g. in ImageMagick or
+# in libvips when generating a variant) and could lead to a denial of service.
 #
 # Comparing the detected format with the declared content type also prevents
 # files whose contents do not match their declaration (e.g. a JPEG file
