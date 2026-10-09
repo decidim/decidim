@@ -91,9 +91,9 @@ module Decidim
         end
       end
 
-      # See UploaderImageContentValidator#validate_svg_content. SVG documents
-      # can contain scripts and other active content, so their contents are
-      # validated before the file is stored.
+      # See Decidim::SvgContentValidator. SVG documents can contain scripts and
+      # other active content, so their contents are validated before the file
+      # is stored.
       context "when the file is an SVG with active content" do
         subject do
           build(
