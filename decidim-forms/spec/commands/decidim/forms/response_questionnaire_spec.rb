@@ -106,6 +106,68 @@ module Decidim
           expect(Response.third.choices.pluck(:body, :position)).to eq([["Third", 0], ["response", 1]])
         end
 
+        it "groups all responses under one submission" do
+          command.call
+          submission = questionnaire.submissions.sole
+          expect(submission.user).to eq(current_user)
+          expect(submission.session_token).to eq(session_token)
+          expect(submission.ip_hash).to eq(ip_hash)
+          expect(submission.responses.count).to eq(questionnaire.questions.count)
+        end
+
+        context "when the submission was created by a concurrent request" do
+          before { create(:submission, questionnaire:, user: current_user, session_token:) }
+
+          it "reuses it instead of failing" do
+            allow(questionnaire).to receive(:responded_by?).and_return(false)
+            allow(questionnaire).to receive(:submission_for).and_return(nil)
+            expect { command.call }.to broadcast(:ok)
+            expect(questionnaire.submissions.count).to eq(1)
+          end
+        end
+
+        context "when editing is allowed" do
+          let(:command) { described_class.new(form, questionnaire, allow_editing_responses: true) }
+          let!(:submission) { create(:submission, questionnaire:, user: current_user, session_token: "legacy-token") }
+          let!(:existing_response) { create(:response, questionnaire:, question: question1, user: current_user, submission:, body: "old") }
+
+          it "updates the same submission in place" do
+            expect { command.call }.not_to change(Submission, :count)
+            expect(existing_response.reload.body).to eq("This is my first response")
+            expect(submission.reload.updated_at).to be > submission.created_at
+            expect(submission.ip_hash).to eq(ip_hash)
+          end
+
+          it "keeps the session token of the submission on its responses" do
+            command.call
+            expect(submission.responses.pluck(:session_token).uniq).to eq(["legacy-token"])
+          end
+
+          it "publishes the session token of the submission with the after event" do
+            payloads = []
+            subscriber = ActiveSupport::Notifications.subscribe("decidim.forms.response_questionnaire:after") { |_name, payload| payloads << payload }
+            command.call
+            expect(payloads.sole[:extra][:session_token]).to eq("legacy-token")
+          ensure
+            ActiveSupport::Notifications.unsubscribe(subscriber)
+          end
+
+          it "removes responses to questions that are no longer displayed" do
+            hidden_question = create(:questionnaire_question, questionnaire:)
+            create(:display_condition, question: hidden_question, condition_question: question1, condition_type: :not_responded)
+            hidden_response = create(:response, questionnaire:, question: hidden_question, user: current_user, submission:)
+            form_params["responses"] << { "body" => "Hidden response", "question_id" => hidden_question.id }
+            command.call
+            expect(Response.where(id: hidden_response.id)).not_to exist
+          end
+
+          it "removes a stale duplicate of a re-answered question" do
+            create(:response, questionnaire:, question: question1, user: current_user, submission:, body: "duplicate")
+            command.call
+            expect(submission.responses.where(question: question1).pluck(:body)).to eq(["This is my first response"])
+          end
+        end
+
         # This is to ensure that always exists a uniq identifier per-user
         context "and user is registered" do
           let(:ip_hash) { nil }
@@ -192,6 +254,29 @@ module Decidim
 
             it "broadcasts invalid" do
               expect { command.call }.to broadcast(:invalid)
+            end
+          end
+
+          context "when editing is allowed and an existing attachment is kept" do
+            let(:command) { described_class.new(form, questionnaire, allow_editing_responses: true) }
+            let(:submission) { create(:submission, questionnaire:, user: current_user) }
+            let!(:existing_response) { create(:response, :with_attachments, questionnaire:, question: question1, user: current_user, submission:) }
+            let(:existing_attachment) { existing_response.attachments.first }
+            let(:form_params) do
+              {
+                "responses" => [
+                  {
+                    "attachments" => [existing_attachment.id],
+                    "question_id" => question1.id
+                  }
+                ],
+                "tos_agreement" => "1"
+              }
+            end
+
+            it "keeps the attachment on the same response" do
+              expect { command.call }.to broadcast(:ok)
+              expect(existing_response.reload.attachments).to eq([existing_attachment])
             end
           end
         end

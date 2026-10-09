@@ -26,7 +26,7 @@ module Decidim
             questionnaire,
             current_user
           ) do
-            questionnaire.responses.destroy_all
+            questionnaire.submissions.destroy_all
           end
 
           broadcast(:ok)

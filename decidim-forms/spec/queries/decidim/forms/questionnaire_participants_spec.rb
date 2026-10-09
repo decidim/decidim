@@ -26,4 +26,8 @@ describe Decidim::Forms::QuestionnaireParticipants do
     expect(user_2_info.ip_hash).to eq(responses_user2.first.ip_hash)
     expect(user_2_info.decidim_user_id).to eq(responses_user2.first.decidim_user_id)
   end
+
+  it "counts one participant per submission" do
+    expect(subject.count_participants).to eq(2)
+  end
 end

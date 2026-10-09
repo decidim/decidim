@@ -36,7 +36,7 @@ module Decidim
       end
 
       def count_participants
-        query.select(:session_token).distinct.count
+        @questionnaire.submissions.count
       end
     end
   end

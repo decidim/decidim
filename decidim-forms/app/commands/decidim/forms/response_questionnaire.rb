@@ -24,10 +24,7 @@ module Decidim
       def call
         return broadcast(:invalid) if @form.invalid? || (user_already_responded? && !allow_editing_responses)
 
-        with_events do
-          clear_responses! if allow_editing_responses
-          response_questionnaire
-        end
+        with_events { response_questionnaire }
 
         if @errors
           reset_form_attachments
@@ -45,7 +42,7 @@ module Decidim
         {
           resource: questionnaire,
           extra: {
-            session_token: form.context.session_token,
+            session_token: @submission&.session_token || form.context.session_token,
             questionnaire:,
             event_author: current_user
           }
@@ -78,8 +75,11 @@ module Decidim
         end
       end
 
-      def clear_responses!
-        Response.where(questionnaire:, user: current_user, session_token: form.context.session_token, ip_hash: form.context.ip_hash).destroy_all
+      def submission
+        @submission ||= questionnaire.submission_for(user: current_user, session_token: form.context.session_token) ||
+                        questionnaire.submissions
+                                     .create_with(user: current_user, ip_hash: form.context.ip_hash)
+                                     .create_or_find_by!(session_token: form.context.session_token)
       end
 
       def response_questionnaire
@@ -87,19 +87,11 @@ module Decidim
         @errors = nil
 
         Response.transaction(requires_new: true) do
+          saved_response_ids = []
+
           form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_response|
-            response = Response.new(
-              user: current_user,
-              questionnaire: @questionnaire,
-              question: form_response.question,
-              body: form_response.body,
-              session_token: form.context.session_token,
-              ip_hash: form.context.ip_hash
-            )
-
-            build_choices(response, form_response)
-
-            response.save!
+            response = save_response(form_response)
+            saved_response_ids << response.id
 
             next unless form_response.question.has_attachments?
 
@@ -119,9 +111,26 @@ module Decidim
             attachment_cleanup!
           end
 
+          submission.responses.where.not(id: saved_response_ids).destroy_all
+          submission.update!(ip_hash: form.context.ip_hash, updated_at: Time.current)
           @form = @main_form
           raise ActiveRecord::Rollback if @errors
         end
+      end
+
+      def save_response(form_response)
+        response = submission.responses.order(:id).find_or_initialize_by(question: form_response.question)
+        response.assign_attributes(
+          user: current_user,
+          questionnaire:,
+          body: form_response.body,
+          session_token: submission.session_token,
+          ip_hash: form.context.ip_hash
+        )
+        response.choices.destroy_all if response.persisted?
+        build_choices(response, form_response)
+        response.save!
+        response
       end
 
       def user_already_responded?

@@ -23,7 +23,7 @@ module Decidim
 
       def edit
         @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
-        @form.add_responses!(questionnaire:, session_token:, ip_hash:)
+        @form.add_responses!(questionnaire:, session_token:)
         @form.allow_editing_responses = questionnaire.questionnaire_for&.allow_editing_responses?
 
         render template: "decidim/forms/questionnaires/edit"

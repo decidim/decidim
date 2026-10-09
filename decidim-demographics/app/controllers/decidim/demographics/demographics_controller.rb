@@ -11,7 +11,7 @@ module Decidim
 
       def show
         @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
-        @form.add_responses!(questionnaire:, session_token:, ip_hash:)
+        @form.add_responses!(questionnaire:, session_token:)
         @form.allow_editing_responses = true
 
         render template:
