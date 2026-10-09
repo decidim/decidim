@@ -46,9 +46,9 @@ module Decidim
       # This method is presented in Bullet readme, but is not yet available in Bullet 8.1.3.
       # https://github.com/flyerhzm/bullet/issues/505
       def skip_bullet
+        previous_value = Bullet.enable?
         return Bullet.skip { yield } if Bullet.respond_to?(:skip)
 
-        previous_value = Bullet.enable?
         Bullet.enable = false
         yield
       ensure
