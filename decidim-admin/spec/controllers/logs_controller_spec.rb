@@ -25,8 +25,13 @@ module Decidim
 
       describe "skip_bullet" do
         context "when Bullet supports skipping" do
+          before do
+            allow(Bullet).to receive(:respond_to?).and_call_original
+            allow(Bullet).to receive(:respond_to?).with(:skip).and_return(true)
+          end
+
           it "uses Bullet.skip, runs the block and leaves Bullet enabled" do
-            expect(Bullet).to receive(:skip).and_call_original
+            expect(Bullet).to receive(:skip).and_yield
 
             executed = false
             expect { controller.send(:skip_bullet) { executed = true } }.not_to change(Bullet, :enable?)
