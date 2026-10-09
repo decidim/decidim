@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-require "./db/data/20261005130000_rename_participatory_process_phase_references"
+require "./db/data/20261005130000_rename_participatory_process_step_references"
 
 describe RenameParticipatoryProcessPhaseReferences do
   let(:migrator) do
