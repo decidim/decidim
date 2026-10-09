@@ -4,7 +4,7 @@ require "spec_helper"
 
 require "./db/data/20261005130000_rename_participatory_process_step_references"
 
-describe RenameParticipatoryProcessPhaseReferences do
+describe RenameParticipatoryProcessStepReferences do
   let(:migrator) do
     described_class.new.tap do |m|
       m.verbose = false
@@ -13,7 +13,7 @@ describe RenameParticipatoryProcessPhaseReferences do
 
   let(:organization) { create(:organization) }
   let(:user) { create(:user, organization:) }
-  let(:old_type) { "Decidim::ParticipatoryProcessPhase" }
+  let(:old_type) { "Decidim::ParticipatoryProcessStep" }
   let(:new_type) { "Decidim::ParticipatoryProcessPhase" }
   let!(:action_log) do
     columns = {
