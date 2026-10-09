@@ -7,5 +7,5 @@ namespace :decidim_participatory_processes do
   end
 
   desc "DEPRECATED: use change_active_phase"
-  task change_active_phase: :change_active_phase
+  task change_active_step: :change_active_phase
 end
