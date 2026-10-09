@@ -320,7 +320,7 @@ describe "Admin manages questionnaire templates" do
         expect(page).not_to have_i18n_content(second_question.body)
         expect(page).to have_text("Step 1 of 2")
 
-        within "#phase-0" do
+        within "#step-0" do
           expect(page).to have_button("Continue")
           click_on "Continue"
         end
@@ -347,7 +347,7 @@ describe "Admin manages questionnaire templates" do
         expect(page).not_to have_i18n_content(third_question.body)
         expect(page).to have_text("Step 1 of 3")
 
-        within "#phase-0" do
+        within "#step-0" do
           expect(page).to have_button("Continue")
           click_on "Continue"
         end
@@ -357,7 +357,7 @@ describe "Admin manages questionnaire templates" do
         expect(page).to have_i18n_content(second_question.body)
         expect(page).not_to have_i18n_content(third_question.body)
 
-        within "#phase-1" do
+        within "#step-1" do
           expect(page).to have_button("Back")
           expect(page).to have_button("Continue")
           click_on "Back"
@@ -368,11 +368,11 @@ describe "Admin manages questionnaire templates" do
         expect(page).not_to have_i18n_content(third_question.body)
         expect(page).to have_text("Step 1 of 3")
 
-        within "#phase-0" do
+        within "#step-0" do
           click_on "Continue"
         end
 
-        within "#phase-1" do
+        within "#step-1" do
           click_on "Continue"
         end
 
