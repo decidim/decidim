@@ -97,6 +97,12 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a valid image"
     end
+
+    context "with an SVG referencing the document itself, relative paths and inline data" do
+      let(:upload) { Decidim::Dev.test_file("test_references.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
   end
 
   context "when the content type is an alias of the file format" do
@@ -235,6 +241,30 @@ describe UploaderImageContentValidator do
 
     context "with an entity declaration" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_entity.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with an image loading an external resource" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_external_image.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with a use referencing an external document" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_external_use.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with a filter loading an external resource" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_external_feimage.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with an animation assigning an external resource to a reference" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_external_animation.svg", "image/svg+xml") }
 
       it_behaves_like "an unsafe SVG"
     end

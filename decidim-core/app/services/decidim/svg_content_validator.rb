@@ -15,6 +15,13 @@ module Decidim
   # not declare entities nor contain any other content which could execute
   # scripts or read external resources when the document is rendered.
   #
+  # The references which load resources into the document (the "href" of
+  # "image", "use" and "feImage", the style sheets and the "xml-stylesheet"
+  # instruction) are restricted to the document itself and to inline data, so
+  # that documents cannot make the browser of the reader fetch third-party
+  # resources. Links ("a") are not restricted, as they do not load any
+  # resource when the document is rendered.
+  #
   # This is used by UploaderImageContentValidator, which delegates the SVG
   # specific validation to this class, so callers of that validator only need
   # to call a single validator for all the image formats.
@@ -39,6 +46,35 @@ module Decidim
     # handler or another forbidden value at runtime, so the values of these
     # attributes are validated as element/attribute names.
     SVG_ANIMATION_TARGET_NAMES = %w(attribute attributeName attributeNames).freeze
+
+    # The elements which load the resource referenced by their "href" (or
+    # legacy "xlink:href") attribute into the document when it is rendered.
+    # The references of these elements are restricted to the document itself
+    # and to inline data, as absolute references make the browser of the
+    # reader fetch resources from third-party hosts, which can be used for
+    # tracking or for probing internal networks. Links ("a") are not
+    # included, as they do not load any resource.
+    SVG_RESOURCE_ELEMENTS = %w(image use feimage).freeze
+
+    # The name of the attribute which references the resource loaded by an
+    # element, either "href" or the legacy "xlink:href", which is also
+    # matched with an undeclared prefix, as browsers resolve it as the XLink
+    # reference.
+    SVG_REFERENCE_NAME = /\A(?:[\w.-]+:)?href\z/i
+
+    # The references which load a resource from another host: URIs with a
+    # scheme (e.g. "https:") and protocol-relative references (e.g.
+    # "//example.org"). Fragment ("#") and relative references are resolved
+    # against the document itself, and "data:image/" references are inline,
+    # so they are accepted.
+    SVG_EXTERNAL_REFERENCE = %r{\A(?!data:image/)(?:[a-z][a-z0-9+.-]*:|//)}i
+
+    # The elements which modify the attributes of another element at runtime.
+    # When they target a reference attribute, the values assigned to it are
+    # validated as references, as the referenced resource is loaded when the
+    # animation reaches it.
+    SVG_ANIMATION_ELEMENTS = %w(animate set).freeze
+    SVG_ANIMATION_VALUE_NAMES = %w(values from to by).freeze
 
     # The CSS at-rules and functions which load external resources when the
     # style sheets of an SVG document are rendered. Imports always fetch a
@@ -114,18 +150,51 @@ module Decidim
 
     def forbidden_node?(node)
       return true if SVG_FORBIDDEN_ELEMENTS.include?(node.name.downcase)
-      return true if node.attribute_nodes.any? { |attribute| forbidden_attribute?(attribute) }
+      return true if node.attribute_nodes.any? { |attribute| forbidden_attribute?(node, attribute) }
+      return true if forbidden_animation_reference?(node)
 
       node.name.downcase == "style" && forbidden_css_content?(node.content.to_s)
     end
 
-    def forbidden_attribute?(attribute)
+    def forbidden_attribute?(node, attribute)
       return true if SVG_EVENT_HANDLER_NAME.match?(attribute.name)
 
       return true if forbidden_uri_value?(attribute.value.to_s)
       return true if attribute.name.downcase == "style" && forbidden_css_content?(attribute.value.to_s)
+      return true if SVG_ANIMATION_TARGET_NAMES.include?(attribute.name) && forbidden_name?(attribute.value.to_s)
 
-      SVG_ANIMATION_TARGET_NAMES.include?(attribute.name) && forbidden_name?(attribute.value.to_s)
+      forbidden_resource_reference?(node, attribute)
+    end
+
+    # Whether the attribute references an external resource in an element
+    # which loads it when the document is rendered (e.g. the "href" of an
+    # "image").
+    def forbidden_resource_reference?(node, attribute)
+      return false unless SVG_RESOURCE_ELEMENTS.include?(node.name.downcase)
+      return false unless SVG_REFERENCE_NAME.match?(attribute.name)
+
+      forbidden_reference_value?(attribute.value.to_s)
+    end
+
+    # Whether an animation assigns an external resource to a reference
+    # attribute (e.g. "href"), as the resource is loaded when the animation
+    # reaches the value.
+    def forbidden_animation_reference?(node)
+      return false unless SVG_ANIMATION_ELEMENTS.include?(node.name.downcase)
+
+      target = node["attributeName"] || node["attribute"]
+      return false unless SVG_REFERENCE_NAME.match?(target.to_s)
+
+      SVG_ANIMATION_VALUE_NAMES.any? do |name|
+        node[name].to_s.split(";").any? { |value| forbidden_reference_value?(value) }
+      end
+    end
+
+    # Whether the reference loads a resource from another host. The whitespace
+    # and control characters which can be used to obfuscate the scheme are
+    # removed before checking.
+    def forbidden_reference_value?(value)
+      SVG_EXTERNAL_REFERENCE.match?(normalize_uri_value(value))
     end
 
     # Whether the value is a script URI or contains one. The animation elements
