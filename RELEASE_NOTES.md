@@ -84,7 +84,27 @@ We strongly recommend that implementers review any custom authorization handlers
 
 You can read more about this change on PR [#17639](https://github.com/decidim/decidim/pull/17639).
 
-### 2.4. [[TITLE OF THE ACTION]]
+### 2.4. Bullet initializer defaults changed
+
+The generated Bullet initializer (`config/initializers/bullet.rb`, only created when the app is generated with the `--profiling` option) changed its defaults:
+
+- `Bullet.enable` is now set to `Rails.env.local?` instead of `true`, so Bullet only runs on development and test environments. Bullet errors no longer affect production or staging environments.
+- `Bullet.raise = true` was added, which means that detected queries raise errors instead of only logging warnings.
+- Three new settings can now be controlled with environment variables:
+
+| Environment variable           | Default  | Setting                             |
+|--------------------------------|----------|-------------------------------------|
+| `DECIDIM_BULLET_N_PLUS_ONE`    | enabled  | `Bullet.n_plus_one_query_enable`    |
+| `DECIDIM_BULLET_UNUSED_EAGER`  | disabled | `Bullet.unused_eager_loading_enable`|
+| `DECIDIM_BULLET_COUNTER_CACHE` | enabled  | `Bullet.counter_cache_enable`       |
+
+Any of these variables can be disabled by setting it to `0`, `false` or `no`. Note that `DECIDIM_BULLET_UNUSED_EAGER` is disabled by default, as it can trigger false positives on pages with a single result.
+
+This initializer is not overwritten automatically during the upgrade (`bin/rails decidim:upgrade` does not touch it). If your app was generated with the `--profiling` option and you have a custom `config/initializers/bullet.rb`, review it and update it manually to match the [new template](https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/bullet_initializer.rb) if you want to keep the same behavior as newly generated applications.
+
+You can read more about this change on PR [#17160](https://github.com/decidim/decidim/pull/17160).
+
+### 2.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

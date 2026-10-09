@@ -10,7 +10,7 @@
     <%= number_to_currency budget.total_budget, unit: Decidim.currency_unit, precision: 0 %>
   </td>
   <td data-label="<%= t("models.budget.fields.projects_count", scope: "decidim.budgets") %>">
-    <%= link_to budget.projects.count, budget_projects_path(budget) %>
+    <%= link_to budget.projects.size, budget_projects_path(budget) %>
   </td>
   <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.budgets") %>">
     <%= render partial: "decidim/budgets/admin/budgets/actions", locals: { budget:, view: } %>

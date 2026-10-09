@@ -22,7 +22,7 @@ module Decidim
         def response_options_url(_params) = decidim_admin_demographics.responses_path
 
         def questionnaire
-          @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_initialize # rubocop:disable Decidim/OrganizationScopedFinder -- questionnaire_for returns a demographic scoped to current_organization
+          @questionnaire ||= Decidim::Forms::Questionnaire.includes(questions: [:response_options, :display_conditions, :matrix_rows]).where(questionnaire_for:).first_or_initialize # rubocop:disable Decidim/OrganizationScopedFinder -- questionnaire_for returns a demographic scoped to current_organization
           @questionnaire.override_edit!
           Decidim::Demographics.create_default_questionnaire!(@questionnaire)
           @questionnaire

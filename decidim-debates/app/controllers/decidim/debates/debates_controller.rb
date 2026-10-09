@@ -109,7 +109,7 @@ module Decidim
       end
 
       def search_collection
-        Debate.where(component: current_component).not_hidden
+        Debate.includes(:component).where(component: current_component).not_hidden
       end
 
       def default_filter_params

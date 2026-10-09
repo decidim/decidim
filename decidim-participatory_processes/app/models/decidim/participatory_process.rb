@@ -97,7 +97,7 @@ module Decidim
           Arel.sql(
             sanitize_sql_array(
               [
-                "ABS(start_date - (CURRENT_DATE at time zone :timezone)::date)",
+                "ABS(decidim_participatory_processes.start_date - (CURRENT_DATE at time zone :timezone)::date)",
                 { timezone: }
               ]
             )

@@ -45,7 +45,8 @@ module Decidim
           private
 
           def survey
-            @survey ||= Decidim::Surveys::Survey.where(component: current_component).find(survey_id)
+            @survey ||= Decidim::Surveys::Survey.where(component: current_component).includes(questionnaire: { questions: [:matrix_rows, :display_conditions,
+                                                                                                                           :response_options] }).find(survey_id)
           end
 
           def survey_id

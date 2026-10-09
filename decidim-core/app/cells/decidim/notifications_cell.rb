@@ -26,7 +26,7 @@ module Decidim
     end
 
     def notifications
-      @notifications ||= model.notifications.includes(:resource).order(created_at: :desc).page(params[:page]).per(50)
+      @notifications ||= model.notifications.includes(:user, resource: [:moderation, { component: :participatory_space }]).order(created_at: :desc).page(params[:page]).per(50)
     end
   end
 end

@@ -37,7 +37,7 @@ module Decidim
         end
 
         def likes_presenters_for(proposal)
-          proposal.likes.for_listing.map { |identity| present(identity.author) }
+          proposal.likes.includes(author: [:organization]).for_listing.map { |identity| present(identity.author) }
         end
 
         def proposal_complete_state(proposal)
