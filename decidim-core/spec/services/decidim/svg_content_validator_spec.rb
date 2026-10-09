@@ -42,6 +42,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG with an animation assigning external links" do
+      let(:content) { File.read(Decidim::Dev.asset("test_animation_link.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose style sheet mentions resource references only in quoted text" do
       let(:content) { File.read(Decidim::Dev.asset("test_style_text.svg")) }
 
@@ -73,6 +79,8 @@ describe Decidim::SvgContentValidator do
         malicious_svg_external_use.svg
         malicious_svg_external_feimage.svg
         malicious_svg_external_animation.svg
+        malicious_svg_external_animation_target.svg
+        malicious_svg_external_animation_missing_target.svg
       ).each do |file|
         context "with #{file}" do
           let(:content) { File.read(Decidim::Dev.asset(file)) }

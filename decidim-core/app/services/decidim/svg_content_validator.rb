@@ -70,9 +70,9 @@ module Decidim
     SVG_EXTERNAL_REFERENCE = %r{\A(?!data:image/)(?:[a-z][a-z0-9+.-]*:|//)}i
 
     # The elements which modify the attributes of another element at runtime.
-    # When they target a reference attribute, the values assigned to it are
-    # validated as references, as the referenced resource is loaded when the
-    # animation reaches it.
+    # When they target a reference attribute of an element which loads the
+    # referenced resource, the values assigned to it are validated as
+    # references, as the resource is loaded when the animation reaches it.
     SVG_ANIMATION_ELEMENTS = %w(animate set).freeze
     SVG_ANIMATION_VALUE_NAMES = %w(values from to by).freeze
 
@@ -170,24 +170,61 @@ module Decidim
     # which loads it when the document is rendered (e.g. the "href" of an
     # "image").
     def forbidden_resource_reference?(node, attribute)
-      return false unless SVG_RESOURCE_ELEMENTS.include?(node.name.downcase)
+      return false unless resource_element?(node)
       return false unless SVG_REFERENCE_NAME.match?(attribute.name)
 
       forbidden_reference_value?(attribute.value.to_s)
     end
 
     # Whether an animation assigns an external resource to a reference
-    # attribute (e.g. "href"), as the resource is loaded when the animation
-    # reaches the value.
+    # attribute (e.g. "href") of an element which loads it, as the resource
+    # is loaded when the animation reaches the value. References which do not
+    # load a resource (e.g. the links of an "a") are not restricted, as they
+    # are never fetched when the document is rendered.
     def forbidden_animation_reference?(node)
       return false unless SVG_ANIMATION_ELEMENTS.include?(node.name.downcase)
 
       target = node["attributeName"] || node["attribute"]
       return false unless SVG_REFERENCE_NAME.match?(target.to_s)
+      return false unless animates_resource_element?(node)
 
       SVG_ANIMATION_VALUE_NAMES.any? do |name|
         node[name].to_s.split(";").any? { |value| forbidden_reference_value?(value) }
       end
+    end
+
+    # Whether the animation modifies the reference of an element which loads
+    # the referenced resource when the document is rendered. The animation
+    # modifies its parent element, unless it references another one with its
+    # own reference attribute (e.g. "xlink:href"), which browsers resolve to
+    # the element with that identifier. References which do not resolve to an
+    # element of the document are also considered as loading a resource, so
+    # that documents which could hide the modified element are rejected.
+    def animates_resource_element?(node)
+      references = node.attribute_nodes.select { |attribute| SVG_REFERENCE_NAME.match?(attribute.name) }
+      return resource_element?(node.parent) if references.empty?
+
+      references.any? do |attribute|
+        targets = referenced_elements(node.document, attribute.value.to_s)
+        targets.empty? || targets.any? { |element| resource_element?(element) }
+      end
+    end
+
+    # The elements of the document referenced by a target reference of an
+    # animation element, which browsers resolve to the element with the
+    # identifier of the fragment. References to other documents or to missing
+    # identifiers do not resolve to any element.
+    def referenced_elements(document, reference)
+      id = reference[/\A#(.*)\z/m, 1]
+      return [] if id.nil?
+
+      document.xpath("//*[@id = $id]", nil, { "id" => id })
+    end
+
+    # Whether the element loads the resource referenced by its reference
+    # attribute when the document is rendered.
+    def resource_element?(element)
+      SVG_RESOURCE_ELEMENTS.include?(element.name.downcase)
     end
 
     # Whether the reference loads a resource from another host. The whitespace

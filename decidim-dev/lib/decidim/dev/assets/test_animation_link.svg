@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Animations assigning external links to "a" elements, which do not load any resource when the document is rendered, both modifying their parent element and referencing the target element with their own "href". -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+  <a><set attributeName="href" to="https://example.org"/><text y="8">Example</text></a>
+  <a id="link"><text y="15">Other</text></a>
+  <g><animate href="#link" attributeName="href" values="#none;https://other.example.org" dur="1s" fill="freeze"/></g>
+</svg>
