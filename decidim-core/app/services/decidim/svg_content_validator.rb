@@ -218,7 +218,16 @@ module Decidim
       id = reference[/\A#(.*)\z/m, 1]
       return [] if id.nil?
 
-      document.xpath("//*[@id = $id]", nil, { "id" => id })
+      elements_by_id(document).fetch(id, [])
+    end
+
+    # The elements of the document which declare an identifier, grouped by it.
+    # The index is built once per document and reused for every reference, as
+    # searching the whole document for each of the animations would take a
+    # long time for documents with many elements and animations.
+    def elements_by_id(document)
+      @elements_by_id ||= {}
+      @elements_by_id[document] ||= document.xpath("//*[@id]").group_by { |element| element["id"] }
     end
 
     # Whether the element loads the resource referenced by its reference
