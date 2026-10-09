@@ -34,9 +34,9 @@ module Decidim
         ActiveRecord::Base.transaction do
           json_ary.collect do |serialized|
             attributes = serialized.with_indifferent_access.except(:id, :participatory_space_id, :participatory_space_type)
-            step_settings = attributes["settings"]["steps"]
-            # we override the parent participatory space steps id
-            override_step_settings_ids(attributes, step_settings)
+            phase_settings = normalize_legacy_settings(attributes)
+            # we override the parent participatory space phases id
+            override_phase_settings_ids(attributes, phase_settings)
             import_component_from_attributes(attributes, user)
           end
         end
@@ -63,12 +63,24 @@ module Decidim
         specific_importer.import(serialized[:specific_data], user)
       end
 
-      def override_step_settings_ids(attributes, step_settings)
-        return unless @participatory_space.has_steps? && step_settings.present?
+      # Exports generated before the steps-to-phases rename store the phase
+      # settings under the legacy "steps"/"default_step" keys. Rename them so
+      # components imported from older Decidim versions keep their settings.
+      def normalize_legacy_settings(attributes)
+        settings = attributes["settings"]
+        return unless settings
 
-        @participatory_space.steps.each do |step|
-          old_id = attributes["settings"]["steps"].keys.first
-          step_settings[step.id.to_s] = step_settings.delete(old_id)
+        settings["phases"] = settings.delete("steps") if settings.has_key?("steps") && !settings.has_key?("phases")
+        settings["default_phase"] = settings.delete("default_step") if settings.has_key?("default_step") && !settings.has_key?("default_phase")
+        settings["phases"]
+      end
+
+      def override_phase_settings_ids(attributes, phase_settings)
+        return unless @participatory_space.has_steps? && phase_settings.present?
+
+        @participatory_space.phases.each do |phase|
+          old_id = attributes["settings"]["phases"].keys.first
+          phase_settings[phase.id.to_s] = phase_settings.delete(old_id)
         end
       end
     end

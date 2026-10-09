@@ -18,14 +18,14 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
   let(:budget) { create(:budget, component:) }
 
   context "when voting is ending today" do
-    let!(:step1) do
-      create(:participatory_process_step,
+    let!(:phase1) do
+      create(:participatory_process_phase,
              active: true,
              end_date: Time.zone.now.to_date,
              participatory_process: participatory_space)
     end
-    let!(:step2) do
-      create(:participatory_process_step,
+    let!(:phase2) do
+      create(:participatory_process_phase,
              active: false,
              end_date: 1.month.from_now.to_date,
              participatory_process: participatory_space)
@@ -33,7 +33,7 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
 
     before do
       participatory_space.reload
-      participatory_space.steps.reload
+      participatory_space.phases.reload
     end
 
     context "and there are 5 hours left in the day" do
@@ -53,7 +53,7 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
     end
   end
 
-  context "when participatory space does not have steps" do
+  context "when participatory space does not have phases" do
     let(:participatory_space) { create(:assembly) }
 
     context "and there are 2 hours left in the day" do
@@ -101,8 +101,8 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
         end
       end
 
-      context "when a participatory space step has nil end date" do
-        let!(:step) { create(:participatory_process_step, participatory_process: participatory_space, active: true, end_date: nil) }
+      context "when a participatory space phase has nil end date" do
+        let!(:phase) { create(:participatory_process_phase, participatory_process: participatory_space, active: true, end_date: nil) }
 
         it "is not considered to end soon" do
           expect(subject.voting_ends_soon?).to be(false)

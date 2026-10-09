@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_context "with proposal and users allowed to create proposal notes" do
-  let(:participatory_space) { create(:participatory_process, :with_steps) }
+  let(:participatory_space) { create(:participatory_process, :with_phases) }
   let(:organization) { participatory_space.organization }
   let(:component) { create(:proposal_component, participatory_space:) }
   let(:proposal) { create(:proposal, component:) }

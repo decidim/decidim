@@ -67,7 +67,7 @@ describe "Search" do
   end
 
   context "when there is a malformed URL" do
-    let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
+    let(:participatory_space) { create(:participatory_process, :published, :with_phases, organization:) }
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
     let!(:proposals) { create_list(:proposal, 50, component: proposal_component) }
 

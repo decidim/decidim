@@ -135,7 +135,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :maps_enabled, type: :boolean, default: true
   end
 
-  component.settings(:step) do |settings|
+  component.settings(:phase) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_blocked, type: :boolean, default: false
   end

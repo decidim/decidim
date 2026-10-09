@@ -6,7 +6,7 @@ describe "Evaluator manages proposals" do
   let(:manifest_name) { "proposals" }
   let!(:assigned_proposal) { create(:proposal, component: current_component) }
   let!(:unassigned_proposal) { create(:proposal, component: current_component) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end

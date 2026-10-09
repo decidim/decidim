@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe "Proposal answer templates fetch" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:component) { create(:proposal_component, participatory_space: participatory_process) }
   let!(:template) { create(:template, organization:, target: :proposal_answer, templatable: component) }
 

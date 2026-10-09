@@ -27,7 +27,7 @@ describe Decidim::NotificationCell, type: :cell do
   context "when resource is missing" do
     before do
       # rubocop:disable-next Rails/SkipsModelValidations:
-      notification.update_attribute(:decidim_resource_type, "Decidim::ParticipatoryProcessStep")
+      notification.update_attribute(:decidim_resource_type, "Decidim::ParticipatoryProcessPhase")
     end
 
     it "Resource title is present" do

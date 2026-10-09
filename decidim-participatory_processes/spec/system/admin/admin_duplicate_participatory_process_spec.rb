@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin copies participatory process" do
   include_context "when admin administrating a participatory process"
 
-  let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let!(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let!(:component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
 
   before do
@@ -56,12 +56,12 @@ describe "Admin copies participatory process" do
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :participatory_process_slug, with: "pp-duplicate-with-steps"
+        fill_in :participatory_process_slug, with: "pp-duplicate-with-phases"
       end
     end
 
-    it "copies the process with steps" do
-      page.check("participatory_process[duplicate_steps]")
+    it "copies the process with phases" do
+      page.check("participatory_process[duplicate_phases]")
       click_on "Duplicate"
 
       expect(page).to have_callout("Participatory process successfully duplicated.")
@@ -75,8 +75,8 @@ describe "Admin copies participatory process" do
       end
 
       within ".table-list" do
-        participatory_process.steps.each do |step|
-          expect(page).to have_text(translated(step.title))
+        participatory_process.phases.each do |phase|
+          expect(page).to have_text(translated(phase.title))
         end
       end
     end

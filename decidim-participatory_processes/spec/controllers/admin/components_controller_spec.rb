@@ -45,14 +45,14 @@ module Decidim
                 comments_enabled: true,
                 dummy_global_translatable_text_en: "Dummy text"
               },
-              default_step_settings: {
+              default_phase_settings: {
                 comments_blocked: true,
-                dummy_step_translatable_text_en: "Dummy text"
+                dummy_phase_translatable_text_en: "Dummy text"
               }
             }
           end
 
-          it "does not publish the default step settings change" do
+          it "does not publish the default phase settings change" do
             expect(Decidim::SettingsChange).not_to receive(:publish)
 
             patch :update, params: { participatory_process_slug: participatory_process.slug, id: component.id, component: component_params }

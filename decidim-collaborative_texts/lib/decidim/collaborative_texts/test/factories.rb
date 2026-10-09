@@ -12,7 +12,7 @@ FactoryBot.define do
 
     name { generate_component_name(participatory_space.organization.available_locales, :collaborative_texts, skip_injection:) }
     manifest_name { :collaborative_texts }
-    participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
+    participatory_space { create(:participatory_process, :with_phases, skip_injection:, organization:) }
   end
 
   factory :collaborative_text_document, class: "Decidim::CollaborativeTexts::Document" do

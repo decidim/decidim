@@ -48,7 +48,7 @@ Decidim.register_component(:blogs) do |component|
     settings.attribute :attachments_allowed, type: :boolean, default: false
   end
 
-  component.settings(:step) do |settings|
+  component.settings(:phase) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :likes_enabled, type: :boolean, default: true

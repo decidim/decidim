@@ -23,48 +23,48 @@ FactoryBot.define do
     end
     name { generate_component_name(participatory_space.organization.available_locales, :proposals) }
     manifest_name { :proposals }
-    participatory_space { create(:participatory_process, :with_steps, organization:, skip_injection:) }
+    participatory_space { create(:participatory_process, :with_phases, organization:, skip_injection:) }
 
     after :create do |proposal_component|
       Decidim::Proposals.create_default_states!(proposal_component, nil, with_traceability: false)
     end
 
     trait :with_likes_enabled do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: true }
+          participatory_space.active_phase.id => { likes_enabled: true }
         }
       end
     end
 
     trait :with_likes_disabled do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: false }
+          participatory_space.active_phase.id => { likes_enabled: false }
         }
       end
     end
 
     trait :with_votes_enabled do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => { votes_enabled: true }
+          participatory_space.active_phase.id => { votes_enabled: true }
         }
       end
     end
 
     trait :with_votes_disabled do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => { votes_enabled: false }
+          participatory_space.active_phase.id => { votes_enabled: false }
         }
       end
     end
 
     trait :with_votes_hidden do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => { votes_hidden: true }
+          participatory_space.active_phase.id => { votes_hidden: true }
         }
       end
     end
@@ -106,9 +106,9 @@ FactoryBot.define do
     end
 
     trait :with_likes_blocked do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             likes_enabled: true,
             likes_blocked: true
           }
@@ -117,9 +117,9 @@ FactoryBot.define do
     end
 
     trait :with_votes_blocked do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             votes_enabled: true,
             votes_blocked: true
           }
@@ -128,9 +128,9 @@ FactoryBot.define do
     end
 
     trait :with_creation_enabled do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => { creation_enabled: true }
+          participatory_space.active_phase.id => { creation_enabled: true }
         }
       end
     end
@@ -217,9 +217,9 @@ FactoryBot.define do
     end
 
     trait :without_publish_answers_immediately do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             publish_answers_immediately: false
           }
         }

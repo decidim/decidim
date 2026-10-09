@@ -1,0 +1,48 @@
+<%= decidim_modal id: "process-phases-modal", class: "participatory-space__metadata-modal", data: do %>
+  <div data-dialog-container>
+    <%= icon "flag-line" %>
+    <h2 id="dialog-title-process-phases-modal" data-dialog-title><%= t("participatory_process_phases.index.process_phases", scope: "decidim") %></h2>
+    <div>
+      <div class="participatory-space__metadata-modal__list-container" data-controller="accordion" data-multiselectable="false" data-collapsible="false">
+        <ol class="participatory-space__metadata-modal__list">
+          <% phases.each_with_index do |phase, i| %>
+            <% active = phase == active_phase %>
+            <li>
+              <%# NOTE: The following markup is duplicated to fulfill a11y requirements %>
+              <% if phases.length == 1 %>
+                <div id="trigger-process-phases-<%= i %>" class="participatory-space__metadata-modal__phase<%= " is-active" if active %>">
+                  <span><%= phase.position + 1 %></span>
+                  <span>
+                    <span class="participatory-space__metadata-modal__phase-title">
+                      <span class="participatory-space__metadata-modal__phase-current"><%= t("active_phase", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
+                      <%= decidim_escape_translated(phase.title) %>
+                    </span>
+                    <span class="participatory-space__metadata-modal__phase-dates"><%= phase_dates(phase) %></span>
+                  </span>
+                </div>
+              <% else %>
+                <button id="trigger-process-phases-<%= i %>" class="participatory-space__metadata-modal__phase<%= " is-active" if active %>" data-controls="panel-process-phases-<%= i %>" data-open="<%= "true" if active %>">
+                  <span><%= phase.position + 1 %></span>
+                  <span>
+                    <span class="participatory-space__metadata-modal__phase-title">
+                      <span class="participatory-space__metadata-modal__phase-current"><%= t("active_phase", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
+                      <%= decidim_escape_translated(phase.title) %>
+                    </span>
+                    <span class="participatory-space__metadata-modal__phase-dates"><%= phase_dates(phase) %></span>
+                  </span>
+                </button>
+              <% end %>
+            </li>
+          <% end %>
+        </ol>
+        <div>
+          <% phases.each_with_index do |phase, i| %>
+            <div id="panel-process-phases-<%= i %>" class="editor-content">
+              <%= decidim_sanitize_editor_admin(translated_attribute(phase.description)) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

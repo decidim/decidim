@@ -126,20 +126,17 @@ If you are a developer or implementer, and you are upgrading your module or appl
 
 You can read more about this change on PR [#16889](https://github.com/decidim/decidim/pull/16889).
 
-### 5.2. [[TITLE OF THE CHANGE]]
+### 5.2. Participatory process 'steps' for 'phases'
 
-In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
+In order to unify the terminology used across the platform, what used to be called "steps" in the context of participatory process are now called "phases" everywhere. .
 
-If you have used code as such:
+This affects the public API of the `decidim-participatory_processes` module and every component that stores per-step settings:
 
-```ruby
-# Explain the usage of the API as it was in the previous version
-result = 1 + 1 if before
-```
+- The `Decidim::ParticipatoryProcessStep` model is now `Decidim::ParticipatoryProcessPhase`.
+- The `allows_steps?` method is now `allows_phases?`, and `active_step` is now `active_phase`.
+- Component manifests declare per-phase settings with `settings(:phase)` instead of `settings(:step)`.
+- The component settings JSON keys `steps` and `default_step` are now `phases` and `default_phase`. This is handled automatically by the data migration when running `bin/rails data:migrate`.
+- The `decidim_participatory_process_steps` database table is renamed to `decidim_participatory_process_phases`, handled by `bin/rails db:migrate`.
+- The scheduled rake task `decidim_participatory_processes:change_active_step` is renamed to `decidim_participatory_processes:change_active_phase`. The old name is kept as a deprecated alias, but you should update your scheduler configuration.
 
-You need to change it to:
-
-```ruby
-# Explain the usage of the API as it is in the new version
-result = 1 + 1 if after
-```
+You can read more about this change on PR [#17781](https://github.com/decidim/decidim/pull/17781).

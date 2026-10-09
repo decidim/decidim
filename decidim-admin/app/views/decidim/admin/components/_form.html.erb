@@ -44,33 +44,33 @@
     </div>
   <% end %>
   <% if current_participatory_space.has_steps? %>
-    <div class="card" data-controller="accordion" id="accordion-step_settings">
+    <div class="card" data-controller="accordion" id="accordion-phase_settings">
       <div class="card-divider">
-        <button class="card-divider-button" data-open="true" data-controls="panel-step_settings" type="button">
+        <button class="card-divider-button" data-open="true" data-controls="panel-phase_settings" type="button">
           <%= icon "arrow-right-s-line" %>
-          <h2 class="card-title" id="step_settings">
-            <%= t ".step_settings" %>
+          <h2 class="card-title" id="phase_settings">
+            <%= t ".phase_settings" %>
           </h2>
         </button>
       </div>
 
-      <div id="panel-step_settings" class="card-section">
+      <div id="panel-phase_settings" class="card-section">
         <div class="row column">
           <fieldset>
             <div class="card-section">
-              <% current_participatory_space.steps.each do |step| %>
-                <fieldset class="step-settings-<%= step.id %>">
-                  <legend><%= step.position + 1 %>. <%= translated_attribute step.title %></legend>
-                  <% step_settings = form.object.step_settings[step.id.to_s] %>
+              <% current_participatory_space.phases.each do |phase| %>
+                <fieldset class="phase-settings-<%= phase.id %>">
+                  <legend><%= phase.position + 1 %>. <%= translated_attribute phase.title %></legend>
+                  <% phase_settings = form.object.phase_settings[phase.id.to_s] %>
 
-                  <%= form.fields_for :step_settings, nil do |settings_fields| %>
-                    <%= settings_fields.fields_for step.id.to_s, step_settings do |settings_fields| %>
+                  <%= form.fields_for :phase_settings, nil do |settings_fields| %>
+                    <%= settings_fields.fields_for phase.id.to_s, phase_settings do |settings_fields| %>
                       <%= render partial: "decidim/admin/components/settings_fields",
                                  locals: {
                                    form: settings_fields,
                                    manifest: form.object.manifest,
-                                   settings_name: :step,
-                                   tabs_prefix: "step-#{step.id}-settings"
+                                   settings_name: :phase,
+                                   tabs_prefix: "phase-#{phase.id}-settings"
                                  } %>
                     <% end %>
                   <% end %>
@@ -81,28 +81,28 @@
         </div>
       </div>
     </div>
-  <% elsif form.object.default_step_settings? %>
-    <div class="card" data-controller="accordion" id="accordion-default_step_settings">
+  <% elsif form.object.default_phase_settings? %>
+    <div class="card" data-controller="accordion" id="accordion-default_phase_settings">
       <div class="card-divider">
-        <button class="card-divider-button" data-open="true" data-controls="panel-default_step_settings" type="button">
+        <button class="card-divider-button" data-open="true" data-controls="panel-default_phase_settings" type="button">
           <%= icon "arrow-right-s-line" %>
-          <h2 class="card-title" id="default_step_settings">
-            <%= t ".default_step_settings" %>
+          <h2 class="card-title" id="default_phase_settings">
+            <%= t ".default_phase_settings" %>
           </h2>
         </button>
       </div>
 
-      <div id="panel-default_step_settings" class="card-section">
+      <div id="panel-default_phase_settings" class="card-section">
         <div class="row column">
-          <fieldset class="default-step-settings">
+          <fieldset class="default-phase-settings">
             <div class="card-section">
-              <%= form.fields_for :default_step_settings, form.object.default_step_settings do |settings_fields| %>
+              <%= form.fields_for :default_phase_settings, form.object.default_phase_settings do |settings_fields| %>
                 <%= render partial: "decidim/admin/components/settings_fields",
                            locals: {
                              form: settings_fields,
                              manifest: form.object.manifest,
-                             settings_name: :step,
-                             tabs_prefix: "default-step-settings"
+                             settings_name: :phase,
+                             tabs_prefix: "default-phase-settings"
                            } %>
               <% end %>
             </div>

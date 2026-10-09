@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Budgets Breadcrumb" do
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, :published, organization:, title: { "en" => "Participatory space" }) }
+  let(:participatory_space) { create(:participatory_process, :with_phases, :published, organization:, title: { "en" => "Participatory space" }) }
   let(:component) { create(:budgets_component, :published, :with_votes_disabled, participatory_space:, name: { "en" => "Component" }) }
   let(:budget) { create(:budget, component:, title: { "en" => "Budget" }) }
   let!(:project) { create(:project, budget:, title: { "en" => "Project" }) }

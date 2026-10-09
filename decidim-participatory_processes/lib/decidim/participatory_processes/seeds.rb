@@ -35,7 +35,7 @@ module Decidim
           create_follow!(Decidim::User.where(organization:, admin: true).first, process)
           create_follow!(Decidim::User.where(organization:, admin: false).first, process)
 
-          create_process_step!(process:)
+          create_process_phase!(process:)
 
           create_process_user_roles!(process:)
 
@@ -113,8 +113,8 @@ module Decidim
         end
       end
 
-      def create_process_step!(process:)
-        Decidim::ParticipatoryProcessStep.find_or_initialize_by(
+      def create_process_phase!(process:)
+        Decidim::ParticipatoryProcessPhase.find_or_initialize_by(
           participatory_process: process,
           active: true
         ).update!(
