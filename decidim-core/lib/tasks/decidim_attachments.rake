@@ -2,12 +2,19 @@
 
 namespace :decidim do
   desc "Cleanup the orphaned blobs attachments"
-  # Blobs are purged when unattached for longer than the given window (60 minutes by
-  # default). The short window is intentional: it removes abandoned or potentially
-  # dangerous uploads as soon as possible. Files uploaded in a form that is still open
-  # are also unattached, so submissions done after the window may lose that file once
-  # the blob is purged. Increase clean_up_unattached_blobs_after_in_minutes if that
-  # trade-off is not acceptable.
+  # Blobs which are not attached to any record are purged when they are older
+  # than the given window (60 minutes by default). The short window is
+  # intentional: it removes abandoned or potentially dangerous uploads as soon
+  # as possible. Note that a file uploaded in a form which is still open (and
+  # not yet submitted) is also unattached, so a submission done after the
+  # window may lose that upload. The window is only the earliest time at which
+  # a blob becomes eligible for deletion: the recommended cron runs hourly and
+  # the deletions are queued with purge_later, so a file may still be available
+  # well past the window and the exact deletion time is not guaranteed. If
+  # that trade-off is not acceptable for your instance, increase the window
+  # with the clean_up_unattached_blobs_after_in_minutes argument, for instance
+  # `bundle exec rake decidim:attachments_cleanup[1440]` keeps unattached
+  # blobs for at least 24 hours.
   task :attachments_cleanup, [:clean_up_unattached_blobs_after_in_minutes] => :environment do |_task, args|
     args.with_defaults(clean_up_unattached_blobs_after_in_minutes: 60)
 
