@@ -9,7 +9,7 @@ describe "Data consent within organization" do
   before do
     page.driver.browser.execute_cdp(
       "Network.deleteCookies",
-      domain: ".#{organization.host}",
+      domain: organization.host,
       name: Decidim.consent_cookie_name,
       path: "/"
     )
@@ -32,8 +32,8 @@ describe "Data consent within organization" do
     expect(diff).to be_within(30).of(365.days)
   end
 
-  it "sets the correct domain for the cookie" do
-    expect(cookie[:domain]).to eq(".#{organization.host}")
+  it "sets the cookie as host-only (no domain)" do
+    expect(cookie[:domain]).to eq(organization.host)
   end
 
   it "sets the correct SameSite flag for the cookie" do

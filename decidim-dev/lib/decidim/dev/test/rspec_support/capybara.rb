@@ -201,9 +201,8 @@ RSpec.configure do |config|
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host
     if domain
-      # JavaScript sets the cookie also for all subdomains but localhost is a
-      # special case.
-      domain = ".#{domain}" unless domain == "localhost"
+      # JavaScript sets the consent cookie as host-only (no explicit domain),
+      # so it is not shared with subdomains.
       page.driver.browser.execute_cdp(
         "Network.setCookie",
         domain:,
