@@ -28,6 +28,10 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
       expect(subject.call).to have_text(translated(model.body))
     end
 
+    it "renders the title-and-description description" do
+      expect(subject.call).to have_text(decidim_sanitize(translated(model.description), strip_tags: true))
+    end
+
     it "renders the title-and-description type" do
       translated_question_type = I18n.t(model.question_type, scope: "decidim.forms.question_types")
       expect(subject.call).to have_text(translated_question_type)
