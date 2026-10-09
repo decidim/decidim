@@ -36,6 +36,20 @@ module Decidim
           expect(registration_type.reload.conference_meeting_registration_types_count).to eq(0)
           expect(other_registration_type.reload.conference_meeting_registration_types_count).to eq(1)
         end
+
+        context "with concurrent creations" do
+          it_behaves_like "a concurrency safe counter cache" do
+            let(:counter_parent) { registration_type }
+            let(:counter_column) { :conference_meeting_registration_types_count }
+            let(:counter_children) do
+              meetings = create_list(:conference_meeting, 5, conference: registration_type.conference)
+
+              meetings.map do |meeting|
+                ->(parent) { create(:conference_meeting_registration_type, registration_type: parent, conference_meeting: meeting) }
+              end
+            end
+          end
+        end
       end
     end
   end

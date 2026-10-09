@@ -91,6 +91,20 @@ module Decidim::Budgets
       end
     end
 
+    context "with concurrent creations" do
+      let(:budget) { create(:budget) }
+
+      it_behaves_like "a concurrency safe counter cache" do
+        let(:counter_parent) { budget }
+        let(:counter_column) { :projects_count }
+        let(:counter_children) do
+          Array.new(5) do
+            ->(parent) { create(:project, budget: parent) }
+          end
+        end
+      end
+    end
+
     describe "#users_to_notify_on_comment_created" do
       let!(:follows) { create_list(:follow, 3, followable: subject) }
 

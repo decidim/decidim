@@ -52,6 +52,21 @@ module Decidim
           expect(questionnaire.reload.responses_count).to eq(0)
           expect(other_questionnaire.reload.responses_count).to eq(1)
         end
+
+        context "with concurrent creations" do
+          it_behaves_like "a concurrency safe counter cache" do
+            let(:counter_parent) { questionnaire }
+            let(:counter_column) { :responses_count }
+            let(:counter_children) do
+              item = question
+              users = create_list(:user, 5, organization:)
+
+              users.map do |respondent|
+                ->(parent) { create(:response, questionnaire: parent, question: item, user: respondent) }
+              end
+            end
+          end
+        end
       end
 
       context "when the user does not belong to the same organization" do
