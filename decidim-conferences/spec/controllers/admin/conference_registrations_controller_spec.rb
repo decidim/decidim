@@ -28,6 +28,28 @@ module Decidim
             expect(assigns(:conference_registrations)).to include(registration)
           end
 
+          context "when the user is a conference admin" do
+            let(:current_user) { create(:conference_admin, :confirmed, organization:, conference:) }
+
+            it "lists the conference registrations" do
+              get :index, params: { conference_slug: conference.slug }
+
+              expect(response).to have_http_status(:success)
+              expect(assigns(:conference_registrations)).to include(registration)
+            end
+          end
+
+          context "when the user is a conference collaborator" do
+            let(:current_user) { create(:conference_collaborator, :confirmed, organization:, conference:) }
+
+            it "redirects the user" do
+              get :index, params: { conference_slug: conference.slug }
+
+              expect(response).to have_http_status(:redirect)
+              expect(flash[:alert]).to be_present
+            end
+          end
+
           context "when the user is not an admin" do
             let(:current_user) { create(:user, :confirmed, organization:) }
 
@@ -51,6 +73,17 @@ module Decidim
             expect(response.headers["Content-Disposition"]).to include("conference_registrations")
           end
 
+          context "when the user is a conference admin" do
+            let(:current_user) { create(:conference_admin, :confirmed, organization:, conference:) }
+
+            it "exports the conference registrations" do
+              get :export, params: { conference_slug: conference.slug, format: "CSV" }
+
+              expect(response).to have_http_status(:success)
+              expect(response.body).to include(registration.user.email)
+            end
+          end
+
           context "when the user is not an admin" do
             let(:current_user) { create(:user, :confirmed, organization:) }
 
@@ -72,6 +105,18 @@ module Decidim
             expect(registration.reload).to be_confirmed
             expect(response).to redirect_to(conference_conference_registrations_path(conference))
             expect(flash[:notice]).to be_present
+          end
+
+          context "when the user is a conference admin" do
+            let(:current_user) { create(:conference_admin, :confirmed, organization:, conference:) }
+
+            it "confirms the registration" do
+              post :confirm, params: { conference_slug: conference.slug, id: registration.id }
+
+              expect(registration.reload).to be_confirmed
+              expect(response).to redirect_to(conference_conference_registrations_path(conference))
+              expect(flash[:notice]).to be_present
+            end
           end
 
           context "when the registrations are disabled" do
