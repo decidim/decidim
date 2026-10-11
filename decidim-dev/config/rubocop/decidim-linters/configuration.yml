@@ -33,6 +33,10 @@ Decidim/EnforcePermissionTo:
     - "show"
     - "home"
   Exclude:
+    - "decidim-core/app/controllers/concerns/decidim/devise_authentication_methods.rb"
+    - "decidim-core/app/controllers/concerns/decidim/locale_switcher.rb"
+    - "decidim-core/app/controllers/concerns/decidim/registers_permissions.rb"
+    - "decidim-core/app/controllers/concerns/decidim/disable_redirection_to_external_host.rb"
     - "**/decidim-system/**/*.rb"
     - "**/app/controllers/decidim/errors_controller.rb"
     - "**/app/controllers/decidim/homepage_controller.rb"
