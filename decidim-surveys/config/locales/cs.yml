@@ -173,6 +173,7 @@ cs:
         response:
           invalid: Při odpovědi na dotazník došlo k chybě.
           spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
+          success: Průzkum úspěšně zodpovězen.
         show:
           closed: Uzavřeno
           open: Otevřeno
