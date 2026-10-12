@@ -30,14 +30,12 @@ module Decidim
         # Lock the rows in the same order as CreateSuggestion (document first, then versions) so
         # concurrent suggestion creation and rollout cannot deadlock on the counter updates.
         Decidim::CollaborativeTexts::Document.lock.find(resource.document.id)
-        source_version_ids.each { |version_id| Decidim::CollaborativeTexts::Version.lock.find(version_id) }
+        Decidim::CollaborativeTexts::Version.lock.find(source_version_ids)
 
         form.pending_suggestions.update_all(document_version_id: resource.id)
 
         # update_all skips the counter cache callbacks, so recalculate the counters of the affected versions
-        ([resource.id] + source_version_ids).each do |version_id|
-          Decidim::CollaborativeTexts::Version.reset_counters(version_id, :suggestions)
-        end
+        Decidim::CollaborativeTexts::Version.reset_counters([resource.id] + source_version_ids, :suggestions)
       end
 
       # Add as co-authors and change the status of the suggestions to accepted
