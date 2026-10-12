@@ -13,9 +13,7 @@ module Decidim
       helper_method :per_page, :page_offset
       helper Decidim::PaginateHelper
 
-      def paginate(resources)
-        resources.page(params[:page]).per(per_page)
-      end
+      protected
 
       def per_page
         if OPTIONS.include?(params[:per_page])
@@ -30,6 +28,12 @@ module Decidim
 
       def page_offset
         [params.fetch(:page, 0).to_i - 1, 0].max * per_page
+      end
+
+      private
+
+      def paginate(resources)
+        resources.page(params[:page]).per(per_page)
       end
     end
   end

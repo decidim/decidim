@@ -42,6 +42,8 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" if debate.blank?
+
+        enforce_permission_to :read, :debate, debate:
       end
 
       def edit
