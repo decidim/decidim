@@ -25,7 +25,13 @@ module Decidim
       def move_pending_suggestions
         return if form.pending_suggestions.empty?
 
-        source_version_ids = form.pending_suggestions.pluck(:document_version_id).uniq
+        source_version_ids = form.pending_suggestions.pluck(:document_version_id).uniq.sort
+
+        # Lock the rows in the same order as CreateSuggestion (document first, then versions) so
+        # concurrent suggestion creation and rollout cannot deadlock on the counter updates.
+        Decidim::CollaborativeTexts::Document.lock.find(resource.document.id)
+        source_version_ids.each { |version_id| Decidim::CollaborativeTexts::Version.lock.find(version_id) }
+
         form.pending_suggestions.update_all(document_version_id: resource.id)
 
         # update_all skips the counter cache callbacks, so recalculate the counters of the affected versions

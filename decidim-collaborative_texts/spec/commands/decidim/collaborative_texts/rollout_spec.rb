@@ -112,6 +112,52 @@ module Decidim
             expect(document.document_versions.last.reload.suggestions_count).to eq(0)
           end
         end
+
+        context "with concurrent calls" do
+          include_context "with concurrency"
+
+          let(:changeset) do
+            {
+              "firstNode" => "1",
+              "lastNode" => "2",
+              "original" => ["Original line"],
+              "replace" => ["Replacement line"]
+            }
+          end
+
+          let(:suggestion_form) do
+            double(
+              invalid?: false,
+              author: user,
+              document_version: document.current_version,
+              changeset:,
+              document:,
+              current_user: user,
+              current_organization: organization
+            )
+          end
+
+          it "does not deadlock when a suggestion is created while pending suggestions are moved" do
+            errors = []
+            gate = Queue.new
+            threads = Array.new(4) do |index|
+              Thread.new do
+                gate.pop
+                if index.zero?
+                  subject.call
+                else
+                  CreateSuggestion.new(suggestion_form).call
+                end
+              rescue ActiveRecord::Deadlocked => e
+                errors << e
+              end
+            end
+            4.times { gate << true }
+            threads.each(&:join)
+
+            expect(errors).to be_empty
+          end
+        end
       end
     end
   end
