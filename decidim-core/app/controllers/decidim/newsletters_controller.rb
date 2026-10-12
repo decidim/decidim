@@ -11,6 +11,8 @@ module Decidim
     helper_method :newsletter
 
     def show
+      enforce_permission_to :read, :newsletter
+
       @user = current_user
       @organization = current_organization
 
@@ -20,6 +22,8 @@ module Decidim
     end
 
     def unsubscribe
+      enforce_permission_to :unsubscribe, :newsletter
+
       encryptor = Decidim::NewsletterEncryptor
 
       decrypted_string = encryptor.sent_at_decrypted(params[:u])
