@@ -51,6 +51,12 @@ describe Decidim::Elections::Permissions do
 
       it { is_expected.to be true }
     end
+
+    context "when the user is an admin and the election is not published" do
+      let(:user) { create(:user, :admin, organization: component.organization) }
+
+      it { is_expected.to be true }
+    end
   end
 
   context "when creating a vote" do

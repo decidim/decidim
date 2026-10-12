@@ -52,6 +52,8 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" if @proposal.blank? || !can_show_proposal?
+
+        enforce_permission_to :read, :proposal, proposal: @proposal
       end
 
       def new
