@@ -18,6 +18,8 @@ module Decidim
       end
 
       def meeting_calendar
+        enforce_permission_to(:read, :meeting, meeting:)
+
         send_data CalendarRenderer.for(meeting), content_type: "type/calendar", filename: "#{meeting.reference}.ics"
       end
 

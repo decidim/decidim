@@ -30,11 +30,11 @@ module Decidim
         end
       end
 
+      private
+
       def template
         "decidim/demographics/demographics/show"
       end
-
-      private
 
       def after_response_path = demographics_path
 

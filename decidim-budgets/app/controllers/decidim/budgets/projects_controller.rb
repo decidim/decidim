@@ -20,6 +20,8 @@ module Decidim
       def show
         raise ActionController::RoutingError, "Not Found" unless budget
         raise ActionController::RoutingError, "Not Found" unless project
+
+        enforce_permission_to :read, :project, project:
       end
 
       private
