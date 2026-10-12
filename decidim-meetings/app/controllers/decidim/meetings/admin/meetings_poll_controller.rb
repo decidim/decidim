@@ -52,6 +52,8 @@ module Decidim
           end
         end
 
+        protected
+
         def response_options
           respond_to do |format|
             format.json do

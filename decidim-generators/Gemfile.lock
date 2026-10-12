@@ -95,7 +95,7 @@ PATH
       omniauth-twitter (~> 1.4)
       paper_trail (~> 17.0)
       paranoia (~> 3.1.0)
-      pg (>= 1.5, < 1.7)
+      pg (>= 1.5, < 1.8)
       pg_search (~> 2.2)
       premailer-rails (~> 1.10)
       rack (>= 3.2.4, < 4.0)

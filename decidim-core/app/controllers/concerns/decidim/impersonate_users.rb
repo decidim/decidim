@@ -26,6 +26,8 @@ module Decidim
         @current_user ||= managed_user || real_user
       end
 
+      private
+
       # Clear the `@real_user` instance variable because otherwise that would be
       # the return value for any `current_user` calls after the user has already
       # signed out.
@@ -46,8 +48,6 @@ module Decidim
       def impersonation_session_remaining_duration_in_minutes
         ((impersonation_session_ends_at - Time.current) / 60).round
       end
-
-      private
 
       def current_user_impersonated?
         current_user && impersonation_log.present?

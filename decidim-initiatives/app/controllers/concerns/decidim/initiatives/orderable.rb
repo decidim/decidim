@@ -11,6 +11,8 @@ module Decidim
       included do
         include Decidim::Orderable
 
+        private
+
         # Available orders based on enabled settings
         def available_orders
           @available_orders ||= begin

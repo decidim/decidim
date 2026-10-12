@@ -46,6 +46,8 @@ module Decidim
               redirect_to new_members_csv_imports_path
             end
 
+            protected
+
             # Public: Returns a String or Object that will be passed to `redirect_to` after
             # importing members. By default it redirects to the participatory_space.
             #

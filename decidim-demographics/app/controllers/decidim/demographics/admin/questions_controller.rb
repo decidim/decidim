@@ -7,6 +7,8 @@ module Decidim
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireResponsesUrlHelper
 
+        protected
+
         def permission_subject = :demographics
 
         def edit_questions_template = "decidim/demographics/admin/questions/edit"

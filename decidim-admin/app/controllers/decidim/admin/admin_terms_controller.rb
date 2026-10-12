@@ -6,6 +6,7 @@ module Decidim
     # Terms of service agreement.
     class AdminTermsController < Decidim::Admin::ApplicationController
       def accept
+        enforce_permission_to :accept, :admin_terms
         current_user.admin_terms_accepted_at = Time.current
         if current_user.save!
           flash[:notice] = t("accept.success", scope: "decidim.admin.admin_terms_of_service")

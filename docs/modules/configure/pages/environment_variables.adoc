@@ -980,6 +980,15 @@ Note that this only applies to production environments.
 |3000
 |No
 
+|HTTP_PORT
+|Specifies the port that Decidim will use when generating absolute URLs (for instance, assets or push notifications), through the `Decidim::UrlOptionResolver`.
+
+*This is NOT the same as the `PORT` variable.* `PORT` is the port the application server listens on, while `HTTP_PORT` defines the public port used to build the URLs exposed to the outside world. Both may differ when the application runs behind a proxy or a load balancer (for example, under Heroku).
+
+If unset, it defaults to `3000` in development, `Capybara.server_port` in test, `443` when SSL is forced outside development and test, and `80` otherwise.
+|Environment-dependent (see description): `3000` (development), `Capybara.server_port` (test), `443` (SSL forced), `80` otherwise
+|No
+
 |RAILS_MAX_THREADS
 |Specifies the maximum number of concurrent database connections and `threads` that Puma will use to serve requests. Please refer to http://guides.rubyonrails.org/configuring.html#database-pooling[Database pooling at Rails Guides] for more information.
 |5

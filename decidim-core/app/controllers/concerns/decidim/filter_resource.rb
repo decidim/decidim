@@ -11,6 +11,8 @@ module Decidim
     # this way we can use Rails' form helpers and have automatically checked checkboxes and
     # radio buttons in the view, for example.
     class Filter
+      private
+
       def initialize(filter)
         @filter = filter
       end

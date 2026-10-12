@@ -1,5 +1,6 @@
 require:
   - decidim/dev/rubocop/cop/decidim/message_antipattern
+  - decidim/dev/rubocop/cop/decidim/enforce_permission_to
   - decidim/dev/rubocop/cop/decidim/organization_scoped_finder
   - decidim/dev/rubocop/cop/decidim/rspec/memoized_name
 
@@ -9,6 +10,75 @@ Decidim/MessageAntipattern:
     - "**/spec/**/*"
     - "**/test/**/*"
 
+Decidim/EnforcePermissionTo:
+  Enabled: true
+  Severity: warning
+  Include:
+    - "**/app/controllers/**/*.rb"
+  AuthorizedBaseClasses:
+    - "Decidim::Components::BaseController"
+    - "Decidim::Accountability::ApplicationController"
+    - "Decidim::Blogs::ApplicationController"
+    - "Decidim::Budgets::ApplicationController"
+    - "Decidim::CollaborativeTexts::ApplicationController"
+    - "Decidim::Debates::ApplicationController"
+    - "Decidim::Elections::ApplicationController"
+    - "Decidim::Meetings::ApplicationController"
+    - "Decidim::Pages::ApplicationController"
+    - "Decidim::Proposals::ApplicationController"
+    - "Decidim::Surveys::ApplicationController"
+    - "Decidim::Templates::ApplicationController"
+  AuthorizedBaseActions:
+    - "index"
+    - "show"
+    - "home"
+  Exclude:
+    - "decidim-api/**/*.rb"
+    - "decidim-design/**/*.rb"
+    - "decidim-dev/**/*.rb"
+    - "decidim-system/**/*.rb"
+    - "decidim-core/app/controllers/decidim/devise/**/*.rb"
+    - "decidim-core/app/controllers/decidim/doorkeeper/**/*.rb"
+    - "decidim-core/app/controllers/decidim/gamification/**/*.rb"
+    - "decidim-core/app/controllers/concerns/decidim/devise_authentication_methods.rb"
+    - "decidim-core/app/controllers/concerns/decidim/disable_redirection_to_external_host.rb"
+    - "decidim-core/app/controllers/concerns/decidim/locale_switcher.rb"
+    - "decidim-core/app/controllers/concerns/decidim/registers_permissions.rb"
+    - "decidim-core/app/controllers/concerns/decidim/resource_versions_concern.rb"
+    - "decidim-core/app/controllers/decidim/authorization_modals_controller.rb"
+    - "decidim-core/app/controllers/decidim/errors_controller.rb"
+    - "decidim-core/app/controllers/decidim/favicon_controller.rb"
+    - "decidim-core/app/controllers/decidim/free_resource_authorization_modals_controller.rb"
+    - "decidim-core/app/controllers/decidim/homepage_controller.rb"
+    - "decidim-core/app/controllers/decidim/links_controller.rb"
+    - "decidim-core/app/controllers/decidim/manifests_controller.rb"
+    - "decidim-core/app/controllers/decidim/newsletters_controller.rb"
+    - "decidim-core/app/controllers/decidim/offline_controller.rb"
+    - "decidim-core/app/controllers/decidim/open_data_controller.rb"
+    - "decidim-core/app/controllers/decidim/private_downloads_controller.rb"
+    - "decidim-core/app/controllers/decidim/profiles_controller.rb"
+    - "decidim-core/app/controllers/decidim/qr_controller.rb"
+    - "decidim-core/app/controllers/decidim/resource_autocomplete_controller.rb"
+    - "decidim-core/app/controllers/decidim/searches_controller.rb"
+    - "decidim-core/app/controllers/decidim/short_links_controller.rb"
+    - "decidim-core/app/controllers/decidim/static_map_controller.rb"
+    - "decidim-core/app/controllers/decidim/timeouts_controller.rb"
+    - "decidim-core/app/controllers/decidim/upload_validations_controller.rb"
+    - "decidim-core/app/controllers/decidim/user_activities_controller.rb"
+    - "decidim-demographics/app/controllers/decidim/demographics/demographics_controller.rb"
+    - "decidim-forms/app/controllers/decidim/forms/concerns/has_questionnaire.rb"
+    - "decidim-initiatives/app/controllers/decidim/initiatives/authorization_create_modals_controller.rb"
+    - "decidim-initiatives/app/controllers/decidim/initiatives/authorization_sign_modals_controller.rb"
+    - "decidim-initiatives/app/controllers/decidim/initiatives/create_initiative_controller.rb"
+    - "decidim-meetings/app/controllers/decidim/meetings/directory/meetings_controller.rb"
+    - "decidim-verifications/app/controllers/decidim/verifications/authorizations_controller.rb"
+
+Decidim/RSpec/MemoizedName:
+  Enabled: true
+  Include:
+    - "**/spec/system/**/*"
+    - "**/spec/shared/**/*"
+
 Decidim/OrganizationScopedFinder:
   Enabled: true
   Severity: warning
@@ -16,9 +86,3 @@ Decidim/OrganizationScopedFinder:
     - "**/app/controllers/**/admin/**/*.rb"
   Exclude:
     - "**/decidim-system/**/*.rb"
-
-Decidim/RSpec/MemoizedName:
-  Enabled: true
-  Include:
-    - "**/spec/system/**/*"
-    - "**/spec/shared/**/*"
