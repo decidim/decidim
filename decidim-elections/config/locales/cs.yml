@@ -99,6 +99,7 @@ cs:
             allow_census_check_before_start: Povolit uživatelům zkontrolovat, zda mohou hlasovat před zahájením voleb
             census: 'Registr obyvatel:'
             results_availability:
+              after_end: Výsledky dostupné po ukončení voleb
               real_time: Výsledky jsou dostupné v reálném čase
             title: Stav voleb
         elections:
@@ -106,6 +107,7 @@ cs:
             invalid: Při vytváření voleb došlo k chybě.
             success: Volba byla úspěšně vytvořena.
           dashboard:
+            subtitle: 'Konečný krok: Zkontrolujte své údaje. Úpravy mohou být ještě provedeny před zveřejněním. Po zveřejnění budete moci aktualizovat popis volby.'
             title: Ovládací panel
           edit:
             title: Upravit volbu
@@ -114,15 +116,18 @@ cs:
             attachment_legend: Přidat galerii obrázků (volitelné)
             basic_title: Základní informace
             calendar: Kalendář
+            calendar_description: Zkontrolujte, zda je časové pásmo organizace v nastavení organizace správné. Aktuální konfigurace je %{timezone}.
             edit_attachments: Upravit přílohy
             end_at: Čas ukončení
             manual_start: Ruční spuštění
             publish: Publikovat
             results_availability:
               after_end: Po ukončení voleb
+              after_end_help: publikovat výsledky po ukončení voleb
               per_question: Otázka po otázce
               per_question_help: ručně zpracovat hlasování a publikovat výsledky pro každou otázku
               real_time: V reálném čase
+              real_time_help: automaticky publikovat výsledky během voleb při hlasování
               title: Dostupnost výsledků
             save: Uložit a pokračovat
             start_at: Čas zahájení
@@ -140,6 +145,7 @@ cs:
             success: Volby úspěšně nezveřejněny.
           update:
             invalid: Při aktualizaci voleb došlo k chybě.
+            success: Volby byly úspěšně aktualizovány.
         questions:
           edit_questions:
             new_question: Nová otázka
@@ -179,6 +185,7 @@ cs:
         internal_users:
           already_have_an_account?: Již máte účet?
           are_you_new?: Nový účastník?
+          label: Registrovaní účastníci (dynamické)
           sign_in_description: Přihlaste se k hlasování v těchto volbách
           sign_up_description: Vytvořte účet pro hlasování v této volbě
         internal_users_form:
@@ -226,14 +233,18 @@ cs:
           recent: Nedávné
           start_at: Datum zahájení
         questions:
+          subtitle: 'Toto jsou otázky pro tento hlasovací proces:'
           title: Volební otázky
         show:
+          active_voting_until: 'Aktivní hlasování do: %{end_date}'
           check_census_button: Zkontrolujte, zda mohu hlasovat
+          edit_vote_button: Upravit hlas
           vote_button: Hlasovat
           voted: Již jste hlasovali. Můžete hlasovat znovu, pouze vaše poslední hlasování bude započítáno.
         vote_results:
           subtitle:
             per_question: Výsledky jsou k dispozici na jednu otázku. Výsledky pro každou otázku můžete vidět po povolení hlasování a po zveřejnění výsledků.
+            real_time: Výsledky jsou k dispozici v reálném čase. Výsledky můžete vidět během hlasování.
           title: Výsledky
           total: 'CELKEM:'
       models:
@@ -277,9 +288,18 @@ cs:
           back: Zpět
           cast_vote: Odevzdat hlas
           next: Další
+        receipt:
+          edit_vote: Upravte svůj hlas
+          title: Vaše hlasy byly úspěšně vloženy
+    metadata:
+      progress:
+        published_results: 'Výsledky publikovány: %{end_date}'
     statistics:
       elections_count: Volby
   layouts:
     decidim:
       election_votes_header:
         exit: Zavřít‏
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y, %-I:%M %p"
