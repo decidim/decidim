@@ -22,6 +22,17 @@ module RuboCop
       # is restricted with `only:` or `except:`, only the actions it covers
       # are exempt.
       #
+      # Methods referenced by framework lifecycle callbacks (`before_action`
+      # and its variants, `around_action`, `after_action`, `helper_method`,
+      # `rescue_from`, ...) are treated as lifecycle/helper methods and are
+      # never flagged, as they themselves are not controller actions.
+      #
+      # Controllers that inherit from a configured `AuthorizedBaseClasses`
+      # entry are considered to inherit the base authorization check for the
+      # `AuthorizedBaseActions` actions (typically read-style actions such as
+      # `index`, `show` and `home`). Mutating actions must still be
+      # authorized explicitly.
+      #
       # Calls to methods starting with `enforce_permission_to_` or
       # `action_authorized_to_` (authorization helper wrappers) are also
       # accepted as authorization checks.
@@ -72,20 +83,33 @@ module RuboCop
         # Visibility switch methods recognized when declared with no arguments.
         VISIBILITY_METHODS = [:public, :protected, :private].freeze
 
+        # Framework declarations whose referenced methods are lifecycle or
+        # helper methods rather than controller actions.
+        CALLBACK_METHODS = [
+          :before_action, :prepend_before_action, :append_before_action, :skip_before_action,
+          :around_action, :prepend_around_action, :append_around_action, :skip_around_action,
+          :after_action, :prepend_after_action, :append_after_action, :skip_after_action,
+          :helper_method, :rescue_from
+        ].freeze
+
         def on_new_investigation
-          reset_state
+          @scope_callback_methods = {}
+          @base_class_map = {}
+          @authorized_base_nodes = Set.new
+          reset_scope_state
         end
 
         def on_class(node)
-          reset_state
-          check_helper_methods(node)
+          reset_scope_state
+          register_authorized_base(node)
+          collect_callback_methods(node)
           check_before_actions(node)
           check_before_action_blocks(node)
         end
 
         def on_module(node)
-          reset_state
-          check_helper_methods(node)
+          reset_scope_state
+          collect_callback_methods(node)
           check_before_actions(node)
           check_before_action_blocks(node)
         end
@@ -98,7 +122,8 @@ module RuboCop
 
           return unless method_public?(node, method_name, inline_visibility)
           return if action_exempted_by_before_action?(method_name)
-          return if @helper_methods.include?(method_name)
+          return if callback_method?(node, method_name)
+          return if authorized_base_action?(node, method_name)
 
           return if contains_authorization_check?(node)
 
@@ -120,13 +145,18 @@ module RuboCop
 
         private
 
-        def reset_state
+        # Resets the state that is scoped to a single class or module body.
+        # Callback methods are intentionally not part of this state: they are
+        # collected per scope in `collect_callback_methods`, so sibling scopes
+        # do not see each other's callbacks. A definition only inherits the
+        # callbacks of its own scope and of enclosing modules (never across a
+        # class boundary, as nested classes are not subclasses).
+        def reset_scope_state
           @in_private_section = false
           @inline_visibility = nil
           @all_actions_auth = false
           @only_actions = Set.new
           @except_sets = []
-          @helper_methods = Set.new
         end
 
         def visibility_def_argument?(node)
@@ -176,14 +206,247 @@ module RuboCop
             !node.arguments.empty? && !visibility_def_argument?(node)
         end
 
-        def check_helper_methods(node)
-          node.body&.each_descendant(:send) do |send_node|
-            next unless send_node.method_name == :helper_method
+        # Collects the lifecycle/helper methods owned by a scope (a class or
+        # module). Only declarations and definitions belonging to the scope
+        # itself are considered; nested classes and modules are excluded so
+        # callbacks cannot leak between sibling scopes. The result is stored per
+        # scope so a definition can inherit the callbacks of its enclosing
+        # scopes without seeing those of its siblings.
+        def collect_callback_methods(node)
+          return unless node.body
 
-            send_node.arguments.each do |arg|
-              @helper_methods << arg.value if arg.sym_type?
+          definitions = own_scope_definitions(node)
+          declared = own_scope_callback_names(node)
+          @scope_callback_methods[node] = expand_callback_dependencies(declared, definitions)
+        end
+
+        # The methods referenced by callback declarations on the scope itself.
+        def own_scope_callback_names(node)
+          own_scope_nodes(node).each_with_object(Set.new) do |descendant, names|
+            next unless descendant.send_type?
+            next unless CALLBACK_METHODS.include?(descendant.method_name)
+
+            callback_method_names(descendant).each { |name| names << name }
+          end
+        end
+
+        # The method definitions belonging to the scope itself, indexed by name.
+        def own_scope_definitions(node)
+          own_scope_nodes(node).each_with_object({}) do |descendant, definitions|
+            next unless descendant.def_type?
+
+            definitions[descendant.method_name] ||= descendant
+          end
+        end
+
+        # Walks a scope body without descending into nested classes or modules,
+        # so each scope only sees its own declarations and definitions.
+        def own_scope_nodes(node)
+          nodes = []
+          queue = [node.body].compact
+
+          until queue.empty?
+            current = queue.shift
+            next if current.class_type? || current.module_type?
+
+            nodes << current
+            current.each_child_node { |child| queue << child }
+          end
+
+          nodes
+        end
+
+        # Methods called by a lifecycle callback are helper methods as well,
+        # e.g. a callback delegating to a public helper method.
+        def expand_callback_dependencies(declared, definitions)
+          names = Set.new(declared)
+          queue = declared.to_a
+
+          until queue.empty?
+            definition = definitions[queue.shift]
+            next unless definition&.body
+
+            sends = [definition.body]
+            sends.concat(definition.body.each_descendant(:send).to_a)
+
+            sends.each do |send_node|
+              next unless send_node.send_type?
+              next unless controller_call?(send_node)
+
+              callee = send_node.method_name
+              next unless definitions.has_key?(callee)
+              next unless names.add?(callee)
+
+              queue << callee
             end
           end
+
+          names
+        end
+
+        # Whether the method is a lifecycle/helper method of the def's own scope
+        # or of an enclosing module. Callbacks declared in a class are not
+        # inherited by definitions inside a nested class: Ruby does not treat a
+        # nested class as a subclass, so an outer controller's `helper_method`
+        # must not exempt an unrelated nested controller's action with the same
+        # name. Enclosing modules are still followed (a common concern pattern),
+        # but the walk stops at the first class boundary.
+        def callback_method?(node, method_name)
+          scopes = node.each_ancestor(:class, :module).to_a
+          return false if scopes.empty?
+
+          own_scope = scopes.shift
+          return true if scope_callback?(own_scope, method_name)
+
+          scopes.each do |scope|
+            break if scope.class_type?
+
+            return true if scope_callback?(scope, method_name)
+          end
+
+          false
+        end
+
+        def scope_callback?(scope, method_name)
+          @scope_callback_methods.fetch(scope, Set.new).include?(method_name)
+        end
+
+        # A call is made on the controller itself when the receiver is implicit
+        # or an explicit `self`. Calls with any other receiver, such as
+        # `Resource.find`, must not be followed because a same-named controller
+        # action could then be mistaken for a lifecycle/helper method, hiding a
+        # missing authorization check.
+        def controller_call?(send_node)
+          send_node.receiver.nil? || send_node.receiver.self_type?
+        end
+
+        def callback_method_names(send_node)
+          send_node.arguments.flat_map do |arg|
+            case arg.type
+            when :sym, :str
+              arg.value.to_sym
+            when :hash
+              rescue_handler_names(arg)
+            else
+              []
+            end
+          end
+        end
+
+        # `rescue_from SomeError, with: :handler` references the handler
+        # method through the `with:` option.
+        def rescue_handler_names(hash_node)
+          hash_node.pairs.filter_map do |pair|
+            next unless pair.key.sym_type? && pair.key.value == :with
+
+            value = pair.value
+            value.value.to_sym if value.sym_type? || value.str_type?
+          end
+        end
+
+        def register_authorized_base(node)
+          register_class_hierarchy(node)
+          @authorized_base_nodes << node if authorized_base_class?(node)
+        end
+
+        # Keeps track of the class hierarchy so authorization inherited from a
+        # configured base class can be recognized through intermediate classes.
+        def register_class_hierarchy(node)
+          name = qualified_class_name(node)
+          return unless name
+
+          parent = node.parent_class
+          return unless parent&.const_type?
+
+          @base_class_map ||= {}
+          @base_class_map[name] = resolved_parent_name(node, parent)
+        end
+
+        # Resolves a superclass reference written relative to the enclosing
+        # namespace (e.g. `BaseController`, `Components::BaseController` or
+        # `Decidim::Meetings::ApplicationController` inside
+        # `module Decidim::Meetings::Polls`) to its qualified form, so it
+        # matches the names stored in the hierarchy map. An explicitly
+        # root-qualified reference (e.g. `::Decidim::Components::BaseController`)
+        # is kept as written.
+        def resolved_parent_name(node, parent)
+          name = parent.const_name
+          return name if parent.absolute?
+
+          namespace = enclosing_namespace(node)
+          return name if namespace.empty?
+
+          resolve_relative_constant(name, namespace)
+        end
+
+        # Ruby resolves the leading constant of a relative reference against
+        # the enclosing lexical scopes, innermost first. Mirror that by
+        # anchoring the reference at the innermost enclosing scope ending with
+        # the reference's leading constant; a name whose leading constant does
+        # not match any enclosing scope is relative to the full namespace.
+        def resolve_relative_constant(name, namespace)
+          first, *rest = name.split("::")
+          scopes = namespace.split("::")
+          anchor = scopes.rindex(first)
+
+          return "#{namespace}::#{name}" unless anchor
+
+          (scopes.first(anchor + 1) + rest).join("::")
+        end
+
+        # The lexical namespace that encloses a class or module definition,
+        # used as the starting point for relative constant resolution.
+        def enclosing_namespace(node)
+          node.each_ancestor(:class, :module).to_a.reverse.filter_map do |ancestor|
+            ancestor.identifier&.const_name
+          end.join("::")
+        end
+
+        def qualified_class_name(node)
+          identifier = node.identifier
+          return nil unless identifier&.const_type?
+
+          namespace = node.each_ancestor(:class, :module).to_a.reverse.filter_map do |ancestor|
+            ancestor.identifier&.const_name
+          end
+
+          (namespace + [identifier.const_name]).join("::")
+        end
+
+        def authorized_base_class?(node)
+          parent = node.parent_class
+          return false unless parent&.const_type?
+
+          authorized_base_name?(resolved_parent_name(node, parent))
+        end
+
+        def authorized_base_name?(name)
+          seen = Set.new
+
+          while name && seen.add?(name)
+            return true if authorized_base_classes.include?(name)
+
+            name = @base_class_map[name]
+          end
+
+          false
+        end
+
+        def authorized_base_classes
+          @authorized_base_classes ||= Array(cop_config["AuthorizedBaseClasses"]).map(&:to_s)
+        end
+
+        def authorized_base_actions
+          @authorized_base_actions ||= Array(cop_config["AuthorizedBaseActions"]).map(&:to_s)
+        end
+
+        def authorized_base_action?(node, method_name)
+          return false unless authorized_base_actions.include?(method_name.to_s)
+
+          scope = node.each_ancestor(:class, :module).first
+          return false unless scope
+
+          @authorized_base_nodes.include?(scope)
         end
 
         def check_before_actions(class_node)

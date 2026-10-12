@@ -372,6 +372,22 @@ module Decidim
           end
         end
       end
+
+      describe "GET show permissions" do
+        let(:component) { create(:proposal_component) }
+        let(:proposal) { create(:proposal, component:) }
+
+        it "allows reading a visible proposal" do
+          expect(controller.send(:allowed_to?, :read, :proposal, proposal:)).to be(true)
+        end
+
+        it "does not allow reading a hidden proposal" do
+          hidden_proposal = create(:proposal, component:)
+          create(:moderation, hidden_at: Time.current, reportable: hidden_proposal)
+
+          expect(controller.send(:allowed_to?, :read, :proposal, proposal: hidden_proposal.reload)).to be(false)
+        end
+      end
     end
   end
 end
