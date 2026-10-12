@@ -25,7 +25,13 @@ module Decidim
       def move_pending_suggestions
         return if form.pending_suggestions.empty?
 
+        source_version_ids = form.pending_suggestions.pluck(:document_version_id).uniq
         form.pending_suggestions.update_all(document_version_id: resource.id)
+
+        # update_all skips the counter cache callbacks, so recalculate the counters of the affected versions
+        ([resource.id] + source_version_ids).each do |version_id|
+          Decidim::CollaborativeTexts::Version.reset_counters(version_id, :suggestions)
+        end
       end
 
       # Add as co-authors and change the status of the suggestions to accepted

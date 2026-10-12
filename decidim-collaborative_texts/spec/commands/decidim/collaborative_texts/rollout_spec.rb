@@ -79,6 +79,16 @@ module Decidim
           expect(pending_suggestion.document_version).to eq(document.document_versions.last)
         end
 
+        it "updates the suggestions counters of the affected versions" do
+          expect(document.document_versions.first.suggestions_count).to eq(2)
+
+          subject.call
+
+          expect(document.document_versions.first.reload.suggestions_count).to eq(1)
+          expect(document.document_versions.last.reload.suggestions_count).to eq(1)
+          expect(document.reload.suggestions_count).to eq(2)
+        end
+
         context "when the form is a draft" do
           let(:draft) { true }
 
@@ -93,6 +103,13 @@ module Decidim
             expect(document.document_versions.last.draft).to be(true)
             expect(accepted_suggestion.reload.document_version).to eq(pending_suggestion.reload.document_version)
             expect(accepted_suggestion.document_version).to eq(document.document_versions.first)
+          end
+
+          it "does not change the suggestions counters" do
+            subject.call
+
+            expect(document.document_versions.first.reload.suggestions_count).to eq(2)
+            expect(document.document_versions.last.reload.suggestions_count).to eq(0)
           end
         end
       end
