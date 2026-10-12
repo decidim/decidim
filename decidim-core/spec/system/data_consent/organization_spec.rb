@@ -46,6 +46,38 @@ describe "Data consent within organization" do
     expect(cookie[:http_only]).to be(false)
   end
 
+  context "when a legacy domain-scoped consent cookie is present" do
+    before do
+      page.driver.browser.execute_cdp(
+        "Network.deleteCookies",
+        domain: organization.host,
+        name: Decidim.consent_cookie_name,
+        path: "/"
+      )
+      # Older Decidim versions stored the cookie with an explicit domain, which
+      # made it a domain cookie shared with every subdomain.
+      page.driver.browser.execute_cdp(
+        "Network.setCookie",
+        domain: ".#{organization.host}",
+        name: Decidim.consent_cookie_name,
+        value: { essential: true, analytics: true }.to_json,
+        path: "/"
+      )
+      visit decidim.root_path
+    end
+
+    it "does not adopt the legacy consent" do
+      expect(page).to have_text("Information about the cookies used on the website")
+    end
+
+    it "retires the legacy domain cookie" do
+      consent_cookies = page.driver.browser.manage.all_cookies.select do |stored|
+        stored[:name] == Decidim.consent_cookie_name
+      end
+      expect(consent_cookies.map { |stored| stored[:domain] }).not_to include(".#{organization.host}")
+    end
+  end
+
   if ENV["TEST_SSL"]
     it "sets the cookie with the secure flag" do
       expect(page).to have_text("Information about the cookies used on the website")

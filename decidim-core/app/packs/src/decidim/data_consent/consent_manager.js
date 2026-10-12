@@ -10,6 +10,7 @@ class ConsentManager {
     this.modal = options.modal;
     this.categories = options.categories;
     this.cookieName = options.cookieName;
+    this.retireLegacyCookie();
     this.cookie = Cookies.get(this.cookieName);
     this.warningElement = options.warningElement;
     if (this.cookie) {
@@ -17,6 +18,24 @@ class ConsentManager {
     } else {
       this.updateState({});
     }
+  }
+
+  // Older versions wrote this cookie with an explicit `domain` attribute, so
+  // it was a domain cookie shared with every subdomain. Remove such cookies
+  // from this host and its ancestors before reading, otherwise stale consent
+  // leaks to hosts where the visitor never made a choice.
+  retireLegacyCookie() {
+    const { hostname } = window.location;
+    if (!hostname || !hostname.includes(".") || (/^[\d.]+$/).test(hostname)) {
+      return;
+    }
+
+    const labels = hostname.split(".");
+    labels.slice(0, -1).forEach((part, index) => {
+      const domain = labels.slice(index).join(".");
+      Cookies.remove(this.cookieName, { path: "/", domain });
+      Cookies.remove(this.cookieName, { path: "/", domain: `.${domain}` });
+    });
   }
 
   updateState(newState) {

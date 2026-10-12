@@ -11,10 +11,11 @@ jest.mock("js-cookie", () => {
   return {
     // ...originalModule,
     cookieStorage: {},
-    get: originalModule.get,
+    get: jest.fn(originalModule.get),
     set: function (name, value, options) {
       this.cookieStorage[name] = originalModule.set(name, value, options);
-    }
+    },
+    remove: jest.fn(originalModule.remove)
   };
 });
 
@@ -269,6 +270,31 @@ describe("ConsentManager", () => {
       it("does not set the secure flag", () => {
         expect(cookie.secure).toBeUndefined();
       });
+    });
+  });
+
+  describe("when the consent cookie was previously stored as a domain cookie", () => {
+    beforeEach(() => {
+      window.location.href = "https://test.decidim.dev/";
+      Cookies.get.mockClear();
+      Cookies.remove.mockClear();
+      const modal = document.querySelector("#dc-modal");
+      const categories = [...modal.querySelectorAll(".category-wrapper")].map((el) => el.dataset.id);
+      manager = new ConsentManager({
+        modal: modal,
+        categories: categories,
+        cookieName: "decidim-consent",
+        warningElement: document.querySelector("[data-dataconsent-warning]")
+      });
+    });
+    it("retires the cookie on the current host and its ancestor domains", () => {
+      const removedDomains = Cookies.remove.mock.calls.map(([, options]) => options.domain);
+      expect(removedDomains).toContain("test.decidim.dev");
+      expect(removedDomains).toContain("decidim.dev");
+      expect(removedDomains).not.toContain("dev");
+    });
+    it("retires the legacy cookie before reading the stored consent", () => {
+      expect(Cookies.remove.mock.invocationCallOrder[0]).toBeLessThan(Cookies.get.mock.invocationCallOrder[0]);
     });
   });
 });
