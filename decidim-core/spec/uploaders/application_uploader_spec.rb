@@ -19,7 +19,7 @@ module Decidim
 
       allow(ENV).to receive(:fetch).and_call_original
       allow(ENV).to receive(:fetch).with("HTTP_PORT", instance_of(Integer)).and_return(local_port) if respond_to?(:local_port)
-      allow(ENV).to receive(:fetch).with("HOSTNAME", nil).and_return(hostname) if respond_to?(:hostname)
+      allow(ENV).to receive(:fetch).with("DECIDIM_HOST", nil).and_return(hostname) if respond_to?(:hostname)
     end
 
     describe "#variant" do
