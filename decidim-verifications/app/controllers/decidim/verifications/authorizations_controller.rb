@@ -62,7 +62,7 @@ module Decidim
       end
 
       def create
-        enforce_permission_to :read, :authorization
+        enforce_permission_to(:create, :authorization, authorization:)
 
         AuthorizeUser.call(handler, current_organization) do
           on(:ok) do
@@ -199,7 +199,7 @@ module Decidim
       private
 
       def authorization
-        @authorization ||= Decidim::Authorization.find_by(
+        @authorization ||= Decidim::Authorization.find_or_initialize_by(
           user: current_user,
           name: handler_name
         )

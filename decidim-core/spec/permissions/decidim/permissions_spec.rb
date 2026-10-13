@@ -282,6 +282,12 @@ describe Decidim::Permissions do
       let(:action_name) { :create }
 
       it { is_expected.to be true }
+
+      context "and the authorization is already active" do
+        let(:authorization) { create(:authorization, :granted) }
+
+        it { is_expected.to be false }
+      end
     end
 
     context "with an update action" do
