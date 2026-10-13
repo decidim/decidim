@@ -452,7 +452,10 @@ module Decidim
           char = scanner.getch
           output << char
           # The arguments of these functions are kept until the function ends,
-          # as "image-set()" can declare several URLs.
+          # as "image-set()" can declare several URLs. The opening parentheses
+          # which do not follow an identifier are tracked as well, so that their
+          # closing ones do not end an enclosing function and drop its arguments.
+          url_functions.push(false) if char == "("
           url_functions.pop if char == ")"
         end
       end
