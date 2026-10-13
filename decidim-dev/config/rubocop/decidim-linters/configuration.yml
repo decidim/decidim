@@ -35,7 +35,6 @@ Decidim/EnforcePermissionTo:
   Exclude:
     - "decidim-api/**/*.rb"
     - "decidim-design/**/*.rb"
-    - "decidim-dev/**/*.rb"
     - "decidim-system/**/*.rb"
     - "decidim-core/app/controllers/decidim/devise/**/*.rb"
     - "decidim-core/app/controllers/decidim/doorkeeper/**/*.rb"
