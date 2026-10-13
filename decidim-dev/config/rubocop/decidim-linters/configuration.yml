@@ -15,23 +15,6 @@ Decidim/EnforcePermissionTo:
   Severity: warning
   Include:
     - "**/app/controllers/**/*.rb"
-  AuthorizedBaseClasses:
-    - "Decidim::Components::BaseController"
-    - "Decidim::Accountability::ApplicationController"
-    - "Decidim::Blogs::ApplicationController"
-    - "Decidim::Budgets::ApplicationController"
-    - "Decidim::CollaborativeTexts::ApplicationController"
-    - "Decidim::Debates::ApplicationController"
-    - "Decidim::Elections::ApplicationController"
-    - "Decidim::Meetings::ApplicationController"
-    - "Decidim::Pages::ApplicationController"
-    - "Decidim::Proposals::ApplicationController"
-    - "Decidim::Surveys::ApplicationController"
-    - "Decidim::Templates::ApplicationController"
-  AuthorizedBaseActions:
-    - "index"
-    - "show"
-    - "home"
   # This cop only understands action-level authorization checks
   # (`enforce_permission_to` / `action_authorized_to`). The paths below are
   # intentionally authorized through a different model, so they cannot be

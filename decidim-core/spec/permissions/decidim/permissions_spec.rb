@@ -200,6 +200,14 @@ describe Decidim::Permissions do
     it { is_expected.to be true }
   end
 
+  context "when reading a component page" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :page }
+    end
+
+    it { is_expected.to be true }
+  end
+
   context "when action is on a locale" do
     let(:action) do
       { scope: :public, action: :foo, subject: :locales }

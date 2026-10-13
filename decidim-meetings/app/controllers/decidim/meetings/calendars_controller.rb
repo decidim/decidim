@@ -14,6 +14,8 @@ module Decidim
       skip_around_action :use_organization_time_zone
 
       def show
+        enforce_permission_to :read, :calendar
+
         render plain: CalendarRenderer.for(current_component, filter_params), content_type: "type/calendar"
       end
 

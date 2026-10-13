@@ -19,7 +19,9 @@ module Decidim
       before_action :check_permissions, except: [:index]
       before_action :check_editable, only: [:edit]
 
-      def index; end
+      def index
+        enforce_permission_to :read, :survey
+      end
 
       def edit
         @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)

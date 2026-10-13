@@ -8,7 +8,7 @@ module Decidim
         return Decidim::Proposals::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
-        toggle_allow(!proposal.hidden?) if permission_action.subject == :proposal && permission_action.action == :read
+        toggle_allow(proposal.nil? || !proposal.hidden?) if permission_action.subject == :proposal && permission_action.action == :read
         return permission_action unless user
 
         case permission_action.subject

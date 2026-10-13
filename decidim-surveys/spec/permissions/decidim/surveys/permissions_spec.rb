@@ -46,6 +46,14 @@ describe Decidim::Surveys::Permissions do
     it_behaves_like "permission is not set"
   end
 
+  context "when reading a survey" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :survey }
+    end
+
+    it { is_expected.to be true }
+  end
+
   context "when responding a survey" do
     let(:action) do
       { scope: :public, action: :respond, subject: :questionnaire }
