@@ -60,6 +60,18 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose entity declarations only appear inside comments and CDATA sections" do
+      let(:content) { File.read(Decidim::Dev.asset("test_entity_in_comment.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose animation target reference is percent encoded" do
+      let(:content) { File.read(Decidim::Dev.asset("test_percent_encoded_fragment.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG document with active content" do
       %w(
         malicious_svg_script.svg
@@ -68,16 +80,24 @@ describe Decidim::SvgContentValidator do
         malicious_svg_foreign_object.svg
         malicious_svg_animation.svg
         malicious_svg_animation_values.svg
+        malicious_svg_animation_style.svg
+        malicious_svg_animation_attribute_names.svg
+        malicious_svg_attributename_case.svg
         malicious_svg_style_import.svg
         malicious_svg_style_import_string.svg
         malicious_svg_style_url_string.svg
         malicious_svg_style_url_escape.svg
         malicious_svg_style_comment_string.svg
+        malicious_svg_css_comment_in_url.svg
+        malicious_svg_css_backslash_url.svg
         malicious_svg_stylesheet_pi.svg
         malicious_svg_entity.svg
+        malicious_svg_data_uri_nested.svg
         malicious_svg_external_image.svg
         malicious_svg_external_use.svg
         malicious_svg_external_feimage.svg
+        malicious_svg_cursor.svg
+        malicious_svg_backslash_reference.svg
         malicious_svg_external_animation.svg
         malicious_svg_external_animation_target.svg
         malicious_svg_external_animation_missing_target.svg
