@@ -465,6 +465,13 @@ take over user accounts.
 |10
 |No
 
+|DECIDIM_CACHE_KEY_SEPARATOR
+|The separator used to build the cache keys for the cached cells (the pieces of html where Decidim applies cache). It is exposed as `Decidim.cache_key_separator`.
+
+*This is particularly useful when using the Redis cache store*, as it allows to create namespaces within the cached data. For that case, a common value is `:`.
+|/
+|No
+
 |DECIDIM_MAXIMUM_ATTACHMENT_SIZE
 |The maximum file size of an attachment (in Megabytes).
 
