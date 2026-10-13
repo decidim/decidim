@@ -4,8 +4,8 @@ shared_examples "a form with unsaved changes" do |form_selector, field, exit_lin
   it "asks for confirmation before leaving the form" do
     within form_selector do
       fill_in field, with: "Unsaved changes"
-      click_on exit_link
     end
+    click_on exit_link, match: :first
 
     expect(page).to have_css("#confirm-modal", visible: :visible, text: I18n.t("decidim.shared.confirm_unload"))
   end
@@ -13,8 +13,8 @@ shared_examples "a form with unsaved changes" do |form_selector, field, exit_lin
   it "keeps the unsaved changes when the confirmation is dismissed" do
     within form_selector do
       fill_in field, with: "Unsaved changes"
-      click_on exit_link
     end
+    click_on exit_link, match: :first
     dismiss_confirm
 
     expect(page).to have_css(form_selector)
@@ -24,8 +24,8 @@ shared_examples "a form with unsaved changes" do |form_selector, field, exit_lin
   it "leaves the form when the confirmation is accepted" do
     within form_selector do
       fill_in field, with: "Unsaved changes"
-      click_on exit_link
     end
+    click_on exit_link, match: :first
     accept_confirm
 
     expect(page).to have_no_css(form_selector)
