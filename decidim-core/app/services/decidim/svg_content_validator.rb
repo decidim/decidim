@@ -127,9 +127,10 @@ module Decidim
     # When they target a reference attribute of an element which loads the
     # referenced resource, the values assigned to it are validated as
     # references, as the resource is loaded when the animation reaches it. When
-    # they target the "style" attribute, the values are validated as style
-    # sheet content, as the URL references they declare are loaded when the
-    # animation reaches them.
+    # they target the "style" attribute or one of the presentation attributes
+    # which resolve a URL reference, the values are validated as style sheet
+    # content, as the URL references they declare are loaded when the animation
+    # reaches them.
     SVG_ANIMATION_ELEMENTS = %w(animate set).freeze
     SVG_ANIMATION_VALUE_NAMES = %w(values from to by).freeze
 
@@ -217,19 +218,19 @@ module Decidim
       return true if SVG_EVENT_HANDLER_NAME.match?(attribute.name)
 
       return true if forbidden_uri_value?(attribute.value.to_s)
-      return true if css_content_attribute?(attribute) && forbidden_css_content?(attribute.value.to_s)
+      return true if css_content_name?(attribute.name) && forbidden_css_content?(attribute.value.to_s)
       return true if animation_target_attribute?(attribute) && forbidden_name?(attribute.value.to_s)
 
       forbidden_resource_reference?(node, attribute)
     end
 
-    # Whether the value of the attribute is parsed as the content of a style
-    # sheet, either because it declares the declarations of an element or
-    # because it is a presentation attribute whose CSS property resolves a URL
-    # reference (see SVG_URL_PRESENTATION_ATTRIBUTES).
-    def css_content_attribute?(attribute)
-      name = attribute.name.downcase
-      name == "style" || SVG_URL_PRESENTATION_ATTRIBUTES.include?(name)
+    # Whether the name is parsed as the content of a style sheet, either because
+    # it declares the declarations of an element or because it is a presentation
+    # attribute whose CSS property resolves a URL reference (see
+    # SVG_URL_PRESENTATION_ATTRIBUTES).
+    def css_content_name?(name)
+      normalized = name.downcase
+      normalized == "style" || SVG_URL_PRESENTATION_ATTRIBUTES.include?(normalized)
     end
 
     # Whether the attribute references an external resource in an element
@@ -247,8 +248,9 @@ module Decidim
     # is loaded when the animation reaches the value. References which do not
     # load a resource (e.g. the links of an "a") are not restricted, as they
     # are never fetched when the document is rendered. The values assigned to
-    # the "style" attribute are validated as style sheet content, as the URL
-    # references they declare are loaded when the animation reaches them.
+    # the "style" attribute and to the presentation attributes which resolve a
+    # URL reference are validated as style sheet content, as the references they
+    # declare are loaded when the animation reaches them.
     def forbidden_animation_reference?(node)
       return false unless SVG_ANIMATION_ELEMENTS.include?(node.name.downcase)
 
@@ -256,7 +258,7 @@ module Decidim
       values = animation_values(node)
       return false if target.nil? || values.empty?
 
-      return true if target == "style" && forbidden_css_values?(values)
+      return true if css_content_name?(target) && forbidden_css_values?(values)
       return false unless SVG_REFERENCE_NAME.match?(target) && animates_resource_element?(node)
 
       forbidden_reference_values?(values)

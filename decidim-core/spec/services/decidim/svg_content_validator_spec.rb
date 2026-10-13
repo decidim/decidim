@@ -66,6 +66,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose animation assigns a presentation attribute referencing the document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_animation_presentation_reference.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose presentation attributes reference elements of the document" do
       let(:content) { File.read(Decidim::Dev.asset("test_presentation_attribute_references.svg")) }
 
@@ -117,6 +123,7 @@ describe Decidim::SvgContentValidator do
         malicious_svg_animation.svg
         malicious_svg_animation_values.svg
         malicious_svg_animation_style.svg
+        malicious_svg_animation_fill.svg
         malicious_svg_animation_attribute_names.svg
         malicious_svg_attributename_case.svg
         malicious_svg_style_import.svg
