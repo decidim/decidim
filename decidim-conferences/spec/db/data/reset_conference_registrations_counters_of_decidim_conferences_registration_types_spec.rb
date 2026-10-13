@@ -1,0 +1,86 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+require "./db/data/20261009120001_reset_conference_registrations_counters_of_decidim_conferences_registration_types"
+
+describe ResetConferenceRegistrationsCountersOfDecidimConferencesRegistrationTypes do
+  let(:migrator) do
+    described_class.new.tap do |m|
+      m.verbose = false
+    end
+  end
+
+  describe "#up" do
+    let(:registration_type) { create(:registration_type) }
+
+    it "resets conference_registrations_count to the number of registrations" do
+      create_list(:conference_registration, 2, registration_type:)
+
+      # The counter cache can be out of sync with the actual rows.
+      # rubocop:disable-next Rails/SkipsModelValidations
+      registration_type.update_column(:conference_registrations_count, 0)
+
+      migrator.migrate(:up)
+
+      expect(registration_type.reload.conference_registrations_count).to eq(2)
+    end
+
+    it "locks the registration type row before counting and keeps the lock until the counter is written" do
+      create_list(:conference_registration, 2, registration_type:)
+
+      queries = capture_queries do
+        ActiveRecord::Base.transaction { migrator.migrate(:up) }
+      end
+
+      lock = queries.index { |sql| sql.include?("FOR UPDATE") }
+      count = queries.index { |sql| sql.include?("SELECT COUNT(*) FROM \"decidim_conferences_conference_registrations\"") }
+      write = queries.index { |sql| sql.include?("UPDATE \"decidim_conferences_registration_types\" SET \"conference_registrations_count\"") }
+
+      expect(lock).not_to be_nil
+      expect(count).not_to be_nil
+      expect(write).not_to be_nil
+      expect(lock).to be < count
+      expect(lock).to be < write
+    end
+
+    context "when a registration is created while the backfill runs" do
+      include_context "with concurrency"
+
+      it "does not overwrite the concurrent counter-cache increment" do
+        create_list(:conference_registration, 2, registration_type:)
+
+        ready = Queue.new
+        start = Queue.new
+
+        thread = Thread.new do
+          ActiveRecord::Base.connection_pool.with_connection do
+            ready.push(true)
+            start.pop
+            create(:conference_registration, registration_type: Decidim::Conferences::RegistrationType.find(registration_type.id))
+          end
+        end
+
+        ready.pop
+        start.push(true)
+
+        # Data migrations run inside a transaction, so the lock taken on the registration type
+        # row is held until the counter is written. The concurrent insert can only increment the
+        # counter afterwards, on top of the value written by the backfill.
+        ActiveRecord::Base.transaction { migrator.migrate(:up) }
+        thread.join
+
+        expect(registration_type.reload.conference_registrations_count).to eq(3)
+      end
+    end
+  end
+
+  def capture_queries
+    queries = []
+    subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") { |_, _, _, _, data| queries << data[:sql] }
+    yield
+    queries
+  ensure
+    ActiveSupport::Notifications.unsubscribe(subscriber)
+  end
+end
