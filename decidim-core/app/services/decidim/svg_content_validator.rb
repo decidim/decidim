@@ -302,13 +302,14 @@ module Decidim
     # The elements of the document referenced by a target reference of an
     # animation element, which browsers resolve to the element with the
     # identifier of the fragment, after decoding its percent-encoded characters.
-    # References to other documents or to missing identifiers do not resolve to
-    # any element.
+    # The decoded identifier is encoded as UTF-8, as the identifiers of the
+    # document are read with that encoding. References to other documents or to
+    # missing identifiers do not resolve to any element.
     def referenced_elements(document, reference)
       id = reference[/\A#(.*)\z/m, 1]
       return [] if id.nil?
 
-      elements_by_id(document).fetch(percent_decode(id), [])
+      elements_by_id(document).fetch(percent_decode(id).force_encoding(Encoding::UTF_8), [])
     end
 
     # The elements of the document which declare an identifier, grouped by it.
@@ -361,11 +362,12 @@ module Decidim
     # invisible to the checks applied to the contents of the document. The
     # substitutions are applied to the bytes of the value, as the decoded
     # characters can be part of a multi-byte sequence which is not valid in the
-    # encoding of the value, and the result is returned as UTF-8 so that it can
-    # be compared with the contents and the identifiers of the document.
+    # encoding of the value. The result is kept as bytes, so that the encoding
+    # declared by a nested document is still read by the parser (see #parse);
+    # the callers which compare the decoded value with the contents of the
+    # document encode it as UTF-8.
     def percent_decode(value)
-      decoded = value.dup.force_encoding(Encoding::BINARY).gsub(/%([0-9A-Fa-f]{2})/) { [Regexp.last_match(1).hex].pack("C") }
-      decoded.force_encoding(Encoding::UTF_8)
+      value.dup.force_encoding(Encoding::BINARY).gsub(/%([0-9A-Fa-f]{2})/) { [Regexp.last_match(1).hex].pack("C") }
     end
 
     # Whether the value is a script URI or contains one. The animation elements

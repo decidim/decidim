@@ -60,6 +60,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose inline data reference declares its own encoding" do
+      let(:content) { File.read(Decidim::Dev.asset("test_data_uri_declared_encoding.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose entity declarations only appear inside comments and CDATA sections" do
       let(:content) { File.read(Decidim::Dev.asset("test_entity_in_comment.svg")) }
 
@@ -125,7 +131,7 @@ describe Decidim::SvgContentValidator do
         malicious_svg_data_uri_parameter.svg
         malicious_svg_data_uri_leading_space.svg
         malicious_svg_data_uri_deep_nested.svg
-        malicious_svg_data_uri_invalid_encoding.svg
+        malicious_svg_data_uri_declared_encoding.svg
         malicious_svg_external_image.svg
         malicious_svg_external_use.svg
         malicious_svg_external_feimage.svg
