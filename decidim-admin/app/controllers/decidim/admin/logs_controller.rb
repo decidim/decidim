@@ -10,7 +10,7 @@ module Decidim
       helper_method :logs, :no_logs_available?
 
       # The action logs are too complicated to be eagerly loaded
-      # we may have a Decidim::Meetings::Meeting resource to which we can eagerly load component: { participatory_space: :organization }
+      # We may have a Decidim::Meetings::Meeting resource to which we can eagerly load component: { participatory_space: :organization }
       # We may have a Decidim::Comments::Comment resource to which we caan eagerly load :commentable, :root_commentable with associated children
       # We may have a Decidim::Component resource that does not respond to component and so on
       # We may have a Decidim::Parocess resource that does not have an collection
