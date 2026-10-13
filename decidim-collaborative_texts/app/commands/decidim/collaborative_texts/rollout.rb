@@ -31,10 +31,11 @@ module Decidim
 
         # Lock the rows in the same order as CreateSuggestion (document first, then versions) so
         # concurrent suggestion creation and rollout cannot deadlock on the counter updates. Both
-        # locks go through the record that owns the row instead of a bare ID; the document is
-        # anchored to its component, since its organization is only reachable through a polymorphic
-        # participatory space that cannot be joined.
-        Decidim::CollaborativeTexts::Document.where(component: document.component).lock.find(document.id)
+        # locks go through the tenant instead of a bare ID: the document is anchored to the component
+        # the user is acting in, since a document has no organization column and its organization is
+        # only reachable through a polymorphic participatory space that cannot be joined, and the
+        # versions are locked through the document that owns them.
+        Decidim::CollaborativeTexts::Document.where(component: form.current_component).lock.find(document.id)
         document.document_versions.lock.find(source_version_ids)
 
         form.pending_suggestions.update_all(document_version_id: resource.id)

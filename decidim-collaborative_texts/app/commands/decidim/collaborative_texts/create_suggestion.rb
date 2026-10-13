@@ -13,14 +13,16 @@ module Decidim
 
       # Lock the rows in the same order as Rollout (document first, then version) so concurrent
       # suggestion creation and rollout cannot deadlock on the counter updates. Both locks go
-      # through the record that owns the row instead of a bare ID. A document has no organization
-      # column - its organization comes from the component through a polymorphic participatory
-      # space, which cannot be joined - so the component is the tenant anchor available here.
+      # through the tenant instead of a bare ID. A document has no organization column - its
+      # organization comes from the component through a polymorphic participatory space, which
+      # cannot be joined - so the component the user is acting in is the anchor, and the version is
+      # locked through the document that owns it. A record from another organization is never
+      # locked or written to.
       def run_before_hooks
         document = form.document
         version = form.document_version
 
-        Decidim::CollaborativeTexts::Document.where(component: document.component).lock.find(document.id)
+        Decidim::CollaborativeTexts::Document.where(component: form.current_component).lock.find(document.id)
         document.document_versions.lock.find(version.id) if version.persisted?
       end
 

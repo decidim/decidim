@@ -22,6 +22,7 @@ module Decidim
           draft?: draft,
           current_user: user,
           current_organization: organization,
+          current_component: document.component,
           accepted_suggestions: document.suggestions.where(id: accepted_suggestion.id),
           pending_suggestions: document.suggestions.where(id: pending_suggestion.id)
         )
@@ -133,7 +134,8 @@ module Decidim
               changeset:,
               document:,
               current_user: user,
-              current_organization: organization
+              current_organization: organization,
+              current_component: document.component
             )
           end
 
@@ -158,6 +160,53 @@ module Decidim
             expect(errors).to be_empty
           end
         end
+      end
+
+      context "when the document belongs to the organization the user is acting in" do
+        it "locks the document through the current component and the versions through the document" do
+          queries = capture_queries { subject.call }
+
+          document_lock = queries.find { |sql| sql.include?("FOR UPDATE") && sql.include?("decidim_collaborative_texts_documents") }
+          version_lock = queries.find { |sql| sql.include?("FOR UPDATE") && sql.include?("decidim_collaborative_texts_versions") }
+
+          expect(document_lock).to include("decidim_component_id")
+          expect(version_lock).to include("document_id")
+        end
+      end
+
+      context "when the document belongs to another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:other_component) { create(:collaborative_text_component, organization: other_organization) }
+        let(:other_document) { create(:collaborative_text_document, :with_body, component: other_component) }
+        let!(:other_suggestion) { create(:collaborative_text_suggestion, :pending, document_version: other_document.current_version) }
+
+        let(:form) do
+          double(
+            invalid?: false,
+            body:,
+            document: other_document,
+            draft: false,
+            draft?: false,
+            current_user: user,
+            current_organization: organization,
+            current_component: document.component,
+            accepted_suggestions: [],
+            pending_suggestions: other_document.suggestions.where(id: other_suggestion.id)
+          )
+        end
+
+        it "does not lock a document from another organization" do
+          expect { subject.call }.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+
+      def capture_queries
+        queries = []
+        subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") { |_, _, _, _, data| queries << data[:sql] }
+        yield
+        queries
+      ensure
+        ActiveSupport::Notifications.unsubscribe(subscriber)
       end
     end
   end
