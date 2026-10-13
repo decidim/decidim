@@ -10,6 +10,8 @@ module Decidim
       helper_method :allow_editing_responses?, :demographic
 
       def show
+        enforce_permission_to :read, :demographics
+
         @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
         @form.add_responses!(questionnaire:, session_token:, ip_hash:)
         @form.allow_editing_responses = true
@@ -18,6 +20,8 @@ module Decidim
       end
 
       def destroy
+        enforce_permission_to :destroy, :demographics
+
         DeleteDemographicData.call(questionnaire, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("destroy.success", scope: "decidim.demographics")
