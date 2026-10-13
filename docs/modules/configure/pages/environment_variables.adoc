@@ -821,11 +821,6 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |true
 |No
 
-|INITIATIVES_SIMILARITY_LIMIT
-|Number of similar initiatives presented to the user before publishing a new one.
-|5
-|No
-
 |INITIATIVES_MINIMUM_COMMITTEE_MEMBERS
 |Minimum number of committee members required to pass the initiative to technical validation phase. Only applies to initiatives created by individuals.
 |2
