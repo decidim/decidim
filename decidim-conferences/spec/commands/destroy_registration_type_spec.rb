@@ -94,16 +94,28 @@ module Decidim::Conferences
       let!(:registration_type) { create(:registration_type, conference:) }
 
       it "never destroys the type while a committed registration references it" do
-        events = []
+        # Each flow needs its own loaded copy before the gate opens: a thread must not look for the
+        # type after the other flow may already have deleted it.
+        creator_type = Decidim::Conferences::RegistrationType.find(registration_type.id)
+        destroyer_type = Decidim::Conferences::RegistrationType.find(registration_type.id)
+
+        join_events = []
+        join_error = nil
+        destroy_events = []
         errors = []
         gate = Queue.new
 
         creator = Thread.new do
           ActiveRecord::Base.connection_pool.with_connection do
             gate.pop
-            Decidim::Conferences::ConferenceRegistration.create!(conference:, user: current_user, registration_type: Decidim::Conferences::RegistrationType.find(registration_type.id))
+            recorder = Decidim::EventRecorder.new
+            command = Decidim::Conferences::JoinConference.new(conference, creator_type, current_user)
+            command.subscribe(recorder)
+            command.call
+            join_events.concat(recorder.events.keys)
           end
-        rescue ActiveRecord::Deadlocked, ActiveRecord::ForeignKeyViolation => e
+        rescue ActiveRecord::Deadlocked, ActiveRecord::RecordNotFound => e
+          join_error = e
           errors << e
         end
 
@@ -111,10 +123,10 @@ module Decidim::Conferences
           ActiveRecord::Base.connection_pool.with_connection do
             gate.pop
             recorder = Decidim::EventRecorder.new
-            command = described_class.new(Decidim::Conferences::RegistrationType.find(registration_type.id), current_user)
+            command = described_class.new(destroyer_type, current_user)
             command.subscribe(recorder)
             command.call
-            events.concat(recorder.events.keys)
+            destroy_events.concat(recorder.events.keys)
           end
         end
 
@@ -126,11 +138,18 @@ module Decidim::Conferences
         # could pass while the insert was in flight and the cascade would unregister the participant.
         surviving = Decidim::Conferences::RegistrationType.find_by(id: registration_type.id)
         if surviving
+          # The join held the lock, so the destroy saw its registration and refused.
           expect(Decidim::Conferences::ConferenceRegistration.where(decidim_conference_registration_type_id: surviving.id).count).to eq(1)
-          expect(events).to eq([:invalid])
+          expect(join_events).to eq([:ok])
+          expect(destroy_events).to eq([:invalid])
         else
+          # The destroy held the lock, so the join could not commit against the deleted type. The
+          # registration column has no database-level foreign key, so the lock is the only thing
+          # stopping the insert: it fails when the lock finds the row gone instead of leaving a
+          # registration pointing at a type that no longer exists.
           expect(Decidim::Conferences::ConferenceRegistration.where(decidim_conference_registration_type_id: registration_type.id).count).to eq(0)
-          expect(events).to eq([:ok])
+          expect(destroy_events).to eq([:ok])
+          expect(join_error).to be_an_instance_of(ActiveRecord::RecordNotFound)
         end
 
         # JoinConference locks the conference before the type and the destroy only locks the type,
