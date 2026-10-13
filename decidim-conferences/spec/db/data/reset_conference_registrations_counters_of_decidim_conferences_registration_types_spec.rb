@@ -29,9 +29,7 @@ describe ResetConferenceRegistrationsCountersOfDecidimConferencesRegistrationTyp
     it "locks the registration type row before counting and keeps the lock until the counter is written" do
       create_list(:conference_registration, 2, registration_type:)
 
-      queries = capture_queries do
-        ActiveRecord::Base.transaction { migrator.migrate(:up) }
-      end
+      queries = capture_queries { migrator.migrate(:up) }
 
       lock = queries.index { |sql| sql.include?("FOR UPDATE") }
       count = queries.index { |sql| sql.include?("SELECT COUNT(*) FROM \"decidim_conferences_conference_registrations\"") }
@@ -42,6 +40,29 @@ describe ResetConferenceRegistrationsCountersOfDecidimConferencesRegistrationTyp
       expect(write).not_to be_nil
       expect(lock).to be < count
       expect(lock).to be < write
+    end
+
+    context "when there is more than one registration type" do
+      include_context "with concurrency"
+
+      it "commits each type separately, releasing its lock before processing the next one" do
+        create_list(:registration_type, 2)
+
+        queries = capture_queries { migrator.migrate(:up) }
+
+        locks = queries.each_index.select { |index| queries[index].include?("FOR UPDATE") }
+        writes = queries.each_index.select { |index| queries[index].include?("UPDATE \"decidim_conferences_registration_types\"") }
+        commits = queries.each_index.select { |index| queries[index] == "COMMIT" }
+
+        expect(locks.length).to eq(2)
+        expect(writes.length).to eq(2)
+        expect(commits.length).to eq(2)
+
+        # The first type's lock is released by its own commit before the second type is locked.
+        expect(locks.first).to be < writes.first
+        expect(writes.first).to be < commits.first
+        expect(commits.first).to be < locks.last
+      end
     end
 
     context "when a registration is created while the backfill runs" do
@@ -64,10 +85,11 @@ describe ResetConferenceRegistrationsCountersOfDecidimConferencesRegistrationTyp
         ready.pop
         start.push(true)
 
-        # Data migrations run inside a transaction, so the lock taken on the registration type
-        # row is held until the counter is written. The concurrent insert can only increment the
-        # counter afterwards, on top of the value written by the backfill.
-        ActiveRecord::Base.transaction { migrator.migrate(:up) }
+        # The migration's outer transaction is disabled, so each type is processed in its own
+        # transaction and the row lock is held until that type's counter is committed. The
+        # concurrent insert can only increment the counter afterwards, on top of the value written
+        # by the backfill.
+        migrator.migrate(:up)
         thread.join
 
         expect(registration_type.reload.conference_registrations_count).to eq(3)
