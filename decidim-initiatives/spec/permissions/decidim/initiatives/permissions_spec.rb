@@ -229,6 +229,56 @@ describe Decidim::Initiatives::Permissions do
       end
     end
 
+    context "when the initiative type has not been selected yet" do
+      let(:context) { {} }
+
+      context "when creation is enabled" do
+        before do
+          allow(Decidim::Initiatives)
+            .to receive(:creation_enabled)
+            .and_return(true)
+        end
+
+        context "when authorizations are not required" do
+          before do
+            allow(Decidim::Initiatives)
+              .to receive(:do_not_require_authorization)
+              .and_return(true)
+          end
+
+          it { is_expected.to be true }
+        end
+
+        context "when the user has an authorization" do
+          before do
+            create(:authorization, :granted, user:)
+          end
+
+          it { is_expected.to be true }
+        end
+
+        context "when the user has no authorization" do
+          before do
+            allow(Decidim::Initiatives)
+              .to receive(:do_not_require_authorization)
+              .and_return(false)
+          end
+
+          it { is_expected.to be false }
+        end
+      end
+
+      context "when creation is not enabled" do
+        before do
+          allow(Decidim::Initiatives)
+            .to receive(:creation_enabled)
+            .and_return(false)
+        end
+
+        it { is_expected.to be false }
+      end
+    end
+
     context "when creation is not enabled" do
       before do
         allow(Decidim::Initiatives)

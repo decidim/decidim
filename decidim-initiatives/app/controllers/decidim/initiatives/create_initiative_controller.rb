@@ -27,11 +27,13 @@ module Decidim
       before_action :authenticate_user!
       before_action :ensure_type_exists,
                     only: [:store_initiative_type, :fill_data, :store_data, :promotal_committee, :finish]
-      before_action :ensure_user_can_create_initiative,
+      before_action :enforce_user_can_create_initiative,
                     only: [:fill_data, :store_data, :promotal_committee, :finish]
       before_action :ensure_initiative_exists, only: [:promotal_committee, :finish]
 
       def load_initiative_draft
+        enforce_permission_to :create, :initiative, { initiative_type: }
+
         session[:initiative_id] = params[:initiative_id]
 
         if current_initiative.validating?
@@ -44,6 +46,8 @@ module Decidim
       end
 
       def select_initiative_type
+        enforce_permission_to :create, :initiative, { initiative_type: }
+
         session[:initiative_id] = nil
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
 
@@ -51,6 +55,8 @@ module Decidim
       end
 
       def store_initiative_type
+        enforce_permission_to :create, :initiative, { initiative_type: }
+
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
 
         if @form.valid?
@@ -136,7 +142,7 @@ module Decidim
         @membership_request ||= current_initiative.committee_members.find(params.expect(:committee_member_id))
       end
 
-      def ensure_user_can_create_initiative
+      def enforce_user_can_create_initiative
         enforce_permission_to :create, :initiative, { initiative_type: }
       end
 
