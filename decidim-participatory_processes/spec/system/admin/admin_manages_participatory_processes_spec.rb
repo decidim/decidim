@@ -69,6 +69,7 @@ describe "Admin manages participatory processes", versioning: true do
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process-#{field}-tabs']", "full"
     end
     it_behaves_like "having no taxonomy filters defined"
+    it_behaves_like "a form with unsaved changes", ".new_participatory_process", "participatory_process_title_en", "Processes"
 
     it "creates a new participatory process" do
       within ".new_participatory_process" do
