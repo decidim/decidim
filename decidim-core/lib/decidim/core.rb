@@ -969,7 +969,7 @@ module Decidim
 
   # The etiquette validator is applied to the create and edit forms of Proposals, Meetings,
   # and Debates for both regular and admin users.
-  mattr_accessor :enable_etiquette_validator, default: true
+  mattr_accessor :enable_etiquette_validator, default: Decidim::Env.new("DECIDIM_ENABLE_ETIQUETTE_VALIDATOR", true).present?
 
   def self.machine_translation_service_klass
     return unless Decidim.enable_machine_translations
