@@ -101,6 +101,24 @@ module Decidim
         end
       end
 
+      describe "existing html links in texts" do
+        context "when the link does not define a target" do
+          let(:content) { '<a href="/processes">Link</a>' }
+
+          it "preserves the same-tab behavior" do
+            expect(renderer.render).to eq('<a href="/processes" rel="nofollow noopener noreferrer ugc">Link</a>')
+          end
+        end
+
+        context "when the link explicitly opens in a new tab" do
+          let(:content) { '<a href="/processes" target="_blank">Link</a>' }
+
+          it "preserves the target attribute" do
+            expect(renderer.render).to eq('<a href="/processes" target="_blank" rel="nofollow noopener noreferrer ugc">Link</a>')
+          end
+        end
+      end
+
       def link_href(url)
         if url.match?("%[A-Z0-9]{2}")
           # Already escaped
