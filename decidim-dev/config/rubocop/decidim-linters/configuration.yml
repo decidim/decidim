@@ -38,8 +38,6 @@ Decidim/EnforcePermissionTo:
     - "decidim-system/**/*.rb"
     - "decidim-core/app/controllers/decidim/devise/**/*.rb"
     - "decidim-core/app/controllers/decidim/doorkeeper/**/*.rb"
-    - "decidim-core/app/controllers/concerns/decidim/resource_versions_concern.rb"
-    - "decidim-forms/app/controllers/decidim/forms/concerns/has_questionnaire.rb"
 
 Decidim/RSpec/MemoizedName:
   Enabled: true
