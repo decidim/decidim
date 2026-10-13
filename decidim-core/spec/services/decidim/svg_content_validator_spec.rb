@@ -72,6 +72,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose style sheet references only elements of the document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_references.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG document with active content" do
       %w(
         malicious_svg_script.svg
@@ -90,6 +96,9 @@ describe Decidim::SvgContentValidator do
         malicious_svg_style_comment_string.svg
         malicious_svg_css_comment_in_url.svg
         malicious_svg_css_backslash_url.svg
+        malicious_svg_css_image_set.svg
+        malicious_svg_mask_attribute.svg
+        malicious_svg_cursor_attribute.svg
         malicious_svg_stylesheet_pi.svg
         malicious_svg_entity.svg
         malicious_svg_data_uri_nested.svg

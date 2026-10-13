@@ -63,6 +63,13 @@ module Decidim
     # any host, so they are a phishing surface which is accepted on purpose.
     SVG_RESOURCE_ELEMENTS = %w(image use feimage cursor).freeze
 
+    # The presentation attributes whose value is loaded as an image when the
+    # document is rendered, as the CSS properties they define accept a URL. The
+    # URL references of the other presentation attributes (e.g. "fill" or
+    # "filter") refer to paint servers, filters and clipping paths of the
+    # document itself, which are never fetched.
+    SVG_IMAGE_PRESENTATION_ATTRIBUTES = %w(cursor mask).freeze
+
     # The name of the attribute which references the resource loaded by an
     # element, either "href" or the legacy "xlink:href", which is also
     # matched with an undeclared prefix, as browsers resolve it as the XLink
@@ -87,10 +94,18 @@ module Decidim
     # forbidden content type (see SVG_FORBIDDEN_URI_PREFIXES).
     SVG_DATA_URI = %r{\Adata:(?<mime>image/svg\+xml)(?<base64>;base64)?,(?<payload>.*)\z}im
 
+    # The CSS functions which load the resources they reference when the style
+    # sheet is rendered. The strings inside them are interpreted as URLs, so the
+    # arguments of "image-set()" define a reference as the arguments of "url()"
+    # do, and the vendor prefixed spelling is matched as well.
+    CSS_URL_FUNCTIONS = %w(url image-set -webkit-image-set).freeze
+
     # The URL references of a style sheet, captured after the comments and the
     # strings which do not define a URL are removed, so that each of them can
-    # be validated as a reference.
-    SVG_CSS_URL_VALUE = /url\(\s*["']?([^"')]+)/im
+    # be validated as a reference. Only the strings of the functions which load
+    # their arguments survive the scrubbing, so the remaining strings are URL
+    # values, and the unquoted value of a "url()" function is matched as well.
+    SVG_CSS_URL_VALUE = /["']([^"')]+)["']?|(?:url|image-set)\(\s*([^"')]+)/im
 
     # The maximum depth of the documents nested inside inline data references,
     # which are validated with the same rules as the document itself.
@@ -204,10 +219,19 @@ module Decidim
       return true if SVG_EVENT_HANDLER_NAME.match?(attribute.name)
 
       return true if forbidden_uri_value?(attribute.value.to_s)
-      return true if attribute.name.downcase == "style" && forbidden_css_content?(attribute.value.to_s)
+      return true if css_content_attribute?(attribute) && forbidden_css_content?(attribute.value.to_s)
       return true if animation_target_attribute?(attribute) && forbidden_name?(attribute.value.to_s)
 
       forbidden_resource_reference?(node, attribute)
+    end
+
+    # Whether the value of the attribute is parsed as the content of a style
+    # sheet, either because it declares the declarations of an element or
+    # because it is a presentation attribute whose CSS property loads the URL
+    # references it declares.
+    def css_content_attribute?(attribute)
+      name = attribute.name.downcase
+      name == "style" || SVG_IMAGE_PRESENTATION_ATTRIBUTES.include?(name)
     end
 
     # Whether the attribute references an external resource in an element
@@ -383,48 +407,54 @@ module Decidim
       normalized = decode_css_escapes(scrub_css(css))
       return true if SVG_CSS_IMPORT.match?(normalized)
 
-      normalized.scan(SVG_CSS_URL_VALUE).any? { |match| forbidden_reference_value?(match.first) }
+      normalized.scan(SVG_CSS_URL_VALUE).any? { |groups| forbidden_reference_value?(groups.compact.first) }
     end
 
     # Removes the comments and the strings of a style sheet, which are not
     # interpreted as directives when the style sheet is rendered, so that text
     # which only looks like a reference (e.g. 'content: "See @import"') is not
-    # mistaken for one. The strings which define the URL of a "url()" function
-    # are kept, as those URLs are loaded. Comments and strings are detected
-    # following the tokenization rules of CSS, in which comments are not
-    # recognized inside strings and escape sequences hide the character
-    # following them, so that neither can be used to hide a reference (e.g.
-    # 'content: "/*"; background: url(https://example.org)'). The reference of
-    # a "url()" function is kept after a comment as well, as some engines
-    # tokenize the comment inside the function instead of reading it as part of
-    # the URL.
+    # mistaken for one. The strings which define the URL of a function which
+    # loads its arguments are kept, as those URLs are loaded. Comments and
+    # strings are detected following the tokenization rules of CSS, in which
+    # comments are not recognized inside strings and escape sequences hide the
+    # character following them, so that neither can be used to hide a reference
+    # (e.g. 'content: "/*"; background: url(https://example.org)'). The reference
+    # of a function is kept after a comment as well, as some engines tokenize the
+    # comment inside the function instead of reading it as part of the URL.
     def scrub_css(css)
       scanner = StringScanner.new(css)
       output = +""
-      in_url = false
+      url_functions = []
       until scanner.eos?
         if scanner.scan(%r{/\*})
-          # Unterminated comments extend to the end of the style sheet.
-          scanner.scan_until(%r{\*/}) || (scanner.pos = scanner.string.length)
+          scan_css_comment(scanner)
         elsif (quote = scanner.scan(/["']/))
+          # The string token is always consumed, as its content is not
+          # interpreted as CSS. Only the strings of the functions which load
+          # their arguments define a loaded URL.
           string = scan_css_string(scanner, quote)
-          # Only the strings immediately following a "url()" function define a
-          # loaded URL.
-          output << string if in_url
-          in_url = false
+          output << string if url_functions.any?
         elsif (ident = scan_css_ident(scanner))
-          url = css_url_function?(scanner, ident)
           output << ident
-          output << scanner.getch if url
-          in_url = url
-        elsif (whitespace = scanner.scan(/\s+/))
-          output << whitespace
+          if scanner.match?(/\(/)
+            url_functions.push(css_url_function?(ident))
+            output << scanner.getch
+          end
         else
-          output << scanner.getch
-          in_url = false
+          char = scanner.getch
+          output << char
+          # The arguments of these functions are kept until the function ends,
+          # as "image-set()" can declare several URLs.
+          url_functions.pop if char == ")"
         end
       end
       output
+    end
+
+    # Consumes the comment token of CSS which starts at the current position.
+    # Unterminated comments extend to the end of the style sheet.
+    def scan_css_comment(scanner)
+      scanner.scan_until(%r{\*/}) || (scanner.pos = scanner.string.length)
     end
 
     # Consumes the string token of CSS which starts at the given quote, and
@@ -471,13 +501,12 @@ module Decidim
       ident
     end
 
-    # Whether the identifier consumed just before the current position, when
-    # followed by an opening parenthesis, is the name of a "url()" function. The
-    # name is matched after decoding its escape sequences, as they are processed
-    # before the name is interpreted, so that functions written with escapes
-    # (e.g. "u\72l(...)") are also recognized.
-    def css_url_function?(scanner, ident)
-      scanner.match?(/\(/) && decode_css_escapes(ident).casecmp?("url")
+    # Whether the identifier is the name of a function which loads its arguments
+    # as resources. The name is matched after decoding its escape sequences, as
+    # they are processed before the name is interpreted, so that functions
+    # written with escapes (e.g. "u\72l(...)") are also recognized.
+    def css_url_function?(ident)
+      CSS_URL_FUNCTIONS.any? { |name| decode_css_escapes(ident).casecmp?(name) }
     end
 
     # Decodes the escape sequences of CSS. Invalid codepoints are replaced with
