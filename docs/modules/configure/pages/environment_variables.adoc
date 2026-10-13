@@ -914,7 +914,7 @@ After this time the initiative will be moved to discarded state.
 | redis
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL*
+|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL*
 | The redis connection url used by the resource classifier
 | redis://localhost:6379/2
 | No
