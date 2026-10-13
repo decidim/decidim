@@ -104,7 +104,8 @@ export default Link.extend({
               type: "select",
               label: i18n.targetLabel,
               options: [
-                { value: "_self", label: i18n["targets.default"] }, // Use explicit targets so the selected behavior is preserved when rendering links.
+                // Use explicit targets so the selected behavior is preserved when rendering links.
+                { value: "_self", label: i18n["targets.default"] },
                 { value: "_blank", label: i18n["targets.blank"] }
               ]
             }

@@ -60,7 +60,7 @@ describe("Link", () => {
     await sleep(50);
 
     expect(editor.getHTML()).toEqual(
-      '<p>Hello, <a href="https://docs.decidim.org">world</a>!</p>'
+      '<p>Hello, <a href="https://docs.decidim.org" target="_self">world</a>!</p>'
     );
   });
 
