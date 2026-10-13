@@ -86,7 +86,8 @@ module Decidim
         @main_form = @form
         @errors = nil
 
-        submission.with_lock(requires_new: true) do
+        Response.transaction(requires_new: true) do
+          submission.lock!
           saved_response_ids = []
 
           form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_response|

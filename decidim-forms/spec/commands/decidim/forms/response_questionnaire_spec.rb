@@ -240,6 +240,10 @@ module Decidim
               expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 
+            it "does not create a submission" do
+              expect { command.call }.not_to change(Decidim::Forms::Submission, :count)
+            end
+
             it "broadcasts invalid" do
               expect { command.call }.to broadcast(:invalid)
             end
