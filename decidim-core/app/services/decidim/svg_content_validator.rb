@@ -172,6 +172,10 @@ module Decidim
     end
 
     def validate
+      return :invalid if content.nil?
+      # The contents which are not valid in their encoding cannot be checked by
+      # the expressions below, so they are rejected as unsafe.
+      return :unsafe unless content.valid_encoding?
       return :invalid if content.blank?
       return :invalid if content.bytesize > MAX_CONTENT_SIZE
       return :unsafe if entity_declaration?(content)
@@ -369,9 +373,14 @@ module Decidim
     end
 
     # Decodes the percent-encoded characters of a data URI, which are otherwise
-    # invisible to the checks applied to the contents of the document.
+    # invisible to the checks applied to the contents of the document. The
+    # substitutions are applied to the bytes of the value, as the decoded
+    # characters can be part of a multi-byte sequence which is not valid in the
+    # encoding of the value, and the result is returned as UTF-8 so that it can
+    # be compared with the contents and the identifiers of the document.
     def percent_decode(value)
-      value.gsub(/%([0-9A-Fa-f]{2})/) { [Regexp.last_match(1).hex].pack("C") }
+      decoded = value.dup.force_encoding(Encoding::BINARY).gsub(/%([0-9A-Fa-f]{2})/) { [Regexp.last_match(1).hex].pack("C") }
+      decoded.force_encoding(Encoding::UTF_8)
     end
 
     # Whether the value is a script URI or contains one. The animation elements

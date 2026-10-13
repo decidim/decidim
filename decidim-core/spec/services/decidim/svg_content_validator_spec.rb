@@ -72,6 +72,18 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose animation target reference decodes to a multi-byte identifier" do
+      let(:content) { File.read(Decidim::Dev.asset("test_percent_encoded_multibyte_reference.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose animation target reference mixes multi-byte characters with percent encoded ones" do
+      let(:content) { File.read(Decidim::Dev.asset("test_percent_encoded_multibyte_reference_mixed.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose style sheet references only elements of the document" do
       let(:content) { File.read(Decidim::Dev.asset("test_css_references.svg")) }
 
@@ -105,6 +117,7 @@ describe Decidim::SvgContentValidator do
         malicious_svg_data_uri_parameter.svg
         malicious_svg_data_uri_leading_space.svg
         malicious_svg_data_uri_deep_nested.svg
+        malicious_svg_data_uri_invalid_encoding.svg
         malicious_svg_external_image.svg
         malicious_svg_external_use.svg
         malicious_svg_external_feimage.svg
