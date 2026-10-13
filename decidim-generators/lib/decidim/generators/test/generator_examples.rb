@@ -240,7 +240,6 @@ shared_context "with application env vars" do
       "MEETINGS_WAITING_LIST_ENABLED" => "true",
       "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
       "INITIATIVES_CREATION_ENABLED" => "false",
-      "INITIATIVES_SIMILARITY_THRESHOLD" => "0.99",
       "INITIATIVES_SIMILARITY_LIMIT" => "10",
       "INITIATIVES_MINIMUM_COMMITTEE_MEMBERS" => "3",
       "INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH" => "133",

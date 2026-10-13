@@ -821,14 +821,6 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |true
 |No
 
-|INITIATIVES_SIMILARITY_THRESHOLD
-|Acts as the proposals similarity threshold, use a number between 0 and 1 to establish how similar have to be 2 initiatives to be listed the alternate list.
-
-0 will require no similarity at all
-1 will require for two initiatives to contain exactly the same text
-|0.25
-|No
-
 |INITIATIVES_SIMILARITY_LIMIT
 |Number of similar initiatives presented to the user before publishing a new one.
 |5
