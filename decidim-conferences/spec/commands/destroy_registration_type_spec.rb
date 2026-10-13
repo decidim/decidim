@@ -40,5 +40,19 @@ module Decidim::Conferences
         expect(action_log.version.event).to eq "destroy"
       end
     end
+
+    context "when the registration type has registrations" do
+      let!(:conference_registration) { create(:conference_registration, conference:, registration_type:, user: current_user) }
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+
+      it "does not destroy the registration type" do
+        subject.call
+
+        expect { registration_type.reload }.not_to raise_error
+      end
+    end
   end
 end

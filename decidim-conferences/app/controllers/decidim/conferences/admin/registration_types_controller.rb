@@ -73,6 +73,11 @@ module Decidim
               flash[:notice] = I18n.t("registration_types.destroy.success", scope: "decidim.admin")
               redirect_to conference_registration_types_path(current_conference)
             end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("registration_types.destroy.error", scope: "decidim.admin")
+              redirect_to conference_registration_types_path(current_conference)
+            end
           end
         end
 

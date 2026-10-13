@@ -31,6 +31,30 @@ module Decidim
           expect(response).to have_http_status(:ok)
         end
       end
+
+      describe "DELETE destroy" do
+        it "destroys a registration type without registrations" do
+          expect do
+            delete :destroy, params: { conference_slug: conference.slug, id: registration_types.first.id }
+          end.to change(Decidim::Conferences::RegistrationType, :count).by(-1)
+        end
+
+        context "when the registration type has registrations" do
+          let(:registration_type) { registration_types.last }
+
+          before do
+            create(:conference_registration, conference:, registration_type:, user: create(:user, :confirmed, organization:))
+          end
+
+          it "does not destroy the registration type" do
+            expect do
+              delete :destroy, params: { conference_slug: conference.slug, id: registration_type.id }
+            end.not_to change(Decidim::Conferences::RegistrationType, :count)
+
+            expect(flash[:alert]).to eq(I18n.t("registration_types.destroy.error", scope: "decidim.admin"))
+          end
+        end
+      end
     end
   end
 end
