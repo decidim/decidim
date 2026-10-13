@@ -184,13 +184,14 @@ module Decidim
 
     attr_reader :content, :depth
 
-    # Parses the SVG document without fetching any external resource (e.g. an
-    # external DTD) and without substituting entities, so that a malicious
-    # document cannot make the server read external resources or expand entities
-    # while it is validated. Returns nil when the contents are not a well formed
-    # XML document with an "svg" root element.
+    # Parses the SVG document in strict mode, so that malformed documents are
+    # rejected instead of being recovered with a partial tree, and without
+    # fetching any external resource (e.g. an external DTD) or substituting
+    # entities, so that a malicious document cannot make the server read external
+    # resources or expand entities while it is validated. Returns nil when the
+    # contents are not a well formed XML document with an "svg" root element.
     def parse
-      document = Nokogiri::XML.parse(content, &:nonet)
+      document = Nokogiri::XML.parse(content) { |options| options.strict.nonet }
       return nil if document.root.nil? || document.root.name != "svg"
 
       document

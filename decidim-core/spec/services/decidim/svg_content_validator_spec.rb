@@ -136,5 +136,11 @@ describe Decidim::SvgContentValidator do
 
       it_behaves_like "an invalid SVG document"
     end
+
+    context "with a malformed SVG document with an unclosed element" do
+      let(:content) { File.read(Decidim::Dev.asset("malformed_svg_unclosed_element.svg")) }
+
+      it_behaves_like "an invalid SVG document"
+    end
   end
 end
