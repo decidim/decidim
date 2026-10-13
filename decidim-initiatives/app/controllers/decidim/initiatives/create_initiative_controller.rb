@@ -32,9 +32,9 @@ module Decidim
       before_action :ensure_initiative_exists, only: [:promotal_committee, :finish]
 
       def load_initiative_draft
-        enforce_permission_to :create, :initiative, { initiative_type: }
-
         session[:initiative_id] = params[:initiative_id]
+
+        enforce_permission_to :create, :initiative, { initiative_type: }
 
         if current_initiative.validating?
           redirect_to finish_create_initiative_index_path
@@ -46,9 +46,11 @@ module Decidim
       end
 
       def select_initiative_type
+        session[:initiative_id] = nil
+        session[:type_id] = nil
+
         enforce_permission_to :create, :initiative, { initiative_type: }
 
-        session[:initiative_id] = nil
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
 
         redirect_to fill_data_create_initiative_index_path if single_initiative_type?

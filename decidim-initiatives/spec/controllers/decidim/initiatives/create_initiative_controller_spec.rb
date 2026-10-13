@@ -22,14 +22,30 @@ describe Decidim::Initiatives::CreateInitiativeController do
   describe "GET load_initiative_draft" do
     let!(:initiative) { create(:initiative, :created, author: user, organization:) }
 
-    it "authorizes the action with the create initiative permission" do
+    it "authorizes the action with the requested draft type" do
       expect(controller).to receive(:enforce_permission_to)
-        .with(:create, :initiative, { initiative_type: nil })
+        .with(:create, :initiative, { initiative_type: initiative.type })
         .and_call_original
 
       get :load_initiative_draft, params: { locale: I18n.locale, initiative_id: initiative.id }
 
       expect(response).to be_redirect
+    end
+
+    context "when another draft is stored in the session" do
+      let!(:previous_initiative) { create(:initiative, :created, author: user, organization:) }
+
+      it "checks the permission against the requested draft type" do
+        session[:initiative_id] = previous_initiative.id
+
+        expect(controller).to receive(:enforce_permission_to)
+          .with(:create, :initiative, { initiative_type: initiative.type })
+          .and_call_original
+
+        get :load_initiative_draft, params: { locale: I18n.locale, initiative_id: initiative.id }
+
+        expect(response).to be_redirect
+      end
     end
   end
 
@@ -42,6 +58,25 @@ describe Decidim::Initiatives::CreateInitiativeController do
       get :select_initiative_type, params: { locale: I18n.locale }
 
       expect(response).to have_http_status(:ok)
+    end
+
+    context "when a previous draft and type are stored in the session" do
+      let!(:previous_initiative) { create(:initiative, :created, author: user, organization:) }
+
+      it "clears the previous wizard state before authorizing" do
+        session[:initiative_id] = previous_initiative.id
+        session[:type_id] = previous_initiative.type.id
+
+        expect(controller).to receive(:enforce_permission_to)
+          .with(:create, :initiative, { initiative_type: nil })
+          .and_call_original
+
+        get :select_initiative_type, params: { locale: I18n.locale }
+
+        expect(response).to have_http_status(:ok)
+        expect(session[:initiative_id]).to be_nil
+        expect(session[:type_id]).to be_nil
+      end
     end
   end
 
