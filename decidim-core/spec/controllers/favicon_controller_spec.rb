@@ -13,6 +13,14 @@ module Decidim
     end
 
     describe "GET show" do
+      it "enforces the permission to read the favicon" do
+        expect(controller).to receive(:enforce_permission_to).with(:read, :favicon).and_call_original
+
+        get :show
+
+        expect(response).to have_http_status(:ok)
+      end
+
       context "when the domain does not have an organization" do
         let!(:organization) { nil }
 

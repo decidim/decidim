@@ -19,6 +19,26 @@ module Decidim
       allow(controller).to receive(:user_session).and_return(user_session)
     end
 
+    describe "permission enforcement" do
+      let(:organization) { create(:organization) }
+
+      before do
+        request.env["decidim.current_organization"] = organization
+      end
+
+      it "enforces the permission to read the timeout status" do
+        expect(controller).to receive(:enforce_permission_to).with(:read, :timeout).and_call_original
+
+        get :seconds_until_timeout, format: :json
+      end
+
+      it "enforces the permission to read the timeout status on heartbeat" do
+        expect(controller).to receive(:enforce_permission_to).with(:read, :timeout).and_call_original
+
+        post :heartbeat, format: :js
+      end
+    end
+
     describe "#seconds_until_timeout" do
       let(:parsed_response) { response.parsed_body }
 

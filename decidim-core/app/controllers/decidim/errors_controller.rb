@@ -6,10 +6,14 @@ module Decidim
     skip_after_action :verify_same_origin_request
 
     def not_found
+      enforce_permission_to :read, :error
+
       render status: :not_found
     end
 
     def internal_server_error
+      enforce_permission_to :read, :error
+
       @info_hash = {
         user: current_user&.id || t(".unknown"),
         date_and_time: l(Time.current, format: "%Y-%m-%dT%H:%M:%S.%6N"),

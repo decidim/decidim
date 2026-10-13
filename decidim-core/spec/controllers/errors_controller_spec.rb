@@ -32,11 +32,27 @@ module Decidim
         get :not_found
         expect(response).to have_http_status(:not_found)
       end
+
+      it "enforces the permission to read the error page" do
+        expect(controller).to receive(:enforce_permission_to).with(:read, :error).and_call_original
+
+        get :not_found
+
+        expect(response).to have_http_status(:not_found)
+      end
     end
 
     describe "internal_server_error" do
       it "reports the correct status code on GET" do
         get :internal_server_error
+        expect(response).to have_http_status(:internal_server_error)
+      end
+
+      it "enforces the permission to read the error page" do
+        expect(controller).to receive(:enforce_permission_to).with(:read, :error).and_call_original
+
+        get :internal_server_error
+
         expect(response).to have_http_status(:internal_server_error)
       end
 

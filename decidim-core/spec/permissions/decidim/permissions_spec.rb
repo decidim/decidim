@@ -160,6 +160,30 @@ describe Decidim::Permissions do
     it { is_expected.to be true }
   end
 
+  context "when reading an error page" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :error }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading the favicon" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :favicon }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading the timeout status" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :timeout }
+    end
+
+    it { is_expected.to be true }
+  end
+
   context "when action is on a locale" do
     let(:action) do
       { scope: :public, action: :foo, subject: :locales }
