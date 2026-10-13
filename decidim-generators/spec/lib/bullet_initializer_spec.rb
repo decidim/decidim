@@ -2,19 +2,32 @@
 
 require "spec_helper"
 
+require "tmpdir"
+
+require "active_support"
+require "decidim/core"
+require "bullet"
+require "uniform_notifier"
+
 describe "Bullet initializer" do # rubocop:disable RSpec/DescribeClass
   subject(:run_initializer) { load_initializer_template }
 
   let(:template_path) do
-    File.expand_path("../../../decidim-generators/lib/decidim/generators/app_templates/bullet_initializer.rb", __dir__)
+    File.expand_path("../../lib/decidim/generators/app_templates/bullet_initializer.rb", __dir__)
   end
   let(:flag_names) do
     %w(DECIDIM_BULLET_N_PLUS_ONE DECIDIM_BULLET_UNUSED_EAGER DECIDIM_BULLET_COUNTER_CACHE)
   end
 
+  # The generators specs run without a Rails application, so the initializer is
+  # exercised against a stand-in for the application configuration.
+  let(:app_root) { Pathname.new(Dir.mktmpdir) }
+  let(:application_config) { double("config", boost_performance: nil, after_initialize: nil, root: app_root) }
+
   def load_initializer_template
     registered = []
-    allow(Rails.application.config).to receive(:after_initialize) { |&block| registered << block }
+    allow(Rails).to receive(:application).and_return(double("application", config: application_config))
+    allow(application_config).to receive(:after_initialize) { |&block| registered << block }
     load template_path
     registered.each(&:call)
     registered
@@ -30,7 +43,8 @@ describe "Bullet initializer" do # rubocop:disable RSpec/DescribeClass
       unused_eager: Bullet.instance_variable_get(:@unused_eager_loading_enable),
       counter_cache: Bullet.instance_variable_get(:@counter_cache_enable),
       stacktrace_includes: Bullet.stacktrace_includes.dup,
-      notifier_raise: UniformNotifier::Raise.instance_variable_get(:@exception_class)
+      notifier_raise: UniformNotifier::Raise.instance_variable_get(:@exception_class),
+      app_root: Bullet.instance_variable_get(:@app_root)
     }
 
     begin
@@ -43,6 +57,8 @@ describe "Bullet initializer" do # rubocop:disable RSpec/DescribeClass
       Bullet.counter_cache_enable = original[:counter_cache]
       Bullet.stacktrace_includes.replace(original[:stacktrace_includes])
       UniformNotifier::Raise.instance_variable_set(:@exception_class, original[:notifier_raise])
+      Bullet.instance_variable_set(:@app_root, original[:app_root])
+      FileUtils.remove_entry(app_root.to_s)
     end
   end
 
@@ -52,7 +68,7 @@ describe "Bullet initializer" do # rubocop:disable RSpec/DescribeClass
 
   context "when boost_performance is enabled" do
     before do
-      allow(Rails.application.config).to receive(:boost_performance).and_return(true)
+      allow(application_config).to receive(:boost_performance).and_return(true)
     end
 
     it "does not register the after_initialize hook" do
