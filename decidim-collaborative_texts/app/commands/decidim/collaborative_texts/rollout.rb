@@ -27,10 +27,15 @@ module Decidim
 
         source_version_ids = form.pending_suggestions.pluck(:document_version_id).uniq.sort
 
+        document = resource.document
+
         # Lock the rows in the same order as CreateSuggestion (document first, then versions) so
-        # concurrent suggestion creation and rollout cannot deadlock on the counter updates.
-        Decidim::CollaborativeTexts::Document.lock.find(resource.document.id)
-        Decidim::CollaborativeTexts::Version.lock.find(source_version_ids)
+        # concurrent suggestion creation and rollout cannot deadlock on the counter updates. Both
+        # locks go through the record that owns the row instead of a bare ID; the document is
+        # anchored to its component, since its organization is only reachable through a polymorphic
+        # participatory space that cannot be joined.
+        Decidim::CollaborativeTexts::Document.where(component: document.component).lock.find(document.id)
+        document.document_versions.lock.find(source_version_ids)
 
         form.pending_suggestions.update_all(document_version_id: resource.id)
 
