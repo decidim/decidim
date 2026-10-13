@@ -34,7 +34,6 @@ module Decidim
           # Preserve "same tab" links created by the editor by removing the
           # default target="_blank" when no target was explicitly defined.
           link_options.delete(:target) unless attrs.key?(:target)
-          link_options.delete(:target) unless attrs.key?(:target)
           el.replace anchor_tag(attrs.delete(:href), el.inner_html, link_options)
         end
         fragment.to_s
