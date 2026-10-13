@@ -15,7 +15,7 @@ module Decidim
         decidim_gem_roots.to_h do |gem, path|
           paths =
             if gem == "decidim-comments"
-              ["#{path}/app/models/decidim/comments/seed.rb"]
+              ["#{path}/lib/decidim/comments/seed.rb"]
             else
               Dir.glob("#{path}/lib/**/seeds.rb")
             end
