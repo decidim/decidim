@@ -120,6 +120,7 @@ module RuboCop
           inline_visibility = @inline_visibility
           @inline_visibility = nil
 
+          return if class_methods_block?(node)
           return unless method_public?(node, method_name, inline_visibility)
           return if action_exempted_by_before_action?(method_name)
           return if callback_method?(node, method_name)
@@ -157,6 +158,15 @@ module RuboCop
           @all_actions_auth = false
           @only_actions = Set.new
           @except_sets = []
+        end
+
+        # Definitions inside an `ActiveSupport::Concern` `class_methods do`
+        # block are class-level DSL methods, not controller actions, so they
+        # must never be flagged as missing an authorization check.
+        def class_methods_block?(node)
+          node.each_ancestor(:block).any? do |block|
+            block.send_node.method_name == :class_methods
+          end
         end
 
         def visibility_def_argument?(node)

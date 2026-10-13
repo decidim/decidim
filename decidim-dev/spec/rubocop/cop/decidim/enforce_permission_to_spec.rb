@@ -698,6 +698,24 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
     RUBY
   end
 
+  describe "class_methods blocks" do
+    it "does not register an offense for a method defined inside a class_methods block" do
+      expect_no_offenses(<<~RUBY)
+        module Decidim
+          module RegistersPermissions
+            extend ActiveSupport::Concern
+
+            class_methods do
+              def register_permissions(artifact, *args)
+                RegistersPermissions.register_permissions(artifact, *args)
+              end
+            end
+          end
+        end
+      RUBY
+    end
+  end
+
   describe "lifecycle and helper methods" do
     it "does not register an offense for a method referenced by before_action" do
       expect_no_offenses(<<~RUBY)
