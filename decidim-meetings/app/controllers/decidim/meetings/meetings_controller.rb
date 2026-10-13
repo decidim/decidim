@@ -111,7 +111,10 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Meeting.includes(attachments: { file_attachment: :blob }).not_hidden.where(component: current_component).find_by(id: params[:id])
+        @meeting ||= Meeting.includes(attachments: { file_attachment: :blob })
+                            .not_hidden
+                            .where(component: current_component)
+                            .find_by(id: params[:id])
       end
 
       def meetings
