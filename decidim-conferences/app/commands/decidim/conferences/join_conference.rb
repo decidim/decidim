@@ -43,6 +43,10 @@ module Decidim
       end
 
       def create_registration
+        # Acquire the same row lock as Admin::DestroyRegistrationType so the deletion check and this
+        # insert serialize: the destroy cannot pass its check while this insert is in flight, and this
+        # insert cannot commit against a type that is being deleted.
+        @registration_type.lock!
         Decidim::Conferences::ConferenceRegistration.create!(conference:, user:, registration_type: @registration_type)
       end
 
