@@ -47,20 +47,20 @@ describe "Sessions" do
     end
   end
 
-  context "when the csrf token is expired" do
+  context "when the session data is no longer available" do
     it "displays a retry error message" do
       within ".new_admin" do
         fill_in :admin_email, with: "admin@example.org"
         fill_in :admin_password, with: "decidim123456789"
       end
 
-      expire_browser_session do
-        within ".new_admin" do
-          find("*[type=submit]").click
-        end
+      delete_server_side_session
 
-        expect(page).to have_text("Unable to verify your request. Please retry.")
+      within ".new_admin" do
+        find("*[type=submit]").click
       end
+
+      expect(page).to have_text("Unable to verify your request. Please retry.")
     end
   end
 end

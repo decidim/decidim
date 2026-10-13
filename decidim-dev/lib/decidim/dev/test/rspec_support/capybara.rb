@@ -28,12 +28,25 @@ module Decidim
       "http"
     end
 
+    # Advances the clock past the configured session expiry. Note that the session
+    # store only uses `expire_session_after` for the cookie expiry, so this does not
+    # remove the stored session data; tests that need the session data to be gone
+    # server-side must use `delete_server_side_session`.
     def expire_browser_session(wait: Capybara.default_max_wait_time)
       wait_pending_requests(wait)
 
       travel(Decidim.config.expire_session_after + 1.second) do
         yield
       end
+    end
+
+    # Removes the stored session data from the session store. Use this when a test
+    # needs to simulate the session being gone server-side, as the session store
+    # does not expire its records by itself.
+    def delete_server_side_session(wait: Capybara.default_max_wait_time)
+      wait_pending_requests(wait)
+
+      ActiveRecord::SessionStore::Session.delete_all
     end
 
     # Clear the buffers and background connections by taking the browser to
@@ -79,7 +92,6 @@ module Decidim
         sleep sleep_time
         wait_time += sleep_time
       end
-      ActiveRecord::SessionStore::Session.delete_all
       force_browser_offline_state
     end
   end
