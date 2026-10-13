@@ -264,7 +264,9 @@ describe Decidim::Initiatives::Permissions do
               .and_return(false)
           end
 
-          it { is_expected.to be false }
+          it "allows rendering the type selection so the user can verify" do
+            expect(subject).to be true
+          end
         end
       end
 

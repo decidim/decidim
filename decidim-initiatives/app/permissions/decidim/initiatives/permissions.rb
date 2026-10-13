@@ -100,12 +100,15 @@ module Decidim
 
       def creation_enabled?
         return false unless Decidim::Initiatives.creation_enabled
-        return false unless Decidim::Initiatives.do_not_require_authorization || UserAuthorizations.for(user).any?
 
         # Before the initiative type is selected there is no permissions holder
         # to run the type-specific authorization against. The type-specific
-        # check is enforced once the type is known (e.g. when filling the data).
+        # check is enforced once the type is known (e.g. when selecting the
+        # type or filling the data), so the wizard can render the per-type
+        # authorization modals to unverified users.
         return true if initiative_type.blank?
+
+        return false unless Decidim::Initiatives.do_not_require_authorization || UserAuthorizations.for(user).any?
 
         authorized?(:create, permissions_holder: initiative_type)
       end
