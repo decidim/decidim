@@ -66,6 +66,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose entity declaration only appears inside a processing instruction" do
+      let(:content) { File.read(Decidim::Dev.asset("test_entity_in_processing_instruction.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose animation target reference is percent encoded" do
       let(:content) { File.read(Decidim::Dev.asset("test_percent_encoded_fragment.svg")) }
 
@@ -113,6 +119,7 @@ describe Decidim::SvgContentValidator do
         malicious_svg_cursor_attribute.svg
         malicious_svg_stylesheet_pi.svg
         malicious_svg_entity.svg
+        malicious_svg_entity_parameter.svg
         malicious_svg_data_uri_nested.svg
         malicious_svg_data_uri_parameter.svg
         malicious_svg_data_uri_leading_space.svg

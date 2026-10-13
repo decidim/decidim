@@ -118,12 +118,6 @@ module Decidim
     # documents which reach this validator without a size limit.
     MAX_CONTENT_SIZE = 10 * 1024 * 1024
 
-    # The comments and the CDATA sections of an XML document, which are not
-    # interpreted as declarations, so that text which only looks like an entity
-    # declaration does not reject a legitimate document.
-    XML_COMMENT = /<!--.*?-->/m
-    XML_CDATA = /<!\[CDATA\[.*?\]\]>/m
-
     # The elements which modify the attributes of another element at runtime.
     # When they target a reference attribute of an element which loads the
     # referenced resource, the values assigned to it are validated as
@@ -149,15 +143,6 @@ module Decidim
     # sequence, or by any other character.
     CSS_ESCAPE = /\\(?:(?<hex>\h{1,6})[ \t\n\r\f]?|(?<char>.))/m
 
-    # The declaration of entities in the document type definition of an SVG
-    # document. Entities can be used to read external resources (XXE) or to
-    # expand content exponentially (billion laughs), so documents declaring them
-    # are rejected. The declarations inside comments and CDATA sections are not
-    # interpreted, so they do not reject a legitimate document. External DTD
-    # references without entity declarations are accepted, as the DTDs are
-    # never fetched (see #parse).
-    SVG_ENTITY_DECLARATION = /<!ENTITY/i
-
     # Validates the contents of an SVG document. Returns :valid when the
     # document can be stored, :invalid when the contents are not a well formed
     # SVG document, and :unsafe when the document contains content which could
@@ -178,10 +163,10 @@ module Decidim
       return :unsafe unless content.valid_encoding?
       return :invalid if content.blank?
       return :invalid if content.bytesize > MAX_CONTENT_SIZE
-      return :unsafe if entity_declaration?(content)
 
       document = parse
       return :invalid if document.nil?
+      return :unsafe if entity_declaration?(document)
       return :unsafe if forbidden_content?(document)
 
       :valid
@@ -405,10 +390,19 @@ module Decidim
       end
     end
 
-    # Whether the contents declare an entity, outside of the comments and the
-    # CDATA sections, which are not interpreted as declarations.
-    def entity_declaration?(content)
-      SVG_ENTITY_DECLARATION.match?(content.gsub(XML_COMMENT, "").gsub(XML_CDATA, ""))
+    # Whether the document type definition declares an entity. Entities can be
+    # used to read external resources (XXE) or to expand content exponentially
+    # (billion laughs), so documents declaring one are rejected. Only the
+    # declarations of the internal subset are considered, as the external ones
+    # are never fetched (see #parse). Text which only looks like a declaration
+    # outside of the document type definition (e.g. inside a comment, a CDATA
+    # section or a processing instruction) is not a declaration, so it does not
+    # reject a legitimate document.
+    def entity_declaration?(document)
+      internal_subset = document.internal_subset
+      return false if internal_subset.nil?
+
+      internal_subset.children.any? { |node| node.type == Nokogiri::XML::Node::ENTITY_DECL }
     end
 
     # Whether the CSS of a "style" element or attribute loads external
