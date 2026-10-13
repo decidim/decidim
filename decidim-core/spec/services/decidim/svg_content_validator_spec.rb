@@ -66,6 +66,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose presentation attributes reference elements of the document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_presentation_attribute_references.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose entity declarations only appear inside comments and CDATA sections" do
       let(:content) { File.read(Decidim::Dev.asset("test_entity_in_comment.svg")) }
 
@@ -124,6 +130,8 @@ describe Decidim::SvgContentValidator do
         malicious_svg_css_image_set_nested_parentheses.svg
         malicious_svg_mask_attribute.svg
         malicious_svg_cursor_attribute.svg
+        malicious_svg_fill_external_reference.svg
+        malicious_svg_marker_external_reference.svg
         malicious_svg_stylesheet_pi.svg
         malicious_svg_entity.svg
         malicious_svg_entity_parameter.svg

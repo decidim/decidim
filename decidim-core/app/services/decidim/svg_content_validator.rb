@@ -16,10 +16,11 @@ module Decidim
   # scripts or read external resources when the document is rendered.
   #
   # The references which load resources into the document (the "href" of
-  # "image", "use", "feImage" and "cursor", the style sheets and the
-  # "xml-stylesheet" instruction) are restricted to the document itself and to
-  # inline data, so that documents cannot make the browser of the reader fetch
-  # third-party resources. The contents of the inline data references declaring
+  # "image", "use", "feImage" and "cursor", the URL references of the
+  # presentation attributes, the style sheets and the "xml-stylesheet"
+  # instruction) are restricted to the document itself and to inline data, so
+  # that documents cannot make the browser of the reader fetch third-party
+  # resources. The contents of the inline data references declaring
   # an SVG document are validated as nested documents, as they are parsed when
   # the reference is rendered. Links ("a") are not restricted, as they do not
   # load any resource when the document is rendered; they can still reference
@@ -63,12 +64,16 @@ module Decidim
     # any host, so they are a phishing surface which is accepted on purpose.
     SVG_RESOURCE_ELEMENTS = %w(image use feimage cursor).freeze
 
-    # The presentation attributes whose value is loaded as an image when the
-    # document is rendered, as the CSS properties they define accept a URL. The
-    # URL references of the other presentation attributes (e.g. "fill" or
-    # "filter") refer to paint servers, filters and clipping paths of the
-    # document itself, which are never fetched.
-    SVG_IMAGE_PRESENTATION_ATTRIBUTES = %w(cursor mask).freeze
+    # The presentation attributes whose value defines a reference resolved when
+    # the document is rendered. The image references (e.g. "cursor" and "mask")
+    # are fetched as resources, and the references to paint servers, filters,
+    # clipping paths and markers can also resolve to an element of another
+    # document, which is fetched unless the document is processed in a secure
+    # mode. Their values are validated as style sheet content, as they are
+    # parsed as the CSS properties they define.
+    SVG_URL_PRESENTATION_ATTRIBUTES = %w(
+      cursor mask fill stroke filter clip-path marker marker-start marker-mid marker-end
+    ).freeze
 
     # The name of the attribute which references the resource loaded by an
     # element, either "href" or the legacy "xlink:href", which is also
@@ -220,11 +225,11 @@ module Decidim
 
     # Whether the value of the attribute is parsed as the content of a style
     # sheet, either because it declares the declarations of an element or
-    # because it is a presentation attribute whose CSS property loads the URL
-    # references it declares.
+    # because it is a presentation attribute whose CSS property resolves a URL
+    # reference (see SVG_URL_PRESENTATION_ATTRIBUTES).
     def css_content_attribute?(attribute)
       name = attribute.name.downcase
-      name == "style" || SVG_IMAGE_PRESENTATION_ATTRIBUTES.include?(name)
+      name == "style" || SVG_URL_PRESENTATION_ATTRIBUTES.include?(name)
     end
 
     # Whether the attribute references an external resource in an element
