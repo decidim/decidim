@@ -95,7 +95,7 @@ rake db:sessions:trim
 ```
 
 Additionally, you can set `SESSION_DAYS_TRIM_THRESHOLD` to purge expired sessions (e.g., when a user closes the browser without logging out).
-The default is 3 days. This setting is independent of `DECIDIM_EXPIRE_SESSION_AFTER`, but it should typically be greater than the session expiry to avoid removing still-valid sessions.
+The task uses 30 days when this variable is not set, so the cron example below sets it to 3 days. This setting is independent of `DECIDIM_EXPIRE_SESSION_AFTER`, but it should typically be greater than the session expiry to avoid removing still-valid sessions.
 
 You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
 
@@ -127,7 +127,7 @@ with `crontab`, although alternatively you could use `whenever` gem or the sched
 
 ```bash
 # Remove obsolete sessions
-0 3 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake db:sessions:trim
+0 3 * * * cd /home/user/decidim_application && RAILS_ENV=production SESSION_DAYS_TRIM_THRESHOLD=3 bundle exec rake db:sessions:trim
 ```
 
 You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
