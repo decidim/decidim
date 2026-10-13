@@ -108,7 +108,21 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
 with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-### 4.1. [[TITLE OF THE TASK]]
+### 4.1. Remove unattached blobs
+
+Back in [#11851](https://github.com/decidim/decidim/pull/11851) we have added as a migration step a rake task aimed to clean up the unattached blobs (`decidim:upgrade:attachments_cleanup`)
+We add this as a permanent cron task, so that we can handle better the failed downloads or abandoned file uploads.
+
+```bash
+# Delete unattached upload blobs
+0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:attachments_cleanup
+```
+
+By default, the task deletes unattached blobs older than 60 minutes. This window is intentional, as we want to remove abandoned or potentially dangerous uploads as soon as possible. Note that files uploaded in a form that is still open (not yet submitted) are also unattached, so submissions done after the cleanup window may lose that file. Keep in mind that 60 minutes is only the earliest time a blob becomes eligible for deletion: the cron above runs hourly and the task queues deletions with `purge_later`, so files are usually removed some time after the window, not exactly at the 60-minute mark. If needed, the window can be configured with the `clean_up_unattached_blobs_after_in_minutes` argument, e.g. `bundle exec rake decidim:attachments_cleanup[1440]` keeps unattached blobs for at least 24 hours.
+
+You can read more about this change on PR [#17790](https://github.com/decidim/decidim/pull/17790).
+
+### 4.2. [[TITLE OF THE TASK]]
 
 ```bash
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK
