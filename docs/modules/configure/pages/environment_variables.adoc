@@ -980,6 +980,15 @@ Note that this only applies to production environments.
 |3000
 |No
 
+|HOSTNAME
+|Specifies the host that Decidim will use when generating absolute URLs (for instance, assets or push notifications), through the `Decidim::UrlOptionResolver`.
+
+*This is NOT the same as the `RAILS_ASSET_HOST` variable.* `RAILS_ASSET_HOST` is used for static, compiled assets, while `HOSTNAME` defines the public host used to build the URLs exposed to the outside world, such as the links included in emails or push notifications.
+
+If unset, it defaults to `localhost` in local environments (development and test). Outside them there is no default, and Decidim uses the organization host (or the host of the current request) instead.
+|Environment-dependent (see description): `localhost` (development and test), otherwise unset
+|No
+
 |HTTP_PORT
 |Specifies the port that Decidim will use when generating absolute URLs (for instance, assets or push notifications), through the `Decidim::UrlOptionResolver`.
 
