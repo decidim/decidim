@@ -103,10 +103,10 @@ module Decidim
 
       describe "existing html links in texts" do
         context "when the link does not define a target" do
-          let(:content) { '<a href="/processes">Link</a>' }
+          let(:content) { '<a href="/processes" target="_self">Link</a>' }
 
           it "preserves the same-tab behavior" do
-            expect(renderer.render).to eq('<a href="/processes" rel="nofollow noopener noreferrer ugc">Link</a>')
+            expect(renderer.render).to eq('<a href="/processes" target="_self" rel="nofollow noopener noreferrer ugc">Link</a>')
           end
         end
 

@@ -31,9 +31,8 @@ module Decidim
           attrs = el.attributes.transform_keys(&:to_sym).transform_values(&:value)
           link_options = attrs.merge(options)
 
-          # Preserve "same tab" links created by the editor by removing the
-          # default target="_blank" when no target was explicitly defined.
-          link_options.delete(:target) unless attrs.has_key?(:target)
+          # Keep an explicit target from the original link, if present.
+          link_options[:target] = attrs[:target] if attrs.has_key?(:target)
           el.replace anchor_tag(attrs.delete(:href), el.inner_html, link_options)
         end
         fragment.to_s
