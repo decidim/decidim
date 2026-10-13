@@ -55,6 +55,37 @@ module Decidim::Conferences
       end
     end
 
+    context "when a handler raises while the transaction is open" do
+      let(:listener) do
+        Class.new do
+          attr_reader :events
+
+          def initialize
+            @events = []
+          end
+
+          def ok(*)
+            @events << :ok
+            raise "handler failed"
+          end
+
+          def invalid(*)
+            @events << :invalid
+          end
+        end.new
+      end
+
+      it "broadcasts only the completed result and keeps the deletion committed" do
+        subject.subscribe(listener)
+
+        # The handler runs after the transaction, so its failure cannot roll the deletion back and
+        # cannot be turned into a second :invalid broadcast on top of the :ok already delivered.
+        expect { subject.call }.to raise_error("handler failed")
+        expect(listener.events).to eq([:ok])
+        expect { registration_type.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
     context "when the check and the deletion share the transaction" do
       include_context "with concurrency"
 
