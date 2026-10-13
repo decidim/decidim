@@ -102,6 +102,9 @@ describe Decidim::SvgContentValidator do
         malicious_svg_stylesheet_pi.svg
         malicious_svg_entity.svg
         malicious_svg_data_uri_nested.svg
+        malicious_svg_data_uri_parameter.svg
+        malicious_svg_data_uri_leading_space.svg
+        malicious_svg_data_uri_deep_nested.svg
         malicious_svg_external_image.svg
         malicious_svg_external_use.svg
         malicious_svg_external_feimage.svg

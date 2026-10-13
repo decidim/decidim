@@ -91,8 +91,11 @@ module Decidim
     # rendered. The SVG ones are validated as nested documents, as the rules
     # above cannot be applied to a payload which is stored encoded (e.g. in
     # base64), and the other ones are accepted when they do not declare a
-    # forbidden content type (see SVG_FORBIDDEN_URI_PREFIXES).
-    SVG_DATA_URI = %r{\Adata:(?<mime>image/svg\+xml)(?<base64>;base64)?,(?<payload>.*)\z}im
+    # forbidden content type (see SVG_FORBIDDEN_URI_PREFIXES). The parameters of
+    # the MIME type (e.g. "image/svg+xml;charset=utf-8") are matched as well, as
+    # browsers still parse the payload as a document, and the "base64" one can
+    # appear in any position of the list.
+    SVG_DATA_URI = %r{\Adata:(?<mime>image/svg\+xml)(?<parameters>(?:;[^;,]*)*),(?<payload>.*)\z}im
 
     # The CSS functions which load the resources they reference when the style
     # sheet is rendered. The strings inside them are interpreted as URLs, so the
@@ -349,14 +352,15 @@ module Decidim
     # document are unsafe, as they are parsed as a document of their own when
     # the reference is rendered. The nested documents are validated with the
     # same rules, up to a maximum depth, so that a document referencing itself
-    # cannot be used to recurse indefinitely.
+    # cannot be used to recurse indefinitely. A nested document which cannot be
+    # validated because the maximum depth is reached is rejected, as its contents
+    # are still parsed when the reference is rendered.
     def nested_document_unsafe?(value)
-      return false if depth >= MAX_NESTED_DEPTH
-
-      match = SVG_DATA_URI.match(value)
+      match = SVG_DATA_URI.match(value.strip)
       return false if match.nil?
+      return true if depth >= MAX_NESTED_DEPTH
 
-      payload = match[:base64] ? decode_base64(match[:payload]) : percent_decode(match[:payload])
+      payload = match[:parameters].downcase.include?(";base64") ? decode_base64(match[:payload]) : percent_decode(match[:payload])
       Decidim::SvgContentValidator.new(payload, depth + 1).validate == :unsafe
     end
 
