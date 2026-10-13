@@ -21,11 +21,17 @@ module Decidim
 
       layout "layouts/decidim/authorizations", except: [:index, :onboarding_pending]
 
-      def new; end
+      def new
+        enforce_permission_to :read, :authorization
+      end
 
-      def index; end
+      def index
+        enforce_permission_to :read, :authorization
+      end
 
       def onboarding_pending
+        enforce_permission_to :read, :authorization
+
         return redirect_back_or_to(authorizations_path) unless onboarding_manager.valid?
 
         authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
@@ -56,6 +62,8 @@ module Decidim
       end
 
       def create
+        enforce_permission_to(:create, :authorization, authorization:)
+
         AuthorizeUser.call(handler, current_organization) do
           on(:ok) do
             flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications")
@@ -93,12 +101,16 @@ module Decidim
       end
 
       def renew_onboarding_data
+        enforce_permission_to :read, :authorization
+
         store_onboarding_cookie_data!(current_user)
 
         redirect_to onboarding_pending_authorizations_path
       end
 
       def clear_onboarding_data
+        enforce_permission_to :read, :authorization
+
         clear_onboarding_data!(current_user)
       end
 
@@ -187,7 +199,7 @@ module Decidim
       private
 
       def authorization
-        @authorization ||= Decidim::Authorization.find_by(
+        @authorization ||= Decidim::Authorization.find_or_initialize_by(
           user: current_user,
           name: handler_name
         )

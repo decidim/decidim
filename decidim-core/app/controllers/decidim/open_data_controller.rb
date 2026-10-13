@@ -4,9 +4,13 @@ module Decidim
   class OpenDataController < Decidim::ApplicationController
     helper_method :open_data_component_manifests, :open_data_participatory_space_manifests, :open_data_core_manifests
 
-    def index; end
+    def index
+      enforce_permission_to :read, :open_data
+    end
 
     def download
+      enforce_permission_to :read, :open_data
+
       resource = params[:resource] || nil
 
       if open_data_file_for_resource(resource)

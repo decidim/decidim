@@ -9,6 +9,7 @@ module Decidim
       locales_action?
       component_public_action?
       search_scope_action?
+      public_content_action?
 
       public_report_content_action?
 
@@ -66,6 +67,23 @@ module Decidim
       toggle_allow([:search, :pick].include?(permission_action.action))
     end
 
+    # Public, non-resource content that any visitor is allowed to reach. The
+    # controllers using these subjects enforce the actual data visibility
+    # themselves (profile publication, private download tokens, newsletter
+    # tokens, etc.).
+    def public_content_action?
+      case permission_action.subject
+      when :open_data, :search, :profile, :private_download, :short_link,
+           :calendar, :badges, :static_map, :qr_code, :homepage, :manifest,
+           :offline, :link, :authorization
+        allow! if permission_action.action == :read
+      when :newsletter
+        allow! if [:read, :unsubscribe].include?(permission_action.action)
+      when :upload_validation
+        allow! if permission_action.action == :create
+      end
+    end
+
     def manage_self_user_action?
       return unless permission_action.subject == :user
 
@@ -78,6 +96,8 @@ module Decidim
       authorization = context.fetch(:authorization, nil)
 
       case permission_action.action
+      when :read
+        allow!
       when :create
         toggle_allow(authorization.user == user && not_already_active?(authorization))
       when :update, :destroy
