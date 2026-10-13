@@ -27,12 +27,6 @@ module RuboCop
       # `rescue_from`, ...) are treated as lifecycle/helper methods and are
       # never flagged, as they themselves are not controller actions.
       #
-      # Controllers that inherit from a configured `AuthorizedBaseClasses`
-      # entry are considered to inherit the base authorization check for the
-      # `AuthorizedBaseActions` actions (typically read-style actions such as
-      # `index`, `show` and `home`). Mutating actions must still be
-      # authorized explicitly.
-      #
       # Calls to methods starting with `enforce_permission_to_` or
       # `action_authorized_to_` (authorization helper wrappers) are also
       # accepted as authorization checks.
@@ -94,14 +88,11 @@ module RuboCop
 
         def on_new_investigation
           @scope_callback_methods = {}
-          @base_class_map = {}
-          @authorized_base_nodes = Set.new
           reset_scope_state
         end
 
         def on_class(node)
           reset_scope_state
-          register_authorized_base(node)
           collect_callback_methods(node)
           check_before_actions(node)
           check_before_action_blocks(node)
@@ -124,8 +115,6 @@ module RuboCop
           return unless method_public?(node, method_name, inline_visibility)
           return if action_exempted_by_before_action?(method_name)
           return if callback_method?(node, method_name)
-          return if authorized_base_action?(node, method_name)
-
           return if contains_authorization_check?(node)
 
           action_name = method_name.to_s
@@ -352,111 +341,6 @@ module RuboCop
             value = pair.value
             value.value.to_sym if value.sym_type? || value.str_type?
           end
-        end
-
-        def register_authorized_base(node)
-          register_class_hierarchy(node)
-          @authorized_base_nodes << node if authorized_base_class?(node)
-        end
-
-        # Keeps track of the class hierarchy so authorization inherited from a
-        # configured base class can be recognized through intermediate classes.
-        def register_class_hierarchy(node)
-          name = qualified_class_name(node)
-          return unless name
-
-          parent = node.parent_class
-          return unless parent&.const_type?
-
-          @base_class_map ||= {}
-          @base_class_map[name] = resolved_parent_name(node, parent)
-        end
-
-        # Resolves a superclass reference written relative to the enclosing
-        # namespace (e.g. `BaseController`, `Components::BaseController` or
-        # `Decidim::Meetings::ApplicationController` inside
-        # `module Decidim::Meetings::Polls`) to its qualified form, so it
-        # matches the names stored in the hierarchy map. An explicitly
-        # root-qualified reference (e.g. `::Decidim::Components::BaseController`)
-        # is kept as written.
-        def resolved_parent_name(node, parent)
-          name = parent.const_name
-          return name if parent.absolute?
-
-          namespace = enclosing_namespace(node)
-          return name if namespace.empty?
-
-          resolve_relative_constant(name, namespace)
-        end
-
-        # Ruby resolves the leading constant of a relative reference against
-        # the enclosing lexical scopes, innermost first. Mirror that by
-        # anchoring the reference at the innermost enclosing scope ending with
-        # the reference's leading constant; a name whose leading constant does
-        # not match any enclosing scope is relative to the full namespace.
-        def resolve_relative_constant(name, namespace)
-          first, *rest = name.split("::")
-          scopes = namespace.split("::")
-          anchor = scopes.rindex(first)
-
-          return "#{namespace}::#{name}" unless anchor
-
-          (scopes.first(anchor + 1) + rest).join("::")
-        end
-
-        # The lexical namespace that encloses a class or module definition,
-        # used as the starting point for relative constant resolution.
-        def enclosing_namespace(node)
-          node.each_ancestor(:class, :module).to_a.reverse.filter_map do |ancestor|
-            ancestor.identifier&.const_name
-          end.join("::")
-        end
-
-        def qualified_class_name(node)
-          identifier = node.identifier
-          return nil unless identifier&.const_type?
-
-          namespace = node.each_ancestor(:class, :module).to_a.reverse.filter_map do |ancestor|
-            ancestor.identifier&.const_name
-          end
-
-          (namespace + [identifier.const_name]).join("::")
-        end
-
-        def authorized_base_class?(node)
-          parent = node.parent_class
-          return false unless parent&.const_type?
-
-          authorized_base_name?(resolved_parent_name(node, parent))
-        end
-
-        def authorized_base_name?(name)
-          seen = Set.new
-
-          while name && seen.add?(name)
-            return true if authorized_base_classes.include?(name)
-
-            name = @base_class_map[name]
-          end
-
-          false
-        end
-
-        def authorized_base_classes
-          @authorized_base_classes ||= Array(cop_config["AuthorizedBaseClasses"]).map(&:to_s)
-        end
-
-        def authorized_base_actions
-          @authorized_base_actions ||= Array(cop_config["AuthorizedBaseActions"]).map(&:to_s)
-        end
-
-        def authorized_base_action?(node, method_name)
-          return false unless authorized_base_actions.include?(method_name.to_s)
-
-          scope = node.each_ancestor(:class, :module).first
-          return false unless scope
-
-          @authorized_base_nodes.include?(scope)
         end
 
         def check_before_actions(class_node)
