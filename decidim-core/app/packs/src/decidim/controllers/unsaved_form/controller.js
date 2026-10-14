@@ -39,7 +39,7 @@ export default class extends Controller {
     this.confirming = false;
     this.remote = isRemote(this.element);
     this.edits = 0;
-    this.sentEdits = 0;
+    this.sentEdits = new Map();
 
     this.markDirty = () => {
       this.edits += 1;
@@ -92,7 +92,11 @@ export default class extends Controller {
         return;
       }
 
-      this.sentEdits = this.edits;
+      const [xhr] = event.detail || [];
+
+      if (xhr) {
+        this.sentEdits.set(xhr, this.edits);
+      }
     };
 
     this.markSavedOnSuccess = (event) => {
@@ -101,6 +105,8 @@ export default class extends Controller {
       }
 
       const [xhr] = event.detail || [];
+      const sentEdits = this.sentEdits.get(xhr);
+      this.sentEdits.delete(xhr);
 
       // A failed request leaves the form, and its unsaved contents, in place.
       if (!xhr || !(xhr.status >= 200 && xhr.status < 300)) {
@@ -108,7 +114,7 @@ export default class extends Controller {
       }
 
       // Changes made after the request was sent were not part of what it saved.
-      if (this.edits !== this.sentEdits) {
+      if (this.edits !== sentEdits) {
         return;
       }
 
