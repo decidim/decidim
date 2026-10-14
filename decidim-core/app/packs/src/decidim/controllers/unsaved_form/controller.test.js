@@ -132,17 +132,6 @@ describe("UnsavedFormController", () => {
     expect(confirmAction).not.toHaveBeenCalled();
   });
 
-  it("keeps the form dirty when a confirmed remote link does not navigate", async () => {
-    jest.mocked(confirmAction).mockResolvedValueOnce(true);
-    input.dispatchEvent(new Event("input", { bubbles: true }));
-
-    document.querySelector("a[href='/filters']").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    expect(controller.dirty).toBe(true);
-    expectUnloadPrompt(true);
-  });
-
   it("confirms navigation for links with a disabled remote flag", () => {
     input.dispatchEvent(new Event("input", { bubbles: true }));
     document.addEventListener("click", (event) => event.preventDefault(), { once: true });
@@ -192,6 +181,23 @@ describe("UnsavedFormController", () => {
     // Navigation is approved for every form, but protection returns if it does not happen.
     expectUnloadPrompt(false);
     document.dispatchEvent(new Event("turbo:load"));
+    expectUnloadPrompt(true);
+  });
+
+  it("releases the approval when the confirmed navigation is cancelled", async () => {
+    link.setAttribute("href", "/proposals");
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    jest.mocked(confirmAction).mockResolvedValueOnce(true);
+
+    const cancelNavigation = (event) => event.preventDefault();
+    document.addEventListener("click", cancelNavigation);
+
+    link.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    document.removeEventListener("click", cancelNavigation);
+
+    expect(controller.dirty).toBe(true);
     expectUnloadPrompt(true);
   });
 
