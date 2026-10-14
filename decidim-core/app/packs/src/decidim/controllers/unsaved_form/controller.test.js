@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { jest } from "@jest/globals"
 import { Application } from "@hotwired/stimulus"
 import confirmAction from "src/decidim/confirm"
@@ -65,6 +66,9 @@ describe("UnsavedFormController", () => {
 
     await new Promise((resolve) => setTimeout(resolve, 0));
 
+    // The navigation approval flag is shared across controllers and pages.
+    document.dispatchEvent(new Event("turbo:load"));
+
     form = document.querySelector("form");
     input = form.querySelector("input");
     link = document.querySelector("a");
@@ -76,7 +80,9 @@ describe("UnsavedFormController", () => {
   });
 
   afterEach(() => {
-    controller.disconnect();
+    document.querySelectorAll("[data-controller~=\"unsaved-form\"]").forEach((element) => {
+      application.getControllerForElementAndIdentifier(element, "unsaved-form")?.disconnect();
+    });
     application.stop();
     application = null;
     jest.clearAllMocks();
@@ -155,6 +161,35 @@ describe("UnsavedFormController", () => {
 
     expect(event.defaultPrevented).toBe(true);
     expect(confirmAction).toHaveBeenCalledTimes(1);
+  });
+
+  it("coordinates a single confirmation across multiple dirty forms", async () => {
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      '<form data-controller="unsaved-form" id="second-form"><input name="second"></form>'
+    );
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const secondForm = document.querySelector("#second-form");
+    const secondController = application.getControllerForElementAndIdentifier(secondForm, "unsaved-form");
+
+    link.setAttribute("href", "/proposals");
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    secondForm.querySelector("input").dispatchEvent(new Event("input", { bubbles: true }));
+
+    jest.mocked(confirmAction).mockResolvedValueOnce(true);
+
+    link.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(confirmAction).toHaveBeenCalledTimes(1);
+    expect(controller.dirty).toBe(true);
+    expect(secondController.dirty).toBe(true);
+
+    // Navigation is approved for every form, but protection returns if it does not happen.
+    expectUnloadPrompt(false);
+    document.dispatchEvent(new Event("turbo:load"));
+    expectUnloadPrompt(true);
   });
 
   it("marks the form dirty when a control outside of it adds content", () => {
