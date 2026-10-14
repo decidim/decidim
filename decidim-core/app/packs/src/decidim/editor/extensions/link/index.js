@@ -98,6 +98,10 @@ export default Link.extend({
 
           ({ href, target } = this.editor.getAttributes(nodeType));
 
+          if (allowTargetControl && !target) {
+            target = "_self";
+          }
+
           const inputs = { href: { type: "text", label: i18n.hrefLabel } };
           if (allowTargetControl) {
             inputs.target = {
