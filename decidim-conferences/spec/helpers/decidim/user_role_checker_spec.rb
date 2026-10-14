@@ -55,10 +55,10 @@ module Decidim
         end
       end
 
-      context "when the user has a role in another participatory space" do
-        let(:participatory_process) { create(:participatory_process, organization:) }
+      context "when the user has a role in another conference" do
+        let(:another_conference) { create(:conference, organization:) }
 
-        before { create(:participatory_process_user_role, user:, participatory_process:) }
+        before { create(:conference_user_role, user:, conference: another_conference) }
 
         it "returns false for the given conference" do
           expect(checker.send(:space_user_role?, user, conference)).to be(false)
