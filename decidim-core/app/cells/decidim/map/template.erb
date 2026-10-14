@@ -5,7 +5,7 @@
         <h3 class="h4 card__list-title">${title}</h3>
         <div class="card__list-metadata">
           {{each JSON.parse(items)}}
-          <span>{{html icon}}${text}</span>
+          <span>{{html icon}}{{if html}}{{html html}}{{else}}${text}{{/if}}</span>
           {{/each}}
         </div>
       </div>

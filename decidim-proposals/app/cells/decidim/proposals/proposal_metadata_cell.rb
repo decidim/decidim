@@ -49,8 +49,11 @@ module Decidim
 
       def items_for_map
         [coauthors_item_for_map, comments_count_item, likes_count_item, state_item, emendation_item].compact_blank.map do |item|
+          text = item[:text]
+
           {
-            text: item[:text].to_s.html_safe,
+            text: text.to_s,
+            html: (text.to_s if text.respond_to?(:html_safe?) && text.html_safe?),
             icon: item[:icon].present? ? icon(item[:icon]).html_safe : nil
           }
         end
