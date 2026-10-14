@@ -1,8 +1,17 @@
 require:
   - decidim/dev/rubocop/cop/decidim/message_antipattern
+  - decidim/dev/rubocop/cop/decidim/enforce_permission_to
 
 Decidim/MessageAntipattern:
   Enabled: true
   Include:
     - "**/spec/**/*"
     - "**/test/**/*"
+
+Decidim/EnforcePermissionTo:
+  Enabled: true
+  Severity: warning
+  Include:
+    - "**/app/controllers/**/admin/**/*.rb"
+  Exclude:
+    - "**/decidim-system/**/*.rb"
