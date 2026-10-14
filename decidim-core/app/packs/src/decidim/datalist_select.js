@@ -17,7 +17,7 @@ export const datalistSelect = (target, callback) => {
 
   const selectValue = (selected) => {
     for (let idx = 0; idx < items.length; idx += 1) {
-      if (items[idx].innerHTML === selected) {
+      if (items[idx].textContent === selected) {
         const id = items[idx].dataset.value;
         input.value = id;
         if (callback) {
