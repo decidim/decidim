@@ -13,6 +13,13 @@
           <% state_id = "proposal_state_text_color_#{color_values[:foreground].delete("#").downcase}" %>
           <style>
             <%= "##{state_id}" %> {
+              /* Safari ignores box-shadow on native radio inputs, so reset the
+                 appearance to render the color rings consistently across browsers. */
+              appearance: none;
+              -webkit-appearance: none;
+              width: 1rem;
+              height: 1rem;
+              border-radius: 50%;
               box-shadow:  0 0 0 1.5px <%= color_values[:foreground] %>, 0 0 0 6px <%= color_values[:background] %>;
               accent-color: <%= color_values[:foreground] %>;
             }
