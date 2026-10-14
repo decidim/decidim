@@ -31,8 +31,8 @@ module Decidim
           attrs = el.attributes.transform_keys(&:to_sym).transform_values(&:value)
           link_options = attrs.merge(options)
 
-          # Keep an explicit target from the original link, if present.
-          link_options[:target] = attrs[:target] if attrs.has_key?(:target)
+          # Preserve supported target values selected in the editor.
+          link_options[:target] = attrs[:target] if %w(_self _blank).include?(attrs[:target])
           el.replace anchor_tag(attrs.delete(:href), el.inner_html, link_options)
         end
         fragment.to_s
