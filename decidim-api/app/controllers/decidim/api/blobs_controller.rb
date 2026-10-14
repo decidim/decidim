@@ -18,7 +18,7 @@ module Decidim
 
         return render json: { error: :file_not_provided }, status: :unprocessable_content unless file_uploaded?
         return render json: { error: :unallowed_file_extension }, status: :unprocessable_content unless extension_allowlist.any? { |ext| ext == uploaded_file_extension }
-        return render json: { error: :unallowed_content_type }, status: :unprocessable_content unless content_type_allowlist.any? { |type| type.match?(uploaded_file.content_type) }
+        return render json: { error: :unallowed_content_type }, status: :unprocessable_content unless content_type_allowed?
 
         max_bytes = Decidim.organization_settings(current_organization).upload.maximum_file_size.default.megabytes
         return render json: { error: :file_too_large }, status: :unprocessable_content if uploaded_file.size > max_bytes
@@ -26,7 +26,7 @@ module Decidim
         blob = ActiveStorage::Blob.create_and_upload!(
           io: uploaded_file,
           filename: sanitized_filename,
-          content_type: uploaded_file.content_type
+          content_type: detected_content_type
         )
 
         render json: blob.as_json(methods: :signed_id)
@@ -60,6 +60,14 @@ module Decidim
         @uploaded_file_extension ||= File.extname(uploaded_file.original_filename).strip.downcase[1..-1]
       end
 
+      # The content type declared by the client is not trusted: the type detected
+      # from the file contents is the one checked against the allowlist and the
+      # one stored, so that a file with an allowed extension and a false MIME
+      # declaration does not pass the configured type restriction.
+      def detected_content_type
+        @detected_content_type ||= Marcel::MimeType.for(uploaded_file.tempfile, name: sanitized_filename) || uploaded_file.content_type
+      end
+
       def file_uploaded?
         return false unless params[:file]
 
@@ -79,6 +87,16 @@ module Decidim
           render body: nil, status: :forbidden
         else
           render body: nil, status: :unauthorized
+        end
+      end
+
+      # Both the content type declared by the client and the one detected from
+      # the file contents must be allowed. The declared type is not trusted, so
+      # a file with an allowed extension and a false MIME declaration does not
+      # pass the configured type restriction.
+      def content_type_allowed?
+        [uploaded_file.content_type, detected_content_type].all? do |content_type|
+          content_type_allowlist.any? { |type| type.match?(content_type) }
         end
       end
 

@@ -71,6 +71,29 @@ describe Decidim::Api::BlobsController do
       end
     end
 
+    context "with an allowed extension and a spoofed content type" do
+      let(:file) { Decidim::Dev.test_file("spoofed_image_html.png", "image/png") }
+
+      it "does not allow uploading a file" do
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(response.parsed_body).to eq({ "error" => "unallowed_content_type" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "spoofed_image_html.png")).not_to exist
+      end
+    end
+
+    context "with a declared content type which is not the one of the file contents" do
+      let(:file) { Decidim::Dev.test_file("icon.png", "image/jpeg") }
+
+      it "stores the content type detected from the file contents" do
+        expect(response).to have_http_status(:ok)
+        expect(ActiveStorage::Blob.last.content_type).to eq("image/png")
+        expect(response.parsed_body["contentType"]).to eq("image/png")
+      end
+    end
+
     context "with file name in Windows-1252 encoding" do
       let(:file) do
         Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf").tap do |f|

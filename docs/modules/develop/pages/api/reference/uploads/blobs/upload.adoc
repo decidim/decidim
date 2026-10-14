@@ -33,6 +33,8 @@ curl -X POST https://example.org/api/ \
 
 The uploaded blob is not attached to any record yet: pass its `signedId` to the xref:develop:api/reference/uploads/attachments/create.adoc[createAttachment] mutation to create the attachment. An upload which is never attached cannot be removed through xref:develop:api/reference/uploads/blobs/delete.adoc[deleteBlob] (a blob without attachments has no organization to authorize against); it is purged by the xref:install:index.adoc#scheduled_tasks[scheduled cleanup task] (`rake decidim:attachments_cleanup`, hourly by default), so an abandoned upload is removed once the cleanup window elapses.
 
+The content type is detected from the file contents rather than taken from the MIME declaration of the request, and the detected type is the one checked against the configured allowlists and stored with the blob. A file with an allowed extension but contents which do not match the declared type is rejected; the same applies to the `POST /api/blobs` endpoint, where the contents are inspected before the blob is created.
+
 == Error Handling
 
 * xref:develop:api/reference/errors/unauthorized_object.adoc[Unauthorized Object Error - UNAUTHORIZED_OBJECT_ERROR]

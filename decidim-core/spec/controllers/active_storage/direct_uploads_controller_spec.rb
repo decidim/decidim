@@ -72,6 +72,25 @@ module ActiveStorage
           expect(response).to have_http_status(:ok)
           expect(response.body).to include("content_type")
         end
+
+        context "when the declared content type is an accepted alias of the file extension" do
+          let(:blob) do
+            {
+              filename: "hello.jpg",
+              byte_size: 6,
+              checksum:,
+              content_type: "image/jpg"
+            }
+          end
+          let(:extensions) { %w(jpg) }
+          let(:content_types) { %w(image/jpg image/jpeg) }
+
+          it "returns success" do
+            post(:create, params:)
+
+            expect(response).to have_http_status(:ok)
+          end
+        end
       end
 
       context "when the attachment is not allowed" do
@@ -120,6 +139,25 @@ module ActiveStorage
               content_type: "text/plain"
             }
           end
+
+          it "returns renders unprocessable entity" do
+            post(:create, params:)
+
+            expect(response).to have_http_status(:unprocessable_content)
+          end
+        end
+
+        context "when the declared content type is not the one derived from the extension" do
+          let(:blob) do
+            {
+              filename: "hello.png",
+              byte_size: 6,
+              checksum:,
+              content_type: "image/jpeg"
+            }
+          end
+          let(:extensions) { %w(png) }
+          let(:content_types) { %w(image/jpeg image/png) }
 
           it "returns renders unprocessable entity" do
             post(:create, params:)
