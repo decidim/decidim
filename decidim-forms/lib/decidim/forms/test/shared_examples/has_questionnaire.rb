@@ -54,6 +54,7 @@ shared_examples_for "has questionnaire" do
       end
 
       expect(page).to have_callout(callout_success)
+      expect(page).to have_no_text("You have already responded this form.")
 
       visit questionnaire_public_path
       see_questionnaire_questions
