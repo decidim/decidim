@@ -120,7 +120,7 @@ module Decidim
       end
 
       def save_response(form_response)
-        response = submission.responses.order(:id).find_or_initialize_by(question: form_response.question)
+        response = submission.responses.order(id: :desc).find_or_initialize_by(question: form_response.question)
         response.assign_attributes(
           user: current_user,
           questionnaire:,

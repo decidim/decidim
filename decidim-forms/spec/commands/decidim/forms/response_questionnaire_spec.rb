@@ -161,10 +161,24 @@ module Decidim
             expect(Response.where(id: hidden_response.id)).not_to exist
           end
 
-          it "removes a stale duplicate of a re-answered question" do
-            create(:response, questionnaire:, question: question1, user: current_user, submission:, body: "duplicate")
+          it "updates the latest duplicate of a re-answered question and removes the older one" do
+            latest = create(:response, questionnaire:, question: question1, user: current_user, submission:, body: "latest")
             command.call
-            expect(submission.responses.where(question: question1).pluck(:body)).to eq(["This is my first response"])
+            expect(submission.responses.where(question: question1)).to contain_exactly(latest)
+            expect(latest.reload.body).to eq("This is my first response")
+          end
+
+          it "replaces the stored choices of a re-answered question" do
+            existing = create(:response, questionnaire:, question: question2, user: current_user, submission:, body: nil)
+            create(:response_choice, response: existing, response_option: response_options[4], matrix_row: matrix_rows[0])
+            command.call
+            expect(existing.reload.choices.pluck(:decidim_response_option_id)).to match_array(response_options.first(3).map(&:id))
+          end
+
+          it "keeps the responses of other participants" do
+            other = create(:response, questionnaire:, question: question1)
+            command.call
+            expect(Response.where(id: other.id)).to exist
           end
         end
 
@@ -281,6 +295,21 @@ module Decidim
             it "keeps the attachment on the same response" do
               expect { command.call }.to broadcast(:ok)
               expect(existing_response.reload.attachments).to eq([existing_attachment])
+            end
+          end
+
+          context "when editing is allowed and a new attachment is invalid" do
+            let(:command) { described_class.new(form, questionnaire, allow_editing_responses: true) }
+            let(:submission) { create(:submission, questionnaire:, user: current_user) }
+            let!(:existing_response) { create(:response, :with_attachments, questionnaire:, question: question1, user: current_user, submission:) }
+            let(:uploaded_files) { [{ title: "Text document", file: upload_test_file(Decidim::Dev.asset("invalid_extension.log"), content_type: "text/plain") }] }
+
+            it "keeps the stored response, its attachments and the submission" do
+              updated_at = existing_response.reload.updated_at
+              expect { command.call }.to broadcast(:invalid)
+              expect(existing_response.reload.updated_at).to eq(updated_at)
+              expect(existing_response.attachments.count).to eq(2)
+              expect(submission.reload.responses).to contain_exactly(existing_response)
             end
           end
         end

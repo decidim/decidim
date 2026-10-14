@@ -30,7 +30,7 @@ module Decidim
 
       def add_responses!(questionnaire:, session_token:)
         submission = questionnaire.submission_for(user: current_user, session_token:)
-        existing = submission ? submission.responses.order(id: :desc).index_by(&:decidim_question_id) : {}
+        existing = submission ? submission.responses.order(:id).index_by(&:decidim_question_id) : {}
         self.responses = questionnaire.questions.map do |question|
           ResponseForm.from_model(existing[question.id] || Decidim::Forms::Response.new(question:)).with_context(context)
         end
