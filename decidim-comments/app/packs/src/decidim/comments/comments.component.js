@@ -127,6 +127,7 @@ export default class CommentsComponent {
     const $replies = $(`#comment-${commentId}-replies`);
     this._addComment($replies, $comment);
     $replies.addClass("comment-reply");
+    this._revealNewReply($replies, fromCurrentUser);
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
@@ -193,6 +194,27 @@ export default class CommentsComponent {
 
     this._initializeComments($container);
     document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [this.lastCommentId] } }));
+  }
+
+  /**
+   * Reveals a reply posted by the current user and loads any collapsed siblings.
+   * @private
+   * @param {jQuery} $replies - The replies container.
+   * @param {Boolean} fromCurrentUser - Whether the reply was posted by the current user.
+   * @returns {Void} - Returns nothing.
+   */
+  _revealNewReply($replies, fromCurrentUser) {
+    if (!fromCurrentUser || !$replies.hasClass("hidden")) {
+      return;
+    }
+
+    $replies.removeClass("hidden");
+    const $button = $replies.closest("[data-controller~='show-replies']").find("[data-show-replies-target='button']");
+    $button.attr("aria-expanded", "true");
+
+    const controllerElement = $replies.closest("[data-controller~='show-replies']").get(0);
+    const controller = controllerElement && window.Stimulus?.getControllerForElementAndIdentifier(controllerElement, "show-replies");
+    controller?.loadReplies();
   }
 
   /**

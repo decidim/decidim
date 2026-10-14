@@ -612,6 +612,7 @@ describe("CommentsComponent", () => {
 
           expect(textArea.val()).toEqual("");
         });
+
       });
     });
 
@@ -645,6 +646,25 @@ describe("CommentsComponent", () => {
           subject.addReply(450, newReply, true);
 
           expect(textArea.val()).toEqual("");
+        });
+
+        it("reveals replies that were collapsed before posting", () => {
+          const loadReplies = jest.fn();
+          const originalStimulus = window.Stimulus;
+          window.Stimulus = {
+            getControllerForElementAndIdentifier: () => ({ loadReplies })
+          };
+
+          subject.addReply(450, newReply, true);
+
+          const replies = $("#comment-450-replies", subject.$element);
+          const trigger = $("#comment-450-replies-trigger", subject.$element);
+
+          expect(replies.hasClass("hidden")).toBe(false);
+          expect(trigger.attr("aria-expanded")).toBe("true");
+          expect(loadReplies).toHaveBeenCalledTimes(1);
+
+          window.Stimulus = originalStimulus;
         });
       });
     });
