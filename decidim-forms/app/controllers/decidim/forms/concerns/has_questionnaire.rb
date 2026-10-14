@@ -16,7 +16,7 @@ module Decidim
           helper Decidim::Forms::ApplicationHelper
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire, :allow_responses?, :visitor_can_respond?, :visitor_already_responded?, :update_url, :visitor_can_edit_responses?,
+          helper_method :questionnaire_for, :questionnaire, :allow_responses?, :visitor_can_respond?, :visitor_can_participate?, :visitor_already_responded?, :update_url, :visitor_can_edit_responses?,
                         :form_path
 
           invisible_captcha on_spam: :spam_detected
@@ -67,6 +67,15 @@ module Decidim
           # Public: return true if the current user (if logged) can response the questionnaire
           def visitor_can_respond?
             current_user || allow_unregistered?
+          end
+
+          # Public: return true if the visitor can participate in the current
+          # participatory space, including administrators previewing it before
+          # publication.
+          def visitor_can_participate?
+            return true if user_has_any_role?(current_user, current_participatory_space)
+
+            current_participatory_space.can_participate?(current_user)
           end
 
           # Public: return true if the current user (or session visitor) can respond the questionnaire

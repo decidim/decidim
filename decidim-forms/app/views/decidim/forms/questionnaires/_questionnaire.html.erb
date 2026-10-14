@@ -2,7 +2,7 @@
   <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.title"), body: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.body") }, callout_class: "warning") %>
 </noscript>
 
-<% unless current_participatory_space.can_participate?(current_user) %>
+<% unless visitor_can_participate? %>
   <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_for_members.title"), body: t("decidim.forms.questionnaires.show.questionnaire_for_members.body") }, callout_class: "alert") %>
 <% end %>
 
@@ -38,7 +38,7 @@
               response_form:,
               response:,
               response_idx:,
-              disabled: !current_participatory_space.can_participate?(current_user)
+              disabled: !visitor_can_participate?
             ) %>
           <% end %>
         </div>
@@ -54,7 +54,7 @@
           <% end %>
 
           <div class="response-questionnaire__tos">
-            <%= form.check_box :tos_agreement, label: t("decidim.forms.questionnaires.show.tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
+            <%= form.check_box :tos_agreement, label: t("decidim.forms.questionnaires.show.tos_agreement"), id: "questionnaire_tos_agreement", disabled: !visitor_can_participate? %>
             <div>
               <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
             </div>
@@ -65,7 +65,7 @@
           "decidim/forms/step_navigation",
           step_index,
           total_steps: @form.total_steps,
-          button_disabled: !current_participatory_space.can_participate?(current_user),
+          button_disabled: !visitor_can_participate?,
           form:,
           allow_editing_responses: questionnaire_for.try(:allow_editing_responses?)
         ) %>

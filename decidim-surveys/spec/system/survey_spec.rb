@@ -33,6 +33,25 @@ describe "Respond a survey" do
 
   include_context "with a component"
 
+  context "when an administrator previews a survey in an unpublished participatory space" do
+    let(:participatory_process) { create(:participatory_process, :unpublished, :with_steps, organization:) }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
+    let!(:survey) { create(:survey, :published, :allow_responses, component:, questionnaire:) }
+
+    before do
+      login_as user, scope: :user
+    end
+
+    it "allows testing the survey responses" do
+      visit_component
+      click_on translated_attribute(questionnaire.title)
+
+      expect(page).to have_field(question.body["en"], disabled: false)
+      expect(page).to have_field("questionnaire_tos_agreement", disabled: false)
+      expect(page).to have_button("Submit", disabled: false)
+    end
+  end
+
   it_behaves_like "preview component with a share_token"
 
   context "when the survey does not allow responses" do
