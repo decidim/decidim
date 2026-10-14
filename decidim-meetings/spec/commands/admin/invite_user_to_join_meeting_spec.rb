@@ -194,5 +194,27 @@ module Decidim::Meetings
         expect { subject.call }.to broadcast(:invalid)
       end
     end
+
+    context "when the meeting belongs to a private space" do
+      let!(:participatory_process) { create(:assembly, private_space: true, organization:) }
+
+      context "when the invited user is not a space member" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:attendee_type) { "name" }
+        let(:user_id) { user.id }
+
+        it "does not create an invitation" do
+          expect { subject.call }.to broadcast(:invalid)
+          expect(Decidim::Meetings::Invite.where(user:, meeting:)).to be_empty
+        end
+      end
+
+      context "when the invitation is for a new email address" do
+        it "does not create a user or invitation" do
+          expect { subject.call }.to broadcast(:invalid)
+          expect(Decidim::User.find_by(email:)).to be_nil
+        end
+      end
+    end
   end
 end

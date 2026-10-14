@@ -24,7 +24,7 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) if form.invalid? || already_invited?
+          return broadcast(:invalid) if form.invalid? || already_invited? || cannot_participate_in_space?
 
           invite_user
 
@@ -40,6 +40,13 @@ module Decidim
           return false unless meeting.invites.exists?(user:)
 
           form.errors.add(:email, :already_invited)
+          true
+        end
+
+        def cannot_participate_in_space?
+          return false if meeting.participatory_space.can_participate?(user)
+
+          form.errors.add(:user, :not_authorized)
           true
         end
 
