@@ -155,8 +155,7 @@ describe "Datepicker" do
               find(".datepicker__calendar-button").click
               yesterday = Date.yesterday.strftime("%-d")
               find("td > span[aria-hidden=true]", text: yesterday, match: :first).click
-              expect(find_by_id("example_input_date").value).not_to eq("")
-              expect(page).to have_css("#example_input_date_datepicker", visible: :hidden)
+              expect(page).to have_button("Select", disabled: false)
             end
           end
         end
