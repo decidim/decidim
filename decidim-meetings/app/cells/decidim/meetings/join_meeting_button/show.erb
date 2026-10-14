@@ -23,12 +23,7 @@
         ) %>
   <% end %>
 <% elsif model.on_different_platform? %>
-  <%= action_authorized_link_to(
-    :join,
-    i18n_join_text,
-    model.registration_url,
-    class: button_classes
-  ) %>
+  <%= link_to i18n_join_text, model.registration_url, class: button_classes %>
 <% end %>
 <% if shows_remaining_slots? %>
   <%= render :remaining_slots unless participant_registered_for_meeting? %>

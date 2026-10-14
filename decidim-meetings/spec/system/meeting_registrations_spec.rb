@@ -69,6 +69,21 @@ describe "Meeting registrations" do
   end
 
   context "when meeting registrations are enabled" do
+    context "when registrations use another platform" do
+      let(:registration_url) { "https://registrations.example.test" }
+
+      before do
+        meeting.update!(registration_type: :on_different_platform, registration_url:)
+      end
+
+      it "links anonymous visitors directly to the external registration service" do
+        visit_meeting
+
+        expect(page).to have_link("Register", href: registration_url)
+        expect(page).to have_no_css("#loginModal", visible: :visible)
+      end
+    end
+
     context "and the meeting has not a slot available" do
       let(:available_slots) { 1 }
 
