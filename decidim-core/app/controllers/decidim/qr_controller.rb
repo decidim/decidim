@@ -7,7 +7,7 @@ module Decidim
     include Decidim::OrganizationHelper
     include Decidim::QrCodeHelper
 
-    helper_method :resource, :qr_code, :qr_code_image
+    helper_method :resource, :qr_code, :qr_code_image, :current_component, :current_participatory_space
     before_action :validate_resource
     before_action :validate_component
     before_action :validate_participatory_space
@@ -15,6 +15,8 @@ module Decidim
     layout false
 
     def show
+      enforce_permission_to :read, :qr_code
+
       respond_to do |format|
         format.html
         format.png { send_data(qr_code.as_png(size: 500), filename: "qr-#{organization_name}-#{parametrized_title}.png") }

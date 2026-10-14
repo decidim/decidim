@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- An animation whose target reference is percent encoded, which browsers
+     resolve to the identifier of a link, which does not load any resource. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+  <a id="link" xlink:href="https://example.org"><text y="15">Example</text></a>
+  <set xlink:href="#%6C%69%6E%6B" attributeName="href" to="https://example.org" dur="1s" fill="freeze"/>
+</svg>

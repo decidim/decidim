@@ -34,6 +34,20 @@ module Decidim
           end
         end
       end
+
+      describe "GET show" do
+        let(:component) { create(:debates_component) }
+        let!(:debate) { create(:debate, component:) }
+
+        it "renders the debate" do
+          get :show, params: { id: debate.id }
+          expect(response).to have_http_status(:ok)
+        end
+
+        it "returns a 404 status when the debate does not exist" do
+          expect { get :show, params: { id: "non-existent" } }.to raise_error(ActionController::RoutingError)
+        end
+      end
     end
   end
 end

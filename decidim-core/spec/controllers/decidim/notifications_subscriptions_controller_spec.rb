@@ -67,6 +67,31 @@ module Decidim
         subscriptions = user.reload.notification_settings["subscriptions"]
         expect(subscriptions).to be_nil
       end
+
+      context "when the user is not signed in" do
+        before { sign_out user }
+
+        it "is not allowed to create a subscription" do
+          expect do
+            post(:create, params:)
+          end.not_to(change { user.reload.notification_settings["subscriptions"] })
+
+          expect(response).to have_http_status(:found)
+        end
+      end
+    end
+
+    describe "DELETE #destroy" do
+      let(:params) { { auth: "auth_code_121" } }
+
+      context "when the user is not signed in" do
+        before { sign_out user }
+
+        it "is not allowed to delete a subscription" do
+          delete(:destroy, params:)
+          expect(response).to have_http_status(:found)
+        end
+      end
     end
   end
 end

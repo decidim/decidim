@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A logo referencing resources which are resolved against the document itself (fragments and relative paths) or which are inline (data URIs), and linking to an external site, which does not load any resource. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+  <defs>
+    <circle id="dot" cx="8" cy="8" r="8"/>
+  </defs>
+  <use href="#dot"/>
+  <image href="logo.png" width="16" height="16"/>
+  <image xlink:href="/assets/logo.png" width="16" height="16"/>
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==" width="1" height="1"/>
+  <a xlink:href="https://example.org"><text y="15">Example</text></a>
+</svg>

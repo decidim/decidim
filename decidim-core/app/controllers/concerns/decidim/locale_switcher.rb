@@ -142,6 +142,8 @@ module Decidim
         uri.to_s
       end
 
+      private
+
       def locale_in_script_name?
         script_name = request&.script_name.to_s
         return false if script_name.blank?

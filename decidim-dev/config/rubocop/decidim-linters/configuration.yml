@@ -14,9 +14,43 @@ Decidim/EnforcePermissionTo:
   Enabled: true
   Severity: warning
   Include:
-    - "**/app/controllers/**/admin/**/*.rb"
+    - "**/app/controllers/**/*.rb"
+  AuthorizedBaseClasses:
+    - "Decidim::Components::BaseController"
+    - "Decidim::Accountability::ApplicationController"
+    - "Decidim::Blogs::ApplicationController"
+    - "Decidim::Budgets::ApplicationController"
+    - "Decidim::CollaborativeTexts::ApplicationController"
+    - "Decidim::Debates::ApplicationController"
+    - "Decidim::Elections::ApplicationController"
+    - "Decidim::Meetings::ApplicationController"
+    - "Decidim::Pages::ApplicationController"
+    - "Decidim::Proposals::ApplicationController"
+    - "Decidim::Surveys::ApplicationController"
+    - "Decidim::Templates::ApplicationController"
+  AuthorizedBaseActions:
+    - "index"
+    - "show"
+    - "home"
   Exclude:
-    - "**/decidim-system/**/*.rb"
+    - "decidim-api/**/*.rb"
+    - "decidim-design/**/*.rb"
+    - "decidim-dev/**/*.rb"
+    - "decidim-system/**/*.rb"
+    - "decidim-core/app/controllers/decidim/devise/**/*.rb"
+    - "decidim-core/app/controllers/decidim/doorkeeper/**/*.rb"
+    - "decidim-core/app/controllers/concerns/decidim/devise_authentication_methods.rb"
+    - "decidim-core/app/controllers/concerns/decidim/disable_redirection_to_external_host.rb"
+    - "decidim-core/app/controllers/concerns/decidim/locale_switcher.rb"
+    - "decidim-core/app/controllers/concerns/decidim/registers_permissions.rb"
+    - "decidim-core/app/controllers/concerns/decidim/resource_versions_concern.rb"
+    - "decidim-core/app/controllers/decidim/errors_controller.rb"
+    - "decidim-core/app/controllers/decidim/favicon_controller.rb"
+    - "decidim-core/app/controllers/decidim/timeouts_controller.rb"
+    - "decidim-forms/app/controllers/decidim/forms/concerns/has_questionnaire.rb"
+    - "decidim-initiatives/app/controllers/decidim/initiatives/authorization_create_modals_controller.rb"
+    - "decidim-initiatives/app/controllers/decidim/initiatives/authorization_sign_modals_controller.rb"
+    - "decidim-initiatives/app/controllers/decidim/initiatives/create_initiative_controller.rb"
 
 Decidim/RSpec/MemoizedName:
   Enabled: true

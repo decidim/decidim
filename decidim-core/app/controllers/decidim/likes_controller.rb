@@ -9,7 +9,7 @@ module Decidim
     helper_method :like_button
     # we need to declare with +helper+ to be able to call :render_like_identity from the views
     helper Decidim::LikeableHelper
-    helper_method :resource
+    helper_method :resource, :current_component
 
     before_action :authenticate_user!
 
