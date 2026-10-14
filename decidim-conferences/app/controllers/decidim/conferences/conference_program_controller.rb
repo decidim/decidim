@@ -27,7 +27,9 @@ module Decidim
       end
 
       def meetings
-        return unless meeting_component&.published? || !meeting_component.presence
+        return if meeting_component.present? &&
+                  !meeting_component.published? &&
+                  !allowed_to?(:read, :component, component: meeting_component)
 
         @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_component).visible_for(current_user).order(:start_time)
       end

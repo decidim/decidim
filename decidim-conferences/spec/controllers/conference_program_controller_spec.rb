@@ -57,6 +57,21 @@ module Decidim
               expect(controller.helpers.collection).to match_array(meetings)
             end
           end
+
+          context "when an administrator previews an unpublished meetings component" do
+            let(:user) { create(:user, :admin, organization:) }
+
+            before do
+              component.update!(published_at: nil)
+              sign_in user, scope: :user
+            end
+
+            it "displays the program" do
+              get :show, params: { conference_slug: conference.slug, id: component.id, locale: I18n.locale }
+
+              expect(controller.helpers.collection).to match_array(meetings)
+            end
+          end
         end
       end
     end
