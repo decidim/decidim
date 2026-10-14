@@ -19,6 +19,8 @@ module Decidim
             ::CSV.read(file, col_sep: Decidim.default_csv_col_sep, encoding: "BOM|UTF-8").each_with_index do |row, index|
               yield row, index
             end
+          rescue ::CSV::MalformedCSVError
+            raise Decidim::Admin::Import::InvalidFileError, "The provided CSV file is not valid"
           end
 
           # Returns a StringIO

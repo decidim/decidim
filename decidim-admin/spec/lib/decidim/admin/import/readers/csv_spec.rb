@@ -41,6 +41,19 @@ module Decidim::Admin::Import::Readers
           ]
         )
       end
+
+      context "with an invalid CSV file" do
+        let(:csv_data) do
+          <<~CSV
+            id;title
+            1;"An unclosed value
+          CSV
+        end
+
+        it "raises an invalid file error" do
+          expect { subject.read_rows }.to raise_error(Decidim::Admin::Import::InvalidFileError)
+        end
+      end
     end
 
     describe "#example_file" do
