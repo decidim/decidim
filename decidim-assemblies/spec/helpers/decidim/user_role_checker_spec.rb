@@ -65,6 +65,16 @@ module Decidim
         end
       end
 
+      context "when the user has a role in a participatory process" do
+        let(:participatory_process) { create(:participatory_process, organization:) }
+
+        before { create(:participatory_process_user_role, user:, participatory_process:) }
+
+        it "returns false for the given assembly" do
+          expect(checker.send(:space_user_role?, user, assembly)).to be(false)
+        end
+      end
+
       context "when the assemblies module is not installed" do
         before do
           create(:assembly_user_role, user:, assembly:)
