@@ -30,6 +30,8 @@ import "src/decidim/results_listing"
 import "src/decidim/data_consent"
 import "src/decidim/attachments"
 import "src/decidim/callout"
+import "src/decidim/cors_icons"
+import "src/decidim/offline_banner"
 
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
