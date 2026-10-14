@@ -31,6 +31,8 @@ const structureControls = [
   ".remove-display-condition"
 ].join(", ")
 
+let navigationApproved = false;
+
 export default class extends Controller {
   connect() {
     this.dirty = false;
@@ -48,6 +50,10 @@ export default class extends Controller {
     this.markSaved = () => {
       this.dirty = false;
       window.removeEventListener("beforeunload", this.preventBeforeUnload);
+    };
+
+    this.resetNavigationApproval = () => {
+      navigationApproved = false;
     };
 
     this.belongsToForm = (control) => {
@@ -110,7 +116,7 @@ export default class extends Controller {
     };
 
     this.preventBeforeUnload = (event) => {
-      if (!this.dirty) {
+      if (!this.dirty || navigationApproved) {
         return;
       }
 
@@ -134,6 +140,10 @@ export default class extends Controller {
         return;
       }
 
+      if (navigationApproved) {
+        return;
+      }
+
       if (this.confirming) {
         event.preventDefault();
         return;
@@ -150,7 +160,7 @@ export default class extends Controller {
           return;
         }
 
-        this.markSaved();
+        navigationApproved = true;
         link.click();
       });
     };
@@ -163,6 +173,8 @@ export default class extends Controller {
     this.element.addEventListener("ajax:complete", this.markSavedOnSuccess);
     document.addEventListener("click", this.confirmNavigation);
     document.addEventListener("click", this.markStructureChanged, true);
+    document.addEventListener("turbo:load", this.resetNavigationApproval);
+    window.addEventListener("pageshow", this.resetNavigationApproval);
   }
 
   disconnect() {
@@ -176,5 +188,7 @@ export default class extends Controller {
     this.element.removeEventListener("ajax:complete", this.markSavedOnSuccess);
     document.removeEventListener("click", this.confirmNavigation);
     document.removeEventListener("click", this.markStructureChanged, true);
+    document.removeEventListener("turbo:load", this.resetNavigationApproval);
+    window.removeEventListener("pageshow", this.resetNavigationApproval);
   }
 }
