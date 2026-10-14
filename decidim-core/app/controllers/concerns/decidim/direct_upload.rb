@@ -30,7 +30,7 @@ module Decidim
     end
 
     def extension
-      File.extname(blob_args[:filename]).delete(".")
+      File.extname(blob_args[:filename]).delete(".").downcase
     end
 
     def maximum_allowed_size
