@@ -30,7 +30,7 @@ describe "Paginate specs" do
         end
 
         within("ul", visible: :all) do
-          expect(page).to have_link("25", href: decidim.search_url(per_page: 25, **page_params), visible: :all)
+          expect(page).to have_link("20", href: decidim.search_url(per_page: 20, **page_params), visible: :all)
           expect(page).to have_link("50", href: decidim.search_url(per_page: 50, **page_params), visible: :all)
           expect(page).to have_link("100", href: decidim.search_url(per_page: 100, **page_params), visible: :all)
         end
@@ -39,13 +39,13 @@ describe "Paginate specs" do
   end
 
   context "when per_page parameter is set" do
-    it_behaves_like "list pagination", 25
+    it_behaves_like "list pagination", 20
     it_behaves_like "list pagination", 50
     it_behaves_like "list pagination", 100
   end
 
   context "when per_page parameter is not set" do
-    let!(:proposals) { create_list(:proposal, 26, component: proposal_component) }
+    let!(:proposals) { create_list(:proposal, 21, component: proposal_component) }
 
     before do
       proposals.each { |s| s.update(published_at: Time.current) }
@@ -58,11 +58,11 @@ describe "Paginate specs" do
       expect(page).to have_text("Results per page:")
       within("details") do
         within("summary") do
-          expect(page).to have_text(25)
+          expect(page).to have_text(20)
         end
 
         within("ul", visible: :all) do
-          expect(page).to have_link("25", href: decidim.search_url(per_page: 25, **page_params), visible: :all)
+          expect(page).to have_link("20", href: decidim.search_url(per_page: 20, **page_params), visible: :all)
           expect(page).to have_link("50", href: decidim.search_url(per_page: 50, **page_params), visible: :all)
           expect(page).to have_link("100", href: decidim.search_url(per_page: 100, **page_params), visible: :all)
         end
