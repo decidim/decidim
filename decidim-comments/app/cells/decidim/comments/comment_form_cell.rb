@@ -7,7 +7,7 @@ module Decidim
       def comment_as
         return if current_user.blank?
 
-        render
+        render :comment_as
       end
 
       def two_columns_layout?

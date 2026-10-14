@@ -6,7 +6,7 @@ module Decidim
       def show
         return unless render?
 
-        render
+        render :show
       end
 
       def translated_title

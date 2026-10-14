@@ -8,7 +8,7 @@ module Decidim
       include Decidim::Conferences::Engine.routes.url_helpers
 
       def show
-        render
+        render :show
       end
 
       private

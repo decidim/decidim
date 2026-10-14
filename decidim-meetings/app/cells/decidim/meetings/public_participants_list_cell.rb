@@ -19,7 +19,7 @@ module Decidim
       def show
         return if public_participants.blank?
 
-        render
+        render :show
       end
 
       private

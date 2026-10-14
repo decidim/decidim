@@ -11,7 +11,7 @@ module Decidim
       def show
         return if steps.blank?
 
-        render
+        render :show
       end
 
       private

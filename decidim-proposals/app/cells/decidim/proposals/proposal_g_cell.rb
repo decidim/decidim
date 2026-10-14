@@ -13,7 +13,7 @@ module Decidim
       delegate :state_item, to: :metadata_cell_instance
 
       def show
-        render
+        render :show
       end
 
       def title

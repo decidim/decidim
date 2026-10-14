@@ -5,7 +5,7 @@ module Decidim
     # This cell renders the partners card for an instance of a Partner
     class PartnerCell < Decidim::ViewModel
       def show
-        render
+        render :show
       end
 
       private

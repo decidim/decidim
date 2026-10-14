@@ -15,7 +15,7 @@ module Decidim
     }.freeze
 
     def show
-      render
+      render :show
     end
 
     def button_attributes

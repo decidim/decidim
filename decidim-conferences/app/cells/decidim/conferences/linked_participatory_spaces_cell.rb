@@ -8,7 +8,7 @@ module Decidim
       include Decidim::CardHelper
 
       def show
-        render
+        render :show
       end
 
       private

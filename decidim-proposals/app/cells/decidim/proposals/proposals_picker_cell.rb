@@ -9,7 +9,7 @@ module Decidim
       MAX_PROPOSALS = 1000
 
       def show
-        render
+        render :show
       end
 
       alias component model

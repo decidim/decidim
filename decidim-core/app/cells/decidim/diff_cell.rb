@@ -9,19 +9,19 @@ module Decidim
     include ActionView::Helpers::FormOptionsHelper
 
     def attribute(data)
-      render locals: { data: }
+      render :attribute, locals: { data: }
     end
 
     def diff_unified(data, format)
-      render locals: { data:, format: }
+      render :diff_unified, locals: { data:, format: }
     end
 
     def diff_split(data, direction, format)
-      render locals: { data:, direction:, format: }
+      render :diff_split, locals: { data:, direction:, format: }
     end
 
     def diff_split_full(data, format)
-      render locals: { data:, format: }
+      render :diff_split_full, locals: { data:, format: }
     end
 
     def path(extra_params)

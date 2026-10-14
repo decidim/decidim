@@ -6,7 +6,7 @@ module Decidim
     class RevocationsCell < Decidim::ViewModel
       def show
         @form = Decidim::Verifications::Admin::RevocationsBeforeDateForm.from_params(params)
-        render
+        render :show
       end
 
       protected

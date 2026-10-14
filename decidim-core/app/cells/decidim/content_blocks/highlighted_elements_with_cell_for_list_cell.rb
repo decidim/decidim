@@ -6,7 +6,7 @@ module Decidim
     # that passes the highlighted elements configured in the content block
     class HighlightedElementsWithCellForListCell < HighlightedElementsCell
       def show
-        render unless list_cell.try(:items_blank?)
+        render :show unless list_cell.try(:items_blank?)
       end
 
       private

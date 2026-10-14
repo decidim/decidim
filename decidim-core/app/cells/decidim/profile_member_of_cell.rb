@@ -15,7 +15,7 @@ module Decidim
     def show
       return unless members.any?
 
-      render
+      render :show
     end
 
     private

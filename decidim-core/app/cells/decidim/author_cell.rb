@@ -22,7 +22,7 @@ module Decidim
     def show
       return unless profile_visible?
 
-      render
+      render :show
     end
 
     def author_name
@@ -34,7 +34,7 @@ module Decidim
     end
 
     def flag_user
-      render unless current_user == model
+      render :flag_user unless current_user == model
     end
 
     def raw_model

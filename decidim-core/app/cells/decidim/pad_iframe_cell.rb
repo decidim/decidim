@@ -11,7 +11,7 @@ module Decidim
       return unless paddable.pad_is_visible?
       return if blank_read_only_pad?
 
-      render
+      render :show
     end
 
     def iframe_id

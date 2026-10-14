@@ -13,7 +13,7 @@ module Decidim
         return unless assembly_privacy_allowed?
         return unless live? || future?
 
-        render
+        render :show
       end
 
       protected

@@ -11,7 +11,7 @@ module Decidim
     def show
       return unless resource_name
 
-      render
+      render :show
     end
 
     private

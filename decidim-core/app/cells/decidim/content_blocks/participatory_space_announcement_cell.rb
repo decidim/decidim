@@ -6,7 +6,7 @@ module Decidim
       def show
         return if announcement_cell.blank_content?
 
-        render
+        render :show
       end
 
       def announcement_cell

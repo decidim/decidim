@@ -19,7 +19,7 @@ module Decidim
       end
 
       def image
-        render
+        render :image
       end
 
       def url_extra_params

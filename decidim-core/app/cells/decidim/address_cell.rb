@@ -8,7 +8,7 @@ module Decidim
     def show
       return render :online if options[:online]
 
-      render
+      render :show
     end
 
     def has_location?

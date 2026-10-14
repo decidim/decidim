@@ -13,7 +13,7 @@ module Decidim
       def show
         return unless can_see_votes?
 
-        render
+        render :show
       end
 
       private

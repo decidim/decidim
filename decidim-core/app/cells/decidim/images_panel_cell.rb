@@ -19,7 +19,7 @@ module Decidim
     def show
       return if photos.blank?
 
-      render
+      render :show
     end
 
     def photos

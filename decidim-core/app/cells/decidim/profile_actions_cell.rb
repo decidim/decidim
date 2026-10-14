@@ -48,7 +48,7 @@ module Decidim
       actions = actions_keys.map { |key| action_item(key) }.compact
       return if actions.blank?
 
-      render locals: { actions: }
+      render :profile_actions, locals: { actions: }
     end
 
     def can_contact_user?

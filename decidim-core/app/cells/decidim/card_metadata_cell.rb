@@ -13,7 +13,7 @@ module Decidim
     def show
       return if items.blank?
 
-      render
+      render :show
     end
 
     def initialize(*)

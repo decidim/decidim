@@ -3,7 +3,7 @@
 module Decidim
   class DataConsentCell < Decidim::ViewModel
     def show
-      render
+      render :show
     end
 
     def categories

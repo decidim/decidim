@@ -10,7 +10,7 @@ module Decidim
         return unless model.can_be_joined_by?(current_user)
         return unless model.has_registration_for?(current_user)
 
-        render
+        render :show
       end
 
       private

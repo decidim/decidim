@@ -7,7 +7,7 @@ module Decidim
     def flag_modal
       return render :already_reported_modal if model.reported_by?(current_user)
 
-      render
+      render :flag_modal
     end
 
     private

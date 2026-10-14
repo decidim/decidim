@@ -4,7 +4,7 @@ module Decidim
   module System
     class SystemChecksCell < Decidim::ViewModel
       def show
-        render
+        render :show
       end
 
       private

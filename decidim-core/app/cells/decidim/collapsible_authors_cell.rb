@@ -10,7 +10,7 @@ module Decidim
       return cell("decidim/author", model.first, single_author_options.merge(options)) if model.length == 1
       return render :stack if options[:stack]
 
-      render
+      render :show
     end
 
     def single_author_options

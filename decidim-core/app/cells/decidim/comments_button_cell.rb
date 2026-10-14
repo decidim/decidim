@@ -11,7 +11,7 @@ module Decidim
         return
       end
 
-      render if comments_enabled?
+      render :show if comments_enabled?
     end
 
     private

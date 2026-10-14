@@ -12,7 +12,7 @@ module Decidim
       include Messaging::ConversationHelper
 
       def show
-        render
+        render :show
       end
 
       private

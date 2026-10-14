@@ -9,7 +9,7 @@ module Decidim
       delegate :voting_open?, to: :controller
 
       def show
-        render if announce?
+        render :show if announce?
       end
 
       private

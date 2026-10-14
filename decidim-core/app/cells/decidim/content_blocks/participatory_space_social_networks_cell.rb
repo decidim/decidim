@@ -6,7 +6,7 @@ module Decidim
       def show
         return if social_handler_items.blank?
 
-        render
+        render :show
       end
 
       def social_handler_items

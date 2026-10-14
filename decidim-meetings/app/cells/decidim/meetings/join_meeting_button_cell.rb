@@ -9,7 +9,7 @@ module Decidim
       def show
         return unless model.can_be_joined_by?(current_user) || model.on_different_platform?
 
-        render
+        render :show
       end
 
       def render_waitlist_button?

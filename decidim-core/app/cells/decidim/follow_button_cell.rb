@@ -6,7 +6,7 @@ module Decidim
     def show
       return if model == current_user
 
-      render
+      render :show
     end
 
     def followers_count

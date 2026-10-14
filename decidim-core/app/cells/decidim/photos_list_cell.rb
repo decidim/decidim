@@ -8,7 +8,7 @@ module Decidim
     def show
       return unless model.any?
 
-      render
+      render :show
     end
   end
 end

@@ -22,7 +22,7 @@ module Decidim
       return render :disabled_likes if user_can_not_participate?
       return render :verification_modal unless like_allowed?
 
-      render
+      render :show
     end
 
     def button_classes
@@ -45,7 +45,7 @@ module Decidim
     end
 
     def button_content
-      render
+      render :button_content
     end
 
     private

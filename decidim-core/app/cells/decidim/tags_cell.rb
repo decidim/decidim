@@ -10,7 +10,7 @@ module Decidim
   #
   class TagsCell < Decidim::ViewModel
     def show
-      render if taxonomies.any?
+      render :show if taxonomies.any?
     end
 
     private

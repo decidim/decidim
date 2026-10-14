@@ -8,7 +8,7 @@ module Decidim
     # for a given instance of an Election
     class ElectionGCell < Decidim::CardGCell
       def show
-        render
+        render :show
       end
 
       private

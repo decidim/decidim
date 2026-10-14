@@ -5,7 +5,7 @@ module Decidim
     module ContentBlocks
       class HighlightedPostsCell < Decidim::ContentBlocks::HighlightedElementsCell
         def show
-          render unless posts_count.zero?
+          render :show unless posts_count.zero?
         end
 
         private

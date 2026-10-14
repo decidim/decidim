@@ -19,7 +19,7 @@ module Decidim
       def show
         return unless budgets
 
-        render
+        render :show
       end
 
       def main_list = render

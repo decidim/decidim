@@ -7,7 +7,7 @@ module Decidim
     def show
       return unless renderable?
 
-      render
+      render :show
     end
 
     def renderable?

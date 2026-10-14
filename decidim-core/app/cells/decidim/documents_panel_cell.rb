@@ -24,7 +24,7 @@ module Decidim
     def show
       return if blank?
 
-      render
+      render :show
     end
 
     def documents

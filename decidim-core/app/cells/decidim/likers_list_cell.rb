@@ -17,7 +17,7 @@ module Decidim
       return render :empty if visible_likers.count.zero?
       return render :full if full_list?
 
-      render
+      render :show
     end
 
     def likers_count

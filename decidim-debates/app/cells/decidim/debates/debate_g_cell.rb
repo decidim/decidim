@@ -6,7 +6,7 @@ module Decidim
     # for a given instance of a Debate
     class DebateGCell < Decidim::CardGCell
       def show
-        render
+        render :show
       end
 
       private

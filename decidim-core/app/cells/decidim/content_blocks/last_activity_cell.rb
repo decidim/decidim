@@ -10,7 +10,7 @@ module Decidim
       def show
         return if valid_activities.empty?
 
-        render
+        render :show
       end
 
       # The activities to be displayed at the content block.

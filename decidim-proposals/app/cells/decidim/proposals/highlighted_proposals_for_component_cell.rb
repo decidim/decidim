@@ -12,7 +12,7 @@ module Decidim
       include Decidim::CardHelper
 
       def show
-        render unless items_blank?
+        render :show unless items_blank?
       end
 
       def items_blank?

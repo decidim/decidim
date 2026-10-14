@@ -9,7 +9,7 @@ module Decidim
         return unless current_component.current_settings.amendment_creation_enabled
         return unless can_participate_in_restricted_space?
 
-        render
+        render :show
       end
 
       def model_name

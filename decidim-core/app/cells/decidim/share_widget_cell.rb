@@ -10,7 +10,7 @@ module Decidim
     alias resource model
 
     def show
-      render
+      render :show
     end
 
     def processed_params

@@ -7,7 +7,7 @@ module Decidim
     def show
       return unless Decidim::Map.available?(:geocoding, :dynamic)
 
-      render
+      render :show
     end
 
     def geocoded_data

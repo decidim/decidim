@@ -11,7 +11,7 @@ module Decidim
     def show
       return unless renderable?
 
-      render
+      render :show
     rescue NoMethodError => e
       # Soft-deleted components or participatory spaces could cause errors
       # when rendering activities. We log them for further inspection but

@@ -9,7 +9,7 @@ module Decidim
   #
   class NavbarAdminLinkCell < Decidim::ViewModel
     def show
-      render if link_url
+      render :show if link_url
     end
 
     private

@@ -6,7 +6,7 @@ module Decidim
       def show
         return if stats.blank?
 
-        render
+        render :show
       end
 
       private

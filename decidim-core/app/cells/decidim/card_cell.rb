@@ -23,7 +23,7 @@ module Decidim
     def title
       return if title_value.blank?
 
-      render
+      render :title
     end
 
     def metadata

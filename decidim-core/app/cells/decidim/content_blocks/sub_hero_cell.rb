@@ -6,7 +6,7 @@ module Decidim
       def show
         return if translated_attribute(current_organization.description).blank?
 
-        render
+        render :show
       end
 
       private

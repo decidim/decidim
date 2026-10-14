@@ -8,7 +8,7 @@ module Decidim
       delegate :month, to: :start_date
 
       def show
-        render if meetings_in_this_month?
+        render :show if meetings_in_this_month?
       end
 
       def meetings_in_this_month?

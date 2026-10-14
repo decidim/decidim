@@ -6,7 +6,7 @@ module Decidim
       include Decidim::CardHelper
 
       def show
-        render if highlighted_spaces.any?
+        render :show if highlighted_spaces.any?
       end
 
       def limited_highlighted_spaces

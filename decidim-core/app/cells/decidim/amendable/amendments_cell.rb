@@ -11,7 +11,7 @@ module Decidim::Amendable
       return unless amendable?
       return unless emendations.any?
 
-      render
+      render :show
     end
 
     private

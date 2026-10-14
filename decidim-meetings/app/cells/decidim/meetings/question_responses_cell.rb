@@ -6,7 +6,7 @@ module Decidim
     # the given response option in a meeting poll question
     class QuestionResponsesCell < Decidim::ViewModel
       def show
-        render
+        render :show
       end
 
       private

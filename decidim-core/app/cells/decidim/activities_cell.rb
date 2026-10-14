@@ -12,7 +12,7 @@ module Decidim
     def show
       return if activities.blank?
 
-      render
+      render :show
     end
 
     def activity_cell_for(activity)

@@ -14,7 +14,7 @@ module Decidim
     def show
       return if topics.blank?
 
-      render
+      render :show
     end
 
     private

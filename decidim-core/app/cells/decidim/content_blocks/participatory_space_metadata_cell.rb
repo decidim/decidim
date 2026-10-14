@@ -6,7 +6,7 @@ module Decidim
       def show
         return if metadata_valued_items.blank?
 
-        render
+        render :show
       end
 
       def metadata_valued_items

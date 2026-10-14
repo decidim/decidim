@@ -3,7 +3,7 @@
 module Decidim
   class ResourceHistoryCell < Decidim::ViewModel
     def show
-      render
+      render :show
     end
 
     def history_items

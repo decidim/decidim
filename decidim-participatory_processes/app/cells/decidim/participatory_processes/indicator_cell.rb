@@ -6,7 +6,7 @@ module Decidim
       include Decidim::Admin::IconWithTooltipHelper
 
       def show
-        render
+        render :show
       end
 
       def metric_name
