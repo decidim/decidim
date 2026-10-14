@@ -2,7 +2,7 @@
   @apply mb-16 md:mb-36;
 
   &-selector {
-    @apply grid grid-cols-2 md:flex gap-4 md:gap-1 justify-end [&~*]:mt-6 [&_button]:w-full;
+    @apply grid grid-cols-2 md:flex md:flex-wrap gap-4 md:gap-1 justify-end [&~*]:mt-6 [&_button]:w-full;
   }
 
   &-item {
