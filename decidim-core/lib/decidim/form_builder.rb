@@ -443,10 +443,22 @@ module Decidim
                       end
 
           string + content_tag(:div, class: css_class, id: tab_content_id, "aria-hidden": aria_hidden) do
-            send(type, name_with_locale(name, locale), options.merge(label: false))
+            send(type, name_with_locale(name, locale), translated_input_options(name, locale, options).merge(label: false))
           end
         end
       end
+    end
+
+    def translated_input_options(name, locale, options)
+      return options if options.key?(:required) || !attribute_required?(name)
+
+      options.merge(required: locale.to_s == default_locale_for(object))
+    end
+
+    def default_locale_for(record)
+      return record.default_locale if record.respond_to?(:default_locale) && record.default_locale.present?
+
+      record.current_organization&.default_locale || Decidim.default_locale
     end
 
     def create_language_selector(locales, tabs_id, name, error_on_locale = nil)

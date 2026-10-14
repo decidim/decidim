@@ -191,6 +191,16 @@ module Decidim
         end
       end
 
+      context "when the field is required in the default locale" do
+        let(:output) { builder.translated :text_field, :short_description }
+
+        it "requires only the default locale input" do
+          expect(parsed.css("input[name='resource[short_description_en]'][required='required']")).not_to be_empty
+          expect(parsed.css("input[name='resource[short_description_ca]'][required]")).to be_empty
+          expect(parsed.css("input[name='resource[short_description_de__CH]'][required]")).to be_empty
+        end
+      end
+
       context "with an editor field" do
         let(:output) do
           builder.translated :editor, :short_description
