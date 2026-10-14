@@ -42,6 +42,29 @@ module Decidim
           end
         end
 
+        context "with a week-based year format" do
+          let(:value) { "01/01/2027" }
+
+          around do |example|
+            I18n.available_locales += ["fake_week_year_locale"]
+
+            I18n.backend.store_translations(
+              :fake_week_year_locale,
+              date: { formats: { decidim_short: "%d/%m/%G" } }
+            )
+
+            I18n.with_locale(:fake_week_year_locale) do
+              example.run
+            end
+
+            I18n.available_locales -= ["fake_week_year_locale"]
+          end
+
+          it "parses the picker year as a calendar year" do
+            expect(subject).to eq(Date.new(2027, 1, 1))
+          end
+        end
+
         context "with an incorrect format" do
           let(:value) { "foo" }
 

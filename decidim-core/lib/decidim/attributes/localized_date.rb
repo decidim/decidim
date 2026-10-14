@@ -14,7 +14,9 @@ module Decidim
       def cast_value(value)
         return value unless value.is_a?(String)
 
-        Date.strptime(value, I18n.t("date.formats.decidim_short"))
+        # The date picker provides calendar years. Treat an ISO week-year in a
+        # locale format as its calendar-year equivalent when parsing that input.
+        Date.strptime(value, I18n.t("date.formats.decidim_short").gsub("%G", "%Y"))
       rescue ArgumentError
         super
       end
