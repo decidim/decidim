@@ -201,7 +201,7 @@ module Decidim
         queries = []
         callback = lambda do |_name, _start, _finish, _id, payload|
           sql = payload[:sql]
-          queries << sql if sql&.match?(/decidim_participatory_process_user_roles/)
+          queries << sql if sql&.match?(/decidim_(?:participatory_process|assembly|conference)_user_roles/)
         end
 
         ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
