@@ -6,7 +6,7 @@
       <div>
         <%= link_to decidim_sanitize_translated(budget.title), budgets_path %> &gt;
         <%= t(".title") %>
-        <span id="js-selected-resources-count" class="component-counter" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
+        <span id="js-selected-resources-count" class="component-counter" data-selected-label="<%= t("decidim.budgets.admin.projects.index.selected") %>" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
       </div>
       <%= render partial: "bulk-actions" %>
     </h1>

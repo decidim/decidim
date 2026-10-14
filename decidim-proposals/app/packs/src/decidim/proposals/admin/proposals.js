@@ -33,7 +33,8 @@ document.addEventListener("turbo:load", () => {
       $("#js-unassign-proposals-from-evaluator-actions").addClass("hide");
       $("#js-taxonomy-change-proposals-actions").addClass("hide");
     } else {
-      $("#js-selected-proposals-count").text(selectedProposals);
+      const countElement = $("#js-selected-proposals-count");
+      countElement.text(`(${selectedProposals} ${countElement.data("selected-label")})`);
     }
 
     if (selectedProposals >= 2) {

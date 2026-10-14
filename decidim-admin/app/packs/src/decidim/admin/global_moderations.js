@@ -21,7 +21,7 @@ document.addEventListener("turbo:load", () => {
       unhideActions.classList.add("hide");
       unreportActions.classList.add("hide");
     } else {
-      countElement.textContent = selectedModerations;
+      countElement.textContent = `(${selectedModerations} ${countElement.dataset.selectedLabel})`;
     }
   };
 

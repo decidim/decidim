@@ -22,7 +22,7 @@ class Counter {
   updateCounter() {
     if (this.counterElement) {
       const count = this.getSelectedItems().length;
-      this.counterElement.textContent = count;
+      this.counterElement.textContent = `(${count} ${this.counterElement.dataset.selectedLabel})`;
 
       if (count === 0) {
         this.counterElement.classList.add("hide");

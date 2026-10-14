@@ -21,7 +21,7 @@ document.addEventListener("turbo:load", () => {
       unblockActions.classList.add("hide");
       unreportActions.classList.add("hide");
     } else {
-      countElement.textContent = selectedModeratedUsers;
+      countElement.textContent = `(${selectedModeratedUsers} ${countElement.dataset.selectedLabel})`;
     }
   };
 

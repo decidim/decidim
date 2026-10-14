@@ -15,7 +15,8 @@ document.addEventListener("turbo:load", () => {
     if (selectedResources === 0) {
       $("#js-selected-resources-count").text("")
     } else {
-      $("#js-selected-resources-count").text(selectedResources);
+      const countElement = $("#js-selected-resources-count");
+      countElement.text(`(${selectedResources} ${countElement.data("selected-label")})`);
     }
 
     if (selectedResources >= 2) {
