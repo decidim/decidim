@@ -223,6 +223,7 @@ en:
         body: Response
         completion: Completion
         created_at: Responded on
+        ephemeral: Visitor
         id: Response ID
         ip_hash: IP Hash
         question: Question

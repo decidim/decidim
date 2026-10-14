@@ -29,8 +29,20 @@ module Decidim
           participant.decidim_user_id.present?
         end
 
+        def ephemeral?
+          participant.user&.ephemeral?
+        end
+
         def status
-          I18n.t(registered? ? "registered" : "unregistered", scope: "decidim.forms.user_responses_serializer")
+          status = if ephemeral?
+                     "ephemeral"
+                   elsif registered?
+                     "registered"
+                   else
+                     "unregistered"
+                   end
+
+          I18n.t(status, scope: "decidim.forms.user_responses_serializer")
         end
 
         def responses

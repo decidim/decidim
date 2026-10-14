@@ -59,6 +59,16 @@ module Decidim
       end
     end
 
+    describe "status" do
+      context "when the participant is an ephemeral user" do
+        let!(:user) { create(:user, :ephemeral, organization: questionnaire.questionnaire_for.organization) }
+
+        it "identifies the participant as a visitor" do
+          expect(subject.status).to eq("Visitor")
+        end
+      end
+    end
+
     describe "responses" do
       it "returns the participant's responses without the separators and title-and-descriptions" do
         expect(subject.responses.map(&:response)).to eq([responses.first, responses.last])
