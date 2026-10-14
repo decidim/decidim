@@ -10,6 +10,10 @@ module Decidim
         {
           title: :i18n,
           body: :i18n,
+          answer: :i18n_html,
+          cost: :string,
+          cost_report: :i18n_html,
+          execution_period: :i18n_html,
           decidim_category_id: :category,
           decidim_scope_id: :scope,
           address: :string,

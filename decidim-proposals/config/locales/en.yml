@@ -20,8 +20,11 @@ en:
         answer: Answer
         answered_at: Answered at
         body: Body
+        cost: Cost
+        cost_report: Cost report
         decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
+        execution_period: Execution period
         has_address: Has address
         latitude: Latitude
         longitude: Longitude
