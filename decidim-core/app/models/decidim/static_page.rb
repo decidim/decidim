@@ -18,7 +18,7 @@ module Decidim
     belongs_to :topic, class_name: "Decidim::StaticPageTopic", optional: true
 
     validates :slug, presence: true, uniqueness: { scope: :organization }
-    validates :slug, format: { with: /\A[a-z0-9-]+\z/ }
+    validates :slug, format: { with: /\A[a-z0-9-]+/ }
 
     # These pages will be created by default when registering an organization
     # and cannot be deleted.
