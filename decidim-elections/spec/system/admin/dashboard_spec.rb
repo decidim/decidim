@@ -78,6 +78,19 @@ describe "Dashboard" do
     end
   end
 
+  context "when election and question descriptions contain lists" do
+    before do
+      election.update!(description: { "en" => "<ul><li>Election description item</li></ul>" })
+      questions.first.update!(description: { "en" => "<ol><li>Question description item</li></ol>" })
+      visit election_dashboard_path
+    end
+
+    it "uses editor typography for the list descriptions" do
+      expect(page).to have_css(".editor-content ul li", text: "Election description item")
+      expect(page).to have_css(".editor-content ol li", text: "Question description item")
+    end
+  end
+
   context "when the election with a manual start" do
     let!(:election) { create(:election, :with_token_csv_census, :published, component:, start_at:) }
     let(:start_at) { nil }

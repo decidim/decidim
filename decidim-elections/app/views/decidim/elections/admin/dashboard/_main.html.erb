@@ -17,7 +17,7 @@
       </div>
       <div class="row column my-2">
         <h3 class="h6"><%= t("labels.description", scope: "decidim.elections.admin.dashboard.main") %></h3>
-        <div><%= decidim_sanitize_translated election.description %></div>
+        <div class="editor-content"><%= decidim_sanitize_translated election.description %></div>
       </div>
       <div class="row column my-2">
         <% if election.photos.any? %>
