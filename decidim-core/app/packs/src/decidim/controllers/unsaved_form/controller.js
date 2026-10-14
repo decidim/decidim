@@ -167,7 +167,12 @@ export default class extends Controller {
         }
 
         navigationApproved = true;
-        link.click();
+
+        const approvedClick = new MouseEvent("click", { bubbles: true, cancelable: true });
+
+        if (!link.dispatchEvent(approvedClick)) {
+          navigationApproved = false;
+        }
       });
     };
 
