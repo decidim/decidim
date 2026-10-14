@@ -143,8 +143,9 @@ module Decidim
 
           return redirect_to(internal_redirect_path || { action: :index }) unless questionnaire
 
-          # rubocop:disable-next Rails/SkipsModelValidations
+          # rubocop:disable Rails/SkipsModelValidations
           questionnaire.touch
+          # rubocop:enable Rails/SkipsModelValidations
           redirect_to(internal_redirect_path || { action: :index })
         end
 
@@ -161,7 +162,7 @@ module Decidim
         private
 
         def find_questionnaire(id)
-          questionnaire = Decidim::Forms::Questionnaire.find_by(id:) # rubocop:disable Decidim/OrganizationScopedFinder -- scoping requires polymorphic questionnaire_for chain; org ownership validated via questionnaire_for_in_organization?
+          questionnaire = Decidim::Forms::Questionnaire.find_by(id:)
           return unless questionnaire
           return unless questionnaire_for_in_organization?(questionnaire)
 

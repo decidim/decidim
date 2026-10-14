@@ -81,7 +81,9 @@ module Decidim
             # a different meaning in this request, so the authorization cannot
             # be delegated to "questionnaire_for" here. Access is already
             # restricted by the admin dashboard routing constraint.
-            # rubocop:disable-next Decidim/EnforcePermissionTo
+            # rubocop:disable-next
+            #
+            # rubocop:disable Decidim/EnforcePermissionTo
             def response_options
               respond_to do |format|
                 format.json do
@@ -91,6 +93,7 @@ module Decidim
                 end
               end
             end
+            # rubocop:enable Decidim/EnforcePermissionTo
 
             protected
 
