@@ -169,6 +169,14 @@ describe RemoveCollaborativeDraftsReferences do
         create(:comment)
       end
 
+      let!(:action_log_for_comment) do
+        create(:action_log, user:, organization:, resource: comment)
+      end
+
+      let!(:other_action_log_for_comment) do
+        create(:action_log, user: another_user, organization:, resource: other_comment)
+      end
+
       it "deletes comments referencing collaborative drafts" do
         expect(Decidim::Comments::Comment.where(decidim_commentable_type: collaborative_draft_type).count).to eq(1)
         migrator.migrate(:up)
@@ -178,6 +186,16 @@ describe RemoveCollaborativeDraftsReferences do
       it "keeps other comments" do
         migrator.migrate(:up)
         expect(Decidim::Comments::Comment.find_by(id: other_comment.id)).to be_present
+      end
+
+      it "deletes action logs for deleted comments" do
+        migrator.migrate(:up)
+        expect(Decidim::ActionLog.find_by(id: action_log_for_comment.id)).to be_nil
+      end
+
+      it "keeps action logs for other comments" do
+        migrator.migrate(:up)
+        expect(Decidim::ActionLog.find_by(id: other_action_log_for_comment.id)).to be_present
       end
     end
 

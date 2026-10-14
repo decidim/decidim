@@ -51,6 +51,7 @@ class RemoveCollaborativeDraftsReferences < ActiveRecord::Migration[7.2]
 
   COLLABORATIVE_DRAFT_TYPE = "Decidim::Proposals::CollaborativeDraft"
   COLLABORATIVE_DRAFT_COLLABORATOR_REQUEST_TYPE = "Decidim::Proposals::CollaborativeDraftCollaboratorRequest"
+  COMMENT_TYPE = "Decidim::Comments::Comment"
 
   def up
     delete_notifications
@@ -93,7 +94,9 @@ class RemoveCollaborativeDraftsReferences < ActiveRecord::Migration[7.2]
   end
 
   def delete_comments
-    Comment.where(decidim_commentable_type: COLLABORATIVE_DRAFT_TYPE).delete_all
+    comments = Comment.where(decidim_commentable_type: COLLABORATIVE_DRAFT_TYPE)
+    ActionLog.where(resource_type: COMMENT_TYPE, resource_id: comments.select(:id)).delete_all
+    comments.delete_all
   end
 
   def delete_resource_links
