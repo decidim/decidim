@@ -144,14 +144,14 @@ gl:
           help_text: Revisa os cambios e acepta ou rexeita esta modificación. Enviarase unha notificación aos seus autores.
         announcement:
           accepted: |-
-            Este cambio ao %{amendable_type} %{amendable_link} foi
-            aceptado en <strong>%{announcement_date}</strong>.
+            Este cambio ao %{amendable_type} %{proposal_link} foi
+            aceptado en <strong>%{date}</strong>.
           evaluating: |-
-            Esta enquisa para o %{amendable_type} %{amendable_link}
+            Esta enquisa para o %{amendable_type} %{proposal_link}
             está sendo avaliada.
-          rejected: "Esta modificación do %{amendable_type} %{amendable_link}\nfoi rexeitada en <strong>%{announcement_date}</strong>."
+          rejected: "Esta modificación do %{amendable_type} %{proposal_link}\nfoi rexeitada en <strong>%{date}</strong>."
           withdrawn: |-
-            Esta autorización foi retirada esta enmenda do %{amendable_type} %{amendable_link}
+            Esta autorización foi retirada esta enmenda do %{amendable_type} %{proposal_link}
             .
       review:
         back: De volta

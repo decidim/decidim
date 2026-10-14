@@ -24,4 +24,26 @@ describe Decidim::Amendable::AnnouncementCell, type: :cell do
       %(<a href="#{link_to_amendable}"><strong>Testing proposal</strong></a>)
     )
   end
+
+  it "interpolates amendment announcements in every affected locale" do
+    announcement_keys = {
+      gl: %w(accepted evaluating rejected withdrawn),
+      eu: %w(rejected)
+    }
+
+    announcement_keys.each do |locale, states|
+      states.each do |state|
+        expect do
+          I18n.t(
+            state,
+            scope: "decidim.amendments.emendation.announcement",
+            locale:,
+            amendable_type: "proposal",
+            proposal_link: "proposal",
+            date: Time.current
+          )
+        end.not_to raise_error
+      end
+    end
+  end
 end

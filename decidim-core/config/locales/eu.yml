@@ -387,7 +387,7 @@ eu:
             Aldaketa hau %{amendable_type} %{proposal_link} rako
             ebaluatzen ari da.
           promoted: Sustatu hau %{amendable_type}.
-          rejected: "%{amendable_type} %{amendable_link} en zuzenketa\nukatu da <strong>%{announcement_date}</strong>."
+          rejected: "%{amendable_type} %{proposal_link} en zuzenketa\nukatu da <strong>%{date}</strong>."
           withdrawn: |-
             %{amendable_type} %{proposal_link} ren aldaketa hori egilearen arabera kendu da.
       name: Zuzenketa
