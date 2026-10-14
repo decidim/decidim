@@ -1,4 +1,4 @@
-<div class="flex items-center justify-between border-t border-black p-4">
-  <span><%= current_admin.email %></span>
-  <%= link_to(t(".logout"), destroy_admin_session_path, method: :delete, class: "button button__sm md:button__lg button__text-primary") %>
+<div class="flex items-center justify-between gap-2 border-t border-black p-4">
+  <span class="min-w-0 truncate" title="<%= current_admin.email %>"><%= current_admin.email %></span>
+  <%= link_to(t(".logout"), destroy_admin_session_path, method: :delete, class: "button button__sm md:button__lg button__text-primary flex-none") %>
 </div>

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Organizations" do
-  let(:admin) { create(:admin, email: "system@example.org") }
+  let(:admin) { create(:admin, email: "system-admin-with-a-very-long-address@example.org") }
   let(:organization) { create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }) }
 
   context "when an admin authenticated" do
@@ -13,6 +13,11 @@ describe "Organizations" do
     end
 
     describe "current organizations section" do
+      it "keeps a long admin email within the logout area" do
+        expect(page).to have_css("span.min-w-0.truncate[title='#{admin.email}']", text: admin.email)
+        expect(page).to have_link("Logout")
+      end
+
       it "has a link for creating a new organization" do
         click_on "New organization"
         expect(page).to have_text("New organization")
@@ -32,7 +37,7 @@ describe "Organizations" do
       end
 
       it "has a list of the current admins" do
-        expect(page).to have_text("system@example.org")
+        expect(page).to have_text(admin.email)
       end
     end
   end
