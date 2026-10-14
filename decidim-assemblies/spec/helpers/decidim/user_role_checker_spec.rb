@@ -55,10 +55,10 @@ module Decidim
         end
       end
 
-      context "when the user has a role in another participatory space" do
-        let(:participatory_process) { create(:participatory_process, organization:) }
+      context "when the user has a role in another assembly" do
+        let(:another_assembly) { create(:assembly, organization:) }
 
-        before { create(:participatory_process_user_role, user:, participatory_process:) }
+        before { create(:assembly_user_role, user:, assembly: another_assembly) }
 
         it "returns false for the given assembly" do
           expect(checker.send(:space_user_role?, user, assembly)).to be(false)
