@@ -1,6 +1,7 @@
 require:
   - decidim/dev/rubocop/cop/decidim/message_antipattern
   - decidim/dev/rubocop/cop/decidim/organization_scoped_finder
+  - decidim/dev/rubocop/cop/decidim/enforce_permission_to
 
 Decidim/MessageAntipattern:
   Enabled: true
@@ -9,6 +10,14 @@ Decidim/MessageAntipattern:
     - "**/test/**/*"
 
 Decidim/OrganizationScopedFinder:
+  Enabled: true
+  Severity: warning
+  Include:
+    - "**/app/controllers/**/admin/**/*.rb"
+  Exclude:
+    - "**/decidim-system/**/*.rb"
+
+Decidim/EnforcePermissionTo:
   Enabled: true
   Severity: warning
   Include:

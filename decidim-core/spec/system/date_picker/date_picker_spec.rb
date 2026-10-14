@@ -99,7 +99,7 @@ describe "Datepicker" do
         month = find('select[name="month"]').value
         formatted_month = format("%02d", month)
 
-        find("td > span", text: "20", match: :first).click
+        find("td > span[aria-hidden=true]", text: "20", match: :first).click
 
         find(".datepicker__clock-button").click
         find(".datepicker__hour-up").click
@@ -148,7 +148,7 @@ describe "Datepicker" do
             it "hides the datepicker calendar" do
               find(".datepicker__calendar-button").click
               yesterday = Date.yesterday.strftime("%-d")
-              find("td > span", text: yesterday, match: :first).click
+              find("td > span[aria-hidden=true]", text: yesterday, match: :first).click
               expect(find_by_id("example_input_date").value).not_to eq("")
               expect(page).to have_css("#example_input_date_datepicker", visible: :hidden)
             end
@@ -169,7 +169,7 @@ describe "Datepicker" do
             find(".datepicker__calendar-button").click
             find('span > input[name="year"]').set("1994")
             find(".wc-datepicker__next-month-button").click
-            find("td > span", text: "20", match: :first).click
+            find("td > span[aria-hidden=true]", text: "20", match: :first).click
             find(".datepicker__calendar-button").click
             element = find("td.wc-datepicker__date--selected")
             expect(element).to have_content("20")
@@ -500,7 +500,7 @@ describe "Datepicker" do
         month = find('select[name="month"]').value
         formatted_month = format("%02d", month)
 
-        find("td > span", text: "20", match: :first).click
+        find("td > span[aria-hidden=true]", text: "20", match: :first).click
 
         find(".datepicker__clock-button").click
         find(".datepicker__hour-up").click
@@ -755,7 +755,7 @@ describe "Datepicker" do
         month = find('select[name="month"]').value
         formatted_month = format("%02d", month)
 
-        find("td > span", text: "20", match: :first).click
+        find("td > span[aria-hidden=true]", text: "20", match: :first).click
 
         find(".datepicker__clock-button").click
         find(".datepicker__hour-up").click

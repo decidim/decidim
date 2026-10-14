@@ -9,6 +9,8 @@ module Decidim
       class ConferenceShareTokensController < Decidim::Admin::ShareTokensController
         include Concerns::ConferenceAdmin
 
+        protected
+
         def resource
           current_conference
         end

@@ -42,5 +42,82 @@ shared_examples "participatory space members page examples" do
         end
       end
     end
+
+    context "when participatory space has paginated members" do
+      let(:users) { create_list(:user, 30, organization: participatory_space.organization) }
+      let!(:members) do
+        users.map do |user|
+          create(:member, participatory_space:, user:, published: true)
+        end
+      end
+
+      context "with default pagination" do
+        it "returns first page with 25 members" do
+          get :index, params: { slug_param => slug, :locale => I18n.locale }
+
+          expect(assigns(:members).count).to eq(25)
+          expect(assigns(:members).current_page).to eq(1)
+          expect(assigns(:members).total_count).to eq(30)
+        end
+      end
+
+      context "with page parameter" do
+        it "returns second page with remaining members" do
+          get :index, params: { slug_param => slug, :locale => I18n.locale, :page => 2 }
+
+          expect(assigns(:members).count).to eq(5)
+          expect(assigns(:members).current_page).to eq(2)
+          expect(assigns(:members).total_count).to eq(30)
+        end
+
+        it "returns empty collection for out-of-range page" do
+          get :index, params: { slug_param => slug, :locale => I18n.locale, :page => 999 }
+
+          expect(assigns(:members).count).to eq(0)
+          expect(assigns(:members).current_page).to eq(999)
+          expect(assigns(:members).total_count).to eq(30)
+        end
+      end
+
+      context "with per_page parameter" do
+        it "returns all members when per_page is 50" do
+          get :index, params: { slug_param => slug, :locale => I18n.locale, :per_page => 50 }
+
+          expect(assigns(:members).count).to eq(30)
+          expect(assigns(:members).current_page).to eq(1)
+          expect(assigns(:members).limit_value).to eq(50)
+          expect(assigns(:members).total_count).to eq(30)
+        end
+
+        it "returns first 25 members when per_page is 25" do
+          get :index, params: { slug_param => slug, :locale => I18n.locale, :per_page => 25 }
+
+          expect(assigns(:members).count).to eq(25)
+          expect(assigns(:members).limit_value).to eq(25)
+        end
+
+        it "limits per_page to maximum allowed value" do
+          get :index, params: { slug_param => slug, :locale => I18n.locale, :per_page => 200 }
+
+          expect(assigns(:members).limit_value).to eq(100)
+        end
+
+        it "limit per_page to minimum allowed value" do
+          get :index, params: { slug_param => slug, :locale => I18n.locale, :per_page => 5 }
+
+          expect(assigns(:members).limit_value).to eq(25)
+        end
+      end
+
+      context "with both page and per_page parameters" do
+        it "returns correct page with custom per_page" do
+          get :index, params: { slug_param => slug, :locale => I18n.locale, :page => 2, :per_page => 50 }
+
+          expect(assigns(:members).count).to eq(0)
+          expect(assigns(:members).current_page).to eq(2)
+          expect(assigns(:members).limit_value).to eq(50)
+        end
+      end
+    end
   end
 end

@@ -73,6 +73,8 @@ module Decidim
       end
 
       def bulk_action
+        enforce_permission_to :bulk_action, authorization_scope
+
         Admin::BulkAction.call(current_user, params[:bulk_action], selected_moderations) do
           on(:ok) do |ok, ko|
             flash[:notice] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.success", scope: "decidim.moderations.admin", count_ok: ok.count) if ok.count.positive?
@@ -91,6 +93,8 @@ module Decidim
       def ransack_params
         query_params[:q] || { s: "created_at desc" }
       end
+
+      protected
 
       # Private: This method is used by the `Filterable` concern as the base query
       #          without applying filtering and/or sorting options.
