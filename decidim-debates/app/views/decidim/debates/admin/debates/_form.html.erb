@@ -50,6 +50,7 @@
         <%= label_tag :comments_layout, t(".comments_visualization") %>
         <% if @form.comments_layout_locked? %>
           <%= cell("decidim/announcement", t(".comments_layout_locked_warning"), callout_class: "warning") %>
+          <%= form.hidden_field :comments_layout %>
         <% else %>
           <span class="help-text"><%= t(".comments_warning") %></span>
         <% end %>

@@ -116,6 +116,21 @@ RSpec.shared_examples "manage debates" do
         expect(page).to have_css("input[name='debate[comments_layout]'][disabled]")
         expect(page).to have_text("The comment layout cannot be changed because comments have already been posted")
       end
+
+      it "updates other fields while preserving the comment layout" do
+        within "tr", text: translated(debate.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit"
+        end
+
+        within ".edit_debate" do
+          fill_in_i18n(:debate_title, "#debate-title-tabs", en: "Updated debate title")
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_callout "Debate successfully updated"
+        expect(debate.reload.comments_layout).to eq("two_columns")
+      end
     end
   end
 
