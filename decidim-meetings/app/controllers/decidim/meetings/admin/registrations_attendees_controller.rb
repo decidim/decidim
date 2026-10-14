@@ -8,7 +8,11 @@ module Decidim
       class RegistrationsAttendeesController < Admin::ApplicationController
         helper_method :registrations
 
-        before_action do
+        before_action only: [:index] do
+          enforce_permission_to(:read_invites, :meeting, meeting:)
+        end
+
+        before_action only: [:qr_mark_as_attendee, :validate_registration_code, :mark_as_attendee] do
           enforce_permission_to(:validate_registration_code, :meeting, meeting:)
         end
 
