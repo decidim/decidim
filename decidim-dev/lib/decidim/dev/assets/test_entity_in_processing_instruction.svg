@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A document which mentions an entity declaration inside a processing
+     instruction, where it is only text and not a declaration. -->
+<?editor <!ENTITY documented "text of the instruction" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <text y="15">Example</text>
+</svg>
