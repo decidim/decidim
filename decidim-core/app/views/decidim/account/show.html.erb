@@ -1,5 +1,5 @@
-<% add_decidim_page_title(t("profile", scope: "layouts.decidim.user_menu")) %>
-<% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
+<% add_decidim_page_title(t("account", scope: "layouts.decidim.user_profile")) %>
+<% content_for(:subtitle) { t("account", scope: "layouts.decidim.user_profile") } %>
 
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
   <% if current_user.unconfirmed_email.present? %>

@@ -6,8 +6,7 @@
       <% if content_for?(:profile_title) %>
         <%= yield :profile_title %>
       <% else %>
-        <%= t("title", scope: "layouts.decidim.user_profile") %>
-        <%= " - #{subtitle}" if subtitle.present? %>
+        <%= subtitle.presence || t("title", scope: "layouts.decidim.user_profile") %>
       <% end %>
     </h1>
   </header>

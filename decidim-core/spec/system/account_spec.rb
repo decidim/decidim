@@ -31,6 +31,10 @@ describe "Account" do
 
     it_behaves_like "accessible page"
 
+    it "uses the account name as the page heading" do
+      expect(page).to have_css("h1", text: "Account")
+    end
+
     context "when login is not enabled" do
       let(:organization) { create(:organization, users_registration_mode: "disabled") }
       let(:user) { create(:user, :confirmed, password:) }
@@ -280,6 +284,10 @@ describe "Account" do
         visit decidim.notifications_settings_path
       end
 
+      it "uses the notification settings name as the page heading" do
+        expect(page).to have_css("h1", text: "Notifications settings")
+      end
+
       it "updates the user's notifications" do
         page.find("[for='newsletter_notifications']").click
 
@@ -317,6 +325,10 @@ describe "Account" do
         visit decidim.delete_account_path
       end
 
+      it "uses the delete account name as the page heading" do
+        expect(page).to have_css("h1", text: "Delete my account")
+      end
+
       it "does not display the authorizations message by default" do
         expect(page).to have_no_text("Some data bound to your authorization will be saved for security.")
       end
@@ -351,6 +363,16 @@ describe "Account" do
 
           expect(page).to have_text("Some data bound to your authorization will be saved for security.")
         end
+      end
+    end
+
+    context "when on the download my data page" do
+      before do
+        visit decidim.download_your_data_path
+      end
+
+      it "uses the my data name as the page heading" do
+        expect(page).to have_css("h1", text: "My data")
       end
     end
   end

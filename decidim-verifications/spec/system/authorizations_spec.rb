@@ -25,6 +25,10 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
         expect(page).to have_css("a[data-verification]", text: "Example authorization")
       end
 
+      it "uses the authorizations name as the page heading" do
+        expect(page).to have_css("h1", text: "Authorizations")
+      end
+
       it "allows the user to fill in the authorization form" do
         click_on "Example authorization"
 
