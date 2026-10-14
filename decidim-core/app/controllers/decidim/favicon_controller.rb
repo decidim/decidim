@@ -20,8 +20,6 @@ module Decidim
     after_action :skip_headers
 
     def show
-      enforce_permission_to :read, :favicon
-
       response.headers["Content-Type"] = "image/vnd.microsoft.icon"
       response.headers["Content-Disposition"] = %(inline; filename="favicon.ico")
       return render_blank_favicon unless favicon_blob

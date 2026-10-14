@@ -75,8 +75,8 @@ module Decidim
       case permission_action.subject
       when :open_data, :search, :profile, :private_download, :short_link,
            :calendar, :badges, :static_map, :qr_code, :homepage, :manifest,
-           :offline, :link, :authorization, :error, :favicon, :timeout,
-           :version, :questionnaire, :page
+           :offline, :link, :authorization, :error,  :timeout, :version,
+           :questionnaire, :page
         allow! if permission_action.action == :read
       when :newsletter
         allow! if [:read, :unsubscribe].include?(permission_action.action)

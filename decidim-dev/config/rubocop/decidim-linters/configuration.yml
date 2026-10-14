@@ -31,7 +31,8 @@ Decidim/EnforcePermissionTo:
   #   itself is the operation (Devise, OAuth).
     - "decidim-core/app/controllers/decidim/devise/**/*.rb"
     - "decidim-core/app/controllers/decidim/doorkeeper/**/*.rb"
-
+  # - favicon: always visible
+    - decidim-core/app/controllers/decidim/favicon_controller.rb
 Decidim/RSpec/MemoizedName:
   Enabled: true
   Include:
