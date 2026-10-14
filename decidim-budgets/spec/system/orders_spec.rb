@@ -613,6 +613,22 @@ describe "Orders" do
         expect(page).to have_text("You voted for this")
       end
 
+      context "when the user can still vote in another budget" do
+        let!(:another_budget) do
+          create(:budget, component:, title: { en: "Community garden" })
+        end
+
+        before do
+          component.update!(settings: component.settings.merge("workflow" => "all"))
+        end
+
+        it "names the remaining budget on the vote status page" do
+          page.visit Decidim::EngineRouter.main_proxy(component).status_budget_order_path(budget)
+
+          expect(page).to have_text("You can still vote in Community garden.")
+        end
+      end
+
       context "when visiting the show page" do
         it "has the 'You voted for this' message" do
           visit resource_locator([budget, project]).path

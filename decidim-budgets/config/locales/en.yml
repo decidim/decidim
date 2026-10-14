@@ -336,8 +336,8 @@ en:
           continue_voting: Continue voting
           download_vote: Download your vote
           pending_to_vote_budgets:
-            one: You can vote in other budget
-            other: You can vote in other budgets
+            one: "You can still vote in %{budget_names}."
+            other: "You can still vote in %{budget_names}."
           share_text: "I just voted for my favorite projects in %{space_name}! 🎉 Vote now: %{component_url}"
           share_vote: Share your vote
           title: Your vote has been successfully accepted

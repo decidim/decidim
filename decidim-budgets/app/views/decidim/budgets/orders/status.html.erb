@@ -19,7 +19,12 @@
 
       <% if pending_to_vote_budgets.present? %>
         <span class="font-semibold">
-          <%= t("pending_to_vote_budgets", scope: "decidim.budgets.order.status", count: pending_to_vote_budgets.count) %>
+          <%= t(
+                "pending_to_vote_budgets",
+                scope: "decidim.budgets.order.status",
+                count: pending_to_vote_budgets.count,
+                budget_names: pending_to_vote_budgets.map { |budget| translated_attribute(budget.title) }.to_sentence
+              ) %>
         </span>
       <% end %>
     </p>
