@@ -26,6 +26,14 @@ module Decidim
       def space_components
         Decidim::Component.where(participatory_space: participatory_space_items).published
       end
+
+      def space_query
+        if participatory_space_items.is_a?(Decidim::ParticipatoryProcess)
+          participatory_space_items.follows_count
+        else
+          participatory_space_items.sum(:follows_count)
+        end
+      end
     end
   end
 end
