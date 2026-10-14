@@ -80,6 +80,15 @@ module Decidim
           end
         end
 
+        context "when the blob is not attached to any record" do
+          let(:blob) { ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg") }
+
+          it "does not delete the blob" do
+            expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, /Not attached/)
+            expect(ActiveStorage::Blob.exists?(blob.id)).to be(true)
+          end
+        end
+
         context "when blob does not exists" do
           let(:blob_id) { 999_999 }
 

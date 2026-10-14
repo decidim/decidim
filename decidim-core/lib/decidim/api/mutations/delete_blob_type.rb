@@ -50,8 +50,12 @@ module Decidim
       # organization.
       def attached_to_current_organization?(blob)
         records = blob.attachments.map(&:record).compact
-        # Blobs without attachments are rejected in `resolve` with a
-        # validation error, as there is nothing to detach or destroy here.
+        # An unattached blob has no record to derive the organization from, so it
+        # cannot be attributed to the current organization and cannot be authorized
+        # here. It is rejected in `resolve` instead of being purged, otherwise an
+        # admin from any organization could delete the unattached uploads of another
+        # one. Abandoned uploads are removed by the `decidim:attachments_cleanup`
+        # scheduled task.
         return true if records.empty?
 
         records.all? { |record| record_organization(record) == current_organization }
