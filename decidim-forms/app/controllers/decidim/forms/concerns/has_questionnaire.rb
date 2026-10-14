@@ -46,6 +46,8 @@ module Decidim
             end
           end
 
+          private
+
           def template
             "decidim/forms/questionnaires/show"
           end
