@@ -14,6 +14,14 @@
       0 0 0 1.5px var(--proposal-status-fg),
       0 0 0 6px var(--proposal-status-bg);
 
+    @media (forced-colors: active) {
+      -webkit-appearance: auto;
+      appearance: auto;
+      background-color: Canvas;
+      background-image: none;
+      box-shadow: none;
+    }
+
     &:checked {
       background-image: radial-gradient(
         circle closest-side,
