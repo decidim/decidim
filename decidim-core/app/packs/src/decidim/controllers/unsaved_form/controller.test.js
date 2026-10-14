@@ -31,12 +31,15 @@ const markup = (formAttributes = "") => `
   <a href="/local-filter" data-remote="false">Local filter</a>
 `
 
-const dispatchAjaxSend = (element) => {
-  element.dispatchEvent(new CustomEvent("ajax:send", { bubbles: true, detail: [{}] }));
+const dispatchAjaxSend = (element, request = {}) => {
+  element.dispatchEvent(new CustomEvent("ajax:send", { bubbles: true, detail: [request] }));
+
+  return request;
 }
 
-const dispatchAjaxComplete = (form, status) => {
-  form.dispatchEvent(new CustomEvent("ajax:complete", { bubbles: true, detail: [{ status }] }));
+const dispatchAjaxComplete = (element, status, request) => {
+  request.status = status;
+  element.dispatchEvent(new CustomEvent("ajax:complete", { bubbles: true, detail: [request] }));
 }
 
 const expectUnloadPrompt = (dirty) => {
@@ -282,8 +285,8 @@ describe("UnsavedFormController", () => {
     await connect("data-remote=\"true\"");
 
     input.dispatchEvent(new Event("input", { bubbles: true }));
-    dispatchAjaxSend(form);
-    dispatchAjaxComplete(form, 422);
+    const request = dispatchAjaxSend(form);
+    dispatchAjaxComplete(form, 422, request);
 
     expect(controller.dirty).toBe(true);
     expectUnloadPrompt(true);
@@ -293,11 +296,25 @@ describe("UnsavedFormController", () => {
     await connect("data-remote=\"true\"");
 
     input.dispatchEvent(new Event("input", { bubbles: true }));
-    dispatchAjaxSend(form);
-    dispatchAjaxComplete(form, 200);
+    const request = dispatchAjaxSend(form);
+    dispatchAjaxComplete(form, 200, request);
 
     expect(controller.dirty).toBe(false);
     expectUnloadPrompt(false);
+  });
+
+  it("tracks overlapping remote requests independently", async () => {
+    await connect("data-remote=\"true\"");
+
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    const firstRequest = dispatchAjaxSend(form);
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    dispatchAjaxSend(form);
+
+    dispatchAjaxComplete(form, 200, firstRequest);
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
   });
 
   it("keeps the form dirty when a successful request comes from a nested remote control", async () => {
@@ -305,8 +322,8 @@ describe("UnsavedFormController", () => {
 
     input.dispatchEvent(new Event("input", { bubbles: true }));
     const remoteControl = form.querySelector("[data-remote]");
-    dispatchAjaxSend(remoteControl);
-    dispatchAjaxComplete(remoteControl, 200);
+    const request = dispatchAjaxSend(remoteControl);
+    dispatchAjaxComplete(remoteControl, 200, request);
 
     expect(controller.dirty).toBe(true);
     expectUnloadPrompt(true);
@@ -316,9 +333,9 @@ describe("UnsavedFormController", () => {
     await connect("data-remote=\"true\"");
 
     input.dispatchEvent(new Event("input", { bubbles: true }));
-    dispatchAjaxSend(form);
+    const request = dispatchAjaxSend(form);
     input.dispatchEvent(new Event("input", { bubbles: true }));
-    dispatchAjaxComplete(form, 200);
+    dispatchAjaxComplete(form, 200, request);
 
     expect(controller.dirty).toBe(true);
     expectUnloadPrompt(true);
