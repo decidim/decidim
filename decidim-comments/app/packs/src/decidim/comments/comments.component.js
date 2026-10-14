@@ -125,6 +125,9 @@ export default class CommentsComponent {
     const $parent = $(`#comment_${commentId}`);
     const $comment = $(replyHtml);
     const $replies = $(`#comment-${commentId}-replies`);
+    if (fromCurrentUser && $replies.hasClass("hidden")) {
+      $comment.attr("data-new-reply", "");
+    }
     this._addComment($replies, $comment);
     $replies.addClass("comment-reply");
     this._revealNewReply($replies, fromCurrentUser);
@@ -214,7 +217,9 @@ export default class CommentsComponent {
 
     const controllerElement = $replies.closest("[data-controller~='show-replies']").get(0);
     const controller = controllerElement && window.Stimulus?.getControllerForElementAndIdentifier(controllerElement, "show-replies");
-    controller?.loadReplies();
+    if (controller && !controller.loadedValue) {
+      controller.loadReplies();
+    }
   }
 
   /**

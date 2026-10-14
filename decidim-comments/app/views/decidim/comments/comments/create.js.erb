@@ -11,7 +11,7 @@
 
     var repliesTrigger = document.getElementById("comment-<%= root_comment.id %>-replies-trigger");
     if (repliesTrigger) {
-      repliesTrigger.querySelector(".font-normal").textContent = <%== t("decidim.components.comment.replies_count", count: Decidim::Comments::SortedComments.for(root_comment.reload).size).to_json %>;
+      repliesTrigger.querySelector(".font-normal").textContent = <%== t("decidim.components.comment.replies_count", count: root_comment.reload.replies.count).to_json %>;
     }
 
   } else {

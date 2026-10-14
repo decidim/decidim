@@ -652,7 +652,7 @@ describe("CommentsComponent", () => {
           const loadReplies = jest.fn();
           const originalStimulus = window.Stimulus;
           window.Stimulus = {
-            getControllerForElementAndIdentifier: () => ({ loadReplies })
+            getControllerForElementAndIdentifier: () => ({ loadReplies, loadedValue: false })
           };
 
           subject.addReply(450, newReply, true);
@@ -663,6 +663,20 @@ describe("CommentsComponent", () => {
           expect(replies.hasClass("hidden")).toBe(false);
           expect(trigger.attr("aria-expanded")).toBe("true");
           expect(loadReplies).toHaveBeenCalledTimes(1);
+
+          window.Stimulus = originalStimulus;
+        });
+
+        it("does not reload replies that were already loaded", () => {
+          const loadReplies = jest.fn();
+          const originalStimulus = window.Stimulus;
+          window.Stimulus = {
+            getControllerForElementAndIdentifier: () => ({ loadReplies, loadedValue: true })
+          };
+
+          subject.addReply(450, newReply, true);
+
+          expect(loadReplies).not.toHaveBeenCalled();
 
           window.Stimulus = originalStimulus;
         });

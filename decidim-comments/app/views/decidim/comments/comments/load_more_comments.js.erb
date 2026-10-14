@@ -31,7 +31,13 @@
       var existingComment = targetContainer ? targetContainer.querySelector("#comment_" + commentId) : null;
       if (!existingComment) {
         if (inReplyTo) {
-          component.addReply(inReplyTo, commentHtml);
+          var newReply = targetContainer.querySelector("[data-new-reply]");
+          if (newReply) {
+            newReply.insertAdjacentHTML("beforebegin", commentHtml);
+            component._initializeComments($(newReply.previousElementSibling));
+          } else {
+            component.addReply(inReplyTo, commentHtml);
+          }
         } else if (loadMoreWrapper) {
           loadMoreWrapper.insertAdjacentHTML("beforebegin", commentHtml);
           component._initializeComments($(loadMoreWrapper.previousElementSibling));
@@ -54,6 +60,9 @@
       });
       targetContainer.querySelectorAll(".show-replies-button").forEach(function(el) {
         el.remove();
+      });
+      targetContainer.querySelectorAll("[data-new-reply]").forEach(function(el) {
+        el.removeAttribute("data-new-reply");
       });
     }
   <% end %>
