@@ -59,15 +59,13 @@ module Decidim
       end
 
       def space_admins(component)
-        @space_admins ||= begin
-          space_admins = if component.participatory_space.respond_to?(:user_roles)
-                           component.participatory_space.user_roles(:admin).collect(&:user)
-                         else
-                           []
-                         end
-          global_admins = component.organization.admins
-          (global_admins + space_admins).uniq
-        end
+        space_admins = if component.participatory_space.respond_to?(:user_roles)
+                         component.participatory_space.user_roles(:admin).collect(&:user)
+                       else
+                         []
+                       end
+        global_admins = component.organization.admins
+        (global_admins + space_admins).uniq
       end
     end
   end

@@ -62,6 +62,23 @@ module Decidim::Meetings
             expect { subject.generate }.to change(Decidim::Reminder, :count).by(1)
           end
 
+          context "when meetings belong to different organizations" do
+            let(:other_participatory_space) { create(:participatory_process, organization: other_organization) }
+            let!(:other_component) do
+              create(:component, :published, manifest_name: "meetings", participatory_space: other_participatory_space)
+            end
+            let!(:other_meeting) { create(:meeting, :published, :official, component: other_component, start_time:, end_time:, closed_at:) }
+
+            it "sends reminders to the administrators of their own organizations" do
+              expect { subject.generate }.to change(Decidim::Reminder, :count).by(2)
+
+              expect(Decidim::Reminder.find_by(user:, component:)).to be_present
+              expect(Decidim::Reminder.find_by(user: other_admin, component: other_component)).to be_present
+              expect(Decidim::Reminder.find_by(user:, component: other_component)).to be_nil
+              expect(Decidim::Reminder.find_by(user: other_admin, component:)).to be_nil
+            end
+          end
+
           context "and there are space admins" do
             context "and space admin is Participatory Process" do
               let(:participatory_space) { create(:participatory_process, organization:) }
