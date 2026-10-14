@@ -1066,6 +1066,7 @@ en:
         - Please note that the links must be public so that all participants can access them.
       errors:
         decidim/user:
+          email: Enter a valid email address.
           password: The password is too short.
           password_confirmation: Password confirmation must match the password.
         error: There is an error in this field.

@@ -195,6 +195,17 @@ describe "Account" do
     context "when update email" do
       let(:pending_email) { "foo@bar.com" }
 
+      context "when entering an invalid email" do
+        it "explains how to correct the email field" do
+          within "form.edit_user" do
+            fill_in "Your email", with: "invalid-email"
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_css(".form-error.is-visible", text: "Enter a valid email address.")
+        end
+      end
+
       context "when typing new email" do
         before do
           within "form.edit_user" do
