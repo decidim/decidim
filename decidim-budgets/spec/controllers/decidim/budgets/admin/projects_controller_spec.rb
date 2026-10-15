@@ -72,6 +72,33 @@ module Decidim
           end
         end
 
+        describe "POST update_taxonomies" do
+          let(:other_org) { create(:organization) }
+          let(:other_taxonomy) { create(:taxonomy, organization: other_org) }
+          let(:other_component) { create(:budgets_component, organization: other_org) }
+          let(:other_budget) { create(:budget, component: other_component) }
+          let(:other_project) { create(:project, budget: other_budget) }
+          let(:taxonomy) { create(:taxonomy, :with_parent, organization: component.organization) }
+          let(:params) do
+            {
+              budget_id: project.budget.id,
+              project_ids: [other_project.id.to_s],
+              taxonomies: { taxonomy.parent_id.to_s => [taxonomy.id.to_s] }
+            }
+          end
+
+          it "does not affect projects from other organizations" do
+            expect(other_project.reload.taxonomies).to be_empty
+
+            allow(controller).to receive(:budget_projects_path).and_return("/projects")
+
+            request_params = params
+            post(:update_taxonomies, params: request_params)
+
+            expect(other_project.reload.taxonomies).to be_empty
+          end
+        end
+
         it_behaves_like "a soft-deletable resource",
                         resource_name: :project,
                         resource_path: :budget_projects_path,

@@ -155,6 +155,10 @@ module Decidim
           "decidim/templates/admin/questionnaire_templates/edit_questions"
         end
 
+        def response_options_url(params)
+          url_for(params.merge(controller: "decidim/templates/admin/questionnaire_templates/questionnaires", action: "response_options", format: :json, template_id: template.id))
+        end
+
         def after_update_url
           edit_questionnaire_template_path(template)
         end
@@ -162,7 +166,7 @@ module Decidim
         private
 
         def find_questionnaire(id)
-          questionnaire = Decidim::Forms::Questionnaire.find_by(id:)
+          questionnaire = Decidim::Forms::Questionnaire.find_by(id:) # rubocop:disable Decidim/OrganizationScopedFinder -- scoping requires polymorphic questionnaire_for chain; org ownership validated via questionnaire_for_in_organization?
           return unless questionnaire
           return unless questionnaire_for_in_organization?(questionnaire)
 
