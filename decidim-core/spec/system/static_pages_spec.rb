@@ -104,7 +104,7 @@ describe "Static pages" do
 
       it "links back to the pages index and shows the page as the current item" do
         within ".menu-bar__breadcrumb-desktop" do
-          expect(page).to have_link("Help", href: decidim.pages_path(locale: I18n.locale))
+          expect(page).to have_link("Help", href: decidim.pages_path)
           expect(page).to have_css("[aria-current='page']", text: translated(page1.title))
         end
       end
@@ -117,7 +117,7 @@ describe "Static pages" do
 
         it "links back to the pages index" do
           within ".menu-bar__breadcrumb-mobile" do
-            expect(page).to have_link("Help", href: decidim.pages_path(locale: I18n.locale))
+            expect(page).to have_link("Help", href: decidim.pages_path)
           end
         end
       end
@@ -128,7 +128,7 @@ describe "Static pages" do
 
       it "links back to the pages index and shows the page as the current item" do
         within ".menu-bar__breadcrumb-desktop" do
-          expect(page).to have_link("Help", href: decidim.pages_path(locale: I18n.locale))
+          expect(page).to have_link("Help", href: decidim.pages_path)
           expect(page).to have_css("[aria-current='page']", text: translated(page3.title))
         end
       end
