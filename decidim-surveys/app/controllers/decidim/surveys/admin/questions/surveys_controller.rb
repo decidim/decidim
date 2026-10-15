@@ -48,9 +48,9 @@ module Decidim
 
           def survey_id
             if action_name == "response_options"
-              params.expect(:survey_id)
+              params.require(:survey_id)
             else
-              params.expect(:id)
+              params.require(:id)
             end
           end
         end

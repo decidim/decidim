@@ -42,9 +42,9 @@ module Decidim
 
           def template_id
             if action_name == "response_options"
-              params.expect(:template_id)
+              params.require(:template_id)
             else
-              params.expect(:id)
+              params.require(:id)
             end
           end
         end

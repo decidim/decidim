@@ -51,7 +51,7 @@ module Decidim
       private
 
       def conflict
-        @conflict ||= collection.find(params.expect(:id))
+        @conflict ||= collection.find(params.require(:id))
       end
 
       def context_breadcrumb_items
