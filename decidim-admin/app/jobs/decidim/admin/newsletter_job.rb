@@ -6,7 +6,6 @@ module Decidim
     #
     class NewsletterJob < ApplicationJob
       queue_as :newsletter
-      self.enqueue_after_transaction_commit = :never
 
       def perform(newsletter, form, recipients_ids)
         @newsletter = newsletter
