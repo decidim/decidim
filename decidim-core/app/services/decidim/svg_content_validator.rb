@@ -56,7 +56,9 @@ module Decidim
     # attributes are validated as element/attribute names. The names are kept
     # in lowercase and compared case insensitively, as the HTML parser resolves
     # the names written in lowercase (e.g. "attributename") to the camel case
-    # ones when the document is parsed as HTML.
+    # ones when the document is parsed as HTML. The value of "attributenames" is
+    # a list of names separated by whitespace, so each name of the list is
+    # checked separately (see #name_list).
     SVG_ANIMATION_TARGET_NAMES = %w(attribute attributename attributenames).freeze
 
     # The elements which load the resource referenced by their "href" (or
@@ -276,14 +278,22 @@ module Decidim
     # are never fetched when the document is rendered. The values assigned to
     # the "style" attribute and to the presentation attributes which resolve a
     # URL reference are validated as style sheet content, as the references they
-    # declare are loaded when the animation reaches them.
+    # declare are loaded when the animation reaches them. The values are checked
+    # when any name of the list of targets defines one of these attributes, as
+    # the value is assigned to each name of the list.
     def forbidden_animation_reference?(node)
       return false unless SVG_ANIMATION_ELEMENTS.include?(node.name.downcase)
 
-      target = animation_target(node)
+      targets = animation_targets(node)
       values = animation_values(node)
-      return false if target.nil? || values.empty?
+      return false if targets.empty? || values.empty?
 
+      targets.any? { |target| forbidden_animation_target?(node, target, values) }
+    end
+
+    # Whether one name of the list of targets receives a forbidden value, as the
+    # animation assigns the value to each name of the list.
+    def forbidden_animation_target?(node, target, values)
       return true if css_content_name?(target) && forbidden_css_values?(values)
       return false unless SVG_REFERENCE_NAME.match?(target) && animates_resource_element?(node)
 
@@ -298,11 +308,15 @@ module Decidim
       values.any? { |value| forbidden_reference_value?(value) }
     end
 
-    # The attribute modified by an animation, normalized as the HTML parser
-    # resolves it when the document is parsed as HTML.
-    def animation_target(node)
+    # The attributes modified by an animation, normalized as the HTML parser
+    # resolves them when the document is parsed as HTML. "attributenames" accepts
+    # a list of names separated by whitespace, so each name of the list is
+    # checked separately.
+    def animation_targets(node)
       attribute = node.attribute_nodes.find { |a| animation_target_attribute?(a) }
-      attribute&.value&.downcase
+      return [] if attribute.nil?
+
+      name_list(attribute.value.to_s)
     end
 
     def animation_target_attribute?(attribute)
@@ -419,10 +433,16 @@ module Decidim
     # names are also accepted by some animation attributes, so each name of the
     # list is checked separately.
     def forbidden_name?(name)
-      name.split(";").any? do |part|
-        normalized = part.strip.downcase
+      name_list(name).any? do |normalized|
         SVG_EVENT_HANDLER_NAME.match?(normalized) || SVG_FORBIDDEN_ELEMENTS.include?(normalized)
       end
+    end
+
+    # The normalized names of a list of attribute names, which are separated by
+    # semicolons or by whitespace, as "attributenames" accepts a list of names
+    # separated by whitespace.
+    def name_list(value)
+      value.split(/[;\s]+/).map(&:downcase)
     end
 
     # Whether the document type definition declares an entity. Entities can be
