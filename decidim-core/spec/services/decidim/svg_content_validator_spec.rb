@@ -66,6 +66,24 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose inline data reference has a fragment" do
+      let(:content) { File.read(Decidim::Dev.asset("test_data_uri_fragment.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose inline data references declare the parameters of the MIME type in different positions" do
+      let(:content) { File.read(Decidim::Dev.asset("test_data_uri_parameters.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG reaching the maximum depth of the nested inline data references" do
+      let(:content) { File.read(Decidim::Dev.asset("test_data_uri_max_depth.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose animation assigns a presentation attribute referencing the document" do
       let(:content) { File.read(Decidim::Dev.asset("test_animation_presentation_reference.svg")) }
 
@@ -188,6 +206,12 @@ describe Decidim::SvgContentValidator do
         malicious_svg_data_uri_leading_space.svg
         malicious_svg_data_uri_deep_nested.svg
         malicious_svg_data_uri_declared_encoding.svg
+        malicious_svg_data_uri_fragment.svg
+        malicious_svg_data_uri_base64_parameter_lookalike.svg
+        malicious_svg_data_uri_base64_not_last_parameter.svg
+        malicious_svg_data_uri_malformed_base64.svg
+        malicious_svg_data_uri_malformed_document.svg
+        malicious_svg_data_uri_max_depth_exceeded.svg
         malicious_svg_external_image.svg
         malicious_svg_external_use.svg
         malicious_svg_external_feimage.svg

@@ -123,9 +123,20 @@ module Decidim
     # base64), and the other ones are accepted when they do not declare a
     # forbidden content type (see SVG_FORBIDDEN_URI_PREFIXES). The parameters of
     # the MIME type (e.g. "image/svg+xml;charset=utf-8") are matched as well, as
-    # browsers still parse the payload as a document, and the "base64" one can
-    # appear in any position of the list.
-    SVG_DATA_URI = %r{\Adata:(?<mime>image/svg\+xml)(?<parameters>(?:;[^;,]*)*),(?<payload>.*)\z}im
+    # browsers still parse the payload as a document. The payload is the data of
+    # the reference (RFC 2397): the fragment of the URI is not part of it, so the
+    # text after the first hash is not decoded as contents, and the "base64"
+    # indicator is a parameter of the MIME type, which is distinguishable from a
+    # parameter with a value because it does not have an "=" sign (see
+    # #base64_parameter?).
+    SVG_DATA_URI = %r{\Adata:(?<mime>image/svg\+xml)(?<parameters>(?:;[^#;,]*)*),(?<payload>[^#]*)}im
+
+    # The characters the payload of a data reference can contain when its MIME
+    # type indicates it is Base64 encoded. The whitespace is ignored, as the
+    # payload is decoded with the forgiving decoding applied by browsers; the
+    # other characters outside the alphabet make it fail to be decoded (see
+    # #decode_base64).
+    BASE64_ALPHABET = %r{\A[A-Za-z0-9+/=\s]*\z}i
 
     # The CSS functions which load the resources they reference when the style
     # sheet is rendered. The strings inside them are interpreted as URLs, so the
@@ -398,22 +409,44 @@ module Decidim
     end
 
     # Whether the contents of an inline data reference declaring an SVG
-    # document are unsafe, as they are parsed as a document of their own when
+    # document are rejected, as they are parsed as a document of their own when
     # the reference is rendered. The nested documents are validated with the
     # same rules, up to a maximum depth, so that a document referencing itself
-    # cannot be used to recurse indefinitely. A nested document which cannot be
-    # validated because the maximum depth is reached is rejected, as its contents
-    # are still parsed when the reference is rendered.
+    # cannot be used to recurse indefinitely. Only the nested documents which are
+    # valid are accepted: the ones which are unsafe contain content which is
+    # executed when the reference is rendered, and the ones which cannot be
+    # validated (e.g. a payload which is not a well formed document, or which
+    # cannot be decoded) are rejected as well, as the rules above cannot be
+    # applied to them. Reaching the maximum depth rejects the reference, as its
+    # contents are still parsed when it is rendered.
     def nested_document_unsafe?(value)
-      match = SVG_DATA_URI.match(value.strip)
-      return false if match.nil?
+      data = SVG_DATA_URI.match(value.strip)
+      return false if data.nil?
       return true if depth >= MAX_NESTED_DEPTH
 
-      payload = match[:parameters].downcase.include?(";base64") ? decode_base64(match[:payload]) : percent_decode(match[:payload])
-      Decidim::SvgContentValidator.new(payload, depth + 1).validate == :unsafe
+      payload = base64_parameter?(data[:parameters]) ? decode_base64(data[:payload]) : percent_decode(data[:payload])
+      return true if payload.nil?
+
+      Decidim::SvgContentValidator.new(payload, depth + 1).validate != :valid
     end
 
+    # Whether the parameters of the MIME type of a data reference indicate that
+    # its payload is Base64 encoded. The indicator is a parameter without a
+    # value, as a parameter whose value only looks like it (e.g.
+    # "charset=base64") is not one, and browsers only detect it as the last
+    # parameter of the MIME type.
+    def base64_parameter?(parameters)
+      parameters.split(";").last.to_s.strip.casecmp?("base64")
+    end
+
+    # Decodes the Base64 payload of a data reference with the forgiving decoding
+    # applied by browsers, which ignores the whitespace. The characters outside
+    # the Base64 alphabet make the payload fail to be decoded, as they do in the
+    # browsers, so the failure is reported to the caller instead of producing
+    # contents which are never rendered.
     def decode_base64(value)
+      return nil unless BASE64_ALPHABET.match?(value)
+
       value.unpack1("m")
     end
 
