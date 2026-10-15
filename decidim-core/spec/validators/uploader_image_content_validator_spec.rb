@@ -74,6 +74,12 @@ describe UploaderImageContentValidator do
       it_behaves_like "a valid image"
     end
 
+    context "with an ICO" do
+      let(:upload) { Decidim::Dev.test_file("icon.ico", "image/vnd.microsoft.icon") }
+
+      it_behaves_like "a valid image"
+    end
+
     context "with an SVG" do
       let(:upload) { Decidim::Dev.test_file("test.svg", "image/svg+xml") }
 
