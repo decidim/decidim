@@ -11,7 +11,7 @@ module Decidim
       helper_method :current_version, :versioned_resource
 
       def show
-        enforce_permission_to :read, :version
+        enforce_permission_to(:read, :participatory_space, current_participatory_space:)
 
         raise ActionController::RoutingError, "Not found" unless current_version
       end

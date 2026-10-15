@@ -176,22 +176,6 @@ describe Decidim::Permissions do
     it { is_expected.to be true }
   end
 
-  context "when reading a resource version" do
-    let(:action) do
-      { scope: :public, action: :read, subject: :version }
-    end
-
-    it { is_expected.to be true }
-  end
-
-  context "when reading a questionnaire" do
-    let(:action) do
-      { scope: :public, action: :read, subject: :questionnaire }
-    end
-
-    it { is_expected.to be true }
-  end
-
   context "when reading a component page" do
     let(:action) do
       { scope: :public, action: :read, subject: :page }
