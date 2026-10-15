@@ -186,14 +186,18 @@ module Decidim
     # text after the first hash is not decoded as contents, and the "base64"
     # indicator is a parameter of the MIME type, which is distinguishable from a
     # parameter with a value because it does not have an "=" sign (see
-    # #base64_parameter?).
+    # #base64_parameter?). The payload is percent-decoded before it is read as
+    # Base64, as the browsers do, so that a payload written with its Base64
+    # characters percent-encoded is decoded as the document it declares.
     SVG_DATA_URI = %r{\Adata:(?<mime>image/svg\+xml)(?<parameters>(?:;[^#;,]*)*),(?<payload>[^#]*)}im
 
     # The characters the payload of a data reference can contain when its MIME
-    # type indicates it is Base64 encoded. The whitespace is ignored, as the
-    # payload is decoded with the forgiving decoding applied by browsers; the
-    # other characters outside the alphabet make it fail to be decoded (see
-    # #decode_base64).
+    # type indicates it is Base64 encoded. The alphabet is checked on the payload
+    # after it is percent-decoded, as the browsers decode the percent-encoded
+    # characters before reading it as Base64 (see #nested_document_unsafe?). The
+    # whitespace is ignored, as the payload is decoded with the forgiving decoding
+    # applied by browsers; the other characters outside the alphabet make it fail
+    # to be decoded (see #decode_base64).
     BASE64_ALPHABET = %r{\A[A-Za-z0-9+/=\s]*\z}i
 
     # The CSS functions which load the resources they reference when the style
@@ -512,7 +516,12 @@ module Decidim
       return false if data.nil?
       return true if depth >= MAX_NESTED_DEPTH
 
-      payload = base64_parameter?(data[:parameters]) ? decode_base64(data[:payload]) : percent_decode(data[:payload])
+      # The data of the reference is percent-decoded first, and the Base64
+      # indicator is applied to the decoded data (Fetch, data URL parser), so the
+      # Base64 characters written percent-encoded (e.g. the padding as "%3D") are
+      # decoded before the payload is read as Base64.
+      decoded = percent_decode(data[:payload])
+      payload = base64_parameter?(data[:parameters]) ? decode_base64(decoded) : decoded
       return true if payload.nil?
 
       Decidim::SvgContentValidator.new(payload, depth + 1).validate != :valid

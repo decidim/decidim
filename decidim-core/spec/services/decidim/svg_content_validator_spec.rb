@@ -96,6 +96,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose inline data reference has its Base64 payload percent encoded" do
+      let(:content) { File.read(Decidim::Dev.asset("test_data_uri_percent_decoded_base64.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG reaching the maximum depth of the nested inline data references" do
       let(:content) { File.read(Decidim::Dev.asset("test_data_uri_max_depth.svg")) }
 
@@ -238,6 +244,7 @@ describe Decidim::SvgContentValidator do
         malicious_svg_data_uri_leading_space.svg
         malicious_svg_data_uri_deep_nested.svg
         malicious_svg_data_uri_declared_encoding.svg
+        malicious_svg_data_uri_percent_decoded_base64.svg
         malicious_svg_data_uri_fragment.svg
         malicious_svg_data_uri_base64_parameter_lookalike.svg
         malicious_svg_data_uri_base64_not_last_parameter.svg
