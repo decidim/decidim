@@ -194,6 +194,7 @@ module Decidim
               expect { post :update_multiple_answers, params: }.not_to have_enqueued_job(ProposalAnswerJob)
 
               expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
+            end
           end
         end
       end
