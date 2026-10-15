@@ -17,10 +17,10 @@ RSpec.describe "Proposal answer templates fetch" do
   end
 
   context "when proposalId is missing" do
-    it "returns the unprocessable_content JSON response" do
+    it "returns the unprocessable_entity JSON response" do
       get path, params: { id: template.id, format: :json }, headers: request_headers
 
-      expect(response).to have_http_status(:unprocessable_content)
+      expect(response).to have_http_status(:unprocessable_entity)
       expect(response.parsed_body["msg"]).to eq(I18n.t("templates.fetch.error", scope: "decidim.admin"))
     end
   end

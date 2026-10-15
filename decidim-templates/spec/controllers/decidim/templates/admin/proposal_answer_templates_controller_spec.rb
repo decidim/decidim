@@ -98,7 +98,7 @@ describe Decidim::Templates::Admin::ProposalAnswerTemplatesController do
     context "without proposalId" do
       it "returns an error" do
         get :fetch, params: { id: template.id, format: :json }
-        expect(response).to have_http_status(:unprocessable_content)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
 
@@ -107,7 +107,7 @@ describe Decidim::Templates::Admin::ProposalAnswerTemplatesController do
 
       it "returns an error" do
         get :fetch, params: { id: other_template.id, proposalId: proposal.id, format: :json }
-        expect(response).to have_http_status(:unprocessable_content)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
 
@@ -116,7 +116,7 @@ describe Decidim::Templates::Admin::ProposalAnswerTemplatesController do
 
       it "returns an error" do
         get :fetch, params: { id: template.id, proposalId: other_proposal.id, format: :json }
-        expect(response).to have_http_status(:unprocessable_content)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
 
