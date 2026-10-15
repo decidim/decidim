@@ -4,7 +4,10 @@ shared_examples "manage processes announcements" do
   let!(:participatory_process) { create(:participatory_process, :with_content_blocks, organization:, blocks_manifests: [:announcement], announcement: {}) }
 
   it "can customize a general announcement for the process" do
-    visit decidim_admin_participatory_processes.edit_participatory_process_landing_page_content_block_path(participatory_process, content_block)
+    within "tr", text: translated(participatory_process.title) do
+      click_on translated(participatory_process.title)
+    end
+
     expect(page).to have_css("h1", text: "Announcement")
 
     within_admin_sidebar_menu do
@@ -40,7 +43,9 @@ shared_examples "manage processes announcements" do
   end
 
   it "does not update the blank announcement element if the announcement body is empty" do
-    visit decidim_admin_participatory_processes.edit_participatory_process_landing_page_content_block_path(participatory_process, content_block)
+    within "tr", text: translated(participatory_process.title) do
+      click_on translated(participatory_process.title)
+    end
     expect(page).to have_css("h1", text: "Announcement")
 
     clear_announcement_editor([:en, :es, :ca])
