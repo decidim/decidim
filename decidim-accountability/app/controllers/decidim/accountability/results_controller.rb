@@ -19,6 +19,8 @@ module Decidim
       end
 
       def home
+        enforce_permission_to :read, :result
+
         @all_geocoded_results = results.geocoded
       end
 

@@ -32,6 +32,8 @@ module Decidim
       # rubocop:enable Naming/VariableNumber
 
       def index
+        enforce_permission_to :read, :proposal
+
         if component_settings.participatory_texts_enabled?
           @proposals = Decidim::Proposals::Proposal
                        .where(component: current_component)

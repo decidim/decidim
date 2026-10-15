@@ -9,6 +9,8 @@ module Decidim
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
       def show
+        enforce_permission_to :read, :page
+
         @page = Page.find_by(component: current_component)
       end
     end

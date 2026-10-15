@@ -15,41 +15,23 @@ Decidim/EnforcePermissionTo:
   Severity: warning
   Include:
     - "**/app/controllers/**/*.rb"
-  AuthorizedBaseClasses:
-    - "Decidim::Components::BaseController"
-    - "Decidim::Accountability::ApplicationController"
-    - "Decidim::Blogs::ApplicationController"
-    - "Decidim::Budgets::ApplicationController"
-    - "Decidim::CollaborativeTexts::ApplicationController"
-    - "Decidim::Debates::ApplicationController"
-    - "Decidim::Elections::ApplicationController"
-    - "Decidim::Meetings::ApplicationController"
-    - "Decidim::Pages::ApplicationController"
-    - "Decidim::Proposals::ApplicationController"
-    - "Decidim::Sortitions::ApplicationController"
-    - "Decidim::Surveys::ApplicationController"
-    - "Decidim::Templates::ApplicationController"
-  AuthorizedBaseActions:
-    - "index"
-    - "show"
-    - "home"
+  # This cop only understands action-level authorization checks
+  # (`enforce_permission_to` / `action_authorized_to`). The paths below are
+  # intentionally authorized through a different model, so they cannot be
+  # covered by an action-level check:
   Exclude:
+  # - decidim-api: GraphQL/API entry points authorized by
+  #   `ensure_api_authenticated!` and type-level authorization.
     - "decidim-api/**/*.rb"
+  # - decidim-design: development-only styleguide app.
     - "decidim-design/**/*.rb"
-    - "decidim-dev/**/*.rb"
+  # - decidim-system: installation-wide system admin guarded by `authenticate_admin!`.
     - "decidim-system/**/*.rb"
+  # - decidim-devise/doorkeeper: framework controllers where authentication
+  #   itself is the operation (Devise, OAuth).
     - "decidim-core/app/controllers/decidim/devise/**/*.rb"
     - "decidim-core/app/controllers/decidim/doorkeeper/**/*.rb"
-    - "decidim-core/app/controllers/concerns/decidim/devise_authentication_methods.rb"
-    - "decidim-core/app/controllers/concerns/decidim/form_factory.rb"
-    - "decidim-core/app/controllers/concerns/decidim/disable_redirection_to_external_host.rb"
-    - "decidim-core/app/controllers/concerns/decidim/locale_switcher.rb"
-    - "decidim-core/app/controllers/concerns/decidim/registers_permissions.rb"
-    - "decidim-core/app/controllers/concerns/decidim/resource_versions_concern.rb"
-    - "decidim-core/app/controllers/decidim/errors_controller.rb"
-    - "decidim-core/app/controllers/decidim/favicon_controller.rb"
-    - "decidim-core/app/controllers/decidim/timeouts_controller.rb"
-    - "decidim-forms/app/controllers/decidim/forms/concerns/has_questionnaire.rb"
-    - "decidim-initiatives/app/controllers/decidim/initiatives/authorization_create_modals_controller.rb"
-    - "decidim-initiatives/app/controllers/decidim/initiatives/authorization_sign_modals_controller.rb"
-    - "decidim-initiatives/app/controllers/decidim/initiatives/create_initiative_controller.rb"
+  # - favicon: always visible
+    - decidim-core/app/controllers/decidim/favicon_controller.rb
+  # - errors: always visible
+    - decidim-core/app/controllers/decidim/errors_controller.rb
