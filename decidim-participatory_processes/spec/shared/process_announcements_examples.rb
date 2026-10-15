@@ -3,6 +3,30 @@
 shared_examples "manage processes announcements" do
   let!(:participatory_process) { create(:participatory_process, :with_content_blocks, organization:, blocks_manifests: [:announcement], announcement: {}) }
 
+  def fill_announcement_editor(values)
+    if page.has_css?("#content_block-settings--announcement-tabs")
+      fill_in_i18n_editor(
+        :content_block_settings_announcement,
+        "#content_block-settings--announcement-tabs",
+        values
+      )
+    else
+      fill_in_editor("content_block_settings_announcement_en", with: values.fetch(:en))
+    end
+  end
+
+  def clear_announcement_editor(locales)
+    if page.has_css?("#content_block-settings--announcement-tabs")
+      clear_i18n_editor(
+        :content_block_settings_announcement,
+        "#content_block-settings--announcement-tabs",
+        locales
+      )
+    else
+      clear_editor("content_block_settings_announcement_en")
+    end
+  end
+
   it "can customize a general announcement for the process" do
     within "tr", text: translated(participatory_process.title) do
       click_on translated(participatory_process.title)
