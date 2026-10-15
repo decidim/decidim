@@ -375,7 +375,7 @@ describe "Admin manages meetings polls" do
         end
 
         click_on "Save"
-        expect(page).to have_callout("Meeting poll successfully updated.")
+        expect(page).to have_text("Meeting poll successfully updated.")
         expand_all_questions
 
         # Reloads and checks persisted order
