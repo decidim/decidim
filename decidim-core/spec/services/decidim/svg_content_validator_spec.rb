@@ -117,10 +117,8 @@ describe Decidim::SvgContentValidator do
     context "with an SVG whose style sheet ends with an unterminated comment with multibyte characters" do
       let(:content) { File.read(Decidim::Dev.asset("test_css_unclosed_comment.svg")) }
 
-      it_behaves_like "a valid SVG document"
-
-      it "does not loop while reading the comment" do
-        expect { Timeout.timeout(5) { validation } }.not_to raise_error
+      it "returns :valid without looping" do
+        expect(Timeout.timeout(5) { validation }).to eq(:valid)
       end
     end
 
