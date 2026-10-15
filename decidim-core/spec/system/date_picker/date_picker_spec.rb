@@ -765,7 +765,6 @@ describe "Datepicker" do
 
         find("td > span[aria-hidden=true]", text: "20", match: :first).click
         find(".datepicker__pick-calendar").click
-        find(".datepicker__pick-calendar").click
 
         find(".datepicker__clock-button").click
         find(".datepicker__hour-up").click
