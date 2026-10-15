@@ -9,9 +9,13 @@ module Decidim
 
       helper_method :documents, :document, :paginate_documents
 
-      def index; end
+      def index
+        enforce_permission_to :read, :collaborative_text
+      end
 
       def show
+        enforce_permission_to(:read, :collaborative_text, document:)
+
         raise ActionController::RoutingError, "Not Found" unless document
       end
 
