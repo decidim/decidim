@@ -114,6 +114,16 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose style sheet ends with an unterminated comment with multibyte characters" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_unclosed_comment.svg")) }
+
+      it_behaves_like "a valid SVG document"
+
+      it "does not loop while reading the comment" do
+        expect { Timeout.timeout(5) { validation } }.not_to raise_error
+      end
+    end
+
     context "with an SVG whose base is relative to the document itself" do
       let(:content) { File.read(Decidim::Dev.asset("test_relative_base.svg")) }
 

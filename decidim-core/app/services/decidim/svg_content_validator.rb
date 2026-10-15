@@ -495,9 +495,13 @@ module Decidim
     end
 
     # Consumes the comment token of CSS which starts at the current position.
-    # Unterminated comments extend to the end of the style sheet.
+    # Unterminated comments extend to the end of the style sheet. The end is
+    # reached with #terminate, as the position of the scanner is counted in bytes
+    # while the length of the string counts characters: assigning the length moves
+    # the scanner back for a style sheet with multibyte characters, which then
+    # reads the same unclosed comment again in an endless loop.
     def scan_css_comment(scanner)
-      scanner.scan_until(%r{\*/}) || (scanner.pos = scanner.string.length)
+      scanner.scan_until(%r{\*/}) || scanner.terminate
     end
 
     # Consumes the string token of CSS which starts at the given quote, and
