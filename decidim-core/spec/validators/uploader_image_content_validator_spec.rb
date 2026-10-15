@@ -115,6 +115,18 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a valid image"
     end
+
+    context "with an SVG starting with a comment before the root element" do
+      let(:upload) { Decidim::Dev.test_file("test_comment_first.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
+
+    context "with an SVG whose leading comment is longer than the detected signature" do
+      let(:upload) { Decidim::Dev.test_file("test_long_comment_first.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
   end
 
   context "when the content type is an alias of the file format" do
@@ -167,6 +179,12 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a spoofed image"
     end
+
+    context "with an XML document which is not an SVG, starting with a comment" do
+      let(:upload) { Decidim::Dev.test_file("spoofed_svg_comment_first.svg", "image/svg+xml") }
+
+      it_behaves_like "a spoofed image"
+    end
   end
 
   context "when the file is an SVG with active content" do
@@ -181,6 +199,12 @@ describe UploaderImageContentValidator do
 
     context "with a script element" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_script.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with a script element in an SVG starting with a comment" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_comment_first.svg", "image/svg+xml") }
 
       it_behaves_like "an unsafe SVG"
     end
