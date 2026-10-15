@@ -99,7 +99,7 @@ describe "Datepicker" do
         month = find('select[name="month"]').value
         formatted_month = format("%02d", month)
 
-        find("td > span", text: "20", match: :first).click
+        find("td > span[aria-hidden=true]", text: "20", match: :first).click
         find(".datepicker__pick-calendar").click
 
         find(".datepicker__clock-button").click
@@ -154,7 +154,7 @@ describe "Datepicker" do
             it "enables the select button" do
               find(".datepicker__calendar-button").click
               yesterday = Date.yesterday.strftime("%-d")
-              find("td > span", text: yesterday, match: :first).click
+              find("td > span[aria-hidden=true]", text: yesterday, match: :first).click
               expect(page).to have_button("Select", disabled: false)
             end
           end
@@ -174,7 +174,7 @@ describe "Datepicker" do
             find(".datepicker__calendar-button").click
             find('span > input[name="year"]').set("1994")
             find(".wc-datepicker__next-month-button").click
-            find("td > span", text: "20", match: :first).click
+            find("td > span[aria-hidden=true]", text: "20", match: :first).click
             find(".datepicker__pick-calendar").click
             find(".datepicker__calendar-button").click
             element = find("td.wc-datepicker__date--selected")
@@ -507,7 +507,7 @@ describe "Datepicker" do
         month = find('select[name="month"]').value
         formatted_month = format("%02d", month)
 
-        find("td > span", text: "20", match: :first).click
+        find("td > span[aria-hidden=true]", text: "20", match: :first).click
         find(".datepicker__pick-calendar").click
 
         find(".datepicker__clock-button").click
@@ -763,7 +763,7 @@ describe "Datepicker" do
         month = find('select[name="month"]').value
         formatted_month = format("%02d", month)
 
-        find("td > span", text: "20", match: :first).click
+        find("td > span[aria-hidden=true]", text: "20", match: :first).click
         find(".datepicker__pick-calendar").click
 
         find(".datepicker__clock-button").click
