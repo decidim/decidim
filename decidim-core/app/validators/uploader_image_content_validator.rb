@@ -37,7 +37,8 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
     [:bmp, [[0, "BM".b]]],
     [:tiff, [[0, "II*\x00".b]]],
     [:tiff, [[0, "MM\x00*".b]]],
-    [:webp, [[0, "RIFF".b], [8, "WEBP".b]]]
+    [:webp, [[0, "RIFF".b], [8, "WEBP".b]]],
+    [:ico, [[0, "\x00\x00\x01\x00".b]]]
   ].freeze
 
   # The major brands of the ISOBMFF "ftyp" box that identify HEIF and AVIF
@@ -66,6 +67,7 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
     bmp: %w(image/bmp image/x-ms-bmp image/windows-bmp),
     tiff: %w(image/tiff image/x-tiff),
     webp: %w(image/webp),
+    ico: %w(image/vnd.microsoft.icon image/x-icon image/ico image/icon),
     heif: %w(image/heic image/heif image/heic-sequence image/heif-sequence),
     avif: %w(image/avif image/avis),
     svg: %w(image/svg+xml)
