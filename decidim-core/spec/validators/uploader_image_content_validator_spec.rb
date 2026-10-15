@@ -121,6 +121,18 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a valid image"
     end
+
+    context "with an SVG starting with a custom processing instruction before the root element" do
+      let(:upload) { Decidim::Dev.test_file("test_processing_instruction_first.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
+
+    context "with an SVG whose type declaration has the name on the next line" do
+      let(:upload) { Decidim::Dev.test_file("test_doctype_name_on_next_line.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
   end
 
   context "when the content type is an alias of the file format" do
