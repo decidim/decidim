@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A link to an inline document. Links are not fetched when the document is
+     rendered, so they are not restricted as the references which load resources.
+     The browsers of the readers do not open data documents as top-level documents,
+     and the documents they open have an opaque origin, so the contents of the link
+     cannot read the contents of the page which contains it. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <a href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cscript%3Ealert%281%29%3C/script%3E%3C/svg%3E"><text y="15">Example</text></a>
+</svg>

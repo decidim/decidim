@@ -60,6 +60,24 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose reference is resolved from the root of the origin serving the document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_root_relative_reference.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose link references an inline document, which the browsers of the readers do not open as a top-level document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_link_data_document.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose link uses a scheme which does not fetch a resource when the document is rendered" do
+      let(:content) { File.read(Decidim::Dev.asset("test_link_non_web_scheme.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose inline data reference declares its own encoding" do
       let(:content) { File.read(Decidim::Dev.asset("test_data_uri_declared_encoding.svg")) }
 
@@ -242,6 +260,7 @@ describe Decidim::SvgContentValidator do
         malicious_svg_animate_color_external_reference.svg
         malicious_svg_animation_gradient_reference.svg
         malicious_svg_backslash_reference.svg
+        malicious_svg_protocol_relative_reference.svg
         malicious_svg_base.svg
         malicious_svg_base_child_element.svg
         malicious_svg_base_protocol_relative.svg

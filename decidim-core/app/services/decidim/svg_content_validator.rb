@@ -22,9 +22,24 @@ module Decidim
   # inline data, so that documents cannot make the browser of the reader fetch
   # third-party resources. The contents of the inline data references declaring
   # an SVG document are validated as nested documents, as they are parsed when
-  # the reference is rendered. Links ("a") are not restricted, as they do not
-  # load any resource when the document is rendered; they can still reference
-  # any host, so they are a phishing surface which is accepted on purpose.
+  # the reference is rendered.
+  #
+  # The references resolved against the document (the fragments and the paths
+  # relative to it, including the ones starting at the root) cannot reach another
+  # host, but they are still requested to the origin which serves the document when
+  # it is rendered as a document, with the credentials of the reader; the browsers of
+  # the readers do not resolve the references of a document used as an image. The
+  # response is not readable by the document, so the consequence which is accepted on
+  # purpose is the request itself.
+  #
+  # Links ("a") are not restricted, as they do not load any resource when the
+  # document is rendered; they are only followed when the reader activates them, so
+  # they are a phishing surface which is accepted on purpose. The schemes which
+  # execute scripts when navigated and the data documents declaring an HTML content
+  # type are still rejected (see SVG_FORBIDDEN_URI_PREFIXES). The other data
+  # references accepted in a link cannot be opened as a top-level document by the
+  # browsers of the readers, and the documents they open have an opaque origin, so
+  # their contents cannot read the page which contains the link.
   #
   # The base URI which the relative references are resolved against ("xml:base")
   # is restricted to the document itself as well, as an external base makes the
@@ -111,10 +126,15 @@ module Decidim
     # browsers also detect from two separators at the beginning of the
     # reference (e.g. "//example.org", "/\example.org" or "\\example.org"), as
     # backslashes are treated as separators of the authority for the schemes of
-    # the web. A single backslash only starts a path, so it is not matched.
+    # the web. A single backslash only starts a path, so it is not matched. The
+    # separators are not decoded before resolving the reference, so a reference
+    # whose separators are percent encoded (e.g. "/%2F%2Fexample.org") is a path
+    # and not an authority.
     # Fragment ("#") and relative references are resolved against the document
     # itself, and "data:" references are inline, so they are accepted (see
-    # #forbidden_reference_value?).
+    # #forbidden_reference_value?). The relative references, including the ones
+    # starting at the root, are requested to the origin which serves the document
+    # when it is rendered, as the class documentation says.
     SVG_EXTERNAL_REFERENCE = %r{\A(?!data:)(?:[a-z][a-z0-9+.-]*:|[\\/]{2})}i
 
     # The inline data references whose contents are parsed when the document is
