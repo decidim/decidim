@@ -300,6 +300,85 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "an invalid SVG document"
     end
 
+    context "with the SVG namespace declared as the default namespace of the root" do
+      let(:content) { %(<svg xmlns="http://www.w3.org/2000/svg"><circle r="1"/></svg>) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with the SVG namespace bound to a prefix of the root" do
+      let(:content) { %(<p:svg xmlns:p="http://www.w3.org/2000/svg"><p:circle r="1"/></p:svg>) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with a root which does not declare a namespace" do
+      let(:content) { %(<svg><circle r="1"/></svg>) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with a root which declares another namespace" do
+      let(:content) { %(<svg xmlns="http://www.w3.org/1999/xhtml"><script>alert(1)</script></svg>) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with descendants which declare another namespace" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><g xmlns="http://www.w3.org/1999/xhtml"><p>text</p></g></svg>)
+      end
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an element named like an SVG element in another namespace" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><g xmlns="http://www.w3.org/1999/xhtml"><image href="https://evil.example.org/x"/></g></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with a reference bound to the XLink namespace with another prefix" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg" xmlns:x="http://www.w3.org/1999/xlink"><image x:href="https://evil.example.org/x"/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with a reference bound to another namespace" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg" xmlns:x="http://example.com"><image x:href="https://evil.example.org/x"/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with a reference using a prefix which is not bound to a namespace" do
+      let(:content) { %(<svg xmlns="http://www.w3.org/2000/svg"><image xlink:href="https://evil.example.org/x"/></svg>) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with the XML namespace bound to another prefix" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg" xmlns:b="http://www.w3.org/XML/1998/namespace" b:base="https://evil.example.org/"><circle r="1"/></svg>)
+      end
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with a nested document which declares another namespace" do
+      let(:content) do
+        payload = "%3Csvg%20xmlns%3D%22http%3A%2F%2Fexample.com%2Fsvg%22%3E%3Ccircle%20r%3D%221%22%2F%3E%3C%2Fsvg%3E"
+        %(<svg xmlns="http://www.w3.org/2000/svg"><image width="1" height="1" href="data:image/svg+xml,#{payload}"/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
     context "with contents larger than the maximum size" do
       let(:content) { "a" * (described_class::MAX_CONTENT_SIZE + 1) }
 

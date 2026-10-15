@@ -11,9 +11,25 @@ module Decidim
   # validation, so that documents which could execute scripts or read external
   # resources are rejected instead of being stored as they are.
   #
-  # The document must be parseable as XML with an "svg" root element and must
-  # not declare entities nor contain any other content which could execute
-  # scripts or read external resources when the document is rendered.
+  # The document must be parseable as XML with an "svg" root element in the SVG
+  # namespace and must not declare entities nor contain any other content which
+  # could execute scripts or read external resources when the document is rendered.
+  #
+  # The namespace of the root is checked because the files are stored and served as
+  # images, so the engines read them as XML, where the namespace declaration is what
+  # makes a document an SVG document. The namespace is provided automatically only by
+  # the HTML parser, which is not the way these files are read, so a root in another
+  # namespace is not an SVG element and the document is not rendered as an SVG.
+  #
+  # The other checks are applied to the names, independently of the namespace, as a
+  # document can declare another namespace for its descendants. The elements which are
+  # not in the SVG namespace are not SVG elements and are not rendered, but they are
+  # rejected as well, so that a document cannot pass the checks by moving its content
+  # to another namespace.
+  #
+  # The documents which the parser reports as not well formed, such as the ones using a
+  # prefix which is not bound to a namespace, are rejected as invalid, as the engines do
+  # not render them either (see #parse).
   #
   # The references which load resources into the document (the "href" of the
   # elements which resolve a reference when the document is rendered, the URL
@@ -57,6 +73,11 @@ module Decidim
   # specific validation to this class, so callers of that validator only need
   # to call a single validator for all the image formats.
   class SvgContentValidator
+    # The namespace the elements of an SVG document belong to, which is what the
+    # engines use to recognize an SVG document when the file is read as XML (see
+    # #parse).
+    SVG_NAMESPACE = "http://www.w3.org/2000/svg"
+
     # The elements which are not allowed in SVG documents, because they either
     # execute scripts themselves (e.g. "script" and the SVG Tiny "handler") or
     # allow embedding foreign content which can execute them (e.g.
@@ -115,17 +136,21 @@ module Decidim
     ).freeze
 
     # The name of the attribute which references the resource loaded by an
-    # element, either "href" or the legacy "xlink:href", which is also
-    # matched with an undeclared prefix, as browsers resolve it as the XLink
-    # reference. The "src" attribute is matched as well, as it defines the
-    # location of the profile referenced by the "color-profile" element.
+    # element, either "href" or the legacy "xlink:href". The parser reports the
+    # attributes which are bound to a namespace without their prefix, so any prefix
+    # bound to the XLink namespace is matched; the prefix is kept in the pattern to
+    # also cover the documents which use it without binding it, which are rejected as
+    # not well formed by #parse. The "src" attribute is matched as well, as it defines
+    # the location of the profile referenced by the "color-profile" element.
     SVG_REFERENCE_NAME = /\A(?:[\w.-]+:)?(?:href|src)\z/i
 
     # The name of the attribute which defines the base URI that the relative
     # references of the document are resolved against (XML Base). The parser
     # reports it without its reserved "xml" prefix, so it is matched with any
-    # prefix to also cover the documents which use it without declaring the
-    # namespace (see #forbidden_base_value?).
+    # prefix, which also covers the documents binding the XML namespace to another
+    # prefix (rejected as not well formed by #parse) and the ones using a "base"
+    # attribute in another namespace, which the engines do not interpret as XML Base
+    # but are rejected as well (see #forbidden_base_value?).
     SVG_BASE_NAME = /\A(?:[\w.-]+:)?base\z/i
 
     # The references which load a resource from another host: URIs with a
@@ -269,11 +294,19 @@ module Decidim
     # rejected instead of being recovered with a partial tree, and without
     # fetching any external resource (e.g. an external DTD) or substituting
     # entities, so that a malicious document cannot make the server read external
-    # resources or expand entities while it is validated. Returns nil when the
-    # contents are not a well formed XML document with an "svg" root element.
+    # resources or expand entities while it is validated. Strict mode does not
+    # recover, but it does not stop on the problems which are not fatal, such as a
+    # prefix which is not bound to a namespace (XML 1.0, 2.8); they are reported
+    # after the parse, so the documents which are not well formed are rejected as
+    # well, as the engines do not render them. Returns nil when the contents are
+    # not a well formed XML document with an "svg" root element in the SVG
+    # namespace.
     def parse
       document = Nokogiri::XML.parse(content) { |options| options.strict.nonet }
-      return nil if document.root.nil? || document.root.name != "svg"
+      return nil if document.errors.any? { |error| error.error? || error.fatal? }
+
+      root = document.root
+      return nil if root.nil? || root.name != "svg" || root.namespace&.href != SVG_NAMESPACE
 
       document
     rescue Nokogiri::XML::SyntaxError
