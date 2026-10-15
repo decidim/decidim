@@ -30,7 +30,7 @@ module Decidim
     private
 
     def page
-      @page ||= current_organization.static_pages.find_by!(slug: params.expect(:id))
+      @page ||= current_organization.static_pages.find_by!(slug: params[:id])
     end
 
     def breadcrumb_item
