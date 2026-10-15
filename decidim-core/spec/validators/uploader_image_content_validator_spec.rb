@@ -340,6 +340,12 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "an unsafe SVG"
     end
+
+    context "with an animation assigning a nested document from a single value containing MIME parameters" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_animation_data_uri.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
   end
 
   context "when the file is empty" do

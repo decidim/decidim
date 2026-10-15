@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- An animation assigning a single value which contains a semicolon as part of the
+     parameters of the MIME type of a data reference, so the value is not split and the
+     nested document is validated. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <image width="16" height="16"><animate attributeName="href" to="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20r%3D%221%22/%3E%3C/svg%3E" dur="1s" fill="freeze"/></image>
+</svg>

@@ -138,6 +138,18 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose animation assigns a single value containing the parameters of the MIME type of a data reference" do
+      let(:content) { File.read(Decidim::Dev.asset("test_animation_data_uri_parameter.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose animation target and values use a percent encoded fragment" do
+      let(:content) { File.read(Decidim::Dev.asset("test_animation_percent_encoded_fragment.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose style sheet references only elements of the document" do
       let(:content) { File.read(Decidim::Dev.asset("test_css_references.svg")) }
 
@@ -178,6 +190,8 @@ describe Decidim::SvgContentValidator do
         malicious_svg_animation_attribute_names.svg
         malicious_svg_animation_attribute_names_list.svg
         malicious_svg_animation_attribute_names_event_handler.svg
+        malicious_svg_animation_data_uri.svg
+        malicious_svg_animation_data_uri_parameter.svg
         malicious_svg_attributename_case.svg
         malicious_svg_style_import.svg
         malicious_svg_style_import_string.svg

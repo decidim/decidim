@@ -172,7 +172,17 @@ module Decidim
     # reaches them. "animateColor" is included although deprecated, as it is
     # defined by SVG 1.1 and modifies the "fill" and "stroke" properties.
     SVG_ANIMATION_ELEMENTS = %w(animate animatecolor set).freeze
-    SVG_ANIMATION_VALUE_NAMES = %w(values from to by).freeze
+
+    # The attribute which defines the list of values assigned by an animation,
+    # separated by semicolons.
+    SVG_ANIMATION_LIST_NAMES = %w(values).freeze
+
+    # The attributes which define a single value assigned by an animation. A
+    # single value is not split, as a semicolon can be part of it when it belongs
+    # to the value of the attribute being modified (e.g. the parameters of the
+    # MIME type of a data reference), and splitting it would validate only the
+    # part before the first semicolon.
+    SVG_ANIMATION_SINGLE_VALUE_NAMES = %w(from to by).freeze
 
     # The CSS at-rules which load external resources when the style sheets of
     # an SVG document are rendered. Imports always fetch a resource, so
@@ -346,10 +356,14 @@ module Decidim
       SVG_ANIMATION_TARGET_NAMES.any? { |name| attribute.name.casecmp?(name) }
     end
 
-    # The values assigned by an animation, which are accepted as lists
-    # separated by semicolons.
+    # The values assigned by an animation, which are the list of "values" and the
+    # single value of each of the other attributes. The white space which the
+    # specification ignores is stripped, and the values which are empty are
+    # ignored, as they do not assign anything.
     def animation_values(node)
-      SVG_ANIMATION_VALUE_NAMES.flat_map { |name| node[name].to_s.split(";") }
+      values = SVG_ANIMATION_LIST_NAMES.flat_map { |name| node[name].to_s.split(";") }
+      values.concat(SVG_ANIMATION_SINGLE_VALUE_NAMES.map { |name| node[name].to_s })
+      values.map(&:strip).reject(&:empty?)
     end
 
     # Whether the animation modifies the reference of an element which loads
