@@ -52,6 +52,16 @@ module Decidim
           end.to change { ActiveStorage::Blob.exists?(blob.id) }.from(true).to(false)
         end
 
+        it "purges the file from the storage service" do
+          expect { response }.to change { ActiveStorage::Blob.service.exist?(blob.key) }.from(true).to(false)
+        end
+
+        it "destroys the records the blob is attached to" do
+          blob
+
+          expect { response }.to change(ActiveStorage::Attachment, :count).by(-1)
+        end
+
         it "returns the deleted attachment" do
           expect(blob_response).to eq({ "id" => blob.id.to_s })
         end
@@ -60,6 +70,15 @@ module Decidim
           let(:blob) do
             create(:attachment, :with_image, attached_to: create(:participatory_process, organization: create(:organization))).reload.file_blob
           end
+
+          it "does not delete the blob" do
+            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+            expect(ActiveStorage::Blob.exists?(blob.id)).to be(true)
+          end
+        end
+
+        context "when the blob is attached to another organization itself" do
+          let(:blob) { create(:organization).favicon.blob }
 
           it "does not delete the blob" do
             expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)

@@ -3,6 +3,16 @@
 require "tempfile"
 
 shared_examples "API uploadable file" do
+  shared_examples "does not store the file" do
+    it "does not create the blob" do
+      count = ActiveStorage::Blob.count
+
+      expect { response }.to raise_error(Decidim::Api::Errors::ValidationError)
+
+      expect(ActiveStorage::Blob.count).to eq(count)
+    end
+  end
+
   context "when file does not exists" do
     let!(:tempfile) { Tempfile.create(["foo", ".xyz"]) }
     let(:file) { "foobar" }
@@ -11,6 +21,7 @@ shared_examples "API uploadable file" do
       expect { response }.to raise_error(GraphQL::ExecutionError, /is not a valid upload/)
     end
   end
+
   context "when file extension is not supported" do
     let!(:tempfile) { Tempfile.create(["foo", ".xyz"]) }
     let(:file) do
@@ -24,6 +35,8 @@ shared_examples "API uploadable file" do
     it "raises execution error" do
       expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, /File extension is not supported./)
     end
+
+    include_examples "does not store the file"
   end
 
   context "when client-reported content type differs from actual file content" do
@@ -39,6 +52,58 @@ shared_examples "API uploadable file" do
     it "uploads the file using Marcel-detected content type" do
       expect { response }.to change(ActiveStorage::Blob, :count).by(1)
     end
+
+    it "stores the content type detected from the file contents" do
+      response
+
+      expect(ActiveStorage::Blob.last.content_type).to eq("image/jpeg")
+    end
+  end
+
+  context "when the content type detected from the file contents is not allowed" do
+    let!(:tempfile) { Tempfile.create(["spoofed", ".png"]) }
+    let(:file) do
+      ActionDispatch::Http::UploadedFile.new(
+        filename: "spoofed.png",
+        type: "image/png",
+        tempfile:
+      )
+    end
+
+    before do
+      # An HTML document with an image extension: the extension is allowed, the
+      # content type detected from the contents is not.
+      tempfile.write("<html><body>Not an image</body></html>")
+      tempfile.rewind
+    end
+
+    it "raises execution error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, /File type is not supported./)
+    end
+
+    include_examples "does not store the file"
+  end
+
+  context "when file size is larger than the configured maximum" do
+    let(:file) do
+      Rack::Multipart::UploadedFile.new(
+        Decidim::Dev.asset("city.jpeg"),
+        "image/jpeg",
+        filename: "city.jpeg"
+      )
+    end
+
+    before do
+      current_organization.settings.tap do |settings|
+        settings.upload.maximum_file_size.default = 10.kilobytes.to_f / 1.megabyte
+      end
+    end
+
+    it "raises execution error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, /File is too large./)
+    end
+
+    include_examples "does not store the file"
   end
 
   context "when everything is ok" do

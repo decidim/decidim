@@ -55,6 +55,10 @@ describe Decidim::Api::BlobsController do
         expect(response).to have_http_status(:unprocessable_content)
         expect(response.parsed_body).to eq({ "error" => "unallowed_file_extension" })
       end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "assemblies.json")).not_to exist
+      end
     end
 
     context "with unallowed content type" do
@@ -68,6 +72,10 @@ describe Decidim::Api::BlobsController do
       it "does not allow uploading a file" do
         expect(response).to have_http_status(:unprocessable_content)
         expect(response.parsed_body).to eq({ "error" => "unallowed_content_type" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
       end
     end
 
@@ -91,6 +99,53 @@ describe Decidim::Api::BlobsController do
         expect(response).to have_http_status(:ok)
         expect(ActiveStorage::Blob.last.content_type).to eq("image/png")
         expect(response.parsed_body["contentType"]).to eq("image/png")
+      end
+    end
+
+    context "with a declared content type which is an alias of the detected one" do
+      let(:file) { Decidim::Dev.test_file("icon.png", "image/jpg") }
+
+      it "stores the content type detected from the file contents" do
+        expect(response).to have_http_status(:ok)
+        expect(ActiveStorage::Blob.last.content_type).to eq("image/png")
+      end
+    end
+
+    context "with a declared content type including parameters" do
+      let(:file) { Decidim::Dev.test_file("icon.png", "image/png;charset=binary") }
+
+      it "stores the content type detected from the file contents without the parameters" do
+        expect(response).to have_http_status(:ok)
+        expect(ActiveStorage::Blob.last.content_type).to eq("image/png")
+      end
+    end
+
+    context "with a file larger than the configured maximum" do
+      let(:file_upload_settings) do
+        { "maximum_file_size" => { "default" => 10.kilobytes.to_f / 1.megabyte } }
+      end
+      let!(:organization) { create(:organization, file_upload_settings:, favicon: nil, official_img_footer: nil) }
+
+      it "responds with HTTP code 422" do
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(response.parsed_body).to eq({ "error" => "file_too_large" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
+      end
+    end
+
+    context "with a file name without an extension" do
+      let(:file) do
+        Decidim::Dev.test_file("city.jpeg", "image/jpeg").tap do |uploaded_file|
+          uploaded_file.instance_variable_set(:@original_filename, "city")
+        end
+      end
+
+      it "responds with HTTP code 422" do
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(response.parsed_body).to eq({ "error" => "unallowed_file_extension" })
       end
     end
 
@@ -163,5 +218,25 @@ describe Decidim::Api::BlobsController do
     end
 
     include_examples "authorized user examples"
+
+    context "when the api user is not an admin" do
+      let(:api_user) { create(:api_user, organization:, api_key:, api_secret:, admin: false) }
+
+      it "responds with HTTP code 403" do
+        expect(response).to have_http_status(:forbidden)
+      end
+    end
+
+    context "when the token was issued by another organization" do
+      let(:api_user) { create(:api_user, organization: create(:organization), api_key:, api_secret:) }
+
+      it "responds with HTTP code 401" do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
+      end
+    end
   end
 end

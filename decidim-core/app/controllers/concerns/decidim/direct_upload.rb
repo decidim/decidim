@@ -19,6 +19,10 @@ module Decidim
       # We skip the validation if we are in system panel. `current_admin` refers to the main system admin user.
       return if current_admin.present?
 
+      # The size limit is checked against the byte_size declared by the client. The
+      # contents are sent straight to the storage service by the browser and are
+      # never compared with the declared value, so only what the client declares is
+      # enforced here.
       head :unprocessable_content unless [
         maximum_allowed_size.try(:to_i) >= blob_args[:byte_size].try(:to_i),
         content_types.any? { |pattern| pattern.match?(blob_args[:content_type]) },
