@@ -299,5 +299,48 @@ describe Decidim::SvgContentValidator do
 
       it_behaves_like "an invalid SVG document"
     end
+
+    context "with contents larger than the maximum size" do
+      let(:content) { "a" * (described_class::MAX_CONTENT_SIZE + 1) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with an XML nesting depth beyond the limit the parser enforces" do
+      let(:content) do
+        depth = 257
+        content = %(<svg xmlns="http://www.w3.org/2000/svg">)
+        content += %(#{("<g>" * depth)}<circle r="1"/>#{("</g>" * depth)}</svg>)
+        content
+      end
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with an element name longer than the limit the parser enforces" do
+      let(:content) do
+        name = "a" * 65_536
+        %(<svg xmlns="http://www.w3.org/2000/svg"><#{name} width="1"></#{name}></svg>)
+      end
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with an SVG with many elements and references, which stays under the limits" do
+      let(:content) do
+        references = %(<use href="#dot"/><image href="logo.png"/>) * 5000
+        %(<svg xmlns="http://www.w3.org/2000/svg"><defs><circle id="dot" r="1"/></defs>#{references}</svg>)
+      end
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG with a long reference which is not an external one" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><image href="#{"a" * 100_000}" width="1" height="1"/></svg>)
+      end
+
+      it_behaves_like "a valid SVG document"
+    end
   end
 end

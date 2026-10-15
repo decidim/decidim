@@ -46,6 +46,13 @@ module Decidim
   # references which are relative to the document resolve against another host
   # when it is rendered.
   #
+  # The contents are limited in size, and the parser limits the depth of the tree
+  # and the length of the names while it reads them, so the documents which could
+  # exhaust the memory of the process while they are parsed are rejected before the
+  # checks below are applied. The documents nested inside inline data references are
+  # limited in depth as well, as they are parsed with the same rules. The parser
+  # options which lift these limits are not enabled.
+  #
   # This is used by UploaderImageContentValidator, which delegates the SVG
   # specific validation to this class, so callers of that validator only need
   # to call a single validator for all the image formats.
@@ -135,7 +142,13 @@ module Decidim
     # #forbidden_reference_value?). The relative references, including the ones
     # starting at the root, are requested to the origin which serves the document
     # when it is rendered, as the class documentation says.
-    SVG_EXTERNAL_REFERENCE = %r{\A(?!data:)(?:[a-z][a-z0-9+.-]*:|[\\/]{2})}i
+    #
+    # The two forms are matched separately, as a quantifier inside an alternation
+    # makes the engine of the regular expressions allocate memory proportional to
+    # the length of the value, which a document with a single long value can use to
+    # exhaust the memory of the process (see #external_reference_value?).
+    SVG_EXTERNAL_SCHEME = /\A[a-z][a-z0-9+.-]*:/i
+    SVG_EXTERNAL_AUTHORITY = %r{\A[\\/]{2}}i
 
     # The inline data references whose contents are parsed when the document is
     # rendered. The SVG ones are validated as nested documents, as the rules
@@ -436,10 +449,18 @@ module Decidim
     # when it is rendered. The whitespace and control characters which can be
     # used to obfuscate the scheme are removed before checking.
     def forbidden_reference_value?(value)
-      return true if SVG_EXTERNAL_REFERENCE.match?(normalize_uri_value(value))
+      return true if external_reference_value?(normalize_uri_value(value))
       return true if forbidden_uri_value?(value)
 
       nested_document_unsafe?(value)
+    end
+
+    # Whether the normalized reference resolves to another host. The "data:"
+    # references are inline, so they are not external.
+    def external_reference_value?(normalized)
+      return false if normalized.start_with?("data:")
+
+      SVG_EXTERNAL_SCHEME.match?(normalized) || SVG_EXTERNAL_AUTHORITY.match?(normalized)
     end
 
     # Whether the contents of an inline data reference declaring an SVG
