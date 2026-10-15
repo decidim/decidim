@@ -114,6 +114,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose base is relative to the document itself" do
+      let(:content) { File.read(Decidim::Dev.asset("test_relative_base.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG document with active content" do
       %w(
         malicious_svg_script.svg
@@ -152,6 +158,8 @@ describe Decidim::SvgContentValidator do
         malicious_svg_external_feimage.svg
         malicious_svg_cursor.svg
         malicious_svg_backslash_reference.svg
+        malicious_svg_base.svg
+        malicious_svg_base_child_element.svg
         malicious_svg_external_animation.svg
         malicious_svg_external_animation_target.svg
         malicious_svg_external_animation_missing_target.svg

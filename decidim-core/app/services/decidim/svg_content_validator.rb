@@ -26,6 +26,11 @@ module Decidim
   # load any resource when the document is rendered; they can still reference
   # any host, so they are a phishing surface which is accepted on purpose.
   #
+  # The base URI which the relative references are resolved against ("xml:base")
+  # is restricted to the document itself as well, as an external base makes the
+  # references which are relative to the document resolve against another host
+  # when it is rendered.
+  #
   # This is used by UploaderImageContentValidator, which delegates the SVG
   # specific validation to this class, so callers of that validator only need
   # to call a single validator for all the image formats.
@@ -80,6 +85,13 @@ module Decidim
     # matched with an undeclared prefix, as browsers resolve it as the XLink
     # reference.
     SVG_REFERENCE_NAME = /\A(?:[\w.-]+:)?href\z/i
+
+    # The name of the attribute which defines the base URI that the relative
+    # references of the document are resolved against (XML Base). The parser
+    # reports it without its reserved "xml" prefix, so it is matched with any
+    # prefix to also cover the documents which use it without declaring the
+    # namespace (see #forbidden_base_value?).
+    SVG_BASE_NAME = /\A(?:[\w.-]+:)?base\z/i
 
     # The references which load a resource from another host: URIs with a
     # scheme (e.g. "https:") and references resolving to an authority, which
@@ -220,6 +232,7 @@ module Decidim
       return true if forbidden_uri_value?(attribute.value.to_s)
       return true if css_content_name?(attribute.name) && forbidden_css_content?(attribute.value.to_s)
       return true if animation_target_attribute?(attribute) && forbidden_name?(attribute.value.to_s)
+      return true if forbidden_base_value?(attribute)
 
       forbidden_resource_reference?(node, attribute)
     end
@@ -241,6 +254,16 @@ module Decidim
       return false unless SVG_REFERENCE_NAME.match?(attribute.name)
 
       forbidden_reference_value?(attribute.value.to_s)
+    end
+
+    # Whether the attribute defines the base URI which the relative references of
+    # the document are resolved against (XML Base), when that base points to
+    # another host. The base applies to the element which declares it and to its
+    # descendants, so a reference which is relative to the document resolves
+    # against it when the document is rendered, and the base is restricted like
+    # the references which load a resource.
+    def forbidden_base_value?(attribute)
+      SVG_BASE_NAME.match?(attribute.name) && forbidden_reference_value?(attribute.value.to_s)
     end
 
     # Whether an animation assigns an external resource to a reference
