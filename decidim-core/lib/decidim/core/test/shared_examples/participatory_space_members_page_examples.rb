@@ -44,10 +44,10 @@ shared_examples "participatory space members page examples" do
     end
 
     context "when participatory space has paginated members" do
-      let(:users) { create_list(:user, 30, organization: participatory_space.organization) }
+      let(:users) { create_list(:user, 30, organization: privatable_to.organization) }
       let!(:members) do
         users.map do |user|
-          create(:member, participatory_space:, user:, published: true)
+          create(:participatory_space_private_user, privatable_to:, user:, published: true)
         end
       end
 
