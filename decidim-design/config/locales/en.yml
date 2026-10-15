@@ -235,6 +235,8 @@ en:
         participatory_process_s: Participatory Process S
         participatory_processes: Participatory Processes
         plain_text: I am just plain text
+        icon_description: The optional icon option shows an icon at the left of the announcement, next to the title and the body.
+        icon_title: With an icon
         plain_text_description: You can provide as first argument both a plain text and a hash object
         plain_text_vs_hash: Plain Text Vs Hash
         post_g: Post G

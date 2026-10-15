@@ -79,6 +79,32 @@ module Decidim
                 }
               }
             ]
+          },
+          {
+            title: t("decidim.design.helpers.icon_title"),
+            contents: [
+              {
+                type: :text,
+                values: [t("decidim.design.helpers.icon_description")]
+              },
+              {
+                type: :table,
+                options: { headings: [t("decidim.design.components.announcement.title"), t("decidim.design.helpers.callout_class")] },
+                items: announcement_table(
+                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
+                    callout_class: "info",
+                    icon: "information-line" }
+                ),
+                cell_snippet: {
+                  cell: "decidim/announcement",
+                  args: [{ title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
+                         { callout_class: "info", icon: "information-line" }],
+                  call_string: [
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "info", icon: "information-line")'
+                  ]
+                }
+              }
+            ]
           }
         ]
       end
@@ -86,7 +112,7 @@ module Decidim
       def announcement_table(*table_rows, **_opts)
         table_rows.each_with_index.map do |table_cell, _ix|
           row = []
-          row << { method: :cell, args: ["decidim/announcement", table_cell[:text], { callout_class: table_cell[:callout_class] }] }
+          row << { method: :cell, args: ["decidim/announcement", table_cell[:text], { callout_class: table_cell[:callout_class], icon: table_cell[:icon] }.compact] }
           row << table_cell[:callout_class]
           row << table_cell[:argument] if table_cell[:argument].present?
           row

@@ -48,6 +48,9 @@ module Decidim::Comments
         it "renders the single comment warning" do
           expect(subject).to have_css(".flash.info", text: "You are seeing a single comment thread")
           expect(subject).to have_css(".flash.info", text: "View all comments")
+          expect(subject).to have_css(".flash.info .flash__icon svg")
+          expect(subject).to have_css(".flash.info .flash__message a", text: "View all comments")
+          expect(subject).to have_css(".flash.info[data-alert-box] button.close-button[data-close]")
         end
 
         context "when the single comment is a reply" do
