@@ -122,7 +122,7 @@ PATH
     decidim-design (0.33.0.dev)
       decidim-core (= 0.33.0.dev)
     decidim-dev (0.33.0.dev)
-      bullet (>= 8.1, < 8.3)
+      bullet (>= 8.1, < 8.4)
       byebug (>= 11, < 14)
       capybara (~> 3.39)
       decidim-admin (= 0.33.0.dev)
@@ -311,7 +311,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.26.0)
       msgpack (~> 1.5)
-    brakeman (8.0.6)
+    brakeman (8.1.0)
       racc
     browser (6.2.0)
     builder (3.3.0)
@@ -951,7 +951,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (~> 1.26)
-  brakeman (~> 8.0)
+  brakeman (~> 8.1)
   byebug (~> 13.0)
   decidim!
   decidim-ai!

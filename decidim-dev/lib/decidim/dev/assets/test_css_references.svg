@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A document whose CSS references are resolved against the document itself:
+     the paint server and the mask, which are not fetched as the properties
+     accepting them only refer to elements of the document, and the text which
+     only looks like a reference because it is inside a string which is not an
+     argument of a function loading a resource. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <defs>
+    <pattern id="paint"><rect width="16" height="16"/></pattern>
+    <mask id="mask"><rect width="16" height="16" fill="#fff"/></mask>
+  </defs>
+  <style>.logo { fill: url(#paint); mask: url(#mask); content: "image-set(\"https://example.org/logo.png\")"; }</style>
+  <circle class="logo" cx="8" cy="8" r="8" mask="url(#mask)"/>
+</svg>

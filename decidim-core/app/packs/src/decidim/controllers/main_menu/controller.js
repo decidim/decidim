@@ -148,5 +148,6 @@ export default class extends Controller {
     this.element.setAttribute("aria-expanded", "false")
     this.menuContainer.setAttribute("aria-hidden", "true")
     this.menuContainer.removeAttribute("aria-modal")
+    this.menuButton.focus({ preventScroll: true })
   }
 }
