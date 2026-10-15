@@ -139,7 +139,7 @@ module Decidim
 
           return redirect_to(URI.parse(params[:url]).path) unless questionnaire
 
-          # rubocop:disable-next Rails/SkipsModelValidations
+          # rubocop:disable Rails/SkipsModelValidations
           questionnaire.touch
           # rubocop:enable Rails/SkipsModelValidations
           redirect_to URI.parse(params[:url]).path
