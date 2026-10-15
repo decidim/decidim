@@ -175,6 +175,7 @@ describe "Datepicker" do
             find('span > input[name="year"]').set("1994")
             find(".wc-datepicker__next-month-button").click
             find("td > span[aria-hidden=true]", text: "20", match: :first).click
+            find(".datepicker__pick-calendar").click
             find(".datepicker__calendar-button").click
             element = find("td.wc-datepicker__date--selected")
             expect(element).to have_content("20")
@@ -507,6 +508,7 @@ describe "Datepicker" do
         formatted_month = format("%02d", month)
 
         find("td > span[aria-hidden=true]", text: "20", match: :first).click
+        find(".datepicker__pick-calendar").click
 
         find(".datepicker__clock-button").click
         find(".datepicker__hour-up").click
@@ -762,6 +764,7 @@ describe "Datepicker" do
         formatted_month = format("%02d", month)
 
         find("td > span[aria-hidden=true]", text: "20", match: :first).click
+        find(".datepicker__pick-calendar").click
 
         find(".datepicker__clock-button").click
         find(".datepicker__hour-up").click
