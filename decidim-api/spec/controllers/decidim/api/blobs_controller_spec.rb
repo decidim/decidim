@@ -149,6 +149,45 @@ describe Decidim::Api::BlobsController do
       end
     end
 
+    context "with an SVG document with active content" do
+      let(:file_upload_settings) do
+        {
+          "allowed_file_extensions" => { "default" => extensions, "admin" => extensions },
+          "allowed_content_types" => { "default" => content_types, "admin" => content_types }
+        }
+      end
+      let(:extensions) { %w(svg) }
+      let(:content_types) { %w(image/*) }
+      let!(:organization) { create(:organization, file_upload_settings:) }
+      let(:file) { Decidim::Dev.test_file("malicious_svg_script.svg", "image/svg+xml") }
+
+      it "does not allow uploading a file" do
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(response.parsed_body).to eq({ "error" => "unsafe_content" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "malicious_svg_script.svg")).not_to exist
+      end
+    end
+
+    context "with a valid SVG document" do
+      let(:file_upload_settings) do
+        {
+          "allowed_file_extensions" => { "default" => extensions, "admin" => extensions },
+          "allowed_content_types" => { "default" => content_types, "admin" => content_types }
+        }
+      end
+      let(:extensions) { %w(svg) }
+      let(:content_types) { %w(image/*) }
+      let!(:organization) { create(:organization, file_upload_settings:) }
+      let(:file) { Decidim::Dev.test_file("test.svg", "image/svg+xml") }
+
+      it "allows uploading a file" do
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
     context "with file name in Windows-1252 encoding" do
       let(:file) do
         Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf").tap do |f|

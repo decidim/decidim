@@ -39,6 +39,7 @@ module Decidim
         validate_extension!(file)
         validate_content_type!(file)
         validate_size!(file)
+        validate_content!(file)
       end
 
       def validate_content_type!(file)
@@ -76,6 +77,24 @@ module Decidim
       def detect_content_type(file)
         tempfile = file.respond_to?(:tempfile) ? file.tempfile : file.path
         Marcel::MimeType.for(tempfile, name: File.basename(file.original_filename)) || file.content_type
+      end
+
+      # SVG documents are XML-based and can contain active content which is executed
+      # when the document is rendered by the browser, so the contents are validated
+      # before the blob is stored.
+      def validate_content!(file)
+        return unless Decidim::UploadContentTypes.format(detect_content_type(file)) == :svg
+
+        return unless Decidim::SvgContentValidator.validate(file_contents(file)) == :unsafe
+
+        raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.file_upload.errors.unsafe_content")
+      end
+
+      def file_contents(file)
+        io = file.respond_to?(:tempfile) ? file.tempfile : file
+        contents = io.read
+        io.rewind
+        contents
       end
     end
   end

@@ -22,6 +22,24 @@ module Decidim
       end
     end
 
+    describe ".format" do
+      it "returns the format a content type belongs to" do
+        expect(described_class.format("image/png")).to eq(:png)
+      end
+
+      it "returns the format for an alias of the format" do
+        expect(described_class.format("image/jpg")).to eq(:jpeg)
+      end
+
+      it "returns the format when the content type has parameters" do
+        expect(described_class.format("image/heif;charset=binary")).to eq(:heif)
+      end
+
+      it "returns nil for a content type of an unknown format" do
+        expect(described_class.format("text/html")).to be_nil
+      end
+    end
+
     describe ".match?" do
       it "accepts the content type of the format" do
         expect(described_class.match?(:jpeg, "image/jpeg")).to be(true)

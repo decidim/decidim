@@ -27,6 +27,12 @@ module Decidim
       content_type.to_s.split(";", 2).first.to_s.strip.downcase
     end
 
+    # The file format a content type belongs to, or nil when it does not belong to
+    # one of the known formats.
+    def self.format(content_type)
+      FORMAT_CONTENT_TYPES.find { |_format, types| types.include?(normalize(content_type)) }&.first
+    end
+
     # Whether the content type is one of the accepted types for the given format.
     def self.match?(format, content_type)
       FORMAT_CONTENT_TYPES.fetch(format).include?(normalize(content_type))
@@ -35,7 +41,7 @@ module Decidim
     # The accepted content types for the format of a given content type, or nil
     # when the content type does not belong to a known format.
     def self.accepted_types(content_type)
-      FORMAT_CONTENT_TYPES.find { |_format, types| types.include?(normalize(content_type)) }&.last
+      FORMAT_CONTENT_TYPES[format(content_type)]
     end
   end
 end

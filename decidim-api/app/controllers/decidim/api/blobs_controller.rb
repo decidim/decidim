@@ -22,6 +22,7 @@ module Decidim
 
         max_bytes = Decidim.organization_settings(current_organization).upload.maximum_file_size.default.megabytes
         return render json: { error: :file_too_large }, status: :unprocessable_content if uploaded_file.size > max_bytes
+        return render json: { error: :unsafe_content }, status: :unprocessable_content unless safe_content?
 
         blob = ActiveStorage::Blob.create_and_upload!(
           io: uploaded_file,
@@ -102,6 +103,26 @@ module Decidim
 
       def content_type_allowlist
         Decidim.organization_settings(current_organization).upload_allowed_content_types_admin
+      end
+
+      # SVG documents are XML-based and can contain active content which is executed
+      # when the document is rendered by the browser, so the contents are validated
+      # before the blob is stored. This is possible here because the file goes
+      # through the application; the direct upload endpoint cannot do it, as the
+      # contents are sent straight to the storage service and are never available to
+      # the application, and they are checked by UploaderImageContentValidator when
+      # the blob is attached to a record.
+      def safe_content?
+        return true unless Decidim::UploadContentTypes.format(detected_content_type) == :svg
+
+        Decidim::SvgContentValidator.validate(uploaded_file_contents) != :unsafe
+      end
+
+      def uploaded_file_contents
+        tempfile = uploaded_file.tempfile
+        contents = tempfile.read
+        tempfile.rewind
+        contents
       end
 
       def permission_scope

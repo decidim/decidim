@@ -433,6 +433,7 @@ en:
           file_no_exists: File does not exist.
           file_too_large: File is too large.
           type_not_supported: File type is not supported.
+          unsafe_content: File contains unsafe content.
     application:
       document:
         download: Download file
