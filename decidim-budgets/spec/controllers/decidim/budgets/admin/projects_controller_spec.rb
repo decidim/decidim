@@ -110,6 +110,22 @@ module Decidim
 
             expect(project.reload.budget).to eq(another_budget)
           end
+
+          context "when the reference budget belongs to another organization" do
+            let(:other_organization) { create(:organization) }
+            let(:other_component) { create(:budgets_component, organization: other_organization) }
+            let(:other_budget) { create(:budget, component: other_component) }
+
+            it "rejects the request and does not change the project's budget" do
+              original_budget = project.budget
+
+              expect do
+                post(:update_budget, params: { budget_id: project.budget.id, project_ids: [project.id.to_s], reference_id: other_budget.id, format: :js })
+              end.to raise_error(ActiveRecord::RecordNotFound)
+
+              expect(project.reload.budget).to eq(original_budget)
+            end
+          end
         end
 
         it_behaves_like "a soft-deletable resource",
