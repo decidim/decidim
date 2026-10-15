@@ -99,6 +99,19 @@ module Decidim
           end
         end
 
+        describe "POST update_budget" do
+          let(:another_component) do
+            create(:budgets_component, organization: component.organization, participatory_space: component.participatory_space)
+          end
+          let(:another_budget) { create(:budget, component: another_component) }
+
+          it "moves the project to a budget from another component in the same participatory space" do
+            post(:update_budget, params: { budget_id: project.budget.id, project_ids: [project.id.to_s], reference_id: another_budget.id, format: :js })
+
+            expect(project.reload.budget).to eq(another_budget)
+          end
+        end
+
         it_behaves_like "a soft-deletable resource",
                         resource_name: :project,
                         resource_path: :budget_projects_path,
