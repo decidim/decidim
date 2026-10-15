@@ -160,7 +160,7 @@ module Decidim
         end
 
         def proposal
-          @proposal ||= accessible_proposals_collection.find(params.expect(:id))
+          @proposal ||= accessible_proposals_collection.find(params.require(:id))
         end
 
         def proposal_ids
