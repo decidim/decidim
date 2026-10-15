@@ -20,11 +20,16 @@ module Decidim
   # presentation attributes, the style sheets and the "xml-stylesheet"
   # instruction) are restricted to the document itself and to inline data, so
   # that documents cannot make the browser of the reader fetch third-party
-  # resources. The contents of the inline data references declaring
-  # an SVG document are validated as nested documents, as they are parsed when
-  # the reference is rendered. Links ("a") are not restricted, as they do not
-  # load any resource when the document is rendered; they can still reference
-  # any host, so they are a phishing surface which is accepted on purpose.
+  # resources. The base URI against which the relative references are resolved
+  # can also be changed with the "xml:base" attribute, so any attribute
+  # declaring a base URI is rejected outright. Otherwise a relative reference
+  # which passes the checks above would be fetched from the host of the base
+  # URI when the document is rendered. The contents of the inline data
+  # references declaring an SVG document are validated as nested documents, as
+  # they are parsed when the reference is rendered. Links ("a") are not
+  # restricted, as they do not load any resource when the document is rendered;
+  # they can still reference any host, so they are a phishing surface which is
+  # accepted on purpose.
   #
   # This is used by UploaderImageContentValidator, which delegates the SVG
   # specific validation to this class, so callers of that validator only need
@@ -80,6 +85,16 @@ module Decidim
     # matched with an undeclared prefix, as browsers resolve it as the XLink
     # reference.
     SVG_REFERENCE_NAME = /\A(?:[\w.-]+:)?href\z/i
+
+    # The name of the attribute which changes the base URI against which the
+    # relative references of the document are resolved. Browsers resolve the
+    # "xml:base" spelling to the XML Base attribute, and an undeclared prefix
+    # is resolved like SVG_REFERENCE_NAME, so the name is matched with any
+    # prefix and case insensitively. The attribute is rejected outright, even
+    # when its value is a relative reference, as an uploaded image has no
+    # legitimate use for it and any value can change where the relative
+    # references of the document are resolved (see #forbidden_attribute?).
+    SVG_BASE_NAME = /\A(?:[\w.-]+:)?base\z/i
 
     # The references which load a resource from another host: URIs with a
     # scheme (e.g. "https:") and references resolving to an authority, which
@@ -216,6 +231,7 @@ module Decidim
 
     def forbidden_attribute?(node, attribute)
       return true if SVG_EVENT_HANDLER_NAME.match?(attribute.name)
+      return true if SVG_BASE_NAME.match?(attribute.name)
 
       return true if forbidden_uri_value?(attribute.value.to_s)
       return true if css_content_name?(attribute.name) && forbidden_css_content?(attribute.value.to_s)

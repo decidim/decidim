@@ -150,6 +150,8 @@ describe Decidim::SvgContentValidator do
         malicious_svg_external_image.svg
         malicious_svg_external_use.svg
         malicious_svg_external_feimage.svg
+        malicious_svg_base_absolute.svg
+        malicious_svg_base_protocol_relative.svg
         malicious_svg_cursor.svg
         malicious_svg_backslash_reference.svg
         malicious_svg_external_animation.svg

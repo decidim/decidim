@@ -257,6 +257,12 @@ describe UploaderImageContentValidator do
       it_behaves_like "an unsafe SVG"
     end
 
+    context "with a base URI changing the resolution of a relative reference" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_base_absolute.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
     context "with a use referencing an external document" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_external_use.svg", "image/svg+xml") }
 
