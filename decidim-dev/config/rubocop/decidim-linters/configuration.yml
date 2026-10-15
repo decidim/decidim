@@ -33,6 +33,8 @@ Decidim/EnforcePermissionTo:
     - "decidim-core/app/controllers/decidim/doorkeeper/**/*.rb"
   # - favicon: always visible
     - decidim-core/app/controllers/decidim/favicon_controller.rb
+  # - errors: always visible
+    - decidim-core/app/controllers/decidim/errors_controller.rb
 Decidim/RSpec/MemoizedName:
   Enabled: true
   Include:
