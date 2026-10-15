@@ -77,7 +77,7 @@ module Decidim
     # mode. Their values are validated as style sheet content, as they are
     # parsed as the CSS properties they define.
     SVG_URL_PRESENTATION_ATTRIBUTES = %w(
-      cursor mask fill stroke filter clip-path marker marker-start marker-mid marker-end
+      cursor mask fill stroke filter clip-path marker marker-start marker-mid marker-end color-profile
     ).freeze
 
     # The name of the attribute which references the resource loaded by an
@@ -116,16 +116,19 @@ module Decidim
 
     # The CSS functions which load the resources they reference when the style
     # sheet is rendered. The strings inside them are interpreted as URLs, so the
-    # arguments of "image-set()" define a reference as the arguments of "url()"
-    # do, and the vendor prefixed spelling is matched as well.
-    CSS_URL_FUNCTIONS = %w(url image-set -webkit-image-set).freeze
+    # arguments of "image()" and "image-set()" define a reference as the arguments
+    # of "url()" do, and the vendor prefixed spelling is matched as well.
+    CSS_URL_FUNCTIONS = %w(url image image-set -webkit-image-set).freeze
 
     # The URL references of a style sheet, captured after the comments and the
     # strings which do not define a URL are removed, so that each of them can
     # be validated as a reference. Only the strings of the functions which load
     # their arguments survive the scrubbing, so the remaining strings are URL
-    # values, and the unquoted value of a "url()" function is matched as well.
-    SVG_CSS_URL_VALUE = /["']([^"')]+)["']?|(?:url|image-set)\(\s*([^"')]+)/im
+    # values, and the unquoted value of a "url()" function is matched as well. The
+    # value of a function is not taken as a reference when it is itself a function
+    # call, so that a function nested inside another one (e.g. "image(url(...))")
+    # is matched on its own.
+    SVG_CSS_URL_VALUE = /["']([^"')]+)["']?|(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
 
     # The maximum depth of the documents nested inside inline data references,
     # which are validated with the same rules as the document itself.

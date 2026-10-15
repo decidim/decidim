@@ -114,6 +114,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose image function and color profile are resolved against the document itself" do
+      let(:content) { File.read(Decidim::Dev.asset("test_relative_image_function.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose style sheet ends with an unterminated comment with multibyte characters" do
       let(:content) { File.read(Decidim::Dev.asset("test_css_unclosed_comment.svg")) }
 
@@ -138,6 +144,7 @@ describe Decidim::SvgContentValidator do
         malicious_svg_animation_values.svg
         malicious_svg_animation_style.svg
         malicious_svg_animation_fill.svg
+        malicious_svg_animation_color_profile.svg
         malicious_svg_animation_attribute_names.svg
         malicious_svg_attributename_case.svg
         malicious_svg_style_import.svg
@@ -149,10 +156,16 @@ describe Decidim::SvgContentValidator do
         malicious_svg_css_backslash_url.svg
         malicious_svg_css_image_set.svg
         malicious_svg_css_image_set_nested_parentheses.svg
+        malicious_svg_css_image_function.svg
         malicious_svg_mask_attribute.svg
         malicious_svg_cursor_attribute.svg
         malicious_svg_fill_external_reference.svg
+        malicious_svg_stroke_external_reference.svg
+        malicious_svg_clip_path_external_reference.svg
+        malicious_svg_filter_external_reference.svg
         malicious_svg_marker_external_reference.svg
+        malicious_svg_marker_start_external_reference.svg
+        malicious_svg_color_profile_external_reference.svg
         malicious_svg_stylesheet_pi.svg
         malicious_svg_entity.svg
         malicious_svg_entity_parameter.svg

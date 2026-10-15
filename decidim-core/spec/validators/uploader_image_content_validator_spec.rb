@@ -263,6 +263,12 @@ describe UploaderImageContentValidator do
       it_behaves_like "an unsafe SVG"
     end
 
+    context "with a style sheet loading an external resource with the image function" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_css_image_function.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
     context "with a processing instruction loading an external style sheet" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_stylesheet_pi.svg", "image/svg+xml") }
 
