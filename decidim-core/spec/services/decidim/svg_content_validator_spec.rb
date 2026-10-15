@@ -84,6 +84,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose reference elements are resolved against the document itself" do
+      let(:content) { File.read(Decidim::Dev.asset("test_reference_elements_resolved_in_document.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose entity declarations only appear inside comments and CDATA sections" do
       let(:content) { File.read(Decidim::Dev.asset("test_entity_in_comment.svg")) }
 
@@ -186,6 +192,17 @@ describe Decidim::SvgContentValidator do
         malicious_svg_external_use.svg
         malicious_svg_external_feimage.svg
         malicious_svg_cursor.svg
+        malicious_svg_gradient_external_reference.svg
+        malicious_svg_pattern_external_reference.svg
+        malicious_svg_filter_element_external_reference.svg
+        malicious_svg_text_path_external_reference.svg
+        malicious_svg_mpath_external_reference.svg
+        malicious_svg_tref_external_reference.svg
+        malicious_svg_alt_glyph_external_reference.svg
+        malicious_svg_font_face_uri_external_reference.svg
+        malicious_svg_color_profile_element_external_reference.svg
+        malicious_svg_animate_color_external_reference.svg
+        malicious_svg_animation_gradient_reference.svg
         malicious_svg_backslash_reference.svg
         malicious_svg_base.svg
         malicious_svg_base_child_element.svg

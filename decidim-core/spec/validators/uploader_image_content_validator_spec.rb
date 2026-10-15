@@ -317,6 +317,12 @@ describe UploaderImageContentValidator do
       it_behaves_like "an unsafe SVG"
     end
 
+    context "with a gradient inheriting from an element of an external document" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_gradient_external_reference.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
     context "with an animation assigning an external resource to a reference" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_external_animation.svg", "image/svg+xml") }
 

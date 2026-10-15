@@ -15,12 +15,12 @@ module Decidim
   # not declare entities nor contain any other content which could execute
   # scripts or read external resources when the document is rendered.
   #
-  # The references which load resources into the document (the "href" of
-  # "image", "use", "feImage" and "cursor", the URL references of the
-  # presentation attributes, the style sheets and the "xml-stylesheet"
-  # instruction) are restricted to the document itself and to inline data, so
-  # that documents cannot make the browser of the reader fetch third-party
-  # resources. The contents of the inline data references declaring
+  # The references which load resources into the document (the "href" of the
+  # elements which resolve a reference when the document is rendered, the URL
+  # references of the presentation attributes, the style sheets and the
+  # "xml-stylesheet" instruction) are restricted to the document itself and to
+  # inline data, so that documents cannot make the browser of the reader fetch
+  # third-party resources. The contents of the inline data references declaring
   # an SVG document are validated as nested documents, as they are parsed when
   # the reference is rendered. Links ("a") are not restricted, as they do not
   # load any resource when the document is rendered; they can still reference
@@ -61,15 +61,25 @@ module Decidim
     # checked separately (see #name_list).
     SVG_ANIMATION_TARGET_NAMES = %w(attribute attributename attributenames).freeze
 
-    # The elements which load the resource referenced by their "href" (or
-    # legacy "xlink:href") attribute into the document when it is rendered.
-    # The references of these elements are restricted to the document itself
-    # and to inline data, as absolute references make the browser of the
-    # reader fetch resources from third-party hosts, which can be used for
-    # tracking or for probing internal networks. Links ("a") are not
-    # included, as they do not load any resource; they can still reference
-    # any host, so they are a phishing surface which is accepted on purpose.
-    SVG_RESOURCE_ELEMENTS = %w(image use feimage cursor).freeze
+    # The elements which resolve the reference of their "href" (or legacy
+    # "xlink:href") attribute when the document is rendered, either by loading
+    # the referenced resource (e.g. the "image", the icon of a "cursor" or the
+    # font of a "font-face-uri") or by resolving it to an element which may
+    # belong to another document, which is fetched to find it (e.g. the
+    # gradient a "linearGradient" inherits from, the "path" of a "textPath", or
+    # the elements referenced by "use", "tref" and "altGlyph"). The references
+    # of these elements are restricted to the document itself and to inline
+    # data, as absolute references make the browser of the reader fetch
+    # resources from third-party hosts, which can be used for tracking or for
+    # probing internal networks. Links ("a") are not included, as they do not
+    # load any resource; they can still reference any host, so they are a
+    # phishing surface which is accepted on purpose. The animation elements are
+    # not included either, as their reference identifies the target element,
+    # which the specification requires to be part of the same document.
+    SVG_RESOURCE_ELEMENTS = %w(
+      image use feimage cursor font-face-uri tref altglyph color-profile
+      lineargradient radialgradient pattern filter textpath mpath
+    ).freeze
 
     # The presentation attributes whose value defines a reference resolved when
     # the document is rendered. The image references (e.g. "cursor" and "mask")
@@ -85,8 +95,9 @@ module Decidim
     # The name of the attribute which references the resource loaded by an
     # element, either "href" or the legacy "xlink:href", which is also
     # matched with an undeclared prefix, as browsers resolve it as the XLink
-    # reference.
-    SVG_REFERENCE_NAME = /\A(?:[\w.-]+:)?href\z/i
+    # reference. The "src" attribute is matched as well, as it defines the
+    # location of the profile referenced by the "color-profile" element.
+    SVG_REFERENCE_NAME = /\A(?:[\w.-]+:)?(?:href|src)\z/i
 
     # The name of the attribute which defines the base URI that the relative
     # references of the document are resolved against (XML Base). The parser
@@ -147,8 +158,9 @@ module Decidim
     # they target the "style" attribute or one of the presentation attributes
     # which resolve a URL reference, the values are validated as style sheet
     # content, as the URL references they declare are loaded when the animation
-    # reaches them.
-    SVG_ANIMATION_ELEMENTS = %w(animate set).freeze
+    # reaches them. "animateColor" is included although deprecated, as it is
+    # defined by SVG 1.1 and modifies the "fill" and "stroke" properties.
+    SVG_ANIMATION_ELEMENTS = %w(animate animatecolor set).freeze
     SVG_ANIMATION_VALUE_NAMES = %w(values from to by).freeze
 
     # The CSS at-rules which load external resources when the style sheets of
