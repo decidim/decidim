@@ -9,9 +9,13 @@ module Decidim
       include Decidim::Budgets::Orderable
       include Decidim::TranslatableAttributes
 
-      def index; end
+      def index
+        enforce_permission_to :read, :budget
+      end
 
       def show
+        enforce_permission_to(:read, :budget, budget:)
+
         raise ActionController::RoutingError, "Not Found" unless budget
 
         redirect_to budget_projects_path(budget)

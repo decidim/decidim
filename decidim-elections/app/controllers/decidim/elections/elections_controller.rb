@@ -11,7 +11,9 @@ module Decidim
 
       helper_method :elections, :election, :tab_panel_items, :questions, :paginated_elections
 
-      def index; end
+      def index
+        enforce_permission_to :read, :election
+      end
 
       def show
         raise ActionController::RoutingError, "Not Found" unless election
