@@ -1,6 +1,7 @@
 <%= content_tag :div,
                 id: "comment_#{model.id}",
-                class: ["comment", "relative", ("top-comment" if top_comment_label.present?), ("comment--highlighted" if target_self?)].compact,
+                class: ["comment", "relative", ("top-comment" if top_comment_label.present?), ("comment--highlighted" if target_comment?)].compact,
+                aria: { current: ("true" if target_comment?) },
                 role: "comment",
                 data: { comment_id: model.id, parent: parent_element_id } do %>
   <% if model.hidden? %>

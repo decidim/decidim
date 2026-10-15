@@ -76,7 +76,7 @@ module Decidim
         hash.push(model.author.cache_key_with_version)
         hash.push(extra_actions.to_s)
         hash.push(next_chain_id.to_s)
-        hash.push(target_self? ? 1 : 0)
+        hash.push(target_comment? ? 1 : 0)
         @hash = hash.join(Decidim.cache_key_separator)
       end
 
@@ -258,7 +258,7 @@ module Decidim
         next_chain_id.present?
       end
 
-      def target_self?
+      def target_comment?
         target_chain_ids.last == model.id
       end
 

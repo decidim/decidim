@@ -46,8 +46,8 @@ module Decidim::Comments
         end
 
         it "renders the single comment warning" do
-          expect(subject).to have_css(".flash.secondary", text: "You are seeing a single comment")
-          expect(subject).to have_css(".flash.secondary", text: "View all comments")
+          expect(subject).to have_css(".flash.info", text: "You are seeing a single comment thread")
+          expect(subject).to have_css(".flash.info", text: "View all comments")
         end
 
         context "when the single comment is a reply" do
@@ -71,6 +71,12 @@ module Decidim::Comments
             expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted")
             expect(subject).to have_no_css("#comment_#{thread_root.id}.comment--highlighted")
             expect(subject).to have_no_css("#comment_#{first_reply.id}.comment--highlighted")
+          end
+
+          it "marks only the target comment with aria-current" do
+            expect(subject).to have_css("#comment_#{comment.id}[aria-current='true']")
+            expect(subject).to have_no_css("#comment_#{thread_root.id}[aria-current]")
+            expect(subject).to have_no_css("#comment_#{first_reply.id}[aria-current]")
           end
 
           it "does not render the replies toggle for the ancestors" do
@@ -123,6 +129,10 @@ module Decidim::Comments
             expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted")
           end
 
+          it "marks the target comment with aria-current" do
+            expect(subject).to have_css("#comment_#{comment.id}[aria-current='true']")
+          end
+
           context "when the target has replies" do
             let!(:reply) { create(:comment, commentable: comment, root_commentable: commentable) }
 
@@ -167,8 +177,8 @@ module Decidim::Comments
           end
 
           it "renders the single comment warning" do
-            expect(subject).to have_css(".flash.secondary", text: "You are seeing a single comment")
-            expect(subject).to have_css(".flash.secondary", text: "View all comments")
+            expect(subject).to have_css(".flash.info", text: "You are seeing a single comment thread")
+            expect(subject).to have_css(".flash.info", text: "View all comments")
           end
         end
       end
