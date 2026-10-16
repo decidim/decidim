@@ -111,8 +111,8 @@ module Decidim
 
         Decidim.view_hooks.register(:conference_venues, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           published_components = Decidim::Component
-                                   .where(participatory_space: view_context.current_participatory_space)
-                                   .published
+                                 .where(participatory_space: view_context.current_participatory_space)
+                                 .published
           meetings = Decidim::Meetings::Meeting.includes(:component, :taxonomies)
                                                .visible
                                                .not_hidden
