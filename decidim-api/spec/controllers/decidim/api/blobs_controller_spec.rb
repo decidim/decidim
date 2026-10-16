@@ -171,6 +171,50 @@ describe Decidim::Api::BlobsController do
       end
     end
 
+    context "with a malformed SVG document" do
+      let(:file_upload_settings) do
+        {
+          "allowed_file_extensions" => { "default" => extensions, "admin" => extensions },
+          "allowed_content_types" => { "default" => content_types, "admin" => content_types }
+        }
+      end
+      let(:extensions) { %w(svg) }
+      let(:content_types) { %w(image/*) }
+      let!(:organization) { create(:organization, file_upload_settings:) }
+      let(:file) { Decidim::Dev.test_file("malformed_svg_unclosed_element.svg", "image/svg+xml") }
+
+      it "does not allow uploading a file" do
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(response.parsed_body).to eq({ "error" => "unsafe_content" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "malformed_svg_unclosed_element.svg")).not_to exist
+      end
+    end
+
+    context "with an XML document declared as SVG" do
+      let(:file_upload_settings) do
+        {
+          "allowed_file_extensions" => { "default" => extensions, "admin" => extensions },
+          "allowed_content_types" => { "default" => content_types, "admin" => content_types }
+        }
+      end
+      let(:extensions) { %w(svg) }
+      let(:content_types) { %w(image/*) }
+      let!(:organization) { create(:organization, file_upload_settings:) }
+      let(:file) { Decidim::Dev.test_file("spoofed_svg_xml.svg", "image/svg+xml") }
+
+      it "does not allow uploading a file" do
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(response.parsed_body).to eq({ "error" => "unsafe_content" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "spoofed_svg_xml.svg")).not_to exist
+      end
+    end
+
     context "with a valid SVG document" do
       let(:file_upload_settings) do
         {

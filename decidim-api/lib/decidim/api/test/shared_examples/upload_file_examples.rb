@@ -108,6 +108,28 @@ shared_examples "API uploadable file" do
     include_examples "does not store the file"
   end
 
+  context "when the SVG document is not a well formed SVG document" do
+    let(:file) do
+      Rack::Multipart::UploadedFile.new(
+        Decidim::Dev.asset("malformed_svg_unclosed_element.svg"),
+        "image/svg+xml",
+        filename: "malformed_svg_unclosed_element.svg"
+      )
+    end
+
+    before do
+      current_organization.settings.tap do |settings|
+        settings.upload.allowed_file_extensions.admin = %w(svg)
+      end
+    end
+
+    it "raises execution error" do
+      expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, /File contains unsafe content./)
+    end
+
+    include_examples "does not store the file"
+  end
+
   context "when the SVG document does not contain active content" do
     let(:file) do
       Rack::Multipart::UploadedFile.new(

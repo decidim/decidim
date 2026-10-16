@@ -81,11 +81,14 @@ module Decidim
 
       # SVG documents are XML-based and can contain active content which is executed
       # when the document is rendered by the browser, so the contents are validated
-      # before the blob is stored.
+      # before the blob is stored. Only the documents which are well formed and do
+      # not contain active content are accepted, as the malformed ones are rejected
+      # by UploaderImageContentValidator when the blob is attached to a record, so
+      # the mutation does not store a blob which the model validation would refuse.
       def validate_content!(file)
         return unless Decidim::UploadContentTypes.format(detect_content_type(file)) == :svg
 
-        return unless Decidim::SvgContentValidator.validate(file_contents(file)) == :unsafe
+        return if Decidim::SvgContentValidator.validate(file_contents(file)) == :valid
 
         raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.file_upload.errors.unsafe_content")
       end

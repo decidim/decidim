@@ -115,7 +115,12 @@ module Decidim
       def safe_content?
         return true unless Decidim::UploadContentTypes.format(detected_content_type) == :svg
 
-        Decidim::SvgContentValidator.validate(uploaded_file_contents) != :unsafe
+        # Only the documents which are well formed SVG documents and do not
+        # contain active content can be stored. The malformed ones are rejected as
+        # well, as they are rejected by UploaderImageContentValidator when the blob
+        # is attached to a record, so the endpoint does not store a blob which the
+        # model validation would refuse.
+        Decidim::SvgContentValidator.validate(uploaded_file_contents) == :valid
       end
 
       def uploaded_file_contents

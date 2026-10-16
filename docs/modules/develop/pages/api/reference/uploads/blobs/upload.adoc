@@ -35,7 +35,7 @@ The uploaded blob is not attached to any record yet: pass its `signedId` to the 
 
 The content type is detected from the file contents rather than taken from the MIME declaration of the request, and the detected type is the one checked against the configured allowlists and stored with the blob. A file with an allowed extension but contents which do not match the declared type is rejected; the same applies to the `POST /api/blobs` endpoint, where the contents are inspected before the blob is created.
 
-Documents detected as SVG are validated before the blob is created, as an SVG document is parsed by the browser when it is rendered and can execute scripts or read external resources. Documents which contain active content (scripts, event handlers, references to resources of another host) are rejected with a validation error. The direct upload endpoint cannot inspect the contents at blob creation time, as the file is sent straight to the storage service, so the SVG documents there are checked by the model validation when the blob is attached to a record.
+Documents detected as SVG are validated before the blob is created, as an SVG document is parsed by the browser when it is rendered and can execute scripts or read external resources. Documents which contain active content (scripts, event handlers, references to resources of another host) and the ones which are not well formed SVG documents are rejected with a validation error. The direct upload endpoint cannot inspect the contents at blob creation time, as the file is sent straight to the storage service, so the SVG documents there are checked by the model validation when the blob is attached to a record.
 
 == Error Handling
 
