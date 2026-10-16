@@ -557,7 +557,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { key: "foo" }
         }
       end
@@ -571,7 +571,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { key: "" }
         }
       end
@@ -584,7 +584,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { blobId: blob.id },
+          file: { signedId: blob.signed_id },
           collection: { key: nil }
         }
       end
