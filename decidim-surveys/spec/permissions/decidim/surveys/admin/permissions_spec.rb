@@ -38,6 +38,14 @@ describe Decidim::Surveys::Admin::Permissions do
     it_behaves_like "permission is not set"
   end
 
+  context "when reading a survey" do
+    let(:action) do
+      { scope: :admin, action: :read, subject: :questionnaire }
+    end
+
+    it { is_expected.to be true }
+  end
+
   context "when exporting responses for a survey" do
     let(:action) do
       { scope: :admin, action: :export_responses, subject: :questionnaire }

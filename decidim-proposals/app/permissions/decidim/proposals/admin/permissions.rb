@@ -15,6 +15,7 @@ module Decidim
               can_create_proposal_answer?
               can_assign_evaluator_to_proposal?
             end
+            can_read_proposal?
             can_export_proposals?
 
             return permission_action
@@ -25,6 +26,9 @@ module Decidim
             can_create_proposal_from_admin?
             can_create_proposal_answer?
           end
+
+          # Every user allowed by the space can read proposals
+          allow! if permission_action.subject == :proposal && permission_action.action == :read
 
           # Admins can only edit official proposals if they are within the
           # time limit.
@@ -140,6 +144,15 @@ module Decidim
         # corresponding setting is enabled.
         def can_create_proposal_answer?
           toggle_allow(admin_proposal_answering_is_enabled?) if permission_action.subject == :proposal_answer
+        end
+
+        # Evaluators can read the proposals collection (e.g. the index action)
+        # but only their assigned proposals as individual records (e.g. the
+        # show action).
+        def can_read_proposal?
+          return unless permission_action.subject == :proposal && permission_action.action == :read
+
+          toggle_allow(proposal.nil? || evaluator_assigned_to_proposal?)
         end
 
         def can_unassign_evaluator_from_proposals?

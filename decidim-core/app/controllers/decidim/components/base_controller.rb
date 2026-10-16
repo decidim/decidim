@@ -66,6 +66,8 @@ module Decidim
         raise ActionController::RoutingError, "Not Found" unless current_user_can_visit_space?
       end
 
+      protected
+
       def set_component_breadcrumb_item
         context_breadcrumb_items << {
           label: current_component.name,
