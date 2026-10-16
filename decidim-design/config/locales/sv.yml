@@ -40,13 +40,270 @@ sv:
           tips_description_html: Var uppmärksam på <i>data-attribut</i> och <i>ids</i>. Till exempel, <code>[data-dialog-title]</code>s id börjar med <i>dialog-titel</i> plus <i>modal id</i>.
           title: Dialogrutor
           usage_description: En dialogruta kräver två element
+          usage_description_2_html: 2. Ett modalt element vars <code>id</code> motsvarar det data-target-värde som utlösaren hänvisar till.
+          usage_description_html: 1. Ett element som användaren kan aktivera, med dataattributet <code>data-dialog-open="example"</code>, där example är dialogrutans <code>id</code>.
+        follow:
+          title: Följ
+        forms:
+          disabled: Inaktiverad
+          emojis: Emojier
+          emojis_description: Fungerar endast för textarea
+          errors: Fel
+          errors_description: Gäller inte för select
+          header_alert: Den här sidan kommer från en äldre vy. Innehållet är inaktuellt.
+          help_texts: Hjälptexter
+          html_regular_inputs: Vanliga HTML-inmatningsfält
+          min_max_length: Minsta/största längd
+          min_max_length_description: Fungerar endast för input type='text' och textarea
+          multiselect: Flervalsfält
+          multiselect_description_html: Flervalsfält är en JavaScript-funktion som tillhandahålls av det externa biblioteket <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
+          regular_inputs_description: 'Endast vanliga typer visas. Fullständig lista över tillgängliga typer: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          textarea_required: textarea krävs
+          title: Formulär
+        report:
+          title: Rapportera
+        share:
+          title: Dela
+        tab_panels:
+          title: Flikpaneler
+        tooltips:
+          demo: Demo
+          demo_description: För att den här komponenten ska fungera behöver deltagaren hålla pekaren över elementet.
+          description: Ett verktygstips är en komponent som visar ytterligare information när användaren håller muspekaren över den.
+          github_source_html: Källkod på GitHub %{github_link}
+          title: Verktygstips
+          usage: Användning
+          usage_p: 'Ett verktygstips kräver hjälpfunktionen `with_tooltip`, med tre argument:'
+          usage_p_1_html: 1. En sträng med verktygstipsets innehåll. I exemplet på den här sidan är det ”Hej världen”.
+          usage_p_2_html: 2. En valfri klass med en symbol som anger var verktygstipset ska visas. Möjliga värden är <code>:top</code>, <code>:bottom</code>, <code>:right</code> eller <code>:left</code>.
+          usage_p_3_html: 3. Ett block med strängen som användaren ska hålla pekaren över för att visa verktygstipset.
       foundations:
         accessibility:
+          accessibility_labels: Tillgänglighetsetiketter
+          accessibility_labels_paragraph: När du definierar element ska du alltid se till att de är begripliga för användare av skärmläsare.
+          accessibility_title: Tillgänglighet
+          adjacent_links: Intilliggande länkar
+          adjacent_links_header: Intilliggande länkar till samma resurs
+          adjacent_links_paragraph: Om flera intilliggande länkar leder till samma resurs blir det svårare för dessa användare att snabbt gå igenom sidan, eftersom de kan behöva passera flera länkar för att komma till nästa resurs.
+          color_contrast: Färgkontrast
+          color_contrast_paragraph: När du skapar användargränssnitt eller ändrar färger ska du alltid se till att ändringarna inte försämrar tillgängligheten. Använd ett verktyg för kontrastkontroll för att säkerställa att färgerna har tillräcklig kontrast mot bakgrunden där de visas.
           decidim_follows_html: Decidim följer %{link}
+          dynamic_changes_header: Dynamiska funktioner ändrar sidans sammanhang på ett oväntat sätt
+          dynamic_changes_paragraph: Ändringar i formulärfält ska inte automatiskt ändra sidans sammanhang.
+          elements_hidden: Dolda element
+          elements_hidden_header: Element som är dolda för tillgänglighets-API:et
+          elements_hidden_paragraph: För att dölja ett element för hjälpmedel använder du attributet aria-hidden="true" på elementet.
+          heading_on: Rubriker för viktiga avsnitt
+          illogical_heading_order: Ologisk rubrikordning
+          illogical_heading_paragraph: Varje sida ska ha en logisk rubrikordning när rubrikelementen <h1>, <h2>, <h3>, <h4>, <h5> och <h6> används.
+          important_sections_heading: Rubriker för viktiga avsnitt
+          important_sections_paragraph: Det är mycket viktigt att varje betydelsefullt avsnitt på sidan har en rubrik. Då blir det lättare att förstå vilka viktiga avsnitt som finns genom att bara gå igenom rubrikerna.
           learn_more_about_html: Läs mer om %{link}
+          links_and_buttons: Länkar och knappar
+          links_and_buttons_paragraph: Ankarelement, det vill säga länkar, ska leda till andra sidor eller till positioner på samma sida. Om elementet exempelvis ska öppna något dolt innehåll på sidan ska du använda ett <button>-element i stället.
+          unique_h1: Unik H1-rubrik
+          unique_h1_paragraph: Varje sida ska ha en unik H1-rubrik
+          use_aria: Använd ARIA
+          use_aria_header: Använd ARIA-attribut där det är möjligt
+          use_aria_paragraph: Många element med interaktiva funktioner på webbplatsen behöver ARIA-attribut för att vara tillgängliga.
           wcag_guidelines: Riktlinjer för tillgänglighet för webbinnehåll (WCAG)
+        color:
+          color_header: Färg
+          description_p1: Vi tillhandahåller en baspalett med ett fåtal färger för att göra enkla anpassningar smidiga. Du kan ändra baspaletten i administrationen, eller i Tailwinds konfigurationsfil om du behöver mer avancerade anpassningar.
+          description_p2_html: Tänk på %{contrast_link} när du anpassar färgerna. Du kan kontrollera kontrasten i dina färgval med %{checker_link} eller liknande verktyg.
+          wcag_compliant_rations: kontrastförhållandet enligt WCAG 2.1 AA
+          wcag_contrast_checker: WebAIM Contrast Checker
+        iconography:
+          description_iconography: Vi använder ikoner för att förtydliga innebörden av åtgärder, rubriker och liknande
+          description_iconography_html: 'Vi använder biblioteket Remixicon med öppen källkod: %{iconography_link}'
+          title: Ikonografi
+        layout:
+          breakpoint: Brytpunkt
+          breakpoints: Brytpunkter
+          centered: Centrerad
+          code: Kod
+          columns: Antalet kolumner är 10, 8 eller 6.
+          description_layout_p1: För datorer använder Decidim ett rutnät med 12 kolumner och ett begränsat antal mallar (rutnätskonfigurationer) för olika typer av innehåll. Målet är att varje innehållstyp, som startsida, elementlista eller enskilt objekt, ska ha en tydlig egen layout. Då kan användaren förstå vilken typ av innehåll som visas enbart genom sidans utseende.
+          description_layout_p2: Följ dessa enkla regler när du skapar nya moduler eller anpassar befintliga, så att Decidim-webbplatsen förblir enhetlig.
+          desktop: Dator
+          full_width: Full bredd
+          layout_list_1: 'Startsida (för webbplatsen eller ett utrymme): full bredd'
+          layout_list_2: 'Elementlista (utrymmen, objekt inom ett utrymme osv.): sidokolumn till vänster'
+          layout_list_3: 'Enskilt objekt (förslag, blogginlägg): centrerat, eventuellt med sidokolumn till höger'
+          left_aside: Sidokolumn till vänster
+          mobile: Mobil
+          not_required: Krävs inte
+          properties: Egenskaper
+          right_aside: Sidokolumn till höger
+          section_p_breakpoints: 'För att hantera elementens responsiva maxbredd använder vi Tailwinds standardklass `container`, som anger följande brytpunkter:'
+          section_p_code: När du implementerar nya moduler finns det hjälpfunktioner som automatiskt ger dig koden för HTML-strukturen. Använd dessa i stället för div-element med klasser direkt, så att strukturen förblir enhetlig.
+          section_p_code_html: Grundlayouterna finns i %{link_section_code}
+          section_p_desktop: Rutnätet för datorer består av 12 flexibla kolumner med 16 px mellan kolumnerna och 48 px marginal till vänster och höger
+          section_p_mobile: Rutnätet för mobiler består av 4 flexibla kolumner med 16 px mellan kolumnerna och 16 px marginal till vänster och höger. Vid bredder under 320 px är marginalerna 8 px
+          section_p_tablet: Rutnätet för surfplattor består av 8 flexibla kolumner med 16 px mellan kolumnerna och 24 px marginal till vänster och höger
+          tablet: Surfplatta
+          title: Layout
+        typography:
+          description: Dessa riktlinjer sammanfattar hur typografi används i Decidim och ger formgivare stöd för att arbeta fritt med god typografisk praxis som grund.
+          headings:
+            characters: Tecken per rad
+            layout: Layoutkolumner
+            size: Storlek
+          title: Typografi
+          typefaces_description_1: Decidim använder Source Sans Pro som primärt typsnitt. Typsnittet stöder 310 språk
+          typefaces_description_2: Dessa typsnitt är licensierade under Open Font License
       helpers:
+        accountability: Genomförande
+        accountability_cards_html: Används av kort för <i>uppföljningsprojekt</i>. Kortet kräver modulens resurser för att visas korrekt, det vill säga <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        activity: Aktivitet
+        address_description: Adresscellen tar emot en resurs och söker efter attribut med geografisk platsinformation för att rendera rätt märkning.
+        address_description_2: Beroende på innehållstypen kan adressen vara en webbadress. I sådana fall visas i stort sett samma information, men i anpassad form.
+        ally_link: a11y-dropdown-component
+        argument: Argument
+        assemblies: Samråd
         assembly_g: Samråd G
         assembly_s: Samråd S
+        avatar: Profilbild
+        avatar_description: Den används i trånga utrymmen där författaren är sekundär information.
+        background: Bakgrund och kantlinjer
+        base: Bas
+        block_text: Använd blocket extra_data
+        blog_cards_html: Används av kort för <i>bloggar</i>
+        blogs: Bloggar
+        budget_card_html: Används av kort för <i>budgetprojekt</i>. Kortet kräver modulens resurser för att visas korrekt, det vill säga <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Budgetar
+        callout_class: Callout-klass
+        callout_description: Det här attributet anger meddelandets status. Som standard används sekundärfärgen.
+        card_g: Kort G
+        card_l: Kort L
+        card_s: Kort S
+        collaborative_draft_l: Gemensamt utkast L
+        colors: Färger
+        compact: Kompakt
+        compact_description: Den här författarvarianten är det vanliga sättet att visa vem som har skapat resursen.
+        conference_g: Konferens G
+        conference_s: Konferens S
+        conferences: Konferenser
+        context: Kontext
         context_description: Denna cell visar information om en användare. Det är en visuell hjälp för att identifiera resurs/innehållsskaparen.
+        context_description_2: För resurser visas den här cellen under huvudrubriken. För annat innehåll visas den bredvid själva innehållet.
+        debate_l: Debatt L
+        debate_s: Debatt S
+        debates: Debatter
+        debates_cards_html: Används av kort för <i>debatter</i>
+        debates_cards_text: Använd en annan mall för bildblocket
+        default: Förval
+        default_description: Anropa cellen utan extra argument, med endast användaren.
+        demo: Demo
+        demo_text: 'Den här cellen tar emot en modell med LastActivity-objekt och visar följande element:'
+        demo_text_2: Används på sidan för senaste aktivitet, i ett innehållsblock och i rullgardinsmenyer.
+        description: Beskrivning
+        disabled: Inaktiverad
+        dropdowns: Rullgardinsmenyer
+        dropdowns_demo_1_description: 'Följande exempel märks inte på datorer, men på mobiler:'
+        dropdowns_demo_description: Rullgardinsmenyer används i hela programmet för att fälla ihop stora menyer som är lättlästa på datorer men för omfattande på mobiler.
+        dropdowns_demo_description_html: 'Den här JavaScript-funktionen kompletteras med lite CSS genom namngivningen: innehållet som kan döljas MÅSTE HA ett <code>id</code> som börjar med <i>dropdown-menu</i>.'
+        dropdowns_description_html: Rullgardinsmenyer är en JavaScript-funktion som tillhandahålls av det externa biblioteket %{link}.
+        dropdowns_usage_1_description: 2. Ett element som kan döljas, vars <code>id</code> motsvarar det data-target-värde som utlösaren hänvisar till.
+        dropdowns_usage_description: 'En rullgardinsmeny kräver två element:'
         dropdowns_usage_description_html: 1. Ett användarvänligt element, med data-attributen <code>data-controller="rullgardin" data-target="rullgardinsmeny-element"</code>.
+        dummy_description: Beskrivning av exempelresurs
+        dummy_title: Titel på exempelresurs
+        follow_button: Följ-knapp
+        follower_description_html: Se till att delmallen <code>decidim/shared/login_modal</code> finns i DOM:en. Den här delmallen placeras i programmets layout när användaren är inloggad.
+        form_elements: Formulärelement
+        generic_cards: Generiska kort
+        grid: Rutnät
+        hex_code: Hexkod
+        highlight: Accentfärg
+        highlight_description: Används av resurser som kan framhävas
+        html_tips: HTML-tips
+        icons: Ikoner
+        image_and_description: Bild och beskrivning
+        initiative_g: initiative_g
+        initiative_s: initiative_s
+        initiatives: Initiativ
+        list: Lista
+        main_colors: Huvudfärger
+        meeting_l: Möte L
+        meetings: Möten
+        meetings_html: Används av kort för <i>möten</i>
+        metadata_items: Metadataposter
+        metadata_text: Varje resurs definierar sina egna metadataposter
+        participatory_process_g: Deltagandeprocess G
+        participatory_process_group_g: Deltagandeprocessgrupp G
+        participatory_process_group_s: Deltagandeprocessgrupp S
+        participatory_process_s: Deltagandeprocess S
+        participatory_processes: Deltagandeprocesser
+        plain_text: Jag är bara vanlig text
+        plain_text_description: Du kan ange antingen vanlig text eller ett hashobjekt som första argument
+        plain_text_vs_hash: Vanlig text kontra hashobjekt
+        post_g: Inlägg G
+        post_l: Inlägg L
+        post_s: Inlägg S
+        project_l: Projekt L
+        project_s: Projekt S
+        proposal_l: Förslag L
+        proposal_s: Förslag S
+        proposals: Förslag
+        report_button: Rapporteringsknapp
+        report_usage_description: Rapporteringsknappen öppnar en dialogruta för att flagga den aktuella resursen.
+        result_l: Resultat L
+        rgba_code: RGBA-kod
+        search: Sök
+        send: Skicka
+        share_button: Dela-knapp
+        share_usage_description_html: Se till att delmallen <code>decidim/shared/share_modal</code> finns i DOM:en. Den här delmallen placeras i programmets layout.
+        sizes: Storlekar
+        sortition_l: sortition_l
+        sortitions: Lottningar
+        source_code: Källkod
+        state: Status
+        tab_panels_context_description: Den här flikpanelskomponenten samlar allt innehåll och andra resurser som hör till huvudelementet som visas, för att spara utrymme på höjden. Ett klick på fliken aktiverar den skapade panelen och visar innehållet.
+        tab_panels_context_description_html: Används främst i <i>layout_item</i> eller <i>layout_center</i>, efter resursens huvudinnehåll.
+        tab_panels_usage_description: 'Den här komponenten tar emot en array med hashobjekt och ordnar om varje objekts utdata till en flikpanelsstruktur. Tillgängliga egenskaper för varje panel:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argument till föregående metod"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Rendera fliken villkorligt"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Unikt id"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Valfri funktion som Rails förstår"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon-nyckel"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Flikrubrik"
+        tailwind: Tailwind-namn
+        text: Text
+        transparent: Transparent
+        transparent_description: 'Vid mörkare bakgrund:'
+        types: Typer
+        typography_texts: Typografi och texter
+        usage: Användning
+        usage_background_1: Sidokolumnens bakgrund
+        usage_background_2: Bakgrund för valt filter i sidofältet
+        usage_background_3: Standardfärg för ikoner
+        usage_background_4: Linjer och avgränsare
+        usage_background_5: Sidfotens bakgrund
+        usage_background_6: Bakgrund för administrationslayouten
+        usage_base_1: Huvudnavigeringens bakgrund\nNavigeringsmenyer på webbplatsens och utrymmets startsida
+        usage_base_2: Huvudfärg för länkar och knappar
+        usage_base_3: Grafiska dekorationer och accentfärg\nKantlinje för kort och listobjekt när pekaren hålls över dem
+        usage_formelements_1: Standardbakgrund för inmatningsfält
+        usage_formelements_2: Bakgrund för inaktiverade inmatningsfält
+        usage_state_1: Kantlinje för meddelanden om lyckade åtgärder\nIkonfyllning i varningsmeddelanden\nKnappbakgrund i meddelanden om lyckade åtgärder
+        usage_state_2: Kantlinje för varningsmeddelanden
+        usage_state_3: Kantlinje för larmmeddelanden\nIkonfyllning i larmmeddelanden
+        usage_typography_1: Rubriker och avsnittstitlar
+        usage_typography_2: Löptext
+        usage_typography_3: Text på mörk bakgrund
+        usage_typography_4: Länkar och knappar
+        usage_typography_5: Inaktiverad flik
+        value: Värde
+        variations: Varianter
+        variations_cards_description: Varje kort ser olika ut beroende på egenskaperna hos resursen som visas. Du kan åsidosätta detta beteende i den specifika cellen.
+        variations_description: Det finns tre olika versioner av den här cellen. Vilken som passar bäst beror på sammanhanget där den visas.
+        variations_text: Beroende på aktivitetstypen kan cellen visa olika innehåll för de olika resurserna, oavsett om de tillhör ett deltagarutrymme eller har en författare.
+      home:
+        index:
+          by_sharing_principles: Genom att dela principerna, filosofin och resonemangen bakom våra designbeslut vill vi ge gemenskapen förutsättningar att bidra på ett enhetligt sätt och skapa bästa möjliga upplevelse för deltagarna.
+          decidim_guide: Guiden till all design i Decidim
+          different_ui_components: Vi dokumenterar också de användargränssnittskomponenter och mönster som används och som bör återanvändas eller vidareutvecklas.
+          github_source: Källkod på GitHub
+          home_header: Decidims designguide
+          welcome_sentence: Välkommen till Decidims designguide (DDG). Guiden är en resurs för formgivare och utvecklare som behöver anpassa Decidim, utveckla nya moduler och integrera nya funktioner.

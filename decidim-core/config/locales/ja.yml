@@ -240,6 +240,7 @@ ja:
         create: "%{user_name} は、 %{resource_name} コンポーネントを %{space_name} スペースに追加しました"
         delete: "%{user_name} が %{resource_name} スペースから %{space_name} コンポーネントを削除しました"
         export_component: "%{user_name} は%{space_name} の %{resource_name} %{component_name} を %{format_name} としてエクスポートしました"
+        menu_hidden: "%{user_name} がコンポーネント %{resource_name} をスペース %{space_name} のメニューから非表示にしました"
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
         restore: "%{user_name} がコンポーネント %{resource_name} をスコープ %{space_name} に復元しました。"
         soft_delete: "%{user_name} が %{space_name} スペースの %{resource_name} コンポーネントをゴミ箱に移動しました"

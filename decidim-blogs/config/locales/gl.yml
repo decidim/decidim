@@ -1,6 +1,12 @@
 ---
 gl:
   activemodel:
+    attributes:
+      post:
+        body: Corpo
+        decidim_author_id: Autoría
+        published_at: Data de publicación
+        title: Título
     models:
       decidim/blogs/create_post_event: Nova publicación no blog
   activerecord:
@@ -9,43 +15,115 @@ gl:
         one: Publicación
         other: Publicacións
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Publicacións
+      tooltips:
+        deleted_posts_info: Non se pode eliminar esta publicación
     blogs:
       actions:
         author_id: Crear publicación como
+        confirm_delete_post: Seguro que queres eliminar esta publicación?
+        deleted_posts_info: As publicacións eliminadas pódense restaurar desde a papeleira.
         edit: Editar
         new: Nova publicación
         title: Accións
+        view_deleted_posts: Ver as publicacións eliminadas
       admin:
         posts:
+          create:
+            invalid: Produciuse un problema ao crear esta publicación.
+            success: A publicación creouse correctamente.
+          destroy:
+            success: A publicación eliminouse correctamente.
           edit:
             save: Actualizar
             title: Editar publicación
           index:
+            not_published_yet: Aínda non se publicou.
             title: Publicacións
+          manage_trash:
+            title: Publicacións eliminadas
           new:
             create: Crear
             title: Crear unha publicación
           update:
             invalid: Produciuse un erro ao gardar a publicación.
+            success: A publicación gardouse correctamente.
+      admin_log:
+        post:
+          create: "%{user_name} creou a publicación de blog %{resource_name} en %{space_name}"
+          delete: "%{user_name} eliminou a publicación de blog %{resource_name} de %{space_name}"
+          restore: "%{user_name} restaurou a publicación de blog %{resource_name} en %{space_name}"
+          soft_delete: "%{user_name} moveu a publicación de blog %{resource_name} de %{space_name} á papeleira"
+          update: "%{user_name} actualizou a publicación de blog %{resource_name} en %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Últimas publicacións
+          name: Publicacións
+          see_all: Ver todas as publicacións
+      last_activity:
+        new_post: 'Nova publicación:'
       models:
         post:
           fields:
             author: Autor
             body: Corpo
+            official_blog_post: Publicación oficial
+            published_at: Data de publicación
+            taxonomies: Taxonomías
+            title: Título
+      posts:
+        edit:
+          add_attachments: Engadir anexos
+          back: Volver á publicación
+          button: Actualizar
+          edit_attachments: Editar anexos
+          title: Editar publicación
+        form:
+          author_id: Autoría
+          body: Corpo
+          title: Título
+        index:
+          count:
+            one: "%{count} publicación"
+            other: "%{count} publicacións"
+          empty: Aínda non hai publicacións.
+          new_post: Nova publicación
+        menu_actions:
+          button_destroy: Eliminar publicación
+          button_destroy_confirm: Seguro que queres eliminar esta publicación?
+          button_edit: Editar publicación
+        new:
+          back: Volver ás publicacións
+          button: Crear
+          title: Crear unha nova publicación
     components:
       blogs:
         actions:
+          comment: Comentar
           create: Crear
           destroy: Eliminar
+          like: Gústame
           update: Actualizar
         name: Blog
         settings:
           global:
             announcement: Anuncio
+            attachments_allowed: Permitir anexos
             comments_enabled: Comentarios habilitados
+            comments_max_length: Máximo de caracteres por comentario (deixa 0 para usar o valor predeterminado)
+            creation_enabled_for_participants: As persoas participantes poden crear publicacións
+            define_taxonomy_filters: Define algúns filtros para este espazo participativo antes de usar esta configuración.
+            no_taxonomy_filters_found: Non se atoparon filtros de taxonomía.
+            taxonomy_filters: Seleccionar filtros para o compoñente
+            taxonomy_filters_add: Engadir filtro
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            likes_blocked: Gústame bloqueados
+            likes_enabled: Gústame activados
     events:
       blogs:
         post_created:
@@ -53,5 +131,33 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir dende a ligazón anterior.
           email_subject: Nova publicación publicada en %{participatory_space_title}
           notification_title: A publicación <a href="%{resource_path}">%{resource_title}</a> publicouse en %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Se este comentario foi a favor, en contra ou neutral
+          author: O nome da persoa participante que fixo este comentario
+          body: O propio comentario
+          commentable_id: O identificador único do recurso comentable
+          commentable_type: O tipo de recurso comentable (se era un resultado, unha proposta etc.)
+          created_at: A data na que se creou este comentario
+          depth: A posición deste comentario na árbore de comentarios (se é unha resposta ou unha resposta a outra resposta)
+          id: O identificador deste comentario
+          locale: A configuración rexional (idioma) da persoa participante cando deixou este comentario
+          root_commentable_url: O URL do recurso ao que está vinculado este comentario
+        posts:
+          author: A información da autoría
+          body: O corpo da publicación
+          comments_count: O número de comentarios desta publicación
+          component: O compoñente ao que pertence a publicación
+          created_at: A data na que se creou esta publicación
+          follows_count: O número de seguimentos desta publicación
+          id: O identificador único desta publicación
+          likes_count: O número de «Gústame» desta publicación
+          participatory_space: O espazo ao que pertence esta publicación (por exemplo, un proceso participativo ou unha asemblea)
+          published_at: A data na que se publicou esta publicación
+          title: O título da publicación
+          updated_at: A última data na que se actualizou esta publicación
+          url: O URL desta publicación
     statistics:
       posts_count: Publicacións
+      posts_count_tooltip: O número de actualizacións ou publicacións de blog publicadas.

@@ -858,6 +858,8 @@ es:
     errors:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
+        file_contains_unsafe_content: El archivo contiene contenido no seguro
+        file_is_not_a_valid_image: El archivo no es una imagen válida
         file_resolution_too_large: La resolución del archivo es demasiado grande
         not_inside_organization: El archivo no está vinculado a ninguna organización.
       internal_server_error:
@@ -905,12 +907,12 @@ es:
             email_intro: 'Una enmienda rechazada para %{amendable_title} ha sido publicada como una nueva %{amendable_type}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque se ha promocionado una esmena al apartado "%{amendable_title}" que administras.
             email_subject: Se ha publicado una modificación de %{emendation_author_name} como nuevo %{amendable_type}
-            notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda rechazada</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
           follower:
             email_intro: 'Una enmienda rechazada para %{amendable_title} ha sido publicada como nueva %{amendable_type}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Se ha publicado una enmienda hecha por %{emendation_author_name} como nuevo %{amendable_type}
-            notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda rechazada</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_name}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
@@ -978,7 +980,7 @@ es:
             Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
       resource_liked:
-        email_intro: '%{liker_name}, a quien sigues, le acaba de gustar: "%{resource_title}", que puede ser interesante para ti. Revisala y contribuye:'
+        email_intro: 'A %{liker_name}, a quien sigues, le acaba de gustar: "%{resource_title}", que puede ser interesante para ti. Revisala y contribuye:'
         email_outro: Has recibido esta notificación porque estás siguiendo la iniciativa "%{liker_name}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
         email_subject: "%{liker_name} ha realizado un nuevo \"me gusta\""
         notification_title: 'A <a href="%{liker_path}">%{liker_name}</a> le ha gustado la %{resource_type}: <a href="%{resource_path}">%{resource_title}</a>.'
@@ -988,7 +990,7 @@ es:
       users:
         profile_updated:
           email_intro: La <a href="%{resource_url}">página de perfil</a> de %{name}, a quien estás siguiendo, se ha actualizado.
-          email_outro: Has recibido esta notificación porque estás siguiendo "%{name}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo a "%{name}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: "%{name} actualizó su perfil"
           notification_title: La <a href="%{resource_path}">página de perfil</a> de %{name}, a quien estás siguiendo, se ha actualizado.
         user_officialized:

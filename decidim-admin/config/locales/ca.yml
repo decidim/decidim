@@ -46,7 +46,7 @@ ca:
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
-        comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
+        comments_max_length: Caràcters màxims per comentari (deixar a 0 per al valor predeterminat)
         customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
@@ -1297,7 +1297,7 @@ ca:
       file_help:
         attachment:
           explanation: 'Instruccions per al fitxer:'
-          message_1: S'admeten fitxers CSV, JSON y Excel (.xlsx)
+          message_1: S'admeten fitxers CSV, JSON i Excel (.xlsx)
           message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
     moderations:
       actions:

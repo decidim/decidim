@@ -54,6 +54,12 @@ it:
       decidim/proposals/voting_enabled_event: Voto della proposta abilitato
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            import_to_proposal_text: Questa proposta <span "resource-link">%{link} è stata creata</span>
+            merge_to_proposal_text: 'Questa proposta è stata creata: %{link}'
+            split_to_proposal_text: 'Questa proposta è stata creata: %{link}'
       decidim/proposals/collaborative_draft:
         one: Bozza collaborativa
         other: Bozze collaborative
@@ -198,6 +204,10 @@ it:
           name: Proposte
           next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
           unearned_own: Non hai ancora creato alcuna proposta.
+    open_data:
+      help:
+        proposal_comments:
+          created_at: La data in cui questo commento è stato creato
     participatory_spaces:
       highlighted_proposals:
         see_all: Vedi tutto
@@ -411,6 +421,8 @@ it:
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
+      creation:
+        text: Questa proposta è stata creata
       destroy_draft:
         error: Si sono verificati errori durante l'eliminazione della bozza della proposta.
         success: La bozza della proposta è stata cancellata con successo.

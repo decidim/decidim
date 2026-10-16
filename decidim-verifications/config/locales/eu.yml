@@ -228,6 +228,7 @@ eu:
         authorizations:
           new:
             error: Ezin izan dugu zure kontua egiaztatu edo ez zaude erakundearen erroldan.
+            locked: Saiakera huts gehiegi. Mesedez, saiatu geroago.
             success: Zure kontua zuzen egiaztatu da.
       dummy_authorization:
         extra_explanation:
@@ -253,6 +254,7 @@ eu:
           confirmations:
             create:
               error: Egiaztapena ez dator bat. Mesedez, saiatu berriro edo ukatu egiaztapena, parte-hartzaileak aldatu dezan.
+              locked: Saiakera huts gehiegi. Mesedez, saiatu geroago.
               success: Parte-hartzailea zuzen egiaztatua.
             new:
               introduce_user_data: Idatzi datua irudian
@@ -329,6 +331,7 @@ eu:
             title: Egiaztapen-kodea eskatu
           update:
             error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, begiratu berriro bidali dizugun gutuna.
+            locked: Saiakera huts gehiegi. Mesedez, saiatu geroago.
             success: Zorionak! Zuzen egiaztatu zara.
       sms:
         authorizations:
@@ -348,6 +351,8 @@ eu:
             title: Eskatu zure egiaztapen-kodea
           update:
             error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, egiaztatu berriro bidali dizugun SMSa.
+            expired: Egiaztapen-kodea iraungita dago. Mesedez, eskatu beste bat.
+            locked: Saiakera huts gehiegi. Saiatu geroago edo eskatu kode berri bat.
             success: Zorionak! Zuzen egiaztatu zara.
   errors:
     messages:
