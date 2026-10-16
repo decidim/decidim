@@ -16,6 +16,7 @@ module Decidim
       include PayloadInfo
       include Headers::HttpCachingDisabler
       include Headers::ContentSecurityPolicy
+      include Headers::SessionUpdater
       include DisableRedirectionToExternalHost
       include Decidim::Admin::Concerns::HasBreadcrumbItems
       include ActiveStorage::SetCurrent
