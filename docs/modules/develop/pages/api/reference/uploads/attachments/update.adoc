@@ -6,10 +6,10 @@ When you want to update a Decidim attachment's details, you need to rely on the 
 
 [source]
 ----
-• collection            (optional) - Integer
+• collection            (optional) - AttachmentCollectionInputObject
 • description           (optional) - JSON
-• file                  (Required) - JSON - FileInputObject format
-• title                 (Required) - JSON
+• file                  (optional) - JSON - FileInputObject format
+• title                 (optional) - JSON
 • weight                (Optional) - Integer
 ----
 
