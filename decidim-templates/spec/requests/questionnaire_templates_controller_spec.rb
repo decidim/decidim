@@ -21,7 +21,7 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
   end
 
   describe "POST /questionnaire_templates/apply" do
-    let(:path) { "/en/admin/templates/questionnaire_templates/apply" }
+    let(:path) { "/admin/templates/questionnaire_templates/apply" }
     let(:params) do
       {
         questionnaire_id: questionnaire.id,
@@ -59,7 +59,7 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
   end
 
   describe "POST /questionnaire_templates/skip" do
-    let(:path) { "/en/admin/templates/questionnaire_templates/skip" }
+    let(:path) { "/admin/templates/questionnaire_templates/skip" }
     let(:params) { { questionnaire_id: questionnaire.id, url: "/en/admin/" } }
 
     context "with a cross-organization questionnaire" do

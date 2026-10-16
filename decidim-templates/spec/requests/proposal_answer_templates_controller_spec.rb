@@ -10,7 +10,7 @@ RSpec.describe "Proposal answer templates fetch" do
   let!(:template) { create(:template, organization:, target: :proposal_answer, templatable: component) }
 
   let(:request_headers) { { "HOST" => organization.host } }
-  let(:path) { "/en/admin/templates/proposal_answer_templates/fetch" }
+  let(:path) { "/admin/templates/proposal_answer_templates/fetch" }
 
   before do
     login_as user, scope: :user
