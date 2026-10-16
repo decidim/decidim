@@ -12,7 +12,7 @@ module Decidim
     validates :resource_id, uniqueness: { scope: [:resource_type, :author] }
     validate :author_and_resource_same_organization
 
-    scope :for_listing, -> { order(:decidim_author_type, :decidim_author_id, :created_at) }
+    scope :for_listing, -> { order(:created_at, :id) }
 
     private
 
