@@ -30,6 +30,7 @@ module Decidim
 
         def new
           enforce_permission_to :create, :proposal
+
           @form = form(Decidim::Proposals::Admin::ProposalForm).from_params(
             attachment: form(AttachmentForm).from_params({})
           )
@@ -37,6 +38,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :proposal
+
           @form = form(Decidim::Proposals::Admin::ProposalForm).from_params(params)
 
           Admin::CreateProposal.call(@form) do
@@ -116,6 +118,7 @@ module Decidim
 
         def edit
           enforce_permission_to(:edit, :proposal, proposal:)
+
           @form = form(Admin::ProposalForm).from_model(proposal)
         end
 

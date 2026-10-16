@@ -20,11 +20,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :registration_type
+
           @form = form(Decidim::Conferences::Admin::RegistrationTypeForm).instance
         end
 
         def create
           enforce_permission_to :create, :registration_type
+
           @form = form(Decidim::Conferences::Admin::RegistrationTypeForm).from_params(params)
 
           CreateRegistrationType.call(@form) do
@@ -43,12 +45,14 @@ module Decidim
         def edit
           @registration_type = collection.find(params.expect(:id))
           enforce_permission_to :update, :registration_type, registration_type: @registration_type
+
           @form = form(Decidim::Conferences::Admin::RegistrationTypeForm).from_model(@registration_type)
         end
 
         def update
           @registration_type = collection.find(params.expect(:id))
           enforce_permission_to :update, :registration_type, registration_type: @registration_type
+
           @form = form(Decidim::Conferences::Admin::RegistrationTypeForm).from_params(params)
 
           UpdateRegistrationType.call(@form, @registration_type) do

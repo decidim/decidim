@@ -16,11 +16,13 @@ module Decidim
 
       def index
         enforce_permission_to :index, :taxonomy
+
         @taxonomies = filtered_collection
       end
 
       def new
         enforce_permission_to :create, :taxonomy
+
         add_breadcrumb_item :new, decidim_admin.new_taxonomy_path
 
         @form = form(Decidim::Admin::TaxonomyForm).instance
@@ -28,6 +30,7 @@ module Decidim
 
       def create
         enforce_permission_to :create, :taxonomy
+
         add_breadcrumb_item :new, decidim_admin.new_taxonomy_path
 
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
@@ -46,6 +49,7 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :taxonomy, taxonomy:)
+
         add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_path(taxonomy)
 
         @form = form(Decidim::Admin::TaxonomyForm).from_model(taxonomy)
@@ -54,6 +58,7 @@ module Decidim
 
       def update
         enforce_permission_to(:update, :taxonomy, taxonomy:)
+
         add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_path(taxonomy)
 
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)

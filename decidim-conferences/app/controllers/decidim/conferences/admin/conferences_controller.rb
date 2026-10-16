@@ -15,16 +15,19 @@ module Decidim
 
         def index
           enforce_permission_to :read, :conference_list
+
           @conferences = filtered_collection
         end
 
         def new
           enforce_permission_to :create, :conference
+
           @form = form(ConferenceForm).instance
         end
 
         def create
           enforce_permission_to :create, :conference
+
           @form = form(ConferenceForm).from_params(params)
 
           CreateConference.call(@form) do
@@ -42,12 +45,14 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :conference, conference: current_conference
+
           @form = form(ConferenceForm).from_model(current_conference)
           render layout: "decidim/admin/conference"
         end
 
         def update
           enforce_permission_to :update, :conference, conference: current_conference
+
           @form = form(ConferenceForm).from_params(
             conference_params,
             conference_id: current_conference.id

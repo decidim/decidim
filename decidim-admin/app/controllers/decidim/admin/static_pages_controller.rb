@@ -17,17 +17,20 @@ module Decidim
 
       def index
         enforce_permission_to :read, :static_page
+
         @topics = Decidim::StaticPageTopic.where(organization: current_organization)
         @orphan_pages = collection.where(topic: nil)
       end
 
       def new
         enforce_permission_to :create, :static_page
+
         @form = form(StaticPageForm).instance
       end
 
       def create
         enforce_permission_to :create, :static_page
+
         @form = form(StaticPageForm).from_params(form_params)
 
         CreateStaticPage.call(@form) do
@@ -45,12 +48,14 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :static_page, static_page: page
+
         @form = form(StaticPageForm).from_model(page)
       end
 
       def update
         @page = collection.find(params.expect(:id))
         enforce_permission_to :update, :static_page, static_page: page
+
         @form = form(StaticPageForm).from_params(form_params)
 
         UpdateStaticPage.call(@form, page) do

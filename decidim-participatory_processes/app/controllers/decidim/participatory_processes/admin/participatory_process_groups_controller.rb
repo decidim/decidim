@@ -21,11 +21,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :process_group
+
           @form = form(ParticipatoryProcessGroupForm).instance
         end
 
         def create
           enforce_permission_to :create, :process_group
+
           @form = form(ParticipatoryProcessGroupForm).from_params(params)
 
           CreateParticipatoryProcessGroup.call(@form) do
@@ -44,6 +46,7 @@ module Decidim
         def edit
           @item = collection.find(params.expect(:id))
           enforce_permission_to :update, :process_group, process_group: @item
+
           @form = form(ParticipatoryProcessGroupForm).from_model(@item)
           render layout: "decidim/admin/participatory_process_group"
         end
@@ -51,6 +54,7 @@ module Decidim
         def update
           @participatory_process_group = collection.find(params.expect(:id))
           enforce_permission_to :update, :process_group, process_group: @participatory_process_group
+
           @form = form(ParticipatoryProcessGroupForm).from_params(params)
 
           UpdateParticipatoryProcessGroup.call(@form, @participatory_process_group) do

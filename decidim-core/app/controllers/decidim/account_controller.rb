@@ -9,12 +9,14 @@ module Decidim
 
     def show
       enforce_permission_to(:show, :user, current_user:)
+
       @account = form(AccountForm).from_model(current_user)
       @account.password = nil
     end
 
     def update
       enforce_permission_to(:update, :user, current_user:)
+
       @account = form(AccountForm).from_params(account_params)
       UpdateAccount.call(@account) do
         on(:ok) do |email_is_unconfirmed|
@@ -38,11 +40,13 @@ module Decidim
 
     def delete
       enforce_permission_to(:delete, :user, current_user:)
+
       @form = form(DeleteAccountForm).from_model(current_user)
     end
 
     def destroy
       enforce_permission_to(:delete, :user, current_user:)
+
       @form = form(DeleteAccountForm).from_params(params)
 
       DestroyAccount.call(@form) do

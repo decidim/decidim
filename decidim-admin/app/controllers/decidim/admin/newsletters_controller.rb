@@ -12,17 +12,20 @@ module Decidim
 
       def index
         enforce_permission_to :index, :newsletter
+
         @newsletters = collection.order(Newsletter.arel_table[:created_at].desc)
         @newsletters = paginate(@newsletters)
       end
 
       def new
         enforce_permission_to :create, :newsletter
+
         @form = form(NewsletterForm).from_model(content_block)
       end
 
       def show
         enforce_permission_to(:read, :newsletter, newsletter:)
+
         @email = NewsletterMailer.newsletter(current_user, newsletter)
       end
 
@@ -30,6 +33,7 @@ module Decidim
         enforce_permission_to :read, :newsletter, newsletter:
 
         NewsletterMailer.newsletter(current_user, newsletter).deliver_later
+
         flash[:notice] = I18n.t("newsletters.send_to_user.sent_successfully", scope: "decidim.admin", email: current_user.email)
 
         redirect_back_or_to(newsletters_path)
@@ -45,6 +49,7 @@ module Decidim
 
       def create
         enforce_permission_to :create, :newsletter
+
         @form = form(NewsletterForm).from_params(params, content_block:)
         @form.images = images_block_context unless has_images_block_context?
 
@@ -65,11 +70,13 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :newsletter, newsletter:)
+
         @form = form(NewsletterForm).from_model(content_block)
       end
 
       def update
         enforce_permission_to(:update, :newsletter, newsletter:)
+
         @form = form(NewsletterForm).from_params(params, content_block:)
         @form.images = images_block_context unless has_images_block_context?
 
@@ -121,6 +128,7 @@ module Decidim
 
       def deliver
         enforce_permission_to(:update, :newsletter, newsletter:)
+
         @form = form(SelectiveNewsletterForm).from_params(newsletter_params)
 
         DeliverNewsletter.call(newsletter, @form) do
@@ -143,6 +151,7 @@ module Decidim
 
       def confirm_recipients
         enforce_permission_to(:update, :newsletter, newsletter:)
+
         @form = form(SelectiveNewsletterForm).from_params(newsletter_params)
         @recipients = NewsletterRecipients.for(@form).order(:email)
         @recipients = paginate(@recipients)

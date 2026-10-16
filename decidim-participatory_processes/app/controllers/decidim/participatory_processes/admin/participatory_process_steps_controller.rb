@@ -17,11 +17,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :process_step
+
           @form = form(ParticipatoryProcessStepForm).instance
         end
 
         def create
           enforce_permission_to :create, :process_step
+
           @form = form(ParticipatoryProcessStepForm).from_params(params)
 
           CreateParticipatoryProcessStep.call(@form) do
@@ -39,11 +41,13 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :process_step, process_step: @participatory_process_step
+
           @form = form(ParticipatoryProcessStepForm).from_model(@participatory_process_step)
         end
 
         def update
           enforce_permission_to :update, :process_step, process_step: @participatory_process_step
+
           @form = form(ParticipatoryProcessStepForm).from_params(params)
 
           UpdateParticipatoryProcessStep.call(@form, @participatory_process_step) do
