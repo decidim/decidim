@@ -50,11 +50,11 @@ module Decidim
       private
 
       def project(id = nil)
-        context[:project] ||= if object.is_a?(Decidim::Budgets::Project)
-                                object
-                              else
-                                object.projects.find(id)
-                              end
+        @project ||= if object.is_a?(Decidim::Budgets::Project)
+                       object
+                     else
+                       object.projects.find(id)
+                     end
       end
 
       def extract_from(attributes, project)

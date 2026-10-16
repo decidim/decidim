@@ -33,7 +33,7 @@ module Decidim
       private
 
       def find_resource(id = nil)
-        context[:blob] ||= begin
+        @blob ||= begin
           id ||= arguments[:id]
           ActiveStorage::Blob.find(id)
         end
