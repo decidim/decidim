@@ -35,6 +35,10 @@ module Decidim
         expect(described_class.format("image/heif;charset=binary")).to eq(:heif)
       end
 
+      it "returns the format for a text based format" do
+        expect(described_class.format("text/csv")).to eq(:csv)
+      end
+
       it "returns nil for a content type of an unknown format" do
         expect(described_class.format("text/html")).to be_nil
       end
@@ -53,11 +57,23 @@ module Decidim
       it "rejects the content types of other formats" do
         expect(described_class.match?(:jpeg, "image/png")).to be(false)
       end
+
+      it "accepts the generic text type for a text based format" do
+        expect(described_class.match?(:csv, "text/plain")).to be(true)
+      end
+
+      it "rejects the content types of other formats for a text based format" do
+        expect(described_class.match?(:csv, "text/html")).to be(false)
+      end
     end
 
     describe ".accepted_types" do
       it "returns the accepted content types for the format of a content type" do
         expect(described_class.accepted_types("image/jpg")).to eq(described_class::FORMAT_CONTENT_TYPES[:jpeg])
+      end
+
+      it "returns the accepted content types for a text based format" do
+        expect(described_class.accepted_types("text/csv")).to eq(described_class::FORMAT_CONTENT_TYPES[:csv])
       end
 
       it "returns nil for a content type of an unknown format" do

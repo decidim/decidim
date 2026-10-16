@@ -18,7 +18,16 @@ module Decidim
       webp: %w(image/webp),
       heif: %w(image/heic image/heif image/heic-sequence image/heif-sequence),
       avif: %w(image/avif image/avis),
-      svg: %w(image/svg+xml)
+      svg: %w(image/svg+xml),
+      # The text based formats. `text/plain` is the generic type clients use for
+      # any plain text file, so it is accepted as an alias for them; without it
+      # the upload endpoints would reject a text file declared as `text/plain`
+      # even when both it and the type of the extension are allowed.
+      txt: %w(text/plain),
+      csv: %w(text/csv text/comma-separated-values text/plain),
+      json: %w(application/json application/x-json text/json text/plain),
+      markdown: %w(text/markdown text/x-markdown text/plain),
+      rtf: %w(application/rtf application/x-rtf text/rtf text/plain)
     }.freeze
 
     # Strips the content type parameters (e.g. "image/png;charset=binary") and

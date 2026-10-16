@@ -93,6 +93,27 @@ module ActiveStorage
             expect(response).to have_http_status(:ok)
           end
         end
+
+        context "when a text file is declared with the generic text content type" do
+          # Clients declare plain text files as text/plain, which is an accepted
+          # alias for the text formats, so the upload is not rejected.
+          let(:blob) do
+            {
+              filename: "hello.csv",
+              byte_size: 6,
+              checksum:,
+              content_type: "text/plain"
+            }
+          end
+          let(:extensions) { %w(csv) }
+          let(:content_types) { %w(text/plain text/csv) }
+
+          it "returns success" do
+            post(:create, params:)
+
+            expect(response).to have_http_status(:ok)
+          end
+        end
       end
 
       context "when the user has an elevated role" do
