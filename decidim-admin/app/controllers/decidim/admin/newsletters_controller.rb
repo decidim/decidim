@@ -92,8 +92,8 @@ module Decidim
 
         DestroyNewsletter.call(newsletter, current_user) do
           on(:invalid) do
-            flash.now[:error] = I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin")
-            redirect_to :back
+            flash[:error] = I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin")
+            redirect_back_or_to(newsletters_path)
           end
 
           on(:ok) do

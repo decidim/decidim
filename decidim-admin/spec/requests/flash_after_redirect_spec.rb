@@ -100,6 +100,15 @@ describe "Admin flash messages after redirects" do
       expect(response).to redirect_to(decidim_admin.newsletter_path(newsletter))
       expect_message_after_redirect(I18n.t("newsletters.create.success", scope: "decidim.admin"))
     end
+
+    it "shows the error after trying to delete a sent newsletter" do
+      newsletter = create(:newsletter, :sent, organization:)
+
+      delete(decidim_admin.newsletter_path(newsletter))
+
+      expect(response).to redirect_to(decidim_admin.newsletters_path)
+      expect_message_after_redirect(I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin"))
+    end
   end
 
   describe "taxonomies" do
