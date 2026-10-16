@@ -87,7 +87,7 @@ module Decidim
         def template
           return unless Decidim.module_installed?(:templates)
 
-          @template ||= Decidim::Templates::Template.find_by(id: params[:template][:template_id])
+          @template ||= Decidim::Templates::Template.where(organization: current_organization).find_by(id: params[:template][:template_id])
         end
 
         def answer_form(proposal)
@@ -95,7 +95,7 @@ module Decidim
         end
 
         def proposal_state
-          @proposal_state ||= Decidim::Proposals::ProposalState.find_by(id: template&.field_values&.dig("proposal_state_id"))
+          @proposal_state ||= Decidim::Proposals::ProposalState.where(component: current_component).find_by(id: template&.field_values&.dig("proposal_state_id"))
         end
       end
     end
