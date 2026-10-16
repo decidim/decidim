@@ -40,6 +40,22 @@ module Decidim::Verifications
           expect(response).to redirect_to(authorizations_path)
         end
 
+        context "when the user is already authorized with the handler" do
+          let!(:existing_authorization) { create(:authorization, :granted, name: handler_name, user:) }
+
+          it "does not create an authorization and redirects the user" do
+            expect do
+              post :create, params: {
+                handler: "dummy_authorization_handler",
+                authorization_handler: handler_params
+              }
+            end.not_to change(Decidim::Authorization, :count)
+
+            expect(flash[:alert]).to eq("You are not authorized to perform this action.")
+            expect(response).to have_http_status(:redirect)
+          end
+        end
+
         context "with a duplicate authorization" do
           let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: handler_name) }
           let!(:other_user) { create(:user, organization: user.organization) }
