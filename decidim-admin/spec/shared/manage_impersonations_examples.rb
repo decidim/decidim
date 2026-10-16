@@ -364,7 +364,7 @@ shared_examples "manage impersonations examples" do
     end
 
     fill_in_the_impersonation_form("123456789X", reason:)
-    expect(page).to have_callout("You are managing the participant") if user.managed || (reason && reason.length.positive?)
+    expect(page).to have_admin_callout("You are managing the participant") if user.managed || (reason && reason.length.positive?)
   end
 
   def simulate_session_expiration
