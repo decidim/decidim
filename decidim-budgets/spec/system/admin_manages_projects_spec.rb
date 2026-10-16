@@ -111,6 +111,23 @@ describe "Admin manages projects" do
         expect(project.reload.budget).to eq(destination_budget)
         expect(project2.reload.budget).to eq(destination_budget)
       end
+
+      it "changes project budget to a budget from another component in the same participatory space" do
+        visit current_path
+        find_by_id("projects_bulk").set(true)
+        find_by_id("js-bulk-actions-button").click
+        click_on "Change budget"
+        select translated(another_budget.title), from: "reference_id"
+        click_on "Update project's budget"
+        within_flash_messages do
+          expect(page).to have_text("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
+        end
+        expect(page).to have_no_css("tr[data-id='#{project.id}']")
+        expect(page).to have_no_css("tr[data-id='#{project2.id}']")
+
+        expect(project.reload.budget).to eq(another_budget)
+        expect(project2.reload.budget).to eq(another_budget)
+      end
     end
 
     describe "soft delete a projects" do
