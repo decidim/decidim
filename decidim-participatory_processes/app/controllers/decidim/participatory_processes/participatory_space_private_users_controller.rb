@@ -5,10 +5,12 @@ module Decidim
     class ParticipatorySpacePrivateUsersController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
       include Decidim::HasMembersPage
+      include Paginable
 
       def index
         raise ActionController::RoutingError, "No members for this participatory process" if members.none?
 
+        @members = paginate(members)
         enforce_permission_to :list, :members
         redirect_to decidim_participatory_processes.participatory_process_path(current_participatory_space) unless can_visit_index?
       end
@@ -21,6 +23,13 @@ module Decidim
         @current_participatory_space ||= OrganizationParticipatoryProcesses.new(current_organization).query.where(slug: params[:participatory_process_slug]).or(
           OrganizationParticipatoryProcesses.new(current_organization).query.where(id: params[:participatory_process_slug])
         ).first!
+      end
+
+      def page_params
+        {
+          per_page:,
+          page: params[:page]
+        }
       end
     end
   end
