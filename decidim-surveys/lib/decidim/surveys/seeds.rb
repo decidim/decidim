@@ -157,59 +157,42 @@ module Decidim
       end
 
       def create_response_for_text_question_type!(options)
-        response = Decidim::Forms::Response.new(
-          **options, body: ::Faker::Lorem.paragraph(sentence_count: 1)
-        )
+        body = ::Faker::Lorem.paragraph(sentence_count: 1)
+        response = Decidim::Forms::Response.new(**options, body:, value: body)
         response.save!(validate: false)
       end
 
       def create_response_for_sorting_question_type(options)
-        response = Decidim::Forms::Response.new(**options)
+        response_options = options[:question].response_options.shuffle
+        response = Decidim::Forms::Response.new(**options, value: response_options.map { |option| { "option" => option.id } })
         response.save!(validate: false)
-        response_options = options[:question].response_options
-        available_positions = (0..(response_options.size - 1)).to_a
 
-        response_options.each do |response_option|
-          position = available_positions.sample
-          body = response_option[I18n.locale]
-
-          choice = Decidim::Forms::ResponseChoice.new(
-            response:,
-            response_option:,
-            body:,
-            position:
-          )
+        response_options.each_with_index do |response_option, position|
+          choice = Decidim::Forms::ResponseChoice.new(response:, response_option:, body: response_option.translated_body, position:)
           choice.save!(validate: false)
         end
       end
 
       def create_response_for_multiple_choice_question_type(options)
-        response = Decidim::Forms::Response.new(**options)
-        response.save!(validate: false)
         response_option = options[:question].response_options.sample
-        body = response_option[I18n.locale]
+        choice_value = { "option" => response_option.id }
+        value = options[:question].question_type == "single_option" ? choice_value : [choice_value]
+        response = Decidim::Forms::Response.new(**options, value:)
+        response.save!(validate: false)
 
-        choice = Decidim::Forms::ResponseChoice.new(
-          response:,
-          response_option:,
-          body:
-        )
+        choice = Decidim::Forms::ResponseChoice.new(response:, response_option:, body: response_option.translated_body)
         choice.save!(validate: false)
       end
 
       def create_response_for_matrix_question_type(options)
-        response = Decidim::Forms::Response.new(**options)
-        response.save!(validate: false)
         response_option = options[:question].response_options.sample
         matrix_row = options[:question].matrix_rows.sample
-        body = response_option[I18n.locale]
+        choice_value = { "option" => response_option.id }
+        value = { matrix_row.id.to_s => (options[:question].question_type == "matrix_single" ? choice_value : [choice_value]) }
+        response = Decidim::Forms::Response.new(**options, value:)
+        response.save!(validate: false)
 
-        choice = Decidim::Forms::ResponseChoice.new(
-          response:,
-          response_option:,
-          matrix_row:,
-          body:
-        )
+        choice = Decidim::Forms::ResponseChoice.new(response:, response_option:, matrix_row:, body: response_option.translated_body)
         choice.save!(validate: false)
       end
     end

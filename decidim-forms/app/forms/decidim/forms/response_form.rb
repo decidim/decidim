@@ -44,10 +44,21 @@ module Decidim
       def map_model(model)
         self.question_id = model.decidim_question_id
         self.question = model.question
+        self.body = model.text_value
         self.attachments = model.attachments
+        self.choices = model.selections.map { |selection| choice_form_for(selection) }
+      end
 
-        self.choices = model.choices.map do |choice|
-          ResponseChoiceForm.from_model(choice)
+      # Public: the response in the stored value format: a String for text questions, choice objects with
+      # "option" and "text" (one, an Array, or a Hash keyed by matrix row id), nil when nothing was answered.
+      # Files are stored by the command once their attachments exist.
+      def value
+        case question.question_type
+        when "short_response", "long_response" then body.presence
+        when "single_option" then choice_value_for(selected_choices.first)
+        when "multiple_option", "sorting" then selected_choices.map { |choice| choice_value_for(choice) }.presence
+        when "matrix_single" then matrix_value { |choices| choice_value_for(choices.first) }
+        when "matrix_multiple" then matrix_value { |choices| choices.map { |choice| choice_value_for(choice) } }
         end
       end
 
@@ -143,6 +154,26 @@ module Decidim
 
       def attachments_present
         errors.add(:add_attachments, :blank) if add_attachments.empty? && errors[:add_attachments].empty?
+      end
+
+      def choice_value_for(choice)
+        return unless choice
+
+        { "option" => choice.response_option_id, "text" => choice.custom_body.presence }.compact
+      end
+
+      def matrix_value
+        selected_choices.select(&:matrix_row_id).group_by { |choice| choice.matrix_row_id.to_s }.transform_values { |choices| yield(choices) }.presence
+      end
+
+      def choice_form_for(selection)
+        option = question.response_options.find { |candidate| candidate.id == selection["option"] }
+        ResponseChoiceForm.new(
+          response_option_id: selection["option"],
+          matrix_row_id: selection["row"],
+          custom_body: selection["text"],
+          body: option ? option.translated_body : selection["label"].to_s
+        )
       end
     end
   end

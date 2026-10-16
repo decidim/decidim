@@ -11,11 +11,6 @@ module Decidim
       attribute :matrix_row_id, Integer
 
       validates :response_option_id, presence: true
-
-      def map_model(model)
-        self.response_option_id = model.decidim_response_option_id
-        self.matrix_row_id = model.decidim_question_matrix_row_id
-      end
     end
   end
 end

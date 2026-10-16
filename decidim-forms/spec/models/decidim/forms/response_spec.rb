@@ -82,6 +82,86 @@ module Decidim
           expect(subject).not_to be_valid
         end
       end
+
+      describe "#text_value" do
+        let(:response) { create(:response, questionnaire:, question: create(:questionnaire_question, questionnaire:, question_type:), body: "legacy", value:) }
+
+        context "with a text question" do
+          let(:question_type) { "long_response" }
+          let(:value) { "hello" }
+
+          it { expect(response.text_value).to eq("hello") }
+        end
+
+        context "with a value that is not a text" do
+          let(:question_type) { "long_response" }
+          let(:value) { [{ "option" => 1 }] }
+
+          it { expect(response.text_value).to be_nil }
+        end
+
+        context "with a choice question" do
+          let(:question_type) { "single_option" }
+          let(:value) { { "option" => 1 } }
+
+          it { expect(response.text_value).to be_nil }
+        end
+      end
+
+      describe "#selections" do
+        let(:response) { create(:response, questionnaire:, question: create(:questionnaire_question, questionnaire:, question_type:), body: nil, value:) }
+
+        context "with a single option" do
+          let(:question_type) { "single_option" }
+          let(:value) { { "option" => 1, "text" => "mine" } }
+
+          it { expect(response.selections).to eq([{ "option" => 1, "text" => "mine" }]) }
+        end
+
+        context "with a sorting" do
+          let(:question_type) { "sorting" }
+          let(:value) { [{ "option" => 3 }, { "option" => 1 }, { "option" => 2 }] }
+
+          it { expect(response.selections).to eq([{ "option" => 3 }, { "option" => 1 }, { "option" => 2 }]) }
+        end
+
+        context "with a matrix single" do
+          let(:question_type) { "matrix_single" }
+          let(:value) { { "101" => { "option" => 1 } } }
+
+          it { expect(response.selections).to eq([{ "option" => 1, "row" => 101 }]) }
+        end
+
+        context "with a matrix multiple" do
+          let(:question_type) { "matrix_multiple" }
+          let(:value) { { "101" => [{ "option" => 1 }], "102" => [{ "option" => 2 }, { "option" => 3, "text" => "mine" }] } }
+
+          it "flattens the rows keeping the row id" do
+            expect(response.selections).to eq([{ "option" => 1, "row" => 101 }, { "option" => 2, "row" => 102 }, { "option" => 3, "text" => "mine", "row" => 102 }])
+          end
+        end
+
+        context "without a value" do
+          let(:question_type) { "multiple_option" }
+          let(:value) { nil }
+
+          it { expect(response.selections).to eq([]) }
+        end
+
+        context "with a text question" do
+          let(:question_type) { "short_response" }
+          let(:value) { "hello" }
+
+          it { expect(response.selections).to eq([]) }
+        end
+
+        context "with a value stored for another question type" do
+          let(:question_type) { "matrix_multiple" }
+          let(:value) { [{ "option" => 1 }] }
+
+          it { expect(response.selections).to eq([]) }
+        end
+      end
     end
   end
 end
