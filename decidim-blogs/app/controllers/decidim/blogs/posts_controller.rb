@@ -108,9 +108,14 @@ module Decidim
 
       def search_collection
         if current_user&.admin?
-          Post.includes(:component, :taxonomies).preload(author: [:organization, { avatar_attachment: :blob }]).where(component: current_component)
+          Post.includes(:component, :taxonomies)
+              .preload(author: [:organization, { avatar_attachment: :blob }])
+              .where(component: current_component)
         else
-          Post.includes(:component, :taxonomies).preload(author: [:organization, { avatar_attachment: :blob }]).published.where(component: current_component)
+          Post.includes(:component, :taxonomies)
+              .preload(author: [:organization, { avatar_attachment: :blob }])
+              .where(component: current_component)
+              .published
         end
       end
 
