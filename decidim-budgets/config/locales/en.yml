@@ -305,6 +305,7 @@ en:
           label: Order budgets by
           lowest_cost: Lowest cost
           random: Random order
+          weight: Order position
         progress: Finish voting
         remove_vote: Remove vote
         see_projects: See projects
