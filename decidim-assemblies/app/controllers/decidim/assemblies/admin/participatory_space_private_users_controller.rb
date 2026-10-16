@@ -9,6 +9,8 @@ module Decidim
         include Concerns::AssemblyAdmin
         include Decidim::Admin::Concerns::HasPrivateUsers
 
+        protected
+
         def after_destroy_path
           participatory_space_private_users_path(current_assembly)
         end

@@ -8,6 +8,8 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
         include Decidim::Admin::Concerns::HasPrivateUsers
 
+        protected
+
         def after_destroy_path
           participatory_space_private_users_path(current_participatory_process)
         end
