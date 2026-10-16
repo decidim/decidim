@@ -54,7 +54,7 @@ namespace :decidim do
         "--locales",
         "en,ca,es",
         "--dev_ssl",
-        "--queue=sidekiq"
+        "--queue=#{ENV.fetch("QUEUE_ADAPTER", "sidekiq")}"
       )
     end
   end
