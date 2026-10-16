@@ -78,4 +78,40 @@ describe "Admin flash messages after redirects" do
       expect_message_after_redirect(I18n.t("officializations.bulk_action.unblock.invalid", scope: "decidim.admin"))
     end
   end
+
+  describe "impersonations" do
+    let(:managed_user) { create(:user, :managed, organization:) }
+
+    it "shows the alert after closing a session that does not exist" do
+      post(decidim_admin.close_session_impersonatable_user_impersonations_path(managed_user))
+
+      expect(response).to redirect_to("http://#{organization.host}/#{I18n.locale}")
+      expect_message_after_redirect(I18n.t("impersonations.close_session.error", scope: "decidim.admin"))
+    end
+  end
+
+  describe "newsletters" do
+    it "shows the notice after creating a newsletter" do
+      newsletter = create(:newsletter, organization:)
+      stub_command_broadcast(Decidim::Admin::CreateNewsletter, :ok, newsletter)
+
+      post(decidim_admin.newsletter_template_newsletters_path("basic_only_text"))
+
+      expect(response).to redirect_to(decidim_admin.newsletter_path(newsletter))
+      expect_message_after_redirect(I18n.t("newsletters.create.success", scope: "decidim.admin"))
+    end
+  end
+
+  describe "taxonomies" do
+    let(:taxonomy) { create(:taxonomy, organization:) }
+
+    it "shows the alert after failing to delete a taxonomy" do
+      stub_command_broadcast(Decidim::Admin::DestroyTaxonomy, :invalid)
+
+      delete(decidim_admin.taxonomy_path(taxonomy))
+
+      expect(response).to redirect_to(decidim_admin.taxonomies_path)
+      expect_message_after_redirect(I18n.t("destroy.invalid", scope: "decidim.admin.taxonomies"))
+    end
+  end
 end

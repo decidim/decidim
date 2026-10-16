@@ -50,7 +50,7 @@ module Decidim
 
         CreateNewsletter.call(@form, content_block) do
           on(:ok) do |newsletter|
-            flash.now[:notice] = I18n.t("newsletters.create.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("newsletters.create.success", scope: "decidim.admin")
             redirect_to action: :show, id: newsletter.id
           end
 
