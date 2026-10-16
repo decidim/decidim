@@ -89,6 +89,13 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
         expect(Decidim::Meetings::Meeting.sum(:attendees_count)).to eq 70
         expect(subject).to eq 20
       end
+
+      it "is registered for the participatory space statistics but not for the admin dashboard" do
+        stat = Decidim.find_component_manifest(:meetings).stats.stats.find { |definition| definition[:name] == stats_name }
+
+        expect(stat[:priority]).to eq(Decidim::StatsRegistry::MEDIUM_PRIORITY)
+        expect(stat[:admin]).to be(false)
+      end
     end
   end
 
