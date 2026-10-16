@@ -3,6 +3,7 @@
 module Decidim
   module Proposals
     module Import
+      autoload :BatchNotifier, "decidim/proposals/import/batch_notifier"
       autoload :ProposalAnswerCreator, "decidim/proposals/import/proposal_answer_creator"
       autoload :ProposalCreator, "decidim/proposals/import/proposal_creator"
       autoload :ProposalsAnswersVerifier, "decidim/proposals/import/proposals_answers_verifier"
