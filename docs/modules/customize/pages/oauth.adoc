@@ -18,7 +18,7 @@ This event comes with the following payload:
 * name: User's name.
 * nickname: User's nickname after being normalized.
 * avatar_url: Avatar's url, if any.
-* raw_data: The raw hash received directly from the Omniauth gem.
+* raw_data: The raw hash received directly from the Omniauth gem. In multi-step registration flows (e.g. when users must accept Terms of Service before completing signup), this value is restored from temporary cache. To keep `raw_data` reliably available across retries in production, use a shared cache backend.
 
 To be notified after a registration one should subscribe to the event, in the passed block the after registration code should be implemented:
 
@@ -29,6 +29,10 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
   IdCatMobilVerificationJob.perform_later(data[:raw_data])
 end
 ----
+
+If your integration depends on `data[:raw_data]`, make sure your cache is properly configured so this payload can be restored during multi-step OAuth registration retries.
+
+When testing this behavior in development, enable caching first (for example with `bin/rails dev:cache`) so `raw_data` can be persisted across retries.
 
 Note that, if the user is already registered, the `CreateOmniauthRegistration` command will not trigger the "decidim.user.omniauth_registration" event by instead it will trigger the "decidim.user.omniauth_login" event, which has the same payload as the registration event.
 

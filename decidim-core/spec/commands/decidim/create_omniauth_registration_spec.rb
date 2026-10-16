@@ -107,6 +107,38 @@ module Decidim
           end
         end
 
+        context "when tos agreement is missing for a new user" do
+          let(:tos_agreement) { nil }
+
+          it "broadcasts add_tos_errors" do
+            expect { command.call }.to broadcast(:add_tos_errors)
+          end
+
+          it "does not create a new user" do
+            expect do
+              command.call
+            end.not_to change(User, :count)
+          end
+        end
+
+        context "when tos agreement is missing for an existing verified user" do
+          let(:tos_agreement) { nil }
+
+          before do
+            create(:user, email:, organization:)
+          end
+
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
+          it "does not create a new user" do
+            expect do
+              command.call
+            end.not_to change(User, :count)
+          end
+        end
+
         context "when the form is valid" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
