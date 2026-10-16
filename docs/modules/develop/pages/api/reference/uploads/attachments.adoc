@@ -29,13 +29,15 @@ Having the `signedId`, you will be able to pass it as the `file.signedId` parame
         "en": "Your english description"
       },
       "file": {
-        "signedId": "eyJfcmFpbHMiOnsiZGF0YSI6MzI1MjQsInB1ciI6IkFjdGl2ZVN0b3JhZ2U6OkJsb2IifX0=--3f8a2b1c9d0e4f5a6b7c8d9e0f1a2b3c4d5e6f7a" // The signedId obtained from file upload
+        "signedId": "eyJfcmFpbHMiOnsiZGF0YSI6MzI1MjQsInB1ciI6IkFjdGl2ZVN0b3JhZ2U6OkJsb2IifX0=--3f8a2b1c9d0e4f5a6b7c8d9e0f1a2b3c4d5e6f7a"
       }
     }
   }
 }
 
 ----
+
+The `signedId` is the value obtained from the file upload.
 
 For additional details feel free to browse associated resources.
 
