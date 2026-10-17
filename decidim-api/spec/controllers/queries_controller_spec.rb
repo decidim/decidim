@@ -37,6 +37,90 @@ module Decidim
         expect(parsed_response["organization"]["name"]["translations"]).to include("locale" => "en", "text" => translated(organization.name))
       end
 
+      describe "multipart requests" do
+        let(:operations) do
+          {
+            query: "mutation ($input: UploadFileInput!) { uploadFile(input: $input) { blob { id filename } } }",
+            variables: { input: { file: nil } }
+          }.to_json
+        end
+        let(:map) { { "0" => ["variables.input.file"] }.to_json }
+        let(:uploaded_file) do
+          Rack::Test::UploadedFile.new(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), "image/jpeg")
+        end
+
+        context "when the request is valid" do
+          let(:current_user) { create(:user, :confirmed, :admin, organization:) }
+
+          before do
+            sign_in current_user
+          end
+
+          it "assigns the uploaded file to the mapped path" do
+            post :create, params: { operations:, map: }.merge("0" => uploaded_file)
+
+            expect(response).to have_http_status(:success)
+            expect(response.parsed_body.dig("data", "uploadFile", "blob", "filename")).to match(/\Acity.*\.jpeg\z/)
+          end
+        end
+
+        context "when the mapped file is missing" do
+          it "returns a client error" do
+            post :create, params: { operations:, map: }
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to eq("Uploaded file missing in params[0]")
+          end
+        end
+
+        context "when the map contains an invalid path" do
+          it "returns a client error" do
+            invalid_map = { "0" => ["variables.missing.file"] }.to_json
+
+            post :create, params: { operations:, map: invalid_map }.merge("0" => uploaded_file)
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to include("Unsupported path segment :missing")
+          end
+        end
+
+        context "when the operations payload is not valid JSON" do
+          it "returns a client error" do
+            post :create, params: { operations: "{not valid json", map: }
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to eq("The operations parameter is not valid JSON")
+          end
+        end
+
+        context "when the map payload is not valid JSON" do
+          it "returns a client error" do
+            post :create, params: { operations:, map: "{not valid json" }
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to eq("The map parameter is not valid JSON")
+          end
+        end
+
+        context "when the map is empty" do
+          it "returns a client error" do
+            post :create, params: { operations:, map: "{}" }
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to eq("Invalid multipart map")
+          end
+        end
+
+        context "when the map paths are not an array of strings" do
+          it "returns a client error" do
+            post :create, params: { operations:, map: { "0" => "variables.input.file" }.to_json }
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to include("must be a non-empty array of strings")
+          end
+        end
+      end
+
       context "with force sign in enabled" do
         before do
           allow(Decidim::Api).to receive(:force_api_authentication).and_return(true)

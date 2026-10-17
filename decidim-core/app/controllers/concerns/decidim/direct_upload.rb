@@ -19,11 +19,23 @@ module Decidim
       # We skip the validation if we are in system panel. `current_admin` refers to the main system admin user.
       return if current_admin.present?
 
+      # The size limit is checked against the byte_size declared by the client. The
+      # contents are sent straight to the storage service by the browser and are
+      # never compared with the declared value, so only what the client declares is
+      # enforced here.
       head :unprocessable_content unless [
         maximum_allowed_size.try(:to_i) >= blob_args[:byte_size].try(:to_i),
         content_types.any? { |pattern| pattern.match?(blob_args[:content_type]) },
-        content_types.any? { |pattern| pattern.match?(MiniMime.lookup_by_extension(extension)&.content_type) },
-        allowed_extensions.any? { |pattern| pattern.match?(extension) }
+        content_types.any? { |pattern| pattern.match?(extension_content_type) },
+        allowed_extensions.any? { |pattern| pattern.match?(extension) },
+        # The contents of a direct upload are sent straight to the storage
+        # service, so the bytes cannot be inspected at this point and the content
+        # type declared by the client cannot be verified against them. It is at
+        # least required to be consistent with the type derived from the file
+        # extension, so that a file cannot be stored with a false declaration;
+        # the actual contents are checked by UploaderImageContentValidator when
+        # the blob is attached to a record.
+        content_type_matches_extension?(blob_args[:content_type], extension_content_type)
       ].all?
     rescue NoMethodError
       head :unprocessable_content
@@ -31,6 +43,21 @@ module Decidim
 
     def extension
       File.extname(blob_args[:filename]).delete(".")
+    end
+
+    def extension_content_type
+      MiniMime.lookup_by_extension(extension)&.content_type
+    end
+
+    # Whether the content type declared by the client is the one derived from the
+    # file extension, or one of the aliases accepted for the same format.
+    def content_type_matches_extension?(declared, derived)
+      return true if derived.nil?
+
+      normalized = Decidim::UploadContentTypes.normalize(declared)
+      return true if normalized == derived
+
+      Decidim::UploadContentTypes.accepted_types(derived)&.include?(normalized)
     end
 
     def maximum_allowed_size

@@ -12,6 +12,9 @@ module Decidim
         argument :id, GraphQL::Types::ID, "The Comment's unique ID", required: true
       end
 
+      field :delete_blob, mutation: Decidim::Core::DeleteBlobType, description: "Delete a blob"
+      field :upload_file, mutation: Decidim::Core::UploadFileType, description: "Upload a file"
+
       def component(id:)
         current_organization&.published_components&.find(id)
       end
