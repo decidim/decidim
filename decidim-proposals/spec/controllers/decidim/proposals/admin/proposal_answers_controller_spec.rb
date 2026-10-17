@@ -53,8 +53,8 @@ module Decidim
           context "when costs are enabled" do
             before do
               component.update!(
-                step_settings: {
-                  component.participatory_space.active_step.id => {
+                phase_settings: {
+                  component.participatory_space.active_phase.id => {
                     answers_with_costs: true
                   }
                 }
@@ -114,8 +114,8 @@ module Decidim
           context "when cost is not required" do
             before do
               component.update!(
-                step_settings: {
-                  component.participatory_space.active_step.id => {
+                phase_settings: {
+                  component.participatory_space.active_phase.id => {
                     answers_with_costs: true
                   }
                 }

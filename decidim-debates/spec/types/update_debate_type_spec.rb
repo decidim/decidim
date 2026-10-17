@@ -8,7 +8,7 @@ module Decidim
       include_context "with a graphql class mutation"
 
       let(:root_klass) { DebateMutationType }
-      let(:participatory_process) { create(:participatory_process, :with_steps, organization: current_organization) }
+      let(:participatory_process) { create(:participatory_process, :with_phases, organization: current_organization) }
       let!(:current_component) do
         create(:debates_component, :published, :with_creation_enabled, participatory_space: participatory_process, settings: {
                  taxonomy_filters: [taxonomy_filter.id]

@@ -14,20 +14,20 @@ shared_examples "with promoted participatory processes and groups" do
 
       unpromoted_process = create(
         :participatory_process,
-        :with_steps,
+        :with_phases,
         :published,
         organization:
       )
-      unpromoted_process.active_step.update!(end_date: Time.current.advance(days: 1))
+      unpromoted_process.active_phase.update!(end_date: Time.current.advance(days: 1))
 
       promoted_process = create(
         :participatory_process,
-        :with_steps,
+        :with_phases,
         :published,
         :promoted,
         organization:
       )
-      promoted_process.active_step.update!(end_date: Time.current.advance(days: 2))
+      promoted_process.active_phase.update!(end_date: Time.current.advance(days: 2))
 
       promoted_group = create(
         :participatory_process_group,
@@ -45,10 +45,10 @@ shared_examples "with promoted participatory processes and groups" do
       )
     end
 
-    it "orders participatory processes by active_step end_date" do
+    it "orders participatory processes by active_phase end_date" do
       create(
         :participatory_process,
-        :with_steps,
+        :with_phases,
         :unpublished,
         :promoted,
         organization:
@@ -56,7 +56,7 @@ shared_examples "with promoted participatory processes and groups" do
 
       create(
         :participatory_process,
-        :with_steps,
+        :with_phases,
         :unpublished,
         organization:
       )
@@ -64,37 +64,37 @@ shared_examples "with promoted participatory processes and groups" do
       last =
         create(
           :participatory_process,
-          :with_steps,
+          :with_phases,
           :published,
           :promoted,
           organization:
         )
 
-      last.active_step.update!(end_date: nil)
+      last.active_phase.update!(end_date: nil)
 
       first =
         create(
           :participatory_process,
-          :with_steps,
+          :with_phases,
           :published,
           :promoted,
           organization:,
           end_date: Time.current.advance(days: 10)
         )
 
-      first.active_step.update!(end_date: Time.current.advance(days: 2))
+      first.active_phase.update!(end_date: Time.current.advance(days: 2))
 
       second =
         create(
           :participatory_process,
-          :with_steps,
+          :with_phases,
           :published,
           :promoted,
           organization:,
           end_date: Time.current.advance(days: 8)
         )
 
-      second.active_step.update!(end_date: Time.current.advance(days: 4))
+      second.active_phase.update!(end_date: Time.current.advance(days: 4))
 
       expect(controller.helpers.promoted_collection).to(
         match_array([first, second, last])

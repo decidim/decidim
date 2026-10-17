@@ -61,7 +61,7 @@ describe "Profile" do
 
     context "when the user filters the public activity" do
       let(:organization) { user.organization }
-      let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
+      let(:participatory_space) { create(:participatory_process, :published, :with_phases, organization:) }
       let(:component) { create(:proposal_component, participatory_space:) }
       let(:proposal) { create(:proposal, component:, users: [user]) }
       let(:comment) { create(:comment, commentable: proposal, author: user) }

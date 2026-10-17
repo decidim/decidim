@@ -7,7 +7,7 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:other_org) { create(:organization) }
 
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:component) { create(:surveys_component, participatory_space: participatory_process) }
   let(:survey) { create(:survey, component:) }
   let(:questionnaire) { survey.questionnaire }
@@ -31,7 +31,7 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
     end
 
     context "with a cross-organization questionnaire" do
-      let(:other_process) { create(:participatory_process, :with_steps, organization: other_org) }
+      let(:other_process) { create(:participatory_process, :with_phases, organization: other_org) }
       let(:other_component) { create(:surveys_component, participatory_space: other_process) }
       let(:other_survey) { create(:survey, component: other_component) }
       let(:other_questionnaire) { other_survey.questionnaire }
@@ -111,7 +111,7 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
     let(:params) { { questionnaire_id: questionnaire.id, url: "/en/admin/" } }
 
     context "with a cross-organization questionnaire" do
-      let(:other_process) { create(:participatory_process, :with_steps, organization: other_org) }
+      let(:other_process) { create(:participatory_process, :with_phases, organization: other_org) }
       let(:other_component) { create(:surveys_component, participatory_space: other_process) }
       let(:other_survey) { create(:survey, component: other_component) }
       let(:other_questionnaire) { other_survey.questionnaire }

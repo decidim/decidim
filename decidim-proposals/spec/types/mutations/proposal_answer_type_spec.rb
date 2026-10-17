@@ -9,7 +9,7 @@ module Decidim
 
       let(:root_klass) { ProposalMutationType }
       let(:organization) { create(:organization, available_locales: [:en]) }
-      let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+      let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
       let(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
       let!(:model) { create(:proposal, component: current_component) }
       let(:state) { %w(accepted evaluating rejected).sample }
@@ -52,8 +52,8 @@ module Decidim
       before do
         component.update!(
           settings: { proposal_answering_enabled: },
-          step_settings: {
-            component.participatory_space.active_step.id => {
+          phase_settings: {
+            component.participatory_space.active_phase.id => {
               proposal_answering_enabled:,
               answers_with_costs: proposal_answers_with_costs?
             }

@@ -124,15 +124,15 @@ describe "Decidim::Api::QueryType" do
   let!(:proposal) { create(:proposal, :with_answer, :with_votes, :with_likes, :participant_author, component: current_component, taxonomies:) }
   let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
 
-  let(:active_step) { current_component.participatory_space.respond_to?(:active_step) && current_component.participatory_space.active_step.present? }
+  let(:active_phase) { current_component.participatory_space.respond_to?(:active_phase) && current_component.participatory_space.active_phase.present? }
   let(:cost) do
-    number_to_currency(proposal.cost, unit: Decidim.currency_unit) if active_step
+    number_to_currency(proposal.cost, unit: Decidim.currency_unit) if active_phase
   end
   let(:cost_report) do
-    { "translation" => translated(proposal.cost_report) } if active_step
+    { "translation" => translated(proposal.cost_report) } if active_phase
   end
   let(:execution_period) do
-    { "translation" => translated(proposal.execution_period) } if active_step
+    { "translation" => translated(proposal.execution_period) } if active_phase
   end
   let(:proposal_state) do
     {
@@ -229,11 +229,11 @@ describe "Decidim::Api::QueryType" do
   end
 
   before do
-    if active_step
+    if active_phase
       current_component.update!(
         settings: { proposal_answering_enabled: true },
-        step_settings: {
-          current_component.participatory_space.active_step.id => {
+        phase_settings: {
+          current_component.participatory_space.active_phase.id => {
             proposal_answering_enabled: true,
             answers_with_costs: true
           }

@@ -27,7 +27,7 @@ describe "Comments" do
 
   context "with comments blocked" do
     let!(:component) { create(:component, manifest_name: :meetings, participatory_space:, organization:) }
-    let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+    let(:participatory_space) { create(:participatory_process, :with_phases, organization:) }
 
     include_examples "comments blocked"
   end

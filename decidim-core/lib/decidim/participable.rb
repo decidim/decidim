@@ -48,12 +48,12 @@ module Decidim
         admins
       end
 
-      def allows_steps?
-        respond_to?(:steps)
+      def allows_phases?
+        respond_to?(:phases)
       end
 
       def has_steps?
-        allows_steps? && steps.any?
+        allows_phases? && phases.any?
       end
 
       def manifest

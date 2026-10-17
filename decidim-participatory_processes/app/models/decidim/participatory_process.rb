@@ -4,7 +4,7 @@ module Decidim
   # Interaction between a user and an organization is done via a
   # ParticipatoryProcess. It is a unit of action from the Organization point of
   # view that groups several components (proposals, debates...) distributed in
-  # steps that get enabled or disabled depending on which step is currently
+  # phases that get enabled or disabled depending on which phase is currently
   # active.
   class ParticipatoryProcess < ApplicationRecord
     include Decidim::HasAttachments
@@ -38,16 +38,16 @@ module Decidim
                class_name: "Decidim::ParticipatoryProcessGroup",
                inverse_of: :participatory_processes,
                optional: true
-    has_many :steps,
+    has_many :phases,
              -> { order(position: :asc) },
              foreign_key: "decidim_participatory_process_id",
-             class_name: "Decidim::ParticipatoryProcessStep",
+             class_name: "Decidim::ParticipatoryProcessPhase",
              dependent: :destroy,
              inverse_of: :participatory_process
-    has_one :active_step,
+    has_one :active_phase,
             -> { where(active: true) },
             foreign_key: "decidim_participatory_process_id",
-            class_name: "Decidim::ParticipatoryProcessStep",
+            class_name: "Decidim::ParticipatoryProcessPhase",
             dependent: :destroy,
             inverse_of: :participatory_process
     has_many :categories,
@@ -62,7 +62,7 @@ module Decidim
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
-    attr_readonly :active_step
+    attr_readonly :active_phase
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }

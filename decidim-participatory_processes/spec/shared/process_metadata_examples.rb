@@ -32,11 +32,11 @@ shared_examples "process card with metadata" do |metadata_class:|
     end
   end
 
-  context "with steps" do
-    let(:model) { create(:participatory_process, :with_steps) }
+  context "with phases" do
+    let(:model) { create(:participatory_process, :with_phases) }
 
-    it "renders the active step name" do
-      expect(subject).to have_css(".#{metadata_class} div", text: translated(model.active_step.title))
+    it "renders the active phase name" do
+      expect(subject).to have_css(".#{metadata_class} div", text: translated(model.active_phase.title))
     end
   end
 end

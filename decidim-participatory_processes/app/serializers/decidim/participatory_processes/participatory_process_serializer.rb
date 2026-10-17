@@ -18,25 +18,25 @@ module Decidim
             access_mode: resource.access_mode,
             weight: resource.weight,
             components: serialize_components,
-            participatory_process_steps: serialize_participatory_process_steps
+            participatory_process_phases: serialize_participatory_process_phases
           }
         )
       end
 
       private
 
-      def serialize_participatory_process_steps
-        return unless resource.steps.any?
+      def serialize_participatory_process_phases
+        return unless resource.phases.any?
 
-        resource.steps.map do |step|
+        resource.phases.map do |phase|
           {
-            id: step.try(:id),
-            title: step.try(:title),
-            description: step.try(:description),
-            start_date: step.try(:start_date),
-            end_date: step.try(:end_date),
-            active: step.active,
-            position: step.position
+            id: phase.try(:id),
+            title: phase.try(:title),
+            description: phase.try(:description),
+            start_date: phase.try(:start_date),
+            end_date: phase.try(:end_date),
+            active: phase.active,
+            position: phase.position
           }
         end
       end
