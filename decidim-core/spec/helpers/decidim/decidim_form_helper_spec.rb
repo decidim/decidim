@@ -10,7 +10,7 @@ module Decidim
 
         options = {
           data: {
-            controller: "form-validator autofocus",
+            controller: "form-validator autofocus unsaved-form",
             live_validate: true,
             validate_on_blur: true
           },

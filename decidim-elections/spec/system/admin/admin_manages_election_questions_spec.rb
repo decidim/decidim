@@ -20,6 +20,17 @@ describe "Admin manages elections questions" do
     expect(page).to have_text("Question must have at least two answers in order go to the next step.")
   end
 
+  context "with an unsaved question form" do
+    let!(:question) { create(:election_question, id: 1234, election:) }
+
+    before do
+      visit questions_edit_path
+      expand_all_questions
+    end
+
+    it_behaves_like "a form with unsaved changes", "form.edit_questions", "questions[1234][body_en]", "Main"
+  end
+
   context "when an admin user add a question" do
     it "adds a question with response options" do
       visit questions_edit_path

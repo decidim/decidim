@@ -9,7 +9,6 @@ import "dragula/dist/dragula.css";
 import createOptionAttachedInputs from "src/decidim/forms/option_attached_inputs.component"
 import createDisplayConditions from "src/decidim/forms/display_conditions.component"
 import createMaxChoicesAlertComponent from "src/decidim/forms/max_choices_alert.component"
-import { preventUnload } from "src/decidim/utilities/dom"
 
 document.addEventListener("turbo:load", () => {
   $(".js-radio-button-collection, .js-check-box-collection").each((idx, el) => {
@@ -65,34 +64,4 @@ document.addEventListener("turbo:load", () => {
       wrapperField: $(el)
     });
   });
-
-  const form = document.querySelector("form.response-questionnaire");
-  if (form) {
-    const safePath = form.dataset.safePath.split("?")[0];
-    let exitUrl = "";
-    document.addEventListener("click", (event) => {
-      const link = event.target?.closest("a");
-      if (link) {
-        exitUrl = link.href;
-      }
-    });
-
-    // The submit listener has to be registered through jQuery because the
-    // custom confirm dialog does not dispatch the "submit" event normally.
-    $(document).on("submit", "form", (event) => {
-      exitUrl = event.currentTarget.action;
-    });
-
-    let hasChanged = false;
-    const controls = form.querySelectorAll("input, textarea, select");
-    const changeListener = () => {
-      if (!hasChanged) {
-        hasChanged = true;
-        controls.forEach((control) => control.removeEventListener("change", changeListener));
-
-        preventUnload(() => !exitUrl.includes(safePath));
-      }
-    };
-    controls.forEach((control) => control.addEventListener("change", changeListener));
-  }
 })
