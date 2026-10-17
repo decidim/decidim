@@ -7,6 +7,7 @@ module Decidim
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
     include Traceable
+    include Decidim::SoftDeletable
 
     before_save :set_content_type_and_size, if: :attached?
     before_validation :set_link_content_type_and_size, if: :editable_link?
