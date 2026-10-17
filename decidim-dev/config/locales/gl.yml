@@ -2,6 +2,9 @@
 gl:
   activemodel:
     attributes:
+      dummy:
+        image: Imaxe
+      dummy_attribute: Atributo de proba
       dummy_resource:
         created_at: Creado en
         decidim_scope_id: Ámbito
@@ -15,8 +18,16 @@ gl:
       dummy:
         settings:
           global:
+            clear_all: Limpar todo
+            guided: Campo guiado
+            guided_help: Texto de axuda
+            guided_readonly: Campo desactivado
+            guided_rich: Campo enriquecido guiado
+            guided_rich_help_html: Texto HTML de <strong>axuda</strong>
+            guided_rich_readonly_html: Texto HTML de <strong>axuda</strong> para o campo desactivado
             readonly_attribute: Atributo de só lectura
             test: Unha proba
+            test_add: Engadir proba
             test_choices:
               a: Opción A
               b: Opción B
@@ -26,6 +37,8 @@ gl:
               baz: Baz
               foo: Foo
           step:
+            likes_blocked: Gústame bloqueados
+            likes_enabled: Gústame activados
             readonly_step_attribute: Atributo de paso de só lectura
             test_options:
               bar: Bar
@@ -40,11 +53,12 @@ gl:
         test:
           conditions:
           - Use un entorno de proba para decidir.
-          description: Os usuarios obtén esta insignia creando probas.
+          description: Os participantes obtén esta insignia creando probas.
           description_another: Este usuario creou %{score} probas.
           description_own: Creaches %{score} probas.
           name: Probas
           next_level_in: Crea %{score} probas máis para chegar ao seguinte nivel!
+          unearned_another: Esta persoa participante aínda non creou ningunha proba.
           unearned_own: Non creaches probas aínda.
     resource_links:
       test_link:
