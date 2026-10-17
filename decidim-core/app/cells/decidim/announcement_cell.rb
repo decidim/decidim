@@ -17,6 +17,10 @@ module Decidim
   #
   # As options, the cell accepts a Hash with these keys:
   #   - `callout_class`: The Css class to apply
+  #   - `icon`: Optional name of an icon (for instance "information-line") to
+  #     show at the left of the announcement, in the `flash__icon` wrapper
+  #   - `closable`: Whether to show a button that lets the visitor dismiss the
+  #     announcement
   #
   class AnnouncementCell < Decidim::ViewModel
     def show
@@ -43,6 +47,14 @@ module Decidim
       return unless options[:callout_styles]
 
       options[:callout_styles]
+    end
+
+    def icon_name
+      options[:icon].presence
+    end
+
+    def closable?
+      options[:closable].present?
     end
 
     def css_class
