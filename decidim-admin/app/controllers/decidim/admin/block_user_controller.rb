@@ -81,7 +81,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("officializations.bulk_action.unblock.invalid", scope: "decidim.admin")
+            flash[:alert] = I18n.t("officializations.bulk_action.unblock.invalid", scope: "decidim.admin")
           end
         end
         redirect_to moderated_users_path
