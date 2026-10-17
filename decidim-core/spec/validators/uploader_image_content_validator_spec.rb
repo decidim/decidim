@@ -109,6 +109,30 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a valid image"
     end
+
+    context "with an SVG starting with a comment before the root element" do
+      let(:upload) { Decidim::Dev.test_file("test_comment_first.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
+
+    context "with an SVG whose leading comment is longer than the detected signature" do
+      let(:upload) { Decidim::Dev.test_file("test_long_comment_first.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
+
+    context "with an SVG starting with a custom processing instruction before the root element" do
+      let(:upload) { Decidim::Dev.test_file("test_processing_instruction_first.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
+
+    context "with an SVG whose type declaration has the name on the next line" do
+      let(:upload) { Decidim::Dev.test_file("test_doctype_name_on_next_line.svg", "image/svg+xml") }
+
+      it_behaves_like "a valid image"
+    end
   end
 
   context "when the content type is an alias of the file format" do
@@ -161,6 +185,12 @@ describe UploaderImageContentValidator do
 
       it_behaves_like "a spoofed image"
     end
+
+    context "with an XML document which is not an SVG, starting with a comment" do
+      let(:upload) { Decidim::Dev.test_file("spoofed_svg_comment_first.svg", "image/svg+xml") }
+
+      it_behaves_like "a spoofed image"
+    end
   end
 
   context "when the file is an SVG with active content" do
@@ -175,6 +205,12 @@ describe UploaderImageContentValidator do
 
     context "with a script element" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_script.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with a script element in an SVG starting with a comment" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_comment_first.svg", "image/svg+xml") }
 
       it_behaves_like "an unsafe SVG"
     end
@@ -239,6 +275,12 @@ describe UploaderImageContentValidator do
       it_behaves_like "an unsafe SVG"
     end
 
+    context "with a style sheet loading an external resource with the image function" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_css_image_function.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
     context "with a processing instruction loading an external style sheet" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_stylesheet_pi.svg", "image/svg+xml") }
 
@@ -257,6 +299,12 @@ describe UploaderImageContentValidator do
       it_behaves_like "an unsafe SVG"
     end
 
+    context "with an image loading a resource from the external base declared by the document" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_base.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
     context "with a use referencing an external document" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_external_use.svg", "image/svg+xml") }
 
@@ -265,6 +313,12 @@ describe UploaderImageContentValidator do
 
     context "with a filter loading an external resource" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_external_feimage.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with a gradient inheriting from an element of an external document" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_gradient_external_reference.svg", "image/svg+xml") }
 
       it_behaves_like "an unsafe SVG"
     end
@@ -283,6 +337,12 @@ describe UploaderImageContentValidator do
 
     context "with an animation assigning an external resource to a target which cannot be resolved" do
       let(:upload) { Decidim::Dev.test_file("malicious_svg_external_animation_missing_target.svg", "image/svg+xml") }
+
+      it_behaves_like "an unsafe SVG"
+    end
+
+    context "with an animation assigning a nested document from a single value containing MIME parameters" do
+      let(:upload) { Decidim::Dev.test_file("malicious_svg_animation_data_uri_parameter.svg", "image/svg+xml") }
 
       it_behaves_like "an unsafe SVG"
     end
