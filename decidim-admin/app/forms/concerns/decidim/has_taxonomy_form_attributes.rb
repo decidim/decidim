@@ -23,9 +23,9 @@ module Decidim
 
       def taxonomy_filters
         @taxonomy_filters ||= if defined?(current_component) && current_component&.settings.respond_to?(:taxonomy_filters)
-                                all_taxonomy_filters.where(id: current_component.settings.taxonomy_filters)
+                                all_taxonomy_filters.includes(:filter_items, :root_taxonomy).where(id: current_component.settings.taxonomy_filters)
                               else
-                                all_taxonomy_filters.for_manifest(participatory_space_manifest)
+                                all_taxonomy_filters.includes(:filter_items, :root_taxonomy).for_manifest(participatory_space_manifest)
                               end
       end
 

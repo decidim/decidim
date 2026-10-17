@@ -160,7 +160,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= budget.projects.page(params[:page]).per(15)
+          @collection ||= budget.projects.includes(:taxonomies).page(params[:page]).per(15)
         end
 
         def trashable_deleted_resource_type

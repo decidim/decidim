@@ -22,6 +22,7 @@ module Decidim
     # organization. Returns them ordered by ascending weight (lowest first).
     def self.for_scope(scope, organization:)
       where(organization:, scope_name: scope)
+        .includes(:organization)
         .order(weight: :asc)
     end
 
