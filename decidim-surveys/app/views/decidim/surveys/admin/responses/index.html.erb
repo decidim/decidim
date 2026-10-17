@@ -4,7 +4,7 @@
   <h1 class="item_show__header-title">
     <%= t ".title", total: @total %>
     <div class="flex gap-4">
-      <% if @survey.questionnaire.responses.any? %>
+      <% if @survey.questionnaire.submissions.any? %>
         <%= export_dropdown(current_component, @survey.id) if allowed_to? :export_responses, :questionnaire %>
       <% end %>
       <% if allowed_to? :index, :questionnaire_publish_responses, survey: @survey %>

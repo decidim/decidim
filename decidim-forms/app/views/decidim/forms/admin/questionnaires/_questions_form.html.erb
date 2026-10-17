@@ -6,7 +6,7 @@
   </div>
 
   <% if questionnaire.questions_editable? %>
-    <% if questionnaire.responses.any? && !questionnaire.published? %>
+    <% if questionnaire.submissions.any? && !questionnaire.published? %>
       <%= cell("decidim/announcement", t(".unpublished_warning"), callout_class: "warning" ) %>
     <% end %>
 
