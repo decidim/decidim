@@ -153,7 +153,7 @@ If you have installed the `decidim-ai` module, you may want to add to your cront
 
 [source,console]
 ----
-# Trains the spam detection engine with the content of the application database
+# Trains the resource spam detection models with content from the application database
 10 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:ai:spam:train_application_database
 ----
 
