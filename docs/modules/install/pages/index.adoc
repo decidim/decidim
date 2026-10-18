@@ -147,6 +147,18 @@ If you have installed the `decidim-initiatives` module, you may want to add to y
 0 8 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:notify_progress
 ----
 
+==== Spam detection engine
+
+If you have installed the `decidim-ai` module, you may want to add to your crontab the following
+
+[source,console]
+----
+# Trains the spam detection engine with the content of the application database
+10 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:ai:spam:train_application_database
+----
+
+You can find more information about this module in the xref:services:aitools.adoc[AI tools] documentation.
+
 === Further configuration
 
 We also have other guides on how to configure some extra mandatory components:
