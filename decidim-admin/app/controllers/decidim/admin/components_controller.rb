@@ -135,9 +135,9 @@ module Decidim
       end
 
       def share
+        enforce_permission_to :share, :component
         @component = query_scope.find(params[:id])
         share_token = @component.share_tokens.create!(user: current_user, organization: current_organization)
-
         redirect_to share_token.url
       end
 

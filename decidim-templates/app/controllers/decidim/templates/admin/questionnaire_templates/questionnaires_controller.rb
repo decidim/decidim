@@ -10,6 +10,8 @@ module Decidim
 
           helper Decidim::Admin::ExportsHelper
 
+          protected
+
           def questionnaire_for
             template
           end

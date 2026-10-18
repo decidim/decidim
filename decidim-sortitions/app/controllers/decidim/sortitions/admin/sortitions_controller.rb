@@ -9,7 +9,9 @@ module Decidim
         helper Decidim::ApplicationHelper
         helper_method :proposal_components
 
-        def index; end
+        def index
+          enforce_permission_to :read, :sortition
+        end
 
         def show
           enforce_permission_to :read, :sortition, sortition:

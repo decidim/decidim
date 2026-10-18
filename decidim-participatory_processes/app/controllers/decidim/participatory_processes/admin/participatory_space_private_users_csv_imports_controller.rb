@@ -9,6 +9,8 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
         include Decidim::Admin::Concerns::HasPrivateUsersCsvImport
 
+        protected
+
         def after_import_path
           participatory_space_private_users_path(current_participatory_process)
         end

@@ -105,6 +105,7 @@ module Decidim
           end
 
           def publish_all
+            enforce_permission_to :publish_all, :space_private_user
             PublishAllParticipatorySpacePrivateUsers.call(current_participatory_space, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("participatory_space_private_users.publish_all.success", scope: "decidim.admin")
@@ -119,6 +120,7 @@ module Decidim
           end
 
           def unpublish_all
+            enforce_permission_to :unpublish_all, :space_private_user
             UnpublishAllParticipatorySpacePrivateUsers.call(current_participatory_space, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("participatory_space_private_users.unpublish_all.success", scope: "decidim.admin")
@@ -131,6 +133,8 @@ module Decidim
               end
             end
           end
+
+          protected
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
           # destroying a private user. By default it redirects to the privatable_to.
