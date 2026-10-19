@@ -146,6 +146,8 @@ In some cases, like an upgrade, you may want to train your model using your exis
 bin/rails decidim:ai:spam:train_application_database
 ```
 
+This is a one-time import, not a recurring job: each run trains all the content again on top of the existing model, without removing the previous training.
+
 === Reset the model
 
 If the trained model becomes corrupt, you could use the below command to reinitialize the model. Once you do this, you would need to train the model again. using any of the above commands.
