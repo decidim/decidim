@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- An animation assigning a presentation attribute whose reference resolves to an
+     element of the document itself, which is fetched only when the animation reaches
+     it, so the document is accepted. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <defs><pattern id="paint"><rect width="16" height="16"/></pattern></defs>
+  <rect width="16" height="16"><animate attributeName="fill" values="url(#paint);url(#paint)" dur="1s"/></rect>
+</svg>

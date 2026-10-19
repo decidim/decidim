@@ -14,9 +14,13 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" unless result
+
+        enforce_permission_to :read, :result, result:
       end
 
       def home
+        enforce_permission_to :read, :result
+
         @all_geocoded_results = results.geocoded
       end
 

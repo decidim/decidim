@@ -12,6 +12,8 @@ module Decidim
     helper_method :activities, :resource_types, :user
 
     def index
+      enforce_permission_to :read, :profile
+
       raise ActionController::RoutingError, "Missing user: #{params[:nickname]}" unless user
       raise ActionController::RoutingError, "Blocked User" if user.blocked? && !current_user&.admin?
       raise ActionController::RoutingError, "Profile not published: #{params[:nickname]}" unless user.profile_published?

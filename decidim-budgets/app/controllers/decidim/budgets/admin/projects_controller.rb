@@ -190,7 +190,9 @@ module Decidim
         def reference_budget
           return unless params[:reference_id]
 
-          Budget.where(component: current_component).find(params.expect(:reference_id))
+          Budget.joins(:component)
+                .where(component: { participatory_space: current_participatory_space })
+                .find(params.expect(:reference_id))
         end
 
         def pending_orders
