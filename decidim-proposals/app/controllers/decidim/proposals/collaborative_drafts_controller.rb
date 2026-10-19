@@ -90,6 +90,9 @@ module Decidim
         end
       end
 
+      # Authorization is enforced by the command, which checks that the
+      # collaborative draft is open and authored by the current user.
+      # rubocop:disable Decidim/EnforcePermissionTo
       def withdraw
         WithdrawCollaborativeDraft.call(@collaborative_draft, current_user) do
           on(:ok) do
@@ -102,8 +105,11 @@ module Decidim
         end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
       end
+      # rubocop:enable Decidim/EnforcePermissionTo
 
       def publish
+        enforce_permission_to :publish, :collaborative_draft, collaborative_draft: @collaborative_draft
+
         PublishCollaborativeDraft.call(@collaborative_draft, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("publish.success", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")

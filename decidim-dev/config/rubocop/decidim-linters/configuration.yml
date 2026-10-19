@@ -26,6 +26,7 @@ Decidim/EnforcePermissionTo:
     - "Decidim::Meetings::ApplicationController"
     - "Decidim::Pages::ApplicationController"
     - "Decidim::Proposals::ApplicationController"
+    - "Decidim::Sortitions::ApplicationController"
     - "Decidim::Surveys::ApplicationController"
     - "Decidim::Templates::ApplicationController"
   AuthorizedBaseActions:
@@ -41,6 +42,7 @@ Decidim/EnforcePermissionTo:
     - "decidim-core/app/controllers/decidim/doorkeeper/**/*.rb"
     - "decidim-core/app/controllers/decidim/gamification/**/*.rb"
     - "decidim-core/app/controllers/concerns/decidim/devise_authentication_methods.rb"
+    - "decidim-core/app/controllers/concerns/decidim/form_factory.rb"
     - "decidim-core/app/controllers/concerns/decidim/disable_redirection_to_external_host.rb"
     - "decidim-core/app/controllers/concerns/decidim/locale_switcher.rb"
     - "decidim-core/app/controllers/concerns/decidim/registers_permissions.rb"

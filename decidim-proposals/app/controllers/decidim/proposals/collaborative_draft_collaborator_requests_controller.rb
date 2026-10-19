@@ -8,6 +8,8 @@ module Decidim
       before_action :retrieve_collaborative_draft, only: [:request_access, :request_accept, :request_reject]
 
       def request_access
+        enforce_permission_to :request_access, :collaborative_draft, collaborative_draft: @collaborative_draft
+
         @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params(params)
         RequestAccessToCollaborativeDraft.call(@request_access_form, current_user) do
           on(:ok) do |_collaborative_draft|
@@ -22,6 +24,8 @@ module Decidim
       end
 
       def request_accept
+        enforce_permission_to :react_to_request_access, :collaborative_draft, collaborative_draft: @collaborative_draft
+
         @accept_request_form = form(AcceptAccessToCollaborativeDraftForm).from_params(params)
         AcceptAccessToCollaborativeDraft.call(@accept_request_form, current_user) do
           on(:ok) do |requester_user|
@@ -36,6 +40,8 @@ module Decidim
       end
 
       def request_reject
+        enforce_permission_to :react_to_request_access, :collaborative_draft, collaborative_draft: @collaborative_draft
+
         @reject_request_form = form(RejectAccessToCollaborativeDraftForm).from_params(params)
         RejectAccessToCollaborativeDraft.call(@reject_request_form, current_user) do
           on(:ok) do |requester_user|
