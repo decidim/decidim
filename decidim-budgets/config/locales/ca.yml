@@ -11,7 +11,7 @@ ca:
           help: Mètode de Equal Shares (MES), repartiment equitatiu sense finalització. En el MES, cada votant inicia amb una quota virtual igual del pressupost, i un projecte s'aprova quan els seus partidaris tenen fons suficients per pagar-lo conjuntament.
           label: Mètode d'Equal Shares (repartiment equitatiu) (%{rule})
         equalshares/add1:
-          help: Fa servir l'equalshares (repartiment equitatiu) bàsic, però si s'atura massa aviat, continua incrementant el pressupost virtual de cada votant 1 unitat cada vegada (Add1) i torna a calcular, sempre que els projectes seleccionats finalment encara càpiguen dins del pressupost real.
+          help: Fa servir l'Equal Shares (repartiment equitatiu) bàsic, però si s'atura massa aviat, continua incrementant el pressupost virtual de cada votant 1 unitat cada vegada (Add1) i torna a calcular, sempre que els projectes seleccionats finalment encara càpiguen dins del pressupost real.
           label: Mètode de Equal Shares (repartiment equitatiu), add1 (%{rule})
         equalshares/add1_comparison:
           help: Fa servir equalshares/add1 i després aplica el mateix pas de comparació que s'ha descrit anteriorment.
@@ -154,11 +154,11 @@ ca:
                 help: L'edició de la votació; per exemple, per a votacions recurrents anuals, seria l'any de la votació.
                 label: Edició (%{field})
               max_length:
-                help: 'Nombre màxim de projectes que se seleccionaran (per defecte: %{default_value}).'
+                help: 'Nombre màxim de projectes que es seleccionaran (per defecte: %{default_value}).'
                 label: Longitud màxima (%{field})
               max_points:
                 help: 'Puntuació màxima assignada als projectes seleccionats (per defecte: %{default_value}).'
-                help_default_value: per al tipus de vot acumulatiu amb valor max_sum_points, per al tipus de vot de puntuació ∞
+                help_default_value: per al tipus de vot acumulatiu amb valor «max_sum_points», per al tipus de vot de puntuació ∞
                 label: Puntuació màxima (%{field})
               max_sum_cost:
                 help: 'Import màxim del cost d''un projecte (per defecte: %{default_value}).'
@@ -168,7 +168,7 @@ ca:
                 label: Suma máxima de puntos (%{field})
               min_length:
                 help: 'Nombre mínim de projectes que se seleccionaran (per defecte: %{default_value}).'
-                label: Longitud màxima (%{field})
+                label: Longitud mínima (%{field})
               min_points:
                 help: 'Puntuació mínima assignada als projectes seleccionats (per defecte: %{default_value}).'
                 label: Puntuació mínima (%{field})
@@ -179,7 +179,7 @@ ca:
                 help: 'Suma mínima dels punts assignats a cada projecte (per defecte: %{default_value}).'
                 label: Puntuació mínima (%{field})
               rule:
-                help: L'algorisme utilitzat per seleccionar els projectes guanyadors en funció dels vots.
+                help: L'algorisme emprat per seleccionar els projectes guanyadors en funció dels vots.
                 label: Regla (%{field})
               scoring_fn:
                 help: 'Funció de puntuació per a la votació de tipus ordinal (per defecte: %{default_value}).'
@@ -226,7 +226,7 @@ ca:
             title: Projectes eliminats
           new:
             create: Crear
-            title: Nova projecte a "%{budget}"
+            title: Nou projecte a %{budget}
           update:
             invalid: S'ha produït un error en actualitzar aquest projecte.
             success: Projecte actualitzat correctament.
