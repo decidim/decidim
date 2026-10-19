@@ -20,8 +20,10 @@ class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
 
     questionnaire_ids_to_backfill.each_slice(100) do |ids|
       say_with_time "Backfilling submissions for questionnaires #{ids.first}..#{ids.last}" do
-        execute insert_submissions_sql(ids)
-        execute link_responses_sql(ids)
+        Submission.transaction do
+          execute insert_submissions_sql(ids)
+          execute link_responses_sql(ids)
+        end
       end
     end
 
