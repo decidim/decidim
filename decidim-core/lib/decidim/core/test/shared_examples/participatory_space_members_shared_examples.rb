@@ -5,6 +5,10 @@ shared_examples "participatory space members" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization: participatory_space.organization) }
   let(:unpublished_user) { create(:user, organization: participatory_space.organization) }
+  # A visitor allowed to reach the space homepage even when the space is
+  # private (e.g. an organization admin). Homepage checks use it so that they
+  # inspect the actual homepage instead of a redirect target.
+  let(:allowed_visitor) { create(:user, :admin, :confirmed, organization: participatory_space.organization) }
   # Spaces whose members page is not publicly accessible (e.g. private
   # participatory processes) require a logged in member. Host specs can opt in
   # by overriding this to true.
@@ -21,10 +25,15 @@ shared_examples "participatory space members" do
   end
 
   context "when there are no members and accessing from the space homepage" do
+    before do
+      login_as allowed_visitor, scope: :user
+    end
+
     context "and the main data content block is disabled" do
       it "the menu nav is not shown" do
         visit participatory_space_homepage_path
 
+        expect(page).to have_current_path participatory_space_homepage_path
         expect(page).to have_no_css(".participatory-space__nav-container")
       end
     end
@@ -35,6 +44,7 @@ shared_examples "participatory space members" do
       it "the menu link is not shown" do
         visit participatory_space_homepage_path
 
+        expect(page).to have_current_path participatory_space_homepage_path
         expect(page).to have_no_content("Members")
       end
     end
@@ -58,10 +68,15 @@ shared_examples "participatory space members" do
     end
 
     context "and accessing from the homepage" do
+      before do
+        login_as allowed_visitor, scope: :user
+      end
+
       context "and the main data content block is disabled" do
         it "the menu nav is not shown" do
           visit participatory_space_homepage_path
 
+          expect(page).to have_current_path participatory_space_homepage_path
           expect(page).to have_no_css(".participatory-space__nav-container")
         end
       end
@@ -72,6 +87,7 @@ shared_examples "participatory space members" do
         it "the menu link is not shown" do
           visit participatory_space_homepage_path
 
+          expect(page).to have_current_path participatory_space_homepage_path
           expect(page).to have_no_content("Members")
         end
       end
