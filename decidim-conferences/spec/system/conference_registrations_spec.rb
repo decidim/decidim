@@ -245,7 +245,7 @@ describe "Conference registrations" do
       it "declines the invitation successfully" do
         visit_decline_invitation
 
-        expect(page).to have_callout("You have successfully declined the invitation.")
+        expect(page).to have_content("You have successfully declined the invitation.")
         expect(invite.reload.rejected_at).to be_present
       end
     end

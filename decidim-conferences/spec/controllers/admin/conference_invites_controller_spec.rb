@@ -139,7 +139,7 @@ module Decidim
             it "does not create a duplicate invite and renders the form" do
               expect { post :create, params: }.not_to change(Decidim::Conferences::ConferenceInvite, :count)
 
-              expect(response).to have_http_status(:unprocessable_content)
+              expect(response).to have_http_status(:unprocessable_entity)
               expect(response).to render_template(:new)
               expect(flash[:alert]).to be_present
             end
@@ -161,7 +161,7 @@ module Decidim
             it "does not create an invite and renders the form" do
               expect { post :create, params: }.not_to change(Decidim::Conferences::ConferenceInvite, :count)
 
-              expect(response).to have_http_status(:unprocessable_content)
+              expect(response).to have_http_status(:unprocessable_entity)
               expect(response).to render_template(:new)
               expect(flash[:alert]).to be_present
             end

@@ -28,7 +28,7 @@ describe "Admin manages conference registrations" do
         click_on "Confirm"
       end
 
-      expect(page).to have_callout("Conference registration successfully confirmed.")
+      expect(page).to have_content("Conference registration successfully confirmed.")
       expect(registration.reload).to be_confirmed
 
       within "#conference-registrations table" do
@@ -55,7 +55,7 @@ describe "Admin manages conference registrations" do
           click_on "Confirm"
         end
 
-        expect(page).to have_callout("There was a problem confirming this conference registration.")
+        expect(page).to have_content("There was a problem confirming this conference registration.")
         expect(registration.reload).not_to be_confirmed
       end
     end

@@ -46,7 +46,7 @@ describe "Admin manages conference invites" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout("Participant successfully invited to join the conference.")
+      expect(page).to have_content("Participant successfully invited to join the conference.")
       expect(page).to have_current_path(
         decidim_admin_conferences.conference_conference_invites_path(conference_slug: conference.slug)
       )
@@ -71,7 +71,7 @@ describe "Admin manages conference invites" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_callout("Participant successfully invited to join the conference.")
+      expect(page).to have_content("Participant successfully invited to join the conference.")
 
       within "#conference-invites table" do
         expect(page).to have_text(existing_user.name)
@@ -90,7 +90,7 @@ describe "Admin manages conference invites" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_callout("There was a problem inviting the participant to join the conference.")
+        expect(page).to have_content("There was a problem inviting the participant to join the conference.")
         expect(page).to have_current_path(
           decidim_admin_conferences.conference_conference_invites_path(conference_slug: conference.slug)
         )
