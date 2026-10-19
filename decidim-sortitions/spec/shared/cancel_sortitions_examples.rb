@@ -6,7 +6,7 @@ shared_examples "cancel sortitions" do
 
     before do
       visit_component_admin
-      within "tr", text: decidim_escape_translated(sortition.title) do
+      within "tr", text: translated_attribute(sortition.title) do
         find("button[data-controller='dropdown']").click
         click_on "Cancel the sortition"
       end
