@@ -44,7 +44,7 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
 
         expect(other_questionnaire.reload.title).to eq(previous_title)
         expect(response).to have_http_status(:found)
-        expect(response).to redirect_to("/en/admin/")
+        expect(response).to redirect_to("/admin/")
       end
     end
 
@@ -136,7 +136,7 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
 
         expect(other_questionnaire.reload.updated_at).to eq(previous_updated_at)
         expect(response).to have_http_status(:found)
-        expect(response).to redirect_to("/en/admin/")
+        expect(response).to redirect_to("/admin/")
       end
     end
 
