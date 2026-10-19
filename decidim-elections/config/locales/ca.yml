@@ -132,7 +132,7 @@ ca:
             publish: Publicar
             results_availability:
               after_end: Després de la fi de les eleccions
-              after_end_help: publciar els resultats quan finalitzi l'elecció
+              after_end_help: publicar els resultats quan finalitzi l'elecció
               per_question: Pregunta per pregunta
               per_question_help: gestionar manualment les votacions i publicar els resultats de cada pregunta
               real_time: En temps real
@@ -195,7 +195,7 @@ ca:
           update: "%{user_name} va actualitzar les preguntes de l'elecció \"%{resource_name}\""
       census_checks:
         show:
-          description: Això vol dir que, una vegada comencin les eleccions, es podrà votar-hi.
+          description: Això vol dir que, una vegada comencin les eleccions, podràs votar-hi.
           exit_button: Sortir de la comprovació del cens
           title: Se t'ha verificat correctament
       censuses:
