@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/api/test/mutation_context"
 
 module Decidim
   module Proposals
@@ -63,8 +64,8 @@ module Decidim
 
       shared_examples "manage proposal answer mutation examples" do
         context "when proposal answering disabled" do
-          it "throws Decidim::Api::Errors::MutationNotAuthorizedError" do
-            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
+          it "does not answer the proposal" do
+            expect(response["answer"]).to be_nil
           end
         end
 
@@ -125,8 +126,8 @@ module Decidim
       end
 
       context "with normal user" do
-        it "throws Decidim::Api::Errors::MutationNotAuthorizedError" do
-          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
+        it "does not answer the proposal" do
+          expect(response["answer"]).to be_nil
         end
       end
 
