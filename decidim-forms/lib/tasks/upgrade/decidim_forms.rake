@@ -21,6 +21,9 @@ namespace :decidim_forms do
         end
       end
 
+      unlinked_responses = orphans.count
+      raise "#{unlinked_responses} responses with an existing questionnaire remain unlinked" if unlinked_responses.positive?
+
       puts "#{Decidim::Forms::Response.where(decidim_submission_id: nil).count} responses without an existing questionnaire were left unlinked"
     end
   end
