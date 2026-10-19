@@ -1,5 +1,14 @@
 require:
+  - decidim/dev/rubocop/cop/decidim/organization_scoped_finder
   - decidim/dev/rubocop/cop/decidim/enforce_permission_to
+
+Decidim/OrganizationScopedFinder:
+  Enabled: true
+  Severity: warning
+  Include:
+    - "**/app/controllers/**/admin/**/*.rb"
+  Exclude:
+    - "**/decidim-system/**/*.rb"
 
 Decidim/EnforcePermissionTo:
   Enabled: true
