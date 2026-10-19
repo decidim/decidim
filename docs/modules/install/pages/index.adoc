@@ -149,7 +149,7 @@ If you have installed the `decidim-initiatives` module, you may want to add to y
 
 ==== Spam detection engine
 
-The `decidim-ai` module does not require any additional cron job. Training the spam detection engine with the content of the application database is a one-time import, not a recurring task. Run it once after installing the module and after every upgrade.
+The `decidim-ai` module does not require any additional cron job. Training the spam detection engine with the content of the application database is a one-time import, not a recurring task. Run it when first training the model or after resetting it, not after every upgrade.
 
 [source,console]
 ----
