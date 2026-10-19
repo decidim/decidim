@@ -114,7 +114,7 @@ ca:
             title: Projectes eliminats
           new:
             create: Crear
-            title: Nova projecte a "%{budget}"
+            title: Nou projecte a %{budget}
           update:
             invalid: S'ha produït un error en actualitzar aquest projecte.
             success: Projecte actualitzat correctament.
