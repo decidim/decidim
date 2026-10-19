@@ -8,8 +8,8 @@ module Decidim
       include_context "with a graphql class mutation"
 
       let(:root_klass) { ProposalMutationType }
-      let(:organization) { create(:organization, available_locales: [:en]) }
-      let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+      let(:current_organization) { create(:organization, available_locales: [:en]) }
+      let(:participatory_process) { create(:participatory_process, :with_steps, organization: current_organization) }
       let(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
       let!(:model) { create(:proposal, component: current_component) }
       let(:state) { %w(accepted evaluating rejected).sample }
