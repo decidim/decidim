@@ -90,5 +90,5 @@ def replace_strings(files)
 end
 
 all_files = tracked_files
-rename_files(all_files)
 replace_strings(all_files)
+rename_files(all_files)
