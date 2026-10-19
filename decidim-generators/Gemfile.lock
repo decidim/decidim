@@ -490,11 +490,10 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.8, >= 1.8.1)
       terminal-table (>= 1.5.1)
-    icalendar (2.12.5)
+    icalendar (2.13.0)
       base64
       ice_cube (~> 0.16)
       logger
-      ostruct
     ice_cube (0.17.0)
     image_processing (2.2.0)
     invisible_captcha (2.3.0)
