@@ -136,6 +136,16 @@ module Decidim
         redirect_to meeting_path(meeting)
       end
 
+      def user_has_no_permission
+        if current_user.blank?
+          store_location_for(:user, request.fullpath)
+          redirect_to decidim.new_user_session_path
+          return
+        end
+
+        super
+      end
+
       def user_has_no_permission_path
         return meeting_path(meeting) if user_signed_in?
 
