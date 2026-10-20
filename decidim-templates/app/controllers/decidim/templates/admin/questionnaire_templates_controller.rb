@@ -104,8 +104,8 @@ module Decidim
         end
 
         def apply
-          enforce_permission_to :apply, :questionnaire_template
           questionnaire = find_questionnaire(params[:questionnaire_id])
+          enforce_permission_to :apply, :questionnaire_template, questionnaire:, component: questionnaire_component(questionnaire)
           template = collection.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
 
           if questionnaire.blank?
@@ -137,8 +137,8 @@ module Decidim
         end
 
         def skip
-          enforce_permission_to :skip, :questionnaire_template
           questionnaire = find_questionnaire(params[:questionnaire_id])
+          enforce_permission_to :skip, :questionnaire_template, questionnaire:, component: questionnaire_component(questionnaire)
 
           return redirect_to(internal_redirect_path || { action: :index }) unless questionnaire
 
@@ -170,6 +170,10 @@ module Decidim
           return unless questionnaire_for_in_organization?(questionnaire)
 
           questionnaire
+        end
+
+        def questionnaire_component(questionnaire)
+          questionnaire&.questionnaire_for.try(:component)
         end
 
         def questionnaire_for_in_organization?(questionnaire)
