@@ -40,15 +40,10 @@ module Decidim
             context[subject] = object
           end
 
-          permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
+          permission_action = Decidim::PermissionAction.new(scope: api_scope, action:, subject:)
 
           permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|
-            permission_context =
-              if scope == :admin
-                local_admin_context(object, context)
-              else
-                local_context(object, context)
-              end
+            permission_context = local_user_context(object, context)
 
             permission_class.new(
               context[:current_user],
@@ -58,30 +53,40 @@ module Decidim
           end.allowed?
         end
 
-        # Injects into context object current_participatory_space and current_component keys as they are needed
+        # Injects into the context the current_participatory_space and current_component keys
+        # for the object being checked, as they are needed by the permission classes.
         #
         # @param object [ActiveModel::Base] The object that is being represented.
         # @param context [GraphQL::Query::Context] The GraphQL context
         #
         # @return Hash
         def local_context(object, context)
-          context[:current_participatory_space] ||=
-            if object.respond_to?(:participatory_space)
-              object.participatory_space
-            elsif object.is_a?(Decidim::Participable)
-              object
-            end
-          context[:current_component] ||=
-            if object.is_a?(Decidim::Component)
-              object
-            elsif object.respond_to?(:component)
-              object.component
-            end
+          participatory_space = participatory_space_for(object)
+          component = component_for(object)
+
+          # Always use the associations of the object being checked. The context
+          # is shared by every field in the query, so keeping a previous object's
+          # space could authorize resources from a different space.
+          context[:current_participatory_space] = participatory_space if participatory_space
+          context[:current_component] = component if component
 
           context.to_h
         end
 
-        def local_admin_context(object, context)
+        def participatory_space_for(object)
+          return object.participatory_space if object.respond_to?(:participatory_space)
+          return object if object.is_a?(Decidim::Participable)
+
+          component_for(object)&.participatory_space
+        end
+
+        def component_for(object)
+          return object if object.is_a?(Decidim::Component)
+
+          object.component if object.respond_to?(:component)
+        end
+
+        def local_user_context(object, context)
           context = local_context(object, context)
 
           component = context[:current_component]
@@ -120,11 +125,24 @@ module Decidim
 
           permissions
         end
+
+        def user_can_perform_admin_actions?(user)
+          Decidim::Admin::Permissions.new(
+            user,
+            Decidim::PermissionAction.new(scope: :admin, action: :read, subject: :admin_dashboard)
+          ).permissions.allowed?
+        end
+
+        def api_scope
+          return :admin if determine_required_scopes.present? && determine_required_scopes.map { |scope| scope.split(":").first }.include?("admin")
+
+          :public
+        end
       end
 
       private
 
-      delegate :allowed_to?, to: :class
+      delegate :allowed_to?, :user_can_perform_admin_actions?, :api_scope, to: :class
 
       attr_reader :action
     end
