@@ -20,12 +20,6 @@ module Decidim
       # Redirects the user to the root path and shows a flash message telling
       # them they are not authorized.
       def user_has_no_permission
-        if current_user.blank?
-          store_location_for(:user, request.fullpath)
-          redirect_to decidim.new_user_session_path
-          return
-        end
-
         flash[:alert] = t("actions.unauthorized", scope: "decidim.core")
         redirect_to(user_has_no_permission_referer || user_has_no_permission_path)
       end
