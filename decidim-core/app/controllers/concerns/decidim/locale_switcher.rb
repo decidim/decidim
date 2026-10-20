@@ -99,6 +99,57 @@ module Decidim
         end
         lang == "*" ? nil : lang
       end
+
+      def canonical_url(desired_url, target_locale = default_locale)
+        uri = URI(desired_url)
+        desired_locale = available_locales.include?(target_locale) ? target_locale : default_locale
+
+        path_segments = uri.path.split("/").compact_blank
+        locale_segment = path_segments.first
+
+        query = uri.query.to_s.gsub(/locale=[a-zA-Z-]{2,5}/, "")
+
+        if available_locales.include?(locale_segment)
+          path_segments[0] = desired_locale
+
+          uri.path = "/#{path_segments.join("/")}"
+
+          if query.present?
+            params = URI.decode_www_form(query)
+            uri.query = URI.encode_www_form(params)
+          else
+            uri.query = nil
+          end
+        elsif uri.host.blank? || uri.host == request.host
+          uri.path = if uri.path == "/"
+                       "/#{desired_locale}"
+                     else
+                       "/#{desired_locale}#{uri.path}"
+                     end
+
+          if query.present?
+            params = URI.decode_www_form(query)
+            uri.query = URI.encode_www_form(params)
+          else
+            uri.query = nil
+          end
+        else
+          params = URI.decode_www_form(query) << ["locale", desired_locale]
+          uri.query = URI.encode_www_form(params)
+        end
+
+        uri.to_s
+      end
+
+      private
+
+      def locale_in_script_name?
+        script_name = request&.script_name.to_s
+        return false if script_name.blank?
+
+        locale_segment = script_name.split("/").compact_blank.first
+        available_locales.include?(locale_segment)
+      end
       # rubocop: enable Metrics/CyclomaticComplexity
       # rubocop: enable Metrics/PerceivedComplexity
     end

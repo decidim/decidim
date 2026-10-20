@@ -2,7 +2,7 @@
 
 module Decidim
   module Elections
-    class ElectionsController < ApplicationController
+    class ElectionsController < Decidim::Elections::ApplicationController
       include Decidim::ApplicationHelper
       include Decidim::AttachmentsHelper
       include Decidim::FilterResource
@@ -14,6 +14,10 @@ module Decidim
       def index; end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless election
+
+        enforce_permission_to(:read, :election, election:)
+
         respond_to do |format|
           format.html { render :show }
 
@@ -30,7 +34,7 @@ module Decidim
       end
 
       def election
-        @election ||= current_user&.admin? ? available_elections.find(params[:id]) : elections.find(params[:id])
+        @election ||= current_user&.admin? ? available_elections.find_by(id: params[:id]) : elections.find_by(id: params[:id])
       end
 
       def questions

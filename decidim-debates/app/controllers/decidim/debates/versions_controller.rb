@@ -8,6 +8,8 @@ module Decidim
       include Decidim::ApplicationHelper
       include Decidim::ResourceVersionsConcern
 
+      private
+
       def versioned_resource
         @versioned_resource ||= present(Debate.where(component: current_component).not_hidden.find(params[:debate_id]))
       end
