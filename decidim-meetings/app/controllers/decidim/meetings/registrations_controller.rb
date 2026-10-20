@@ -137,7 +137,9 @@ module Decidim
       end
 
       def user_has_no_permission
-        if current_user.blank?
+        unauthenticated_allowed = %w(create decline_invitation)
+
+        if current_user.blank? && unauthenticated_allowed.include?(action_name)
           store_location_for(:user, request.fullpath)
           redirect_to decidim.new_user_session_path
           return
