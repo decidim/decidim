@@ -55,7 +55,7 @@ module Decidim::Meetings
           expect(response).to redirect_to(new_user_session_path)
         end
 
-        it "doesn't display error message when user is redirected to login" do
+        it "does not display error message when user is redirected to login" do
           post(:create, params:)
           expect(flash[:alert]).to be_nil
         end
@@ -189,7 +189,7 @@ module Decidim::Meetings
           expect(response).to redirect_to(new_user_session_path)
         end
 
-        it "doesn't display error message when user is redirected to login" do
+        it "does not display error message when user is redirected to login" do
           post(:decline_invitation, params:)
           expect(flash[:alert]).to be_nil
         end
