@@ -697,4 +697,456 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionTo, :config, type: :cop d
       end
     RUBY
   end
+
+  describe "lifecycle and helper methods" do
+    it "does not register an offense for a method referenced by before_action" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          before_action :set_locale
+
+          def set_locale
+            I18n.locale = :en
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a method referenced by prepend_before_action" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          prepend_before_action :set_locale
+
+          def set_locale
+            I18n.locale = :en
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a method referenced by skip_before_action" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          skip_before_action :set_locale
+
+          def set_locale
+            I18n.locale = :en
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a method referenced by around_action" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          around_action :use_time_zone
+
+          def use_time_zone(&block)
+            Time.use_zone("UTC", &block)
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a method referenced by after_action" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          after_action :set_vary_header
+
+          def set_vary_header
+            response.headers["Vary"] = "Accept"
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a method referenced by helper_method" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          helper_method :current_locale
+
+          def current_locale
+            I18n.locale
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a rescue_from handler registered with with:" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          rescue_from ActionController::ParameterMissing, with: :handle_error
+
+          def handle_error
+            redirect_to root_path
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a method called by a lifecycle method" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          after_action :append_headers
+
+          def append_headers
+            response.headers["Content-Security-Policy"] = content_security_policy.output_policy
+          end
+
+          def content_security_policy
+            @content_security_policy ||= Decidim::ContentSecurityPolicy.new(current_organization)
+          end
+        end
+      RUBY
+    end
+
+    it "registers an offense for an action sharing a name with a method called on another object by a lifecycle method" do
+      expect_offense(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          before_action :set_breadcrumb
+
+          def find
+          ^^^^^^^^ Action `find` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+            @resource = Resource.find(params[:id])
+          end
+
+          private
+
+          def set_breadcrumb
+            Resource.find(params[:id])
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a method called with an explicit self receiver by a lifecycle method" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          before_action :set_locale
+
+          def set_locale
+            self.default_locale
+          end
+
+          def default_locale
+            I18n.locale
+          end
+        end
+      RUBY
+    end
+
+    it "registers an offense for an action sharing a name with a callback in a sibling class" do
+      expect_offense(<<~RUBY)
+        class Admin::AController < Admin::ApplicationController
+          helper_method :resource
+
+          def resource
+            @resource = Resource.find(params[:id])
+          end
+        end
+
+        class Admin::BController < Admin::ApplicationController
+          def resource
+          ^^^^^^^^^^^^ Action `resource` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+            @resource = Resource.find(params[:id])
+          end
+        end
+      RUBY
+    end
+
+    it "registers an offense for an action sharing a name with a callback in an enclosing class" do
+      expect_offense(<<~RUBY)
+        class Admin::OuterController < Admin::ApplicationController
+          helper_method :destroy
+
+          class InnerController < Admin::ApplicationController
+            def destroy
+            ^^^^^^^^^^^ Action `destroy` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+              @resource = Resource.find(params[:id])
+              @resource.destroy
+            end
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a helper in a nested class that owns the callback" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::OuterController < Admin::ApplicationController
+          class InnerController < Admin::ApplicationController
+            helper_method :current_locale
+
+            def current_locale
+              I18n.locale
+            end
+          end
+        end
+      RUBY
+    end
+
+    it "keeps callbacks collected from a module when a nested class is declared inside an included block" do
+      expect_no_offenses(<<~RUBY)
+        module Admin
+          module NeedsPermission
+            extend ActiveSupport::Concern
+
+            included do
+              helper_method :allowed_to?
+
+              class ActionForbidden < StandardError
+              end
+
+              def allowed_to?
+                permission_scope
+              end
+
+              def permission_scope
+                :public
+              end
+            end
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a helper declared after a nested class in the controller body" do
+      expect_no_offenses(<<~RUBY)
+        class Admin::ResourcesController < Admin::ApplicationController
+          class Error < StandardError
+          end
+
+          helper_method :resource
+
+          def resource
+            @resource ||= Resource.find(params[:id])
+          end
+        end
+      RUBY
+    end
+
+    it "registers an offense for an action sharing a name with a callback in a sibling module" do
+      expect_offense(<<~RUBY)
+        module Admin
+          module AConcern
+            helper_method :resource
+          end
+
+          module BConcern
+            def resource
+            ^^^^^^^^^^^^ Action `resource` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+              @resource = Resource.find(params[:id])
+            end
+          end
+        end
+      RUBY
+    end
+
+    it "keeps callbacks available to nested modules within the owning module" do
+      expect_no_offenses(<<~RUBY)
+        module Admin
+          module ParentConcern
+            helper_method :shared_helper
+
+            module NestedConcern
+              def shared_helper
+                :value
+              end
+            end
+          end
+        end
+      RUBY
+    end
+
+    it "does not register an offense for a lifecycle method defined in a nested module" do
+      expect_no_offenses(<<~RUBY)
+        module Admin
+          module GetOrganization
+            def self.enhance_controller(instance_or_module)
+              instance_or_module.class_eval do
+                helper_method :current_organization
+              end
+            end
+
+            module InstanceMethods
+              def current_organization
+                request.env["decidim.current_organization"]
+              end
+            end
+          end
+        end
+      RUBY
+    end
+  end
+
+  describe "authorized base classes" do
+    context "when the controller inherits from an authorized base class" do
+      let(:cop_config) do
+        {
+          "AuthorizedBaseClasses" => ["Decidim::Components::BaseController"],
+          "AuthorizedBaseActions" => %w(index show home)
+        }
+      end
+
+      it "does not register offenses for inherited read-style actions" do
+        expect_no_offenses(<<~RUBY)
+          class Decidim::Blogs::PostsController < Decidim::Components::BaseController
+            def index; end
+
+            def show; end
+
+            def home; end
+          end
+        RUBY
+      end
+
+      it "does not register offenses for read-style actions inherited through another class" do
+        expect_no_offenses(<<~RUBY)
+          class Decidim::Accountability::ApplicationController < Decidim::Components::BaseController
+          end
+
+          class Decidim::Accountability::ResultsController < Decidim::Accountability::ApplicationController
+            def show; end
+          end
+        RUBY
+      end
+
+      it "does not register offenses for read-style actions inherited through a relative parent name" do
+        expect_no_offenses(<<~RUBY)
+          module Decidim
+            class BaseController < Decidim::Components::BaseController
+            end
+
+            class ChildController < BaseController
+              def index; end
+
+              def show; end
+            end
+          end
+        RUBY
+      end
+
+      it "resolves a relative qualified parent name within the enclosing namespace" do
+        expect_no_offenses(<<~RUBY)
+          module Decidim
+            class PostsController < Components::BaseController
+              def index; end
+
+              def show; end
+            end
+          end
+        RUBY
+      end
+
+      it "preserves an explicitly root-qualified parent name" do
+        expect_no_offenses(<<~RUBY)
+          module Decidim
+            class PostsController < ::Decidim::Components::BaseController
+              def index; end
+
+              def show; end
+            end
+          end
+        RUBY
+      end
+
+      it "registers an offense for a mutating action" do
+        expect_offense(<<~RUBY)
+          class Decidim::Blogs::PostsController < Decidim::Components::BaseController
+            def create
+            ^^^^^^^^^^ Action `create` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+              @post = Post.create(post_params)
+            end
+          end
+        RUBY
+      end
+
+      it "registers an offense for a custom action" do
+        expect_offense(<<~RUBY)
+          class Decidim::Blogs::PostsController < Decidim::Components::BaseController
+            def publish
+            ^^^^^^^^^^^ Action `publish` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+              @post.publish
+            end
+          end
+        RUBY
+      end
+    end
+
+    context "when a controller in a nested namespace inherits from an outer namespace" do
+      let(:cop_config) do
+        {
+          "AuthorizedBaseClasses" => ["Decidim::Meetings::ApplicationController"],
+          "AuthorizedBaseActions" => %w(index show home)
+        }
+      end
+
+      it "does not register offenses for the existing polls QuestionsController pattern" do
+        expect_no_offenses(<<~RUBY)
+          module Decidim
+            module Meetings
+              module Polls
+                class QuestionsController < Decidim::Meetings::ApplicationController
+                  def index
+                    render :index
+                  end
+                end
+              end
+            end
+          end
+        RUBY
+      end
+
+      it "does not register offenses when the parent is relative to an outer namespace" do
+        expect_no_offenses(<<~RUBY)
+          module Decidim
+            module Meetings
+              module Polls
+                class QuestionsController < Meetings::ApplicationController
+                  def index
+                    render :index
+                  end
+                end
+              end
+            end
+          end
+        RUBY
+      end
+
+      it "registers an offense for a mutating action of the nested controller" do
+        expect_offense(<<~RUBY)
+          module Decidim
+            module Meetings
+              module Polls
+                class QuestionsController < Decidim::Meetings::ApplicationController
+                  def update
+                  ^^^^^^^^^^ Action `update` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+                    @question.update(question_params)
+                  end
+                end
+              end
+            end
+          end
+        RUBY
+      end
+    end
+
+    context "when the controller does not inherit from an authorized base class" do
+      let(:cop_config) do
+        {
+          "AuthorizedBaseClasses" => ["Decidim::Components::BaseController"],
+          "AuthorizedBaseActions" => %w(index show home)
+        }
+      end
+
+      it "registers an offense for a read-style action" do
+        expect_offense(<<~RUBY)
+          class Admin::ResourcesController < Admin::ApplicationController
+            def index
+            ^^^^^^^^^ Action `index` is missing an authorization check. Add `enforce_permission_to` or `action_authorized_to` at the start of the action, or use `# rubocop:disable Decidim/EnforcePermissionTo` if authorization is handled elsewhere.
+              @resources = Resource.all
+            end
+          end
+        RUBY
+      end
+    end
+  end
 end

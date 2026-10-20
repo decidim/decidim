@@ -59,6 +59,80 @@ module Decidim
           expect(response).to have_http_status(:found)
         end
       end
+
+      describe "POST request_access authorization" do
+        context "when the user is the author" do
+          before do
+            sign_in author, scope: :user
+          end
+
+          it "does not create an access request" do
+            expect do
+              post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state }
+            end.not_to(change { collaborative_draft.reload.requesters.count })
+          end
+        end
+      end
+
+      describe "POST request_accept authorization" do
+        before do
+          collaborative_draft.requesters << user
+        end
+
+        context "when the user is the author" do
+          before do
+            sign_in author, scope: :user
+          end
+
+          it "accepts the request" do
+            expect do
+              post :request_accept, params: { id: collaborative_draft.id, requester_user_id: user.id, state: collaborative_draft.state }
+            end.to(change { collaborative_draft.reload.requesters.count }.by(-1))
+          end
+        end
+
+        context "when the user is not the author" do
+          before do
+            sign_in user2, scope: :user
+          end
+
+          it "does not accept the request" do
+            expect do
+              post :request_accept, params: { id: collaborative_draft.id, requester_user_id: user.id, state: collaborative_draft.state }
+            end.not_to(change { collaborative_draft.reload.requesters.count })
+          end
+        end
+      end
+
+      describe "POST request_reject authorization" do
+        before do
+          collaborative_draft.requesters << user
+        end
+
+        context "when the user is the author" do
+          before do
+            sign_in author, scope: :user
+          end
+
+          it "rejects the request" do
+            expect do
+              post :request_reject, params: { id: collaborative_draft.id, requester_user_id: user.id, state: collaborative_draft.state }
+            end.to(change { collaborative_draft.reload.requesters.count }.by(-1))
+          end
+        end
+
+        context "when the user is not the author" do
+          before do
+            sign_in user2, scope: :user
+          end
+
+          it "does not reject the request" do
+            expect do
+              post :request_reject, params: { id: collaborative_draft.id, requester_user_id: user.id, state: collaborative_draft.state }
+            end.not_to(change { collaborative_draft.reload.requesters.count })
+          end
+        end
+      end
     end
   end
 end

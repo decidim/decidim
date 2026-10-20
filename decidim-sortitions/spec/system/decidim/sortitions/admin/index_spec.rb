@@ -18,7 +18,7 @@ describe "index" do
   end
 
   it "Contains a button that shows sortition details" do
-    within "tr", text: decidim_escape_translated(sortition.title) do
+    within "tr", text: translated_attribute(sortition.title) do
       find("button[data-controller='dropdown']").click
       expect(page).to have_link("Sortition details")
     end

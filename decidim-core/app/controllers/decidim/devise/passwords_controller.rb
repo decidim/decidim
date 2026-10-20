@@ -14,6 +14,8 @@ module Decidim
       before_action :check_sign_in_enabled
 
       def change_password
+        enforce_permission_to(:update, :user, current_user:)
+
         self.resource = current_user
         @send_path = apply_password_path
 
@@ -22,6 +24,8 @@ module Decidim
       end
 
       def apply_password
+        enforce_permission_to(:update, :user, current_user:)
+
         self.resource = current_user
         @send_path = apply_password_path
 
@@ -42,6 +46,10 @@ module Decidim
       end
 
       private
+
+      def user_has_no_permission_path
+        new_user_session_path
+      end
 
       def check_sign_in_enabled
         redirect_to new_user_session_path unless current_organization.sign_in_enabled?

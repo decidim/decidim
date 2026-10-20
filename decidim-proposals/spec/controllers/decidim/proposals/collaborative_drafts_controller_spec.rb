@@ -116,6 +116,62 @@ module Decidim
         end
       end
 
+      describe "POST publish" do
+        before do
+          sign_in current_user, scope: :user
+        end
+
+        context "when the user is the author" do
+          let(:current_user) { author }
+
+          it "publishes the collaborative draft" do
+            post :publish, params: { id: collaborative_draft.id }
+
+            expect(response).to have_http_status(:found)
+            expect(collaborative_draft.reload.state).to eq("published")
+          end
+        end
+
+        context "when the user is not the author" do
+          let(:current_user) { user }
+
+          it "does not publish the collaborative draft" do
+            post :publish, params: { id: collaborative_draft.id }
+
+            expect(response).to have_http_status(:found)
+            expect(collaborative_draft.reload.state).to eq("open")
+          end
+        end
+      end
+
+      describe "POST withdraw" do
+        before do
+          sign_in current_user, scope: :user
+        end
+
+        context "when the user is the author" do
+          let(:current_user) { author }
+
+          it "withdraws the collaborative draft" do
+            post :withdraw, params: { id: collaborative_draft.id }
+
+            expect(response).to have_http_status(:found)
+            expect(collaborative_draft.reload.state).to eq("withdrawn")
+          end
+        end
+
+        context "when the user is not the author" do
+          let(:current_user) { user }
+
+          it "does not withdraw the collaborative draft" do
+            post :withdraw, params: { id: collaborative_draft.id }
+
+            expect(response).to have_http_status(:found)
+            expect(collaborative_draft.reload.state).to eq("open")
+          end
+        end
+      end
+
       context "with collaborative drafts disabled" do
         let(:component) { create(:proposal_component) }
 
