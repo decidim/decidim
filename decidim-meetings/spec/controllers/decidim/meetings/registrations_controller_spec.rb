@@ -174,7 +174,7 @@ module Decidim::Meetings
 
       it "declines invitation" do
         expect do
-          post :decline_invitation, params:
+          get :decline_invitation, params:
         end.to change { invite.reload.rejected_at }.from(nil)
 
         expect(flash[:notice]).to include("successfully")
@@ -185,12 +185,12 @@ module Decidim::Meetings
         before { sign_out user }
 
         it "redirects to login" do
-          post(:decline_invitation, params:)
+          get(:decline_invitation, params:)
           expect(response).to redirect_to(new_user_session_path)
         end
 
         it "does not display error message when user is redirected to login" do
-          post(:decline_invitation, params:)
+          get(:decline_invitation, params:)
           expect(flash[:alert]).to be_nil
         end
       end
