@@ -22,6 +22,8 @@ describe("Design System Tailwind tokens", () => {
   })
 
   it("maps the shadow tokens", () => {
-    expect(designTokens.boxShadow.DEFAULT).toEqual("var(--shadow-focus-default)")
+    expect(designTokens.boxShadow.focus).toEqual("var(--shadow-focus-default)")
+    expect(designTokens.boxShadow["focus-outside"]).toEqual("var(--shadow-focus-outside)")
+    expect(designTokens.boxShadow).not.toHaveProperty("DEFAULT")
   })
 })

@@ -37,7 +37,11 @@ const borderRadiusSizes = ["none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "
 const borderWidthSizes = ["xs", "sm", "md"]
 const breakpointSizes = ["xs", "sm", "md", "lg", "xl", "2xl"]
 
-const { default: defaultShadow, ...boxShadowTokens } = generatedTokens.boxShadow
+const {
+  default: focusShadow,
+  outside: focusOutsideShadow,
+  ...boxShadowTokens
+} = generatedTokens.boxShadow
 
 module.exports = {
   colors: {
@@ -63,7 +67,8 @@ module.exports = {
   },
   boxShadow: {
     ...boxShadowTokens,
-    DEFAULT: defaultShadow
+    focus: focusShadow,
+    "focus-outside": focusOutsideShadow
   },
   fontSize: Object.fromEntries(
     fontSizeSizes.map((size) => [
