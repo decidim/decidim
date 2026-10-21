@@ -9,6 +9,8 @@ module Decidim
       class ComponentShareTokensController < Decidim::Admin::ShareTokensController
         include InitiativeAdmin
 
+        protected
+
         def resource
           @resource ||= current_participatory_space.components.find(params.expect(:component_id))
         end

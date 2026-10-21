@@ -33,6 +33,13 @@ describe "Conversations" do
       expect(page).to have_css(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
     end
 
+    it "redirects to the created conversation", :slow do
+      start_conversation("Is this a Ryanair style democracy?")
+
+      expect(page).to have_css(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_current_path(decidim.conversation_path(Decidim::Messaging::Conversation.last))
+    end
+
     it "redirects to an existing conversation if it exists already", :slow do
       start_conversation("Is this a Ryanair style democracy?")
       expect(page).to have_css(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")

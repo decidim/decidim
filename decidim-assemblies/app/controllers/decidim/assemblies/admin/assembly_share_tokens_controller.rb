@@ -9,6 +9,8 @@ module Decidim
       class AssemblyShareTokensController < Decidim::Admin::ShareTokensController
         include Concerns::AssemblyAdmin
 
+        protected
+
         def resource
           current_assembly
         end

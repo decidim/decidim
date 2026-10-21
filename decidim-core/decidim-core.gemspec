@@ -28,6 +28,8 @@ Gem::Specification.new do |s|
     end
   end
 
+  s.add_dependency "decidim-verifications", version
+
   s.add_dependency "concurrent-ruby", "~> 1.3.0"
 
   s.add_dependency "active_link_to", "~> 1.0"
@@ -50,7 +52,7 @@ Gem::Specification.new do |s|
   s.add_dependency "fog-local", "~> 0.6"
   s.add_dependency "geocoder", "~> 1.8"
   s.add_dependency "hashdiff", ">= 0.4.0", "< 2.0.0"
-  s.add_dependency "hexapdf", ">= 1.1", "< 1.11"
+  s.add_dependency "hexapdf", ">= 1.1", "< 1.12"
   s.add_dependency "image_processing", ">= 1.2", "< 3.0"
   s.add_dependency "invisible_captcha", ">= 0.12", "< 3.0"
   s.add_dependency "json", "< 3.0"
@@ -66,14 +68,14 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-twitter", "~> 1.4"
   s.add_dependency "paper_trail", "~> 17.0"
   s.add_dependency "paranoia", "~> 3.1.0"
-  s.add_dependency "pg", ">= 1.5", "< 1.7"
+  s.add_dependency "pg", ">= 1.5", "< 1.8"
   s.add_dependency "pg_search", "~> 2.2"
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", ">= 3.2.4", "< 4.0"
   s.add_dependency "rack-attack", ">= 6.7", "< 6.9"
   s.add_dependency "rails", "~> 8.1.0"
   s.add_dependency "rails-i18n", "~> 8.1.0", "< 8.2"
-  s.add_dependency "ransack", ">= 4.2", "< 4.5"
+  s.add_dependency "ransack", ">= 4.2", "< 5.1"
   s.add_dependency "redis", ">= 4.1", "< 7.0"
   s.add_dependency "request_store", "~> 1.7.0"
   s.add_dependency "rqrcode", ">= 2.2", "< 3.3"

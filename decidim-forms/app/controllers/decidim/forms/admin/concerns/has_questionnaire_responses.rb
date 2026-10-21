@@ -60,6 +60,8 @@ module Decidim
               redirect_back_or_to(questionnaire_participant_responses_url(session_token))
             end
 
+            protected
+
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.
             def questionnaire_for
@@ -77,7 +79,7 @@ module Decidim
             end
 
             def questionnaire
-              @questionnaire ||= Questionnaire.find_by(questionnaire_for:)
+              @questionnaire ||= Questionnaire.find_by(questionnaire_for:) # rubocop:disable Decidim/OrganizationScopedFinder -- questionnaire_for is scoped by the host controller
             end
 
             def participants_query

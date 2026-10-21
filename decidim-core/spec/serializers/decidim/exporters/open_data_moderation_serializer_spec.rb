@@ -6,7 +6,7 @@ module Decidim::Exporters
   describe OpenDataModerationSerializer do
     subject { described_class.new(resource) }
 
-    let(:resource) { create(:moderation, :hidden, reportable:) }
+    let!(:resource) { create(:moderation, :hidden, reportable:) }
     let(:reportable) { create(:dummy_resource) }
     let(:serialized) { subject.serialize }
 

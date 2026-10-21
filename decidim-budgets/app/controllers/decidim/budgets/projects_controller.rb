@@ -15,12 +15,16 @@ module Decidim
       before_action :set_focus_mode_if_voting_open
 
       def index
+        enforce_permission_to :read, :project
+
         raise ActionController::RoutingError, "Not Found" unless budget
       end
 
       def show
         raise ActionController::RoutingError, "Not Found" unless budget
         raise ActionController::RoutingError, "Not Found" unless project
+
+        enforce_permission_to :read, :project, project:
       end
 
       private

@@ -120,4 +120,92 @@ describe Decidim::Templates::Admin::Permissions do
 
     it { is_expected.to be true }
   end
+
+  context "when subject is a questionnaire_template" do
+    context "when previewing" do
+      it_behaves_like "action is allowed", :admin, :preview, :questionnaire_template
+    end
+
+    context "when applying" do
+      it_behaves_like "action is allowed", :admin, :apply, :questionnaire_template
+    end
+
+    context "when skipping" do
+      it_behaves_like "action is allowed", :admin, :skip, :questionnaire_template
+    end
+
+    context "with any other action" do
+      let(:action) do
+        { scope: :admin, action: :foo, subject: :questionnaire_template }
+      end
+
+      it_behaves_like "permission is not set"
+    end
+
+    context "when user is not admin" do
+      let(:user) { create(:user, :confirmed, organization:) }
+      let(:action) do
+        { scope: :admin, action: :preview, subject: :questionnaire_template }
+      end
+
+      it_behaves_like "permission is not set"
+    end
+
+    context "when user is a process admin" do
+      let(:user) { create(:user, :confirmed, organization:) }
+      let(:participatory_space) { create(:participatory_process, organization:) }
+      let!(:process_admin_role) { create(:participatory_process_user_role, role: :admin, user:, participatory_process: participatory_space) }
+
+      context "when previewing a template" do
+        let(:action) do
+          { scope: :admin, action: :preview, subject: :questionnaire_template }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when applying a template without a target questionnaire" do
+        let(:action) do
+          { scope: :admin, action: :apply, subject: :questionnaire_template }
+        end
+
+        it_behaves_like "permission is not set"
+      end
+
+      context "when applying a template to a managed questionnaire" do
+        let(:component) { create(:surveys_component, participatory_space:) }
+        let(:survey) { create(:survey, component:) }
+        let(:context) do
+          {
+            current_organization: organization,
+            questionnaire: survey.questionnaire,
+            component:
+          }
+        end
+        let(:action) do
+          { scope: :admin, action: :apply, subject: :questionnaire_template }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when applying a template to a questionnaire of an unmanaged space" do
+        let(:other_space) { create(:participatory_process, organization:) }
+        let(:other_component) { create(:surveys_component, participatory_space: other_space) }
+        let(:other_survey) { create(:survey, component: other_component) }
+        let(:context) do
+          {
+            current_organization: organization,
+            questionnaire: other_survey.questionnaire,
+            component: other_component
+          }
+        end
+        let(:action) do
+          { scope: :admin, action: :apply, subject: :questionnaire_template }
+        end
+
+        it_behaves_like "permission is not set"
+      end
+    end
+  end
 end

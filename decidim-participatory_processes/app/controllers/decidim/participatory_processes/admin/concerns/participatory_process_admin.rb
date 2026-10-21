@@ -20,25 +20,27 @@ module Decidim
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
 
-            helper_method :current_participatory_process
+            helper_method :current_participatory_process, :current_participatory_space
             add_breadcrumb_item_from_menu :admin_participatory_process_menu
 
             participatory_space_admin_layout
-
-            def organization_processes
-              @organization_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
-            end
 
             def current_participatory_space
               request.env["current_participatory_space"] ||
                 organization_processes.find_by!(slug: params[:participatory_process_slug] || params[:slug])
             end
 
+            alias_method :current_participatory_process, :current_participatory_space
+
+            protected
+
+            def organization_processes
+              @organization_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
+            end
+
             def permissions_context
               super.merge(current_participatory_space:)
             end
-
-            alias_method :current_participatory_process, :current_participatory_space
 
             def permission_class_chain
               PermissionsRegistry.chain_for(ParticipatoryProcessAdmin)
