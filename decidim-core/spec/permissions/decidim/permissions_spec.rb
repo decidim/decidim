@@ -24,6 +24,142 @@ describe Decidim::Permissions do
     it { is_expected.to be true }
   end
 
+  context "when reading open data" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :open_data }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when searching public content" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :search }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading a public profile" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :profile }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading a private download" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :private_download }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading a short link" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :short_link }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading a newsletter" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :newsletter }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when unsubscribing from a newsletter" do
+    let(:action) do
+      { scope: :public, action: :unsubscribe, subject: :newsletter }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when validating an upload" do
+    let(:action) do
+      { scope: :public, action: :create, subject: :upload_validation }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading a calendar" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :calendar }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading badges" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :badges }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading a static map" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :static_map }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading a QR code" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :qr_code }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading the homepage" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :homepage }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading the web manifest" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :manifest }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading the offline page" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :offline }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading an external link" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :link }
+    end
+
+    it { is_expected.to be true }
+  end
+
+  context "when reading an authorization" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :authorization }
+    end
+
+    it { is_expected.to be true }
+  end
+
   context "when action is on a locale" do
     let(:action) do
       { scope: :public, action: :foo, subject: :locales }
@@ -134,11 +270,24 @@ describe Decidim::Permissions do
       { scope: :public, action: action_name, subject: :authorization }
     end
 
+    context "with a read action" do
+      let(:authorization) { build(:authorization) }
+      let(:action_name) { :read }
+
+      it { is_expected.to be true }
+    end
+
     context "with a create action" do
       let(:authorization) { build(:authorization) }
       let(:action_name) { :create }
 
       it { is_expected.to be true }
+
+      context "and the authorization is already active" do
+        let(:authorization) { create(:authorization, :granted) }
+
+        it { is_expected.to be false }
+      end
     end
 
     context "with an update action" do

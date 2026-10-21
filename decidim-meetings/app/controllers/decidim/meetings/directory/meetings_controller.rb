@@ -17,6 +17,8 @@ module Decidim
         helper_method :meetings, :search
 
         def calendar
+          enforce_permission_to :read, :calendar
+
           render plain: CalendarRenderer.for(current_organization, filter_params), content_type: "type/calendar"
         end
 
