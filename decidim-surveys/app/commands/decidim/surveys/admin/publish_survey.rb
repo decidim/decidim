@@ -27,7 +27,6 @@ module Decidim
 
           transaction do
             publish_survey
-            delete_responses if @survey.clean_after_publish?
           end
 
           broadcast(:ok, survey)
@@ -47,10 +46,6 @@ module Decidim
             survey.publish!
             survey
           end
-        end
-
-        def delete_responses
-          @questionnaire.responses.destroy_all
         end
       end
     end

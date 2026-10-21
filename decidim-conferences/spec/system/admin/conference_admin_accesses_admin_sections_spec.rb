@@ -26,6 +26,7 @@ describe "Conference admin accesses admin sections" do
       expect(page).to have_text("Speakers")
       expect(page).to have_text("Registrations")
       expect(page).to have_text("Registration types")
+      expect(page).to have_text("User registrations")
       expect(page).to have_text("Invites")
       expect(page).to have_text("Certificate of attendance")
       expect(page).to have_text("Conference admins")

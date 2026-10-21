@@ -45,7 +45,7 @@ module Decidim
 
           @form = ConfirmationForm.from_params(params)
 
-          ConfirmUserAuthorization.call(@authorization, @form, session) do
+          ConfirmUserAuthorization.call(@authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.postal_letter")
               redirect_to decidim_verifications.authorizations_path
@@ -54,6 +54,11 @@ module Decidim
             on(:invalid) do
               flash.now[:alert] = t("authorizations.update.error", scope: "decidim.verifications.postal_letter")
               render :edit, status: :unprocessable_content
+            end
+
+            on(:locked) do
+              flash.now[:alert] = t("authorizations.update.locked", scope: "decidim.verifications.postal_letter")
+              render :edit, status: :too_many_requests
             end
           end
         end

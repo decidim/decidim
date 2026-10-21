@@ -67,9 +67,9 @@ module Decidim
 
       # Private: Presents the nickname of the user performing the action.
       #
-      # Returns an HTML-safe String.
+      # Returns a String.
       def present_user_nickname
-        extra["nickname"].html_safe
+        extra["nickname"]
       end
 
       # Private: Calculates the path for the user. Returns the path of the

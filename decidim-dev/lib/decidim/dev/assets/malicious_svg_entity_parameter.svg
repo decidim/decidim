@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A document which declares a parameter entity in the internal subset of its
+     document type definition, which is a declaration even when it is not used. -->
+<!DOCTYPE svg [
+  <!ENTITY % parameter "value">
+]>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><text y="8">Example</text></svg>

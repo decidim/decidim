@@ -56,7 +56,7 @@ This change is based on the GDPR regulation:
 
 You can read more about this change on PR [#11036](https://github.com/decidim/decidim/pull/11036).
 
-### 2.3. Sidekiq configuration overwrite
+### 2.2. Sidekiq configuration overwrite
 
 As we are doing changes in the default sidekiq.yml configuration and we want to do them automatically, this file will be overwritten during the upgrade process (on the `bin/rails decidim:upgrade` command).
 
@@ -68,7 +68,23 @@ sidekiq -C config/sidekiq.yml -C config/sidekiq.local.yml
 
 You can read more about this change on PR [#17596](https://github.com/decidim/decidim/pull/17596).
 
-### 2.2. [[TITLE OF THE ACTION]]
+### 2.3. Verification code security hardening
+
+The verification code confirmation flow has been enhanced with multiple security improvements. Failed attempt tracking has been moved from client-side session to server-side database storage, with three layers of protection:
+
+1. **Server-side failed attempt tracking**: Failed attempts are now tracked in the database with automatic lockout after 5 failed attempts (configurable via `DECIDIM_VERIFICATION_MAX_FAILED_ATTEMPTS`) and automatic unlock after 30 minutes (configurable via `DECIDIM_VERIFICATION_UNLOCK_IN`).
+
+2. **Code expiration**: SMS verification codes now expire after 10 minutes (configurable via `DECIDIM_VERIFICATION_CODE_EXPIRY_MINUTES`), reducing the window of opportunity for unauthorized access.
+
+3. **HTTP-level rate limiting**: Rack::Attack now throttles verification confirmation endpoints to 10 requests per minute per IP.
+
+Server-side failed attempt tracking applies to all verification handlers (SMS, postal letter, ID documents, CSV census). Code expiration applies only to SMS verification. HTTP-level rate limiting applies only to SMS and postal letter authorization paths.
+
+We strongly recommend that implementers review any custom authorization handlers for code that may still rely on the old session-based attempt tracking patterns, which have been replaced by the new server-side mechanism.
+
+You can read more about this change on PR [#17639](https://github.com/decidim/decidim/pull/17639).
+
+### 2.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -92,7 +108,21 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
 with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-### 4.1. [[TITLE OF THE TASK]]
+### 4.1. Remove unattached blobs
+
+Back in [#11851](https://github.com/decidim/decidim/pull/11851) we have added as a migration step a rake task aimed to clean up the unattached blobs (`decidim:upgrade:attachments_cleanup`)
+We add this as a permanent cron task, so that we can handle better the failed downloads or abandoned file uploads.
+
+```bash
+# Delete unattached upload blobs
+0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:attachments_cleanup
+```
+
+By default, the task deletes unattached blobs older than 60 minutes. This window is intentional, as we want to remove abandoned or potentially dangerous uploads as soon as possible. Note that files uploaded in a form that is still open (not yet submitted) are also unattached, so submissions done after the cleanup window may lose that file. Keep in mind that 60 minutes is only the earliest time a blob becomes eligible for deletion: the cron above runs hourly and the task queues deletions with `purge_later`, so files are usually removed some time after the window, not exactly at the 60-minute mark. If needed, the window can be configured with the `clean_up_unattached_blobs_after_in_minutes` argument, e.g. `bundle exec rake decidim:attachments_cleanup[1440]` keeps unattached blobs for at least 24 hours.
+
+You can read more about this change on PR [#17790](https://github.com/decidim/decidim/pull/17790).
+
+### 4.2. [[TITLE OF THE TASK]]
 
 ```bash
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK

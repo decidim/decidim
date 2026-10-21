@@ -124,5 +124,68 @@ describe Decidim::Log::BasePresenter, type: :helper do
 
       subject
     end
+
+    context "when preventing XSS attacks" do
+      it "escapes malicious plain text values in i18n_params" do
+        malicious_presenter = Class.new(described_class) do
+          def action_string
+            "decidim.log.base_presenter.create"
+          end
+
+          def i18n_params
+            { user_name: "<script>alert('XSS')</script>", resource_name: "Resource", space_name: "Space" }
+          end
+        end.new(action_log, helper)
+
+        result = malicious_presenter.present
+        expect(result).not_to include("<script>")
+        expect(result).to include("&lt;script&gt;")
+      end
+
+      it "preserves HTML-safe values like user links" do
+        result = presenter.present
+        expect(result).to include("<a")
+        expect(result).to include(user.name)
+      end
+
+      it "escapes malicious values from extra data when used in i18n_params" do
+        malicious_action_log = create(
+          :action_log,
+          user:,
+          action: :create,
+          resource:,
+          extra_data: { "proposal_title" => { "en" => "<img src=x onerror=alert('XSS')>" } }
+        )
+        malicious_presenter = Class.new(described_class) do
+          def action_string
+            "decidim.log.base_presenter.create_with_space"
+          end
+
+          def i18n_params
+            { user_name: "User", resource_name: "Resource", space_name: h.translated_attribute(action_log.extra["proposal_title"]) }
+          end
+        end.new(malicious_action_log, helper)
+
+        result = malicious_presenter.present
+        expect(result).not_to include("<img")
+        expect(result).to include("&lt;img")
+      end
+
+      it "does not double-escape already escaped values" do
+        escaped_presenter = Class.new(described_class) do
+          def action_string
+            "decidim.log.base_presenter.create"
+          end
+
+          def i18n_params
+            { user_name: h.decidim_html_escape("<b>Bold</b>").html_safe, resource_name: "Resource", space_name: "Space" }
+          end
+        end.new(action_log, helper)
+
+        result = escaped_presenter.present
+        expect(result).to include("&lt;b&gt;Bold&lt;/b&gt;")
+        expect(result).not_to include("&amp;lt;b&amp;gt;")
+      end
+    end
   end
 end

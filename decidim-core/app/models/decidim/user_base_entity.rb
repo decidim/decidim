@@ -20,7 +20,7 @@ module Decidim
     has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
     # Regex for name & nickname format validations
-    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|\n\r])/m
+    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|\n\r]).*\z/m
     REGEXP_NICKNAME = /\A[a-z0-9_-]+\z/
 
     has_one_attached :avatar
@@ -100,7 +100,7 @@ module Decidim
     end
 
     def users_followings
-      @users_followings ||= Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self })
+      @users_followings ||= Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self }).order(decidim_follows: { created_at: :asc, id: :asc })
     end
 
     def followings_blocked?

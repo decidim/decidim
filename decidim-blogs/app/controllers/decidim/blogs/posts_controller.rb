@@ -16,9 +16,13 @@ module Decidim
       helper_method :posts, :post, :post_presenter, :paginate_posts, :posts_most_commented, :tabs, :panels
       before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-      def index; end
+      def index
+        enforce_permission_to :read, :blogpost
+      end
 
       def show
+        enforce_permission_to :read, :blogpost, blogpost: post
+
         raise ActionController::RoutingError, "Not Found" unless post
       end
 

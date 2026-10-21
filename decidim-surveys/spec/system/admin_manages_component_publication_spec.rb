@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages component publication" do
   include_context "when managing a component as an admin" do
-    let!(:resource) { create(:survey, :published, :clean_after_publish, component:) }
+    let!(:resource) { create(:survey, :published, component:) }
 
     context "when cycling through publication states" do
       let!(:component) { create(:surveys_component, participatory_space:) }
