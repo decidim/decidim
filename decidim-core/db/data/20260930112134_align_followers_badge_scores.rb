@@ -11,7 +11,13 @@ class AlignFollowersBadgeScores < ActiveRecord::Migration[8.1]
     return unless badge
 
     Decidim::User.not_managed.not_deleted.find_each do |user|
-      Decidim::Gamification.set_score(user, badge.name, badge.reset.call(user)) if badge.valid_for?(user)
+      next unless badge.valid_for?(user)
+
+      score = badge.reset.call(user)
+      badge_score = Decidim::Gamification::BadgeScore.find_by(user:, badge_name: badge.name)
+      next if (badge_score&.value || 0) == score
+
+      Decidim::Gamification.set_score(user, badge.name, score)
     end
   end
 
