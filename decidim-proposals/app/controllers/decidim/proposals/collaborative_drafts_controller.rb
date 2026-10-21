@@ -23,6 +23,8 @@ module Decidim
       before_action :retrieve_collaborative_draft, only: [:show, :edit, :update, :withdraw, :publish]
 
       def index
+        enforce_permission_to :read, :collaborative_draft
+
         @collaborative_drafts = search
                                 .result
                                 .not_hidden
@@ -34,6 +36,8 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" unless retrieve_collaborative_draft
+
+        enforce_permission_to :read, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params({})
         @accept_request_form = form(AcceptAccessToCollaborativeDraftForm).from_params({})

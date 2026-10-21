@@ -148,5 +148,23 @@ module Decidim
         end
       end
     end
+
+    describe "#default_url_options" do
+      context "when the current locale is the default locale" do
+        it "does not add the locale to the generated URLs" do
+          I18n.with_locale(default_locale) do
+            expect(controller.send(:default_url_options)).to eq({})
+          end
+        end
+      end
+
+      context "when the current locale is not the default locale" do
+        it "adds the locale to the generated URLs" do
+          I18n.with_locale(alt_locale) do
+            expect(controller.send(:default_url_options)).to eq(locale: alt_locale)
+          end
+        end
+      end
+    end
   end
 end

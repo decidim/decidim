@@ -13,6 +13,8 @@ module Decidim
       helper Decidim::Proposals::ApplicationHelper
 
       def index
+        enforce_permission_to :read, :sortition
+
         @sortitions = search
                       .result
                       .includes(:taxonomies)
@@ -22,6 +24,8 @@ module Decidim
       end
 
       def show
+        enforce_permission_to :read, :sortition, sortition: sortition
+
         raise ActionController::RoutingError, "Not Found" unless sortition
       end
 

@@ -9,6 +9,7 @@ module Decidim
         return permission_action if permission_action.scope != :public
 
         toggle_allow(proposal.nil? || !proposal.hidden?) if permission_action.subject == :proposal && permission_action.action == :read
+        toggle_allow(collaborative_draft.nil? || !collaborative_draft.hidden?) if permission_action.subject == :collaborative_draft && permission_action.action == :read
         return permission_action unless user
 
         case permission_action.subject

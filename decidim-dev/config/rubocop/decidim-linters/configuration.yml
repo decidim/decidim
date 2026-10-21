@@ -35,3 +35,6 @@ Decidim/EnforcePermissionTo:
     - decidim-core/app/controllers/decidim/favicon_controller.rb
   # - errors: always visible
     - decidim-core/app/controllers/decidim/errors_controller.rb
+  # - form_factory: builds form objects through an internal class; its methods
+  #   are not controller actions.
+    - decidim-core/app/controllers/concerns/decidim/form_factory.rb

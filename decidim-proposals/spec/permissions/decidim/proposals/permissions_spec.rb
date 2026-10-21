@@ -77,6 +77,38 @@ describe Decidim::Proposals::Permissions do
     end
   end
 
+  context "when reading a collaborative draft" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :collaborative_draft }
+    end
+    let(:collaborative_draft) { create(:collaborative_draft, component: proposal_component) }
+    let(:context) do
+      {
+        current_component: proposal_component,
+        current_settings:,
+        collaborative_draft:,
+        component_settings:
+      }
+    end
+
+    it { is_expected.to be true }
+
+    context "when listing collaborative drafts without a specific draft" do
+      let(:collaborative_draft) { nil }
+      let(:user) { nil }
+
+      it { is_expected.to be true }
+    end
+
+    context "when the collaborative draft is hidden" do
+      before do
+        allow(collaborative_draft).to receive(:hidden?).and_return(true)
+      end
+
+      it { is_expected.to be false }
+    end
+  end
+
   context "when creating a proposal" do
     let(:action) do
       { scope: :public, action: :create, subject: :proposal }

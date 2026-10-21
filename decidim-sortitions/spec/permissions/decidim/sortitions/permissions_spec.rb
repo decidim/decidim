@@ -25,6 +25,20 @@ describe Decidim::Sortitions::Permissions do
     it_behaves_like "delegates permissions to", Decidim::Sortitions::Admin::Permissions
   end
 
+  context "when reading a sortition" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :sortition }
+    end
+
+    it { is_expected.to be true }
+
+    context "when the user is not logged in" do
+      let(:user) { nil }
+
+      it { is_expected.to be true }
+    end
+  end
+
   context "when any other condition" do
     let(:action) do
       { scope: :foo, action: :blah, subject: :sortition }

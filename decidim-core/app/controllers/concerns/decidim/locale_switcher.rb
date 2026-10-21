@@ -9,7 +9,7 @@ module Decidim
 
     included do
       around_action :switch_locale
-      helper_method :current_locale, :available_locales, :default_locale
+      helper_method :current_locale, :available_locales, :default_locale, :canonical_url
 
       # Sets the locale for the current session.
       # Saves current locale in a session variable in case some links are locale-orphaned
@@ -138,7 +138,7 @@ module Decidim
       #
       # Returns a Hash.
       def default_url_options
-        return {} if locale_in_script_name?
+        return {} if current_locale == default_locale.to_s
 
         { locale: current_locale }
       end
