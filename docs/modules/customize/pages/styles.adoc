@@ -55,6 +55,28 @@ Since this file is being managed by Decidim, it will be impossible to customize 
 
 You can override the default configuration by creating a file  `config/tailwind.config.js.erb` starting from the following https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/assets/tailwind/tailwind.config.js.erb[content]
 
+== Design System tokens
+
+The color, typography, spacing, border radius, shadow, and breakpoint values come from the Design System tokens available at `decidim-core/app/packs/stylesheets/decidim/tokens/`.
+
+The token files are generated from the Design System and should not be edited manually. The Tailwind configuration reads them through `tokens/tailwind.js`, so changes made in the Design System are propagated to the application styles without duplicating values in the codebase.
+
+You can use the tokens in your own styles through the generated CSS custom properties or through the Tailwind utilities. For example:
+
+[source,css]
+----
+.my-component {
+  color: var(--color-color-text-primary);
+  background-color: var(--color-color-bg-neutral-light);
+  border-radius: var(--measure-border-radius-border-radius-sm);
+  box-shadow: var(--shadow-shadow-sm);
+}
+----
+
+The `--primary`, `--secondary`, `--tertiary`, `--success`, `--warning`, and `--alert` variables are kept as public aliases for backwards compatibility. The organization colors are applied on top of these variables, so applications can still customize their brand colors from the administration panel.
+
+If a value you need is not available as a token, prefer adding it to the Design System instead of hard-coding it in the application.
+
 == Overriding CSS and styles
 
 If you want to override a specific CSS class, you can do so by adding a new CSS class in your `app/assets/stylesheets/decidim_application.scss` file. This will allow you to override the default styles provided by Decidim.
