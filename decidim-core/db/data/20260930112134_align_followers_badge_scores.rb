@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class AlignFollowersBadgeScores < ActiveRecord::Migration[8.1]
-
   # Since the user model is using STI, is hard insert a new class here that would
   # use the current badge behavior and also be a descendent of UserBaseEntity
   # Also, the set score may need to send in app notifications, therefore, we need
