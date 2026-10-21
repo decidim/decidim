@@ -40,7 +40,7 @@ module Decidim
             context[subject] = object
           end
 
-          permission_action = Decidim::PermissionAction.new(scope: api_scope, action:, subject:)
+          permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
 
           permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|
             permission_context = local_user_context(object, context)
@@ -125,24 +125,11 @@ module Decidim
 
           permissions
         end
-
-        def user_can_perform_admin_actions?(user)
-          Decidim::Admin::Permissions.new(
-            user,
-            Decidim::PermissionAction.new(scope: :admin, action: :read, subject: :admin_dashboard)
-          ).permissions.allowed?
-        end
-
-        def api_scope
-          return :admin if determine_required_scopes.present? && determine_required_scopes.map { |scope| scope.split(":").first }.include?("admin")
-
-          :public
-        end
       end
 
       private
 
-      delegate :allowed_to?, :user_can_perform_admin_actions?, :api_scope, to: :class
+      delegate :allowed_to?, to: :class
 
       attr_reader :action
     end
