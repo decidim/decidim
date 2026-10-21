@@ -181,12 +181,6 @@ describe "Decidim::Api::QueryType" do
   include_examples "with resource visibility" do
     let(:component_factory) { :sortition_component }
     let(:lookout_key) { "sortition" }
-    let(:query_result) do
-      if participatory_process.is_a?(Decidim::Assembly)
-        sortition_single_result.merge("proposals" => Array.new(sortition.proposals.size))
-      else
-        sortition_single_result
-      end
-    end
+    let(:query_result) { sortition_single_result }
   end
 end
