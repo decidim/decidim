@@ -66,6 +66,22 @@ describe AlignFollowersBadgeScores do
       end
     end
 
+    context "when the badge score does not exist" do
+      it "creates the followers badge score only once" do
+        expect { migrator.migrate(:up) }
+          .to change(Decidim::Gamification::BadgeScore, :count)
+          .from(0)
+          .to(1)
+      end
+
+      it "creates the badge score with the actual follower count" do
+        migrator.migrate(:up)
+
+        score = Decidim::Gamification::BadgeScore.find_by!(user:, badge_name: "followers")
+        expect(score.value).to eq(2)
+      end
+    end
+
     context "when the followers badge is not available" do
       before do
         allow(Decidim::Gamification)
