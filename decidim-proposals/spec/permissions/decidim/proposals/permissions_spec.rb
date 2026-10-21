@@ -56,6 +56,59 @@ describe Decidim::Proposals::Permissions do
     it_behaves_like "permission is not set"
   end
 
+  context "when reading a proposal" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :proposal }
+    end
+
+    context "when listing proposals without a specific proposal" do
+      let(:proposal) { nil }
+      let(:user) { nil }
+
+      it { is_expected.to be true }
+    end
+
+    context "when the proposal is hidden" do
+      before do
+        allow(proposal).to receive(:hidden?).and_return(true)
+      end
+
+      it { is_expected.to be false }
+    end
+  end
+
+  context "when reading a collaborative draft" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :collaborative_draft }
+    end
+    let(:collaborative_draft) { create(:collaborative_draft, component: proposal_component) }
+    let(:context) do
+      {
+        current_component: proposal_component,
+        current_settings:,
+        collaborative_draft:,
+        component_settings:
+      }
+    end
+
+    it { is_expected.to be true }
+
+    context "when listing collaborative drafts without a specific draft" do
+      let(:collaborative_draft) { nil }
+      let(:user) { nil }
+
+      it { is_expected.to be true }
+    end
+
+    context "when the collaborative draft is hidden" do
+      before do
+        allow(collaborative_draft).to receive(:hidden?).and_return(true)
+      end
+
+      it { is_expected.to be false }
+    end
+  end
+
   context "when creating a proposal" do
     let(:action) do
       { scope: :public, action: :create, subject: :proposal }

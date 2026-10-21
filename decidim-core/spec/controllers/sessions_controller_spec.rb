@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::Core::Engine.routes }
 
       describe "after_sign_in_path_for" do
-        subject { controller.after_sign_in_path_for(user) }
+        subject { controller.send(:after_sign_in_path_for, user) }
 
         before do
           request.env["decidim.current_organization"] = user.organization
