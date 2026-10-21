@@ -1,28 +1,18 @@
 # frozen_string_literal: true
 
 class AlignFollowersBadgeScores < ActiveRecord::Migration[8.1]
+
+  # Since the user model is using STI, is hard insert a new class here that would
+  # use the current badge behavior and also be a descendent of UserBaseEntity
+  # Also, the set score may need to send in app notifications, therefore, we need
+  # a Decidim::UserBaseEntity to be passed to the notification iself.
   def up
     badge = Decidim::Gamification.find_badge(:followers)
 
     return unless badge
 
     Decidim::User.not_managed.not_deleted.find_each do |user|
-      next unless badge.valid_for?(user)
-
-      score = badge.reset.call(user)
-      badge_score = Decidim::Gamification::BadgeScore.find_by(
-        user_id: user.id,
-        badge_name: badge.name
-      )
-
-      next if score.zero? && badge_score.blank?
-      next if badge_score&.value == score
-
-      Decidim::Gamification.set_score(
-        user,
-        badge.name,
-        score
-      )
+      Decidim::Gamification.set_score(user, badge.name, badge.reset.call(user)) if badge.valid_for?(user)
     end
   end
 
