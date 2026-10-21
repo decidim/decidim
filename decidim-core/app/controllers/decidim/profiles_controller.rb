@@ -19,7 +19,7 @@ module Decidim
     def show
       enforce_permission_to :read, :profile
 
-      redirect_to profile_activity_path(nickname: params.expect(:nickname).downcase)
+      redirect_to profile_activity_path(nickname: params[:nickname].downcase)
     end
 
     def following
