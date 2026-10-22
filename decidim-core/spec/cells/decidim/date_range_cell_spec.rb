@@ -97,5 +97,26 @@ describe Decidim::DateRangeCell, type: :cell do
         expect(subject.all("[data-time]").map { |node| node.text.squish }).to eq(["00:00", "00:00"])
       end
     end
+
+    context "when rendering the month" do
+      before do
+        travel_to(Time.zone.parse("2026-01-15 12:00:00 UTC"))
+      end
+
+      let(:start_time) { Time.zone.parse("2026-01-15 15:04:00 UTC") }
+      let(:end_time) { Time.zone.parse("2026-01-15 18:30:00 UTC") }
+
+      it "renders the month without the year when both dates are in the current year" do
+        expect(subject.find("[data-month]").text.squish).to eq("January")
+      end
+
+      context "when one of the dates is in another year" do
+        let(:end_time) { Time.zone.parse("2027-01-15 18:30:00 UTC") }
+
+        it "renders the month with the year for both dates" do
+          expect(subject.all("[data-month]").map { |node| node.text.squish }).to eq(["January 2026", "January 2027"])
+        end
+      end
+    end
   end
 end
