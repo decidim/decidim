@@ -9,9 +9,11 @@ module Decidim
         #
         # proposal - The proposal to write the answer for.
         # initial_state - The proposal state before the current process.
-        def initialize(proposal, initial_state)
+        # notify_followers - Whether the followers notification should be published.
+        def initialize(proposal, initial_state, notify_followers: true)
           @proposal = proposal
           @initial_state = initial_state
+          @notify_followers_enabled = notify_followers
         end
 
         # Executes the command. Broadcasts these events:
@@ -26,7 +28,7 @@ module Decidim
           if proposal.published_state? && state_changed?
             transaction do
               increment_score
-              notify_followers
+              notify_followers if notify_followers?
               notify_authors
             end
           end
@@ -36,7 +38,11 @@ module Decidim
 
         private
 
-        attr_reader :proposal, :initial_state
+        attr_reader :proposal, :initial_state, :notify_followers_enabled
+
+        def notify_followers?
+          notify_followers_enabled
+        end
 
         def state_changed?
           initial_state != proposal.state.to_s
