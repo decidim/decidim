@@ -311,6 +311,54 @@ describe Decidim::Conferences::Permissions do
     )
   end
 
+  context "when reading the conference registrations" do
+    let(:context) { { conference: } }
+    let(:action) do
+      { scope: :admin, action: :read_conference_registrations, subject: :conference }
+    end
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: :not_set,
+      evaluator: :not_set,
+      moderator: :not_set
+    )
+  end
+
+  context "when exporting the conference registrations" do
+    let(:context) { { conference: } }
+    let(:action) do
+      { scope: :admin, action: :export_conference_registrations, subject: :conference }
+    end
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: :not_set,
+      evaluator: :not_set,
+      moderator: :not_set
+    )
+  end
+
+  context "when confirming a conference registration" do
+    let(:context) { { conference: } }
+    let(:action) do
+      { scope: :admin, action: :confirm, subject: :conference_registration }
+    end
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: :not_set,
+      evaluator: :not_set,
+      moderator: :not_set
+    )
+  end
+
   context "when creating a conference" do
     let(:action) do
       { scope: :admin, action: :create, subject: :conference }
@@ -414,6 +462,7 @@ describe Decidim::Conferences::Permissions do
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :conference
       it_behaves_like "allows any action on subject", :conference_speaker
+      it_behaves_like "allows any action on subject", :conference_registration
       it_behaves_like "allows any action on subject", :partner
       it_behaves_like "allows any action on subject", :registration_type
       it_behaves_like "allows any action on subject", :conference_user_role
@@ -444,6 +493,7 @@ describe Decidim::Conferences::Permissions do
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :conference
       it_behaves_like "allows any action on subject", :conference_speaker
+      it_behaves_like "allows any action on subject", :conference_registration
       it_behaves_like "allows any action on subject", :partner
       it_behaves_like "allows any action on subject", :registration_type
       it_behaves_like "allows any action on subject", :conference_user_role
