@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "assembly admin manage assembly components" do
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-  end
-
   describe "add a component" do
     before do
       visit decidim_admin_assemblies.components_path(assembly)
