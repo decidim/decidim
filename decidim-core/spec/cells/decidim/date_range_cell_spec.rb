@@ -68,4 +68,34 @@ describe Decidim::DateRangeCell, type: :cell do
       expect(subject).to have_text(end_time.year.to_s)
     end
   end
+
+  context "when rendering the times" do
+    let(:start_time) { Time.parse("2026-01-15 15:04:00 UTC").in_time_zone }
+    let(:end_time) { Time.parse("2026-01-15 18:30:00 UTC").in_time_zone }
+
+    it "renders both times with the localized time_of_day format" do
+      expect(subject.find("[data-time]").text.squish).to eq("15:04 - 18:30")
+    end
+
+    it "renders the times in the current time zone", tz: "Madrid" do
+      expect(subject.find("[data-time]").text.squish).to eq("16:04 - 19:30")
+    end
+
+    context "when the times are on different dates" do
+      let(:end_time) { Time.parse("2026-01-16 18:30:00 UTC").in_time_zone }
+
+      it "renders each time in its own element" do
+        expect(subject.all("[data-time]").map { |node| node.text.squish }).to eq(["15:04", "18:30"])
+      end
+    end
+
+    context "when the model values are Dates instead of times" do
+      let(:start_time) { Date.parse("2026-01-15") }
+      let(:end_time) { Date.parse("2026-01-16") }
+
+      it "renders midnight in the current time zone" do
+        expect(subject.all("[data-time]").map { |node| node.text.squish }).to eq(["00:00", "00:00"])
+      end
+    end
+  end
 end
