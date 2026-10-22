@@ -1,5 +1,3 @@
-@tailwind utilities;
-
 @layer utilities {
   /* 48 */ 
   .typography-display-5xl-bold {
