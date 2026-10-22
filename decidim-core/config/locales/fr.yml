@@ -768,6 +768,8 @@ fr:
     errors:
       files:
         file_cannot_be_processed: Le fichier ne peut pas être traité
+        file_contains_unsafe_content: Le fichier contient du contenu dangereux
+        file_is_not_a_valid_image: Le fichier n’est pas une image valide
         file_resolution_too_large: La résolution du fichier est trop grande
         not_inside_organization: Le fichier n'est attaché à aucune organisation.
       internal_server_error:

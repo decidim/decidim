@@ -170,7 +170,7 @@ ca:
           error: Hi ha hagut un error en eliminar el grup de processos participatius.
           success: El grup de processos participatius s'ha eliminat correctament.
         edit:
-          title: Editar el grup de procés
+          title: Editar el grup de processos
           update: Actualitza
         new:
           create: Crea

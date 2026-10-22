@@ -4,30 +4,69 @@ gl:
     attributes:
       close_meeting:
         attendees_count: Número de asistentes
-        attending_organizations: Listaxe de organizacións que asistiron
-        audio_url: URL de son
-        closing_report: Minutos
+        attending_organizations: Lista de organizacións asistentes
+        audio_url: URL do audio
+        closing_report: Acta
         closing_visible: É visible
         contributions_count: Número de contribucións
         proposal_ids: Propostas creadas na reunión
         video_url: URL do vídeo
       meeting:
         address: Enderezo
-        available_slots: Slots dispoñibles para esta reunión
-        customize_registration_email: Personalizar o correo de rexistro
+        available_slots: Prazas dispoñibles para esta reunión
+        customize_registration_email: Personalizar o correo de inscrición
         decidim_category_id: Categoría
-        decidim_scope_id: Alcance
+        decidim_scope_id: Ámbito
         description: Descrición
+        end_time: Hora de fin
+        iframe_access_level: Nivel de acceso do iframe
+        iframe_embed_type: Tipo de inserción do iframe
+        iframe_embed_type_html: Só algúns servizos permiten «Inserir na páxina da reunión» ou «Abrir na páxina do evento en directo». Ten en conta que, en dispositivos móbiles, a opción «Inserir na páxina da reunión» funcionará realmente como «Abrir na páxina do evento en directo» debido ás dimensións da pantalla.
         location: Localización
         location_hints: Consellos de localización
+        online_meeting_url: URL da reunión en liña
+        organizer_gid: Crear como
         organizer_id: Organizador
         private_meeting: Encontro privado
         registration_email_custom_content: Contido personalizado do correo de rexistro
         registration_form_enabled: Formulario de rexistro habilitado
         registration_terms: Termos de rexistro
+        registration_type: Tipo de inscrición
+        registration_url: URL de inscrición
         registrations_enabled: Rexistros habilitados
+        reserved_slots: Prazas reservadas para esta reunión
+        start_time: Hora de inicio
         title: Título
         transparent: Transparente
+        type_of_meeting: Tipo
+      meeting_agenda:
+        title: Título
+      meeting_agenda_items:
+        description: Descrición
+        duration: Duración
+        title: Título
+      meeting_registration_invite:
+        email: Correo electrónico
+        name: Nome
+      validate_registration_code:
+        code: Código
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Este URL non se pode inserir na páxina da reunión nin na do evento en directo.
+            online_meeting_url:
+              url_format: Debe ser un URL válido
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: A duración dos elementos supera a duración da reunión en %{count} minutos.
+              too_many_minutes_child: A duración dos subelementos supera en %{count} minutos a duración do elemento principal da axenda «%{parent_title}».
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Esta conta de correo electrónico xa recibiu unha invitación.
     models:
       decidim/meetings/close_meeting_event: Reunión pechada
       decidim/meetings/create_meeting_event: Reunión
@@ -37,6 +76,10 @@ gl:
       decidim/meetings/update_meeting_event: Reunión actualizada
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Debateuse nesta reunión: %{link}'
       decidim/meetings/meeting:
         one: Reunión
         other: Reunións
@@ -48,38 +91,118 @@ gl:
         other: Rexistros
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Reunións
       filters:
+        accepted_at_not_null:
+          label: Aceptada
+          values:
+            'false': Non aceptada
+            'true': Aceptada
         meetings:
+          closed_at_present:
+            label: Estado
+            values:
+              'false': Aberta
+              'true': Pechada
+          is_upcoming_true:
+            label: Data
+            values:
+              'false': Pasado
+              'true': Próximos
+          taxonomies_part_of_contains:
+            label: Taxonomía
           with_any_origin:
             label: Orixe
             values:
               official: Oficial
               participants: Participante
           with_any_type:
+            label: Tipo de reunión
             values:
+              hybrid: Híbrida
+              in_person: Presencial
               online: En liña
+        rejected_at_not_null:
+          label: Rexeitada
+          values:
+            'false': Non rexeitada
+            'true': Rexeitada
+        search_placeholder:
+          user_name_or_user_email_cont: Buscar por nome ou correo electrónico
+        sent_at_not_null:
+          label: Enviada
+          values:
+            'false': Sen enviar
+            'true': Enviada
       meeting_copies:
         create:
           error: Produciuse un erro ao duplicar esta reunión.
           success: Reunión duplicada con éxito.
         new:
           copy: Copiar
+          title: Duplicar reunión
+      tooltips:
+        cannot_close_meetings: Non se pode pechar esta reunión porque foi creada por unha persoa participante
+        cannot_duplicate_meetings: Non se pode duplicar esta reunión porque foi creada por unha persoa participante
+        cannot_edit_meetings: Non se pode editar esta reunión porque foi creada por unha persoa participante
+        cannot_manage_agenda_meetings: Non se pode xestionar a axenda desta reunión porque foi creada por unha persoa participante
+        cannot_manage_attachments_meetings: Non se poden xestionar os anexos desta reunión porque foi creada por unha persoa participante
+        cannot_manage_poll_meetings: Non se pode xestionar a enquisa desta reunión porque foi creada por unha persoa participante
+        cannot_manage_registrations_meetings: Non se poden xestionar as inscricións desta reunión porque foi creada por unha persoa participante, ten as inscricións desactivadas ou son externas
+        cannot_mark_attendee: Non se pode marcar como asistente porque xa estaba marcado
+        deleted_meetings_info: Non se pode eliminar esta reunión porque foi creada por unha persoa participante.
     components:
       meetings:
         actions:
+          comment: Comentar
           join: Únete
+          reply_poll: Responder á enquisa
         name: Reunións
         settings:
           global:
             announcement: Anuncio
+            clear_all: Limpar todo
             comments_enabled: Comentarios habilitados
+            comments_max_length: Máximo de caracteres por comentario (deixa 0 para usar o valor predeterminado)
+            creation_enabled_for_participants: As persoas participantes poden crear reunións
             default_registration_terms: Términos de rexistro por defecto
+            define_taxonomy_filters: Define algúns filtros para este espazo participativo antes de usar esta configuración.
             enable_pads_creation: Habilita a creación de pastillas
             maps_enabled: Mapas habilitados
+            no_taxonomy_filters_found: Non se atoparon filtros de taxonomía.
+            registration_code_enabled: Código de inscrición e QR activados
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
+            taxonomy_filters: Seleccionar filtros para o compoñente
+            taxonomy_filters_add: Engadir filtro
+            terms_and_conditions_url_for_meeting_creators: URL dos termos e condicións para persoas creadoras de reunións
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            creation_enabled_for_participants: Creación de reunións por persoas participantes activada
+    download_your_data:
+      help:
+        invites:
+          accepted_at: A data e hora na que se aceptou esta invitación
+          created_at: A data e hora na que se creou esta invitación
+          id: O identificador único desta invitación
+          meeting: A reunión na que se produciu esta invitación
+          rejected_at: A data e hora na que se rexeitou esta invitación
+          sent_at: A data e hora na que se enviou esta invitación
+          updated_at: A data e hora da última actualización desta invitación
+        registrations:
+          code: O código de inscrición
+          created_at: A data e hora na que se creou esta inscrición
+          id: O identificador único da inscrición
+          meeting: A reunión na que se inscribiu a persoa participante
+          public_participation: Indica se esta participación se mostrou publicamente
+          updated_at: A data e hora da última actualización desta inscrición
+          user: A persoa participante que realizou a inscrición
+          validated_at: A data e hora na que se validou esta inscrición
+      show:
+        meeting_comments: Exportación dos comentarios das reunións
+        meetings: Exportación de reunións
     events:
       meetings:
         meeting_closed:
@@ -94,7 +217,7 @@ gl:
             email_subject: A reunión "%{resource_title}" pechouse
             notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
         meeting_created:
-          button_text: Inscribirse na xuntanza
+          button_text: Inscribirse na reunión
           email_intro: A reunión "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova reunión engadida a %{participatory_space_title}
@@ -107,36 +230,72 @@ gl:
           email_subject: As xuntas ocupadas con "%{resource_title}" ocuparon máis de %{percentage}%
           notification_title: As xuntas ocupadas por <a href="%{resource_path}">%{resource_title}</a> ocupadas son máis do %{percentage}%.
         meeting_updated:
+          email_intro: 'A reunión «%{resource_title}» actualizouse con cambios en %{changed_fields}. Podes consultar a nova versión na súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Realizouse a reunión "%{resource_title}"
+          field_names:
+            address: o enderezo
+            end_time: a hora de fin
+            location: a localización
+            start_time: a hora de inicio
+          notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> actualizouse con cambios en %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: Engadíronte á lista de espera da reunión <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: O seu código de rexistro "%{registration_code}" para a reunión "%{resource_title}" foi validado.
           email_outro: Recibiches esta notificación porque o teu código de rexistro para a reunión "%{resource_title}" foi validado.
           email_subject: O seu código de rexistro "%{registration_code}" para a reunión "%{resource_title}" foi validado
-          notification_title: O seu código de rexistro "%{registration_code}" para a xuntanza <a href="%{resource_path}">%{resource_title}</a> validouse.
+          notification_title: O seu código de rexistro "%{registration_code}" para a reunión <a href="%{resource_path}">%{resource_title}</a> validouse.
+        registration_marked_as_attendee:
+          email_intro: A túa inscrición na reunión «%{resource_title}» marcouse como asistencia.
+          email_outro: Recibiches esta notificación porque a túa inscrición na reunión «%{resource_title}» marcouse como asistencia.
+          email_subject: A túa inscrición na reunión «%{resource_title}» marcouse como asistencia
+          notification_title: A túa inscrición na reunión <a href="%{resource_path}">%{resource_title}</a> marcouse como asistencia.
         registrations_enabled:
-          email_intro: 'A xuntanza "%{resource_title}" habilitou as inscricións. Pode rexistrarse na súa páxina:'
+          email_intro: 'A reunión "%{resource_title}" habilitou as inscricións. Pode rexistrarse na súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
-          email_subject: A xuntanza "%{resource_title}" habilitou as inscricións.
+          email_subject: A reunión "%{resource_title}" habilitou as inscricións.
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> habilitou as inscricións.
+        upcoming_meeting:
+          default_body: A reunión «{{meeting_title}}» comezará en menos de {{before_hours}} h.
+          email_intro: A reunión «%{resource_title}» comezará en menos de %{reminders_before_hours} h.
+          email_outro: Recibiches esta notificación porque segues a reunión %{resource_title}. Podes deixar de seguila desde a ligazón anterior.
+          email_subject: A reunión «%{resource_title}» comezará en menos de %{reminders_before_hours} h.
+          notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> comezará en menos de %{reminders_before_hours} h.
+    forms:
+      meetings:
+        attendees_count_help_text: Non esquezas incluír o número total de persoas asistentes á reunión, xa sexa presencial, en liña ou híbrida.
     gamification:
       badges:
         attended_meetings:
           conditions:
           - Rexístrese nas reunións que desexa asistir
           description: Este distintivo é concedido cando asistes a varias reunións cara a cara.
-          description_another: Este usuario asistiu a %{score} reunións.
+          description_another: Este participante asistiu a %{score} reunións.
           description_own: Atendeu %{score} reunións.
           name: Reunións asistidas
           next_level_in: Asistir a %{score} reunións máis para alcanzar o seguinte nivel!
+          unearned_another: Esta persoa participante aínda non asistiu a ningunha reunión.
+          unearned_own: Aínda non asistiches a ningunha reunión.
     meetings:
       actions:
         agenda: Axenda
         close: Pechar
+        confirm_delete_meeting: Seguro que queres eliminar esta reunión?
+        confirm_unpublish_meeting: Seguro que queres retirar a publicación desta reunión?
+        deleted_meetings_info: As reunións eliminadas pódense restaurar desde a papeleira.
         edit: Editar
+        invalid_destroy:
+          proposals_count:
+            one: 'Non se pode eliminar a reunión porque ten %{count} proposta asociada:'
+            other: 'Non se pode eliminar a reunión porque ten %{count} propostas asociadas:'
+        manage_poll: Xestionar enquisa
+        mark_as_attendee: Marcar como asistente
+        new_meeting: Nova reunión
         preview: Vista previa
         registrations: Rexistros
         title: Accións
+        view_deleted_meetings: Ver reunións eliminadas
       admin:
         agenda:
           agenda_item:
@@ -151,6 +310,9 @@ gl:
             down: Baixo
             remove: Quitar
             up: Arriba
+          create:
+            invalid: Produciuse un problema ao crear esta axenda.
+            success: A axenda creouse correctamente.
           edit:
             title: Editar axenda
             update: Actualización
@@ -162,9 +324,15 @@ gl:
           new:
             create: Crear
             title: Nova axenda
+          update:
+            invalid: Produciuse un problema ao actualizar esta axenda.
+            success: A axenda actualizouse correctamente.
+        deprecation_warning_polls_html: "⚠️ <b>Aviso de obsolescencia.</b> A funcionalidade de enquisas eliminarase nunha versión futura (aínda por determinar). As organizacións que usen enquisas nas reunións deberían prever o uso de ferramentas externas de apoio (por exemplo, mediante Jitsi) ou migrar a outros mecanismos de apoio dispoñibles en Decidim, como o novo módulo Elections (`decidim-elections`)."
         exports:
+          meeting_comments: Comentarios
           meetings: Reunións
           registrations: Rexistros
+          responses: Respostas
         invite_join_meeting_mailer:
           invite:
             decline: Declina a invitación
@@ -172,29 +340,75 @@ gl:
             join: Únete á reunión "%{meeting_title}"
         invites:
           create:
-            error: Produciuse un problema ao invitar ao usuario a unirse á reunión.
-            success: O usuario convidouse con éxito a unirse á reunión.
+            error: Produciuse un problema ao invitar ao participante a unirse á reunión.
+            success: O participante convidouse con éxito a unirse á reunión.
           form:
             attendee_type: Tipo de asistente
             existing_user: Usuario existente
             invite: Invitar
-            invite_explanation: Tamén se invitará ao usuario a unirse á reunión e á organización.
+            invite_explanation: Tamén se invitará ao participante a unirse á reunión e á organización.
             non_user: Usuario non existente
-            select_user: Seleccionar usuario
+            select_user: Seleccionar participante
           index:
+            invite_attendee: Convidar persoa asistente
             invites: Invitacións
+            registrations_disabled: Non podes convidar unha persoa asistente porque as inscricións están desactivadas.
         meeting_closes:
           edit:
             close: Pechar
             title: Pechar reunión
         meetings:
+          close:
+            invalid: Produciuse un problema ao pechar esta reunión.
+            success: A reunión pechouse correctamente.
+          component:
+            unlink: Desvincular
+          create:
+            invalid: Produciuse un problema ao crear esta reunión.
+            success: A reunión creouse correctamente. Ten en conta que aínda non está publicada; debes publicala manualmente.
           edit:
+            title: Editar reunión
             update: Actualización
+          form:
+            address_help: 'Enderezo: úsao o xeocodificador para atopar a localización'
+            disclaimer: 'Aviso: ao usar un sistema externo de inscrición, aceptas que as persoas organizadoras de %{organization} non son responsables dos datos proporcionados polas persoas participantes ao servizo externo.'
+            iframe_embed_type_html: 'Só algúns servizos permiten inserir a reunión ou evento en directo desde os seguintes dominios: %{domains}'
+            location_help: 'Localización: mensaxe dirixida ás persoas participantes que indica o lugar de encontro'
+            location_hints_help: 'Indicacións da localización: información adicional. Por exemplo, o andar do edificio se é unha reunión presencial ou o contrasinal se é unha reunión en liña con acceso restrinxido.'
+            online_meeting_url_help: 'Ligazón: permite ás persoas participantes conectarse directamente á reunión'
+            registration_url_help: 'Ligazón: permite ás persoas participantes acceder ao servizo externo usado para as inscricións'
+            select_a_meeting_type: Selecciona un tipo de reunión
+            select_a_registration_type: Selecciona un tipo de inscrición
+            select_an_iframe_access_level: Por favor, selecciona o nivel de acceso ao iframe
           index:
+            linked_meeting_warning_html: Esta reunión debe editarse desde <br><a href="%{href}">%{name}</a>
+            published: Publicada
             title: Reunións
+            unpublished: Non publicada
+          linked_spaces:
+            assign: Asignar
+            link_a_space: Vincular un espazo
+            private_meeting_warning: Os espazos vinculados non se aplicarán se a reunión é privada e non transparente.
+            select: Seleccionar un espazo
+            table:
+              actions: Accións
+              component: Espazos vinculados
+            title: Espazos vinculados
+          manage_trash:
+            title: Reunións eliminadas
           new:
             create: Crear
             title: Crear unha reunión
+          publish:
+            invalid: Produciuse un problema ao publicar esta reunión.
+            success: A reunión publicouse correctamente.
+          reminders:
+            reminder_enabled: Enviar un recordatorio desta reunión
+            reminder_message: Contido do correo de recordatorio
+            reminder_message_help_text: Personaliza a mensaxe segundo sexa necesario. Usa {{meeting_title}} para mostrar o nome da reunión.
+            send_reminder: Correo de recordatorio programado
+            send_reminder_help_text: Tempo do recordatorio en horas antes da reunión.
+            title: Recordatorios
           service:
             description: Descrición
             down: Baixo
@@ -205,6 +419,25 @@ gl:
           services:
             add_service: Engadir servizo
             services: Servizos
+          unpublish:
+            invalid: Produciuse un problema ao retirar a publicación desta reunión.
+            success: Retirouse correctamente a publicación da reunión.
+          update:
+            invalid: Produciuse un problema ao actualizar a reunión.
+            success: A reunión actualizouse correctamente.
+        meetings_poll:
+          form:
+            title: Editar o cuestionario da enquisa para %{questionnaire_for}
+          update:
+            invalid: Produciuse un problema ao actualizar a enquisa da reunión.
+            success: A enquisa da reunión actualizouse correctamente.
+        poll:
+          form:
+            announcement_html:
+            - Cando unha pregunta recibe respostas ou se publica/pecha, xa non se pode editar.
+            - Podes engadir unha pregunta en calquera momento.
+            - A enquisa pecharase cando se publiquen os resultados de todas as preguntas creadas.
+            - Visita a <a href='%{admin_link}'>páxina de administración da enquisa</a> para enviar preguntas e publicar resultados.
         registrations:
           edit:
             save: Gardar
@@ -212,16 +445,30 @@ gl:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
             manage_questions: Preguntas
+            recommendation_message: Por motivos de privacidade recomendamos eliminar este formulario de inscrición cando xa non o precises. Por defecto, isto ocorre 3 meses despois de rematar a reunión.
             registration_email_help: Este texto aparecerá no medio do correo de confirmación do rexistro, xusto despois do código de rexistro.
             registration_form: Formulario de inscrición
+            registrations: Ver inscricións
             registrations_count:
               one: Houbo un rexistro de %{count}.
               other: Houbo %{count} rexistros.
+            reserved_slots_help: Déixao en 0 se non tes prazas reservadas.
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}
             title: Rexistros
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
-            success: A configuración das inscricións da xuntanza gardouse correctamente.
+            success: A configuración das inscricións da reunión gardouse correctamente.
+        registrations_attendees:
+          index:
+            title: Rexistros
+            validate: Validar
+            validate_registration_code: Validar código de inscrición
+          mark_attendee:
+            invalid: A inscrición xa estaba marcada como asistencia.
+            success: A inscrición marcouse correctamente como asistencia.
+          validate_registration_code:
+            invalid: Este código de inscrición non é válido.
+            success: O código de inscrición validouse correctamente.
       admin_log:
         invite:
           create: "%{user_name} invitados %{attendee_name} para unirse a %{resource_name} reunión no %{space_name} espazo"
@@ -232,20 +479,39 @@ gl:
           create: "%{user_name} creou a %{resource_name} reunión no espazo %{space_name}"
           delete: "%{user_name} eliminou a %{resource_name} reunión no espazo %{space_name}"
           export_registrations: "%{user_name} exportou os rexistros da %{resource_name} reunión no espazo %{space_name}"
+          restore: "%{user_name} restaurou a reunión %{resource_name} no espazo %{space_name}"
+          soft_delete: "%{user_name} moveu á papeleira a reunión %{resource_name} do espazo %{space_name}"
           update: "%{user_name} actualizou a %{resource_name} reunión no espazo %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} actualizou o cuestionario da reunión %{meeting_name}"
       application_helper:
         filter_meeting_space_values:
           all: Todas
+      calendar:
+        meeting_to_event:
+          read_more: Máis información sobre esta reunión
       calendar_modal:
         calendar_url: URL do calendario
+        copy_calendar_url: Copiar
+        copy_calendar_url_clarification: Copiar URL do calendario ao portapapeis
+        copy_calendar_url_copied: Copiado!
+        copy_calendar_url_description: Podes ver todas as reunións publicadas na túa aplicación ou provedor de calendario. Copia e pega este URL no teu calendario usando a opción «Engadir novo calendario desde un URL».
+        copy_calendar_url_explanation: Ten en conta que estás a exportar unha selección de reunións porque hai filtros activos. Se queres exportalas todas, restablece primeiro todos os filtros.
+        copy_calendar_url_message: O URL copiouse correctamente ao portapapeis.
         export_calendar: Calendario de exportación
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: A reunión <a href="%{meeting_path}">«%{meeting_title}»</a> está pendente de peche. Engade un informe da reunión usando o botón «Pechar reunión».
+          greetings: Saúdos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Ola %{username},
+          subject: Agora podes pechar a reunión «%{meeting_title}» cun informe
       conference_venues: Lugares de conferencias
       content_blocks:
         upcoming_meetings:
-          name: Vindeiras xuntanzas
+          name: Vindeiras reunións
       directory:
         meetings:
           index:
@@ -253,8 +519,16 @@ gl:
             space_type: Espazo participativo
       iframe_access_level:
         all: Todos os visitantes
+        registered: Participantes rexistrados nesta reunión
+        signed_in: Só participantes con sesión iniciada
       iframe_embed_type:
+        embed_in_meeting_page: Inserir na páxina da reunión
+        none: Nada
+        open_in_live_event_page: Abrir na páxina do evento en directo
         open_in_new_tab: Abrir ligazón nunha nova lapela
+      last_activity:
+        meeting_updated: 'Reunión actualizada:'
+        new_meeting: 'Nova reunión:'
       layouts:
         live_event:
           close: pechar
@@ -264,7 +538,14 @@ gl:
             subject: Invitación para participar nunha reunión
         registration_mailer:
           confirmation:
-            subject: O rexistro da túa xuntanza foi confirmado
+            subject: O rexistro da túa reunión foi confirmado
+      meeting:
+        not_allowed: Non tes permiso para ver esta reunión.
+      meeting_closes:
+        edit:
+          back: Volver
+          close: Pechar reunión
+          title: Pechar reunión
       meetings:
         calendar_modal:
           add_to_calendar: Engadir ao calendario
@@ -272,21 +553,71 @@ gl:
           full_details_html: Ver todos os detalles en %{link}
           google: Engadir ao Google Calendar
           outlook: Engadir ao calendario do Outlook
+        count:
+          meetings_count:
+            one: "%{count} reunión"
+            other: "%{count} reunións"
+        create:
+          invalid: Produciuse un problema ao crear esta reunión.
+          success: Creaches a reunión correctamente.
+        edit:
+          back: Volver
+          title: Editar a túa reunión
+          update: Actualizar
         filters:
+          activity: A miña actividade
+          all: Todas
           category: Categoría
           date: Data
+          date_values:
+            all: Todas
+            past: Pasado
+            upcoming: Próximos
+          my_meetings: As miñas reunións
+          origin: Orixe
           origin_values:
+            all: Todas
+            official: Oficial
             participants: Participantes
           search: Busca
+          type: Tipo
+          type_values:
+            all: Todas
+            hybrid: Híbrida
+            in_person: Cara a cara
+            online: En liña
         form:
+          address_help: 'Enderezo: úsao o xeocodificador para atopar a localización'
+          available_slots_help: Déixao en 0 se tes prazas ilimitadas dispoñibles
+          disclaimer: 'Aviso: ao usar un sistema externo de inscrición, aceptas que as persoas organizadoras de %{organization} non son responsables dos datos proporcionados polas persoas participantes ao servizo externo.'
+          iframe_embed_type_html: 'Só algúns servizos permiten inserir a reunión ou evento en directo desde os seguintes dominios: %{domains}'
+          location_help: 'Localización: mensaxe dirixida ás persoas participantes que indica o lugar de encontro'
+          location_hints_help: 'Indicacións da localización: información adicional. Por exemplo, o andar do edificio se é unha reunión presencial ou o contrasinal se é unha reunión en liña con acceso restrinxido.'
+          online_meeting_url_help: 'Ligazón: permite ás persoas participantes conectarse directamente á reunión'
+          registration_url_help: 'Ligazón: permite ás persoas participantes acceder ao servizo externo usado para as inscricións'
+          select_a_meeting_type: Selecciona un tipo de reunión
+          select_a_registration_type: Selecciona un tipo de inscrición
           select_an_iframe_access_level: Por favor, selecciona o nivel de acceso ao iframe
         index:
-          click_here: Ver todas as xuntanzas
-          see_all: Ver todas as xuntanzas
-          see_all_withdrawn: Ver todas as xuntanzas anuladas
-          text_banner: Estás a ver todas as xuntanzas anuladas polos seus autores. %{go_back_link}.
+          click_here: Ver todas as reunións
+          new_meeting: Nova reunión
+          see_all: Ver todas as reunións
+          see_all_withdrawn: Ver todas as reunións anuladas
+          text_banner: Estás a ver todas as reunións anuladas polos seus autores. %{go_back_link}.
+        meeting:
+          close_meeting: Pechar
+          edit_close_meeting: Editar informe da reunión
+          edit_meeting: Editar
+          join_meeting: Unirse á reunión
+          reply_poll: Responder á enquisa
+          view_poll: Ver enquisa
         meetings:
+          no_meetings_warning: Non hai reunións programadas ou ningunha coincide cos teus criterios de busca.
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
+        new:
+          back: Volver
+          create: Crear
+          title: Crear unha nova reunión
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -294,19 +625,39 @@ gl:
           attendees: Os asistentes contan
           contributions: Contribucións contar
           join: Únete a reunión
+          join_waitlist: Unirse á lista de espera
           leave: Cancelar a túa inscrición
-          leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
+          leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta reunión?
+          leave_waitlist: Saír da lista de espera
+          leave_waitlist_confirmation: Seguro que queres saír da lista de espera desta reunión?
+          link_available_soon: Ligazón dispoñible en breve
+          link_closed: A ligazón para unirse á reunión estará dispoñible uns minutos antes de que comece
+          live_event: Esta reunión está a celebrarse agora mesmo
           meeting_minutes: Minutos de reunión
+          micro_camera_permissions_warning: Ao premer no botón seguinte pediránseche permisos para o micrófono e/ou a cámara e uniraste á videoconferencia
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
+          pending_address: A localización anunciarase en breve.
+          redirect_notice: Esta reunión forma parte doutro espazo, polo que te trasladamos a %{current_space_name}. <br>Se o prefires, podes volver a <a href="%{previous_space_url}">%{previous_space_name}</a>.
+          registration_and_qr_code: Inscrición e código QR
+          registration_code: 'Código de inscrición: %{code}'
+          registration_code_help_text: A túa inscrición e código QR
           registration_state:
             validated: VALIDADO
             validation_pending: VALIDACIÓN PENDENTE
           remaining_slots:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"
-          withdraw_btn_hint: Podes anular a túa xuntanza se mudas de parecer. A xuntanza non está anulada, aparecerá na listaxe de xuntanzas anuladas.
-          withdraw_confirmation_html: Estás certo/a de querer anular esta xuntanza?<br><br><strong>Esta acción non pode ser cancelada!</strong>
+          visit_finished: Ver reunión pasada
+          waitlist:
+            description: Se queda unha praza dispoñible, procesaremos automaticamente a túa inscrición e avisarémoste por correo electrónico.
+            status: Estás na lista de espera
+          withdraw_btn_hint: Podes anular a túa reunión se mudas de parecer. A reunión non está anulada, aparecerá na listaxe de reunións anuladas.
+          withdraw_confirmation_html: Estás certo/a de querer anular esta reunión?<br><br><strong>Esta acción non pode ser cancelada!</strong>
+          withdraw_meeting: Retirar
+        update:
+          invalid: Produciuse un problema ao actualizar a reunión.
+          success: Actualizaches a reunión correctamente.
       models:
         invite:
           fields:
@@ -323,18 +674,53 @@ gl:
             closed: Pechado
             end_time: Data de finalización
             map: Mapa
+            official_meeting: Reunión oficial
+            published: Publicada
             start_time: Data de inicio
+            taxonomies: Taxonomías
             title: Título
+        registration:
+          actions: Accións
+          fields:
+            email: Correo electrónico
+            name: Nome
+            status: Estado
+          status:
+            attended: Asistiu
+            not_attended: Non asistiu
       polls:
         questions:
-          index_admin:
+          closed_question:
+            announcement: Pecháronse as respostas desta pregunta.
             question: Pregunta
+            question_results: Resultados
+          index:
+            empty_questions: Ao longo desta reunión enviaranse preguntas que poderás responder. Mostraranse aquí.
+          index_admin:
+            edit: Editar no panel de administración
+            question: Pregunta
+            received_response: resposta recibida
+            received_responses: respostas recibidas
             results: Resultados
             send: Enviar
             sent: Enviada
+            statuses:
+              closed: Resultados enviados (pechada)
+              published: Enviada (aberta)
+              unpublished: Pendente de envío
           published_question:
+            max_choices_alert: Seleccionáronse demasiadas opcións
             question: Pregunta
+            question_replied: Pregunta respondida
             reply_question: Responder pregunta
+        responses:
+          index:
+            administrate: Administrar
+            title: Enquisa
+          index_admin:
+            back_to_meeting: Volver á reunión
+            title: Administrar enquisa
+            view_poll: Ver enquisa
       public_participants_list:
         attending_participants: Participantes presentes
         hidden_participants_count:
@@ -345,23 +731,103 @@ gl:
         confirmation:
           confirmed_html: Inscríbase o rexistro da reunión <a href="%{url}">%{title}</a>.
           details: Atoparás os detalles da reunión no anexo.
+          registration_code: O teu código de inscrición é %{code}. Mostra o seguinte código QR a unha persoa administradora para validar a túa asistencia.
+      registration_type:
+        on_different_platform: Noutra plataforma
+        on_this_platform: Nesta plataforma
+        registration_disabled: Inscrición desactivada
       registrations:
         create:
           invalid: Produciuse un problema ao unirse a esta reunión.
+          success: Unícheste correctamente á reunión. Como te inscribiches nesta reunión, recibirás notificacións se hai actualizacións.
         decline_invitation:
           invalid: Produciuse un problema ao diminuír a invitación.
           success: Rexeitou con éxito a invitación.
         destroy:
           invalid: Produciuse un problema ao saír desta reunión.
           success: Saíu con éxito da reunión.
+        waitlist:
+          invalid: Produciuse un problema ao unirte á lista de espera.
+          success: Unícheste correctamente á lista de espera da reunión. Recibirás unha notificación se se confirma a túa inscrición.
+      type_of_meeting:
+        hybrid: Híbrida
+        in_person: Presencial
+        online: En liña
       types:
         private_meeting: Encontro privado
         transparent: Transparente
         withdraw: Anular
+      withdraw:
+        error: Produciuse un problema ao retirar a reunión.
+        success: A reunión retirouse correctamente.
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Se este comentario foi a favor, en contra ou neutral
+          author: O nome da persoa participante que fixo este comentario
+          body: O propio comentario
+          commentable_id: O identificador único do recurso comentable
+          commentable_type: O tipo de recurso comentable (se era un resultado, unha proposta etc.)
+          comments: Os datos dos comentarios da reunión
+          created_at: A data na que se creou este comentario
+          depth: A posición deste comentario na árbore de comentarios (se é unha resposta ou unha resposta a outra resposta)
+          id: O identificador deste comentario
+          locale: A configuración rexional (idioma) da persoa participante cando deixou este comentario
+          root_commentable_url: O URL do recurso ao que está vinculado este comentario
+        meetings:
+          address: O enderezo da reunión no caso de ser presencial e ter unha localización física
+          attachments: O número de anexos desta reunión
+          attendees: O número de persoas asistentes a esta reunión
+          attending_organizations: As organizacións asistentes á reunión
+          audio_url: Gravación de audio da reunión
+          author: Os datos da autoría desta reunión
+          available_slots: O número de prazas dispoñibles nunha reunión
+          closed_at: A data na que se pechou a reunión
+          closing_report: Informe da reunión pechada
+          closing_visible: A visibilidade da reunión
+          comments: Os datos dos comentarios da reunión
+          component: O compoñente ao que pertence a reunión
+          contributions: O número de contribucións realizadas polas persoas asistentes nesta reunión
+          created_at: A data na que se creou a reunión
+          customize_registration_email: A posibilidade de permitir un correo personalizado na inscrición
+          decidim_author_type: Tipo de autoría da reunión
+          description: A descrición da reunión
+          end_time: A data e hora na que remata esta reunión
+          follows_count: O número de seguimentos desta reunión
+          id: O identificador único da reunión
+          iframe_access_level: O nivel de acceso do iframe da reunión
+          latitude: A latitude da reunión
+          location: A localización da reunión
+          location_hints: Unha indicación sobre a localización na que se celebra a reunión
+          longitude: A lonxitude da reunión
+          online_meeting_url: O URL da reunión en liña
+          organizations: As organizacións asistentes a esta reunión
+          participatory_space: O espazo ao que pertence esta reunión (por exemplo, un proceso participativo ou unha asemblea)
+          private_meeting: Indica se a reunión é privada ou non
+          published: Cando se publicou a reunión
+          reference: O identificador único do recurso nesta plataforma
+          registration_form_enabled: Indica se o formulario de inscrición estaba activado ou non
+          registration_terms: Os termos aceptados antes de participar na reunión
+          registration_type: O tipo de inscrición da reunión
+          registration_url: URL da inscrición na reunión
+          registrations_enabled: Indica se se permitían inscricións
+          related_proposals: As propostas relacionadas con esta reunión
+          related_results: Os resultados relacionados con esta reunión
+          reserved_slots: O número de prazas reservadas da reunión
+          start_time: A data e hora na que comeza esta reunión
+          taxonomies: As taxonomías ás que pertence esta reunión
+          title: O título da reunión
+          transparent: A visibilidade da reunión para persoas non membros
+          type_of_meeting: O tipo de reunión
+          updated_at: O momento da última actualización da reunión
+          url: O URL da reunión
+          video_url: Gravación de vídeo da reunión
+          withdrawn: Indica se esta reunión foi retirada
+          withdrawn_at: Cando se retirou esta reunión
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reunións pasadas
-        see_all: Ver todos (%{count})
+        see_all: Ver todas as reunións
         upcoming_meetings: Próximas reunións
     resource_links:
       meetings_through_proposals:
@@ -371,7 +837,10 @@ gl:
         meeting_proposal: 'Propostas relacionadas:'
         proposal_meeting: 'Reunións relacionadas:'
     statistics:
-      meetings_count: Xuntanzas
+      attendees_count: Persoas asistentes ás reunións
+      meetings_count: Reunións
+      meetings_count_tooltip: O número de reunións celebradas, tanto en liña como presenciais.
+      participatory_space_meetings_count: Reunións
   devise:
     mailer:
       join_meeting:

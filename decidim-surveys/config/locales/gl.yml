@@ -1,6 +1,9 @@
 ---
 gl:
   activemodel:
+    attributes:
+      response:
+        add_attachments: Engadir anexos
     models:
       decidim/surveys/closed_survey_event: A investigación finalizou
       decidim/surveys/opened_survey_event: Iniciouse a enquisa
@@ -9,10 +12,30 @@ gl:
       decidim/surveys/survey:
         one: Enquisa
         other: Enquisas
+      decidim/surveys/survey_response:
+        one: Resposta
+        other: Respostas
   decidim:
+    admin:
+      actions:
+        confirm_unpublish_survey: Seguro que queres retirar a publicación desta enquisa?
+        see_survey: Ver enquisa
+      admin_log:
+        changeset:
+          surveys: enquisas
+      menu:
+        surveys_menu:
+          main: Principal
+          questions: Preguntas
+          responses: Respostas
+          settings: Configuración
     components:
       surveys:
+        actions:
+          respond: Responder
+        name: Enquisas
         settings:
+          announcement: Aviso
           global:
             announcement: Anuncio
           step:
@@ -29,9 +52,117 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha nova enquisa en %{participatory_space_title}
           notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    statistics:
+      responses: 'Respostas:'
+      responses_count: Respostas
+      surveys_count_tooltip: O número de enquisas dispoñibles e de respostas recollidas.
     surveys:
+      actions:
+        confirm_destroy: Seguro que queres eliminar isto?
+        destroy: Eliminar
+        edit: Editar
+        manage_questions: Preguntas
+        new_survey: Nova enquisa
+        preview: Vista previa
+        responses: Respostas
+        title: Accións
       admin:
+        exports:
+          survey_user_responses: Respostas das persoas participantes á enquisa
+        publish_responses:
+          index:
+            description: |-
+              Ao publicar as respostas ás preguntas, faralas visibles para o público.
+              Podes seleccionar as respostas que queres publicar marcando a caixa situada xunto a cada pregunta.
+              Só podes publicar os seguintes tipos de pregunta: «Opción única», «Opción múltiple», «Matriz (opción única)», «Matriz (opción múltiple)» e «Ordenación».
+            responses:
+              one: "%{count} resposta"
+              other: "%{count} respostas"
+            status:
+              not_published: Non publicada
+              published: Publicada
+            title: Publicar respostas
+        questions:
+          surveys:
+            edit:
+              title: Preguntas
+        responses:
+          index:
+            no_responses: Aínda non hai respostas
+            title: "%{total} respostas en total"
+          show:
+            title: 'Resposta n.º %{number}'
+        settings:
+          surveys:
+            edit:
+              title: Configuración
         surveys:
+          create:
+            invalid: Produciuse un problema ao crear a enquisa.
+            success: A enquisa creouse correctamente.
+          destroy:
+            success: A enquisa eliminouse correctamente.
+          index:
+            title: Enquisas
+          new:
+            title: Nova enquisa
+          publish:
+            invalid: Produciuse un problema ao publicar esta enquisa.
+            success: A enquisa publicouse correctamente.
+          unpublish:
+            invalid: Produciuse un problema ao retirar a publicación desta enquisa.
+            success: Retirouse correctamente a publicación da enquisa.
           update:
             invalid: Houbo erros ao gardar a enquisa.
             success: A enquisa gardouse correctamente.
+      admin_log:
+        survey:
+          create: "%{user_name} creou a enquisa %{resource_name} no espazo %{space_name}"
+          delete: "%{user_name} eliminou a enquisa %{resource_name} do espazo %{space_name}"
+          publish: "%{user_name} publicou a enquisa %{resource_name} no espazo %{space_name}"
+          unpublish: "%{user_name} retirou a publicación da enquisa %{resource_name} no espazo %{space_name}"
+          update: "%{user_name} actualizou a enquisa %{resource_name} no espazo %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Enquisas
+      last_activity:
+        new_survey: 'Nova enquisa:'
+      models:
+        survey:
+          fields:
+            published: Publicada
+            questions: Preguntas
+            responses: Respostas
+            status: Estado
+            title: Título
+          published:
+            published: Publicada
+            unpublished: Non publicada
+          status:
+            closed: Pechada
+            open: Aberta
+      survey_confirmation_mailer:
+        confirmation:
+          body: Respondiches correctamente á enquisa %{questionnaire_title} en %{participatory_space}
+          subject: Confirmación da resposta ao cuestionario %{questionnaire_title}
+        export_name: Respostas á enquisa
+      surveys:
+        count:
+          surveys_count:
+            one: "%{count} enquisa"
+            other: "%{count} enquisas"
+        filters:
+          all: Todas
+          state_values:
+            closed: Pechada
+            open: Aberta
+        no_surveys_warning: Non hai ningunha enquisa aberta ou ningunha coincide cos teus criterios de busca.
+        response:
+          invalid: Produciuse un problema ao responder á enquisa.
+          spam_detected: Produciuse un problema ao responder ao formulario. Quizais o fixeches demasiado rápido; podes tentalo de novo?
+          success: A enquisa respondeuse correctamente.
+        show:
+          closed: Pechada
+          open: Aberta
+          questions: preguntas

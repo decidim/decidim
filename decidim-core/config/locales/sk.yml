@@ -885,6 +885,8 @@ sk:
     errors:
       files:
         file_cannot_be_processed: Súbor nie je možné spracovať
+        file_contains_unsafe_content: Potenciálny nebezpečný obsah
+        file_is_not_a_valid_image: Nie je v platnom formáte obrázka
         file_resolution_too_large: Rozlíšenie súboru je príliš veľké
         not_inside_organization: Súbor nie je pripojený k žiadnej organizácii.
       internal_server_error:

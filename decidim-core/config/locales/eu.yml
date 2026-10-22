@@ -112,7 +112,7 @@ eu:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%e-%h-%U"
-      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_short_with_month_name_short: "%Y %b %d"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
@@ -854,6 +854,8 @@ eu:
     errors:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
+        file_contains_unsafe_content: Fitxategiak segurua ez den edukia du
+        file_is_not_a_valid_image: Fitxategia ez da baliozko irudia
         file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
         not_inside_organization: Fitxategia ez dago inongo erakunderi atxikita.
       internal_server_error:

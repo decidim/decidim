@@ -858,6 +858,8 @@ ca:
     errors:
       files:
         file_cannot_be_processed: No s'ha pogut processar el fitxer
+        file_contains_unsafe_content: El fitxer conté contingut no segur
+        file_is_not_a_valid_image: El fitxer no és una imatge vàlida
         file_resolution_too_large: La resolució de l'arxiu és massa gran
         not_inside_organization: L'arxiu no està vinculat a cap organització.
       internal_server_error:
