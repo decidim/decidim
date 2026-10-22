@@ -80,14 +80,13 @@ describe "Admin manages surveys" do
         end
         click_on "Expand all"
         expect(page).to have_css("#questions_questions_#{question.id}_body_en")
-        expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
+        expect(page).to have_no_css("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
       it "shows the unpublish modal" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
           find("button[data-controller='dropdown']").click
-          click_on "Unpublish"
-          expect(accept_confirm).to eq("Are you sure you want to unpublish this survey?")
+          expect(accept_confirm { click_on "Unpublish" }).to eq("Are you sure you want to unpublish this survey?")
         end
       end
 
