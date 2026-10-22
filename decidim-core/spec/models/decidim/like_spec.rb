@@ -83,5 +83,20 @@ module Decidim
         expect(Decidim::Like.for_listing.pluck(:id)).to eq(expected_sorting)
       end
     end
+
+    describe "likes counter reset on restore" do
+      let(:liker) { create(:user, :confirmed, organization:) }
+      let!(:extra_like) { create(:like, resource:, author: liker) }
+
+      context "when a soft-deleted like is restored" do
+        before { extra_like.destroy! }
+
+        it "resets the likes_count on the resource" do
+          count_after_delete = resource.reload.likes_count
+          extra_like.restore!
+          expect(resource.reload.likes_count).to eq(count_after_delete + 1)
+        end
+      end
+    end
   end
 end
