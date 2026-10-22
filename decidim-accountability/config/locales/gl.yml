@@ -2,14 +2,19 @@
 gl:
   activemodel:
     attributes:
+      milestone:
+        description: Descrición
+        entry_date: Data
+        title: Título
       result:
         decidim_accountability_status_id: Estado
         decidim_category_id: Categoría
-        decidim_scope_id: Alcance
+        decidim_scope_id: Ámbito
         description: Descrición
         end_date: Data de finalización
         progress: Progreso
         start_date: Data de inicio
+        subresults: Subresultados
         title: Título
         updated_at: Actualizado en
       status:
@@ -22,42 +27,167 @@ gl:
       decidim/accountability/result_progress_updated_event: Progreso de resultados actualizado
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Incluíuse este resultado %{link}
+            meetings_ids: 'Debateuse nesta reunión: %{link}'
+            project_ids: 'Incluíuse neste proxecto: %{link}'
+            proposal_ids: 'Incluíuse nesta proposta: %{link}'
+            text: 'Engadiuse a este resultado: %{link}'
       decidim/accountability/result:
         one: Resultado
         other: Resultados
   decidim:
     accountability:
       actions:
+        add_milestone: Engadir fito
+        add_result: Engadir resultado
+        confirm_delete_result: Seguro que queres eliminar este resultado?
         confirm_destroy: Estás seguro de que queres eliminar este %{name}?
+        deleted_results_info: Os resultados eliminados pódense restaurar desde a papeleira.
         destroy: Eliminar
         edit: Editar
+        import: Importar resultados doutro compoñente
+        import_csv: Importar resultados desde un ficheiro CSV
+        new_milestone: Novo fito
+        new_result: Novo resultado
+        new_status: Novo estado
         preview: Vista previa
         title: Accións
+        view_deleted_results: Ver resultados eliminados
       admin:
         exports:
           result_comments: Comentarios
           results: Resultados
+        import_components:
+          create:
+            invalid: Produciuse un problema ao importar os resultados. Sigue atentamente as instrucións e asegúrate de ter seleccionado proxectos para a súa execución.
+          filters:
+            new_items_projects:
+              one: Importarase 1 proxecto seleccionado
+              other: "Importaranse %{count} proxectos seleccionados"
+            new_items_proposals:
+              one: Importarase 1 proposta
+              other: "Importaranse %{count} propostas"
+            proposal_state: Estado da proposta
+            select_state: Seleccionar estado
+          form:
+            create: Importar
+            no_components: Non hai compoñentes neste espazo participativo para importar.
+            origin_component_id: Compoñente de orixe
+            select_component: Seleccionar un compoñente
+          new:
+            success:
+              one: Hai 1 resultado na cola de importación. Recibirás unha notificación por correo electrónico cando remate.
+              other: "Hai %{count} resultados na cola de importación. Recibirás unha notificación por correo electrónico cando remate."
+            title: Importar resultados doutro compoñente
         import_results:
           new:
+            download_export: Descargar a exportación en formato CSV
             import: Importar
+            info: |
+              <p>Recomendamos seguir estes pasos:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Crea os estados dos resultados</a> que queiras engadir.</li>
+              <li><a href='%{link_new_result}' target='_blank'>Crea polo menos un resultado manualmente</a> desde este panel de administración antes de usar a importación, para comprender mellor o formato e os datos que debes cubrir.</li>
+              <li>%{link_export_csv}</li>
+              <li>Fai os cambios localmente. Só podes modificar as seguintes columnas do CSV (ignoraranse as demais):</li>
+                <ul>
+                <li><b>taxonomies/ids:</b> ID das taxonomías (se hai máis dunha, sepáraas cunha coma)</li>
+                <li><b>parent/id:</b> ID do resultado principal (para resultados relacionados). Opcional</li>
+                <li><b>title/en:</b> Título en lingua inglesa. Isto dependerá da configuración de idiomas da plataforma.</li>
+                <li><b>description/en:</b> Descrición en lingua inglesa. Isto dependerá da configuración de idiomas da plataforma.</li>
+                <li><b>start_date:</b> data na que comeza a execución do resultado (formato YYYY-MM-DD)</li>
+                <li><b>end_date:</b> data na que remata a execución do resultado (formato YYYY-MM-DD)</li>
+                <li><b>status/id:</b> ID do estado deste resultado</li>
+                <li><b>progress:</b> porcentaxe de execución (de 0 a 100)</li>
+                <li><b>proposals_ids:</b> ID interno das propostas relacionadas (separados por comas). Convértese automaticamente en <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
+            title: Importar resultados desde un ficheiro CSV
+        imports:
+          create:
+            invalid: Produciuse un problema ao importar os resultados.
+            success: Comezou a importación do ficheiro. Recibirás un correo electrónico nos próximos minutos co resultado da importación.
+        milestones:
+          create:
+            invalid: Produciuse un problema ao crear este fito.
+            success: O fito creouse correctamente.
+          destroy:
+            success: O fito eliminouse correctamente.
+          edit:
+            title: Editar fito
+            update: Actualizar fito
+          index:
+            title: Fitos
+          new:
+            create: Crear fito
+            title: Novo fito
+          update:
+            invalid: Produciuse un problema ao actualizar este fito.
+            success: O fito actualizouse correctamente.
         models:
           result:
             name: Resultado
           status:
             name: Estado
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Cambiar data
+              end_date: Data de fin
+              start_date: Data de inicio
+            dropdown:
+              actions: Accións
+              change_dates: Cambiar datas
+              change_status: Cambiar estado
+              change_taxonomies: Cambiar taxonomías
+            status_form:
+              change_status: Cambiar estado
+              status: Estado
+            submit_buttons:
+              cancel: Cancelar
+            taxonomies_form:
+              change_taxonomies: Cambiar taxonomías
+          create:
+            invalid: Produciuse un problema ao crear este resultado.
+            success: O resultado creouse correctamente.
           edit:
             title: Editar resultado
             update: Actualizar resultado
           index:
+            selected: Seleccionado
             title: Resultados
+          manage_trash:
+            title: Resultados eliminados
           new:
             create: Crear resultado
             title: Novo resultado
+          update:
+            invalid: Produciuse un problema ao actualizar este resultado.
+            success: O resultado actualizouse correctamente.
+          update_dates:
+            invalid: Produciuse un problema ao actualizar as datas dos resultados
+            success: As datas dos resultados actualizáronse correctamente
+          update_status:
+            invalid: Produciuse un problema ao actualizar o estado dos resultados
+            success: O estado dos resultados actualizouse correctamente
+          update_taxonomies:
+            invalid: Non se puideron actualizar as taxonomías %{taxonomies} dos resultados %{results}
+            select_a_result: Seleccionar un resultado
+            select_a_taxonomy: Seleccionar unha taxonomía
+            success: Actualizáronse correctamente as taxonomías %{taxonomies} dos resultados %{results}
         shared:
           subnav:
             statuses: Estatus
         statuses:
+          create:
+            invalid: Produciuse un problema ao crear este estado.
+            success: O estado creouse correctamente.
+          destroy:
+            success: O estado eliminouse correctamente.
           edit:
             title: Editar o estado
             update: Actualizar o estado
@@ -66,24 +196,60 @@ gl:
           new:
             create: Crear estado
             title: Novo estado
+          update:
+            invalid: Produciuse un problema ao actualizar este estado.
+            success: O estado actualizouse correctamente.
       admin_log:
+        milestones:
+          create: "%{user_name} creou o fito %{resource_name}"
+          delete: "%{user_name} eliminou o fito %{resource_name}"
+          update: "%{user_name} actualizou o fito %{resource_name}"
         result:
           create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
           delete: "%{user_name} eliminou o %{resource_name} resultado en %{space_name}"
+          restore: "%{user_name} restaurou o resultado %{resource_name} en %{space_name}"
+          soft_delete: "%{user_name} moveu á papeleira o resultado %{resource_name} de %{space_name}"
           update: "%{user_name} resultado actualizado %{resource_name} en %{space_name}"
+        status:
+          create: "%{user_name} creou o estado %{resource_name}"
+          delete: "%{user_name} eliminou o estado %{resource_name}"
+          update: "%{user_name} actualizou o estado %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Non se atopou o pai na base de datos (ID: %{id})'
       content_blocks:
         highlighted_results:
           results: Resultados
+      creation:
+        text: Creouse este resultado
       import_mailer:
         import:
           errors: Erros
+          errors_present: Produciuse un problema ao importar os resultados.
           row_number: Fila
           subject: Resultados importados con éxito
           success: Resultados importados con éxito. Podes revisar os resultados no panel de administración.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Importouse un resultado desde proxectos.
+            other: "Importáronse %{count} resultados desde proxectos."
+          subject: Importación correcta de proxectos
+          success: Os proxectos importáronse correctamente como resultados no compoñente %{component_name}. Podes revisar os resultados na interface de administración.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Importouse un resultado desde propostas
+            other: "Importáronse %{count} resultados desde propostas."
+          subject: Importación correcta de propostas
+          success: As propostas importáronse correctamente como resultados no compoñente %{component_name}. Podes revisar os resultados na interface de administración.
+      last_activity:
+        new_result: 'Novo resultado:'
       models:
+        milestone:
+          fields:
+            entry_date: Data
+            title: Título
         result:
           fields:
             created_at: Creado
@@ -91,6 +257,7 @@ gl:
             progress: Progreso
             start_date: Data de inicio
             status: Estado
+            taxonomies: Taxonomías
             title: Título
         status:
           fields:
@@ -105,6 +272,11 @@ gl:
             other: "%{count} resultados"
         home_header:
           global_status: Estado de execución global
+        milestones:
+          title: Fitos
+        no_results: Non hai proxectos
+        root_taxonomies:
+          title: 'Ver por:'
         search:
           search: Busca de accións
         show:
@@ -115,18 +287,37 @@ gl:
         results:
           status_id_eq:
             label: Estado
+          taxonomies_part_of_contains:
+            label: Taxonomía
+      tooltips:
+        deleted_results_info: Non se pode eliminar este resultado
     components:
       accountability:
         actions:
           comment: Comentario
+          vote_comment: Valorar comentario
         name: Responsabilidade
         settings:
           global:
+            clear_all: Limpar todo
             comments_enabled: Comentarios habilitados
+            comments_max_length: Máximo de caracteres por comentario (deixa 0 para usar o valor predeterminado)
+            default_taxonomy: Taxonomía predeterminada
+            default_taxonomy_help: Selecciona a taxonomía que queres mostrar por defecto. Se non seleccionas ningunha, os resultados mostraranse en formato de lista.
+            define_taxonomy_filters: Define algúns filtros para este espazo participativo antes de usar esta configuración.
             display_progress_enabled: Mostrar o progreso
+            geocoding_enabled: Mapas activados
             intro: Intro
+            no_taxonomy_filters_found: Non se atoparon filtros de taxonomía.
+            taxonomy_filters: Seleccionar filtros para o compoñente
+            taxonomy_filters_add: Engadir filtro
           step:
             comments_blocked: Comentarios bloqueados
+          visualization: Visualización
+    download_your_data:
+      show:
+        result_comments: Exportación dos comentarios dos resultados
+        results: Exportación de resultados
     events:
       accountability:
         proposal_linked:
@@ -139,9 +330,43 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{proposal_title}" e esta proposta inclúese no resultado "%{resource_title}". Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha actualización a %{resource_title} avances
           notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclúe a proposta <a href="%{proposal_path}">%{proposal_title}</a>, agora é o %{progress}% completo.
+    open_data:
+      help:
+        result_comments:
+          alignment: Se este comentario foi a favor, en contra ou neutral
+          author: O nome da persoa participante que fixo este comentario
+          body: O propio comentario
+          commentable_id: O identificador único do recurso comentable
+          commentable_type: O tipo de recurso comentable (se era un resultado, unha proposta etc.)
+          created_at: A data na que se creou este comentario
+          depth: A posición deste comentario na árbore de comentarios (se é unha resposta ou unha resposta a outra resposta)
+          id: O identificador deste comentario
+          locale: A configuración rexional (idioma) da persoa participante cando deixou este comentario
+          root_commentable_url: O URL do recurso ao que está vinculado este comentario
+        results:
+          address: O enderezo do resultado (se existe)
+          children_count: O número de resultados secundarios
+          comments_count: O número de comentarios deste resultado
+          component: O compoñente ao que pertence o resultado
+          created_at: A data na que se creou o resultado
+          description: A descrición do resultado
+          end_date: A data na que remata a execución do resultado
+          id: O identificador único do resultado
+          latitude: A latitude do resultado no caso de ter unha localización física
+          longitude: A lonxitude do resultado no caso de ter unha localización física
+          parent: O resultado principal deste resultado (se existe)
+          progress: A porcentaxe de execución do resultado
+          proposal_urls: Os URL das propostas incluídas neste resultado
+          reference: A referencia única do resultado
+          start_date: A data na que comeza a execución do resultado
+          status: O estado actual deste resultado
+          taxonomies: As taxonomías do resultado
+          title: O título do resultado
+          updated_at: A última data na que se actualizou este resultado
+          url: O URL no que se pode atopar este resultado
     participatory_spaces:
       highlighted_results:
-        see_all: Ver todos os resultados (%{count})
+        see_all: Ver todos os resultados
     resource_links:
       included_projects:
         result_project: Proxectos incluídos neste resultado
@@ -149,3 +374,4 @@ gl:
         result_proposal: Propostas incluídas neste resultado
     statistics:
       results_count: Resultados
+      results_count_tooltip: O número de decisións ou resultados xerados neste espazo.

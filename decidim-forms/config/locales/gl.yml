@@ -7,27 +7,136 @@ gl:
         question_type: Tipo
       questionnaire_question:
         mandatory: Obrigatorio
+        max_characters: Límite de caracteres (deixa 0 se non hai límite)
+      response:
+        body: Resposta
+        choices: Opcións
+        selected_choices: Opcións seleccionadas
+    errors:
+      models:
+        questionnaire:
+          request_invalid: Produciuse un problema ao procesar a solicitude. Téntao de novo.
+        response:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Debe anexarse de novo
+            body:
+              too_long: é demasiado longo
+            choices:
+              missing: non están completas
+              too_many: Podes escoller un máximo de %{count}.
   decidim:
+    download_your_data:
+      help:
+        responses:
+          id: O identificador único da resposta
+          question: A pregunta que se respondeu
+          questionnaire: O cuestionario que se respondeu
+          response: A resposta á pregunta
+          user: A persoa participante que respondeu ao cuestionario
+      show:
+        responses: Exportación de respostas
+        survey_user_responses: Respostas das persoas participantes á enquisa
     forms:
       admin:
         models:
           components:
+            allow_editing_responses: Permitir que as persoas participantes rexistradas editen as súas propias respostas á enquisa
+            allow_responses: Permitir respostas
+            allow_unregistered: Permitir que persoas participantes non rexistradas respondan á enquisa
+            allow_unregistered_help: Se está activado, non será necesario iniciar sesión para responder á enquisa. Isto pode producir datos de baixa calidade ou pouco fiables e aumentar a vulnerabilidade fronte a ataques automatizados. Úsao con precaución. Ten en conta que unha persoa participante podería responder á mesma enquisa varias veces usando navegadores distintos ou a función de «navegación privada» do navegador.
+            announcement: Aviso
             description: Descrición
+            ends_at: Respostas aceptadas ata
+            ends_at_help: Déixao en branco se non hai unha data específica
+            starts_at: Respostas aceptadas desde
+            starts_at_help: Déixao en branco se non hai unha data específica
             tos: Condicións de servicio
         questionnaires:
+          actions:
+            back: Volver ás respostas
+            publish_responses: Publicar respostas
+            show: Respostas
+          display_condition:
+            condition_question: Pregunta
+            condition_type: Condición
+            condition_types:
+              equal: Igual
+              match: Inclúe texto
+              not_equal: Distinto
+              not_responded: Sen responder
+              responded: Respondida
+            condition_value: Texto incluído
+            display_condition: Condición de visualización
+            mandatory: Esta condición debe cumprirse sempre, independentemente do estado das demais condicións
+            remove: Eliminar
+            response_option: Opción de resposta
+            save_warning: Lembra gardar o formulario antes de configurar as condicións de visualización
+            select_condition_question: Seleccionar unha pregunta
+            select_condition_type: Seleccionar un tipo de condición
+            select_response_option: Seleccionar unha opción de resposta
           edit:
             save: Gardar
+            title: Editar cuestionario
+          edit_questions:
+            add_question: Engadir pregunta
+            add_separator: Engadir separador
+            add_title_and_description: Engadir título e descrición
+            save: Gardar
+            title: Preguntas
           form:
             add_question: Engadir pregunta
+            collapse: Contraer todas as preguntas
+            expand: Expandir todas as preguntas
+            preview: Vista previa
+            title: Editar o formulario de %{questionnaire_for}
           matrix_row:
+            matrix_row: Fila
             remove: Quitar
             statement: Declaración
           question:
+            add_display_condition: Engadir condición de visualización
+            add_display_condition_info: Garda o formulario para configurar as condicións de visualización
+            add_matrix_row: Engadir fila
+            add_response_option: Engadir opción de resposta
             any: Calquera
+            collapse: Contraer
             description: Descrición
+            expand: Expandir
             question: Pregunta
             remove: Quitar
             statement: Declaración
+          questions_form:
+            already_responded_warning: O formulario xa foi respondido por algunhas persoas participantes, polo que non podes modificar as súas preguntas.
+            collapse: Contraer todas as preguntas
+            expand: Expandir todas as preguntas
+            unpublished_warning: O formulario non está publicado. Podes modificar as súas preguntas, pero ao facelo eliminaranse as respostas actuais.
+            update:
+              success: As preguntas da enquisa gardáronse correctamente.
+          response_option:
+            free_text: Texto libre
+            remove: Eliminar
+            response_option: Opción de resposta
+            statement: Declaración
+          responses:
+            actions:
+              back: Volver ás respostas
+              export: Exportar
+              next: Seguinte &rsaquo;
+              previous: "&lsaquo; Anterior"
+            empty: Aínda non hai respostas
+            export:
+              response:
+                title: 'Resposta n.º %{number}'
+            export_response:
+              title: survey_participant_responses_%{token}
+            index:
+              title: "%{total} respostas en total"
+            show:
+              title: 'Resposta n.º %{number}'
+          separator:
+            remove: Eliminar
+            separator: Separador
           title_and_description:
             collapse: Contraer
             description: Descrición
@@ -37,22 +146,84 @@ gl:
             title_and_description: Título e descrición
           update:
             invalid: Produciuse un erro ao gardar o cuestionario.
+            success: O formulario gardouse correctamente.
+      admin_log:
+        question:
+          publish_responses: "%{user_name} publicou as respostas da pregunta %{resource_name} no espazo %{space_name}"
+          unpublish_responses: "%{user_name} retirou a publicación das respostas da pregunta %{resource_name} no espazo %{space_name}"
+        questionnaire:
+          update: "%{user_name} actualizou o cuestionario %{resource_name}"
+      errors:
+        response:
+          body: O corpo non pode estar baleiro
       images:
         processors:
           resize_and_pad: A imaxe axustarase para se encadrar a %{dimensions}.
           resize_to_fit: A imaxe axustarase para se adaptar a %{dimensions}.
       question_types:
+        files: Arquivos
+        long_response: Resposta longa
+        matrix_multiple: Matriz (opción múltiple)
+        matrix_single: Matriz (opción única)
         multiple_option: Múltipla opción
+        short_response: Resposta curta
         single_option: Opción única
         sorting: Clasificación
         title_and_description: Título e descrición
+      questionnaire_response_presenter:
+        download_attachment: Descargar anexo
       questionnaires:
         question:
           max_choices: 'Opcións máximas: %{n}'
+        response:
+          invalid: Produciuse un problema ao responder ao formulario.
+          max_choices_alert: Seleccionáronse demasiadas opcións
+          spam_detected: Produciuse un problema ao responder ao formulario. Quizais o fixeches demasiado rápido; podes tentalo de novo?
+          success: O formulario respondeuse correctamente.
         show:
+          current_step: Paso %{step}
+          empty: Aínda non hai preguntas configuradas para este formulario.
+          of_total_steps: de %{total_steps}
           questionnaire_closed:
+            body: O formulario está pechado e non se pode responder.
             title: Cuestionario pechado
+          questionnaire_for_members:
+            body: O formulario só está dispoñible para membros
+            title: Cuestionario pechado
+          questionnaire_js_disabled:
+            body: Algunhas funcións deste formulario estarán desactivadas. Para mellorar a experiencia, activa JavaScript no navegador.
+            title: JavaScript está desactivado
+          questionnaire_not_published:
+            body: Este formulario aínda non está publicado.
+          questionnaire_responded:
+            body: Xa respondiches a este formulario.
+            title: Xa respondido
+          questionnaire_responded_edit:
+            body: Xa respondiches a este formulario. %{link}
+            edit: Editar as túas respostas
+          response_questionnaire:
+            already_have_an_account?: Xa ten unha conta?
+            are_you_new?: Nova persoa participante?
+            sign_in_description: Inicia sesión para responder á enquisa
+            sign_up_description: Crea unha conta de participante para responder á enquisa
+            title: Responder ao formulario
           tos_agreement: Ao participar aceptas as Condicións de servizo
       step_navigation:
         show:
+          are_you_sure_edit_guest: Se queres poder editar as túas respostas máis adiante, debes iniciar sesión ou crear unha conta.
+          are_you_sure_no_edit: Esta acción non se pode desfacer e non poderás editar as túas respostas. Seguro que queres continuar?
+          back: Volver
+          continue: Continuar
+          disallowed: Non tes permiso para editar as túas respostas.
           submit: Enviar
+      user_responses_serializer:
+        body: Resposta
+        completion: Completado
+        created_at: Respondida o
+        id: ID da resposta
+        ip_hash: Hash da IP
+        question: Pregunta
+        registered: Rexistrada
+        session_token: Identificador da persoa participante
+        unregistered: Non rexistrada
+        user_status: Estado da persoa participante

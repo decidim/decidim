@@ -856,6 +856,8 @@ ca:
     errors:
       files:
         file_cannot_be_processed: No s'ha pogut processar el fitxer
+        file_contains_unsafe_content: El fitxer conté contingut no segur
+        file_is_not_a_valid_image: El fitxer no és una imatge vàlida
         file_resolution_too_large: La resolució de l'arxiu és massa gran
         not_inside_organization: L'arxiu no està vinculat a cap organització.
       internal_server_error:
@@ -961,12 +963,12 @@ ca:
         member_added:
           published:
             email_intro: Se t'ha afegit com a membre a un espai de participació.
-            email_outro: Heu rebut aquesta notificació perquè una administradora us ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. El vostre perfil es mostrarà a la <a href="%{members_page}">llista de membres</a> d'aquest espai.<br> Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
+            email_outro: Has rebut aquesta notificació perquè una administradora t'ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. El teu perfil es mostrarà a la <a href="%{members_page}">llista de membres</a> d'aquest espai.<br> Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
             email_subject: Ara tens accés a "%{resource_title}".
             notification_title: Ara tens accés a <a href="%{resource_url}">"%{resource_title}"</a>.
           unpublished:
             email_intro: Se t'ha afegit com a membre a un espai de participació.
-            email_outro: Heu rebut aquesta notificació perquè una administradora us ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
+            email_outro: Has rebut aquesta notificació perquè una administradora t'ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
             email_subject: Ara tens accés a "%{resource_title}".
             notification_title: Ara tens accés a <a href="%{resource_url}">"%{resource_title}"</a>.
       reports:
@@ -1563,7 +1565,7 @@ ca:
     participatory_spaces:
       show:
         restricted_space: Aquest és un espai restringit. Només membres i administradores el poden veure i participar-hi.
-        transparent_space: Aquest és un espai restringit però transparent. Qualsevol pot veure'n el contingut, però només les membres i administradores hi poden participar.
+        transparent_space: Aquest és un espai transparent. Qualsevol pot veure'n el contingut, però només les membres i administradores hi poden participar.
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
@@ -1883,10 +1885,10 @@ ca:
         ignore: |-
           Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administradora de %{application}. Pots acceptar-ho a través de l'enllaç següent."
-        invited_you_as_member: "%{invited_by} t'ha convidat com a membre de %{application}. Pots acceptar-ho a través de l'enllaç següent."
+        invited_you_as_member: "%{invited_by} t'ha convidat com a membre de %{application}. Pots acceptar-ho a través del següent enllaç."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administradora de %{application}, pots acceptar-lo a través de l'enllaç següent.
-        someone_invited_you_as_member: Algú t'ha convidat com a membre de %{application}, pots acceptar-ho a través de l'enllaç següent.
+        someone_invited_you_as_member: Algú t'ha convidat com a membre de %{application}, pots acceptar-ho a través del següent enllaç.
         subject: Instruccions d'invitació
       invite_admin:
         subject: T'han convidat a administrar %{organization}

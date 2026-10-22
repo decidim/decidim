@@ -195,7 +195,7 @@ es:
           update: "%{user_name} actualizó las preguntas de la elección \"%{resource_name}\""
       census_checks:
         show:
-          description: Esto significa que, una vez que comiencen las elecciones, se puede votar en ellas.
+          description: Esto significa que, una vez que comiencen las elecciones, podrás votar.
           exit_button: Salir de la comprobación del censo
           title: Se te ha verificado correctamente
       censuses:

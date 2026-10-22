@@ -81,7 +81,11 @@ sv:
         hide_replies:
           one: Dölj svar
           other: Dölj %{count} svar
+        load_replies: Ladda svar
         moderated_at: Kommentar modererad %{date}
+        replies_count:
+          one: "%{count} svar"
+          other: "%{count} svar"
         reply: Svara
         report:
           action: Rapportera
@@ -113,7 +117,9 @@ sv:
         blocked_comments_warning: Kommentarer är inaktiverade, endast administratörer kan svara eller skriva nya.
         comment_details_title: Kommentarsdetaljer
         in_favor: För
+        load_more_comments: Läs in fler kommentarer
         loading: Laddar kommentarer...
+        no_comments_yet: Inga kommentarer ännu
         single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>
         single_comment_warning_title: Du visar en enda kommentar
         title:
@@ -163,12 +169,12 @@ sv:
           email_intro: "%{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått den här notisen eftersom du följer %{author_name}. Du kan avfölja den här användaren från deras profilsida.
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
-          notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name}</a> i <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Ny kommentar av <a href="%{author_path}">%{author_name}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} har kommenterats. Du kan läsa kommentaren på den här sidan:"
           email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan avfölja det från föregående länk.
           email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
-          notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name}</a> i <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: Ny kommentar från <a href="%{author_path}">%{author_name}</a> i <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Din kommentar i "%{resource_title}" har blivit nedröstad. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
           email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
@@ -183,7 +189,7 @@ sv:
           email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.
           email_subject: "%{author_name} har svarat din kommentar i %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name}</a> besvarade din kommentar i <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: <a href="%{author_path}">%{author_name}</a> har svarat på din kommentar i <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Du har nämnts
           email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.

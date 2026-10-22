@@ -3,6 +3,7 @@ gl:
   activemodel:
     attributes:
       assembly:
+        announcement: Aviso
         area_id: Área
         assembly_type: Tipo de montaxe
         assembly_type_other: Tipo de montaxe outro
@@ -14,16 +15,25 @@ gl:
         created_by_other: Creado por outro
         creation_date: Data de creación
         decidim_area_id: Área
-        decidim_scope_id: Alcance
+        decidim_scope_id: Ámbito
         description: Descrición
         developer_group: Grupo promotor
+        document: Documento
         domain: Dominio
+        duplicate_categories: Duplicar categorías
+        duplicate_components: Duplicar compoñentes
+        duplicate_features: Duplicar funcionalidades
         duration: Duración
         facebook: Facebook
         github: GitHub
+        has_members: Este espazo ten membros
         hero_image: Imaxe da portada
+        import_attachments: Importar anexos
+        import_categories: Importar categorías
+        import_components: Importar compoñentes
         included_at: Incluído en
         instagram: Instagram
+        internal_organisation: Organización interna
         is_transparent: É transparente
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
@@ -40,6 +50,7 @@ gl:
         subtitle: Subtítulo
         target: Quen participa
         title: Título
+        twitter: X
         weight: Orde de posición
         youtube: YouTube
       assembly_member:
@@ -51,11 +62,20 @@ gl:
         gender: Xénero
         non_user_avatar: Avatar
         position: Posición
-        user_id: Usuario
+        user_id: Participante
+        weight: Orde de posición
       assembly_user_role:
         email: Correo electrónico
         name: Nome
         role: Rol
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento non válido. Só se permiten ficheiros coas seguintes extensións: %{types}.'
+              empty: O documento está baleiro
+              invalid_json: O documento non é un JSON válido
   activerecord:
     models:
       decidim/assembly:
@@ -65,29 +85,46 @@ gl:
         one: Membro da asemblea
         other: Membros da asemblea
       decidim/assembly_user_role:
-        one: Reproducir rol de usuario
-        other: Asignar roles de usuario
+        one: Reproducir rol de participante
+        other: Asignar roles de participante
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Seguro que queres eliminar esta asemblea? Se cambias de idea, poderás restaurala máis adiante.
         import_assembly: Importar
         new_assembly: Nova montaxe
+        new_assembly_user_role: Nova persoa administradora da asemblea
+        view_deleted_assemblies: Ver as asembleas eliminadas
       assemblies:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
+          success: A asemblea creouse correctamente. Agora podes engadir compoñentes e configurala.
         edit:
           update: Actualización
         index:
+          access_modes:
+            open: Aberta
+            restricted: Restrinxida
+            transparent: Transparente
           published: Publicado
+          unpublished: Non publicada
         new:
           create: Crear
         update:
           error: Produciuse un erro ao actualizar este conxunto.
           success: Asemblea actualizouse con éxito.
+      assemblies_duplicates:
+        create:
+          error: Produciuse un problema ao duplicar esta asemblea.
+          success: A asemblea duplicouse correctamente.
+      assembly_duplicates:
+        new:
+          duplicate: Duplicar
+          select: Selecciona os datos que queres duplicar
       assembly_imports:
         create:
-          error: Produciuse un problema ao importar esta xuntanza.
-          success: Xuntanza importada con éxito.
+          error: Produciuse un problema ao importar esta reunión.
+          success: Reunión importada con éxito.
         new:
           import: Importar
           select: Selecciona que tipo de datos desexas importar
@@ -100,29 +137,43 @@ gl:
           success: Asemblea non publicada con éxito.
       assembly_user_roles:
         create:
-          error: Produciuse un erro engadindo un usuario a este conxunto.
-          success: O usuario engadiuse con éxito a esta montaxe.
+          error: Produciuse un erro engadindo un participante a este conxunto.
+          success: O participante engadiuse con éxito a esta montaxe.
         destroy:
-          success: O usuario eliminouse con éxito deste conxunto.
+          success: O participante eliminouse con éxito deste conxunto.
         edit:
           update: Actualización
         new:
           create: Crear
         update:
-          error: Houbo un erro actualizado por un usuario para este conxunto.
-          success: O usuario actualizouse con éxito para este conxunto.
+          error: Houbo un erro actualizado por un participante para este conxunto.
+          success: O participante actualizouse con éxito para este conxunto.
+      filters:
+        ceased_date_not_null:
+          label: Cesada
+          values:
+            'false': Non cesada
+            'true': Cesada
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Buscar por nome ou alcume
       menu:
         assemblies: Asembleas
         assemblies_submenu:
-          assembly_admins: Usuarios da asemblea
+          assembly_admins: Participantes da asemblea
           attachment_collections: Carpetas
           attachment_files: Arquivos
           attachments: Anexos
           components: Compoñentes
+          info: Sobre esta asemblea
+          landing_page: Deseño da páxina de inicio
+          members: Membros
           moderations: Moderacións
+          see_assembly: Ver asemblea
       models:
         assembly:
           fields:
+            access_mode: Modo de acceso
+            actions: Accións
             created_at: Creado en
             promoted: Destacado
             published: Publicado
@@ -137,72 +188,152 @@ gl:
             vice_president: Vicepresidente
         assembly_user_role:
           fields:
+            actions: Accións
             email: Correo electrónico
             name: Nome
             role: Rol
-          name: Usuario da asemblea
+          name: Participante da asemblea
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Persoa avaliadora
             moderator: Moderador
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Todas as asembleas
+      tooltips:
+        deleted_assemblies_info: Unha asemblea só se pode eliminar se o seu estado é «Non publicada».
     admin_log:
       assembly:
         create: "%{user_name} creou o conxunto %{resource_name}"
+        duplicate: "%{user_name} duplicou a asemblea %{resource_name}"
+        export: "%{user_name} exportou a asemblea %{resource_name}"
+        import: "%{user_name} importou a asemblea %{resource_name}"
         publish: "%{user_name} publicou o conxunto %{resource_name}"
+        publish_all_members: "%{user_name} publicou todos os membros da asemblea %{resource_name}"
+        restore: "%{user_name} restaurou a asemblea %{resource_name}"
+        soft_delete: "%{user_name} moveu á papeleira a asemblea %{resource_name}"
         unpublish: "%{user_name} inédita a montaxe %{resource_name}"
+        unpublish_all_members: "%{user_name} retirou a publicación de todos os membros da asemblea %{resource_name}"
         update: "%{user_name} actualizou o conxunto %{resource_name}"
       assembly_member:
         create: "%{user_name} creou o membro %{resource_name} no conxunto %{space_name}"
         delete: "%{user_name} eliminou o %{resource_name} membro do conxunto %{space_name}"
         update: "%{user_name} actualizou o membro %{resource_name} na montaxe %{space_name}"
       assembly_setting:
-        update: "%{user_name} actualizou os axustes de xuntanzas"
+        update: "%{user_name} actualizou os axustes de reunións"
       assembly_type:
-        create: "%{user_name} creou o tipo de xuntanza %{resource_name}"
-        delete: "%{user_name} eliminou o tipo de xuntanza %{resource_name}"
-        publish: "%{user_name} publicou o tipo de xuntanza %{resource_name}"
-        unpublish: "%{user_name} eliminou o tipo de xuntanza %{resource_name}"
-        update: "%{user_name} actualizou o tipo de xuntanza %{resource_name}"
+        create: "%{user_name} creou o tipo de reunión %{resource_name}"
+        delete: "%{user_name} eliminou o tipo de reunión %{resource_name}"
+        publish: "%{user_name} publicou o tipo de reunión %{resource_name}"
+        unpublish: "%{user_name} eliminou o tipo de reunión %{resource_name}"
+        update: "%{user_name} actualizou o tipo de reunión %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
+        create: "%{user_name} invitou %{resource_name} á reunión %{space_name}"
         delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
-        update: "%{user_name} cambiou o papel de %{resource_name} na xuntanza %{space_name}"
+        update: "%{user_name} cambiou o papel de %{resource_name} na reunión %{space_name}"
     assemblies:
       admin:
         assemblies:
+          edit:
+            title: Sobre esta asemblea
           form:
+            access:
+              label: Acceso
+              options:
+                open: Todas as persoas poden ver a asemblea e participar.
+                restricted: Só os membros e as persoas administradoras poden vela e participar. Non aparecerá na busca xeral, na API nin nos ficheiros de datos abertos.
+                transparent: Todas as persoas poden ver a asemblea, pero só os membros e as persoas administradoras poden participar.
+              set_this_space_as: Definir este espazo como
+            define_taxonomy_filters: Define algúns filtros para este espazo participativo antes de usar esta configuración.
             duration: Duración
             duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
+            has_members_help: Poderás crear e publicar membros
             images: Imaxes
-            included_at_help: Selecciona a data na que engadiches esta xuntanza á plataforma. Non ten por que ser a mesma que a data de creación.
+            included_at_help: Selecciona a data na que engadiches esta reunión á plataforma. Non ten por que ser a mesma que a data de creación.
             metadata: Metadatos
+            no_taxonomy_filters_found: Non se atoparon filtros de taxonomía.
             other: Outra
             select_a_created_by: Seleccione un creado por
             select_parent_assembly: Seleccione o conxunto primario
+            slug_help_html: 'Os slugs de URL úsanse para xerar os URL que apuntan a esta asemblea. Só admiten letras, números e guións e deben comezar cunha letra. Exemplo: %{url}'
             social_handlers: Social
+            taxonomies: Taxonomías
             title: Información xeral
+            visibility: Visibilidade
+          index:
+            title: Asembleas
+          manage_trash:
+            title: Asembleas eliminadas
+          new:
+            title: Nova montaxe
+        assembly_duplicates:
+          form:
+            slug_help_html: 'Os slugs de URL úsanse para xerar os URL que apuntan a esta asemblea. Só admiten letras, números e guións e deben comezar cunha letra. Exemplo: %{url}'
+          new:
+            title: Duplicar asemblea
         assembly_imports:
           form:
             document_legend: Engadir un documento
+            slug_help_html: 'Os slugs de URL úsanse para xerar os URL que apuntan a esta asemblea. Só admiten letras, números e guións e deben comezar cunha letra. Exemplo: %{url}'
+          new:
+            title: Importar asemblea
         assembly_members:
           form:
             explanation: 'Instrucións para a imaxe:'
+            image_guide: Preferiblemente, unha imaxe de retrato que non conteña texto.
             non_user_avatar_help: Tes que obter o consentimento das persoas antes de publicalas coma membros.
+        assembly_user_roles:
+          edit:
+            title: Actualizar a persoa administradora da asemblea
+          index:
+            title: Persoas administradoras da asemblea
+          new:
+            title: Nova persoa administradora da asemblea
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidade máxima de elementos para mostrar
+        imports:
+          attachment_error: Non se puido importar o anexo «%{title}» (%{error}).
+          hero_image_error: Non se puido importar a imaxe principal (%{error}).
         new_import:
           accepted_types:
             json: JSON
+          help_html: Esta función de importación permite crear unha nova asemblea a partir dun ficheiro JSON exportado. Podes exportar unha asemblea doutra organización ou desta mesma organización. A asemblea importada incluirá a súa configuración, os compoñentes e os anexos (se se seleccionan).
       assemblies:
+        description:
+          area_name: Área
+          closing_date: Data de peche
+          created_by: Creado por
+          creation_date: Data de creación
+          data: Datos da asemblea
+          developer_group: Grupo promotor
+          duration: Duración
+          included_at: Incluído en
+          indefinite_duration: Indefinida
+          local_area: Área da organización
+          meta_scope: Ámbito
+          participatory_scope: Que se decide
+          participatory_structure: Como se decide
+          target: Quen participa
+          title: Sobre esta asemblea
         filters:
           names:
             all: Todo
+          type: Tipo
         show:
-          title: Sobre esta xuntanza
+          title: Sobre esta reunión
       content_blocks:
+        children_assemblies:
+          name: Asembleas
+        dates_metadata:
+          name: Metadatos das datas
+        extra_data:
+          name: Tipo e duración
         highlighted_assemblies:
           name: Asembleas destacadas
+        related_assemblies:
+          name: Asembleas relacionadas
       created_by:
         city_council: Concello
         others: Outros
@@ -219,29 +350,99 @@ gl:
         working_group: Grupo de traballo
       index:
         title: Asembleas
+      last_activity:
+        new_assembly: 'Nova asemblea:'
+      pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Asembleas activas
+            see_all_spaces: Ver todas as asembleas
       show:
         duration: Duración
+        social_networks_title: Visitar a asemblea en
+    download_your_data:
+      show:
+        assemblies: Exportación de asembleas
     events:
       assemblies:
         create_assembly_member:
-          email_intro: Un administrador da xuntanza <a href="%{resource_url}">%{resource_name}</a> engadiute coma un dos seus membros.
+          email_intro: Un administrador da reunión <a href="%{resource_url}">%{resource_name}</a> engadiute coma un dos seus membros.
+          email_outro: Recibiches esta notificación porque recibiches unha invitación para participar nunha asemblea. Consulta a <a href="%{resource_url}">páxina da asemblea</a> para contribuír.
+          email_subject: Recibiches unha invitación para formar parte da asemblea %{resource_name}.
+          notification_title: Rexistráronte como membro da asemblea <a href="%{resource_path}">%{resource_name}</a>. Consulta a <a href="%{resource_path}">páxina da asemblea</a> para contribuír.
+      assembly:
+        role_assigned:
+          email_intro: Asignóuseche o rol %{role} para a asemblea «%{resource_title}».
+          email_outro: Recibiches esta notificación porque tes o rol %{role} na asemblea «%{resource_title}».
+          email_subject: Fuches asignado ao rol %{role} de "%{resource_title}".
+          notification_title: Asignóuseche o rol %{role} para a asemblea <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
-          page: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
-          title: Que son as xuntanzas?
+          contextual: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por apoio), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
+          page: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por apoio), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
+          title: Que son as reunións?
     log:
       value_types:
         assembly_presenter:
           not_found: 'A asemblea non se atopou na base de datos (ID: %{id})'
     menu:
-      assemblies: Xuntanzas
+      assemblies: Reunións
+    open_data:
+      help:
+        assemblies:
+          access_mode: Modo de acceso. Indica se a asemblea é aberta, restrinxida ou transparente.
+          area: A área da asemblea
+          assembly_type: O tipo da asemblea
+          closing_date: A data de peche da asemblea
+          closing_date_reason: O motivo polo que se pechou a asemblea
+          component_settings: A configuración dos compoñentes da asemblea
+          composition: A composición da asemblea
+          created_at: A data na que se creou este espazo
+          created_by: Quen creou esta asemblea
+          created_by_other: Outra autoría da asemblea
+          creation_date: A data de creación desta asemblea
+          decidim_scope_id: O ámbito da asemblea
+          description: Unha descrición longa da asemblea
+          developer_group: O grupo promotor da asemblea
+          duration: A duración da asemblea
+          facebook_handler: Identificador en Facebook
+          follows_count: O número de participantes que seguen este espazo
+          github_handler: Identificador en GitHub
+          id: O identificador único desta asemblea
+          included_at: A data na que se incluíu a asemblea
+          instagram_handler: Identificador en Instagram
+          internal_organisation: A organización interna desta asemblea
+          is_transparent: Indica se a asemblea é transparente ou non
+          local_area: A área local da asemblea
+          meta_scope: Os metadatos do ámbito da asemblea
+          participatory_scope: O ámbito participativo da asemblea
+          participatory_structure: A estrutura participativa da asemblea
+          promoted: Indica se a asemblea está destacada ou non
+          published_at: A data na que se publicou este espazo
+          purpose_of_action: A finalidade de actuación da asemblea
+          reference: A referencia única do espazo
+          remote_banner_image_url: O URL da imaxe de cabeceira da asemblea
+          remote_hero_image_url: O URL da imaxe principal da asemblea
+          scope: O ámbito da asemblea
+          scopes_enabled: Indica se os ámbitos están activados ou non
+          short_description: Unha descrición breve da asemblea
+          slug: O slug da asemblea (usado para identificala no URL)
+          special_features: As características especiais desta asemblea
+          subtitle: O subtítulo da asemblea
+          target: O público destinatario da asemblea
+          taxonomies: As taxonomías do proxecto
+          title: O título da asemblea
+          twitter_handler: Identificador en Twitter
+          updated_at: A última data na que se actualizou este espazo
+          url: O URL do espazo
+          youtube_handler: Identificador en YouTube
     participatory_processes:
       show:
-        related_assemblies: Xuntanzas relacionadas
+        related_assemblies: Reunións relacionadas
     statistics:
-      assemblies_count: Xuntanzas
+      assemblies_count: Reunións
+      assemblies_count_tooltip: O número de asembleas públicas nas que se toman decisións colectivas.
   layouts:
     decidim:
       assemblies:
@@ -249,10 +450,14 @@ gl:
           more_info: Máis información
           take_part: Participar
         index:
-          promoted_assemblies: Xuntanzas destacadas
+          promoted_assemblies: Reunións destacadas
+        metadata:
+          children_item:
+            one: "%{count} asemblea"
+            other: "%{count} asembleas"
         order_by_assemblies:
           assemblies:
-            one: "%{count} xuntanza"
-            other: "%{count} xuntanzas"
+            one: "%{count} reunión"
+            other: "%{count} reunións"
       assembly_navigation:
         assembly_member_menu_item: Membros

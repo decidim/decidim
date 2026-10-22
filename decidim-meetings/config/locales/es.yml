@@ -394,7 +394,7 @@ es:
             assign: Asignar
             link_a_space: Vincular un espacio
             private_meeting_warning: Los espacios enlazados no se aplicarán si la reunión es privada y no transparente.
-            restricted_space_warning: Los espacios enlazados no se aplicarán cuando el encuentro pertenezca a un espacio restringido no transparente.
+            restricted_space_warning: Los espacios enlazados no se aplicarán cuando el encuentro pertenezca a un espacio restringido.
             select: Selecciona un espacio
             table:
               actions: Acciones

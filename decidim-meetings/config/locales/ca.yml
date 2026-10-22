@@ -439,7 +439,7 @@ ca:
             success: Enquesta actualitzada correctament.
         poll:
           edit:
-            title: Edita l'enquesta
+            title: Editar l'enquesta
           form:
             announcement_html:
             - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
@@ -448,7 +448,7 @@ ca:
             - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
         registration_form:
           edit_questions:
-            title: Edita les preguntes
+            title: Editar les preguntes
         registrations:
           edit:
             save: Desa

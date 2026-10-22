@@ -381,7 +381,7 @@ ca:
           edit:
             title: Actualitzar administradora de la jornada
           index:
-            title: Administradors de conferències
+            title: Administradores de conferències
           new:
             title: Afegir nova administradora
         conferences:
