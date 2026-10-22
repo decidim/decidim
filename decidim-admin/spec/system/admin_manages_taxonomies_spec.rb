@@ -175,10 +175,10 @@ describe "Admin manages taxonomies" do
 
         within "#taxonomy-item-form" do
           select "English", from: "taxonomy-item_name-tabs"
-          first('input[type="text"]', visible: true).set("My english value")
+          first('input[type="text"]', visible: :visible).set("My english value")
 
           select "Italiano", from: "taxonomy-item_name-tabs"
-          first('input[type="text"]', visible: true).set("My italian value")
+          first('input[type="text"]', visible: :visible).set("My italian value")
 
           click_on "Create item"
         end
@@ -196,10 +196,10 @@ describe "Admin manages taxonomies" do
 
         within "#taxonomy-item-form" do
           select "English", from: "taxonomy-item_name-tabs"
-          first('input[type="text"]', visible: true).set("My modified english value")
+          first('input[type="text"]', visible: :visible).set("My modified english value")
 
           select "Italiano", from: "taxonomy-item_name-tabs"
-          first('input[type="text"]', visible: true).set("My modified italian value")
+          first('input[type="text"]', visible: :visible).set("My modified italian value")
 
           click_on "Update item"
         end

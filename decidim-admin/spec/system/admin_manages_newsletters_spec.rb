@@ -417,7 +417,7 @@ describe "Admin manages newsletters" do
         expect(page).to have_text("This newsletter will be send to 5 users.")
         check("Send to participants")
 
-        expect(find("input[name='newsletter[send_to_participants]']")).to be_checked
+        expect(find_field(name: "newsletter[send_to_participants]")).to be_checked
 
         plural_name = assembly.model_name.route_key
         select_id = "##{plural_name}-spaces-select"
@@ -429,7 +429,7 @@ describe "Admin manages newsletters" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         check("Send to participants")
 
-        expect(find("input[name='newsletter[send_to_participants]']")).to be_checked
+        expect(find_field(name: "newsletter[send_to_participants]")).to be_checked
 
         select_all
 
@@ -512,7 +512,7 @@ describe "Admin manages newsletters" do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
           check("Send to members")
 
-          expect(find("input[name='newsletter[send_to_members]']")).to be_checked
+          expect(find_field(name: "newsletter[send_to_members]")).to be_checked
 
           select_all
 
@@ -543,7 +543,7 @@ describe "Admin manages newsletters" do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
           check("Send to members")
 
-          expect(find("input[name='newsletter[send_to_members]']")).to be_checked
+          expect(find_field(name: "newsletter[send_to_members]")).to be_checked
 
           select_all
 

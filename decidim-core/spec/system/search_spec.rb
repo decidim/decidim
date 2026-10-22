@@ -24,7 +24,7 @@ describe "Search" do
     end
 
     it "is not indexable by crawlers" do
-      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+      expect(page.find('meta[name="robots"]', visible: :all)[:content]).to eq("noindex")
     end
 
     it "displays the results page" do
