@@ -19,11 +19,13 @@ module Decidim
 
       def new
         enforce_permission_to :create, :scope_type
+
         @form = form(ScopeTypeForm).instance
       end
 
       def create
         enforce_permission_to :create, :scope_type
+
         @form = form(ScopeTypeForm).from_params(params)
 
         CreateScopeType.call(@form) do
@@ -41,11 +43,13 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :scope_type, scope_type:)
+
         @form = form(ScopeTypeForm).from_model(scope_type)
       end
 
       def update
         enforce_permission_to(:update, :scope_type, scope_type:)
+
         @form = form(ScopeTypeForm).from_params(params)
 
         UpdateScopeType.call(@form, scope_type) do

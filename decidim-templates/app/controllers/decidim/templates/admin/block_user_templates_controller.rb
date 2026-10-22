@@ -52,6 +52,7 @@ module Decidim
 
         def update
           enforce_permission_to(:update, :template, template:)
+
           @form = form(TemplateForm).from_params(params)
           UpdateTemplate.call(template, @form, current_user) do
             on(:ok) do
@@ -69,6 +70,7 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :template, template:)
+
           @form = form(TemplateForm).from_model(template)
         end
 
@@ -92,11 +94,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :template
+
           @form = form(TemplateForm).instance
         end
 
         def index
           enforce_permission_to :index, :templates
+
           @templates = paginate(collection)
 
           respond_to do |format|

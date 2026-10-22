@@ -17,16 +17,19 @@ module Decidim
 
       def index
         enforce_permission_to :read, :area
+
         @areas = organization_areas
       end
 
       def new
         enforce_permission_to :create, :area
+
         @form = form(AreaForm).instance
       end
 
       def create
         enforce_permission_to :create, :area
+
         @form = form(AreaForm).from_params(params)
         CreateArea.call(@form) do
           on(:ok) do
@@ -43,11 +46,13 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :area, area:)
+
         @form = form(AreaForm).from_model(area)
       end
 
       def update
         enforce_permission_to(:update, :area, area:)
+
         @form = form(AreaForm).from_params(params)
 
         UpdateArea.call(@form, area) do

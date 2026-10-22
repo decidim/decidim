@@ -22,16 +22,19 @@ module Decidim
 
         def index
           enforce_permission_to :read, :process_list
+
           @participatory_processes = filtered_collection
         end
 
         def new
           enforce_permission_to :create, :process
+
           @form = form(ParticipatoryProcessForm).instance
         end
 
         def create
           enforce_permission_to :create, :process
+
           @form = form(ParticipatoryProcessForm).from_params(params)
 
           CreateParticipatoryProcess.call(@form) do
@@ -49,12 +52,14 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :process, process: current_participatory_process
+
           @form = form(ParticipatoryProcessForm).from_model(current_participatory_process)
           render layout: "decidim/admin/participatory_process"
         end
 
         def update
           enforce_permission_to :update, :process, process: current_participatory_process
+
           @form = form(ParticipatoryProcessForm).from_params(
             participatory_process_params,
             process_id: current_participatory_process.id

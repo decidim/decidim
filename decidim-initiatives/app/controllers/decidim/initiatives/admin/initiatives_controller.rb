@@ -22,6 +22,7 @@ module Decidim
         # GET /admin/initiatives
         def index
           enforce_permission_to :list, :initiative
+
           @initiatives = filtered_collection
         end
 
@@ -88,6 +89,7 @@ module Decidim
         # DELETE /admin/initiatives/:id/discard
         def discard
           enforce_permission_to :discard, :initiative, initiative: current_initiative
+
           DiscardInitiative.call(current_initiative, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("initiatives.discard.success", scope: "decidim.initiatives.admin")
@@ -99,6 +101,7 @@ module Decidim
         # POST /admin/initiatives/:id/accept
         def accept
           enforce_permission_to :accept, :initiative, initiative: current_initiative
+
           AcceptInitiative.call(current_initiative, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("initiatives.accept.success", scope: "decidim.initiatives.admin")
@@ -110,6 +113,7 @@ module Decidim
         # DELETE /admin/initiatives/:id/reject
         def reject
           enforce_permission_to :reject, :initiative, initiative: current_initiative
+
           RejectInitiative.call(current_initiative, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("initiatives.reject.success", scope: "decidim.initiatives.admin")

@@ -15,11 +15,13 @@ module Decidim
 
       def new
         enforce_permission_to :create, :static_page_topic
+
         @form = form(StaticPageTopicForm).instance
       end
 
       def create
         enforce_permission_to :create, :static_page_topic
+
         @form = form(StaticPageTopicForm).from_params(params["static_page_topic"])
 
         CreateStaticPageTopic.call(@form) do
@@ -37,11 +39,13 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :static_page_topic, static_page_topic: topic
+
         @form = form(StaticPageTopicForm).from_model(topic)
       end
 
       def update
         enforce_permission_to :update, :static_page_topic, static_page_topic: topic
+
         @form = form(StaticPageTopicForm).from_params(params["static_page_topic"])
 
         UpdateStaticPageTopic.call(@form, topic) do

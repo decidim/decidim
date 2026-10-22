@@ -38,11 +38,13 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :questionnaire, questionnaire: survey)
+
           @form = form(Admin::SurveyForm).from_model(survey)
         end
 
         def update
           enforce_permission_to(:update, :questionnaire, questionnaire: survey)
+
           @form = form(Admin::SurveyForm).from_params(params)
 
           Admin::UpdateSurvey.call(@form, survey, current_user) do
@@ -60,6 +62,7 @@ module Decidim
 
         def publish
           enforce_permission_to(:update, :questionnaire, questionnaire: survey)
+
           Decidim::Surveys::Admin::PublishSurvey.call(survey, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("publish.success", scope: "decidim.surveys.admin.surveys")
@@ -75,6 +78,7 @@ module Decidim
 
         def unpublish
           enforce_permission_to(:update, :questionnaire, questionnaire: survey)
+
           Decidim::Surveys::Admin::UnpublishSurvey.call(survey, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("unpublish.success", scope: "decidim.surveys.admin.surveys")
@@ -90,6 +94,7 @@ module Decidim
 
         def destroy
           enforce_permission_to(:destroy, :questionnaire, questionnaire: survey)
+
           Decidim::Commands::DestroyResource.call(survey, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("destroy.success", scope: "decidim.surveys.admin.surveys")

@@ -10,11 +10,13 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
+
         @form = form(OrganizationAppearanceForm).from_model(current_organization)
       end
 
       def update
         enforce_permission_to :update, :organization, organization: current_organization
+
         @form = form(OrganizationAppearanceForm).from_params(params)
 
         UpdateOrganizationAppearance.call(@form, current_organization) do

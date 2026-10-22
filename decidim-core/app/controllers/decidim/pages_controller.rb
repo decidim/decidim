@@ -16,6 +16,7 @@ module Decidim
 
     def index
       enforce_permission_to :read, :public_page
+
       @topics = StaticPageTopic.where(organization: current_organization)
       @orphan_pages = StaticPage.where(topic: nil, organization: current_organization)
     end

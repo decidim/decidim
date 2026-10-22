@@ -10,11 +10,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :conference
+
           @form = form(ConferenceDuplicateForm).from_model(current_conference)
         end
 
         def create
           enforce_permission_to :create, :conference
+
           @form = form(ConferenceDuplicateForm).from_params(params)
 
           DuplicateConference.call(@form, current_conference) do

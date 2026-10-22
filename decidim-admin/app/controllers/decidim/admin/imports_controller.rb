@@ -12,6 +12,7 @@ module Decidim
 
       def new
         enforce_permission_to :import, :component_data, component: current_component
+
         raise ActionController::RoutingError, "Not Found" unless import_manifest
 
         @form = form(import_manifest.form_class).from_params(
@@ -22,6 +23,7 @@ module Decidim
 
       def create
         enforce_permission_to :import, :component_data, component: current_component
+
         raise ActionController::RoutingError, "Not Found" unless import_manifest
 
         @form = form(import_manifest.form_class).from_params(
@@ -47,6 +49,7 @@ module Decidim
 
       def example
         enforce_permission_to :import, :component_data, component: current_component
+
         raise ActionController::RoutingError, "Not Found" unless import_manifest
 
         @form = form(Decidim::Admin::ImportExampleForm).from_params(params).with_context(
