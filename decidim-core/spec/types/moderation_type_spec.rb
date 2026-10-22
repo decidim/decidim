@@ -8,6 +8,7 @@ module Decidim
     describe ModerationType do
       include_context "with a graphql class type"
 
+      let!(:current_user) { create(:user, :confirmed, :admin, organization: current_organization) }
       let(:model) { create(:moderation, :hidden, report_count: 1, reported_content: "This is the content") }
       let!(:report) { create(:report, moderation: model) }
 
@@ -18,6 +19,22 @@ module Decidim
 
         it "returns the id field" do
           expect(response).to eq("id" => model.id.to_s)
+        end
+
+        context "when user is not an admin" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "raises an unauthorized error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError)
+          end
+        end
+
+        context "when user is not authenticated" do
+          let!(:current_user) { nil }
+
+          it "raises an unauthorized error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError)
+          end
         end
       end
 

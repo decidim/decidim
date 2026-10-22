@@ -20,6 +20,12 @@ module Decidim
 
         object.reportable.reported_content_url
       end
+
+      def self.authorized?(object, context)
+        return false unless context[:current_user]
+
+        super && allowed_to?(:read, :admin_dashboard, object, context)
+      end
     end
   end
 end
