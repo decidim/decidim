@@ -249,7 +249,7 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    active_link_to (1.1.0)
+    active_link_to (1.1.1)
       actionpack
       addressable
     activejob (8.1.4)
