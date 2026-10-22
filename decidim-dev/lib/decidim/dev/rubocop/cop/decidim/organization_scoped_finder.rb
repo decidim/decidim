@@ -14,8 +14,11 @@ module RuboCop
       # scoped `collection`.
       #
       # The cop targets chains that start with an ActiveRecord model constant
-      # and end with a terminal finder (`find`, `find_by`, `find_by!`, `first`,
-      # `take`, etc.) unless the chain includes a recognized scoping step.
+      # or a dynamically resolved model (`model_class`, `constantize`,
+      # `safe_constantize`) and end with a terminal finder (`find`, `find_by`,
+      # `find_by!`, `first`, `take`, etc.) unless the chain includes a
+      # recognized scoping step. Safe navigation (`&.`) chains are inspected
+      # the same way as regular method calls.
       class OrganizationScopedFinder < RuboCop::Cop::Base
         MSG = "Unscoped ActiveRecord finder detected. Scope the query to the current organization, " \
               "e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`."
@@ -37,6 +40,10 @@ module RuboCop
 
         SCOPED_HELPER_METHODS = [:current_organization, :current_component, :current_participatory_space].freeze
 
+        DYNAMIC_MODEL_METHODS = [:model_class, :constantize, :safe_constantize].freeze
+
+        SCOPING_METHODS = [:resource_scope].freeze
+
         IGNORED_CONSTANT_PREFIXES = %w(Bundler ActiveRecord).freeze
 
         def on_send(node)
@@ -52,13 +59,14 @@ module RuboCop
 
           add_offense(node)
         end
+        alias on_csend on_send
 
         private
 
         def organization_scoped?(node)
           return false unless node
           return true if scoped_node?(node)
-          return organization_scoped?(node.receiver) if node.send_type?
+          return organization_scoped?(node.receiver) if node.call_type?
 
           false
         end
@@ -67,7 +75,8 @@ module RuboCop
           return false unless node
           return false if ignored_constant?(node)
           return true if node.const_type?
-          return false unless node.send_type?
+          return true if node.call_type? && DYNAMIC_MODEL_METHODS.include?(node.method_name)
+          return false unless node.call_type?
 
           unscoped_model_class?(node.receiver)
         end
@@ -78,9 +87,13 @@ module RuboCop
         end
 
         def scoped_node?(node)
-          return false unless node.send_type?
+          return false unless node.call_type?
 
-          scope_root?(node) || scoped_where?(node) || scoped_finder_arguments?(node)
+          scope_root?(node) || scoping_method?(node) || scoped_where?(node) || scoped_finder_arguments?(node)
+        end
+
+        def scoping_method?(node)
+          SCOPING_METHODS.include?(node.method_name)
         end
 
         def scope_root?(node)
@@ -136,7 +149,7 @@ module RuboCop
         def scoped_association_pair?(key, value)
           return false unless key.sym_type?
           return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
-          return false unless value.send_type?
+          return false unless value.call_type?
           return false if value.receiver
 
           value.method_name == :"current_#{key.value}"
@@ -146,7 +159,7 @@ module RuboCop
           return false unless node
 
           case node.type
-          when :send
+          when :send, :csend
             scoped_helper_method?(node) || (node.receiver && scoped_trusted_value?(node.receiver))
           when :hash
             node.children.any? { |pair| scoped_pair?(pair) }
@@ -156,7 +169,7 @@ module RuboCop
         end
 
         def scoped_helper_method?(node)
-          return false unless node.send_type?
+          return false unless node.call_type?
           return false if node.receiver
 
           SCOPED_HELPER_METHODS.include?(node.method_name)
@@ -169,7 +182,7 @@ module RuboCop
         end
 
         def constructed_scope_root?(node)
-          return false unless node.send_type?
+          return false unless node.call_type?
 
           if node.method_name == :new
             return false unless node.receiver&.const_type?
@@ -184,7 +197,7 @@ module RuboCop
           return false unless node.method_name == :where
 
           ancestor = node.parent
-          while ancestor&.send_type?
+          while ancestor&.call_type?
             break unless ancestor.receiver == node
             return true if FINDER_METHODS.include?(ancestor.method_name)
 

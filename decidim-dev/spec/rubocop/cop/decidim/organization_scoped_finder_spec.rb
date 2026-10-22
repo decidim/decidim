@@ -303,4 +303,70 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
     RUBY
   end
+
+  it "registers an offense for a safe navigation finder on a model constant" do
+    expect_offense(<<~RUBY)
+      Template&.find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a safe navigation find consumed through where" do
+    expect_offense(<<~RUBY)
+      Template&.where(name: "foo").first
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a finder on a dynamically resolved model class" do
+    expect_offense(<<~RUBY)
+      manifest.model_class.find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a safe navigation finder on a dynamically resolved model class" do
+    expect_offense(<<~RUBY)
+      manifest.model_class&.find_by(find_by)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a finder on a constantized model" do
+    expect_offense(<<~RUBY)
+      params[:klass].constantize.find(params.expect(:id))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for the resource permissions manifest lookup" do
+    expect_offense(<<~RUBY)
+      Decidim.find_resource_manifest(params[:resource_name])&.model_class&.find_by(find_by)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "accepts a dynamically resolved model class scoped through where" do
+    expect_no_offenses(<<~RUBY)
+      manifest.model_class.where(organization: current_organization).find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts a dynamically resolved model class scoped with resource_scope" do
+    expect_no_offenses(<<~RUBY)
+      Decidim.find_resource_manifest(params[:resource_name])&.resource_scope(component)&.find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts a dynamically resolved model class that is not used as a finder receiver" do
+    expect_no_offenses(<<~RUBY)
+      manifest.model_class.model_name.human
+    RUBY
+  end
+
+  it "accepts a safe navigation finder on a local variable" do
+    expect_no_offenses(<<~RUBY)
+      budget&.projects&.find_by(id: params[:id])
+    RUBY
+  end
 end
