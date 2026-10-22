@@ -29,6 +29,13 @@ module Decidim
 
         private
 
+        def resource
+          @resource ||= ::Decidim::InitiativesType
+                        .where(organization: current_organization)
+                        .find(params.expect(:initiatives_type_id))
+          @resource if @resource.allow_resource_permissions?
+        end
+
         def permission_class_chain
           ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::Admin::InitiativesTypesPermissionsController)
         end
