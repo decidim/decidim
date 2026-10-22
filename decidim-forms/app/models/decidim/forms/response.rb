@@ -11,6 +11,7 @@ module Decidim
       belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id", optional: true
       belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id"
       belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id"
+      belongs_to :submission, class_name: "Submission", foreign_key: "decidim_submission_id", inverse_of: :responses
 
       has_many :choices,
                class_name: "ResponseChoice",

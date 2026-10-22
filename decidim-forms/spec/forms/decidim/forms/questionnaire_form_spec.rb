@@ -45,6 +45,36 @@ module Decidim
         end
       end
 
+      describe "#add_responses!" do
+        let(:context) { { current_user:, session_token: } }
+        let(:current_user) { create(:user, organization: questionnaire.questionnaire_for.organization) }
+
+        it "prefills from the latest duplicate of a question" do
+          submission = create(:submission, questionnaire:, user: current_user)
+          create(:response, questionnaire:, question:, user: current_user, submission:, body: "old")
+          create(:response, questionnaire:, question:, user: current_user, submission:, body: "latest")
+
+          subject.add_responses!(questionnaire:, session_token:)
+
+          expect(subject.responses.sole.body).to eq("latest")
+        end
+
+        it "prefills the submission of the user whatever its session token" do
+          submission = create(:submission, questionnaire:, user: current_user, session_token: "legacy-token")
+          create(:response, questionnaire:, question:, user: current_user, submission:, body: "legacy")
+
+          subject.add_responses!(questionnaire:, session_token:)
+
+          expect(subject.responses.sole.body).to eq("legacy")
+        end
+
+        it "builds an empty response when nothing was submitted" do
+          subject.add_responses!(questionnaire:, session_token:)
+
+          expect(subject.responses.sole.body).to be_nil
+        end
+      end
+
       describe "responses_by_step" do
         let!(:separator) { create(:questionnaire_question, questionnaire:, position: 1, question_type: :separator) }
         let!(:question2) { create(:questionnaire_question, questionnaire:, position: 2) }
