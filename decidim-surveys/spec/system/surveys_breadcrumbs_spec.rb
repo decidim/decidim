@@ -40,8 +40,6 @@ describe "Surveys Breadcrumb" do
 
     it "shows the correct information in breadcrumb (space, component, questionnaire)" do
       visit_component
-      choose "All"
-      click_on translated_attribute(questionnaire.title)
 
       within(".menu-bar") do
         expect(page).to have_text(translated(component.participatory_space.title))

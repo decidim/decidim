@@ -58,12 +58,9 @@ describe "Restricted Space Respond a survey" do
 
       it "allows responding the survey" do
         page.visit main_component_path(component)
-        choose "All"
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
-
-        click_on translated_attribute(questionnaire.title)
 
         fill_in question.body["en"], with: "My first response"
 

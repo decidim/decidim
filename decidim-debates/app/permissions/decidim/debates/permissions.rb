@@ -14,7 +14,7 @@ module Decidim
         when :create
           toggle_allow(can_create_debate?)
         when :read
-          toggle_allow(!debate.hidden?)
+          toggle_allow(debate.nil? || !debate.hidden?)
         when :report
           allow!
         when :edit
