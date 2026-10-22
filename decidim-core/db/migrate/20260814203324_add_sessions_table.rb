@@ -7,6 +7,16 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
   # never lost.
   CREATED_MARKER = "decidim:add_sessions_table"
 
+  # Columns the session store relies on, with the types each one accepts. The data column
+  # also supports the JSON types, which the `:json` serializer writes into.
+  REQUIRED_COLUMNS = {
+    "id" => [:integer],
+    "session_id" => [:string],
+    "data" => [:text, :json, :jsonb],
+    "created_at" => [:datetime],
+    "updated_at" => [:datetime]
+  }.freeze
+
   def up
     if table_exists?(:sessions)
       ensure_compatible_sessions_table!
@@ -38,12 +48,34 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
 
   private
 
+  # Presence alone is not enough: the session store reads `session_id` as a string and
+  # updates records through a numeric `id` primary key, so an existing table with the same
+  # column names but a different schema (or a non-numeric primary key) is rejected as well.
   def ensure_compatible_sessions_table!
-    missing_columns = %w(session_id data created_at updated_at).reject { |column| column_exists?(:sessions, column) }
-    return if missing_columns.empty?
+    problems = schema_problems(connection.columns(:sessions).index_by(&:name))
+    return if problems.empty?
 
     raise "The existing `sessions` table is not compatible with the session store schema. " \
-          "Missing column(s): #{missing_columns.join(", ")}. Rename or remove the table before running this migration."
+          "#{problems.join(". ")} Rename or remove the table before running this migration."
+  end
+
+  def schema_problems(columns)
+    missing = []
+    incompatible = []
+    REQUIRED_COLUMNS.each do |name, types|
+      column = columns[name]
+      if column.nil?
+        missing << name
+      elsif types.exclude?(column.type)
+        incompatible << "#{name} (expected #{types.join(" or ")}, found #{column.type})"
+      end
+    end
+    incompatible << "id is not the table primary key" unless connection.primary_key(:sessions) == "id"
+
+    [
+      ("Missing column(s): #{missing.join(", ")}" unless missing.empty?),
+      ("Incompatible column(s): #{incompatible.join(", ")}" unless incompatible.empty?)
+    ].compact
   end
 
   # `if_not_exists` is name-based and would silently preserve a pre-existing non-unique
