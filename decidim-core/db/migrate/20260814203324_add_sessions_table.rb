@@ -24,7 +24,7 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
       ensure_unique_session_id_index!
       add_index :sessions, :updated_at, if_not_exists: true
     else
-      # this create_table statement is imported from
+      # This statement is imported from
       # https://github.com/rails/activerecord-session_store/blob/main/lib/generators/active_record/templates/migration.rb
       # and must be kept as close as possible to the one provided by the activerecord-session_store.
       # We had to massive modify this file, just to make sure other people is not already using the gem independently.
