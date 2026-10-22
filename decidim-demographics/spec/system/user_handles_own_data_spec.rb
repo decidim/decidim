@@ -97,4 +97,32 @@ describe "user submits demographic data" do
       expect(page).to have_button("Save data", class: "button__secondary", disabled: true)
     end
   end
+
+  context "when the questionnaire is responded with unsaved changes" do
+    it "requires confirmation when exiting mid-responding" do
+      fill_in translated(question.body), with: "My first response"
+
+      click_on "My data", match: :first
+
+      expect(page).to have_css("#confirm-modal", visible: :visible, text: I18n.t("decidim.shared.confirm_unload"))
+    end
+
+    it "keeps the response when the confirmation is dismissed" do
+      fill_in translated(question.body), with: "My first response"
+
+      click_on "My data", match: :first
+      dismiss_confirm
+
+      expect(page).to have_field(translated(question.body), with: "My first response")
+    end
+
+    it "leaves the questionnaire when the confirmation is accepted" do
+      fill_in translated(question.body), with: "My first response"
+
+      click_on "My data", match: :first
+      accept_confirm
+
+      expect(page).to have_no_field(translated(question.body))
+    end
+  end
 end

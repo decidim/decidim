@@ -79,6 +79,7 @@ describe "Admin manages elections" do
     before { click_on "New election" }
 
     it_behaves_like "having a rich text editor", "new_election", "full"
+    it_behaves_like "a form with unsaved changes", ".new_election", "election_title_en", "Components"
   end
 
   describe "manual start checkbox persistence" do

@@ -111,6 +111,7 @@ describe "Admin manages meetings" do
     before { click_on "New meeting" }
 
     it_behaves_like "having a rich text editor", "new_meeting", "full"
+    it_behaves_like "a form with unsaved changes", ".new_meeting", "meeting_title_en", "Components"
   end
 
   describe "when rendering the text in the update page" do
