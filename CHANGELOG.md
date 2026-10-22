@@ -1,5 +1,107 @@
 # Changelog
 
+## [0.31.8](https://github.com/decidim/decidim/tree/0.31.8)
+
+### Added
+
+- **decidim-participatory processes**: Backport 'Change Steps for Phases across the platform' to v0.31 [\#17533](https://github.com/decidim/decidim/pull/17533)
+- **decidim-assemblies**, **decidim-core**, **decidim-meetings**, **decidim-participatory processes**: Backport 'Add pagination to the Members page' to v0.31 [\#17847](https://github.com/decidim/decidim/pull/17847)
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-generators**: Backport 'Use Ubuntu 24.04 in github actions' to v0.31 [\#17399](https://github.com/decidim/decidim/pull/17399)
+- **decidim-conferences**, **decidim-core**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Backport 'Fix modal titles consistency issues' to v0.31 [\#17415](https://github.com/decidim/decidim/pull/17415)
+- **decidim-core**: Backport 'Fix date/time picker initial time format and invalid attribute `default_time`' to v0.31 [\#17444](https://github.com/decidim/decidim/pull/17444)
+- **decidim-accountability**: Backport 'Fix flaky spec at `results_csv_importer_spec.rb`' to v0.31 [\#17448](https://github.com/decidim/decidim/pull/17448)
+- **decidim-proposals**: Backport 'Fix flaky specs that expect a specific taxonomies order' to v0.31 [\#17455](https://github.com/decidim/decidim/pull/17455)
+- **decidim-budgets**: Backport 'Fix map overlap budgets' to v0.31 [\#17457](https://github.com/decidim/decidim/pull/17457)
+- **decidim-assemblies**: Backport 'Fix flaky spec at `assembly_admin_manage_assembly_components_examples.rb`' to v0.31 [\#17450](https://github.com/decidim/decidim/pull/17450)
+- **decidim-meetings**: Backport 'Fix `Meeting.authored_by` not considering the type of the author' to v0.31 [\#17460](https://github.com/decidim/decidim/pull/17460)
+- **decidim-proposals**: Backport 'Ensure a random coauthor is always returned by the proposals seeds' to v0.31 [\#17446](https://github.com/decidim/decidim/pull/17446)
+- **decidim-core**: Backport 'Fix omniauth registration called multiple times in a row' to v0.31 [\#17462](https://github.com/decidim/decidim/pull/17462)
+- **decidim-admin**: Backport 'Fix machine_translation prioritization misleading' to v0.31 [\#17467](https://github.com/decidim/decidim/pull/17467)
+- **decidim-core**, **decidim-elections**: Backport 'Fix election question preview' to v0.31 [\#17471](https://github.com/decidim/decidim/pull/17471)
+- **decidim-forms**: Backport 'Bump `chrome_version` from 139.0.7258.66 to 151.0.7922.108' to v0.31 [\#17477](https://github.com/decidim/decidim/pull/17477)
+- **decidim-admin**, **decidim-core**, **decidim-initiatives**: Backport 'Fix video embed in initiatives' to v0.31 [\#17481](https://github.com/decidim/decidim/pull/17481)
+- **decidim-proposals**: Backport 'Fix status filter for proposals' to v0.31 [\#17479](https://github.com/decidim/decidim/pull/17479)
+- **decidim-api**, **decidim-comments**, **decidim-core**: Backport 'Fix API `user` field returning a random user when no arguments are provided' to v0.31 [\#17484](https://github.com/decidim/decidim/pull/17484)
+- **decidim-core**: Backport 'Fix close button on alert modals' to v0.31 [\#17503](https://github.com/decidim/decidim/pull/17503)
+- **decidim-core**: Backport 'Fix display issues of logo in mailer' to v0.31 [\#17511](https://github.com/decidim/decidim/pull/17511)
+- **decidim-surveys**: Backport 'Fix published survey responses chart counting option combinations' to v0.31 [\#17513](https://github.com/decidim/decidim/pull/17513)
+- **decidim-budgets**: Backport 'Fix flaky specs at admin_reminds_users_with_pending_orders_spec.rb' to v0.31 [\#17538](https://github.com/decidim/decidim/pull/17538)
+- **decidim-admin**: Backport 'Fix flaky specs at `admin_manages_conflicts_spec.rb`' to v0.31 [\#17540](https://github.com/decidim/decidim/pull/17540)
+- **decidim-participatory processes**: Backport 'Change Steps for Phases across the platform' to v0.31 [\#17533](https://github.com/decidim/decidim/pull/17533)
+- **decidim-budgets**: Backport 'Fix flaky spec at explore_budgets_spec.rb' to v0.31 [\#17536](https://github.com/decidim/decidim/pull/17536)
+- **decidim-admin**: Backport 'Fix flaky specs at `admin_manages_static_page_content_blocks_spec.rb`' to v0.31 [\#17531](https://github.com/decidim/decidim/pull/17531)
+- Backport 'Remove azure mirrors in workflows' to v0.31 [\#17541](https://github.com/decidim/decidim/pull/17541)
+- **decidim-admin**: Backport 'Fix flaky specs at `manage_impersonations_examples.rb`' to v0.31 [\#17543](https://github.com/decidim/decidim/pull/17543)
+- **decidim-core**, **decidim-dev**, **decidim-system**: Backport 'Fix flaky system specs related to authentication' to v0.31 [\#17556](https://github.com/decidim/decidim/pull/17556)
+- **decidim-admin**, **decidim-assemblies**, **decidim-core**, **decidim-participatory processes**: Backport 'Fix validation on background image in participatory spaces' to v0.31 [\#17557](https://github.com/decidim/decidim/pull/17557)
+- **decidim-admin**: Backport 'Fix flaky spec related to background jobs at `manage_impersonations_examples.rb`' to v0.31 [\#17554](https://github.com/decidim/decidim/pull/17554)
+- **decidim-core**, **decidim-initiatives**: Backport 'Fix expanded state indication on collapsible description toggles' to v0.31 [\#17551](https://github.com/decidim/decidim/pull/17551)
+- **decidim-comments**: Backport 'Fix automatic ID generation for comments component' to v0.31 [\#17566](https://github.com/decidim/decidim/pull/17566)
+- **decidim-initiatives**: Backport 'Fix flaky spec at `admin_manages_initiative_components_spec.rb`' to v0.31 [\#17616](https://github.com/decidim/decidim/pull/17616)
+- **decidim-proposals**: Backport 'Fix flaky spec at `proposals_wizards_examples.rb`' to v0.31 [\#17613](https://github.com/decidim/decidim/pull/17613)
+- **decidim-forms**, **decidim-templates**: Backport 'Fix questionnaires issues with display conditions' to v0.31 [\#17618](https://github.com/decidim/decidim/pull/17618)
+- **decidim-proposals**: Backport 'Prevent bug with proposals' unassigned evaluator role activity log' to v0.31 [\#17634](https://github.com/decidim/decidim/pull/17634)
+- **decidim-core**: Backport 'Add "Hide from the menu" action to activity log' to v0.31 [\#17637](https://github.com/decidim/decidim/pull/17637)
+- **decidim-participatory processes**: Backport 'Fix flaky specs at `manage_landing_page_examples.rb`' to v0.31 [\#17655](https://github.com/decidim/decidim/pull/17655)
+- **decidim-conferences**: Backport 'Fix flaky spec at `manage_conference_components_examples.rb`' to v0.31 [\#17652](https://github.com/decidim/decidim/pull/17652)
+- **decidim-elections**: Backport 'Fix race condition with elections' votes' to v0.31 [\#17669](https://github.com/decidim/decidim/pull/17669)
+- **decidim-generators**: Backport 'Add app_name option to `decidim --help`' to v0.31 [\#17670](https://github.com/decidim/decidim/pull/17670)
+- **decidim-admin**: Backport 'Fix flaky specs at `admin_manages_newsletters_spec.rb`' to v0.31 [\#17672](https://github.com/decidim/decidim/pull/17672)
+- **decidim-verifications**: Backport 'Fix flaky specs at `ephemeral_action_authorization_spec.rb`' to v0.31 [\#17674](https://github.com/decidim/decidim/pull/17674)
+- **decidim-comments**: Backport 'Add validation for commentable types in GraphQL API' to v0.31 [\#17677](https://github.com/decidim/decidim/pull/17677)
+- **decidim-core**: Backport 'Improve sanitization in Action Logs' to v0.31 [\#17680](https://github.com/decidim/decidim/pull/17680)
+- **decidim-meetings**: Backport 'Check that the previous space is actually a space in Meetings' to v0.31 [\#17696](https://github.com/decidim/decidim/pull/17696)
+- **decidim-core**: Backport 'Remove invalid `super` calls from `ApplicationUploader`' to v0.31 [\#17702](https://github.com/decidim/decidim/pull/17702)
+- **decidim-core**: Backport 'Query only the necessary amount of users on the profile following page' to v0.31 [\#17705](https://github.com/decidim/decidim/pull/17705)
+- **decidim-core**, **decidim-verifications**: Backport 'Move the lock-in mechanism for verifications to the DB' to v0.31 [\#17685](https://github.com/decidim/decidim/pull/17685)
+- **decidim-admin**: Backport 'Fix flaky specs related to managing impersonations' to v0.31 [\#17724](https://github.com/decidim/decidim/pull/17724)
+- **decidim-admin**: Backport 'Fix flaky spec in `admin_manages_organization_spec.rb`' to v0.31 [\#17752](https://github.com/decidim/decidim/pull/17752)
+- **decidim-core**: Backport 'Fix flaky spec at `mobile_header_spec.rb`' to v0.31 [\#17750](https://github.com/decidim/decidim/pull/17750)
+- **decidim-admin**, **decidim-core**: Backport 'Fix long component name display' to v0.31 [\#17759](https://github.com/decidim/decidim/pull/17759)
+- **decidim-blogs**: Backport 'Fix blog posts ordering by publication time' to v0.31 [\#17858](https://github.com/decidim/decidim/pull/17858)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-core**: Backport 'Improve performance for UserRoleChecker' to v0.31 [\#17873](https://github.com/decidim/decidim/pull/17873)
+- **decidim-core**: Backport 'Fix proposal mention layout in comments' to v0.31 [\#17867](https://github.com/decidim/decidim/pull/17867)
+- **decidim-admin**, **decidim-core**: Backport 'Use enqueue_after_transaction_commit in ActiveJob' to v0.31 [\#17875](https://github.com/decidim/decidim/pull/17875)
+- **decidim-core**: Backport 'Fix flaky date picker specs' to v0.31 [\#17855](https://github.com/decidim/decidim/pull/17855)
+- **decidim-core**: Backport 'Fix NoMethodError in open data export and moderatedUsers query' to v0.31 [\#17859](https://github.com/decidim/decidim/pull/17859)
+- **decidim-core**, **decidim-dev**: Backport 'Add magic bytes validation for image uploads' to v0.31 [\#17878](https://github.com/decidim/decidim/pull/17878)
+- **decidim-core**: Backport 'Add help section to the breadcrumb of static pages' to v0.31 [\#17876](https://github.com/decidim/decidim/pull/17876)
+- **decidim-elections**, **decidim-forms**, **decidim-meetings**: Backport 'Fix flaky specs for admin manages meeting polls' to v0.31 [\#17850](https://github.com/decidim/decidim/pull/17850)
+- **decidim-accountability**, **decidim-admin**, **decidim-assemblies**, **decidim-blogs**, **decidim-budgets**, **decidim-conferences**, **decidim-core**, **decidim-demographics**, **decidim-dev**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**, **decidim-surveys**, **decidim-templates**, **decidim-verifications**: Backport 'Add cop for missing `enforce_permission_to` calls' to v0.31 [\#17874](https://github.com/decidim/decidim/pull/17874)
+- **decidim-admin**, **decidim-budgets**, **decidim-core**, **decidim-demographics**, **decidim-dev**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**, **decidim-surveys**, **decidim-templates**, **decidim-verifications**: Backport 'Add cop for detecting missing Organization scoped finders' to v0.31 [\#17817](https://github.com/decidim/decidim/pull/17817)
+- **decidim-core**: Backport 'Fix member role text being capitalized per word on members page' to v0.31 [\#17726](https://github.com/decidim/decidim/pull/17726)
+- **decidim-assemblies**, **decidim-core**, **decidim-meetings**, **decidim-participatory processes**: Backport 'Add pagination to the Members page' to v0.31 [\#17847](https://github.com/decidim/decidim/pull/17847)
+- **decidim-core**: Backport 'Fix conversation's new missing redirection after creation' to v0.31 [\#17904](https://github.com/decidim/decidim/pull/17904)
+- **decidim-conferences**: Backport 'Fix bug with conferences admins and registrations ' to v0.31 [\#17906](https://github.com/decidim/decidim/pull/17906)
+- **decidim-accountability**, **decidim-api**, **decidim-budgets**, **decidim-comments**, **decidim-core**, **decidim-proposals**: Backport 'Fix fetching comments through the API for accountability and budgets' to v0.31 [\#17901](https://github.com/decidim/decidim/pull/17901)
+- **decidim-templates**: Backport 'Fix for "Space admins cannot finish forms" in questionnaire templates' to v0.31 [\#17910](https://github.com/decidim/decidim/pull/17910)
+- **decidim-accountability**, **decidim-budgets**, **decidim-comments**, **decidim-conferences**, **decidim-core**, **decidim-debates**, **decidim-demographics**, **decidim-dev**, **decidim-elections**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**, **decidim-verifications**: Backport 'Add cop for missing `enforce_permission_to` calls (part 2)' to v0.31 [\#17895](https://github.com/decidim/decidim/pull/17895)
+- **decidim-accountability**, **decidim-core**: Backport 'Fix special characters being double-escaped by decidim_html_escape' to v0.31 [\#17715](https://github.com/decidim/decidim/pull/17715)
+- **decidim-core**, **decidim-demographics**, **decidim-dev**, **decidim-meetings**, **decidim-verifications**: Backport 'Add cop for missing `enforce_permission_to` calls (part 3)' to v0.31 [\#17918](https://github.com/decidim/decidim/pull/17918)
+- **decidim-accountability**, **decidim-blogs**, **decidim-budgets**, **decidim-collaborative_texts**, **decidim-core**, **decidim-debates**, **decidim-dev**, **decidim-elections**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-pages**, **decidim-proposals**, **decidim-surveys**: Backport 'Add cop for missing `enforce_permission_to` calls (part 4)' to v0.31 [\#17920](https://github.com/decidim/decidim/pull/17920)
+- **decidim-api**: Backport 'Harden access to resources in API' to v0.31 [\#17916](https://github.com/decidim/decidim/pull/17916)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- **decidim-generators**: Backport 'Use Ubuntu 24.04 in github actions' to v0.31 [\#17399](https://github.com/decidim/decidim/pull/17399)
+- **decidim-forms**: Backport 'Bump `chrome_version` from 139.0.7258.66 to 151.0.7922.108' to v0.31 [\#17477](https://github.com/decidim/decidim/pull/17477)
+- **decidim-core**, **decidim-dev**: Backport 'Add magic bytes validation for image uploads' to v0.31 [\#17878](https://github.com/decidim/decidim/pull/17878)
+
 ## [0.31.7](https://github.com/decidim/decidim/tree/0.31.7)
 
 ### Added
