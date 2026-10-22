@@ -1,30 +1,30 @@
 <div data-date-container>
   <% if same_day? %>
     <div data-date>
-      <%= l start_time.in_time_zone, format: "%d" %>
-      <span data-month><%= l start_time.in_time_zone, format: show_year? ? :decidim_month_and_year : :decidim_month %></span>
+      <%= l start_time, format: "%d" %>
+      <span data-month><%= l start_time, format: show_year? ? :decidim_month_and_year : :decidim_month %></span>
     </div>
     <div data-time>
-      <%= l start_time.in_time_zone, format: :time_of_day %> - <%= l end_time.in_time_zone, format: :time_of_day %>
+      <%= l start_time, format: :time_of_day %> - <%= l end_time, format: :time_of_day %>
     </div>
   <% else %>
     <div>
       <div data-date>
-        <%= l start_time.in_time_zone, format: "%d" %>
-        <span data-month><%= l start_time.in_time_zone, format: show_year? ? :decidim_month_and_year : :decidim_month %></span>
+        <%= l start_time, format: "%d" %>
+        <span data-month><%= l start_time, format: show_year? ? :decidim_month_and_year : :decidim_month %></span>
       </div>
       <div data-time>
-        <%= l start_time.in_time_zone, format: :time_of_day %>
+        <%= l start_time, format: :time_of_day %>
       </div>
     </div>
     <%= icon "arrow-right-line" %>
     <div>
       <div data-date>
-        <%= l end_time.in_time_zone, format: "%d" %>
-        <span data-month><%= l end_time.in_time_zone, format: show_year? ? :decidim_month_and_year : :decidim_month %></span>
+        <%= l end_time, format: "%d" %>
+        <span data-month><%= l end_time, format: show_year? ? :decidim_month_and_year : :decidim_month %></span>
       </div>
       <div data-time>
-        <%= l end_time.in_time_zone, format: :time_of_day %>
+        <%= l end_time, format: :time_of_day %>
       </div>
     </div>
   <% end %>
