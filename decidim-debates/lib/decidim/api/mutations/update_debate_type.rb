@@ -3,6 +3,8 @@
 module Decidim
   module Debates
     class UpdateDebateType < Decidim::Api::Types::BaseMutation
+      include Decidim::Debates::DebateAttachmentUpload
+
       graphql_name "UpdateDebate"
 
       description "Updates a debate"
@@ -40,16 +42,27 @@ module Decidim
       private
 
       def extract_from(attributes)
+        # `to_h` unwraps the nested input objects into plain hashes, so the uploads
+        # are read from the input object itself before the attributes are converted.
+        add_attachments = attachment_params(attributes.attachments)
+
         attributes = attributes.to_h.compact
 
         title = attributes.fetch(:title, translated_attribute(object.title))
         description = attributes.fetch(:description, translated_attribute(object.description))
         taxonomies = attributes.fetch(:taxonomies, object.taxonomies.pluck(:id))
 
+        # The command removes the attachments which are not listed in the form, so
+        # the ones already attached to the debate are kept when new files are
+        # uploaded with it.
+        attachments = object.attachments.map(&:id)
+
         {
           title:,
           description:,
-          taxonomies:
+          taxonomies:,
+          attachments:,
+          add_attachments:
         }
       end
     end
