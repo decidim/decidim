@@ -200,7 +200,7 @@ export const formatDate = (value, formats) => {
 
   let newValue = null;
   if (formats.order === "m-d-y") {
-    newValue = splitValue;
+    newValue = [splitValue[0], splitValue[1], splitValue[2]];
   } else if (formats.order === "y-m-d") {
     newValue = [splitValue[1], splitValue[2], splitValue[0]];
   } else {
