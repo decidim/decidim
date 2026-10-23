@@ -2,6 +2,7 @@
 
 module Decidim
   module Core
+    autoload :BlobOrganization, "decidim/api/functions/blob_organization"
     autoload :CategoryList, "decidim/api/functions/category_list"
     autoload :ComponentFinderBase, "decidim/api/functions/component_finder_base"
     autoload :ComponentList, "decidim/api/functions/component_list"
