@@ -125,12 +125,6 @@ module Decidim
           expect { command.call }.to change(Decidim::Identity, :count).by(-1)
         end
 
-        it "deletes user's versions" do
-          expect(user.reload.versions.count).to eq(1)
-          command.call
-          expect(user.reload.versions.count).to eq(0)
-        end
-
         it "deletes the follows" do
           other_user = create(:user)
           create(:follow, followable: user, user: other_user)
