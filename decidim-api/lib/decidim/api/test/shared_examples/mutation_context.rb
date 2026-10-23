@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/api/test/type_context"
+
 shared_context "with a graphql class mutation" do
   include_context "with a graphql class type"
 
@@ -67,5 +68,12 @@ shared_context "with a graphql class mutation" do
         expect { response }.to raise_error(GraphQL::ExecutionError, /you do not have permission/)
       end
     end
+  end
+
+  private
+
+  def generate_localized_title
+    title = super
+    title.except("machine_translations")
   end
 end

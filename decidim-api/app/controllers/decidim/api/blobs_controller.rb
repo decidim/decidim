@@ -1,0 +1,155 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Api
+    # This controller provides the file upload capabilities for the API. The
+    # file blobs can be uploaded through the `/api/blobs` endpoint and managed
+    # (e.g. destroyed) through the normal GraphQL API.
+    #
+    # The response for a successful upload contains the blob ID that can be
+    # attached to any record where blobs can be attached to. The purpose of this
+    # endpoint is to provide a stable (i.e. unchanging) and performant API for
+    # uploading the files as that would be difficult to do through the normal
+    # GraphQL API (e.g. by base64 encoding the whole file which may cause issues
+    # when the file sizes become larger).
+    class BlobsController < Api::ApplicationController
+      include Decidim::Api::RequiredScopes
+
+      # The permission system only checks the role of the user, so the scopes
+      # granted to the OAuth token are checked here. The endpoint is an admin
+      # action, so only the administrative scopes are accepted: a token granted
+      # the participant scopes cannot upload files, even when it has `api:write`.
+      required_scopes "admin:read", "admin:write"
+
+      def create
+        enforce_permission_to :create, :blob, context
+
+        return render json: { error: :insufficient_scope }, status: :forbidden unless scopes_allowed?
+        return render json: { error: :file_not_provided }, status: :unprocessable_content unless file_uploaded?
+        return render json: { error: :unallowed_file_extension }, status: :unprocessable_content unless extension_allowlist.any? { |ext| ext == uploaded_file_extension }
+        return render json: { error: :unallowed_content_type }, status: :unprocessable_content unless content_type_allowed?
+
+        max_bytes = Decidim.organization_settings(current_organization).upload.maximum_file_size.default.megabytes
+        return render json: { error: :file_too_large }, status: :unprocessable_content if uploaded_file.size > max_bytes
+        return render json: { error: :unsafe_content }, status: :unprocessable_content unless safe_content?
+
+        blob = ActiveStorage::Blob.create_and_upload!(
+          io: uploaded_file,
+          filename: sanitized_filename,
+          content_type: detected_content_type
+        )
+
+        render json: blob.as_json(methods: :signed_id)
+                         .merge("src" => Rails.application.routes.url_helpers.rails_blob_path(blob, only_path: true))
+                         .transform_keys { |key| key.camelize(:lower) }
+      end
+
+      private
+
+      def uploaded_file
+        @uploaded_file ||= params.require(:file)
+      end
+
+      # In case the file name contains invalid byte sequences, they could not be
+      # stored in the database due to the following exception:
+      #   ActiveRecord::StatementInvalid:
+      #     PG::CharacterNotInRepertoire: ERROR:  invalid byte sequence for encoding "UTF8": 0xea 0x78 0xe4
+      #     CONTEXT:  unnamed portal parameter $2
+      #
+      # This replaces all invalid byte sequences before persisting the file to
+      # the database.
+      def sanitized_filename
+        @sanitized_filename ||= begin
+          name = uploaded_file.original_filename
+          name = name.scrub unless name.valid_encoding?
+          name
+        end
+      end
+
+      def uploaded_file_extension
+        @uploaded_file_extension ||= File.extname(uploaded_file.original_filename).strip.downcase[1..-1]
+      end
+
+      # The content type declared by the client is not trusted: the type detected
+      # from the file contents is the one checked against the allowlist and the
+      # one stored, so that a file with an allowed extension and a false MIME
+      # declaration does not pass the configured type restriction.
+      def detected_content_type
+        @detected_content_type ||= Marcel::MimeType.for(uploaded_file.tempfile, name: sanitized_filename) || uploaded_file.content_type
+      end
+
+      def file_uploaded?
+        return false unless params[:file]
+
+        return true if defined?(Rack::Test::UploadedFile) && uploaded_file.is_a?(Rack::Test::UploadedFile)
+
+        uploaded_file.is_a?(ActionDispatch::Http::UploadedFile)
+      end
+
+      def extension_allowlist
+        Decidim.organization_settings(current_organization).upload_allowed_file_extensions_admin
+      end
+
+      # Handles the unauthorized (not signed in) and forbidden (not an admin)
+      # cases for the file upload endpoint.
+      def user_has_no_permission
+        if api_user
+          render body: nil, status: :forbidden
+        else
+          render body: nil, status: :unauthorized
+        end
+      end
+
+      # Checks the scopes granted to the client. They are the ones of the OAuth
+      # token when there is one; the requests authenticated in another way (the
+      # session or the JWT) are assumed to have all of them, as `api_scopes`
+      # returns in that case.
+      def scopes_allowed?
+        self.class.scope_authorized?(context)
+      end
+
+      # Both the content type declared by the client and the one detected from
+      # the file contents must be allowed. The declared type is not trusted, so
+      # a file with an allowed extension and a false MIME declaration does not
+      # pass the configured type restriction.
+      def content_type_allowed?
+        [uploaded_file.content_type, detected_content_type].all? do |content_type|
+          content_type_allowlist.any? { |type| type.match?(content_type) }
+        end
+      end
+
+      def content_type_allowlist
+        Decidim.organization_settings(current_organization).upload_allowed_content_types_admin
+      end
+
+      # SVG documents are XML-based and can contain active content which is executed
+      # when the document is rendered by the browser, so the contents are validated
+      # before the blob is stored. This is possible here because the file goes
+      # through the application; the direct upload endpoint cannot do it, as the
+      # contents are sent straight to the storage service and are never available to
+      # the application, and they are checked by UploaderImageContentValidator when
+      # the blob is attached to a record.
+      def safe_content?
+        return true unless Decidim::UploadContentTypes.format(detected_content_type) == :svg
+
+        # Only the documents which are well formed SVG documents and do not
+        # contain active content can be stored. The malformed ones are rejected as
+        # well, as they are rejected by UploaderImageContentValidator when the blob
+        # is attached to a record, so the endpoint does not store a blob which the
+        # model validation would refuse.
+        Decidim::SvgContentValidator.validate(uploaded_file_contents) == :valid
+      end
+
+      def uploaded_file_contents
+        tempfile = uploaded_file.tempfile
+        contents = tempfile.read
+        tempfile.rewind
+        contents
+      end
+
+      def permission_scope
+        :admin
+      end
+    end
+  end
+end
