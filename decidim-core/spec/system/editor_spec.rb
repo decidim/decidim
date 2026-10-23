@@ -289,7 +289,7 @@ describe "Editor" do
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a href="https://docs.decidim.org">paragraph.</a></p>
+          <p>Another <a href="https://docs.decidim.org" target="_self">paragraph.</a></p>
         HTML
       )
 
@@ -631,7 +631,7 @@ describe "Editor" do
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <a href="https://docs.example.com">
+          <a href="https://docs.example.com" target="_self" rel="noopener noreferrer">
             <div class="editor-content-image" data-image="">
               <img src="#{src}" alt="City landscape">
             </div>
@@ -744,7 +744,7 @@ describe "Editor" do
         expect_value(
           <<~HTML
             <p>Hello, world!</p>
-            <p>Another <a href="https://demo.decidim.org">paragraph.</a></p>
+            <p>Another <a href="https://demo.decidim.org" target="_self">paragraph.</a></p>
           HTML
         )
       end
