@@ -54,7 +54,7 @@ module Decidim
           end
 
           it "rebuilds the component variable" do
-            expect(Decidim::Component).to receive(:new)
+            expect(Decidim::Component).to receive(:new).and_call_original
 
             post :create, params: { participatory_process_slug: participatory_process.slug, type: "dummy", component: component_params }
 
