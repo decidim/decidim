@@ -199,12 +199,26 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
           )
         end
 
-        before { subject.perform_now }
+        context "when the log can be created" do
+          before { subject.perform_now }
 
-        it "still activate step three" do
-          expect(step_one.reload).not_to be_active
-          expect(step_two.reload).not_to be_active
-          expect(step_three.reload).to be_active
+          it "still activate step three" do
+            expect(step_one.reload).not_to be_active
+            expect(step_two.reload).not_to be_active
+            expect(step_three.reload).to be_active
+          end
+        end
+
+        context "when the log cannot be created" do
+          before do
+            allow(Decidim::ActionLogger).to receive(:log_system).and_raise(ActiveRecord::StatementInvalid)
+          end
+
+          it "rolls back the phase changes" do
+            expect { subject.perform_now }.to raise_error(ActiveRecord::StatementInvalid)
+            expect(step_two.reload).to be_active
+            expect(step_three.reload).not_to be_active
+          end
         end
       end
 
@@ -315,6 +329,18 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
           expect(activation_log.user_id).to be_nil
           expect(activation_log.user_type).to be_nil
           expect(activation_log.organization).to eq(organization)
+        end
+      end
+
+      context "when the log cannot be created" do
+        before do
+          allow(Decidim::ActionLogger).to receive(:log_system).and_raise(ActiveRecord::StatementInvalid)
+        end
+
+        it "rolls back the phase changes" do
+          expect { subject.perform_now }.to raise_error(ActiveRecord::StatementInvalid)
+          expect(step_one.reload).to be_active
+          expect(step_two.reload).not_to be_active
         end
       end
     end

@@ -17,24 +17,25 @@ module Decidim
           if steps.empty? && active_step
             next_position = active_step.position + 1
             next_step = process.steps.where(start_date: ..Time.zone.now.to_date).find_by(position: next_position)
-            if next_step.present?
-              active_step.update(active: false)
-              activated = next_step.update(active: true)
-              log(next_step) if activated
-            end
+            activate_step(next_step, active_step) if next_step.present?
           else
             step_to_activate = steps.first
-            if active_step != step_to_activate
-              active_step&.update(active: false)
-              activated = step_to_activate.update(active: true)
-
-              log(step_to_activate) if activated
-            end
+            activate_step(step_to_activate, active_step) if active_step != step_to_activate
           end
         end
       end
 
       private
+
+      # Activates the given step and deactivates the previous one in a single
+      # transaction, so the log is always consistent with the phase changes.
+      def activate_step(step, previous_step)
+        Decidim::ParticipatoryProcessStep.transaction do
+          previous_step&.update!(active: false)
+          step.update!(active: true)
+          log(step)
+        end
+      end
 
       # Since the action is not done by any specific user, we log it as a system action.
       def log(step)
