@@ -199,12 +199,26 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
           )
         end
 
-        before { subject.perform_now }
+        context "when the log can be created" do
+          before { subject.perform_now }
 
-        it "still activate step three" do
-          expect(step_one.reload).not_to be_active
-          expect(step_two.reload).not_to be_active
-          expect(step_three.reload).to be_active
+          it "still activate step three" do
+            expect(step_one.reload).not_to be_active
+            expect(step_two.reload).not_to be_active
+            expect(step_three.reload).to be_active
+          end
+        end
+
+        context "when the log cannot be created" do
+          before do
+            allow(Decidim::ActionLogger).to receive(:log_system).and_raise(ActiveRecord::StatementInvalid)
+          end
+
+          it "rolls back the phase changes" do
+            expect { subject.perform_now }.to raise_error(ActiveRecord::StatementInvalid)
+            expect(step_two.reload).to be_active
+            expect(step_three.reload).not_to be_active
+          end
         end
       end
 
@@ -278,6 +292,53 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         before { subject.perform_now }
 
         it "step one stays active" do
+          expect(step_one.reload).to be_active
+          expect(step_two.reload).not_to be_active
+        end
+      end
+    end
+
+    describe "with traceability logging" do
+      let!(:step_one) do
+        create(
+          :participatory_process_step,
+          participatory_process:,
+          active: true,
+          start_date: Time.zone.local(2022, 3, 10, 10, 0, 0),
+          end_date: Time.zone.local(2022, 3, 14, 10, 59, 59)
+        )
+      end
+      let!(:step_two) do
+        create(
+          :participatory_process_step,
+          participatory_process:,
+          start_date: Time.zone.local(2022, 3, 15, 11, 0, 0),
+          end_date: Time.zone.local(2022, 3, 20, 20, 0, 0)
+        )
+      end
+
+      describe "when user is missing" do
+        it "logs activation in activity log" do
+          expect { subject.perform_now }
+            .to change(Decidim::ActionLog, :count).by(1)
+
+          activation_log = Decidim::ActionLog.last
+          expect(activation_log.action).to eq("system_activate")
+          expect(activation_log.resource_id).to eq(step_two.id)
+          expect(activation_log.user).to be_nil
+          expect(activation_log.user_id).to be_nil
+          expect(activation_log.user_type).to be_nil
+          expect(activation_log.organization).to eq(organization)
+        end
+      end
+
+      context "when the log cannot be created" do
+        before do
+          allow(Decidim::ActionLogger).to receive(:log_system).and_raise(ActiveRecord::StatementInvalid)
+        end
+
+        it "rolls back the phase changes" do
+          expect { subject.perform_now }.to raise_error(ActiveRecord::StatementInvalid)
           expect(step_one.reload).to be_active
           expect(step_two.reload).not_to be_active
         end

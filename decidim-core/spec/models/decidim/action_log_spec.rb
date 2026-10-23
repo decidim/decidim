@@ -15,7 +15,12 @@ describe Decidim::ActionLog do
     context "when no user is given" do
       let(:action_log) { build(:action_log, user: nil, organization: build(:organization)) }
 
-      it { is_expected.not_to be_valid }
+      it { is_expected.to be_valid }
+
+      it "can be persisted" do
+        expect { action_log.save! }.not_to raise_error
+        expect(action_log.reload.user).to be_nil
+      end
     end
 
     context "when no action is given" do
@@ -244,6 +249,40 @@ describe Decidim::ActionLog do
       it "returns the lazy-loaded user" do
         expect(subject).to be_a(Decidim::Api::ApiUser)
       end
+    end
+
+    context "when there is no user" do
+      let(:action_log) { create(:action_log, user: nil, organization: create(:organization)) }
+
+      it { is_expected.to be_nil }
+    end
+
+    context "when the user ID is blank" do
+      let(:action_log) do
+        create(
+          :action_log,
+          user: nil,
+          user_id: nil,
+          user_type: "Decidim::User",
+          organization: create(:organization)
+        )
+      end
+
+      it { is_expected.to be_nil }
+    end
+
+    context "when the user type is blank" do
+      let(:action_log) do
+        create(
+          :action_log,
+          user: nil,
+          user_id: 1,
+          user_type: nil,
+          organization: create(:organization)
+        )
+      end
+
+      it { is_expected.to be_nil }
     end
   end
 end
