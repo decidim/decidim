@@ -10,6 +10,12 @@ module Decidim
     # invalid file is not stored; the model validations alone are not enough, as
     # they run when the blob is already in the storage and they use the content
     # type declared by the client instead of the one detected from the contents.
+    #
+    # The extension and content type allowlists depend on the role which performs
+    # the upload, in the same way as `Decidim::AttachmentUploader` decides them
+    # through the attachment context. Checking only the administrative allowlists
+    # would let a participant store a file which the same upload through the form
+    # would refuse, as the participant allowlists are narrower.
     module FileUpload
       def create_blob!(file)
         validate_file!(file)
@@ -47,7 +53,7 @@ module Decidim
 
       def validate_extension!(file)
         extension = File.extname(file.original_filename).delete_prefix(".").downcase
-        allowed_extensions = Decidim.organization_settings(current_organization).upload_allowed_file_extensions_admin || []
+        allowed_extensions = allowed_file_extensions || []
 
         return if allowed_extensions.include?(extension)
 
@@ -59,7 +65,7 @@ module Decidim
       # with an allowed extension and a false MIME declaration does not pass the
       # configured type restriction.
       def validate_content_type!(file)
-        allowed_types = Decidim.organization_settings(current_organization).upload_allowed_content_types_admin || []
+        allowed_types = allowed_content_types || []
 
         [file.content_type, detect_content_type(file)].each do |content_type|
           next if allowed_content_type?(allowed_types, content_type)
@@ -74,6 +80,25 @@ module Decidim
         allowed_types.any? do |type|
           type.is_a?(Regexp) ? type.match?(content_type) : Decidim::UploadContentTypes.normalize(type) == content_type
         end
+      end
+
+      def allowed_file_extensions
+        settings = Decidim.organization_settings(current_organization)
+
+        admin_upload? ? settings.upload_allowed_file_extensions_admin : settings.upload_allowed_file_extensions
+      end
+
+      def allowed_content_types
+        settings = Decidim.organization_settings(current_organization)
+
+        admin_upload? ? settings.upload_allowed_content_types_admin : settings.upload_allowed_content_types
+      end
+
+      # Whether the upload is performed by an administrative role. It follows the
+      # same rule as `Decidim::DirectUpload#user_has_elevated_role?`, so the
+      # endpoint and the form apply the same restriction for the same user.
+      def admin_upload?
+        user_can_perform_admin_actions?(current_user)
       end
 
       def validate_size!(file)

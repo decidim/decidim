@@ -31,9 +31,7 @@ shared_examples "API uploadable file" do
     end
 
     before do
-      current_organization.settings.tap do |settings|
-        settings.upload.allowed_file_extensions.admin = %w(svg)
-      end
+      allow_svg_uploads
     end
 
     it "uploads the file and returns the blob" do

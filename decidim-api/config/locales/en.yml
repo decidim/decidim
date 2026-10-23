@@ -6,6 +6,7 @@ en:
         attachment_collections:
           not_found: Key not found within the record's collections.
           not_supported: Attachment collections are not supported for this resource.
+        attachments_not_allowed: Attachments are not allowed for this component.
         introspection_disabled: Introspection is disabled for this request
         invalid_locale: Invalid locale provided
         locale_argument_error: There was an error while internally handling i18n data

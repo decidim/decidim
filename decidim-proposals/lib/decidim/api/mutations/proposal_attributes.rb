@@ -7,6 +7,7 @@ module Decidim
       description "Attributes for creating a proposal"
 
       argument :address, GraphQL::Types::String, description: "Physical address for the proposal", required: false
+      argument :attachments, [ProposalAttachmentAttributes], description: "The files to upload and attach to the proposal, when the component allows attachments", required: false
       argument :body, GraphQL::Types::String, description: "The body content of the proposal", required: true
       argument :latitude, GraphQL::Types::Float, description: "Latitude coordinate", required: false
       argument :longitude, GraphQL::Types::Float, description: "Longitude coordinate", required: false

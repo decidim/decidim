@@ -22,6 +22,11 @@ The file is validated before it is stored, and the attachment record is created
 from it. A file which does not pass the checks is rejected with a validation
 error and the blob is not stored.
 
+The extension and content type checks use the allowlists configured for the role
+which performs the request: the administrative ones when the request is made by an
+administrator and the participant ones otherwise, so the API does not accept a
+file which the same upload through the form would refuse.
+
 == Blobs (Handling Files)
 
 * xref:develop:api/reference/uploads/blobs/upload.adoc[Upload files]

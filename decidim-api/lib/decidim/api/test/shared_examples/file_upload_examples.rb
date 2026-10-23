@@ -11,6 +11,16 @@ require "tempfile"
 # mutations save a record which runs the model upload validations), so the
 # scenarios which accept the file only check the result which is common to both.
 shared_examples "file upload validation rules" do
+  # The allowlists depend on the role which performs the upload, so both of them
+  # are set here: these examples are exercised through the entry points used by
+  # administrators and by participants.
+  def allow_svg_uploads
+    current_organization.settings.tap do |settings|
+      settings.upload.allowed_file_extensions.default = %w(svg)
+      settings.upload.allowed_file_extensions.admin = %w(svg)
+    end
+  end
+
   shared_examples "does not store the file" do
     it "does not create the blob" do
       count = ActiveStorage::Blob.count
@@ -114,9 +124,7 @@ shared_examples "file upload validation rules" do
     before do
       # SVG is not in the default allowlists, so it has to be allowed for the
       # contents to be checked against the document itself.
-      current_organization.settings.tap do |settings|
-        settings.upload.allowed_file_extensions.admin = %w(svg)
-      end
+      allow_svg_uploads
     end
 
     it "raises execution error" do
@@ -136,9 +144,7 @@ shared_examples "file upload validation rules" do
     end
 
     before do
-      current_organization.settings.tap do |settings|
-        settings.upload.allowed_file_extensions.admin = %w(svg)
-      end
+      allow_svg_uploads
     end
 
     it "raises execution error" do
@@ -158,9 +164,7 @@ shared_examples "file upload validation rules" do
     end
 
     before do
-      current_organization.settings.tap do |settings|
-        settings.upload.allowed_file_extensions.admin = %w(svg)
-      end
+      allow_svg_uploads
     end
 
     it "raises execution error" do
