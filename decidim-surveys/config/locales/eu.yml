@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       response:
-        add_attachments: Gehitu eranskinak
+        add_attachments: Eranskinak gehitu
     models:
       decidim/surveys/closed_survey_event: Inkesta amaitu da
       decidim/surveys/opened_survey_event: Inkesta hasi da
@@ -17,7 +17,7 @@ eu:
   decidim:
     admin:
       actions:
-        confirm_unpublish_survey: Ziur zaude inkesta hau despublikatu nahi duzula?
+        confirm_unpublish_survey: Ziur zaude inkesta hau desargitaratu nahi duzula?
         see_survey: Inkesta ikusi
       admin_log:
         changeset:
@@ -58,7 +58,7 @@ eu:
           created_at: Erantzun hau noiz sortu zen
           id: Identifikatzaile bakarra inkestaren erantzunerako
           ip_hash: Elkarrizketatuaren IP helbidea pribatutasunagatik
-          question: Erantzun zen galdera
+          question: Erantzun den galdera
           registered: Parte-hartzaile erregistratua
           unregistered: Erregistratu gabeko parte-hartzailea
           user_status: Erantzuna aurkeztu duen parte-hartzailearen egoera
@@ -73,9 +73,8 @@ eu:
         edit: Editatu
         manage_questions: Galderak
         new_survey: Beste inkesta bat
-        preview: Aurreikusi
+        preview: Aurrebistaratu
         responses: Erantzunak
-        responses_alert: Erantzunak ezabatzea argitalpenean aktibatuta dago inkesta honetarako. Une honetan, erantzunen %{responses_count} suntsitu egingo dira, jarraitzen baduzu.
         title: Ekintzak
       admin:
         exports:
@@ -98,6 +97,14 @@ eu:
             edit:
               title: Galderak
         responses:
+          actions:
+            destroy_all_responses: Erantzun guztiak ezbatu
+            destroy_all_responses_confirm:
+              one: Ziur zaude erantzuna ezabatu nahi duzula? Ekintza hori ezin da desegin.
+              other: Ziur zaude %{count} erantzun guztiak ezabatu nahi dituzula? Ekintza hori ezin da desegin.
+          destroy_all:
+            invalid: Zoritxarrez, arazo bat sortu zen erantzun guztiak ezabatzeko.
+            success: Erantzun guztiak behar bezala ezabatu dira.
           index:
             no_responses: Oraindik ez dago erantzunik
             title: "Guztira, %{total} erantzun"
@@ -123,8 +130,8 @@ eu:
             invalid: Arazo bat egon da inkesta hau argitaratzean.
             success: Inkesta zuzen argitaratua.
           unpublish:
-            invalid: Arazo bat egon da inkesta hau despublikatzean.
-            success: Inkesta zuzen despublikatua.
+            invalid: Arazo bat egon da inkesta hau desargitaratzean.
+            success: Inkesta behar bezala desargitaratu da.
           update:
             invalid: Arazo bat egon da inkesta gordetzean.
             success: Inkesta ondo gorde da.
@@ -151,7 +158,7 @@ eu:
             title: Izenburua
           published:
             published: Argitaratua
-            unpublished: Desargitaratua
+            unpublished: Argitaratu gabea
           status:
             closed: Itxita
             open: Zabaldu

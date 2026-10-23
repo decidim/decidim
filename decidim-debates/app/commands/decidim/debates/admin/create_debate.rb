@@ -8,7 +8,7 @@ module Decidim
       class CreateDebate < Decidim::Commands::CreateResource
         include ::Decidim::MultipleAttachmentsMethods
 
-        fetch_form_attributes :taxonomizations, :component, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
+        fetch_form_attributes :title, :taxonomizations, :component, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
 
         def call
           return broadcast(:invalid) if invalid?
@@ -34,11 +34,9 @@ module Decidim
         def extra_params = { visibility: "all" }
 
         def attributes
-          parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
           super.merge({
                         author: form.current_organization,
-                        title: parsed_title,
                         description: parsed_description,
                         end_time: (form.end_time if form.finite),
                         start_time: (form.start_time if form.finite),

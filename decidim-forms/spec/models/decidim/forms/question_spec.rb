@@ -22,6 +22,26 @@ module Decidim
         expect(subject.display_conditions).to match_array(display_conditions)
       end
 
+      context "when this question's answer controls the display of other questions" do
+        subject { question }
+
+        let(:question) { create(:questionnaire_question, questionnaire:) }
+        let(:conditioned_questions) { create_list(:questionnaire_question, 2, questionnaire:) }
+        let!(:display_conditions_for_other_questions) do
+          conditioned_questions.map do |conditioned_question|
+            create(:display_condition, condition_question: question, question: conditioned_question)
+          end
+        end
+
+        it "has an association of display_conditions_for_other_questions" do
+          expect(subject.display_conditions_for_other_questions).to match_array(display_conditions_for_other_questions)
+        end
+
+        it "has an association of conditioned_questions" do
+          expect(subject.conditioned_questions).to match_array(conditioned_questions)
+        end
+      end
+
       context "when there are response_options belonging to this question" do
         let(:response_options) { create_list(:response_option, 3, question:) }
 

@@ -12,6 +12,8 @@ module Decidim
     helper_method :activities, :resource_types, :user
 
     def index
+      enforce_permission_to :read, :profile
+
       raise ActionController::RoutingError, "Missing user: #{params[:nickname]}" unless user
       raise ActionController::RoutingError, "Blocked User" if user.blocked? && !current_user&.admin?
       raise ActionController::RoutingError, "Profile not published: #{params[:nickname]}" unless user.profile_published?
@@ -28,9 +30,9 @@ module Decidim
     def activities
       @activities ||= paginate(
         if own_activities?
-          OwnActivities.new(current_organization, **activity_options).query.with_private_resources
+          OwnActivities.new(current_organization, **activity_options).query.includes(:user, component: :participatory_space).with_private_resources
         else
-          PublicActivities.new(current_organization, **activity_options).query.with_all_resources
+          PublicActivities.new(current_organization, **activity_options).query.includes(:user, component: :participatory_space).with_all_resources
         end
       )
     end

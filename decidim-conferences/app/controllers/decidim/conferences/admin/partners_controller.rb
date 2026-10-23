@@ -76,7 +76,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= current_conference.partners
+          @collection ||= current_conference.partners.with_attached_logo
         end
       end
     end

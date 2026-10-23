@@ -152,6 +152,7 @@ describe "Admin manages assemblies" do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_assemblies.assemblies_path
+      expect(page).to have_text(translated(assembly.title))
     end
 
     it_behaves_like "manage assemblies"

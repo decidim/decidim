@@ -8,6 +8,7 @@ describe "User manager manages impersonations" do
   def navigate_to_impersonations_page
     visit decidim_admin.root_path
     click_on "Participants"
+    expect(page).to have_css("h1", text: "Manageable participants")
   end
 
   it_behaves_like "manage impersonations examples"

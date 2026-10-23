@@ -1237,7 +1237,7 @@ describe "Vote Proposal", slow: true do
         page.find_link rejected_proposal_title
 
         click_on rejected_proposal_title
-        expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
+        expect(page).to have_no_css("#proposal-#{rejected_proposal.id}-vote-button")
       end
     end
 

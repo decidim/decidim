@@ -18,8 +18,6 @@ module Decidim
       def edit
         enforce_permission_to :index, :impersonatable_user
 
-        conflict = Decidim::Verifications::Conflict.find(params.expect(:id))
-
         @form = form(TransferUserForm).from_params(
           user: conflict.current_user,
           managed_user: conflict.managed_user,
@@ -29,8 +27,6 @@ module Decidim
 
       def update
         enforce_permission_to :index, :impersonatable_user
-
-        conflict = Decidim::Verifications::Conflict.find(params.expect(:id))
 
         @form = form(TransferUserForm).from_params(
           current_user:,
@@ -54,6 +50,10 @@ module Decidim
 
       private
 
+      def conflict
+        @conflict ||= collection.find(params.expect(:id))
+      end
+
       def context_breadcrumb_items
         @context_breadcrumb_items ||= [impersonations_breadcrumb_item]
       end
@@ -67,7 +67,7 @@ module Decidim
 
       def collection
         @collection ||= Decidim::Verifications::Conflict.joins(:current_user).where(
-          decidim_users: { decidim_organization_id: current_organization.id }
+          decidim_users: { organization: current_organization }
         )
       end
 

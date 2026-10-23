@@ -10,6 +10,7 @@ describe Decidim::Debates::CreateDebate do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:attachments) { [] }
+  let(:title) { "title" }
   let(:description) { "description" }
   let(:taxonomizations) do
     2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
@@ -17,7 +18,7 @@ describe Decidim::Debates::CreateDebate do
   let(:form) do
     double(
       invalid?: invalid,
-      title: "title",
+      title:,
       description:,
       taxonomizations:,
       current_user: user,
@@ -105,6 +106,18 @@ describe Decidim::Debates::CreateDebate do
         subject.call
 
         expect(debate.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+      end
+    end
+
+    context "when title has a user mention" do
+      let(:mentioned_user) { create(:user, :confirmed, organization:) }
+      let(:title) { "title mentioning @#{mentioned_user.nickname}" }
+
+      it "does not rewrite the mention to the mentioned user GID" do
+        subject.call
+
+        expect(translated(debate.title)).not_to include(mentioned_user.to_global_id.to_s)
+        expect(translated(debate.title)).to include("@#{mentioned_user.nickname}")
       end
     end
 

@@ -48,7 +48,7 @@ module Decidim
     end
 
     def base_relation
-      @base_relation ||= model.likes.for_listing.includes(:author)
+      @base_relation ||= model.likes.for_listing.includes(author: [:organization, { avatar_attachment: :blob }])
     end
 
     def voted_by_me?
