@@ -114,7 +114,7 @@ gl:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formato: dd/mm/aaaa'
-      order: d-m-a
+      order: d-m-y
   datetime:
     distance_in_words:
       about_x_hours:
