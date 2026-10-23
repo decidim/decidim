@@ -54,6 +54,11 @@ module Decidim::Meetings
           post(:create, params:)
           expect(response).to redirect_to(new_user_session_path)
         end
+
+        it "does not display error message when user is redirected to login" do
+          post(:create, params:)
+          expect(flash[:alert]).to be_nil
+        end
       end
     end
 
@@ -158,6 +163,36 @@ module Decidim::Meetings
 
         expect(flash[:notice]).to include("successfully")
         expect(response).to redirect_to(my_meeting_path)
+      end
+    end
+
+    describe "decline_invitation" do
+      let!(:invite) { create(:invite, meeting:, user:) }
+      let(:params) { { meeting_id: meeting.id } }
+
+      before { sign_in user }
+
+      it "declines invitation" do
+        expect do
+          get :decline_invitation, params:
+        end.to change { invite.reload.rejected_at }.from(nil)
+
+        expect(flash[:notice]).to include("successfully")
+        expect(response).to redirect_to(my_meeting_path)
+      end
+
+      context "when user not authenticated" do
+        before { sign_out user }
+
+        it "redirects to login" do
+          get(:decline_invitation, params:)
+          expect(response).to redirect_to(new_user_session_path)
+        end
+
+        it "does not display error message when user is redirected to login" do
+          get(:decline_invitation, params:)
+          expect(flash[:alert]).to be_nil
+        end
       end
     end
   end
