@@ -6,12 +6,11 @@ describe Decidim::Api::BlobsController do
   routes { Decidim::Api::Engine.routes }
 
   let(:organization) { create(:organization) }
-  let(:file) do
-    Rack::Test::UploadedFile.new(
-      Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-      "image/jpeg"
-    )
-  end
+  # `Decidim::Dev.test_file` already returns a `Rack::Test::UploadedFile`. Wrapping
+  # it again would make `original_filename` the name of the temporary copy instead
+  # of the name of the file, which is what the blob is stored with, so the checks
+  # on the stored file name below would never match anything.
+  let(:file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
   let(:params) { { file: } }
 
   before do
@@ -302,6 +301,14 @@ describe Decidim::Api::BlobsController do
 
     include_examples "authorized user examples"
 
+    # The JWT returned by `Decidim::Api::SessionsController` is not bound to any
+    # OAuth application, so there are no granted scopes to check and all of them
+    # are assumed for this authentication method. The scopes can therefore only
+    # restrict the requests authenticated with an OAuth token.
+    it "assumes all the scopes for the credentials" do
+      expect(response).to have_http_status(:ok)
+    end
+
     context "when the api user is not an admin" do
       let(:api_user) { create(:api_user, organization:, api_key:, api_secret:, admin: false) }
 
@@ -319,6 +326,134 @@ describe Decidim::Api::BlobsController do
 
       it "does not store the file" do
         expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
+      end
+    end
+  end
+
+  context "with an OAuth token" do
+    # The logo is not set on the application because one of the shared examples
+    # lowers the maximum file size of the organization below the size of the logo
+    # used by the factory, which would make the application invalid.
+    let(:oauth_application) do
+      create(:oauth_application, organization:, organization_logo: nil, scopes: "user api:read api:write admin:read admin:write")
+    end
+    let(:current_user) { create(:user, :confirmed, :admin, organization:) }
+    # `Decidim::OAuth::TokenGenerator` is the configured access token generator, so
+    # the token of this record is the one the OAuth token endpoint returns. The
+    # granted scopes are the ones stored in the record, which are the ones the
+    # controller reads through `doorkeeper_token`.
+    let(:access_token) do
+      create(:oauth_access_token, application: oauth_application, resource_owner_id: current_user.id, scopes: token_scopes)
+    end
+
+    let(:sign_in_user) { true }
+
+    before do
+      sign_in current_user if sign_in_user
+
+      request.headers["Authorization"] = "Bearer #{access_token.token}" if access_token
+      post :create, params:
+    end
+
+    context "with the administrative read and write scopes" do
+      let(:token_scopes) { "admin:read admin:write" }
+
+      include_examples "authorized user examples"
+    end
+
+    context "with the administrative scopes together with the participant ones" do
+      let(:token_scopes) { "user api:read api:write admin:read admin:write" }
+
+      it "allows uploading a file" do
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context "with only the participant scopes" do
+      let(:token_scopes) { "user api:read api:write" }
+
+      it "responds with HTTP code 403" do
+        expect(response).to have_http_status(:forbidden)
+        expect(response.parsed_body).to eq({ "error" => "insufficient_scope" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
+      end
+    end
+
+    context "with only the administrative read scope" do
+      let(:token_scopes) { "admin:read" }
+
+      it "responds with HTTP code 403" do
+        expect(response).to have_http_status(:forbidden)
+        expect(response.parsed_body).to eq({ "error" => "insufficient_scope" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
+      end
+    end
+
+    context "with only the administrative write scope" do
+      let(:token_scopes) { "admin:write" }
+
+      it "responds with HTTP code 403" do
+        expect(response).to have_http_status(:forbidden)
+        expect(response.parsed_body).to eq({ "error" => "insufficient_scope" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
+      end
+    end
+
+    context "with the participant write scope and the administrative read one" do
+      let(:token_scopes) { "api:read api:write admin:read" }
+
+      it "responds with HTTP code 403" do
+        expect(response).to have_http_status(:forbidden)
+        expect(response.parsed_body).to eq({ "error" => "insufficient_scope" })
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
+      end
+    end
+
+    context "when the user is not an admin" do
+      let(:token_scopes) { "admin:read admin:write" }
+      let(:current_user) { create(:user, :confirmed, organization:) }
+
+      it "responds with HTTP code 403" do
+        expect(response).to have_http_status(:forbidden)
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
+      end
+    end
+
+    context "when the user is not authenticated" do
+      let(:token_scopes) { "admin:read admin:write" }
+      let(:sign_in_user) { false }
+
+      it "responds with HTTP code 401" do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      it "does not store the file" do
+        expect(ActiveStorage::Blob.where(filename: "city.jpeg")).not_to exist
+      end
+    end
+
+    context "when the request is authenticated without a token" do
+      # Without an OAuth application the scopes are not restricted by any client,
+      # so all of them are assumed for the authenticated user.
+      let(:access_token) { nil }
+
+      it "allows uploading a file" do
+        expect(response).to have_http_status(:ok)
       end
     end
   end

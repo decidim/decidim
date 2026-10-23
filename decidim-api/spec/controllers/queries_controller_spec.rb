@@ -119,6 +119,58 @@ module Decidim
             expect(response.parsed_body["errors"].first["message"]).to include("must be a non-empty array of strings")
           end
         end
+
+        context "when the map paths contain array indexes" do
+          let(:operations) do
+            {
+              query: "{ organization { name { translations { locale text } } } }",
+              variables: { input: [nil] }
+            }.to_json
+          end
+
+          it "accepts an index within the bounds of the array" do
+            post :create, params: { operations:, map: { "0" => ["variables.input.0"] }.to_json }.merge("0" => uploaded_file)
+
+            expect(response).to have_http_status(:success)
+            expect(response.parsed_body["data"]).to include("organization")
+          end
+
+          it "returns a client error for an out-of-bounds index in the final segment" do
+            path = "variables.input.1000000000"
+
+            post :create, params: { operations:, map: { "0" => [path] }.to_json }.merge("0" => uploaded_file)
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to include("Array index out of bounds in path: #{path}")
+          end
+
+          it "returns a client error for an out-of-bounds index in an intermediate segment" do
+            path = "variables.input.1000000000.file"
+
+            post :create, params: { operations:, map: { "0" => [path] }.to_json }.merge("0" => uploaded_file)
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to include("Array index out of bounds in path: #{path}")
+          end
+
+          it "returns a client error for a negative index in the final segment" do
+            path = "variables.input.-1"
+
+            post :create, params: { operations:, map: { "0" => [path] }.to_json }.merge("0" => uploaded_file)
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to include("Array index out of bounds in path: #{path}")
+          end
+
+          it "returns a client error for a negative index in an intermediate segment" do
+            path = "variables.input.-1.file"
+
+            post :create, params: { operations:, map: { "0" => [path] }.to_json }.merge("0" => uploaded_file)
+
+            expect(response).to have_http_status(:bad_request)
+            expect(response.parsed_body["errors"].first["message"]).to include("Array index out of bounds in path: #{path}")
+          end
+        end
       end
 
       context "with force sign in enabled" do

@@ -159,7 +159,7 @@ module Decidim
         if parent.is_a?(Array)
           index = segment.to_i
           raise MalformedMultipartError, "Invalid array index in path: #{path}" unless index.to_s == segment
-          raise MalformedMultipartError, "Array index out of bounds in path: #{path}" unless index < parent.length
+          raise MalformedMultipartError, "Array index out of bounds in path: #{path}" unless index >= 0 && index < parent.length
 
           parent[index]
         elsif parent.is_a?(Hash)
@@ -175,6 +175,7 @@ module Decidim
         if parent.is_a?(Array)
           index = key.to_i
           raise MalformedMultipartError, "Invalid array index in path: #{path}" unless index.to_s == key
+          raise MalformedMultipartError, "Array index out of bounds in path: #{path}" unless index >= 0 && index < parent.length
 
           parent[index] = value
         elsif parent.is_a?(Hash)

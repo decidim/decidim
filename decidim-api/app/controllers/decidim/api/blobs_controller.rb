@@ -13,9 +13,18 @@ module Decidim
     # GraphQL API (e.g. by base64 encoding the whole file which may cause issues
     # when the file sizes become larger).
     class BlobsController < Api::ApplicationController
+      include Decidim::Api::RequiredScopes
+
+      # The permission system only checks the role of the user, so the scopes
+      # granted to the OAuth token are checked here. The endpoint is an admin
+      # action, so only the administrative scopes are accepted: a token granted
+      # the participant scopes cannot upload files, even when it has `api:write`.
+      required_scopes "admin:read", "admin:write"
+
       def create
         enforce_permission_to :create, :blob, context
 
+        return render json: { error: :insufficient_scope }, status: :forbidden unless scopes_allowed?
         return render json: { error: :file_not_provided }, status: :unprocessable_content unless file_uploaded?
         return render json: { error: :unallowed_file_extension }, status: :unprocessable_content unless extension_allowlist.any? { |ext| ext == uploaded_file_extension }
         return render json: { error: :unallowed_content_type }, status: :unprocessable_content unless content_type_allowed?
@@ -89,6 +98,14 @@ module Decidim
         else
           render body: nil, status: :unauthorized
         end
+      end
+
+      # Checks the scopes granted to the client. They are the ones of the OAuth
+      # token when there is one; the requests authenticated in another way (the
+      # session or the JWT) are assumed to have all of them, as `api_scopes`
+      # returns in that case.
+      def scopes_allowed?
+        self.class.scope_authorized?(context)
       end
 
       # Both the content type declared by the client and the one detected from
