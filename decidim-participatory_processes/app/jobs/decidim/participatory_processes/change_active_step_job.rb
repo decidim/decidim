@@ -36,14 +36,11 @@ module Decidim
 
       private
 
-      # Since the action is not done by any specific user, we instantiate a new user record
-      # to which we explicitly set the id to 0.
+      # Since the action is not done by any specific user, we log it as a system action.
       def log(step)
-        Decidim::ActionLogger.log(
+        Decidim::ActionLogger.log_system(
           :system_activate,
-          Decidim::User.new(organization: step.organization, id: 0),
           step,
-          nil,
           details: {
             automatic_action: true
           }

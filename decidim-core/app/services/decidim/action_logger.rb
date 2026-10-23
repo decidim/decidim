@@ -23,6 +23,19 @@ module Decidim
       new(action, user, resource, version_id, resource_extra).log!
     end
 
+    # Public: Logs the given `action` performed by the system (i.e. without a
+    # user) on the given `resource`.
+    # Delegates the work to the `log` method.
+    #
+    # action - a String representing the name of the action
+    # resource - the resource on which the action was performed
+    # resource_extra - keyword arguments with resource_extra info to be recorded
+    #
+    # Returns the newly created `Decidim::ActionLog` resource.
+    def self.log_system(action, resource, **resource_extra)
+      log(action, nil, resource, nil, resource_extra)
+    end
+
     # Public: Initializes the instance.
     #
     # action - a String representing the name of the action
@@ -45,8 +58,8 @@ module Decidim
     # Returns the newly created `Decidim::ActionLog` resource.
     def log!
       Decidim::ActionLog.create!(
-        user_id: user.id,
-        user_type: user.class.name,
+        user_id: user&.id,
+        user_type: user&.class&.name,
         organization:,
         action:,
         resource:,
@@ -67,7 +80,7 @@ module Decidim
     attr_reader :action, :user, :resource, :resource_extra, :version_id, :visibility
 
     def organization
-      user.organization
+      user&.organization || participatory_space&.organization || resource.try(:organization)
     end
 
     def component
@@ -114,9 +127,9 @@ module Decidim
           title: title_for(resource)
         }.compact,
         user: {
-          ip: user.current_sign_in_ip,
-          name: user.name,
-          nickname: user.nickname
+          ip: user&.current_sign_in_ip,
+          name: user&.name,
+          nickname: user&.nickname
         }.compact
       }.deep_merge(resource_extra)
     end

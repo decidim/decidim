@@ -250,5 +250,39 @@ describe Decidim::ActionLog do
         expect(subject).to be_a(Decidim::Api::ApiUser)
       end
     end
+
+    context "when there is no user" do
+      let(:action_log) { create(:action_log, user: nil, organization: create(:organization)) }
+
+      it { is_expected.to be_nil }
+    end
+
+    context "when the user ID is blank" do
+      let(:action_log) do
+        create(
+          :action_log,
+          user: nil,
+          user_id: nil,
+          user_type: "Decidim::User",
+          organization: create(:organization)
+        )
+      end
+
+      it { is_expected.to be_nil }
+    end
+
+    context "when the user type is blank" do
+      let(:action_log) do
+        create(
+          :action_log,
+          user: nil,
+          user_id: 1,
+          user_type: nil,
+          organization: create(:organization)
+        )
+      end
+
+      it { is_expected.to be_nil }
+    end
   end
 end

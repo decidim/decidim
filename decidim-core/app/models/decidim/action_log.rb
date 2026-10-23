@@ -202,6 +202,8 @@ module Decidim
     # Lazy loads the `user` association through BatchLoader, can be used
     # as a regular object.
     def user_lazy(cache: true)
+      return if user_id.blank? || user_type.blank?
+
       self.class.lazy_relation(user_id, user_type, cache)
     end
 
