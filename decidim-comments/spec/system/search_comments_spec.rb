@@ -7,7 +7,7 @@ describe "Search comments" do
 
   include_context "with a component"
   let(:manifest_name) { "dummy" }
-  let!(:commentable) { create(:dummy_resource, component:) }
+  let!(:commentable) { create(:dummy_resource, :published, component:) }
   let!(:searchables) { create_list(:comment, 3, commentable:) }
   let!(:term) { "FooBar" }
 
