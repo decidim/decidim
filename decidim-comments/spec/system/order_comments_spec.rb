@@ -27,15 +27,15 @@ describe "Order comments" do
   end
 
   context "when accessing a resource page" do
-    it "\"Older\" value is the default sorting criteria" do
+    it "\"Recent\" value is the default sorting criteria" do
       within ".comments__header" do
         expect(page).to have_css("div.comment-order-by")
-        expect(page).to have_select("order", selected: "Older")
+        expect(page).to have_select("order", selected: "Recent")
       end
 
       within(".comment-threads") do
         first_comment = all("div[id^='comment_']").first
-        expect(first_comment[:id]).to eq("comment_#{oldest_comment.id}")
+        expect(first_comment[:id]).to eq("comment_#{recent_comment.id}")
       end
     end
 
@@ -77,16 +77,16 @@ describe "Order comments" do
       expect(page).to have_select("order", selected: "Most discussed", wait: 5)
     end
 
-    it "user selects \"Recent\" as sorting criteria", :js, :slow do
+    it "user selects \"Older\" as sorting criteria", :js, :slow do
       within ".comment-order-by" do
-        select "Recent", from: "order"
+        select "Older", from: "order"
       end
 
       within(".comment-threads", wait: 5) do
-        expect(page).to have_css("div:first-child#comment_#{recent_comment.id}", wait: 5)
+        expect(page).to have_css("div:first-child#comment_#{oldest_comment.id}", wait: 5)
       end
 
-      expect(page).to have_select("order", selected: "Recent", wait: 5)
+      expect(page).to have_select("order", selected: "Older", wait: 5)
     end
   end
 end
