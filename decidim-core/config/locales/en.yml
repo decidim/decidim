@@ -2287,6 +2287,8 @@ en:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
@@ -2300,7 +2302,9 @@ en:
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      time_of_day_12h: "%I:%M %p"
+      time_of_day_12h_with_time_zone: "%I:%M %p %Z"
+      tooltip: "%d-%m-%Y %I:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Deletions
