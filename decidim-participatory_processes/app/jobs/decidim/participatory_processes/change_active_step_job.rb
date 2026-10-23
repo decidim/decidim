@@ -38,13 +38,7 @@ module Decidim
 
       # Since the action is not done by any specific user, we log it as a system action.
       def log(step)
-        Decidim::ActionLogger.log_system(
-          :system_activate,
-          step,
-          details: {
-            automatic_action: true
-          }
-        )
+        Decidim::ActionLogger.log_system(:system_activate, step)
       end
     end
   end
