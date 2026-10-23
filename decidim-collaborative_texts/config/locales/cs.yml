@@ -71,6 +71,8 @@ cs:
           update_settings:
             invalid: Při aktualizaci dokumentu došlo k chybě.
             success: Dokument byl úspěšně aktualizován.
+        exports:
+          document_suggestions: Návrhy
         index:
           published: Zveřejněno
           unpublished: Zneveřejněno
@@ -83,16 +85,20 @@ cs:
         apply: Použít
         cancel: Zrušit
         consolidate:
+          confirm: Tato akce upevní všechny přijaté návrhy do nové verze dokumentu. Nepřijaté návrhy budou převedeny na novou verzi k dalšímu přezkoumání. Tato akce zachová povolený stav.
           new: Konsolidovat přijaté návrhy
         index: Index
         restore: Obnovit
         rollout:
+          confirm: Tato akce vytvoří nový koncept dokumentu a budete přesměrováni na stránku s úpravami pro konečné úpravy. Současná verze zůstane veřejná a návrhy budou zakázány.
           invalid: Při vytváření nové verze dokumentu (%{errors}) došlo k chybě.
           new: Navrhnout novou verzi
         save: Navrhnout změny
         status:
+          accepting_suggestions: Chcete-li navrhnout změny, vyberte nebo dvakrát klikněte na text, který chcete upravit, pak klikněte na tlačítko 'Navrhnout změny'.
           draft: Tento dokument je v současné době přezkoumáván správci. Návrhy nejsou v tuto chvíli povoleny, ale můžete zobrazit návrhy jiných účastníků.
           not_accepting_suggestions: Návrhy nejsou v tuto chvíli povoleny.
+          selection_active: Výběr je aktivní. Prosím, zrušte aktuální výběr pro vytvoření nového.
         suggestions_count: "%{count} návrhů"
         toggle: Zobrazit/skrýt návrhy
       documents:
