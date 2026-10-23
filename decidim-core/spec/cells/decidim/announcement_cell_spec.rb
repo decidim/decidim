@@ -36,7 +36,7 @@ module Decidim
       it "does not render a close button by default" do
         html = cell("decidim/announcement", announcement, callout_class: "info", icon: "information-line").call
         expect(html).to have_no_css("[data-alert-box]")
-        expect(html).to have_no_css("button.close-button")
+        expect(html).to have_no_button(class: "close-button")
       end
 
       it "does not render an icon when not requested" do
