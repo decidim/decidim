@@ -12,7 +12,7 @@ module Decidim
           enforce_permission_to :reorder, :process_step
           ReorderParticipatoryProcessSteps.call(collection, params[:items_ids]) do
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_process_steps.ordering.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("participatory_process_steps.ordering.error", scope: "decidim.admin")
               redirect_to participatory_process_path(current_participatory_process)
             end
           end
