@@ -281,6 +281,7 @@ fi-pl:
           error: Tapahtui virhe lisätessä ilmoittautumistyyppiä tälle konferenssille.
           success: Ilmoittautumistyyppi lisättiin onnistuneesti tähän konferenssiin.
         destroy:
+          error: Ilmoittautumistyypin poistaminen epäonnistui. Ilmoittautumistyyppejä, joille on kirjattu jo ilmoittautumisia, ei voi poistaa.
           success: Ilmoittautumistyyppi poistettiin onnistuneesti tästä konferenssista.
         edit:
           update: Päivitä
