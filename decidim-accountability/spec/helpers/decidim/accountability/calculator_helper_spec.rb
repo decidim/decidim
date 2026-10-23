@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Accountability
   describe CalculatorHelper do
-    let(:participatory_process) { create(:participatory_process, :with_steps) }
+    let(:participatory_process) { create(:participatory_process, :with_phases) }
     let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
     let(:taxonomy) { create(:taxonomy, :with_parent, organization: current_component.organization) }
     let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization: current_component.organization) }

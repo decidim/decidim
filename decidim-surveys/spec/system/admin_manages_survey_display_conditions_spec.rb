@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages survey display conditions" do
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:component) { create(:surveys_component, participatory_space: participatory_process) }
   let(:survey) { create(:survey, component:, questionnaire: build(:questionnaire)) }
   let(:questionnaire) { survey.questionnaire }

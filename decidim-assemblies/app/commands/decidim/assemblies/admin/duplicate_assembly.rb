@@ -77,7 +77,7 @@ module Decidim
               name: component.name,
               participatory_space: @duplicated_assembly,
               settings: component.settings,
-              step_settings: component.step_settings,
+              phase_settings: component.phase_settings,
               weight: component.weight
             )
             component.manifest.run_hooks(:duplicate, new_component:, old_component: component)

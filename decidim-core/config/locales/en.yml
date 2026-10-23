@@ -566,15 +566,15 @@ en:
             no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
             taxonomy_filters: Select filters for the component
-          step:
+          phase:
             amendment_creation_enabled: Amendment creation enabled
             amendment_promotion_enabled: Amendment promotion enabled
             amendment_reaction_enabled: Amendment reaction enabled
             amendments_visibility: Amendment visibility
             comments_blocked: Comments blocked
-            dummy_step_attribute1: Dummy Step Attribute 1
-            dummy_step_attribute2: Dummy Step Attribute 2
-            dummy_step_translatable_text: Dummy Step Translatable Text
+            dummy_phase_attribute1: Dummy Step Attribute 1
+            dummy_phase_attribute2: Dummy Step Attribute 2
+            dummy_phase_translatable_text: Dummy Step Translatable Text
       pagination:
         page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
     contact: Contact

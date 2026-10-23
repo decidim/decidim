@@ -113,21 +113,21 @@ describe "Participatory Processes" do
         expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
       end
 
-      context "with active steps" do
-        let!(:step) { create(:participatory_process_step, participatory_process:) }
-        let!(:active_step) do
-          create(:participatory_process_step,
+      context "with active phases" do
+        let!(:phase) { create(:participatory_process_phase, participatory_process:) }
+        let!(:active_phase) do
+          create(:participatory_process_phase,
                  :active,
                  participatory_process:,
-                 title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
+                 title: { en: "Active phase", ca: "Fase activa", es: "Fase activa" })
         end
 
-        it "links to the active step" do
+        it "links to the active phase" do
           visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
 
           within "#processes-grid .card__grid", text: translated(participatory_process.title) do
             within ".card__grid-metadata" do
-              expect(page).to have_text("Active step")
+              expect(page).to have_text("Active phase")
             end
           end
         end

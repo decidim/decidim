@@ -178,14 +178,14 @@ module Decidim
         end
       end
 
-      describe "steps" do
-        let!(:step) { create(:participatory_process_step, participatory_process: model) }
+      describe "phases" do
+        let!(:phase) { create(:participatory_process_phase, participatory_process: model) }
 
-        let(:query) { "{ steps { id } }" }
+        let(:query) { "{ phases { id } }" }
 
-        it "returns all the required steps" do
-          step_response = response["steps"].first
-          expect(step_response["id"]).to eq(step.id.to_s)
+        it "returns all the required phases" do
+          phase_response = response["phases"].first
+          expect(phase_response["id"]).to eq(phase.id.to_s)
         end
       end
 

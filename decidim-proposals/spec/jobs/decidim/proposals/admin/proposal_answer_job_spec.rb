@@ -40,7 +40,7 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
       %w(amended amendable component coauthorships).each do |association|
         Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Proposals::Proposal", :association => association
       end
-      %w(steps organization area scope active_step).each do |association|
+      %w(phases organization area scope active_phase).each do |association|
         Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::ParticipatoryProcess", :association => association
       end
       Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::Component", :association => :participatory_space

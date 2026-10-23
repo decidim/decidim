@@ -7,7 +7,7 @@ describe "editing a proposal" do
   let!(:author) { create(:user, :confirmed, organization: component.organization) }
   let(:manifest_name) { "proposals" }
   let!(:scope) { create(:scope, organization:) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:proposal) { create(:proposal, component:, users: [author]) }
   let(:component) do
     create(:proposal_component,

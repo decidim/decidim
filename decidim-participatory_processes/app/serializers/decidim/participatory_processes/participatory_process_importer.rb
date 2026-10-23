@@ -71,20 +71,20 @@ module Decidim
         end
       end
 
-      def import_participatory_process_steps(steps)
-        return if steps.nil?
+      def import_participatory_process_phases(phases)
+        return if phases.nil?
 
-        steps.map do |step_attributes|
+        phases.map do |phase_attributes|
           Decidim.traceability.create!(
-            ParticipatoryProcessStep,
+            ParticipatoryProcessPhase,
             @user,
-            title: step_attributes["title"],
-            description: step_attributes["description"],
-            start_date: step_attributes["start_date"],
-            end_date: step_attributes["end_date"],
+            title: phase_attributes["title"],
+            description: phase_attributes["description"],
+            start_date: phase_attributes["start_date"],
+            end_date: phase_attributes["end_date"],
             participatory_process: @imported_process,
-            active: step_attributes["active"],
-            position: step_attributes["position"]
+            active: phase_attributes["active"],
+            position: phase_attributes["position"]
           )
         end
       end

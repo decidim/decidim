@@ -17,12 +17,12 @@ document.addEventListener("stimulus:load", () => {
 document.addEventListener("turbo:load", () => {
   toggleNav();
 
-  createSortList("#steps tbody", {
+  createSortList("#phases tbody", {
     placeholder: $(
       '<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>'
     )[0],
     onSortUpdate: ($children) => {
-      const sortUrl = $("#steps tbody").data("sort-url");
+      const sortUrl = $("#phases tbody").data("sort-url");
       const order = $children.
         map((index, child) => $(child).data("id")).
         toArray();

@@ -36,10 +36,10 @@ en:
               bar: Bar
               baz: Baz
               foo: Foo
-          step:
+          phase:
             likes_blocked: Likes blocked
             likes_enabled: Likes enabled
-            readonly_step_attribute: Readonly step attribute
+            readonly_phase_attribute: Readonly step attribute
             test_options:
               bar: Bar
               baz: Baz

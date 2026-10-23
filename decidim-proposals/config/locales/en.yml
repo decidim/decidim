@@ -220,7 +220,7 @@ en:
             taxonomy_filters_add: Add filter
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per participant
-          step:
+          phase:
             amendment_creation_enabled: Amendment creation enabled
             amendment_creation_enabled_help: Participant can amend proposals.
             amendment_promotion_enabled: Amendment promotion enabled

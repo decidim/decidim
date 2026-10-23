@@ -36,8 +36,8 @@ describe "Admin manages meetings registration forms" do
 
   def update_component_settings_or_attributes
     component.update!(
-      step_settings: {
-        component.participatory_space.active_step.id => {
+      phase_settings: {
+        component.participatory_space.active_phase.id => {
           allow_responses: true
         }
       }

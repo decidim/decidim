@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Meetings::Admin::MeetingsPollController do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, :admin, organization:) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:component) { create(:meeting_component, participatory_space: participatory_process) }
   let(:meeting) { create(:meeting, component:) }
 
@@ -25,7 +25,7 @@ describe Decidim::Meetings::Admin::MeetingsPollController do
 
   describe "questionnaire scoping" do
     let(:other_org) { create(:organization) }
-    let(:other_process) { create(:participatory_process, :with_steps, organization: other_org) }
+    let(:other_process) { create(:participatory_process, :with_phases, organization: other_org) }
     let(:other_component) { create(:meeting_component, participatory_space: other_process) }
     let(:other_meeting) { create(:meeting, component: other_component) }
 

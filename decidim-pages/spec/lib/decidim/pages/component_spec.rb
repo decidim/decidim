@@ -66,7 +66,7 @@ describe "Pages component" do # rubocop:disable RSpec/DescribeClass
       Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessDuplicateForm.from_params(
         title: { en: "Copied process" },
         slug: "copied-process",
-        duplicate_steps: false,
+        duplicate_phases: false,
         duplicate_components: true
       ).with_context(form_context)
     end

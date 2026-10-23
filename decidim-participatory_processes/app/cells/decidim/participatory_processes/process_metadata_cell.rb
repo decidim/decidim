@@ -5,7 +5,7 @@ require "cell/partial"
 module Decidim
   module ParticipatoryProcesses
     class ProcessMetadataCell < Decidim::CardMetadataCell
-      delegate :active_step, to: :model
+      delegate :active_phase, to: :model
 
       def initialize(*)
         super
@@ -16,14 +16,14 @@ module Decidim
       private
 
       def process_items
-        [progress_item, active_step_item].compact
+        [progress_item, active_phase_item].compact
       end
 
-      def active_step_item
-        return if active_step.blank?
+      def active_phase_item
+        return if active_phase.blank?
 
         {
-          text: translated_attribute(active_step.title),
+          text: translated_attribute(active_phase.title),
           icon: "direction-line"
         }
       end

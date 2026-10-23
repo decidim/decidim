@@ -14,7 +14,7 @@ module Decidim
         mimic :participatory_process
 
         attribute :slug, String
-        attribute :duplicate_steps, Boolean
+        attribute :duplicate_phases, Boolean
         attribute :duplicate_components, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }

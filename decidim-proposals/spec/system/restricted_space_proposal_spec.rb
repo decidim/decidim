@@ -13,7 +13,7 @@ describe "Restricted Space Proposal" do
 
   before do
     switch_to_host(organization.host)
-    component.update!(default_step_settings: { creation_enabled: true })
+    component.update!(default_phase_settings: { creation_enabled: true })
   end
 
   context "when the user is not logged in" do
@@ -70,7 +70,7 @@ describe "Restricted Space Proposal" do
         let!(:proposal) { create(:proposal, :official, :with_votes, component:) }
 
         before do
-          component.default_step_settings = component.default_step_settings.to_h.merge({ votes_enabled: true })
+          component.default_phase_settings = component.default_phase_settings.to_h.merge({ votes_enabled: true })
           component.save!
         end
 
