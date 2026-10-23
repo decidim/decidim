@@ -1,0 +1,2 @@
+<!-- A style sheet whose comment is not terminated, so it extends to the end of the style sheet. The multibyte characters make the byte position of the scanner differ from the length of the string. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><style>éééééééééééééééééééé /*</style><rect width="16" height="16"/></svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- An animation whose list of attribute names is separated by whitespace, assigning
+     references which are resolved against the document itself. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+  <defs><pattern id="paint"><rect width="16" height="16"/></pattern></defs>
+  <image width="16" height="16"><animate attributeNames="href xlink:href" values="#paint;#paint" dur="1s"/></image>
+</svg>
