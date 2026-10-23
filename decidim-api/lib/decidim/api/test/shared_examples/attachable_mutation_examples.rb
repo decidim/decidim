@@ -4,19 +4,15 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
   let!(:attached_to) { model }
   let(:other) { create(:participatory_process, organization: model.organization) }
   let!(:attachments) { create_list(:attachment, 2, attached_to:) }
-  let(:blob) do
-    ActiveStorage::Blob.create_and_upload!(
-      io: File.open(Decidim::Dev.asset("city.jpeg")),
-      filename: "city.jpeg",
-      content_type: "image/jpeg"
-    )
+  let(:uploaded_file) do
+    Rack::Multipart::UploadedFile.new(Decidim::Dev.asset("city.jpeg"), "image/jpeg", filename: "city.jpeg")
   end
   let(:attributes) do
     {
       weight:,
       title:,
       description:,
-      file: { signedId: blob.signed_id }
+      file: uploaded_file
     }
   end
 
@@ -71,8 +67,8 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
   end
 
   describe "#update" do
-    let(:file) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
-    let(:attachment) { create(:attachment, attached_to: model, file:, weight: 999) }
+    let(:attachment_file) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+    let(:attachment) { create(:attachment, attached_to: model, file: attachment_file, weight: 999) }
     let!(:type_class) { Decidim::Core::UpdateAttachmentType }
     let(:description) { generate_localized_title }
     let(:title) { generate_localized_title }
@@ -123,7 +119,6 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
   end
 
   describe "#delete" do
-    let(:file) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     let(:attachment) { attachments.first }
     let!(:type_class) { Decidim::Core::DeleteAttachmentType }
     let(:query) do
@@ -167,7 +162,7 @@ shared_examples_for "creatable attachment" do |supports_collection:|
     expect(attachment.title).to eq(title)
     expect(attachment.description).to eq(description)
     expect(attachment.weight).to eq(weight)
-    expect(attachment.file.blob).to eq(blob)
+    expect(attachment.file.blob.filename).to eq("city.jpeg")
     expect(attachment.attached_to).to eq(model)
     expect(attachment.attachment_collection).to be_nil if supports_collection
   end
@@ -177,7 +172,7 @@ shared_examples_for "creatable attachment" do |supports_collection:|
       {
         title:,
         description:,
-        file: { signedId: blob.signed_id }
+        file: uploaded_file
       }
     end
 
@@ -192,7 +187,7 @@ shared_examples_for "creatable attachment" do |supports_collection:|
       {
         weight:,
         title:,
-        file: { signedId: blob.signed_id }
+        file: uploaded_file
       }
     end
 
@@ -251,7 +246,7 @@ shared_examples_for "updatable attachment" do |supports_collection:|
     expect(attachment.title.except("machine_translations")).to eq(title)
     expect(attachment.description.except("machine_translations")).to eq(description)
     expect(attachment.weight).to eq(weight)
-    expect(attachment.file.blob).to eq(blob)
+    expect(attachment.file.blob.filename).to eq("city.jpeg")
     expect(attachment.attachment_collection).to be_nil if supports_collection
   end
 
@@ -260,7 +255,7 @@ shared_examples_for "updatable attachment" do |supports_collection:|
       {
         title:,
         description:,
-        file: { signedId: blob.signed_id }
+        file: uploaded_file
       }
     end
 
@@ -275,7 +270,7 @@ shared_examples_for "updatable attachment" do |supports_collection:|
     let(:attributes) do
       {
         title:,
-        file: { signedId: blob.signed_id }
+        file: uploaded_file
       }
     end
 
@@ -325,7 +320,7 @@ shared_examples_for "create attachment with collection support" do
         weight:,
         title:,
         description:,
-        file: { signedId: blob.signed_id },
+        file: uploaded_file,
         collection: { id: collection.id }
       }
     end
@@ -351,7 +346,7 @@ shared_examples_for "create attachment with collection support" do
           weight:,
           title:,
           description:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { id: nil }
         }
       end
@@ -368,7 +363,7 @@ shared_examples_for "create attachment with collection support" do
         weight:,
         title:,
         description:,
-        file: { signedId: blob.signed_id },
+        file: uploaded_file,
         collection: { key: collection.key }
       }
     end
@@ -386,7 +381,7 @@ shared_examples_for "create attachment with collection support" do
           weight:,
           title:,
           description:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { key: "foo" }
         }
       end
@@ -410,7 +405,7 @@ shared_examples_for "create attachment with collection support" do
           weight:,
           title:,
           description:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { key: "" }
         }
       end
@@ -426,7 +421,7 @@ shared_examples_for "create attachment with collection support" do
           weight:,
           title:,
           description:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { key: nil }
         }
       end
@@ -444,7 +439,7 @@ shared_examples_for "update attachment with collection support" do
     let(:attributes) do
       {
         title:,
-        file: { signedId: blob.signed_id },
+        file: uploaded_file,
         collection: { id: collection.id }
       }
     end
@@ -459,7 +454,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { id: nil }
         }
       end
@@ -474,7 +469,7 @@ shared_examples_for "update attachment with collection support" do
     let(:attributes) do
       {
         title:,
-        file: { signedId: blob.signed_id },
+        file: uploaded_file,
         collection: { key: collection.key }
       }
     end
@@ -490,7 +485,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { key: "foo" }
         }
       end
@@ -512,7 +507,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { key: "" }
         }
       end
@@ -526,7 +521,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { key: nil }
         }
       end
@@ -542,7 +537,7 @@ shared_examples_for "update attachment with collection support" do
     let(:attributes) do
       {
         title:,
-        file: { signedId: blob.signed_id },
+        file: uploaded_file,
         collection: { key: collection.key }
       }
     end
@@ -557,7 +552,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { key: "foo" }
         }
       end
@@ -571,7 +566,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { key: "" }
         }
       end
@@ -584,7 +579,7 @@ shared_examples_for "update attachment with collection support" do
       let(:attributes) do
         {
           title:,
-          file: { signedId: blob.signed_id },
+          file: uploaded_file,
           collection: { key: nil }
         }
       end

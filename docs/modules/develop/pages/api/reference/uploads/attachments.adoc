@@ -1,45 +1,25 @@
 = API file upload handling
 
-In order to create attachments using the API, you need first to handle the file upload, and after that, you can create the attachment record.
+Files are attached to records in the same request which creates or updates the
+attachment: the `file` input field of `AttachmentAttributes` is an upload, so the
+file has to be sent as `multipart/form-data` following the
+https://github.com/jaydenseric/graphql-multipart-request-spec[GraphQL multipart
+request spec].
 
-The following snippet, will handle the file upload, returning you the uploaded blob together with its `signedId`.
+The file variable must be `null` in the `operations` payload and the uploaded
+file is mapped separately:
 
 [source,bash]
 ----
 curl -X POST https://example.org/api/ \
-  -F 'operations={"query":"mutation ($input: UploadFileInput!) { uploadFile(input: $input) { blob { id filename byteSize signedId checksum } } }","variables":{"input":{"file":null}}}' \
-  -F 'map={"0":["variables.input.file"]}' \
+  -F 'operations={"query":"mutation ($input: CreateAttachmentInput!) { createAttachment(input: $input) { id } }","variables":{"input":{"attributes":{"file":null}}}}' \
+  -F 'map={"0":["variables.input.attributes.file"]}' \
   -F '0=@/path/to/file.jpg'
 ----
 
-Having the `signedId`, you will be able to pass it as the `file.signedId` parameter for the createAttachment mutation, obtaining this way a new attachment record.
-
-[source,json]
-----
-{
-  "componentId": "3",
-  "resultId": "5",
-  "input": {
-    "attributes": {
-      "weight": 1,
-      "title": {
-        "en": "Your english title"
-      },
-      "description": {
-        "en": "Your english description"
-      },
-      "file": {
-        "signedId": "eyJfcmFpbHMiOnsiZGF0YSI6MzI1MjQsInB1ciI6IkFjdGl2ZVN0b3JhZ2U6OkJsb2IifX0=--3f8a2b1c9d0e4f5a6b7c8d9e0f1a2b3c4d5e6f7a"
-      }
-    }
-  }
-}
-
-----
-
-The `signedId` is the value obtained from the file upload.
-
-For additional details feel free to browse associated resources.
+The file is validated before it is stored, and the attachment record is created
+from it. A file which does not pass the checks is rejected with a validation
+error and the blob is not stored.
 
 == Blobs (Handling Files)
 

@@ -3,6 +3,8 @@
 module Decidim
   module Core
     class CreateAttachmentType < Decidim::Api::Types::BaseMutation
+      include Decidim::Core::FileUpload
+
       description "Creates an attachment"
       type Decidim::Core::AttachmentType
 
@@ -41,7 +43,7 @@ module Decidim
         validate_multiple_locales(attributes, :description)
 
         attributes = attributes.to_h.merge(
-          file: attributes.file&.blob&.signed_id,
+          file: attributes.file && create_blob!(attributes.file).signed_id,
           attachment_collection_id: attributes.collection&.id_value
         )
 

@@ -7,6 +7,7 @@ module Decidim
     autoload :ComponentFinderBase, "decidim/api/functions/component_finder_base"
     autoload :ComponentList, "decidim/api/functions/component_list"
     autoload :ComponentListBase, "decidim/api/functions/component_list_base"
+    autoload :FileUpload, "decidim/api/functions/file_upload"
     autoload :NeedsApiFilterAndOrder, "decidim/api/functions/needs_api_filter_and_order"
     autoload :NeedsApiDefaultOrder, "decidim/api/functions/needs_api_default_order"
     autoload :ParticipatorySpaceFinderBase, "decidim/api/functions/participatory_space_finder_base"
@@ -104,6 +105,5 @@ module Decidim
     autoload :AttachmentCollectionAttributes, "decidim/api/attributes/attachment_collection_attributes"
 
     autoload :AttachmentCollectionInputObject, "decidim/api/input_objects/attachment_collection_input_object"
-    autoload :FileInputObject, "decidim/api/input_objects/file_input_object"
   end
 end

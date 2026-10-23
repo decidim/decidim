@@ -3,6 +3,8 @@
 module Decidim
   module Core
     class UpdateAttachmentType < Decidim::Api::Types::BaseMutation
+      include Decidim::Core::FileUpload
+
       description "Updates an attachment"
       type Decidim::Core::AttachmentType
 
@@ -47,7 +49,7 @@ module Decidim
         validate_multiple_locales(attributes, :title)
         validate_multiple_locales(attributes, :description)
 
-        file_attribute = attributes.file&.blob&.signed_id ||
+        file_attribute = (attributes.file && create_blob!(attributes.file).signed_id) ||
                          attachment.file&.blob&.signed_id
 
         attachment_attribute = attributes.collection&.id_value || attachment.attachment_collection&.id
