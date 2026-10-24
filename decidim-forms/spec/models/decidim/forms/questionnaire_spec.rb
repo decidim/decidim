@@ -34,6 +34,12 @@ module Decidim
         expect(questionnaire.questionnaire_for).to eq(questionable)
       end
 
+      describe "#organization" do
+        it "delegates organization to questionnaire_for" do
+          expect(questionnaire.organization).to eq(questionable.organization)
+        end
+      end
+
       describe "#count_participants" do
         it "returns the unique participants number" do
           user1 = create(:user, organization: questionable.organization)
