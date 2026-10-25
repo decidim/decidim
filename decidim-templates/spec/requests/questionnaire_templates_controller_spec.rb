@@ -57,6 +57,18 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
       end
     end
 
+    context "when the user is a process admin" do
+      let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
+      let!(:process_admin_role) { create(:participatory_process_user_role, role: :admin, user:, participatory_process:) }
+
+      it "applies the template" do
+        expect { post(path, params:, headers:) }
+          .to(change { questionnaire.reload.title })
+
+        expect(response).to have_http_status(:found)
+      end
+    end
+
     context "with a protocol-relative url" do
       let(:params) do
         {
@@ -129,6 +141,18 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
     end
 
     context "with own questionnaire" do
+      it "touches the questionnaire" do
+        expect { post(path, params:, headers:) }
+          .to(change { questionnaire.reload.updated_at })
+
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "when the user is a process admin" do
+      let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
+      let!(:process_admin_role) { create(:participatory_process_user_role, role: :admin, user:, participatory_process:) }
+
       it "touches the questionnaire" do
         expect { post(path, params:, headers:) }
           .to(change { questionnaire.reload.updated_at })

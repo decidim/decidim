@@ -55,7 +55,7 @@ describe "Data consent" do
     it "shows cookie" do
       expect(page).to have_no_text("decidim-consent")
       expect(page).to have_no_text("Stores information about the cookies allowed by the user on this website")
-      find("[data-id='essential']").find("[id^='accordion-trigger']").click
+      find("[data-id='essential'] [id^='accordion-trigger']").click
       expect(page).to have_text("decidim-consent")
       expect(page).to have_text("Stores information about the cookies allowed by the user on this website")
     end

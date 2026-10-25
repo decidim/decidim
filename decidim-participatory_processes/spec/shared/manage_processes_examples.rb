@@ -146,7 +146,7 @@ shared_examples "manage processes examples" do
     it "publishes the process" do
       within("tr", text: translated_attribute(participatory_process.title)) do
         find("button[data-controller='dropdown']").click
-        find("a", text: "Publish", visible: true).click
+        find("a", text: "Publish", visible: :visible).click
       end
 
       expect(page).to have_callout("Participatory process successfully published.")
@@ -173,7 +173,7 @@ shared_examples "manage processes examples" do
     it "unpublishes the process" do
       within("tr", text: translated_attribute(participatory_process.title)) do
         find("button[data-controller='dropdown']").click
-        find("a", text: "Unpublish", visible: true).click
+        find("a", text: "Unpublish", visible: :visible).click
       end
 
       expect(page).to have_callout("Participatory process successfully unpublished.")
