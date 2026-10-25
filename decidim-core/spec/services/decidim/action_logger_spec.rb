@@ -28,26 +28,8 @@ describe Decidim::ActionLogger do
     context "when the user is nil" do
       let(:user) { nil }
 
-      it "saves the action log without a user" do
-        subject
-        expect(action_log.user_id).to be_nil
-        expect(action_log.user_type).to be_nil
-        expect(action_log.user).to be_nil
-        expect(action_log.extra["user"]).to eq({})
-      end
-
-      it "derives the organization from the participatory space" do
-        subject
-        expect(action_log.organization).to eq(participatory_space.organization)
-      end
-
-      context "when the action is on a participatory space" do
-        let(:resource) { participatory_space }
-
-        it "derives the organization from the resource" do
-          subject
-          expect(action_log.organization).to eq(resource.organization)
-        end
+      it "raises an error" do
+        expect { subject }.to raise_error(ArgumentError, /requires a user/)
       end
     end
 
@@ -218,6 +200,22 @@ describe Decidim::ActionLogger do
           subject
           expect(action_log.version_id).to be_nil
           expect(action_log.extra["a"]).to eq(1)
+        end
+      end
+
+      context "when the resource is a component resource" do
+        it "derives the organization from the participatory space" do
+          subject
+          expect(action_log.organization).to eq(participatory_space.organization)
+        end
+      end
+
+      context "when the action is on a participatory space" do
+        let(:resource) { participatory_space }
+
+        it "derives the organization from the resource" do
+          subject
+          expect(action_log.organization).to eq(resource.organization)
         end
       end
     end

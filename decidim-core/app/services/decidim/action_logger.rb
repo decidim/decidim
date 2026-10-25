@@ -13,19 +13,23 @@ module Decidim
     # Delegates the work to the instance method.
     #
     # action - a String representing the name of the action
-    # user - the Decidim::User that performed the action
+    # user - the Decidim::User that performed the action (required)
     # resource - the resource on which the action was performed
     # version_id - the ID of the `PaperTrail::Version` that was created on that action
     # resource_extra - a Hash with resource_extra info to be recorded
     #
+    # Raises an ArgumentError if the user is nil. Use `log_system` for actions
+    # performed by the system.
+    #
     # Returns the newly created `Decidim::ActionLog` resource.
     def self.log(action, user, resource, version_id, resource_extra = {})
+      raise ArgumentError, "ActionLogger.log requires a user. Use ActionLogger.log_system for actions performed by the system." if user.nil?
+
       new(action, user, resource, version_id, resource_extra).log!
     end
 
     # Public: Logs the given `action` performed by the system (i.e. without a
     # user) on the given `resource`.
-    # Delegates the work to the `log` method.
     #
     # action - a String representing the name of the action
     # resource - the resource on which the action was performed
@@ -33,7 +37,7 @@ module Decidim
     #
     # Returns the newly created `Decidim::ActionLog` resource.
     def self.log_system(action, resource, **resource_extra)
-      log(action, nil, resource, nil, resource_extra)
+      new(action, nil, resource, nil, resource_extra).log!
     end
 
     # Public: Initializes the instance.
