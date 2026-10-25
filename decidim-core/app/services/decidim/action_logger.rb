@@ -34,7 +34,7 @@ module Decidim
     def self.log(action, user, resource, version_id, resource_extra = {})
       raise ArgumentError, "ActionLogger.log requires a user. Use ActionLogger.log_system for actions performed by the system." if user.nil?
 
-      new(action, user, resource, version_id, resource_extra).log!
+      new(action, user, resource, version_id, resource_extra).send(:log!)
     end
 
     # Logs the given `action` performed by the system (i.e. without a user) on
@@ -49,7 +49,7 @@ module Decidim
     #
     # @return [Decidim::ActionLog] the newly created action log
     def self.log_system(action, resource, **resource_extra)
-      new(action, nil, resource, nil, resource_extra).log!
+      new(action, nil, resource, nil, resource_extra).send(:log!)
     end
 
     # Initializes the instance.
@@ -72,6 +72,8 @@ module Decidim
       @resource_extra = resource_extra
       @visibility = resource_extra.delete(:visibility).presence || "admin-only"
     end
+
+    private
 
     # Logs the given `action` by the given `user` on the given `resource`.
     #
@@ -96,8 +98,6 @@ module Decidim
         visibility:
       )
     end
-
-    private
 
     # The values given to the logger when it was initialized.
     attr_reader :action, :user, :resource, :resource_extra, :version_id, :visibility

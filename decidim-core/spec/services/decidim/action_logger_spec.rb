@@ -15,6 +15,12 @@ describe Decidim::ActionLogger do
   let(:action) { "create" }
   let(:action_log) { Decidim::ActionLog.last }
 
+  describe "#log!" do
+    it "is a private method" do
+      expect(described_class.private_instance_methods).to include(:log!)
+    end
+  end
+
   describe "#log" do
     it "saves the user info" do
       subject
