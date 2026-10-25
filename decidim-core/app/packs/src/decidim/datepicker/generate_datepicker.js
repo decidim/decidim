@@ -73,8 +73,8 @@ export default function generateDatePicker(input, row, formats) {
   date.addEventListener("paste", (event) => {
     event.preventDefault();
     const value = event.clipboardData.getData("text/plain");
-    if ((/^[0-9/.-]+$/).test(value)) {
-      date.value = value.replaceAll(/[/.-]/g, formats.separator);
+    if ((/^([0-9]+[^0-9]){2}[0-9]+.*$/).test(value)) {
+      date.value = value.replaceAll(/[^0-9]/g, formats.separator);
 
       if (input.type === "date") {
         input.value = `${formatDate(date.value, formats)}`;
@@ -95,7 +95,7 @@ export default function generateDatePicker(input, row, formats) {
     };
 
     if (date.value.length === 10) {
-      date.value = date.value.replaceAll(/[/.-]/g, formats.separator);
+      date.value = date.value.replaceAll(/[^0-9]/g, formats.separator);
       prevDate = dateToPicker(date.value, formats);
       if (input.type === "date") {
         input.value = `${formatDate(date.value, formats)}`;
