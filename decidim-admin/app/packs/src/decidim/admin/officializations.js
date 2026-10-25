@@ -1,3 +1,5 @@
+import { getMessages } from "src/decidim/refactor/moved/i18n";
+
 document.addEventListener("turbo:load", () => {
   const $modal = $("#show-email-modal");
 
@@ -20,11 +22,18 @@ document.addEventListener("turbo:load", () => {
 
   /* eslint-disable */
   async function getUserEmail(url) {
-    let response = await fetch(url);
-    if (response.ok) {
+    let response = await fetch(url, { redirect: "manual" });
+    if (response.type === "opaqueredirect") {
+      response = { redirectError: true };
+    }
+
+    if (response && response.ok) {
       let userEmail = await response.text();
       $("#user_email").html(userEmail);
       $button.hide()
+    } else if (response && response.redirectError) {
+      const message = getMessages().unauthorized || "Unauthorized.";
+      $("#user_email").text(message);
     } else {
       console.log(`Error-HTTP: " + ${response.status}`);
     }

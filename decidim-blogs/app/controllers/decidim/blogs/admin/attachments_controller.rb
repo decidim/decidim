@@ -9,6 +9,8 @@ module Decidim
       class AttachmentsController < Decidim::Blogs::Admin::ApplicationController
         include Decidim::Admin::Concerns::HasAttachments
 
+        protected
+
         def after_destroy_path
           post_attachments_path
         end

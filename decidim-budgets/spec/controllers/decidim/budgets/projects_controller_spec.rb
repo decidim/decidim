@@ -30,6 +30,24 @@ module Decidim
           expect(subject.send(:all_geocoded_projects)).to match_array(geocoded_projects)
         end
       end
+
+      describe "GET show" do
+        let(:component) { create(:budgets_component) }
+        let(:project) { create(:project, budget:) }
+
+        context "when the project is visible" do
+          it "renders the project" do
+            get :show, params: { budget_id: budget.id, id: project.id }
+            expect(response).to have_http_status(:ok)
+          end
+        end
+
+        context "when the project does not exist" do
+          it "returns a 404 status" do
+            expect { get :show, params: { budget_id: budget.id, id: "non-existent" } }.to raise_error(ActionController::RoutingError)
+          end
+        end
+      end
     end
   end
 end

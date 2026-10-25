@@ -41,7 +41,7 @@ module Decidim
             text: t("activemodel.attributes.result.subresults"),
             icon: "briefcase-2-line",
             method: :cell,
-            args: ["decidim/accountability/results", result.children]
+            args: ["decidim/accountability/results", result.children.includes(:component, :taxonomies)]
           }
         ] + attachments_tab_panel_items(result)
       end

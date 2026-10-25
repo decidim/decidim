@@ -13,6 +13,8 @@ module Decidim
     prepend_before_action :skip_timeout, only: :seconds_until_timeout
 
     def seconds_until_timeout
+      enforce_permission_to :read, :timeout
+
       time_remaining = current_user ? Decidim.config.expire_session_after - (Time.current - Time.zone.at(user_session["last_request_at"])) : 0
       respond_to do |format|
         format.json { render json: { seconds_remaining: time_remaining.to_i }, status: :ok }
@@ -21,6 +23,8 @@ module Decidim
 
     # If user wants to continue session after inactivity warning.
     def heartbeat
+      enforce_permission_to :read, :timeout
+
       respond_to do |format|
         format.js
       end

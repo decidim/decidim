@@ -88,7 +88,7 @@ describe "Accessibility tool" do
     within ".decidim-accessibility-badge .decidim-accessibility-info" do
       expect(page).to have_text("4")
     end
-    expect(page).to have_no_selector(".decidim-accessibility-report")
+    expect(page).to have_no_css(".decidim-accessibility-report")
 
     find(".decidim-accessibility-badge").click
     expect(page).to have_css(".decidim-accessibility-report")
@@ -121,7 +121,7 @@ describe "Accessibility tool" do
       within ".decidim-accessibility-badge .decidim-accessibility-info" do
         expect(page).to have_css("svg use[href$='#ri-check-fill']")
       end
-      expect(page).to have_no_selector(".decidim-accessibility-report")
+      expect(page).to have_no_css(".decidim-accessibility-report")
 
       find(".decidim-accessibility-badge").click
       expect(page).to have_css(".decidim-accessibility-report")

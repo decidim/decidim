@@ -9,6 +9,8 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
         include Decidim::Admin::ParticipatorySpace::Concerns::HasMembersCsvImport
 
+        protected
+
         def after_import_path
           members_path(current_participatory_process)
         end
