@@ -16,6 +16,7 @@ class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
   end
 
   def up
+    assign_tokens_to_registered_participants
     report_ambiguous_groups
 
     questionnaire_ids_to_backfill.each_slice(100) do |ids|
@@ -40,6 +41,18 @@ class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
   def questionnaire_ids_to_backfill
     Response.where(decidim_submission_id: nil, decidim_questionnaire_id: Questionnaire.select(:id))
             .order(:decidim_questionnaire_id).distinct.pluck(:decidim_questionnaire_id)
+  end
+
+  def assign_tokens_to_registered_participants
+    user_ids = Response.where(decidim_submission_id: nil, session_token: "").where.not(decidim_user_id: nil).distinct.pluck(:decidim_user_id)
+    user_ids.each do |user_id|
+      Response.where(decidim_submission_id: nil, session_token: "", decidim_user_id: user_id).update_all(session_token: token_for(user_id)) # rubocop:disable Rails/SkipsModelValidations
+    end
+    say "#{user_ids.size} registered participants without a session token got one"
+  end
+
+  def token_for(user_id)
+    Digest::SHA256.hexdigest("#{user_id}-#{Rails.application.secret_key_base}")
   end
 
   def report_ambiguous_groups

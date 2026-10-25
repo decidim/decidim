@@ -56,6 +56,20 @@ describe BackfillDecidimFormsSubmissions do
       expect(migrator).to have_received(:say).with(/\A1 response groups/)
     end
 
+    it "gives each registered participant with an empty token a submission of their own" do
+      participants = create_list(:user, 2, organization: user.organization)
+      Decidim::Forms::Response.insert_all(participants.map { |participant| legacy_row(decidim_question_id: questions[0].id, decidim_user_id: participant.id, session_token: "") }) # rubocop:disable Rails/SkipsModelValidations
+
+      migrator.migrate(:up)
+
+      participants.each do |participant|
+        submission = questionnaire.submissions.find_by(session_token: Digest::SHA256.hexdigest("#{participant.id}-#{Rails.application.secret_key_base}"))
+        expect(submission.user).to eq(participant)
+        expect(submission.responses.count).to eq(1)
+      end
+      expect(questionnaire.submissions.find_by(session_token: "").responses.count).to eq(2)
+    end
+
     it "keeps the same session token in different questionnaires apart" do
       Decidim::Forms::Response.insert_all([legacy_row(decidim_questionnaire_id: other_questionnaire.id, decidim_question_id: other_questionnaire.questions.first.id)]) # rubocop:disable Rails/SkipsModelValidations
 

@@ -7,6 +7,11 @@ namespace :decidim_forms do
       orphans = Decidim::Forms::Response.where(decidim_submission_id: nil, decidim_questionnaire_id: Decidim::Forms::Questionnaire.select(:id))
       puts "#{orphans.count} responses without a submission found"
 
+      orphans.where(session_token: "").where.not(decidim_user_id: nil).distinct.pluck(:decidim_user_id).each do |user_id|
+        token = Digest::SHA256.hexdigest("#{user_id}-#{Rails.application.secret_key_base}")
+        orphans.where(session_token: "", decidim_user_id: user_id).update_all(session_token: token) # rubocop:disable Rails/SkipsModelValidations
+      end
+
       orphans.distinct.pluck(:decidim_questionnaire_id, :session_token).each do |questionnaire_id, session_token|
         rows = orphans.where(decidim_questionnaire_id: questionnaire_id, session_token:)
 

@@ -29,6 +29,15 @@ describe "rake decidim_forms:upgrade:fix_orphan_responses", type: :task do
     expect(Decidim::Forms::Response.where(decidim_submission_id: nil)).not_to exist
   end
 
+  it "gives a registered participant with an empty token a submission of their own" do
+    Decidim::Forms::Response.insert_all([orphan_rows.first.merge(decidim_question_id: questions[2].id, session_token: "")]) # rubocop:disable Rails/SkipsModelValidations
+
+    task.execute
+
+    token = Digest::SHA256.hexdigest("#{user.id}-#{Rails.application.secret_key_base}")
+    expect(questionnaire.submissions.find_by(session_token: token).responses.count).to eq(1)
+  end
+
   it "changes nothing on a second run" do
     task.execute
 
