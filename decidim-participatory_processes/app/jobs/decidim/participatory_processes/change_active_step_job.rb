@@ -29,8 +29,15 @@ module Decidim
 
       # Activates the given step and deactivates the previous one in a single
       # transaction, so the log is always consistent with the phase changes.
+      # The target step is locked and reloaded inside the transaction so
+      # concurrent executions cannot log the same phase change twice: the first
+      # one performs the transition, the rest see the step as already active.
       def activate_step(step, previous_step)
         Decidim::ParticipatoryProcessStep.transaction do
+          step.lock!
+
+          next if step.active?
+
           previous_step&.update!(active: false)
           step.update!(active: true)
           log(step)

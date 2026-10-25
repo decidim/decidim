@@ -344,5 +344,37 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         end
       end
     end
+
+    describe "when the step has already been activated by a concurrent execution" do
+      let!(:previous_step) do
+        create(
+          :participatory_process_step,
+          participatory_process:,
+          start_date: Time.zone.local(2022, 3, 10, 10, 0, 0),
+          end_date: Time.zone.local(2022, 3, 14, 10, 59, 59)
+        )
+      end
+      let!(:step) do
+        create(
+          :participatory_process_step,
+          participatory_process:,
+          start_date: Time.zone.local(2022, 3, 15, 11, 0, 0),
+          end_date: Time.zone.local(2022, 3, 20, 20, 0, 0)
+        )
+      end
+
+      it "reloads the step and does not log the phase change again" do
+        expect(step).not_to be_active
+
+        # Simulate another execution activating the step after this one loaded it
+        Decidim::ParticipatoryProcessStep.find(step.id).update!(active: true)
+
+        expect do
+          described_class.new.send(:activate_step, step, previous_step)
+        end.not_to change(Decidim::ActionLog, :count)
+
+        expect(step).to be_active
+      end
+    end
   end
 end
