@@ -24,6 +24,7 @@ module Decidim
 
         def show
           enforce_permission_to(:read, :proposal, proposal:)
+
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(Admin::ProposalAnswerForm).from_model(proposal)
         end

@@ -43,6 +43,7 @@ module Decidim
 
         def update_multiple_answers
           enforce_permission_to(:read, :component, component: current_component)
+
           valid_proposals = []
           failed_proposals = []
           proposals.each do |proposal|

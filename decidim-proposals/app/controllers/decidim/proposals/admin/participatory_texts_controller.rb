@@ -10,6 +10,7 @@ module Decidim
 
         def index
           enforce_permission_to :manage, :participatory_texts
+
           @drafts = Proposal.where(component: current_component).drafts.order(:position)
           @preview_form = form(Admin::PreviewParticipatoryTextForm).instance
           @preview_form.from_models(@drafts)

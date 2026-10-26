@@ -19,11 +19,13 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :initiative, initiative: resource
+
           super
         end
 
         def update
           enforce_permission_to :update, :initiative, initiative: resource
+
           super
         end
 

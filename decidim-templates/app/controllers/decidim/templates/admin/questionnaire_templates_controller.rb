@@ -111,6 +111,7 @@ module Decidim
         def apply
           questionnaire = find_questionnaire(params[:questionnaire_id])
           enforce_permission_to :apply, :questionnaire_template, questionnaire:, component: questionnaire_component(questionnaire)
+
           template = collection.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
 
           if questionnaire.blank?
@@ -132,6 +133,7 @@ module Decidim
 
         def preview
           enforce_permission_to :preview, :questionnaire_template
+
           respond_to do |format|
             format.js do
               @template = template

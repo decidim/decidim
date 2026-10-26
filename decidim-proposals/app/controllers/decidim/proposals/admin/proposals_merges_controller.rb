@@ -9,6 +9,7 @@ module Decidim
 
         def new
           enforce_permission_to :merge, :proposals
+
           @form = form(Admin::ProposalsMergeForm).from_params(
             params.merge(attachment: form(AttachmentForm).from_params({}))
           )

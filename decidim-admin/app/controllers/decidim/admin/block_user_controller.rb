@@ -58,6 +58,7 @@ module Decidim
 
       def bulk_create
         enforce_permission_to :block, :admin_user
+
         @form = form(BlockUsersForm).from_params(params)
 
         Admin::BulkBlockUsers.call(@form) do
@@ -75,6 +76,7 @@ module Decidim
 
       def bulk_destroy
         enforce_permission_to :block, :admin_user
+
         Admin::BulkUnblockUsers.call(blocked_users, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("officializations.bulk_action.unblock.success", scope: "decidim.admin")
