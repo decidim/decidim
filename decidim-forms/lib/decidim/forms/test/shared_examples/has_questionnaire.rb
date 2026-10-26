@@ -161,8 +161,7 @@ shared_examples_for "has questionnaire" do
 
       fill_in question.body["en"], with: "My first response"
 
-      click_on translated_attribute(component.name)
-      dismiss_confirm
+      dismiss_confirm { click_on translated_attribute(component.name) }
 
       expect(page).to have_field(question.body["en"], with: "My first response")
     end
@@ -173,8 +172,7 @@ shared_examples_for "has questionnaire" do
 
       fill_in question.body["en"], with: "My first response"
 
-      click_on translated_attribute(component.name)
-      accept_confirm
+      accept_confirm { click_on translated_attribute(component.name) }
 
       expect(page).to have_no_field(question.body["en"])
     end

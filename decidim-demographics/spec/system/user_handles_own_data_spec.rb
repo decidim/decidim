@@ -110,8 +110,7 @@ describe "user submits demographic data" do
     it "keeps the response when the confirmation is dismissed" do
       fill_in translated(question.body), with: "My first response"
 
-      click_on "My data", match: :first
-      dismiss_confirm
+      dismiss_confirm { click_on "My data", match: :first }
 
       expect(page).to have_field(translated(question.body), with: "My first response")
     end
@@ -119,8 +118,7 @@ describe "user submits demographic data" do
     it "leaves the questionnaire when the confirmation is accepted" do
       fill_in translated(question.body), with: "My first response"
 
-      click_on "My data", match: :first
-      accept_confirm
+      accept_confirm { click_on "My data", match: :first }
 
       expect(page).to have_no_field(translated(question.body))
     end
