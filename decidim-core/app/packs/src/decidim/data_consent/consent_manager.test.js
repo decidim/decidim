@@ -1,4 +1,5 @@
 /* global jest */
+/* eslint max-lines: ["error", 350] */
 
 import Cookies from "js-cookie";
 import ConsentManager from "src/decidim/data_consent/consent_manager";
@@ -11,11 +12,9 @@ jest.mock("js-cookie", () => {
   return {
     // ...originalModule,
     cookieStorage: {},
-    get: jest.fn(originalModule.get),
     set: function (name, value, options) {
       this.cookieStorage[name] = originalModule.set(name, value, options);
-    },
-    remove: jest.fn(originalModule.remove)
+    }
   };
 });
 
@@ -212,6 +211,8 @@ describe("ConsentManager", () => {
   beforeEach(() => {
     window.location.href = "https://decidim.dev/";
     Cookies.cookieStorage = {};
+    document.cookie = "decidim-consent=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    document.cookie = "decidim-consent=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.decidim.dev";
 
     document.body.innerHTML = dialogContent + modalContent + cookieWarningContent;
 
@@ -239,7 +240,7 @@ describe("ConsentManager", () => {
       });
 
       it("sets the cookie with the correct value", () => {
-        expect(cookie.value).toEqual("{%22foo%22:%22bar%22}");
+        expect(cookie.value).toEqual("{%22foo%22:%22bar%22%2C%22_version%22:1}");
       });
 
       it("sets the cookie with the correct expiry", () => {
@@ -274,27 +275,52 @@ describe("ConsentManager", () => {
   });
 
   describe("when the consent cookie was previously stored as a domain cookie", () => {
-    beforeEach(() => {
-      window.location.href = "https://test.decidim.dev/";
-      Cookies.get.mockClear();
-      Cookies.remove.mockClear();
+    const legacyCookie = `decidim-consent=${encodeURIComponent(JSON.stringify({ essential: true, analytics: true }))}`;
+    const versionedCookie = `decidim-consent=${encodeURIComponent(JSON.stringify({ essential: true, preferences: true, _version: 1 }))}`;
+    let cookieHeader = "";
+
+    const mockCookies = (header) => {
+      cookieHeader = header;
+      Reflect.defineProperty(document, "cookie", {
+        configurable: true,
+        get: () => cookieHeader,
+        set: (cookie) => {
+          cookieHeader = `${cookieHeader}; ${cookie}`;
+        }
+      });
+    };
+
+    const createManager = () => {
       const modal = document.querySelector("#dc-modal");
       const categories = [...modal.querySelectorAll(".category-wrapper")].map((el) => el.dataset.id);
-      manager = new ConsentManager({
+      return new ConsentManager({
         modal: modal,
         categories: categories,
         cookieName: "decidim-consent",
         warningElement: document.querySelector("[data-dataconsent-warning]")
       });
+    };
+
+    beforeEach(() => {
+      window.location.href = "https://test.decidim.dev/";
     });
-    it("retires the cookie on the current host and its ancestor domains", () => {
-      const removedDomains = Cookies.remove.mock.calls.map(([, options]) => options.domain);
-      expect(removedDomains).toContain("test.decidim.dev");
-      expect(removedDomains).toContain("decidim.dev");
-      expect(removedDomains).not.toContain("dev");
+
+    afterEach(() => {
+      Reflect.deleteProperty(document, "cookie");
     });
-    it("retires the legacy cookie before reading the stored consent", () => {
-      expect(Cookies.remove.mock.invocationCallOrder[0]).toBeLessThan(Cookies.get.mock.invocationCallOrder[0]);
+
+    it("does not adopt a legacy cookie and leaves it in place", () => {
+      mockCookies(`${legacyCookie}; path=/; domain=.decidim.dev`);
+      manager = createManager();
+      expect(manager.getState()).toEqual({});
+      expect(document.cookie).toContain(legacyCookie);
+    });
+
+    it("trusts the versioned cookie when both are present and leaves the legacy one in place", () => {
+      mockCookies(`${legacyCookie}; path=/; domain=.decidim.dev; ${versionedCookie}; path=/`);
+      manager = createManager();
+      expect(manager.getState()).toEqual({ essential: true, preferences: true });
+      expect(document.cookie).toContain(legacyCookie);
     });
   });
 });

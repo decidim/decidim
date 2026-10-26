@@ -1,5 +1,7 @@
 import Cookies from "js-cookie";
 
+const COOKIE_VERSION = 1;
+
 class ConsentManager {
   // Options should contain the following keys:
   // - modal - HTML element of the data consent modal (e.g. "<div id="dc-modal">Foo bar</div>")
@@ -10,37 +12,56 @@ class ConsentManager {
     this.modal = options.modal;
     this.categories = options.categories;
     this.cookieName = options.cookieName;
-    this.retireLegacyCookie();
-    this.cookie = Cookies.get(this.cookieName);
     this.warningElement = options.warningElement;
-    if (this.cookie) {
-      this.updateState(JSON.parse(this.cookie));
+
+    const cookie = this.getVersionedCookie();
+    if (cookie) {
+      this.updateState(cookie);
     } else {
       this.updateState({});
     }
   }
 
-  // Older versions wrote this cookie with an explicit `domain` attribute, so
-  // it was a domain cookie shared with every subdomain. Remove such cookies
-  // from this host and its ancestors before reading, otherwise stale consent
-  // leaks to hosts where the visitor never made a choice.
-  retireLegacyCookie() {
-    const { hostname } = window.location;
-    if (!hostname || !hostname.includes(".") || (/^[\d.]+$/).test(hostname)) {
-      return;
+  // Older versions wrote unversioned values (sometimes with an explicit
+  // `domain` attribute shared with every subdomain). Scan every cookie with
+  // this name and only trust the current version, leaving legacy values in
+  // place instead of adopting or removing them.
+  getVersionedCookie() {
+    const entries = document.cookie
+      ? document.cookie.split("; ")
+      : [];
+
+    for (const entry of entries) {
+      const cookie = this.parseCookieEntry(entry);
+      if (cookie && cookie.name === this.cookieName && cookie.value && cookie.value._version === COOKIE_VERSION) {
+        const state = { ...cookie.value };
+        Reflect.deleteProperty(state, "_version");
+        return state;
+      }
     }
 
-    const labels = hostname.split(".");
-    labels.slice(0, -1).forEach((part, index) => {
-      const domain = labels.slice(index).join(".");
-      Cookies.remove(this.cookieName, { path: "/", domain });
-      Cookies.remove(this.cookieName, { path: "/", domain: `.${domain}` });
-    });
+    return null;
+  }
+
+  parseCookieEntry(entry) {
+    const separatorIndex = entry.indexOf("=");
+    if (separatorIndex === -1) {
+      return null;
+    }
+
+    try {
+      return {
+        name: decodeURIComponent(entry.slice(0, separatorIndex)),
+        value: JSON.parse(decodeURIComponent(entry.slice(separatorIndex + 1)))
+      };
+    } catch {
+      return null;
+    }
   }
 
   updateState(newState) {
     this.state = newState;
-    Cookies.set(this.cookieName, JSON.stringify(this.state), {
+    Cookies.set(this.cookieName, JSON.stringify({ ...this.state, _version: COOKIE_VERSION }), {
       sameSite: "Lax",
       expires: 365,
       secure: window.location.protocol === "https:"

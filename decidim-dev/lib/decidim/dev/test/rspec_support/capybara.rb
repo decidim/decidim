@@ -207,7 +207,7 @@ RSpec.configure do |config|
         "Network.setCookie",
         domain:,
         name: Decidim.consent_cookie_name,
-        value: { essential: true }.to_json,
+        value: { essential: true, _version: 1 }.to_json,
         path: "/",
         expires: 1.day.from_now.to_i,
         same_site: "Lax"

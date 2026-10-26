@@ -66,7 +66,7 @@ describe "Social share button" do
         "Network.setCookie",
         domain: resource.organization.host,
         name: Decidim.consent_cookie_name,
-        value: { essential: true }.to_json,
+        value: { essential: true, _version: 1 }.to_json,
         path: "/"
       )
     end

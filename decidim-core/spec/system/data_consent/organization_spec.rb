@@ -70,11 +70,11 @@ describe "Data consent within organization" do
       expect(page).to have_text("Information about the cookies used on the website")
     end
 
-    it "retires the legacy domain cookie" do
+    it "leaves the legacy domain cookie in place" do
       consent_cookies = page.driver.browser.manage.all_cookies.select do |stored|
         stored[:name] == Decidim.consent_cookie_name
       end
-      expect(consent_cookies.map { |stored| stored[:domain] }).not_to include(".#{organization.host}")
+      expect(consent_cookies.map { |stored| stored[:domain] }).to include(".#{organization.host}")
     end
   end
 
