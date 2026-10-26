@@ -57,7 +57,7 @@ describe "Account" do
 
         within ".upload-modal" do
           click_on "Remove"
-          input_element = find("input[type='file']", visible: :all)
+          input_element = find_field(type: "file", visible: :all)
           input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
 
           expect(page).to have_text("File resolution is too large", count: 1)
@@ -409,7 +409,7 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).to have_no_selector("[data-push-notifications-container]")
+        expect(page).to have_no_css("[data-push-notifications-container]")
       end
     end
 
@@ -423,7 +423,7 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).to have_no_selector("[data-push-notifications-container]")
+        expect(page).to have_no_css("[data-push-notifications-container]")
       end
     end
   end

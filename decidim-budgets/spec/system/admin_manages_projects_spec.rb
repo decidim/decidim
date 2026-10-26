@@ -183,7 +183,7 @@ describe "Admin manages projects" do
 
       filename = attachment.file.blob.filename.to_s
       within ".upload-modal" do
-        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(filename))
+        find_field(type: "file", visible: :all).attach_file(Decidim::Dev.asset(filename))
         within "li[data-filename='#{filename}']:not([data-attachment-id])" do
           expect(page).to have_css("progress[value='100']")
         end

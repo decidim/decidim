@@ -389,22 +389,18 @@ describe "Amend Proposal", versioning: true do
         end
 
         context "when the user clicks on the promote button" do
-          before do
-            click_on "Promote"
-          end
-
           it "is shown the alert text" do
-            expect(accept_confirm).to eq("Are you sure you want to promote this emendation?")
+            expect(accept_confirm { click_on "Promote" }).to eq("Are you sure you want to promote this emendation?")
           end
 
           it "is shown the Success Flash when the alert text is accepted" do
-            accept_confirm
+            accept_confirm { click_on "Promote" }
             expect(page).to have_text("The amendment has been successfully published as a new proposal")
           end
 
           context "when the user visits again the rejected emendation" do
             before do
-              accept_confirm
+              accept_confirm { click_on "Promote" }
               visit emendation_path
             end
 
