@@ -180,6 +180,24 @@ module Decidim::ParticipatoryProcesses
 
         it_behaves_like "import participatory_process succeeds"
       end
+
+      context "when the export uses the legacy participatory_process_steps key" do
+        let(:document_file) do
+          json = JSON.parse(File.read(Decidim::Dev.asset(document_name)))
+          json.each do |process|
+            process["participatory_process_steps"] = process.delete("participatory_process_phases") if process.has_key?("participatory_process_phases")
+          end
+          JSON.generate(json)
+        end
+
+        it "imports the phases" do
+          stub_calls_to_external_files
+          expect { subject.call }.to change(Decidim::ParticipatoryProcessPhase, :count).by(1)
+
+          imported_participatory_process_phase = Decidim::ParticipatoryProcessPhase.last
+          expect(imported_participatory_process_phase.title).to eq("ca" => "Quo.", "en" => "Magni.", "es" => "Praesentium.")
+        end
+      end
     end
 
     describe "when import_attachments exists" do
