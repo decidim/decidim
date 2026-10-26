@@ -18,6 +18,8 @@ describe Decidim::Demographics::Permissions do
 
   context "when user is not present" do
     let(:user) { nil }
+    let(:action_name) { :read }
+    let(:action_subject) { :demographics }
 
     it_behaves_like "permission is not set"
   end
@@ -35,6 +37,38 @@ describe Decidim::Demographics::Permissions do
 
     context "when collecting data is disabled" do
       it { is_expected.to be false }
+    end
+  end
+
+  describe "reading user demographics settings" do
+    let!(:demographic) { create(:demographic, organization: user.reload.organization, collect_data:) }
+    let(:action_name) { :read }
+    let(:action_subject) { :demographics }
+
+    context "when collecting data is possible" do
+      let(:collect_data) { true }
+
+      it { is_expected.to be true }
+    end
+
+    context "when collecting data is disabled" do
+      it { is_expected.to be true }
+    end
+  end
+
+  describe "destroying own demographics data" do
+    let!(:demographic) { create(:demographic, organization: user.reload.organization, collect_data:) }
+    let(:action_name) { :destroy }
+    let(:action_subject) { :demographics }
+
+    context "when collecting data is possible" do
+      let(:collect_data) { true }
+
+      it { is_expected.to be true }
+    end
+
+    context "when collecting data is disabled" do
+      it { is_expected.to be true }
     end
   end
 end

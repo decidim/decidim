@@ -14,10 +14,27 @@ Decidim/EnforcePermissionTo:
   Enabled: true
   Severity: warning
   Include:
-    - "**/app/controllers/**/admin/**/*.rb"
+    - "**/app/controllers/**/*.rb"
+  # This cop only understands action-level authorization checks
+  # (`enforce_permission_to` / `action_authorized_to`). The paths below are
+  # intentionally authorized through a different model, so they cannot be
+  # covered by an action-level check:
   Exclude:
-    - "**/decidim-system/**/*.rb"
-
+  # - decidim-api: GraphQL/API entry points authorized by
+  #   `ensure_api_authenticated!` and type-level authorization.
+    - "decidim-api/**/*.rb"
+  # - decidim-design: development-only styleguide app.
+    - "decidim-design/**/*.rb"
+  # - decidim-system: installation-wide system admin guarded by `authenticate_admin!`.
+    - "decidim-system/**/*.rb"
+  # - decidim-devise/doorkeeper: framework controllers where authentication
+  #   itself is the operation (Devise, OAuth).
+    - "decidim-core/app/controllers/decidim/devise/**/*.rb"
+    - "decidim-core/app/controllers/decidim/doorkeeper/**/*.rb"
+  # - favicon: always visible
+    - decidim-core/app/controllers/decidim/favicon_controller.rb
+  # - errors: always visible
+    - decidim-core/app/controllers/decidim/errors_controller.rb
 Decidim/RSpec/MemoizedName:
   Enabled: true
   Include:

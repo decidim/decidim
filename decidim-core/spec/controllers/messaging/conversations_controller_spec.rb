@@ -123,5 +123,52 @@ module Decidim
         end
       end
     end
+
+    describe "POST check_multiple" do
+      let(:params) { { locale: I18n.locale, recipient_id: [user1.id, user2.id] } }
+
+      context "when the user is signed in" do
+        it "is allowed to check multiple conversations" do
+          post(:check_multiple, params:)
+          expect(response).to have_http_status(:found)
+        end
+      end
+
+      context "when the user is not signed in" do
+        before { sign_out user }
+
+        it "is not allowed" do
+          post(:check_multiple, params:)
+          expect(response).to redirect_to(new_user_session_path)
+        end
+      end
+
+      context "when a conversation already exists with a recipient that restricts communications" do
+        let(:restricted_user) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
+        let!(:existing_conversation) do
+          Messaging::Conversation.start!(
+            originator: user,
+            interlocutors: [restricted_user],
+            body: "Hi!"
+          )
+        end
+        let(:params) { { locale: I18n.locale, recipient_id: [restricted_user.id] } }
+
+        it "redirects to the existing conversation" do
+          post(:check_multiple, params:)
+          expect(response).to redirect_to(conversation_path(existing_conversation))
+        end
+      end
+
+      context "when no conversation exists with a recipient that restricts communications" do
+        let(:restricted_user) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
+        let(:params) { { locale: I18n.locale, recipient_id: [restricted_user.id] } }
+
+        it "does not allow starting a new conversation" do
+          post(:check_multiple, params:)
+          expect(response).to redirect_to(root_path)
+        end
+      end
+    end
   end
 end

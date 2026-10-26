@@ -18,28 +18,38 @@ module Decidim
     before_action :ensure_user_not_blocked
 
     def show
+      enforce_permission_to :read, :profile
+
       redirect_to profile_activity_path(nickname: params.expect(:nickname).downcase)
     end
 
     def following
+      enforce_permission_to :read, :profile
+
       @content_cell = "decidim/following"
       @title_key = "following"
       render :show
     end
 
     def followers
+      enforce_permission_to :read, :profile
+
       @content_cell = "decidim/followers"
       @title_key = "followers"
       render :show
     end
 
     def badges
+      enforce_permission_to :read, :profile
+
       @content_cell = "decidim/badges"
       @title_key = "badges"
       render :show
     end
 
     def activity
+      enforce_permission_to :read, :profile
+
       @content_cell = "decidim/user_activity"
       @title_key = "activity"
       render :show
