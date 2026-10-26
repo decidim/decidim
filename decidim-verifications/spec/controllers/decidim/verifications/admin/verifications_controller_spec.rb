@@ -20,23 +20,27 @@ module Decidim::Verifications::Admin
     end
 
     describe "GET #count" do
-      it "returns the count and confirm message of granted authorizations matching the filters" do
+      it "returns the counts, confirm message and callout of granted authorizations matching the filters" do
         get :count, params: { name: authorization_name, impersonated_only: false }
 
         expect(response).to have_http_status(:ok)
-        expect(response.parsed_body["count"]).to eq(2)
-        expect(response.parsed_body["message"]).to eq(
-          I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.all_html", count: 2, workflow: workflow_fullname)
+        expect(response.parsed_body).to eq(
+          "counts" => { "total" => 2, "impersonated" => 1 },
+          "message" => I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.all_html", count: 2, workflow: workflow_fullname),
+          "callout" => { "level" => "info", "message" => I18n.t("decidim.admin.menu.authorization_revocation.callout.total.all", count: 2) },
+          "period" => nil
         )
       end
 
-      it "returns the count filtered to impersonated authorizations only" do
+      it "returns the confirm message and callout of the impersonated option" do
         get :count, params: { name: authorization_name, impersonated_only: true }
 
         expect(response).to have_http_status(:ok)
-        expect(response.parsed_body["count"]).to eq(1)
-        expect(response.parsed_body["message"]).to eq(
-          I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.impersonated.all_html", count: 1, workflow: workflow_fullname)
+        expect(response.parsed_body).to eq(
+          "counts" => { "total" => 2, "impersonated" => 1 },
+          "message" => I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.impersonated.all_html", count: 1, workflow: workflow_fullname),
+          "callout" => { "level" => "info", "message" => I18n.t("decidim.admin.menu.authorization_revocation.callout.impersonated.all", count: 1) },
+          "period" => nil
         )
       end
 
@@ -46,7 +50,7 @@ module Decidim::Verifications::Admin
 
         get :count, params: { name: authorization_name, impersonated_only: false }
 
-        expect(response.parsed_body["count"]).to eq(2)
+        expect(response.parsed_body["counts"]).to eq("total" => 2, "impersonated" => 1)
       end
 
       context "when the name is invalid" do
@@ -78,13 +82,25 @@ module Decidim::Verifications::Admin
           create(:authorization, name: authorization_name, user: create(:user, :confirmed, :managed, organization:), created_at: Date.new(2024, 6, 1))
         end
 
-        it "returns the count and confirm message of granted authorizations created before the given date" do
+        it "returns the counts, confirm message, callout and period of granted authorizations created before the given date" do
           get :count, params: { name: authorization_name, impersonated_only: false, before_date: "15/03/2022" }
 
           expect(response).to have_http_status(:ok)
-          expect(response.parsed_body["count"]).to eq(1)
-          expect(response.parsed_body["message"]).to eq(
-            I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.before_date_html", count: 1, workflow: workflow_fullname, date: "15/03/2022")
+          expect(response.parsed_body).to eq(
+            "counts" => { "total" => 1, "impersonated" => 0 },
+            "message" => I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.before_date_html", count: 1, workflow: workflow_fullname, date: "15/03/2022"),
+            "callout" => { "level" => "info", "message" => I18n.t("decidim.admin.menu.authorization_revocation.callout.total.before_date", count: 1, date: "15/03/2022") },
+            "period" => I18n.t("decidim.admin.menu.authorization_revocation.created_before", date: "15/03/2022")
+          )
+        end
+
+        it "warns with the option's full count when none of its authorizations was created before the given date" do
+          get :count, params: { name: authorization_name, impersonated_only: true, before_date: "15/03/2022" }
+
+          expect(response).to have_http_status(:ok)
+          expect(response.parsed_body).to include(
+            "counts" => { "total" => 1, "impersonated" => 0 },
+            "callout" => { "level" => "warning", "message" => I18n.t("decidim.admin.menu.authorization_revocation.callout.impersonated.nothing_before_date", count: 1, date: "15/03/2022") }
           )
         end
 

@@ -13,9 +13,13 @@
       <% revocation_options.each do |option| %>
         <%= label_tag option_field_id(option[:key]), class: "user-picker-card#{" opacity-50 pointer-events-none" if option[:count].zero?}" do %>
           <span class="flex items-center gap-3">
-            <%= radio_button_tag "revocations[impersonated_only]", option[:value], false, id: option_field_id(option[:key]), disabled: option[:count].zero?, class: "!m-0", data: { "revocations-option": option[:key], "confirm-message": option[:confirm_message], "revocations-target": "option", action: "change->revocations#pick" } %>
-            <span class="flex-1"><%= option[:label] %></span>
-            <span class="font-semibold"><%= option[:count] %></span>
+            <%= radio_button_tag "revocations[impersonated_only]", option[:value], false, id: option_field_id(option[:key]), disabled: option[:count].zero?, class: "!m-0", data: { "revocations-option": option[:key], "confirm-message": option[:confirm_message], "callout-message": option[:callout_message], "revocations-target": "option", action: "change->revocations#pick" } %>
+            <span class="flex-1">
+              <%= option[:label] %>
+              <span class="text-sm text-gray-2 hidden" data-revocations-target="period"></span>
+            </span>
+            <span class="font-semibold" data-revocations-target="count" data-option="<%= option[:key] %>" data-total="<%= option[:count] %>"><%= option[:count] %></span>
+            <span class="text-sm text-gray-2 hidden" data-revocations-target="total"><%= t("decidim.admin.menu.authorization_revocation.of_total", total: option[:count]) %></span>
           </span>
         <% end %>
       <% end %>
@@ -34,6 +38,7 @@
                            hide_help: true,
                            placeholder: t("date.formats.help.date_format"),
                            autocomplete: "off",
+                           disabled: nothing_to_revoke?,
                            data: {
                              "revocations-target": "date",
                              "date-label": t("datetime.widget.label.date", label: t("decidim.admin.menu.authorization_revocation.before_date")),
@@ -42,6 +47,16 @@
           <p class="text-sm text-gray-2 mt-4"><%= t("decidim.admin.menu.authorization_revocation.before_date_info") %></p>
         </div>
       </div>
+    </div>
+
+    <%= cell("decidim/announcement", t("decidim.admin.menu.authorization_revocation.callout.no_verifications"), callout_class: "info") if nothing_to_revoke? %>
+
+    <div aria-live="polite">
+      <% %w(info warning).each do |level| %>
+        <div class="flash flex-col <%= level %> hidden" data-revocations-target="callout" data-level="<%= level %>">
+          <div class="flash__message"></div>
+        </div>
+      <% end %>
     </div>
 
     <div class="item__edit-sticky hidden" data-revocations-bar data-revocations-target="bar">

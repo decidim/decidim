@@ -41,16 +41,18 @@ describe "Authorizations revocation flow" do
     let!(:managed_authorization) { create(:authorization, :pending, name: authorization_name, user: managed_user) }
     let!(:other_method_authorization) { create(:authorization, :pending, name: other_authorization_name, user: other_method_user) }
 
-    it "disables the total and impersonated radios" do
+    it "disables the radios and the date field and tells there is nothing to revoke" do
       within "[data-revocations='#{authorization_name}']" do
         expect(page).to have_field(total_option_label, disabled: true)
         expect(page).to have_field(impersonated_option_label, disabled: true)
+        expect(page).to have_field(date_field_locator, disabled: true)
+        expect(page).to have_text(t("decidim.admin.menu.authorization_revocation.callout.no_verifications"))
       end
     end
   end
 
   context "when selecting a revocation option" do
-    it "shows the date field from the start and the sticky bar once an option is picked" do
+    it "shows the date field from the start, and the sticky bar and the dateless callout once an option is picked" do
       within "[data-revocations='#{authorization_name}']" do
         expect(page).to have_css("[data-revocations-date]", visible: :visible)
         expect(page).to have_text(t("decidim.admin.menu.authorization_revocation.before_date_hint"))
@@ -60,6 +62,7 @@ describe "Authorizations revocation flow" do
         choose total_option_label
 
         expect(page).to have_button(t("decidim.admin.menu.authorization_revocation.revoke_button"))
+        expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.callout.total.all", count: 2))
       end
     end
   end
@@ -103,6 +106,12 @@ describe "Authorizations revocation flow" do
             find("[data-revocations-date] p", match: :first).click
 
             expect(page).to have_css("[data-revocations-bar] [type='submit'][data-confirm*='15/03/2022']")
+            expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.callout.total.before_date", count: 1, date: "15/03/2022"))
+            within "label", text: total_option_label do
+              expect(page).to have_css("[data-revocations-target='count']", exact_text: "1")
+              expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.of_total", total: 2))
+              expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.created_before", date: "15/03/2022"))
+            end
             click_button t("decidim.admin.menu.authorization_revocation.revoke_button")
           end
         end
@@ -112,21 +121,19 @@ describe "Authorizations revocation flow" do
         )
       end
 
-      it "shows a zero count in the confirm dialog when the picked date predates every authorization" do
-        message = accept_confirm do
-          within "[data-revocations='#{authorization_name}']" do
-            choose total_option_label
-            fill_in_datepicker date_field_locator, with: "01/01/2019"
-            find("[data-revocations-date] p", match: :first).click
+      it "warns and disables the revoke button when the picked date predates every authorization" do
+        within "[data-revocations='#{authorization_name}']" do
+          choose total_option_label
+          fill_in_datepicker date_field_locator, with: "01/01/2019"
+          find("[data-revocations-date] p", match: :first).click
 
-            expect(page).to have_css("[data-revocations-bar] [type='submit'][data-confirm*='01/01/2019']")
-            click_button t("decidim.admin.menu.authorization_revocation.revoke_button")
+          expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.callout.total.nothing_before_date", count: 2, date: "01/01/2019"))
+          expect(page).to have_button(t("decidim.admin.menu.authorization_revocation.revoke_button"), disabled: true)
+          within "label", text: total_option_label do
+            expect(page).to have_css("[data-revocations-target='count']", exact_text: "0")
+            expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.of_total", total: 2))
           end
         end
-
-        expect(message).to include(
-          strip_tags(I18n.t("decidim.admin.menu.authorization_revocation.destroy.confirm_message.total.before_date_html", count: 0, workflow: workflow_fullname, date: "01/01/2019"))
-        )
       end
 
       it "falls back to the full count when the picked date is erased" do
@@ -140,6 +147,8 @@ describe "Authorizations revocation flow" do
             find_by_id(date_field_locator).send_keys([:backspace] * 10)
             find("[data-revocations-date] p", match: :first).click
             expect(page).to have_css("[data-revocations-bar] [type='submit']:not([data-confirm*='15/03/2022'])")
+            expect(page).to have_text(I18n.t("decidim.admin.menu.authorization_revocation.callout.total.all", count: 2))
+            expect(page).to have_no_text(I18n.t("decidim.admin.menu.authorization_revocation.of_total", total: 2))
             click_button t("decidim.admin.menu.authorization_revocation.revoke_button")
           end
         end

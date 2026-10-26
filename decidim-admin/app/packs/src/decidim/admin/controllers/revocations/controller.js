@@ -1,15 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
 
 /**
- * Handles the revocation form of a single verification method: reveals the
- * sticky actions bar and keeps the submit button's confirm text in sync with
- * the picked option and the optional "before date" field. Picking an option
- * resets the sibling forms through a `revocations:picked` document event, so
- * only one form is active at a time.
+ * Handles the revocation form of a single verification method. Picking an
+ * option resets the sibling forms through a `revocations:picked` document
+ * event, so only one form is active at a time.
  */
 export default class extends Controller {
   static get targets() {
-    return ["option", "name", "date", "dateContainer", "bar", "submit"];
+    return ["option", "name", "date", "dateContainer", "bar", "submit", "count", "total", "period", "callout"];
   }
 
   static get values() {
@@ -33,8 +31,11 @@ export default class extends Controller {
     this.refresh();
   }
 
-  // The picked option already carries its dateless message; the server is
-  // asked only when a date is set.
+  /**
+   * Syncs the form with the picked option and the date. The option carries
+   * its dateless messages, so the server is asked only when a date is set.
+   * @returns {void}
+   */
   refresh() {
     const radio = this._checkedOption();
     if (!radio) {
@@ -45,6 +46,8 @@ export default class extends Controller {
     if (!requestedDate) {
       this.submitTarget.disabled = false;
       this._setConfirm(radio.dataset.confirmMessage);
+      this._showCounts();
+      this._showCallout("info", radio.dataset.calloutMessage);
       return;
     }
 
@@ -63,6 +66,8 @@ export default class extends Controller {
     // message arrives.
     this.submitTarget.dataset.confirm = this.fallbackConfirm;
     this.submitTarget.disabled = true;
+    this._showCounts();
+    this._showCallout();
 
     fetch(`${url}?${params}`, {
       headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" },
@@ -73,16 +78,19 @@ export default class extends Controller {
       }
       return response.json();
     }).then((data) => {
-      // Discard responses the form has already moved on from.
-      if (this._checkedOption() !== radio || this.dateTarget.value !== requestedDate) {
+      if (this._isOutdated(radio, requestedDate)) {
         return;
       }
 
-      this.submitTarget.disabled = false;
+      this.submitTarget.disabled = data.counts[radio.dataset.revocationsOption] === 0;
       this._setConfirm(data.message);
+      this._showCounts(data.counts, data.period);
+      this._showCallout(data.callout.level, data.callout.message);
     }).catch((error) => {
-      this.submitTarget.disabled = false;
       console.error("Error fetching authorizations count:", error);
+      if (!this._isOutdated(radio, requestedDate)) {
+        this.submitTarget.disabled = false;
+      }
     });
   }
 
@@ -102,6 +110,8 @@ export default class extends Controller {
     this.barTarget.classList.add("hidden");
     this.submitTarget.disabled = false;
     this.submitTarget.dataset.confirm = this.fallbackConfirm;
+    this._showCounts();
+    this._showCallout();
 
     this.dateTarget.value = "";
     const visibleDate = this._visibleDateInput();
@@ -114,12 +124,48 @@ export default class extends Controller {
     return this.optionTargets.find((radio) => radio.checked);
   }
 
-  // The datepicker's visible text input, holding the date as the user sees it.
+  _isOutdated(radio, requestedDate) {
+    return this._checkedOption() !== radio || this.dateTarget.value !== requestedDate;
+  }
+
+  /**
+   * Finds the datepicker's visible text input, holding the date as the user sees it.
+   * @returns {HTMLInputElement|null} The visible date input
+   */
   _visibleDateInput() {
     return document.getElementById(`${this.dateTarget.id}_date`);
   }
 
-  // The Decidim confirm dialog reads the confirm text from the attribute.
+  _showCounts(counts = null, period = "") {
+    this.countTargets.forEach((element) => {
+      element.textContent = counts
+        ? counts[element.dataset.option]
+        : element.dataset.total;
+    });
+    this.totalTargets.forEach((element) => element.classList.toggle("hidden", !counts));
+    this.periodTargets.forEach((element) => {
+      element.textContent = counts
+        ? period
+        : "";
+      element.classList.toggle("hidden", !counts);
+    });
+  }
+
+  _showCallout(level = null, message = null) {
+    this.calloutTargets.forEach((callout) => {
+      const visible = Boolean(message) && callout.dataset.level === level;
+      if (visible) {
+        callout.querySelector(".flash__message").textContent = message;
+      }
+      callout.classList.toggle("hidden", !visible);
+    });
+  }
+
+  /**
+   * Sets the confirm text, which the Decidim confirm dialog reads from the attribute.
+   * @param {string} message - The confirm text
+   * @returns {void}
+   */
   _setConfirm(message) {
     if (!message) {
       return;

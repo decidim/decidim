@@ -45,6 +45,29 @@ en:
           before_date: Before date
           before_date_hint: Leave it empty to revoke everything
           before_date_info: Useful if the process has already begun and you want to revoke the permissions of the previous process.
+          callout:
+            impersonated:
+              all:
+                one: 'No date set: all %{count} impersonated verification will be revoked, whatever its creation date. You will be asked to confirm.'
+                other: 'No date set: all %{count} impersonated verifications will be revoked, whatever their creation date. You will be asked to confirm.'
+              before_date:
+                one: "%{count} impersonated verification created before %{date} will be revoked. You will be asked to confirm."
+                other: "%{count} impersonated verifications created before %{date} will be revoked. You will be asked to confirm."
+              nothing_before_date:
+                one: There are no impersonated verifications created before %{date}, so there is nothing to revoke. Pick a later date or leave it empty to include all %{count} impersonated verification.
+                other: There are no impersonated verifications created before %{date}, so there is nothing to revoke. Pick a later date or leave it empty to include all %{count} impersonated verifications.
+            no_verifications: There are no verifications to revoke for this method yet.
+            total:
+              all:
+                one: 'No date set: all %{count} verification will be revoked, whatever its creation date. You will be asked to confirm.'
+                other: 'No date set: all %{count} verifications will be revoked, whatever their creation date. You will be asked to confirm.'
+              before_date:
+                one: "%{count} verification created before %{date} will be revoked. You will be asked to confirm."
+                other: "%{count} verifications created before %{date} will be revoked. You will be asked to confirm."
+              nothing_before_date:
+                one: There are no verifications created before %{date}, so there is nothing to revoke. Pick a later date or leave it empty to include all %{count} verification.
+                other: There are no verifications created before %{date}, so there is nothing to revoke. Pick a later date or leave it empty to include all %{count} verifications.
+          created_before: before %{date}
           destroy:
             confirm: Revoking verifications cannot be undone. Are you sure you want to continue?
             confirm_message:
@@ -64,6 +87,7 @@ en:
                   other: You are about to revoke <strong>%{count} verifications</strong> of "%{workflow}" created before %{date}. This action cannot be undone. Are you sure you want to continue?
           destroy_nok: There was a problem while revoking authorizations.
           impersonated_only: Impersonated only
+          of_total: of %{total}
           revoke_button: Revoke verifications
           revoke_description: You can choose to revoke all existing verifications or only those granted through impersonation. This is useful when a new process has already started and you need to remove the permissions or verifications carried over from a previous process.
           revoke_title: Revoke verifications
