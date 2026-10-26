@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- An animation whose target reference mixes a literal multi-byte character
+     with percent encoded bytes, which browsers resolve to the identifier of a
+     link, which does not load any resource. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+  <a id="caféé" xlink:href="https://example.org"><text y="15">Example</text></a>
+  <set xlink:href="#café%C3%A9" attributeName="href" to="https://example.org" dur="1s" fill="freeze"/>
+</svg>

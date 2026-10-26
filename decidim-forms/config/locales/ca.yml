@@ -45,7 +45,6 @@ ca:
             allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
             allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegador web.
             announcement: Avís
-            clean_after_publish: Esborrar les respostes en publicar l'enquesta
             description: Descripció
             ends_at: Respostes acceptades fins a
             ends_at_help: Deixar en blanc si no hi ha cap data específica
@@ -153,6 +152,7 @@ ca:
           publish_responses: "%{user_name} va publicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
           unpublish_responses: "%{user_name} va despublicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
         questionnaire:
+          delete_all_responses: "%{user_name} ha esborrat les respostes al qüestionari \"%{resource_name}\" de l'espai de participació: %{space_name}"
           update: "%{user_name} ha actualitzat el qüestionari %{resource_name}"
       errors:
         response:

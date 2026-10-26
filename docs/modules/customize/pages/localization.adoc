@@ -22,8 +22,6 @@ The following keys are relevant to time and date format:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
 ```
 
 If you need to change the format to comply with the United States of America standard, you must do the following:
@@ -42,8 +40,6 @@ en:
       decidim_with_month_name_short: "%b %d"
       help:
         date_format: 'Format: mm/dd/yyyy'
-      order: m-d-y
-      separator: "/"
 ```
 . Restart your application server.
 

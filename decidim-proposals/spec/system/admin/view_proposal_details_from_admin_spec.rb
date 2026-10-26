@@ -69,7 +69,7 @@ describe "Admin views proposal details from admin" do
         go_to_admin_proposal_page(proposal)
 
         within ".component__show_nav-author-title" do
-          expect(page).to have_no_selector("a", text: "Official proposal")
+          expect(page).to have_no_css("a", text: "Official proposal")
           expect(page).to have_text("Official proposal")
         end
       end

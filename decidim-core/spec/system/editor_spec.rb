@@ -1567,7 +1567,7 @@ describe "Editor" do
         expect_value(%(<p>Hello, world!</p>))
 
         within ".editor" do
-          expect(page).to have_no_selector("[data-bubble-menu] [data-linkbubble]")
+          expect(page).to have_no_css("[data-bubble-menu] [data-linkbubble]")
         end
       end
     end
@@ -1585,7 +1585,7 @@ describe "Editor" do
 
   def select_control(type, value)
     within toolbar do
-      find("select[data-editor-type='#{type}']").find("option[value='#{value}']").select_option
+      find("select[data-editor-type='#{type}'] option[value='#{value}']").select_option
     end
   end
 end

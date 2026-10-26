@@ -34,7 +34,7 @@ module Decidim
       end
 
       describe "after_sign_in_path_for" do
-        subject { controller.after_sign_in_path_for(user) }
+        subject { controller.send(:after_sign_in_path_for, user) }
 
         context "when the given resource is a user" do
           context "and is an admin" do

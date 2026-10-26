@@ -6,6 +6,8 @@ module Decidim
       include HasSpecificBreadcrumb
 
       def index
+        enforce_permission_to :read, :badges
+
         @badges = Decidim::Gamification.badges.sort_by(&:name)
       end
 

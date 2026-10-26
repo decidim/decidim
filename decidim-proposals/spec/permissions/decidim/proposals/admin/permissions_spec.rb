@@ -101,6 +101,31 @@ describe Decidim::Proposals::Admin::Permissions do
       it_behaves_like "can answer proposals"
       it_behaves_like "can export proposals"
     end
+
+    describe "reading a proposal" do
+      let(:action) do
+        { scope: :admin, action: :read, subject: :proposal }
+      end
+
+      context "when reading the proposals collection" do
+        let(:proposal) { nil }
+
+        it { is_expected.to be true }
+      end
+
+      context "when reading a proposal assigned to them" do
+        let(:proposal) { create(:proposal, component: current_component) }
+        let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
+
+        it { is_expected.to be true }
+      end
+
+      context "when reading a proposal not assigned to them" do
+        let(:proposal) { create(:proposal, component: current_component) }
+
+        it { is_expected.to be false }
+      end
+    end
   end
 
   it_behaves_like "can create proposal notes"

@@ -219,7 +219,7 @@ describe "Admin manages proposals evaluators" do
 
       expect(page).to have_text("Evaluator unassigned from proposals successfully")
 
-      expect(page).to have_no_selector("#evaluators")
+      expect(page).to have_no_css("#evaluators")
     end
   end
 end

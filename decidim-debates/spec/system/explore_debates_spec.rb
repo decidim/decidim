@@ -435,7 +435,7 @@ describe "Explore debates" do
 
     context "without taxonomies" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("[data-tags]")
+        expect(page).to have_no_css("[data-tags]")
       end
     end
 

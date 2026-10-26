@@ -137,6 +137,7 @@ shared_examples "manage impersonations examples" do
     end
 
     it "redirects normally when session expires while reload" do
+      expect(page).to have_current_path(decidim.root_path)
       expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(impersonated_user, user)
       travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2
       visit current_path
@@ -363,10 +364,11 @@ shared_examples "manage impersonations examples" do
     end
 
     fill_in_the_impersonation_form("123456789X", reason:)
-    expect(page).to have_callout("You are managing the participant") if reason && reason.length.positive?
+    expect(page).to have_callout("You are managing the participant") if user.managed || (reason && reason.length.positive?)
   end
 
   def simulate_session_expiration
+    expect(page).to have_current_path(decidim.root_path)
     expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(impersonated_user, user)
     session_time = Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
     first_travel_time = session_time.even? ? session_time / 2 : (session_time / 2) + 1

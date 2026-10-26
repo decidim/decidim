@@ -15,10 +15,6 @@ module Decidim
 
         helper_method :projects, :finished_orders, :pending_orders, :present, :project_ids
 
-        def collection
-          @collection ||= budget.projects.page(params[:page]).per(15)
-        end
-
         def new
           enforce_permission_to :create, :project
           @form = form(ProjectForm).from_params(
@@ -163,6 +159,10 @@ module Decidim
 
         private
 
+        def collection
+          @collection ||= budget.projects.includes(:taxonomies).page(params[:page]).per(15)
+        end
+
         def trashable_deleted_resource_type
           :project
         end
@@ -190,7 +190,9 @@ module Decidim
         def reference_budget
           return unless params[:reference_id]
 
-          Budget.where(component: current_component).find(params.expect(:reference_id))
+          Budget.joins(:component)
+                .where(component: { participatory_space: current_participatory_space })
+                .find(params.expect(:reference_id))
         end
 
         def pending_orders

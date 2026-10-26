@@ -22,14 +22,14 @@ shared_examples "hideable resource during block" do
       click_on(I18n.t("decidim.shared.flag_modal.report"))
     end
     within ".flag-user-modal" do
-      find(:css, "input[name='report[block]']").set(true)
+      find_field(name: "report[block]").set(true)
     end
     content.reload
   end
 
   it "chooses to hide content" do
     within ".flag-user-modal" do
-      find(:css, "input[name='report[hide]']").set(true)
+      find_field(name: "report[hide]").set(true)
     end
     click_on I18n.t("decidim.shared.flag_user_modal.block")
     expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id, hide: true))
@@ -45,7 +45,7 @@ shared_examples "hideable resource during block" do
     it "chooses to hide content" do
       within ".flag-user-modal" do
         expect(page).to have_text("Report inappropriate participant")
-        find(:css, "input[name='report[hide]']").set(true)
+        find_field(name: "report[hide]").set(true)
       end
       click_on I18n.t("decidim.shared.flag_user_modal.block")
       expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id, hide: true))
