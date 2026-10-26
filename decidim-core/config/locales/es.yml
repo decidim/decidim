@@ -130,8 +130,8 @@ es:
         other: aproximadamente %{count} meses
       half_a_minute: medio minuto
       less_than_x_minutes:
-        one: hace menos de un minuto
-        other: hace menos de %{count} minutos
+        one: menos de un minuto
+        other: menos de %{count} minutos
       less_than_x_seconds:
         one: hace menos de un segundo
         other: hace menos de %{count} segundos
