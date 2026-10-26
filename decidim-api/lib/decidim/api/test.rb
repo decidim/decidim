@@ -26,6 +26,5 @@ require "decidim/api/test/shared_examples/traceable_interface_examples"
 
 require "decidim/api/test/shared_examples/attachable_mutation_examples"
 require "decidim/api/test/shared_examples/attachable_collection_mutation_examples"
-require "decidim/api/test/shared_examples/upload_file_examples"
 require "decidim/api/test/shared_examples/mutation_context"
 require "decidim/api/test/type_context"

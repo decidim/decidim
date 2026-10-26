@@ -36,15 +36,31 @@ module Decidim
       end
 
       context "with an api user" do
-        it_behaves_like "API uploadable file" do
-          let!(:user_type) { :api_user }
-          let(:api_scopes) { ::Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write", "admin:read", "admin:write"]) }
-        end
+        let(:user_type) { :api_user }
+        let(:api_scopes) { ::Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write", "admin:read", "admin:write"]) }
+
+        it_behaves_like "file upload validation rules"
       end
 
       context "with an admin user" do
-        it_behaves_like "API uploadable file" do
-          let!(:user_type) { :admin }
+        let(:user_type) { :admin }
+
+        it_behaves_like "file upload validation rules"
+
+        # What the entry point does with the stored file is checked here, as the
+        # shared examples only check the blob, which is the result common to every
+        # entry point which receives an upload.
+        it "returns the stored blob" do
+          expect { response }.to change(ActiveStorage::Blob, :count).by(1)
+
+          blob = ActiveStorage::Blob.last
+          expect(api_response["blob"]).to include(
+            "id" => blob.id.to_s,
+            "filename" => blob.filename,
+            "checksum" => blob.checksum,
+            "signedId" => blob.signed_id,
+            "byteSize" => blob.byte_size
+          )
         end
       end
 
