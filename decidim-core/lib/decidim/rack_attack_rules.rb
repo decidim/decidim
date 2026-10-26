@@ -30,13 +30,13 @@ module Decidim
       # Throttle login attempts for a given email parameter to 5 reqs/minute
       # Return the email as a discriminator on POST /users/sign_in requests
       configuration.throttle("limit logins per email", limit: 5, period: 60.seconds) do |request|
-        request.params.dig("user", "email") if request.path == "/users/sign_in" && request.post?
+        email_discriminator(request, "/users/sign_in")
       end
 
       # Throttle password recovery attempts for a given email parameter to 5 reqs/minute
       # Return the email as a discriminator on POST /users/password requests
       configuration.throttle("limit password recovery attempts per email", limit: 5, period: 60.seconds) do |request|
-        request.params.dig("user", "email") if request.path == "/users/password" && request.post?
+        email_discriminator(request, "/users/password")
       end
 
       # Throttle SMS verification confirmation attempts per IP to 10 reqs/minute
@@ -49,5 +49,15 @@ module Decidim
         request.ip if request.path.match?(%r{^/[^/]+/postal_letter/authorizations(?:\.[^/]+)?$}) && request.put?
       end
     end
+
+    # The user param can be missing or a scalar (e.g. POST /users/sign_in?user=foo).
+    # Rack::Attack does not rescue exceptions raised by a throttle block, so the
+    # discriminator must return nil instead of raising inside the middleware.
+    def self.email_discriminator(request, path)
+      user = request.params["user"]
+      user["email"] if user.is_a?(Hash) && request.path == path && request.post?
+    end
+
+    private_class_method :email_discriminator
   end
 end

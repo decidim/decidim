@@ -145,6 +145,12 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to be_nil
     end
 
+    it "returns nil on POST /users/sign_in with a scalar user param" do
+      # e.g. POST /users/sign_in?user=foo, which would raise TypeError inside the middleware
+      request = request_class.new("/users/sign_in", "1.2.3.4", :post, { "user" => "foo" })
+      expect(throttle.block.call(request)).to be_nil
+    end
+
     it "returns nil on GET /users/sign_in" do
       request = request_class.new("/users/sign_in", "1.2.3.4", :get, { "user" => { "email" => "a@b.c" } })
       expect(throttle.block.call(request)).to be_nil
@@ -185,6 +191,12 @@ describe Rack::Attack do
       # A malformed POST must not raise inside the middleware, which has no rescue;
       # the throttle simply does not match
       request = request_class.new("/users/password", "1.2.3.4", :post, {})
+      expect(throttle.block.call(request)).to be_nil
+    end
+
+    it "returns nil on POST /users/password with a scalar user param" do
+      # e.g. POST /users/password?user=foo, which would raise TypeError inside the middleware
+      request = request_class.new("/users/password", "1.2.3.4", :post, { "user" => "foo" })
       expect(throttle.block.call(request)).to be_nil
     end
 
