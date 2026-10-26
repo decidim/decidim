@@ -114,6 +114,7 @@ module Decidim
       end
 
       def recipients_count
+        enforce_permission_to :read, :newsletter, newsletter:
         @form = form(SelectiveNewsletterForm).from_params(newsletter_params)
         render plain: recipients_count_query
       end
@@ -182,6 +183,8 @@ module Decidim
           (newsletter_params[key] || {}).transform_values { |space| space["ids"] || [] }
         end
       end
+
+      protected
 
       def collection
         @collection ||= Newsletter.where(organization: current_organization)

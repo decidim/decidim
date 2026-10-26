@@ -20,6 +20,10 @@ module Decidim
           can_vote?(true)
         when [:export_pdf, :order]
           can_export_pdf?
+        when [:destroy, :order]
+          can_destroy_order?
+        when [:read, :order]
+          can_read_order?
         end
 
         permission_action
@@ -44,9 +48,14 @@ module Decidim
       end
 
       def public_action_allowed?
-        return unless permission_action.subject == :project && permission_action.action == :read
+        return unless permission_action.action == :read
 
-        toggle_allow(project&.visible? && !project.deleted? && !project.budget.deleted?)
+        case permission_action.subject
+        when :project
+          toggle_allow(project.nil? || (project.visible? && !project.deleted? && !project.budget.deleted?))
+        when :budget
+          toggle_allow(budget.nil? || !budget.deleted?)
+        end
       end
 
       def can_vote?(active_allow)
@@ -69,6 +78,18 @@ module Decidim
         is_allowed = order.user == user
 
         toggle_allow(is_allowed)
+      end
+
+      def can_destroy_order?
+        is_allowed = user.present? &&
+                     order&.user == user &&
+                     current_settings&.votes == "enabled"
+
+        toggle_allow(is_allowed)
+      end
+
+      def can_read_order?
+        toggle_allow(user.present? && order&.user == user)
       end
     end
   end

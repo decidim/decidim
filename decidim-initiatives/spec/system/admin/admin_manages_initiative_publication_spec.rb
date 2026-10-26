@@ -97,6 +97,8 @@ describe "Admin manages initiative publication" do
       click_on "OK"
     end
 
+    expect(page).to have_callout("The initiative has been successfully published.")
+
     visit decidim.last_activities_path
     expect(page).to have_text("New initiative: #{title}")
 

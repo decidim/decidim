@@ -16,9 +16,13 @@ module Decidim
       helper_method :posts, :post, :post_presenter, :paginate_posts, :posts_most_commented, :tabs, :panels
       before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-      def index; end
+      def index
+        enforce_permission_to :read, :blogpost
+      end
 
       def show
+        enforce_permission_to :read, :blogpost, blogpost: post
+
         raise ActionController::RoutingError, "Not Found" unless post
       end
 
@@ -107,11 +111,11 @@ module Decidim
       end
 
       def search_collection
-        if current_user&.admin?
-          Post.where(component: current_component)
-        else
-          Post.published.where(component: current_component)
-        end
+        posts = Post.includes(:component, :taxonomies)
+                    .preload(author: [:organization, { avatar_attachment: :blob }])
+                    .where(component: current_component)
+
+        current_user&.admin? ? posts : posts.published
       end
 
       def default_filter_params

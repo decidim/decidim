@@ -87,6 +87,7 @@ cs:
         index: Index
         restore: Obnovit
         rollout:
+          invalid: Při vytváření nové verze dokumentu (%{errors}) došlo k chybě.
           new: Navrhnout novou verzi
         save: Navrhnout změny
         status:

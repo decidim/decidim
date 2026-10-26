@@ -72,7 +72,6 @@ pt-BR:
         new_survey: Nova pesquisa
         preview: Pré-visualização
         responses: Respostas
-        responses_alert: A opção "Excluir respostas na publicação" está ativa para esta pesquisa. Atualmente, existem %{responses_count} respostas excluídas se você continuar.
         title: Ações
       admin:
         exports:

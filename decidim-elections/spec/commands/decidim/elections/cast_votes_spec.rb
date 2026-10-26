@@ -168,6 +168,46 @@ module Decidim
           expect { subject.call }.to broadcast(:invalid)
         end
       end
+
+      context "when concurrent requests are made for the same question" do
+        let(:election) { create(:election, :ongoing, :per_question, :with_questions) }
+        let(:question) { election.questions.first }
+        let(:response_option_a) { question.response_options.first }
+        let(:response_option_b) { question.response_options.second }
+
+        before do
+          question.update!(question_type: "single_option", max_choices: 1)
+        end
+
+        # Race condition tests are inherently non-deterministic. This test uses
+        # a barrier to maximize thread overlap, but may not reliably fail without
+        # the fix in all test environments. The with_lock fix ensures correctness
+        # in production regardless of test reliability.
+        it "does not allow exceeding max_votable_options" do
+          barrier = Queue.new
+          ready_count = Mutex.new
+          ready = 0
+
+          threads = 2.times.map do |i|
+            response_id = i.zero? ? response_option_a.id : response_option_b.id
+            thread_data = { question.id.to_s => [response_id.to_s] }
+
+            Thread.new do
+              ActiveRecord::Base.connection_pool.with_connection do
+                ready_count.synchronize { ready += 1 }
+                barrier.pop
+                described_class.call(election, thread_data, voter_uid)
+              end
+            end
+          end
+
+          sleep(0.05) until ready == 2
+          2.times { barrier.push(nil) }
+          threads.each(&:join)
+
+          expect(question.votes.where(voter_uid:).count).to eq(1)
+        end
+      end
     end
   end
 end

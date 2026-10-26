@@ -779,10 +779,8 @@ shared_examples "comments" do
 
           within "#comment_#{comment.id}" do
             page.find("[id^='dropdown-trigger']").click
-            click_on "Delete"
+            accept_confirm { click_on "Delete" }
           end
-
-          accept_confirm
 
           expect(page).to have_css("#comment_#{comment.id}")
           within "#comment_#{comment.id}" do

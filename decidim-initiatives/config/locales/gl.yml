@@ -2,9 +2,14 @@ gl:
   activemodel:
     attributes:
       initiative:
+        answer: Resposta
+        answer_url: URL da resposta
+        area_id: Área
+        decidim_scope_id: Ámbito
         description: Descrición
         offline_votes: Soportes cara a cara
-        scope_id: Alcance
+        offline_votes_for_scope: Sinaturas presenciais para %{scope_name}
+        scope_id: Ámbito
         signature_end_date: Fin do período de recadación de sinaturas
         signature_start_date: Inicio do período de recollida de sinaturas
         signature_type: Tipo de recadación de sinatura
@@ -14,17 +19,32 @@ gl:
           online: OnLine
         state: Estado
         title: Título
+        type_id: Tipo
       initiatives_committee_member:
         user: Membro do comité
+      initiatives_settings:
+        initiatives_order: Orde
       initiatives_type:
-        collect_user_extra_fields: Recolle datos persoais do usuario na sinatura
+        area_enabled: Permitir que as persoas autoras escollan a área da súa iniciativa
+        attachments_enabled: Activar anexos
+        child_scope_threshold_enabled: Activar sinaturas de ámbitos secundarios
+        collect_user_extra_fields: Recolle datos persoais do participante na sinatura
+        comments_enabled: Activar comentarios
+        custom_signature_end_date_enabled: Permitir que as persoas autoras escollan o final do período de recollida de sinaturas
         description: Descrición
+        document_number_authorization_handler: Fluxo de sinatura
         extra_fields_legal_information: Información legal sobre a recollida de datos persoais
         minimum_committee_members: Mínimo de membros da comisión
         online_signature_enabled: Sinatura en liña habilitada
+        only_global_scope_enabled: Permitir só a creación de iniciativas de ámbito global
+        promoting_committee_enabled: Activar comisión promotora
+        signature_type: Tipo de sinatura
         title: Título
-        undo_online_signatures_enabled: Habilita os usuarios para desfacer as súas sinaturas en liña
+        undo_online_signatures_enabled: Habilita os participantes para desfacer as súas sinaturas en liña
         validate_sms_code_on_votes: Engada o paso de validación do código SMS ao proceso de sinatura
+      initiatives_type_scope:
+        decidim_scopes_id: Ámbitos
+        supports_required: Sinaturas necesarias
       initiatives_vote:
         date_of_birth: Data de nacemento
         document_number: Número de documento
@@ -34,8 +54,19 @@ gl:
         address: Enderezo
         id_document: Documento ID
         name: Nome completo
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: O ficheiro non é válido
+              needs_to_be_reattached: Debe anexarse de novo
+              title: O título non pode estar baleiro
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciativas
       decidim/initiative_comittee:
         one: Comite
         other: Comités
@@ -45,26 +76,58 @@ gl:
   decidim:
     admin:
       actions:
+        cannot_answer: Non se pode responder a esta iniciativa
         new_initiative_type: Novo tipo de iniciativa
+        new_initiative_type_scope: Novo ámbito de tipo de iniciativa
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Área
+          state_eq:
+            label: Estado
+            values:
+              accepted: Sinaturas suficientes
+              created: En borrador
+              discarded: Descartou
+              open: Aberta
+              rejected: Sinaturas insuficientes
+              validating: Validación técnica
+          type_id_eq:
+            label: Tipo
+        search_placeholder:
+          title_or_description_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descrición ou nome da autoría
+      initiatives_settings:
+        update:
+          error: Produciuse un problema ao actualizar a configuración das iniciativas.
+          success: A configuración das iniciativas actualizouse correctamente.
       menu:
         attachments: Anexos
         committee_members: Membros da comisión
         information: Información
+        initiative_type_scopes: Ámbitos dos tipos de iniciativa
         initiatives: Iniciativas
+        initiatives_menu:
+          see_initiative: Ver iniciativa
+        initiatives_settings: Configuración
         initiatives_types: Tipos de iniciativa
         moderations: Moderacións
       models:
         initiatives:
           fields:
             created_at: Creado en
+            published_at: Publicado en
             state: Estado
             supports_count: Sinaturas
             title: Iniciativas
+        initiatives_committee_member:
+          fields:
+            actions: Accións
         initiatives_type_scope:
           fields:
-            scope: Alcance
+            actions: Accións
+            scope: Ámbito
             supports_required: Soporte esixido
-          name: Alcance do tipo de iniciativa
+          name: Ámbito do tipo de iniciativa
         initiatives_types:
           fields:
             created_at: Creado en
@@ -72,24 +135,45 @@ gl:
           name: Tipo de iniciativa
         initiatives_votes:
           fields:
+            date_and_time: Data e hora
             date_of_birth: Data de nacemento
             document_number: Número de documento
             hash: Hash
             initiative_end_date: Data de finalización
             initiative_id: ID da iniciativa
+            initiative_scope: Ámbito
             initiative_signatures_count: Número de sinaturas
             initiative_start_date: Data de inicio
             initiative_title: Título da iniciativa
             name_and_surname: Nome e apelidos
+            nickname: Alcume
             postal_code: Código postal
+            signature_count: Número de sinaturas
             timestamp: Timestamp
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Todas as iniciativas
+    download_your_data:
+      show:
+        initiatives: Exportación de iniciativas
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: A iniciativa «%{resource_title}» enviouse a validación técnica. Revísaa no <a href="%{admin_initiative_url}">panel de administración</a>
+            email_outro: Recibiches esta notificación porque formas parte do equipo de administración da plataforma.
+            email_subject: A iniciativa «%{resource_title}» enviouse a validación técnica.
+            notification_title: A iniciativa «%{resource_title}» enviouse a validación técnica. Revísaa no <a href="%{admin_initiative_path}">panel de administración</a>
         initiative_extended:
           email_intro: A data de finalización das sinaturas para a iniciativa %{resource_title} estendeuse!
           email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Data de finalización da sinatura de iniciativas estendida!
           notification_title: A data de finalización das sinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi prorrogada.
+        initiative_sent_to_technical_validation:
+          email_intro: A iniciativa «%{resource_title}» enviouse a validación técnica. Revísaa no <a href="%{admin_initiative_url}">panel de administración</a>
+          email_outro: Recibiches esta notificación porque formas parte do equipo de administración da plataforma.
+          email_subject: A iniciativa «%{resource_title}» enviouse a validación técnica.
+          notification_title: A iniciativa «%{resource_title}» enviouse a validación técnica. Revísaa no <a href="%{admin_initiative_path}">panel de administración</a>
         milestone_completed:
           affected_user:
             email_intro: A túa iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
@@ -101,6 +185,11 @@ gl:
             email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
             email_subject: Novo fito rematado!
             notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
+        support_threshold_reached:
+          email_intro: A iniciativa %{resource_title} alcanzou o limiar de sinaturas
+          email_outro: Recibiches esta notificación porque formas parte do equipo de administración da plataforma.
+          email_subject: Acadouse o limiar de sinaturas
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> alcanzou o limiar de sinaturas
     gamification:
       badges:
         initiatives:
@@ -108,9 +197,11 @@ gl:
             - Ir ao espazo de participación de Intiatives
             - Segue os pasos para crear unha nova iniciativa
           description: Este distintivo concedeuse cando se lanzan novas iniciativas, se asocian con outras persoas para realizalas.
-          description_another: Este usuario obtivo %{score} iniciativas publicadas.
+          description_another: Este participante obtivo %{score} iniciativas publicadas.
+          description_own: Tes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: Recibe %{score} iniciativas máis publicadas para alcanzar o seguinte nivel!
+          unearned_another: Esta persoa participante aínda non ten ningunha iniciativa publicada.
           unearned_own: Aínda non recibiu ningunha iniciativa publicada.
     help:
       participatory_spaces:
@@ -129,89 +220,292 @@ gl:
           info_initiative:
             created_at: Creado en
             description: Descrición
-            initiative_votes_count: Reconto de votos
+            initiative_votes_count: Reconto de apoios
             initiatives: Iniciativas
             state: Estado
         committee_requests:
           index:
             approve: Aprobar
             confirm_revoke: Estás seguro?
+            invite_to_committee_help: Comparte esta ligazón para convidar outras persoas participantes á comisión promotora.
+            no_members_yet: Non hai membros na comisión promotora.
             revoke: Revocar
             title: Membros do comité
         content_blocks:
           highlighted_initiatives:
             max_results: Cantidade máxima de elementos para mostrar
+            order:
+              default: Predeterminada (menos recentes)
+              label: 'Ordenar elemento por:'
+              most_recent: Máis recentes
+        exports:
+          initiatives: Iniciativas
+        index:
+          initiatives_types:
+            alert_html: "<p>Debes crear polo menos un tipo de iniciativa para que as persoas participantes poidan comezar a crear iniciativas.</p><p> %{link}</p>"
+            button: Novo tipo de iniciativa
         initiatives:
+          accept:
+            success: A iniciativa aceptouse correctamente.
+          discard:
+            success: A iniciativa descartouse correctamente.
           edit:
             accept: Acepte a iniciativa
             confirm: Estás seguro?
+            confirm_send_to_technical_validation: Estás seguro?
             discard: Descartar a iniciativa
             export_pdf_signatures: Exportar PDF de sinaturas
             export_votes: Soporte de exportación
             reject: Rexeita a iniciativa
             send_to_technical_validation: Enviar á validación técnica
+            success: A iniciativa enviouse a validación técnica.
+            title: Sobre esta iniciativa
             update: Actualización
           form:
+            attachments_title: Anexos
+            settings: Configuración
             title: Información xeral
           index:
             actions_title: Acción
             preview: Vista previa
             print: Imprimir
-        initiatives_type_scopes:
+            title: Iniciativas
+          initiative_attachments:
+            documents: Documentos
+            edit: Editar
+            new: Nova
+            photos: Fotos
+          publish:
+            success: A iniciativa publicouse correctamente.
+          reject:
+            success: A iniciativa rexeitouse correctamente.
+          unpublish:
+            success: Retirouse correctamente a publicación da iniciativa.
+          update:
+            error: Produciuse un problema ao actualizar a iniciativa.
+            success: A iniciativa actualizouse correctamente.
+        initiatives_settings:
           edit:
-            title: Editar o alcance do tipo de iniciativa
+            title: Configuración das iniciativas
+            update: Actualizar
+          form:
+            comments: Máis comentadas
+            date: Máis recentes
+            publication_date: Publicadas máis recentemente
+            random: Aleatorio
+            signatures: Máis asinado
+        initiatives_type_scopes:
+          create:
+            error: Produciuse un problema ao crear un novo ámbito para a iniciativa indicada.
+            success: Creouse un novo ámbito para o tipo de iniciativa indicado.
+          destroy:
+            success: O ámbito eliminouse correctamente.
+          edit:
+            title: Editar o ámbito do tipo de iniciativa
             update: Actualización
           new:
             create: Crear
-            title: Crea o alcance do tipo de iniciativa
+            title: Crea o ámbito do tipo de iniciativa
+          update:
+            error: Produciuse un problema ao actualizar o ámbito.
+            success: O ámbito actualizouse correctamente.
         initiatives_types:
+          create:
+            error: Produciuse un problema ao crear o tipo de iniciativa.
+            success: Creouse correctamente un novo tipo de iniciativa. Debes definir polo menos un ámbito para este tipo de iniciativa para poder utilizalo.
+          destroy:
+            success: O tipo de iniciativa eliminouse correctamente.
           edit:
+            title: Editar tipo de iniciativa
             update: Actualización
+          form:
+            child_scope_threshold_enabled_help_html: 'Esta opción non admite sinaturas fóra de liña. Activa os subámbitos e funciona cun xestor de autorización que asocia un ámbito á persoa participante. Asegúrate de seleccionar esa autorización máis abaixo, na configuración de autorizacións. Para que funcione, os ámbitos deben configurarse de forma xerárquica: 1 pai - N fillos. Para máis información, consulta a <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">páxina de documentación de administración de iniciativas</a>.'
+            only_global_scope_enabled_help_html: Marca esta opción se activaches «Sinatura de ámbito secundario» e configuraches o ámbito global como ámbito pai. Ao activala, omitirase a selección do tipo de iniciativa no asistente de creación. Para máis información sobre esta configuración, consulta esta <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ligazón</a>.
+            options: Opcións
+            signature_workflow_settings: Configuración do fluxo de sinatura
+          index:
+            title: Tipos de iniciativa
           initiative_type_scopes:
             title: Alcances para o tipo de iniciativa
           new:
             create: Crear
             title: Novo tipo de iniciativa
+          update:
+            error: Produciuse un problema ao actualizar o tipo de iniciativa.
+            success: O tipo de iniciativa actualizouse correctamente.
       admin_log:
         initiative:
           publish: "%{user_name} publicou a iniciativa %{resource_name}"
           send_to_technical_validation: "%{user_name} enviou a iniciativa %{resource_name} á validación técnica"
           unpublish: "%{user_name} eliminou a iniciativa %{resource_name}"
           update: "%{user_name} actualizou a iniciativa %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} actualizou a configuración das iniciativas"
+        initiatives_type:
+          create: "%{user_name} creou o tipo de iniciativa %{resource_name}"
+          delete: "%{user_name} eliminou o tipo de iniciativa %{resource_name}"
+          update: "%{user_name} actualizou o tipo de iniciativa %{resource_name}"
       admin_states:
+        accepted: Sinaturas suficientes
+        created: En borrador
         discarded: Descartou
+        open: Aberta
+        rejected: Sinaturas insuficientes
         validating: Validación técnica
       application_helper:
         filter_state_values:
+          accepted: Sinaturas suficientes
+          all: Todas
+          answered: Respondida
           closed: Pechado
           open: Aberto
+          rejected: Sinaturas insuficientes
+        filter_type_values:
+          all: Todas
       committee_requests:
+        approve:
+          success: A solicitude aprobouse correctamente.
         new:
           continue: Continuar
+          help_text: Estás a piques de solicitar formar parte da comisión promotora desta iniciativa.
+        revoke:
+          success: A solicitude revogouse.
         spawn:
           success: Enviouse a solicitude ao autor da iniciativa.
       content_blocks:
         highlighted_initiatives:
           name: Iniciativas destacadas
       create_initiative:
+        committee_member:
+          approve: Aprobar
+          confirm_approve: Seguro que queres aprobar este membro?
+          confirm_revoke: Seguro que queres revogar este membro?
+          revoke: Revocar
         fill_data:
+          confirm_discard: Seguro que queres descartar esta iniciativa?
           continue: Continuar
-          select_scope: Seleccione un alcance
+          discard: Descartar iniciativa
+          fill_data_help: "<ul> <li>Revisa o contido da túa iniciativa. O título enténdese con facilidade? Está claro o obxectivo da iniciativa?</li> <li>Debes escoller o tipo de sinatura: presencial, en liña ou unha combinación de ambas.</li> <li>Cal é o ámbito xeográfico da iniciativa?</li> </ul>"
+          more_information: (Máis información)
+          select_area: Seleccionar unha área
+          select_scope: Seleccione un ámbito
         finish:
           back: De volta
+          callout_text_created: Parabéns! A túa iniciativa creouse correctamente.
+          callout_text_validating: A túa iniciativa enviouse correctamente a validación técnica.
+          go_to_initiatives: Ir ás iniciativas
+          publish_helper_text_html: Lembra que, para publicar a túa iniciativa, debe superar a validación técnica e ser revisada polo equipo de administración.
         previous_form:
           back: De volta
+        promotal_committee:
+          individual_help_text: A túa iniciativa creouse e gardouse como borrador. Agora debes engadir persoas á comisión promotora.
+          invite_link_title: Ligazón para convidar persoas
+          promoters_committee_help_2: Lembra que, para publicar a túa iniciativa, debes completar a información necesaria e enviala a validación técnica para que a revise o equipo de administración.
+          promoters_committee_help_html: Antes de enviar a túa iniciativa a validación técnica, debes engadir %{committee_members_left} membros máis á comisión promotora. Tes <strong>%{committee_members_count}/%{committee_size}</strong>.
+          promoters_committee_title: Comisión promotora
+        return_to_initiatives_button:
+          return_initiatives_html: Omitir polo momento e <a href="%{initiatives_path}">volver ás iniciativas</a>
         select_initiative_type:
           back: De volta
           choose_html: Quero crear un <strong>%{title}</strong>
+          consult_existing_initiatives: Consultar iniciativas existentes
+          continue: Continuar
           more_information: (Máis información)
+          new: Crear unha nova iniciativa
           select: Quero promocionar esta iniciativa
+          select_initiative_type_help_html: "<p>As iniciativas son un medio para que as persoas participantes interveñan e impulsen a organización a emprender accións en defensa do interese xeral. Que iniciativa queres poñer en marcha?</p>"
+          show_more: Mostrar máis
+          subtitle: Que iniciativa queres promover?
+          verification_required: Verifica a túa conta para promover esta iniciativa
+        send_to_technical_validation_button:
+          button: Enviar á validación técnica
+          confirm: Vas enviar a iniciativa para que o equipo de administración a revise e publique. Unha vez publicada, non poderás editala. Seguro que queres continuar?
+        share_committee_link:
+          invite_to_committee_help: Ligazón para convidar persoas que formarán parte da comisión promotora.
+          invite_to_committee_help_2: Este tipo de iniciativa cidadá require unha comisión promotora formada por polo menos %{committee_size} membros (persoas certificadoras). Debes compartir a seguinte ligazón coas demais persoas que forman parte desta iniciativa. Cando reciban a ligazón, deberán seguir os pasos indicados.
+          more_information: (Máis información)
+      edit:
+        accept: Aceptar a iniciativa
+        back: Volver
+        confirm: Estás seguro?
+        discard: Descartar a iniciativa
+        export_pdf_signatures: Exportar PDF de sinaturas
+        export_votes: Soporte de exportación
+        reject: Rexeita a iniciativa
+        title: Editar iniciativa
+        update: Actualizar
+      events:
+        approve_membership_request:
+          email_intro: "%{author_name} aceptou a túa solicitude para formar parte da comisión promotora da iniciativa %{resource_title}."
+          email_outro: 'Recibiches esta notificación porque presentaches unha solicitude para esta iniciativa: %{resource_title}'
+          email_subject: "%{author_name} aceptou a túa solicitude para a comisión promotora"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> aceptou a túa solicitude para formar parte da comisión promotora da seguinte iniciativa <a href="%{resource_url}">%{resource_title}</a>.
+        create_initiative_event:
+          email_intro: "%{author_name}, a quen segues, creou unha nova iniciativa. Consúltaa e participa:"
+          email_outro: Recibiches esta notificación porque segues a %{author_name}. Podes deixar de recibir notificacións desde a ligazón anterior.
+          email_subject: Nova iniciativa de %{author_name}
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> foi creada por <a href="%{author_path}">%{author_name}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_name} rexeitou a túa solicitude para formar parte da comisión promotora da seguinte iniciativa %{resource_title}."
+          email_outro: 'Recibiches esta notificación porque presentaches unha solicitude para esta iniciativa: %{resource_title}.'
+          email_subject: "%{author_name} rexeitou a túa solicitude para a comisión promotora"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> rexeitou a túa solicitude para formar parte da comisión promotora da seguinte iniciativa <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_name} solicitou formar parte da comisión promotora da túa iniciativa %{resource_title}. Para aceptar ou rexeitar a solicitude, vai ao formulario de edición da iniciativa."
+          email_outro: 'Recibiches esta notificación porque es a persoa autora desta iniciativa: %{resource_title}'
+          email_subject: "%{applicant_name} quere unirse á túa iniciativa"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_name}</a> solicitou formar parte da comisión promotora da túa iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar ou rexeitar, preme <a href="%{resource_url}/edit">aquí</a>.
+      form:
+        add_attachments: Engadir anexos
+        add_image: Engadir imaxe
+        edit_attachments: Editar anexos
+        edit_image: Editar imaxe
+        image_legend: "(Opcional) Engadir unha imaxe"
+      index:
+        uninitialized: As iniciativas aínda non foron configuradas polo equipo de administración.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Data de nacemento
+              document_number:
+                placeholder: Número de documento
+              document_type:
+                prompt: Tipo de documento
+              document_type_and_number:
+                help_text: O número de documento corresponde ao documento usado na verificación do censo.
+                label: Tipo e número de documento
+              gender:
+                options:
+                  man: Home
+                  non_binary: Non binario
+                  woman: Muller
+        fill_personal_data:
+          continue: Validar os teus datos
+          help: Cubre os seguintes campos cos teus datos persoais para asinar a iniciativa.
+          invalid_authorization: Os datos proporcionados para continuar coa acción non son compatibles coas túas autorizacións existentes ou debes crear unha autorización concedida.
+          invalid_data: Algúns dos datos persoais proporcionados para verificar a túa identidade non son válidos.
         finish:
           back_to_initiative: Volver á iniciativa
+          title: Asinaches a iniciativa
+        sms_phone_number:
+          confirmed_data: Confirmaches os teus datos.
+          continue: Asinar iniciativa
+          help_enter_your_number: Introduce o teu número de teléfono. Despois recibirás un SMS cun código de validación.
+          receive_code: Recibir código
+          resend_code_html: Non recibiches o código? <a href="%{new_code_path}">Téntao de novo</a>
+          your_code_is_correct: O teu código é correcto.
+          your_code_is_incorrect: O código non é correcto. Revísao ou <a href="%{new_code_path}">téntao de novo</a>.
+          your_confirmation_code: O teu código de confirmación
       initiative_votes:
         create:
+          already_voted: A túa sinatura xa estaba rexistrada cos teus datos.
           error: Houbo erros ao asinar a iniciativa.
+          invalid: Os datos proporcionados para asinar a iniciativa non son válidos.
+          success_html: Parabéns! A iniciativa <strong>%{title}</strong> asinouse correctamente.
+        sms_code:
+          invalid: O teu código de verificación non coincide co noso. Revisa o SMS que che enviamos.
         sms_phone:
           invalid: O número de teléfono non é válido nin está en espera de autorización. Verifique as súas autorizacións.
       initiatives:
@@ -219,28 +513,77 @@ gl:
           hidden_authors_count:
             one: e 1 persoa máis
             other: e %{count} persoas máis
+        committee_members:
+          approve: Aprobar
+          confirm_approve: Seguro que queres aprobar este membro?
+          confirm_revoke: Seguro que queres revogar este membro?
+          invite_to_committee_help: Comparte esta ligazón para convidar outras persoas participantes á comisión promotora.
+          link: Ligazón
+          no_members_yet: Non hai membros na comisión promotora.
+          revoke: Revocar
+          title: Membros da comisión
         count:
           title:
             one: "Iniciativa %{count}"
             other: "%{count} iniciativas"
         filters:
           any: Calquera
+          area: Área
           author: Autor
           myself: As miñas iniciativas
+          scope: Ámbito
           state: Estado
           type: Tipo
         index_header:
           new_initiative: Nova iniciativa
+        initiatives:
+          closed_initiatives_warning: Neste momento non hai iniciativas abertas, pero aquí podes consultar todas as iniciativas pechadas.
+          no_initiatives_warning: Ningunha iniciativa coincide cos teus criterios de busca.
         orders:
           label: 'Ordenar iniciativas por:'
           most_commented: A maioría comentada
           most_voted: Máis asinado
           random: Aleatorio
           recent: Máis recente
+          recently_published: Publicadas máis recentemente
+        pending_initiatives:
+          description: Estas iniciativas aínda non son públicas. Revísaaas e envíaas a validación técnica para que poidan facerse públicas.
+          title: Iniciativas en borrador e pendentes
         print:
+          address: Enderezo
+          author_title: Autoría da iniciativa
           city: Cidade
+          email: Correo electrónico
+          full_name: Nome completo
+          general_title: Solicitude de admisión dunha iniciativa
+          id_number: Número de identificación
+          initiative:
+            attachments: Documentación anexa (escribe a continuación o nome de cada documento)
+            description: 'Descrición:'
+            title: 'Título:'
+            type: Tipo de iniciativa
+          legal_text: Os datos persoais recollidos serán incorporados e tratados de maneira confidencial pola organización, de acordo coa lexislación vixente.
+          members_header: Membros da comisión promotora da iniciativa
+          phone_number: Número de teléfono
+          place_date: Lugar, data
+          postal_code: Código postal
+          province: Provincia/Estado
+          signature: Sinatura
         result:
+          answer_title: Esta iniciativa foi respondida.
           initiative_rejected_reason: Esta iniciativa foi rexeitada debido á súa falta de apoios.
+        show:
+          area: Área
+          before_send_to_technical_validation_announcement: 'Antes de enviar a túa iniciativa a validación técnica, debes engadir %{count} membros máis á comisión promotora.<br/><br/>Comparte esta ligazón coas persoas que queres que formen parte da túa comisión: %{href}'
+          confirm: Vas enviar a iniciativa para que o equipo de administración a revise e publique. Unha vez publicada, non poderás editala. Seguro que queres continuar?
+          edit: Editar
+          initiative_data: Datos da iniciativa
+          scope: Ámbito
+          send_to_technical_validation: Enviar á validación técnica
+          send_to_technical_validation_announcement: Se todo está correcto, preme «Enviar a validación técnica» para que o equipo de administración revise e publique a túa iniciativa
+          signature_collection: Recollida de sinaturas
+          state: Estado
+          type: Tipo
         signatures_count:
           one: " sinatura"
           other: " sinaturas"
@@ -263,21 +606,102 @@ gl:
         promotal_committee_help: Lembre que debes convidar polo menos a %{member_count} persoas ao comité promotor. Reenvía a seguinte ligazón para invitar persoas á comisión de promotores
         status_change_body_for: 'A iniciativa %{title} cambiou o seu estado a: %{state}'
         status_change_for: A iniciativa %{title} cambiou o seu estado
+      last_activity:
+        new_initiative: 'Nova iniciativa:'
+      modal:
+        not_authorized:
+          authorizations_page: Ver autorizacións
+          explanation: Debes ter a conta verificada para crear unha nova iniciativa.
+          title: Requírese a autorización
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Iniciativas activas
+            see_all_spaces: Ver todas as iniciativas
+      show:
+        badge_name:
+          accepted: Sinaturas suficientes
+          created: En borrador
+          discarded: Descartou
+          open: Aberta
+          rejected: Sinaturas insuficientes
+          validating: Validación técnica
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Sinatura que recolle información persoal da persoa participante, valida a autorización e comproba o código SMS
+            name: Xestor de sinatura de proba
+          dummy_signature_with_personal_data_handler:
+            description: Sinatura que só recolle información persoal da persoa participante e a valida
+            name: Xestor de sinatura de proba con datos persoais
+          dummy_signature_with_sms_handler:
+            description: Sinatura que só valida o número de teléfono buscando unha autorización existente asociada e comproba o código SMS
+            name: Xestor de sinatura de proba só con SMS
+          ephemeral_dummy_signature_handler:
+            description: Sinatura efémera que recolle información persoal da persoa participante, valida a autorización e comproba o código SMS
+            name: Xestor efémero de sinatura de proba
+          legacy_signature_handler:
+            description: Xestor de sinaturas baseado na antiga funcionalidade de sinatura, que inclúe a recollida de datos persoais, o paso de SMS e a validación da autorización con dummy_authorization_handler. Modifica calquera parámetro para adaptalo á configuración utilizada
+            name: Xestor de sinaturas herdado
       states:
         accepted: Aceptada
         expired: Vencido
-      unavailable_scope: Alcance non dispoñible
+      unavailable_scope: Ámbito non dispoñible
+      update:
+        error: Produciuse un problema ao actualizar a iniciativa.
+        success: A iniciativa actualizouse correctamente.
     menu:
       initiatives: Iniciativas
+    open_data:
+      help:
+        initiatives:
+          answer: A resposta que recibiu esta iniciativa (se existe)
+          answer_url: O URL da resposta (se existe)
+          answered_at: A data da resposta (se existe)
+          area: A área desta iniciativa
+          authors: A autoría desta iniciativa
+          comments_count: O número de comentarios desta iniciativa
+          created_at: A data na que se creou este espazo
+          description: A descrición da iniciativa
+          first_progress_notification_at: A data na que se enviou a primeira notificación de progreso
+          follows_count: O número de participantes que seguen este espazo
+          offline_votes: O número de sinaturas que recibiu esta iniciativa fóra desta plataforma
+          online_votes: O número de sinaturas que recibiu esta iniciativa en liña (directamente a través da plataforma)
+          published_at: A data na que se publicou este espazo
+          reference: A referencia única do espazo
+          scope: O ámbito da iniciativa
+          second_progress_notification_at: A data na que se enviou a segunda notificación de progreso
+          signature_end_date: A data na que remata o período de recollida de sinaturas
+          signature_start_date: A data na que comezou o período de recollida de sinaturas
+          signature_type: O tipo de recollida de sinaturas (en liña ou presencial)
+          signatures: O número de sinaturas desta iniciativa
+          state: O estado actual desta iniciativa
+          title: O título da iniciativa
+          type: O tipo da iniciativa
+          updated_at: A última data na que se actualizou este espazo
+          url: O URL do espazo
     resources:
+      initiative:
+        actions:
+          comment: Comentar
+          vote_comment: Valorar comentario
       initiatives_type:
         actions:
+          create: Crear unha iniciativa
           title: Accións
+    statistics:
+      initiatives_count: Iniciativas
+      initiatives_count_tooltip: O número de iniciativas cidadás publicadas.
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Crear
+        finish: Validación técnica
+        promotal_committee: Buscar persoas promotoras
         select_initiative_type: Elixe
+      initiative_signature_creation_header:
+        help_information_html: Para asinar a iniciativa <strong>%{initiative_title}</strong>, promovida por %{initiative_author}, debes proporcionar algúns datos que farán que a sinatura da iniciativa teña validez legal. Non se fará pública ningunha información sobre ti.
+        verify_your_identity: Verificar a túa identidade
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Non hai iniciativas aínda.

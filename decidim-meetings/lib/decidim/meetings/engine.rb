@@ -110,16 +110,25 @@ module Decidim
         end
 
         Decidim.view_hooks.register(:conference_venues, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          meetings = Decidim::Meetings::Meeting.visible.not_hidden.published.where(component: published_components).group_by(&:address)
-          meetings_geocoded = Decidim::Meetings::Meeting.visible.not_hidden.published.where(component: published_components).geocoded
+          published_components = Decidim::Component
+                                 .where(participatory_space: view_context.current_participatory_space)
+                                 .published
 
-          next unless meetings.any?
+          meetings = Decidim::Meetings::Meeting.includes(:component, :taxonomies)
+                                               .visible
+                                               .not_hidden
+                                               .published
+                                               .where(component: published_components)
+
+          meetings_by_address = meetings.group_by(&:address)
+          meetings_geocoded = meetings.geocoded
+
+          next unless meetings_by_address.any?
 
           view_context.render(
             partial: "decidim/participatory_spaces/conference_venues",
             locals: {
-              meetings:,
+              meetings: meetings_by_address,
               meetings_geocoded:
             }
           )

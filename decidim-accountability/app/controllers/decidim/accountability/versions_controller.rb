@@ -10,14 +10,14 @@ module Decidim
 
       include Decidim::ResourceVersionsConcern
 
+      private
+
       def versioned_resource
         result
       end
 
-      private
-
       def result
-        @result ||= Result.includes(:milestones).where(component: current_component).find(params.expect(:result_id))
+        @result ||= Result.includes(:milestones, versions: [:item]).where(component: current_component).find(params.expect(:result_id))
       end
 
       def add_breadcrumb_item

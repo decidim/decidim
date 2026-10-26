@@ -58,7 +58,7 @@ describe "Mobile header" do
 
     context "when user is logged in" do
       before do
-        switch_to_host(organization.host)
+        wait_pending_requests
         login_as user, scope: :user
         visit decidim.root_path
       end

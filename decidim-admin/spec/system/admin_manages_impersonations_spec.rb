@@ -11,6 +11,7 @@ describe "Admin manages impersonations" do
     within_admin_sidebar_menu do
       click_on "Impersonations"
     end
+    expect(page).to have_css("h1", text: "Manageable participants")
   end
 
   shared_examples_for "prevent undesired access" do

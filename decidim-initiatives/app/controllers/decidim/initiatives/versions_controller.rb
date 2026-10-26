@@ -12,11 +12,11 @@ module Decidim
       include NeedsInitiative
       include Decidim::ResourceVersionsConcern
 
+      private
+
       def versioned_resource
         current_initiative
       end
-
-      private
 
       def current_participatory_space_manifest
         @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:initiatives)

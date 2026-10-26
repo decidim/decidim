@@ -284,6 +284,8 @@ shared_examples "manage process components" do
           click_on "Publish"
         end
 
+        expect(page).to have_callout("The component has been successfully published.")
+
         within ".component-#{component.id}" do
           find("button[data-controller='dropdown']").click
           expect(page).to have_css("a", text: "Hide")
@@ -298,6 +300,8 @@ shared_examples "manage process components" do
           find("button[data-controller='dropdown']").click
           click_on "Publish"
         end
+
+        expect(page).to have_callout("The component has been successfully published.")
 
         expect(Decidim::EventPublisherJob).to(have_been_enqueued.with(
                                                 "decidim.events.components.component_published", {
