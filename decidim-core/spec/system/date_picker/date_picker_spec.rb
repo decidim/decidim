@@ -204,6 +204,19 @@ describe "Datepicker" do
           end
         end
 
+        context "when clearing the date field" do
+          it "clears the hidden datetime input" do
+            fill_in_datepicker :example_input_date, with: "24/11/2012"
+            expect(page).to have_field("example_input", with: "2012-11-24T00:00", visible: :all)
+
+            date_field = find_by_id("example_input_date")
+            date_field.send_keys [:control, "a"]
+            date_field.send_keys :backspace
+            expect(page).to have_field("example_input_date", with: "")
+            expect(page).to have_field("example_input", with: "", visible: :all)
+          end
+        end
+
         context "when pasting" do
           context "when pasting a correct format date to date input field" do
             context "when pasting with the correct separator" do
