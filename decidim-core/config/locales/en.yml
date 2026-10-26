@@ -2112,6 +2112,9 @@ en:
             service: Service
             type: Type
           items:
+            __Host-decidim-consent:
+              description: Stores information about the cookies allowed by the user on this website.
+              service: This website
             _session_id:
               description: Allows websites to remember user within a website when they move between web pages.
               service: This website

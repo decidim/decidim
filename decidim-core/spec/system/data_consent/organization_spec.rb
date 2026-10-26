@@ -4,13 +4,13 @@ require "spec_helper"
 
 describe "Data consent within organization" do
   let(:organization) { create(:organization) }
-  let(:cookie) { page.driver.browser.manage.cookie_named(Decidim.consent_cookie_name) }
+  let(:cookie) { page.driver.browser.manage.cookie_named(data_consent_cookie_name) }
 
   before do
     page.driver.browser.execute_cdp(
       "Network.deleteCookies",
       domain: organization.host,
-      name: Decidim.consent_cookie_name,
+      name: data_consent_cookie_name,
       path: "/"
     )
 
@@ -32,6 +32,21 @@ describe "Data consent within organization" do
     expect(diff).to be_within(30).of(365.days)
   end
 
+  it "sets the cookie with the expected name and path" do
+    expect(cookie[:name]).to eq(data_consent_cookie_name)
+    expect(cookie[:path]).to eq("/")
+  end
+
+  if ENV["TEST_SSL"]
+    it "uses the __Host- prefix on HTTPS" do
+      expect(cookie[:name]).to start_with("__Host-")
+    end
+  else
+    it "does not use the __Host- prefix over HTTP" do
+      expect(cookie[:name]).not_to start_with("__Host-")
+    end
+  end
+
   it "sets the cookie as host-only (no domain)" do
     expect(cookie[:domain]).to eq(organization.host)
   end
@@ -47,11 +62,21 @@ describe "Data consent within organization" do
   end
 
   context "when a legacy domain-scoped consent cookie is present" do
+    let(:legacy_cookie_name) { Decidim.consent_cookie_name.delete_prefix("__Host-") }
+
     before do
+      [data_consent_cookie_name, legacy_cookie_name].uniq.each do |name|
+        page.driver.browser.execute_cdp(
+          "Network.deleteCookies",
+          domain: organization.host,
+          name:,
+          path: "/"
+        )
+      end
       page.driver.browser.execute_cdp(
         "Network.deleteCookies",
-        domain: organization.host,
-        name: Decidim.consent_cookie_name,
+        domain: ".#{organization.host}",
+        name: legacy_cookie_name,
         path: "/"
       )
       # Older Decidim versions stored the cookie with an explicit domain, which
@@ -59,7 +84,7 @@ describe "Data consent within organization" do
       page.driver.browser.execute_cdp(
         "Network.setCookie",
         domain: ".#{organization.host}",
-        name: Decidim.consent_cookie_name,
+        name: legacy_cookie_name,
         value: { essential: true, analytics: true }.to_json,
         path: "/"
       )
@@ -72,7 +97,7 @@ describe "Data consent within organization" do
 
     it "leaves the legacy domain cookie in place" do
       consent_cookies = page.driver.browser.manage.all_cookies.select do |stored|
-        stored[:name] == Decidim.consent_cookie_name
+        stored[:name] == legacy_cookie_name
       end
       expect(consent_cookies.map { |stored| stored[:domain] }).to include(".#{organization.host}")
     end

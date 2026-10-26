@@ -19,6 +19,8 @@ jest.mock("js-cookie", () => {
 });
 
 describe("ConsentManager", () => {
+  const hostCookieName = "__Host-decidim-consent";
+  const httpCookieName = "decidim-consent";
   const dialogContent = `
     <div id="dc-dialog-wrapper" role="region">
       <div class="dc-dialog padding-vertical-1">
@@ -211,8 +213,9 @@ describe("ConsentManager", () => {
   beforeEach(() => {
     window.location.href = "https://decidim.dev/";
     Cookies.cookieStorage = {};
-    document.cookie = "decidim-consent=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-    document.cookie = "decidim-consent=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.decidim.dev";
+    document.cookie = `${hostCookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; secure`;
+    document.cookie = `${httpCookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+    document.cookie = `${httpCookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.decidim.dev`;
 
     document.body.innerHTML = dialogContent + modalContent + cookieWarningContent;
 
@@ -221,7 +224,7 @@ describe("ConsentManager", () => {
     manager = new ConsentManager({
       modal: modal,
       categories: categories,
-      cookieName: "decidim-consent",
+      cookieName: hostCookieName,
       warningElement: document.querySelector("[data-dataconsent-warning]")
     });
   });
@@ -236,7 +239,7 @@ describe("ConsentManager", () => {
     describe("when the current URL is secure", () => {
       beforeEach(() => {
         manager.updateState({ foo: "bar" });
-        cookie = getCookie("decidim-consent");
+        cookie = getCookie(hostCookieName);
       });
 
       it("sets the cookie with the correct value", () => {
@@ -255,6 +258,7 @@ describe("ConsentManager", () => {
 
       it("sets the cookie with the correct flags", () => {
         expect(cookie.domain).toBeUndefined();
+        expect(cookie.path).toEqual("/");
         expect(cookie.sameSite).toEqual("Lax");
         expect(cookie.secure).toBe(true);
       });
@@ -262,14 +266,21 @@ describe("ConsentManager", () => {
 
     describe("when the current URL is insecure", () => {
       beforeEach(() => {
-        Reflect.defineProperty(window.location, "protocol", { value: "http:" })
+        Reflect.defineProperty(window.location, "protocol", { configurable: true, value: "http:" })
 
+        Cookies.cookieStorage = {};
         manager.updateState({ foo: "bar" });
-        cookie = getCookie("decidim-consent");
+        cookie = getCookie(httpCookieName);
       });
 
       it("does not set the secure flag", () => {
         expect(cookie.secure).toBeUndefined();
+      });
+
+      it("uses the unprefixed cookie name", () => {
+        expect(cookie).not.toBeNull();
+        expect(getCookie(hostCookieName)).toBeNull();
+        expect(cookie.path).toEqual("/");
       });
     });
   });
@@ -296,13 +307,13 @@ describe("ConsentManager", () => {
       return new ConsentManager({
         modal: modal,
         categories: categories,
-        cookieName: "decidim-consent",
+        cookieName: hostCookieName,
         warningElement: document.querySelector("[data-dataconsent-warning]")
       });
     };
 
     beforeEach(() => {
-      window.location.href = "https://test.decidim.dev/";
+      window.location.href = "http://test.decidim.dev/";
     });
 
     afterEach(() => {
@@ -320,6 +331,15 @@ describe("ConsentManager", () => {
       mockCookies(`${legacyCookie}; path=/; domain=.decidim.dev; ${versionedCookie}; path=/`);
       manager = createManager();
       expect(manager.getState()).toEqual({ essential: true, preferences: true });
+      expect(document.cookie).toContain(legacyCookie);
+    });
+
+    it("ignores the unprefixed legacy cookie on HTTPS and uses the host-bound name", () => {
+      Reflect.defineProperty(window.location, "protocol", { configurable: true, value: "https:" });
+      mockCookies(`${legacyCookie}; path=/; domain=.decidim.dev`);
+      manager = createManager();
+      expect(manager.cookieName).toEqual(hostCookieName);
+      expect(manager.getState()).toEqual({});
       expect(document.cookie).toContain(legacyCookie);
     });
   });

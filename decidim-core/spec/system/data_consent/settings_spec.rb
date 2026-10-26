@@ -5,6 +5,7 @@ require "spec_helper"
 describe "Data consent" do
   let(:orga) { create(:organization) }
   let(:cookies_description) { "We use cookies on our website to improve the performance and content of the site" }
+  let(:consent_cookie_name) { Decidim.consent_cookie_name }
 
   before do
     switch_to_host(orga.host)
@@ -53,10 +54,10 @@ describe "Data consent" do
     end
 
     it "shows cookie" do
-      expect(page).to have_no_text("decidim-consent")
+      expect(page).to have_no_text(consent_cookie_name)
       expect(page).to have_no_text("Stores information about the cookies allowed by the user on this website")
       find("[data-id='essential']").find("[id^='accordion-trigger']").click
-      expect(page).to have_text("decidim-consent")
+      expect(page).to have_text(consent_cookie_name)
       expect(page).to have_text("Stores information about the cookies allowed by the user on this website")
     end
 

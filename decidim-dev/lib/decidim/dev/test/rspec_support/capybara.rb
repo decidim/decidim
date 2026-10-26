@@ -28,6 +28,12 @@ module Decidim
       "http"
     end
 
+    def data_consent_cookie_name
+      return Decidim.consent_cookie_name if protocol == "https"
+
+      Decidim.consent_cookie_name.delete_prefix("__Host-")
+    end
+
     def expire_browser_session(wait: Capybara.default_max_wait_time)
       wait_pending_requests(wait)
 
@@ -201,16 +207,18 @@ RSpec.configure do |config|
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host
     if domain
-      # JavaScript sets the consent cookie as host-only (no explicit domain),
-      # so it is not shared with subdomains.
+      # JavaScript sets the consent cookie as host-bound (no explicit domain),
+      # so it is not shared with subdomains. On HTTPS it uses the `__Host-`
+      # prefix, which requires the `Secure` attribute.
       page.driver.browser.execute_cdp(
         "Network.setCookie",
         domain:,
-        name: Decidim.consent_cookie_name,
+        name: data_consent_cookie_name,
         value: { essential: true, _version: 1 }.to_json,
         path: "/",
         expires: 1.day.from_now.to_i,
-        same_site: "Lax"
+        same_site: "Lax",
+        secure: protocol == "https"
       )
     end
   end

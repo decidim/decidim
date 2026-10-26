@@ -6,6 +6,14 @@ This feature is many times referred to as "cookie consent" due to historic reaso
 
 As many non-technical people are still more familiar with the "cookie" terminology, the user interface talks only about "Cookie consent" to make it easier to understand for non-technical participants.
 
+== Cookie name and security attributes
+
+The data consent cookie is named `__Host-decidim-consent` by default. Browsers only accept cookies with the `__Host-` prefix when they are set from a secure (HTTPS) origin with the `Secure` attribute and `Path=/`, and without a `Domain` attribute. This makes the cookie host-bound, so it is not shared between the main site and its subdomains.
+
+When Decidim runs over HTTP (for example, `http://localhost:3000` during local development), Decidim automatically removes the `__Host-` prefix and stores the cookie as `decidim-consent`, because browsers reject `__Host-` cookies without the `Secure` attribute.
+
+You can change the cookie name with the `consent_cookie_name` configuration option or the `DECIDIM_CONSENT_COOKIE_NAME` environment variable. Use a descriptive name without worrying about the prefix: Decidim adds `__Host-` automatically on HTTPS (unless it is already present) and removes it on HTTP. Remember to update your cookie consent, privacy policy and any other place where you document your cookies with the effective cookie name.
+
 == Different data consent categories available in Decidim
 
 By default there are four (4) data consent categories: **essential**, **preferences**, **analytics** and **marketing**. To display embedded iframes properly user has to give consent to all categories.
