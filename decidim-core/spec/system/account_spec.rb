@@ -3,8 +3,9 @@
 require "spec_helper"
 
 describe "Account" do
-  let(:user) { create(:user, :confirmed, password:) }
+  let(:user) { create(:user, :confirmed, password:, personal_url:) }
   let(:password) { "dqCFgjfDbC7dPbrv" }
+  let(:personal_url) { "https://example.org/personal-profile" }
   let(:organization) { user.organization }
 
   before do
@@ -86,6 +87,8 @@ describe "Account" do
         end
 
         expect(page).to have_text("Serbian-American")
+        expect(page).to have_no_text(personal_url)
+        expect(page).to have_no_link(href: personal_url)
 
         # The user's password should not change when they did not update it
         expect(user.reload.encrypted_password).to eq(encrypted_password)
