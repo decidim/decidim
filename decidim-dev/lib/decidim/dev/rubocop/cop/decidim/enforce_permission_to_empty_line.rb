@@ -40,7 +40,7 @@ module RuboCop
         RESTRICT_ON_SEND = [:enforce_permission_to].freeze
 
         def on_send(node)
-          return if no_following_statement?(node)
+          return unless following_statement?(node)
           return if next_line_empty?(node)
 
           add_offense(node, message: MSG) do |corrector|
@@ -50,13 +50,20 @@ module RuboCop
 
         private
 
-        # Returns true when the call is the last statement of the enclosing
-        # body, so there is nothing to separate the permission check from.
-        def no_following_statement?(node)
-          parent = node.parent
-          return true unless parent&.begin_type? || parent&.kwbegin_type?
+        # Returns true when there is code after the call that needs to be
+        # separated from it.
+        #
+        # A trailing hash written with value omission (e.g. `page:`) can make
+        # the parser treat the next statement as the omitted value, folding it
+        # into the call node. Even then, that statement follows the call, so it
+        # still requires an empty line.
+        def following_statement?(node)
+          return true if trailing_shorthand_pair(node)
 
-          parent.children.last == node
+          parent = node.parent
+          return false unless parent&.begin_type? || parent&.kwbegin_type?
+
+          parent.children.last != node
         end
 
         def next_line_empty?(node)

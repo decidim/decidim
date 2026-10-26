@@ -43,6 +43,7 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :election, election:
+
           @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
         end
 

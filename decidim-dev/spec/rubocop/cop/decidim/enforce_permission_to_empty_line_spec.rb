@@ -175,6 +175,34 @@ RSpec.describe RuboCop::Cop::Decidim::EnforcePermissionToEmptyLine, :config, typ
     RUBY
   end
 
+  it "does not register an offense for a trailing shorthand hash followed by a single statement and an empty line" do
+    expect_no_offenses(<<~RUBY)
+      def edit
+        enforce_permission_to :update, :election, election:
+
+        @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
+      end
+    RUBY
+  end
+
+  it "registers an offense for a trailing shorthand hash followed by a single statement" do
+    expect_offense(<<~RUBY)
+      def edit
+        enforce_permission_to :update, :election, election:
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Add an empty line after `enforce_permission_to`.
+        @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      def edit
+        enforce_permission_to :update, :election, election:
+
+        @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
+      end
+    RUBY
+  end
+
   it "registers an offense for a trailing shorthand hash without an empty line" do
     expect_offense(<<~RUBY)
       def show
