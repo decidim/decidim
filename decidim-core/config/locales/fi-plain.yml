@@ -117,8 +117,6 @@ fi-pl:
       decidim_with_month_name_short: "%d. %b"
       help:
         date_format: 'Muoto: pp.kk.vvvv'
-      order: d-m-y
-      separator: "."
   datetime:
     distance_in_words:
       about_x_hours:
@@ -858,6 +856,8 @@ fi-pl:
     errors:
       files:
         file_cannot_be_processed: Tiedostoa ei voida käsitellä
+        file_contains_unsafe_content: Tiedosto sisältää vaarallista sisältöä
+        file_is_not_a_valid_image: Kuvatiedosto ei ole kelvollinen
         file_resolution_too_large: Tiedoston resoluutio on liian suuri
         not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon.
       internal_server_error:
