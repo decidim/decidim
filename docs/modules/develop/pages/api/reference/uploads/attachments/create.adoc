@@ -72,7 +72,7 @@ variable path:
 [source,bash]
 ----
 curl -X POST https://example.org/api/ \
-  -F 'operations={"query":"mutation ($input: CreateAttachmentInput!) { createAttachment(input: $input) { id } }","variables":{"input":{"attributes":{"file":null}}}}' \
+  -F 'operations={"query":"mutation ($componentId: ID!, $resultId: ID!, $input: CreateAttachmentInput!) { component(id: $componentId) { ... on AccountabilityMutation { result(id: $resultId) { createAttachment(input: $input) { id } } } } }","variables":{"componentId":"3","resultId":"5","input":{"attributes":{"weight":1,"title":{"en":"Your english title"},"description":{"en":"Your english description"},"file":null}}}}' \
   -F 'map={"0":["variables.input.attributes.file"]}' \
   -F '0=@/path/to/file.jpg'
 ----
