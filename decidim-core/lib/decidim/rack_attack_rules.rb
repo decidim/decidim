@@ -30,13 +30,13 @@ module Decidim
       # Throttle login attempts for a given email parameter to 5 reqs/minute
       # Return the email as a discriminator on POST /users/sign_in requests
       configuration.throttle("limit logins per email", limit: 5, period: 60.seconds) do |request|
-        request.params["user"]["email"] if request.path == "/users/sign_in" && request.post?
+        request.params.dig("user", "email") if request.path == "/users/sign_in" && request.post?
       end
 
       # Throttle password recovery attempts for a given email parameter to 5 reqs/minute
       # Return the email as a discriminator on POST /users/password requests
       configuration.throttle("limit password recovery attempts per email", limit: 5, period: 60.seconds) do |request|
-        request.params["user"]["email"] if request.path == "/users/password" && request.post?
+        request.params.dig("user", "email") if request.path == "/users/password" && request.post?
       end
 
       # Throttle SMS verification confirmation attempts per IP to 10 reqs/minute

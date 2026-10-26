@@ -138,11 +138,11 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to eq("a@b.c")
     end
 
-    it "raises NoMethodError on POST /users/sign_in without the user param" do
-      # Current behavior: request.params["user"] is nil, so the predicate raises
-      # instead of returning nil (a malformed POST would 500 in the middleware)
+    it "returns nil on POST /users/sign_in without the user param" do
+      # A malformed POST must not raise inside the middleware, which has no rescue;
+      # the throttle simply does not match
       request = request_class.new("/users/sign_in", "1.2.3.4", :post, {})
-      expect { throttle.block.call(request) }.to raise_error(NoMethodError)
+      expect(throttle.block.call(request)).to be_nil
     end
 
     it "returns nil on GET /users/sign_in" do
@@ -181,11 +181,11 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to eq("a@b.c")
     end
 
-    it "raises NoMethodError on POST /users/password without the user param" do
-      # Current behavior: request.params["user"] is nil, so the predicate raises
-      # instead of returning nil (a malformed POST would 500 in the middleware)
+    it "returns nil on POST /users/password without the user param" do
+      # A malformed POST must not raise inside the middleware, which has no rescue;
+      # the throttle simply does not match
       request = request_class.new("/users/password", "1.2.3.4", :post, {})
-      expect { throttle.block.call(request) }.to raise_error(NoMethodError)
+      expect(throttle.block.call(request)).to be_nil
     end
 
     it "returns nil on GET /users/password" do
