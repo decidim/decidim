@@ -73,7 +73,6 @@ describe "Account" do
         within "form.edit_user" do
           select "Castellano", from: :user_locale
           fill_in :user_name, with: "Nikola Tesla"
-          fill_in :user_personal_url, with: "https://example.org"
           fill_in :user_about, with: "A Serbian-American inventor, electrical engineer, mechanical engineer, physicist, and futurist."
           all("*[type=submit]").last.click
         end
@@ -86,7 +85,6 @@ describe "Account" do
           find("a", text: "perfil público").click
         end
 
-        expect(page).to have_text("example.org")
         expect(page).to have_text("Serbian-American")
 
         # The user's password should not change when they did not update it

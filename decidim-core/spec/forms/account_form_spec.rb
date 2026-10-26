@@ -13,7 +13,6 @@ module Decidim
         old_password:,
         avatar:,
         remove_avatar:,
-        personal_url:,
         about:,
         locale: "es"
       ).with_context(
@@ -33,7 +32,6 @@ module Decidim
     let(:password) { "Rf9kWTqQfyqkwseH" }
     let(:avatar) { upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg")) }
     let(:remove_avatar) { false }
-    let(:personal_url) { "http://example.org" }
     let(:about) { "This is a description about me" }
 
     context "with correct data" do
@@ -171,24 +169,6 @@ module Decidim
           let(:old_password) { "foobar1234567890" }
 
           it { is_expected.to be_invalid }
-        end
-      end
-    end
-
-    describe "personal_url" do
-      context "when it does not start with http" do
-        let(:personal_url) { "example.org" }
-
-        it "adds it" do
-          expect(subject.personal_url).to eq("http://example.org")
-        end
-      end
-
-      context "when it is not a valid URL" do
-        let(:personal_url) { "foobar, aa" }
-
-        it "is invalid" do
-          expect(subject).not_to be_valid
         end
       end
     end

@@ -16,7 +16,6 @@ module Decidim
         old_password: nil,
         avatar: nil,
         remove_avatar: nil,
-        personal_url: "https://example.org",
         about: "This is a description of me",
         locale: "es"
       }
@@ -31,7 +30,6 @@ module Decidim
         old_password: data[:old_password],
         avatar: data[:avatar],
         remove_avatar: data[:remove_avatar],
-        personal_url: data[:personal_url],
         about: data[:about],
         locale: data[:locale]
       ).with_context(current_organization: user.organization, current_user: user)
@@ -64,11 +62,6 @@ module Decidim
         form.nickname = "pepito"
         expect { command.call }.to broadcast(:ok)
         expect(user.reload.nickname).to eq("pepito")
-      end
-
-      it "updates the personal url" do
-        expect { command.call }.to broadcast(:ok)
-        expect(user.reload.personal_url).to eq("https://example.org")
       end
 
       it "updates the about text" do
@@ -225,7 +218,6 @@ module Decidim
 
         context "when updating other fields" do
           before do
-            form.personal_url = user.personal_url
             form.about = user.about
           end
 

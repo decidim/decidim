@@ -104,7 +104,15 @@ This initializer is not overwritten automatically during the upgrade (`bin/rails
 
 You can read more about this change on PR [#17160](https://github.com/decidim/decidim/pull/17160).
 
-### 2.5. [[TITLE OF THE ACTION]]
+### 2.5. Personal URL field removed from participant profiles
+
+The personal URL field has been removed from participant profiles and the account settings form. This field was being widely used to publish spam links on the platform, so participants can no longer add or edit it, and it is no longer displayed on public profiles. The field has also been removed from the API.
+
+Existing values stored in the database are no longer displayed. Implementers with customizations that rely on the `personal_url` attribute should review them.
+
+This change is part of the work to reduce profile spam tracked in issue [#17955](https://github.com/decidim/decidim/issues/17955).
+
+### 2.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
