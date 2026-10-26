@@ -117,8 +117,6 @@ eu:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formatua: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -851,6 +849,8 @@ eu:
     errors:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
+        file_contains_unsafe_content: Fitxategiak segurua ez den edukia du
+        file_is_not_a_valid_image: Fitxategia ez da baliozko irudia
         file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
         not_inside_organization: Fitxategia ez dago inongo erakunderi atxikita.
       internal_server_error:
@@ -1684,7 +1684,7 @@ eu:
         hide_content: Ezkutatu edukia
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         reason: Arrazoia
-        report: Txostena
+        report: Salatu
         spam: Clickbait, publizitatea, iruzurrak edo script bot-ak ditu.
         title: Salatu eduki desegokia
       flag_user_modal:
