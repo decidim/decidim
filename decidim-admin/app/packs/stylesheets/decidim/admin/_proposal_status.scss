@@ -10,8 +10,7 @@
     height: 1rem;
     border-radius: 50%;
     background-color: var(--proposal-status-bg);
-    box-shadow:
-      0 0 0 1.5px var(--proposal-status-fg),
+    box-shadow: 0 0 0 1.5px var(--proposal-status-fg),
       0 0 0 6px var(--proposal-status-bg);
 
     @media (forced-colors: active) {
