@@ -76,6 +76,16 @@ module Decidim::Verifications::Admin
         end
       end
 
+      context "when the user is not signed in" do
+        before { sign_out admin }
+
+        it "redirects the user" do
+          get :count, params: { name: authorization_name, impersonated_only: false }
+
+          expect(response).to have_http_status(:redirect)
+        end
+      end
+
       context "with a before_date filter" do
         let!(:regular_authorization) { create(:authorization, name: authorization_name, user: create(:user, :confirmed, organization:), created_at: Date.new(2020, 1, 1)) }
         let!(:managed_authorization) do
@@ -121,6 +131,52 @@ module Decidim::Verifications::Admin
     end
 
     describe "DELETE #destroy" do
+      it "enqueues the revocation job and redirects with a notice" do
+        expect do
+          delete :destroy, params: { name: authorization_name, impersonated_only: false }
+        end.to have_enqueued_job(Decidim::Verifications::RevokeAuthorizationsJob)
+
+        expect(flash[:notice]).to eq(I18n.t("decidim.admin.menu.authorization_revocation.revoked.total", count: 2, workflow: workflow_fullname))
+        expect(response).to have_http_status(:redirect)
+      end
+
+      context "when the current user is not an admin" do
+        before { sign_in create(:user, :confirmed, organization:), scope: :user }
+
+        it "does not enqueue the revocation job" do
+          expect do
+            delete :destroy, params: { name: authorization_name, impersonated_only: false }
+          end.not_to have_enqueued_job(Decidim::Verifications::RevokeAuthorizationsJob)
+
+          expect(response).to have_http_status(:redirect)
+        end
+      end
+
+      context "when the user is not signed in" do
+        before { sign_out admin }
+
+        it "does not enqueue the revocation job" do
+          expect do
+            delete :destroy, params: { name: authorization_name, impersonated_only: false }
+          end.not_to have_enqueued_job(Decidim::Verifications::RevokeAuthorizationsJob)
+
+          expect(response).to have_http_status(:redirect)
+        end
+      end
+
+      context "without a valid authenticity token" do
+        before { described_class.allow_forgery_protection = true }
+        after { described_class.allow_forgery_protection = false }
+
+        it "rejects the request without enqueuing the revocation job" do
+          expect do
+            delete :destroy, params: { name: authorization_name, impersonated_only: false }
+          end.to raise_error(ActionController::InvalidAuthenticityToken)
+
+          expect(Decidim::Verifications::RevokeAuthorizationsJob).not_to have_been_enqueued
+        end
+      end
+
       context "when the name is invalid" do
         it "sets a flash alert and redirects" do
           delete :destroy, params: { name: "unknown_handler", impersonated_only: false }

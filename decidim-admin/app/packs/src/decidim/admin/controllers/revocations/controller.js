@@ -43,6 +43,13 @@ export default class extends Controller {
     }
 
     const requestedDate = this.dateTarget.value;
+    // The datepicker empties the submittable date while the visible one is
+    // incomplete, which must not read as "no date".
+    if (!requestedDate && this._visibleDateInput()?.value) {
+      this._holdSubmission();
+      return;
+    }
+
     if (!requestedDate) {
       this.submitTarget.disabled = false;
       this._setConfirm(radio.dataset.confirmMessage);
@@ -62,12 +69,8 @@ export default class extends Controller {
     params.set("revocations[impersonated_only]", radio.value);
     params.set("revocations[before_date]", requestedDate);
 
-    // Hold the submission behind the generic confirm text until the accurate
-    // message arrives.
-    this.submitTarget.dataset.confirm = this.fallbackConfirm;
-    this.submitTarget.disabled = true;
-    this._showCounts();
-    this._showCallout();
+    // Hold the submission until the accurate message arrives.
+    this._holdSubmission();
 
     fetch(`${url}?${params}`, {
       headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" },
@@ -122,6 +125,13 @@ export default class extends Controller {
 
   _checkedOption() {
     return this.optionTargets.find((radio) => radio.checked);
+  }
+
+  _holdSubmission() {
+    this.submitTarget.dataset.confirm = this.fallbackConfirm;
+    this.submitTarget.disabled = true;
+    this._showCounts();
+    this._showCallout();
   }
 
   _isOutdated(radio, requestedDate) {

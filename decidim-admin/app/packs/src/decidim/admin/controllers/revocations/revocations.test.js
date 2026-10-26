@@ -1,3 +1,4 @@
+/* eslint max-lines: ["error", 350] */
 /* global global, jest */
 
 import { Application } from "@hotwired/stimulus"
@@ -261,6 +262,22 @@ describe("RevocationsController", () => {
     expect(submit("dummy").dataset.confirm).toEqual("Revoke 5 total verifications")
     expect(submit("dummy").disabled).toBe(false)
     expect(callouts("dummy")).toEqual(["info: All 5 total verifications will be revoked"])
+    expect(fetch).toHaveBeenCalledTimes(1)
+  })
+
+  it("holds the submission with the generic confirm and no callout while the date is incomplete", async () => {
+    fetch.mockResolvedValue(countResponse())
+
+    pick("dummy", "total")
+    typeDate("dummy", "2022-03-15", "15/03/2022")
+    await flushPromises()
+    // Erasing a digit empties the submittable date but not the visible one.
+    typeDate("dummy", "", "15/03/202")
+
+    expect(submit("dummy").dataset.confirm).toEqual("Revoking cannot be undone")
+    expect(submit("dummy").disabled).toBe(true)
+    expect(callouts("dummy")).toEqual([])
+    expect(cardText("dummy", "total")).toEqual("5")
     expect(fetch).toHaveBeenCalledTimes(1)
   })
 
