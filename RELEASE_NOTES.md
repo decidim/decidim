@@ -133,7 +133,7 @@ In order to unify the terminology used across the platform, what used to be call
 This affects the public API of the `decidim-participatory_processes` module and every component that stores per-step settings:
 
 - The `Decidim::ParticipatoryProcessStep` model is now `Decidim::ParticipatoryProcessPhase`.
-- The `allows_steps?` method is now `allows_phases?`, and `active_step` is now `active_phase`.
+- The `allows_steps?` method is now `allows_phases?` (and `has_steps?` is now `has_phases?`), and `active_step` is now `active_phase`.
 - Component manifests declare per-phase settings with `settings(:phase)` instead of `settings(:step)`.
 - The component settings JSON keys `steps` and `default_step` are now `phases` and `default_phase`. This is handled automatically by the data migration when running `bin/rails data:migrate`.
 - The `decidim_participatory_process_steps` database table is renamed to `decidim_participatory_process_phases`, handled by `bin/rails db:migrate`.
