@@ -86,7 +86,7 @@ describe Decidim::UserActivityCell, type: :cell do
     within ".pagination" do
       expect(page).to have_css("li.page.current", text: "1")
       expect(page).to have_css("li.page a", text: "2")
-      expect(page).to have_no_selector("li.page a", text: "3")
+      expect(page).to have_no_css("li.page a", text: "3")
     end
   end
 
@@ -165,7 +165,7 @@ describe Decidim::UserActivityCell, type: :cell do
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      expect(subject).to have_no_selector(".pagination")
+      expect(subject).to have_no_css(".pagination")
     end
   end
 end

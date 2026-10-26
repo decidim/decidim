@@ -22,6 +22,32 @@ describe Decidim::Accountability::Permissions do
     it_behaves_like "delegates permissions to", Decidim::Accountability::Admin::Permissions
   end
 
+  context "when reading results" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :result }
+    end
+
+    context "when listing results" do
+      it { is_expected.to be true }
+    end
+
+    context "when a deleted result is given" do
+      let(:result) { create(:result, component: accountability_component) }
+      let(:context) do
+        {
+          current_component: accountability_component,
+          result:
+        }
+      end
+
+      before do
+        allow(result).to receive(:deleted?).and_return(true)
+      end
+
+      it { is_expected.to be false }
+    end
+  end
+
   context "when any other condition" do
     let(:action) do
       { scope: :public, action: :foo, subject: :foo }

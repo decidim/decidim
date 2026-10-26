@@ -48,6 +48,8 @@ module Decidim
       end
 
       def index
+        enforce_permission_to :read, :meeting
+
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
@@ -111,7 +113,10 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])
+        @meeting ||= Meeting.includes(attachments: { file_attachment: :blob })
+                            .not_hidden
+                            .where(component: current_component)
+                            .find_by(id: params[:id])
       end
 
       def meetings
@@ -142,12 +147,13 @@ module Decidim
           )
           .includes(
             :component,
-            attachments: :file_attachment
+            attachments: { file_attachment: :blob }
           )
       end
 
       def search_base_collection
         Meeting
+          .includes(:taxonomies)
           .where(component: current_component)
           .published
           .not_hidden

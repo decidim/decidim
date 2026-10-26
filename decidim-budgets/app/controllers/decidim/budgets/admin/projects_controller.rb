@@ -160,7 +160,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= budget.projects.page(params[:page]).per(15)
+          @collection ||= budget.projects.includes(:taxonomies).page(params[:page]).per(15)
         end
 
         def trashable_deleted_resource_type
@@ -190,7 +190,9 @@ module Decidim
         def reference_budget
           return unless params[:reference_id]
 
-          Budget.where(component: current_component).find(params.expect(:reference_id))
+          Budget.joins(:component)
+                .where(component: { participatory_space: current_participatory_space })
+                .find(params.expect(:reference_id))
         end
 
         def pending_orders

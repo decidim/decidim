@@ -146,9 +146,8 @@ describe "Admin edits documents" do
     click_on "Apply"
 
     within ".collaborative-texts-manager" do
-      click_on "Draft a new version"
+      accept_confirm { click_on "Draft a new version" }
     end
-    accept_confirm
 
     expect(page).to have_text("Edit collaborative texts")
     expect(page).to have_checked_field("Draft version")
@@ -179,10 +178,8 @@ describe "Admin edits documents" do
     click_on "Apply"
 
     within ".collaborative-texts-manager" do
-      click_on "Consolidate accepted suggestions"
+      accept_confirm { click_on "Consolidate accepted suggestions" }
     end
-
-    accept_confirm
 
     expect(page).to have_text("First title", count: 2)
     expect(page).to have_no_text("Second title")
