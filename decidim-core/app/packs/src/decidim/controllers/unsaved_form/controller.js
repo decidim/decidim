@@ -178,6 +178,7 @@ export default class extends Controller {
 
     this.element.addEventListener("input", this.markDirty);
     this.element.addEventListener("change", this.markDirty);
+    this.element.addEventListener("update", this.markDirty);
     this.element.addEventListener("sortupdate", this.markDirty, true);
     this.element.addEventListener("submit", this.markSubmitting);
     this.element.addEventListener("ajax:send", this.markSending);
@@ -193,6 +194,7 @@ export default class extends Controller {
     window.removeEventListener("beforeunload", this.preventBeforeUnload);
     this.element.removeEventListener("input", this.markDirty);
     this.element.removeEventListener("change", this.markDirty);
+    this.element.removeEventListener("update", this.markDirty);
     this.element.removeEventListener("sortupdate", this.markDirty, true);
     this.element.removeEventListener("submit", this.markSubmitting);
     this.element.removeEventListener("ajax:send", this.markSending);
