@@ -75,7 +75,6 @@ ca:
         new_survey: Nova enquesta
         preview: Previsualitzar
         responses: Respostes
-        responses_alert: L'opció d'esborrar les respostes en publicar l'enquesta està activada. Si segueixes, s'esborraran les %{responses_count} existents actualment.
         title: Accions
       admin:
         exports:
@@ -98,6 +97,14 @@ ca:
             edit:
               title: Preguntes
         responses:
+          actions:
+            destroy_all_responses: Esborrar totes les respostes
+            destroy_all_responses_confirm:
+              one: Segur que vols esborrar %{count} resposta? Aquesta acció no es pot desfer.
+              other: Segur que vols esborrar %{count} respostes? Aquesta acció no es pot desfer.
+          destroy_all:
+            invalid: S'ha produït un error en eliminar totes les respostes.
+            success: Totes les respostes s'han eliminat correctament.
           index:
             no_responses: Encara no hi ha cap resposta
             title: "%{total} respostes en total"

@@ -11,13 +11,26 @@ gl:
       menu:
         templates: Padróns
       templates:
+        actions:
+          new_template: Novo modelo
         apply:
           error: Produciuse un problema ao aplicar o padrón.
+          success: O modelo aplicouse correctamente.
         copy:
           error: Produciuse un problema ao copiar o padrón.
+          success: O modelo copiouse correctamente.
         create:
           error: Produciuse un problema ao crear o padrón.
+          success: O modelo creouse correctamente.
+        destroy:
+          success: O modelo eliminouse correctamente.
         empty: Aínda non hai padróns.
+        fetch:
+          error: Non se puido atopar este modelo. Volve cargar a páxina.
+        missing_resource: "(falta o recurso)"
+        update:
+          error: Produciuse un problema ao actualizar este modelo.
+          success: O modelo actualizouse correctamente.
       titles:
         template_types:
           questionnaires: Padrón para cuestionarios
@@ -34,26 +47,74 @@ gl:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Editar o modelo de mensaxe de bloqueo de participante
           form:
             save: Gardar
+          index:
+            confirm_delete: Seguro que queres eliminar este modelo?
+            title: Mensaxes de bloqueo de participantes
+          new:
+            title: Novo modelo de mensaxe de bloqueo de participante
+          template_chooser:
+            select_template: Seleccionar unha resposta modelo
         proposal_answer_templates:
+          edit:
+            title: Editar o modelo de resposta a propostas
           form:
+            component_constraint_help: Ten en conta que só se mostrarán os espazos participativos que teñan compoñentes do tipo «propostas».
+            hint1_html: "<strong>%{organization}</strong> substituirase polo nome da organización"
+            hint2_html: "<strong>%{name}</strong> substituirase polo nome da persoa autora"
+            hint3_html: "<strong>%{admin}</strong> substituirase polo nome da persoa administradora (a que responde á proposta)"
+            hint_html: "<strong>Consello:</strong> podes usar estas variables en calquera lugar do modelo de resposta; substituiranse ao usar o modelo"
             save: Gardar
+          index:
+            component_constraint: Engadir restrición
+            confirm_delete: Seguro que queres eliminar este modelo?
+            missing_state: Falta o estado
+            proposal_state_id: Estado interno
+            title: Respostas a propostas
+          new:
+            title: Novo modelo de resposta a propostas
+          template_chooser:
+            select_template: Seleccionar unha resposta modelo
         questionnaire_templates:
           choose:
+            continue: Continuar
+            description: Podes crear un novo cuestionario ou escoller un modelo predefinido e modificalo máis adiante. Selecciona unha opción.
             label: Escoller padrón
+            options:
+              create_new_form: Crear un novo formulario
+              select_template: Seleccionar modelo
             placeholder: Escoller padrón
           edit:
             edit: Editar
+            empty: Aínda non hai preguntas.
+            manage_questions: Preguntas
             questionnaire: Cuestionario
+            title: Editar o modelo de cuestionario
+          edit_questions:
+            add_question: Engadir pregunta
+            add_separator: Engadir separador
+            add_title_and_description: Engadir título e descrición
           form:
             title: Padrón de cuestionario %{questionnaire_for}
           index:
             confirm_delete: Tes a certeza de querer eliminar este padrón?
             title: Padróns de cuestionario
+          new:
+            title: Novo modelo de cuestionario
           preview:
             current_step: Paso %{step}
             of_total_steps: de %{total_steps}
             tos_agreement: Ao participar, aceptas os termos do servizo
+      admin_log:
+        template:
+          create: "%{user_name} creou o modelo de cuestionario %{resource_name}"
+          delete: "%{user_name} eliminou o modelo de cuestionario %{resource_name}"
+          duplicate: "%{user_name} duplicou o modelo de cuestionario %{resource_name}"
+          update: "%{user_name} actualizou o modelo de cuestionario %{resource_name}"
       template_types:
+        block_user: Mensaxes de bloqueo de participantes
+        proposal_answer_templates: Respostas a propostas
         questionnaires: Cuestionarios

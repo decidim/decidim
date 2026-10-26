@@ -32,6 +32,8 @@ module Decidim
       # rubocop:enable Naming/VariableNumber
 
       def index
+        enforce_permission_to :read, :proposal
+
         if component_settings.participatory_texts_enabled?
           @proposals = Decidim::Proposals::Proposal
                        .where(component: current_component)
@@ -52,6 +54,8 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" if @proposal.blank? || !can_show_proposal?
+
+        enforce_permission_to :read, :proposal, proposal: @proposal
       end
 
       def new
@@ -188,7 +192,12 @@ module Decidim
       private
 
       def search_collection
-        Proposal.where(component: current_component).published.not_hidden.with_availability(params.fetch(:filter, {}).fetch(:with_availability, {}))
+        chosen_state = params.fetch(:filter, {}).fetch(:with_availability, {})
+        Proposal.includes(:taxonomies, :amended, :amendable)
+                .where(component: current_component)
+                .published
+                .not_hidden
+                .with_availability(chosen_state)
       end
 
       def default_filter_params

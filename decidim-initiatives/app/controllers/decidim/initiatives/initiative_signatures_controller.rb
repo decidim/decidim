@@ -29,6 +29,8 @@ module Decidim
       helper_method :initiative_type, :extra_data_legal_information, :sms_step?, :fill_personal_data_step?
 
       def index
+        enforce_permission_to :sign_initiative, :initiative, initiative: current_initiative, signature_has_steps: signature_has_steps?
+
         redirect_to send(fill_personal_data_step? ? :fill_personal_data_path : :sms_phone_number_path)
       end
 

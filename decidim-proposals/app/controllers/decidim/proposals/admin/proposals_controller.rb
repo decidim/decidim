@@ -155,7 +155,10 @@ module Decidim
         end
 
         def collection
-          @collection ||= Proposal.where(component: current_component).not_hidden.published
+          @collection ||= Proposal.includes(:amended, :amendable, :component, :taxonomies, :proposal_state)
+                                  .where(component: current_component)
+                                  .not_hidden
+                                  .published
         end
 
         def proposals
@@ -163,7 +166,7 @@ module Decidim
         end
 
         def proposal
-          @proposal ||= accessible_proposals_collection.find(params.expect(:id))
+          @proposal ||= accessible_proposals_collection.preload(:coauthorships).find(params.expect(:id))
         end
 
         def proposal_ids

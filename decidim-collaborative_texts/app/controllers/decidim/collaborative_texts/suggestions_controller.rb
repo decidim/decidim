@@ -9,6 +9,8 @@ module Decidim
       helper_method :documents, :document
 
       def index
+        enforce_permission_to(:read, :collaborative_text, document:)
+
         render json: suggestions_for(document.consolidated_version)
       end
 

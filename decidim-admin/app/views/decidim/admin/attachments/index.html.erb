@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <% attached_to.attachments.each do |attachment| %>
+          <% attached_to.attachments.includes(:attachment_collection, file_attachment: :blob).each do |attachment| %>
             <tr data-id="<%= attachment.id %>">
               <td data-label="<%= t("models.attachment.fields.title", scope: "decidim.admin") %>">
                 <%= link_to translated_attribute(attachment.title), edit_polymorphic_path([attached_to, attachment]) %><br>

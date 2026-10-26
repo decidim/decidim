@@ -10,6 +10,8 @@ module Decidim
     before_action :underscore_params!
 
     def create
+      enforce_permission_to :create, :upload_validation
+
       @form = form(Decidim::UploadValidationForm).from_params(params)
 
       ValidateUpload.call(@form) do
@@ -23,13 +25,13 @@ module Decidim
       end
     end
 
+    private
+
     def organization_time_zone
       return Rails.application.config.time_zone unless current_organization
 
       super
     end
-
-    private
 
     def ensure_authenticated!
       return true unless current_organization

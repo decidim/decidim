@@ -1,1 +1,165 @@
+---
 gl:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Corpo
+          draft: Borrador
+          title: Título
+          version_number: Número de versión
+        suggestion:
+          nodes: Nodos DOM
+          original: Texto orixinal
+          replace: Substitución
+        version:
+          body: Corpo
+          draft: Borrador
+          version_number: Número de versión
+  activerecord:
+    models:
+      decidim/collaborative_texts/document:
+        one: Texto colaborativo
+        other: Textos colaborativos
+  decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Non se pode eliminar este documento
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Seguro que queres eliminar este documento?
+        deleted_document_info: O documento eliminado pódese restaurar desde a papeleira.
+        edit: Editar
+        manage: Configurar
+        new: Novo texto
+        title: Accións
+        view_deleted_documents: Ver documentos eliminados
+      admin:
+        documents:
+          create:
+            invalid: Produciuse un problema ao crear o documento.
+            success: O documento creouse correctamente.
+          draft_options:
+            accepting_suggestions: Activar suxestións na seguinte versión
+            accepting_suggestions_help: Ao activar as suxestións iniciarase unha nova rolda de suxestións para este documento. As suxestións actuais non serán visibles na nova versión.
+            draft: Versión borrador
+            draft_help_html: Unha versión borrador non é pública e pode ser editada polo equipo de administración. Retira o estado de borrador para facer público este contido. <strong>Ten en conta que, mentres a versión borrador estea activa, as persoas participantes verán a versión anterior e non poderán facer suxestións.</strong>
+          edit:
+            document_has_suggestions_html: <a href="%{url}">Este documento ten suxestións</a> e non se pode editar directamente. Acepta ou rexeita as suxestións para xerar unha nova versión borrador que se poida editar.
+            draft: Versión borrador
+            previous_versions: Versións anteriores
+            public_version: Versión pública
+            title: Editar textos colaborativos
+            update: Actualizar
+            version: A versión %{version_number}, creada o %{created_at}, recibiu %{suggestions_count} suxestións.
+          edit_settings:
+            title: Configurar textos colaborativos
+            update: Actualizar
+          index:
+            title: Textos colaborativos
+          manage_trash:
+            title: Documentos eliminados
+          new:
+            create: Crear
+            title: Crear textos colaborativos
+          non_draft_options:
+            create_draft: Descartar suxestións e crear unha nova versión borrador
+            draft_help_html: Unha versión borrador non é pública e pode ser editada polo equipo de administración. Retira o estado de borrador para facer público este contido. <strong>Ten en conta que, mentres a versión borrador estea activa, as persoas participantes verán a versión anterior e non poderán facer suxestións.</strong>
+            enable_suggestions: Activar suxestións
+            enable_suggestions_help: Ao activar as suxestións, as persoas participantes poderán facer suxestións nesta versión.
+          publish:
+            invalid: Produciuse un problema ao publicar este documento.
+            success: O documento publicouse correctamente.
+          unpublish:
+            invalid: Produciuse un problema ao retirar a publicación deste documento.
+            success: Retirouse correctamente a publicación do documento.
+          update:
+            invalid: Produciuse un problema ao actualizar o documento.
+            success: O documento actualizouse correctamente.
+          update_settings:
+            invalid: Produciuse un problema ao actualizar o documento.
+            success: O documento actualizouse correctamente.
+        exports:
+          document_suggestions: Suxestións
+        index:
+          published: Publicado
+          unpublished: Non publicado
+      admin_log:
+        document:
+          create: "%{user_name} creou o texto colaborativo %{resource_name} en %{space_name}"
+          delete: "%{user_name} eliminou o texto colaborativo %{resource_name} de %{space_name}"
+          publish: "%{user_name} publicou o texto colaborativo %{resource_name} en %{space_name}"
+          restore: "%{user_name} restaurou o texto colaborativo %{resource_name} en %{space_name}"
+          soft_delete: "%{user_name} moveu o texto colaborativo %{resource_name} de %{space_name} á papeleira"
+          unpublish: "%{user_name} retirou a publicación do texto colaborativo %{resource_name} en %{space_name}"
+          update: "%{user_name} actualizou o texto colaborativo %{resource_name} en %{space_name}"
+        suggestion:
+          create: "%{user_name} suxeriu cambios no texto colaborativo %{resource_name} en %{space_name}"
+        version:
+          delete: "%{user_name} eliminou a versión do texto colaborativo %{resource_name} de %{space_name}"
+          update: "%{user_name} actualizou a versión do texto colaborativo %{resource_name} en %{space_name}"
+      document:
+        apply: Aplicar
+        cancel: Cancelar
+        consolidate:
+          confirm: Esta acción consolidará todas as suxestións aceptadas nunha nova versión do documento. As suxestións non aceptadas transferiranse á nova versión para revisalas máis adiante. Manterase o estado de suxestións activadas.
+          new: Consolidar suxestións aceptadas
+        consolidate_counter: A consolidación combinará as %{applied} suxestións aplicadas e moverá as %{pending} pendentes á nova versión.
+        controls_label: Controis das suxestións
+        draft_counter: O borrador combinará as %{applied} suxestións aplicadas e descartará as %{pending} pendentes.
+        index: Índice
+        restore: Restaurar
+        rollout:
+          confirm: Esta acción creará unha nova versión borrador do documento e redirixirache á páxina de edición para os últimos axustes. A versión actual seguirá sendo pública e as suxestións quedarán desactivadas.
+          invalid: Produciuse un problema ao crear unha nova versión do documento (%{errors}).
+          new: Crear o borrador dunha nova versión
+        save: Suxerir cambios
+        status:
+          accepting_suggestions: Para suxerir cambios, selecciona ou fai dobre clic no texto que queres editar e, a continuación, preme o botón «Suxerir cambios».
+          draft: Este documento está a ser revisado polo equipo de administración. Neste momento non se permiten suxestións, pero podes ver as realizadas por outras persoas participantes.
+          not_accepting_suggestions: Neste momento non se permiten suxestións.
+          selection_active: Hai unha selección activa. Cancela a selección actual para facer unha nova.
+        suggestions_count: "%{count} suxestións"
+        toggle: Mostrar/ocultar suxestións
+      documents:
+        index:
+          count:
+            one: "%{count} texto colaborativo"
+            other: "%{count} textos colaborativos"
+          empty: Aínda non hai textos colaborativos.
+        show:
+          contributors: Persoas colaboradoras
+      models:
+        collaborative_text:
+          fields:
+            published: Publicado
+            suggestions: Aceptar suxestións
+            title: Título
+      suggestion:
+        add_html: <span class="type">Engadir:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Eliminar:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Substituír:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: Produciuse un problema ao crear a suxestión.
+          success: A suxestión creouse correctamente.
+        errors:
+          blank_changeset: O conxunto de cambios non pode estar baleiro.
+          invalid_nodes: Os nodos seleccionados non son válidos.
+    components:
+      collaborative_texts:
+        actions:
+          create: Crear
+          destroy: Eliminar
+          update: Actualizar
+        name: Textos colaborativos
+        settings:
+          global:
+            announcement: Aviso
+            comments_blocked: Comentarios bloqueados
+          step:
+            announcement: Aviso
+    statistics:
+      all_collaborative_texts_count: Todos os textos colaborativos
+      collaborative_texts_count: Textos colaborativos
+      collaborative_texts_count_tooltip: Número de textos colaborativos

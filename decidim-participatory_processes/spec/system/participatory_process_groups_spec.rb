@@ -195,7 +195,7 @@ describe "Participatory Process Groups" do
       end
 
       it "does not show cards of proposals from process out of group" do
-        expect(page).to have_no_selector("#proposals__proposal_#{independent_proposal.id}")
+        expect(page).to have_no_css("#proposals__proposal_#{independent_proposal.id}")
         expect(page).to have_no_text "Independent proposal!"
         expect(page).not_to have_i18n_content(out_of_group_process.title, strip_tags: true)
       end
@@ -239,7 +239,7 @@ describe "Participatory Process Groups" do
       end
 
       it "does not show cards of results from process out of group" do
-        expect(page).to have_no_selector("#accountability__result_#{independent_result.id}")
+        expect(page).to have_no_css("#accountability__result_#{independent_result.id}")
         expect(page).to have_no_text "Independent result!"
         expect(page).not_to have_i18n_content out_of_group_process.title
       end
