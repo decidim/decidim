@@ -52,7 +52,7 @@ module Decidim
             }
           end
 
-          it "publishes the default step settings change" do
+          it "publishes the default phase settings change" do
             expect(Decidim::SettingsChange).to receive(:publish).with(
               component,
               hash_including("comments_blocked" => false),

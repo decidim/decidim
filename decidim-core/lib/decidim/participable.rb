@@ -52,7 +52,7 @@ module Decidim
         respond_to?(:phases)
       end
 
-      def has_steps?
+      def has_phases?
         allows_phases? && phases.any?
       end
 

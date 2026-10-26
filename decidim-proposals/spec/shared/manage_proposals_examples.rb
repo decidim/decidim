@@ -285,7 +285,7 @@ shared_examples "manage proposals" do
       current_component.update!(settings: { proposal_answering_enabled: true })
     end
 
-    context "when the proposal_answering step setting is enabled" do
+    context "when the proposal_answering phase setting is enabled" do
       before do
         current_component.update!(
           phase_settings: {
@@ -420,7 +420,7 @@ shared_examples "manage proposals" do
       end
     end
 
-    context "when the proposal_answering step setting is disabled" do
+    context "when the proposal_answering phase setting is disabled" do
       before do
         current_component.update!(
           phase_settings: {

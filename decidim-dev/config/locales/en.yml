@@ -39,7 +39,7 @@ en:
           phase:
             likes_blocked: Likes blocked
             likes_enabled: Likes enabled
-            readonly_phase_attribute: Readonly step attribute
+            readonly_phase_attribute: Readonly phase attribute
             test_options:
               bar: Bar
               baz: Baz

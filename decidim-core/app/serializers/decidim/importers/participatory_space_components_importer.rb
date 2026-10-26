@@ -76,7 +76,7 @@ module Decidim
       end
 
       def override_phase_settings_ids(attributes, phase_settings)
-        return unless @participatory_space.has_steps? && phase_settings.present?
+        return unless @participatory_space.has_phases? && phase_settings.present?
 
         @participatory_space.phases.each do |phase|
           old_id = attributes["settings"]["phases"].keys.first

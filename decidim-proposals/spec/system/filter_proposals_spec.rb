@@ -216,7 +216,7 @@ describe "Filter Proposals", :slow do
         component.update!(settings: { proposal_answering_enabled: true })
       end
 
-      context "when proposal_answering step setting is enabled" do
+      context "when proposal_answering phase setting is enabled" do
         before do
           component.update!(
             phase_settings: {
@@ -309,7 +309,7 @@ describe "Filter Proposals", :slow do
         end
       end
 
-      context "when proposal_answering step setting is disabled" do
+      context "when proposal_answering phase setting is disabled" do
         before do
           component.update!(
             phase_settings: {
@@ -464,7 +464,7 @@ describe "Filter Proposals", :slow do
       end
 
       context "when amendments_enabled component setting is enabled" do
-        context "and amendments_visibility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component phase_setting is set to 'participants'" do
           context "when the user is logged in" do
             before do
               visit decidim.root_path
@@ -541,7 +541,7 @@ describe "Filter Proposals", :slow do
           component.update!(settings: { amendments_enabled: false })
         end
 
-        context "and amendments_visibility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component phase_setting is set to 'participants'" do
           before do
             component.update!(
               phase_settings: {

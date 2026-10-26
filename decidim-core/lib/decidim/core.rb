@@ -566,12 +566,12 @@ module Decidim
   mattr_accessor :user_roles, default: Decidim::Env.new("DECIDIM_USER_ROLES", "admin,user_manager").to_array
 
   # The list of visibility options for amendments. An Array of Strings that
-  # serve both as locale keys and values to construct the input collection in
-  # Decidim::Amendment::VisibilityStepSetting::options.
+  # serve both as locale keys and values to construct the input collection for
+  # the amendments visibility setting.
   #
   # This collection is used in Decidim::Admin::SettingsHelper to generate a
   # radio buttons collection input field form for a Decidim::Component
-  # step setting :amendments_visibility.
+  # phase setting :amendments_visibility.
   mattr_accessor :amendments_visibility_options, default: Decidim::Env.new("DECIDIM_AMENDMENTS_VISIBILITY_OPTIONS", "all,participants").to_array
 
   # Exposes a configuration option: The maximum length for conversation
