@@ -11,6 +11,11 @@ module Decidim
 
       before do
         host! organization.host
+
+        Bullet.add_safelist type: :unused_eager_loading, class_name: "ActiveStorage::Blob", association: :variant_records
+        Bullet.add_safelist type: :unused_eager_loading, class_name: "ActiveStorage::Blob", association: :preview_image_attachment
+        Bullet.add_safelist type: :unused_eager_loading, class_name: "Decidim::ParticipatoryProcess", association: :hero_image_attachment
+        Bullet.add_safelist type: :unused_eager_loading, class_name: "Decidim::ParticipatoryProcess", association: :attachments
       end
 
       it "shows a resource from the current component" do
