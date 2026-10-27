@@ -349,4 +349,44 @@ describe Decidim::Search do
       end
     end
   end
+
+  describe "when results include uncommentable resources" do
+    let(:term) { "king nothing" }
+    let(:resource_type) { "Decidim::Comments::Comment" }
+    let(:component) { create(:component, organization: current_organization) }
+    let(:uncommentable_component) { create(:component, organization: current_organization) }
+
+    before do
+      # Comments can only be created while comments are enabled, so the component is
+      # disabled afterwards. The uncommentable comment is the most recent one, so it
+      # would fall on the first page.
+      create(:comment, commentable: create(:dummy_resource, component: uncommentable_component), body: term, created_at: 1.hour.ago)
+      4.times { |i| create(:comment, commentable: create(:dummy_resource, component:), body: term, created_at: (i + 2).hours.ago) }
+      uncommentable_component.update!(settings: { comments_enabled: false })
+    end
+
+    it "keeps results as a relation and excludes the uncommentable ones" do
+      described_class.call(term, current_organization, { "with_resource_type" => resource_type }, per_page: 2) do
+        on(:ok) do |results_by_type|
+          results = results_by_type[resource_type]
+          expect(results[:count]).to eq 4
+          expect(results[:results]).to be_a(ActiveRecord::Relation)
+          expect(results[:results].total_pages).to eq 2
+          expect(results[:results].to_a.count).to eq 2
+        end
+        on(:invalid) { raise("Should not happen") }
+      end
+    end
+
+    it "returns a full page on later pages" do
+      described_class.call(term, current_organization, { "with_resource_type" => resource_type }, { page: 2, per_page: 2 }) do
+        on(:ok) do |results_by_type|
+          results = results_by_type[resource_type]
+          expect(results[:count]).to eq 4
+          expect(results[:results].to_a.count).to eq 2
+        end
+        on(:invalid) { raise("Should not happen") }
+      end
+    end
+  end
 end
