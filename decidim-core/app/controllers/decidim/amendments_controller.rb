@@ -24,14 +24,14 @@ module Decidim
       if amendment_draft
         redirect_to edit_draft_amend_path(amendment_draft)
       else
-        @form = form(Decidim::Amendable::CreateForm).from_params(params)
+        @form = form(Decidim::Amendable::CreateForm).from_params(create_params)
       end
     end
 
     def create
       enforce_permission_to :create, :amendment, current_component: amendable.component
 
-      @form = form(Decidim::Amendable::CreateForm).from_params(params)
+      @form = form(Decidim::Amendable::CreateForm).from_params(create_params)
 
       Decidim::Amendable::CreateDraft.call(@form) do
         on(:ok) do |amendment|
@@ -190,6 +190,12 @@ module Decidim
     # Needed for actions :new and :create, when there is no amendment yet.
     def amendable_gid
       params[:amendable_gid] || params.dig(:amendment, :amendable_gid)
+    end
+
+    # Binds the create form to the already-checked amendable, so a conflicting
+    # nested `amendment[amendable_gid]` cannot select another resource.
+    def create_params
+      params.deep_merge(amendment: { amendable_gid: amendable&.to_sgid&.to_s })
     end
 
     # Binds the review form to the amendment from the route, so a nested

@@ -48,6 +48,21 @@ module Decidim
         expect(assigns(:form).id).to eq(local_amendment.id)
       end
 
+      it "binds the create form to the checked amendable" do
+        expect do
+          post :create, params: {
+            amendable_gid: local_amendable.to_sgid.to_s,
+            amendment: {
+              amendable_gid: other_amendable.to_sgid.to_s,
+              emendation_params: { title: "A different title", body: "A different body" }
+            }
+          }
+        end.to change { local_amendable.amendments.count }.by(1)
+
+        expect(assigns(:form).amendable).to eq(local_amendable)
+        expect(other_amendable.amendments.count).to eq(1)
+      end
+
       it "accepts the amendment from the route and not the nested foreign amendment" do
         patch :accept, params: {
           id: local_amendment.id,
