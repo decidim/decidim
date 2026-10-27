@@ -32,5 +32,14 @@ describe Decidim::Doorkeeper::CredentialsController do
       expect(credentials["nickname"]).to eq(user.nickname)
       expect(credentials["image"]).to start_with("http")
     end
+
+    context "when the token belongs to a user from another organization" do
+      let(:other_user) { create(:user, :confirmed, organization: create(:organization)) }
+      let!(:access_token) { create(:oauth_access_token, application:, resource_owner_id: other_user.id) }
+
+      it "does not expose the user" do
+        expect { get :me }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
   end
 end
