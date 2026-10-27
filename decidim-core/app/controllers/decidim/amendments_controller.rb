@@ -198,10 +198,22 @@ module Decidim
 
     def amendable
       @amendable ||= begin
-        resource = GlobalID::Locator.locate_signed(amendable_gid) || amendment&.amendable
+        # Existing amendments must always resolve their own amendable, so a
+        # foreign amendment cannot be authorized through a local
+        # `amendable_gid` supplied alongside its id. The signed resource is
+        # only used when creating an amendment.
+        resource = if creating_amendment?
+                     GlobalID::Locator.locate_signed(amendable_gid)
+                   else
+                     amendment&.amendable
+                   end
         ensure_amendable_in_organization!(resource)
         resource
       end
+    end
+
+    def creating_amendment?
+      %w(new create).include?(action_name)
     end
 
     def ensure_amendable_in_organization!(resource)
