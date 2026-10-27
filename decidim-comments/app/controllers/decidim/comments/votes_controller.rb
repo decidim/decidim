@@ -34,6 +34,7 @@ module Decidim
       attr_reader :comment
 
       def set_comment
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- vote permission requires the commentable to allow votes from the current user
         @comment = Decidim::Comments::Comment.find_by(id: params[:comment_id])
       end
     end

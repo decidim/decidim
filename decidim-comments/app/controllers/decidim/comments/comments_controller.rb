@@ -152,6 +152,7 @@ module Decidim
       end
 
       def set_comment
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- update/destroy permissions require the current user to be the comment author
         @comment = Decidim::Comments::Comment.find_by(id: params[:id])
       end
 

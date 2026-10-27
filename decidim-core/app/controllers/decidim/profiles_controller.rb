@@ -78,6 +78,7 @@ module Decidim
     def profile_holder
       return if params[:nickname].blank?
 
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- the SQL condition filters by decidim_organization_id
       @profile_holder ||= Decidim::UserBaseEntity.find_by("nickname = ? AND decidim_organization_id = ?", params.expect(:nickname).downcase, current_organization.id)
     end
   end

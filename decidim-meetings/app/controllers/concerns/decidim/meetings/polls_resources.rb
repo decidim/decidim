@@ -22,6 +22,7 @@ module Decidim
       end
 
       def questionnaire
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- poll belongs to the meeting, which is scoped to current_component
         @questionnaire ||= Decidim::Meetings::Questionnaire.find_by(questionnaire_for: poll) if poll
       end
     end
