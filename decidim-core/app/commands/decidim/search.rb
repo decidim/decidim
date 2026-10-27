@@ -37,6 +37,8 @@ module Decidim
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
                   end
 
+        results = preload_rendered_associations(results)
+
         uncommentable_resources = uncommentable_resources(results) if results.present?
         if uncommentable_resources.present?
           results -= uncommentable_resources
@@ -97,11 +99,23 @@ module Decidim
     end
 
     def uncommentable_resources(results)
-      results.where(id: results.select { |obj| related_uncommentable_resources?(obj) }.map(&:id))
+      results.select { |obj| related_uncommentable_resources?(obj) }
     end
 
     def related_uncommentable_resources?(object)
       object.respond_to?(:commentable) && !object.commentable.commentable?
+    end
+
+    # Associations that the result cards read for every record: the engine route
+    # needs `organization`, and component resources need `component` and its
+    # participatory space. Preloading them avoids one query per result.
+    def preload_rendered_associations(results)
+      klass = results.klass
+
+      Rails.logger.debug "\n" * 20
+      Rails.logger.debug klass
+      Rails.logger.debug "\n" * 20
+      klass.respond_to?(:searchable_arguments) ? results.includes(*klass.searchable_arguments) : results
     end
   end
 end

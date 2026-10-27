@@ -24,6 +24,10 @@ module Decidim
 
     delegate :organization, to: :participatory_space
 
+    def self.searchable_arguments
+      [:participatory_space]
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ComponentPresenter
     end

@@ -83,6 +83,10 @@ module Decidim
                       index_on_create: ->(user) { user.visible? },
                       index_on_update: ->(user) { user.visible? })
 
+    def self.searchable_arguments
+      [:organization, :avatar_attachment]
+    end
+
     before_save :ensure_encrypted_password
     before_save :save_password_change
 

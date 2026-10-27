@@ -156,6 +156,10 @@ module Decidim
                       # is Resourceable instead of ParticipatorySpaceResourceable so we cannot use `visible?`
                       index_on_update: ->(initiative) { initiative.published? })
 
+    def self.searchable_arguments
+      [:organization]
+    end
+
     def self.export_serializer
       Decidim::Initiatives::DownloadYourDataInitiativeSerializer
     end
