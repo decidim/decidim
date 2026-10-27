@@ -101,6 +101,15 @@ describe Decidim::Initiatives::InitiativesController do
         expect(subject.helpers.current_initiative).to eq(created_initiative)
       end
     end
+
+    context "when the initiative belongs to another organization" do
+      let!(:other_initiative) { create(:initiative, organization: create(:organization)) }
+
+      it "returns 404" do
+        expect { get :show, params: { slug: other_initiative.slug, locale: I18n.locale } }
+          .to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
   end
 
   describe "Edit initiative as promoter" do
