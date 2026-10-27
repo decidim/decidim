@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Data consent" do
   let(:orga) { create(:organization) }
   let(:cookies_description) { "We use cookies on our website to improve the performance and content of the site" }
-  let(:consent_cookie_name) { Decidim.consent_cookie_name }
+  let(:consent_cookie_name) { data_consent_cookie_name }
 
   before do
     switch_to_host(orga.host)

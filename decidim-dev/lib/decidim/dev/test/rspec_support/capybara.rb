@@ -29,9 +29,7 @@ module Decidim
     end
 
     def data_consent_cookie_name
-      return Decidim.consent_cookie_name if protocol == "https"
-
-      Decidim.consent_cookie_name.delete_prefix("__Host-")
+      Decidim.consent_cookie_name_for(protocol)
     end
 
     def expire_browser_session(wait: Capybara.default_max_wait_time)

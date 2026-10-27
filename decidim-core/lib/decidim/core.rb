@@ -584,6 +584,15 @@ module Decidim
   # to the current host. On HTTP the prefix is removed for local development.
   mattr_accessor :consent_cookie_name, default: Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "__Host-decidim-consent").to_s
 
+  # Returns the name of the consent cookie as it is stored by the browser for
+  # the given protocol. Browsers only accept the `__Host-` prefix on HTTPS, so
+  # it is added there and removed on HTTP.
+  def self.consent_cookie_name_for(protocol)
+    name = consent_cookie_name.delete_prefix("__Host-")
+
+    protocol.to_s.start_with?("https") ? "__Host-#{name}" : name
+  end
+
   # Defines data consent categories. Note that when adding an item you need to
   # add following i18n entries also (change 'foo' with the name of the data
   # which can be a cookie for instance).
