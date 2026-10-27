@@ -30,7 +30,7 @@ module Decidim
         results_count = result_ids.count
 
         results = if filtered_by_type?(class_name)
-                    paginate(klass.order_by_id_list(result_ids))
+                    klass.order_by_id_list(result_ids)
                   elsif filters[:with_resource_type].present?
                     ApplicationRecord.none
                   else
@@ -41,8 +41,8 @@ module Decidim
 
         uncommentable_ids = uncommentable_resource_ids(results)
         results = results.where.not(id: uncommentable_ids) if uncommentable_ids.any?
-        # Only the current page is evaluated, so this subtracts the exclusions found on it.
         results_count -= uncommentable_ids.count
+        results = paginate(results) if filtered_by_type?(class_name)
 
         results_by_type.update(class_name => {
                                  count: results_count,
@@ -103,8 +103,9 @@ module Decidim
 
     def uncommentable_resource_ids(results)
       # Only comment results have a `commentable`, so other searchable types can never
-      # match and are never loaded here. `results` is already paginated, so this checks
-      # the current page only instead of every match.
+      # match and are not loaded here. The exclusion has to run before pagination:
+      # `commentable?` is a per-instance check, so a page can only be built from the
+      # matches that have been evaluated.
       return [] unless results.klass.method_defined?(:commentable)
 
       results.select { |obj| related_uncommentable_resources?(obj) }.map(&:id)
