@@ -34,10 +34,29 @@ module Decidim
       let(:user) { other_user }
       let(:step_settings) { { active_step_id => { amendment_creation_enabled: true, amendment_reaction_enabled: true } } }
       let!(:local_amendable) { create(:dummy_resource, component:, author: user) }
+      let!(:local_emendation) { create(:dummy_resource, component:) }
+      let!(:local_amendment) { create(:amendment, amendable: local_amendable, emendation: local_emendation, state: "evaluating") }
 
       it "does not allow reviewing an amendment from another organization" do
         expect { get :review, params: { id: other_amendment.id } }
           .to raise_error(ActiveRecord::RecordNotFound)
+      end
+
+      it "binds the review form to the amendment from the route" do
+        get :review, params: { id: local_amendment.id, amendment: { id: other_amendment.id } }
+
+        expect(assigns(:form).id).to eq(local_amendment.id)
+      end
+
+      it "accepts the amendment from the route and not the nested foreign amendment" do
+        patch :accept, params: {
+          id: local_amendment.id,
+          amendment: { id: other_amendment.id },
+          emendation_params: { title: local_emendation.title, body: local_emendation.body }
+        }
+
+        expect(local_amendment.reload.state).to eq("accepted")
+        expect(other_amendment.reload.state).to eq("evaluating")
       end
 
       it "does not accept a local amendable_gid as authorization for a foreign amendment" do

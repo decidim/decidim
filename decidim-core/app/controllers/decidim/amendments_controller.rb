@@ -147,13 +147,13 @@ module Decidim
     def review
       enforce_permission_to :accept, :amendment, amendable:, current_component: amendable.component
 
-      @form = form(Decidim::Amendable::ReviewForm).from_params(params)
+      @form = form(Decidim::Amendable::ReviewForm).from_params(review_params)
     end
 
     def accept
       enforce_permission_to :accept, :amendment, amendable:, current_component: amendable.component
 
-      @form = form(Decidim::Amendable::ReviewForm).from_params(params)
+      @form = form(Decidim::Amendable::ReviewForm).from_params(review_params)
 
       Decidim::Amendable::Accept.call(@form) do
         on(:ok) do |emendation|
@@ -190,6 +190,12 @@ module Decidim
     # Needed for actions :new and :create, when there is no amendment yet.
     def amendable_gid
       params[:amendable_gid] || params.dig(:amendment, :amendable_gid)
+    end
+
+    # Binds the review form to the amendment from the route, so a nested
+    # `amendment[id]` cannot select a different amendment.
+    def review_params
+      params.deep_merge(amendment: { id: amendment&.id })
     end
 
     def amendment
