@@ -26,6 +26,18 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "does not register an offense for finders on value constants" do
+    expect_no_offenses(<<~RUBY)
+      OPTIONS.first
+    RUBY
+  end
+
+  it "does not register an offense for finders on namespaced value constants" do
+    expect_no_offenses(<<~RUBY)
+      Decidim::PAGINATION_OPTIONS.first
+    RUBY
+  end
+
   it "registers an offense for unscoped Model.where(...).first" do
     expect_offense(<<~RUBY)
       Template.where(name: "foo").first

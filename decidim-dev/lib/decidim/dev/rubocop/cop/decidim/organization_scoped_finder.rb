@@ -39,6 +39,11 @@ module RuboCop
 
         IGNORED_CONSTANT_PREFIXES = %w(Bundler ActiveRecord).freeze
 
+        # SCREAMING_SNAKE_CASE constants hold plain values (e.g.
+        # `OPTIONS = [25, 50, 100]`), not ActiveRecord model classes, which
+        # follow the CamelCase convention.
+        VALUE_CONSTANT_PATTERN = /\A[A-Z][A-Z0-9_]*\z/
+
         def on_send(node)
           return unless RESTRICT_ON_SEND.include?(node.method_name)
           return if node.block_node
@@ -73,8 +78,14 @@ module RuboCop
         end
 
         def ignored_constant?(node)
-          node.const_type? &&
-            IGNORED_CONSTANT_PREFIXES.any? { |prefix| node.source.start_with?(prefix) }
+          return false unless node.const_type?
+
+          IGNORED_CONSTANT_PREFIXES.any? { |prefix| node.source.start_with?(prefix) } ||
+            value_constant?(node)
+        end
+
+        def value_constant?(node)
+          VALUE_CONSTANT_PATTERN.match?(node.short_name.to_s)
         end
 
         def scoped_node?(node)
