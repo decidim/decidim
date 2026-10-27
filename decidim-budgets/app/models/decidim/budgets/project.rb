@@ -59,7 +59,7 @@ module Decidim
                         index_on_update: ->(project) { project.visible? })
 
       def self.searchable_arguments
-        [:component, :taxonomies]
+        [:taxonomies, { component: { participatory_space: :organization } }]
       end
 
       def self.ordered_ids(ids)
