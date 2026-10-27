@@ -49,7 +49,7 @@ module Decidim
       end
 
       def email_already_exists?
-        Decidim::User.where(email: form.email.downcase).any?
+        form.current_organization.users.where(email: form.email.downcase).any?
       end
 
       def create_action_log
