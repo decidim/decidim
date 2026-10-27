@@ -23,9 +23,8 @@ describe "Search posts" do
     let!(:post_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: post_taxonomy) }
     let!(:child_post_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: child_post_taxonomy) }
     let!(:post) do
-      create_list(
+      create(
         :post,
-        5,
         component:,
         author:,
         taxonomies: [post_taxonomy, child_post_taxonomy],
@@ -72,9 +71,9 @@ describe "Search posts" do
         end
       end
 
-      it "renders the official author of the post" do
+      it "renders the author of the post" do
         within "div.card__search#post_#{post.id}" do
-          expect(page).to have_css(".author__name", text: I18n.t("decidim.author.official_author"))
+          expect(page).to have_css(".author__name", text: author.name)
         end
       end
     end
