@@ -378,11 +378,13 @@ describe Decidim::Search do
       end
     end
 
-    it "returns a full page on later pages" do
+    it "only evaluates the current page" do
       described_class.call(term, current_organization, { "with_resource_type" => resource_type }, { page: 2, per_page: 2 }) do
         on(:ok) do |results_by_type|
           results = results_by_type[resource_type]
-          expect(results[:count]).to eq 4
+          # The uncommentable comment is on the first page, so nothing is excluded here
+          # and the count keeps the matches found for the whole search.
+          expect(results[:count]).to eq 5
           expect(results[:results].to_a.count).to eq 2
         end
         on(:invalid) { raise("Should not happen") }
