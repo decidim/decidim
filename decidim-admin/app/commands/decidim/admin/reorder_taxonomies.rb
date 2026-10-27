@@ -64,10 +64,12 @@ module Decidim
       end
 
       def collection
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- organization is passed to the command
         @collection ||= Decidim::Taxonomy.where(organization:, parent_id: first_item.parent_id)
       end
 
       def first_item
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- organization is passed to the command
         @first_item ||= Decidim::Taxonomy.where(organization:).find(order.first)
       end
     end

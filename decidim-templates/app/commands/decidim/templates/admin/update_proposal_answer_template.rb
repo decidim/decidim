@@ -36,6 +36,7 @@ module Decidim
         private
 
         def identify_templateable_resource
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- component is validated against the current organization below
           found_component = Decidim::Component.find_by(id: @form.component_constraint, manifest_name: "proposals")
           if found_component.present?
             resource = found_component&.participatory_space&.decidim_organization_id == @form.current_organization.id ? found_component : nil
