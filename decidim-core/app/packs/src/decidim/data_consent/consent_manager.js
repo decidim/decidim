@@ -1,30 +1,87 @@
 import Cookies from "js-cookie";
 
+const COOKIE_VERSION = 1;
+const SECURE_COOKIE_PREFIX = "__Host-";
+
 class ConsentManager {
   // Options should contain the following keys:
   // - modal - HTML element of the data consent modal (e.g. "<div id="dc-modal">Foo bar</div>")
   // - categories - Available data consent categories (e.g. ["essential", "preferences", "analytics", "marketing"])
-  // - cookieName - Name of the cookie saved in the browser (e.g. "decidim-consent")
+  // - cookieName - Base name of the cookie saved in the browser (e.g. "__Host-decidim-consent")
   // - warningElement - HTML element to be shown when user has not given the necessary data consent to display the content.
   constructor(options) {
     this.modal = options.modal;
     this.categories = options.categories;
-    this.cookieName = options.cookieName;
-    this.cookie = Cookies.get(this.cookieName);
+    this.configuredCookieName = options.cookieName;
     this.warningElement = options.warningElement;
-    if (this.cookie) {
-      this.updateState(JSON.parse(this.cookie));
+
+    const cookie = this.getVersionedCookie();
+    if (cookie) {
+      this.updateState(cookie);
     } else {
       this.updateState({});
     }
   }
 
+  // `__Host-` cookies are only accepted by browsers when they are set with
+  // `Secure`, `Path=/` and without a `Domain` attribute. They are therefore
+  // host-bound and never shared with subdomains. On HTTP (for example, local
+  // development) the prefix is removed because such cookies require HTTPS.
+  get cookieName() {
+    if (window.location.protocol === "https:") {
+      return this.configuredCookieName.startsWith(SECURE_COOKIE_PREFIX)
+        ? this.configuredCookieName
+        : `${SECURE_COOKIE_PREFIX}${this.configuredCookieName}`;
+    }
+
+    return this.configuredCookieName.startsWith(SECURE_COOKIE_PREFIX)
+      ? this.configuredCookieName.slice(SECURE_COOKIE_PREFIX.length)
+      : this.configuredCookieName;
+  }
+
+  // Older versions wrote unversioned values (sometimes with an explicit
+  // `domain` attribute shared with every subdomain). Scan every cookie with
+  // the current name and only trust the current version, leaving legacy values
+  // in place instead of adopting or removing them.
+  getVersionedCookie() {
+    const entries = document.cookie
+      ? document.cookie.split("; ")
+      : [];
+
+    for (const entry of entries) {
+      const cookie = this.parseCookieEntry(entry);
+      if (cookie && cookie.name === this.cookieName && cookie.value && cookie.value._version === COOKIE_VERSION) {
+        const state = { ...cookie.value };
+        Reflect.deleteProperty(state, "_version");
+        return state;
+      }
+    }
+
+    return null;
+  }
+
+  parseCookieEntry(entry) {
+    const separatorIndex = entry.indexOf("=");
+    if (separatorIndex === -1) {
+      return null;
+    }
+
+    try {
+      return {
+        name: decodeURIComponent(entry.slice(0, separatorIndex)),
+        value: JSON.parse(decodeURIComponent(entry.slice(separatorIndex + 1)))
+      };
+    } catch {
+      return null;
+    }
+  }
+
   updateState(newState) {
     this.state = newState;
-    Cookies.set(this.cookieName, JSON.stringify(this.state), {
-      domain: document.location.host.split(":")[0],
+    Cookies.set(this.cookieName, JSON.stringify({ ...this.state, _version: COOKIE_VERSION }), {
       sameSite: "Lax",
       expires: 365,
+      path: "/",
       secure: window.location.protocol === "https:"
     });
     this.updateModalSelections();

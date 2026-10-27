@@ -553,8 +553,8 @@ If not set, it will be ignored.
 |No
 
 |DECIDIM_CONSENT_COOKIE_NAME
-|Defines the name of the cookie used to check if the user allows Decidim to set cookies. This is needed due the GDPR regulations.
-|decidim-cc
+|Defines the name of the cookie used to check if the user allows Decidim to set cookies. This is needed due the GDPR regulations. On HTTPS, Decidim adds the `__Host-` prefix (unless it is already present) and sets the cookie with the `Secure` attribute and `Path=/` so that it is bound to the current host. On HTTP, the prefix is removed for local development.
+|__Host-decidim-consent
 |No
 
 |DECIDIM_EXPIRE_SESSION_AFTER
