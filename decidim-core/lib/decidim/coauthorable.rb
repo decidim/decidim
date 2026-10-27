@@ -102,11 +102,14 @@ module Decidim
       #
       # Returns an Array of Users or any other entity capable object (such as Organization).
       def identities
-        # The association is ordered by `created_at`, so use it when it is already
-        # preloaded instead of running the query again for every record.
-        return coauthorships.collect(&:identity) if coauthorships.loaded?
-
-        coauthorships.includes(:author).order(:created_at).collect(&:identity)
+        # The association is ordered by `created_at`, so the loaded records can be used
+        # directly, but only when their authors are preloaded as well; otherwise the
+        # relation below eager loads them in a single query instead of one per coauthor.
+        if coauthorships.loaded? && coauthorships.all? { |coauthorship| coauthorship.association(:author).loaded? }
+          coauthorships.collect(&:identity)
+        else
+          coauthorships.includes(:author).order(:created_at).collect(&:identity)
+        end
       end
 
       # Returns the identities for the authors, only if they are users.
