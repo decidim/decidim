@@ -9,7 +9,7 @@ module Decidim
       def show
         enforce_permission_to :read, :component
 
-        @commentable = Dev::DummyResource.find(params.expect(:id))
+        @commentable = Dev::DummyResource.where(component: current_component).find(params.expect(:id))
       end
     end
   end
