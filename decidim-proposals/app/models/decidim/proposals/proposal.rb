@@ -207,7 +207,7 @@ module Decidim
                         index_on_update: ->(proposal) { proposal.visible? && proposal.component&.published? })
 
       def self.searchable_arguments
-        [:taxonomies, :amended, :amendable, :proposal_state, { component: { participatory_space: :organization } }]
+        [:taxonomies, :amended, :amendable, :proposal_state, { component: { participatory_space: :organization } }, { coauthorships: :author }]
       end
 
       def self.log_presenter_class_for(_log)
