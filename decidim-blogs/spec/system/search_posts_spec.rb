@@ -22,9 +22,10 @@ describe "Search posts" do
     let(:child_post_taxonomy) { create(:taxonomy, parent: post_taxonomy, organization:, skip_injection: true) }
     let!(:post_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: post_taxonomy) }
     let!(:child_post_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: child_post_taxonomy) }
-    let!(:post) do
-      create(
+    let!(:posts) do
+      create_list(
         :post,
+        5,
         component:,
         author:,
         taxonomies: [post_taxonomy, child_post_taxonomy],
@@ -40,19 +41,25 @@ describe "Search posts" do
       let(:author) { organization }
 
       it "renders the post title as a link to the post page" do
-        expect(page).to have_link(translated(post.title), href: Decidim::ResourceLocatorPresenter.new(post).path)
+        posts.each do |post|
+          expect(page).to have_link(translated(post.title), href: Decidim::ResourceLocatorPresenter.new(post).path)
+        end
       end
 
       it "renders the taxonomies of the post" do
-        within "div.card__search#post_#{post.id}" do
-          expect(page).to have_css(".card__search-metadata", text: translated(post_taxonomy.name))
-          expect(page).to have_css(".card__search-metadata", text: translated(child_post_taxonomy.name))
+        posts.each do |post|
+          within "div.card__search#post_#{post.id}" do
+            expect(page).to have_css(".card__search-metadata", text: translated(post_taxonomy.name))
+            expect(page).to have_css(".card__search-metadata", text: translated(child_post_taxonomy.name))
+          end
         end
       end
 
       it "renders the official author of the post" do
-        within "div.card__search#post_#{post.id}" do
-          expect(page).to have_css(".author__name", text: I18n.t("decidim.author.official_author"))
+        posts.each do |post|
+          within "div.card__search#post_#{post.id}" do
+            expect(page).to have_css(".author__name", text: I18n.t("decidim.author.official_author"))
+          end
         end
       end
     end
@@ -61,19 +68,25 @@ describe "Search posts" do
       let(:author) { create(:user, :confirmed, organization:) }
 
       it "renders the post title as a link to the post page" do
-        expect(page).to have_link(translated(post.title), href: Decidim::ResourceLocatorPresenter.new(post).path)
+        posts.each do |post|
+          expect(page).to have_link(translated(post.title), href: Decidim::ResourceLocatorPresenter.new(post).path)
+        end
       end
 
       it "renders the taxonomies of the post" do
-        within "div.card__search#post_#{post.id}" do
-          expect(page).to have_css(".card__search-metadata", text: translated(post_taxonomy.name))
-          expect(page).to have_css(".card__search-metadata", text: translated(child_post_taxonomy.name))
+        posts.each do |post|
+          within "div.card__search#post_#{post.id}" do
+            expect(page).to have_css(".card__search-metadata", text: translated(post_taxonomy.name))
+            expect(page).to have_css(".card__search-metadata", text: translated(child_post_taxonomy.name))
+          end
         end
       end
 
       it "renders the author of the post" do
-        within "div.card__search#post_#{post.id}" do
-          expect(page).to have_css(".author__name", text: author.name)
+        posts.each do |post|
+          within "div.card__search#post_#{post.id}" do
+            expect(page).to have_css(".author__name", text: author.name)
+          end
         end
       end
     end
