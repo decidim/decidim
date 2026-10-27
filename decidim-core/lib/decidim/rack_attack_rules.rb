@@ -54,8 +54,10 @@ module Decidim
     # Rack::Attack does not rescue exceptions raised by a throttle block, so the
     # discriminator must return nil instead of raising inside the middleware.
     def self.email_discriminator(request, path)
+      return unless request.path == path && request.post?
+
       user = request.params["user"]
-      user["email"] if user.is_a?(Hash) && request.path == path && request.post?
+      user["email"] if user.is_a?(Hash)
     end
 
     private_class_method :email_discriminator
