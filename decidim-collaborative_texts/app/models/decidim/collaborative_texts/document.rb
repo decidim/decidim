@@ -38,7 +38,7 @@ module Decidim
                         index_on_update: ->(document) { document.visible? })
 
       def self.searchable_arguments
-        [:component, { component: { participatory_space: :organization } }]
+        [{ component: { participatory_space: :organization } }]
       end
 
       def self.log_presenter_class_for(_log)

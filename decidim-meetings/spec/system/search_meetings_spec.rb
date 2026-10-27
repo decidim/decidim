@@ -31,6 +31,49 @@ describe "Search meetings" do
     end
   end
 
+  context "when rendering the results in the search page" do
+    let(:search_term) { "doggo" }
+    let(:search_path) { decidim.search_path(term: search_term, filter: { with_resource_type: "Decidim::Meetings::Meeting" }) }
+    let(:meeting_taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:, skip_injection: true) }
+    let(:child_meeting_taxonomy) { create(:taxonomy, parent: meeting_taxonomy, organization:, skip_injection: true) }
+    let!(:meeting_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: meeting_taxonomy) }
+    let!(:child_meeting_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: child_meeting_taxonomy) }
+    let!(:meeting) do
+      create(
+        :meeting,
+        :published,
+        component:,
+        taxonomies: [meeting_taxonomy, child_meeting_taxonomy],
+        title: { en: "A doggo meeting with taxonomies" }
+      )
+    end
+
+    before do
+      visit search_path
+    end
+
+    it "renders the meeting title as a link to the meeting page" do
+      expect(page).to have_link(translated(meeting.title), href: Decidim::ResourceLocatorPresenter.new(meeting).path)
+    end
+
+    it "renders the taxonomies of the meeting" do
+      within "a.card__list#meetings__meeting_#{meeting.id}" do
+        expect(page).to have_css(".card__list-metadata", text: translated(meeting_taxonomy.name))
+        expect(page).to have_css(".card__list-metadata", text: translated(child_meeting_taxonomy.name))
+      end
+    end
+
+    it "escapes the meeting title instead of rendering it" do
+      malicious = create(:meeting, :published, component:, title: { en: 'A doggo <script>alert("XSS")</script> meeting' })
+
+      visit search_path
+
+      expect(page).to have_css(".card__list-title", text: '<script>alert("XSS")</script>')
+      expect(page).to have_no_css(".card__list-title script")
+      expect(page).to have_link(translated(malicious.title), href: Decidim::ResourceLocatorPresenter.new(malicious).path)
+    end
+  end
+
   context "when meetings are not published" do
     let!(:searchables) { create_list(:meeting, 3, component:) }
     let!(:term) { strip_tags(searchables.first.title["en"]).split.sample }

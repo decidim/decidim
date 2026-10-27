@@ -112,9 +112,6 @@ module Decidim
     def preload_rendered_associations(results)
       klass = results.klass
 
-      Rails.logger.debug "\n" * 20
-      Rails.logger.debug klass
-      Rails.logger.debug "\n" * 20
       klass.respond_to?(:searchable_arguments) ? results.includes(*klass.searchable_arguments) : results
     end
   end
