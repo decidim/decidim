@@ -50,7 +50,6 @@ module Decidim
       current_user.name = @form.name
       current_user.nickname = @form.nickname
       current_user.email = @form.email
-      current_user.personal_url = @form.personal_url
       current_user.about = @form.about
     end
 
@@ -70,7 +69,7 @@ module Decidim
     end
 
     def notify_followers
-      return unless current_user.previous_changes.keys.intersect?(%w(about personal_url))
+      return unless current_user.previous_changes.has_key?("about")
 
       Decidim::EventsManager.publish(
         event: "decidim.events.users.profile_updated",
@@ -92,7 +91,7 @@ module Decidim
     end
 
     def attr_set
-      @attr_set ||= %w(name nickname email about personal_url encrypted_password locale)
+      @attr_set ||= %w(name nickname email about encrypted_password locale)
     end
   end
 end

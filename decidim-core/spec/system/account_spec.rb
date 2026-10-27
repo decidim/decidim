@@ -3,8 +3,9 @@
 require "spec_helper"
 
 describe "Account" do
-  let(:user) { create(:user, :confirmed, password:) }
+  let(:user) { create(:user, :confirmed, password:, personal_url:) }
   let(:password) { "dqCFgjfDbC7dPbrv" }
+  let(:personal_url) { "https://example.org/personal-profile" }
   let(:organization) { user.organization }
 
   before do
@@ -73,7 +74,6 @@ describe "Account" do
         within "form.edit_user" do
           select "Castellano", from: :user_locale
           fill_in :user_name, with: "Nikola Tesla"
-          fill_in :user_personal_url, with: "https://example.org"
           fill_in :user_about, with: "A Serbian-American inventor, electrical engineer, mechanical engineer, physicist, and futurist."
           all("*[type=submit]").last.click
         end
@@ -86,8 +86,9 @@ describe "Account" do
           find("a", text: "perfil público").click
         end
 
-        expect(page).to have_text("example.org")
         expect(page).to have_text("Serbian-American")
+        expect(page).to have_no_text(personal_url)
+        expect(page).to have_no_link(href: personal_url)
 
         # The user's password should not change when they did not update it
         expect(user.reload.encrypted_password).to eq(encrypted_password)
