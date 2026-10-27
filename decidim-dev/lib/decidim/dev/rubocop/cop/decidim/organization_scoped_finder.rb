@@ -174,10 +174,18 @@ module RuboCop
           if node.method_name == :new
             return false unless node.receiver&.const_type?
 
+            return true if node.arguments.any? { |arg| scoped_constructor_argument?(arg) }
+
             return scoped_finder_arguments?(node)
           end
 
           constructed_scope_root?(node.receiver) if node.receiver
+        end
+
+        # Query objects in Decidim commonly receive the organization as a
+        # positional argument, e.g. `OrganizationAssemblies.new(current_organization)`.
+        def scoped_constructor_argument?(node)
+          scoped_helper_method?(node)
         end
 
         def consumed_by_finder?(node)

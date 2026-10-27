@@ -169,6 +169,27 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts a query object constructed with current_organization" do
+    expect_no_offenses(<<~RUBY)
+      OrganizationAssemblies.new(current_organization).query.where(slug: params[:slug]).first!
+    RUBY
+  end
+
+  it "accepts two query objects constructed with current_organization combined with or" do
+    expect_no_offenses(<<~RUBY)
+      OrganizationAssemblies.new(current_organization).query.where(slug: params[:slug]).or(
+        OrganizationAssemblies.new(current_organization).query.where(id: params[:slug])
+      ).first!
+    RUBY
+  end
+
+  it "registers an offense for a query object constructed with untrusted arguments" do
+    expect_offense(<<~RUBY)
+      OrganizationAssemblies.new(params[:organization_id]).query.where(slug: params[:slug]).first!
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "registers an offense for a scoped value on an unrelated key" do
     expect_offense(<<~RUBY)
       Template.where(foo: current_organization)
