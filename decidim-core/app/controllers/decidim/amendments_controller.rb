@@ -193,11 +193,21 @@ module Decidim
     end
 
     def amendment
-      @amendment ||= Decidim::Amendment.find_by(id: params[:id])
+      @amendment ||= Decidim::Amendment.find_by(id: params[:id]) # rubocop:disable Decidim/OrganizationScopedFinder -- Amendment has no organization column; #amendable validates the owning resource
     end
 
     def amendable
-      @amendable ||= GlobalID::Locator.locate_signed(amendable_gid) || amendment&.amendable
+      @amendable ||= begin
+        resource = GlobalID::Locator.locate_signed(amendable_gid) || amendment&.amendable
+        ensure_amendable_in_organization!(resource)
+        resource
+      end
+    end
+
+    def ensure_amendable_in_organization!(resource)
+      return if resource.blank? || resource.component&.organization == current_organization
+
+      raise ActiveRecord::RecordNotFound
     end
 
     def emendation

@@ -25,6 +25,25 @@ module Decidim
       sign_in user
     end
 
+    describe "cross-organization access" do
+      let(:other_organization) { create(:organization) }
+      let(:other_component) { create(:dummy_component, organization: other_organization) }
+      let(:other_amendable) { create(:dummy_resource, component: other_component) }
+      let(:other_emendation) { create(:dummy_resource, component: other_component) }
+      let!(:other_amendment) { create(:amendment, amendable: other_amendable, emendation: other_emendation, state: "evaluating") }
+      let(:user) { other_user }
+
+      it "does not allow reviewing an amendment from another organization" do
+        expect { get :review, params: { id: other_amendment.id } }
+          .to raise_error(ActiveRecord::RecordNotFound)
+      end
+
+      it "does not allow creating an amendment for a resource from another organization" do
+        expect { get :new, params: { amendable_gid: other_amendable.to_sgid.to_s } }
+          .to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
     describe "GET edit_draft" do
       context "when the amendment is a draft" do
         let(:amendment_state) { "draft" }
