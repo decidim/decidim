@@ -393,6 +393,7 @@ describe Decidim::Search do
       expect(first_page[:count]).to eq 4
       expect(second_page[:count]).to eq 4
       expect(first_page[:results].to_a.map(&:id) & second_page[:results].to_a.map(&:id)).to be_empty
+      expect(first_page[:results].to_a.map(&:id)).not_to include(uncommentable_comment.id)
       expect(second_page[:results].to_a.map(&:id)).not_to include(uncommentable_comment.id)
     end
   end
