@@ -5,6 +5,9 @@ module Decidim
     class AdminEngine < Rails::Engine
       engine_name "dummy_admin"
 
+      paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
+
       routes do
         resources :dummy_resources do
           resources :nested_dummy_resources
