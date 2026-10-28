@@ -93,6 +93,18 @@ module Decidim
                 expect(Decidim::Templates::Template.where(target: :proposal_answer).last.templatable).to eq(component)
               end
             end
+
+            context "and the component belongs to another organization" do
+              let(:other_organization) { create(:organization) }
+              let(:other_organization_component) { create(:proposal_component, organization: other_organization) }
+              let(:component_constraint) { other_organization_component.id }
+
+              it "does not associate the component from another organization" do
+                expect { subject.call }.to broadcast(:ok)
+
+                expect(Decidim::Templates::Template.where(target: :proposal_answer).last.templatable).not_to eq(other_organization_component)
+              end
+            end
           end
         end
       end
