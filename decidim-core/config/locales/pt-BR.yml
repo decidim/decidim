@@ -50,7 +50,6 @@ pt-BR:
         old_password: Senha atual
         password: Senha
         password_confirmation: Confirme sua senha
-        personal_url: URL pessoal
         remove_avatar: Excluir avatar
         tos_agreement: Acordo de Termos de Serviço
     errors:
@@ -812,7 +811,6 @@ pt-BR:
           officialized_at: A data e hora em que este usuário foi oficializado
           organization: A organização a que este usuário pertence
           password_updated_at: A data em que sua senha foi alterada pela última vez
-          personal_url: A URL pessoal deste usuário
           remember_created_at: A data e hora em que o usuário foi selecionado para ser lembrado
           reset_password_sent_at: A data e hora em que a redefinição de senha foi enviada
           roles: O papel que este usuário tem, se tiver algum
