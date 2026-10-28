@@ -6,6 +6,7 @@ module Decidim
       layout false
 
       helper_method :taxonomy, :taxonomy_item, :parent_options, :selected_parent_id
+      before_action :taxonomy
       before_action do
         if taxonomy_item && taxonomy_item.parent_ids.exclude?(taxonomy.id)
           flash[:alert] = I18n.t("update.invalid", scope: "decidim.admin.taxonomies")
@@ -58,11 +59,13 @@ module Decidim
       private
 
       def taxonomy
-        @taxonomy ||= current_organization.taxonomies.find_by(id: params[:taxonomy_id])
+        @taxonomy ||= current_organization.taxonomies.find(params.expect(:taxonomy_id))
       end
 
       def taxonomy_item
-        @taxonomy_item ||= current_organization.taxonomies.find_by(id: params[:id])
+        return if params[:id].blank?
+
+        @taxonomy_item ||= current_organization.taxonomies.find(params.expect(:id))
       end
 
       def selected_parent_id
