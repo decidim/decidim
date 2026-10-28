@@ -42,6 +42,8 @@ module Decidim
 
       component_manifest_name "dummy"
 
+      has_many :nested_dummy_resources, dependent: :destroy, inverse_of: :dummy_resource
+
       alias creator_author author
 
       def authors

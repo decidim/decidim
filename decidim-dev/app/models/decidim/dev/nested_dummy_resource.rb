@@ -5,7 +5,7 @@ module Decidim
     class NestedDummyResource < ApplicationRecord
       include Decidim::Resourceable
 
-      belongs_to :dummy_resource
+      belongs_to :dummy_resource, inverse_of: :nested_dummy_resources
     end
   end
 end
