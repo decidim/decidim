@@ -12,6 +12,12 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
 
+      it "uses the conference's partners association as the inverse" do
+        subject.save!
+
+        expect(subject.conference.partners.first.conference).to be(subject.conference)
+      end
+
       describe ".default_scope" do
         it "returns speakers ordered by partner type desc and weight asc" do
           partner1 = create(:partner, partner_type: "main_promotor", weight: 2, name: "Partner 1")

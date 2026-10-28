@@ -13,8 +13,8 @@ module Decidim
     translatable_fields :position, :affiliation, :short_bio
 
     belongs_to :user, -> { visible }, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
-    belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
-    has_many :conference_speaker_conference_meetings, dependent: :destroy
+    belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference", inverse_of: :speakers
+    has_many :conference_speaker_conference_meetings, dependent: :destroy, inverse_of: :conference_speaker
     has_many :conference_meetings, through: :conference_speaker_conference_meetings, class_name: "Decidim::ConferenceMeeting"
 
     default_scope { order(full_name: :asc, created_at: :asc) }

@@ -39,22 +39,28 @@ module Decidim
     has_many :speakers,
              foreign_key: "decidim_conference_id",
              class_name: "Decidim::ConferenceSpeaker",
-             dependent: :destroy
+             dependent: :destroy,
+             inverse_of: :conference
 
     has_many :partners,
              foreign_key: "decidim_conference_id",
              class_name: "Decidim::Conferences::Partner",
-             dependent: :destroy
+             dependent: :destroy,
+             inverse_of: :conference
 
-    has_many :conference_registrations, class_name: "Decidim::Conferences::ConferenceRegistration", foreign_key: "decidim_conference_id", dependent: :destroy
+    has_many :conference_registrations,
+             class_name: "Decidim::Conferences::ConferenceRegistration",
+             foreign_key: "decidim_conference_id",
+             dependent: :destroy,
+             inverse_of: :conference
 
     has_many :conference_invites, class_name: "Decidim::Conferences::ConferenceInvite",
-                                  foreign_key: "decidim_conference_id", dependent: :destroy
+                                  foreign_key: "decidim_conference_id", dependent: :destroy, inverse_of: :conference
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
-    has_many :media_links, class_name: "Decidim::Conferences::MediaLink", foreign_key: "decidim_conference_id", dependent: :destroy
-    has_many :registration_types, class_name: "Decidim::Conferences::RegistrationType", foreign_key: "decidim_conference_id", dependent: :destroy
+    has_many :media_links, class_name: "Decidim::Conferences::MediaLink", foreign_key: "decidim_conference_id", dependent: :destroy, inverse_of: :conference
+    has_many :registration_types, class_name: "Decidim::Conferences::RegistrationType", foreign_key: "decidim_conference_id", dependent: :destroy, inverse_of: :conference
     has_many :conference_user_roles,
              foreign_key: "decidim_conference_id",
              class_name: "Decidim::ConferenceUserRole",

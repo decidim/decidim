@@ -12,6 +12,12 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
 
+      it "uses the conference's registration_types association as the inverse" do
+        subject.save!
+
+        expect(subject.conference.registration_types.first.conference).to be(subject.conference)
+      end
+
       describe "associations" do
         it "has an association of conference_invites" do
           invite = create(:conference_invite, registration_type:)

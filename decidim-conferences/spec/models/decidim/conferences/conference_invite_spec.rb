@@ -19,6 +19,12 @@ module Decidim
         expect(conference_invite.user).to be_a(Decidim::User)
       end
 
+      it "uses the conference's conference_invites association as the inverse" do
+        invite = create(:conference_invite)
+
+        expect(invite.conference.conference_invites.first.conference).to be(invite.conference)
+      end
+
       context "without a conference" do
         let(:conference_invite) { build(:conference_invite, conference: nil) }
 

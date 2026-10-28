@@ -11,10 +11,15 @@ module Decidim
 
       translatable_fields :title, :description
 
-      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
-      has_many :conference_meeting_registration_types, dependent: :destroy
+      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference", inverse_of: :registration_types
+      has_many :conference_meeting_registration_types, dependent: :destroy, inverse_of: :registration_type
       has_many :conference_meetings, through: :conference_meeting_registration_types, class_name: "Decidim::ConferenceMeeting"
-      has_many :conference_registrations, foreign_key: "decidim_conference_registration_type_id", class_name: "Decidim::Conferences::ConferenceRegistration", dependent: :destroy
+      has_many :conference_registrations,
+               foreign_key: "decidim_conference_registration_type_id",
+               class_name: "Decidim::Conferences::ConferenceRegistration",
+               dependent: :destroy,
+               inverse_of: :registration_type
+
       has_many :conference_invites,
                class_name: "Decidim::Conferences::ConferenceInvite",
                foreign_key: "decidim_conference_registration_type_id",

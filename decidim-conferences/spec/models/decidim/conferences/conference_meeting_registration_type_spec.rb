@@ -12,6 +12,18 @@ module Decidim
 
       it { is_expected.to be_valid }
 
+      describe "associations" do
+        it "uses the conference meeting's conference_meeting_registration_types association as the inverse" do
+          expect(registration.conference_meeting.conference_meeting_registration_types.first.conference_meeting).to be(registration.conference_meeting)
+        end
+
+        it "uses the registration type's conference_meeting_registration_types association as the inverse" do
+          registration
+
+          expect(registration_type.conference_meeting_registration_types.first.registration_type).to be(registration_type)
+        end
+      end
+
       describe "counter cache" do
         it "increments the registration_type counter when a conference meeting registration type is created" do
           expect do
