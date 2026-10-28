@@ -46,6 +46,7 @@ module Decidim
         get :review, params: { id: local_amendment.id, amendment: { id: other_amendment.id } }
 
         expect(assigns(:form).id).to eq(local_amendment.id)
+        expect(assigns(:form).amendment).to eq(local_amendment)
       end
 
       it "binds the create form to the checked amendable" do
@@ -70,6 +71,7 @@ module Decidim
           emendation_params: { title: local_emendation.title, body: local_emendation.body }
         }
 
+        expect(assigns(:form).amendment).to eq(local_amendment)
         expect(local_amendment.reload.state).to eq("accepted")
         expect(other_amendment.reload.state).to eq("evaluating")
       end
