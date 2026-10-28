@@ -1,5 +1,5 @@
 import CommentsComponent from "src/decidim/comments/comments.component";
-import { screens } from "tailwindcss/defaultTheme";
+import { isMobileScreen } from "src/decidim/comments/comments_screen_helper";
 
 window.Decidim.CommentsComponent = CommentsComponent;
 
@@ -65,8 +65,6 @@ const updateCommentsComponent = ($el) => {
  * @returns {void}
  */
 const commentsInitializer = () => {
-  const smBreakpoint = parseInt(screens.md.replace("px", ""), 10);
-  const isMobileScreen = () => window.matchMedia(`(max-width: ${smBreakpoint}px)`).matches;
   let wasMobileScreen = isMobileScreen();
   const commentElements = $("[data-decidim-comments]");
   const commentsMap = new Map();

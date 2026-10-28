@@ -285,11 +285,19 @@ GEM
       activesupport (>= 6.1)
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
+<<<<<<< HEAD
     anonymous_loader (0.1.3)
       version_gem (~> 1.1, >= 1.1.14)
     ast (2.4.3)
     auth-sanitizer (0.2.3)
       version_gem (~> 1.1, >= 1.1.14)
+=======
+    anonymous_loader (0.1.5)
+      version_gem (~> 1.1, >= 1.1.17)
+    ast (2.4.3)
+    auth-sanitizer (0.2.5)
+      version_gem (~> 1.1, >= 1.1.16)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     base64 (0.3.0)
     batch-loader (2.0.6)
     bcrypt (3.1.22)
@@ -302,13 +310,21 @@ GEM
       smart_properties
     bigdecimal (4.1.3)
     bindex (0.8.1)
+<<<<<<< HEAD
     bootsnap (1.26.0)
+=======
+    bootsnap (1.26.1)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       msgpack (~> 1.5)
     brakeman (8.1.0)
       racc
     browser (6.2.0)
     builder (3.3.0)
+<<<<<<< HEAD
     bullet (8.3.0)
+=======
+    bullet (8.1.3)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (13.0.0)
@@ -343,21 +359,33 @@ GEM
       fast-stemmer (~> 1.0)
       matrix (~> 0.4)
     cmdparse (3.0.7)
+<<<<<<< HEAD
     commonmarker (2.6.3-arm64-darwin)
     commonmarker (2.6.3-x86_64-linux)
+=======
+    commonmarker (2.10.1-arm64-darwin)
+    commonmarker (2.10.1-x86_64-linux)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     concurrent-ruby (1.3.8)
     connection_pool (3.0.2)
     crack (1.0.1)
       bigdecimal
       rexml
+<<<<<<< HEAD
     crass (1.0.7)
     css_parser (2.2.0)
+=======
+    crass (1.0.8)
+    css_parser (3.3.0)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       addressable
-    csv (3.3.5)
+      base64
+      ssrf_filter (~> 1.5)
+    csv (3.3.7)
     data_migrate (11.3.1)
       activerecord (>= 6.1)
       railties (>= 6.1)
-    date (3.5.1)
+    date (3.6.0)
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
@@ -381,19 +409,26 @@ GEM
       devise (>= 4.6)
     diff-lcs (1.6.2)
     diffy (3.4.4)
+<<<<<<< HEAD
     doc2text (0.4.11)
       nokogiri (~> 1.19)
       rubyzip (~> 3.2)
+=======
+    doc2text (0.4.8)
+      nokogiri (>= 1.18.2)
+      rubyzip (~> 2.3.0)
+    docile (1.4.1)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     doorkeeper (5.9.9)
       railties (>= 5)
     doorkeeper-i18n (5.2.9)
       doorkeeper (>= 5.2)
     drb (2.2.3)
-    dry-auto_inject (1.1.0)
+    dry-auto_inject (1.2.1)
       dry-core (~> 1.1)
       zeitwerk (~> 2.6)
-    dry-configurable (1.3.0)
-      dry-core (~> 1.1)
+    dry-configurable (1.4.0)
+      dry-core (~> 1.0)
       zeitwerk (~> 2.6)
     dry-core (1.2.0)
       concurrent-ruby (~> 1.0)
@@ -411,20 +446,28 @@ GEM
       temple
     erubi (1.13.1)
     escape_utils (1.3.0)
-    excon (1.3.2)
+    excon (1.8.0)
       logger
-    factory_bot (6.5.6)
+    factory_bot (6.6.0)
       activesupport (>= 6.1.0)
     factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
     faker (3.8.0)
       i18n (>= 1.8.11, < 2)
+<<<<<<< HEAD
     faraday (2.14.3)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-net_http (3.4.4)
+=======
+    faraday (2.15.1)
+      faraday-net_http (>= 2.0, < 3.6)
+      json
+      logger
+    faraday-net_http (3.5.0)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       net-http (~> 0.5)
     fast-stemmer (1.0.2)
     ffi (1.17.4-arm64-darwin)
@@ -449,12 +492,16 @@ GEM
     geom2d (0.4.1)
     globalid (1.4.0)
       activesupport (>= 6.1)
-    google-protobuf (4.33.5-arm64-darwin)
+    google-protobuf (4.36.2-arm64-darwin)
       bigdecimal
-      rake (>= 13)
-    google-protobuf (4.33.5-x86_64-linux-gnu)
+      rake (~> 13.3)
+    google-protobuf (4.36.2-x86_64-linux-gnu)
       bigdecimal
+<<<<<<< HEAD
       rake (>= 13)
+=======
+      rake (~> 13.3)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     graphql (2.6.13)
       base64
       fiber-storage
@@ -469,7 +516,7 @@ GEM
       ostruct (~> 0.6)
       sass-embedded (~> 1.58)
     hashdiff (1.2.1)
-    hashie (5.1.0)
+    hashie (5.2.0)
       logger
     hexapdf (1.11.2)
       cmdparse (~> 3.0, >= 3.0.3)
@@ -481,7 +528,11 @@ GEM
     html-pipeline (3.2.4)
       selma (~> 0.4)
       zeitwerk (~> 2.5)
+<<<<<<< HEAD
     htmlentities (4.3.4)
+=======
+    htmlentities (4.4.2)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
     i18n-tasks (1.1.2)
@@ -504,27 +555,40 @@ GEM
     image_processing (2.2.0)
     invisible_captcha (2.3.0)
       rails (>= 5.2)
+<<<<<<< HEAD
     io-console (0.9.4)
+=======
+    io-console (0.9.5)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     irb (1.18.0)
       pp (>= 0.6.0)
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.21.2)
+<<<<<<< HEAD
     jwt (3.2.0)
+=======
+    jwt (3.3.0)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       base64
-    kaminari (1.2.2)
+    kaminari (1.3.1)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.2)
-      kaminari-activerecord (= 1.2.2)
-      kaminari-core (= 1.2.2)
-    kaminari-actionview (1.2.2)
+      kaminari-actionview (= 1.3.1)
+      kaminari-activerecord (= 1.3.1)
+      kaminari-core (= 1.3.1)
+    kaminari-actionview (1.3.1)
       actionview
-      kaminari-core (= 1.2.2)
-    kaminari-activerecord (1.2.2)
+      kaminari-core (= 1.3.1)
+    kaminari-activerecord (1.3.1)
       activerecord
+<<<<<<< HEAD
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+=======
+      kaminari-core (= 1.3.1)
+    kaminari-core (1.3.1)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     language_server-protocol (3.17.0.6)
     launchy (3.1.1)
       addressable (~> 2.8)
@@ -557,17 +621,32 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
+<<<<<<< HEAD
     mime-types-data (3.2026.0224)
+=======
+    mime-types-data (3.2026.1020)
+    mini_magick (5.4.0)
+      logger
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     mini_mime (1.1.5)
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
+<<<<<<< HEAD
     msgpack (1.8.4)
+=======
+    msgpack (1.8.6)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     multi_xml (0.9.1)
       bigdecimal (>= 3.1, < 5)
-    net-http (0.9.1)
+    net-http (0.10.0)
+      net-protocol (>= 0.3.0)
       uri (>= 0.11.1)
+<<<<<<< HEAD
     net-imap (0.6.7)
+=======
+    net-imap (0.6.8)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       date
       net-protocol
     net-pop (0.1.2)
@@ -581,6 +660,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-gnu)
       racc (~> 1.4)
+<<<<<<< HEAD
     oauth (1.1.7)
       auth-sanitizer (~> 0.2, >= 0.2.1)
       base64 (~> 0.1)
@@ -594,11 +674,28 @@ GEM
     oauth2 (2.0.25)
       anonymous_loader (~> 0.1, >= 0.1.3)
       auth-sanitizer (~> 0.2, >= 0.2.3)
+=======
+    oauth (1.1.8)
+      anonymous_loader (~> 0.1, >= 0.1.3)
+      auth-sanitizer (~> 0.2, >= 0.2.3)
+      base64 (~> 0.1)
+      oauth-tty (~> 1.0, >= 1.0.13)
+      snaky_hash (~> 2.0, >= 2.0.7)
+      version_gem (~> 1.1, >= 1.1.14)
+    oauth-tty (1.0.13)
+      anonymous_loader (~> 0.1, >= 0.1.3)
+      auth-sanitizer (~> 0.2, >= 0.2.3)
+      version_gem (~> 1.1, >= 1.1.14)
+    oauth2 (2.1.0)
+      anonymous_loader (~> 0.1, >= 0.1.5)
+      auth-sanitizer (~> 0.2, >= 0.2.5)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       faraday (>= 0.17.3, < 4.0)
       jwt (>= 1.0, < 4.0)
       logger (~> 1.2)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 4)
+<<<<<<< HEAD
       snaky_hash (~> 2.0, >= 2.0.7)
       version_gem (~> 1.1, >= 1.1.14)
     omniauth (2.1.4)
@@ -607,6 +704,16 @@ GEM
       rack (>= 2.2.3)
       rack-protection
     omniauth-facebook (11.0.0)
+=======
+      snaky_hash (~> 2.0, >= 2.0.9)
+      version_gem (~> 1.1, >= 1.1.17)
+    omniauth (2.3.1)
+      hashie (>= 3.5.2)
+      logger
+      rack (>= 2.2.8)
+      rack-protection (>= 2.2.0)
+    omniauth-facebook (10.0.0)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       bigdecimal
       omniauth-oauth2 (>= 1.2, < 3)
     omniauth-google-oauth2 (1.2.3)
@@ -614,13 +721,14 @@ GEM
       oauth2 (~> 2.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
-    omniauth-oauth (1.2.1)
+    omniauth-oauth (1.3.0)
+      cgi
       oauth
-      omniauth (>= 1.0, < 3)
+      omniauth (~> 2.3, >= 2.3.1)
       rack (>= 1.6.2, < 4)
-    omniauth-oauth2 (1.9.0)
+    omniauth-oauth2 (1.10.0)
       oauth2 (>= 2.0.2, < 3)
-      omniauth (~> 2.0)
+      omniauth (~> 2.3, >= 2.3.1)
     omniauth-rails_csrf_protection (2.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
@@ -643,14 +751,19 @@ GEM
     parser (3.3.13.0)
       ast (~> 2.4.1)
       racc
+<<<<<<< HEAD
     pg (1.7.0-arm64-darwin)
     pg (1.7.0-x86_64-linux)
+=======
+    pg (1.6.3-arm64-darwin)
+    pg (1.6.3-x86_64-linux)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     pg_search (2.4.0)
       activerecord (>= 8.0)
       activesupport (>= 8.0)
     pp (0.6.4)
       prettyprint
-    premailer (1.27.0)
+    premailer (1.32.0)
       addressable
       css_parser (>= 1.19.0)
       htmlentities (>= 4.0.0)
@@ -658,10 +771,14 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
-    prettyprint (0.2.0)
+    prettyprint (0.2.1)
     prism (1.9.0)
     public_suffix (7.0.5)
+<<<<<<< HEAD
     puma (8.0.2)
+=======
+    puma (7.2.1)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.7)
@@ -679,7 +796,7 @@ GEM
     rack-session (2.1.2)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
-    rack-test (2.2.0)
+    rack-test (2.3.0)
       rack (>= 1.3)
     rackup (2.3.1)
       rack (>= 3)
@@ -722,13 +839,23 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.4.2)
+<<<<<<< HEAD
     ransack (5.0.2)
+=======
+    rake-compiler-dock (1.12.0)
+    ransack (4.4.4)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       activerecord (>= 7.2)
       activesupport (>= 7.2)
       i18n
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
+<<<<<<< HEAD
+=======
+    rb_sys (0.9.130)
+      rake-compiler-dock (= 1.12.0)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     rbs (4.2.0)
       logger
       prism (>= 1.6.0)
@@ -739,9 +866,15 @@ GEM
       rbs (>= 4.0.0)
       tsort
     redcarpet (3.6.1)
+<<<<<<< HEAD
     redis (6.0.0)
       redis-client (= 0.30.1)
     redis-client (0.30.1)
+=======
+    redis (5.4.1)
+      redis-client (>= 0.22.0)
+    redis-client (0.31.0)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       connection_pool
     regexp_parser (2.13.1)
     reline (0.7.0)
@@ -785,10 +918,15 @@ GEM
     rspec-retry (0.6.2)
       rspec-core (> 3.3)
     rspec-support (3.13.7)
-    rspec_junit_formatter (0.6.0)
+    rspec_junit_formatter (0.6.2)
       rspec-core (>= 2, < 4, != 2.12.0)
+<<<<<<< HEAD
     rubocop (1.92.1)
       json (>= 2.3)
+=======
+    rubocop (1.86.2)
+      json (~> 2.3)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
       parallel (>= 1.10)
@@ -811,7 +949,11 @@ GEM
       faker (>= 2.12.0)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
+<<<<<<< HEAD
     rubocop-graphql (1.8.0)
+=======
+    rubocop-graphql (1.7.0)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       lint_roller (~> 1.1)
       rubocop (>= 1.89, < 2)
     rubocop-performance (1.27.0)
@@ -845,11 +987,17 @@ GEM
       logger
     rubyXL (3.4.38)
       nokogiri (>= 1.10.8)
+<<<<<<< HEAD
       rubyzip (>= 3.2.2)
     rubyzip (3.7.0)
     sass-embedded (1.97.3-arm64-darwin)
+=======
+      rubyzip (>= 1.3.0)
+    rubyzip (2.3.2)
+    sass-embedded (1.106.1-arm64-darwin)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
       google-protobuf (~> 4.31)
-    sass-embedded (1.97.3-x86_64-linux-gnu)
+    sass-embedded (1.106.1-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
     securerandom (0.4.1)
     selenium-webdriver (4.51.0)
@@ -857,8 +1005,8 @@ GEM
       logger (~> 1.4)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
-    selma (0.4.15-arm64-darwin)
-    selma (0.4.15-x86_64-linux)
+    selma (0.5.3)
+      rb_sys (~> 0.9)
     semantic_range (3.1.1)
     shakapacker (10.3.2)
       activesupport (>= 5.2)
@@ -866,21 +1014,43 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
+<<<<<<< HEAD
     simplecov (1.3.2)
     smart_properties (1.17.0)
     snaky_hash (2.0.7)
       hashie (>= 0.1.0, < 6)
       version_gem (~> 1.1, >= 1.1.14)
+=======
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-cobertura (3.1.2)
+      rexml
+      simplecov (~> 0.19)
+    simplecov-html (0.13.2)
+    simplecov_json_formatter (0.1.4)
+    smart_properties (1.17.0)
+    snaky_hash (2.0.9)
+      hashie (>= 0.1.0, < 6)
+      version_gem (~> 1.1, >= 1.1.16)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     spring (4.7.0)
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
       spring (>= 4)
+<<<<<<< HEAD
     strscan (3.1.8)
     temple (0.10.4)
+=======
+    ssrf_filter (1.6.0)
+    strscan (3.1.8)
+    temple (0.10.7)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
     thor (1.5.0)
-    tilt (2.5.0)
+    tilt (2.9.0)
     timeout (0.6.1)
     trailblazer-option (0.1.2)
     tsort (0.2.0)
@@ -896,7 +1066,11 @@ GEM
     valid_email2 (7.1.0)
       activemodel (>= 6.0)
       mail (~> 2.5)
+<<<<<<< HEAD
     version_gem (1.1.15)
+=======
+    version_gem (1.1.17)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     w3c_rspec_validators (0.3.0)
       rails
       rspec
@@ -932,7 +1106,11 @@ GEM
     wisper-rspec (1.1.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+<<<<<<< HEAD
     yard (0.9.44)
+=======
+    yard (0.9.45)
+>>>>>>> 09795a6cb5 (Add screen-size check for comment-anchor-button)
     zeitwerk (2.8.3)
 
 PLATFORMS
