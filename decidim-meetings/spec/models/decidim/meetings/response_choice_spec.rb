@@ -25,6 +25,18 @@ module Decidim
         expect(subject.response).to eq(response)
       end
 
+      it "uses the response's choices association as the inverse" do
+        create(:meetings_poll_response_choice, response:, response_option:)
+
+        expect(response.choices.first.response).to be(response)
+      end
+
+      it "uses the response option's choices association as the inverse" do
+        create(:meetings_poll_response_choice, response:, response_option:)
+
+        expect(response_option.choices.first.response_option).to be(response_option)
+      end
+
       it "has an association of response_option" do
         expect(subject.response_option).to eq(response_option)
       end
