@@ -145,15 +145,23 @@ module Decidim
 
       def set_commentable
         @commentable ||= if commentable_gid
-                           GlobalID::Locator.locate_signed(commentable_gid)
+                           resource = GlobalID::Locator.locate_signed(commentable_gid)
+                           ensure_in_organization!(resource)
+                           resource
                          elsif comment
                            comment.root_commentable
                          end
       end
 
       def set_comment
-        # rubocop:disable-next Decidim/OrganizationScopedFinder -- update/destroy permissions require the current user to be the comment author
-        @comment = Decidim::Comments::Comment.find_by(id: params[:id])
+        @comment = Decidim::Comments::Comment.for_organization(organization: current_organization).find_by(id: params[:id])
+        raise ActiveRecord::RecordNotFound unless @comment&.organization == current_organization
+      end
+
+      def ensure_in_organization!(resource)
+        return if resource.blank? || resource.organization == current_organization
+
+        raise ActiveRecord::RecordNotFound
       end
 
       def ensure_commentable!
