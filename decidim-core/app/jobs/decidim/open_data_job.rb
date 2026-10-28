@@ -2,6 +2,8 @@
 
 module Decidim
   class OpenDataJob < ApplicationJob
+    include Decidim::JobWithAssets
+
     queue_as :exports
 
     def perform(organization, resource = nil)
