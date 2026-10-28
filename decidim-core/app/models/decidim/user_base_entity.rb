@@ -13,11 +13,11 @@ module Decidim
     include Decidim::Loggable
     include Decidim::HasUploadValidations
 
-    belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
-    has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
-    has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
+    belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization", inverse_of: :user_entities
+    has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", inverse_of: :user, dependent: :destroy
+    has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", inverse_of: :user, dependent: :destroy
 
-    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
+    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, inverse_of: :user, dependent: :destroy
 
     # Reciprocals of the models that point to a user entity. They are declared here and not on
     # `Decidim::User` because those models reference `Decidim::UserBaseEntity`, the STI base class,

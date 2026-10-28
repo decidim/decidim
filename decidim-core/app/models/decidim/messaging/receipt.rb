@@ -16,7 +16,7 @@ module Decidim
       # conversation. The reciprocal `has_many :receipts` on `Decidim::User` is the side that declares
       # `inverse_of`.
       belongs_to :recipient, foreign_key: "decidim_recipient_id", class_name: "Decidim::User"
-      belongs_to :message, foreign_key: "decidim_message_id", class_name: "Decidim::Messaging::Message"
+      belongs_to :message, foreign_key: "decidim_message_id", class_name: "Decidim::Messaging::Message", inverse_of: :receipts
 
       scope :recipient, ->(recipient) { where(recipient:) }
       scope :unread_by, ->(user) { recipient(user).unread }

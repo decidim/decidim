@@ -39,8 +39,8 @@ module Decidim
 
     has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
     has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
-    has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
-    has_many :user_entities, foreign_key: "decidim_organization_id", class_name: "Decidim::UserBaseEntity", dependent: :destroy
+    has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", inverse_of: :organization, dependent: :destroy
+    has_many :user_entities, foreign_key: "decidim_organization_id", class_name: "Decidim::UserBaseEntity", inverse_of: :organization, dependent: :destroy
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
 
     has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates

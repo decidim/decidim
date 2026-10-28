@@ -9,8 +9,8 @@ module Decidim
 
     default_scope { order(arel_table[:weight].asc) }
 
-    belongs_to :organization, class_name: "Decidim::Organization"
-    has_many :pages, class_name: "Decidim::StaticPage", foreign_key: "topic_id", dependent: :nullify
+    belongs_to :organization, class_name: "Decidim::Organization", inverse_of: :static_page_topics
+    has_many :pages, class_name: "Decidim::StaticPage", foreign_key: "topic_id", inverse_of: :topic, dependent: :nullify
 
     def accessible_pages_for(user)
       pages.accessible_for(organization, user)

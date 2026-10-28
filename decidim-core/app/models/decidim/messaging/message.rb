@@ -24,6 +24,7 @@ module Decidim
       belongs_to :conversation,
                  foreign_key: :decidim_conversation_id,
                  touch: true,
+                 inverse_of: :messages,
                  class_name: "Decidim::Messaging::Conversation"
 
       has_many :receipts,

@@ -27,12 +27,12 @@ module Decidim
                           confirmation_keys: [:decidim_organization_id, :email]
     devise :rememberable if Decidim.enable_remember_me
 
-    has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
+    has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", inverse_of: :user, dependent: :destroy
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
-    has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
+    has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", inverse_of: :user, dependent: :destroy
     has_many :private_exports, class_name: "Decidim::PrivateExport", dependent: :destroy, inverse_of: :attached_to, as: :attached_to
-    has_many :impersonation_logs, foreign_key: "decidim_user_id", class_name: "Decidim::ImpersonationLog", dependent: :destroy
+    has_many :impersonation_logs, foreign_key: "decidim_user_id", class_name: "Decidim::ImpersonationLog", inverse_of: :user, dependent: :destroy
 
     # Reciprocals of the models that reference `Decidim::User` specifically. The `inverse_of` is
     # explicit where the association name does not match the name used on the other side. For the

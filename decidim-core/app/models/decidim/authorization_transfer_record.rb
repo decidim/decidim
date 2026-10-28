@@ -5,7 +5,7 @@ module Decidim
   # which was transferred from another user to the target user during an
   # authorization transfer.
   class AuthorizationTransferRecord < ApplicationRecord
-    belongs_to :transfer, class_name: "Decidim::AuthorizationTransfer"
+    belongs_to :transfer, class_name: "Decidim::AuthorizationTransfer", inverse_of: :records
     belongs_to :resource, polymorphic: true
 
     # Overwrites the method so that records cannot be modified.

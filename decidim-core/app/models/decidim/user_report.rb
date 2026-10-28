@@ -6,7 +6,7 @@ module Decidim
 
     REASONS = %w(spam offensive does_not_belong).freeze
 
-    belongs_to :moderation, foreign_key: :user_moderation_id, class_name: "Decidim::UserModeration"
+    belongs_to :moderation, foreign_key: :user_moderation_id, class_name: "Decidim::UserModeration", inverse_of: :reports
     belongs_to :user, class_name: "Decidim::User", inverse_of: :user_reports_made
 
     validates :reason, presence: true
