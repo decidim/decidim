@@ -64,6 +64,12 @@ module Decidim
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
     belongs_to :parent, class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
 
+    has_many :assembly_user_roles,
+             foreign_key: "decidim_assembly_id",
+             class_name: "Decidim::AssemblyUserRole",
+             dependent: :destroy,
+             inverse_of: :assembly
+
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 

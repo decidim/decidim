@@ -8,7 +8,7 @@ module Decidim
     include Loggable
     include ParticipatorySpaceUser
 
-    belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly", optional: true
+    belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly", optional: true, inverse_of: :assembly_user_roles
     alias participatory_space assembly
 
     scope :for_space, ->(participatory_space) { where(assembly: participatory_space) }

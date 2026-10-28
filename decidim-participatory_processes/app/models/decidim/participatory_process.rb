@@ -50,6 +50,11 @@ module Decidim
             class_name: "Decidim::ParticipatoryProcessStep",
             dependent: :destroy,
             inverse_of: :participatory_process
+    has_many :participatory_process_user_roles,
+             foreign_key: "decidim_participatory_process_id",
+             class_name: "Decidim::ParticipatoryProcessUserRole",
+             dependent: :destroy,
+             inverse_of: :participatory_process
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",

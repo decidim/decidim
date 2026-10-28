@@ -12,6 +12,20 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
 
+      describe "associations" do
+        it "has an association of conference_invites" do
+          invite = create(:conference_invite, registration_type:)
+
+          expect(registration_type.conference_invites).to eq([invite])
+        end
+
+        it "uses the conference_invites association as the inverse of the registration type" do
+          create(:conference_invite, registration_type:)
+
+          expect(registration_type.conference_invites.first.registration_type).to be(registration_type)
+        end
+      end
+
       describe ".default_scope" do
         it "returns registration types ordered by weight asc" do
           registration_type1 = create(:registration_type, price: 300.00, weight: 2, title: { en: "Registration type 1" })

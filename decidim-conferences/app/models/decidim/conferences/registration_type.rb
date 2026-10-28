@@ -15,6 +15,11 @@ module Decidim
       has_many :conference_meeting_registration_types, dependent: :destroy
       has_many :conference_meetings, through: :conference_meeting_registration_types, class_name: "Decidim::ConferenceMeeting"
       has_many :conference_registrations, foreign_key: "decidim_conference_registration_type_id", class_name: "Decidim::Conferences::ConferenceRegistration", dependent: :destroy
+      has_many :conference_invites,
+               class_name: "Decidim::Conferences::ConferenceInvite",
+               foreign_key: "decidim_conference_registration_type_id",
+               dependent: :destroy,
+               inverse_of: :registration_type
 
       default_scope { order(weight: :asc) }
 

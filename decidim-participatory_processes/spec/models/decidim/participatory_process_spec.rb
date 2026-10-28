@@ -15,6 +15,23 @@ module Decidim
     it_behaves_like "publicable"
     it_behaves_like "has members"
 
+    describe "associations" do
+      let(:user) { create(:user) }
+      let(:participatory_process) { create(:participatory_process, organization: user.organization) }
+
+      it "has an association of participatory_process_user_roles" do
+        user_role = create(:participatory_process_user_role, participatory_process:, user:, role: "admin")
+
+        expect(participatory_process.participatory_process_user_roles).to eq([user_role])
+      end
+
+      it "uses the participatory_process_user_roles association as the inverse of the user role" do
+        create(:participatory_process_user_role, participatory_process:, user:, role: "admin")
+
+        expect(participatory_process.participatory_process_user_roles.first.participatory_process).to be(participatory_process)
+      end
+    end
+
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))
         .to eq Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter

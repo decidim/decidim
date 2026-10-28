@@ -15,6 +15,23 @@ module Decidim
     include_examples "publicable"
     include_examples "resourceable"
 
+    describe "associations" do
+      let(:user) { create(:user) }
+      let(:conference) { create(:conference, organization: user.organization) }
+
+      it "has an association of conference_user_roles" do
+        user_role = create(:conference_user_role, conference:, user:, role: "admin")
+
+        expect(conference.conference_user_roles).to eq([user_role])
+      end
+
+      it "uses the conference_user_roles association as the inverse of the user role" do
+        create(:conference_user_role, conference:, user:, role: "admin")
+
+        expect(conference.conference_user_roles.first.conference).to be(conference)
+      end
+    end
+
     context "when there is a conference with the same slug in the same organization" do
       let!(:external_conference) { create(:conference, organization: conference.organization, slug: "my-slug") }
 
