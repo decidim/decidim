@@ -50,7 +50,6 @@ ca:
         old_password: Contrasenya actual
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
-        personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
     errors:
@@ -820,7 +819,6 @@ ca:
           officialized_at: La data i l'hora en què aquesta usuària va ser oficialitzada
           organization: L'organització a la qual pertany aquesta usuària
           password_updated_at: La data en què van canviar per darrera vegada les seves contrasenyes
-          personal_url: L'URL personal d'aquesta usuària
           remember_created_at: La data i hora en què es va seleccionar la usuària per ser recordada
           reset_password_sent_at: La data i l'hora en què es va enviar el correu per a restaurar la contrasenya
           roles: El rol que té aquesta participant, si en té cap
