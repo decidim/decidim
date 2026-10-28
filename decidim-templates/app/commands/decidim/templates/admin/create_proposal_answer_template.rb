@@ -33,14 +33,13 @@ module Decidim
         private
 
         def identify_templateable_resource
-          resource = @form.current_organization
-          if @form.component_constraint.present?
-            found_component = @form.current_organization.participatory_spaces
-                                   .flat_map { |space| space.components.where(manifest_name: "proposals").to_a }
-                                   .find { |component| component.id == @form.component_constraint }
-            resource = found_component if found_component.present?
-          end
-          resource
+          return current_organization if @form.component_constraint.blank?
+
+          Decidim::Component.for_organization(organization: current_organization).find_by(id: @form.component_constraint, manifest_name: "proposals") || current_organization
+        end
+
+        def current_organization
+          @form.current_organization
         end
       end
     end

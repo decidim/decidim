@@ -19,6 +19,7 @@ module Decidim
 
     scope :registered_component_manifests, -> { where(manifest_name: Decidim.component_registry.manifests.collect(&:name)) }
     scope :registered_space_manifests, -> { where(participatory_space_type: Decidim.participatory_space_registry.manifests.collect(&:model_class_name)) }
+    scope :for_organization, ->(organization:) { where(participatory_space: organization.participatory_spaces) }
 
     default_scope { registered_component_manifests.registered_space_manifests.order(arel_table[:weight].asc, arel_table[:manifest_name].asc) }
 

@@ -68,6 +68,22 @@ module Decidim
             expect(template.reload.field_values["proposal_state_id"]).to eq(proposal_state_id)
           end
 
+          context "when the form has no component constraint" do
+            let(:component_constraint) { nil }
+
+            it "does not look up a component" do
+              expect(Decidim::Component).not_to receive(:for_organization)
+
+              expect { subject.call }.to broadcast(:ok)
+            end
+
+            it "does not associate a templatable" do
+              subject.call
+
+              expect(template.reload.templatable).to be_nil
+            end
+          end
+
           context "when the form has a component constraint" do
             context "and templatable is Proposal Component" do
               let(:component) { create(:component, manifest_name: :proposals, organization:) }

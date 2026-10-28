@@ -82,6 +82,22 @@ module Decidim
             end
           end
 
+          context "when the form has no component constraint" do
+            let(:component_constraint) { nil }
+
+            it "does not look up a component" do
+              expect(Decidim::Component).not_to receive(:for_organization)
+
+              expect { subject.call }.to broadcast(:ok)
+            end
+
+            it "associates the organization" do
+              subject.call
+
+              expect(Decidim::Templates::Template.where(target: :proposal_answer).last.templatable).to eq(organization)
+            end
+          end
+
           context "when the form has a component constraint" do
             context "and templatable is Proposal Component" do
               let(:component) { create(:proposal_component, organization:) }
