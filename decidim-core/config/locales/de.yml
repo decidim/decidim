@@ -50,7 +50,6 @@ de:
         old_password: Aktuelles Passwort
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
-        personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
         tos_agreement: Nutzungsvereinbarung
     errors:
@@ -826,7 +825,6 @@ de:
           officialized_at: Das Datum und die Uhrzeit, an der dieser Benutzer offizialisiert wurde
           organization: Die Organisation, zu der dieser Benutzer gehört
           password_updated_at: Das Datum, an dem ihr Passwort zum letzten Mal geändert wurde
-          personal_url: Die persönliche URL dieses Benutzers
           remember_created_at: Das Datum und die Uhrzeit, an der der Benutzer zum Speichern ausgewählt wurde
           reset_password_sent_at: Datum und Uhrzeit, an dem die Zurücksetzung des Passworts ausgelöst wurde
           roles: Die Rolle, falls vorhanden, die dieser Nutzende hat
