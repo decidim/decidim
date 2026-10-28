@@ -25,6 +25,18 @@ module Decidim
     has_many :scope_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::ScopeType", inverse_of: :organization, dependent: :destroy
     has_many :areas, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Area", inverse_of: :organization, dependent: :destroy
     has_many :area_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::AreaType", inverse_of: :organization, dependent: :destroy
+
+    # Declared before the users associations so that these records are destroyed before the users they reference.
+    has_many :action_logs, foreign_key: "decidim_organization_id", class_name: "Decidim::ActionLog", inverse_of: :organization, dependent: :delete_all
+    has_many :content_blocks, foreign_key: "decidim_organization_id", class_name: "Decidim::ContentBlock", inverse_of: :organization, dependent: :destroy
+    has_many :contextual_help_sections, class_name: "Decidim::ContextualHelpSection", inverse_of: :organization, dependent: :destroy
+    has_many :editor_images, foreign_key: "decidim_organization_id", class_name: "Decidim::EditorImage", inverse_of: :organization, dependent: :destroy
+    has_many :identities, foreign_key: "decidim_organization_id", class_name: "Decidim::Identity", inverse_of: :organization, dependent: :destroy
+    has_many :newsletters, class_name: "Decidim::Newsletter", inverse_of: :organization, dependent: :destroy
+    has_many :searchable_resources, foreign_key: "decidim_organization_id", class_name: "Decidim::SearchableResource", inverse_of: :organization, dependent: :destroy
+    has_many :share_tokens, foreign_key: "decidim_organization_id", class_name: "Decidim::ShareToken", inverse_of: :organization, dependent: :destroy
+    has_many :short_links, foreign_key: "decidim_organization_id", class_name: "Decidim::ShortLink", inverse_of: :organization, dependent: :destroy
+
     has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
     has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
     has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
