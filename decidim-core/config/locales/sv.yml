@@ -50,7 +50,6 @@ sv:
         old_password: Nuvarande lösenord
         password: Lösenord
         password_confirmation: Bekräfta lösenord
-        personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         tos_agreement: Användarvillkor
     errors:
@@ -822,7 +821,6 @@ sv:
           officialized_at: Datum och tid när användaren gavs officiell status
           organization: Den organisation som denna användare tillhör
           password_updated_at: Datum då lösenordet senast uppdaterades
-          personal_url: Den personliga URL:en för denna användare
           remember_created_at: Datum och tid när användaren valdes för att bli ihågkommen
           reset_password_sent_at: Datum och tid när lösenordsåterställning skickades
           roles: Rollen den här användaren har, om den har någon
