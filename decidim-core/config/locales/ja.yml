@@ -50,7 +50,6 @@ ja:
         old_password: 現在のパスワード
         password: パスワード
         password_confirmation: パスワードの確認
-        personal_url: 個人用URL
         remove_avatar: アバターを削除
         tos_agreement: 利用規約
     errors:
@@ -805,7 +804,6 @@ ja:
           officialized_at: このユーザーの公式化日時
           organization: このユーザーが所属する組織
           password_updated_at: パスワードの最終更新日時
-          personal_url: このユーザーの個人URL
           remember_created_at: ユーザーが記憶するように選択した日時
           reset_password_sent_at: パスワードリセットの送信日時
           roles: このユーザーが持っている役割
