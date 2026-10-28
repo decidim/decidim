@@ -35,6 +35,31 @@ module Decidim
       end
     end
 
+    describe ".for_organization" do
+      subject { described_class.for_organization(organization:) }
+
+      let!(:component) { create(:component, manifest_name: "dummy", organization:) }
+      let!(:assembly_component) do
+        create(:component, manifest_name: "dummy", organization:, participatory_space: create(:assembly, organization:))
+      end
+      let!(:other_component) { create(:component, manifest_name: "dummy", organization: other_organization) }
+      let(:other_organization) { create(:organization) }
+
+      it "returns the components belonging to the organization participatory spaces" do
+        expect(subject).to include(component, assembly_component)
+      end
+
+      it "does not return components from other organizations" do
+        expect(subject).not_to include(other_component)
+      end
+
+      it "does not load the organization participatory spaces into memory" do
+        expect(organization).not_to receive(:participatory_spaces)
+
+        subject.to_a
+      end
+    end
+
     describe "restricted_space?" do
       subject { component }
 
