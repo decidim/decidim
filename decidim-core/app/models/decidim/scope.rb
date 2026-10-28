@@ -33,6 +33,20 @@ module Decidim
              inverse_of: :parent,
              dependent: :destroy
 
+    # Reciprocals of the models that point to a scope. `Decidim::ActionLog` records cannot be
+    # destroyed (see the `before_destroy` callback on that model), so this cascade uses `delete_all`.
+    has_many :action_logs,
+             foreign_key: "decidim_scope_id",
+             class_name: "Decidim::ActionLog",
+             inverse_of: :scope,
+             dependent: :delete_all
+
+    has_many :searchable_resources,
+             foreign_key: "decidim_scope_id",
+             class_name: "Decidim::SearchableResource",
+             inverse_of: :scope,
+             dependent: :destroy
+
     before_validation :update_part_of, on: :update
 
     validates :name, :code, presence: true

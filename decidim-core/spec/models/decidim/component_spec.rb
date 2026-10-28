@@ -35,6 +35,54 @@ module Decidim
       end
     end
 
+    describe "reciprocal associations" do
+      subject(:component) { create(:component, manifest_name: "dummy", organization:) }
+
+      let(:organization) { create(:organization) }
+      let(:other_organization) { create(:organization) }
+      let(:other_component) { create(:component, manifest_name: "dummy", organization: other_organization) }
+
+      shared_examples "component reciprocal association" do |association, owner|
+        before do
+          record
+          other_record
+        end
+
+        it "only includes the records of its own component" do
+          expect(component.public_send(association)).to contain_exactly(record)
+        end
+
+        it "does not include the records of another component, even when it is in another organization" do
+          expect(component.public_send(association)).not_to include(other_record)
+        end
+
+        it "points back to the component from the records loaded through the association" do
+          expect(component.public_send(association).first.public_send(owner)).to eq(component)
+        end
+
+        it "deletes the records when the component is destroyed" do
+          component.destroy
+
+          expect(record.class.where(id: record.id)).to be_empty
+          expect(other_record.class.where(id: other_record.id)).to exist
+        end
+      end
+
+      context "with action logs" do
+        let(:record) { create(:action_log, organization:, component:, user: create(:user, organization:)) }
+        let(:other_record) { create(:action_log, organization: other_organization, component: other_component, user: create(:user, organization: other_organization)) }
+
+        it_behaves_like "component reciprocal association", :action_logs, :component
+      end
+
+      context "with reminders" do
+        let(:record) { create(:reminder, user: create(:user, organization:), component:) }
+        let(:other_record) { create(:reminder, user: create(:user, organization: other_organization), component: other_component) }
+
+        it_behaves_like "component reciprocal association", :reminders, :component
+      end
+    end
+
     describe "restricted_space?" do
       subject { component }
 
