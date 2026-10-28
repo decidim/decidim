@@ -50,7 +50,6 @@ es:
         old_password: Contraseña actual
         password: Contraseña
         password_confirmation: Confirma tu contraseña
-        personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
     errors:
@@ -820,7 +819,6 @@ es:
           officialized_at: La fecha y hora en que esta usuaria fue oficializada
           organization: La organización a la que pertenece esta usuaria
           password_updated_at: La fecha en la que cambiaron por última vez sus contraseñas
-          personal_url: La URL personal de esta usuaria
           remember_created_at: La fecha y hora en que se seleccionó a la usuaria para ser recordada
           reset_password_sent_at: La fecha y hora en que se envió el correo para restablecer la contraseña
           roles: El rol que tiene esta participante, si tiene alguno
