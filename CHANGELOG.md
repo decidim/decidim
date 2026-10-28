@@ -2,7 +2,7 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-Nothing
+Nothing.
 
 ...
 
