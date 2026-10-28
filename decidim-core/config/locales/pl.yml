@@ -29,7 +29,6 @@ pl:
         old_password: Bieżące hasło
         password: Hasło
         password_confirmation: Potwierdź swoje hasło
-        personal_url: Prywatny adres URL
         remove_avatar: Usuń awatar
         tos_agreement: Warunki korzystania z Platformy
     models:
