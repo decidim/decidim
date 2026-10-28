@@ -190,13 +190,20 @@ module RuboCop
             return scoped_finder_arguments?(node)
           end
 
+          return scoped_constructor_argument?(node) if node.method_name == :or
+
           constructed_scope_root?(node.receiver) if node.receiver
         end
 
         # Query objects in Decidim commonly receive the organization as a
         # positional argument, e.g. `OrganizationAssemblies.new(current_organization)`.
+        # For `or` relations, every branch must be constructed from an
+        # organization-scoped query object.
         def scoped_constructor_argument?(node)
-          scoped_helper_method?(node)
+          return scoped_helper_method?(node) unless node.send_type? && node.method_name == :or
+          return false unless node.receiver
+
+          ([node.receiver] + node.arguments).all? { |branch| constructed_scope_root?(branch) }
         end
 
         def consumed_by_finder?(node)
