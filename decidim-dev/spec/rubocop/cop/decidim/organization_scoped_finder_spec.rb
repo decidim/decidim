@@ -195,6 +195,12 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts an or relation mixing a query object and a current_organization scoped relation" do
+    expect_no_offenses(<<~RUBY)
+      OrganizationAssemblies.new(current_organization).query.or(current_organization.assemblies.where(id: params[:id])).first!
+    RUBY
+  end
+
   it "registers an offense when one or branch is constructed without the current organization" do
     expect_offense(<<~RUBY)
       OrganizationAssemblies.new(current_organization).query.or(OrganizationAssemblies.new(params[:organization_id]).query).first!
