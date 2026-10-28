@@ -29,9 +29,8 @@ module Decidim
       def results
         @results ||= begin
           parent_id = params[:parent_id].presence
-          search.result.where(
-            parent_id: [parent_id] + Result.where(parent_id:).pluck(:id) # rubocop:disable Decidim/OrganizationScopedFinder -- search.result is scoped to the component
-          ).page(params[:page]).per(12)
+          child_ids = Result.where(component: current_component, parent_id:).pluck(:id)
+          search.result.where(parent_id: [parent_id] + child_ids).page(params[:page]).per(12)
         end
       end
 
