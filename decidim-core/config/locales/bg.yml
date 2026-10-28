@@ -29,7 +29,6 @@ bg:
         old_password: Текуща парола
         password: Парола
         password_confirmation: Потвърдете паролата си
-        personal_url: Персонален URL
         remove_avatar: Премахни аватара
         tos_agreement: Споразумение за условия на услугата
     models:
