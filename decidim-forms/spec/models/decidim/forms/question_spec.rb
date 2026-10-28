@@ -18,6 +18,12 @@ module Decidim
         expect(subject.questionnaire).to eq(questionnaire)
       end
 
+      it "uses the questionnaire's questions association as the inverse" do
+        subject.save!
+
+        expect(questionnaire.questions.first.questionnaire).to be(questionnaire)
+      end
+
       it "has an association of display_conditions" do
         expect(subject.display_conditions).to match_array(display_conditions)
       end

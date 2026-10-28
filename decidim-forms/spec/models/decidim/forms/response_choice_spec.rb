@@ -26,12 +26,32 @@ module Decidim
         expect(subject.response).to eq(response)
       end
 
+      it "uses the response's choices association as the inverse" do
+        create(:response_choice, response:, response_option:, matrix_row:)
+
+        expect(response.choices.first.response).to be(response)
+      end
+
       it "has an association of response_option" do
         expect(subject.response_option).to eq(response_option)
       end
 
       it "has an association of matrix_row" do
         expect(subject.matrix_row).to eq(matrix_row)
+      end
+
+      it "uses the choices association of the response option as the inverse" do
+        choice = create(:response_choice, response:, response_option:)
+
+        expect(response_option.choices).to eq([choice])
+        expect(response_option.choices.first.response_option).to be(response_option)
+      end
+
+      it "uses the choices association of the matrix row as the inverse" do
+        choice = create(:response_choice, response:, matrix_row:)
+
+        expect(matrix_row.choices).to eq([choice])
+        expect(matrix_row.choices.first.matrix_row).to be(matrix_row)
       end
 
       context "when the question type is a matrix type" do

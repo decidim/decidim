@@ -13,7 +13,7 @@ module Decidim
 
       translatable_fields :body, :description
 
-      belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id"
+      belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id", inverse_of: :questions
 
       has_many :matrix_rows,
                class_name: "QuestionMatrixRow",

@@ -65,6 +65,12 @@ module Decidim
           it "has an response_option association" do
             expect(subject.response_option).to eq(response_option)
           end
+
+          it "uses the response option's display_conditions association as the inverse" do
+            subject.save!
+
+            expect(response_option.display_conditions.first.response_option).to be(response_option)
+          end
         end
       end
 
