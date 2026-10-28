@@ -13,7 +13,7 @@ module Decidim
           let!(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
           let(:taxonomy_ids) { [taxonomy.id] }
           let(:proposal_ids) { [resource.id] }
-          let(:command) { described_class.new(taxonomy_ids, proposal_ids, resource.component, organization) }
+          let(:command) { described_class.new(taxonomy_ids, proposal_ids, resource.component) }
           let(:resources) { Dev::DummyResource.where(id: resource.id) }
 
           subject { command.call }

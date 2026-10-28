@@ -7,6 +7,7 @@ module Decidim
     #
     # taxonomy_ids - the taxonomy ids to update
     # resources - an ApplicationRecord collection of resources to update.
+    # organization - the organization that owns the taxonomies.
     def initialize(taxonomy_ids, resources, organization)
       @organization = organization
       @taxonomies = Decidim::Taxonomy.non_roots.where(organization:, id: taxonomy_ids)

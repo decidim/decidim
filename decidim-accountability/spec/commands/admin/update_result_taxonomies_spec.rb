@@ -12,7 +12,7 @@ module Decidim
         let!(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
         let(:taxonomy_ids) { [taxonomy.id] }
         let(:result_ids) { [resource.id] }
-        let(:command) { described_class.new(taxonomy_ids, result_ids, resource.component, organization) }
+        let(:command) { described_class.new(taxonomy_ids, result_ids, resource.component) }
 
         subject { command.call }
 

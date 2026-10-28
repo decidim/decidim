@@ -11,7 +11,7 @@ module Decidim
         def update_taxonomies
           enforce_permission_to :create, :bulk_update
 
-          Admin::UpdateResultTaxonomies.call(result_params[:taxonomies], result_ids, current_component, current_organization) do
+          Admin::UpdateResultTaxonomies.call(result_params[:taxonomies], result_ids, current_component) do
             on(:invalid_taxonomies) do
               flash[:alert] = I18n.t(
                 "results.update_taxonomies.select_a_taxonomy",

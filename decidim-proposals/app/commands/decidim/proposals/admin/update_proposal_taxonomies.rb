@@ -12,10 +12,10 @@ module Decidim
         # taxonomy_ids - the taxonomy ids to update
         # proposal_ids - the proposals ids to update.
         # current_component - the component where the proposals belong to.
-        def initialize(taxonomy_ids, proposal_ids, current_component, organization)
+        def initialize(taxonomy_ids, proposal_ids, current_component)
           @proposal_ids = proposal_ids
           @current_component = current_component
-          super(taxonomy_ids, proposals, organization)
+          super(taxonomy_ids, proposals, current_component.organization)
         end
 
         def run_after_hooks(resource)
