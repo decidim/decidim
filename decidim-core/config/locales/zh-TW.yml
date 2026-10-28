@@ -27,7 +27,6 @@ zh-TW:
         nickname: 暱稱
         password: 密碼
         password_confirmation: 確認你的密碼
-        personal_url: 個人 URL
         remove_avatar: 刪除頭像
         tos_agreement: 同意服務條款
     models:
