@@ -18,11 +18,13 @@ module Decidim
 
         def edit
           enforce_permission_to(:create, :proposal_answer, proposal:)
+
           @form = form(ProposalAnswerForm).from_model(proposal)
         end
 
         def update
           enforce_permission_to(:create, :proposal_answer, proposal:)
+
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(ProposalAnswerForm).from_params(params)
 
@@ -41,6 +43,7 @@ module Decidim
 
         def update_multiple_answers
           enforce_permission_to(:read, :component, component: current_component)
+
           valid_proposals = []
           failed_proposals = []
           proposals.each do |proposal|

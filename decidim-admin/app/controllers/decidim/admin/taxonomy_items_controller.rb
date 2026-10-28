@@ -15,11 +15,13 @@ module Decidim
 
       def new
         enforce_permission_to :create, :taxonomy_item
+
         @form = form(Decidim::Admin::TaxonomyItemForm).instance
       end
 
       def create
         enforce_permission_to :create, :taxonomy_item
+
         @form = form(Decidim::Admin::TaxonomyItemForm).from_params(params)
         CreateTaxonomy.call(@form) do
           on(:ok) do
@@ -36,11 +38,13 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :taxonomy_item, taxonomy: taxonomy_item
+
         @form = form(Decidim::Admin::TaxonomyItemForm).from_model(taxonomy_item)
       end
 
       def update
         enforce_permission_to :update, :taxonomy_item, taxonomy: taxonomy_item
+
         @form = form(Decidim::Admin::TaxonomyItemForm).from_params(params)
         UpdateTaxonomy.call(@form, taxonomy_item) do
           on(:ok) do

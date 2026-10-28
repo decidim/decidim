@@ -53,6 +53,7 @@ module Decidim
 
       def close_session
         enforce_permission_to :close_session, :managed_user
+
         CloseSessionManagedUser.call(user, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("impersonations.close_session.success", scope: "decidim.admin")

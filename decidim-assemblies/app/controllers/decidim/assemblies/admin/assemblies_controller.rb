@@ -16,17 +16,20 @@ module Decidim
 
         def index
           enforce_permission_to :read, :assembly_list
+
           @assemblies = filtered_collection
         end
 
         def new
           enforce_permission_to :create, :assembly, assembly: parent_assembly
+
           @form = form(AssemblyForm).instance
           @form.parent_id = params[:parent_id]
         end
 
         def create
           enforce_permission_to :create, :assembly, assembly: parent_assembly
+
           @form = form(AssemblyForm).from_params(params)
 
           CreateAssembly.call(@form) do
@@ -44,12 +47,14 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :assembly, assembly: current_assembly
+
           @form = form(AssemblyForm).from_model(current_assembly)
           render layout: "decidim/admin/assembly"
         end
 
         def update
           enforce_permission_to :update, :assembly, assembly: current_assembly
+
           @form = form(AssemblyForm).from_params(
             assembly_params,
             assembly_id: current_assembly.id

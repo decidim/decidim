@@ -11,11 +11,13 @@ module Decidim
 
       def index
         enforce_permission_to :read, :admin_user
+
         @users = filtered_collection
       end
 
       def new
         enforce_permission_to :create, :admin_user
+
         @form = form(InviteUserForm).instance
       end
 

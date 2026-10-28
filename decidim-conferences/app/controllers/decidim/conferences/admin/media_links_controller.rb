@@ -16,11 +16,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :media_link
+
           @form = form(Decidim::Conferences::Admin::MediaLinkForm).instance
         end
 
         def create
           enforce_permission_to :create, :media_link
+
           @form = form(Decidim::Conferences::Admin::MediaLinkForm).from_params(params)
 
           CreateMediaLink.call(@form) do
@@ -39,12 +41,14 @@ module Decidim
         def edit
           @media_link = collection.find(params.expect(:id))
           enforce_permission_to :update, :media_link, speaker: @media_link
+
           @form = form(MediaLinkForm).from_model(@media_link)
         end
 
         def update
           @media_link = collection.find(params.expect(:id))
           enforce_permission_to :update, :media_link, speaker: @media_link
+
           @form = form(MediaLinkForm).from_params(params)
 
           UpdateMediaLink.call(@form, @media_link) do

@@ -13,6 +13,7 @@ module Decidim
 
         def new
           enforce_permission_to :create, :proposal_state
+
           @form = form(Decidim::Proposals::Admin::ProposalStateForm).instance
         end
 
@@ -37,11 +38,13 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :proposal_state, proposal_state:)
+
           @form = form(Decidim::Proposals::Admin::ProposalStateForm).from_model(proposal_state)
         end
 
         def update
           enforce_permission_to(:update, :proposal_state, proposal_state:)
+
           @form = form(ProposalStateForm).from_params(params)
 
           UpdateProposalState.call(@form, proposal_state) do

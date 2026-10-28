@@ -13,6 +13,7 @@ module Decidim
         # GET /admin/initiatives_settings/edit
         def edit
           enforce_permission_to :update, :initiatives_settings, initiatives_settings: current_initiatives_settings
+
           @form = initiatives_settings_form.from_model(current_initiatives_settings)
         end
 

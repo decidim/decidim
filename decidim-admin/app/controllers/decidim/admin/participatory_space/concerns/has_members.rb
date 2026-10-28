@@ -30,18 +30,21 @@ module Decidim
 
             def new
               enforce_permission_to :create, :space_member
+
               @form = form(MemberForm).from_params({})
               render template: "decidim/admin/members/new"
             end
 
             def edit
               enforce_permission_to :update, :space_member, member: @member
+
               @form = form(MemberForm).from_model(@member)
               render template: "decidim/admin/members/edit"
             end
 
             def update
               enforce_permission_to :update, :space_member, member: @member
+
               @form = form(MemberForm).from_params(params)
 
               UpdateMember.call(@form, @member) do
@@ -59,6 +62,7 @@ module Decidim
 
             def create
               enforce_permission_to :create, :space_member
+
               @form = form(MemberForm).from_params(params)
 
               CreateMember.call(@form, current_participatory_space) do
@@ -92,6 +96,7 @@ module Decidim
 
             def resend_invitation
               enforce_permission_to :invite, :space_member, member: @member
+
               InviteUserAgain.call(@member.user, "invite_member") do
                 on(:ok) do
                   flash[:notice] = I18n.t("users.resend_invitation.success", scope: "decidim.admin")
@@ -107,6 +112,7 @@ module Decidim
 
             def publish_all
               enforce_permission_to :publish_all, :space_member
+
               PublishAllMembers.call(current_participatory_space, current_user) do
                 on(:ok) do
                   flash[:notice] = I18n.t("members.publish_all.success", scope: "decidim.admin")
@@ -122,6 +128,7 @@ module Decidim
 
             def unpublish_all
               enforce_permission_to :unpublish_all, :space_member
+
               UnpublishAllMembers.call(current_participatory_space, current_user) do
                 on(:ok) do
                   flash[:notice] = I18n.t("members.unpublish_all.success", scope: "decidim.admin")

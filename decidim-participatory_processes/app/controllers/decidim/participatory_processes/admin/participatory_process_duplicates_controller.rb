@@ -10,11 +10,13 @@ module Decidim
 
         def new
           enforce_permission_to :create, :process
+
           @form = form(ParticipatoryProcessDuplicateForm).from_model(current_participatory_process)
         end
 
         def create
           enforce_permission_to :create, :process
+
           @form = form(ParticipatoryProcessDuplicateForm).from_params(params)
 
           DuplicateParticipatoryProcess.call(@form, current_participatory_process) do

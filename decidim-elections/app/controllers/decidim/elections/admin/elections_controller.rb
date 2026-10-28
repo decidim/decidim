@@ -17,6 +17,7 @@ module Decidim
 
         def new
           enforce_permission_to :create, :election
+
           @form = form(Decidim::Elections::Admin::ElectionForm).from_params(
             attachment: form(AttachmentForm).from_params({})
           )
@@ -42,6 +43,7 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :election, election:
+
           @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
         end
 

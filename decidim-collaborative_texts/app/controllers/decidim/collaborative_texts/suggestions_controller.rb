@@ -16,6 +16,7 @@ module Decidim
 
       def create
         enforce_permission_to :suggest, :collaborative_text
+
         @form = form(SuggestionForm).from_params(params)
 
         CreateSuggestion.call(@form) do

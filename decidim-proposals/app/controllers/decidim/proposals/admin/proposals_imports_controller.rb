@@ -30,6 +30,7 @@ module Decidim
 
         def component_states
           enforce_permission_to :import, :proposals
+
           component = current_participatory_space.components.find_by(id: params[:origin_id])
 
           if component

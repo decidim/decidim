@@ -8,11 +8,13 @@ module Decidim
 
         def new
           enforce_permission_to :import, :assembly
+
           @form = form(AssemblyImportForm).instance
         end
 
         def create
           enforce_permission_to :import, :assembly
+
           @form = form(AssemblyImportForm).from_params(params)
 
           ImportAssembly.call(@form, current_user) do

@@ -17,17 +17,20 @@ module Decidim
 
       def index
         enforce_permission_to :read, :scope
+
         field = Arel::Nodes::InfixOperation.new("->", Decidim::Scope.arel_table[:name], Arel::Nodes.build_quoted(I18n.locale))
         @scopes = children_scopes.order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))
       end
 
       def new
         enforce_permission_to :create, :scope
+
         @form = form(ScopeForm).instance
       end
 
       def create
         enforce_permission_to :create, :scope
+
         @form = form(ScopeForm).from_params(params)
         CreateScope.call(@form, parent_scope) do
           on(:ok) do
@@ -44,11 +47,13 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :scope, scope:)
+
         @form = form(ScopeForm).from_model(scope)
       end
 
       def update
         enforce_permission_to(:update, :scope, scope:)
+
         @form = form(ScopeForm).from_params(params)
 
         UpdateScope.call(@form, scope) do

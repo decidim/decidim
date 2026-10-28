@@ -25,12 +25,14 @@ module Decidim
         # GET /admin/initiatives_types/new
         def new
           enforce_permission_to :create, :initiative_type
+
           @form = initiative_type_form.instance
         end
 
         # POST /admin/initiatives_types
         def create
           enforce_permission_to :create, :initiative_type
+
           @form = initiative_type_form.from_params(params)
 
           CreateInitiativeType.call(@form) do
@@ -49,6 +51,7 @@ module Decidim
         # GET /admin/initiatives_types/:id/edit
         def edit
           enforce_permission_to :edit, :initiative_type, initiative_type: current_initiative_type
+
           @form = initiative_type_form
                   .from_model(current_initiative_type,
                               initiative_type: current_initiative_type)

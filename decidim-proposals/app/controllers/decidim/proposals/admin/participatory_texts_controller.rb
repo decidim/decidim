@@ -10,6 +10,7 @@ module Decidim
 
         def index
           enforce_permission_to :manage, :participatory_texts
+
           @drafts = Proposal.where(component: current_component).drafts.order(:position)
           @preview_form = form(Admin::PreviewParticipatoryTextForm).instance
           @preview_form.from_models(@drafts)
@@ -17,12 +18,14 @@ module Decidim
 
         def new_import
           enforce_permission_to :manage, :participatory_texts
+
           participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
           @import = form(Admin::ImportParticipatoryTextForm).from_model(participatory_text)
         end
 
         def import
           enforce_permission_to :manage, :participatory_texts
+
           @import = form(Admin::ImportParticipatoryTextForm).from_params(params)
 
           Admin::ImportParticipatoryText.call(@import) do
