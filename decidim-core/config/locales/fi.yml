@@ -50,7 +50,6 @@ fi:
         old_password: Nykyinen salasana
         password: Salasana
         password_confirmation: Vahvista salasanasi
-        personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         tos_agreement: Käyttöehtojen hyväksyntä
     errors:
@@ -823,7 +822,6 @@ fi:
           officialized_at: Käyttäjän virallistamisen ajankohta
           organization: Käyttäjän organisaatio
           password_updated_at: Salasanan viimeisimmän päivityksen ajankohta
-          personal_url: Käyttäjäprofiilin URL-osoite
           remember_created_at: Kirjautumisen muistamisen valinnan ajankohta
           reset_password_sent_at: Salasanan nollauslinkin lähetyksen ajankohta
           roles: Käyttäjän rooli, mikäli rooli on määritelty
