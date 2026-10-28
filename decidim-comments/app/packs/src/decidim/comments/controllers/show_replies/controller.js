@@ -10,7 +10,7 @@ import { Controller } from "@hotwired/stimulus"
  * <div data-controller="show-replies"
  *      data-show-replies-url-value="/comments"
  *      data-show-replies-comment-gid-value="gid://app/Comment/1"
- *      data-show-replies-order-value="older"
+ *      data-show-replies-order-value="recent"
  *      data-show-replies-loaded-value="false">
  *   <button data-show-replies-target="button"
  *           data-action="click->show-replies#toggle">Show replies</button>
