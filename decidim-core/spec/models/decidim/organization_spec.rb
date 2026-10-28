@@ -64,7 +64,7 @@ module Decidim
 
       let(:other_organization) { create(:organization, create_static_pages: false) }
 
-      shared_examples "organization reciprocal association" do |association|
+      shared_examples "organization reciprocal association" do |association, cascaded: true|
         it "only includes the records of its own organization" do
           expect(organization.public_send(association)).to contain_exactly(record)
         end
@@ -73,14 +73,26 @@ module Decidim
           expect(organization.public_send(association)).not_to include(other_record)
         end
 
-        it "destroys the records when the organization is destroyed" do
-          record
-          other_record
+        if cascaded
+          it "destroys the records when the organization is destroyed" do
+            record
+            other_record
 
-          organization.destroy
+            organization.destroy
 
-          expect(record.class.where(id: record.id)).to be_empty
-          expect(other_record.class.where(id: other_record.id)).to exist
+            expect(record.class.where(id: record.id)).to be_empty
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
+        else
+          it "keeps the records when the organization is destroyed, as they are not cascaded" do
+            record
+            other_record
+
+            organization.destroy
+
+            expect(record.class.where(id: record.id)).to exist
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
         end
       end
 
@@ -91,7 +103,7 @@ module Decidim
         let(:record) { create(:action_log, organization:, participatory_space: create(:participatory_process, organization: other_organization)) }
         let(:other_record) { create(:action_log, organization: other_organization) }
 
-        it_behaves_like "organization reciprocal association", :action_logs
+        it_behaves_like "organization reciprocal association", :action_logs, cascaded: false
       end
 
       context "with content blocks" do

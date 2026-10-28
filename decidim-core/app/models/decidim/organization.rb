@@ -26,8 +26,12 @@ module Decidim
     has_many :areas, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Area", inverse_of: :organization, dependent: :destroy
     has_many :area_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::AreaType", inverse_of: :organization, dependent: :destroy
 
+    # `Decidim::ActionLog` records are not cascaded: they are the audit trail and `Decidim::ActionLog` raises
+    # `ActiveRecord::ReadOnlyRecord` on destroy, so a `dependent:` here would only bypass that guard.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :action_logs, foreign_key: "decidim_organization_id", class_name: "Decidim::ActionLog", inverse_of: :organization
+
     # Declared before the users associations so that these records are destroyed before the users they reference.
-    has_many :action_logs, foreign_key: "decidim_organization_id", class_name: "Decidim::ActionLog", inverse_of: :organization, dependent: :delete_all
     has_many :content_blocks, foreign_key: "decidim_organization_id", class_name: "Decidim::ContentBlock", inverse_of: :organization, dependent: :destroy
     has_many :contextual_help_sections, class_name: "Decidim::ContextualHelpSection", inverse_of: :organization, dependent: :destroy
     has_many :editor_images, foreign_key: "decidim_organization_id", class_name: "Decidim::EditorImage", inverse_of: :organization, dependent: :destroy

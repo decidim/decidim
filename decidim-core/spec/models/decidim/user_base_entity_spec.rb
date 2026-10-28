@@ -114,7 +114,7 @@ module Decidim
       let(:other_user) { create(:user, :confirmed, organization:) }
       let(:third_user) { create(:user, :confirmed, organization:) }
 
-      shared_examples "user entity reciprocal association" do |association, owner_name|
+      shared_examples "user entity reciprocal association" do |association, owner_name, cascaded: true|
         before do
           record
           other_record
@@ -132,11 +132,20 @@ module Decidim
           expect(record.public_send(owner_name)).to eq(user_entity)
         end
 
-        it "destroys the records when the user entity is destroyed" do
-          user_entity.destroy
+        if cascaded
+          it "destroys the records when the user entity is destroyed" do
+            user_entity.destroy
 
-          expect(record.class.where(id: record.id)).to be_empty
-          expect(other_record.class.where(id: other_record.id)).to exist
+            expect(record.class.where(id: record.id)).to be_empty
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
+        else
+          it "keeps the records when the user entity is destroyed, as they are not cascaded" do
+            user_entity.destroy
+
+            expect(record.class.where(id: record.id)).to exist
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
         end
       end
 
@@ -144,7 +153,7 @@ module Decidim
         let(:record) { create(:action_log, user: user_entity) }
         let(:other_record) { create(:action_log, user: other_user) }
 
-        it_behaves_like "user entity reciprocal association", :action_logs, :user
+        it_behaves_like "user entity reciprocal association", :action_logs, :user, cascaded: false
       end
 
       context "with badge scores" do

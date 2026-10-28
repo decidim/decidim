@@ -62,7 +62,7 @@ module Decidim
       let(:other_organization) { create(:organization) }
       let(:other_scope) { create(:scope, organization: other_organization) }
 
-      shared_examples "scope reciprocal association" do |association, owner|
+      shared_examples "scope reciprocal association" do |association, owner, cascaded: true|
         before do
           record
           other_record
@@ -80,11 +80,20 @@ module Decidim
           expect(scope.public_send(association).first.public_send(owner)).to eq(scope)
         end
 
-        it "deletes the records when the scope is destroyed" do
-          scope.destroy
+        if cascaded
+          it "deletes the records when the scope is destroyed" do
+            scope.destroy
 
-          expect(record.class.where(id: record.id)).to be_empty
-          expect(other_record.class.where(id: other_record.id)).to exist
+            expect(record.class.where(id: record.id)).to be_empty
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
+        else
+          it "keeps the records when the scope is destroyed, as they are not cascaded" do
+            scope.destroy
+
+            expect(record.class.where(id: record.id)).to exist
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
         end
       end
 
@@ -92,7 +101,7 @@ module Decidim
         let(:record) { create(:action_log, organization:, scope:, user: create(:user, organization:)) }
         let(:other_record) { create(:action_log, organization: other_organization, scope: other_scope, user: create(:user, organization: other_organization)) }
 
-        it_behaves_like "scope reciprocal association", :action_logs, :scope
+        it_behaves_like "scope reciprocal association", :action_logs, :scope, cascaded: false
       end
 
       context "with searchable resources" do

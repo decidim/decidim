@@ -17,15 +17,21 @@ module Decidim
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", inverse_of: :user, dependent: :destroy
     has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", inverse_of: :user, dependent: :destroy
 
-    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, inverse_of: :user, dependent: :destroy
+    # `blocking` has no `inverse_of`, and neither has the reciprocal `Decidim::UserBlock#user`, because the two
+    # are keyed on different columns: this association joins `decidim_user_blocks.id` to `decidim_users.block_id`,
+    # the reciprocal joins `decidim_user_id`. Declaring the inverse on either side makes the block the in-memory
+    # target of this association, and autosave then propagates `block_id` onto the block's primary key, so nulling
+    # `block_id` (the admin unblock commands) saves the block as an insert with a NULL id.
+    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
     # Reciprocals of the models that point to a user entity. They are declared here and not on
     # `Decidim::User` because those models reference `Decidim::UserBaseEntity`, the STI base class,
     # so the reciprocal is only resolved for every kind of user entity when it lives here.
-    # `Decidim::ActionLog` records cannot be destroyed (see the `before_destroy` callback on that
-    # model), so this cascade uses `delete_all`. For the messaging models `inverse_of` is declared only
+    # `Decidim::ActionLog` records are not cascaded: they are the audit trail and that model raises
+    # `ActiveRecord::ReadOnlyRecord` on destroy. For the messaging models `inverse_of` is declared only
     # on this side, see the comment in `Decidim::Messaging::Message`.
-    has_many :action_logs, foreign_key: :user_id, class_name: "Decidim::ActionLog", inverse_of: :user, dependent: :delete_all
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :action_logs, foreign_key: :user_id, class_name: "Decidim::ActionLog", inverse_of: :user
     has_many :badge_scores, foreign_key: :user_id, class_name: "Decidim::Gamification::BadgeScore", inverse_of: :user, dependent: :destroy
     has_many :messages, foreign_key: :decidim_sender_id, class_name: "Decidim::Messaging::Message", inverse_of: :sender, dependent: :destroy
     has_many :participations, foreign_key: :decidim_participant_id, class_name: "Decidim::Messaging::Participation", inverse_of: :participant, dependent: :destroy

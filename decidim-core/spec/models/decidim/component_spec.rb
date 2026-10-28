@@ -42,7 +42,7 @@ module Decidim
       let(:other_organization) { create(:organization) }
       let(:other_component) { create(:component, manifest_name: "dummy", organization: other_organization) }
 
-      shared_examples "component reciprocal association" do |association, owner|
+      shared_examples "component reciprocal association" do |association, owner, cascaded: true|
         before do
           record
           other_record
@@ -60,11 +60,20 @@ module Decidim
           expect(component.public_send(association).first.public_send(owner)).to eq(component)
         end
 
-        it "deletes the records when the component is destroyed" do
-          component.destroy
+        if cascaded
+          it "deletes the records when the component is destroyed" do
+            component.destroy
 
-          expect(record.class.where(id: record.id)).to be_empty
-          expect(other_record.class.where(id: other_record.id)).to exist
+            expect(record.class.where(id: record.id)).to be_empty
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
+        else
+          it "keeps the records when the component is destroyed, as they are not cascaded" do
+            component.destroy
+
+            expect(record.class.where(id: record.id)).to exist
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
         end
       end
 
@@ -72,7 +81,7 @@ module Decidim
         let(:record) { create(:action_log, organization:, component:, user: create(:user, organization:)) }
         let(:other_record) { create(:action_log, organization: other_organization, component: other_component, user: create(:user, organization: other_organization)) }
 
-        it_behaves_like "component reciprocal association", :action_logs, :component
+        it_behaves_like "component reciprocal association", :action_logs, :component, cascaded: false
       end
 
       context "with reminders" do

@@ -33,13 +33,14 @@ module Decidim
              inverse_of: :parent,
              dependent: :destroy
 
-    # Reciprocals of the models that point to a scope. `Decidim::ActionLog` records cannot be
-    # destroyed (see the `before_destroy` callback on that model), so this cascade uses `delete_all`.
+    # Reciprocals of the models that point to a scope. `Decidim::ActionLog` records are not cascaded: they are
+    # the audit trail and `Decidim::ActionLog` raises `ActiveRecord::ReadOnlyRecord` on destroy, so a `dependent:`
+    # here would only bypass that guard.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
     has_many :action_logs,
              foreign_key: "decidim_scope_id",
              class_name: "Decidim::ActionLog",
-             inverse_of: :scope,
-             dependent: :delete_all
+             inverse_of: :scope
 
     has_many :searchable_resources,
              foreign_key: "decidim_scope_id",

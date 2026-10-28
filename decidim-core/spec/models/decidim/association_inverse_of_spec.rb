@@ -141,13 +141,6 @@ describe "Decidim core association inverses" do # rubocop:disable RSpec/Describe
     it_behaves_like "association with an explicit inverse_of", Decidim::UserBaseEntity, :organization, Decidim::Organization, :user_entities
   end
 
-  describe "Decidim::UserBlock <-> Decidim::UserBaseEntity" do
-    let(:parent) { create(:user, :confirmed) }
-    let(:child) { create(:user_block, user: parent) }
-
-    it_behaves_like "association with an explicit inverse_of", Decidim::UserBlock, :user, Decidim::UserBaseEntity, :blocking
-  end
-
   describe "Decidim::UserReport <-> Decidim::UserModeration" do
     let(:parent) { create(:user_moderation) }
     let(:child) { create(:user_report, moderation: parent, user: parent.user) }
@@ -175,6 +168,24 @@ describe "Decidim core association inverses" do # rubocop:disable RSpec/Describe
 
       expect(reflection.inverse_of).to be_nil
       expect(Decidim::UserBaseEntity.reflect_on_association(:blocking).foreign_key).to eq("id")
+    end
+
+    # `has_one :blocking` joins `decidim_user_blocks.id` to `decidim_users.block_id`, while `belongs_to :user`
+    # joins `decidim_user_id`. Declaring the inverse on either side makes the block the in-memory target of the
+    # has_one, and autosave then propagates `block_id` onto the block's primary key, so nulling `block_id` (the
+    # admin unblock commands) saves the block as an insert with a NULL id.
+    it "keeps Decidim::UserBlock#user without an inverse_of" do
+      user = create(:user, :confirmed, organization:)
+      block = create(:user_block, user:, organization:)
+
+      expect(Decidim::UserBlock.reflect_on_association(:user).inverse_of).to be_nil
+      expect(Decidim::UserBaseEntity.reflect_on_association(:blocking).inverse_of).to be_nil
+      expect(user.association(:blocking).loaded?).to be false
+
+      expect { user.update!(block_id: nil) }.not_to raise_error
+
+      expect(user.block_id).to be_nil
+      expect(Decidim::UserBlock.find(block.id)).to eq(block)
     end
 
     # `belongs_to :organization` is defined on `Decidim::UserBaseEntity` and a `belongs_to` can only have one
