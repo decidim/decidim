@@ -10,6 +10,11 @@ module Decidim
     class Receipt < ApplicationRecord
       self.table_name = "decidim_messaging_receipts"
 
+      # `inverse_of` is deliberately not declared here, for the same reason as in `Message#sender`: a
+      # receipt built through `Message#envelope_for` would be added to the recipient's `receipts`
+      # collection and saved through the user, which changes the autosave order for the message and its
+      # conversation. The reciprocal `has_many :receipts` on `Decidim::User` is the side that declares
+      # `inverse_of`.
       belongs_to :recipient, foreign_key: "decidim_recipient_id", class_name: "Decidim::User"
       belongs_to :message, foreign_key: "decidim_message_id", class_name: "Decidim::Messaging::Message"
 

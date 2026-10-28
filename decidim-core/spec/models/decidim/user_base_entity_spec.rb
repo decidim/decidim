@@ -106,6 +106,82 @@ module Decidim
       end
     end
 
+    describe "reciprocal associations" do
+      subject(:user_entity) { create(:user, :confirmed, organization:) }
+
+      # The records related to `other_record` must not depend on `user_entity`, otherwise the
+      # cascade under test would destroy them too.
+      let(:other_user) { create(:user, :confirmed, organization:) }
+      let(:third_user) { create(:user, :confirmed, organization:) }
+
+      shared_examples "user entity reciprocal association" do |association, owner_name|
+        before do
+          record
+          other_record
+        end
+
+        it "only includes the records of the user entity" do
+          expect(Array(user_entity.public_send(association))).to contain_exactly(record)
+        end
+
+        it "does not include the records of another user entity" do
+          expect(Array(user_entity.public_send(association))).not_to include(other_record)
+        end
+
+        it "points back to the user entity from the record" do
+          expect(record.public_send(owner_name)).to eq(user_entity)
+        end
+
+        it "destroys the records when the user entity is destroyed" do
+          user_entity.destroy
+
+          expect(record.class.where(id: record.id)).to be_empty
+          expect(other_record.class.where(id: other_record.id)).to exist
+        end
+      end
+
+      context "with action logs" do
+        let(:record) { create(:action_log, user: user_entity) }
+        let(:other_record) { create(:action_log, user: other_user) }
+
+        it_behaves_like "user entity reciprocal association", :action_logs, :user
+      end
+
+      context "with badge scores" do
+        let(:record) { create(:badge_score, user: user_entity) }
+        let(:other_record) { create(:badge_score, user: other_user) }
+
+        it_behaves_like "user entity reciprocal association", :badge_scores, :user
+      end
+
+      context "with messages" do
+        let(:conversation) { Decidim::Messaging::Conversation.start!(originator: user_entity, interlocutors: [third_user], body: "Hello") }
+        let(:other_conversation) { Decidim::Messaging::Conversation.start!(originator: other_user, interlocutors: [third_user], body: "Hello") }
+
+        let(:record) { conversation.messages.find_by!(sender: user_entity) }
+        let(:other_record) { other_conversation.messages.find_by!(sender: other_user) }
+
+        it_behaves_like "user entity reciprocal association", :messages, :sender
+      end
+
+      context "with participations" do
+        let(:conversation) { Decidim::Messaging::Conversation.start!(originator: user_entity, interlocutors: [third_user], body: "Hello") }
+        let(:other_conversation) { Decidim::Messaging::Conversation.start!(originator: other_user, interlocutors: [third_user], body: "Hello") }
+
+        let(:record) { conversation.participations.find_by!(participant: user_entity) }
+        let(:other_record) { other_conversation.participations.find_by!(participant: other_user) }
+
+        it_behaves_like "user entity reciprocal association", :participations, :participant
+      end
+
+      context "with user moderations" do
+        let(:record) { create(:user_moderation, user: user_entity) }
+        let(:other_record) { create(:user_moderation, user: other_user) }
+
+        it_behaves_like "user entity reciprocal association", :user_moderation, :user
+      end
+    end
+
     describe "sorting by report count" do
       subject(:sorter) { described_class.where(organization:).ransack({ s: "user_moderation_report_count asc" }, auth_object: admin) }
 

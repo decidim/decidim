@@ -19,6 +19,18 @@ module Decidim
 
     has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
+    # Reciprocals of the models that point to a user entity. They are declared here and not on
+    # `Decidim::User` because those models reference `Decidim::UserBaseEntity`, the STI base class,
+    # so the reciprocal is only resolved for every kind of user entity when it lives here.
+    # `Decidim::ActionLog` records cannot be destroyed (see the `before_destroy` callback on that
+    # model), so this cascade uses `delete_all`. For the messaging models `inverse_of` is declared only
+    # on this side, see the comment in `Decidim::Messaging::Message`.
+    has_many :action_logs, foreign_key: :user_id, class_name: "Decidim::ActionLog", inverse_of: :user, dependent: :delete_all
+    has_many :badge_scores, foreign_key: :user_id, class_name: "Decidim::Gamification::BadgeScore", inverse_of: :user, dependent: :destroy
+    has_many :messages, foreign_key: :decidim_sender_id, class_name: "Decidim::Messaging::Message", inverse_of: :sender, dependent: :destroy
+    has_many :participations, foreign_key: :decidim_participant_id, class_name: "Decidim::Messaging::Participation", inverse_of: :participant, dependent: :destroy
+    has_one :user_moderation, foreign_key: :decidim_user_id, class_name: "Decidim::UserModeration", inverse_of: :user, dependent: :destroy
+
     # Regex for name & nickname format validations
     REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|\n\r]).*\z/m
     REGEXP_NICKNAME = /\A[a-z0-9_-]+\z/

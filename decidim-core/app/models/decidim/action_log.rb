@@ -12,7 +12,7 @@ module Decidim
                foreign_key: :decidim_organization_id,
                class_name: "Decidim::Organization"
 
-    belongs_to :user, class_name: "Decidim::UserBaseEntity"
+    belongs_to :user, class_name: "Decidim::UserBaseEntity", inverse_of: :action_logs
 
     belongs_to :component,
                foreign_key: :decidim_component_id,

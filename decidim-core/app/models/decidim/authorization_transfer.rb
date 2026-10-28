@@ -29,8 +29,8 @@ module Decidim
   # all necessary information required for handling the transfer.
   class AuthorizationTransfer < ApplicationRecord
     belongs_to :authorization, class_name: "Decidim::Authorization"
-    belongs_to :user, class_name: "Decidim::User"
-    belongs_to :source_user, class_name: "Decidim::User"
+    belongs_to :user, class_name: "Decidim::User", inverse_of: :authorization_transfers
+    belongs_to :source_user, class_name: "Decidim::User", inverse_of: :source_transfers
     has_many :records, class_name: "Decidim::AuthorizationTransferRecord", foreign_key: :transfer_id, dependent: :destroy
 
     class DisabledError < StandardError; end

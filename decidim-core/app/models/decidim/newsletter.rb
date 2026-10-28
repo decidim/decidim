@@ -9,7 +9,7 @@ module Decidim
 
     translatable_fields :subject
 
-    belongs_to :author, class_name: "User"
+    belongs_to :author, class_name: "User", inverse_of: :newsletters
     belongs_to :organization
 
     validates :subject, presence: true
