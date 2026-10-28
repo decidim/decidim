@@ -50,7 +50,6 @@ eu:
         old_password: Egungo pasahitza
         password: Pasahitza
         password_confirmation: Berretsi pasahitza
-        personal_url: URL pertsonala
         remove_avatar: Avatarra ezabatu
         tos_agreement: Erabilera-terminoak eta -baldintzak
     errors:
@@ -816,7 +815,6 @@ eu:
           officialized_at: Zein datatan eta zein ordutan ofizializatu den parte-hartzaile hau
           organization: Zein erakundetakoa den parte-hartzaile hau
           password_updated_at: Zein datatan eguneratu den pasahitz hau azkenekoz
-          personal_url: Parte-hartzaile honen URL pertsonala
           remember_created_at: Zein egun eta zein ordutan aukeratu zuten parte-hartzailea gogoratzeko
           reset_password_sent_at: Zein datatan eta zein ordutan bidali den pasahitza berriro
           roles: Parte-hartzaile honek duen rola, baldin badute
