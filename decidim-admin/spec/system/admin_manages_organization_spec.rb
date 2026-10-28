@@ -644,6 +644,8 @@ describe "Admin manages organization" do
         let(:organization) { create(:organization, admin_terms_of_service_body: {}) }
 
         it "saves the content correctly with the video" do
+          content = %(<div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc"><div><iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Test video" frameborder="0" allowfullscreen="true"></iframe></div></div>)
+
           within "#organization_admin_terms_of_service_body_en.editor" do
             within ".editor .editor-toolbar" do
               find("button[data-editor-type='videoEmbed']").click
@@ -655,12 +657,19 @@ describe "Admin manages organization" do
             find("button[data-action='save']").click
           end
 
+          # The editor writes its content to the form input on the `update` event, so the form has to be
+          # submitted after the video node has been applied. Submitting it right after the dialog is closed
+          # can send an empty value and the organization is saved without the content.
+          expect_editor_content(content)
+
           click_on "Update"
 
+          # Wait for the request to finish before reading the record back, otherwise the reload can happen
+          # while the update is still being processed.
+          expect(page).to have_text("updated successfully")
+
           organization.reload
-          expect(translated(organization.admin_terms_of_service_body)).to eq(
-            %(<div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc"><div><iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Test video" frameborder="0" allowfullscreen="true"></iframe></div></div>)
-          )
+          expect(translated(organization.admin_terms_of_service_body)).to eq(content)
         end
       end
     end
