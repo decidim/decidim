@@ -63,9 +63,10 @@ module RuboCop
         def organization_scoped?(node)
           return false unless node
           return true if scoped_node?(node)
-          return organization_scoped?(node.receiver) if node.send_type?
+          return false unless node.send_type?
+          return scoped_or_branches?(node) if node.method_name == :or
 
-          false
+          organization_scoped?(node.receiver)
         end
 
         def unscoped_model_class?(node)
@@ -202,6 +203,13 @@ module RuboCop
         # query object.
         def scoped_constructor_argument?(node)
           return scoped_helper_method?(node) unless node.send_type? && node.method_name == :or
+
+          scoped_or_branches?(node)
+        end
+
+        # An `or` relation is only safe when every nested branch is scoped,
+        # not just the receiver of the `or` call.
+        def scoped_or_branches?(node)
           return false unless node.receiver
 
           ([node.receiver] + node.arguments).all? do |branch|
