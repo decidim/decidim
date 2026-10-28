@@ -58,11 +58,11 @@ module Decidim
       private
 
       def taxonomy
-        @taxonomy ||= Decidim::Taxonomy.find_by(organization: current_organization, id: params[:taxonomy_id])
+        @taxonomy ||= current_organization.taxonomies.find_by(id: params[:taxonomy_id])
       end
 
       def taxonomy_item
-        @taxonomy_item ||= Decidim::Taxonomy.find_by(organization: current_organization, id: params[:id])
+        @taxonomy_item ||= current_organization.taxonomies.find_by(id: params[:id])
       end
 
       def selected_parent_id

@@ -10,7 +10,7 @@ module Decidim
     # organization - the organization that owns the taxonomies.
     def initialize(taxonomy_ids, resources, organization)
       @organization = organization
-      @taxonomies = Decidim::Taxonomy.non_roots.where(organization:, id: taxonomy_ids)
+      @taxonomies = organization.taxonomies.non_roots.where(id: taxonomy_ids)
       @resources = resources
       @response = { taxonomies: [], successful: [], errored: [] }
     end
