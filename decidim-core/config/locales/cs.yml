@@ -50,7 +50,6 @@ cs:
         old_password: Aktuální heslo
         password: Heslo
         password_confirmation: Potvrzení hesla
-        personal_url: Osobní URL
         remove_avatar: Odstranit avatara
         tos_agreement: Podmínky smlouvy o poskytování služeb
     errors:
@@ -860,7 +859,6 @@ cs:
           officialized_at: Datum a čas, kdy byl tento uživatel oficializován
           organization: Organizace, do které tento uživatel patří,
           password_updated_at: Datum poslední změny hesla
-          personal_url: Osobní URL tohoto uživatele
           remember_created_at: Datum a čas, kdy byl uživatel vybrán k zapamatování
           reset_password_sent_at: Datum a čas, kdy bylo odesláno obnovení hesla
           roles: Role, kterou má tento uživatel, pokud nějakou má
