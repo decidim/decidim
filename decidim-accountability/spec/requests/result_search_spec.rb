@@ -118,7 +118,7 @@ RSpec.describe "Result search" do
         let(:other_component) { create(:accountability_component, participatory_space: other_participatory_space) }
         let!(:other_parent) { create(:result, component: other_component) }
         let!(:other_child) { create(:result, component: other_component, parent: other_parent) }
-        let(:parent_id) { other_parent.id }
+        let(:parent_id) { other_child.parent_id }
 
         it "does not return results from another organization" do
           expect(subject).to be_empty
