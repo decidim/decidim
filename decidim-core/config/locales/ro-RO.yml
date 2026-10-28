@@ -50,7 +50,6 @@ ro:
         old_password: Parola curentă
         password: Parolă
         password_confirmation: Confirmați parola
-        personal_url: URL personal
         remove_avatar: Eliminați avatar
         tos_agreement: Acordul privind termenii și condițiile
     errors:
@@ -811,7 +810,6 @@ ro:
           officialized_at: Data și ora la care a fost oficializat acest participant
           organization: Organizația căreia îi aparține acest participant
           password_updated_at: Data la care parola a fost schimbată ultima dată
-          personal_url: URL-ul personal al acestui participant
           remember_created_at: Data și ora la care participantul a ales să fie ținut minte
           reset_password_sent_at: Data și ora la care a fost trimisă cererea de resetare a parolei
           roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
