@@ -43,7 +43,6 @@ fr-CA:
         old_password: Mot de passe actuel
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
-        personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
     errors:
