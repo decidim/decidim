@@ -21,7 +21,14 @@ module Decidim
     has_one_attached :verification_attachment
     validates_upload :verification_attachment, uploader: Decidim::Verifications::AttachmentUploader
 
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", inverse_of: :authorizations
+    # `inverse_of` is deliberately not declared here. With `has_many_inversing` enabled, declaring it
+    # would let Rails add an authorization built or initialized through the user to the user's
+    # `authorizations` collection, and that pending record would then be persisted whenever the user is
+    # saved. The authorization permission check uses `find_or_initialize_by`, so a visitor that is
+    # redirected on sign out (Devise `forget_me!` saves the user) would end up with an authorization
+    # that was never granted. The reciprocal `has_many :authorizations` on `Decidim::User` is the side
+    # that declares `inverse_of`.
+    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     has_one :organization, through: :user, class_name: "Decidim::Organization"
     has_many :transfers, class_name: "Decidim::AuthorizationTransfer", dependent: :destroy
 
