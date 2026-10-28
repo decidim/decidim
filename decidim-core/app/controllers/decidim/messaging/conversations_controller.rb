@@ -25,7 +25,7 @@ module Decidim
 
         if @form.recipient.is_a? Enumerable
           participants = @form.recipient.to_a.prepend(current_user)
-          conversation = conversation_between_multiple(participants)
+          conversation = conversation_between(*participants)
         else
           conversation = conversation_between(current_user, @form.recipient)
         end
