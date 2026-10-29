@@ -80,7 +80,15 @@ module Decidim
           expect(scope.public_send(association).first.public_send(owner)).to eq(scope)
         end
 
-        if cascaded
+        if cascaded == :nullify
+          it "keeps the records when the scope is destroyed, only clearing their scope" do
+            scope.destroy
+
+            expect(record.class.where(id: record.id)).to exist
+            expect(record.reload.public_send(owner)).to be_nil
+            expect(other_record.reload.public_send(owner)).to eq(other_scope)
+          end
+        elsif cascaded
           it "deletes the records when the scope is destroyed" do
             scope.destroy
 
@@ -108,7 +116,13 @@ module Decidim
         let(:record) { create(:searchable_resource, organization:, scope:) }
         let(:other_record) { create(:searchable_resource, organization: other_organization, scope: other_scope) }
 
-        it_behaves_like "scope reciprocal association", :searchable_resources, :scope
+        it_behaves_like "scope reciprocal association", :searchable_resources, :scope, cascaded: :nullify
+
+        it "keeps the indexed resource searchable, as the resource is not destroyed with the scope" do
+          scope.destroy
+
+          expect(record.reload.resource).to be_persisted
+        end
       end
     end
 
