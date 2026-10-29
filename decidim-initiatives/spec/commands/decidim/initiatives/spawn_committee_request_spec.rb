@@ -18,6 +18,28 @@ module Decidim
       end
       let(:command) { described_class.new(form) }
 
+      context "when the initiative belongs to another organization" do
+        let!(:foreign_initiative) { create(:initiative, :created) }
+        let(:form) do
+          Decidim::Initiatives::CommitteeMemberForm
+            .from_params(initiative_id: foreign_initiative.id, user_id: current_user.id, state:)
+            .with_context(
+              current_organization: initiative.organization,
+              current_user:
+            )
+        end
+
+        before { initiative }
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:invalid)
+        end
+
+        it "does not create a committee membership request" do
+          expect { command.call }.not_to change(InitiativesCommitteeMember, :count)
+        end
+      end
+
       context "when duplicated request" do
         let!(:committee_request) { create(:initiatives_committee_member, user: current_user, initiative:) }
 
