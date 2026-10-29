@@ -57,14 +57,16 @@ module Decidim
     end
 
     def destroy_user_badges
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- user is current_user, scoped to the current organization
       Decidim::Gamification::BadgeScore.where(user: current_user).find_each(&:destroy)
     end
 
     def destroy_user_reports
-      Decidim::UserModeration.where(user: current_user).find_each(&:destroy)
+      current_user.user_moderation&.destroy
     end
 
     def destroy_user_likes
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- author is current_user, scoped to the current organization
       Decidim::Like.where(author: current_user).find_each(&:destroy)
     end
 
@@ -97,11 +99,12 @@ module Decidim
     end
 
     def destroy_follows
-      Decidim::Follow.where(followable: current_user).find_each(&:destroy)
-      Decidim::Follow.where(user: current_user).find_each(&:destroy)
+      current_user.follows.find_each(&:destroy)
+      current_user.following_follows.find_each(&:destroy)
     end
 
     def destroy_member
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- user is current_user, scoped to the current organization
       Decidim::ParticipatorySpace::Member.where(user: current_user).find_each(&:destroy)
     end
 
