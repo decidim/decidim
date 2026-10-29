@@ -116,6 +116,8 @@ module RuboCop
           node.receiver.nil? || node.receiver.self_type?
         end
 
+        # Also recognizes helpers that filter by a scoped association, such as
+        # `MeetingLink.find_meetings(component: current_component)`.
         def scoped_finder_arguments?(node)
           node.arguments.any? { |arg| scoped_argument?(arg) }
         end
