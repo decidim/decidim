@@ -6,7 +6,9 @@ module Decidim
       # This command is executed when the user changes a Questionnaire questions from the admin
       # panel.
       class UpdateQuestions < Decidim::Command
-        include Decidim::TranslatableAttributes
+        # The message is shown through the flash, which renders its value as HTML,
+        # so the record name coming from user content has to be escaped.
+        include Decidim::SanitizeHelper
 
         # Initializes a UpdateQuestions Command.
         #
@@ -112,7 +114,10 @@ module Decidim
         end
 
         def removal_error_message(record)
-          I18n.t("decidim.forms.admin.questionnaires.errors.cannot_remove_with_answers", name: translated_attribute(record.try(:body)))
+          I18n.t(
+            "decidim.forms.admin.questionnaires.errors.cannot_remove_with_answers",
+            name: decidim_html_escape(translated_attribute(record.try(:body)))
+          )
         end
       end
     end

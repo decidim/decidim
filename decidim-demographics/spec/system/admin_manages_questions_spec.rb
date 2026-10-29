@@ -1081,6 +1081,19 @@ describe "Admin manages demographic questions" do
 
       expect(page).to have_css(".questionnaire-question-response-option", count: 3)
     end
+
+    # The callout renders the flash as HTML, so the saved text must appear as text.
+    it "renders the saved option text as text in the error callout" do
+      question.response_options.first.update!(body: { "en" => "<script>alert(1)</script>" })
+
+      within ".questionnaire-question-response-option:first-of-type" do
+        click_on "Remove"
+      end
+
+      click_on "Save"
+
+      expect(page).to have_callout("<script>alert(1)</script> cannot be removed because it has recorded answers.")
+    end
   end
 
   def expand_all_questions

@@ -337,6 +337,19 @@ module Decidim
 
               expect(messages.first).to include("First response")
             end
+
+            # The message reaches the admin editor through the flash, which renders
+            # its value as HTML, so the saved text has to come out escaped.
+            it "escapes the saved markup of the option in the message" do
+              response_option.update!(body: { "en" => "<script>alert(1)</script>" })
+
+              messages = []
+              command.on(:invalid) { |message| messages << message }
+              command.call
+
+              expect(messages.first).to include("&lt;script&gt;alert(1)&lt;/script&gt;")
+              expect(messages.first).not_to include("<script>")
+            end
           end
 
           context "and a matrix row with choices is removed" do
