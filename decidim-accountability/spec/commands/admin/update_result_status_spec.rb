@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Accountability::Admin
   describe UpdateResultStatus do
-    subject { described_class.new(status_id, result_ids, user) }
+    subject { described_class.new(status_id, result_ids, current_component, user) }
 
     let(:organization) { create(:organization) }
     let(:participatory_process) { create(:participatory_process, organization:) }
@@ -49,6 +49,29 @@ module Decidim::Accountability::Admin
 
           subject.call
         end
+      end
+    end
+
+    context "when a result belongs to another organization" do
+      let(:other_organization) { create(:organization) }
+      let(:other_participatory_process) { create(:participatory_process, organization: other_organization) }
+      let(:other_component) { create(:accountability_component, participatory_space: other_participatory_process) }
+      let!(:other_result) { create(:result, component: other_component) }
+      let(:result_ids) { results.map(&:id) + [other_result.id] }
+
+      it "does not update the result" do
+        expect { subject.call }.not_to(change { other_result.reload.decidim_accountability_status_id })
+      end
+    end
+
+    context "when the status belongs to another organization" do
+      let(:other_organization) { create(:organization) }
+      let(:other_participatory_process) { create(:participatory_process, organization: other_organization) }
+      let(:other_component) { create(:accountability_component, participatory_space: other_participatory_process) }
+      let(:status) { create(:status, component: other_component) }
+
+      it "does not update the results" do
+        expect { subject.call }.not_to(change { results.first.reload.decidim_accountability_status_id })
       end
     end
 

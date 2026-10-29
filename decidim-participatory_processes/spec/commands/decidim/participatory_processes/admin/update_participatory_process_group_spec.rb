@@ -96,5 +96,22 @@ module Decidim::ParticipatoryProcesses
         expect(action_log.version.event).to eq "update"
       end
     end
+
+    context "when the participatory processes belong to another organization" do
+      let(:other_organization) { create(:organization) }
+      let!(:local_process) { create(:participatory_process, organization:) }
+      let!(:foreign_process) { create(:participatory_process, organization: other_organization) }
+      let(:params) do
+        super().deep_merge(
+          participatory_process_group: { participatory_process_ids: [local_process.id, foreign_process.id] }
+        )
+      end
+
+      it "only associates the processes from the current organization" do
+        expect { subject.call }.to broadcast(:ok)
+
+        expect(participatory_process_group.reload.participatory_processes).to contain_exactly(local_process)
+      end
+    end
   end
 end

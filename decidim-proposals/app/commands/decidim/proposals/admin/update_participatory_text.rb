@@ -44,6 +44,7 @@ module Decidim
             form.proposals.each do |prop_form|
               add_failure(prop_form) if prop_form.invalid?
 
+              # rubocop:disable-next Decidim/OrganizationScopedFinder -- scoped to the current component
               proposal = Proposal.where(component: form.current_component).find(prop_form.id)
               proposal.set_list_position(prop_form.position) if proposal.position != prop_form.position
               proposal.title = { I18n.locale => translated_attribute(prop_form.title) }
