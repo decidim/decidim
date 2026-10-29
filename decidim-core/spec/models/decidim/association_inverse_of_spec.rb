@@ -224,9 +224,14 @@ describe "Decidim core association inverses" do # rubocop:disable RSpec/Describe
         .to eq(Decidim::AuthorizationTransferRecord.reflect_on_association(:transfer))
     end
 
-    it "saves a message built through the conversation with the conversation id" do
-      conversation = create(:conversation, user:, originator: user, interlocutors: [other_user])
-      message = conversation.messages.build(sender: user, body: "Hello")
+    # The conversation has to be unsaved for this to be a regression test: saving it is what runs the
+    # autosave, and the originator has to be unsaved too, because the participation's autosave saves the
+    # sender before the conversation, which is the order that would insert the message with a null
+    # `decidim_conversation_id` if `inverse_of` were declared on `belongs_to :sender`.
+    it "saves the first message of an unsaved conversation with the conversation id" do
+      originator = build(:user, organization:)
+      conversation = Decidim::Messaging::Conversation.start(originator:, interlocutors: [other_user], body: "Hello", user: originator)
+      message = conversation.messages.first
 
       conversation.save!
 
