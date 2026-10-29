@@ -8,6 +8,7 @@ module Decidim
     describe UserModerationType do
       include_context "with a graphql class type"
 
+      let!(:current_user) { create(:user, :confirmed, :admin, organization: current_organization) }
       let(:current_organization) { create(:organization) }
       let(:user) { create(:user, :confirmed, :blocked, organization: current_organization) }
       let(:reporter) { create(:user, :confirmed, organization: current_organization) }
@@ -24,6 +25,22 @@ module Decidim
 
         it "returns the about field" do
           expect(response).to eq("about" => user.about)
+        end
+
+        context "when user is not an admin" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "raises an unauthorized error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError)
+          end
+        end
+
+        context "when user is not authenticated" do
+          let!(:current_user) { nil }
+
+          it "raises an unauthorized error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError)
+          end
         end
       end
 
