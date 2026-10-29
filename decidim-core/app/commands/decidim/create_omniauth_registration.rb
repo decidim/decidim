@@ -66,9 +66,8 @@ module Decidim
     end
 
     def create_or_find_user
-      @user = User.find_or_initialize_by(
-        email: verified_email,
-        organization:
+      @user = organization.users.find_or_initialize_by(
+        email: verified_email
       )
 
       if @user.persisted?
@@ -120,6 +119,7 @@ module Decidim
     end
 
     def existing_identity
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- user is restricted to organization.users
       @existing_identity ||= Identity.find_by(
         user: organization.users,
         provider: form.provider,
