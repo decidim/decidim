@@ -38,6 +38,19 @@ module Decidim
 
         expect(Decidim::Dev::NestedDummyResource.exists?(nested.id)).to be(false)
       end
+
+      it "destroys the nested resources added after the association was loaded" do
+        nested = create(:nested_dummy_resource, dummy_resource:)
+        dummy_resource.nested_dummy_resources.to_a
+
+        # Another instance adds a child, leaving the cached association target stale.
+        other = create(:nested_dummy_resource, dummy_resource: described_class.find(dummy_resource.id))
+
+        dummy_resource.really_destroy!
+
+        expect(Decidim::Dev::NestedDummyResource.exists?(nested.id)).to be(false)
+        expect(Decidim::Dev::NestedDummyResource.exists?(other.id)).to be(false)
+      end
     end
   end
 end

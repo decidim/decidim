@@ -112,7 +112,9 @@ module Decidim
       private
 
       def destroy_nested_dummy_resources
-        nested_dummy_resources.destroy_all
+        # Reload so the deletion uses the current children instead of a possibly stale
+        # cached target (e.g. when the association was loaded before new children were added).
+        nested_dummy_resources.reload.destroy_all
       end
     end
   end
