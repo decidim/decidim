@@ -7,7 +7,7 @@ module Decidim::Verifications
     subject { described_class.new(handler, organization) }
 
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:document_number) { "12345678X" }
     let(:handler) do
       DummyAuthorizationHandler.new(
@@ -43,6 +43,20 @@ module Decidim::Verifications
         subject.call
 
         expect(authorizations.first).to be_granted
+      end
+    end
+
+    describe "when an authorization with the same unique_id exists in another organization" do
+      let(:other_organization) { create(:organization) }
+      let(:other_user) { create(:user, organization: other_organization) }
+
+      before do
+        create(:authorization, user: other_user, unique_id: document_number, name: handler.handler_name)
+        allow(handler).to receive(:valid?).and_return(false)
+      end
+
+      it "does not create a conflict" do
+        expect { subject.call }.not_to change(Decidim::Verifications::Conflict, :count)
       end
     end
 
