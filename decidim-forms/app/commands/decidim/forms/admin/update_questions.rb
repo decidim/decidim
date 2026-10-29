@@ -6,6 +6,8 @@ module Decidim
       # This command is executed when the user changes a Questionnaire questions from the admin
       # panel.
       class UpdateQuestions < Decidim::Command
+        include Decidim::TranslatableAttributes
+
         # Initializes a UpdateQuestions Command.
         #
         # form - The form from which to get the data.
@@ -30,6 +32,11 @@ module Decidim
           end
 
           broadcast(:ok)
+        rescue ActiveRecord::RecordNotDestroyed => e
+          # Recorded answers are never deleted along with the option or the row, so the
+          # removal can be refused. Report the reason instead of letting the exception
+          # reach the controller, which would render a server error.
+          broadcast(:invalid, e.record ? removal_error_message(e.record) : e.message)
         end
 
         private
@@ -102,6 +109,10 @@ module Decidim
           else
             record.save!
           end
+        end
+
+        def removal_error_message(record)
+          I18n.t("decidim.forms.admin.questionnaires.errors.cannot_remove_with_answers", name: translated_attribute(record.try(:body)))
         end
       end
     end
