@@ -38,7 +38,7 @@ module Decidim
     attr_reader :form, :report
 
     def find_or_create_moderation!
-      @moderation = UserModeration.find_or_create_by!(user: @reportable)
+      @moderation = @reportable.user_moderation || @reportable.create_user_moderation!
     end
 
     def create_report!
