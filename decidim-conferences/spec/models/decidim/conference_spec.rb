@@ -58,6 +58,18 @@ module Decidim
 
           expect(Decidim::ConferenceUserRole.where(id: user_role.id)).not_to exist
         end
+
+        it "removes all user roles when the association cache is stale at permanent deletion" do
+          user_role
+          conference.conference_user_roles.to_a # load the association cache
+
+          # Create a role through a different instance so the loaded collection above is stale
+          Decidim::Conference.find(conference.id).conference_user_roles.create!(user:, role: "collaborator")
+
+          conference.really_destroy!
+
+          expect(Decidim::ConferenceUserRole.where(decidim_conference_id: conference.id)).not_to exist
+        end
       end
     end
 

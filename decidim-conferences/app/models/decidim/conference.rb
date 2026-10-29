@@ -70,7 +70,8 @@ module Decidim
              class_name: "Decidim::ConferenceUserRole",
              inverse_of: :conference
 
-    after_real_destroy { conference_user_roles.destroy_all }
+    # Query by the conference id instead of the association, which may be a stale cached collection.
+    after_real_destroy { Decidim::ConferenceUserRole.where(conference: self).destroy_all }
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
