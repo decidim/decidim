@@ -23,7 +23,7 @@ module Decidim
       conditions = Decidim.participatory_space_registry.manifests.map do |manifest|
         where(
           participatory_space_type: manifest.model_class_name,
-          participatory_space_id: manifest.participatory_spaces.call(organization).select(:id)
+          participatory_space_id: manifest.participatory_spaces.call(organization).reselect(:id)
         )
       end
 
