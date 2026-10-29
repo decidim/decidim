@@ -24,7 +24,7 @@ module Decidim
         end
 
         def parent
-          @parent ||= Assembly.find_by(id: resource.parent)
+          @parent ||= resource.participatory_space_sibling_scope(:assemblies).find_by(id: resource.parent_id)
         end
 
         def participatory_processes
