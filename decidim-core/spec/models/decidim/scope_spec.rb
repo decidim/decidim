@@ -119,8 +119,11 @@ module Decidim
         it_behaves_like "scope reciprocal association", :searchable_resources, :scope, cascaded: :nullify
 
         it "keeps the indexed resource searchable, as the resource is not destroyed with the scope" do
+          record
+
           scope.destroy
 
+          expect(record.class.where(id: record.id)).to exist
           expect(record.reload.resource).to be_persisted
         end
       end
