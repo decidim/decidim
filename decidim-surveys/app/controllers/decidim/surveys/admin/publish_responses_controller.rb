@@ -18,7 +18,7 @@ module Decidim
         def update
           enforce_permission_to(:update, :questionnaire_publish_responses, survey:)
 
-          Decidim::Surveys::PublishResponses.call(params[:id], current_user) do
+          Decidim::Surveys::PublishResponses.call(question, current_user) do
             on(:ok) do
               render json: {}
             end
@@ -32,7 +32,7 @@ module Decidim
         def destroy
           enforce_permission_to(:destroy, :questionnaire_publish_responses, survey:)
 
-          Decidim::Surveys::UnpublishResponses.call(params[:id], current_user) do
+          Decidim::Surveys::UnpublishResponses.call(question, current_user) do
             on(:ok) do
               render json: {}
             end
@@ -47,6 +47,10 @@ module Decidim
 
         def questionnaire
           @questionnaire ||= Decidim::Forms::Questionnaire.find_by(questionnaire_for:) # rubocop:disable Decidim/OrganizationScopedFinder -- questionnaire_for returns survey which is scoped to current_component
+        end
+
+        def question
+          @question ||= questionnaire.questions.find(params.expect(:id))
         end
 
         def questionnaire_for
