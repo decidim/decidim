@@ -50,11 +50,17 @@ module Decidim
             class_name: "Decidim::ParticipatoryProcessStep",
             dependent: :destroy,
             inverse_of: :participatory_process
+    # Trashing a process is a soft delete and `Decidim::ParticipatoryProcessUserRole` is not soft deletable, so
+    # `dependent: :destroy` would remove the roles permanently and restoring the process could not bring them
+    # back. The roles are only removed when the process is permanently deleted.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
     has_many :participatory_process_user_roles,
              foreign_key: "decidim_participatory_process_id",
              class_name: "Decidim::ParticipatoryProcessUserRole",
-             dependent: :destroy,
              inverse_of: :participatory_process
+
+    after_real_destroy { participatory_process_user_roles.destroy_all }
+
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",

@@ -64,11 +64,16 @@ module Decidim
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
     belongs_to :parent, class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
 
+    # Trashing an assembly is a soft delete and `Decidim::AssemblyUserRole` is not soft deletable, so
+    # `dependent: :destroy` would remove the roles permanently and restoring the assembly could not bring them
+    # back. The roles are only removed when the assembly is permanently deleted.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
     has_many :assembly_user_roles,
              foreign_key: "decidim_assembly_id",
              class_name: "Decidim::AssemblyUserRole",
-             dependent: :destroy,
              inverse_of: :assembly
+
+    after_real_destroy { assembly_user_roles.destroy_all }
 
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader

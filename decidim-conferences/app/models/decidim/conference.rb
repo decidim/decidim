@@ -61,11 +61,16 @@ module Decidim
 
     has_many :media_links, class_name: "Decidim::Conferences::MediaLink", foreign_key: "decidim_conference_id", dependent: :destroy, inverse_of: :conference
     has_many :registration_types, class_name: "Decidim::Conferences::RegistrationType", foreign_key: "decidim_conference_id", dependent: :destroy, inverse_of: :conference
+    # Trashing a conference is a soft delete and `Decidim::ConferenceUserRole` is not soft deletable, so
+    # `dependent: :destroy` would remove the roles permanently and restoring the conference could not bring them
+    # back. The roles are only removed when the conference is permanently deleted.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
     has_many :conference_user_roles,
              foreign_key: "decidim_conference_id",
              class_name: "Decidim::ConferenceUserRole",
-             dependent: :destroy,
              inverse_of: :conference
+
+    after_real_destroy { conference_user_roles.destroy_all }
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }

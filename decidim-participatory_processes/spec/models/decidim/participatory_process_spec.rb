@@ -30,6 +30,35 @@ module Decidim
 
         expect(participatory_process.participatory_process_user_roles.first.participatory_process).to be(participatory_process)
       end
+
+      context "when the participatory process is trashed" do
+        let(:user_role) { create(:participatory_process_user_role, participatory_process:, user:, role: "admin") }
+
+        it "keeps the user roles, as they are not soft deletable" do
+          user_role
+
+          participatory_process.destroy!
+
+          expect(Decidim::ParticipatoryProcessUserRole.where(id: user_role.id)).to exist
+        end
+
+        it "restores the user roles with the participatory process" do
+          user_role
+
+          participatory_process.destroy!
+          participatory_process.restore
+
+          expect(participatory_process.reload.participatory_process_user_roles).to contain_exactly(user_role)
+        end
+
+        it "removes the user roles when the participatory process is permanently deleted" do
+          user_role
+
+          participatory_process.really_destroy!
+
+          expect(Decidim::ParticipatoryProcessUserRole.where(id: user_role.id)).not_to exist
+        end
+      end
     end
 
     it "overwrites the log presenter" do

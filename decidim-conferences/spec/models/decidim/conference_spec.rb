@@ -30,6 +30,35 @@ module Decidim
 
         expect(conference.conference_user_roles.first.conference).to be(conference)
       end
+
+      context "when the conference is trashed" do
+        let(:user_role) { create(:conference_user_role, conference:, user:, role: "admin") }
+
+        it "keeps the user roles, as they are not soft deletable" do
+          user_role
+
+          conference.destroy!
+
+          expect(Decidim::ConferenceUserRole.where(id: user_role.id)).to exist
+        end
+
+        it "restores the user roles with the conference" do
+          user_role
+
+          conference.destroy!
+          conference.restore
+
+          expect(conference.reload.conference_user_roles).to contain_exactly(user_role)
+        end
+
+        it "removes the user roles when the conference is permanently deleted" do
+          user_role
+
+          conference.really_destroy!
+
+          expect(Decidim::ConferenceUserRole.where(id: user_role.id)).not_to exist
+        end
+      end
     end
 
     context "when there is a conference with the same slug in the same organization" do
