@@ -42,7 +42,12 @@ module Decidim
 
       component_manifest_name "dummy"
 
-      has_many :nested_dummy_resources, dependent: :destroy, inverse_of: :dummy_resource
+      # Nested resources are not paranoid, so `dependent: :destroy` would destroy them
+      # permanently when the parent is soft deleted (moved to trash). Destroy them only
+      # when the parent is permanently destroyed.
+      has_many :nested_dummy_resources, inverse_of: :dummy_resource # rubocop:disable Rails/HasManyOrHasOneDependent
+
+      before_real_destroy :destroy_nested_dummy_resources
 
       alias creator_author author
 
@@ -102,6 +107,12 @@ module Decidim
                                                  .pluck(:decidim_author_id)
         commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::Dev::DummyResource.where(component:))
         (authors_ids + commentators_ids).flatten.compact.uniq
+      end
+
+      private
+
+      def destroy_nested_dummy_resources
+        nested_dummy_resources.destroy_all
       end
     end
   end

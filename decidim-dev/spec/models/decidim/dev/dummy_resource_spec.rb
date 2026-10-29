@@ -22,6 +22,22 @@ module Decidim
 
         expect(dummy_resource.nested_dummy_resources.first.dummy_resource).to be(dummy_resource)
       end
+
+      it "does not destroy the nested resources when the dummy resource is soft deleted" do
+        nested = create(:nested_dummy_resource, dummy_resource:)
+
+        dummy_resource.destroy
+
+        expect(Decidim::Dev::NestedDummyResource.exists?(nested.id)).to be(true)
+      end
+
+      it "destroys the nested resources when the dummy resource is permanently destroyed" do
+        nested = create(:nested_dummy_resource, dummy_resource:)
+
+        dummy_resource.really_destroy!
+
+        expect(Decidim::Dev::NestedDummyResource.exists?(nested.id)).to be(false)
+      end
     end
   end
 end
