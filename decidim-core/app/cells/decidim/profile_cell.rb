@@ -10,7 +10,7 @@ module Decidim
     include Decidim::ActiveLinkToHelper
 
     delegate :current_organization, :current_user, to: :controller
-    delegate :avatar_url, :nickname, :personal_url, :followers_count, :users_followings, :officialized_as, to: :presented_profile
+    delegate :avatar_url, :nickname, :followers_count, :users_followings, :officialized_as, to: :presented_profile
 
     TABS_ITEMS = {
       activity: { icon: "bubble-chart-line", path: :profile_activity_path },
@@ -46,7 +46,6 @@ module Decidim
 
     def details_items
       [{ icon: "account-pin-circle-line", text: nickname }].tap do |items|
-        items.append(icon: "link", text: personal_url, url: personal_url) if personal_url.present?
         if (following_count = users_followings.size).positive?
           items.append(icon: TABS_ITEMS[:following][:icon], text: t("decidim.following.following_count", count: following_count))
         end

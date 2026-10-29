@@ -88,7 +88,7 @@ module Decidim
       end
 
       def root_taxonomy
-        @root_taxonomy ||= Taxonomy.for(current_organization).roots.find(params.expect(:taxonomy_id)) # rubocop:disable Decidim/OrganizationScopedFinder -- .for(current_organization) scopes to current org
+        @root_taxonomy ||= current_organization.taxonomies.roots.find(params.expect(:taxonomy_id))
       end
 
       def taxonomy_filter

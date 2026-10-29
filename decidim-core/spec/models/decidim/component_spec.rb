@@ -58,6 +58,21 @@ module Decidim
 
         subject.to_a
       end
+
+      context "when a participatory space manifest already defines a projection" do
+        let(:manifest) { Decidim.find_participatory_space_manifest(:participatory_processes) }
+        let(:space_class) { manifest.model_class_name.constantize }
+
+        before do
+          allow(manifest).to receive(:participatory_spaces).and_return(
+            ->(current_organization) { space_class.where(organization: current_organization).select(:id, :created_at) }
+          )
+        end
+
+        it "only selects the id in the subquery" do
+          expect(subject).to include(component)
+        end
+      end
     end
 
     describe "restricted_space?" do

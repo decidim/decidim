@@ -11,8 +11,11 @@ module Decidim
         #
         # taxonomy_ids - the taxonomy ids to update
         # proposal_ids - the proposals ids to update.
-        def initialize(taxonomy_ids, proposal_ids, organization)
-          super(taxonomy_ids, Decidim::Proposals::Proposal.where(id: proposal_ids), organization)
+        # current_component - the component where the proposals belong to.
+        def initialize(taxonomy_ids, proposal_ids, current_component)
+          @proposal_ids = proposal_ids
+          @current_component = current_component
+          super(taxonomy_ids, proposals, current_component.organization)
         end
 
         def run_after_hooks(resource)
@@ -20,6 +23,12 @@ module Decidim
         end
 
         private
+
+        attr_reader :proposal_ids, :current_component
+
+        def proposals
+          Decidim::Proposals::Proposal.where(component: current_component, id: proposal_ids)
+        end
 
         def notify_author(proposal)
           Decidim::EventsManager.publish(
