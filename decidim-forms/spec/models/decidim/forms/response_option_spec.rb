@@ -45,6 +45,23 @@ module Decidim
         expect(response_option.choices.first.response_option).to be(response_option)
       end
 
+      describe "#destroy" do
+        let(:response_option) { create(:response_option, question:) }
+
+        it "does not destroy the recorded choices" do
+          choice = create(:response_choice, response:, response_option:)
+
+          expect(response_option.destroy).to be(false)
+          expect(response_option.errors[:base]).to include("Cannot delete record because dependent choices exist")
+          expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
+        end
+
+        it "is destroyed when it has no recorded choices" do
+          expect(response_option.destroy).to be_truthy
+          expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(false)
+        end
+      end
+
       describe "#translated_body" do
         it "returns the translated body of the response option" do
           expect(subject.translated_body).to eq(subject.body["en"])

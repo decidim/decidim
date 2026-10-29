@@ -17,10 +17,12 @@ module Decidim
                dependent: :nullify,
                inverse_of: :response_option
 
+      # Recorded choices are part of a response, so removing the option must not
+      # delete them; the option can only be removed once it has no choices.
       has_many :choices,
                class_name: "ResponseChoice",
                foreign_key: "decidim_response_option_id",
-               dependent: :destroy,
+               dependent: :restrict_with_error,
                inverse_of: :response_option
 
       def translated_body

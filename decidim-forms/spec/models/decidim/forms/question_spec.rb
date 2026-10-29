@@ -64,6 +64,25 @@ module Decidim
         end
       end
 
+      context "when the question has recorded responses" do
+        let(:question_type) { "matrix_single" }
+        let(:question) { create(:questionnaire_question, questionnaire:, question_type:) }
+
+        it "still destroys the responses and their choices when the question is destroyed" do
+          response_option = create(:response_option, question:)
+          matrix_row = create(:question_matrix_row, question:)
+          response = create(:response, question:, questionnaire:)
+          choice = create(:response_choice, response:, response_option:, matrix_row:)
+
+          # Loaded fresh, as it is when the whole question is removed (component deletion,
+          # questionnaire deletion), so the options and rows are evaluated against the DB.
+          fresh_question = Decidim::Forms::Question.find(question.id)
+
+          expect(fresh_question.destroy).to be_truthy
+          expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(false)
+        end
+      end
+
       context "when question type does not exists in allowed types" do
         let(:question_type) { "foo" }
 
