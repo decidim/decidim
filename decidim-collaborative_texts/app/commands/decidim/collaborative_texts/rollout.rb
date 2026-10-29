@@ -35,6 +35,7 @@ module Decidim
         # the user is acting in, since a document has no organization column and its organization is
         # only reachable through a polymorphic participatory space that cannot be joined, and the
         # versions are locked through the document that owns them.
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- the document is locked through the component the user is acting in
         Decidim::CollaborativeTexts::Document.where(component: form.current_component).lock.find(document.id)
         document.document_versions.lock.find(source_version_ids)
 

@@ -22,6 +22,7 @@ module Decidim
         document = form.document
         version = form.document_version
 
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- the document is locked through the component the user is acting in
         Decidim::CollaborativeTexts::Document.where(component: form.current_component).lock.find(document.id)
         document.document_versions.lock.find(version.id) if version.persisted?
       end
