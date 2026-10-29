@@ -22,7 +22,7 @@ module Decidim
     end
 
     def update_attachment_title_for(attachment)
-      Decidim::Attachment.find(attachment[:id]).update(title: title_for(attachment))
+      attachments_for(attachment_parent).find(attachment[:id]).update(title: title_for(attachment))
     end
 
     def attachments_invalid?
@@ -43,7 +43,7 @@ module Decidim
       weight = first_weight
       # Add the weights first to the old attachments
       attachment_ids = keep_ids
-      Decidim::Attachment.where(id: attachment_ids).each do |attachment|
+      attachments_for(attachments_attached_to).where(id: attachment_ids).each do |attachment|
         attachment.update!(weight:)
         weight += 1
       end
@@ -57,7 +57,8 @@ module Decidim
     end
 
     def attachment_cleanup!(include_all_attachments: false)
-      attachments = include_all_attachments ? attachments_attached_to.attachments.with_attached_file : attachments_attached_to.attachments
+      attachments = attachments_for(attachments_attached_to)
+      attachments = attachments.with_attached_file if include_all_attachments
 
       attachments.each do |attachment|
         attachment.destroy! unless keep_ids.include?(attachment.id)
@@ -77,6 +78,17 @@ module Decidim
       return form.current_organization if form.respond_to?(:current_organization)
 
       form.current_component.organization if form.respond_to?(:current_component)
+    end
+
+    def attachment_parent
+      @attached_to || @resource || attachments_attached_to
+    end
+
+    def attachments_for(parent)
+      return parent.attachments if parent.respond_to?(:attachments)
+
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- parent is the current organization passed to the command
+      Decidim::Attachment.where(attached_to: parent)
     end
 
     def signed_id_for(attachment)
