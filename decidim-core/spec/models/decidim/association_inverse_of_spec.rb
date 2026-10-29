@@ -36,13 +36,6 @@ describe "Decidim core association inverses" do # rubocop:disable RSpec/Describe
     it_behaves_like "association with an explicit inverse_of", Decidim::AuthorizationTransfer, :authorization, Decidim::Authorization, :transfers
   end
 
-  describe "Decidim::AuthorizationTransferRecord <-> Decidim::AuthorizationTransfer" do
-    let(:parent) { create(:authorization_transfer) }
-    let(:child) { create(:authorization_transfer_record, transfer: parent) }
-
-    it_behaves_like "association with an explicit inverse_of", Decidim::AuthorizationTransferRecord, :transfer, Decidim::AuthorizationTransfer, :records
-  end
-
   describe "Decidim::Categorization <-> Decidim::Category" do
     let(:parent) { create(:category) }
     let(:child) { Decidim::Categorization.create!(category: parent, categorizable: create(:dummy_resource, organization: parent.participatory_space.organization)) }
@@ -196,10 +189,12 @@ describe "Decidim core association inverses" do # rubocop:disable RSpec/Describe
     end
   end
 
-  # The messaging models declare `inverse_of` only on the reciprocal `has_many` side. Declaring it on the
-  # `belongs_to` side propagates a child built through a conversation into the user's collection, where the
-  # pending record is autosaved before the conversation is saved and `decidim_conversation_id` is inserted as
-  # NULL. These stay on the reciprocity allow-list.
+  # These models declare `inverse_of` only on the reciprocal `has_many` side. Declaring it on the
+  # `belongs_to` side propagates a child built through the parent into the parent's collection, where the
+  # pending record is autosaved before its own save: for the messaging models that leaves
+  # `decidim_conversation_id` NULL, and for `Decidim::AuthorizationTransferRecord` the record is already
+  # persisted by the time its own save runs, which trips its `readonly?` guard. These stay on the
+  # reciprocity allow-list.
   describe "associations whose inverse lives only on the has_many side" do
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization:) }
@@ -223,6 +218,12 @@ describe "Decidim core association inverses" do # rubocop:disable RSpec/Describe
         .to eq(Decidim::Messaging::Receipt.reflect_on_association(:message))
     end
 
+    it "keeps Decidim::AuthorizationTransferRecord#transfer without an inverse_of" do
+      expect(Decidim::AuthorizationTransferRecord.reflect_on_association(:transfer).inverse_of).to be_nil
+      expect(Decidim::AuthorizationTransfer.reflect_on_association(:records).inverse_of)
+        .to eq(Decidim::AuthorizationTransferRecord.reflect_on_association(:transfer))
+    end
+
     it "saves a message built through the conversation with the conversation id" do
       conversation = create(:conversation, user:, originator: user, interlocutors: [other_user])
       message = conversation.messages.build(sender: user, body: "Hello")
@@ -230,6 +231,15 @@ describe "Decidim core association inverses" do # rubocop:disable RSpec/Describe
       conversation.save!
 
       expect(message.decidim_conversation_id).to eq(conversation.id)
+    end
+
+    it "saves an authorization transfer record created through an unsaved transfer" do
+      transfer = build(:authorization_transfer, organization:)
+      record = build(:authorization_transfer_record, transfer:, resource: create(:dummy_resource, organization:))
+
+      expect { record.save! }.not_to raise_error
+
+      expect(record.transfer).to eq(transfer)
     end
   end
 end
