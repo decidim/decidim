@@ -221,6 +221,13 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense for an or relation with an unscoped branch that is not a model constant" do
+    expect_offense(<<~RUBY)
+      taxonomies.roots.or(taxonomies.where(id: available_taxonomy_ids))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "registers an offense for a query object constructed with untrusted arguments" do
     expect_offense(<<~RUBY)
       OrganizationAssemblies.new(params[:organization_id]).query.where(slug: params[:slug]).first!

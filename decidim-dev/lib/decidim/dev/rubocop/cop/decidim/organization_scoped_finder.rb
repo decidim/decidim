@@ -25,7 +25,7 @@ module RuboCop
           :sole, :sole!, :take, :take!,
           :find_or_initialize_by, :find_or_create_by, :find_or_create_by!
         ].freeze
-        RESTRICT_ON_SEND = [*FINDER_METHODS, :where].freeze
+        RESTRICT_ON_SEND = [*FINDER_METHODS, :where, :or].freeze
 
         SCOPE_ROOT_METHODS = [:current_organization, :collection].freeze
 
@@ -45,20 +45,35 @@ module RuboCop
         VALUE_CONSTANT_PATTERN = /\A[A-Z][A-Z0-9_]*\z/
 
         def on_send(node)
-          return unless RESTRICT_ON_SEND.include?(node.method_name)
-          return if node.block_node
-          return if scoped_finder_arguments?(node)
+          return unless relevant_node?(node)
           return unless node.receiver
+
+          # Check `or` relations before the model-constant gate: either branch
+          # may be an unscoped relation whose receiver is not a model constant
+          # (for example a delegated `taxonomies` relation).
+          return check_or_relation(node) if node.method_name == :or
+
           return if organization_scoped?(node.receiver)
           return unless unscoped_model_class?(node.receiver)
           return if constructed_scope_root?(node.receiver)
-
           return if consumed_by_finder?(node)
 
           add_offense(node)
         end
 
         private
+
+        def relevant_node?(node)
+          RESTRICT_ON_SEND.include?(node.method_name) && !node.block_node && !scoped_finder_arguments?(node)
+        end
+
+        def check_or_relation(node)
+          return if node.ancestors.any? { |ancestor| ancestor.send_type? && ancestor.method_name == :or }
+          return if scoped_or_branches?(node)
+          return if consumed_by_finder?(node)
+
+          add_offense(node)
+        end
 
         def organization_scoped?(node)
           return false unless node
@@ -218,7 +233,7 @@ module RuboCop
         end
 
         def consumed_by_finder?(node)
-          return false unless node.method_name == :where
+          return false unless [:where, :or].include?(node.method_name)
 
           ancestor = node.parent
           while ancestor&.send_type?
