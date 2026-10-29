@@ -27,7 +27,7 @@ module Decidim
     attr_reader :form
 
     def user
-      @user ||= Decidim::User.where(organization: form.organization).where(email: form.email.downcase).first
+      @user ||= form.organization.users.where(email: form.email.downcase).first
     end
 
     def update_user
