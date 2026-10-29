@@ -10,6 +10,7 @@ module Decidim
       end
 
       def call
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- the component is the component passed to the command
         Page.where(component: @component).destroy_all
         broadcast(:ok)
       end
