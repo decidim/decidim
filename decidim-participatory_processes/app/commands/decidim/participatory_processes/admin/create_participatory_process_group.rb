@@ -11,6 +11,8 @@ module Decidim
         fetch_form_attributes :organization, :title, :description, :group_url, :target, :promoted,
                               :developer_group, :local_area, :meta_scope, :participatory_scope, :participatory_structure
 
+        delegate :current_organization, to: :form
+
         protected
 
         def run_after_hooks
@@ -24,7 +26,7 @@ module Decidim
         end
 
         def participatory_processes
-          Decidim::ParticipatoryProcess.where(id: form.participatory_process_ids)
+          Decidim::ParticipatoryProcess.where(organization: current_organization, id: form.participatory_process_ids)
         end
       end
     end

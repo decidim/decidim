@@ -55,7 +55,7 @@ module Decidim
         def update_taxonomies
           enforce_permission_to :update, :proposal_taxonomy
 
-          Admin::UpdateProposalTaxonomies.call(params[:taxonomies], proposal_ids, current_organization) do
+          Admin::UpdateProposalTaxonomies.call(params[:taxonomies], proposal_ids, current_component) do
             on(:invalid_taxonomies) do
               flash[:error] = I18n.t(
                 "proposals.update_taxonomies.select_a_taxonomy",
