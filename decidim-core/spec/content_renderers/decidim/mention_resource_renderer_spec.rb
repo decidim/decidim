@@ -31,7 +31,7 @@ module Decidim
 
         expect(link["href"]).to eq(proposal_path)
         expect(link.at_css(".editor-mention img")["src"]).to eq(avatar_url)
-        expect(link.at_css(".editor-mention span").inner_html).to eq(title)
+        expect(link.at_css(".editor-mention span").text).to eq(title.to_s)
       end
 
       context "when using URLs in the editor" do
@@ -81,6 +81,27 @@ module Decidim
 
         it "does not transform GIDs inside anchor tags with different href attributes" do
           expect(subject).to match(%(<p><a href="#{proposal_url}">Link to proposal</a></p>))
+        end
+      end
+
+      context "when the proposal title contains HTML" do
+        let(:title) { %(Check this proposal"><img src=x onerror=alert(document.cookie)>) }
+        let(:proposal) { create(:proposal, title: { en: title }) }
+
+        it "escapes the title in editor mode" do
+          result = renderer.render(editor: true)
+
+          expect(result).to include("&lt;img")
+          expect(result).not_to include("<img")
+        end
+
+        it "escapes the title in rendered links" do
+          result = renderer.render
+          fragment = Loofah.fragment(result)
+
+          expect(result).to include("&lt;img")
+          expect(fragment.css("img[onerror]")).to be_empty
+          expect(fragment.css('img[src="x"]')).to be_empty
         end
       end
     end
