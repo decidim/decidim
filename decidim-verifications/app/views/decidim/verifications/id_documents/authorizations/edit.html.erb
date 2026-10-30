@@ -10,7 +10,7 @@
 
 <% unless using_online? %>
 <div class="mb-12">
-  <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe %>
+  <%= decidim_sanitize_editor_admin(translated_attribute(current_organization.id_documents_explanation_text)) %>
 </div>
 <% end %>
 
