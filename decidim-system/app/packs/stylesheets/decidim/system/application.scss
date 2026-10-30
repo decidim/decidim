@@ -4,7 +4,7 @@
 @use "stylesheets/decidim/tokens/gradients";
 @use "stylesheets/decidim/tokens/shadows";
 @use "stylesheets/decidim/tokens/aliases";
-@use "tom-select/dist/scss/tom-select";
+@use "tom-select/dist/css/tom-select";
 
 aside {
   @apply bg-gray-4 w-full md:w-1/6 min-w-[250px] flex-none text-white relative translate-x-0 transition;
