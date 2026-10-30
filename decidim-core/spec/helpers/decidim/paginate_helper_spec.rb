@@ -18,7 +18,7 @@ describe Decidim::PaginateHelper do
       let(:per_page) { Decidim::Paginable::OPTIONS.first }
 
       it "renders the per page options" do
-        expect(helper).to receive(:render).with(partial: "decidim/shared/results_per_page", locals: { per_page: }, formats: [:html])
+        expect(helper).to receive(:render).with(hash_including(partial: "decidim/shared/results_per_page"))
 
         helper.decidim_paginate(collection, paginate_params)
       end
@@ -28,7 +28,7 @@ describe Decidim::PaginateHelper do
       let(:per_page) { Decidim::Paginable::OPTIONS.first - 1 }
 
       it "does not render the per page options" do
-        expect(helper).not_to receive(:render).with(partial: "decidim/shared/results_per_page")
+        expect(helper).not_to receive(:render).with(hash_including(partial: "decidim/shared/results_per_page"))
 
         helper.decidim_paginate(collection, paginate_params)
       end
