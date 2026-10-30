@@ -9,7 +9,7 @@ module Decidim
     # collection - a collection of elements that need to be paginated
     # paginate_params - a Hash with options to delegate to the pagination helper.
     def decidim_paginate(collection, paginate_params = {})
-      return if collection.total_pages <= 1
+      return if collection.total_pages <= 1 && collection.total_count <= Decidim::Paginable::OPTIONS.first
 
       per_page = (params[:per_page] || paginate_params[:per_page] || Decidim::Paginable::OPTIONS.first).to_i
 

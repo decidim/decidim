@@ -285,6 +285,12 @@ describe "Explore projects", :slow do
         end
       end
 
+      it "displays the results per page selector" do
+        within "#projects" do
+          expect(page).to have_css("[data-pagination]")
+        end
+      end
+
       context "when the configured per page option is not a pagination option" do
         let(:configured_per_page) { 12 }
 
