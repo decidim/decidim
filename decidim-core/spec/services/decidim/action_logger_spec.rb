@@ -15,6 +15,12 @@ describe Decidim::ActionLogger do
   let(:action) { "create" }
   let(:action_log) { Decidim::ActionLog.last }
 
+  describe "#log!" do
+    it "is a private method" do
+      expect(described_class.private_instance_methods).to include(:log!)
+    end
+  end
+
   describe "#log" do
     it "saves the user info" do
       subject
@@ -23,6 +29,14 @@ describe Decidim::ActionLogger do
       expect(action_log.extra["user"]["ip"]).to be_present
       expect(action_log.extra["user"]["name"]).to eq user.name
       expect(action_log.extra["user"]["nickname"]).to eq user.nickname
+    end
+
+    context "when the user is nil" do
+      let(:user) { nil }
+
+      it "raises an error" do
+        expect { subject }.to raise_error(ArgumentError, /requires a user/)
+      end
     end
 
     context "when adding extra data" do
@@ -170,6 +184,44 @@ describe Decidim::ActionLogger do
             subject
             expect(action_log.area).to be_nil
           end
+        end
+      end
+    end
+
+    describe ".log_system" do
+      subject { described_class.log_system(action, resource, **extra) }
+
+      it "logs the action without a user" do
+        expect { subject }.to change(Decidim::ActionLog, :count).by(1)
+        expect(action_log.user_id).to be_nil
+        expect(action_log.user_type).to be_nil
+        expect(action_log.organization).to eq(organization)
+        expect(action_log.extra["user"]).to eq({})
+      end
+
+      context "when adding extra data" do
+        let(:extra) { { "a" => 1 } }
+
+        it "sets the `extra` field" do
+          subject
+          expect(action_log.version_id).to be_nil
+          expect(action_log.extra["a"]).to eq(1)
+        end
+      end
+
+      context "when the resource is a component resource" do
+        it "derives the organization from the participatory space" do
+          subject
+          expect(action_log.organization).to eq(participatory_space.organization)
+        end
+      end
+
+      context "when the action is on a participatory space" do
+        let(:resource) { participatory_space }
+
+        it "derives the organization from the resource" do
+          subject
+          expect(action_log.organization).to eq(resource.organization)
         end
       end
     end
