@@ -21,7 +21,7 @@ module Decidim
           describe "PUT update" do
             # The input path intentionally stores the value as-is; the security
             # boundary is the output sanitization tested in
-            # ../authorizations_xss_spec.rb.
+            # ../authorizations_controller_spec.rb.
             it "stores the raw HTML supplied in a direct request" do
               put :update, params: {
                 config: {
