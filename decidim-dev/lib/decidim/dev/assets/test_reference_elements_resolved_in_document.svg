@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A document whose reference elements are resolved against the document itself:
+     the elements which inherit from another one (the gradient, the pattern, the
+     filter and the font), the path of a "textPath" and an "mpath", the contents of
+     a "tref" and an "altGlyph", and the color profile declared with a relative
+     path. None of them fetches a resource. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+  <defs>
+    <linearGradient id="base-gradient"><stop offset="0" stop-color="#000"/></linearGradient>
+    <pattern id="base-pattern"><rect width="16" height="16"/></pattern>
+    <filter id="base-filter"><feGaussianBlur stdDeviation="1"/></filter>
+    <path id="base-path" d="M 0 0 l 16 0"/>
+    <font id="base-font"><font-face font-family="Base"/></font>
+  </defs>
+  <linearGradient xlink:href="#base-gradient"><stop offset="1" stop-color="#fff"/></linearGradient>
+  <radialGradient xlink:href="#base-gradient"><stop offset="1" stop-color="#fff"/></radialGradient>
+  <pattern xlink:href="#base-pattern"><rect width="8" height="8"/></pattern>
+  <filter xlink:href="#base-filter"><feOffset/></filter>
+  <text><textPath xlink:href="#base-path">Text</textPath></text>
+  <text><animateMotion><mpath xlink:href="#base-path"/></animateMotion></text>
+  <text><tref xlink:href="#base-font">Text</tref></text>
+  <text><altGlyph xlink:href="#base-font" unicode="A">A</altGlyph></text>
+  <font><font-face font-family="Other"><font-face-src><font-face-uri xlink:href="#base-font"/></font-face-src></font-face></font>
+  <color-profile src="profile.icc"/>
+  <image width="16" height="16"><animate attributeName="href" to="#base-pattern" dur="1s"/></image>
+</svg>

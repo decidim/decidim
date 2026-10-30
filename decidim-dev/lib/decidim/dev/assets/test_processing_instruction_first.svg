@@ -1,0 +1,3 @@
+<?editor exported logo?>
+<!-- A document which starts with a custom processing instruction, where the XML declaration is optional, so it is detected from the processing instruction prefix. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#000"/></svg>
