@@ -25,7 +25,7 @@ module RuboCop
           :sole, :sole!, :take, :take!,
           :find_or_initialize_by, :find_or_create_by, :find_or_create_by!
         ].freeze
-        RESTRICT_ON_SEND = [*FINDER_METHODS, :where].freeze
+        RESTRICT_ON_SEND = [*FINDER_METHODS, :where, :or].freeze
 
         SCOPE_ROOT_METHODS = [:current_organization, :collection].freeze
 
@@ -39,15 +39,23 @@ module RuboCop
 
         IGNORED_CONSTANT_PREFIXES = %w(Bundler ActiveRecord).freeze
 
-        def on_send(node)
-          return unless RESTRICT_ON_SEND.include?(node.method_name)
-          return if node.block_node
-          return if scoped_finder_arguments?(node)
-          return unless node.receiver
-          return if organization_scoped?(node.receiver)
-          return unless unscoped_model_class?(node.receiver)
-          return if constructed_scope_root?(node.receiver)
+        # SCREAMING_SNAKE_CASE constants hold plain values (e.g.
+        # `OPTIONS = [25, 50, 100]`), not ActiveRecord model classes, which
+        # follow the CamelCase convention.
+        VALUE_CONSTANT_PATTERN = /\A[A-Z][A-Z0-9_]*\z/
 
+        def on_send(node)
+          return unless relevant_node?(node)
+          return unless node.receiver
+
+          # Check `or` relations before the model-constant gate: either branch
+          # may be an unscoped relation whose receiver is not a model constant
+          # (for example a delegated `taxonomies` relation).
+          return check_or_relation(node) if node.method_name == :or
+
+          return if organization_scoped?(node.receiver)
+          return unless unscoped_model_class?(node.receiver) || unscoped_or_relation?(node.receiver)
+          return if constructed_scope_root?(node.receiver)
           return if consumed_by_finder?(node)
 
           add_offense(node)
@@ -55,12 +63,25 @@ module RuboCop
 
         private
 
+        def relevant_node?(node)
+          RESTRICT_ON_SEND.include?(node.method_name) && !node.block_node && !scoped_finder_arguments?(node)
+        end
+
+        def check_or_relation(node)
+          return if node.ancestors.any? { |ancestor| ancestor.send_type? && ancestor.method_name == :or }
+          return if scoped_or_branches?(node)
+          return if consumed_by_finder?(node)
+
+          add_offense(node)
+        end
+
         def organization_scoped?(node)
           return false unless node
           return true if scoped_node?(node)
-          return organization_scoped?(node.receiver) if node.send_type?
+          return false unless node.send_type?
+          return scoped_or_branches?(node) if node.method_name == :or
 
-          false
+          organization_scoped?(node.receiver)
         end
 
         def unscoped_model_class?(node)
@@ -72,9 +93,23 @@ module RuboCop
           unscoped_model_class?(node.receiver)
         end
 
+        # An `or` relation whose branches are not all scoped can leak records
+        # from another organization even when its receiver chain has no model
+        # constant, as in `current_organization.taxonomies.or(Taxonomy.all)`.
+        # `organization_scoped?` has already rejected it at this point.
+        def unscoped_or_relation?(node)
+          node.send_type? && node.method_name == :or
+        end
+
         def ignored_constant?(node)
-          node.const_type? &&
-            IGNORED_CONSTANT_PREFIXES.any? { |prefix| node.source.start_with?(prefix) }
+          return false unless node.const_type?
+
+          IGNORED_CONSTANT_PREFIXES.any? { |prefix| node.source.start_with?(prefix) } ||
+            value_constant?(node)
+        end
+
+        def value_constant?(node)
+          VALUE_CONSTANT_PATTERN.match?(node.short_name.to_s)
         end
 
         def scoped_node?(node)
@@ -89,6 +124,8 @@ module RuboCop
           node.receiver.nil? || node.receiver.self_type?
         end
 
+        # Also recognizes helpers that filter by a scoped association, such as
+        # `MeetingLink.find_meetings(component: current_component)`.
         def scoped_finder_arguments?(node)
           node.arguments.any? { |arg| scoped_argument?(arg) }
         end
@@ -174,14 +211,39 @@ module RuboCop
           if node.method_name == :new
             return false unless node.receiver&.const_type?
 
+            return true if node.arguments.any? { |arg| scoped_constructor_argument?(arg) }
+
             return scoped_finder_arguments?(node)
           end
+
+          return scoped_constructor_argument?(node) if node.method_name == :or
 
           constructed_scope_root?(node.receiver) if node.receiver
         end
 
+        # Query objects in Decidim commonly receive the organization as a
+        # positional argument, e.g. `OrganizationAssemblies.new(current_organization)`.
+        # For `or` relations, every branch must either already be
+        # organization-scoped or be constructed from an organization-scoped
+        # query object.
+        def scoped_constructor_argument?(node)
+          return scoped_helper_method?(node) unless node.send_type? && node.method_name == :or
+
+          scoped_or_branches?(node)
+        end
+
+        # An `or` relation is only safe when every nested branch is scoped,
+        # not just the receiver of the `or` call.
+        def scoped_or_branches?(node)
+          return false unless node.receiver
+
+          ([node.receiver] + node.arguments).all? do |branch|
+            organization_scoped?(branch) || constructed_scope_root?(branch)
+          end
+        end
+
         def consumed_by_finder?(node)
-          return false unless node.method_name == :where
+          return false unless [:where, :or].include?(node.method_name)
 
           ancestor = node.parent
           while ancestor&.send_type?

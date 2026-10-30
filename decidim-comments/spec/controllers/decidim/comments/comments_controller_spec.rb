@@ -13,6 +13,10 @@ module Decidim
       let(:participatory_process) { create(:participatory_process, organization:) }
       let(:component) { create(:component, participatory_space: participatory_process) }
       let(:commentable) { create(:dummy_resource, component:) }
+      let(:other_organization) { create(:organization) }
+      let(:other_participatory_space) { create(:participatory_process, organization: other_organization) }
+      let(:other_component) { create(:component, participatory_space: other_participatory_space) }
+      let(:other_commentable) { create(:dummy_resource, component: other_component) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -22,6 +26,14 @@ module Decidim
         it "renders the index template" do
           get :index, xhr: true, params: { commentable_gid: commentable.to_signed_global_id.to_s }
           expect(subject).to render_template(:index)
+        end
+
+        context "when the signed commentable belongs to another organization" do
+          it "raises a record not found error" do
+            expect do
+              get :index, xhr: true, params: { commentable_gid: other_commentable.to_signed_global_id.to_s }
+            end.to raise_error(ActiveRecord::RecordNotFound)
+          end
         end
 
         it "tells devise not to reset timeout counter" do
@@ -233,6 +245,22 @@ module Decidim
             expect(response).to have_http_status(:success)
           end
         end
+
+        context "when the comment belongs to another organization" do
+          let!(:other_comment) { create(:comment, commentable: other_commentable) }
+
+          before do
+            sign_in other_comment.author, scope: :user
+          end
+
+          it "does not delete the comment" do
+            expect do
+              delete :destroy, xhr: true, params: { id: other_comment.id }
+            end.to raise_error(ActiveRecord::RecordNotFound)
+
+            expect(other_comment.reload).not_to be_deleted
+          end
+        end
       end
 
       describe "PUT update" do
@@ -276,6 +304,22 @@ module Decidim
               put :update, xhr: true, params: comment_params
               expect(subject).to render_template(:update_error)
             end
+          end
+        end
+
+        context "when the comment belongs to another organization" do
+          let!(:other_comment) { create(:comment, commentable: other_commentable) }
+
+          before do
+            sign_in other_comment.author, scope: :user
+          end
+
+          it "does not update the comment" do
+            expect do
+              put :update, xhr: true, params: { id: other_comment.id, comment: { body: "Updated body" } }
+            end.to raise_error(ActiveRecord::RecordNotFound)
+
+            expect(other_comment.reload.body.values.first).not_to eq("Updated body")
           end
         end
       end

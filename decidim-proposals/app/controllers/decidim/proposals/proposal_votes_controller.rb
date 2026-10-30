@@ -19,6 +19,7 @@ module Decidim
           on(:ok) do
             proposal.reload
 
+            # rubocop:disable-next Decidim/OrganizationScopedFinder -- proposal relation is scoped to current_component
             proposals = ProposalVote.where(
               author: current_user,
               proposal: Proposal.where(component: current_component)
@@ -42,6 +43,7 @@ module Decidim
           on(:ok) do
             proposal.reload
 
+            # rubocop:disable-next Decidim/OrganizationScopedFinder -- proposal relation is scoped to current_component
             proposals = ProposalVote.where(
               author: current_user,
               proposal: Proposal.where(component: current_component)

@@ -24,14 +24,14 @@ module Decidim
       if amendment_draft
         redirect_to edit_draft_amend_path(amendment_draft)
       else
-        @form = form(Decidim::Amendable::CreateForm).from_params(params)
+        @form = form(Decidim::Amendable::CreateForm).from_params(create_params)
       end
     end
 
     def create
       enforce_permission_to :create, :amendment, current_component: amendable.component
 
-      @form = form(Decidim::Amendable::CreateForm).from_params(params)
+      @form = form(Decidim::Amendable::CreateForm).from_params(create_params)
 
       Decidim::Amendable::CreateDraft.call(@form) do
         on(:ok) do |amendment|
@@ -147,13 +147,13 @@ module Decidim
     def review
       enforce_permission_to :accept, :amendment, amendable:, current_component: amendable.component
 
-      @form = form(Decidim::Amendable::ReviewForm).from_params(params)
+      @form = form(Decidim::Amendable::ReviewForm).from_params(review_params)
     end
 
     def accept
       enforce_permission_to :accept, :amendment, amendable:, current_component: amendable.component
 
-      @form = form(Decidim::Amendable::ReviewForm).from_params(params)
+      @form = form(Decidim::Amendable::ReviewForm).from_params(review_params)
 
       Decidim::Amendable::Accept.call(@form) do
         on(:ok) do |emendation|
@@ -192,12 +192,46 @@ module Decidim
       params[:amendable_gid] || params.dig(:amendment, :amendable_gid)
     end
 
+    # Binds the create form to the already-checked amendable, so a conflicting
+    # nested `amendment[amendable_gid]` cannot select another resource.
+    def create_params
+      params.deep_merge(amendment: { amendable_gid: amendable&.to_sgid&.to_s })
+    end
+
+    # Binds the review form to the amendment from the route, so a nested
+    # `amendment[id]` cannot select a different amendment.
+    def review_params
+      params.deep_merge(amendment: { id: amendment&.id })
+    end
+
     def amendment
-      @amendment ||= Decidim::Amendment.find_by(id: params[:id])
+      @amendment ||= Decidim::Amendment.find_by(id: params[:id]) # rubocop:disable Decidim/OrganizationScopedFinder -- Amendment has no organization column; #amendable validates the owning resource
     end
 
     def amendable
-      @amendable ||= GlobalID::Locator.locate_signed(amendable_gid) || amendment&.amendable
+      @amendable ||= begin
+        # Existing amendments must always resolve their own amendable, so a
+        # foreign amendment cannot be authorized through a local
+        # `amendable_gid` supplied alongside its id. The signed resource is
+        # only used when creating an amendment.
+        resource = if creating_amendment?
+                     GlobalID::Locator.locate_signed(amendable_gid)
+                   else
+                     amendment&.amendable
+                   end
+        ensure_amendable_in_organization!(resource)
+        resource
+      end
+    end
+
+    def creating_amendment?
+      %w(new create).include?(action_name)
+    end
+
+    def ensure_amendable_in_organization!(resource)
+      return if resource.blank? || resource.component&.organization == current_organization
+
+      raise ActiveRecord::RecordNotFound
     end
 
     def emendation

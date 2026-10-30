@@ -26,6 +26,18 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "does not register an offense for finders on value constants" do
+    expect_no_offenses(<<~RUBY)
+      OPTIONS.first
+    RUBY
+  end
+
+  it "does not register an offense for finders on namespaced value constants" do
+    expect_no_offenses(<<~RUBY)
+      Decidim::PAGINATION_OPTIONS.first
+    RUBY
+  end
+
   it "registers an offense for unscoped Model.where(...).first" do
     expect_offense(<<~RUBY)
       Template.where(name: "foo").first
@@ -166,6 +178,79 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
   it "accepts current_organization scoped find" do
     expect_no_offenses(<<~RUBY)
       current_organization.users.find(params.expect(:id))
+    RUBY
+  end
+
+  it "accepts a query object constructed with current_organization" do
+    expect_no_offenses(<<~RUBY)
+      OrganizationAssemblies.new(current_organization).query.where(slug: params[:slug]).first!
+    RUBY
+  end
+
+  it "accepts two query objects constructed with current_organization combined with or" do
+    expect_no_offenses(<<~RUBY)
+      OrganizationAssemblies.new(current_organization).query.where(slug: params[:slug]).or(
+        OrganizationAssemblies.new(current_organization).query.where(id: params[:slug])
+      ).first!
+    RUBY
+  end
+
+  it "accepts an or relation mixing a query object and a current_organization scoped relation" do
+    expect_no_offenses(<<~RUBY)
+      OrganizationAssemblies.new(current_organization).query.or(current_organization.assemblies.where(id: params[:id])).first!
+    RUBY
+  end
+
+  it "accepts an or relation with a helper filtering by the current component" do
+    expect_no_offenses(<<~RUBY)
+      Meeting
+        .includes(:taxonomies)
+        .where(component: current_component)
+        .published
+        .not_hidden
+        .or(MeetingLink.find_meetings(component: current_component))
+        .visible_for(current_user)
+    RUBY
+  end
+
+  it "registers an offense when one or branch is constructed without the current organization" do
+    expect_offense(<<~RUBY)
+      OrganizationAssemblies.new(current_organization).query.or(OrganizationAssemblies.new(params[:organization_id]).query).first!
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense when a nested or branch is not organization scoped" do
+    expect_offense(<<~RUBY)
+      OrganizationAssemblies.new(current_organization).query.or(current_organization.assemblies.or(OrganizationAssemblies.new(params[:organization_id]).query)).first!
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "accepts nested or branches that are all organization scoped" do
+    expect_no_offenses(<<~RUBY)
+      OrganizationAssemblies.new(current_organization).query.or(current_organization.assemblies.or(current_organization.participatory_processes)).first!
+    RUBY
+  end
+
+  it "registers an offense for an or relation with an unscoped branch that is not a model constant" do
+    expect_offense(<<~RUBY)
+      taxonomies.roots.or(taxonomies.where(id: available_taxonomy_ids))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for an unscoped or branch consumed by a finder without a model constant" do
+    expect_offense(<<~RUBY)
+      current_organization.taxonomies.or(Decidim::Taxonomy.all).find(params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a query object constructed with untrusted arguments" do
+    expect_offense(<<~RUBY)
+      OrganizationAssemblies.new(params[:organization_id]).query.where(slug: params[:slug]).first!
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
     RUBY
   end
 

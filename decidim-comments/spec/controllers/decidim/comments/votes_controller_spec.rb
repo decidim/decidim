@@ -77,6 +77,22 @@ module Decidim
             end
           end
 
+          context "when the comment belongs to another organization" do
+            let(:other_organization) { create(:organization) }
+            let(:other_participatory_space) { create(:participatory_process, organization: other_organization) }
+            let(:other_component) { create(:component, participatory_space: other_participatory_space) }
+            let(:other_commentable) { create(:dummy_resource, component: other_component) }
+            let(:other_comment) { create(:comment, commentable: other_commentable) }
+
+            it "does not vote on the comment" do
+              expect do
+                post :create, xhr: true, params: { comment_id: other_comment.id, weight: 1 }
+              end.to raise_error(ActionController::RoutingError)
+
+              expect(other_comment.up_votes.count).to eq(0)
+            end
+          end
+
           context "when the comment does not exist" do
             it "raises a routing error" do
               last_id = Decidim::Comments::Comment.last&.id || 0

@@ -5,6 +5,7 @@ module Decidim
     # A controller to expose a simple JSON API so OAuth clients can get the user's information.
     class CredentialsController < ApplicationController
       before_action :doorkeeper_authorize!
+      before_action :validate_token_organization!
       respond_to :json
 
       def me
@@ -23,8 +24,14 @@ module Decidim
         }
       end
 
+      def validate_token_organization!
+        return if doorkeeper_token&.application&.organization == current_organization
+
+        head :unauthorized
+      end
+
       def current_resource_owner
-        @current_resource_owner ||= Decidim::User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+        @current_resource_owner ||= current_organization.users.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
       end
 
       def avatar_url

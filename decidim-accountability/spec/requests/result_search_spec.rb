@@ -59,6 +59,8 @@ RSpec.describe "Result search" do
   let(:request_path) { main_component_path(component) }
 
   before do
+    allow(Decidim::Accountability::Result).to receive(:where).and_call_original
+
     get(
       request_path,
       params: { parent_id:, filter: filter_params },
@@ -95,6 +97,11 @@ RSpec.describe "Result search" do
         it "returns the search on the children of result" do
           expect(subject).to contain_exactly(result2, result3)
         end
+
+        it "scopes the child results query to the current component" do
+          expect(Decidim::Accountability::Result).to have_received(:where)
+            .with(component:, parent_id: result1.id.to_s)
+        end
       end
 
       context "when the parent_id is result2" do
@@ -102,6 +109,19 @@ RSpec.describe "Result search" do
 
         it "returns the search on the children of result" do
           expect(subject).to contain_exactly(result3)
+        end
+      end
+
+      context "when the parent result belongs to another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:other_participatory_space) { create(:participatory_process, organization: other_organization) }
+        let(:other_component) { create(:accountability_component, participatory_space: other_participatory_space) }
+        let!(:other_parent) { create(:result, component: other_component) }
+        let!(:other_child) { create(:result, component: other_component, parent: other_parent) }
+        let(:parent_id) { other_child.parent_id }
+
+        it "does not return results from another organization" do
+          expect(subject).to be_empty
         end
       end
     end

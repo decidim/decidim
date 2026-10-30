@@ -77,6 +77,7 @@ module Decidim
       end
 
       def membership_request
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- current_participatory_space is scoped via NeedsInitiative
         @membership_request ||= InitiativesCommitteeMember.where(initiative: current_participatory_space).find(params.expect(:id))
       end
     end
