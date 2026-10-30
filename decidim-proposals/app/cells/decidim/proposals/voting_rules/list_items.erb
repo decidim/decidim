@@ -1,0 +1,19 @@
+<% if vote_limit_rule? %>
+  <li><%= t("vote_limit.description", scope: i18n_scope, limit: component_settings.vote_limit) %></li>
+<% end %>
+
+<% if proposal_limit_rule? %>
+  <li><%= t("proposal_limit.description", scope: i18n_scope, limit: proposal_limit) %></li>
+<% end %>
+
+<% if threshold_per_proposal_rule? %>
+  <li><%= t("threshold_per_proposal.description", scope: i18n_scope, limit: threshold_per_proposal) %></li>
+<% end %>
+
+<% if can_accumulate_votes_beyond_threshold_rule? %>
+  <li><%= t("can_accumulate_votes_beyond_threshold.description", scope: i18n_scope, limit: threshold_per_proposal) %></li>
+<% end %>
+
+<% if minimum_votes_per_user_rule? %>
+  <li><%= t("minimum_votes_per_user.description", scope: i18n_scope, votes: minimum_votes_per_user) %></li>
+<% end %>
