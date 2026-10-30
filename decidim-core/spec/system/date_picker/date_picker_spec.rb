@@ -314,6 +314,19 @@ describe "Datepicker" do
             end
           end
 
+          context "when pasting a date followed by extra text" do
+            it "pastes only the accepted date" do
+              fill_in :example_input_clipboard, with: "24/11/2012 14:30"
+
+              clipboard = find_by_id("example_input_clipboard")
+              clipboard.send_keys [:control, "a"]
+              clipboard.send_keys [:control, "c"]
+              find_by_id("example_input_date").send_keys [:control, "v"]
+              expect(page).to have_field("example_input_date", with: "24/11/2012")
+              expect(page).to have_field("example_input", with: "2012-11-24T00:00", visible: :all)
+            end
+          end
+
           context "when pasting an incorrect value to date input field" do
             it "does not paste anything" do
               fill_in :example_input_clipboard, with: "example_value"
