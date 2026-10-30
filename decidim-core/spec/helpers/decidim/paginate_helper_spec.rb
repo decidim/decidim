@@ -25,6 +25,7 @@ describe Decidim::PaginateHelper do
       end
 
       context "with no items" do
+        let(:organization) { create(:organization, create_static_pages: false) }
         let(:item_amount) { 0 }
 
         it "does not render the per page options" do
