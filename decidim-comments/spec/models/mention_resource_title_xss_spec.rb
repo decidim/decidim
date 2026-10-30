@@ -12,7 +12,11 @@ module Decidim
       let(:comment) { create(:comment, commentable: proposal, body: { en: "See #{proposal.to_global_id}" }) }
 
       it "escapes the title of the mentioned proposal" do
-        expect(comment.formatted_body).not_to include(%(<img src="x" onerror="alert(document.cookie)">))
+        fragment = Loofah.fragment(comment.formatted_body)
+        mention = fragment.at_css(".editor-mention")
+
+        expect(mention.at_css("span").text).to eq(payload)
+        expect(fragment.css("img[onerror]")).to be_empty
       end
     end
   end
