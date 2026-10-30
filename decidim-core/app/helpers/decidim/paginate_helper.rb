@@ -11,7 +11,8 @@ module Decidim
     def decidim_paginate(collection, paginate_params = {})
       return if collection.total_pages <= 1 && collection.total_count <= Decidim::Paginable::OPTIONS.first
 
-      per_page = (params[:per_page] || paginate_params[:per_page] || Decidim::Paginable::OPTIONS.first).to_i
+      per_page = (params[:per_page] || paginate_params[:per_page] || collection.limit_value).to_i
+      per_page = Decidim::Paginable::OPTIONS.first unless Decidim::Paginable::OPTIONS.include?(per_page)
 
       content_tag :div, class: "flex flex-col-reverse md:flex-row items-center justify-between gap-1 py-8 md:py-16 md:flex-wrap", data: { pagination: "" } do
         template = ""
