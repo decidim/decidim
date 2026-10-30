@@ -29,7 +29,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("reportable.unreport.invalid", scope: "decidim.moderations.admin")
+            flash[:alert] = I18n.t("reportable.unreport.invalid", scope: "decidim.moderations.admin")
             redirect_to moderations_path
           end
         end
@@ -45,7 +45,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("reportable.hide.invalid", scope: "decidim.moderations.admin")
+            flash[:alert] = I18n.t("reportable.hide.invalid", scope: "decidim.moderations.admin")
             redirect_to moderations_path
           end
         end
@@ -82,7 +82,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.invalid", scope: "decidim.moderations.admin")
+            flash[:alert] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.invalid", scope: "decidim.moderations.admin")
           end
         end
         redirect_to moderations_path
