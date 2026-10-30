@@ -133,9 +133,9 @@ module Decidim::Verifications
           let(:pending_action) { { "action" => "vote", "model" => "budget" } }
           let(:stale_action) { { "action" => "answer", "model" => "survey" } }
           let(:user_extended_data) { { "ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => pending_action } }
-          let(:user) { create(:user, :ephemeral, extended_data: user_extended_data) }
+          let(:user) { create(:user, :confirmed, :ephemeral, extended_data: user_extended_data) }
           let!(:other_user) do
-            create(:user, :ephemeral, organization: user.organization, extended_data: { "ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => stale_action })
+            create(:user, :confirmed, :ephemeral, organization: user.organization, extended_data: { "ephemeral" => true, Decidim::OnboardingManager::DATA_KEY => stale_action })
           end
           let!(:duplicate_authorization) do
             create(:authorization, :granted, user: other_user, unique_id: document_number, name: handler_name)
