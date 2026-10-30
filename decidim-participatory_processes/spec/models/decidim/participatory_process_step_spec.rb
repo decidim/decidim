@@ -13,6 +13,12 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
 
+      it "uses the participatory process's steps association as the inverse" do
+        subject.save!
+
+        expect(subject.participatory_process.steps.first.participatory_process).to be(subject.participatory_process)
+      end
+
       context "when start date is after end date" do
         let(:participatory_process_step) do
           build(:participatory_process_step, start_date: 2.months.from_now, end_date: 1.month.ago)

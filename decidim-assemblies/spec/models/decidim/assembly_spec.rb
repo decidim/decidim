@@ -15,6 +15,52 @@ module Decidim
     include_examples "publicable"
     include_examples "resourceable"
 
+    describe "associations" do
+      let(:user) { create(:user) }
+      let(:assembly) { create(:assembly, organization: user.organization) }
+
+      it "has an association of assembly_user_roles" do
+        user_role = create(:assembly_user_role, assembly:, user:, role: "admin")
+
+        expect(assembly.assembly_user_roles).to eq([user_role])
+      end
+
+      it "uses the assembly_user_roles association as the inverse of the user role" do
+        create(:assembly_user_role, assembly:, user:, role: "admin")
+
+        expect(assembly.assembly_user_roles.first.assembly).to be(assembly)
+      end
+
+      context "when the assembly is trashed" do
+        let(:user_role) { create(:assembly_user_role, assembly:, user:, role: "admin") }
+
+        it "keeps the user roles, as they are not soft deletable" do
+          user_role
+
+          assembly.destroy!
+
+          expect(Decidim::AssemblyUserRole.where(id: user_role.id)).to exist
+        end
+
+        it "restores the user roles with the assembly" do
+          user_role
+
+          assembly.destroy!
+          assembly.restore
+
+          expect(assembly.reload.assembly_user_roles).to contain_exactly(user_role)
+        end
+
+        it "removes the user roles when the assembly is permanently deleted" do
+          user_role
+
+          assembly.really_destroy!
+
+          expect(Decidim::AssemblyUserRole.where(id: user_role.id)).not_to exist
+        end
+      end
+    end
+
     context "when there is an assembly with the same slug in the same organization" do
       let!(:external_assembly) { create(:assembly, organization: assembly.organization, slug: "my-slug") }
 

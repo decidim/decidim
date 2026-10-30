@@ -10,7 +10,7 @@ module Decidim
 
       translatable_fields :title
 
-      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
+      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference", inverse_of: :media_links
 
       def self.log_presenter_class_for(_log)
         Decidim::Conferences::AdminLog::MediaLinkPresenter

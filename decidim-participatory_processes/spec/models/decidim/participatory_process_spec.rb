@@ -15,6 +15,52 @@ module Decidim
     it_behaves_like "publicable"
     it_behaves_like "has members"
 
+    describe "associations" do
+      let(:user) { create(:user) }
+      let(:participatory_process) { create(:participatory_process, organization: user.organization) }
+
+      it "has an association of participatory_process_user_roles" do
+        user_role = create(:participatory_process_user_role, participatory_process:, user:, role: "admin")
+
+        expect(participatory_process.participatory_process_user_roles).to eq([user_role])
+      end
+
+      it "uses the participatory_process_user_roles association as the inverse of the user role" do
+        create(:participatory_process_user_role, participatory_process:, user:, role: "admin")
+
+        expect(participatory_process.participatory_process_user_roles.first.participatory_process).to be(participatory_process)
+      end
+
+      context "when the participatory process is trashed" do
+        let(:user_role) { create(:participatory_process_user_role, participatory_process:, user:, role: "admin") }
+
+        it "keeps the user roles, as they are not soft deletable" do
+          user_role
+
+          participatory_process.destroy!
+
+          expect(Decidim::ParticipatoryProcessUserRole.where(id: user_role.id)).to exist
+        end
+
+        it "restores the user roles with the participatory process" do
+          user_role
+
+          participatory_process.destroy!
+          participatory_process.restore
+
+          expect(participatory_process.reload.participatory_process_user_roles).to contain_exactly(user_role)
+        end
+
+        it "removes the user roles when the participatory process is permanently deleted" do
+          user_role
+
+          participatory_process.really_destroy!
+
+          expect(Decidim::ParticipatoryProcessUserRole.where(id: user_role.id)).not_to exist
+        end
+      end
+    end
+
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))
         .to eq Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter

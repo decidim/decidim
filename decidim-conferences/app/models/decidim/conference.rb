@@ -39,22 +39,39 @@ module Decidim
     has_many :speakers,
              foreign_key: "decidim_conference_id",
              class_name: "Decidim::ConferenceSpeaker",
-             dependent: :destroy
+             dependent: :destroy,
+             inverse_of: :conference
 
     has_many :partners,
              foreign_key: "decidim_conference_id",
              class_name: "Decidim::Conferences::Partner",
-             dependent: :destroy
+             dependent: :destroy,
+             inverse_of: :conference
 
-    has_many :conference_registrations, class_name: "Decidim::Conferences::ConferenceRegistration", foreign_key: "decidim_conference_id", dependent: :destroy
+    has_many :conference_registrations,
+             class_name: "Decidim::Conferences::ConferenceRegistration",
+             foreign_key: "decidim_conference_id",
+             dependent: :destroy,
+             inverse_of: :conference
 
     has_many :conference_invites, class_name: "Decidim::Conferences::ConferenceInvite",
-                                  foreign_key: "decidim_conference_id", dependent: :destroy
+                                  foreign_key: "decidim_conference_id", dependent: :destroy, inverse_of: :conference
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
-    has_many :media_links, class_name: "Decidim::Conferences::MediaLink", foreign_key: "decidim_conference_id", dependent: :destroy
-    has_many :registration_types, class_name: "Decidim::Conferences::RegistrationType", foreign_key: "decidim_conference_id", dependent: :destroy
+    has_many :media_links, class_name: "Decidim::Conferences::MediaLink", foreign_key: "decidim_conference_id", dependent: :destroy, inverse_of: :conference
+    has_many :registration_types, class_name: "Decidim::Conferences::RegistrationType", foreign_key: "decidim_conference_id", dependent: :destroy, inverse_of: :conference
+    # Trashing a conference is a soft delete and `Decidim::ConferenceUserRole` is not soft deletable, so
+    # `dependent: :destroy` would remove the roles permanently and restoring the conference could not bring them
+    # back. The roles are only removed when the conference is permanently deleted.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :conference_user_roles,
+             foreign_key: "decidim_conference_id",
+             class_name: "Decidim::ConferenceUserRole",
+             inverse_of: :conference
+
+    # Query by the conference id instead of the association, which may be a stale cached collection.
+    after_real_destroy { Decidim::ConferenceUserRole.where(conference: self).destroy_all }
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }

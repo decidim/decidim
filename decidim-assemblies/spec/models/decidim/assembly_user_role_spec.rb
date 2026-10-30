@@ -12,6 +12,17 @@ module Decidim
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
 
+    it "has an association of assembly" do
+      expect(assembly_user_role.assembly).to be_a(Decidim::Assembly)
+    end
+
+    it "has the assembly_user_roles association as the inverse of the assembly" do
+      assembly_user_role.save!
+
+      expect(assembly_user_role.assembly.assembly_user_roles).to eq([assembly_user_role])
+      expect(assembly_user_role.assembly.assembly_user_roles.first.assembly).to be(assembly_user_role.assembly)
+    end
+
     context "when the role is admin" do
       let(:role) { "admin" }
 

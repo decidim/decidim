@@ -10,7 +10,7 @@ module Decidim
 
       TYPES = %w(main_promotor collaborator).freeze
 
-      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
+      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference", inverse_of: :partners
 
       default_scope { order(partner_type: :desc, weight: :asc) }
 

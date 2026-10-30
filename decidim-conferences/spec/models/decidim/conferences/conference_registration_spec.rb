@@ -14,6 +14,16 @@ module Decidim
 
       it { is_expected.to be_valid }
 
+      describe "associations" do
+        it "uses the conference's conference_registrations association as the inverse" do
+          expect(conference_registration.conference.conference_registrations.first.conference).to be(conference)
+        end
+
+        it "uses the registration type's conference_registrations association as the inverse" do
+          expect(conference_registration.registration_type.conference_registrations.first.registration_type).to be(registration_type)
+        end
+      end
+
       describe "counter cache" do
         it "increments the registration_type counter when a conference registration is created" do
           other_user = create(:user, organization: conference.organization)
