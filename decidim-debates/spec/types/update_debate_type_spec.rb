@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "tempfile"
 
 module Decidim
   module Debates
@@ -125,6 +126,81 @@ module Decidim
       context "with api_user" do
         it_behaves_like "manage debate mutation examples" do
           let!(:user_type) { :api_user }
+        end
+      end
+
+      context "with attachments" do
+        let!(:current_component) do
+          create(
+            :debates_component,
+            :published,
+            :with_creation_enabled,
+            :with_attachments_allowed,
+            participatory_space: participatory_process
+          )
+        end
+
+        let(:file) do
+          Rack::Multipart::UploadedFile.new(
+            Decidim::Dev.asset("city.jpeg"),
+            "image/jpeg",
+            filename: "city.jpeg"
+          )
+        end
+        let(:attachment_title) { "Debate photo" }
+
+        let(:attributes) do
+          {
+            title:,
+            description:,
+            attachments: [{ file:, title: attachment_title }]
+          }
+        end
+
+        it_behaves_like "file upload validation rules"
+
+        it "adds the uploaded file to the debate" do
+          expect { response }.to change(Decidim::Attachment, :count).by(1)
+
+          attachment = model.reload.attachments.detect { |attachment| attachment.title == { "en" => attachment_title } }
+
+          expect(attachment.attached_to).to eq(model)
+          expect(attachment.file.blob.filename).to eq("city.jpeg")
+          expect(attachment.file.blob.content_type).to eq("image/jpeg")
+        end
+
+        it "keeps the attachments which were already attached to the debate" do
+          existing = create(:attachment, attached_to: model)
+
+          expect { response }.to change(Decidim::Attachment, :count).by(1)
+
+          expect(model.reload.attachments.map(&:id)).to include(existing.id)
+        end
+
+        context "when the user is not the author" do
+          let!(:model) { create(:debate, component: current_component) }
+
+          it "does not store the uploaded file" do
+            count = ActiveStorage::Blob.count
+
+            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission/)
+
+            expect(ActiveStorage::Blob.count).to eq(count)
+          end
+        end
+
+        context "when the component does not allow attachments" do
+          let!(:current_component) do
+            create(:debates_component, :published, :with_creation_enabled, participatory_space: participatory_process)
+          end
+
+          it "raises an error and does not store the uploaded file" do
+            count = ActiveStorage::Blob.count
+
+            expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, /Attachments are not allowed for this component/)
+
+            expect(ActiveStorage::Blob.count).to eq(count)
+          end
         end
       end
 

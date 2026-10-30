@@ -97,6 +97,7 @@ module Decidim
   autoload :Snippets, "decidim/snippets"
   autoload :OrganizationSettings, "decidim/organization_settings"
   autoload :HasUploadValidations, "decidim/has_upload_validations"
+  autoload :UploadContentTypes, "decidim/upload_content_types"
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"

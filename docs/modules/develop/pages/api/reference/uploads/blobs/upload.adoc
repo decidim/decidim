@@ -1,0 +1,72 @@
+= Upload files
+
+== Sample request
+
+The `uploadFile` mutation allows authenticated administrators to upload and create file blobs.
+
+[source,graphql]
+----
+mutation ($input: UploadFileInput!) {
+  uploadFile(input: $input) {
+    blob {
+      id
+      filename
+      byteSize
+      signedId
+      checksum
+    }
+  }
+}
+----
+
+The `uploadFile` mutation accepts a file through a multipart GraphQL request. Send the file as `multipart/form-data` using the https://github.com/jaydenseric/graphql-multipart-request-spec[GraphQL multipart request spec].
+
+The file variable must be `null` in the `operations` payload, and the uploaded file is mapped separately:
+
+[source,bash]
+----
+curl -X POST https://example.org/api/ \
+  -F 'operations={"query":"mutation ($input: UploadFileInput!) { uploadFile(input: $input) { blob { id filename byteSize signedId checksum } } }","variables":{"input":{"file":null}}}' \
+  -F 'map={"0":["variables.input.file"]}' \
+  -F '0=@/path/to/file.jpg'
+----
+
+The uploaded blob is not attached to any record: attachments are created from the
+file sent in the same request (see
+xref:develop:api/reference/uploads/attachments/create.adoc[createAttachment]), so
+a blob uploaded through this mutation is not used by any record and it is removed
+by the xref:install:index.adoc#scheduled_tasks[scheduled cleanup task]
+(`rake decidim:attachments_cleanup`, hourly by default). The cleanup window (60
+minutes by default) only makes an abandoned upload eligible for deletion: the task
+has to be scheduled on the instance, and when it runs it queues the purge as a
+background job, so the file is deleted some time after the window elapses rather
+than at the exact mark.
+
+The filename extension and the content type are checked independently against
+their configured allowlists, so a file is rejected when either the extension or
+the content type is not allowed. Both the content type declared by the client and
+the one detected from the file contents must be allowed, and the detected type is
+the one stored with the blob; a file with an allowed extension and a false MIME
+declaration is therefore rejected. The content type parameters (e.g.
+`image/png;charset=binary`) are stripped before the comparison.
+
+The upload is an administrative operation, so the OAuth token used for the request
+must have been granted the `admin:read` and the `admin:write` scopes, and the user
+must be an administrator. A token granted only the participant scopes is rejected,
+including the ones with `api:write`, as that scope only allows writing data on
+behalf of a participant. The scopes are the ones granted to the token by the OAuth
+application: requests authenticated in another way (the session or the API
+credentials) are not limited by them, as all the scopes are assumed for these
+authentication methods.
+
+Documents detected as SVG are validated before the blob is created, as an SVG
+document is parsed by the browser when it is rendered and can execute scripts or
+read external resources. Documents which contain active content (scripts, event
+handlers, references to resources of another host) and the ones which are not well
+formed SVG documents are rejected with a validation error.
+
+== Error Handling
+
+* xref:develop:api/reference/errors/unauthorized_field.adoc[Unauthorized Field Error - UNAUTHORIZED_FIELD_ERROR] - when the token does not have the required scopes
+* xref:develop:api/reference/errors/unauthorized_mutation.adoc[Unauthorized Mutation Error - MUTATION_NOT_AUTHORIZED_ERROR] - when the user is not an administrator
+* xref:develop:api/reference/errors/validation_error.adoc[Attribute Error - VALIDATION_ERROR]
