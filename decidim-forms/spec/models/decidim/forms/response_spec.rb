@@ -24,6 +24,14 @@ module Decidim
         expect(subject.question).to eq(question)
       end
 
+      it "uses the questionnaire's responses association as the inverse" do
+        expect(response.questionnaire.responses.first.questionnaire).to be(questionnaire)
+      end
+
+      it "uses the question's responses association as the inverse" do
+        expect(response.question.responses.first.question).to be(question)
+      end
+
       it "has an association of user" do
         expect(subject.user).to eq(user)
       end

@@ -7,7 +7,15 @@ module Decidim
       include Decidim::TranslatableResource
 
       translatable_fields :body
-      belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id", counter_cache: :matrix_rows_count
+      belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id", counter_cache: :matrix_rows_count, inverse_of: :matrix_rows
+
+      # Recorded choices are part of a response, so removing the row must not
+      # delete them; the row can only be removed once it has no choices.
+      has_many :choices,
+               class_name: "ResponseChoice",
+               foreign_key: "decidim_question_matrix_row_id",
+               dependent: :restrict_with_error,
+               inverse_of: :matrix_row
 
       delegate :response_options, :mandatory, :max_choices, to: :question
 

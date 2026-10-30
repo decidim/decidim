@@ -34,5 +34,19 @@ module Decidim::Budgets
         expect(subject).to be_invalid
       end
     end
+
+    describe "associations" do
+      it "uses the order's line_items association as the inverse" do
+        subject.save!
+
+        expect(subject.order.line_items.first.order).to be(subject.order)
+      end
+
+      it "uses the project's line_items association as the inverse" do
+        subject.save!
+
+        expect(subject.project.line_items.first.project).to be(subject.project)
+      end
+    end
   end
 end

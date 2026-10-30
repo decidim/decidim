@@ -11,7 +11,7 @@ module Decidim
 
       translatable_fields :title
 
-      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
+      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting", inverse_of: :agenda
       has_many :agenda_items, foreign_key: "decidim_agenda_id", class_name: "Decidim::Meetings::AgendaItem", dependent: :destroy, inverse_of: :agenda
 
       def self.log_presenter_class_for(_log)

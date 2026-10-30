@@ -21,6 +21,10 @@ module Decidim
         expect(subject.questionnaire).to eq(questionnaire)
       end
 
+      it "uses the questionnaire's questions association as the inverse" do
+        expect(question.questionnaire.questions.first.questionnaire).to be(questionnaire)
+      end
+
       describe "#responded_by?" do
         it "returns false if user has not responded the question" do
           expect(subject.responded_by?(current_user)).to be(false)

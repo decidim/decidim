@@ -1046,6 +1046,56 @@ describe "Admin manages demographic questions" do
   it_behaves_like "add questions"
   it_behaves_like "update questions"
 
+  context "when the questionnaire has recorded answers" do
+    let!(:question) do
+      create(
+        :questionnaire_question,
+        questionnaire:,
+        question_type: "single_option",
+        options: [
+          { "body" => { "en" => "First response" } },
+          { "body" => { "en" => "Second response" } },
+          { "body" => { "en" => "Third response" } }
+        ]
+      )
+    end
+    let!(:response) { create(:response, questionnaire:, question:) }
+    let!(:choice) { create(:response_choice, response:, response_option: question.response_options.first) }
+
+    before do
+      visit manage_questions_path
+      expand_all_questions
+    end
+
+    it "shows why the answered option cannot be removed instead of erroring" do
+      within ".questionnaire-question-response-option:first-of-type" do
+        click_on "Remove"
+      end
+
+      click_on "Save"
+
+      expect(page).to have_callout("First response cannot be removed because it has recorded answers.")
+
+      visit manage_questions_path
+      expand_all_questions
+
+      expect(page).to have_css(".questionnaire-question-response-option", count: 3)
+    end
+
+    # The callout renders the flash as HTML, so the saved text must appear as text.
+    it "renders the saved option text as text in the error callout" do
+      question.response_options.first.update!(body: { "en" => "<script>alert(1)</script>" })
+
+      within ".questionnaire-question-response-option:first-of-type" do
+        click_on "Remove"
+      end
+
+      click_on "Save"
+
+      expect(page).to have_callout("<script>alert(1)</script> cannot be removed because it has recorded answers.")
+    end
+  end
+
   def expand_all_questions
     sleep(1)
     expect(page).to have_text("Expand all questions")

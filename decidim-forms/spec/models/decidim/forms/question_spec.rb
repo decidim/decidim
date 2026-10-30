@@ -18,6 +18,12 @@ module Decidim
         expect(subject.questionnaire).to eq(questionnaire)
       end
 
+      it "uses the questionnaire's questions association as the inverse" do
+        subject.save!
+
+        expect(questionnaire.questions.first.questionnaire).to be(questionnaire)
+      end
+
       it "has an association of display_conditions" do
         expect(subject.display_conditions).to match_array(display_conditions)
       end
@@ -55,6 +61,25 @@ module Decidim
 
         it "has an association of matrix_rows" do
           expect(subject.matrix_rows).to match_array(matrix_rows)
+        end
+      end
+
+      context "when the question has recorded responses" do
+        let(:question_type) { "matrix_single" }
+        let(:question) { create(:questionnaire_question, questionnaire:, question_type:) }
+
+        it "still destroys the responses and their choices when the question is destroyed" do
+          response_option = create(:response_option, question:)
+          matrix_row = create(:question_matrix_row, question:)
+          response = create(:response, question:, questionnaire:)
+          choice = create(:response_choice, response:, response_option:, matrix_row:)
+
+          # Loaded fresh, as it is when the whole question is removed (component deletion,
+          # questionnaire deletion), so the options and rows are evaluated against the DB.
+          fresh_question = Decidim::Forms::Question.find(question.id)
+
+          expect(fresh_question.destroy).to be_truthy
+          expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(false)
         end
       end
 

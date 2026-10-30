@@ -26,6 +26,12 @@ module Decidim
       it "has an associated meeting" do
         expect(agenda.meeting).to be_a(Decidim::Meetings::Meeting)
       end
+
+      it "uses the meeting's agenda association as the inverse" do
+        meeting = agenda.meeting
+
+        expect(meeting.agenda.meeting).to be(meeting)
+      end
     end
   end
 end

@@ -5,7 +5,7 @@ module Decidim
     class Voter < Elections::ApplicationRecord
       include Decidim::Traceable
 
-      belongs_to :election, class_name: "Decidim::Elections::Election"
+      belongs_to :election, class_name: "Decidim::Elections::Election", inverse_of: :voters
 
       validates :data, presence: true
 

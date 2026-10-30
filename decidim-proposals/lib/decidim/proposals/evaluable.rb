@@ -9,7 +9,8 @@ module Decidim
 
       included do
         has_many :evaluation_assignments, foreign_key: "decidim_proposal_id", dependent: :destroy,
-                                          counter_cache: :evaluation_assignments_count, class_name: "Decidim::Proposals::EvaluationAssignment"
+                                          counter_cache: :evaluation_assignments_count, class_name: "Decidim::Proposals::EvaluationAssignment",
+                                          inverse_of: :proposal
 
         def evaluators
           evaluator_role_ids = evaluation_assignments.where(proposal: self).pluck(:evaluator_role_id)
