@@ -4,6 +4,7 @@ Decidim.register_component(:dummy) do |component|
   component.engine = Decidim::Dev::Engine
   component.admin_engine = Decidim::Dev::AdminEngine
   component.icon = "media/images/decidim_dev_dummy.svg"
+  component.component_form_class_name = "Decidim::Dev::Admin::DummyComponentForm"
 
   component.actions = %w(foo bar)
 
@@ -21,6 +22,7 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :amendments_enabled, type: :boolean, default: false
     settings.attribute :dummy_global_translatable_text, type: :text, translated: true, editor: true, required: true
+    settings.attribute :error_honeypot_number, type: :integer, default: 0
   end
 
   component.settings(:step) do |settings|
