@@ -45,6 +45,7 @@ module Decidim
         end
 
         def create_nested_model(form, attributes, _agenda_item_children)
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- attributes include the agenda scoped to the current meeting
           record = Decidim::Meetings::AgendaItem.find_or_create_by!(attributes)
 
           yield record if block_given?

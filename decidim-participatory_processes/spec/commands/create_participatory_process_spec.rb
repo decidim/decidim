@@ -176,6 +176,19 @@ module Decidim::ParticipatoryProcesses
             expect(linked_processes.first).to eq(process_two)
           end
         end
+
+        context "when a related process belongs to another organization" do
+          let(:other_organization) { create(:organization) }
+          let!(:foreign_process) { create(:participatory_process, organization: other_organization) }
+          let(:related_process_ids) { [another_process.id, foreign_process.id] }
+
+          it "does not link the other process" do
+            subject.call
+
+            linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
+            expect(linked_processes).to contain_exactly(another_process)
+          end
+        end
       end
     end
   end

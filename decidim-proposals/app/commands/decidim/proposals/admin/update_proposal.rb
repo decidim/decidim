@@ -48,7 +48,7 @@ module Decidim
         attr_reader :form, :proposal, :attachment, :gallery
 
         def delete_attachment(attachment)
-          Attachment.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
+          proposal.attachments.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
         end
 
         def update_proposal
