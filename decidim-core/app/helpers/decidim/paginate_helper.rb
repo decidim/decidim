@@ -16,12 +16,13 @@ module Decidim
 
       content_tag :div, class: "flex flex-col-reverse md:flex-row items-center justify-between gap-1 py-8 md:py-16 md:flex-wrap", data: { pagination: "" } do
         template = ""
-        if show_per_page_selector
-          template += render(partial: "decidim/shared/results_per_page", locals: { per_page: }, formats: [:html])
-        else
-          # Add an empty div to position the pagination pages consistently.
-          template += content_tag :div
-        end
+        template +=
+          if show_per_page_selector
+            render(partial: "decidim/shared/results_per_page", locals: { per_page: }, formats: [:html])
+          else
+            # Add an empty div to position the pagination pages consistently.
+            content_tag :div
+          end
         template += paginate collection, window: 2, outer_window: 1, theme: "decidim", params: pagination_params(paginate_params)
         template.html_safe
       end
