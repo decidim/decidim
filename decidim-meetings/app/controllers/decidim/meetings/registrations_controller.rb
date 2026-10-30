@@ -136,6 +136,18 @@ module Decidim
         redirect_to meeting_path(meeting)
       end
 
+      def user_has_no_permission
+        unauthenticated_allowed = %w(create decline_invitation)
+
+        if current_user.blank? && unauthenticated_allowed.include?(action_name)
+          store_location_for(:user, request.fullpath)
+          redirect_to decidim.new_user_session_path
+          return
+        end
+
+        super
+      end
+
       def user_has_no_permission_path
         return meeting_path(meeting) if user_signed_in?
 
