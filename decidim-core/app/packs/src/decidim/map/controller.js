@@ -1,5 +1,8 @@
 import MapControllerRegistry from "src/decidim/map/controller_registry"
 
+const designSystemColor = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+const primaryColor = () => designSystemColor("--primary") || designSystemColor("--color-color-primary")
+
 export default class MapController {
   constructor(mapId, config) {
     // Remove the old map if there is already one with the same ID.
@@ -11,7 +14,7 @@ export default class MapController {
     this.mapId = mapId;
     this.config = $.extend({
       popupTemplateId: "marker-popup",
-      markerColor: "#e02d2d"
+      markerColor: primaryColor()
     }, config);
 
     this.map = null;

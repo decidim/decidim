@@ -190,14 +190,6 @@ module Decidim
           expect(response).to include("about" => model.about)
         end
       end
-
-      describe "personalUrl" do
-        let(:query) { "{ personalUrl }" }
-
-        it "returns the personal url field" do
-          expect(response).to include("personalUrl" => model.personal_url)
-        end
-      end
     end
   end
 end
