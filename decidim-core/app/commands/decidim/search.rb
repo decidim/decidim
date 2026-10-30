@@ -81,6 +81,7 @@ module Decidim
     end
 
     def filtered_query_for(class_name)
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- organization is the organization passed to the command
       query = SearchableResource.where(
         organization:,
         locale: I18n.locale,

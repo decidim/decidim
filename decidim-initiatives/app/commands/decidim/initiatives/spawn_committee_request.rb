@@ -21,6 +21,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid) unless initiative
 
         request = create_request
 
@@ -38,7 +39,7 @@ module Decidim
 
       def create_request
         request = InitiativesCommitteeMember.new(
-          decidim_initiatives_id: form.initiative_id,
+          decidim_initiatives_id: initiative.id,
           decidim_users_id: form.user_id,
           state: form.state
         )
@@ -62,7 +63,11 @@ module Decidim
       end
 
       def initiative
-        @initiative ||= Decidim::Initiative.find(form.initiative_id)
+        @initiative ||= Decidim::Initiative.where(decidim_organization_id: current_organization.id).find_by(id: form.initiative_id)
+      end
+
+      def current_organization
+        form.current_organization
       end
     end
   end

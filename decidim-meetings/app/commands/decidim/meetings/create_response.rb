@@ -41,7 +41,7 @@ module Decidim
 
         form.selected_choices.each do |choice|
           response.choices.build(
-            body: choice.body || translated_attribute(ResponseOption.find_by(id: choice.response_option_id)&.body),
+            body: choice.body || translated_attribute(form.question.response_options.find_by(id: choice.response_option_id)&.body),
             decidim_response_option_id: choice.response_option_id
           )
         end

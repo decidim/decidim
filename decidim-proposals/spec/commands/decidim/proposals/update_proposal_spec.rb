@@ -201,6 +201,18 @@ module Decidim
                 expect { command.call }.to change(Decidim::Attachment, :count).from(1).to(2)
               end
             end
+
+            context "with an attachment from another proposal" do
+              let(:other_component) { create(:proposal_component) }
+              let(:other_proposal) { create(:proposal, component: other_component) }
+              let!(:foreign_file) { create(:attachment, :with_pdf, attached_to: other_proposal) }
+              let(:uploaded_files) { [{ id: foreign_file.id, title: "Hacked title" }] }
+
+              it "does not update the attachment" do
+                expect { command.call }.to raise_error(ActiveRecord::RecordNotFound)
+                expect(foreign_file.reload.title["en"]).not_to eq("Hacked title")
+              end
+            end
           end
 
           context "when attachments are allowed and file is invalid" do

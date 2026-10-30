@@ -20,10 +20,7 @@ module Decidim
       # Returns nothing.
       def call
         ActiveRecord::Base.transaction do
-          ProposalVote.where(
-            author: @current_user,
-            proposal: @proposal
-          ).destroy_all
+          @proposal.votes.where(author: @current_user).destroy_all
 
           update_temporary_votes
         end
@@ -54,6 +51,7 @@ module Decidim
       end
 
       def user_votes
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- votes are restricted to the proposal's component
         @user_votes ||= ProposalVote.where(
           author: @current_user,
           proposal: Proposal.where(component:)

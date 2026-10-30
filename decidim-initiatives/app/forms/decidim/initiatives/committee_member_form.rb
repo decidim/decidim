@@ -23,7 +23,7 @@ module Decidim
       private
 
       def initiative
-        @initiative ||= Decidim::Initiative.find_by(id: initiative_id)
+        @initiative ||= Decidim::Initiative.where(decidim_organization_id: current_organization.id).find_by(id: initiative_id)
       end
     end
   end

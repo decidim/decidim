@@ -109,6 +109,7 @@ module Decidim
       end
 
       def current_user_proposals
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- the component is the component the user is acting in
         Proposal.not_withdrawn.from_author(@current_user).where(component: form.current_component)
       end
 

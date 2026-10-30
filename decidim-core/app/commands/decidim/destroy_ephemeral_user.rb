@@ -32,6 +32,7 @@ module Decidim
     attr_reader :user
 
     def destroy_pending_authorizations!
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- user is the ephemeral user passed to the command, scoped to the current organization
       Decidim::Authorization.where(user:, granted_at: nil).destroy_all
     end
 

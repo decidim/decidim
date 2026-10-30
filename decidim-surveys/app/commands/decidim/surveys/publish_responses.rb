@@ -9,8 +9,8 @@ module Decidim
 
       # Initializes a PublishResponses Command.
       #
-      def initialize(question_id, current_user)
-        @question_id = question_id
+      def initialize(question, current_user)
+        @question = question
         @current_user = current_user
       end
 
@@ -30,14 +30,10 @@ module Decidim
 
       private
 
-      attr_reader :question_id, :current_user
+      attr_reader :question, :current_user
 
       def publish_survey_response
         question.update(survey_responses_published_at: Time.current)
-      end
-
-      def question
-        Decidim::Forms::Question.find(question_id)
       end
 
       def create_action_log

@@ -7,6 +7,7 @@ module Decidim
       #
       # @param organization_id [Integer] an id to fetch a Decidim::Organization instance
       def initialize(organization_id)
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- organization is the tenant root itself
         @organization = Decidim::Organization.find(organization_id)
       end
 

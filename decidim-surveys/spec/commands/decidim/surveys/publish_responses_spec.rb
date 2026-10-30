@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Surveys
   describe PublishResponses do
     describe "call" do
-      let(:command) { described_class.new(question.id, current_user) }
+      let(:command) { described_class.new(question, current_user) }
       let(:question) { create(:questionnaire_question) }
       let(:current_user) { create(:user, :confirmed, :admin) }
 

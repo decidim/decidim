@@ -60,6 +60,7 @@ module Decidim
       end
 
       def user_votes
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- votes are restricted to the proposal's component
         @user_votes ||= ProposalVote.where(
           author: @current_user,
           proposal: Proposal.where(component:)
