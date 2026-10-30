@@ -112,7 +112,22 @@ Existing values stored in the database are no longer displayed. This field will 
 
 This change is part of the work to reduce profile spam tracked in issue [#17955](https://github.com/decidim/decidim/issues/17955).
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.6. Sessions are stored to database
+
+As of this release, the user sessions are stored in the database, for improved security.
+
+There is a new cron job that you need to set, in order to clean obsolete values.
+
+```console
+rake db:sessions:trim
+```
+
+Additionally, you can set `SESSION_DAYS_TRIM_THRESHOLD` to purge expired sessions (e.g., when a user closes the browser without logging out).
+The task uses 30 days when this variable is not set, so the cron example below sets it to 3 days. This setting is independent of `DECIDIM_EXPIRE_SESSION_AFTER`, but it should typically be greater than the session expiry to avoid removing still-valid sessions.
+
+You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
+
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -136,7 +151,16 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
 with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-### 4.1. Remove unattached blobs
+### 4.1. Remove obsolete sessions
+
+```bash
+# Remove obsolete sessions
+0 3 * * * cd /home/user/decidim_application && RAILS_ENV=production SESSION_DAYS_TRIM_THRESHOLD=3 bundle exec rake db:sessions:trim
+```
+
+You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
+
+### 4.2. Remove unattached blobs
 
 Back in [#11851](https://github.com/decidim/decidim/pull/11851) we have added as a migration step a rake task aimed to clean up the unattached blobs (`decidim:upgrade:attachments_cleanup`)
 We add this as a permanent cron task, so that we can handle better the failed downloads or abandoned file uploads.
@@ -150,7 +174,7 @@ By default, the task deletes unattached blobs older than 60 minutes. This window
 
 You can read more about this change on PR [#17790](https://github.com/decidim/decidim/pull/17790).
 
-### 4.2. [[TITLE OF THE TASK]]
+### 4.3. [[TITLE OF THE TASK]]
 
 ```bash
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK

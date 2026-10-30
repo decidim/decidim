@@ -28,7 +28,6 @@ describe "Admin filters assemblies members" do
   context "when managing assembly with members" do
     before do
       switch_to_host(organization.host)
-      login_as user, scope: :user
       visit decidim_admin_assemblies.edit_assembly_path(assembly)
       within_admin_sidebar_menu do
         click_on "Members"

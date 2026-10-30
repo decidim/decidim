@@ -13,9 +13,6 @@ describe "Import proposals to projects" do
   include_context "when managing a component as an admin"
 
   before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-
     visit_component_admin
 
     within "tr", text: translated(budget.title) do
