@@ -49,13 +49,16 @@ describe "Admin manages surveys" do
     end
 
     it "shows a warning message" do
+      survey.unpublish!
+
       visit questionnaire_public_path
       expect(page).to have_text("No surveys match your search criteria or there is not any survey open.")
     end
 
-    it "allows to response survey" do
+    it "redirects to the survey" do
       visit questionnaire_public_path
-      expect(page).to have_no_field(id: "questionnaire_responses_0")
+
+      expect(page).to have_current_path(Decidim::EngineRouter.main_proxy(component).survey_path(survey), ignore_query: true)
     end
 
     context "when the survey has responses" do
@@ -327,7 +330,6 @@ describe "Admin manages surveys" do
 
     it "updates the questionnaire description" do
       visit questionnaire_public_path
-      choose "All"
 
       expect(page).to have_text("New description")
     end
@@ -342,8 +344,7 @@ describe "Admin manages surveys" do
   end
 
   def see_questionnaire_questions
-    choose "All"
-    click_on decidim_sanitize_translated(questionnaire.title)
+    # The survey is rendered directly, there is no intermediate list to navigate from.
   end
 
   def questionnaire_public_path

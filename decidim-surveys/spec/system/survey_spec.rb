@@ -33,20 +33,18 @@ describe "Respond a survey" do
 
   include_context "with a component"
 
-  it_behaves_like "preview component with a share_token"
+  it_behaves_like "preview component with a share_token" do
+    let(:resource_path) { Decidim::EngineRouter.main_proxy(component).survey_path(survey) }
+  end
 
   context "when the survey does not allow responses" do
     it "does not allow responding the survey" do
       visit_component
 
-      choose "All"
-
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       expect(page).to have_no_i18n_content(question.body)
-
-      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_text("The form is closed and cannot be responded.")
     end
@@ -97,8 +95,6 @@ describe "Respond a survey" do
 
       it "shows the charts when questions responses are published" do
         visit_component
-        choose "All"
-        click_on translated_attribute(questionnaire.title)
 
         # does not show the charts if not published
         expect(page.html).not_to include('new Chartkick["ColumnChart"]("chart-1"')
@@ -135,8 +131,6 @@ describe "Respond a survey" do
 
       component.update!(permissions:)
       visit_component
-      choose "All"
-      click_on translated_attribute(questionnaire.title)
     end
 
     it_behaves_like "accessible page"
@@ -163,8 +157,6 @@ describe "Respond a survey" do
       component.update!(permissions:)
       survey.update!(allow_responses: true, starts_at: 1.week.ago, ends_at: 1.day.from_now)
       visit_component
-      choose "All"
-      click_on translated_attribute(questionnaire.title)
     end
 
     it "renders the inline authorization page with a verification call to action" do
@@ -190,14 +182,11 @@ describe "Respond a survey" do
 
       it "does not allow responding the survey" do
         visit_component
-        choose "All"
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
         expect(page).to have_no_i18n_content(question.body)
-
-        click_on translated_attribute(questionnaire.title)
 
         expect(page).to have_text("The form is closed and cannot be responded.")
       end
@@ -223,7 +212,6 @@ describe "Respond a survey" do
           ends_at: 1.day.from_now
         )
         visit_component
-        click_on translated_attribute(questionnaire.title)
       end
 
       context "when displaying questionnaire description" do
@@ -257,7 +245,6 @@ describe "Respond a survey" do
         )
         login_as user, scope: :user
         visit_component
-        click_on translated_attribute(questionnaire.title)
         fill_in "questionnaire_responses_0", with: "test"
         check "questionnaire_tos_agreement"
         click_on "Submit"
@@ -277,7 +264,6 @@ describe "Respond a survey" do
 
     before do
       visit_component
-      click_on translated_attribute(questionnaire.title)
     end
 
     it "displays the announcement in the survey" do
@@ -290,7 +276,6 @@ describe "Respond a survey" do
 
     before do
       visit_component
-      click_on translated_attribute(questionnaire.title)
     end
 
     it "shows the survey reference" do
@@ -317,10 +302,10 @@ describe "Respond a survey" do
   end
 
   def questionnaire_public_path
-    main_component_path(component)
+    Decidim::EngineRouter.main_proxy(component).survey_path(survey)
   end
 
   def see_questionnaire_questions
-    click_on translated_attribute(questionnaire.title)
+    # The survey is rendered directly, there is no intermediate list to navigate from.
   end
 end

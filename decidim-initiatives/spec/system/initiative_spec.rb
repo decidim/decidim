@@ -288,6 +288,7 @@ describe "Initiative" do
 
       context "when visiting the debates component" do
         let!(:debate) { create(:debate, component: debates_component) }
+        let!(:another_debate) { create(:debate, component: debates_component) }
         let(:user) { create(:user, :confirmed, organization:) }
 
         before do
@@ -296,13 +297,14 @@ describe "Initiative" do
         end
 
         it "displays the debates index without errors" do
-          expect(page).to have_css('[id^="debates__debate"]', count: 1)
+          expect(page).to have_css('[id^="debates__debate"]', count: 2)
           expect(page).to have_text(translated(debate.title))
         end
       end
 
       context "when visiting the elections component" do
         let!(:election) { create(:election, :published, component: elections_component) }
+        let!(:another_election) { create(:election, :published, component: elections_component) }
         let(:user) { create(:user, :confirmed, organization:) }
 
         before do
@@ -311,7 +313,7 @@ describe "Initiative" do
         end
 
         it "displays the elections index without errors" do
-          expect(page).to have_css('[id^="elections__election"]', count: 1)
+          expect(page).to have_css('[id^="elections__election"]', count: 2)
           expect(page).to have_text(translated(election.title))
         end
       end

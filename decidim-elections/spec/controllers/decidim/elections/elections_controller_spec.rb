@@ -22,11 +22,55 @@ module Decidim
       end
 
       describe "GET index" do
+        let(:election_path) { Decidim::EngineRouter.main_proxy(component).election_path(election) }
+
         it "sorts elections by search defaults" do
           get :index
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:index)
           expect(controller.helpers.paginated_elections.order_values.first).to be_a(Arel::Nodes::Descending)
+        end
+
+        context "when there is a single published election" do
+          let!(:election) { create(:election, :published, component:) }
+
+          it "redirects to the election" do
+            get :index
+
+            expect(response).to have_http_status(:found)
+            expect(response).to redirect_to(election_path)
+          end
+
+          it "does not redirect for JS requests" do
+            request.headers["X-Requested-With"] = "XMLHttpRequest"
+
+            get :index, format: :js
+
+            expect(response).to have_http_status(:ok)
+          end
+        end
+
+        context "when there is more than one published election" do
+          let!(:election) { create(:election, :published, component:) }
+          let!(:another_election) { create(:election, :published, component:) }
+
+          it "renders the index template" do
+            get :index
+
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:index)
+          end
+        end
+
+        context "when there is a single unpublished election" do
+          let!(:election) { create(:election, component:) }
+
+          it "renders the index template" do
+            get :index
+
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:index)
+          end
         end
       end
 

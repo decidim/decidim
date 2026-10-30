@@ -12,8 +12,7 @@ describe "show" do
   let!(:debate) { create(:debate, component:, description:, information_updates:, instructions:) }
 
   before do
-    visit_component
-    click_on debate.title[I18n.locale.to_s], class: "card__list"
+    visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
   end
 
   context "when is created from the admin panel" do
