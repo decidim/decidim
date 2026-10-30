@@ -90,7 +90,7 @@
     "access_mode": "open",
     "promoted": true,
     "scopes_enabled": true,
-    "participatory_process_steps": [
+    "participatory_process_phases": [
       {
         "id": 1,
         "title": {

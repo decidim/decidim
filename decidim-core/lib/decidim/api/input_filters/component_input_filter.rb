@@ -29,7 +29,7 @@ module Decidim
 
       argument :with_comments_enabled,
                type: GraphQL::Types::Boolean,
-               description: "Returns components with comments enabled globally (can still be deactivated in the current step if the component has steps)",
+               description: "Returns components with comments enabled globally (can still be deactivated in the current phase if the component has phases)",
                required: false,
                prepare: :prepare_comments_enabled
 

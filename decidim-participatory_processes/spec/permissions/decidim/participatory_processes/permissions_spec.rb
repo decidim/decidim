@@ -419,7 +419,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :process
-      it_behaves_like "allows any action on subject", :process_step
+      it_behaves_like "allows any action on subject", :process_phase
       it_behaves_like "allows any action on subject", :process_user_role
 
       context "when process has members" do
@@ -462,7 +462,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :process
-      it_behaves_like "allows any action on subject", :process_step
+      it_behaves_like "allows any action on subject", :process_phase
       it_behaves_like "allows any action on subject", :process_user_role
 
       context "when process has members" do

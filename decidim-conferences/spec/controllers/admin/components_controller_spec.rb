@@ -45,14 +45,14 @@ module Decidim
                 comments_enabled: true,
                 dummy_global_translatable_text_en: "Dummy text"
               },
-              default_step_settings: {
+              default_phase_settings: {
                 comments_blocked: true,
-                dummy_step_translatable_text_en: "Dummy text"
+                dummy_phase_translatable_text_en: "Dummy text"
               }
             }
           end
 
-          it "publishes the default step settings change" do
+          it "publishes the default phase settings change" do
             expect(Decidim::SettingsChange).to receive(:publish).with(
               component,
               hash_including("comments_blocked" => false),

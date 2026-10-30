@@ -479,17 +479,17 @@ FactoryBot.define do
       }
     end
 
-    default_step_settings do
+    default_phase_settings do
       {
-        dummy_step_translatable_text: generate_localized_title(:dummy_step_translatable_text, skip_injection:)
+        dummy_phase_translatable_text: generate_localized_title(:dummy_phase_translatable_text, skip_injection:)
       }
     end
 
-    trait :with_one_step do
-      step_settings do
-        participatory_space_with_steps if participatory_space.active_step.nil?
+    trait :with_one_phase do
+      phase_settings do
+        participatory_space_with_phases if participatory_space.active_phase.nil?
         {
-          participatory_space.active_step.id => { dummy_step_setting: true }
+          participatory_space.active_phase.id => { dummy_phase_setting: true }
         }
       end
     end
@@ -519,40 +519,40 @@ FactoryBot.define do
     end
 
     transient do
-      participatory_space_with_steps do
-        create(:participatory_process_step,
+      participatory_space_with_phases do
+        create(:participatory_process_phase,
                active: true,
                end_date: 1.month.from_now,
                participatory_process: participatory_space,
                skip_injection:)
         participatory_space.reload
-        participatory_space.steps.reload
+        participatory_space.phases.reload
       end
     end
 
     trait :with_likes_enabled do
-      step_settings do
-        participatory_space_with_steps if participatory_space.active_step.nil?
+      phase_settings do
+        participatory_space_with_phases if participatory_space.active_phase.nil?
         {
-          participatory_space.active_step.id => { likes_enabled: true }
+          participatory_space.active_phase.id => { likes_enabled: true }
         }
       end
     end
 
     trait :with_likes_disabled do
-      step_settings do
-        participatory_space_with_steps if participatory_space.active_step.nil?
+      phase_settings do
+        participatory_space_with_phases if participatory_space.active_phase.nil?
         {
-          participatory_space.active_step.id => { likes_enabled: false }
+          participatory_space.active_phase.id => { likes_enabled: false }
         }
       end
     end
 
     trait :with_likes_blocked do
-      step_settings do
-        participatory_space_with_steps if participatory_space.active_step.nil?
+      phase_settings do
+        participatory_space_with_phases if participatory_space.active_phase.nil?
         {
-          participatory_space.active_step.id => { likes_blocked: true }
+          participatory_space.active_phase.id => { likes_blocked: true }
         }
       end
     end

@@ -7,7 +7,7 @@ describe "User creates meeting" do
   let(:manifest_name) { "meetings" }
 
   let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:current_component) do
     create(:meeting_component, participatory_space: participatory_process, settings: { taxonomy_filters: taxonomy_filter_ids })
   end

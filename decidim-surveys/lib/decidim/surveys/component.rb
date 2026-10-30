@@ -62,7 +62,7 @@ Decidim.register_component(:surveys) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.settings(:step) do |settings|
+  component.settings(:phase) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 

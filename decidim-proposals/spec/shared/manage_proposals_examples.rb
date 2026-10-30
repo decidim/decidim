@@ -4,7 +4,7 @@ shared_examples "manage proposals" do
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:, scope: participatory_process_scope) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:, scope: participatory_process_scope) }
   let(:participatory_process_scope) { nil }
   let(:proposal_title) { translated(proposal.title) }
   let(:attached_image_filename) { "city.jpeg" }
@@ -49,8 +49,8 @@ shared_examples "manage proposals" do
       context "when creation is enabled" do
         before do
           current_component.update!(
-            step_settings: {
-              current_component.participatory_space.active_step.id => {
+            phase_settings: {
+              current_component.participatory_space.active_phase.id => {
                 creation_enabled: true
               }
             }
@@ -243,8 +243,8 @@ shared_examples "manage proposals" do
         before do
           current_component.update!(
             settings: { official_proposals_enabled: false },
-            step_settings: {
-              current_component.participatory_space.active_step.id => {
+            phase_settings: {
+              current_component.participatory_space.active_phase.id => {
                 creation_enabled: false
               }
             }
@@ -285,11 +285,11 @@ shared_examples "manage proposals" do
       current_component.update!(settings: { proposal_answering_enabled: true })
     end
 
-    context "when the proposal_answering step setting is enabled" do
+    context "when the proposal_answering phase setting is enabled" do
       before do
         current_component.update!(
-          step_settings: {
-            current_component.participatory_space.active_step.id => {
+          phase_settings: {
+            current_component.participatory_space.active_phase.id => {
               proposal_answering_enabled: true
             }
           }
@@ -420,11 +420,11 @@ shared_examples "manage proposals" do
       end
     end
 
-    context "when the proposal_answering step setting is disabled" do
+    context "when the proposal_answering phase setting is disabled" do
       before do
         current_component.update!(
-          step_settings: {
-            current_component.participatory_space.active_step.id => {
+          phase_settings: {
+            current_component.participatory_space.active_phase.id => {
               proposal_answering_enabled: false
             }
           }
@@ -469,8 +469,8 @@ shared_examples "manage proposals" do
   context "when the votes_enabled component setting is disabled" do
     before do
       current_component.update!(
-        step_settings: {
-          component.participatory_space.active_step.id => {
+        phase_settings: {
+          component.participatory_space.active_phase.id => {
             votes_enabled: false
           }
         }
@@ -489,8 +489,8 @@ shared_examples "manage proposals" do
   context "when the votes_enabled component setting is enabled" do
     before do
       current_component.update!(
-        step_settings: {
-          component.participatory_space.active_step.id => {
+        phase_settings: {
+          component.participatory_space.active_phase.id => {
             votes_enabled: true
           }
         }

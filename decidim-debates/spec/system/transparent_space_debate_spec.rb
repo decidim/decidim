@@ -20,7 +20,7 @@ describe "Transparent Space Debate" do
 
   before do
     switch_to_host(organization.host)
-    component.update!(default_step_settings: { creation_enabled: true })
+    component.update!(default_phase_settings: { creation_enabled: true })
   end
 
   context "when the user is not logged in" do

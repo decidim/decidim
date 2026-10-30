@@ -4,7 +4,7 @@ shared_examples "a proposal form" do |options|
   subject { form }
 
   let(:organization) { create(:organization, available_locales: [:en]) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_space) { create(:participatory_process, :with_phases, organization:) }
   let(:component) { create(:proposal_component, participatory_space:) }
   let(:title) do
     if options[:i18n] == false
@@ -283,7 +283,7 @@ shared_examples "a proposal form with meeting as author" do |options|
   subject { form }
 
   let(:organization) { create(:organization, available_locales: [:en]) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_space) { create(:participatory_process, :with_phases, organization:) }
   let(:component) { create(:proposal_component, participatory_space:) }
   let(:title) { { en: "More sidewalks and less roads!" } }
   let(:body) { { en: "Everything would be better" } }

@@ -17,7 +17,7 @@ module Decidim
         protected
 
         def run_after_hooks
-          create_steps
+          create_phases
           add_admins_as_followers
           link_related_processes
           Decidim::ContentBlocksCreator.new(resource).create_default!
@@ -25,10 +25,10 @@ module Decidim
 
         def resource_class = Decidim::ParticipatoryProcess
 
-        def create_steps
-          resource.steps.create!(
+        def create_phases
+          resource.phases.create!(
             title: TranslationsHelper.multi_translation(
-              "decidim.admin.participatory_process_steps.default_title",
+              "decidim.admin.participatory_process_phases.default_title",
               form.current_organization.available_locales
             ),
             active: true
