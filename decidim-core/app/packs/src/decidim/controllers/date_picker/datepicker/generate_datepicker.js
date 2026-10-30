@@ -66,8 +66,11 @@ export default function generateDatePicker(input, row, formats) {
   date.addEventListener("paste", (event) => {
     event.preventDefault();
     const value = event.clipboardData.getData("text/plain");
-    if ((/^([0-9]+[^0-9]){2}[0-9]+.*$/).test(value)) {
-      date.value = value.replaceAll(/[^0-9]/g, formats.separator);
+    // Only the date part is accepted; any text after it is ignored
+    const pastedDate = value.match(/^([0-9]+[^0-9]){2}[0-9]+/);
+
+    if (pastedDate) {
+      date.value = pastedDate[0].replaceAll(/[^0-9]/g, formats.separator);
 
       if (input.type === "date") {
         input.value = `${formatDate(date.value, formats)}`;
