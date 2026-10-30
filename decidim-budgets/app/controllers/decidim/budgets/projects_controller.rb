@@ -9,6 +9,7 @@ module Decidim
       include Decidim::AttachmentsHelper
       include Decidim::Budgets::Orderable
       include Decidim::IconHelper
+      include Decidim::Paginable
 
       helper_method :projects, :project, :budget, :all_geocoded_projects, :resource_added?, :tab_panel_items
 
@@ -33,11 +34,15 @@ module Decidim
         @budget ||= Budget.where(component: current_component).includes(:projects).find(params.expect(:budget_id))
       end
 
+      def default_per_page
+        current_component.settings.projects_per_page
+      end
+
       def projects
         return @projects if @projects
 
         @projects = reorder(search.result)
-        @projects = @projects.includes(:component, :taxonomies).page(params[:page]).per(current_component.settings.projects_per_page)
+        @projects = paginate(@projects.includes(:component, :taxonomies))
       end
 
       def all_geocoded_projects
