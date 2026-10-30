@@ -26,7 +26,6 @@
         nickname: Kallenavn
         password: Passord
         password_confirmation: Bekreft ditt passord
-        personal_url: Din profilside
         remove_avatar: Fjern profilbilde
     models:
       decidim/attachment_created_event: Vedlegg

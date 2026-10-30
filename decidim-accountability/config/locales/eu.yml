@@ -32,7 +32,7 @@ eu:
             budget_text: '%{link} emaitza sartu da'
             meetings_ids: '%{link} topaketan eztabaidatu da'
             project_ids: '%{link} proiektuan sartu da'
-            proposal_ids: '%{link} proposamenean sartu da'
+            proposal_ids: 'Ondorengo proposamena kontuan hartu da: %{link}'
             text: '%{link} emaitzari gehitu zaio'
       decidim/accountability/result:
         one: Emaitza

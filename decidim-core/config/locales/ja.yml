@@ -50,7 +50,6 @@ ja:
         old_password: 現在のパスワード
         password: パスワード
         password_confirmation: パスワードの確認
-        personal_url: 個人用URL
         remove_avatar: アバターを削除
         tos_agreement: 利用規約
     errors:
@@ -113,8 +112,6 @@ ja:
       decidim_with_month_name_short: "%-m月%-d日"
       help:
         date_format: 'フォーマット: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -807,7 +804,6 @@ ja:
           officialized_at: このユーザーの公式化日時
           organization: このユーザーが所属する組織
           password_updated_at: パスワードの最終更新日時
-          personal_url: このユーザーの個人URL
           remember_created_at: ユーザーが記憶するように選択した日時
           reset_password_sent_at: パスワードリセットの送信日時
           roles: このユーザーが持っている役割
@@ -840,6 +836,8 @@ ja:
     errors:
       files:
         file_cannot_be_processed: ファイルを処理できません
+        file_contains_unsafe_content: ファイルに安全でないコンテンツが含まれています
+        file_is_not_a_valid_image: ファイルは有効な画像ではありません
         file_resolution_too_large: ファイルの解像度が大きすぎます
         not_inside_organization: ファイルはどの組織にも紐ついていません。
       internal_server_error:

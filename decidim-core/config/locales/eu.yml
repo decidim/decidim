@@ -50,7 +50,6 @@ eu:
         old_password: Egungo pasahitza
         password: Pasahitza
         password_confirmation: Berretsi pasahitza
-        personal_url: URL pertsonala
         remove_avatar: Avatarra ezabatu
         tos_agreement: Erabilera-terminoak eta -baldintzak
     errors:
@@ -117,8 +116,6 @@ eu:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formatua: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -818,7 +815,6 @@ eu:
           officialized_at: Zein datatan eta zein ordutan ofizializatu den parte-hartzaile hau
           organization: Zein erakundetakoa den parte-hartzaile hau
           password_updated_at: Zein datatan eguneratu den pasahitz hau azkenekoz
-          personal_url: Parte-hartzaile honen URL pertsonala
           remember_created_at: Zein egun eta zein ordutan aukeratu zuten parte-hartzailea gogoratzeko
           reset_password_sent_at: Zein datatan eta zein ordutan bidali den pasahitza berriro
           roles: Parte-hartzaile honek duen rola, baldin badute
@@ -851,6 +847,8 @@ eu:
     errors:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
+        file_contains_unsafe_content: Fitxategiak segurua ez den edukia du
+        file_is_not_a_valid_image: Fitxategia ez da baliozko irudia
         file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
         not_inside_organization: Fitxategia ez dago inongo erakunderi atxikita.
       internal_server_error:
@@ -1684,7 +1682,7 @@ eu:
         hide_content: Ezkutatu edukia
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         reason: Arrazoia
-        report: Txostena
+        report: Salatu
         spam: Clickbait, publizitatea, iruzurrak edo script bot-ak ditu.
         title: Salatu eduki desegokia
       flag_user_modal:

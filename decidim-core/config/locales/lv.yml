@@ -20,7 +20,6 @@ lv:
         nickname: Segvārds
         password: Parole
         password_confirmation: Apstiprināt jūsu paroli
-        personal_url: Personīgais URL
         remove_avatar: Noņemt avatāru
     models:
       decidim/attachment_created_event: Pielikums

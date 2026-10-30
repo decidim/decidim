@@ -43,7 +43,6 @@ fr:
         old_password: Mot de passe actuel
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
-        personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
     errors:
@@ -102,8 +101,6 @@ fr:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: jj/mm/aaaa'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:

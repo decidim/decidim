@@ -12,7 +12,6 @@ id:
         nickname: Nama panggilan
         password: Kata sandi
         password_confirmation: Konfirmasi password Anda
-        personal_url: URL pribadi
         remove_avatar: Hapus avatar
     models:
       decidim/attachment_created_event: Lampiran

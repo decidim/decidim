@@ -50,7 +50,6 @@ sk:
         old_password: Aktuálne heslo
         password: Heslo
         password_confirmation: Potvrdenie hesla
-        personal_url: Osobné adresa URL
         remove_avatar: Odstrániť avatara
         tos_agreement: Súhlas s podmienkami používania
     errors:
@@ -125,8 +124,6 @@ sk:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formát: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -849,7 +846,6 @@ sk:
           officialized_at: Dátum a čas oficionalizácie tohto používateľa
           organization: Organizácia, do ktorej tento používateľ patrí
           password_updated_at: Dátum poslednej zmeny hesla
-          personal_url: Osobná URL adresa tohto používateľa
           remember_created_at: Dátum a čas, kedy bolo zvolené zapamätanie používateľa
           reset_password_sent_at: Dátum a čas odoslania obnovenia hesla
           roles: Rola, ktorú má tento používateľ, ak nejakú má

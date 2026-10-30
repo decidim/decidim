@@ -29,7 +29,6 @@ bg:
         old_password: Текуща парола
         password: Парола
         password_confirmation: Потвърдете паролата си
-        personal_url: Персонален URL
         remove_avatar: Премахни аватара
         tos_agreement: Споразумение за условия на услугата
     models:
@@ -81,8 +80,6 @@ bg:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Формат: дд/мм/гггг'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
