@@ -843,6 +843,8 @@ ja:
     errors:
       files:
         file_cannot_be_processed: ファイルを処理できません
+        file_contains_unsafe_content: ファイルに安全でないコンテンツが含まれています
+        file_is_not_a_valid_image: ファイルは有効な画像ではありません
         file_resolution_too_large: ファイルの解像度が大きすぎます
         not_inside_organization: ファイルはどの組織にも紐ついていません。
       internal_server_error:
