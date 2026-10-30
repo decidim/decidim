@@ -125,8 +125,6 @@ cs:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formát: dd/mm/rrrr'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -896,6 +894,8 @@ cs:
     errors:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
+        file_contains_unsafe_content: Soubor obsahuje nebezpečný obsah
+        file_is_not_a_valid_image: Soubor není platný obrázek
         file_resolution_too_large: Rozlišení souboru je příliš velké
         not_inside_organization: Soubor není připojen k žádné organizaci.
       internal_server_error:
@@ -920,6 +920,7 @@ cs:
           affected_user:
             email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
+            email_subject: Přijatý pozměňovací návrh pro %{amendable_title} od %{emendation_author_name}
           follower:
             email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
@@ -948,6 +949,7 @@ cs:
           follower:
             email_intro: 'Oznámení bylo zamítnuto za %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+            email_subject: Pozměňovací návrh byl zamítnut pro %{amendable_title} od %{emendation_author_name}
         emendation_promoted:
           follower:
             email_intro: 'Byla zveřejněna oprava pro %{amendable_title}. Můžete si ji prohlédnout na této stránce:'
@@ -1005,11 +1007,15 @@ cs:
           notification_title: |-
             Administrátor odstranil váš %{resource_type}, protože byl nahlášen jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} se líbí <a href="%{liker_path}">%{liker_name}</a>.
       resources:
         soft_deleted:
           notification_title: Administrátor odstranil váš "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
+          email_intro: <a href="%{resource_url}">profilová stránka</a> %{name}, kterou sledujete, byla aktualizována.
+          email_outro: Toto oznámení jste obdrželi, protože sledujete %{name}. Můžete přestat přijímat oznámení za předchozím odkazem.
           email_subject: "%{name} aktualizoval svůj profil"
         user_officialized:
           email_outro: Obdrželi jste toto oznámení, protože jste správcem organizace.
