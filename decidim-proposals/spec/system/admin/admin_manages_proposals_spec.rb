@@ -31,6 +31,12 @@ describe "Admin manages proposals" do
   it_behaves_like "split proposals"
   it_behaves_like "publish answers"
 
+  context "with an unsaved new proposal form" do
+    before { click_on("New proposal") }
+
+    it_behaves_like "a form with unsaved changes", ".new_proposal", "proposal_title_en", "Components"
+  end
+
   it_behaves_like "sorted moderations" do
     let!(:reportables) { create_list(:proposal, 27, component: current_component) }
   end

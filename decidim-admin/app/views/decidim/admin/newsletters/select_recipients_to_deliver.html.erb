@@ -94,7 +94,7 @@
             <%= link_to t(".confirm_recipients"), "#",
                         id: "confirm-recipients-link",
                         class: "button button__sm button__secondary hidden",
-                        data: { base_url: confirm_recipients_newsletter_path(@newsletter) } %>
+                        data: { base_url: confirm_recipients_newsletter_path(@newsletter), unsaved_form_ignore: true } %>
           <% end %>
         </div>
       </div>
