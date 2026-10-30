@@ -85,6 +85,10 @@ module Decidim
                       index_on_create: ->(_assembly) { false },
                       index_on_update: ->(assembly) { assembly.visible? })
 
+    def self.searchable_arguments
+      [:organization]
+    end
+
     # Access modes are consistent across participatory spaces (assemblies and processes)
     # open: visible and accessible for all
     # transparent: visible for all but the actions require to be a member of the space

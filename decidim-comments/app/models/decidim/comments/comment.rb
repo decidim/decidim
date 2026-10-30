@@ -68,6 +68,10 @@ module Decidim
                         index_on_create: true,
                         index_on_update: ->(comment) { comment.visible? })
 
+      def self.searchable_arguments
+        [:commentable, { root_commentable: { component: { participatory_space: :organization } } }, { author: [:avatar_attachment, :organization] }]
+      end
+
       def self.positive
         where(alignment: 1)
       end

@@ -349,4 +349,52 @@ describe Decidim::Search do
       end
     end
   end
+
+  describe "when results include uncommentable resources" do
+    let(:term) { "king nothing" }
+    let(:resource_type) { "Decidim::Comments::Comment" }
+    let(:component) { create(:component, organization: current_organization) }
+    let(:uncommentable_component) { create(:component, organization: current_organization) }
+
+    let!(:uncommentable_comment) do
+      # Comments can only be created while comments are enabled, so the component is
+      # disabled afterwards. The uncommentable comment is the most recent one, so it
+      # would fall on the first page.
+      create(:comment, commentable: create(:dummy_resource, component: uncommentable_component), body: term, created_at: 1.hour.ago)
+    end
+
+    before do
+      4.times { |i| create(:comment, commentable: create(:dummy_resource, component:), body: term, created_at: (i + 2).hours.ago) }
+      uncommentable_component.update!(settings: { comments_enabled: false })
+    end
+
+    def results_for(page)
+      results = nil
+      described_class.call(term, current_organization, { "with_resource_type" => resource_type }, { page:, per_page: 2 }) do
+        on(:ok) { |results_by_type| results = results_by_type[resource_type] }
+        on(:invalid) { raise("Should not happen") }
+      end
+      results
+    end
+
+    it "keeps results as a relation and excludes the uncommentable ones" do
+      results = results_for(1)
+
+      expect(results[:count]).to eq 4
+      expect(results[:results]).to be_a(ActiveRecord::Relation)
+      expect(results[:results].total_pages).to eq 2
+      expect(results[:results].to_a.count).to eq 2
+    end
+
+    it "keeps the count and the pages consistent" do
+      first_page = results_for(1)
+      second_page = results_for(2)
+
+      expect(first_page[:count]).to eq 4
+      expect(second_page[:count]).to eq 4
+      expect(first_page[:results].to_a.map(&:id) & second_page[:results].to_a.map(&:id)).to be_empty
+      expect(first_page[:results].to_a.map(&:id)).not_to include(uncommentable_comment.id)
+      expect(second_page[:results].to_a.map(&:id)).not_to include(uncommentable_comment.id)
+    end
+  end
 end

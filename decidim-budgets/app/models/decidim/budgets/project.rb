@@ -58,6 +58,10 @@ module Decidim
                         index_on_create: ->(project) { project.visible? },
                         index_on_update: ->(project) { project.visible? })
 
+      def self.searchable_arguments
+        [:taxonomies, { component: { participatory_space: :organization } }]
+      end
+
       def self.ordered_ids(ids)
         # Make sure each ID in the matching text has a "," character as their
         # delimiter. Otherwise e.g. ID 2 would match ID "26" in the original

@@ -36,6 +36,11 @@ module Decidim
                           datetime: :published_at },
                         index_on_create: ->(document) { document.visible? },
                         index_on_update: ->(document) { document.visible? })
+
+      def self.searchable_arguments
+        [{ component: { participatory_space: :organization } }]
+      end
+
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::DocumentPresenter
       end

@@ -206,6 +206,17 @@ module Decidim
                         index_on_create: ->(proposal) { proposal.visible? && proposal.component&.published? },
                         index_on_update: ->(proposal) { proposal.visible? && proposal.component&.published? })
 
+      def self.searchable_arguments
+        # Coauthor authors are polymorphic, so the avatar is only eager loaded for the
+        # types that have it (users); organizations and meetings are skipped by Rails.
+        [
+          :taxonomies, :amended, :amendable, :proposal_state,
+          { component: { participatory_space: :organization } },
+          { coauthorships: :author },
+          { coauthorships: { author: :avatar_attachment } }
+        ]
+      end
+
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalPresenter
       end
