@@ -33,6 +33,24 @@ module Decidim
              inverse_of: :parent,
              dependent: :destroy
 
+    # Reciprocals of the models that point to a scope. `Decidim::ActionLog` records are not cascaded: they are
+    # the audit trail and `Decidim::ActionLog` raises `ActiveRecord::ReadOnlyRecord` on destroy, so a `dependent:`
+    # here would only bypass that guard.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :action_logs,
+             foreign_key: "decidim_scope_id",
+             class_name: "Decidim::ActionLog",
+             inverse_of: :scope
+
+    # Search entries are index rows for resources that outlive the scope: a published proposal is not destroyed
+    # when its scope is, so destroying its entry would drop it from global search until it is reindexed. The
+    # cascade therefore clears the scope on the entries instead of destroying them.
+    has_many :searchable_resources,
+             foreign_key: "decidim_scope_id",
+             class_name: "Decidim::SearchableResource",
+             inverse_of: :scope,
+             dependent: :nullify
+
     before_validation :update_part_of, on: :update
 
     validates :name, :code, presence: true

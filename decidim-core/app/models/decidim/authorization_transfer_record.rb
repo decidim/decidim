@@ -5,6 +5,11 @@ module Decidim
   # which was transferred from another user to the target user during an
   # authorization transfer.
   class AuthorizationTransferRecord < ApplicationRecord
+    # `inverse_of` is deliberately not declared here. Declaring it would let Rails add a record built or
+    # initialized through the transfer to the transfer's `records` collection, and that pending record would
+    # then be persisted during the transfer's autosave before its own save, which trips the `readonly?`
+    # guard below. The reciprocal `has_many :records` on `Decidim::AuthorizationTransfer` is the side that
+    # declares `inverse_of`.
     belongs_to :transfer, class_name: "Decidim::AuthorizationTransfer"
     belongs_to :resource, polymorphic: true
 

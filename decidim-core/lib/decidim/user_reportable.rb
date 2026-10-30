@@ -8,7 +8,8 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_one :user_moderation, class_name: "Decidim::UserModeration", foreign_key: :decidim_user_id, dependent: :destroy
+      # The reciprocal `has_one :user_moderation` is declared on `Decidim::UserBaseEntity`, which is
+      # the class `Decidim::UserModeration` points to.
       has_many :user_reports, through: :user_moderation, source: :reports, class_name: "Decidim::UserReport"
 
       def report_count

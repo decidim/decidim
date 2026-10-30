@@ -5,9 +5,9 @@ module Decidim
     include Traceable
     include Loggable
 
-    belongs_to :user, foreign_key: :decidim_user_id, class_name: "Decidim::UserBaseEntity"
+    belongs_to :user, foreign_key: :decidim_user_id, class_name: "Decidim::UserBaseEntity", inverse_of: :user_moderation
     has_one :blocking, through: :user
-    has_many :reports, class_name: "Decidim::UserReport", dependent: :destroy
+    has_many :reports, class_name: "Decidim::UserReport", inverse_of: :moderation, dependent: :destroy
 
     scope :blocked, -> { joins(:user).where(decidim_users: { blocked: true }) }
     scope :unblocked, -> { joins(:user).where(decidim_users: { blocked: false }) }

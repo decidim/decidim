@@ -474,5 +474,120 @@ module Decidim
         end
       end
     end
+
+    describe "reciprocal associations" do
+      subject(:user) { create(:user, :confirmed, organization:) }
+
+      # The records related to `other_record` must not depend on `user`, otherwise the cascade
+      # under test would destroy them too.
+      let(:other_user) { create(:user, :confirmed, organization:) }
+      let(:third_user) { create(:user, :confirmed, organization:) }
+
+      shared_examples "user reciprocal association" do |association, owner_name|
+        before do
+          record
+          other_record
+        end
+
+        it "only includes the records of the user" do
+          expect(Array(user.public_send(association))).to contain_exactly(record)
+        end
+
+        it "does not include the records of another user" do
+          expect(Array(user.public_send(association))).not_to include(other_record)
+        end
+
+        it "points back to the user from the record" do
+          expect(record.public_send(owner_name)).to eq(user)
+        end
+
+        it "destroys the records when the user is destroyed" do
+          user.destroy
+
+          expect(record.class.where(id: record.id)).to be_empty
+          expect(other_record.class.where(id: other_record.id)).to exist
+        end
+      end
+
+      context "with amendments" do
+        let(:record) { create(:amendment, amender: user) }
+        let(:other_record) { create(:amendment, amender: other_user) }
+
+        it_behaves_like "user reciprocal association", :amendments, :amender
+      end
+
+      context "with authorizations" do
+        let(:record) { create(:authorization, user:) }
+        let(:other_record) { create(:authorization, user: other_user) }
+
+        it_behaves_like "user reciprocal association", :authorizations, :user
+      end
+
+      context "with authorization transfers" do
+        let(:record) { create(:authorization_transfer, user:, source_user: third_user) }
+        let(:other_record) { create(:authorization_transfer, user: other_user, source_user: third_user) }
+
+        it_behaves_like "user reciprocal association", :authorization_transfers, :user
+      end
+
+      context "with authorization transfers received as the source user" do
+        let(:record) { create(:authorization_transfer, user: third_user, source_user: user) }
+        let(:other_record) { create(:authorization_transfer, user: third_user, source_user: other_user) }
+
+        it_behaves_like "user reciprocal association", :source_transfers, :source_user
+      end
+
+      context "with editor images" do
+        let(:record) { create(:editor_image, author: user, organization:) }
+        let(:other_record) { create(:editor_image, author: other_user, organization:) }
+
+        it_behaves_like "user reciprocal association", :editor_images, :author
+      end
+
+      context "with participatory space memberships" do
+        let(:record) { create(:member, user:) }
+        let(:other_record) { create(:member, user: other_user) }
+
+        it_behaves_like "user reciprocal association", :members, :user
+      end
+
+      context "with newsletters" do
+        let(:record) { create(:newsletter, author: user, organization:) }
+        let(:other_record) { create(:newsletter, author: other_user, organization:) }
+
+        it_behaves_like "user reciprocal association", :newsletters, :author
+      end
+
+      context "with receipts" do
+        let(:conversation) { Decidim::Messaging::Conversation.start!(originator: third_user, interlocutors: [user], body: "Hello") }
+        let(:other_conversation) { Decidim::Messaging::Conversation.start!(originator: third_user, interlocutors: [other_user], body: "Hello") }
+
+        let(:record) { conversation.receipts.find_by!(recipient: user) }
+        let(:other_record) { other_conversation.receipts.find_by!(recipient: other_user) }
+
+        it_behaves_like "user reciprocal association", :receipts, :recipient
+      end
+
+      context "with reports" do
+        let(:record) { create(:report, user:, moderation: create(:moderation, reportable: create(:dummy_resource, organization:))) }
+        let(:other_record) { create(:report, user: other_user, moderation: create(:moderation, reportable: create(:dummy_resource, organization:))) }
+
+        it_behaves_like "user reciprocal association", :reports, :user
+      end
+
+      context "with share tokens" do
+        let(:record) { create(:share_token, user:, token_for: create(:component, organization:)) }
+        let(:other_record) { create(:share_token, user: other_user, token_for: create(:component, organization:)) }
+
+        it_behaves_like "user reciprocal association", :share_tokens, :user
+      end
+
+      context "with user reports made by the user" do
+        let(:record) { create(:user_report, user:, moderation: create(:user_moderation, user: third_user)) }
+        let(:other_record) { create(:user_report, user: other_user, moderation: create(:user_moderation, user: third_user)) }
+
+        it_behaves_like "user reciprocal association", :user_reports_made, :user
+      end
+    end
   end
 end

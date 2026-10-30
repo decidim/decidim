@@ -57,6 +57,120 @@ module Decidim
       it { is_expected.to match_array(scope_types) }
     end
 
+    describe "reciprocal associations" do
+      # Default static pages cannot be destroyed, which would otherwise stop the
+      # organization from being destroyed at all.
+      subject(:organization) { create(:organization, create_static_pages: false) }
+
+      let(:other_organization) { create(:organization, create_static_pages: false) }
+
+      shared_examples "organization reciprocal association" do |association, cascaded: true|
+        it "only includes the records of its own organization" do
+          expect(organization.public_send(association)).to contain_exactly(record)
+        end
+
+        it "does not include the records of another organization" do
+          expect(organization.public_send(association)).not_to include(other_record)
+        end
+
+        if cascaded
+          it "destroys the records when the organization is destroyed" do
+            record
+            other_record
+
+            organization.destroy
+
+            expect(record.class.where(id: record.id)).to be_empty
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
+        else
+          it "keeps the records when the organization is destroyed, as they are not cascaded" do
+            record
+            other_record
+
+            organization.destroy
+
+            expect(record.class.where(id: record.id)).to exist
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
+        end
+      end
+
+      context "with action logs" do
+        # Participatory spaces are not cascaded through the organization associations, so the
+        # participatory space is created in another organization and the organization under test
+        # only contains the action log.
+        let(:record) { create(:action_log, organization:, participatory_space: create(:participatory_process, organization: other_organization)) }
+        let(:other_record) { create(:action_log, organization: other_organization) }
+
+        it_behaves_like "organization reciprocal association", :action_logs, cascaded: false
+      end
+
+      context "with content blocks" do
+        let(:record) { create(:content_block, organization:) }
+        let(:other_record) { create(:content_block, organization: other_organization) }
+
+        it_behaves_like "organization reciprocal association", :content_blocks
+      end
+
+      context "with contextual help sections" do
+        let(:record) { create_help_section(organization) }
+        let(:other_record) { create_help_section(other_organization) }
+
+        def create_help_section(target_organization)
+          Decidim::ContextualHelpSection.create!(
+            organization: target_organization,
+            section_id: "section_id",
+            content: { en: "Content" }
+          )
+        end
+
+        it_behaves_like "organization reciprocal association", :contextual_help_sections
+      end
+
+      context "with editor images" do
+        let(:record) { create(:editor_image, organization:) }
+        let(:other_record) { create(:editor_image, organization: other_organization) }
+
+        it_behaves_like "organization reciprocal association", :editor_images
+      end
+
+      context "with identities" do
+        let(:record) { create(:identity, organization:, user: create(:user, organization:)) }
+        let(:other_record) { create(:identity, organization: other_organization, user: create(:user, organization: other_organization)) }
+
+        it_behaves_like "organization reciprocal association", :identities
+      end
+
+      context "with newsletters" do
+        let(:record) { create(:newsletter, organization:) }
+        let(:other_record) { create(:newsletter, organization: other_organization) }
+
+        it_behaves_like "organization reciprocal association", :newsletters
+      end
+
+      context "with searchable resources" do
+        let(:record) { create(:searchable_resource, organization:) }
+        let(:other_record) { create(:searchable_resource, organization: other_organization) }
+
+        it_behaves_like "organization reciprocal association", :searchable_resources
+      end
+
+      context "with share tokens" do
+        let(:record) { create(:share_token, organization:) }
+        let(:other_record) { create(:share_token, organization: other_organization) }
+
+        it_behaves_like "organization reciprocal association", :share_tokens
+      end
+
+      context "with short links" do
+        let(:record) { create(:short_link, organization:) }
+        let(:other_record) { create(:short_link, organization: other_organization) }
+
+        it_behaves_like "organization reciprocal association", :short_links
+      end
+    end
+
     describe "validations" do
       it "default locale should be included in available locales" do
         subject.available_locales = [:ca, :es]

@@ -55,6 +55,80 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    describe "reciprocal associations" do
+      subject(:scope) { create(:scope, organization:) }
+
+      let(:organization) { create(:organization) }
+      let(:other_organization) { create(:organization) }
+      let(:other_scope) { create(:scope, organization: other_organization) }
+
+      shared_examples "scope reciprocal association" do |association, owner, cascaded: true|
+        before do
+          record
+          other_record
+        end
+
+        it "only includes the records of its own scope" do
+          expect(scope.public_send(association)).to contain_exactly(record)
+        end
+
+        it "does not include the records of another scope, even when it is in another organization" do
+          expect(scope.public_send(association)).not_to include(other_record)
+        end
+
+        it "points back to the scope from the records loaded through the association" do
+          expect(scope.public_send(association).first.public_send(owner)).to eq(scope)
+        end
+
+        if cascaded == :nullify
+          it "keeps the records when the scope is destroyed, only clearing their scope" do
+            scope.destroy
+
+            expect(record.class.where(id: record.id)).to exist
+            expect(record.reload.public_send(owner)).to be_nil
+            expect(other_record.reload.public_send(owner)).to eq(other_scope)
+          end
+        elsif cascaded
+          it "deletes the records when the scope is destroyed" do
+            scope.destroy
+
+            expect(record.class.where(id: record.id)).to be_empty
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
+        else
+          it "keeps the records when the scope is destroyed, as they are not cascaded" do
+            scope.destroy
+
+            expect(record.class.where(id: record.id)).to exist
+            expect(other_record.class.where(id: other_record.id)).to exist
+          end
+        end
+      end
+
+      context "with action logs" do
+        let(:record) { create(:action_log, organization:, scope:, user: create(:user, organization:)) }
+        let(:other_record) { create(:action_log, organization: other_organization, scope: other_scope, user: create(:user, organization: other_organization)) }
+
+        it_behaves_like "scope reciprocal association", :action_logs, :scope, cascaded: false
+      end
+
+      context "with searchable resources" do
+        let(:record) { create(:searchable_resource, organization:, scope:) }
+        let(:other_record) { create(:searchable_resource, organization: other_organization, scope: other_scope) }
+
+        it_behaves_like "scope reciprocal association", :searchable_resources, :scope, cascaded: :nullify
+
+        it "keeps the indexed resource searchable, as the resource is not destroyed with the scope" do
+          record
+
+          scope.destroy
+
+          expect(record.class.where(id: record.id)).to exist
+          expect(record.reload.resource).to be_persisted
+        end
+      end
+    end
+
     describe "cycles validation" do
       subject(:scope) { create(:scope) }
 
