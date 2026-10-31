@@ -60,6 +60,17 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-dev", DECIDIM_VERSION
 ----
 
+== Repairing questionnaire submissions
+
+The forms upgrade backfills existing questionnaire responses into submissions. If application instances running the previous version wrote responses while the upgrade was in progress, run the following task after all instances have been upgraded:
+
+[source,console]
+----
+bin/rails decidim_forms:upgrade:fix_orphan_responses
+----
+
+The task is safe to rerun. It creates missing submissions and links unlinked responses without deleting responses. It raises an error if responses belonging to an existing questionnaire remain unlinked. Responses whose questionnaire no longer exists are left untouched.
+
 == Compatibility versions matrix
 
 There are different versions of Decidim that are compatible with different versions of Ruby and Node. You can check the following table to see which versions are compatible with each other:
