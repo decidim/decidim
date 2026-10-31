@@ -224,8 +224,8 @@ describe "User creates meeting" do
           expect(page).to have_text("#{start_month.upcase}\n-\n#{end_month.upcase}")
           expect(page).to have_text(start_day)
           expect(page).to have_text(end_day)
-          expect(page).to have_text(meeting_start_time)
-          expect(page).to have_text(meeting_end_time)
+          expect(page).to have_text(base_date.strftime("%I:%M %p"))
+          expect(page).to have_text((base_date + 4.hours).strftime("%I:%M %p"))
           expect(page).to have_css("[data-author]", text: user.name)
 
           visit decidim.last_activities_path
