@@ -102,7 +102,7 @@
     &-container {
       @apply px-8 py-4 flex gap-x-4 justify-end;
 
-      .button {
+      .button:not([disabled]) {
         @apply bg-white text-secondary;
       }
     }
