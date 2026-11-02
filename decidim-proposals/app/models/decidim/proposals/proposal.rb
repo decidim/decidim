@@ -515,7 +515,7 @@ module Decidim
         Time.current < limit_time
       end
 
-      def process_amendment_status_change!
+      def process_amendment_state_change!
         return withdraw! if amendment.withdrawn?
         return unless %w(accepted rejected evaluating).member?(amendment.state)
 
