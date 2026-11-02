@@ -89,7 +89,7 @@ module Decidim
           @user ||= if form.existing_user
                       form.user
                     else
-                      Decidim::User.find_or_initialize_by(
+                      Decidim::User.find_or_initialize_by( # rubocop:disable Decidim/OrganizationScopedFinder -- scoped to the current organization
                         organization: form.current_organization,
                         email: form.email.downcase
                       )

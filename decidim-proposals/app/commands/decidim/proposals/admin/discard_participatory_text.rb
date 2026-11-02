@@ -31,7 +31,7 @@ module Decidim
         attr_reader :form
 
         def discard_drafts
-          proposals = Decidim::Proposals::Proposal.drafts.where(component: @component)
+          proposals = Decidim::Proposals::Proposal.drafts.where(component: @component) # rubocop:disable Decidim/OrganizationScopedFinder -- component is the current component passed to the command
           proposals.destroy_all
         end
       end

@@ -31,7 +31,7 @@ module Decidim
 
         def conference_meetings(registration_type)
           meeting_components = registration_type.conference.components.where(manifest_name: "meetings")
-          Decidim::ConferenceMeeting.where(component: meeting_components).where(id: @form.attributes[:conference_meeting_ids])
+          Decidim::ConferenceMeeting.where(component: meeting_components).where(id: @form.attributes[:conference_meeting_ids]) # rubocop:disable Decidim/OrganizationScopedFinder -- meeting components are scoped to the registration type's conference
         end
       end
     end

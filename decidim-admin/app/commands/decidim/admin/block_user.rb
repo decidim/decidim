@@ -45,7 +45,7 @@ module Decidim
       end
 
       def find_or_create_moderation!
-        Decidim::UserModeration.find_or_create_by!(user: form.user)
+        Decidim::UserModeration.find_or_create_by!(user: form.user) # rubocop:disable Decidim/OrganizationScopedFinder -- form.user is scoped to the current organization
       end
 
       def register_justification!

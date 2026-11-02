@@ -21,7 +21,7 @@ module Decidim
 
             Decidim.traceability.perform_action!("update", ContextualHelpSection, current_user, { "resource" => { "title" => section.id.humanize } }) do
               ContextualHelpSection.set_content(@organization, section.id, section.content)
-              ContextualHelpSection.find_by(organization: @organization, section_id: section.id)
+              ContextualHelpSection.find_by(organization: @organization, section_id: section.id) # rubocop:disable Decidim/OrganizationScopedFinder -- scoped to the given organization and section
             end
           end
         end
@@ -34,7 +34,7 @@ module Decidim
       attr_reader :form
 
       def content_has_changed?(section)
-        return if ContextualHelpSection.find_by(organization: @organization, section_id: section.id).nil? && section.content.compact_blank.blank?
+        return if ContextualHelpSection.find_by(organization: @organization, section_id: section.id).nil? && section.content.compact_blank.blank? # rubocop:disable Decidim/OrganizationScopedFinder -- scoped to the given organization and section
 
         section.content != ContextualHelpSection.find_content(@organization, section.id).except("machine_translations")
       end

@@ -100,7 +100,7 @@ module Decidim
         def update_selected
           enforce_permission_to :update, :project_selected
 
-          ::Decidim::Budgets::Admin::UpdateProjectSelection.call(params.dig(:selected, "value"), project_ids) do
+          ::Decidim::Budgets::Admin::UpdateProjectSelection.call(params.dig(:selected, "value"), project_ids, current_component) do
             on(:invalid_selection) do
               flash.now[:error] = t(
                 "projects.update_selected.select_a_selection",
@@ -134,7 +134,7 @@ module Decidim
 
         def update_budget
           enforce_permission_to :update, :project, project: sample_project
-          ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids) do
+          ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids, current_component) do
             on(:invalid_project_ids) do
               flash.now[:alert] = t("projects.update_budget.select_a_project", scope: "decidim.budgets.admin")
             end

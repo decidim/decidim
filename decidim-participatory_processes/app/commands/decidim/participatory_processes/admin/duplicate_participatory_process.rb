@@ -110,7 +110,7 @@ module Decidim
         end
 
         def duplicate_landing_page_blocks
-          blocks = Decidim::ContentBlock.where(scoped_resource_id: @participatory_process.id, scope_name: "participatory_process_homepage",
+          blocks = Decidim::ContentBlock.where(scoped_resource_id: @participatory_process.id, scope_name: "participatory_process_homepage", # rubocop:disable Decidim/OrganizationScopedFinder -- scoped to the duplicated process's organization
                                                organization: @participatory_process.organization)
           return if blocks.blank?
 

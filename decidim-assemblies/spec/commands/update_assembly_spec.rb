@@ -222,6 +222,20 @@ module Decidim::Assemblies
             expect(parent_assembly.children_count).to eq(parent_assembly.children.count)
           end
         end
+
+        context "when updating the parent to an assembly from another organization" do
+          let(:other_organization) { create(:organization) }
+          let!(:other_assembly) { create(:assembly, organization: other_organization) }
+
+          it "does not set the parent" do
+            form.parent_id = other_assembly.id
+
+            command.call
+            my_assembly.reload
+
+            expect(my_assembly.parent).to be_nil
+          end
+        end
       end
     end
   end
