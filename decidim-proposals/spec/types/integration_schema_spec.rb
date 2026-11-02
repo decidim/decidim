@@ -16,7 +16,7 @@ describe "Decidim::Api::QueryType" do
           address
           amendments {
             id
-            status
+            state
             amender { id }
             amendable { id }
             emendation { id }
@@ -158,7 +158,7 @@ describe "Decidim::Api::QueryType" do
           "emendation" => { "id" => a.emendation.id.to_s },
           "emendationType" => a.emendation.class.name,
           "id" => a.id.to_s,
-          "status" => a.status
+          "state" => a.state
         }
       end,
       "answer" => { "translation" => translated(proposal.answer) },
@@ -272,7 +272,7 @@ describe "Decidim::Api::QueryType" do
               address
               amendments {
                 id
-                status
+                state
                 amender { id }
                 amendable { id }
                 emendation { id }
