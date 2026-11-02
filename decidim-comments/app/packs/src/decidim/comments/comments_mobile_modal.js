@@ -3,6 +3,7 @@
 // This creates a responsive, interactive comment interface with mobile-friendly design and dynamic user group selection.
 
 import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
+import { isMobileScreen } from "src/decidim/comments/comments_screen_helper";
 
 // Add comment card for mobile
 const addCommentMobile = function (addCommentCard) {
@@ -21,7 +22,9 @@ document.addEventListener("turbo:load", () => {
   if (addCommentCard) {
     document.querySelectorAll(".add-comment-mobile").forEach((addButtonMobile) => {
       addButtonMobile.addEventListener("click", () => {
-        addCommentMobile(addCommentCard);
+        if (isMobileScreen()) {
+          addCommentMobile(addCommentCard);
+        }
       });
     });
   }
