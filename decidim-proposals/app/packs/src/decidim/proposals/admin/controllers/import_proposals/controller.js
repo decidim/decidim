@@ -13,7 +13,7 @@ import { Controller } from "@hotwired/stimulus"
  *   - `container` – The wrapper element where the status checkboxes are rendered.
  *
  * Values:
- *   - `statesUrl` {String}  – Base URL of the endpoint that returns available statuses.
+ *   - `statusesUrl` {String}  – Base URL of the endpoint that returns available statuses.
  *   - `selectedStatuses` {Array} – Pre-selected status tokens (populated on page load
  *     when re-rendering a previously submitted form).
  */
@@ -62,7 +62,7 @@ export default class ImportProposalsController extends Controller {
       return;
     }
 
-    const url = `${this.statesUrlValue}?origin_id=${componentId}`;
+    const url = `${this.statusesUrlValue}?origin_id=${componentId}`;
     fetch(url, {
       credentials: "same-origin",
       headers: { Accept: "application/json" }
@@ -105,6 +105,6 @@ export default class ImportProposalsController extends Controller {
 
 ImportProposalsController.targets = ["select", "container"]
 ImportProposalsController.values = {
-  statesUrl: String,
+  statusesUrl: String,
   selectedStatuses: { type: Array, default: [] }
 }
