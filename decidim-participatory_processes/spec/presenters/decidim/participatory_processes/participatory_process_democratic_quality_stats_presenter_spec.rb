@@ -56,8 +56,8 @@ module Decidim
               context "with 30% accepted proposals" do
                 before do
                   proposals.first(3).each do |p|
-                    p.assign_state("accepted")
-                    p.update!(state_published_at: Time.current)
+                    p.assign_status("accepted")
+                    p.update!(status_published_at: Time.current)
                   end
                 end
 
@@ -69,8 +69,8 @@ module Decidim
               context "with 70% accepted proposals" do
                 before do
                   proposals.first(7).each do |p|
-                    p.assign_state("accepted")
-                    p.update!(state_published_at: Time.current)
+                    p.assign_status("accepted")
+                    p.update!(status_published_at: Time.current)
                   end
                 end
 
@@ -144,8 +144,8 @@ module Decidim
               context "with 50% answered proposals and completed results" do
                 before do
                   proposals.first(5).each do |p|
-                    p.assign_state("accepted")
-                    p.update!(state_published_at: Time.current, answered_at: Time.current, answer: { en: "Accepted" })
+                    p.assign_status("accepted")
+                    p.update!(status_published_at: Time.current, answered_at: Time.current, answer: { en: "Accepted" })
                   end
                   results.first(5).each { |r| r.update(progress: 100) }
                 end
@@ -158,8 +158,8 @@ module Decidim
               context "with all answered proposals and completed results" do
                 before do
                   proposals.each do |p|
-                    p.assign_state("accepted")
-                    p.update!(state_published_at: Time.current, answered_at: Time.current, answer: { en: "Accepted" })
+                    p.assign_status("accepted")
+                    p.update!(status_published_at: Time.current, answered_at: Time.current, answer: { en: "Accepted" })
                   end
                   results.each { |r| r.update(progress: 100) }
                 end
