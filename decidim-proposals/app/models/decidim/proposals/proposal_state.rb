@@ -2,8 +2,8 @@
 
 module Decidim
   module Proposals
-    # Compatibility model for migrations written before ProposalState was
-    # renamed to ProposalStatus. It points at the pre-rename table names.
+    # Compatibility model which for migrations points to the pre-named
+    # ProposalState table, now renamed to ProposalStatus.
     class ProposalState < ApplicationRecord
       include Decidim::Traceable
 
