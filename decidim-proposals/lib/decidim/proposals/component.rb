@@ -9,7 +9,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.on(:create) do |instance|
     admin_user = GlobalID::Locator.locate(instance.versions.first.whodunnit)
-    Decidim::Proposals.create_default_states!(instance, admin_user)
+    Decidim::Proposals.create_default_statuses!(instance, admin_user)
   end
 
   component.on(:publish) do |instance|
@@ -222,7 +222,7 @@ Decidim.register_component(:proposals) do |component|
     imports.example do |import_component|
       organization = import_component.organization
       [
-        %w(id state) + organization.available_locales.map { |l| "answer/#{l}" },
+        %w(id status) + organization.available_locales.map { |l| "answer/#{l}" },
         [1, "accepted"] + organization.available_locales.map { "Example answer" },
         [2, "rejected"] + organization.available_locales.map { "Example answer" },
         [3, "evaluating"] + organization.available_locales.map { "Example answer" }

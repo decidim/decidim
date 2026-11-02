@@ -276,7 +276,7 @@ describe "Proposals" do
 
         expect(page).to have_text("Evaluating")
 
-        within ".flash[data-announcement]", style: proposal.proposal_state.css_style do
+        within ".flash[data-announcement]", style: proposal.proposal_status.css_style do
           expect(page).to have_text("This proposal is being evaluated")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -296,7 +296,7 @@ describe "Proposals" do
 
         expect(page).to have_text("Rejected")
 
-        within ".flash[data-announcement]", style: proposal.proposal_state.css_style do
+        within ".flash[data-announcement]", style: proposal.proposal_status.css_style do
           expect(page).to have_text("This proposal has been rejected")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -312,7 +312,7 @@ describe "Proposals" do
 
         expect(page).to have_text("Accepted")
 
-        within ".flash[data-announcement]", style: proposal.proposal_state.css_style do
+        within ".flash[data-announcement]", style: proposal.proposal_status.css_style do
           expect(page).to have_text("This proposal has been accepted")
           expect(page).to have_i18n_content(proposal.answer)
         end

@@ -14,15 +14,15 @@
           <div class="card pt-4">
             <div class="card-section"
                  data-controller="import-proposals"
-                 data-import-proposals-states-url-value="<%= component_states_proposals_import_path %>">
+                 data-import-proposals-statuses-url-value="<%= component_statuses_proposals_import_path %>">
               <div class="row column">
                 <%= f.select :origin_component_id, @form.origin_components_collection, { prompt: t(".select_component") }, { data: { import_proposals_target: "select", action: "change->import-proposals#onSelectChange" } } %>
               </div>
               <div class="row column">
-                <label class="ml-4"><%= t(".select_states") %></label>
-                <div id="states-container"
+                <label class="ml-4"><%= t(".select_statuses") %></label>
+                <div id="statuses-container"
                   data-import-proposals-target="container"
-                  data-import-proposals-selected-states-value="<%= @form.states.to_json %>"></div>
+                  data-import-proposals-selected-statuses-value="<%= @form.statuses.to_json %>"></div>
               </div>
               <div class="row column">
                 <%= f.check_box :keep_authors %>

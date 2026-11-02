@@ -15,12 +15,12 @@ module Decidim
       def call
         component = create_component!
 
-        Decidim::Proposals.create_default_states!(component, admin_user)
+        Decidim::Proposals.create_default_statuses!(component, admin_user)
 
         config_value(:proposals_count).times do
           proposal = create_proposal!(component:)
 
-          if proposal.state.nil? && component.settings.amendments_enabled?
+          if proposal.status.nil? && component.settings.amendments_enabled?
             emendation = create_emendation!(proposal:)
             create_proposal_votes!(proposal: emendation, amount: 1)
           end
@@ -80,17 +80,17 @@ module Decidim
       end
 
       def create_proposal!(component:)
-        proposal_state, answer, state_published_at = random_state_answer
-        proposal_state = Decidim::Proposals::ProposalState.where(component:, token: proposal_state).first
+        proposal_status, answer, status_published_at = random_status_answer
+        proposal_status = Decidim::Proposals::ProposalStatus.where(component:, token: proposal_status).first
 
         params = {
           component:,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           body: Decidim::Faker::Localized.paragraph(sentence_count: 1),
-          proposal_state:,
+          proposal_status:,
           answer:,
-          answered_at: proposal_state.present? ? Time.current : nil,
-          state_published_at:,
+          answered_at: proposal_status.present? ? Time.current : nil,
+          status_published_at:,
           published_at: Time.current
         }
 
@@ -128,7 +128,7 @@ module Decidim
         proposal
       end
 
-      def random_state_answer
+      def random_status_answer
         n = rand(5)
 
         if n > 3
@@ -173,7 +173,7 @@ module Decidim
           component: proposal.component,
           title: Decidim::Faker::Localized.literal(proposal.title[I18n.locale]),
           body: Decidim::Faker::Localized.paragraph(sentence_count: 3),
-          proposal_state: Decidim::Proposals::ProposalState.where(component: proposal.component, token: :evaluating).first,
+          proposal_status: Decidim::Proposals::ProposalStatus.where(component: proposal.component, token: :evaluating).first,
           answer: nil,
           answered_at: Time.current,
           published_at: Time.current
@@ -202,7 +202,7 @@ module Decidim
       end
 
       def create_proposal_votes!(proposal:, amount:)
-        return if proposal.published_state? && proposal.rejected?
+        return if proposal.published_status? && proposal.rejected?
 
         emails = amount.times.map do
           random_email(suffix: "proposal-vote")

@@ -210,7 +210,7 @@ describe "Filter Proposals", :slow do
     end
   end
 
-  context "when filtering proposals by STATE" do
+  context "when filtering proposals by STATUS" do
     context "when proposal_answering component setting is enabled" do
       before do
         component.update!(settings: { proposal_answering_enabled: true })
@@ -227,7 +227,7 @@ describe "Filter Proposals", :slow do
           )
         end
 
-        it "can be filtered by state" do
+        it "can be filtered by status" do
           visit_component
 
           within "form.new_filter" do
@@ -320,7 +320,7 @@ describe "Filter Proposals", :slow do
           )
         end
 
-        it "cannot be filtered by state" do
+        it "cannot be filtered by status" do
           visit_component
 
           within "form.new_filter" do
@@ -335,7 +335,7 @@ describe "Filter Proposals", :slow do
         component.update!(settings: { proposal_answering_enabled: false })
       end
 
-      it "cannot be filtered by state" do
+      it "cannot be filtered by status" do
         visit_component
 
         within "form.new_filter" do

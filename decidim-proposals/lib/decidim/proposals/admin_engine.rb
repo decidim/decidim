@@ -35,11 +35,11 @@ module Decidim
         end
 
         resource :proposals_import, only: [:new, :create] do
-          get :component_states
+          get :component_statuses
         end
         resource :proposals_merge, only: [:new, :create]
 
-        resources :proposal_states
+        resources :proposal_statuses
 
         resources :participatory_texts, only: [:index] do
           collection do

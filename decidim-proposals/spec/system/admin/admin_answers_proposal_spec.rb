@@ -33,7 +33,7 @@ describe "Admin answers proposals" do
         find("button[data-controller='dropdown']").click
         click_on "Answer proposal"
       end
-      find("label[for='proposal_answer_internal_state_accepted']").click
+      find("label[for='proposal_answer_internal_status_accepted']").click
       fill_in_i18n_editor(
         :proposal_answer_answer,
         "#proposal_answer-answer-tabs",
@@ -60,7 +60,7 @@ describe "Admin answers proposals" do
 
       shared_examples "successful handling of proposal answers" do
         it "when accepting, can submit answer with a cost, cost report and execution period" do
-          find("input#proposal_answer_internal_state_accepted").click
+          find("input#proposal_answer_internal_status_accepted").click
           fill_in_i18n_editor(
             :proposal_answer_cost_report,
             "#proposal_answer-cost_report-tabs",
@@ -112,7 +112,7 @@ describe "Admin answers proposals" do
       end
 
       it "when rejecting, do not require a cost value or cost report" do
-        find("input#proposal_answer_internal_state_rejected").click
+        find("input#proposal_answer_internal_status_rejected").click
         find("*[type=submit][name=commit]", match: :first).click
         expect(page).to have_css(".flash", text: "Proposal successfully answered.")
       end

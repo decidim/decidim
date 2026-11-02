@@ -92,11 +92,11 @@ module Decidim
         end
 
         def answer_form(proposal)
-          form(ProposalAnswerForm).from_params(answer: populate_interpolations(template&.description, proposal), internal_state: proposal_state&.token)
+          form(ProposalAnswerForm).from_params(answer: populate_interpolations(template&.description, proposal), internal_status: proposal_status&.token)
         end
 
-        def proposal_state
-          @proposal_state ||= Decidim::Proposals::ProposalState.where(component: current_component).find_by(id: template&.field_values&.dig("proposal_state_id"))
+        def proposal_status
+          @proposal_status ||= Decidim::Proposals::ProposalStatus.where(component: current_component).find_by(id: template&.field_values&.dig("proposal_status_id"))
         end
       end
     end
