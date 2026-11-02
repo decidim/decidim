@@ -114,11 +114,7 @@ Proposals now use "status"/"statuses" instead of "state"/"states".
 
 The migration renames the `decidim_proposals_proposal_states` table and the proposal `decidim_proposals_proposal_state_id`/`state_published_at` columns to status equivalents, and updates PaperTrail/action logs. Update custom code from `ProposalState`/`proposal_state`/`assign_state` to `ProposalStatus`/`proposal_status`/`assign_status`. In GraphQL, proposal `state` and `proposalState` become `status` and `proposalStatus`; amendment `state` is unchanged.
 
-Existing proposal answer templates use the old `field_values["proposal_state_id"]` key; migrate them with:
-
-```ruby
-bin/rails runner 'Decidim::Templates::Template.where(target: :proposal_answer).find_each { |t| t.update_column(:field_values, t.field_values.except("proposal_state_id").merge("proposal_status_id" => t.field_values["proposal_state_id"])) if t.field_values&.key?("proposal_state_id") }'
-```
+Existing proposal answer templates are migrated automatically by the `RenameProposalAnswerTemplateFieldValues` migration.
 
 You can read more about this change on PR [#17995](https://github.com/decidim/decidim/pull/17995).
 
