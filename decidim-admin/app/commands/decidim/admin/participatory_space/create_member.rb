@@ -53,8 +53,7 @@ module Decidim
               title: user.name
             }
           ) do
-            # rubocop:disable-next Decidim/OrganizationScopedFinder -- user and participatory_space are scoped to the current invitation
-            member = Decidim::ParticipatorySpace::Member.where(user:, participatory_space: @member_to).first_or_initialize
+            member = Decidim::ParticipatorySpace::Member.where(user:, participatory_space: @member_to).first_or_initialize # rubocop:disable Decidim/OrganizationScopedFinder -- user and participatory_space are scoped to the current invitation
             member.role = form.role
             member.published = form.published
             member.save!
@@ -63,8 +62,7 @@ module Decidim
         end
 
         def existing_user
-        # rubocop:disable-next Decidim/OrganizationScopedFinder -- organization is the member's participatory space organization
-          @existing_user ||= User.find_by(
+          @existing_user ||= User.find_by( # rubocop:disable Decidim/OrganizationScopedFinder -- organization is the member's participatory space organization
             email: form.email.downcase,
             organization: member_to.organization
           )

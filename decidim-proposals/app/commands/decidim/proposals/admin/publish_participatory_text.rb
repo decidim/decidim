@@ -38,8 +38,7 @@ module Decidim
         attr_reader :form
 
         def publish_drafts
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- scoped to the current component
-          Decidim::Proposals::Proposal.where(component: form.current_component).drafts.find_each do |proposal|
+          Decidim::Proposals::Proposal.where(component: form.current_component).drafts.find_each do |proposal| # rubocop:disable Decidim/OrganizationScopedFinder -- scoped to the current component
             add_failure(proposal) unless publish_proposal(proposal)
           end
           raise ActiveRecord::Rollback if @failures.any?

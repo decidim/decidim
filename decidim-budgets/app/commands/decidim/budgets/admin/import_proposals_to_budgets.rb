@@ -68,8 +68,7 @@ module Decidim
         end
 
         def proposals
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- origin_component is scoped to the current participatory space
-          proposals = Decidim::Proposals::Proposal.where(component: origin_component).published.not_hidden.not_withdrawn
+          proposals = Decidim::Proposals::Proposal.where(component: origin_component).published.not_hidden.not_withdrawn # rubocop:disable Decidim/OrganizationScopedFinder -- origin_component is scoped to the current participatory space
 
           if form.states.present?
             if form.states.include?("not_answered")
@@ -96,8 +95,7 @@ module Decidim
         end
 
         def component_budgets
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- budget is scoped to the current component
-          @component_budgets ||= Decidim::Budgets::Budget.where(component: form.budget.component)
+          @component_budgets ||= Decidim::Budgets::Budget.where(component: form.budget.component) # rubocop:disable Decidim/OrganizationScopedFinder -- budget is scoped to the current component
         end
       end
     end

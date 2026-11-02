@@ -42,8 +42,7 @@ module Decidim
         end
 
         def find_assignment(proposal, evaluator_role)
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- proposal and evaluator_role are scoped to the current component
-          Decidim::Proposals::EvaluationAssignment.find_by(
+          Decidim::Proposals::EvaluationAssignment.find_by( # rubocop:disable Decidim/OrganizationScopedFinder -- proposal and evaluator_role are scoped to the current component
             proposal:,
             evaluator_role:
           )
