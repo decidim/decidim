@@ -34,8 +34,8 @@ module Decidim
 
           if component
             statuses = Decidim::Proposals::ProposalStatus # rubocop:disable Decidim/OrganizationScopedFinder -- component is scoped via current_participatory_space, which is org-scoped
-                     .where(component:)
-                     .map { |s| { token: s.token, title: translated_attribute(s.title) } }
+                       .where(component:)
+                       .map { |s| { token: s.token, title: translated_attribute(s.title) } }
             statuses << { token: "not_answered", title: I18n.t("decidim.proposals.answers.not_answered") }
             render json: statuses
           else
