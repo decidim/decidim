@@ -14,6 +14,18 @@ describe "Filter Proposals", :slow do
 
   context "when caching is enabled", :caching do
     before do
+      # Translations will be provided by Crowdin after the key rename.
+      I18n.backend.store_translations(
+        :ca,
+        decidim: {
+          proposals: {
+            proposals: { filters: { status: "Estat" } },
+            application_helper: {
+              filter_status_values: { all: "Tots", not_answered: "No resposta" }
+            }
+          }
+        }
+      )
       visit_component
     end
 
