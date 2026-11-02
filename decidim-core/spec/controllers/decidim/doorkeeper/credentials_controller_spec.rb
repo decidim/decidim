@@ -47,10 +47,7 @@ describe Decidim::Doorkeeper::CredentialsController do
       let!(:access_token) { create(:oauth_access_token, application: other_application, resource_owner_id: user.id) }
 
       it "does not expose the user" do
-        get :me
-
-        expect(response).to have_http_status(:unauthorized)
-        expect(response.body).to be_blank
+        expect { get :me }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

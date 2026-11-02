@@ -219,19 +219,13 @@ module Decidim
                    else
                      amendment&.amendable
                    end
-        ensure_amendable_in_organization!(resource)
+        ensure_in_organization!(resource)
         resource
       end
     end
 
     def creating_amendment?
       %w(new create).include?(action_name)
-    end
-
-    def ensure_amendable_in_organization!(resource)
-      return if resource.blank? || resource.component&.organization == current_organization
-
-      raise ActiveRecord::RecordNotFound
     end
 
     def emendation

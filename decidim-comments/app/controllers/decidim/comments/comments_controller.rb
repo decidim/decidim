@@ -154,14 +154,9 @@ module Decidim
       end
 
       def set_comment
-        @comment = Decidim::Comments::Comment.for_organization(organization: current_organization).find_by(id: params[:id])
-        raise ActiveRecord::RecordNotFound unless @comment&.organization == current_organization
-      end
-
-      def ensure_in_organization!(resource)
-        return if resource.blank? || resource.organization == current_organization
-
-        raise ActiveRecord::RecordNotFound
+        @comment = Decidim::Comments::Comment
+                   .for_organization(organization: current_organization)
+                   .find_by!(id: params.expect(:id)) # rubocop:disable Rails/FindById
       end
 
       def ensure_commentable!

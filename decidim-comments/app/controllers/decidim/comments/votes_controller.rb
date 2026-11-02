@@ -34,7 +34,9 @@ module Decidim
       attr_reader :comment
 
       def set_comment
-        @comment = Decidim::Comments::Comment.for_organization(organization: current_organization).find_by(id: params[:comment_id])
+        @comment = Decidim::Comments::Comment
+                   .for_organization(organization: current_organization)
+                   .find_by!(id: params.expect(:comment_id)) # rubocop:disable Rails/FindById
       end
     end
   end

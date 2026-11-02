@@ -25,9 +25,7 @@ module Decidim
       end
 
       def validate_token_organization!
-        return if doorkeeper_token&.application&.organization == current_organization
-
-        head :unauthorized
+        ensure_in_organization!(doorkeeper_token&.application)
       end
 
       def current_resource_owner

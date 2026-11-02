@@ -87,18 +87,18 @@ module Decidim
             it "does not vote on the comment" do
               expect do
                 post :create, xhr: true, params: { comment_id: other_comment.id, weight: 1 }
-              end.to raise_error(ActionController::RoutingError)
+              end.to raise_error(ActiveRecord::RecordNotFound)
 
               expect(other_comment.up_votes.count).to eq(0)
             end
           end
 
           context "when the comment does not exist" do
-            it "raises a routing error" do
+            it "raises a record not found error" do
               last_id = Decidim::Comments::Comment.last&.id || 0
               expect do
                 post :create, xhr: true, params: { comment_id: last_id + 1, weight: 1 }
-              end.to raise_error(ActionController::RoutingError)
+              end.to raise_error(ActiveRecord::RecordNotFound)
             end
           end
         end

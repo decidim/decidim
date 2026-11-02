@@ -6,9 +6,11 @@ module Decidim
     class AuthorizationsController < ::Doorkeeper::AuthorizationsController
       include HasSpecificBreadcrumb
 
-      before_action :validate_application_organization
+      before_action :set_oauth_application
 
       helper_method :oauth_application, :all_abilities?
+
+      attr_reader :oauth_application
 
       def new
         @scopes =
@@ -21,10 +23,6 @@ module Decidim
         super
       end
 
-      def oauth_application
-        @oauth_application ||= current_organization.oauth_applications.find_by(uid: params[:client_id])
-      end
-
       def breadcrumb_item
         {
           label: t("decidim.doorkeeper.authorizations.new.authorize"),
@@ -34,11 +32,10 @@ module Decidim
 
       private
 
-      def validate_application_organization
+      def set_oauth_application
         return if params[:client_id].blank?
-        return if current_organization.oauth_applications.exists?(uid: params[:client_id])
 
-        raise ActiveRecord::RecordNotFound
+        @oauth_application = current_organization.oauth_applications.find_by!(uid: params.expect(:client_id))
       end
 
       def all_abilities?
