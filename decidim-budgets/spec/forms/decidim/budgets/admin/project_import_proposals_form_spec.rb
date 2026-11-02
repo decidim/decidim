@@ -12,12 +12,12 @@ module Decidim
         let(:component) { project.component }
         let(:origin_component) { create(:proposal_component, participatory_space: component.participatory_space) }
         let(:default_budget) { 1000 }
-        let(:states) { %w(accepted rejected) }
+        let(:statuses) { %w(accepted rejected) }
         let(:params) do
           {
             origin_component_id: origin_component.try(:id),
             default_budget:,
-            states:
+            statuses:
           }
         end
 
@@ -44,8 +44,8 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when no states are selected" do
-          let(:states) { [] }
+        context "when no statuses are selected" do
+          let(:statuses) { [] }
 
           it { is_expected.to be_valid }
         end
@@ -69,45 +69,45 @@ module Decidim
           end
         end
 
-        describe "valid_states validation" do
-          context "when all selected states are valid" do
-            let(:states) { %w(accepted rejected) }
+        describe "valid_statuses validation" do
+          context "when all selected statuses are valid" do
+            let(:statuses) { %w(accepted rejected) }
 
             it { is_expected.to be_valid }
           end
 
-          context "when including the special not_answered state" do
-            let(:states) { %w(accepted not_answered) }
+          context "when including the special not_answered status" do
+            let(:statuses) { %w(accepted not_answered) }
 
             it { is_expected.to be_valid }
           end
 
           context "when only not_answered is selected" do
-            let(:states) { %w(not_answered) }
+            let(:statuses) { %w(not_answered) }
 
             it { is_expected.to be_valid }
           end
 
-          context "when some states are invalid" do
-            let(:states) { %w(accepted invalid_state) }
+          context "when some statuses are invalid" do
+            let(:statuses) { %w(accepted invalid_status) }
 
             it { is_expected.to be_invalid }
 
-            it "adds an error to the states attribute" do
+            it "adds an error to the statuses attribute" do
               form.valid?
-              expect(form.errors[:states]).to be_present
+              expect(form.errors[:statuses]).to be_present
             end
           end
 
-          context "when all states are invalid" do
-            let(:states) { %w(nonexistent_state another_invalid) }
+          context "when all statuses are invalid" do
+            let(:statuses) { %w(nonexistent_status another_invalid) }
 
             it { is_expected.to be_invalid }
           end
 
           context "when there is no origin component" do
             let(:origin_component) { nil }
-            let(:states) { %w(invalid_state) }
+            let(:statuses) { %w(invalid_status) }
 
             it { is_expected.to be_invalid }
           end

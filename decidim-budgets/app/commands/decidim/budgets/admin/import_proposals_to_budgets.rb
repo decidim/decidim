@@ -70,11 +70,11 @@ module Decidim
         def proposals
           proposals = Decidim::Proposals::Proposal.where(component: origin_component).published.not_hidden.not_withdrawn
 
-          if form.states.present?
-            if form.states.include?("not_answered")
-              proposals.not_answered.or(proposals.where(id: proposals.only_status(form.states).pluck(:id)))
+          if form.statuses.present?
+            if form.statuses.include?("not_answered")
+              proposals.not_answered.or(proposals.where(id: proposals.only_status(form.statuses).pluck(:id)))
             else
-              proposals.only_status(form.states)
+              proposals.only_status(form.statuses)
             end
           else
             proposals
