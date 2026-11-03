@@ -101,6 +101,10 @@ en:
       document:
         apply: Apply
         cancel: Cancel
+        card_status:
+          accepting_suggestions: Accepting suggestions
+          draft: In review
+          not_accepting_suggestions: Not accepting suggestions
         consolidate:
           confirm: This action will consolidate all accepted suggestions into a new version of the document. Non-accepted suggestions will be transferred to the new version for further review. This action will maintain the suggestions enabled status.
           new: Consolidate accepted suggestions
