@@ -20,10 +20,7 @@ module Decidim
       # Returns nothing.
       def call
         ActiveRecord::Base.transaction do
-          ProposalVote.where(
-            author: @current_user,
-            proposal: @proposal
-          ).destroy_all
+          @proposal.votes.where(author: @current_user).destroy_all
 
           update_temporary_votes
         end
@@ -54,9 +51,9 @@ module Decidim
       end
 
       def user_votes
-        @user_votes ||= ProposalVote.where(
+        @user_votes ||= ProposalVote.where( # rubocop:disable Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
           author: @current_user,
-          proposal: Proposal.where(component:)
+          proposal: Proposal.where(component:) # rubocop:disable Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
         )
       end
     end
