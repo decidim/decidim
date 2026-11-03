@@ -40,6 +40,7 @@ class AdminAssembliesListComponent {
     }
 
     assembly.dataset.loading = "true";
+    assembly.setAttribute("aria-busy", "true");
     assembly.classList.add("spinner-container");
 
     const upArrow = assembly.querySelector("[data-arrow-up]");
@@ -88,6 +89,7 @@ class AdminAssembliesListComponent {
     }
 
     assembly.classList.remove("spinner-container");
+    assembly.removeAttribute("aria-busy");
     assembly.dataset.loading = "false";
   }
 }

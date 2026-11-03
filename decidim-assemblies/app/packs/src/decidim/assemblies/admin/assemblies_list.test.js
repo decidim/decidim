@@ -44,6 +44,7 @@ describe("AdminAssembliesListComponent", () => {
 
     expect(assemblyRow.classList.contains("spinner-container")).toBe(true);
     expect(assemblyRow.dataset.loading).toBe("true");
+    expect(assemblyRow.getAttribute("aria-busy")).toBe("true");
     expect(downArrow.classList.contains("hidden")).toBe(true);
     expect(upArrow.classList.contains("hidden")).toBe(false);
   });
@@ -69,6 +70,7 @@ describe("AdminAssembliesListComponent", () => {
 
     expect(assemblyRow.classList.contains("spinner-container")).toBe(false);
     expect(assemblyRow.dataset.loading).toBe("false");
+    expect(assemblyRow.hasAttribute("aria-busy")).toBe(false);
   });
 
   it("allows collapsing after an ajax error", () => {

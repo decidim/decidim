@@ -205,6 +205,7 @@ describe "Admin manages assemblies" do
       it "shows a loading spinner while fetching the children and clears it afterwards" do
         page.execute_script(<<~JS)
           window.assemblySpinnerStates = [];
+          window.assemblyBusyStates = [];
           window.assemblyCellLefts = [];
           const row = document.querySelector("tr[data-assembly-id='#{parent_assembly.id}']");
           const cell = row.querySelector("td");
@@ -212,10 +213,11 @@ describe "Admin manages assemblies" do
           new MutationObserver(() => {
             const loading = row.classList.contains("spinner-container");
             window.assemblySpinnerStates.push(loading);
+            window.assemblyBusyStates.push(row.getAttribute("aria-busy") === "true");
             if (loading) {
               window.assemblyCellLefts.push(cell.getBoundingClientRect().left);
             }
-          }).observe(row, { attributes: true, attributeFilter: ["class"] });
+          }).observe(row, { attributes: true, attributeFilter: ["class", "aria-busy"] });
         JS
 
         within "tr", text: translated(parent_assembly.title) do
@@ -224,7 +226,9 @@ describe "Admin manages assemblies" do
 
         expect(page).to have_text(translated(child_assembly.title))
         expect(page.evaluate_script("window.assemblySpinnerStates")).to include(true, false)
+        expect(page.evaluate_script("window.assemblyBusyStates")).to include(true, false)
         expect(page).to have_no_css("tr[data-assembly-id='#{parent_assembly.id}'][data-loading='true']")
+        expect(page).to have_no_css("tr[data-assembly-id='#{parent_assembly.id}'][aria-busy='true']")
 
         cell_lefts = page.evaluate_script("window.assemblyCellLefts")
         expect(cell_lefts).not_to be_empty

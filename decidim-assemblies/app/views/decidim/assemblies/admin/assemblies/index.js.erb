@@ -7,6 +7,7 @@ $('[data-assembly-id="<%= parent_assembly_id %>"]').after(
 
 $('[data-assembly-id="<%= parent_assembly_id %>"]')
   .removeClass("spinner-container")
+  .removeAttr("aria-busy")
   .attr("data-loading", "false");
 
 // Dispatch the `ajax:loaded` event with the newly inserted element
