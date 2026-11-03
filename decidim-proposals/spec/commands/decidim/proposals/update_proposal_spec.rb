@@ -201,6 +201,17 @@ module Decidim
                 expect { command.call }.to change(Decidim::Attachment, :count).from(1).to(2)
               end
             end
+
+            context "with an attachment from another organization" do
+              let(:other_proposal) { create(:proposal) }
+              let!(:foreign_attachment) { create(:attachment, :with_pdf, attached_to: other_proposal) }
+              let(:uploaded_files) { [{ id: foreign_attachment.id, title: "Hijacked title" }] }
+
+              it "does not update the foreign attachment" do
+                expect { command.call }.to broadcast(:ok)
+                expect(foreign_attachment.reload.title).not_to eq("Hijacked title")
+              end
+            end
           end
 
           context "when attachments are allowed and file is invalid" do

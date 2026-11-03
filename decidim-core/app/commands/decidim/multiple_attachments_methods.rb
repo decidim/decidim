@@ -22,7 +22,7 @@ module Decidim
     end
 
     def update_attachment_title_for(attachment)
-      Decidim::Attachment.find(attachment[:id]).update(title: title_for(attachment))
+      attachments_scope.find_by(id: attachment[:id])&.update(title: title_for(attachment))
     end
 
     def attachments_invalid?
@@ -43,7 +43,7 @@ module Decidim
       weight = first_weight
       # Add the weights first to the old attachments
       attachment_ids = keep_ids
-      Decidim::Attachment.where(id: attachment_ids).each do |attachment|
+      attachments_scope.where(id: attachment_ids).each do |attachment|
         attachment.update!(weight:)
         weight += 1
       end
@@ -77,6 +77,16 @@ module Decidim
       return form.current_organization if form.respond_to?(:current_organization)
 
       form.current_component.organization if form.respond_to?(:current_component)
+    end
+
+    # Only attachments owned by the record being updated can be changed. During
+    # a create flow there is no attached record yet, so no existing attachment
+    # can be selected by ID.
+    def attachments_scope
+      attached_to = @attached_to || attachments_attached_to
+      return attached_to.attachments if attached_to.respond_to?(:attachments)
+
+      Decidim::Attachment.none
     end
 
     def signed_id_for(attachment)
