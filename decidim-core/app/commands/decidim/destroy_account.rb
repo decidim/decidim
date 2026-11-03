@@ -97,8 +97,8 @@ module Decidim
     end
 
     def destroy_follows
-      Decidim::Follow.where(followable: current_user).find_each(&:destroy) # rubocop:disable Decidim/OrganizationScopedFinder -- records belong to the current user
-      Decidim::Follow.where(user: current_user).find_each(&:destroy) # rubocop:disable Decidim/OrganizationScopedFinder -- records belong to the current user
+      current_user.follows.find_each(&:destroy)
+      current_user.following_follows.find_each(&:destroy)
     end
 
     def destroy_member
