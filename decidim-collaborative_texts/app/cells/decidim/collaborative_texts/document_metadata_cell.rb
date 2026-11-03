@@ -18,7 +18,7 @@ module Decidim
 
       def status_item
         {
-          text: t("decidim.collaborative_texts.document.card_status.#{status_key}"),
+          text: content_tag(:span, t("decidim.collaborative_texts.document.card_status.#{status_key}"), class: "#{status_class} label"),
           icon: "time-line",
           data_attributes: { status: status_key }
         }
@@ -31,9 +31,20 @@ module Decidim
         "not_accepting_suggestions"
       end
 
+      def status_class
+        case status_key
+        when "draft"
+          "alert"
+        when "accepting_suggestions"
+          "success"
+        else
+          "warning"
+        end
+      end
+
       def suggestions_count_item
         {
-          text: t("decidim.collaborative_texts.document.suggestions_count", count: model.suggestions_count),
+          text: content_tag(:span, t("decidim.collaborative_texts.document.suggestions_count", count: model.suggestions_count), class: "label"),
           icon: "award-line",
           data_attributes: { suggestions_count: "" }
         }
