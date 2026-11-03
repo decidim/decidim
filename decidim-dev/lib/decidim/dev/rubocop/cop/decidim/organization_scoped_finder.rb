@@ -174,8 +174,10 @@ module RuboCop
           return false unless key.sym_type?
           return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
           return false unless value.send_type?
-          return false if value.receiver
+          return false if value.receiver && unscoped_model_class?(value.receiver)
 
+          # Accept form-provided context helpers such as
+          # `form.current_component` or `@form.current_organization`.
           value.method_name == :"current_#{key.value}"
         end
 
