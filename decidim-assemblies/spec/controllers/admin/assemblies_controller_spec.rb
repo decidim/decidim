@@ -90,8 +90,12 @@ module Decidim
             expect(response).to have_http_status(:ok)
 
             current_assembly_queries = many_queries.select { |sql| sql.include?('"decidim_assemblies"."slug"') }
+            manageable_assemblies_queries = many_queries.select do |sql|
+              sql.include?("SELECT 1 AS one") && sql.include?('"decidim_assemblies"."decidim_organization_id"')
+            end
 
             expect(current_assembly_queries.size).to be <= 1
+            expect(manageable_assemblies_queries.size).to be <= 1
             expect(many_queries.size).to eq(few_queries.size)
           end
 

@@ -22,7 +22,7 @@ module Decidim
 
         return permission_action unless user
 
-        if !has_manageable_assemblies? && !user.admin?
+        if !user.admin? && !has_manageable_assemblies?
           disallow!
           return permission_action
         end
