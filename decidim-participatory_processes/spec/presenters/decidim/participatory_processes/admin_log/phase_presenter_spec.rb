@@ -2,13 +2,13 @@
 
 require "spec_helper"
 
-describe Decidim::ParticipatoryProcesses::AdminLog::StepPresenter, type: :helper do
+describe Decidim::ParticipatoryProcesses::AdminLog::PhasePresenter, type: :helper do
   subject { presenter.present }
 
   let(:presenter) { described_class.new(action_log, helper) }
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }
-  let(:step) { create(:participatory_process_step, participatory_process:, title: { en: "Current phase" }) }
+  let(:phase) { create(:participatory_process_phase, participatory_process:, title: { en: "Current phase" }) }
   let(:action) { "system_activate" }
   let(:user) { nil }
   let(:action_log) do
@@ -16,7 +16,7 @@ describe Decidim::ParticipatoryProcesses::AdminLog::StepPresenter, type: :helper
       :action_log,
       user:,
       action:,
-      resource: step,
+      resource: phase,
       participatory_space: participatory_process,
       organization:
     )

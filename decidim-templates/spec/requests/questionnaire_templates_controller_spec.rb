@@ -82,7 +82,7 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
 
     context "when a user manager targets a cross-organization questionnaire" do
       let(:user) { create(:user, :user_manager, :confirmed, organization:) }
-      let(:other_process) { create(:participatory_process, :with_steps, organization: other_org) }
+      let(:other_process) { create(:participatory_process, :with_phases, organization: other_org) }
       let(:other_component) { create(:surveys_component, participatory_space: other_process) }
       let(:other_survey) { create(:survey, component: other_component) }
       let(:other_questionnaire) { other_survey.questionnaire }
