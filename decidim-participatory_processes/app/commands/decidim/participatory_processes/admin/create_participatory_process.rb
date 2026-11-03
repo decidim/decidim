@@ -49,7 +49,7 @@ module Decidim
         end
 
         def related_processes
-          @related_processes ||= Decidim::ParticipatoryProcess.where(id: form.related_process_ids)
+          @related_processes ||= resource.participatory_space_sibling_scope(:participatory_processes).where(id: form.related_process_ids)
         end
 
         def link_related_processes

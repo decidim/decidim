@@ -85,6 +85,7 @@ module Decidim
         end
 
         def duplicate_landing_page_blocks
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- scoped to the duplicated assembly's organization
           blocks = Decidim::ContentBlock.where(scoped_resource_id: @assembly.id, scope_name: "assembly_homepage", organization: @assembly.organization)
           return if blocks.blank?
 

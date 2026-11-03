@@ -713,7 +713,7 @@ module Decidim
       ),
       CoreDataManifest.new(
         name: :taxonomies,
-        collection: ->(organization) { Decidim::Taxonomy.where(organization:) },
+        collection: ->(organization) { organization.taxonomies },
         serializer: Decidim::Exporters::OpenDataTaxonomySerializer,
         include_in_open_data: true
       )

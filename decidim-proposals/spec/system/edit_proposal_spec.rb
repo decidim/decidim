@@ -251,7 +251,7 @@ describe "Edit proposals" do
         # Give time for the screen reader announcement to be added since there
         # is a small delay before the message appears.
         sleep 0.5
-        expect(page).to have_text("Marker added to the map.")
+        expect(page).to have_css("#screen-reader-announcement", text: "Marker added to the map.", visible: :all)
 
         click_on "Send"
         expect(page).to have_text(new_address)
