@@ -20,7 +20,7 @@ tr.spinner-container {
   td:first-child {
     @apply relative;
 
-    &::before {
+    &::after {
       @apply content-[""] absolute top-1/2 left-1/2 -mt-3 -ml-3 block w-6 h-6 rounded-full animate-spin border-4 border-l-background border-y-background border-r-secondary z-20;
     }
   }
