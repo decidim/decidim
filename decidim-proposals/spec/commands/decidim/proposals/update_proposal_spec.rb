@@ -208,8 +208,10 @@ module Decidim
               let(:uploaded_files) { [{ id: foreign_attachment.id, title: "Hijacked title" }] }
 
               it "does not update the foreign attachment" do
+                original_title = foreign_attachment.title
+
                 expect { command.call }.to broadcast(:ok)
-                expect(foreign_attachment.reload.title).not_to eq("Hijacked title")
+                expect(foreign_attachment.reload.title).to eq(original_title)
               end
             end
           end
