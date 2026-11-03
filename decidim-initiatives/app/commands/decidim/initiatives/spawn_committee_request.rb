@@ -38,7 +38,7 @@ module Decidim
 
       def create_request
         request = InitiativesCommitteeMember.new(
-          decidim_initiatives_id: form.initiative_id,
+          decidim_initiatives_id: initiative.id,
           decidim_users_id: form.user_id,
           state: form.state
         )
@@ -62,7 +62,7 @@ module Decidim
       end
 
       def initiative
-        @initiative ||= Decidim::Initiative.find(form.initiative_id)
+        @initiative ||= Decidim::Initiative.where(organization: form.current_organization).find(form.initiative_id)
       end
     end
   end
