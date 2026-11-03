@@ -51,8 +51,8 @@ module Decidim
       end
 
       def create_meetings_registrations
-        published_meeting_components = Decidim::Component.where(participatory_space: conference).where(manifest_name: "meetings").published
-        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id))
+        published_meeting_components = conference.components.where(manifest_name: "meetings").published
+        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id)) # rubocop:disable Decidim/OrganizationScopedFinder -- components are scoped to the conference above
 
         meetings.each do |meeting|
           Decidim::Meetings::Registration.create!(meeting:, user:)
