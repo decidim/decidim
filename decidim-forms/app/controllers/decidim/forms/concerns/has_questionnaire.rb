@@ -120,7 +120,7 @@ module Decidim
           end
 
           def questionnaire
-            @questionnaire ||= Questionnaire.includes(questions: :response_options).find_by(questionnaire_for:)
+            @questionnaire ||= Questionnaire.includes(questions: :response_options).find_by(questionnaire_for:) # rubocop:disable Decidim/OrganizationScopedFinder -- questionnaire_for is scoped by the host controller
           end
 
           def spam_detected
