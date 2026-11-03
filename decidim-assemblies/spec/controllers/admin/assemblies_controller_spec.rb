@@ -55,6 +55,21 @@ module Decidim
             expect(queries.select { |sql| sql.include?("COUNT(*)") && sql.include?('"decidim_assemblies"."parent_id" =') }).to be_empty
           end
 
+          it "does not run additional queries per assembly for org admins" do
+            create_list(:assembly, 2, organization:)
+            get :index
+            expect(response).to have_http_status(:ok)
+
+            few_queries = count_queries { get :index }
+            expect(response).to have_http_status(:ok)
+
+            create_list(:assembly, 4, organization:)
+            many_queries = count_queries { get :index }
+            expect(response).to have_http_status(:ok)
+
+            expect(many_queries.size).to eq(few_queries.size)
+          end
+
           context "when the assembly has children" do
             let!(:parent_assembly) { create(:assembly, :published, organization:) }
             let!(:child_assembly) { create(:assembly, :published, organization:, parent: parent_assembly) }
