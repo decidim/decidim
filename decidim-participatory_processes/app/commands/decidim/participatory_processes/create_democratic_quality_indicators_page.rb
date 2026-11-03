@@ -7,7 +7,7 @@ module Decidim
       #
       # @param organization_id [Integer] an id to fetch a Decidim::Organization instance
       def initialize(organization_id)
-        @organization = Decidim::Organization.find(organization_id)
+        @organization = Decidim::Organization.find(organization_id) # rubocop:disable Decidim/OrganizationScopedFinder -- organization is the tenant root passed by migrations and seeds
       end
 
       # Executes the command that creates the required static page or returns it if it already exists.
