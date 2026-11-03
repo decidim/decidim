@@ -45,7 +45,7 @@ Decidim/OrganizationScopedFinder:
   Enabled: true
   Severity: warning
   Include:
-    - "**/app/controllers/**/admin/**/*.rb"
+    - "**/app/controllers/**/*.rb"
     - "**/app/commands/**/admin/**/*.rb"
   Exclude:
     - "**/decidim-system/**/*.rb"
