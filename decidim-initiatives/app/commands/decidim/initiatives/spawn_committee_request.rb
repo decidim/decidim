@@ -5,7 +5,7 @@ module Decidim
     # A command with all the business logic that creates a new membership
     # request for the committee of an initiative.
     class SpawnCommitteeRequest < Decidim::Command
-      delegate :current_user, to: :form
+      delegate :current_organization, :current_user, to: :form
       # Public: Initializes the command.
       #
       # form - Decidim::Initiative::CommitteeMemberForm
@@ -62,7 +62,7 @@ module Decidim
       end
 
       def initiative
-        @initiative ||= Decidim::Initiative.where(organization: form.current_organization).find(form.initiative_id)
+        @initiative ||= Decidim::Initiative.where(organization: current_organization).find(form.initiative_id)
       end
     end
   end
