@@ -81,7 +81,7 @@ module Decidim
     end
 
     def filtered_query_for(class_name)
-      query = SearchableResource.where(
+      query = SearchableResource.where( # rubocop:disable Decidim/OrganizationScopedFinder -- organization is the tenant argument used to filter the search
         organization:,
         locale: I18n.locale,
         resource_type: class_name

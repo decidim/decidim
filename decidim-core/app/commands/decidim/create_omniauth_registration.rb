@@ -68,7 +68,7 @@ module Decidim
     def create_or_find_user
       @user = User.find_or_initialize_by(
         email: verified_email,
-        organization:
+        organization: form.current_organization
       )
 
       if @user.persisted?
@@ -120,7 +120,7 @@ module Decidim
     end
 
     def existing_identity
-      @existing_identity ||= Identity.find_by(
+      @existing_identity ||= Identity.find_by( # rubocop:disable Decidim/OrganizationScopedFinder -- user: organization.users scopes the lookup to the current organization
         user: organization.users,
         provider: form.provider,
         uid: form.uid

@@ -57,15 +57,15 @@ module Decidim
     end
 
     def destroy_user_badges
-      Decidim::Gamification::BadgeScore.where(user: current_user).find_each(&:destroy)
+      Decidim::Gamification::BadgeScore.where(user: current_user).find_each(&:destroy) # rubocop:disable Decidim/OrganizationScopedFinder -- records belong to the current user
     end
 
     def destroy_user_reports
-      Decidim::UserModeration.where(user: current_user).find_each(&:destroy)
+      Decidim::UserModeration.where(user: current_user).find_each(&:destroy) # rubocop:disable Decidim/OrganizationScopedFinder -- records belong to the current user
     end
 
     def destroy_user_likes
-      Decidim::Like.where(author: current_user).find_each(&:destroy)
+      Decidim::Like.where(author: current_user).find_each(&:destroy) # rubocop:disable Decidim/OrganizationScopedFinder -- records belong to the current user
     end
 
     def destroy_user_identities
@@ -97,12 +97,12 @@ module Decidim
     end
 
     def destroy_follows
-      Decidim::Follow.where(followable: current_user).find_each(&:destroy)
-      Decidim::Follow.where(user: current_user).find_each(&:destroy)
+      Decidim::Follow.where(followable: current_user).find_each(&:destroy) # rubocop:disable Decidim/OrganizationScopedFinder -- records belong to the current user
+      Decidim::Follow.where(user: current_user).find_each(&:destroy) # rubocop:disable Decidim/OrganizationScopedFinder -- records belong to the current user
     end
 
     def destroy_member
-      Decidim::ParticipatorySpace::Member.where(user: current_user).find_each(&:destroy)
+      Decidim::ParticipatorySpace::Member.where(user: current_user).find_each(&:destroy) # rubocop:disable Decidim/OrganizationScopedFinder -- records belong to the current user
     end
 
     def delegate_destroy_to_participatory_spaces

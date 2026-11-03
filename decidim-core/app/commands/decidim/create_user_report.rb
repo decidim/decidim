@@ -38,7 +38,7 @@ module Decidim
     attr_reader :form, :report
 
     def find_or_create_moderation!
-      @moderation = UserModeration.find_or_create_by!(user: @reportable)
+      @moderation = UserModeration.find_or_create_by!(user: @reportable) # rubocop:disable Decidim/OrganizationScopedFinder -- reportable is a signed GlobalID vetted by the controller
     end
 
     def create_report!
