@@ -66,10 +66,7 @@ module Decidim
     end
 
     def create_or_find_user
-      @user = User.find_or_initialize_by(
-        email: verified_email,
-        organization: form.current_organization
-      )
+      @user = organization.users.find_or_initialize_by(email: verified_email)
 
       if @user.persisted?
         # If user has left the account unconfirmed and later on decides to sign
