@@ -4,7 +4,7 @@ module Decidim
   module Budgets
     # This cell renders the budgets list of a Budget component
     class BudgetsListCell < BaseCell
-      AVAILABLE_ORDERS = %w(random highest_cost lowest_cost).freeze
+      AVAILABLE_ORDERS = %w(weight random highest_cost lowest_cost).freeze
 
       include Decidim::CellsPaginateHelper
       include Decidim::OrdersHelper
@@ -77,8 +77,12 @@ module Decidim
         reorder(budgets.where(id: highlighted.map(&:id)))
       end
 
+      def default_order = "weight"
+
       def reorder(budgets)
         case order
+        when "weight"
+          budgets.reorder(weight: :asc, id: :asc)
         when "highest_cost"
           budgets.reorder(total_budget: :desc, weight: :asc)
         when "lowest_cost"
