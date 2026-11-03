@@ -1,0 +1,55 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+module Decidim::CollaborativeTexts
+  describe DocumentMetadataCell, type: :cell do
+    controller Decidim::CollaborativeTexts::DocumentsController
+
+    subject { cell_html }
+
+    let(:my_cell) { cell("decidim/collaborative_texts/document_metadata", document) }
+    let(:cell_html) { my_cell.call }
+    let(:document) { create(:collaborative_text_document, :draft) }
+    let(:component) { document.component }
+    let(:user) { create(:user, :confirmed, organization: component.organization) }
+
+    before do
+      allow(controller).to receive(:current_user).and_return(user)
+    end
+
+    it "renders as draft" do
+      expect(subject.to_s).to include('<span class="alert label">In review</span>')
+    end
+
+    context "when the document is accepting suggestions" do
+      let(:document) { create(:collaborative_text_document, :published, :accepting_suggestions) }
+
+      it "renders as accepting suggestions" do
+        expect(subject.to_s).to include('<span class="success label">Accepting suggestions</span>')
+      end
+    end
+
+    context "when the document is not accepting suggestions" do
+      let(:document) { create(:collaborative_text_document, :published, :not_accepting_suggestions) }
+
+      it "renders as not accepting suggestions" do
+        expect(subject.to_s).to include('<span class="warning label">Not accepting suggestions</span>')
+      end
+    end
+
+    context "when the document has suggestions" do
+      let(:document) { create(:collaborative_text_document, :published, :accepting_suggestions) }
+      let!(:version) { create(:collaborative_text_version, document:, draft: false) }
+
+      before do
+        create_list(:collaborative_text_suggestion, 3, document_version: version)
+        document.reload
+      end
+
+      it "renders the suggestions count" do
+        expect(subject.to_s).to include('<span class="label">3 suggestions</span>')
+      end
+    end
+  end
+end
