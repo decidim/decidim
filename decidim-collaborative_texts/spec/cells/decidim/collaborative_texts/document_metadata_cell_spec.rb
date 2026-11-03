@@ -19,14 +19,14 @@ module Decidim::CollaborativeTexts
     end
 
     it "renders as draft" do
-      expect(subject.to_s).to include('<span class="alert label">In review</span>')
+      expect(subject).to have_css("[data-status='draft']", text: "In review")
     end
 
     context "when the document is accepting suggestions" do
       let(:document) { create(:collaborative_text_document, :published, :accepting_suggestions) }
 
       it "renders as accepting suggestions" do
-        expect(subject.to_s).to include('<span class="success label">Accepting suggestions</span>')
+        expect(subject).to have_css("[data-status='accepting_suggestions']", text: "Accepting suggestions")
       end
     end
 
@@ -34,7 +34,7 @@ module Decidim::CollaborativeTexts
       let(:document) { create(:collaborative_text_document, :published, :not_accepting_suggestions) }
 
       it "renders as not accepting suggestions" do
-        expect(subject.to_s).to include('<span class="warning label">Not accepting suggestions</span>')
+        expect(subject).to have_css("[data-status='not_accepting_suggestions']", text: "Not accepting suggestions")
       end
     end
 
@@ -48,7 +48,7 @@ module Decidim::CollaborativeTexts
       end
 
       it "renders the suggestions count" do
-        expect(subject.to_s).to include('<span class="label">3 suggestions</span>')
+        expect(subject).to have_css("[data-suggestions-count]", text: "3 suggestions")
       end
     end
   end
