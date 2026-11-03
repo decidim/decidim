@@ -69,6 +69,27 @@ module Decidim
 
           expect(Response.first.choices.map(&:body)).to eq(%w(My second response))
         end
+
+        context "when a choice belongs to another question" do
+          let(:other_question) { create(:meetings_poll_question) }
+          let!(:foreign_option) { create(:meetings_poll_response_option, question: other_question, body: { en: "Foreign body" }) }
+          let(:form_params) do
+            {
+              "response" => {
+                "choices" => [
+                  { "response_option_id" => foreign_option.id, "body" => nil }
+                ],
+                "question_id" => question.id
+              }
+            }
+          end
+
+          it "does not use the foreign response option body" do
+            command.call
+
+            expect(Response.first.choices.first.body).not_to eq("Foreign body")
+          end
+        end
       end
     end
   end

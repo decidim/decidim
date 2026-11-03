@@ -40,8 +40,10 @@ module Decidim
         )
 
         form.selected_choices.each do |choice|
+          response_option = form.question.response_options.find_by(id: choice.response_option_id)
+
           response.choices.build(
-            body: choice.body || translated_attribute(ResponseOption.find_by(id: choice.response_option_id)&.body),
+            body: choice.body || translated_attribute(response_option&.body),
             decidim_response_option_id: choice.response_option_id
           )
         end
