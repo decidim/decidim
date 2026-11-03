@@ -16,6 +16,7 @@ module Decidim
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid) unless response_options_valid?
 
         transaction do
           response_question
@@ -40,15 +41,21 @@ module Decidim
         )
 
         form.selected_choices.each do |choice|
-          response_option = form.question.response_options.find_by(id: choice.response_option_id)
+          response_option = form.question.response_options.find(choice.response_option_id)
 
           response.choices.build(
-            body: choice.body || translated_attribute(response_option&.body),
-            decidim_response_option_id: choice.response_option_id
+            body: choice.body || translated_attribute(response_option.body),
+            decidim_response_option_id: response_option.id
           )
         end
 
         response.save!
+      end
+
+      def response_options_valid?
+        form.selected_choices.all? do |choice|
+          form.question.response_options.exists?(id: choice.response_option_id)
+        end
       end
     end
   end

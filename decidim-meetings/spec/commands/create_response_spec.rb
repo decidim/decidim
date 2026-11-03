@@ -84,10 +84,9 @@ module Decidim
             }
           end
 
-          it "does not use the foreign response option body" do
-            command.call
-
-            expect(Response.first.choices.first.body).not_to eq("Foreign body")
+          it "rejects the foreign response option" do
+            expect { command.call }.to broadcast(:invalid)
+            expect(Response.count).to eq(0)
           end
         end
       end
