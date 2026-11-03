@@ -97,7 +97,10 @@ module Decidim
         end
 
         def current_assembly
-          @current_assembly ||= collection.with_deleted.where(slug: params[:slug]).or(
+          return if params[:slug].blank?
+          return @current_assembly if defined?(@current_assembly)
+
+          @current_assembly = collection.with_deleted.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])
           ).first
         end
@@ -105,7 +108,10 @@ module Decidim
         alias current_participatory_space current_assembly
 
         def parent_assembly
-          @parent_assembly ||= collection.find_by(id: parent_assembly_id)
+          return if parent_assembly_id.blank?
+          return @parent_assembly if defined?(@parent_assembly)
+
+          @parent_assembly = collection.find_by(id: parent_assembly_id)
         end
 
         def parent_assembly_id

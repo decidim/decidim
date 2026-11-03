@@ -70,6 +70,31 @@ module Decidim
             expect(many_queries.size).to eq(few_queries.size)
           end
 
+          it "does not look up the current assembly or run additional queries per child on AJAX expansion" do
+            parent = create(:assembly, :published, organization:)
+            create_list(:assembly, 2, :published, organization:, parent:)
+
+            get :index, params: { q: { parent_id_eq: parent.id } }, format: :js, xhr: true
+            expect(response).to have_http_status(:ok)
+
+            few_queries = count_queries do
+              get :index, params: { q: { parent_id_eq: parent.id } }, format: :js, xhr: true
+            end
+            expect(response).to have_http_status(:ok)
+
+            create_list(:assembly, 6, :published, organization:, parent:)
+
+            many_queries = count_queries do
+              get :index, params: { q: { parent_id_eq: parent.id } }, format: :js, xhr: true
+            end
+            expect(response).to have_http_status(:ok)
+
+            current_assembly_queries = many_queries.select { |sql| sql.include?('"decidim_assemblies"."slug"') }
+
+            expect(current_assembly_queries.size).to be <= 1
+            expect(many_queries.size).to eq(few_queries.size)
+          end
+
           context "when the assembly has children" do
             let!(:parent_assembly) { create(:assembly, :published, organization:) }
             let!(:child_assembly) { create(:assembly, :published, organization:, parent: parent_assembly) }
