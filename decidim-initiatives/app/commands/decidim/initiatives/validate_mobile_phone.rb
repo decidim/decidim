@@ -42,7 +42,7 @@ module Decidim
       end
 
       def authorization
-        @authorization ||= Verifications::Authorizations.new(organization: @user.organization, user: @user, name: authorization_name).first
+        @authorization ||= Verifications::Authorizations.new(organization: @user.organization, user: @user, name: authorization_name).first # rubocop:disable Decidim/OrganizationScopedFinder -- the query object scopes authorizations to the user's organization
       end
 
       def authorization_name
