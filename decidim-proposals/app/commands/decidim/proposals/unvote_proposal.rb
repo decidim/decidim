@@ -20,7 +20,10 @@ module Decidim
       # Returns nothing.
       def call
         ActiveRecord::Base.transaction do
-          @proposal.votes.where(author: @current_user).destroy_all
+          ProposalVote.where( # rubocop:disable Decidim/OrganizationScopedFinder -- proposal is already scoped to its component
+            author: @current_user,
+            proposal: @proposal
+          ).destroy_all
 
           update_temporary_votes
         end
