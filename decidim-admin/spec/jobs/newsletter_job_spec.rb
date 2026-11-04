@@ -44,10 +44,11 @@ module Decidim
       let!(:recipients_ids) { [deliverable_user.id] }
 
       it "delivers a newsletter to a the eligible users" do
-        expect(NewsletterDeliveryJob).to receive(:perform_later).with(deliverable_user, newsletter)
-        expect(NewsletterDeliveryJob).not_to receive(:perform_later).with(undeliverable_user, newsletter)
+        expect { NewsletterJob.perform_now(newsletter, form.as_json, recipients_ids) }.to have_enqueued_job(NewsletterDeliveryJob).with(deliverable_user, newsletter)
+      end
 
-        NewsletterJob.perform_now(newsletter, form.as_json, recipients_ids)
+      it "does not deliver the newsletter to ineligible users" do
+        expect { NewsletterJob.perform_now(newsletter, form.as_json, recipients_ids) }.not_to have_enqueued_job(NewsletterDeliveryJob).with(undeliverable_user, newsletter)
       end
 
       it "updates the recipients count" do
