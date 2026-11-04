@@ -30,13 +30,14 @@ module Decidim
         end
 
         def search_collection
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- meeting_components is scoped to current_organization
+          # rubocop:disable Decidim/OrganizationScopedFinder -- meeting_components is scoped to current_organization
           Meeting.where(component: meeting_components).published.not_hidden.visible_for(current_user).with_availability(
             filter_params[:availability]
           ).includes(
             :component,
             attachments: :file_attachment
           )
+          # rubocop:enable Decidim/OrganizationScopedFinder
         end
 
         def default_filter_params
