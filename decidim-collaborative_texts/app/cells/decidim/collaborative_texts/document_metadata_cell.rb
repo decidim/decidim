@@ -13,7 +13,11 @@ module Decidim
       private
 
       def document_items
-        [status_item, suggestions_count_item]
+        [status_item, count_item]
+      end
+
+      def count_item
+        status_key == "not_accepting_suggestions" ? contributors_count_item : suggestions_count_item
       end
 
       def status_item
@@ -36,6 +40,14 @@ module Decidim
           text: t("decidim.collaborative_texts.document.suggestions_count", count: model.suggestions_count),
           icon: "award-line",
           data_attributes: { suggestions_count: "" }
+        }
+      end
+
+      def contributors_count_item
+        {
+          text: t("decidim.collaborative_texts.document.contributors_count", count: model.coauthorships_count),
+          icon: "group-line",
+          data_attributes: { contributors_count: "" }
         }
       end
     end
