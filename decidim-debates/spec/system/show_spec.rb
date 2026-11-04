@@ -75,6 +75,37 @@ describe "show" do
     end
   end
 
+  context "when there is a component announcement" do
+    let(:announcement) { { en: "Important announcement" } }
+    let(:debate_path) { Decidim::EngineRouter.main_proxy(component).debate_path(debate) }
+
+    context "with the component's settings" do
+      before do
+        component.update!(settings: { announcement: })
+        visit debate_path
+      end
+
+      it "shows the announcement" do
+        expect(page).to have_text("Important announcement")
+      end
+    end
+
+    context "with the step's settings" do
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => { announcement: }
+          }
+        )
+        visit debate_path
+      end
+
+      it "shows the announcement" do
+        expect(page).to have_text("Important announcement")
+      end
+    end
+  end
+
   describe "comments metadata" do
     context "when there are no comments" do
       it "shows default values" do

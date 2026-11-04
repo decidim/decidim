@@ -271,6 +271,37 @@ describe "Respond a survey" do
     end
   end
 
+  context "when the component has a custom announcement" do
+    let(:announcement) { { en: "Important announcement" } }
+    let(:survey_path) { Decidim::EngineRouter.main_proxy(component).survey_path(survey) }
+
+    context "with the component's settings" do
+      before do
+        component.update!(settings: { announcement: })
+        visit survey_path
+      end
+
+      it "displays the component announcement in the survey" do
+        expect(page).to have_text("Important announcement")
+      end
+    end
+
+    context "with the step's settings" do
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => { announcement: }
+          }
+        )
+        visit survey_path
+      end
+
+      it "displays the component announcement in the survey" do
+        expect(page).to have_text("Important announcement")
+      end
+    end
+  end
+
   context "when survey has a reference" do
     let!(:survey) { create(:survey, :published, :allow_responses, :allow_unregistered, component:, questionnaire:) }
 
