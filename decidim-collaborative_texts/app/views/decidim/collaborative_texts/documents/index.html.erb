@@ -6,6 +6,9 @@
 
 <% content_for :aside do %>
   <h1 class="title-decorator"><%= component_name %></h1>
+
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections:, skip_to_id: "collaborative_texts" } do %>
+  <% end %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
