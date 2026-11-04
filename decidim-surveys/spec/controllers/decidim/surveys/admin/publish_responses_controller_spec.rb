@@ -10,6 +10,7 @@ module Decidim
         let(:component) { survey.component }
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:foreign_question) { create(:questionnaire_question) }
+        let(:question) { survey.questionnaire.questions.first }
         let(:params) do
           {
             component_id: component.id,
@@ -26,6 +27,13 @@ module Decidim
         end
 
         describe "update" do
+          it "publishes a question from the survey questionnaire" do
+            put(:update, params: params.merge(id: question.id))
+
+            expect(response).to have_http_status(:ok)
+            expect(question.reload.survey_responses_published_at).to be_present
+          end
+
           it "does not publish a question from another questionnaire" do
             put(:update, params:)
 
@@ -36,6 +44,17 @@ module Decidim
 
         describe "destroy" do
           let(:foreign_question) { create(:questionnaire_question, survey_responses_published_at: Time.current) }
+
+          before do
+            question.update!(survey_responses_published_at: Time.current)
+          end
+
+          it "unpublishes a question from the survey questionnaire" do
+            delete(:destroy, params: params.merge(id: question.id))
+
+            expect(response).to have_http_status(:ok)
+            expect(question.reload.survey_responses_published_at).to be_nil
+          end
 
           it "does not unpublish a question from another questionnaire" do
             delete(:destroy, params:)
