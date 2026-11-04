@@ -122,6 +122,15 @@ module Decidim
           end
         end
 
+        context "when the embeddable services are configured without www and the URL has it" do
+          let(:services) { %w(youtube.com twitch.tv) }
+          let(:url) { "https://www.youtube.com/watch?v=aiyHi9MzW30" }
+
+          it "is embeddable" do
+            expect(subject).to be_embeddable
+          end
+        end
+
         context "when the embeddable services are configured in uppercase" do
           let(:services) { %w(WWW.YOUTUBE.COM) }
           let(:url) { "https://www.youtube.com/watch?v=aiyHi9MzW30" }

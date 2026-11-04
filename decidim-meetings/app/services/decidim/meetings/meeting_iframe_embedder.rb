@@ -35,9 +35,7 @@ module Decidim
       def embeddable?
         return nil if parsed_online_meeting_uri.nil?
 
-        configured_hosts = embeddable_services.map { |service| service.to_s.downcase }
-
-        configured_hosts.include?(url_host) || configured_hosts.include?(service_host)
+        embeddable_services.map { |service| normalize_host(service) }.include?(service_host)
       end
 
       def embed_code(request_host)
@@ -89,17 +87,19 @@ module Decidim
         "https://player.twitch.tv/?video=#{video_id}&parent=#{request_host}"
       end
 
-      # Returns the host of the online meeting URL, adding the "www." prefix
-      # for the services that work the same with or without it.
+      # Returns the normalized host of the online meeting URL.
       def service_host
-        www_host = "www.#{url_host}"
-
-        WWW_OPTIONAL_HOSTS.include?(www_host) ? www_host : url_host
+        normalize_host(parsed_online_meeting_uri.host)
       end
 
-      # Returns the host of the online meeting URL, in lowercase.
-      def url_host
-        parsed_online_meeting_uri.host.to_s.downcase
+      # Lowercases a host and adds the "www." prefix for the services that
+      # work the same with or without it. Used for both the URL host and the
+      # configured embeddable services, so that both sides match.
+      def normalize_host(host)
+        host = host.to_s.downcase
+        www_host = "www.#{host}"
+
+        WWW_OPTIONAL_HOSTS.include?(www_host) ? www_host : host
       end
 
       def parsed_online_meeting_uri
