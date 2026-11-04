@@ -55,9 +55,9 @@ module Decidim::Meetings
           expect(response).to redirect_to(new_user_session_path)
         end
 
-        it "does not display error message when user is redirected to login" do
+        it "displays a message asking the user to sign in" do
           post(:create, params:)
-          expect(flash[:alert]).to be_nil
+          expect(flash[:alert]).to eq(I18n.t("registrations.create.unauthorized", scope: "decidim.meetings"))
         end
       end
     end
@@ -189,9 +189,9 @@ module Decidim::Meetings
           expect(response).to redirect_to(new_user_session_path)
         end
 
-        it "does not display error message when user is redirected to login" do
+        it "displays a message asking the user to sign in" do
           get(:decline_invitation, params:)
-          expect(flash[:alert]).to be_nil
+          expect(flash[:alert]).to eq(I18n.t("registrations.decline_invitation.unauthorized", scope: "decidim.meetings"))
         end
       end
     end
