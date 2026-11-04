@@ -16,7 +16,7 @@ module Decidim
 
         it "stores the participatory space for the seeded comments" do
           dummy_resource = create(:dummy_resource)
-          allow(subject).to receive(:config_value).with(:comments_per_resource_count).and_return(1)
+          allow(subject).to receive(:config_value).with(:comments_count).and_return(1)
           allow(subject).to receive(:config_value).with(:comments_nested_probability).and_return(0)
           allow(subject).to receive(:config_value).with(:comments_vote_skip_probability).and_return(1)
 
