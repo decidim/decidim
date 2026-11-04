@@ -1,0 +1,6 @@
+var $collaborativeTexts = $('#collaborative_texts');
+
+$collaborativeTexts.html('<%= j(render partial: "documents").strip.html_safe %>');
+
+$collaborativeTexts[0].innerHTML = $collaborativeTexts[0].innerHTML.replace('data-open="false"', 'data-open="true"');
+document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $collaborativeTexts[0] }));
