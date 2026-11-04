@@ -35,7 +35,9 @@ module Decidim
       def embeddable?
         return nil if parsed_online_meeting_uri.nil?
 
-        embeddable_services.include?(service_host)
+        configured_hosts = embeddable_services.map { |service| service.to_s.downcase }
+
+        configured_hosts.include?(url_host) || configured_hosts.include?(service_host)
       end
 
       def embed_code(request_host)
@@ -90,10 +92,14 @@ module Decidim
       # Returns the host of the online meeting URL, adding the "www." prefix
       # for the services that work the same with or without it.
       def service_host
-        host = parsed_online_meeting_uri.host.to_s.downcase
-        www_host = "www.#{host}"
+        www_host = "www.#{url_host}"
 
-        WWW_OPTIONAL_HOSTS.include?(www_host) ? www_host : host
+        WWW_OPTIONAL_HOSTS.include?(www_host) ? www_host : url_host
+      end
+
+      # Returns the host of the online meeting URL, in lowercase.
+      def url_host
+        parsed_online_meeting_uri.host.to_s.downcase
       end
 
       def parsed_online_meeting_uri
