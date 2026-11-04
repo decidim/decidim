@@ -15,6 +15,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Coauthorable
       include Decidim::HasReference
+      include Decidim::FilterableResource
 
       component_manifest_name "collaborative_texts"
 
@@ -26,6 +27,11 @@ module Decidim
       validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
+      scope :in_review, -> { where(id: Version.draft.select(:document_id)) }
+      scope :open, -> { where(accepting_suggestions: true).where.not(id: Version.draft.select(:document_id)) }
+      scope :closed, -> { where(accepting_suggestions: false).where.not(id: Version.draft.select(:document_id)) }
+
+      scope_search_multi :with_any_state, [:open, :in_review, :closed]
 
       delegate :organization, :participatory_space, to: :component
       delegate :draft?, :draft, :draft=, :body, :body=, to: :current_version
@@ -38,6 +44,14 @@ module Decidim
                         index_on_update: ->(document) { document.visible? })
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::DocumentPresenter
+      end
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_state]
+      end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        []
       end
 
       # Returns the current version of the document. Currently, the last one
