@@ -80,7 +80,7 @@ eu:
       decidim:
         meetings:
           meeting:
-            text: '%{link} topaketan eztabaidatu da'
+            text: 'Topaketan eztabaidatu da %{link}'
       decidim/meetings/meeting:
         one: Topaketa
         other: Topaketak
