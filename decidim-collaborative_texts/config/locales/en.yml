@@ -109,6 +109,7 @@ en:
           confirm: This action will consolidate all accepted suggestions into a new version of the document. Non-accepted suggestions will be transferred to the new version for further review. This action will maintain the suggestions enabled status.
           new: Consolidate accepted suggestions
         consolidate_counter: Consolidate will merge the %{applied} applied suggestions and move the %{pending} pending suggestions to the new version.
+        contributors_count: "%{count} contributors"
         controls_label: Suggestion controls
         draft_counter: Draft will merge the %{applied} applied suggestions and discard the %{pending} pending suggestions.
         index: Index
@@ -126,6 +127,13 @@ en:
         suggestions_count: "%{count} suggestions"
         toggle: Show/hide suggestions
       documents:
+        filters:
+          all: All
+          state: Status
+          state_values:
+            closed: Closed
+            in_review: In review
+            open: Open
         index:
           count:
             one: "%{count} collaborative text"
