@@ -114,7 +114,15 @@ Implementers must update their instance documentation, including the Data/Cookie
 
 You can read more about this change on PR [#17801](https://github.com/decidim/decidim/pull/17801).
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.6. Personal URL field removed from participant profiles
+
+The personal URL field has been removed from participant profiles and the account settings form. This field was being widely used to publish spam links on the platform, so participants can no longer add or edit it, and it is no longer displayed on public profiles. The field has also been removed from the API.
+
+Existing values stored in the database are no longer displayed. This field will get removed from the database on v0.34.0.
+
+This change is part of the work to reduce profile spam tracked in issue [#17955](https://github.com/decidim/decidim/issues/17955).
+
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

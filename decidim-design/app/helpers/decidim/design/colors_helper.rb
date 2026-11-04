@@ -28,8 +28,8 @@ module Decidim
                                       t("decidim.design.helpers.rgba_code"), t("decidim.design.helpers.usage")] },
                 items: colors_table(
                   { value: "#28A745", name: "success", rgba: "rgba(40,167,69,1)", usage: t("decidim.design.helpers.usage_state_1") },
-                  { value: "#FFB703", name: "warning", rgba: "rgba(255,183,3,1)", usage: t("decidim.design.helpers.usage_state_2") },
-                  { value: "#ED1C24", name: "alert", rgba: "rgba(237,28,36,1)", usage: t("decidim.design.helpers.usage_state_3") }
+                  { value: "#D4A81A", name: "warning", rgba: "rgba(212,168,26,1)", usage: t("decidim.design.helpers.usage_state_2") },
+                  { value: "#E02D2D", name: "alert", rgba: "rgba(224,45,45,1)", usage: t("decidim.design.helpers.usage_state_3") }
                 )
               }
             ]
@@ -45,11 +45,11 @@ module Decidim
                 options: { headings: [t("decidim.design.helpers.value"), t("decidim.design.helpers.tailwind"), t("decidim.design.helpers.hex_code"),
                                       t("decidim.design.helpers.rgba_code"), t("decidim.design.helpers.usage")] },
                 items: colors_table(
-                  { value: "#020203", name: "black", rgba: "rgba(2,2,3,1)", usage: t("decidim.design.helpers.usage_typography_1") },
+                  { value: "#000000", name: "black", rgba: "rgba(0,0,0,1)", usage: t("decidim.design.helpers.usage_typography_1") },
                   { value: "#3E4C5C", name: "gray-2", rgba: "rgba(62,76,92,1)", usage: t("decidim.design.helpers.usage_typography_2") },
                   { value: "#FFFFFF", name: "white", rgba: "rgba(255,255,255,1)", usage: t("decidim.design.helpers.usage_typography_3") },
                   { value: "#155ABF", name: "secondary", rgba: "rgba(21,90,191,1)", usage: t("decidim.design.helpers.usage_typography_4") },
-                  { value: "#a3a3a3", name: "neutral-400", rgba: "rgba(163,163,163,1)", usage: t("decidim.design.helpers.usage_typography_5") }
+                  { value: "#8f8f8f", name: "neutral-400", rgba: "rgba(143,143,143,1)", usage: t("decidim.design.helpers.usage_typography_5") }
                 )
               },
               {

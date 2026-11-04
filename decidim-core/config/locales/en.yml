@@ -51,7 +51,6 @@ en:
         old_password: Current password
         password: Password
         password_confirmation: Confirm your password
-        personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
     errors:
@@ -828,7 +827,6 @@ en:
           officialized_at: The date and time when this user was officialized
           organization: The organization that this user belongs to
           password_updated_at: The date when their password was changed for the last time
-          personal_url: The personal URL of this user
           remember_created_at: The date and time when the user was selected to be remembered
           reset_password_sent_at: The date and time when the password reset was sent
           roles: The role this user has, if they has any

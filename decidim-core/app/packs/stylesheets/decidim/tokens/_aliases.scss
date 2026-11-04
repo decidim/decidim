@@ -1,0 +1,22 @@
+// Public CSS variables kept for backwards compatibility. Their values come
+// from the Design System tokens, so existing applications and modules can keep
+// using them while the tokens remain the single source of truth.
+:root {
+  --primary: var(--color-color-primary);
+  --secondary: var(--color-color-secondary);
+  --tertiary: var(--color-color-tertiary);
+  --success: var(--color-color-success);
+  --warning: var(--color-color-warning);
+  --alert: var(--color-color-alert);
+  --info: var(--color-color-info);
+
+  // RGB variants are used by the organization color customization and by
+  // legacy CSS that needs to manipulate color opacity.
+  --primary-rgb: 224 45 45;
+  --secondary-rgb: 21 90 191;
+  --tertiary-rgb: 212 168 26;
+  --success-rgb: 40 167 69;
+  --warning-rgb: 212 168 26;
+  --alert-rgb: 224 45 45;
+  --info-rgb: 21 90 191;
+}
