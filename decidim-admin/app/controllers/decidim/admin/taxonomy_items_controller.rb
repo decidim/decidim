@@ -59,13 +59,13 @@ module Decidim
       private
 
       def taxonomy
-        @taxonomy ||= current_organization.taxonomies.find(params.expect(:taxonomy_id))
+        @taxonomy ||= current_organization.taxonomies.find(params[:taxonomy_id])
       end
 
       def taxonomy_item
         return if params[:id].blank?
 
-        @taxonomy_item ||= current_organization.taxonomies.find(params.expect(:id))
+        @taxonomy_item ||= current_organization.taxonomies.find(params[:id])
       end
 
       def selected_parent_id
