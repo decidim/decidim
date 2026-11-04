@@ -29,8 +29,12 @@ module Decidim
       end
 
       def filter_document_state_values
-        %w(open in_review closed).map { |key| [key, t(key, scope: "decidim.collaborative_texts.documents.filters.state_values")] }
-                                 .prepend(["all", t("all", scope: "decidim.collaborative_texts.documents.filters")])
+        [
+          ["all", t("all", scope: "decidim.collaborative_texts.documents.filters")],
+          ["open", t("open", scope: "decidim.collaborative_texts.documents.filters.state_values")],
+          ["in_review", t("in_review", scope: "decidim.collaborative_texts.documents.filters.state_values")],
+          ["closed", t("closed", scope: "decidim.collaborative_texts.documents.filters.state_values")]
+        ]
       end
     end
   end
