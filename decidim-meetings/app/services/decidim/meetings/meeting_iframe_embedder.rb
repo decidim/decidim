@@ -8,6 +8,11 @@ module Decidim
     # in the live event. For some services it is required to transform a bit
     # the structure of the URL.
     class MeetingIframeEmbedder
+      # Services that are reachable both with and without the "www." prefix
+      # (for instance youtube.com and www.youtube.com). URLs using the bare
+      # domain are treated as if they used the "www." one.
+      WWW_OPTIONAL_HOSTS = %w(www.youtube.com www.twitch.tv).freeze
+
       # Public: Initializes the service.
       # online_meeting_service_url - A String containing the url of the online meeting
       def initialize(online_meeting_service_url)
@@ -17,7 +22,7 @@ module Decidim
       def embed_transformed_url(request_host)
         return nil if parsed_online_meeting_uri.nil?
 
-        case parsed_online_meeting_uri.host
+        case service_host
         when "www.youtube.com"
           transform_youtube_url(parsed_online_meeting_uri)
         when "www.twitch.tv"
@@ -30,7 +35,7 @@ module Decidim
       def embeddable?
         return nil if parsed_online_meeting_uri.nil?
 
-        embeddable_services.include?(parsed_online_meeting_uri.host)
+        embeddable_services.include?(service_host)
       end
 
       def embed_code(request_host)
@@ -80,6 +85,15 @@ module Decidim
         return online_meeting_service_url if video_id.blank? || param_name != "videos"
 
         "https://player.twitch.tv/?video=#{video_id}&parent=#{request_host}"
+      end
+
+      # Returns the host of the online meeting URL, adding the "www." prefix
+      # for the services that work the same with or without it.
+      def service_host
+        host = parsed_online_meeting_uri.host.to_s.downcase
+        www_host = "www.#{host}"
+
+        WWW_OPTIONAL_HOSTS.include?(www_host) ? www_host : host
       end
 
       def parsed_online_meeting_uri
