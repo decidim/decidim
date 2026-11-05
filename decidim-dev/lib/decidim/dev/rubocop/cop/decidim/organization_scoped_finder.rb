@@ -96,9 +96,14 @@ module RuboCop
         # An `or` relation whose branches are not all scoped can leak records
         # from another organization even when its receiver chain has no model
         # constant, as in `current_organization.taxonomies.or(Taxonomy.all)`.
-        # `organization_scoped?` has already rejected it at this point.
+        # Walk the whole receiver chain so intermediate calls between the `or`
+        # and the terminal finder (e.g. `.order(:id)`) do not hide it.
+        # `organization_scoped?` has already rejected the chain at this point.
         def unscoped_or_relation?(node)
-          node.send_type? && node.method_name == :or
+          return false unless node&.send_type?
+          return !scoped_or_branches?(node) if node.method_name == :or
+
+          unscoped_or_relation?(node.receiver)
         end
 
         def ignored_constant?(node)
