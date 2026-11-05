@@ -56,7 +56,7 @@ module RuboCop
           return if organization_scoped?(node.receiver)
           return unless unscoped_model_class?(node.receiver) || unscoped_or_relation?(node.receiver)
           return if constructed_scope_root?(node.receiver)
-          return if consumed_by_finder?(node)
+          return if consumed_by_outer_relation?(node)
 
           add_offense(node)
         end
@@ -70,7 +70,7 @@ module RuboCop
         def check_or_relation(node)
           return if node.ancestors.any? { |ancestor| ancestor.send_type? && ancestor.method_name == :or }
           return if scoped_or_branches?(node)
-          return if consumed_by_finder?(node)
+          return if consumed_by_outer_relation?(node)
 
           add_offense(node)
         end
@@ -247,13 +247,13 @@ module RuboCop
           end
         end
 
-        def consumed_by_finder?(node)
-          return false unless [:where, :or].include?(node.method_name)
-
+        # Report only the outermost relevant call of a receiver chain, so a
+        # single query cannot produce several offenses.
+        def consumed_by_outer_relation?(node)
           ancestor = node.parent
           while ancestor&.send_type?
             break unless ancestor.receiver == node
-            return true if FINDER_METHODS.include?(ancestor.method_name)
+            return true if RESTRICT_ON_SEND.include?(ancestor.method_name)
 
             node = ancestor
             ancestor = node.parent
