@@ -15,7 +15,7 @@ module Decidim
               redirect_to decidim_admin.authorization_workflows_url
             end
             on(:invalid) do
-              flash.now[:alert] = t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu")
+              flash[:alert] = t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu")
               redirect_to decidim_admin.authorization_workflows_url
             end
           end
@@ -29,7 +29,7 @@ module Decidim
               redirect_to decidim_admin.authorization_workflows_url
             end
             on(:invalid) do
-              flash.now[:alert] = t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu")
+              flash[:alert] = t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu")
               redirect_to decidim_admin.authorization_workflows_url
             end
           end

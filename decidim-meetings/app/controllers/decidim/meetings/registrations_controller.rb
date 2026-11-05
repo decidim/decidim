@@ -44,7 +44,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
+            flash[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
             redirect_after_path
           end
         end
@@ -62,7 +62,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("registrations.waitlist.invalid", scope: "decidim.meetings")
+            flash[:alert] = I18n.t("registrations.waitlist.invalid", scope: "decidim.meetings")
             redirect_after_path
           end
         end
@@ -78,7 +78,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("registrations.destroy.invalid", scope: "decidim.meetings")
+            flash[:alert] = I18n.t("registrations.destroy.invalid", scope: "decidim.meetings")
             redirect_after_path
           end
         end
@@ -94,7 +94,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("registrations.decline_invitation.invalid", scope: "decidim.meetings")
+            flash[:alert] = I18n.t("registrations.decline_invitation.invalid", scope: "decidim.meetings")
             redirect_after_path
           end
         end
