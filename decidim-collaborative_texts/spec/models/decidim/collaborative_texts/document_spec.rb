@@ -13,6 +13,10 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to act_as_paranoid }
 
+      it "does not expose any associations to Ransack" do
+        expect(described_class.ransackable_associations).to eq([])
+      end
+
       include_examples "resourceable"
       include_examples "has reference"
 
