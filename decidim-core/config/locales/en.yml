@@ -118,8 +118,6 @@ en:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
