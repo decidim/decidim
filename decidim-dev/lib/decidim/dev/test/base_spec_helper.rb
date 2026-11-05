@@ -14,6 +14,10 @@ ENV["DECIDIM_TIMESTAMP_SERVICE"] ||= "Decidim::Initiatives::DummyTimestamp"
 ENV["DECIDIM_PDF_SIGNATURE_SERVICE"] ||= "Decidim::PdfSignatureExample"
 ENV["DECIDIM_MACHINE_TRANSLATION_SERVICE"] ||= "Decidim::Dev::DummyTranslator"
 
+# The env has to be manually set because "decidim/dev" already loads
+# engines/railties which call the "paths" class method that initiates Rails.env.
+Rails.env = ENV.fetch("RAILS_ENV", "test")
+
 engine_spec_dir = File.join(Dir.pwd, "spec")
 
 if ENV["SIMPLECOV"]
