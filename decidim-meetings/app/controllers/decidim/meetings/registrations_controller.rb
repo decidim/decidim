@@ -146,7 +146,7 @@ module Decidim
           flash[:alert] = t("registrations.create.unauthorized", scope: "decidim.meetings")
         when "decline_invitation"
           flash[:alert] = t("registrations.decline_invitation.unauthorized", scope: "decidim.meetings")
-        else
+        end
 
         redirect_to decidim.new_user_session_path
       end
