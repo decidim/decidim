@@ -195,7 +195,9 @@ module Decidim
 
         # A tree of Taxonomy IDs. Leaves are `nil`.
         def taxonomy_ids_hash(taxonomies)
+          # rubocop:disable Decidim/OrganizationScopedFinder -- taxonomies is scoped to current_organization through available_root_taxonomies
           filtered_taxonomies = taxonomies.roots.or(taxonomies.where(id: available_taxonomy_ids))
+          # rubocop:enable Decidim/OrganizationScopedFinder
           return nil if filtered_taxonomies.blank?
 
           filtered_taxonomies.to_h do |taxonomy|
