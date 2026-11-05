@@ -95,9 +95,9 @@ eu:
             import_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             import_to_proposal_text: <span class="resource-link">%{link} proposamen hau sortu zen</span>
             merge_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
-            merge_to_proposal_text: '%{link} proposamena sortu da'
+            merge_to_proposal_text: 'Proposamena hemen sortu da %{link}'
             split_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
-            split_to_proposal_text: '%{link} proposamena sortu da'
+            split_to_proposal_text: 'Proposamena hemen sortu da %{link}'
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
         other: Zirriborro kolaboratiboak
