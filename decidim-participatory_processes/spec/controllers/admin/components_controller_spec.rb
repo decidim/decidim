@@ -37,6 +37,31 @@ module Decidim
         it_behaves_like "a reorder components controller", slug_attribute: :participatory_process_slug
         it_behaves_like "a components controller to hide", slug_attribute: :participatory_process_slug
 
+        describe "POST create" do
+          let(:component_params) do
+            {
+              name_en: "Dummy component",
+              settings: {
+                comments_enabled: true,
+                dummy_global_translatable_text_en: "Dummy text",
+                error_honeypot_number: "1"
+              },
+              default_step_settings: {
+                comments_blocked: true,
+                dummy_step_translatable_text_en: "Dummy text"
+              }
+            }
+          end
+
+          it "rebuilds the component variable" do
+            expect(Decidim::Component).to receive(:new).and_call_original
+
+            post :create, params: { participatory_process_slug: participatory_process.slug, type: "dummy", component: component_params }
+
+            expect(response).to render_template(:new)
+          end
+        end
+
         describe "PATCH update" do
           let(:component_params) do
             {

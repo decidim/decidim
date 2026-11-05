@@ -560,6 +560,7 @@ en:
             dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
+            error_honeypot_number: Error honeypot (number), leave as default
             no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
             taxonomy_filters: Select filters for the component
