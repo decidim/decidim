@@ -298,7 +298,7 @@ module RuboCop
           return true unless scoped_finder_arguments?(node)
           return false if loads_records
 
-          scoped_creation_finder?(node)
+          true
         end
 
         def loads_records?(node)

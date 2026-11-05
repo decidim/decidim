@@ -101,6 +101,12 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts a where consumed by a scoped non-creation finder" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").find_by(organization: current_organization)
+    RUBY
+  end
+
   it "accepts a where consumed by a scoped find_or_create_by" do
     expect_no_offenses(<<~RUBY)
       Template.where(name: "foo").find_or_create_by(organization: current_organization)
