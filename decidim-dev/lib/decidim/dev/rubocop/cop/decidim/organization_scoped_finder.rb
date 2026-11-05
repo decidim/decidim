@@ -183,9 +183,20 @@ module RuboCop
           return false unless key.sym_type?
           return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
           return false unless value.send_type?
-          return false if value.receiver
+          return false unless value.method_name == :"current_#{key.value}"
+          return true unless value.receiver
 
-          value.method_name == :"current_#{key.value}"
+          # Accept form-provided context helpers such as
+          # `form.current_component` or `@form.current_organization`, but not
+          # arbitrary receivers that merely expose a similarly named method.
+          form_context_receiver?(value.receiver)
+        end
+
+        def form_context_receiver?(node)
+          return node.method_name == :form if node.send_type? && node.receiver.nil?
+          return node.name == :form if node.lvar_type?
+
+          node.ivar_type? && node.name == :@form
         end
 
         def scoped_trusted_value?(node)
