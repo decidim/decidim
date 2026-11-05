@@ -284,6 +284,7 @@ es-PY:
         activate: "%{user_name} activó la fase %{resource_name} en el proceso participativo %{space_name}"
         create: "%{user_name} creó la fase %{resource_name} en el proceso participativo %{space_name}"
         delete: "%{user_name} eliminó la fase %{resource_name} en el proceso participativo %{space_name}"
+        system_activate: La fase de %{resource_name} se activó automáticamente en el proceso participativo %{space_name}.
         update: "%{user_name} actualizó la fase %{resource_name} en el proceso participativo %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} invitó al usuario %{resource_name} al proceso participativo %{space_name}"
