@@ -6,7 +6,7 @@ module Decidim
     class RegistrationsController < Decidim::Meetings::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
 
-      before_action :ensure_signed_in
+      before_action :ensure_signed_in, only: %i[create decline_invitation]
 
       def respond
         enforce_permission_to(:join, :meeting, meeting:)
