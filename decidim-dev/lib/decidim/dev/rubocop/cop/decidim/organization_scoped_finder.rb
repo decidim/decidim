@@ -280,15 +280,17 @@ module RuboCop
         # A call with a block is usually an Enumerable operation rather than a
         # relation continuation, so the cop skips it and it cannot report the
         # offense for the query it receives. Scoped creation finders are the
-        # exception: they scope the relation before loading records and only
-        # use the block to initialize values on a new record.
+        # exception: ActiveRecord applies their finder attributes before
+        # loading records, and their block only initializes values on a new
+        # record.
         #
-        # A call that already scopes its own arguments is also skipped by
-        # `relevant_node?`, so it cannot report the offense for an inner
+        # Other calls that already scope their own arguments are also skipped
+        # by `relevant_node?`, so they cannot report the offense for an inner
         # unscoped finder. Let that inner call remain reportable instead.
         def reportable_outer_relation?(node)
           return false unless RESTRICT_ON_SEND.include?(node.method_name)
-          return scoped_creation_finder?(node) if node.block_node
+          return true if scoped_creation_finder?(node)
+          return false if node.block_node
 
           !scoped_finder_arguments?(node)
         end
