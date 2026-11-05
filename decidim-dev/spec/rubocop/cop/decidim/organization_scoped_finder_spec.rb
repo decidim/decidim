@@ -87,6 +87,31 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts a where consumed by a scoped find_or_create_by with a block" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").find_or_create_by(organization: current_organization) { |template| template.title = "bar" }
+    RUBY
+  end
+
+  it "accepts a where consumed by a scoped find_or_create_by! with a block" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").find_or_create_by!(organization: current_organization) { |template| template.title = "bar" }
+    RUBY
+  end
+
+  it "accepts a where consumed by a scoped find_or_initialize_by with a block" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").find_or_initialize_by(organization: current_organization) { |template| template.title = "bar" }
+    RUBY
+  end
+
+  it "registers an offense for a where consumed by an unscoped find_or_create_by with a block" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").find_or_create_by(name: "bar") { |template| template.title = "bar" }
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "registers an offense for where used as an argument" do
     expect_offense(<<~RUBY)
       current_organization.things.where(value: Template.where(name: "foo"))

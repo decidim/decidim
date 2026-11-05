@@ -29,6 +29,10 @@ module RuboCop
 
         SCOPE_ROOT_METHODS = [:current_organization, :collection].freeze
 
+        SCOPED_CREATION_FINDER_METHODS = [
+          :find_or_initialize_by, :find_or_create_by, :find_or_create_by!
+        ].freeze
+
         SCOPED_WHERE_KEYS = [:current_organization, :current_component].freeze
 
         ORGANIZATION_SCOPED_KEYS = [:decidim_organization_id, :organization_id].freeze
@@ -262,11 +266,20 @@ module RuboCop
           false
         end
 
-        # A call with a block is an Enumerable operation rather than a relation
-        # continuation, so the cop skips it and it cannot report the offense
-        # for the query it receives.
+        # A call with a block is usually an Enumerable operation rather than a
+        # relation continuation, so the cop skips it and it cannot report the
+        # offense for the query it receives. Scoped creation finders are the
+        # exception: they scope the relation before loading records and only
+        # use the block to initialize values on a new record.
         def reportable_outer_relation?(node)
-          RESTRICT_ON_SEND.include?(node.method_name) && !node.block_node
+          return false unless RESTRICT_ON_SEND.include?(node.method_name)
+          return true unless node.block_node
+
+          scoped_creation_finder?(node)
+        end
+
+        def scoped_creation_finder?(node)
+          SCOPED_CREATION_FINDER_METHODS.include?(node.method_name) && scoped_finder_arguments?(node)
         end
       end
     end
