@@ -51,7 +51,7 @@ module Decidim
       end
 
       def search_collection
-        base = Document.includes(:component).where(component: current_component)
+        base = Document.includes(:component, :document_versions).where(component: current_component)
         current_user&.admin? ? base : base.published
       end
 

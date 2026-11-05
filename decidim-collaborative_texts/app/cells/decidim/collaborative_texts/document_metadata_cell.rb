@@ -29,10 +29,14 @@ module Decidim
       end
 
       def status_key
-        return "draft" if model.draft?
-        return "accepting_suggestions" if model.suggestions_enabled?
-
-        "not_accepting_suggestions"
+        @status_key ||=
+          if model.draft?
+            "draft"
+          elsif model.suggestions_enabled?
+            "accepting_suggestions"
+          else
+            "not_accepting_suggestions"
+          end
       end
 
       def suggestions_count_item
