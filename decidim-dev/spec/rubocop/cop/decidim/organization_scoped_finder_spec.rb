@@ -215,6 +215,31 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts where(organization: organization).find_by" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(organization: organization).find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts where(organization: @user.organization).find_by" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(organization: @user.organization).find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts Authorizations.new(organization: @user.organization).query.find" do
+    expect_no_offenses(<<~RUBY)
+      Authorizations.new(organization: @user.organization, name: "foo").query.find(params.expect(:id))
+    RUBY
+  end
+
+  it "registers an offense for where(organization: params[:id])" do
+    expect_offense(<<~RUBY)
+      Template.where(organization: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "accepts current_organization scoped find" do
     expect_no_offenses(<<~RUBY)
       current_organization.users.find(params.expect(:id))

@@ -5,7 +5,7 @@ require "rubocop"
 module RuboCop
   module Cop
     module Decidim
-      # Flags unscoped ActiveRecord finder calls in controllers.
+      # Flags unscoped ActiveRecord finder calls in controllers and commands.
       #
       # In a multi-tenant Decidim deployment, loading a record without scoping
       # it to the current organization can allow one tenant's users to access
@@ -165,9 +165,18 @@ module RuboCop
 
         def scoped_where_pair?(key, value)
           return false unless key.sym_type?
+
+          return organization_value?(value) if key.value == :organization
           return false unless scoped_where_key?(key)
 
           scoped_trusted_value?(value)
+        end
+
+        # `where(organization: organization)` and `where(organization: record.organization)`
+        # already restrict the relation to a single organization, so they are
+        # safe even when the value is not a `current_*` helper.
+        def organization_value?(node)
+          node.send_type? && node.method_name == :organization
         end
 
         def scoped_association_pair?(key, value)
