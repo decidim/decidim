@@ -108,7 +108,7 @@ You can read more about this change on PR [#17160](https://github.com/decidim/de
 
 The default data consent cookie has changed from `decidim-consent` to `__Host-decidim-consent`. On HTTPS, Decidim now sets this cookie with the `__Host-` prefix, the `Secure` attribute and `Path=/`, and without a `Domain` attribute. This makes the cookie host-bound, so it is not shared between the main site and its subdomains (for example, production and staging).
 
-When Decidim runs over HTTP (such as `http://localhost:3000` during local development), it automatically uses the unprefixed name `decidim-consent`, because browsers reject `__Host-` cookies without the `Secure` attribute. Existing visitors will need to give their consent again after the upgrade because the cookie name has changed.
+When Decidim runs over HTTP (such as `http://localhost:3000` during local development), it automatically uses the unprefixed name `decidim-consent`, because browsers reject `__Host-` cookies without the `Secure` attribute. On HTTPS the cookie name changes to `__Host-decidim-consent`. Existing visitors will need to give their consent again after the upgrade: HTTPS visitors because the cookie name has changed, and HTTP visitors because Decidim no longer reuses legacy unversioned consent values, even though the unprefixed cookie name remains the same.
 
 Implementers must update their instance documentation, including the Data/Cookie Consent and Privacy Policy pages and any other place where they have documented their cookies, to use the new cookie name. If you have customized `DECIDIM_CONSENT_COOKIE_NAME` or `consent_cookie_name`, note that Decidim adds the `__Host-` prefix on HTTPS (unless the configured name already includes it) and removes it on HTTP.
 
