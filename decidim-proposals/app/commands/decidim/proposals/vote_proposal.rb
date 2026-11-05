@@ -60,9 +60,11 @@ module Decidim
       end
 
       def user_votes
-        @user_votes ||= ProposalVote.where( # rubocop:disable Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
+        @user_votes ||= ProposalVote.where(
           author: @current_user,
-          proposal: Proposal.where(component:) # rubocop:disable Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
+          proposal: Proposal.where(component:)
         )
       end
 

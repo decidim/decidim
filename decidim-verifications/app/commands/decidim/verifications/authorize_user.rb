@@ -81,10 +81,12 @@ module Decidim
       end
 
       def create_verification_conflict
-        authorization = Decidim::Authorization.where(user: @organization.users).find_by(unique_id: handler.unique_id) # rubocop:disable Decidim/OrganizationScopedFinder -- user: @organization.users scopes the lookup to the current organization
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- user: @organization.users scopes the lookup to the current organization
+        authorization = Decidim::Authorization.where(user: @organization.users).find_by(unique_id: handler.unique_id)
         return if authorization.blank?
 
-        conflict = Decidim::Verifications::Conflict.find_or_initialize_by( # rubocop:disable Decidim/OrganizationScopedFinder -- users are scoped to the current organization by the authorization lookup above
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- users are scoped to the current organization by the authorization lookup above
+        conflict = Decidim::Verifications::Conflict.find_or_initialize_by(
           current_user: handler.user,
           managed_user: authorization.user,
           unique_id: handler.unique_id

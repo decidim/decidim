@@ -42,9 +42,11 @@ module Decidim
 
       def meetings_registrations
         published_meeting_components = @conference.components.where(manifest_name: "meetings").published
-        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id)) # rubocop:disable Decidim/OrganizationScopedFinder -- components are scoped to the conference above
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- components are scoped to the conference above
+        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id))
 
-        @meetings_registrations ||= Decidim::Meetings::Registration.where(meeting: meetings, user: @user) # rubocop:disable Decidim/OrganizationScopedFinder -- meeting and user are scoped to the current conference registration
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- meeting and user are scoped to the current conference registration
+        @meetings_registrations ||= Decidim::Meetings::Registration.where(meeting: meetings, user: @user)
       end
 
       def destroy_meeting_registration
