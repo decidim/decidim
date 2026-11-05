@@ -27,6 +27,8 @@ module RuboCop
         ].freeze
         RESTRICT_ON_SEND = [*FINDER_METHODS, :where, :or].freeze
 
+        RECORD_LOADING_METHODS = [:load, :load_async].freeze
+
         SCOPE_ROOT_METHODS = [:current_organization, :collection].freeze
 
         SCOPED_CREATION_FINDER_METHODS = [
@@ -302,7 +304,7 @@ module RuboCop
         end
 
         def loads_records?(node)
-          FINDER_METHODS.include?(node.method_name)
+          FINDER_METHODS.include?(node.method_name) || RECORD_LOADING_METHODS.include?(node.method_name)
         end
 
         def scoped_creation_finder?(node)
