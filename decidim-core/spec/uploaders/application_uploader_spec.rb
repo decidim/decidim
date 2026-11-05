@@ -11,6 +11,12 @@ module Decidim
     let(:mounted_as) { :official_img_footer }
 
     before do
+      # Ensure that the test environment routes have been loaded before changing
+      # the environment. Otherwise this spec can behave differently under
+      # different random random seed. To ensure this works, try running this
+      # spec individually with: -e "with development environment"
+      Rails.application.reload_routes_unless_loaded
+
       allow(ENV).to receive(:fetch).and_call_original
       allow(ENV).to receive(:fetch).with("HTTP_PORT", instance_of(Integer)).and_return(local_port) if respond_to?(:local_port)
       allow(ENV).to receive(:fetch).with("HOSTNAME", nil).and_return(hostname) if respond_to?(:hostname)
@@ -34,6 +40,30 @@ module Decidim
 
         it "returns the non-variant" do
           expect(subject.variant(:testing)).to be(model.official_img_footer)
+        end
+      end
+    end
+
+    describe "#url" do
+      context "when the representable is not an ActiveStorage::Attached" do
+        before do
+          allow(model).to receive(mounted_as).and_return(double)
+        end
+
+        it "returns nil" do
+          expect(subject.url).to be_nil
+        end
+      end
+    end
+
+    describe "#path" do
+      context "when the representable is not an ActiveStorage::Attached" do
+        before do
+          allow(model).to receive(mounted_as).and_return(double)
+        end
+
+        it "returns nil" do
+          expect(subject.path).to be_nil
         end
       end
     end

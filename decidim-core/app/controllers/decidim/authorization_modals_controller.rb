@@ -6,6 +6,8 @@ module Decidim
     layout false
 
     def show
+      enforce_permission_to :read, :authorization
+
       store_onboarding_cookie_data!(current_user)
     end
 
@@ -23,6 +25,7 @@ module Decidim
     end
 
     def current_component
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- participatory_spaces is scoped to current_organization
       @current_component ||= Decidim::Component.where(participatory_space: current_organization.participatory_spaces).find(params.expect(:component_id))
     end
 

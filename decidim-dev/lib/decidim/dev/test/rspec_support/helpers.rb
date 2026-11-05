@@ -74,7 +74,20 @@ module Decidim
             "User-Agent" => "Ruby"
           }
         )
-        .to_return(status: 200, body: "", headers: { content_type: rs_format })
+        .to_return(status: 200, body: stubbed_file_body(rs_format), headers: { content_type: rs_format })
+    end
+
+    # Real content for the stubbed formats. Content validation rejects empty
+    # uploads declared as images, so the stubbed downloads must return bytes
+    # matching their content type.
+    def stubbed_file_body(rs_format)
+      asset = {
+        "image/jpeg" => "city.jpeg",
+        "application/pdf" => "Exampledocument.pdf"
+      }[rs_format]
+      return "" if asset.nil?
+
+      File.binread(Decidim::Dev.asset(asset))
     end
   end
 

@@ -14,13 +14,14 @@ describe "Participatory process admin manages participatory processes" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.participatory_processes_path
+    expect(page).to have_text(translated(participatory_process.title))
   end
 
   it_behaves_like "manage processes examples"
   it_behaves_like "manage processes announcements"
 
   it "cannot create a new participatory_process" do
-    expect(page).to have_no_selector(".actions .new")
+    expect(page).to have_no_css(".actions .new")
   end
 
   context "when deleting a participatory process" do

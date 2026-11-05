@@ -11,33 +11,9 @@ module Decidim
 
       before_action :tos_version_formatted, only: [:index, :edit]
 
-      helper_method :topics
+      helper_method :topics, :scoped_resource
 
       alias update_content_blocks update
-
-      def content_block_scope
-        :static_page
-      end
-
-      def scoped_resource
-        @scoped_resource ||= collection.find_by(slug: params[:id])
-      end
-
-      def enforce_permission_to_update_resource
-        enforce_permission_to :update, :static_page, static_page: scoped_resource
-      end
-
-      def resource_sort_url
-        update_content_blocks_static_page_path(scoped_resource)
-      end
-
-      def resource_create_url(manifest_name)
-        static_page_content_blocks_path(scoped_resource, manifest_name:)
-      end
-
-      def resource_content_block_cell
-        "decidim/admin/static_page_content_block"
-      end
 
       def index
         enforce_permission_to :read, :static_page
@@ -101,7 +77,31 @@ module Decidim
         end
       end
 
+      def scoped_resource
+        @scoped_resource ||= collection.find_by(slug: params[:id])
+      end
+
       private
+
+      def content_block_scope
+        :static_page
+      end
+
+      def enforce_permission_to_update_resource
+        enforce_permission_to :update, :static_page, static_page: scoped_resource
+      end
+
+      def resource_sort_url
+        update_content_blocks_static_page_path(scoped_resource)
+      end
+
+      def resource_create_url(manifest_name)
+        static_page_content_blocks_path(scoped_resource, manifest_name:)
+      end
+
+      def resource_content_block_cell
+        "decidim/admin/static_page_content_block"
+      end
 
       def tab_menu_name = :admin_static_pages_menu
 
@@ -120,6 +120,8 @@ module Decidim
       def page
         @page ||= scoped_resource
       end
+
+      protected
 
       def collection
         current_organization.static_pages

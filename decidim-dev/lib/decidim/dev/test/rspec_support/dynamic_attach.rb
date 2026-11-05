@@ -16,7 +16,7 @@ module Capybara
 
       within ".upload-modal" do
         click_remove(front_interface) if options[:remove_before]
-        input_element = find("input[type='file']", visible: :all)
+        input_element = find_field(type: "file", visible: :all)
         input_element.attach_file(file_location)
         within "[data-filename='#{filename}']" do
           expect(page).to have_css(filled_selector(front_interface), wait: 5)

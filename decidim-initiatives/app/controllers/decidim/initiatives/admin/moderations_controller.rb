@@ -9,6 +9,8 @@ module Decidim
 
         add_breadcrumb_item_from_menu :admin_initiative_menu
 
+        protected
+
         def permissions_context
           super.merge(current_participatory_space:)
         end

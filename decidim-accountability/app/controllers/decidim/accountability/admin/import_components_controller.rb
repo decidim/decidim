@@ -27,6 +27,8 @@ module Decidim
           end
         end
 
+        protected
+
         def results_import_params
           params[:results_import] || {}
         end

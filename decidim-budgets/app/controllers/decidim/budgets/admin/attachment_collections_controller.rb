@@ -8,6 +8,8 @@ module Decidim
       class AttachmentCollectionsController < Admin::ApplicationController
         include Decidim::Admin::Concerns::HasAttachmentCollections
 
+        protected
+
         def after_destroy_path
           project_attachment_collections_path(project, project.component, current_participatory_space)
         end
@@ -17,7 +19,11 @@ module Decidim
         end
 
         def project
-          @project ||= Decidim::Budgets::Project.joins(:budget).where(budget: { component: current_component }).find(params.expect(:project_id))
+          @project ||= Decidim::Budgets::Project
+                       .includes(attachment_collections: :attachments)
+                       .joins(:budget)
+                       .where(budget: { component: current_component })
+                       .find(params.expect(:project_id))
         end
       end
     end

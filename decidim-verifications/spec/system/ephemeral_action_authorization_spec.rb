@@ -48,7 +48,10 @@ describe "ephemeral action authorization" do
       end
 
       it "creates an ephemeral user session" do
-        expect { click_on "New proposal" }.to change { Decidim::User.ephemeral.count }.by(1)
+        expect do
+          click_on "New proposal"
+          expect(page).to have_callout("Please verify your identity to proceed.")
+        end.to change { Decidim::User.ephemeral.count }.by(1)
 
         expect(page).to have_link("Close", href: decidim.destroy_user_session_path)
       end
@@ -75,6 +78,7 @@ describe "ephemeral action authorization" do
 
         before do
           click_on "New proposal"
+          expect(page).to have_css("form#new_authorization_handler")
 
           fill_in :authorization_handler_document_number, with: document_number
           fill_in :authorization_handler_postal_code, with: postal_code
@@ -97,6 +101,7 @@ describe "ephemeral action authorization" do
           before do
             check :authorization_handler_tos_agreement
             click_on "Send"
+            expect(page).to have_no_css("form#new_authorization_handler")
           end
 
           context "when data matches the authorization criteria" do
@@ -118,6 +123,8 @@ describe "ephemeral action authorization" do
                 find("#main-bar [data-close]").click
               end
 
+              expect(page).to have_no_css("#main-bar [data-close]")
+
               visit main_component_path(component)
 
               click_on "New proposal"
@@ -132,6 +139,39 @@ describe "ephemeral action authorization" do
 
               expect(page).to have_field :proposal_title, with: "This is a new proposal"
               expect(page).to have_field :proposal_body, with: "The proposal includes a lot of ideas"
+            end
+
+            context "and recovers its session from another component" do
+              let!(:other_component) do
+                create(
+                  :proposal_component,
+                  :with_creation_enabled,
+                  manifest:,
+                  participatory_space:,
+                  permissions:
+                )
+              end
+
+              it "the user is redirected to the action started in the new session" do
+                accept_confirm do
+                  find("#main-bar [data-close]").click
+                end
+
+                expect(page).to have_no_css("#main-bar [data-close]")
+
+                visit main_component_path(other_component)
+
+                click_on "New proposal"
+
+                fill_in :authorization_handler_document_number, with: document_number
+                fill_in :authorization_handler_postal_code, with: postal_code
+                fill_in_datepicker :authorization_handler_birthday_date, with: birthdate
+                check :authorization_handler_tos_agreement
+                click_on "Send"
+
+                expect(page).to have_css "h1", text: "Create new proposal"
+                expect(page).to have_current_path(Decidim::EngineRouter.main_proxy(other_component).new_proposal_path)
+              end
             end
           end
 
@@ -199,11 +239,12 @@ describe "ephemeral action authorization" do
 
       it "redirects to authorization" do
         visit main_component_path(component)
-        expect { click_on "New proposal" }.not_to change(Decidim::User, :count)
-
-        expect(page).to have_no_text("Verify with Example authorization")
-        expect(page).to have_css("#loginModal", visible: :visible)
-        expect(page).to have_text("Please log in")
+        expect do
+          click_on "New proposal"
+          expect(page).to have_no_text("Verify with Example authorization")
+          expect(page).to have_css("#loginModal", visible: :visible)
+          expect(page).to have_text("Please log in")
+        end.not_to change(Decidim::User, :count)
       end
     end
   end
@@ -251,7 +292,10 @@ describe "ephemeral action authorization" do
         end
 
         it "transfers the authorization" do
-          expect { click_on "Send" }.not_to change(Decidim::Authorization, :count)
+          expect do
+            click_on "Send"
+            expect(page).to have_callout("You have been successfully authorized")
+          end.not_to change(Decidim::Authorization, :count)
           expect(Decidim::Authorization.where(user: ephemeral_user)).to be_blank
           expect(authorization.reload.user).to eq(user)
         end
@@ -259,6 +303,7 @@ describe "ephemeral action authorization" do
         it "transfers the authorship of the proposal" do
           expect(proposal.authors).to contain_exactly(ephemeral_user)
           click_on "Send"
+          expect(page).to have_callout("You have been successfully authorized")
           expect(proposal.reload.authors).to contain_exactly(user)
         end
       end
