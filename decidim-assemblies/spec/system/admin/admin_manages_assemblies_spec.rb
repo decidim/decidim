@@ -189,6 +189,9 @@ describe "Admin manages assemblies" do
 
         expect(page).to have_content(translated(child_assembly.title))
 
+        expect(page).to have_css("tr[data-assembly-id='#{parent_assembly.id}'][data-level='0']")
+        expect(page).to have_css("tr[data-assembly-id='#{child_assembly.id}'][data-level='1']")
+
         # Opens actions dropdown in children
         find("button[data-target='actions-assembly-#{child_assembly.id}']").click
         expect(page).to have_content("Edit")
@@ -251,6 +254,9 @@ describe "Admin manages assemblies" do
         end
 
         expect(page).to have_content(translated(child_assembly.title))
+
+        expect(page).to have_css("tr[data-assembly-id='#{mother_assembly.id}'][data-level='1']")
+        expect(page).to have_css("tr[data-assembly-id='#{child_assembly.id}'][data-level='2']")
 
         # Opens actions dropdown in child
         find("button[data-target='actions-assembly-#{child_assembly.id}']").click
