@@ -94,6 +94,13 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense when a scoped creation finder follows an unscoped lookup" do
+    expect_offense(<<~RUBY)
+      Decidim::Taxonomy.find(params[:id]).children.find_or_initialize_by(organization: current_organization)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "accepts a where consumed by a scoped find_or_create_by" do
     expect_no_offenses(<<~RUBY)
       Template.where(name: "foo").find_or_create_by(organization: current_organization)

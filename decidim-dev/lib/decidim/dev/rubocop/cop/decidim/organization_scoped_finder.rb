@@ -265,11 +265,13 @@ module RuboCop
         # Report only the outermost relevant call of a receiver chain, so a
         # single query cannot produce several offenses.
         def consumed_by_outer_relation?(node)
+          loads_records = loads_records?(node)
           ancestor = node.parent
           while ancestor&.send_type?
             break unless ancestor.receiver == node
-            return true if reportable_outer_relation?(ancestor)
+            return true if reportable_outer_relation?(ancestor, loads_records)
 
+            loads_records ||= loads_records?(ancestor)
             node = ancestor
             ancestor = node.parent
           end
@@ -287,12 +289,20 @@ module RuboCop
         # Other calls that already scope their own arguments are also skipped
         # by `relevant_node?`, so they cannot report the offense for an inner
         # unscoped finder. Let that inner call remain reportable instead.
-        def reportable_outer_relation?(node)
+        #
+        # A scoped call must not hide a lookup that already loaded records
+        # before it ran. It can only consume inner calls that build the query.
+        def reportable_outer_relation?(node, loads_records)
           return false unless RESTRICT_ON_SEND.include?(node.method_name)
-          return true if scoped_creation_finder?(node)
-          return false if node.block_node
+          return false if node.block_node && !scoped_creation_finder?(node)
+          return true unless scoped_finder_arguments?(node)
+          return false if loads_records
 
-          !scoped_finder_arguments?(node)
+          scoped_creation_finder?(node)
+        end
+
+        def loads_records?(node)
+          FINDER_METHODS.include?(node.method_name)
         end
 
         def scoped_creation_finder?(node)
