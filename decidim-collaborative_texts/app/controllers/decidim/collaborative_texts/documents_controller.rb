@@ -39,7 +39,7 @@ module Decidim
       private
 
       def document
-        @document ||= documents.find_by(id: params[:id])
+        @document ||= search_collection.find_by(id: params[:id])
       end
 
       def presenter
