@@ -10,7 +10,7 @@ module Decidim
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::Admin::HasTrashableResources
 
-        helper_method :current_assembly, :parent_assembly, :parent_assembly_id, :current_participatory_space
+        helper_method :current_assembly, :parent_assembly, :parent_assembly_id, :parent_ids_with_children, :assembly_depth, :current_participatory_space
 
         layout "decidim/admin/assemblies"
 
@@ -97,7 +97,10 @@ module Decidim
         end
 
         def current_assembly
-          @current_assembly ||= collection.with_deleted.where(slug: params[:slug]).or(
+          return if params[:slug].blank?
+          return @current_assembly if defined?(@current_assembly)
+
+          @current_assembly = collection.with_deleted.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])
           ).first
         end
@@ -105,7 +108,10 @@ module Decidim
         alias current_participatory_space current_assembly
 
         def parent_assembly
-          @parent_assembly ||= collection.find_by(id: parent_assembly_id)
+          return if parent_assembly_id.blank?
+          return @parent_assembly if defined?(@parent_assembly)
+
+          @parent_assembly = collection.find_by(id: parent_assembly_id)
         end
 
         def parent_assembly_id
@@ -117,6 +123,19 @@ module Decidim
 
           # Otherwise, return the parent_id from the params hash
           return params[:parent_id]
+        end
+
+        # Returns the depth of the given assembly in the hierarchy based on its
+        # parents_path. Root assemblies have a depth of 0.
+        def assembly_depth(assembly)
+          [assembly.parents_path.to_s.split(".").size - 1, 0].max
+        end
+
+        # IDs of the assemblies that have at least one visible (non soft-deleted)
+        # child. This avoids a per-row `children.count` query in the row partial
+        # while keeping soft-deleted children from showing the expand arrow.
+        def parent_ids_with_children
+          @parent_ids_with_children ||= collection.reorder(nil).where.not(parent_id: nil).distinct.pluck(:parent_id).to_set
         end
 
         def assembly_parent_id
