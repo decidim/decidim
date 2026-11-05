@@ -3,7 +3,7 @@
 module Decidim
   # A Component represents a self-contained group of functionalities usually
   # defined via a ComponentManifest. It is meant to be able to provide a single
-  # component that spans over several steps.
+  # component that spans over several phases.
   class Component < ApplicationRecord
     include HasSettings
     include HasTaxonomySettings

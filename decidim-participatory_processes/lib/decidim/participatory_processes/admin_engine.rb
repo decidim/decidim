@@ -33,10 +33,10 @@ module Decidim
               patch :restore
             end
 
-            resources :steps, controller: "participatory_process_steps", except: [:show] do
-              resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
+            resources :phases, controller: "participatory_process_phases", except: [:show] do
+              resource :activate, controller: "participatory_process_phase_activations", only: [:create, :destroy]
               collection do
-                post :ordering, to: "participatory_process_step_ordering#create"
+                post :ordering, to: "participatory_process_phase_ordering#create"
               end
             end
             resources :user_roles, controller: "participatory_process_user_roles" do

@@ -61,7 +61,7 @@ describe Decidim::Proposals::Admin::Permissions do
         it { is_expected.to be true }
       end
 
-      context "when answering is disabled in the step level" do
+      context "when answering is disabled in the phase level" do
         let(:current_settings_proposal_answering_enabled?) { false }
 
         it { is_expected.to be false }

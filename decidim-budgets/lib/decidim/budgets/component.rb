@@ -119,7 +119,7 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :more_information_modal, type: :text, translated: true
   end
 
-  component.settings(:step) do |settings|
+  component.settings(:phase) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :votes, type: :enum, default: "enabled", choices: %w(disabled enabled finished)
     settings.attribute :show_votes, type: :boolean, default: false

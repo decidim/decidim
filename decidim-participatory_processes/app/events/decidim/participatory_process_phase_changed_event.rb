@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+module Decidim
+  class ParticipatoryProcessPhaseChangedEvent < Decidim::Events::SimpleEvent
+    include Rails.application.routes.mounted_helpers
+
+    def resource_path
+      @resource_path ||= decidim_participatory_processes.participatory_process_path(participatory_space, display_phases: true)
+    end
+
+    def resource_url
+      @resource_url ||= decidim_participatory_processes
+                        .participatory_process_url(
+                          participatory_space,
+                          display_phases: true,
+                          host: participatory_space.organization.host
+                        )
+    end
+
+    def participatory_space
+      resource.participatory_process
+    end
+  end
+end

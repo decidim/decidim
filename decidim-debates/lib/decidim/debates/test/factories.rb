@@ -72,7 +72,7 @@ FactoryBot.define do
     end
     name { generate_component_name(participatory_space.organization.available_locales, :debates, skip_injection:) }
     manifest_name { :debates }
-    participatory_space { create(:participatory_process, :with_steps, organization:, skip_injection:) }
+    participatory_space { create(:participatory_process, :with_phases, organization:, skip_injection:) }
     settings do
       {
         comments_enabled: true,
@@ -81,9 +81,9 @@ FactoryBot.define do
     end
 
     trait :with_comments_blocked do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             comments_blocked: true
           }
         }
@@ -91,9 +91,9 @@ FactoryBot.define do
     end
 
     trait :with_creation_enabled do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => { creation_enabled: true }
+          participatory_space.active_phase.id => { creation_enabled: true }
         }
       end
     end
@@ -103,9 +103,9 @@ FactoryBot.define do
     end
 
     trait :with_likes_blocked do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => {
+          participatory_space.active_phase.id => {
             likes_enabled: true,
             likes_blocked: true
           }
@@ -114,17 +114,17 @@ FactoryBot.define do
     end
 
     trait :with_likes_enabled do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: true }
+          participatory_space.active_phase.id => { likes_enabled: true }
         }
       end
     end
 
     trait :with_likes_disabled do
-      step_settings do
+      phase_settings do
         {
-          participatory_space.active_step.id => { likes_enabled: false }
+          participatory_space.active_phase.id => { likes_enabled: false }
         }
       end
     end

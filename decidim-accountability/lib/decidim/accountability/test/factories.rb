@@ -14,7 +14,7 @@ FactoryBot.define do
     end
     name { generate_component_name(participatory_space.organization.available_locales, :accountability, skip_injection:) }
     manifest_name { :accountability }
-    participatory_space { create(:participatory_process, :with_steps, organization:, skip_injection:) }
+    participatory_space { create(:participatory_process, :with_phases, organization:, skip_injection:) }
     settings do
       {
         intro: generate_localized_description(:accountability_component_intro, skip_injection:)

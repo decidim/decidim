@@ -102,7 +102,7 @@ describe "Admin manages participatory processes", versioning: true do
       expect(last_participatory_process.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
-        expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
+        expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_phases_path(Decidim::ParticipatoryProcess.last)
         expect(page).to have_text("Phases")
         expect(page).to have_text("Introduction")
       end

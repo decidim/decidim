@@ -62,7 +62,7 @@ Decidim.register_component(:accountability) do |component|
     Decidim::Accountability::Result.where(component: components).sum(:comments_count)
   end
 
-  component.settings(:step) do |settings|
+  component.settings(:phase) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
   end
 

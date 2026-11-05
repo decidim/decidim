@@ -26,7 +26,7 @@ module Decidim
         mimic :assembly
 
         attribute :slug, String
-        attribute :import_steps, Boolean, default: false
+        attribute :import_phases, Boolean, default: false
         attribute :import_attachments, Boolean, default: true
         attribute :import_components, Boolean, default: true
         attribute :document, Decidim::Attributes::Blob

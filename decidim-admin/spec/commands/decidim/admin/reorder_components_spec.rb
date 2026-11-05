@@ -6,7 +6,7 @@ module Decidim::Admin
   describe ReorderComponents do
     subject { described_class.new(participatory_process.components, order) }
 
-    let(:participatory_process) { create(:participatory_process, :with_steps) }
+    let(:participatory_process) { create(:participatory_process, :with_phases) }
     let!(:component_first) { create(:component, :published, participatory_space: participatory_process, weight: 1) }
     let!(:component_second) { create(:component, :published, participatory_space: participatory_process, weight: 2) }
     let!(:component_third) { create(:component, :published, participatory_space: participatory_process, weight: 3) }

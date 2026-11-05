@@ -9,7 +9,7 @@ describe "Admin views proposal details from admin" do
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:, scope: participatory_process_scope) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:, scope: participatory_process_scope) }
   let(:participatory_process_scope) { nil }
 
   before do

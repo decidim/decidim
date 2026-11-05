@@ -15,7 +15,7 @@ en:
         settings:
           global:
             announcement: Announcement
-          step:
+          phase:
             announcement: Announcement
     open_data:
       help:
