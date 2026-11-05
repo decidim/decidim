@@ -110,6 +110,7 @@ describe "Datepicker" do
       end
     end
     find("td > span[aria-hidden=true]", text: time.day, match: :first).click
+    find(".datepicker__pick-calendar").click
   end
 
   def move_clock(hours:, minutes:)
