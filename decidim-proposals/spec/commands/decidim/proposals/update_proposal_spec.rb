@@ -214,6 +214,24 @@ module Decidim
                 expect(foreign_attachment.reload.title).to eq(original_title)
               end
             end
+
+            context "with a foreign attachment id in the kept attachments" do
+              let!(:own_attachment) { create(:attachment, :with_pdf, attached_to: proposal, weight: 7) }
+              let!(:foreign_attachment) { create(:attachment, :with_pdf, attached_to: create(:proposal), weight: 42) }
+              let(:current_files) { [own_attachment.id, foreign_attachment.id] }
+
+              it "updates the weight of the owned attachment" do
+                expect { command.call }.to broadcast(:ok)
+
+                expect(own_attachment.reload.weight).to eq(1)
+              end
+
+              it "does not update the weight of the foreign attachment" do
+                expect { command.call }.to broadcast(:ok)
+
+                expect(foreign_attachment.reload.weight).to eq(42)
+              end
+            end
           end
 
           context "when attachments are allowed and file is invalid" do
