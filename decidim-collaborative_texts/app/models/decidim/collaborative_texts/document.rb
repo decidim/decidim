@@ -54,6 +54,10 @@ module Decidim
         []
       end
 
+      def self.ransackable_associations(_auth_object = nil)
+        []
+      end
+
       # Returns the current version of the document. Currently, the last one
       def current_version
         document_versions.last || document_versions.build
