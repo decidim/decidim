@@ -70,5 +70,13 @@ module Decidim::Admin
         expect { subject.call }.to broadcast(:invalid)
       end
     end
+
+    context "when the email address exists in another organization" do
+      let!(:other_user) { create(:user, email:, organization: create(:organization)) }
+
+      it "broadcasts ok" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+    end
   end
 end

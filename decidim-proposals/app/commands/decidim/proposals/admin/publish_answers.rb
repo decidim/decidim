@@ -40,6 +40,7 @@ module Decidim
         attr_reader :component, :user, :proposal_ids
 
         def proposals
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- the chain is scoped to the current component
           @proposals ||= Decidim::Proposals::Proposal
                          .published
                          .answered
