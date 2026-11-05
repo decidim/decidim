@@ -11,7 +11,7 @@ module Decidim
         def update_taxonomies
           enforce_permission_to :create, :bulk_update
 
-          Admin::UpdateResultTaxonomies.call(result_params[:taxonomies], result_ids, current_organization) do
+          Admin::UpdateResultTaxonomies.call(result_params[:taxonomies], result_ids, current_component) do
             on(:invalid_taxonomies) do
               flash[:alert] = I18n.t(
                 "results.update_taxonomies.select_a_taxonomy",
@@ -52,7 +52,7 @@ module Decidim
         def update_status
           enforce_permission_to :create, :bulk_update
 
-          UpdateResultStatus.call(result_params[:decidim_accountability_status_id], result_ids, current_user) do
+          UpdateResultStatus.call(result_params[:decidim_accountability_status_id], result_ids, current_component, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("results.update_status.success", scope: "decidim.accountability.admin")
               redirect_to results_path
@@ -68,7 +68,7 @@ module Decidim
         def update_dates
           enforce_permission_to :create, :bulk_update
 
-          UpdateResultDates.call(result_params[:start_date], result_params[:end_date], result_ids, current_user) do
+          UpdateResultDates.call(result_params[:start_date], result_params[:end_date], result_ids, current_component, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("results.update_dates.success", scope: "decidim.accountability.admin")
               redirect_to results_path

@@ -36,7 +36,9 @@ module Decidim
 
         # Persist ParticipatoryText related meta information.
         def save_participatory_text_meta(form)
+          # rubocop:disable Decidim/OrganizationScopedFinder -- scoped to the current component
           document = ParticipatoryText.find_or_initialize_by(component: form.current_component)
+          # rubocop:enable Decidim/OrganizationScopedFinder
           document.update!(title: form.title, description: form.description)
         end
 

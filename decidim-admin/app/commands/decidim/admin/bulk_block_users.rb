@@ -49,7 +49,9 @@ module Decidim
       def block_all_users!
         form.users.each do |user|
           transaction do
+            # rubocop:disable Decidim/OrganizationScopedFinder -- form.users is scoped to the current organization
             Decidim::UserModeration.find_or_create_by!(user:)
+            # rubocop:enable Decidim/OrganizationScopedFinder
 
             @current_blocking = UserBlock.create!(
               justification: form.justification,
