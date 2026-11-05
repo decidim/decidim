@@ -19,7 +19,10 @@ document.addEventListener("turbo:load", () => {
     commentsIds: [commentId]
   });
 
-  $(".comments-count", $(`#${rootCommentableId}`)).text(<%== t("decidim.components.comments.title", count: @comment.root_commentable.comments_count).to_json %>);
+  // Keep the text and the data attribute the client side counter reads in sync.
+  $(".comments-count", $(`#${rootCommentableId}`))
+    .attr("data-comments-count", <%== @comment.root_commentable.comments_count.to_json %>)
+    .text(<%== t("decidim.components.comments.title", count: @comment.root_commentable.comments_count).to_json %>);
 });
 
 document.dispatchEvent(new CustomEvent("turbo:load"));
