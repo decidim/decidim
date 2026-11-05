@@ -5,6 +5,18 @@ We are really glad you are reading this, because we need volunteer contributors 
 Please note that by making a Pull Request in this repository you are agreeing with https://decidim.org/contract[Decidim's Social Contract]
 and our https://github.com/decidim/decidim/blob/develop/CODE_OF_CONDUCT.md[Code of Conduct].
 
+== What we expect from contributors
+
+We are looking for contributors who know Ruby and Ruby on Rails, or who know how Decidim works because they are participants, implementers, administrators, etc.
+
+Before submitting a Pull Request:
+
+* You need a working development environment, and you must try your changes locally.
+* You must provide evidence that you actually tested your changes locally, by following the https://github.com/decidim/decidim/blob/develop/.github/PULL_REQUEST_TEMPLATE.md[Pull Request Template].
+  If applicable to your change, the *Screenshots* and *Testing* sections are especially relevant: they are where we can see that you tried your change and understand how the application works.
+
+Pull Requests that do not meet these requirements may be closed without review.
+
 == Do you want to say hello to us?
 
 Come find us at https://matrix.to/#/#decidim:matrix.org[our Matrix.org space]. We have chat rooms for developers, designers and translators.
