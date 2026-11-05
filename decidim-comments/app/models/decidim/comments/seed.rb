@@ -22,7 +22,7 @@ module Decidim
 
           @organization = resource.organization
 
-          rand(0..config_value(:comments_count)).times do
+          config_value(:comments_count).times do
             comment1 = create_comment(resource)
             NewCommentNotificationCreator.new(comment1, []).create
 
@@ -43,7 +43,10 @@ module Decidim
         attr_reader :organization
 
         def config_value(key)
-          slow_seeds? ? Decidim::Seeds::SEEDS_CONFIG[key][:slow] : Decidim::Seeds::SEEDS_CONFIG[key][:fast]
+          value = slow_seeds? ? Decidim::Seeds::SEEDS_CONFIG[key][:slow] : Decidim::Seeds::SEEDS_CONFIG[key][:fast]
+          return rand(value) if value.is_a?(Range)
+
+          value
         end
 
         def slow_seeds?
