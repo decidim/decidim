@@ -19,7 +19,22 @@ module Decidim
     end
 
     def settings
-      new_settings_schema(:global, self[:settings]["global"])
+      return {} unless manifest && participatory_space
+
+      data = self[:settings]["global"]&.to_h
+      cache_key = [object_id, self[:settings].object_id, manifest.settings(:global).schema, organization.default_locale.dup]
+
+      if @settings_cache_key != cache_key || @settings_cache_data != data
+        @settings_cache = new_settings_schema(:global, self[:settings]["global"])
+        @settings_cache_key = cache_key
+        @settings_cache_data = data.deep_dup
+        @settings_cache_collections = collection_setting_names
+      end
+
+      # Keep each caller's mutable values, assignments and validation errors separate.
+      @settings_cache.dup.tap do |settings|
+        @settings_cache_collections.each { |name| settings[name] = settings[name].deep_dup }
+      end
     end
 
     def settings=(data)
@@ -57,6 +72,12 @@ module Decidim
     end
 
     private
+
+    def collection_setting_names
+      manifest.settings(:global).attributes.filter_map do |name, attribute|
+        name if attribute.translated? || [:array, :integer_with_units, :taxonomy_filters].include?(attribute.type)
+      end
+    end
 
     def active_step_settings
       return unless participatory_space.allows_steps?

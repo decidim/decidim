@@ -21,6 +21,137 @@ module Decidim
         .to eq Decidim::AdminLog::ComponentPresenter
     end
 
+    describe "#settings" do
+      before { component }
+
+      it "builds the settings only once for repeated reads" do
+        expect(described_class).to receive(:build_settings).with(component.manifest, :global, anything, organization).once.and_call_original
+
+        3.times { expect(component.settings.comments_enabled).to be true }
+      end
+
+      it "keeps assignments to returned settings separate" do
+        settings = component.settings
+        settings.comments_enabled = false
+        settings.taxonomy_filters << 123
+        settings.dummy_global_translatable_text["en"] = "Changed"
+        settings.errors.add(:base, "Invalid")
+
+        expect(component.settings).not_to equal(settings)
+        expect(component.settings.comments_enabled).to be true
+        expect(component.settings.taxonomy_filters).to be_empty
+        expect(component.settings.dummy_global_translatable_text["en"]).not_to eq("Changed")
+        expect(component.settings.errors).to be_empty
+      end
+
+      it "updates the cache when settings are assigned" do
+        component.settings
+        component.settings = { comments_enabled: false }
+
+        expect(component.settings.comments_enabled).to be false
+      end
+
+      it "keeps localized rich text strings separate" do
+        component.settings = { dummy_global_translatable_text_en: "Original" }
+        component.settings.dummy_global_translatable_text["en"].replace("Changed")
+
+        expect(component.settings.dummy_global_translatable_text["en"]).to eq("Original")
+      end
+
+      it "updates the cache when the raw settings change" do
+        component.settings
+        component[:settings]["global"][:comments_enabled] = false
+
+        expect(component.settings.comments_enabled).to be false
+      end
+
+      it "updates the cache when nested raw settings change" do
+        component.settings
+        component[:settings]["global"][:dummy_global_translatable_text]["en"] = "Changed"
+
+        expect(component.settings.dummy_global_translatable_text["en"]).to eq("Changed")
+      end
+
+      it "updates the cache when the organization's default locale changes" do
+        component.settings
+        organization.default_locale = "ca"
+
+        expect(component.settings.default_locale).to eq("ca")
+
+        organization.default_locale.replace("es")
+
+        expect(component.settings.default_locale).to eq("es")
+      end
+
+      it "updates the cache when the manifest changes" do
+        component.settings
+        component.manifest_name = "proposals"
+
+        expect(component.settings).to be_a(component.manifest.settings(:global).schema)
+      end
+
+      it "does not share cached settings between components" do
+        other_component = build(:component, organization:, settings: { comments_enabled: false })
+        component.settings
+
+        expect(other_component.settings.comments_enabled).to be false
+        expect(component.settings.comments_enabled).to be true
+      end
+
+      it "does not share the settings cache with a duplicate" do
+        component.settings
+        duplicate = component.dup
+        expect(described_class).to receive(:build_settings).with(duplicate.manifest, :global, anything, organization).once.and_call_original
+
+        expect(duplicate.settings.comments_enabled).to be true
+      end
+
+      context "when persisted" do
+        before { component.save! }
+
+        it "keeps localized rich text strings separate after reload" do
+          component.update!(settings: { dummy_global_translatable_text_en: "Original" })
+          component.reload.settings.dummy_global_translatable_text["en"].replace("Changed")
+
+          expect(component.settings.dummy_global_translatable_text["en"]).to eq("Original")
+        end
+
+        it "does not mark stored settings as changed when read" do
+          component.reload
+          3.times { component.settings.to_h }
+
+          expect(component).not_to be_changed
+        end
+
+        it "updates the cache after reloading changed settings" do
+          component.settings
+          described_class.find(component.id).update!(settings: { comments_enabled: false })
+
+          expect(component.reload.settings.comments_enabled).to be false
+        end
+
+        it "rebuilds settings after reloading unchanged data" do
+          component.settings
+          component.reload
+          expect(described_class).to receive(:build_settings).with(component.manifest, :global, anything, organization).once.and_call_original
+
+          component.settings
+        end
+      end
+
+      it "returns empty settings without a manifest" do
+        component.manifest_name = "missing"
+
+        expect(component.settings).to eq({})
+      end
+
+      it "returns empty settings without a participatory space" do
+        component.participatory_space = nil
+
+        expect(component.settings).to eq({})
+      end
+    end
+
     describe "default scope" do
       subject { described_class.all }
 
