@@ -92,10 +92,14 @@ module Decidim
       end
 
       def moderated_users
+        return [] unless Decidim::Core::UserModerationType.authorized?(nil, context)
+
         Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization&.id }).where.not(decidim_users: { blocked_at: nil })
       end
 
       def moderations
+        return [] unless Decidim::Core::ModerationType.authorized?(nil, context)
+
         Decidim::Moderation.where(participatory_space: organization.participatory_spaces).includes(:reports).hidden
       end
     end
