@@ -130,8 +130,8 @@ ca:
         other: al voltant de %{count} mesos
       half_a_minute: mig minut
       less_than_x_minutes:
-        one: fa menys d'un minut
-        other: fa menys de %{count} minuts
+        one: menys d'un minut
+        other: menys de %{count} minuts
       less_than_x_seconds:
         one: fa menys d'un segon
         other: fa menys de %{count} segons
