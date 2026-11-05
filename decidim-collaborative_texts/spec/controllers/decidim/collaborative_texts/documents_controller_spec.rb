@@ -24,6 +24,11 @@ module Decidim
           expect(controller.helpers.documents).to include(published_document)
           expect(controller.helpers.documents).not_to include(unpublished_document)
         end
+
+        it "preloads the document versions used by the cards" do
+          get :index
+          expect(controller.helpers.documents.first.association(:document_versions)).to be_loaded
+        end
       end
 
       describe "GET #show" do

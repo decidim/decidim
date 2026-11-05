@@ -22,6 +22,11 @@ module Decidim::CollaborativeTexts
       expect(subject).to have_css("[data-status='draft']", text: "In review")
     end
 
+    it "computes the status once per card" do
+      expect(document).to receive(:draft?).once.and_call_original
+      subject
+    end
+
     context "when the document is accepting suggestions" do
       let(:document) { create(:collaborative_text_document, :published, :accepting_suggestions) }
 
