@@ -21,7 +21,7 @@ module Decidim
           component.save!
         end
 
-        it "it does not include the votes count" do
+        it "it includes votes but does not include the votes count" do
           expect(serialized).to include(votes: nil)
         end
       end
