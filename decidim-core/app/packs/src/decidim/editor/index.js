@@ -82,9 +82,14 @@ export default function createEditor(container) {
   container.insertBefore(toolbar, editorContainer);
 
   editor.on("update", () => {
-    input.value = editor.isEmpty
+    const nextValue = editor.isEmpty
       ? ""
       : editor.getHTML();
+    const changed = input.value !== nextValue;
+    input.value = nextValue;
+    if (changed) {
+      input.dispatchEvent(new Event("update", { bubbles: true }));
+    }
   });
 
   editor.view.dom.addEventListener("move-cursor-to-end", () => {
