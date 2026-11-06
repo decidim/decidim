@@ -60,6 +60,18 @@
     }
   }
 
+  .editor-preview {
+    @apply relative flex-auto p-2.5 overflow-hidden prose max-w-none;
+
+    a,
+    button,
+    input,
+    iframe,
+    video {
+      pointer-events: none;
+    }
+  }
+
   .editor-input {
     @apply relative flex-auto overflow-y-auto;
 

@@ -53,7 +53,7 @@ shared_examples_for "manage questionnaires" do
       expect(page).to have_css("select[id$=question_type][disabled]")
       expect(page).to have_css("select[id$=max_choices][disabled]")
       expect(page).to have_css("input[id$=max_characters][disabled]")
-      expect(page).to have_css(".ProseMirror[contenteditable=false]")
+      expect(page).to have_css(".editor-preview[data-editor-preview]")
     end
   end
 

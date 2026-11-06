@@ -90,6 +90,8 @@ module TranslationHelpers
   def fill_in_editor(locator, params = {})
     raise ArgumentError if params[:with].blank?
 
+    reveal_editor(locator)
+
     page.execute_script <<-SCRIPT
       document.querySelector('##{locator} .editor-container .ProseMirror').innerHTML = `#{params[:with]}`;
       document.querySelector('##{locator} input').value = `#{params[:with]}`;
@@ -100,10 +102,29 @@ module TranslationHelpers
   #
   # locator - The input field ID. The DOM element is selected using jQuery.
   def clear_editor(locator)
+    reveal_editor(locator)
+
     page.execute_script <<-SCRIPT
       document.querySelector('##{locator} .editor-container .ProseMirror').innerHTML = '<p><br class="ProseMirror-trailingBreak"></p>';
       document.querySelector('##{locator} input').value = "";
     SCRIPT
+  end
+
+  # Initializes a lazily created WYSIWYG editor.
+  #
+  # locator - The input field ID.
+  def reveal_editor(locator)
+    selector = "##{locator} .editor-container .ProseMirror"
+
+    page.document.synchronize do
+      page.execute_script <<~SCRIPT
+        document.querySelector('##{locator} .editor-container').dispatchEvent(
+          new CustomEvent("editor:reveal", { bubbles: true })
+        );
+      SCRIPT
+
+      raise Capybara::ExpectationNotMet, "Editor not initialized: #{selector}" unless page.has_css?(selector, wait: 0)
+    end
   end
 
   private
