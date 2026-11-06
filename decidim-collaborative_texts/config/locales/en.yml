@@ -131,9 +131,8 @@ en:
           all: All
           state: Status
           state_values:
-            closed: Closed
-            in_review: In review
-            open: Open
+            accepting_suggestions: Accepting suggestions
+            not_accepting_suggestions: Not accepting suggestions
         index:
           count:
             one: "%{count} collaborative text"
