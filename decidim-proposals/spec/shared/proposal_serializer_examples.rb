@@ -88,6 +88,17 @@ shared_examples_for "a proposal serializer" do
       expect(serialized).to include(votes: proposal.proposal_votes_count)
     end
 
+    describe "when the proposal votes are hidden" do
+      before do
+        component.step_settings = { component.participatory_space.active_step.id => { votes_hidden: true } }
+        component.save!
+      end
+
+      it "includes votes but does not include the votes count" do
+        expect(serialized).to include(votes: nil)
+      end
+    end
+
     it "serializes the amount of comments" do
       expect(serialized).to include(comments: proposal.comments_count)
     end
