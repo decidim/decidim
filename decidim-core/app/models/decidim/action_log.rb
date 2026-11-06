@@ -279,7 +279,10 @@ module Decidim
       associations = []
       associations << :organization if klass.reflect_on_association(:organization)
       associations << :moderation if klass.include?(Decidim::Reportable)
-      associations << :author if klass.include?(Decidim::Authorable)
+      # The author cell renders the avatar for every author, which can be a user.
+      # Author types without an attachment (e.g. an organization) are skipped by
+      # the preloader.
+      associations << { author: { avatar_attachment: :blob } } if klass.include?(Decidim::Authorable)
       associations << :participatory_space if klass.reflect_on_association(:participatory_space)
       # The author cell renders the avatar for every user in the collection.
       associations << { avatar_attachment: :blob } if klass.reflect_on_association(:avatar_attachment)
