@@ -266,6 +266,41 @@ describe "Explore projects", :slow do
         let(:target_path) { decidim_budgets.budget_project_path(budget, 99_999_999) }
       end
     end
+
+    context "when using results per page" do
+      let(:projects_count) { Decidim::Paginable::OPTIONS[1] }
+      let(:configured_per_page) { Decidim::Paginable::OPTIONS.first }
+
+      before do
+        settings = component.settings
+        settings.projects_per_page = configured_per_page
+        component.update!(settings:)
+
+        visit_budget per_page: projects_count
+      end
+
+      it "displays the correct amount of projects" do
+        within "#projects" do
+          expect(page).to have_css(".card__list", count: projects_count)
+        end
+      end
+
+      it "displays the results per page selector" do
+        within "#projects" do
+          expect(page).to have_css("[data-pagination]")
+        end
+      end
+
+      context "when the configured per page option is not a pagination option" do
+        let(:configured_per_page) { 12 }
+
+        it "displays the correct amount of projects" do
+          within "#projects" do
+            expect(page).to have_css(".card__list", count: configured_per_page)
+          end
+        end
+      end
+    end
   end
 
   describe "search" do
@@ -285,7 +320,7 @@ describe "Explore projects", :slow do
     Decidim::EngineRouter.main_proxy(component)
   end
 
-  def visit_budget
-    page.visit decidim_budgets.budget_projects_path(budget)
+  def visit_budget(**)
+    page.visit decidim_budgets.budget_projects_path(budget, **)
   end
 end
