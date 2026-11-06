@@ -303,5 +303,30 @@ describe Decidim::ActionLog do
         expect(meeting.association(:author).loaded?).to be(true)
       end
     end
+
+    context "when the resource is a comment on a resource with a component" do
+      let!(:action_logs) do
+        meetings.map do |meeting|
+          create(
+            :action_log,
+            action: "create",
+            visibility: "all",
+            resource: create(:comment, commentable: meeting),
+            organization: meeting.organization,
+            participatory_space: meeting.participatory_space
+          )
+        end
+      end
+
+      it "eager loads the component through the polymorphic root_commentable" do
+        comments = action_logs.map(&:resource_lazy)
+
+        expect(comments).to all(be_a(Decidim::Comments::Comment))
+        comments.each do |comment|
+          expect(comment.association(:root_commentable).loaded?).to be(true)
+          expect(comment.root_commentable.association(:component).loaded?).to be(true)
+        end
+      end
+    end
   end
 end
