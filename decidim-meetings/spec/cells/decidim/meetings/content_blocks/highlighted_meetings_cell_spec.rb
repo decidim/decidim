@@ -170,6 +170,22 @@ module Decidim
                 expect(meetings_ids).to eq([item_id(meeting)])
               end
             end
+
+            context "when the linked meeting belongs to an unpublished component" do
+              let(:other_component) { create(:meeting_component, :unpublished, organization:) }
+
+              it "does not render the linked meeting" do
+                expect(meetings_ids).to eq([item_id(meeting)])
+              end
+            end
+
+            context "when the linked meeting belongs to an unpublished space" do
+              let(:other_component) { create(:meeting_component, participatory_space: create(:assembly, :unpublished, organization:)) }
+
+              it "does not render the linked meeting" do
+                expect(meetings_ids).to eq([item_id(meeting)])
+              end
+            end
           end
 
           context "with upcoming meetings in other month" do
