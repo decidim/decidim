@@ -15,7 +15,7 @@ describe Decidim::NotificationGenerator do
   let(:affected_users) { [affected_user] }
   let(:follower) { create(:user) }
   let(:followers) { [follower] }
-  let(:extra) { double }
+  let(:extra) { {} }
 
   describe "generate" do
     context "when the event_class supports notifications" do
@@ -30,10 +30,9 @@ describe Decidim::NotificationGenerator do
           let(:follower) { create(:user, notification_types: "all") }
 
           it "sends the notification" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .to receive(:perform_later)
+            expect { subject.generate }
+              .to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
               .with(event, event_class_name, resource, follower, :follower.to_s, extra)
-            subject.generate
           end
         end
 
@@ -41,10 +40,9 @@ describe Decidim::NotificationGenerator do
           let(:follower) { create(:user, notification_types: "followed-only") }
 
           it "sends the notification" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .to receive(:perform_later)
+            expect { subject.generate }
+              .to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
               .with(event, event_class_name, resource, follower, :follower.to_s, extra)
-            subject.generate
           end
         end
 
@@ -52,10 +50,9 @@ describe Decidim::NotificationGenerator do
           let(:follower) { create(:user, notification_types: "none") }
 
           it "sends the notification" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .not_to receive(:perform_later)
+            expect { subject.generate }
+              .not_to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
               .with(event, event_class_name, resource, follower, :follower.to_s, extra)
-            subject.generate
           end
         end
 
@@ -63,10 +60,9 @@ describe Decidim::NotificationGenerator do
           let(:follower) { create(:user, notification_types: "own-only") }
 
           it "sends the notification" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .not_to receive(:perform_later)
+            expect { subject.generate }
+              .not_to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
               .with(event, event_class_name, resource, follower, :follower.to_s, extra)
-            subject.generate
           end
         end
       end
@@ -78,10 +74,9 @@ describe Decidim::NotificationGenerator do
           let(:affected_user) { create(:user, notification_types: "all") }
 
           it "sends the notification" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .to receive(:perform_later)
+            expect { subject.generate }
+              .to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
               .with(event, event_class_name, resource, affected_user, :affected_user.to_s, extra)
-            subject.generate
           end
         end
 
@@ -89,10 +84,9 @@ describe Decidim::NotificationGenerator do
           let(:affected_user) { create(:user, notification_types: "followed-only") }
 
           it "sends the notification" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .not_to receive(:perform_later)
+            expect { subject.generate }
+              .not_to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
               .with(event, event_class_name, resource, affected_user, :affected_user.to_s, extra)
-            subject.generate
           end
         end
 
@@ -100,10 +94,9 @@ describe Decidim::NotificationGenerator do
           let(:affected_user) { create(:user, notification_types: "none") }
 
           it "sends the notification" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .not_to receive(:perform_later)
+            expect { subject.generate }
+              .not_to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
               .with(event, event_class_name, resource, affected_user, :affected_user.to_s, extra)
-            subject.generate
           end
         end
 
@@ -111,10 +104,9 @@ describe Decidim::NotificationGenerator do
           let(:affected_user) { create(:user, notification_types: "own-only") }
 
           it "sends the notification" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .to receive(:perform_later)
+            expect { subject.generate }
+              .to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
               .with(event, event_class_name, resource, affected_user, :affected_user.to_s, extra)
-            subject.generate
           end
         end
       end
@@ -129,10 +121,7 @@ describe Decidim::NotificationGenerator do
 
         context "and the user can participate" do
           it "enqueues the job" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .to receive(:perform_later).twice
-
-            subject.generate
+            expect { subject.generate }.to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob).twice
           end
         end
 
@@ -142,10 +131,7 @@ describe Decidim::NotificationGenerator do
           end
 
           it "does not schedule a job" do
-            expect(Decidim::NotificationGeneratorForRecipientJob)
-              .not_to receive(:perform_later)
-
-            subject.generate
+            expect { subject.generate }.not_to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
           end
         end
       end
@@ -157,10 +143,7 @@ describe Decidim::NotificationGenerator do
       end
 
       it "does not schedule a job for each recipient" do
-        expect(Decidim::NotificationGeneratorForRecipientJob)
-          .not_to receive(:perform_later)
-
-        subject.generate
+        expect { subject.generate }.not_to have_enqueued_job(Decidim::NotificationGeneratorForRecipientJob)
       end
     end
   end

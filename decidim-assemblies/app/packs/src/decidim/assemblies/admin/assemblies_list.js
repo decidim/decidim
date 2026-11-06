@@ -14,6 +14,7 @@ class AdminAssembliesListComponent {
     });
     document.querySelectorAll("[data-arrow-down]").forEach((element) => {
       element.addEventListener("click", this._onClickDownArrow);
+      element.addEventListener("ajax:error", this._onAjaxError);
     });
   }
 
@@ -23,6 +24,7 @@ class AdminAssembliesListComponent {
     });
     document.querySelectorAll("[data-arrow-down]").forEach((element) => {
       element.removeEventListener("click", this._onClickDownArrow);
+      element.removeEventListener("ajax:error", this._onAjaxError);
     });
   }
 
@@ -31,6 +33,16 @@ class AdminAssembliesListComponent {
 
     const target = event.currentTarget;
     const assembly = target.closest("[data-assembly-id]");
+
+    if (assembly.dataset.loading === "true") {
+      event.stopImmediatePropagation();
+      return;
+    }
+
+    assembly.dataset.loading = "true";
+    assembly.setAttribute("aria-busy", "true");
+    assembly.classList.add("spinner-container");
+
     const upArrow = assembly.querySelector("[data-arrow-up]");
 
     target.classList.toggle("hidden");
@@ -42,6 +54,12 @@ class AdminAssembliesListComponent {
 
     const target = event.currentTarget;
     const assembly = target.closest("[data-assembly-id]");
+
+    if (assembly.dataset.loading === "true") {
+      event.stopImmediatePropagation();
+      return;
+    }
+
     const parentLevel = assembly.dataset.level;
     const downArrow = assembly.querySelector("[data-arrow-down]");
 
@@ -61,6 +79,18 @@ class AdminAssembliesListComponent {
       }
       nextElement = nextSibling;
     }
+  }
+
+  _onAjaxError(event) {
+    const assembly = event.currentTarget.closest("[data-assembly-id]");
+
+    if (!assembly) {
+      return;
+    }
+
+    assembly.classList.remove("spinner-container");
+    assembly.removeAttribute("aria-busy");
+    assembly.dataset.loading = "false";
   }
 }
 
