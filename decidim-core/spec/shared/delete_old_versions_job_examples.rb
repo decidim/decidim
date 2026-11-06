@@ -2,6 +2,8 @@
 
 shared_examples "delete old versions job" do
   context "when a valid cutoff days argument is provided" do
+    subject { described_class.perform_now(cutoff_days) }
+
     context "with zero" do
       let(:cutoff_days) { 0 }
 

@@ -4,10 +4,11 @@ require "spec_helper"
 
 module Decidim
   describe Env do
-    subject { described_class.new(name, default) }
+    subject { described_class.new(name, default, **opts) }
     let(:name) { "TEST_ENV_VAR" }
     let(:value) { nil }
     let(:default) { nil }
+    let(:opts) { {} }
 
     before do
       ENV[name] = value.to_s if name.present?
@@ -208,6 +209,31 @@ module Decidim
         let(:value) { "False" }
 
         it_behaves_like "empty array or default"
+      end
+    end
+
+    describe "#to_i" do
+      it_behaves_like "a nil value"
+
+      context "when value" do
+        let(:value) { "123" }
+
+        it_behaves_like "a defined value"
+      end
+
+      context "with allow_zero" do
+        let(:opts) { { allow_zero: true } }
+        let(:value) { "0" }
+
+        it "returns the correct value" do
+          expect(subject.value).to eq("0")
+          expect(subject.to_s).to eq("0")
+          expect(subject.to_i).to eq(0)
+          expect(subject.to_json).to eq(%("0"))
+          expect(subject.blank?).to be(false)
+          expect(subject.present?).to be(true)
+          expect(subject.to_array).to eq(["0"])
+        end
       end
     end
   end
