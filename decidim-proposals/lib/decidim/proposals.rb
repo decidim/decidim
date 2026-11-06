@@ -39,56 +39,56 @@ module Decidim
     # process_group_highlighted_elements view hook
     mattr_accessor :process_group_highlighted_proposals_limit, default: Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
 
-    def self.proposal_states_colors
+    def self.proposal_statuses_colors
       {
         gray: {
           background: "#F6F8FA",
           foreground: "#4B5058",
-          name: I18n.t("gray", scope: "activemodel.attributes.proposal_state.colors")
+          name: I18n.t("gray", scope: "activemodel.attributes.proposal_status.colors")
         },
         blue: {
           background: "#EBF9FF",
           foreground: "#0851A6",
-          name: I18n.t("blue", scope: "activemodel.attributes.proposal_state.colors")
+          name: I18n.t("blue", scope: "activemodel.attributes.proposal_status.colors")
         },
         green: {
           background: "#E3FCE9",
           foreground: "#15602C",
-          name: I18n.t("green", scope: "activemodel.attributes.proposal_state.colors")
+          name: I18n.t("green", scope: "activemodel.attributes.proposal_status.colors")
         },
         yellow: {
           background: "#FFFCE5",
           foreground: "#9A6700",
-          name: I18n.t("yellow", scope: "activemodel.attributes.proposal_state.colors")
+          name: I18n.t("yellow", scope: "activemodel.attributes.proposal_status.colors")
         },
         orange: {
           background: "#FFF1E5",
           foreground: "#BC4C00",
-          name: I18n.t("orange", scope: "activemodel.attributes.proposal_state.colors")
+          name: I18n.t("orange", scope: "activemodel.attributes.proposal_status.colors")
         },
         red: {
           background: "#FFEBE9",
           foreground: "#D1242F",
-          name: I18n.t("red", scope: "activemodel.attributes.proposal_state.colors")
+          name: I18n.t("red", scope: "activemodel.attributes.proposal_status.colors")
         },
         pink: {
           background: "#FFEFF7",
           foreground: "#BF3989",
-          name: I18n.t("pink", scope: "activemodel.attributes.proposal_state.colors")
+          name: I18n.t("pink", scope: "activemodel.attributes.proposal_status.colors")
         },
         purple: {
           background: "#FBEFFF",
           foreground: "#8250DF",
-          name: I18n.t("purple", scope: "activemodel.attributes.proposal_state.colors")
+          name: I18n.t("purple", scope: "activemodel.attributes.proposal_status.colors")
         }
       }
     end
 
-    def self.create_default_states!(component, admin_user, with_traceability: true)
-      colors = Decidim::Proposals.proposal_states_colors
+    def self.create_default_statuses!(component, admin_user, with_traceability: true, model: Decidim::Proposals::ProposalStatus)
+      colors = Decidim::Proposals.proposal_statuses_colors
 
       locale = Decidim.default_locale
-      default_states = {
+      default_statuses = {
         evaluating: {
           token: :evaluating,
           bg_color: colors[:orange][:background],
@@ -111,16 +111,21 @@ module Decidim
           title: { locale => I18n.with_locale(locale) { I18n.t(:rejected, scope: "decidim.proposals.answers") } }
         }
       }
-      default_states.each_key do |key|
-        default_states[key][:object] = if with_traceability
-                                         Decidim.traceability.create(
-                                           Decidim::Proposals::ProposalState, admin_user, component:, **default_states[key]
-                                         )
-                                       else
-                                         Decidim::Proposals::ProposalState.create(component:, **default_states[key])
-                                       end
+      default_statuses.each_key do |key|
+        default_statuses[key][:object] = if with_traceability
+                                           Decidim.traceability.create(
+                                             model, admin_user, component:, **default_statuses[key]
+                                           )
+                                         else
+                                           model.create(component:, **default_statuses[key])
+                                         end
       end
-      default_states
+      default_statuses
+    end
+
+    # Kept for migrations written before the ProposalState -> ProposalStatus rename.
+    def self.create_default_states!(component, admin_user, with_traceability: true)
+      create_default_statuses!(component, admin_user, with_traceability:, model: Decidim::Proposals::ProposalState)
     end
   end
 

@@ -29,14 +29,14 @@ module Decidim
               current_component:,
               current_user:,
               default_budget:,
-              states:,
+              statuses:,
               budget:,
               valid?: valid
             )
           end
 
           let(:default_budget) { 1000 }
-          let(:states) { ["accepted"] }
+          let(:statuses) { ["accepted"] }
 
           let(:command) { described_class.new(form) }
 
@@ -65,31 +65,31 @@ module Decidim
               expect { command.call }.to change { Project.where(budget:).count }.by(3)
             end
 
-            context "when importing multiple states" do
+            context "when importing multiple statuses" do
               let!(:rejected_proposals) { create_list(:proposal, 2, :rejected, component: proposals_component) }
-              let(:states) { %w(accepted rejected) }
+              let(:statuses) { %w(accepted rejected) }
 
-              it "imports proposals from all selected states" do
+              it "imports proposals from all selected statuses" do
                 expect { command.call }.to change { Project.where(budget:).count }.by(5)
               end
             end
 
-            context "when importing custom states" do
-              let!(:custom_state) { create(:proposal_state, token: "custom_state", component: proposals_component) }
-              let!(:custom_state_proposals) do
+            context "when importing custom statuses" do
+              let!(:custom_status) { create(:proposal_status, token: "custom_status", component: proposals_component) }
+              let!(:custom_status_proposals) do
                 create_list(:proposal, 2, :published, component: proposals_component).each do |proposal|
-                  proposal.update!(proposal_state: custom_state)
+                  proposal.update!(proposal_status: custom_status)
                 end
               end
-              let(:states) { ["custom_state"] }
+              let(:statuses) { ["custom_status"] }
 
-              it "imports proposals with custom states" do
+              it "imports proposals with custom statuses" do
                 expect { command.call }.to change { Project.where(budget:).count }.by(2)
               end
             end
 
-            context "when there are no states" do
-              let(:internal_states) { [] }
+            context "when there are no statuses" do
+              let(:internal_statuses) { [] }
 
               it "broadcasts ok" do
                 expect { command.call }.to broadcast(:ok)
@@ -182,15 +182,15 @@ module Decidim
               end
             end
 
-            describe "proposal states" do
-              let(:states) { %w(not_answered rejected) }
+            describe "proposal statuses" do
+              let(:statuses) { %w(not_answered rejected) }
               let!(:rejected_proposal) { create(:proposal, :rejected, component: proposals_component) }
               let!(:random_proposal) { create(:proposal, component: proposals_component) }
               let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposals_component) }
               let!(:hidden_proposal) { create(:proposal, component: proposals_component) }
               let!(:moderation) { create(:moderation, reportable: hidden_proposal, hidden_at: 1.day.ago) }
 
-              it "only imports proposals from the selected states" do
+              it "only imports proposals from the selected statuses" do
                 expect do
                   command.call
                 end.to change { Project.where(budget:).count }.by(2)

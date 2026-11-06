@@ -210,7 +210,7 @@ module Decidim
         let(:proposal) { build(:proposal, :accepted) }
 
         it { is_expected.to be_answered }
-        it { is_expected.to be_published_state }
+        it { is_expected.to be_published_status }
         it { is_expected.to be_accepted }
       end
 
@@ -218,7 +218,7 @@ module Decidim
         let(:proposal) { build(:proposal, :rejected) }
 
         it { is_expected.to be_answered }
-        it { is_expected.to be_published_state }
+        it { is_expected.to be_published_status }
         it { is_expected.to be_rejected }
       end
 
@@ -390,17 +390,17 @@ module Decidim
       context "when answer is not published" do
         let(:proposal) { create(:proposal, :accepted_not_published, component:) }
 
-        it "has accepted as the internal state" do
-          expect(proposal.internal_state).to eq("accepted")
+        it "has accepted as the internal status" do
+          expect(proposal.internal_status).to eq("accepted")
         end
 
-        it "has not_answered as public state" do
-          expect(proposal.state).to be_nil
+        it "has not_answered as public status" do
+          expect(proposal.status).to be_nil
         end
 
         it { is_expected.not_to be_accepted }
         it { is_expected.to be_answered }
-        it { is_expected.not_to be_published_state }
+        it { is_expected.not_to be_published_status }
       end
 
       describe "#with_evaluation_assigned_to" do
@@ -503,8 +503,8 @@ module Decidim
       end
 
       describe ".ransackable_attributes" do
-        it "allows sorting by state_published" do
-          expect(described_class.ransackable_attributes).to include("state_published")
+        it "allows sorting by status_published" do
+          expect(described_class.ransackable_attributes).to include("status_published")
         end
 
         it "allows sorting by evaluation_assignments_count" do

@@ -116,6 +116,16 @@ This change is part of the work to reduce profile spam tracked in issue [#17955]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
+### 2.6. Proposal states renamed to proposal statuses
+
+Proposals now use "status"/"statuses" instead of "state"/"states".
+
+The migration renames the `decidim_proposals_proposal_states` table and the proposal `decidim_proposals_proposal_state_id`/`state_published_at` columns to status equivalents, and updates PaperTrail/action logs. Update custom code from `ProposalState`/`proposal_state`/`assign_state` to `ProposalStatus`/`proposal_status`/`assign_status`. In GraphQL, proposal `state` and `proposalState` become `status` and `proposalStatus`; amendment `state` is unchanged.
+
+Existing proposal answer templates are migrated automatically by the `RenameProposalAnswerTemplateFieldValues` migration.
+
+You can read more about this change on PR [#17995](https://github.com/decidim/decidim/pull/17995).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.

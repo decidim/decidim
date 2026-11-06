@@ -345,9 +345,9 @@ def destroy_component_resources(component) # rubocop:disable Metrics/CyclomaticC
     destroy_with_versions(draft)
   end
 
-  Decidim::Proposals::ProposalState.where(decidim_component_id: component.id).each do |state|
-    state.proposals_count = 0 if state.proposals_count.negative?
-    destroy_with_versions(state)
+  Decidim::Proposals::ProposalStatus.where(decidim_component_id: component.id).each do |status|
+    status.proposals_count = 0 if status.proposals_count.negative?
+    destroy_with_versions(status)
   end
 
   Decidim::Proposals::ParticipatoryText.where(decidim_component_id: component.id).each do |text|
