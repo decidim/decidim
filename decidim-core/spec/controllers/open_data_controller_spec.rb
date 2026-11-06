@@ -47,5 +47,22 @@ module Decidim
         end
       end
     end
+
+    describe "GET download for a resource that has been exported again" do
+      let(:resource) { "users" }
+      let!(:first_user) { create(:user, :confirmed, organization:, name: "First exported user") }
+
+      it "serves the refreshed file" do
+        OpenDataJob.perform_now(organization, resource)
+        second_user = create(:user, :confirmed, organization:, name: "Second exported user")
+        OpenDataJob.perform_now(organization, resource)
+
+        get :download, params: { locale: I18n.default_locale, resource: }
+
+        expect(response).to have_http_status(:ok)
+        expect(response.body).to include(first_user.name)
+        expect(response.body).to include(second_user.name)
+      end
+    end
   end
 end
