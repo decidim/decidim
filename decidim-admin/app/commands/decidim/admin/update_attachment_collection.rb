@@ -47,7 +47,11 @@ module Decidim
           name: form.name,
           weight: form.weight,
           description: form.description,
-          key: form.key
+          # The admin edit form does not submit the key, so the saved one is
+          # preserved when the form does not provide a new value; otherwise editing
+          # a collection from the admin panel would erase the key used by the API
+          # to look the collection up.
+          key: form.key.presence || attachment_collection.key
         }
       end
     end

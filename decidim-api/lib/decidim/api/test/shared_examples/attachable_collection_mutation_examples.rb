@@ -48,7 +48,9 @@ RSpec.shared_examples "attachable collection mutations" do
     context "with an unauthorized user" do
       let(:current_user) { nil }
       it "does not create attachment collection for unauthorized user" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+        # These mutations require the administrative scopes, so an anonymous user
+        # is denied at the field level before the mutation itself runs.
+        expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, /you do not have permission/)
       end
     end
 
@@ -61,7 +63,13 @@ RSpec.shared_examples "attachable collection mutations" do
     context "with an API user" do
       let(:user_type) { :api_user }
 
+      # Managing attachment collections is an administrative action, so the token
+      # needs the administrative scopes.
+      let(:api_scopes) { Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write", "admin:read", "admin:write"]) }
+
       include_examples "creatable attachment collection"
+
+      it_behaves_like "mutation denied to participant-only tokens"
     end
   end
 
@@ -99,7 +107,9 @@ RSpec.shared_examples "attachable collection mutations" do
       let(:current_user) { nil }
 
       it "does not update attachment collection for unauthorized user" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+        # These mutations require the administrative scopes, so an anonymous user
+        # is denied at the field level before the mutation itself runs.
+        expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, /you do not have permission/)
       end
     end
 
@@ -112,7 +122,13 @@ RSpec.shared_examples "attachable collection mutations" do
     context "with an API user" do
       let(:user_type) { :api_user }
 
+      # Managing attachment collections is an administrative action, so the token
+      # needs the administrative scopes.
+      let(:api_scopes) { Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write", "admin:read", "admin:write"]) }
+
       include_examples "updatable attachment collection"
+
+      it_behaves_like "mutation denied to participant-only tokens"
     end
   end
 
@@ -127,7 +143,9 @@ RSpec.shared_examples "attachable collection mutations" do
     context "with an unauthorized user" do
       let(:current_user) { nil }
       it "does not update attachment for unauthorized user" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+        # These mutations require the administrative scopes, so an anonymous user
+        # is denied at the field level before the mutation itself runs.
+        expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, /you do not have permission/)
       end
     end
 
@@ -140,7 +158,13 @@ RSpec.shared_examples "attachable collection mutations" do
     context "with an API user" do
       let(:user_type) { :api_user }
 
+      # Managing attachment collections is an administrative action, so the token
+      # needs the administrative scopes.
+      let(:api_scopes) { Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write", "admin:read", "admin:write"]) }
+
       include_examples "deletable attachment collection"
+
+      it_behaves_like "mutation denied to participant-only tokens"
     end
   end
 end

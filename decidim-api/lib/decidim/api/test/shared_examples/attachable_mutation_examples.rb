@@ -49,7 +49,9 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
       let(:current_user) { nil }
 
       it "does not create attachment for unauthorized user" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+        # These mutations require the administrative scopes, so an anonymous user
+        # is denied at the field level before the mutation itself runs.
+        expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, /you do not have permission/)
       end
     end
 
@@ -61,6 +63,12 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
 
     context "with an API user" do
       let(:user_type) { :api_user }
+
+      # Managing attachments is an administrative action, so the token needs the
+      # administrative scopes.
+      let(:api_scopes) { Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write", "admin:read", "admin:write"]) }
+
+      it_behaves_like "mutation denied to participant-only tokens"
 
       include_examples "creatable attachment", supports_collection:
     end
@@ -101,7 +109,9 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
     context "with an unauthorized user" do
       let(:current_user) { nil }
       it "does not update attachment for unauthorized user" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+        # These mutations require the administrative scopes, so an anonymous user
+        # is denied at the field level before the mutation itself runs.
+        expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, /you do not have permission/)
       end
     end
 
@@ -113,6 +123,12 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
 
     context "with an API user" do
       let(:user_type) { :api_user }
+
+      # Managing attachments is an administrative action, so the token needs the
+      # administrative scopes.
+      let(:api_scopes) { Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write", "admin:read", "admin:write"]) }
+
+      it_behaves_like "mutation denied to participant-only tokens"
 
       include_examples "updatable attachment", supports_collection:
     end
@@ -130,7 +146,9 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
       let(:current_user) { nil }
 
       it "does not update attachment for unauthorized user" do
-        expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, /You do not have permission to perform this mutation/)
+        # These mutations require the administrative scopes, so an anonymous user
+        # is denied at the field level before the mutation itself runs.
+        expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, /you do not have permission/)
       end
     end
 
@@ -143,8 +161,24 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
     context "with an API user" do
       let(:user_type) { :api_user }
 
+      # Managing attachments is an administrative action, so the token needs the
+      # administrative scopes.
+      let(:api_scopes) { Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write", "admin:read", "admin:write"]) }
+
       include_examples "deletable attachment"
+
+      it_behaves_like "mutation denied to participant-only tokens"
     end
+  end
+end
+
+shared_examples_for "mutation denied to participant-only tokens" do
+  # The administrative scopes are required by these mutations, so a token granted
+  # only the participant ones is rejected even when the user is an admin.
+  let(:api_scopes) { Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write"]) }
+
+  it "does not perform the mutation when the token is granted only the participant scopes" do
+    expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, /you do not have permission/)
   end
 end
 

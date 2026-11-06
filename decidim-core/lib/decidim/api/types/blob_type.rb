@@ -14,7 +14,7 @@ module Decidim
       field :key, GraphQL::Types::String, "The key of this blob", null: false
       field :metadata, GraphQL::Types::JSON, "The metadata type of this blob", null: false
       field :service_name, GraphQL::Types::String, "The service name of this blob (where the blob is stored at)", null: false
-      field :signed_id, GraphQL::Types::String, "The signed id of this blob", null: false
+      field :signed_id, GraphQL::Types::String, "The signed id of this blob. Not returned for files which require a private download", null: true
       field :src, GraphQL::Types::String, "The url of this blob. Files requiring a private download return the url of the endpoint that authorizes every request", null: false
 
       def src
@@ -22,6 +22,16 @@ module Decidim
         return private_download_url(attachment) if attachment
 
         asset_routes.rails_blob_url(object, **default_url_options)
+      end
+
+      # The signed id is a bearer credential: anyone holding it can build a direct
+      # Active Storage download url which is served without any permission check.
+      # Files which require a private download must only be served through the
+      # private downloads controller, so the signed id is not exposed for them.
+      def signed_id
+        return if private_download_attachment
+
+        object.signed_id
       end
 
       def self.authorized?(object, context)

@@ -74,6 +74,13 @@ read external resources. Documents which contain active content (scripts, event
 handlers, references to resources of another host) and the ones which are not well
 formed SVG documents are rejected with a validation error.
 
+The `signedId` field is only returned for the files which do not require a private
+download. The signed id is a bearer credential: anyone holding it can build a
+direct Active Storage download url which is served without any permission check,
+so it is not exposed for the files which must be served through the private
+downloads controller. For those files `src` is the url of the endpoint which checks
+the access on every request.
+
 == Error Handling
 
 * xref:develop:api/reference/errors/unauthorized_field.adoc[Unauthorized Field Error - UNAUTHORIZED_FIELD_ERROR] - when the token does not have the required scopes

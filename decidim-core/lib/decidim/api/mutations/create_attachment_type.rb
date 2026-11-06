@@ -8,6 +8,13 @@ module Decidim
       description "Creates an attachment"
       type Decidim::Core::AttachmentType
 
+      # Managing attachments is an administrative action, so the OAuth token must
+      # have been granted the administrative scopes, in the same way as the upload
+      # mutation and the existing result and project mutations. These scopes also
+      # make `api_scope` return `:admin`, so the permission check is done against
+      # the administrative permissions.
+      required_scopes "api:read", "api:write", "admin:read", "admin:write"
+
       argument :attributes, AttachmentAttributes, description: "Input attributes to create an attachment", required: true
 
       def resolve(attributes:)
@@ -26,16 +33,11 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        previous_scope = context[:scope]
-        context[:scope] = :admin
-
         context[:attached_to] = object
 
         raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:create, :attachment, nil, context)
 
         true
-      ensure
-        context[:scope] = previous_scope
       end
 
       def extract_from(attributes)

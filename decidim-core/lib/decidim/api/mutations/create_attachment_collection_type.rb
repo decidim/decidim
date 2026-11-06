@@ -6,6 +6,13 @@ module Decidim
       description "Creates an attachment collection"
       type Decidim::Core::AttachmentCollectionType
 
+      # Managing attachment collections is an administrative action, so the OAuth
+      # token must have been granted the administrative scopes, in the same way as
+      # the upload mutation and the existing result and project mutations. These
+      # scopes also make `api_scope` return `:admin`, so the permission check is
+      # done against the administrative permissions.
+      required_scopes "api:read", "api:write", "admin:read", "admin:write"
+
       argument :attributes, AttachmentCollectionAttributes, description: "Input attributes to create an attachment collection", required: true
 
       def resolve(attributes:)

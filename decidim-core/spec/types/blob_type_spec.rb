@@ -47,6 +47,30 @@ module Decidim
         end
       end
 
+      describe "signed_id" do
+        let(:query) { "{ signedId }" }
+
+        context "when the blob is attached to an attachment in an open space" do
+          let(:attachment) do
+            create(:attachment, :with_pdf, attached_to: create(:participatory_process, organization: current_organization))
+          end
+
+          it "returns the signed id" do
+            expect(response["signedId"]).to eq(model.signed_id)
+          end
+        end
+
+        context "when the blob is attached to an attachment in a restricted space" do
+          let(:attachment) do
+            create(:attachment, :with_pdf, attached_to: create(:participatory_process, :restricted, :published, organization: current_organization))
+          end
+
+          it "does not return the signed id, as it is a bearer credential for private files" do
+            expect(response["signedId"]).to be_nil
+          end
+        end
+      end
+
       describe "authorization" do
         let(:query) { "{ src }" }
         let(:attachment) do
