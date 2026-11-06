@@ -266,6 +266,34 @@ describe "Explore projects", :slow do
         let(:target_path) { decidim_budgets.budget_project_path(budget, 99_999_999) }
       end
     end
+
+    context "with pagination" do
+      let(:projects_count) { per_page + 1 }
+
+      before do
+        settings = component.settings
+        settings.projects_per_page = per_page
+        component.update!(settings:)
+
+        visit_budget
+      end
+
+      context "with a standard pagination option" do
+        let(:per_page) { 25 }
+
+        it "displays the results per page selector" do
+          expect(page).to have_text(I18n.t("decidim.shared.results_per_page.label"))
+        end
+      end
+
+      context "with a non-standard pagination option" do
+        let(:per_page) { 5 }
+
+        it "does not display the results per page selector" do
+          expect(page).to have_no_text(I18n.t("decidim.shared.results_per_page.label"))
+        end
+      end
+    end
   end
 
   describe "search" do
