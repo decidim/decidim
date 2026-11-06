@@ -672,7 +672,7 @@ A content processor is a concept to refer to a set of two classes:
 | No
 
 | DECIDIM_DELETE_OLD_PERSONAL_DATA_VERSIONS_DAYS
-| Number of days after which the version data is deleted for deleted users or revoked authorizations.
+| Number of days after which the version data is deleted for deleted users or revoked authorizations. The scheduled tasks need to be configured for this to work automatically.
 | 365
 | No
 
