@@ -44,7 +44,7 @@ shared_examples "participatory space members page examples" do
     end
 
     context "when participatory space has paginated members" do
-      let(:users) { create_list(:user, 20, organization: participatory_space.organization) }
+      let(:users) { create_list(:user, 30, organization: participatory_space.organization) }
       let!(:members) do
         users.map do |user|
           create(:member, participatory_space:, user:, published: true)
@@ -57,7 +57,7 @@ shared_examples "participatory space members page examples" do
 
           expect(assigns(:members).count).to eq(20)
           expect(assigns(:members).current_page).to eq(1)
-          expect(assigns(:members).total_count).to eq(20)
+          expect(assigns(:members).total_count).to eq(30)
         end
       end
 
@@ -65,9 +65,9 @@ shared_examples "participatory space members page examples" do
         it "returns second page with remaining members" do
           get :index, params: { slug_param => slug, :locale => I18n.locale, :page => 2 }
 
-          expect(assigns(:members).count).to eq(0)
+          expect(assigns(:members).count).to eq(10)
           expect(assigns(:members).current_page).to eq(2)
-          expect(assigns(:members).total_count).to eq(20)
+          expect(assigns(:members).total_count).to eq(30)
         end
 
         it "returns empty collection for out-of-range page" do
@@ -75,7 +75,7 @@ shared_examples "participatory space members page examples" do
 
           expect(assigns(:members).count).to eq(0)
           expect(assigns(:members).current_page).to eq(999)
-          expect(assigns(:members).total_count).to eq(20)
+          expect(assigns(:members).total_count).to eq(30)
         end
       end
 
@@ -83,10 +83,10 @@ shared_examples "participatory space members page examples" do
         it "returns all members when per_page is 50" do
           get :index, params: { slug_param => slug, :locale => I18n.locale, :per_page => 50 }
 
-          expect(assigns(:members).count).to eq(20)
+          expect(assigns(:members).count).to eq(30)
           expect(assigns(:members).current_page).to eq(1)
           expect(assigns(:members).limit_value).to eq(50)
-          expect(assigns(:members).total_count).to eq(20)
+          expect(assigns(:members).total_count).to eq(30)
         end
 
         it "returns first 20 members when per_page is 20" do
