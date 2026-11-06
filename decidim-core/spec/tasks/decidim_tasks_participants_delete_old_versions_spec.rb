@@ -12,8 +12,9 @@ describe "rake decidim:participants:delete_old_versions", type: :task do
 
   context "when no days argument is provided" do
     it "uses the default inactivity period" do
-      expect(Decidim::DeleteOldUserVersionsJob).to receive(:perform_later).with(300)
-      expect(Decidim::DeleteRevokedAuthorizationsVersionsJob).to receive(:perform_later).with(300)
+      expect { task.execute }
+        .to have_enqueued_job(Decidim::DeleteOldUserVersionsJob).with(300)
+        .and have_enqueued_job(Decidim::DeleteRevokedAuthorizationsVersionsJob).with(300)
 
       task.execute
     end
