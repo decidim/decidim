@@ -58,12 +58,6 @@ module Decidim
       def current_settings
         current_component.current_settings
       end
-
-      private
-
-      def i18n_scope
-        "decidim.proposals.proposals.voting_rules"
-      end
     end
   end
 end
