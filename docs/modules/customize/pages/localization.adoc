@@ -43,6 +43,8 @@ en:
 ```
 . Restart your application server.
 
+The date picker derives both the order and the separator from the `decidim_short` format: the order comes from the sequence of its `%d`, `%m` and `%Y` directives, and the separator from the first character between them. There is no separate `order` or `separator` setting to configure. Only the `d-m-y`, `m-d-y` and `y-m-d` orders are supported, and the same separator character must be used between all three directives. Formats with other directive sequences or mixed separators are not supported and may result in an invalid date. In the example above, `"%m/%d/%Y"` results in the `m-d-y` order with the `/` separator.
+
 == Currency unit
 
 If you are using the xref:admin:components/budgets.adoc[Budget] component or the xref:admin:components/proposals/answers.adoc[Proposals' answers with costs] feature, you may want to change the `DECIDIM_CURRENCY_UNIT` environment variable to a currency other than the default Euro (€). Read more about how to customize xref:configure:environment_variables.adoc[Environment Variables].
