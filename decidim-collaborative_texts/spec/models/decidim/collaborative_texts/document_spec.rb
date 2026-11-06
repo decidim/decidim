@@ -17,6 +17,26 @@ module Decidim
         expect(described_class.ransackable_associations).to eq([])
       end
 
+      describe ".with_any_state" do
+        let(:component) { create(:collaborative_text_component) }
+        let!(:accepting) { create(:collaborative_text_document, :published, :accepting_suggestions, component:) }
+        let!(:not_accepting) { create(:collaborative_text_document, :published, :not_accepting_suggestions, component:) }
+        let!(:in_review) { create(:collaborative_text_document, :published, :accepting_suggestions, :draft, component:) }
+        let!(:unpublished) { create(:collaborative_text_document, :accepting_suggestions, component:) }
+
+        it "returns the published documents accepting suggestions" do
+          expect(described_class.with_any_state("accepting_suggestions")).to contain_exactly(accepting)
+        end
+
+        it "returns the published documents not accepting suggestions" do
+          expect(described_class.with_any_state("not_accepting_suggestions")).to contain_exactly(not_accepting, in_review)
+        end
+
+        it "does not return unpublished documents" do
+          expect(described_class.with_any_state(*%w(accepting_suggestions not_accepting_suggestions))).not_to include(unpublished)
+        end
+      end
+
       include_examples "resourceable"
       include_examples "has reference"
 
