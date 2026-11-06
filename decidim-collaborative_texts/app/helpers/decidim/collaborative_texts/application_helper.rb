@@ -31,9 +31,8 @@ module Decidim
       def filter_document_state_values
         [
           ["all", t("all", scope: "decidim.collaborative_texts.documents.filters")],
-          ["open", t("open", scope: "decidim.collaborative_texts.documents.filters.state_values")],
-          ["in_review", t("in_review", scope: "decidim.collaborative_texts.documents.filters.state_values")],
-          ["closed", t("closed", scope: "decidim.collaborative_texts.documents.filters.state_values")]
+          ["accepting_suggestions", t("accepting_suggestions", scope: "decidim.collaborative_texts.documents.filters.state_values")],
+          ["not_accepting_suggestions", t("not_accepting_suggestions", scope: "decidim.collaborative_texts.documents.filters.state_values")]
         ]
       end
     end

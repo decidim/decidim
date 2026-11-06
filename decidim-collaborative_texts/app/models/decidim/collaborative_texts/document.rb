@@ -27,11 +27,10 @@ module Decidim
       validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
-      scope :in_review, -> { where(id: Version.draft.select(:document_id)) }
-      scope :open, -> { where(accepting_suggestions: true).where.not(id: Version.draft.select(:document_id)) }
-      scope :closed, -> { where(accepting_suggestions: false).where.not(id: Version.draft.select(:document_id)) }
+      scope :accepting_suggestions, -> { published.where(accepting_suggestions: true).where.not(id: Version.draft.select(:document_id)) }
+      scope :not_accepting_suggestions, -> { published.where.not(id: accepting_suggestions) }
 
-      scope_search_multi :with_any_state, [:open, :in_review, :closed]
+      scope_search_multi :with_any_state, [:accepting_suggestions, :not_accepting_suggestions]
 
       delegate :organization, :participatory_space, to: :component
       delegate :draft?, :draft, :draft=, :body, :body=, to: :current_version

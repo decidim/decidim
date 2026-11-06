@@ -56,7 +56,7 @@ module Decidim
       end
 
       def default_filter_params
-        { with_any_state: nil }
+        { with_any_state: "all" }
       end
 
       def paginate_documents
