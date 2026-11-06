@@ -91,7 +91,7 @@ eu:
       decidim:
         proposals:
           proposal:
-            budget_text: <span class="resource-link">%{link} proposamena sortu zen</span>
+            budget_text: Proposamen hau <span class="resource-link">%{link} </span> sortu zen
             import_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             import_to_proposal_text: <span class="resource-link">%{link} proposamen hau sortu zen</span>
             merge_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
