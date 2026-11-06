@@ -28,7 +28,7 @@ shared_examples "a version of a hidden object" do
   end
 end
 
-shared_examples "versions controller" do
+shared_context "versions controller resource" do
   let(:base_params) do
     if resource.is_a?(Decidim::Participable)
       { :"#{resource.model_name.singular_route_key}_slug" => resource.slug, :locale => I18n.locale }
@@ -45,6 +45,10 @@ shared_examples "versions controller" do
       request.env["decidim.current_component"] = resource.component
     end
   end
+end
+
+shared_examples "versions controller" do
+  include_context "versions controller resource"
 
   describe "GET show" do
     context "with an existing version" do
@@ -62,5 +66,23 @@ shared_examples "versions controller" do
         end.to raise_error(ActionController::RoutingError)
       end
     end
+  end
+end
+
+# The versions of a resource must be readable with the same `:read` permission
+# as the resource itself. This ensures that a resource that is hidden, private,
+# deleted or unpublished cannot be reached through its versions.
+#
+# Requires a `resource` that is not readable through its public `:read`
+# permission.
+shared_examples "versions controller denying unreadable resources" do
+  include_context "versions controller resource"
+
+  it "does not expose the versions" do
+    get :show, params: base_params.merge(id: 1)
+
+    expect(response).not_to have_http_status(:ok)
+  rescue ActiveRecord::RecordNotFound
+    # The resource is filtered out before the permission is evaluated.
   end
 end

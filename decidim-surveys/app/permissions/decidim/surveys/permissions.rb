@@ -7,6 +7,11 @@ module Decidim
         return Decidim::Surveys::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
+        if permission_action.subject == :survey && permission_action.action == :read
+          permission_action.allow!
+          return permission_action
+        end
+
         return permission_action if permission_action.subject != :questionnaire
 
         permission_action.allow! if permission_action.action == :respond

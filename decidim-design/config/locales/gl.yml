@@ -1,1 +1,294 @@
+---
 gl:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Contido do panel
+          demo: Demostración
+          demo_description: Os acordeóns úsanse en toda a aplicación, principalmente para mostrar ou ocultar contido en pestanas ou pregar e despregar textos visibles.
+          description_accordions_html: Os acordeóns son unha funcionalidade de JavaScript dispoñible grazas a unha biblioteca externa chamada %{link_code} a11y-accordion-component.
+          github_source_html: Código fonte en GitHub %{github_link}
+          title: Acordeóns
+          trigger: Activador
+          usage: Uso
+          usage_p: Un acordeón require polo menos tres elementos
+          usage_p_1_html: 1. Un contedor <code>div</code>, co atributo de datos <code>data-controller="accordion"</code>, que envolva todos os activadores e paneis dispoñibles.
+          usage_p_2_html: 2. Un elemento activador co que poida interactuar a persoa participante (por exemplo, un botón), que apunte ao elemento despregable mediante <code>data-controls="panel"</code>, onde <i>panel</i> é o <code>id</code> do panel.
+          usage_p_3_html: 3. Un elemento que se poida ocultar, cuxo <code>id</code> coincida co valor de data-controls ao que fai referencia o activador.
+        activities:
+          activities: Actividades
+        address:
+          title: Enderezo
+        announcement:
+          iam_an_announcement: Son un aviso
+          this_is_the_body: Este é o corpo
+          this_is_the_title: Este é o título
+          title: Aviso
+        author:
+          title: Autoría
+        buttons:
+          description_html: 'Os botóns constrúense combinando diferentes clases CSS: a clase <code>button</code>, un tamaño e unha cor.'
+          title: Botóns
+        cards:
+          title: Tarxetas
+        dialogs:
+          dialog_demo_description_html: Os diálogos, ou compoñentes modais, implémentanse mediante o helper de Rails <code>decidim_modal</code>.
+          dialogs_description_html: Os diálogos son unha funcionalidade de JavaScript dispoñible grazas a unha biblioteca externa chamada <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Para mostrar un modal complexo mantendo os estilos, usa a seguinte marcaxe:'
+          tips_description_html: Presta atención aos <i>atributos de datos</i> e aos <i>ids</i>. Por exemplo, o id de <code>[data-dialog-title]</code> comeza por <i>dialog-title</i> seguido do <i>id do modal</i>.
+          title: Diálogos
+          usage_description: Un diálogo require dous elementos
+          usage_description_2_html: 2. Un elemento modal cuxo <code>id</code> coincida co valor data-target ao que fai referencia o activador.
+          usage_description_html: 1. Un elemento co que poida interactuar a persoa participante, co atributo de datos <code>data-dialog-open="example"</code>, onde example é o <code>id</code> do modal.
+        follow:
+          title: Segue
+        forms:
+          disabled: Desactivado
+          emojis_description: Só funciona con textarea
+          errors: Erros
+          errors_description: Non se aplica a select
+          header_alert: Esta páxina procede dunha vista herdada. O contido está desactualizado.
+          help_texts: Textos de axuda
+          html_regular_inputs: Campos HTML habituais
+          min_max_length: Lonxitude mín./máx.
+          min_max_length_description: Só funciona para input type='text' e textarea
+          multiselect: Selección múltiple
+          multiselect_description_html: As seleccións múltiples son unha funcionalidade de JavaScript dispoñible grazas a unha biblioteca externa chamada <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
+          regular_inputs_description: 'Só mostra os tipos habituais. Lista completa dispoñible: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          textarea_required: textarea obrigatoria
+          title: Formularios
+        report:
+          title: Informe
+        share:
+          title: Compartir
+        tab_panels:
+          title: Paneis de pestanas
+        tooltips:
+          demo: Demostración
+          demo_description: Para que este compoñente funcione, unha persoa participante debe pasar o cursor sobre o elemento.
+          description: Un tooltip é un compoñente sobre o que as persoas participantes poden pasar o cursor para obter información adicional.
+          github_source_html: Código fonte en GitHub %{github_link}
+          usage: Uso
+          usage_p: 'Un tooltip require usar o helper `with_tooltip` con tres argumentos:'
+          usage_p_1_html: 1. Unha cadea co valor do tooltip. No exemplo desta páxina é «Hello world».
+          usage_p_2_html: 2. Unha clase opcional cun símbolo que indica onde se mostrará o tooltip. Os valores posibles son <code>:top</code>, <code>:bottom</code>, <code>:right</code> ou <code>:left</code>.
+          usage_p_3_html: 3. Un bloque coa cadea sobre a que a persoa participante debe pasar o cursor para mostrala.
+      foundations:
+        accessibility:
+          accessibility_labels: Etiquetas de accesibilidade
+          accessibility_labels_paragraph: Ao definir elementos, asegúrate sempre de que teñan sentido para as persoas que usan lectores de pantalla.
+          accessibility_title: Accesibilidade
+          adjacent_links: Ligazóns adxacentes
+          adjacent_links_header: Ligazóns adxacentes para o mesmo recurso
+          adjacent_links_paragraph: Se un mesmo recurso ten varias ligazóns adxacentes que apuntan a el, dificúltase a navegación para estas persoas porque poden ter que pasar por varias ligazóns antes de chegar ao seguinte recurso.
+          color_contrast: Contraste de cor
+          color_contrast_paragraph: Ao crear interfaces ou modificar as cores, asegúrate de que os cambios non prexudiquen a accesibilidade. Podes usar un comprobador de contraste para verificar que as cores teñen contraste suficiente respecto do fondo no que se mostran.
+          decidim_follows_html: Decidim segue as %{link}
+          dynamic_changes_header: A funcionalidade dinámica cambia o contexto da páxina de forma pouco intuitiva
+          dynamic_changes_paragraph: Os cambios nos campos do formulario non deberían cambiar automaticamente o contexto da páxina.
+          elements_hidden: Elementos ocultos
+          elements_hidden_header: Elementos ocultos da API de accesibilidade
+          elements_hidden_paragraph: Para ocultar un elemento ás tecnoloxías de asistencia, usa o atributo aria-hidden="true".
+          heading_on: Cabeceira nas seccións importantes
+          illogical_heading_order: Orde ilóxica das cabeceiras
+          illogical_heading_paragraph: Todas as páxinas deberían ter unha orde lóxica das cabeceiras ao usar os elementos <h1>, <h2>, <h3>, <h4>, <h5> e <h6>.
+          important_sections_heading: Cabeceira nas seccións importantes
+          important_sections_paragraph: É moi importante que cada sección relevante da páxina teña unha cabeceira para facilitar a comprensión da estrutura só navegando polas cabeceiras.
+          learn_more_about_html: Máis información sobre %{link}
+          links_and_buttons: Ligazóns e botóns
+          links_and_buttons_paragraph: Os elementos de ligazón serven para enlazar outras páxinas ou posicións dentro da mesma páxina. Se o elemento debe, por exemplo, abrir un contido oculto nesa páxina, deberías usar o elemento <button> no seu lugar.
+          unique_h1: H1 único
+          unique_h1_paragraph: Cada páxina debería ter unha única cabeceira H1
+          use_aria: Usar ARIA
+          use_aria_header: Usar atributos ARIA sempre que sexa posible
+          use_aria_paragraph: Moitos elementos que ofrecen funcionalidade interactiva no sitio web precisan atributos ARIA para seren accesibles.
+          wcag_guidelines: Directrices de accesibilidade para o contido web (WCAG)
+        color:
+          color_header: Cor
+          description_p1: Ofrecemos unha paleta base con poucas cores para facilitar as personalizacións sinxelas. Podes modificar a paleta base desde a área de administración ou no ficheiro de configuración de Tailwind se precisas unha personalización máis avanzada.
+          description_p2_html: Ao personalizar as cores, ten en conta %{contrast_link}. Podes comprobar o contraste escollido con %{checker_link} ou con outras ferramentas similares.
+          wcag_compliant_rations: Relación de contraste conforme con WCAG 2.1 AA
+          wcag_contrast_checker: Comprobador de contraste WebAIM
+        iconography:
+          description_iconography: Usamos iconas para reforzar o significado das accións, títulos etc.
+          description_iconography_html: 'Usamos a biblioteca de código aberto Remixicon: %{iconography_link}'
+          title: Iconografía
+        layout:
+          breakpoint: Punto de ruptura
+          breakpoints: Puntos de ruptura
+          centered: Centrado
+          code: Código
+          columns: Sendo o número de columnas 10, 8 ou 6.
+          description_layout_p1: En escritorio, Decidim usa unha grella de 12 columnas cun número limitado de modelos para distintos tipos de contido. O obxectivo é que cada tipo de contido (páxina de inicio, lista de elementos, elemento individual) teña unha disposición distintiva, para que as persoas participantes poidan identificar o tipo de contido polo aspecto xeral da páxina.
+          description_layout_p2: Estas regras sinxelas deben seguirse ao crear novos módulos ou personalizar os existentes para manter a coherencia dun sitio Decidim.
+          desktop: Escritorio
+          full_width: Ancho completo
+          layout_list_1: 'Páxina de inicio (do sitio ou dun espazo): ancho completo'
+          layout_list_2: 'Lista de elementos (de espazos, de elementos dentro dun espazo etc.): barra lateral esquerda'
+          layout_list_3: 'Elemento individual (proposta, publicación de blog): centrado, opcionalmente cunha barra lateral dereita'
+          left_aside: Barra lateral esquerda
+          mobile: Móbil
+          not_required: Non obrigatorio
+          properties: Propiedades
+          right_aside: Barra lateral dereita
+          section_p_breakpoints: 'Para xestionar o ancho adaptable dos elementos usamos a clase `container` predeterminada de Tailwind. As resolucións admitidas son:'
+          section_p_code: Ao implementar novos módulos dispós de varios helpers que proporcionan automaticamente o código necesario para configurar a estrutura HTML. Deberías usar estes helpers en lugar de empregar directamente elementos div con clases, para manter a coherencia.
+          section_p_code_html: Podes atopar as disposicións básicas en %{link_section_code}
+          section_p_desktop: O sistema de grella de escritorio está composto por 12 columnas flexibles, cun espazo de 16 px entre columnas e marxes esquerda e dereita de 48 px
+          section_p_mobile: O sistema de grella para móbil está composto por 4 columnas flexibles, cun espazo de 16 px entre columnas e marxes esquerda e dereita de 16 px.
+          section_p_tablet: O sistema de grella para tableta está composto por 8 columnas flexibles, cun espazo de 16 px entre columnas e marxes esquerda e dereita de 24 px
+          tablet: Tableta
+          title: Disposición
+        typography:
+          description: Estas directrices resumen como usar a tipografía en Decidim e serven de guía para deseñar libremente seguindo boas prácticas tipográficas.
+          headings:
+            characters: Caracteres por liña
+            layout: Columnas da disposición
+            size: Tamaño
+          title: Tipografía
+          typefaces_description_1: Decidim usa Source Sans Pro como tipografía principal. Esta tipografía admite 310 linguas
+          typefaces_description_2: Estas fontes están licenciadas baixo a Open Font License
+      helpers:
+        accountability: Responsabilidade
+        accountability_cards_html: Usado polas tarxetas de <i>proxectos de seguimento</i>. Esta tarxeta precisa os recursos do módulo para mostrarse correctamente, por exemplo <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        activity: Actividade
+        address_description: A cela de enderezo recibe un recurso e busca os atributos xeolocalizables para renderizar unha marcaxe específica.
+        address_description_2: Segundo o tipo de contido, o enderezo pode ser un URL en liña. Neses casos, a información mostrada é practicamente a mesma, pero adaptada ao formato.
+        argument: Argumento
+        assemblies: Asembleas
+        assembly_g: Asemblea G
+        assembly_s: Asemblea S
+        avatar_description: Úsase en espazos estreitos, nos que a autoría é información secundaria.
+        background: Fondo e bordos
+        block_text: Usar o bloque extra_data
+        blog_cards_html: Usado polas tarxetas de <i>Blogs</i>
+        budget_card_html: Usado polas tarxetas de <i>proxectos de orzamentos</i>. Esta tarxeta precisa os recursos do módulo para mostrarse correctamente, por exemplo <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Orzamentos
+        callout_class: Clase de aviso
+        callout_description: Este atributo aplica un estado ao aviso. Por defecto usa a cor secundaria.
+        card_g: Tarxeta G
+        card_l: Tarxeta L
+        card_s: Tarxeta S
+        colors: Cores
+        compact: Compacto
+        compact_description: Esta versión da autoría é a forma habitual de identificar quen creou o recurso.
+        conference_g: Conferencia G
+        conference_s: Conferencia S
+        conferences: Conferencias
+        context: Contexto
+        context_description: Esta cela mostra información sobre unha persoa participante. Serve de axuda visual para identificar quen creou o recurso ou contido.
+        context_description_2: Nos recursos, esta cela aparece debaixo da cabeceira principal. Noutros contidos, aparece xunto ao propio contido.
+        debates_cards_html: Usado polas tarxetas de <i>Debates</i>
+        debates_cards_text: Usar un modelo diferente para o bloque de imaxe
+        default: Predeterminado
+        default_description: Chamar a cela sen argumentos adicionais, só coa propia persoa participante.
+        demo: Demostración
+        demo_text: 'Esta cela recibe un modelo de elementos LastActivity e mostra os seguintes elementos:'
+        demo_text_2: Úsase na páxina de actividade recente, nun bloque de contido e nos menús despregables.
+        description: Descrición
+        disabled: Desactivado
+        dropdowns: Menús despregables
+        dropdowns_demo_1_description: 'O seguinte exemplo non se apreciará en escritorio, pero si en móbil:'
+        dropdowns_demo_description: Os menús despregables úsanse na aplicación para compactar menús grandes, fáciles de ler en escritorio pero demasiado extensos en móbil.
+        dropdowns_demo_description_html: 'Esta funcionalidade de JavaScript complétase cun pequeno CSS baseado na nomenclatura: o contido ocultable DEBE TER un <code>id</code> que comece por <i>dropdown-menu</i>.'
+        dropdowns_description_html: Os menús despregables son unha funcionalidade de JavaScript dispoñible grazas a unha biblioteca externa chamada %{link}.
+        dropdowns_usage_1_description: 2. Un elemento que se poida ocultar, cuxo <code>id</code> coincida co valor data-target ao que fai referencia o activador.
+        dropdowns_usage_description: 'Un menú despregable require dous elementos:'
+        dropdowns_usage_description_html: 1. Un elemento co que poida interactuar a persoa participante, cos atributos de datos <code>data-controller="dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Descrición de recurso de proba
+        dummy_title: Título de recurso de proba
+        follow_button: Botón Seguir
+        follower_description_html: Asegúrate de que o parcial <code>decidim/shared/login_modal</code> estea presente no DOM. Este parcial colócase na disposición da aplicación cando a persoa participante iniciou sesión.
+        form_elements: Elementos de formulario
+        generic_cards: Tarxetas xenéricas
+        grid: Grella
+        hex_code: Código hexadecimal
+        highlight: Realzado
+        highlight_description: Usado por recursos que permiten destacar
+        html_tips: Consellos HTML
+        icons: Iconas
+        image_and_description: Imaxe e descrición
+        initiatives: Iniciativas
+        list: Lista
+        main_colors: Cores principais
+        meeting_l: Reunión L
+        meetings: Reunións
+        meetings_html: Usado polas tarxetas de <i>Reunións</i>
+        metadata_items: Elementos de metadatos
+        metadata_text: Cada recurso define os seus propios elementos de metadatos
+        participatory_process_g: Proceso participativo G
+        participatory_process_group_g: Grupo de procesos participativos G
+        participatory_process_group_s: Grupo de procesos participativos S
+        participatory_process_s: Proceso participativo S
+        participatory_processes: Procesos participativos
+        plain_text: Son simplemente texto plano
+        plain_text_description: Podes proporcionar como primeiro argumento tanto texto plano como un obxecto hash
+        plain_text_vs_hash: Texto plano vs. hash
+        post_g: Publicación G
+        post_l: Publicación L
+        post_s: Publicación S
+        project_l: Proxecto L
+        project_s: Proxecto S
+        proposal_l: Proposta L
+        proposal_s: Proposta S
+        proposals: Propostas
+        report_button: Botón Denunciar
+        report_usage_description: O botón Denunciar abre unha ventá modal para marcar o recurso actual.
+        result_l: Resultado L
+        rgba_code: Código RGBA
+        search: Busca
+        send: Enviar
+        share_button: Botón Compartir
+        share_usage_description_html: Asegúrate de que o parcial <code>decidim/shared/share_modal</code> estea presente no DOM. Este parcial colócase na disposición da aplicación.
+        sizes: Tamaños
+        source_code: Código fonte
+        state: Estado
+        tab_panels_context_description: Este compoñente de panel de pestanas reúne os contidos relacionados ou outros recursos do elemento principal mostrado para aforrar espazo vertical. Ao premer na pestana activarase o panel creado para mostrar o contido.
+        tab_panels_context_description_html: Úsase principalmente dentro de <i>layout_item</i> ou <i>layout_center</i>, despois do contido principal do recurso.
+        tab_panels_usage_description: 'Este compoñente recibe un array de hashes e reorganiza a saída de cada elemento nunha estrutura de panel de pestanas. Propiedades dispoñibles para cada panel:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argumentos para o método anterior"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Renderiza condicionalmente a pestana"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Id único"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Calquera función que Rails entenda"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Clave Remixicon"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Título da pestana"
+        tailwind: Nome en Tailwind
+        text: Texto
+        transparent: Transparente
+        transparent_description: 'No caso dun fondo máis escuro:'
+        types: Tipos
+        typography_texts: Tipografía e textos
+        usage: Uso
+        usage_background_1: Fondo da barra lateral
+        usage_background_2: Fondo do filtro seleccionado na barra lateral
+        usage_background_3: Cor predeterminada das iconas
+        usage_background_4: Liñas e separadores
+        usage_background_5: Fondo do pé de páxina
+        usage_background_6: Fondo da disposición de administración
+        usage_base_1: Fondo do compoñente principal de navegación\nMenús de navegación na páxina de inicio e na páxina principal do espazo
+        usage_base_2: Cor principal para ligazóns e botóns
+        usage_base_3: Ornamentos gráficos e cor de acento\nBordo ao pasar o cursor por tarxetas e elementos de lista
+        usage_formelements_1: Fondo predeterminado dos campos de entrada
+        usage_formelements_2: Fondo dos campos de entrada desactivados
+        usage_state_1: Bordo do aviso de éxito\nRecheo da icona do aviso\nFondo do botón na mensaxe de éxito
+        usage_state_2: Bordo do aviso de advertencia
+        usage_state_3: Bordo do aviso de alerta\nRecheo da icona do aviso
+        usage_typography_1: Cabeceiras e títulos de sección
+        usage_typography_2: Texto en liña
+        usage_typography_3: Texto sobre fondo escuro
+        usage_typography_4: Ligazóns e botóns
+        usage_typography_5: Pestana desactivada
+        value: Valor
+        variations: Variacións
+        variations_cards_description: Cada tarxeta terá un aspecto distinto segundo as propiedades do recurso mostrado. Podes sobrescribir este comportamento na cela específica.
+        variations_description: Hai tres versións diferentes desta cela. Cada unha encaixa mellor segundo o contexto no que se mostre.
+        variations_text: Segundo o tipo de actividade, a cela pode mostrar contido diferente e informar sobre distintos recursos, pertenzan ou non a un espazo participativo e teñan ou non autoría.
+      home:
+        index:
+          by_sharing_principles: Ao compartir os principios, a filosofía e os motivos das decisións de deseño queremos facilitar que a comunidade contribúa de forma coherente para acadar a mellor experiencia posible para as persoas participantes.
+          decidim_guide: A guía para deseñar todo o relacionado con Decidim
+          different_ui_components: Ao mesmo tempo, documentamos os distintos compoñentes e patróns de interface en uso, que deberían reutilizarse ou ampliarse.
+          github_source: Código fonte en GitHub
+          home_header: Guía de deseño de Decidim
+          welcome_sentence: Benvida á Guía de deseño de Decidim (DDG). Esta guía é o recurso para persoas deseñadoras e desenvolvedoras que precisan personalizar, desenvolver novos módulos e integrar novas funcionalidades.

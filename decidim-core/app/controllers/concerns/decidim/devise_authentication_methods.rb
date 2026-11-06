@@ -9,6 +9,8 @@ module Decidim
     include Decidim::OnboardingActionMethods
 
     included do
+      protected
+
       def after_sign_in_path_for(user)
         if user.present? && user.blocked?
           check_user_block_status(user)
@@ -20,6 +22,8 @@ module Decidim
           super
         end
       end
+
+      private
 
       # Calling the `stored_location_for` method removes the key, so in order
       # to check if there is any pending redirect after login I need to call
