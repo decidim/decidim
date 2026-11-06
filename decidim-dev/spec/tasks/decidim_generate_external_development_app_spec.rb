@@ -12,6 +12,12 @@ describe "rake decidim:generate_external_development_app", type: :task do
   end
 
   context "when executing task" do
+    before do
+      # This is to ensure this spec passes even if the user has set the
+      # QUEUE_ADAPTER env var locally.
+      allow(ENV).to receive(:fetch).with("QUEUE_ADAPTER", "sidekiq").and_return("sidekiq")
+    end
+
     it "starts the app generator with correct options" do
       expect(Decidim::Generators::AppGenerator).to receive(:start).with(
         [
