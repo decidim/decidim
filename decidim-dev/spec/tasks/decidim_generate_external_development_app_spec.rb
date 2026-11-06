@@ -3,13 +3,21 @@
 require "spec_helper"
 
 describe "rake decidim:generate_external_development_app", type: :task do
+  around do |example|
+    orig_dir = Dir.pwd
+    Dir.chdir(__dir__)
+    example.run
+  ensure
+    Dir.chdir(orig_dir)
+  end
+
   context "when executing task" do
     it "starts the app generator with correct options" do
       expect(Decidim::Generators::AppGenerator).to receive(:start).with(
         [
           "development_app",
           "--app_name",
-          "decidim_dev_development_app",
+          "tasks_development_app",
           "--path",
           "..",
           "--recreate_db",
@@ -38,7 +46,7 @@ describe "rake decidim:generate_external_development_app", type: :task do
           [
             "development_app",
             "--app_name",
-            "decidim_dev_development_app",
+            "tasks_development_app",
             "--path",
             "..",
             "--recreate_db",
