@@ -51,12 +51,56 @@ module Decidim
           minimum_votes_per_user_rule?
       end
 
+      # Whether the proposal-creation limit rule is relevant in the current
+      # state.
+      #
+      # The rule is relevant when a limit is configured and either proposals can
+      # be created or voting is not open (in which case it is the only rule that
+      # can be shown).
+      def proposal_limit_rule?
+        return false unless proposal_limit_enabled?
+
+        proposal_creation_enabled? || !voting_open?
+      end
+
+      # Whether the vote limit rule is relevant in the current state.
+      def vote_limit_rule?
+        voting_open? && vote_limit_enabled?
+      end
+
+      # Whether the threshold per proposal rule is relevant.
+      def threshold_per_proposal_rule?
+        voting_open? && threshold_per_proposal_enabled?
+      end
+
+      # Whether the accumulate votes beyond threshold rule is relevant.
+      def can_accumulate_votes_beyond_threshold_rule?
+        voting_open? && can_accumulate_votes_beyond_threshold?
+      end
+
+      # Whether the minimum votes per user rule is relevant.
+      def minimum_votes_per_user_rule?
+        voting_open? && minimum_votes_per_user_enabled?
+      end
+
       def component_settings
         current_component.settings
       end
 
       def current_settings
         current_component.current_settings
+      end
+
+      private
+
+      # Whether voting is currently open in this step.
+      def voting_open?
+        votes_enabled? && !votes_blocked?
+      end
+
+      # Whether creating proposals is enabled in the current step.
+      def proposal_creation_enabled?
+        current_settings.respond_to?(:creation_enabled) && current_settings.creation_enabled
       end
     end
   end
