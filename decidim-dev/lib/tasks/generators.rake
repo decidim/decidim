@@ -42,7 +42,7 @@ namespace :decidim do
   task :generate_external_development_app do
     Bundler.with_original_env do
       queue = ENV.fetch("QUEUE_ADAPTER", "sidekiq")
-      abort("#{queue} is not supported as a queue adapter") unless queue.in?(["", "sidekiq"])
+      abort("#{queue} is not supported as a queue adapter") unless ["", "sidekiq"].include?(queue)
 
       generate_decidim_app(
         "development_app",
