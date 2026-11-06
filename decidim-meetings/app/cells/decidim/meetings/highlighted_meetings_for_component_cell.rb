@@ -39,8 +39,8 @@ module Decidim
       end
 
       def linked_meetings
-        MeetingLink.find_meetings(component: model)
-                   .where(component: Decidim::PublicComponents.for(current_organization, manifest_name: :meetings))
+        Decidim::Meetings::Meeting.where(id: MeetingLink.where(component: model).select(:decidim_meeting_id))
+                                  .where(component: Decidim::PublicComponents.for(current_organization, manifest_name: :meetings))
       end
 
       def section_id

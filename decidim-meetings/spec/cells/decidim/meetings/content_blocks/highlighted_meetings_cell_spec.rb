@@ -186,6 +186,14 @@ module Decidim
                 expect(meetings_ids).to eq([item_id(meeting)])
               end
             end
+
+            context "when the linked meeting belongs to another organization" do
+              let(:other_component) { create(:meeting_component, organization: create(:organization)) }
+
+              it "does not render the linked meeting" do
+                expect(meetings_ids).to eq([item_id(meeting)])
+              end
+            end
           end
 
           context "with upcoming meetings in other month" do
