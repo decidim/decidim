@@ -354,7 +354,7 @@ describe Decidim::ActionLog do
       expect(lazy_users).to all(satisfy { |user| user.avatar_attachment&.association(:blob)&.loaded? })
     end
 
-    it "eager loads the avatar attachment through the author for user authors" do
+    it "eager loads the author associations for user authors" do
       components = create_list(:component, 2, :published, organization:)
       logs = components.map do |component|
         resource = create(:dummy_resource, :published, component:, author: create(:user, :confirmed, organization:))
@@ -363,8 +363,21 @@ describe Decidim::ActionLog do
 
       authors = logs.map { |log| log.resource_lazy.author }
 
+      expect(authors).to all(satisfy { |author| author.association(:organization).loaded? })
       expect(authors).to all(satisfy { |author| author.association(:avatar_attachment).loaded? })
       expect(authors).to all(satisfy { |author| author.avatar_attachment&.association(:blob)&.loaded? })
+    end
+
+    it "skips the nested author associations when the author type does not have them" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        resource = create(:dummy_resource, :published, component:, author: organization)
+        create(:action_log, action: "create", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
+      end
+
+      authors = logs.map { |log| log.resource_lazy.author }
+
+      expect(authors).to all(eq(organization))
     end
   end
 end

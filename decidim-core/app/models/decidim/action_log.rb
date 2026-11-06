@@ -280,9 +280,11 @@ module Decidim
       associations << :organization if klass.reflect_on_association(:organization)
       associations << :moderation if klass.include?(Decidim::Reportable)
       # The author cell renders the avatar for every author, which can be a user.
-      # Author types without an attachment (e.g. an organization) are skipped by
-      # the preloader.
-      associations << { author: { avatar_attachment: :blob } } if klass.include?(Decidim::Authorable)
+      # The avatar URL resolves the author's organization, so both have to be
+      # loaded together with the author. Author types without an attachment or
+      # without an organization (e.g. an organization itself) are skipped by the
+      # preloader.
+      associations << { author: [:organization, { avatar_attachment: :blob }] } if klass.include?(Decidim::Authorable)
       associations << :participatory_space if klass.reflect_on_association(:participatory_space)
       # The author cell renders the avatar for every user in the collection.
       associations << { avatar_attachment: :blob } if klass.reflect_on_association(:avatar_attachment)
