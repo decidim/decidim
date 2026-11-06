@@ -247,7 +247,15 @@ module Decidim
         scope = klass.where(id: relation_ids)
 
         scope = if klass_name == "Decidim::Comments::Comment"
-                  scope.includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }])
+                  # `Comment#component` delegates to the commentable and the link to
+                  # the resource resolves the component's participatory space, so both
+                  # have to be loaded together with the comment.
+                  scope.includes(
+                    :moderation,
+                    :commentable,
+                    author: [:organization, { avatar_attachment: :blob }],
+                    root_commentable: { component: :participatory_space }
+                  )
                 else
                   preloads = lazy_preload_associations(klass)
 

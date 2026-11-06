@@ -327,5 +327,19 @@ describe Decidim::ActionLog do
       expect(resources).to all(satisfy { |resource| resource.association(:component).loaded? })
       expect(resources).to all(satisfy { |resource| resource.component.association(:participatory_space).loaded? })
     end
+
+    it "eager loads the component through the commentable for comments" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        comment = create(:comment, commentable: create(:dummy_resource, :published, component:))
+        create(:action_log, action: "create", visibility: "all", resource: comment, organization:, participatory_space: component.participatory_space)
+      end
+
+      comments = logs.map(&:resource_lazy)
+
+      expect(comments).to all(satisfy { |comment| comment.association(:root_commentable).loaded? })
+      expect(comments).to all(satisfy { |comment| comment.root_commentable.association(:component).loaded? })
+      expect(comments).to all(satisfy { |comment| comment.root_commentable.component.association(:participatory_space).loaded? })
+    end
   end
 end
