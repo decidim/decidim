@@ -35,6 +35,18 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
+    trait :draft do
+      document_versions { build_list(:collaborative_text_version, 1, :draft) }
+    end
+
+    trait :accepting_suggestions do
+      accepting_suggestions { true }
+    end
+
+    trait :not_accepting_suggestions do
+      accepting_suggestions { false }
+    end
+
     after :build do |document, evaluator|
       if document.component
         users = evaluator.users || [document.component.organization]

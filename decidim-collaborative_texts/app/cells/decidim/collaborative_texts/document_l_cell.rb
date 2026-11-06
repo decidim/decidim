@@ -10,6 +10,10 @@ module Decidim
       def has_description?
         false
       end
+
+      def metadata_cell
+        "decidim/collaborative_texts/document_metadata"
+      end
     end
   end
 end

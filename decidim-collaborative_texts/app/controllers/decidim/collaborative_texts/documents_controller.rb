@@ -6,6 +6,7 @@ module Decidim
       include Decidim::Paginable
       include Decidim::FormFactory
       include Decidim::AjaxPermissionHandler
+      include Decidim::FilterResource
 
       helper_method :documents, :document, :paginate_documents
 
@@ -38,7 +39,7 @@ module Decidim
       private
 
       def document
-        @document ||= documents.find_by(id: params[:id])
+        @document ||= search_collection.find_by(id: params[:id])
       end
 
       def presenter
@@ -46,11 +47,16 @@ module Decidim
       end
 
       def documents
-        @documents ||= if current_user&.admin?
-                         Document.includes(:component).where(component: current_component)
-                       else
-                         Document.includes(:component).published.where(component: current_component)
-                       end
+        @documents ||= search.result
+      end
+
+      def search_collection
+        base = Document.includes(:component, :document_versions).where(component: current_component)
+        current_user&.admin? ? base : base.published
+      end
+
+      def default_filter_params
+        { with_any_state: "all" }
       end
 
       def paginate_documents
