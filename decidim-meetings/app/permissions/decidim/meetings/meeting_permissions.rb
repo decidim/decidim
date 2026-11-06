@@ -10,7 +10,9 @@ module Decidim
       def target_subject = :meeting
 
       def can_read?
-        user_has_any_role?(user, meeting.participatory_space, broad_check: true) || (!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user))
+        return true if meeting.nil?
+
+        user_has_any_role?(user, meeting.participatory_space, broad_check: true) || (!meeting.hidden? && meeting.current_user_can_visit_meeting?(user))
       end
 
       def meeting

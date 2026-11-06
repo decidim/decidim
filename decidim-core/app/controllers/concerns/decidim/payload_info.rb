@@ -8,6 +8,8 @@ module Decidim
     include Decidim::TranslatableAttributes
 
     included do
+      private
+
       def append_info_to_payload(payload)
         super
         payload[:user_id] = try(:current_user).try(:id)

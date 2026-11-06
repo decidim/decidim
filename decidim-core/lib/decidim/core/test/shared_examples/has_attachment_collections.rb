@@ -18,7 +18,7 @@ shared_examples_for "has attachment collections" do
     end
 
     it "show their documents" do
-      within "[id*=documents-#{attachment_collection.id}]", visible: false do
+      within "[id*=documents-#{attachment_collection.id}]", visible: :all do
         expect(page).to have_text(:all, translated(document.title))
         expect(page).to have_text(:all, translated(link.title))
         expect(page).to have_no_text(:all, translated(other_document.title))

@@ -119,13 +119,22 @@ cs:
                 label: Okresy (%{field})
               max_length:
                 label: Maximální délka (%{field})
+              min_length:
+                label: Minimální délka (%{field})
+              min_points:
+                label: Minimální body (%{field})
+              min_sum_cost:
+                label: Minimální celkové náklady (%{field})
               rule:
                 label: Pravidlo (%{field})
               subunit:
+                help: Hlasovací podjednotka v rámci hlasování, například oblast v rámci města nebo obce.
                 label: Subjednotka (%{field})
               unit:
+                help: Hlasovací jednotka v rámci hlasování, například název města nebo obce.
                 label: Jednotka (%{field})
               vote_type:
+                help: Jak se hodnotí výsledky hlasování (viz dokumentace pro více informací).
                 label: Typ hlasování (%{field})
         projects:
           create:

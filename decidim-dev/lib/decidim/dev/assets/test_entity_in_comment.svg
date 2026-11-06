@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A document which mentions an entity declaration only inside a comment and
+     inside a CDATA section, where they are not interpreted as declarations. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <!-- Exported by a tool which documented that <!ENTITY declarations are not used. -->
+  <style><![CDATA[/* The text "<!ENTITY foo>" here is not a declaration. */ circle { fill: #000; }]]></style>
+  <circle cx="8" cy="8" r="8"/>
+</svg>

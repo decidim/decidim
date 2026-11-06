@@ -7,6 +7,8 @@ module Decidim
     skip_before_action :store_current_location
 
     def accept_tos
+      enforce_permission_to(:update, :user, current_user:)
+
       current_user.accepted_tos_version = Time.current
       if current_user.save!
         flash[:notice] = t("accept.success", scope: "decidim.pages.terms_of_service")

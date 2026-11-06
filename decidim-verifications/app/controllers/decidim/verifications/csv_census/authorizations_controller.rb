@@ -11,6 +11,8 @@ module Decidim
         before_action :load_authorization
 
         def new
+          enforce_permission_to :create, :authorization, authorization: @authorization
+
           @form = CensusForm.from_params(user: current_user)
           ConfirmCensusAuthorization.call(@authorization, @form) do
             on(:ok) do
@@ -33,6 +35,7 @@ module Decidim
         end
 
         def load_authorization
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- user is current_user, scoped to current_organization
           @authorization = Decidim::Authorization.find_or_initialize_by(
             user: current_user,
             name: "csv_census"

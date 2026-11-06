@@ -1,10 +1,10 @@
 .label {
-  --success: #16592e;
-  --bg-success: #c4ecd0;
-  --alert: #b9081b;
-  --bg-alert: #ffdee3;
-  --warning: #ad4910;
-  --bg-warning: #ffeebd;
+  --success: var(--color-color-text-success-dark);
+  --bg-success: var(--color-color-bg-success-light);
+  --alert: var(--color-color-text-alert-dark);
+  --bg-alert: var(--color-color-bg-alert-light);
+  --warning: var(--color-color-text-warning-dark);
+  --bg-warning: var(--color-color-bg-warning-light);
 
   @apply bg-background text-gray-2 rounded inline-flex items-center gap-1 px-2 py-1 h-min font-semibold text-sm;
 

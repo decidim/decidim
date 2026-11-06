@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Accountability::Admin
   describe UpdateResultDates do
-    subject { described_class.new(start_date, end_date, result_ids, user) }
+    subject { described_class.new(start_date, end_date, result_ids, current_component, user) }
 
     let(:organization) { create(:organization) }
     let(:participatory_process) { create(:participatory_process, organization:) }
@@ -78,6 +78,21 @@ module Decidim::Accountability::Admin
             expect(result.reload.end_date).to eq(end_date)
           end
         end
+      end
+    end
+
+    context "when a result belongs to another organization" do
+      let(:other_organization) { create(:organization) }
+      let(:other_participatory_process) { create(:participatory_process, organization: other_organization) }
+      let(:other_component) { create(:accountability_component, participatory_space: other_participatory_process) }
+      let!(:other_result) { create(:result, component: other_component, start_date: nil, end_date: nil) }
+      let(:result_ids) { results.map(&:id) + [other_result.id] }
+
+      it "does not update the result" do
+        subject.call
+
+        expect(other_result.reload.start_date).to be_nil
+        expect(other_result.reload.end_date).to be_nil
       end
     end
 

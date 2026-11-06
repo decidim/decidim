@@ -42,8 +42,8 @@ module Decidim
         expect(serialized).to include(admin: resource.admin)
       end
 
-      it "includes the personal url" do
-        expect(serialized).to include(personal_url: resource.personal_url)
+      it "does not include the personal url" do
+        expect(serialized).not_to include(:personal_url)
       end
 
       it "includes the about" do

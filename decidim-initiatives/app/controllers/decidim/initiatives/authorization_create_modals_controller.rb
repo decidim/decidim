@@ -7,6 +7,8 @@ module Decidim
       layout false
 
       def show
+        enforce_permission_to :read, :authorization
+
         @initiative_type = Decidim::InitiativesType.find_by(id: params[:slug], organization: current_organization)
         render template: "decidim/authorization_modals/show"
       end

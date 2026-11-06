@@ -101,11 +101,11 @@ describe "Admin manages meetings polls" do
 
       select "Single option", from: "Type"
       expect(page).to have_css(".questionnaire-question-response-option", count: 2)
-      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+      expect(page).to have_no_css(".questionnaire-question-matrix-row")
 
       select "Multiple option", from: "Type"
       expect(page).to have_css(".questionnaire-question-response-option", count: 2)
-      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+      expect(page).to have_no_css(".questionnaire-question-matrix-row")
     end
 
     it "does not incorrectly reorder when clicking response options" do
@@ -200,13 +200,13 @@ describe "Admin manages meetings polls" do
       end
 
       it "updates the free text option selector according to the selected question type" do
-        expect(page).to have_no_selector("[id$=max_choices]")
+        expect(page).to have_no_css("[id$=max_choices]")
 
         select "Multiple option", from: "Type"
         expect(page).to have_css("[id$=max_choices]")
 
         select "Single option", from: "Type"
-        expect(page).to have_no_selector("[id$=max_choices]")
+        expect(page).to have_no_css("[id$=max_choices]")
       end
 
       it "updates the max choices selector according to the configured options" do

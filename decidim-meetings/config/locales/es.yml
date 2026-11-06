@@ -348,7 +348,7 @@ es:
             email: Correo electrónico
             invite: Invitar
             invite_explanation: La participante será invitada a unirse al encuentro y también a la organización.
-            name_or_nickname: Nombre o apodo
+            name_or_nickname: Nombre o alias
             select_user: Seleccionar participante
           index:
             invites: Invitaciones
@@ -393,7 +393,7 @@ es:
             assign: Asignar
             link_a_space: Vincular un espacio
             private_meeting_warning: Los espacios enlazados no se aplicarán si la reunión es privada y no transparente.
-            restricted_space_warning: Los espacios enlazados no se aplicarán cuando el encuentro pertenezca a un espacio restringido no transparente.
+            restricted_space_warning: Los espacios enlazados no se aplicarán cuando el encuentro pertenezca a un espacio restringido.
             select: Selecciona un espacio
             table:
               actions: Acciones

@@ -3,6 +3,8 @@
 module Decidim
   class ResourceAutocompleteController < Decidim::ApplicationController
     def index
+      enforce_permission_to :read, :search
+
       respond_to do |format|
         format.json do
           if term.blank?

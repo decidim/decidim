@@ -1,5 +1,8 @@
 sv:
   activemodel:
+    attributes:
+      response:
+        add_attachments: Lägg till bilagor
     models:
       decidim/surveys/closed_survey_event: Enkäten avslutades
       decidim/surveys/opened_survey_event: Enkäten startade
@@ -72,7 +75,6 @@ sv:
         new_survey: Ny enkät
         preview: Förhandsgranska
         responses: Svar
-        responses_alert: Ta bort svar vid publicering är aktivt för enkäten. Det finns %{responses_count} svar som kommer att tas bort om du fortsätter.
         title: Åtgärder
       admin:
         exports:
@@ -95,6 +97,14 @@ sv:
             edit:
               title: Frågor
         responses:
+          actions:
+            destroy_all_responses: Radera alla svar
+            destroy_all_responses_confirm:
+              one: Vill du verkligen radera %{count} svar? Åtgärden kan inte ångras.
+              other: Vill du verkligen radera alla %{count} svar? Åtgärden kan inte ångras.
+          destroy_all:
+            invalid: Det gick inte att radera alla svar.
+            success: Alla svar har raderats.
           index:
             no_responses: Det finns inga svar ännu
             title: "%{total} svar totalt"

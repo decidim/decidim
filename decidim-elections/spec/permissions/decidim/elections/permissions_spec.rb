@@ -46,8 +46,21 @@ describe Decidim::Elections::Permissions do
     end
 
     it_behaves_like "permission is not set"
+
+    context "when listing elections without a specific election" do
+      let(:election) { nil }
+
+      it { is_expected.to be true }
+    end
+
     context "when election is published" do
       let(:election) { create(:election, :published, component:) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when the user is an admin and the election is not published" do
+      let(:user) { create(:user, :admin, organization: component.organization) }
 
       it { is_expected.to be true }
     end

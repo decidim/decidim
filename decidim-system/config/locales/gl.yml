@@ -7,13 +7,16 @@ gl:
         organization_name: Organización
         organization_url: URL da organización
         redirect_uri: URI de redirección
+        refresh_tokens: Tokens de actualización
+        refresh_tokens_enabled: Tokens de actualización activados
+        scopes: Ámbitos dispoñibles
       organization:
         address: Nome do servidor SMTP
         from_email: Enderezo de correo electrónico
         from_label: Etiqueta
         password: Contrasinal
         port: Porto
-        user_name: Nome de usuario
+        user_name: Nome de participante
       organization_file_uploads:
         allowed_content_types:
           admin: Tipos MIME do panel de administración
@@ -31,17 +34,47 @@ gl:
           attributes:
             redirect_uri:
               must_be_ssl: A URI de redirección ten de ser un URI SSL
+        organization:
+          attributes:
+            host:
+              invalid: non é válido
+            password:
+              secret_key: Debes definir a variable de contorno SECRET_KEY_BASE para poder gardar este campo
+            secondary_hosts:
+              invalid: non é válido
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: O segredo está oculto
+          hide_secret: Ocultar segredo
+          secret_can_not_be_shown: o segredo da API só se pode ver ou copiar despois da creación
+          show_secret: Mostrar segredo
+          shown_secret: O segredo está visible
+        api_users:
+          create: Crear
+          new: Nova conta de API
+          remove: Eliminar conta
         confirm_destroy: Estás certo/a de querer eliminar isto?
+        confirm_refresh_api_secret: Seguro que queres actualizar o segredo desta conta de API? Despois da actualización, o segredo anterior deixará de ser válido e xa non se poderá usar.
+        confirm_remove_api_user: Seguro que queres eliminar esta conta de API?
+        copied: Copiado
+        copy_secret: Copiar segredo
+        copy_secret_clarification: Copiar o segredo ao portapapeis
         destroy: Eliminar
         edit: Editar
+        new_admin: Novo administrador
+        new_oauth_application: Nova aplicación OAUTH
+        new_organization: Nova organización
+        refresh_secret: Actualizar segredo
         save: Gardar
         title: Accións
       admins:
         create:
           error: Produciuse un erro ao crear un administrador novo.
+          success: A persoa administradora creouse correctamente.
+        destroy:
+          success: A persoa administradora eliminouse correctamente.
         edit:
           title: Editar administrador
           update: Actualizar
@@ -52,15 +85,55 @@ gl:
           title: Novo administrador
         update:
           error: Produciuse un problema ao actualizar este administrador.
+          success: A persoa administradora actualizouse correctamente.
+      api_user:
+        create:
+          error: Non se puido crear a conta de API.
+          success: A conta de API creouse correctamente. O segredo só é visible despois da creación. Cópiao e gárdao nun lugar seguro antes de saír desta páxina.
+        destroy:
+          success: A conta de API eliminouse correctamente.
+        refresh:
+          error: Produciuse un erro. Téntao de novo máis tarde.
+          success: O segredo actualizouse correctamente. O segredo só é visible despois da creación. Cópiao e gárdao nun lugar seguro antes de saír desta páxina.
+      api_users:
+        index:
+          explanation_html: |
+            <p>As contas de API permiten ás persoas desenvolvedoras de integracións engadir ao sistema contas técnicas con permisos administrativos. Estas contas técnicas poden actuar como administradoras da plataforma para realizar actualizacións que normalmente se farían desde o panel de administración. Un caso habitual é unha plataforma externa de xestión na que un script automatizado realiza tarefas administrativas sen que unha persoa real teña que autenticarse no sistema. Por exemplo, un sistema de automatización pode querer enviar respostas a propostas, caso no que se precisa unha conta de integración para realizar esta tarefa na plataforma.</p>
+            <p>A principal diferenza entre estas contas e as contas normais de administración é que están pensadas para seren usadas por máquinas e, por tanto, os requisitos do seu contrasinal son distintos. Estas contas non precisan actualizar regularmente o contrasinal e este pode cambiarse de maneira xestionada cando sexa necesario.</p>
+            <p>Estas credenciais están destinadas ao uso por máquinas. As aplicacións orientadas ás persoas participantes deben integrarse mediante <a href="%{oauth_link}">aplicacións OAuth</a>.</p>
+          manage: Xestionar contas de API
+        new:
+          select_organization: Selecciona a túa organización
+          title: Crear unha nova conta de API
       dashboard:
         show:
+          admins: Administradores
           current_organizations: Organizacións actuais
+          system_checks: Comprobacións do sistema
       default_pages:
         placeholders:
           content: Por favor, engade contido signification á páxina estática %{page} no panel do administrador.
+          summary: Engade un resumo significativo á páxina estática %{page} desde o panel de administración.
           title: Título predefinido para %{page}
+        terms-of-service: Condicións de servicio
+      devise:
+        passwords:
+          edit:
+            change_your_password: Cambiar o teu contrasinal
+            minimum_characters: "(mínimo de %{minimum} caracteres)"
+          new:
+            forgot_your_password: Esqueciches o teu contrasinal
+            send_me_reset_password_instructions: Envíame a restablecer as instrucións do contrasinal
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Non recibiches as instrucións de confirmación?
+            did_not_receive_unlock_instructions?: Non recibiches as instrucións de desbloqueo?
+            forgot_your_password?: Esqueceu o contrasinal?
+            log_in: Iniciar sesión
+            sign_up: Crear unha conta
       menu:
         admins: Administradores
+        api_credentials: Credenciais da API
         dashboard: Panel de control
         oauth_applications: Aplicacións OAuth
         organizations: Organizacións
@@ -71,6 +144,15 @@ gl:
             email: Correo electrónico
           validations:
             email_uniqueness: xa existe outro administrador co mesmo correo electrónico
+        api_user:
+          fields:
+            created_at: Creada o
+            key: Clave
+            name: Nome
+            organization: Organización
+            secret: Segredo
+          validations:
+            name_uniqueness: Xa existe unha conta de API con este nome.
         oauth_application:
           fields:
             created_at: Creado o
@@ -80,6 +162,7 @@ gl:
           actions:
             save_and_invite: Crear organización e invitar administrador
           fields:
+            content_security_policy: Política de seguridade de contidos
             created_at: Creado en
             file_upload_settings: Axustes de subida de ficheiros
             name: Nome
@@ -96,6 +179,28 @@ gl:
           save: Gardar
           title: Editar aplicación
         form:
+          application_type:
+            confidential:
+              explanation: Aplicacións que poden autenticarse de forma segura no servidor de autorización, por exemplo mantendo protexido o segredo de cliente rexistrado. Normalmente trátase dunha aplicación executada nun servidor onde se almacena o segredo de cliente.
+              name: Confidencial
+            public:
+              explanation: Aplicacións que non poden usar segredos de cliente rexistrados, como as que se executan nun navegador ou nun dispositivo móbil.
+              name: Público
+          application_type_help_html: 'O tipo de cliente OAuth segundo se define en <a href="%{client_type_link}" target="_blank">RFC 6749, sección 2.1</a>. Os clientes públicos deben implementar o fluxo PKCE segundo se define en <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
+          refresh_tokens_help_html: 'Os tokens de actualización son útiles cando o token precisa unha duración maior ca a asignada ao token de acceso. Ten en conta que <strong>os tokens de actualización deben usarse con coidado</strong>, xa que poden reducir a seguridade das persoas participantes. '
+          scopes_explanation:
+            "admin:read": Permite realizar operacións de consulta relacionadas coa administración mediante a API GraphQL.
+            "admin:write": Permite realizar operacións de mutación de administración mediante a API GraphQL.
+            "api:read": Permite realizar operacións de consulta mediante a API GraphQL.
+            "api:write": Permite realizar operacións de mutación mediante a API GraphQL.
+            profile: Permite acceder aos datos do perfil propio da persoa participante. Este é o único ámbito necesario se a aplicación OAuth se utiliza unicamente como provedor de identidade ou servizo de autenticación.
+            user: Permite actuar como a persoa participante que iniciou sesión usando o token indicado nas chamadas á API GraphQL. É necesario para todas as operacións api:write e para as operacións api:read que precisen información da persoa participante actual.
+          scopes_help_html: |
+            Os ámbitos seleccionados estarán dispoñibles para que as aplicacións conectadas os soliciten durante o proceso de autorización. Á persoa participante mostráranselle os detalles da solicitude de autorización cando inicie sesión mediante OAuth.
+            <br>
+            Os distintos ámbitos ofrecen funcionalidades diferentes á persoa autenticada mediante os tokens de acceso concedidos.
+            <br>
+            <strong>Nota:</strong> se só precisas autenticar participantes nas túas aplicacións externas, abonda co ámbito <strong>profile</strong>. As aplicacións que interactúan coa API de Decidim tamén precisan outros ámbitos.
           select_organization: Seleccionar unha organización
         index:
           confirm_delete: Estás certo/a de querer eliminar esta aplicación?
@@ -112,17 +217,62 @@ gl:
           show: Amosar axustes avanzados
         create:
           error: Produciuse un erro ao crear unha nova organización.
+          error_invitation: Produciuse un problema ao crear unha nova organización. Revisa o nome da persoa administradora da organización.
+          success_html: |
+            <p>
+              A organización creouse correctamente.
+            </p>
+            <ol>
+              <li>Pode que teñas que actualizar o código da aplicación. Para permitir solicitudes a %{host}, debes engadir o seguinte á configuración do contorno (por exemplo, <code>config/environment/production.rb</code>) ou ao teu <code>config/application.rb</code>:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                Despois poderás acceder á plataforma mediante <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                Enviamos un correo electrónico a <b>%{email}</b> que debes confirmar.
+              </li>
+            </ol>
+        csp_settings:
+          connect_src_hint: |
+            The connect-src directive restricts the URLs which can be loaded using <script> elements.
+            A plataforma engadirá 'self', pero permite engadir máis valores. Déixao en branco se non tes certeza.
+          default_src_hint: |
+            A directiva default-src é a política predeterminada para cargar contidos como JavaScript, imaxes, CSS, fontes, solicitudes AJAX, marcos e contido multimedia HTML5.
+            A plataforma engadirá "'self' 'unsafe-inline'", pero permite engadir máis valores. Déixao en branco se non tes certeza.
+          font_src_hint: |
+            The font-src directive restricts the URLs which can be loaded using @font-face.
+            A plataforma engadirá 'self', pero permite engadir máis valores. Déixao en branco se non tes certeza.
+          frame_src_hint: |
+            The frame-src directive restricts the URLs which can be loaded using <frame>, <iframe> and <object> elements.
+            A plataforma engadirá 'self', pero permite engadir máis valores. Déixao en branco se non tes certeza.
+          img_src_hint: |
+            The img-src directive restricts the URLs which can be loaded using <img>, <image>, <picture> and <svg> elements.
+            A plataforma engadirá 'self', pero permite engadir máis valores. Déixao en branco se non tes certeza.
+          media_src_hint: |
+            The media-src directive restricts the URLs which can be loaded using the <video>, <audio> and <source> elements.
+            A plataforma engadirá 'self', pero permite engadir máis valores. Déixao en branco se non tes certeza.
+          script_src_hint: |
+            The script-src directive restricts the URLs which can be loaded using <script> elements.
+            A plataforma engadirá "'self' 'unsafe-inline' 'unsafe-eval'", pero permite engadir máis valores. Déixao en branco se non tes certeza.
+          style_src_hint: |
+            The style-src directive restricts the URLs which can be loaded using <style> elements.
+            A plataforma engadirá "'self' 'unsafe-inline'", pero permite engadir máis valores. Déixao en branco se non tes certeza.
         edit:
+          confirm_resend_invitation: Seguro que queres reenviar a invitación?
+          resend_invitation: Reenvio a invitación
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
+          short_name_hint: Nome curto usado para a aplicación web progresiva. Debe ter como máximo 12 caracteres.
+          title: Editar organización
         file_upload_settings:
           content_types:
-            admin_hint: Estes tipos MIME están permitidos na sección de subidas do panel de administración. Os usuarios administradores teñen que ser conscientes dos riscos de subir algúns formatos de documentos, agardase entón que sexan cautelosos á hora de subir ficheiros.
-            default_hint: Estas tipos MIME están permitidos de xeito predefinido para todos os usuarios.
+            admin_hint: Estes tipos MIME están permitidos na sección de subidas do panel de administración. Os participantes administradores teñen que ser conscientes dos riscos de subir algúns formatos de documentos, agardase entón que sexan cautelosos á hora de subir ficheiros.
+            default_hint: Estas tipos MIME están permitidos de xeito predefinido para todos os participantes.
             intro_html: Podes engadir comodíns co asterisco para os tipos MIME, p. ex. <code>image/*</code>.
             title: Tipos MiME permitidos
           file_extensions:
-            admin_hint: Estas extensións de ficheiro están permitidas na sección de subidas do panel de administración. Os usuarios administradores teñen que ser conscientes dos riscos de subir algúns formatos de documentos, agardase entón que sexan cautelosos á hora de subir ficheiros.
-            default_hint: Estas extensións de ficheiro están permitidas de xeito predefinido para todos os usuarios.
+            admin_hint: Estas extensións de ficheiro están permitidas na sección de subidas do panel de administración. Os participantes administradores teñen que ser conscientes dos riscos de subir algúns formatos de documentos, agardase entón que sexan cautelosos á hora de subir ficheiros.
+            default_hint: Estas extensións de ficheiro están permitidas de xeito predefinido para todos os participantes.
             image_hint: Estas extensións de ficheiro están permitidas para calquera imaxe a subir.
             title: Extensións de ficheiro permitidas
           file_sizes:
@@ -131,10 +281,18 @@ gl:
             title: Tamaño máximo de ficheiros
           intro: |
             Por favor, ten moita precaución á hora de mudar estes axustes. Cantas menos opcións permitas, mellor.
-            Permitir extensións especificas ou tipos MIME, pode expor os usuarios do sistema a riscos de seguranza e tamén pode afectar á accesibilidade do sitio web.
+            Permitir extensións especificas ou tipos MIME, pode expor os participantes do sistema a riscos de seguranza e tamén pode afectar á accesibilidade do sitio web.
+        header_snippets_help_html: Usa este campo para engadir elementos á cabeceira HTML. O uso máis habitual é integrar servizos de terceiros que requiren JavaScript ou CSS adicional. Tamén podes usalo para engadir metaetiquetas ao HTML. Ten en conta que só se renderizará nas páxinas públicas, non na sección de administración. Se o código interactúa con API externas ou non cumpre as directrices de seguridade da aplicación, será necesario modificar a Política de seguridade de contidos. Máis información <a href="https://docs.decidim.org/en/develop/customize/content_security_policy">no sitio da documentación</a>.
         index:
           title: Organizacións
         new:
+          default: Predeterminada?
+          enabled: Habilitado
+          locale: Configuración rexional
+          organization_admin_email_hint: Enviaremos un correo electrónico a este enderezo para que poidas confirmalo e configurar o teu contrasinal.
+          reference_prefix_hint: O prefixo de referencia úsase para identificar de maneira única os recursos de toda a organización.
+          secondary_hosts_hint: Introduce cada un nunha liña nova.
+          short_name_hint: Nome curto usado para a aplicación web progresiva. Debe ter como máximo 12 caracteres.
           title: Nova organización
         omniauth_settings:
           decidim:
@@ -154,9 +312,14 @@ gl:
           twitter:
             api_key: Clave da API
             api_secret: Segredo da API
+        resend_invitation:
+          error: Produciuse un problema ao enviar a invitación.
+          success: A invitación enviouse correctamente.
         smtp_settings:
           fieldsets:
             sender: Remitente
+          instructions:
+            from_label: 'O remitente do correo será: «your-organization-name <your-organization@example.org>». Déixao en branco para usar o mesmo nome definido para a organización.'
           placeholder:
             from_email: a-tua-organizacion@exemplo.org
             from_label: o-nome-da-tua-organizacion
@@ -165,9 +328,27 @@ gl:
           success: A organización actualizouse con éxito.
         users_registration_mode:
           disabled: O acceso só se pode facer con contas externas
+          enabled: Permitir que as persoas participantes creen unha conta e inicien sesión
+          existing: Non permitir que as persoas participantes creen unha conta, pero permitir que as que xa teñen conta inicien sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear unha organización para comezar. Asegúrate de ler %{guide} antes de continuar.
           our_getting_started_guide: a nosa guía de inicio
+        organizations_list:
+          confirm_resend_invitation: Seguro que queres reenviar a invitación?
+          resend_invitation: Reenvio a invitación
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Documentación de Decidim
+          error: A cola de ActiveJob non está configurada. Esta configuración non se recomenda para produción. Máis información en %{error_extra}.
+          success: A cola de ActiveJob está configurada correctamente.
+        secret_key:
+          error: 'A clave secreta non está definida correctamente. Gárdaa na variable de contorno SECRET_KEY_BASE e reinicia o servidor: %{error_extra}'
+          success: A clave secreta está configurada correctamente.
       titles:
         dashboard: Panel de control
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Pechar sesión
