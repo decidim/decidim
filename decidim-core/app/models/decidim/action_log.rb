@@ -266,13 +266,16 @@ module Decidim
     # Associations that are read for every record of a lazily loaded collection,
     # so they have to be eager loaded to avoid N+1 queries.
     #
-    # Returns an Array of Symbols.
+    # Returns an Array of association names.
     def self.lazy_preload_associations(klass)
       associations = []
       associations << :organization if klass.reflect_on_association(:organization)
       associations << :moderation if klass.include?(Decidim::Reportable)
       associations << :author if klass.include?(Decidim::Authorable)
       associations << :participatory_space if klass.reflect_on_association(:participatory_space)
+      # Resources that belong to a component resolve the component's
+      # participatory space when rendering the link to the resource.
+      associations << { component: :participatory_space } if klass.include?(Decidim::HasComponent)
 
       associations
     end

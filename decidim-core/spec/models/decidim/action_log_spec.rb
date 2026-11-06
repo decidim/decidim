@@ -315,5 +315,17 @@ describe Decidim::ActionLog do
 
       expect(lazy_components).to all(satisfy { |component| component.association(:participatory_space).loaded? })
     end
+
+    it "eager loads the component participatory space for resources with a component" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        create(:action_log, action: "create", visibility: "all", resource: create(:dummy_resource, :published, component:), organization:, participatory_space: component.participatory_space)
+      end
+
+      resources = logs.map(&:resource_lazy)
+
+      expect(resources).to all(satisfy { |resource| resource.association(:component).loaded? })
+      expect(resources).to all(satisfy { |resource| resource.component.association(:participatory_space).loaded? })
+    end
   end
 end
