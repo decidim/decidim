@@ -68,6 +68,20 @@ describe "rake decidim:generate_external_development_app", type: :task do
 
         task.execute
       end
+
+      context "with invalid queue adapter provided" do
+        let(:adapter_name) { "async" }
+        let(:main) { TOPLEVEL_BINDING.eval("self") }
+
+        it "aborts the process" do
+          expect(Decidim::Generators::AppGenerator).not_to receive(:start)
+          expect(main).to receive(:abort).with("#{adapter_name} is not supported as a queue adapter") do |msg|
+            raise SystemExit, msg
+          end
+
+          expect { task.execute }.to raise_error(SystemExit)
+        end
+      end
     end
   end
 end

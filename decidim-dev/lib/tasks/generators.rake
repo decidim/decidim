@@ -41,6 +41,9 @@ namespace :decidim do
   desc "Generates a dummy app for trying out external modules"
   task :generate_external_development_app do
     Bundler.with_original_env do
+      queue = ENV.fetch("QUEUE_ADAPTER", "sidekiq")
+      abort("#{queue} is not supported as a queue adapter") unless queue.in?(["", "sidekiq"])
+
       generate_decidim_app(
         "development_app",
         "--app_name",
@@ -54,7 +57,7 @@ namespace :decidim do
         "--locales",
         "en,ca,es",
         "--dev_ssl",
-        "--queue=#{ENV.fetch("QUEUE_ADAPTER", "sidekiq")}"
+        "--queue=#{queue}"
       )
     end
   end
