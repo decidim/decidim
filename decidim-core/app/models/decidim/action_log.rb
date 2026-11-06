@@ -249,10 +249,7 @@ module Decidim
         scope = if klass_name == "Decidim::Comments::Comment"
                   scope.includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }])
                 else
-                  preloads = []
-                  preloads << :organization if klass.reflect_on_association(:organization)
-                  preloads << :moderation if klass.include?(Decidim::Reportable)
-                  preloads << :author if klass.include?(Decidim::Authorable)
+                  preloads = lazy_preload_associations(klass)
 
                   scope = scope.preload(*preloads) if preloads.any?
                   scope = scope.includes(:component).where.not(decidim_components: { published_at: nil }) if klass.include?(Decidim::HasComponent)
@@ -264,6 +261,20 @@ module Decidim
 
         scope.each { |relation| loader.call(relation.id, relation) }
       end
+    end
+
+    # Associations that are read for every record of a lazily loaded collection,
+    # so they have to be eager loaded to avoid N+1 queries.
+    #
+    # Returns an Array of Symbols.
+    def self.lazy_preload_associations(klass)
+      associations = []
+      associations << :organization if klass.reflect_on_association(:organization)
+      associations << :moderation if klass.include?(Decidim::Reportable)
+      associations << :author if klass.include?(Decidim::Authorable)
+      associations << :participatory_space if klass.reflect_on_association(:participatory_space)
+
+      associations
     end
 
     # Whether this activity or log is visible for a given user (can also be nil)

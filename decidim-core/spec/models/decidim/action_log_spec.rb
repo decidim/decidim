@@ -287,6 +287,7 @@ describe Decidim::ActionLog do
   end
 
   describe ".lazy_relation" do
+    let(:organization) { create(:organization) }
     let!(:meetings) { create_list(:meeting, 2, :published) }
     let!(:action_logs) do
       meetings.map do |meeting|
@@ -302,6 +303,17 @@ describe Decidim::ActionLog do
         expect(meeting.association(:moderation).loaded?).to be(true)
         expect(meeting.association(:author).loaded?).to be(true)
       end
+    end
+
+    it "eager loads the participatory_space association for components" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        create(:action_log, action: "create", visibility: "all", resource: create(:dummy_resource, component:), organization:, participatory_space: component.participatory_space)
+      end
+
+      lazy_components = logs.map(&:component_lazy)
+
+      expect(lazy_components).to all(satisfy { |component| component.association(:participatory_space).loaded? })
     end
   end
 end
