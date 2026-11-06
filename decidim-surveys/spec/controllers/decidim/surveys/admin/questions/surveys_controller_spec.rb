@@ -36,6 +36,24 @@ module Decidim
             end
           end
 
+          describe "GET edit_questions" do
+            let(:questionnaire) { create(:questionnaire, :with_all_questions) }
+            let(:survey) { create(:survey, questionnaire:) }
+            let(:params) do
+              {
+                component_id: component.id,
+                participatory_process_slug: component.participatory_space.slug,
+                id: survey.id
+              }
+            end
+
+            it "renders the questions form" do
+              get(:edit_questions, params:)
+
+              expect(response).to render_template("decidim/surveys/admin/questions/surveys/edit")
+            end
+          end
+
           describe "GET response_options" do
             let(:question) { create(:questionnaire_question, :with_response_options, questionnaire: survey.questionnaire) }
             let(:option) { question.response_options.first }
