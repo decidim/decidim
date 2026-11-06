@@ -15,7 +15,7 @@ The `attachments` field is only accepted when the component allows attachments. 
 
 [source]
 ----
-• file  (Required) - BaseUpload - the file to upload and attach
+• file  (Required) - Upload - the file to upload and attach
 • title (Optional) - String - the title of the attachment
 ----
 

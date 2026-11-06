@@ -1,5 +1,14 @@
 = Upload files
 
+== Input attributes
+
+When you want to upload a file, you need to rely on the `UploadFileInput` type, which has the following input field:
+
+[source]
+----
+• file                  (Required) - Upload - the file to upload and attach
+----
+
 == Sample request
 
 The `uploadFile` mutation allows authenticated administrators to upload and create file blobs.
@@ -33,7 +42,7 @@ curl -X POST https://example.org/api/ \
 
 The uploaded blob is not attached to any record: attachments are created from the
 file sent in the same request (see
-xref:develop:api/reference/uploads/attachments/create.adoc[createAttachment]), so
+xref:develop:api/reference/uploads/attachments/create.adoc[Create Attachments]), so
 a blob uploaded through this mutation is not used by any record and it is removed
 by the xref:install:index.adoc#scheduled_tasks[scheduled cleanup task]
 (`rake decidim:attachments_cleanup`, hourly by default). The cleanup window (60

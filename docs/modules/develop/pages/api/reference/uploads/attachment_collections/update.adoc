@@ -1,13 +1,13 @@
 = Update Attachment Collections
 
-==  Input attributes
+== Input attributes
 
-When you want to update a Decidim attachment collection's details, you need to rely on the `AttachmentCollectionAttributes` type, which has the following input fields.
+When you want to update a Decidim attachment collection's details, you need to rely on the `AttachmentCollectionAttributes` type, which has the following input fields:
 
 [source]
 ----
-• description           (optional) - JSON
-• key                   (optional) - String
+• description           (Optional) - JSON
+• key                   (Optional) - String
 • name                  (Required) - JSON
 • weight                (Optional) - Integer
 ----

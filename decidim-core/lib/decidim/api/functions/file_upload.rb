@@ -44,11 +44,11 @@ module Decidim
       def uploaded_file?(file)
         return false unless file
 
-        # `Rack::Test::UploadedFile` is not a subclass of the multipart one, so it
-        # has to be checked on its own.
-        return true if defined?(Rack::Test::UploadedFile) && file.is_a?(Rack::Test::UploadedFile)
-
-        file.is_a?(::Rack::Multipart::UploadedFile) || file.is_a?(ActionDispatch::Http::UploadedFile)
+        # The multipart request middleware wraps the uploaded file in a delegator,
+        # which is not a subclass of the file it delegates to, so it has to be
+        # checked on its own. A mapped path without a file behind it is not an
+        # upload.
+        file.__getobj__.present?
       end
 
       def validate_extension!(file)

@@ -12,7 +12,7 @@ module Decidim
       graphql_name "DebateAttachmentAttributes"
       description "Attributes for a file uploaded with a debate"
 
-      argument :file, Decidim::Api::Types::BaseUpload, "The file to upload and attach", required: true
+      argument :file, ApolloUploadServer::Upload, "The file to upload and attach", required: true
       argument :title, GraphQL::Types::String, "The title of the attachment", required: false
     end
   end

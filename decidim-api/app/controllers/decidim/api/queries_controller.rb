@@ -4,15 +4,12 @@ module Decidim
   module Api
     # This controller takes queries from an HTTP endpoint and sends them out to
     # the Schema to be executed, later returning the response as JSON.
+    #
+    # Multipart requests are not parsed here: `ApolloUploadServer::Middleware`
+    # maps the uploaded files to the operation variables before the request
+    # reaches this controller, so `query`, `variables` and `operationName` are
+    # already the values of the operation when the action runs.
     class QueriesController < Api::ApplicationController
-      # Raised when a multipart request does not follow the GraphQL multipart
-      # request spec, e.g. malformed JSON payloads, an invalid map or missing
-      # mapped files. These are client errors and are answered with a
-      # controlled 400 response instead of an unhandled exception.
-      class MalformedMultipartError < StandardError; end
-
-      before_action :parse_multipart, only: :create
-
       def create
         variables = prepare_variables(params[:variables])
         query = params[:query]
@@ -86,102 +83,6 @@ module Decidim
           {}
         else
           raise ArgumentError, "Unexpected parameter: #{variables_param}"
-        end
-      end
-
-      def parse_multipart
-        return unless params[:operations] && params[:map]
-
-        operations = parse_multipart_json(params[:operations], "operations")
-        map = parse_multipart_json(params[:map], "map")
-        validate_multipart_operations!(operations)
-        validate_multipart_map!(map)
-
-        map.each do |file_key, paths|
-          validate_multipart_paths!(file_key, paths)
-          file = fetch_uploaded_file(file_key)
-          paths.each { |path| assign_file_to_path(operations, file, path) }
-        end
-
-        params[:query] = operations["query"]
-        params[:variables] = operations["variables"]
-        params[:operationName] = operations["operationName"]
-      rescue MalformedMultipartError => e
-        logger.warn "Malformed multipart request: #{e.message}"
-        render json: { errors: [{ message: e.message }], data: {} }, status: :bad_request
-      end
-
-      def parse_multipart_json(payload, name)
-        JSON.parse(payload)
-      rescue JSON::ParserError, TypeError
-        raise MalformedMultipartError, "The #{name} parameter is not valid JSON"
-      end
-
-      def validate_multipart_operations!(operations)
-        return if operations.is_a?(Hash)
-
-        raise MalformedMultipartError, "The operations parameter must be a JSON object"
-      end
-
-      def validate_multipart_map!(map)
-        return if map.is_a?(Hash) && map.present?
-
-        raise MalformedMultipartError, "Invalid multipart map"
-      end
-
-      def validate_multipart_paths!(file_key, paths)
-        return if paths.is_a?(Array) && paths.present? && paths.all?(String)
-
-        raise MalformedMultipartError, "The paths for the file #{file_key.inspect} must be a non-empty array of strings"
-      end
-
-      def fetch_uploaded_file(file_key)
-        params[file_key].tap do |file|
-          raise MalformedMultipartError, "Uploaded file missing in params[#{file_key}]" unless file
-        end
-      end
-
-      def assign_file_to_path(operations, file, path)
-        keys = path.split(".")
-        last_key = keys.pop
-        parent = resolve_path(operations, keys, path)
-        assign_value(parent, last_key, file, path)
-      end
-
-      def resolve_path(parent, keys, path)
-        keys.each do |key|
-          parent = resolve_segment(parent, key, path)
-        end
-        parent
-      end
-
-      def resolve_segment(parent, segment, path)
-        if parent.is_a?(Array)
-          index = segment.to_i
-          raise MalformedMultipartError, "Invalid array index in path: #{path}" unless index.to_s == segment
-          raise MalformedMultipartError, "Array index out of bounds in path: #{path}" unless index >= 0 && index < parent.length
-
-          parent[index]
-        elsif parent.is_a?(Hash)
-          raise MalformedMultipartError, "Unsupported path segment :#{segment} in path: #{path}" unless parent.has_key?(segment)
-
-          parent[segment]
-        else
-          raise MalformedMultipartError, "Unexpected parent type #{parent.class} in path: #{path}"
-        end
-      end
-
-      def assign_value(parent, key, value, path)
-        if parent.is_a?(Array)
-          index = key.to_i
-          raise MalformedMultipartError, "Invalid array index in path: #{path}" unless index.to_s == key
-          raise MalformedMultipartError, "Array index out of bounds in path: #{path}" unless index >= 0 && index < parent.length
-
-          parent[index] = value
-        elsif parent.is_a?(Hash)
-          parent[key] = value
-        else
-          raise MalformedMultipartError, "Unexpected parent type #{parent.class} for assignment in path: #{path}"
         end
       end
     end

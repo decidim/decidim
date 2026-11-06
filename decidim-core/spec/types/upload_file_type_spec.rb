@@ -18,10 +18,12 @@ module Decidim
         response["uploadFile"]
       end
       let(:file) do
-        Rack::Multipart::UploadedFile.new(
-          Decidim::Dev.asset("city.jpeg"),
-          "image/jpeg",
-          filename: "city.jpeg"
+        upload(
+          Rack::Test::UploadedFile.new(
+            Decidim::Dev.asset("city.jpeg"),
+            "image/jpeg",
+            original_filename: "city.jpeg"
+          )
         )
       end
 

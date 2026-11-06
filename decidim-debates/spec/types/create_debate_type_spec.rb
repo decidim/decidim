@@ -137,10 +137,12 @@ module Decidim
         end
 
         let(:file) do
-          Rack::Multipart::UploadedFile.new(
-            Decidim::Dev.asset("city.jpeg"),
-            "image/jpeg",
-            filename: "city.jpeg"
+          upload(
+            Rack::Test::UploadedFile.new(
+              Decidim::Dev.asset("city.jpeg"),
+              "image/jpeg",
+              original_filename: "city.jpeg"
+            )
           )
         end
         let(:attachment_title) { "Debate photo" }
@@ -190,10 +192,12 @@ module Decidim
           # creates the debate.
           let!(:tempfile) { Tempfile.create(["report", ".docx"]) }
           let(:file) do
-            Rack::Multipart::UploadedFile.new(
-              tempfile.path,
-              "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-              filename: "report.docx"
+            upload(
+              Rack::Test::UploadedFile.new(
+                tempfile.path,
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                original_filename: "report.docx"
+              )
             )
           end
 

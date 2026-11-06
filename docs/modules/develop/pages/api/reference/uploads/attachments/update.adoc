@@ -1,15 +1,15 @@
 = Update Attachments
 
-==  Input attributes
+== Input attributes
 
-When you want to update a Decidim attachment's details, you need to rely on the `AttachmentAttributes` type, which has the following input fields.
+When you want to update a Decidim attachment's details, you need to rely on the `AttachmentAttributes` type, which has the following input fields:
 
 [source]
 ----
-• collection            (optional) - AttachmentCollectionInputObject
-• description           (optional) - JSON
-• file                  (optional) - BaseUpload - the file to upload and attach
-• title                 (optional) - JSON
+• collection            (Optional) - AttachmentCollectionInputObject
+• description           (Optional) - JSON
+• file                  (Optional) - Upload - the file to upload and attach
+• title                 (Optional) - JSON
 • weight                (Optional) - Integer
 ----
 

@@ -32,10 +32,12 @@ module Decidim
         }
       end
       let(:file) do
-        Rack::Multipart::UploadedFile.new(
-          Decidim::Dev.asset("city.jpeg"),
-          "image/jpeg",
-          filename: "city.jpeg"
+        upload(
+          Rack::Test::UploadedFile.new(
+            Decidim::Dev.asset("city.jpeg"),
+            "image/jpeg",
+            original_filename: "city.jpeg"
+          )
         )
       end
 
@@ -56,10 +58,12 @@ module Decidim
         # name is allowed, so the blob is stored, and the attachment is then
         # rejected by the model validation, which checks the file signature.
         let(:file) do
-          Rack::Multipart::UploadedFile.new(
-            Tempfile.create(["empty", ".jpg"]).path,
-            "image/jpeg",
-            filename: "empty.jpg"
+          upload(
+            Rack::Test::UploadedFile.new(
+              Tempfile.create(["empty", ".jpg"]).path,
+              "image/jpeg",
+              original_filename: "empty.jpg"
+            )
           )
         end
 

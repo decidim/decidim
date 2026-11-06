@@ -6,6 +6,9 @@ require "tempfile"
 # the GraphQL entry points which receive an upload from the client, so that the
 # same rules are verified through each of them.
 #
+# The files are wrapped with the upload wrapper created by the multipart request
+# middleware, which is the only value the upload type accepts.
+#
 # The scenarios which reject the file check the error and that nothing is stored.
 # The ones which accept it only check the blob, as what happens with it afterwards
 # differs between entry points: the upload mutation returns it, the attachment
@@ -50,11 +53,7 @@ shared_examples "file upload validation rules" do
 
   context "when the file extension is not supported" do
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Tempfile.create(["foo", ".xyz"]).path,
-        "application/jpeg",
-        filename: "foo.xyz"
-      )
+      upload(Rack::Test::UploadedFile.new(Tempfile.create(["foo", ".xyz"]).path, "application/jpeg"))
     end
 
     it "does not store the file" do
@@ -64,10 +63,12 @@ shared_examples "file upload validation rules" do
 
   context "when the file name has no extension" do
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Decidim::Dev.asset("city.jpeg"),
-        "image/jpeg",
-        filename: "city"
+      upload(
+        Rack::Test::UploadedFile.new(
+          Decidim::Dev.asset("city.jpeg"),
+          "image/jpeg",
+          original_filename: "city"
+        )
       )
     end
 
@@ -78,10 +79,12 @@ shared_examples "file upload validation rules" do
 
   context "when the content type declared by the client is not allowed" do
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Decidim::Dev.asset("city.jpeg"),
-        "application/zip",
-        filename: "city.jpeg"
+      upload(
+        Rack::Test::UploadedFile.new(
+          Decidim::Dev.asset("city.jpeg"),
+          "application/zip",
+          original_filename: "city.jpeg"
+        )
       )
     end
 
@@ -93,10 +96,12 @@ shared_examples "file upload validation rules" do
   context "when the content type detected from the file contents is not allowed" do
     let!(:tempfile) { Tempfile.create(["spoofed", ".png"]) }
     let(:file) do
-      ActionDispatch::Http::UploadedFile.new(
-        filename: "spoofed.png",
-        type: "image/png",
-        tempfile:
+      upload(
+        Rack::Test::UploadedFile.new(
+          tempfile.path,
+          "image/png",
+          original_filename: "spoofed.png"
+        )
       )
     end
 
@@ -114,10 +119,12 @@ shared_examples "file upload validation rules" do
 
   context "when the SVG document contains active content" do
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Decidim::Dev.asset("malicious_svg_script.svg"),
-        "image/svg+xml",
-        filename: "malicious_svg_script.svg"
+      upload(
+        Rack::Test::UploadedFile.new(
+          Decidim::Dev.asset("malicious_svg_script.svg"),
+          "image/svg+xml",
+          original_filename: "malicious_svg_script.svg"
+        )
       )
     end
 
@@ -134,10 +141,12 @@ shared_examples "file upload validation rules" do
 
   context "when the SVG document is not a well formed SVG document" do
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Decidim::Dev.asset("malformed_svg_unclosed_element.svg"),
-        "image/svg+xml",
-        filename: "malformed_svg_unclosed_element.svg"
+      upload(
+        Rack::Test::UploadedFile.new(
+          Decidim::Dev.asset("malformed_svg_unclosed_element.svg"),
+          "image/svg+xml",
+          original_filename: "malformed_svg_unclosed_element.svg"
+        )
       )
     end
 
@@ -152,10 +161,12 @@ shared_examples "file upload validation rules" do
 
   context "when an XML document is declared as SVG" do
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Decidim::Dev.asset("spoofed_svg_xml.svg"),
-        "image/svg+xml",
-        filename: "spoofed_svg_xml.svg"
+      upload(
+        Rack::Test::UploadedFile.new(
+          Decidim::Dev.asset("spoofed_svg_xml.svg"),
+          "image/svg+xml",
+          original_filename: "spoofed_svg_xml.svg"
+        )
       )
     end
 
@@ -170,10 +181,12 @@ shared_examples "file upload validation rules" do
 
   context "when the file size is larger than the configured maximum" do
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Decidim::Dev.asset("city.jpeg"),
-        "image/jpeg",
-        filename: "city.jpeg"
+      upload(
+        Rack::Test::UploadedFile.new(
+          Decidim::Dev.asset("city.jpeg"),
+          "image/jpeg",
+          original_filename: "city.jpeg"
+        )
       )
     end
 
@@ -188,10 +201,12 @@ shared_examples "file upload validation rules" do
 
   context "when the declared content type is allowed but differs from the file contents" do
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Decidim::Dev.asset("icon.png"),
-        "image/jpeg;charset=binary",
-        filename: "icon.png"
+      upload(
+        Rack::Test::UploadedFile.new(
+          Decidim::Dev.asset("icon.png"),
+          "image/jpeg;charset=binary",
+          original_filename: "icon.png"
+        )
       )
     end
 
@@ -204,10 +219,12 @@ shared_examples "file upload validation rules" do
 
   context "when the SVG document does not contain active content" do
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Decidim::Dev.asset("test.svg"),
-        "image/svg+xml",
-        filename: "test.svg"
+      upload(
+        Rack::Test::UploadedFile.new(
+          Decidim::Dev.asset("test.svg"),
+          "image/svg+xml",
+          original_filename: "test.svg"
+        )
       )
     end
 
@@ -225,10 +242,12 @@ shared_examples "file upload validation rules" do
     # blob is stored in the entry points which create a record, also accept it.
     let!(:tempfile) { Tempfile.create(["report", ".txt"]) }
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        tempfile.path,
-        "text/plain",
-        filename: "report.txt"
+      upload(
+        Rack::Test::UploadedFile.new(
+          tempfile.path,
+          "text/plain",
+          original_filename: "report.txt"
+        )
       )
     end
 
@@ -251,12 +270,14 @@ shared_examples "file upload validation rules" do
     # a multipart request would deliver it.
     let(:filename) { "êxämplö®'.pdf".encode("WINDOWS-1252").force_encoding("UTF-8") }
     let(:file) do
-      Rack::Multipart::UploadedFile.new(
-        Decidim::Dev.asset("Exampledocument.pdf"),
-        "application/pdf"
-      ).tap do |uploaded_file|
-        uploaded_file.instance_variable_set(:@original_filename, filename)
-      end
+      upload(
+        Rack::Test::UploadedFile.new(
+          Decidim::Dev.asset("Exampledocument.pdf"),
+          "application/pdf"
+        ).tap do |uploaded_file|
+          uploaded_file.instance_variable_set(:@original_filename, filename)
+        end
+      )
     end
 
     it "stores the file with the invalid sequences replaced" do

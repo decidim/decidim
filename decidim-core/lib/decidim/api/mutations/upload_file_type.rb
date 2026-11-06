@@ -16,7 +16,7 @@ module Decidim
       # permission check is done against the administrative permissions.
       required_scopes "api:read", "api:write", "admin:read", "admin:write"
 
-      argument :file, Decidim::Api::Types::BaseUpload, description: "File being uploaded", required: true
+      argument :file, ApolloUploadServer::Upload, description: "File being uploaded", required: true
 
       field :blob, Decidim::Core::BlobType, description: "Blob of the uploaded file", null: true
 
