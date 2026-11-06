@@ -341,5 +341,17 @@ describe Decidim::ActionLog do
       expect(comments).to all(satisfy { |comment| comment.root_commentable.association(:component).loaded? })
       expect(comments).to all(satisfy { |comment| comment.root_commentable.component.association(:participatory_space).loaded? })
     end
+
+    it "eager loads the avatar attachment for users" do
+      users = create_list(:user, 2, :confirmed, organization:)
+      logs = users.map do |user|
+        create(:action_log, action: "create", visibility: "all", resource: create(:dummy_resource, :published, organization:), organization:, user:)
+      end
+
+      lazy_users = logs.map(&:user_lazy)
+
+      expect(lazy_users).to all(satisfy { |user| user.association(:avatar_attachment).loaded? })
+      expect(lazy_users).to all(satisfy { |user| user.avatar_attachment&.association(:blob)&.loaded? })
+    end
   end
 end

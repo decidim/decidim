@@ -281,6 +281,8 @@ module Decidim
       associations << :moderation if klass.include?(Decidim::Reportable)
       associations << :author if klass.include?(Decidim::Authorable)
       associations << :participatory_space if klass.reflect_on_association(:participatory_space)
+      # The author cell renders the avatar for every user in the collection.
+      associations << { avatar_attachment: :blob } if klass.reflect_on_association(:avatar_attachment)
       # Resources that belong to a component resolve the component's
       # participatory space when rendering the link to the resource.
       associations << { component: :participatory_space } if klass.include?(Decidim::HasComponent)
