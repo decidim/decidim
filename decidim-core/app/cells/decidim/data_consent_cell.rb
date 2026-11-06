@@ -21,10 +21,15 @@ module Decidim
     def item_name(item)
       return item[:name] unless item[:type] == "cookie" && consent_cookie_item?(item)
 
-      Decidim.consent_cookie_name_for(request.protocol)
+      Decidim.consent_cookie_name_for(consent_cookie_protocol)
     end
 
     private
+
+    def consent_cookie_protocol
+      cell_controller = context&.dig(:controller)
+      cell_controller&.request&.protocol
+    end
 
     def consent_cookie_item?(item)
       item[:name].to_s.delete_prefix("__Host-") == Decidim.consent_cookie_name.delete_prefix("__Host-")

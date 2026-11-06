@@ -19,7 +19,10 @@ describe "Data consent scripts" do
     cookie_modal = modal
     document_inner = html_body
     template.instance_eval do
-      js_config = { icons_path: asset_pack_path("media/images/icons.svg") }
+      js_config = {
+        icons_path: asset_pack_path("media/images/icons.svg"),
+        consent_cookie_name: Decidim.consent_cookie_name
+      }
 
       <<~HTML.strip
         <!doctype html>
@@ -51,6 +54,9 @@ describe "Data consent scripts" do
   let(:html_body) { "" }
 
   before do
+    # Start without the essential consent cookie set by the global system spec setup
+    page.driver.browser.execute_cdp("Network.clearBrowserCookies")
+
     # Create a favicon so it does not fail when trying to fetch it
     favicon = ""
     # Create a temporary route to display the generated HTML in a correct site

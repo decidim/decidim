@@ -11,10 +11,13 @@ describe Decidim::DataConsentCell, type: :cell do
   let(:item) { { type: "cookie", name: configured_name } }
   let(:configured_name) { Decidim.consent_cookie_name }
   let(:protocol) { "http://" }
+  let(:request) { double(protocol:) }
+  let(:parent_controller) { double(request:) }
+  let(:cell_context) { { controller: parent_controller } }
 
   before do
     allow(Decidim).to receive(:consent_cookie_name).and_return(configured_name)
-    allow(my_cell).to receive(:request).and_return(double(protocol:))
+    allow(my_cell).to receive(:context).and_return(cell_context)
   end
 
   context "when using HTTP" do
@@ -54,6 +57,14 @@ describe Decidim::DataConsentCell, type: :cell do
       it "adds the __Host- prefix" do
         expect(item_name).to eq("__Host-custom-consent")
       end
+    end
+  end
+
+  context "when there is no request" do
+    let(:cell_context) { nil }
+
+    it "falls back to the HTTP cookie name" do
+      expect(item_name).to eq("decidim-consent")
     end
   end
 
