@@ -162,6 +162,11 @@ describe "Admin manages organization" do
         # Makes sure in the error screenshots the editor is visible
         editor_selector = "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor"
         page.scroll_to(find(editor_selector))
+
+        # The editor is created by JavaScript, so we need to wait until TipTap
+        # has mounted the ProseMirror instance before interacting with it.
+        expect(page).to have_css("#{editor_selector} .ProseMirror")
+
         # Places the editor focus at the end of the editable area
         page.execute_script(
           <<~JS
@@ -169,6 +174,29 @@ describe "Admin manages organization" do
             pm.editor.commands.focus("end");
           JS
         )
+
+        # TipTap applies the DOM focus in a requestAnimationFrame, so we need to
+        # wait for the focus to be applied before sending any key strokes.
+        expect(page).to have_css("#{editor_selector} .ProseMirror.ProseMirror-focused")
+      end
+
+      # Asserts the rich text editor content by reading its serialized HTML and
+      # retrying until it matches. Reading the raw DOM `innerHTML` is flaky
+      # because ProseMirror temporarily adds internal nodes to the DOM (such as
+      # `ProseMirror-separator` and `ProseMirror-trailingBreak`) that are not
+      # part of the actual content, and because the editor may not have
+      # finished processing the sent key strokes yet.
+      def expect_editor_content(expected)
+        editor_selector = "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
+
+        page.document.synchronize do
+          actual = page.execute_script(
+            "return document.querySelector(arguments[0]).editor.getHTML()",
+            editor_selector
+          )
+
+          raise Capybara::ExpectationNotMet, "Expected the editor content to be:\n#{expected}\n\nbut it was:\n#{actual}" unless actual == expected
+        end
       end
 
       context "when the admin terms of service content is empty" do
@@ -204,11 +232,30 @@ describe "Admin manages organization" do
         end
 
         it "creates and deletes linebreaks with enter, shift+enter and backspace" do
-          find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys "acd", [:left], [:left]
-          find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys [:enter], [:shift, :enter], [:shift, :enter], "b", [:left], [:backspace], [:backspace], [:backspace]
-          expect(find(
-            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>abcd</p>".gsub("\n", ""))
+          # Set the initial content and place the cursor between the "a" and
+          # the "c" through the editor commands. Relying on `send_keys` to type
+          # the text and move the cursor with the arrow keys is flaky because
+          # the browser may not process the cursor movements before the
+          # following key strokes.
+          page.execute_script(
+            <<~JS,
+              var editor = document.querySelector(arguments[0]).editor;
+              editor.commands.setContent("<p>acd</p>");
+              editor.commands.setTextSelection(2);
+            JS
+            "#organization_admin_terms_of_service_body_en div[contenteditable='true'].ProseMirror"
+          )
+
+          # Send the key strokes one by one so that the editor has processed
+          # each of them before the next one is sent. Sending them all at once
+          # makes the browser and the editor race, which also makes this spec
+          # flaky.
+          editor = find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native
+          [:enter, [:shift, :enter], [:shift, :enter], "b", :left, :backspace, :backspace, :backspace].each do |key|
+            editor.send_keys(key)
+          end
+
+          expect_editor_content("<p>abcd</p>")
         end
       end
 
@@ -330,17 +377,13 @@ describe "Admin manages organization" do
         it "creates single br tag" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys([:left, :left, :left, :left, :left])
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys([:shift, :enter])
-          expect(find(
-            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" target="_blank">link</a></p>')
+          expect_editor_content('<p>foo<br><br><a href="https://www.decidim.org" target="_blank">link</a></p>')
         end
 
         it "does not create br tag inside a tag" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys([:left, :left, :left, :left])
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys([:shift, :enter])
-          expect(find(
-            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" target="_blank">link</a></p>')
+          expect_editor_content('<p>foo<br><br><a href="https://www.decidim.org" target="_blank">link</a></p>')
         end
       end
 

@@ -9,6 +9,8 @@ module Decidim
       layout false
 
       def show
+        enforce_permission_to :read, :authorization
+
         render template: "decidim/authorization_modals/show"
       end
 

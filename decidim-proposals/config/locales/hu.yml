@@ -64,7 +64,6 @@ hu:
               'false': Javaslatok
               'true': Módosítások
           state_eq:
-            label: Állapot
             values:
               accepted: Elfogadva
               evaluating: Értékelés

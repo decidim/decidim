@@ -27,7 +27,10 @@
 }
 
 .title-decorator {
-  @apply h2 md:h1 decorator;
+  @apply h2 md:h1 decorator break-normal;
+
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }
 
 .text-with-links {
@@ -38,7 +41,7 @@
 
 /* default styles for those dynamic text blocks */
 .editor-content {
-  @apply prose max-w-full text-gray-2 text-lg prose-a:text-secondary break-words prose-ul:pl-4;
+  @apply prose max-w-full text-gray-2 text-lg prose-a:text-secondary break-words prose-ul:pl-8 prose-ol:pl-8;
 
   iframe {
     @apply w-full block max-w-[600px] max-h-[70vh] h-[450px] my-10 mx-auto;

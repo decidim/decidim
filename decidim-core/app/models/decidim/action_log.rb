@@ -12,7 +12,11 @@ module Decidim
                foreign_key: :decidim_organization_id,
                class_name: "Decidim::Organization"
 
-    belongs_to :user, class_name: "Decidim::UserBaseEntity"
+    # As we need to generate logs that do not have a certain user (see #17282),
+    # we need to allow user to be optional.
+    belongs_to :user,
+               class_name: "Decidim::UserBaseEntity",
+               optional: true
 
     belongs_to :component,
                foreign_key: :decidim_component_id,
@@ -198,6 +202,8 @@ module Decidim
     # Lazy loads the `user` association through BatchLoader, can be used
     # as a regular object.
     def user_lazy(cache: true)
+      return if user_id.blank? || user_type.blank?
+
       self.class.lazy_relation(user_id, user_type, cache)
     end
 
@@ -245,7 +251,7 @@ module Decidim
                 elsif klass.reflect_on_association(:organization)
                   scope.where(id: relation_ids).includes(:organization)
                 elsif klass_name == "Decidim::Comments::Comment"
-                  scope.where(id: relation_ids).includes([:moderation, :root_commentable])
+                  scope.where(id: relation_ids).includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }])
                 else
                   scope
                 end

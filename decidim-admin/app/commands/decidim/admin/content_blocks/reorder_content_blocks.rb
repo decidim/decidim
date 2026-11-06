@@ -47,9 +47,8 @@ module Decidim
         end
 
         def reset_weights
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           collection.where.not(weight: nil).update_all(weight: nil)
-          # rubocop:enable Rails/SkipsModelValidations
         end
 
         def set_new_weights
@@ -80,6 +79,7 @@ module Decidim
         end
 
         def collection
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- ContentBlock.for_scope scopes by the given organization
           @collection ||= Decidim::ContentBlock.for_scope(scope, organization:).where(scoped_resource_id:)
         end
       end

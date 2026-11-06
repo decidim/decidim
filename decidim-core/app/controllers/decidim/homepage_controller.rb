@@ -3,6 +3,9 @@
 module Decidim
   class HomepageController < Decidim::ApplicationController
     skip_before_action :store_current_location
-    def show; end
+
+    def show
+      enforce_permission_to :read, :homepage
+    end
   end
 end

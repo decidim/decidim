@@ -24,6 +24,7 @@ describe "Admin manages static page content blocks" do
           find("a", text: "Summary").click
         end
       end
+      expect(page).to have_callout("Content block successfully created.")
 
       expect(Decidim::ContentBlock.count).to eq 1
     end
@@ -42,6 +43,7 @@ describe "Admin manages static page content blocks" do
               find("a", text: "Section").click
             end
           end
+          expect(page).to have_callout("Content block successfully created.")
         end
       end.to change(Decidim::ContentBlock, :count).by number_of_content_blocks
     end
@@ -91,6 +93,7 @@ describe "Admin manages static page content blocks" do
                           en: "<p>Custom privacy policy summary text!</p>"
 
       click_on "Update"
+      expect(page).to have_css("#static_page_title_en:focus")
       visit decidim.page_path(tos_page)
       expect(page).to have_text("Custom privacy policy summary text!")
 

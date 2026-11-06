@@ -40,10 +40,10 @@ shared_examples "manage process steps examples" do
 
     find_by_id("participatory_process_step_start_date_date").click
 
-    fill_in_datepicker :participatory_process_step_start_date_date, with: Time.new.utc.strftime("%d/%m/%Y")
-    fill_in_timepicker :participatory_process_step_start_date_time, with: Time.new.utc.strftime("%H:%M")
-    fill_in_datepicker :participatory_process_step_end_date_date, with: (Time.new.utc + 2.days).strftime("%d/%m/%Y")
-    fill_in_timepicker :participatory_process_step_end_date_time, with: (Time.new.utc + 4.hours).strftime("%H:%M")
+    fill_in_datepicker :participatory_process_step_start_date_date, with: Time.now.utc.strftime("%d/%m/%Y")
+    fill_in_timepicker :participatory_process_step_start_date_time, with: Time.now.utc.strftime("%H:%M")
+    fill_in_datepicker :participatory_process_step_end_date_date, with: (Time.now.utc + 2.days).strftime("%d/%m/%Y")
+    fill_in_timepicker :participatory_process_step_end_date_time, with: (Time.now.utc + 4.hours).strftime("%H:%M")
 
     within ".new_participatory_process_step" do
       click_on "Create"
@@ -53,8 +53,8 @@ shared_examples "manage process steps examples" do
 
     within "#steps table" do
       expect(page).to have_text(translated(attributes[:title]))
-      expect(page).to have_text(Time.new.utc.day)
-      expect(page).to have_text((Time.new.utc + 2.days).day)
+      expect(page).to have_text(Time.now.utc.day)
+      expect(page).to have_text((Time.now.utc + 2.days).day)
     end
     visit decidim_admin.root_path
     expect(page).to have_text("created the #{translated(attributes[:title])} phase in")

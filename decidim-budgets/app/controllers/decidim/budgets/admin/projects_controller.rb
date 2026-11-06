@@ -15,10 +15,6 @@ module Decidim
 
         helper_method :projects, :finished_orders, :pending_orders, :present, :project_ids
 
-        def collection
-          @collection ||= budget.projects.page(params[:page]).per(15)
-        end
-
         def new
           enforce_permission_to :create, :project
           @form = form(ProjectForm).from_params(
@@ -71,7 +67,7 @@ module Decidim
         def update_taxonomies
           enforce_permission_to :update, :project_taxonomy
 
-          UpdateResourcesTaxonomies.call(params[:taxonomies], Decidim::Budgets::Project.where(id: project_ids), current_organization) do
+          UpdateResourcesTaxonomies.call(params[:taxonomies], budget.projects.where(id: project_ids), current_organization) do
             on(:invalid_taxonomies) do
               flash[:error] = I18n.t(
                 "projects.update_taxonomies.select_a_taxonomy",
@@ -104,7 +100,7 @@ module Decidim
         def update_selected
           enforce_permission_to :update, :project_selected
 
-          ::Decidim::Budgets::Admin::UpdateProjectSelection.call(params.dig(:selected, "value"), project_ids) do
+          ::Decidim::Budgets::Admin::UpdateProjectSelection.call(params.dig(:selected, "value"), project_ids, current_component) do
             on(:invalid_selection) do
               flash.now[:error] = t(
                 "projects.update_selected.select_a_selection",
@@ -138,7 +134,7 @@ module Decidim
 
         def update_budget
           enforce_permission_to :update, :project, project: sample_project
-          ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids) do
+          ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids, current_component) do
             on(:invalid_project_ids) do
               flash.now[:alert] = t("projects.update_budget.select_a_project", scope: "decidim.budgets.admin")
             end
@@ -163,6 +159,10 @@ module Decidim
 
         private
 
+        def collection
+          @collection ||= budget.projects.includes(:taxonomies).page(params[:page]).per(15)
+        end
+
         def trashable_deleted_resource_type
           :project
         end
@@ -180,7 +180,7 @@ module Decidim
         end
 
         def orders
-          @orders ||= Order.where(budget:)
+          @orders ||= Order.where(budget:) # rubocop:disable Decidim/OrganizationScopedFinder -- budget is scoped to current_component in ApplicationController
         end
 
         def project_ids
@@ -190,7 +190,9 @@ module Decidim
         def reference_budget
           return unless params[:reference_id]
 
-          Budget.find(params.expect(:reference_id))
+          Budget.joins(:component)
+                .where(component: { participatory_space: current_participatory_space })
+                .find(params.expect(:reference_id))
         end
 
         def pending_orders
@@ -204,7 +206,7 @@ module Decidim
         def sample_project
           return if project_ids.empty?
 
-          Decidim::Budgets::Project.find(project_ids.first)
+          budget.projects.find(project_ids.first)
         end
 
         def project

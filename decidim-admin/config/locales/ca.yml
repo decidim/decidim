@@ -50,7 +50,7 @@ ca:
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
-        comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
+        comments_max_length: Caràcters màxims per comentari (deixar a 0 per al valor predeterminat)
         customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
@@ -606,7 +606,7 @@ ca:
           success: Accés com a membre eliminat correctament.
         edit:
           title: Editar membre
-          update: Actualizar
+          update: Actualitzar
         form:
           email: Correu electrònic
           invite_explanation: Es convidarà a la participant a unir-se a l'organització.
@@ -977,6 +977,10 @@ ca:
           logos:
             organization_logos: Logotip de l'organització
             preview: Previsualitzar
+          machine_translation_display_priority:
+            options:
+              original: El sistema mostra la informació en l'idioma utilitzat per l'autora. El contingut creat des del tauler d'administració amb traduccions manuals mostrarà els valors traduïts per l'administradora.
+              translation: El sistema mostrarà una traducció si està disponible, en cas contrari es farà servir l'idioma original.
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: X
@@ -1324,7 +1328,7 @@ ca:
       file_help:
         attachment:
           explanation: 'Instruccions per al fitxer:'
-          message_1: S'admeten fitxers CSV, JSON y Excel (.xlsx)
+          message_1: S'admeten fitxers CSV, JSON i Excel (.xlsx)
           message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
     moderations:
       actions:

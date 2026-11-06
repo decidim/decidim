@@ -122,9 +122,9 @@ fr-CA:
               'false': Propositions
               'true': Amendements
           proposal_state_id_eq:
-            label: État
+            label: État 
           state_eq:
-            label: État
+            label: État 
             values:
               accepted: Acceptée
               evaluating: En cours d'évaluation
@@ -578,6 +578,7 @@ fr-CA:
             number_of_proposals: Les réponses de %{number} propositions seront publiées ?
             select_a_proposal: Veuillez sélectionner une proposition.
           show:
+            address: Adresse
             amendments_count: Nombre d'amendements
             assigned_evaluators: Évaluateurs assignés
             body: Corps

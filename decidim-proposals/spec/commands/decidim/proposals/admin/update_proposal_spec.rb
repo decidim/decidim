@@ -32,11 +32,12 @@ describe Decidim::Proposals::Admin::UpdateProposal do
   let(:current_files) { [file] }
 
   describe "call" do
+    let(:title) { { en: "A reasonable proposal title" } }
     let(:body) { { en: "A reasonable proposal body" } }
 
     let(:form_params) do
       {
-        title: { en: "A reasonable proposal title" },
+        title:,
         body:,
         address:,
         has_address:,
@@ -114,6 +115,19 @@ describe Decidim::Proposals::Admin::UpdateProposal do
         end
       end
 
+      context "when title has a user mention" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:) }
+        let(:title) { { en: "A reasonable proposal title mentioning @#{mentioned_user.nickname}" } }
+
+        it "does not rewrite the mention to the mentioned user GID" do
+          command.call
+          proposal.reload
+
+          expect(translated(proposal.title)).not_to include(mentioned_user.to_global_id.to_s)
+          expect(translated(proposal.title)).to include("@#{mentioned_user.nickname}")
+        end
+      end
+
       context "when geocoding is enabled" do
         let(:component) { create(:proposal_component, :with_geocoding_enabled) }
 
@@ -177,6 +191,25 @@ describe Decidim::Proposals::Admin::UpdateProposal do
           let(:command) { described_class.new(form, resource) }
           let(:resource_class) { Decidim::Proposals::Proposal }
           let(:attachment_params) { { title: "" } }
+        end
+      end
+
+      context "when deleting an attachment" do
+        let(:attachment_params) { { id: file.id, delete_file: true } }
+
+        it "deletes the attachment" do
+          expect { command.call }.to change(Decidim::Attachment, :count).by(-1)
+        end
+      end
+
+      context "when deleting an attachment from another organization" do
+        let(:other_component) { create(:proposal_component) }
+        let!(:other_proposal) { create(:proposal, component: other_component) }
+        let!(:other_file) { create(:attachment, :with_pdf, attached_to: other_proposal) }
+        let(:attachment_params) { { id: other_file.id, delete_file: true } }
+
+        it "does not delete the other attachment" do
+          expect { command.call }.not_to(change(Decidim::Attachment, :count))
         end
       end
     end

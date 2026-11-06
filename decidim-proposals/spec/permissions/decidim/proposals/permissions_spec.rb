@@ -56,6 +56,27 @@ describe Decidim::Proposals::Permissions do
     it_behaves_like "permission is not set"
   end
 
+  context "when reading a proposal" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :proposal }
+    end
+
+    context "when listing proposals without a specific proposal" do
+      let(:proposal) { nil }
+      let(:user) { nil }
+
+      it { is_expected.to be true }
+    end
+
+    context "when the proposal is hidden" do
+      before do
+        allow(proposal).to receive(:hidden?).and_return(true)
+      end
+
+      it { is_expected.to be false }
+    end
+  end
+
   context "when creating a proposal" do
     let(:action) do
       { scope: :public, action: :create, subject: :proposal }

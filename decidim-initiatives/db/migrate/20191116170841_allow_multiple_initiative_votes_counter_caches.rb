@@ -21,9 +21,8 @@ class AllowMultipleInitiativeVotesCounterCaches < ActiveRecord::Migration[5.2]
         counters["total"] = count
       end
 
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       initiative.update_column("online_votes", online_votes)
-      # rubocop:enable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_initiatives, :initiative_supports_count

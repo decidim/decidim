@@ -71,9 +71,8 @@ module Decidim
 
       describe "#encrypted_metadata" do
         before do
-          # rubocop:disable RSpec/AnyInstance
+          # rubocop:disable-next RSpec/AnyInstance
           allow_any_instance_of(described_class).to receive(:metadata).and_return(personal_data)
-          # rubocop:enable RSpec/AnyInstance
         end
 
         subject { described_class.from_params(attributes).with_context(context).encrypted_metadata }
@@ -136,9 +135,8 @@ module Decidim
           # personal data collection step. This mock allows us to test the
           # authorized_scopes considering different signature_scope_id values
           #
-          # rubocop:disable RSpec/AnyInstance
+          # rubocop:disable-next RSpec/AnyInstance
           allow_any_instance_of(described_class).to receive(:signature_scope_id).and_return(user_scope.id)
-          # rubocop:enable RSpec/AnyInstance
         end
 
         subject { form.authorized_scopes }

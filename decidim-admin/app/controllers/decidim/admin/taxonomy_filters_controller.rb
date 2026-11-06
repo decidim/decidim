@@ -88,11 +88,11 @@ module Decidim
       end
 
       def root_taxonomy
-        @root_taxonomy ||= Taxonomy.roots.find(params.expect(:taxonomy_id))
+        @root_taxonomy ||= current_organization.taxonomies.roots.find(params.expect(:taxonomy_id))
       end
 
       def taxonomy_filter
-        @taxonomy_filter ||= TaxonomyFilter.find_by(id: params[:id])
+        @taxonomy_filter ||= collection.find_by(id: params[:id])
       end
 
       def set_taxonomies_breadcrumb_item

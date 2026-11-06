@@ -27,6 +27,60 @@ module Decidim
 
       "http"
     end
+
+    def expire_browser_session(wait: Capybara.default_max_wait_time)
+      wait_pending_requests(wait)
+
+      travel(Decidim.config.expire_session_after + 1.second) do
+        yield
+      end
+    end
+
+    # Clear the buffers and background connections by taking the browser to
+    # offline state for a tiny moment. If a block is given, any further commands
+    # can be run during the offline state.
+    def force_browser_offline_state
+      page.driver.browser.execute_cdp(
+        "Network.emulateNetworkConditions",
+        offline: true,
+        latency: 0,
+        downloadThroughput: 0,
+        uploadThroughput: 0
+      )
+      sleep 0.05
+
+      yield if block_given?
+    ensure
+      page.driver.browser.execute_cdp(
+        "Network.emulateNetworkConditions",
+        offline: false,
+        latency: 0,
+        downloadThroughput: -1,
+        uploadThroughput: -1
+      )
+    end
+
+    # Waits for any pending requests to finish and clears any active browser
+    # background connections after that.
+    def wait_pending_requests(max_wait_time = Capybara.default_max_wait_time, idle_time: 1)
+      wait_time = 0
+      loop do
+        time_since_last_asset = page.evaluate_script(
+          <<~JS
+            performance.now() - Math.max(...window.performance.getEntriesByType("resource").map((r) => r.responseEnd), 0)
+          JS
+        )
+        break if time_since_last_asset > (idle_time * 1000)
+
+        remaining_wait_time = max_wait_time - wait_time
+        raise StandardError, "Requests still pending." if remaining_wait_time <= 0
+
+        sleep_time = [idle_time, remaining_wait_time].min
+        sleep sleep_time
+        wait_time += sleep_time
+      end
+      force_browser_offline_state
+    end
   end
 end
 

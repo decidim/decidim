@@ -2,6 +2,7 @@
   <span><%= t("decidim.menu.home") %></span>
 <% end %>
 <% truncatable_items = breadcrumb_items.compact_blank.drop(1) %>
+<% current_page_item = breadcrumb_items.compact_blank.select { |breadcrumb_item| breadcrumb_item[:active] }.last %>
 <% breadcrumb_items.each do |item| %>
   <% next if item.blank? %>
 
@@ -16,7 +17,7 @@
   <% end %>
   <span aria-hidden="true"><%= icon "arrow-right-s-line", class: "fill-white" %></span>
   <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
-    <%= link_to item[:url], class: trigger_classes.join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), "aria-current": (item[:active] ? "page" : nil) do %>
+    <%= link_to item[:url], class: trigger_classes.join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), "aria-current": (item == current_page_item ? "page" : nil) do %>
       <% if truncatable %>
         <span class="menu-bar__breadcrumb-desktop__label--truncatable">
           <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= item_label %></span>
@@ -27,7 +28,7 @@
     <% end %>
   <% else %>
     <%# This block is executed if the condition is false %>
-    <%= content_tag :span, class: [*trigger_classes, "no-interactive"].join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), "aria-current": (item[:active] ? "page" : nil) do %>
+    <%= content_tag :span, class: [*trigger_classes, "no-interactive"].join(" "), data: (truncatable ? { breadcrumb_truncate_target: "item" } : {}), "aria-current": (item == current_page_item ? "page" : nil) do %>
       <% if truncatable %>
         <span class="menu-bar__breadcrumb-desktop__label--truncatable">
           <span class="menu-bar__breadcrumb-text" data-breadcrumb-truncate-target="text"><%= item_label %></span>

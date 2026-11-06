@@ -171,7 +171,7 @@ module Decidim
       end
 
       def create_services!(meeting:, amount:)
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         Decidim::Meetings::Service.insert_all(
           amount.times.map do
             {
@@ -181,7 +181,6 @@ module Decidim
             }
           end
         )
-        # rubocop:enable Rails/SkipsModelValidations
       end
 
       def create_questionnaire_for!(meeting:)
@@ -208,7 +207,7 @@ module Decidim
           dummy_registration = Decidim::Meetings::Registration.new(meeting:)
           Decidim::Meetings::Registrations.code_generator.generate(dummy_registration)
         end
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         Decidim::Meetings::Registration.insert_all(
           codes.map do |decidim_user_id, code|
             {
@@ -218,7 +217,6 @@ module Decidim
             }
           end
         )
-        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

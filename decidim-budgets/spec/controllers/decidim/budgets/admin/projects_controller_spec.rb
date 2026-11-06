@@ -72,6 +72,62 @@ module Decidim
           end
         end
 
+        describe "POST update_taxonomies" do
+          let(:other_org) { create(:organization) }
+          let(:other_taxonomy) { create(:taxonomy, organization: other_org) }
+          let(:other_component) { create(:budgets_component, organization: other_org) }
+          let(:other_budget) { create(:budget, component: other_component) }
+          let(:other_project) { create(:project, budget: other_budget) }
+          let(:taxonomy) { create(:taxonomy, :with_parent, organization: component.organization) }
+          let(:params) do
+            {
+              budget_id: project.budget.id,
+              project_ids: [other_project.id.to_s],
+              taxonomies: { taxonomy.parent_id.to_s => [taxonomy.id.to_s] }
+            }
+          end
+
+          it "does not affect projects from other organizations" do
+            expect(other_project.reload.taxonomies).to be_empty
+
+            allow(controller).to receive(:budget_projects_path).and_return("/projects")
+
+            request_params = params
+            post(:update_taxonomies, params: request_params)
+
+            expect(other_project.reload.taxonomies).to be_empty
+          end
+        end
+
+        describe "POST update_budget" do
+          let(:another_component) do
+            create(:budgets_component, organization: component.organization, participatory_space: component.participatory_space)
+          end
+          let(:another_budget) { create(:budget, component: another_component) }
+
+          it "moves the project to a budget from another component in the same participatory space" do
+            post(:update_budget, params: { budget_id: project.budget.id, project_ids: [project.id.to_s], reference_id: another_budget.id, format: :js })
+
+            expect(project.reload.budget).to eq(another_budget)
+          end
+
+          context "when the reference budget belongs to another organization" do
+            let(:other_organization) { create(:organization) }
+            let(:other_component) { create(:budgets_component, organization: other_organization) }
+            let(:other_budget) { create(:budget, component: other_component) }
+
+            it "rejects the request and does not change the project's budget" do
+              original_budget = project.budget
+
+              expect do
+                post(:update_budget, params: { budget_id: project.budget.id, project_ids: [project.id.to_s], reference_id: other_budget.id, format: :js })
+              end.to raise_error(ActiveRecord::RecordNotFound)
+
+              expect(project.reload.budget).to eq(original_budget)
+            end
+          end
+        end
+
         it_behaves_like "a soft-deletable resource",
                         resource_name: :project,
                         resource_path: :budget_projects_path,

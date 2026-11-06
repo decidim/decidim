@@ -123,7 +123,7 @@ ja:
           proposal_state_id_eq:
             label: ステータス
           state_eq:
-            label: 州(県)
+            label: ステータス
             values:
               accepted: 受理
               evaluating: 評価

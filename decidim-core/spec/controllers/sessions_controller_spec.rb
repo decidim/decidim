@@ -10,7 +10,7 @@ module Decidim
       let(:organization) { create(:organization) }
 
       describe "after_sign_in_path_for" do
-        subject { controller.after_sign_in_path_for(user) }
+        subject { controller.send(:after_sign_in_path_for, user) }
 
         include Decidim::Core::Engine.routes.url_helpers
 

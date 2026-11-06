@@ -8,7 +8,7 @@
     <% if organization.logo.attached? %>
       <%= image_tag(
             organization.attached_uploader(:logo).variant_url(:medium, host: organization.host),
-            style: "max-height: 50px",
+            style: "max-height: 50px; display: inline-block",
             alt: organization_name(organization)
           ) %>
     <% else %>

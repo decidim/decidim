@@ -21,6 +21,8 @@ module Decidim
         OnboardingManager.new(user).pending_action?
       end
 
+      private
+
       def store_onboarding_cookie_data!(user)
         data = onboarding_cookie_data
         return if data.nil?

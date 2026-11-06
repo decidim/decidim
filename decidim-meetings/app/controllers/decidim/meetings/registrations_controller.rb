@@ -100,9 +100,7 @@ module Decidim
         end
       end
 
-      def should_join_waitlist?
-        meeting.waitlist_enabled? && !meeting.has_available_slots? && !meeting.has_registration_for?(current_user)
-      end
+      protected
 
       def allow_responses?
         return false unless meeting.registrations_enabled? && meeting.registration_form_enabled?
@@ -125,6 +123,10 @@ module Decidim
       end
 
       private
+
+      def should_join_waitlist?
+        meeting.waitlist_enabled? && !meeting.has_available_slots? && !meeting.has_registration_for?(current_user)
+      end
 
       def meeting
         @meeting ||= Meeting.where(component: current_component).find(params.expect(:meeting_id))

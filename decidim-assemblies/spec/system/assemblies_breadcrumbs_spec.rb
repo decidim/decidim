@@ -104,4 +104,27 @@ describe "Assemblies Breadcrumb" do
       end
     end
   end
+
+  context "when checking the current page marker" do
+    scenario "marks only the breadcrumb item as the current page on the assemblies index page" do
+      visit decidim_assemblies.assemblies_path(locale: I18n.locale)
+
+      expect(page).to have_css("[aria-current='page']", count: 1, visible: :all)
+      expect(find("[aria-current='page']")).to have_text("Assemblies")
+    end
+
+    scenario "marks only the deepest active breadcrumb item as the current page on an assembly page" do
+      visit decidim_assemblies.assembly_path(parent_assembly, locale: I18n.locale)
+
+      expect(page).to have_css("[aria-current='page']", count: 1, visible: :all)
+      expect(find("[aria-current='page']")).to have_text(translated(parent_assembly.title))
+    end
+
+    scenario "marks only the deepest active breadcrumb item as the current page on a component page" do
+      visit router.root_path
+
+      expect(page).to have_css("[aria-current='page']", count: 1, visible: :all)
+      expect(find("[aria-current='page']")).to have_text(translated(child_assembly.title))
+    end
+  end
 end
