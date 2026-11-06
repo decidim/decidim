@@ -12,9 +12,12 @@ module Decidim
         enforce_permission_to :index, :newsletter
       end
 
-      def show; end
+      def show
+        enforce_permission_to :index, :newsletter
+      end
 
       def preview
+        enforce_permission_to :index, :newsletter
         email = NewsletterMailer.newsletter(current_user, fake_newsletter, true)
         Premailer::Rails::Hook.perform(email)
         render html: email.html_part.body.decoded.html_safe

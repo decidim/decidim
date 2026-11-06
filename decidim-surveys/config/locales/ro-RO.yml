@@ -74,7 +74,6 @@ ro:
         new_survey: Sondaj nou
         preview: Previzualizați
         responses: Răspunsuri
-        responses_alert: Ștergerea răspunsurilor la publicare este activă pentru acest sondaj. Există în prezent %{responses_count} răspunsuri care vor fi eliminate în momentul publicării.
         title: Acțiuni
       admin:
         exports:

@@ -51,7 +51,6 @@ en:
         old_password: Current password
         password: Password
         password_confirmation: Confirm your password
-        personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
     errors:
@@ -118,8 +117,6 @@ en:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -252,6 +249,7 @@ en:
         create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         export_component: "%{user_name} exported the %{resource_name} %{component_name} in %{space_name} as %{format_name}"
+        menu_hidden: "%{user_name} hid the %{resource_name} component from the menu in the %{space_name} space"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         restore: "%{user_name} restored the %{resource_name} component in the %{space_name} space"
         soft_delete: "%{user_name} moved to trash the %{resource_name} component in the %{space_name} space"
@@ -829,7 +827,6 @@ en:
           officialized_at: The date and time when this user was officialized
           organization: The organization that this user belongs to
           password_updated_at: The date when their password was changed for the last time
-          personal_url: The personal URL of this user
           remember_created_at: The date and time when the user was selected to be remembered
           reset_password_sent_at: The date and time when the password reset was sent
           roles: The role this user has, if they has any
@@ -862,6 +859,8 @@ en:
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
+        file_contains_unsafe_content: The file contains unsafe content
+        file_is_not_a_valid_image: The file is not a valid image
         file_resolution_too_large: File resolution is too large
         not_inside_organization: The file is not attached to any organization.
       internal_server_error:

@@ -26,7 +26,7 @@ describe "Admin reports user" do
 
       within ".flag-user-modal" do
         expect(page).to have_text("Report inappropriate participant")
-        find(:css, "input[name='report[block]']").set(true)
+        find_field(name: "report[block]").set(true)
         expect(page).to have_field(name: "report[block]", visible: :visible)
         expect(page).to have_field(name: "report[hide]", visible: :visible)
         click_on I18n.t("decidim.shared.flag_user_modal.block")
@@ -50,8 +50,8 @@ describe "Admin reports user" do
 
       within ".flag-user-modal" do
         expect(page).to have_text("Report inappropriate participant")
-        find(:css, "input[name='report[block]']").set(true)
-        find(:css, "input[name='report[hide]']").set(true)
+        find_field(name: "report[block]").set(true)
+        find_field(name: "report[hide]").set(true)
         expect(page).to have_field(name: "report[block]", visible: :visible)
         expect(page).to have_field(name: "report[hide]", visible: :visible)
         click_on I18n.t("decidim.shared.flag_user_modal.block")

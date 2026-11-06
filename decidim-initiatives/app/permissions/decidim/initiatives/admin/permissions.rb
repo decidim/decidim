@@ -20,6 +20,7 @@ module Decidim
             initiative_user_action?
             attachment_action?
             initiatives_settings_action?
+            resource_permission_action?
 
             return permission_action
           end
@@ -172,6 +173,14 @@ module Decidim
                         permission_action.subject == :initiatives_settings
 
           toggle_allow(user.admin?)
+        end
+
+        def resource_permission_action?
+          return unless permission_action.subject == :resource_permission &&
+                        permission_action.action == :update
+          return unless initiative.created?
+
+          allow!
         end
 
         def moderator_action?

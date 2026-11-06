@@ -66,10 +66,13 @@ module Decidim
         # @return [Decidim::Comments::Comment]
         def create_comment(resource, root_commentable = nil, comments_count: 0)
           author = random_user
+          root = root_commentable || resource
+          space = root.respond_to?(:participatory_space) ? root.participatory_space : root
 
           params = {
             commentable: resource,
-            root_commentable: root_commentable || resource,
+            root_commentable: root,
+            participatory_space: space,
             body: { en: ::Faker::Lorem.sentence(word_count: 50) },
             author:,
             depth: root_commentable.is_a?(Decidim::Comments::Comment) ? 1 : 0,
@@ -99,7 +102,7 @@ module Decidim
           voting_author_ids = CommentVote.where(comment:).pluck(:decidim_author_id)
           author_ids = random_users.where.not(id: voting_author_ids).sample(config_value(:comments_votes_per_comment_count)).pluck(:id)
 
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           CommentVote.insert_all(
             author_ids.map do |author_id|
               {
@@ -110,7 +113,6 @@ module Decidim
               }
             end
           )
-          # rubocop:enable Rails/SkipsModelValidations
 
           up_votes_count = CommentVote.where(decidim_comment_id: comment, weight: 1).count
           down_votes_count = CommentVote.where(decidim_comment_id: comment.id, weight: -1).count

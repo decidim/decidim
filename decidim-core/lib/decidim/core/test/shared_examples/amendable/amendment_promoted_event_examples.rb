@@ -18,7 +18,6 @@ shared_examples "amendment promoted event" do
   let(:email_subject) { "An amendment from #{emendation_author_name} has been published as a new proposal" }
   let(:email_intro) { "A rejected amendment for #{amendable_title} has been published as a new #{amendable_type}. You can see it from this page:" }
   let(:email_outro) { "You have received this notification because you are following #{amendable_title}. You can stop receiving notifications following the previous link." }
-  # rubocop:disable Layout/LineLength
+  # rubocop:disable-next Layout/LineLength
   let(:notification_title) { "A <a href=\"#{emendation_path}\">rejected amendment</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> has been published as a new #{amendable_type} by <a href=\"#{emendation_author_path}\">#{emendation_author_name}</a>." }
-  # rubocop:enable Layout/LineLength
 end

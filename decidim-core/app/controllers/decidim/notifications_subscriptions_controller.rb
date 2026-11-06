@@ -6,11 +6,15 @@ module Decidim
     rescue_from Decidim::NotificationsSubscriptionsPersistor::UnsupportedPushSubscriptionEndpointError, with: :unsupported_browser
 
     def create
+      enforce_permission_to(:update, :user, current_user:)
+
       Decidim::NotificationsSubscriptionsPersistor.new(current_user).add_subscription(params)
       head :ok
     end
 
     def destroy
+      enforce_permission_to(:update, :user, current_user:)
+
       Decidim::NotificationsSubscriptionsPersistor.new(current_user).delete_subscription(params[:auth])
       head :ok
     end

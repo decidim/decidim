@@ -149,9 +149,7 @@ shared_examples "proposals wizards" do |options|
 
         it "can discard the draft" do
           expect(page).to have_link("Discard this draft")
-          click_on "Discard this draft"
-
-          accept_confirm
+          accept_confirm { click_on "Discard this draft" }
 
           expect(page).to have_callout("Proposal draft was successfully deleted.")
           within "#wizard-steps" do
@@ -217,6 +215,7 @@ shared_examples "proposals wizards" do |options|
 
       it "shows the activity logs" do
         click_on "Publish"
+        expect(page).to have_callout("Proposal successfully published.")
 
         visit decidim.last_activities_path
         expect(page).to have_text("New proposal: #{translated(proposal_draft.title)}")
@@ -272,6 +271,7 @@ shared_examples "proposals wizards" do |options|
       login_as user, scope: :user
       visit_component
       click_on "New proposal"
+      expect(page).to have_css("h1", text: "Create new proposal")
     end
 
     it_behaves_like "with address" if options[:with_address]

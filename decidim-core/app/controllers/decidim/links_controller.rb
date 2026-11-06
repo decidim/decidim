@@ -15,6 +15,8 @@ module Decidim
     rescue_from URI::InvalidURIError, with: :modal
 
     def new
+      enforce_permission_to :read, :link
+
       headers["X-Robots-Tag"] = "none"
       headers["Link"] = %(<#{url_for}>; rel="canonical")
     end

@@ -12,6 +12,8 @@ module Decidim
     helper_method :term
 
     def index
+      enforce_permission_to :read, :search
+
       Search.call(term, current_organization, filters, page_params) do
         on(:ok) do |results|
           results_count = results.sum { |results_by_type| results_by_type.last[:count] }

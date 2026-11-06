@@ -52,6 +52,7 @@ module Decidim
       end
 
       def close_session
+        enforce_permission_to :close_session, :managed_user
         CloseSessionManagedUser.call(user, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("impersonations.close_session.success", scope: "decidim.admin")
@@ -82,7 +83,7 @@ module Decidim
         )
         return nil unless handler.unique_id
 
-        existing_authorization = Authorization.find_by(
+        existing_authorization = Authorization.find_by( # rubocop:disable Decidim/OrganizationScopedFinder -- user: subquery scopes to current_organization
           user: User.where(organization: current_organization),
           name: handler_name,
           unique_id: handler.unique_id

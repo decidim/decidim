@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-# rubocop:disable RSpec/MultipleMemoizedHelpers
+# rubocop:disable-next RSpec/MultipleMemoizedHelpers
 module Decidim
   module Assemblies
     module Admin
@@ -434,4 +434,3 @@ module Decidim
     end
   end
 end
-# rubocop:enable RSpec/MultipleMemoizedHelpers

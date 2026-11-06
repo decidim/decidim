@@ -6,6 +6,8 @@ module Decidim
     class RegistrationsController < Decidim::Meetings::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
 
+      before_action :ensure_signed_in, only: [:create, :decline_invitation]
+
       def respond
         enforce_permission_to(:join, :meeting, meeting:)
 
@@ -100,9 +102,7 @@ module Decidim
         end
       end
 
-      def should_join_waitlist?
-        meeting.waitlist_enabled? && !meeting.has_available_slots? && !meeting.has_registration_for?(current_user)
-      end
+      protected
 
       def allow_responses?
         return false unless meeting.registrations_enabled? && meeting.registration_form_enabled?
@@ -126,12 +126,29 @@ module Decidim
 
       private
 
+      def should_join_waitlist?
+        meeting.waitlist_enabled? && !meeting.has_available_slots? && !meeting.has_registration_for?(current_user)
+      end
+
       def meeting
         @meeting ||= Meeting.where(component: current_component).find(params.expect(:meeting_id))
       end
 
       def redirect_after_path
         redirect_to meeting_path(meeting)
+      end
+
+      def ensure_signed_in
+        return if user_signed_in?
+
+        case action_name
+        when "create"
+          flash[:alert] = t("registrations.create.unauthorized", scope: "decidim.meetings")
+        when "decline_invitation"
+          flash[:alert] = t("registrations.decline_invitation.unauthorized", scope: "decidim.meetings")
+        end
+
+        redirect_to decidim.new_user_session_path
       end
 
       def user_has_no_permission_path

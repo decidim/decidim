@@ -8,6 +8,8 @@ module Decidim
     # The index action redirects the user to the application root in case
     # someone tries to request the short link URL without an identifier.
     def index
+      enforce_permission_to :read, :short_link
+
       redirect_to decidim.root_path, status: :moved_permanently
     end
 
@@ -18,6 +20,8 @@ module Decidim
     # @raise [ActionController::RoutingError] if a short link does not exist
     #   with the given identifier
     def show
+      enforce_permission_to :read, :short_link
+
       raise ActionController::RoutingError, "Not Found" unless link
 
       redirect_to link.target_url, status: :moved_permanently

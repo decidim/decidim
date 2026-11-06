@@ -282,6 +282,7 @@ en:
           error: There was a problem adding a registration type for this conference.
           success: Conference registration type successfully added.
         destroy:
+          error: There was a problem removing this registration type. Registration types with registrations cannot be removed.
           success: Conference registration type successfully removed.
         edit:
           update: Update

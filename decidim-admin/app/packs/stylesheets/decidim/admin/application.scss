@@ -1,3 +1,9 @@
+@use "stylesheets/decidim/tokens/colors";
+@use "stylesheets/decidim/tokens/measures";
+@use "stylesheets/decidim/tokens/borders";
+@use "stylesheets/decidim/tokens/gradients";
+@use "stylesheets/decidim/tokens/shadows";
+@use "stylesheets/decidim/tokens/aliases";
 @use "stylesheets/decidim/admin/forms";
 @use "stylesheets/decidim/admin/color_picker";
 @use "stylesheets/decidim/admin/main-nav";
@@ -26,18 +32,3 @@
 @use "stylesheets/decidim/admin/proposal_status";
 @use "stylesheets/decidim/admin/user_picker";
 @use "stylesheets/decidim/editor_suggestions";
-
-:root {
-  --primary: #e02d2d;
-  --primary-rgb: 224 45 45;
-  --secondary: #155abf;
-  --secondary-rgb: 21 90 191;
-  --tertiary: #ebc34b;
-  --tertiary-rgb: 235 195 75;
-  --success: #28a745;
-  --success-rgb: 40 167 69;
-  --warning: #ffb703;
-  --warning-rgb: 255 183 3;
-  --alert: #e7131a;
-  --alert-rgb: 231 19 26;
-}
