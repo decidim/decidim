@@ -5,7 +5,7 @@ RSpec.shared_examples "attachable mutations" do |supports_collection:|
   let(:other) { create(:participatory_process, organization: model.organization) }
   let!(:attachments) { create_list(:attachment, 2, attached_to:) }
   let(:uploaded_file) do
-    upload(Rack::Test::UploadedFile.new(Decidim::Dev.asset("city.jpeg"), "image/jpeg", original_filename: "city.jpeg"))
+    api_upload(Rack::Test::UploadedFile.new(Decidim::Dev.asset("city.jpeg"), "image/jpeg", original_filename: "city.jpeg"))
   end
   let(:attributes) do
     {

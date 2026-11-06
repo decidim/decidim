@@ -29,10 +29,10 @@ shared_context "with a graphql class type" do
     execute_query query, variables.stringify_keys
   end
 
-  # The GraphQL upload type only accepts the file wrapper created by the multipart
-  # request middleware, so the files used in the specs are wrapped the same way a
-  # real multipart request delivers them.
-  def upload(file)
+  # The API GraphQL upload type only accepts the file wrapper created by the
+  # multipart request middleware, so the files used in the specs are wrapped the
+  # same way a real multipart request delivers them.
+  def api_upload(file)
     ApolloUploadServer::Wrappers::UploadedFile.new(file)
   end
 

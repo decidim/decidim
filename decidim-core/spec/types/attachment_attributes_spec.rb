@@ -32,7 +32,7 @@ module Decidim
         }
       end
       let(:file) do
-        upload(
+        api_upload(
           Rack::Test::UploadedFile.new(
             Decidim::Dev.asset("city.jpeg"),
             "image/jpeg",
@@ -58,7 +58,7 @@ module Decidim
         # name is allowed, so the blob is stored, and the attachment is then
         # rejected by the model validation, which checks the file signature.
         let(:file) do
-          upload(
+          api_upload(
             Rack::Test::UploadedFile.new(
               Tempfile.create(["empty", ".jpg"]).path,
               "image/jpeg",

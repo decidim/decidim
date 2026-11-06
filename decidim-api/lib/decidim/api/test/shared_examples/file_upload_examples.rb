@@ -53,7 +53,7 @@ shared_examples "file upload validation rules" do
 
   context "when the file extension is not supported" do
     let(:file) do
-      upload(Rack::Test::UploadedFile.new(Tempfile.create(["foo", ".xyz"]).path, "application/jpeg"))
+      api_upload(Rack::Test::UploadedFile.new(Tempfile.create(["foo", ".xyz"]).path, "application/jpeg"))
     end
 
     it "does not store the file" do
@@ -63,7 +63,7 @@ shared_examples "file upload validation rules" do
 
   context "when the file name has no extension" do
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           Decidim::Dev.asset("city.jpeg"),
           "image/jpeg",
@@ -79,7 +79,7 @@ shared_examples "file upload validation rules" do
 
   context "when the content type declared by the client is not allowed" do
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           Decidim::Dev.asset("city.jpeg"),
           "application/zip",
@@ -96,7 +96,7 @@ shared_examples "file upload validation rules" do
   context "when the content type detected from the file contents is not allowed" do
     let!(:tempfile) { Tempfile.create(["spoofed", ".png"]) }
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           tempfile.path,
           "image/png",
@@ -119,7 +119,7 @@ shared_examples "file upload validation rules" do
 
   context "when the SVG document contains active content" do
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           Decidim::Dev.asset("malicious_svg_script.svg"),
           "image/svg+xml",
@@ -141,7 +141,7 @@ shared_examples "file upload validation rules" do
 
   context "when the SVG document is not a well formed SVG document" do
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           Decidim::Dev.asset("malformed_svg_unclosed_element.svg"),
           "image/svg+xml",
@@ -161,7 +161,7 @@ shared_examples "file upload validation rules" do
 
   context "when an XML document is declared as SVG" do
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           Decidim::Dev.asset("spoofed_svg_xml.svg"),
           "image/svg+xml",
@@ -181,7 +181,7 @@ shared_examples "file upload validation rules" do
 
   context "when the file size is larger than the configured maximum" do
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           Decidim::Dev.asset("city.jpeg"),
           "image/jpeg",
@@ -201,7 +201,7 @@ shared_examples "file upload validation rules" do
 
   context "when the declared content type is allowed but differs from the file contents" do
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           Decidim::Dev.asset("icon.png"),
           "image/jpeg;charset=binary",
@@ -219,7 +219,7 @@ shared_examples "file upload validation rules" do
 
   context "when the SVG document does not contain active content" do
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           Decidim::Dev.asset("test.svg"),
           "image/svg+xml",
@@ -242,7 +242,7 @@ shared_examples "file upload validation rules" do
     # blob is stored in the entry points which create a record, also accept it.
     let!(:tempfile) { Tempfile.create(["report", ".txt"]) }
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           tempfile.path,
           "text/plain",
@@ -270,7 +270,7 @@ shared_examples "file upload validation rules" do
     # a multipart request would deliver it.
     let(:filename) { "êxämplö®'.pdf".encode("WINDOWS-1252").force_encoding("UTF-8") }
     let(:file) do
-      upload(
+      api_upload(
         Rack::Test::UploadedFile.new(
           Decidim::Dev.asset("Exampledocument.pdf"),
           "application/pdf"

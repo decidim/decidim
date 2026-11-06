@@ -233,7 +233,7 @@ module Decidim
           end
 
           let(:file) do
-            upload(
+            api_upload(
               Rack::Test::UploadedFile.new(
                 Decidim::Dev.asset("city.jpeg"),
                 "image/jpeg",
@@ -288,7 +288,7 @@ module Decidim
             # participant who creates the proposal.
             let!(:tempfile) { Tempfile.create(["report", ".docx"]) }
             let(:file) do
-              upload(
+              api_upload(
                 Rack::Test::UploadedFile.new(
                   tempfile.path,
                   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",

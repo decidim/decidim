@@ -18,7 +18,7 @@ module Decidim
         response["uploadFile"]
       end
       let(:file) do
-        upload(
+        api_upload(
           Rack::Test::UploadedFile.new(
             Decidim::Dev.asset("city.jpeg"),
             "image/jpeg",
