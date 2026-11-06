@@ -10,6 +10,6 @@ eu:
         permission_not_set: Ez da baimenik ezarri %{type} honetarako
         recursion_limit_exceeded_error: Kontsultan atzemandako errekurtso gehiegi
         too_many_aliases_error: Ezizen gehiegi erabiltzen dira. %{size} ezizen erabili dituzu, baina %{limit} onartuta daude.
-        unauthorized_field: Ezin da %{field} %{type} eremua %{type} motan ikusi edo editatu, baimenik ez duzulako
+        unauthorized_field: Ezin duzu %{type} motako %{field} eremua ikusi edo editatu, ez duzulako horretarako baimenik
         unauthorized_mutation: Aldaketa hau egiteko baimenik ez duzu
         unauthorized_object: Ezin da %{type} hau ikusi edo editatu, baimenik ez duzulako

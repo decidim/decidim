@@ -10,9 +10,11 @@ module Decidim
         #
         # selection - Defines if projects are selected (for implementation)
         # project_ids - the project ids to update.
-        def initialize(selection, project_ids)
+        # current_component - the component where the projects belong to.
+        def initialize(selection, project_ids, current_component)
           @selection = selection
           @project_ids = project_ids
+          @current_component = current_component
           @response = { selection_name: "", successful: [], errored: [] }
         end
 
@@ -29,10 +31,10 @@ module Decidim
 
         private
 
-        attr_reader :selection, :project_ids
+        attr_reader :selection, :project_ids, :current_component
 
         def update_projects_selection
-          ::Decidim::Budgets::Project.where(id: project_ids).find_each do |project|
+          ::Decidim::Budgets::Project.joins(:budget).where(budget: { component: current_component }).where(id: project_ids).find_each do |project|
             if (selection == false && !project.selected?) || (selection && project.selected?)
               @response[:errored] << translated_attribute(project.title)
             else

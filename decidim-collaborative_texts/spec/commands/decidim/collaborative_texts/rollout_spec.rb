@@ -22,6 +22,7 @@ module Decidim
           draft?: draft,
           current_user: user,
           current_organization: organization,
+          current_component: document.component,
           accepted_suggestions: document.suggestions.where(id: accepted_suggestion.id),
           pending_suggestions: document.suggestions.where(id: pending_suggestion.id)
         )
@@ -79,6 +80,16 @@ module Decidim
           expect(pending_suggestion.document_version).to eq(document.document_versions.last)
         end
 
+        it "updates the suggestions counters of the affected versions" do
+          expect(document.document_versions.first.suggestions_count).to eq(2)
+
+          subject.call
+
+          expect(document.document_versions.first.reload.suggestions_count).to eq(1)
+          expect(document.document_versions.last.reload.suggestions_count).to eq(1)
+          expect(document.reload.suggestions_count).to eq(2)
+        end
+
         context "when the form is a draft" do
           let(:draft) { true }
 
@@ -94,7 +105,108 @@ module Decidim
             expect(accepted_suggestion.reload.document_version).to eq(pending_suggestion.reload.document_version)
             expect(accepted_suggestion.document_version).to eq(document.document_versions.first)
           end
+
+          it "does not change the suggestions counters" do
+            subject.call
+
+            expect(document.document_versions.first.reload.suggestions_count).to eq(2)
+            expect(document.document_versions.last.reload.suggestions_count).to eq(0)
+          end
         end
+
+        context "with concurrent calls" do
+          include_context "with concurrency"
+
+          let(:changeset) do
+            {
+              "firstNode" => "1",
+              "lastNode" => "2",
+              "original" => ["Original line"],
+              "replace" => ["Replacement line"]
+            }
+          end
+
+          let(:suggestion_form) do
+            double(
+              invalid?: false,
+              author: user,
+              document_version: document.current_version,
+              changeset:,
+              document:,
+              current_user: user,
+              current_organization: organization,
+              current_component: document.component
+            )
+          end
+
+          it "does not deadlock when a suggestion is created while pending suggestions are moved" do
+            errors = []
+            gate = Queue.new
+            threads = Array.new(4) do |index|
+              Thread.new do
+                gate.pop
+                if index.zero?
+                  subject.call
+                else
+                  CreateSuggestion.new(suggestion_form).call
+                end
+              rescue ActiveRecord::Deadlocked => e
+                errors << e
+              end
+            end
+            4.times { gate << true }
+            threads.each(&:join)
+
+            expect(errors).to be_empty
+          end
+        end
+      end
+
+      context "when the document belongs to the organization the user is acting in" do
+        it "locks the document through the current component and the versions through the document" do
+          queries = capture_queries { subject.call }
+
+          document_lock = queries.find { |sql| sql.include?("FOR UPDATE") && sql.include?("decidim_collaborative_texts_documents") }
+          version_lock = queries.find { |sql| sql.include?("FOR UPDATE") && sql.include?("decidim_collaborative_texts_versions") }
+
+          expect(document_lock).to include("decidim_component_id")
+          expect(version_lock).to include("document_id")
+        end
+      end
+
+      context "when the document belongs to another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:other_component) { create(:collaborative_text_component, organization: other_organization) }
+        let(:other_document) { create(:collaborative_text_document, :with_body, component: other_component) }
+        let!(:other_suggestion) { create(:collaborative_text_suggestion, :pending, document_version: other_document.current_version) }
+
+        let(:form) do
+          double(
+            invalid?: false,
+            body:,
+            document: other_document,
+            draft: false,
+            draft?: false,
+            current_user: user,
+            current_organization: organization,
+            current_component: document.component,
+            accepted_suggestions: [],
+            pending_suggestions: other_document.suggestions.where(id: other_suggestion.id)
+          )
+        end
+
+        it "does not lock a document from another organization" do
+          expect { subject.call }.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+
+      def capture_queries
+        queries = []
+        subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") { |_, _, _, _, data| queries << data[:sql] }
+        yield
+        queries
+      ensure
+        ActiveSupport::Notifications.unsubscribe(subscriber)
       end
     end
   end

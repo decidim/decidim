@@ -10,9 +10,11 @@ module Decidim
         #
         # destination_budget - the destination budget for which the projects should update to.
         # project_ids - the project ids to update.
-        def initialize(destination_budget, project_ids)
+        # current_component - the component where the projects belong to.
+        def initialize(destination_budget, project_ids, current_component)
           @destination_budget = destination_budget
           @project_ids = project_ids
+          @current_component = current_component
           @response = { selection_name: "", successful: [], errored: [], failed_ids: [] }
         end
 
@@ -27,10 +29,15 @@ module Decidim
 
         private
 
-        attr_reader :selection, :project_ids
+        attr_reader :selection, :project_ids, :current_component
 
         def update_projects_budget
-          ::Decidim::Budgets::Project.includes(:budget, budget: { component: :participatory_space }).where(id: project_ids).find_each do |project|
+          ::Decidim::Budgets::Project
+            .joins(:budget)
+            .where(budget: { component: current_component })
+            .preload(:budget, budget: { component: :participatory_space })
+            .where(id: project_ids)
+            .find_each do |project|
             if update_allowed?(project)
               transaction do
                 project.update!(

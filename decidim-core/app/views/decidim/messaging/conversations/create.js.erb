@@ -1,9 +1,1 @@
-var messagesContainer = document.getElementById("messages");
-if (messagesContainer) {
-  messagesContainer.insertAdjacentHTML("beforeend", "<%= j(render "messages", sender: conversation.messages.first.sender, messages: [conversation.messages.first]).html_safe %>");
-}
-
-const addMessageDiv = document.querySelector("div[data-add-message]");
-if (addMessageDiv) {
-  addMessageDiv.outerHTML = "<%= j(render "reply", form:, conversation:).html_safe %>";
-}
+window.location.href = "<%= conversation_path(conversation) %>";

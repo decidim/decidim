@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A document whose presentation attributes reference elements of the document
+     itself: the paint server, the filter, the clipping path and the marker,
+     which are resolved without fetching any resource. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <defs>
+    <pattern id="paint"><rect width="16" height="16"/></pattern>
+    <filter id="blur"><feGaussianBlur stdDeviation="1"/></filter>
+    <clipPath id="clip"><circle cx="8" cy="8" r="8"/></clipPath>
+    <marker id="arrow" markerWidth="4" markerHeight="4" refX="2" refY="2"><path d="M 0 0 l 4 2 l -4 2 z"/></marker>
+  </defs>
+  <rect width="16" height="16" fill="url(#paint)" stroke="#000" filter="url(#blur)" clip-path="url(#clip)" marker-end="url(#arrow)"/>
+</svg>

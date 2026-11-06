@@ -100,7 +100,7 @@ module Decidim
         def update_selected
           enforce_permission_to :update, :project_selected
 
-          ::Decidim::Budgets::Admin::UpdateProjectSelection.call(params.dig(:selected, "value"), project_ids) do
+          ::Decidim::Budgets::Admin::UpdateProjectSelection.call(params.dig(:selected, "value"), project_ids, current_component) do
             on(:invalid_selection) do
               flash.now[:error] = t(
                 "projects.update_selected.select_a_selection",
@@ -134,7 +134,7 @@ module Decidim
 
         def update_budget
           enforce_permission_to :update, :project, project: sample_project
-          ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids) do
+          ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids, current_component) do
             on(:invalid_project_ids) do
               flash.now[:alert] = t("projects.update_budget.select_a_project", scope: "decidim.budgets.admin")
             end
@@ -160,7 +160,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= budget.projects.page(params[:page]).per(15)
+          @collection ||= budget.projects.includes(:taxonomies).page(params[:page]).per(15)
         end
 
         def trashable_deleted_resource_type
@@ -190,7 +190,9 @@ module Decidim
         def reference_budget
           return unless params[:reference_id]
 
-          Budget.where(component: current_component).find(params.expect(:reference_id))
+          Budget.joins(:component)
+                .where(component: { participatory_space: current_participatory_space })
+                .find(params.expect(:reference_id))
         end
 
         def pending_orders

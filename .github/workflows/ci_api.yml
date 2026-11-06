@@ -34,3 +34,32 @@ jobs:
       working-directory: "decidim-api"
       test_command: bundle exec parallel_test --type rspec --pattern spec/
       bullet_unused_eager_loading: true
+
+  types:
+    name: "Types: ${{ matrix.module }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        module:
+          - decidim-accountability
+          - decidim-assemblies
+          - decidim-blogs
+          - decidim-budgets
+          - decidim-collaborative_texts
+          - decidim-comments
+          - decidim-conferences
+          - decidim-core
+          - decidim-debates
+          - decidim-dev
+          - decidim-forms
+          - decidim-initiatives
+          - decidim-meetings
+          - decidim-pages
+          - decidim-participatory_processes
+          - decidim-proposals
+          - decidim-surveys
+    uses: ./.github/workflows/test_app.yml
+    secrets: inherit
+    with:
+      working-directory: ${{ matrix.module }}
+      test_command: bundle exec parallel_test --type rspec --pattern spec/types/
