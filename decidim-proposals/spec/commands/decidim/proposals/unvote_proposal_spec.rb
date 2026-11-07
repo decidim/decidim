@@ -26,6 +26,16 @@ module Decidim
           command.call
           expect(Decidim::Gamification.status_for(current_user, :proposal_votes).score).to eq(9)
         end
+
+        context "when the vote is temporary" do
+          let!(:proposal_vote) { create(:proposal_vote, author: current_user, proposal:, temporary: true) }
+
+          it "deletes the temporary vote" do
+            expect do
+              command.call
+            end.to change(ProposalVote, :count).by(-1)
+          end
+        end
       end
     end
   end

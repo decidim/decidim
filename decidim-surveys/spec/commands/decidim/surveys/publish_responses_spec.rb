@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Surveys
   describe PublishResponses do
     describe "call" do
-      let(:command) { described_class.new(question.id, current_user) }
+      let(:command) { described_class.new(question.questionnaire, question.id, current_user) }
       let(:question) { create(:questionnaire_question) }
       let(:current_user) { create(:user, :confirmed, :admin) }
 
@@ -34,6 +34,16 @@ module Decidim::Surveys
           )
 
         expect { command.call }.to change(Decidim::ActionLog, :count)
+      end
+
+      context "when the question belongs to another questionnaire" do
+        let(:other_question) { create(:questionnaire_question) }
+        let(:command) { described_class.new(question.questionnaire, other_question.id, current_user) }
+
+        it "does not publish the foreign question" do
+          expect { command.call }.to broadcast(:invalid)
+          expect(other_question.reload.survey_responses_published_at).to be_nil
+        end
       end
     end
   end

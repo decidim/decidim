@@ -69,6 +69,47 @@ module Decidim
 
           expect(Response.first.choices.map(&:body)).to eq(%w(My second response))
         end
+
+        context "when a choice belongs to another question" do
+          let(:other_question) { create(:meetings_poll_question) }
+          let!(:foreign_option) { create(:meetings_poll_response_option, question: other_question, body: { en: "Foreign body" }) }
+          let(:form_params) do
+            {
+              "response" => {
+                "choices" => [
+                  { "response_option_id" => foreign_option.id, "body" => nil }
+                ],
+                "question_id" => question.id
+              }
+            }
+          end
+
+          it "rejects the foreign response option" do
+            expect { command.call }.to broadcast(:invalid)
+            expect(Response.count).to eq(0)
+            expect(form.errors[:choices]).to be_present
+          end
+        end
+
+        context "when the question belongs to another questionnaire" do
+          let(:foreign_question) { create(:meetings_poll_question) }
+          let!(:foreign_option) { create(:meetings_poll_response_option, question: foreign_question) }
+          let(:form_params) do
+            {
+              "response" => {
+                "choices" => [
+                  { "response_option_id" => foreign_option.id }
+                ],
+                "question_id" => foreign_question.id
+              }
+            }
+          end
+
+          it "rejects the foreign question" do
+            expect { command.call }.to broadcast(:invalid)
+            expect(Response.count).to eq(0)
+          end
+        end
       end
     end
   end

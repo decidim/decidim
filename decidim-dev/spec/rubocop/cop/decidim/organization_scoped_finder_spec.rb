@@ -162,6 +162,46 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts where(component: form.current_component).find" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(component: form.current_component).find(params.expect(:id))
+    RUBY
+  end
+
+  it "accepts where(component: form.current_component).find with a form argument" do
+    expect_no_offenses(<<~RUBY)
+      def find_template(form)
+        Template.where(component: form.current_component).find(params.expect(:id))
+      end
+    RUBY
+  end
+
+  it "accepts find_or_initialize_by(organization: form.current_organization)" do
+    expect_no_offenses(<<~RUBY)
+      Template.find_or_initialize_by(organization: form.current_organization, name: "foo")
+    RUBY
+  end
+
+  it "accepts where(participatory_space: @form.current_participatory_space).first" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(participatory_space: @form.current_participatory_space).first
+    RUBY
+  end
+
+  it "registers an offense for a current helper called on an unscoped model chain" do
+    expect_offense(<<~RUBY)
+      Template.where(component: Template.unsafe_scope.current_component).find(params.expect(:id))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a current helper called on an unrelated receiver" do
+    expect_offense(<<~RUBY)
+      Template.where(component: record.current_component).find(params.expect(:id))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "accepts Authorizations.new(organization: current_organization).query.find" do
     expect_no_offenses(<<~RUBY)
       Authorizations.new(organization: current_organization, name: "foo", granted: false).query.find(params.expect(:id))
@@ -172,6 +212,31 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     expect_offense(<<~RUBY)
       Authorizations.new(name: "foo", granted: false).query.find(params.expect(:id))
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "accepts where(organization: organization).find_by" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(organization: organization).find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts where(organization: @user.organization).find_by" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(organization: @user.organization).find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts Authorizations.new(organization: @user.organization).query.find" do
+    expect_no_offenses(<<~RUBY)
+      Authorizations.new(organization: @user.organization, name: "foo").query.find(params.expect(:id))
+    RUBY
+  end
+
+  it "registers an offense for where(organization: params[:id])" do
+    expect_offense(<<~RUBY)
+      Template.where(organization: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
     RUBY
   end
 

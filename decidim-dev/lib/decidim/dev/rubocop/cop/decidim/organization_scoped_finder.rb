@@ -5,7 +5,7 @@ require "rubocop"
 module RuboCop
   module Cop
     module Decidim
-      # Flags unscoped ActiveRecord finder calls in controllers.
+      # Flags unscoped ActiveRecord finder calls in controllers and commands.
       #
       # In a multi-tenant Decidim deployment, loading a record without scoping
       # it to the current organization can allow one tenant's users to access
@@ -165,18 +165,38 @@ module RuboCop
 
         def scoped_where_pair?(key, value)
           return false unless key.sym_type?
+
+          return organization_value?(value) if key.value == :organization
           return false unless scoped_where_key?(key)
 
           scoped_trusted_value?(value)
+        end
+
+        # `where(organization: organization)` and `where(organization: record.organization)`
+        # already restrict the relation to a single organization, so they are
+        # safe even when the value is not a `current_*` helper.
+        def organization_value?(node)
+          node.send_type? && node.method_name == :organization
         end
 
         def scoped_association_pair?(key, value)
           return false unless key.sym_type?
           return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
           return false unless value.send_type?
-          return false if value.receiver
+          return false unless value.method_name == :"current_#{key.value}"
+          return true unless value.receiver
 
-          value.method_name == :"current_#{key.value}"
+          # Accept form-provided context helpers such as
+          # `form.current_component` or `@form.current_organization`, but not
+          # arbitrary receivers that merely expose a similarly named method.
+          form_context_receiver?(value.receiver)
+        end
+
+        def form_context_receiver?(node)
+          return node.method_name == :form if node.send_type? && node.receiver.nil?
+          return node.name == :form if node.lvar_type?
+
+          node.ivar_type? && node.name == :@form
         end
 
         def scoped_trusted_value?(node)
