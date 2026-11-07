@@ -141,10 +141,26 @@ module Decidim::Core
           expect(session_record).to be_changed
         end
 
-        it "marks the data as changed when a nested value changes" do
+        it "marks the data as changed when the data structure changes" do
           session_record.data = { "foo" => { "bar" => "baz" } }
 
           expect(session_record).to be_changed
+        end
+
+        context "with nested session data" do
+          let(:session_record) { ActiveRecord::SessionStore::Session.create!(session_id: "session-store-override-spec", data: { "foo" => { "bar" => "baz" } }) }
+
+          it "marks the data as changed when a nested value changes" do
+            session_record.data = { "foo" => { "bar" => "qux" } }
+
+            expect(session_record).to be_changed
+          end
+
+          it "does not mark the data as changed when the nested data is identical" do
+            session_record.data = { "foo" => { "bar" => "baz" } }
+
+            expect(session_record).not_to be_changed
+          end
         end
 
         it "saves the changed data" do
