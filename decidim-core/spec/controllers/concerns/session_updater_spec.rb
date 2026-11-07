@@ -49,6 +49,26 @@ module Decidim
         end
       end
 
+      context "when requests overlap on the same session record" do
+        it "does not overwrite session data written by an overlapping request" do
+          # Two requests load the same session row. The first one commits its own key;
+          # the second is read-only and only touches the record, so its stale copy of the
+          # serialized data must not overwrite the key written by the first request.
+          read_only_request_record = ActiveRecord::SessionStore::Session.find(session_record.id)
+          writing_request_record = ActiveRecord::SessionStore::Session.find(session_record.id)
+
+          writing_request_record.data = { "unrelated_key" => "value" }
+          writing_request_record.save!
+
+          request.env["rack.session.record"] = read_only_request_record
+          get :show
+
+          persisted = ActiveRecord::SessionStore::Session.find(session_record.id)
+          expect(persisted.data).to eq({ "unrelated_key" => "value" })
+          expect(persisted.updated_at).to be > session_record.updated_at
+        end
+      end
+
       context "when the session record is not saved yet" do
         let(:session_record) { ActiveRecord::SessionStore::Session.new(session_id: "session-updater-spec", data: {}) }
 
