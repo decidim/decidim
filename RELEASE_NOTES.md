@@ -116,6 +116,8 @@ This change is part of the work to reduce profile spam tracked in issue [#17955]
 
 As of this release, the user sessions are stored in the database, for improved security.
 
+Existing sessions end after the upgrade. All signed-in participants and admins must log in again.
+
 There is a new cron job that you need to set, in order to clean obsolete values.
 
 ```console
