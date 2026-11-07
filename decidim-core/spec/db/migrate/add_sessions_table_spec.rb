@@ -83,5 +83,60 @@ describe "AddSessionsTable", type: :migration do
         expect { migration.up }.to raise_error(/id is not the table primary key/)
       end
     end
+
+    def session_id_indexes
+      connection.indexes(:sessions).select { |existing| existing.columns == ["session_id"] }
+    end
+
+    context "when no index on session_id exists" do
+      before { create_sessions_table!(default_columns) }
+
+      it "adds a unique index on session_id" do
+        migration.up
+
+        expect(session_id_indexes.map(&:unique)).to eq([true])
+      end
+    end
+
+    context "when a non-unique index on session_id exists" do
+      before do
+        create_sessions_table!(default_columns)
+        connection.add_index :sessions, :session_id
+      end
+
+      it "replaces it with a unique index" do
+        migration.up
+
+        expect(session_id_indexes.map(&:unique)).to eq([true])
+      end
+    end
+
+    context "when multiple indexes on session_id exist and one is unique" do
+      before do
+        create_sessions_table!(default_columns)
+        connection.add_index :sessions, :session_id, name: "sessions_session_id_non_unique"
+        connection.add_index :sessions, :session_id, name: "sessions_session_id_unique", unique: true
+      end
+
+      it "keeps the unique index and removes the non-unique matches" do
+        migration.up
+
+        expect(session_id_indexes.map(&:name)).to eq(["sessions_session_id_unique"])
+      end
+    end
+
+    context "when only non-unique indexes on session_id exist and data has duplicates" do
+      before do
+        create_sessions_table!(default_columns)
+        connection.add_index :sessions, :session_id, name: "sessions_session_id_first"
+        connection.add_index :sessions, :session_id, name: "sessions_session_id_second"
+        connection.execute("INSERT INTO sessions (session_id, data) VALUES ('duplicate', '')")
+        connection.execute("INSERT INTO sessions (session_id, data) VALUES ('duplicate', '')")
+      end
+
+      it "raises naming the duplicate session_id values" do
+        expect { migration.up }.to raise_error(/duplicate session_id values/)
+      end
+    end
   end
 end

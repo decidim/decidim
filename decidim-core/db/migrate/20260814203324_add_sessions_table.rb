@@ -79,12 +79,18 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
   end
 
   # `if_not_exists` is name-based and would silently preserve a pre-existing non-unique
-  # index on `session_id`, which the session store cannot rely on. Verify the index and
-  # replace it when uniqueness can be enforced, otherwise stop with an actionable error.
+  # index on `session_id`, which the session store cannot rely on. Verify every index on
+  # the column, keep an existing unique one, replace the non-unique matches when uniqueness
+  # can be enforced, otherwise stop with an actionable error.
   def ensure_unique_session_id_index!
-    index = connection.indexes(:sessions).find { |existing| existing.columns == ["session_id"] }
-    return add_index :sessions, :session_id, unique: true if index.nil?
-    return if index.unique
+    indexes = connection.indexes(:sessions).select { |existing| existing.columns == ["session_id"] }
+    return add_index :sessions, :session_id, unique: true if indexes.empty?
+
+    non_unique = indexes.reject(&:unique)
+    if indexes.any?(&:unique)
+      non_unique.each { |index| remove_index :sessions, name: index.name }
+      return
+    end
 
     duplicate_session_id = connection.select_value("SELECT session_id FROM sessions GROUP BY session_id HAVING COUNT(*) > 1 LIMIT 1")
     if duplicate_session_id
@@ -93,7 +99,7 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
             "sessions or make the index unique before running this migration."
     end
 
-    remove_index :sessions, name: index.name
+    non_unique.each { |index| remove_index :sessions, name: index.name }
     add_index :sessions, :session_id, unique: true
   end
 end
