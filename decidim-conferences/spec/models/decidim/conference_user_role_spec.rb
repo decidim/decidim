@@ -12,6 +12,17 @@ module Decidim
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
 
+    it "has an association of conference" do
+      expect(conference_user_role.conference).to be_a(Decidim::Conference)
+    end
+
+    it "has the conference_user_roles association as the inverse of the conference" do
+      conference_user_role.save!
+
+      expect(conference_user_role.conference.conference_user_roles).to eq([conference_user_role])
+      expect(conference_user_role.conference.conference_user_roles.first.conference).to be(conference_user_role.conference)
+    end
+
     context "when the role is admin" do
       let(:role) { "admin" }
 

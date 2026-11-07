@@ -11,6 +11,12 @@ module Decidim
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
 
+    it "uses the conference's speakers association as the inverse" do
+      subject.save!
+
+      expect(subject.conference.speakers.first.conference).to be(subject.conference)
+    end
+
     describe ".default_scope" do
       it "returns speakers ordered by name" do
         conference_speaker1 = create(:conference_speaker, full_name: "Speaker 3")

@@ -8,7 +8,7 @@ module Decidim
     include Loggable
     include ParticipatorySpaceUser
 
-    belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference", optional: true
+    belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference", optional: true, inverse_of: :conference_user_roles
     alias participatory_space conference
 
     scope :for_space, ->(participatory_space) { where(conference: participatory_space) }
