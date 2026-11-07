@@ -69,6 +69,48 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
       end
     end
 
+    context "when the user is a user manager" do
+      let(:user) { create(:user, :user_manager, :confirmed, organization:) }
+
+      it "does not apply the template" do
+        expect { post(path, params:, headers:) }
+          .not_to(change { questionnaire.reload.title })
+
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "when a user manager targets a cross-organization questionnaire" do
+      let(:user) { create(:user, :user_manager, :confirmed, organization:) }
+      let(:other_process) { create(:participatory_process, :with_steps, organization: other_org) }
+      let(:other_component) { create(:surveys_component, participatory_space: other_process) }
+      let(:other_survey) { create(:survey, component: other_component) }
+      let(:other_questionnaire) { other_survey.questionnaire }
+
+      it "rejects the request without mutating the questionnaire" do
+        other_questionnaire.update!(questionnaire_for: other_survey)
+        previous_title = other_questionnaire.title
+
+        post(path, params: params.merge(questionnaire_id: other_questionnaire.id), headers:)
+
+        expect(other_questionnaire.reload.title).to eq(previous_title)
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "when the user is a process admin of an unmanaged space" do
+      let(:unmanaged_process) { create(:participatory_process, organization:) }
+      let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
+      let!(:process_admin_role) { create(:participatory_process_user_role, role: :admin, user:, participatory_process: unmanaged_process) }
+
+      it "does not apply the template" do
+        expect { post(path, params:, headers:) }
+          .not_to(change { questionnaire.reload.title })
+
+        expect(response).to have_http_status(:found)
+      end
+    end
+
     context "with a protocol-relative url" do
       let(:params) do
         {
@@ -156,6 +198,30 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
       it "touches the questionnaire" do
         expect { post(path, params:, headers:) }
           .to(change { questionnaire.reload.updated_at })
+
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "when the user is a user manager" do
+      let(:user) { create(:user, :user_manager, :confirmed, organization:) }
+
+      it "does not touch the questionnaire" do
+        expect { post(path, params:, headers:) }
+          .not_to(change { questionnaire.reload.updated_at })
+
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "when the user is a process admin of an unmanaged space" do
+      let(:unmanaged_process) { create(:participatory_process, organization:) }
+      let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
+      let!(:process_admin_role) { create(:participatory_process_user_role, role: :admin, user:, participatory_process: unmanaged_process) }
+
+      it "does not touch the questionnaire" do
+        expect { post(path, params:, headers:) }
+          .not_to(change { questionnaire.reload.updated_at })
 
         expect(response).to have_http_status(:found)
       end

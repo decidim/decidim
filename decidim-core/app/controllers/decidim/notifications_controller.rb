@@ -23,7 +23,7 @@ module Decidim
     private
 
     def notifications
-      @notifications ||= current_user.notifications.order(created_at: :desc)
+      @notifications ||= current_user.notifications.includes(:user).order(created_at: :desc)
     end
 
     def breadcrumb_item

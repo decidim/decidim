@@ -22,7 +22,7 @@ describe "Conversations" do
 
     it "shows the topbar button as inactive" do
       within "#trigger-dropdown-account" do
-        expect(page).to have_no_selector("span[data-unread-items]")
+        expect(page).to have_no_css("span[data-unread-items]")
       end
     end
   end
@@ -68,7 +68,7 @@ describe "Conversations" do
     end
 
     it "shows an empty conversation page" do
-      expect(page).to have_no_selector(".card--list__item")
+      expect(page).to have_no_css(".card--list__item")
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
@@ -166,7 +166,7 @@ describe "Conversations" do
 
       it "shows the topbar button as inactive" do
         within "#trigger-dropdown-account" do
-          expect(page).to have_no_selector("span[data-unread-items]")
+          expect(page).to have_no_css("span[data-unread-items]")
         end
       end
 
@@ -247,7 +247,7 @@ describe "Conversations" do
         end
 
         it "does not show the sending form" do
-          expect(page).to have_no_selector("textarea#message_body")
+          expect(page).to have_no_css("textarea#message_body")
         end
       end
 
@@ -329,7 +329,7 @@ describe "Conversations" do
           expect(page).to have_css(".conversation__modal-results li", count: 1)
           expect(page).to have_text("Maria")
           expect(page).to have_no_css(".ts-dropdown .option", visible: :visible)
-          expect(find_by_id("add_conversation_users", visible: false).value).to eq("")
+          expect(find_by_id("add_conversation_users", visible: :all).value).to eq("")
         end
       end
     end

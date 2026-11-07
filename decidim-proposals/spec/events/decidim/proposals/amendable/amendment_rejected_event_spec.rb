@@ -16,6 +16,7 @@ module Decidim
       let(:email_subject) { "Amendment rejected for #{amendable_title} from #{emendation_author_name}" }
 
       include_examples "amendment event"
+      include_examples "amendment rejected event"
     end
   end
 end
