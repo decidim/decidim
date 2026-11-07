@@ -247,7 +247,10 @@ module Decidim
         scope = klass.where(id: relation_ids)
 
         scope = if klass_name == "Decidim::Comments::Comment"
-                  scope.includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }])
+                  # The polymorphic `root_commentable` can be a resource with a component, and
+                  # `can_participate?` delegates to it, so the component needs to be eager loaded
+                  # through it as well. Classes without a component are skipped by the preloader.
+                  scope.includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }], root_commentable: :component)
                 else
                   preloads = []
                   preloads << :organization if klass.reflect_on_association(:organization)
