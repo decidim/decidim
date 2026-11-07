@@ -128,6 +128,38 @@ module Decidim::Core
           end
         end
       end
+
+      context "when running the 'decidim_core.session_store_override' initializer" do
+        let(:initializer_name) { "decidim_core.session_store_override" }
+        let(:session_record) { ActiveRecord::SessionStore::Session.create!(session_id: "session-store-override-spec", data: { "foo" => "bar" }) }
+
+        before { initializer.run }
+
+        it "marks the data as changed when different data is assigned" do
+          session_record.data = { "foo" => "baz" }
+
+          expect(session_record).to be_changed
+        end
+
+        it "marks the data as changed when a nested value changes" do
+          session_record.data = { "foo" => { "bar" => "baz" } }
+
+          expect(session_record).to be_changed
+        end
+
+        it "saves the changed data" do
+          session_record.data = { "foo" => "baz" }
+          session_record.save!
+
+          expect(session_record.reload.data).to eq({ "foo" => "baz" })
+        end
+
+        it "does not mark the data as changed when the assigned data is identical" do
+          session_record.data = { "foo" => "bar" }
+
+          expect(session_record).not_to be_changed
+        end
+      end
     end
 
     describe "decidim_core.authorization_transfer" do
