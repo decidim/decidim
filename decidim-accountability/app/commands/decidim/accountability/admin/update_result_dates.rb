@@ -10,11 +10,13 @@ module Decidim
         # start_date - the start date to update
         # end_date - the end date to update
         # result_ids - the results ids to update
+        # current_component - the component where the results belong to
         # current_user - the user performing the action
-        def initialize(start_date, end_date, result_ids, current_user)
+        def initialize(start_date, end_date, result_ids, current_component, current_user)
           @start_date = start_date
           @end_date = end_date
           @result_ids = result_ids
+          @current_component = current_component
           @current_user = current_user
         end
 
@@ -34,10 +36,10 @@ module Decidim
 
         private
 
-        attr_reader :start_date, :end_date, :result_ids, :current_user
+        attr_reader :start_date, :end_date, :result_ids, :current_component, :current_user
 
         def update_results_dates
-          Decidim::Accountability::Result.where(id: result_ids).find_each do |result|
+          Decidim::Accountability::Result.where(component: current_component, id: result_ids).find_each do |result|
             next if result.start_date == start_date && result.end_date == end_date
 
             result.update!(start_date:, end_date:)

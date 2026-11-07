@@ -76,7 +76,7 @@ module Decidim
       private
 
       def coauthor
-        @coauthor ||= Decidim::User.find(params.expect(:id))
+        @coauthor ||= current_organization.users.find(params.expect(:id))
       end
 
       def proposal
