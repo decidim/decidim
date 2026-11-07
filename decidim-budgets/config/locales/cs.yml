@@ -136,6 +136,7 @@ cs:
               vote_type:
                 help: Jak se hodnotí výsledky hlasování (viz dokumentace pro více informací).
                 label: Typ hlasování (%{field})
+            title: Exportovat výsledky hlasování pro %{budget} do Pabulib formátu
         projects:
           create:
             invalid: Při vytváření tohoto projektu došlo k chybě.

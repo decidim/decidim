@@ -27,7 +27,6 @@ lt:
         nickname: Slapyvardis
         password: Slaptažodis
         password_confirmation: Pakartokite slaptažodį
-        personal_url: Asmeninis URL
         remove_avatar: Pašalinti avatarą
         tos_agreement: Paslaugos sutarties sąlygos
     models:

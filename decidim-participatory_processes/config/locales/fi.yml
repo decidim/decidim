@@ -284,6 +284,7 @@ fi:
         activate: "%{user_name} aktivoi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
         create: "%{user_name} loi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
         delete: "%{user_name} poisti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        system_activate: Vaihe %{resource_name} aktivoitiin automaattisesti osallistumisprosessille %{space_name}.
         update: "%{user_name} päivitti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} kutsui käyttäjän %{resource_name} osallistumisprosessiin %{space_name}"

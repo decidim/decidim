@@ -281,6 +281,7 @@ eu:
           error: Arazo bat egon da izen-emate mota hau gehitzean jardunaldi honetarako.
           success: Erregistro motak zuzen gehitu dira jardunaldi honetara.
         destroy:
+          error: Arazo bat egon da erregistro mota hori kentzeko. Ezin dira ezabatu izen-emateak dituzten erregistro-motak.
           success: Izen-emate mota jardunaldi honetatik zuzen ezabatu da.
         edit:
           update: Eguneratu

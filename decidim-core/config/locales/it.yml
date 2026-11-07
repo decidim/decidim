@@ -50,7 +50,6 @@ it:
         old_password: Password corrente
         password: Password
         password_confirmation: Conferma la tua password
-        personal_url: Pagina personale
         remove_avatar: Rimuovi avatar
         tos_agreement: Condizioni contrattuali di servizio
     errors:
@@ -110,8 +109,6 @@ it:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formato: gg/mm/aaaa'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:

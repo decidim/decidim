@@ -180,7 +180,7 @@ bg:
           subject: Гласувахте в пространството за участие %{space_name}
           voted_on_space: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name}.
       projects:
-        back_to_budgets: Обратно към проектите
+        back_to_budgets: Обратно към бюджетите
         budget_confirm:
           are_you_sure: Ако размислите, може да промените гласа си по-късно.
           cancel: Отказ

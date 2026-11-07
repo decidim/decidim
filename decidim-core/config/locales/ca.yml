@@ -50,7 +50,6 @@ ca:
         old_password: Contrasenya actual
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
-        personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
     errors:
@@ -117,8 +116,6 @@ ca:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/aaaa'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -129,8 +126,8 @@ ca:
         other: al voltant de %{count} mesos
       half_a_minute: mig minut
       less_than_x_minutes:
-        one: fa menys d'un minut
-        other: fa menys de %{count} minuts
+        one: menys d'un minut
+        other: menys de %{count} minuts
       less_than_x_seconds:
         one: fa menys d'un segon
         other: fa menys de %{count} segons
@@ -822,7 +819,6 @@ ca:
           officialized_at: La data i l'hora en què aquesta usuària va ser oficialitzada
           organization: L'organització a la qual pertany aquesta usuària
           password_updated_at: La data en què van canviar per darrera vegada les seves contrasenyes
-          personal_url: L'URL personal d'aquesta usuària
           remember_created_at: La data i hora en què es va seleccionar la usuària per ser recordada
           reset_password_sent_at: La data i l'hora en què es va enviar el correu per a restaurar la contrasenya
           roles: El rol que té aquesta participant, si en té cap
