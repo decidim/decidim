@@ -43,10 +43,7 @@ module Decidim
 
         StartConversation.call(@form) do
           on(:ok) do |conversation|
-            render action: :create, locals: {
-              conversation:,
-              form: MessageForm.new
-            }
+            render action: :create, locals: { conversation: }
           end
 
           on(:invalid) do |messages|
@@ -116,7 +113,7 @@ module Decidim
       end
 
       def conversation
-        @conversation ||= Conversation.find(params.expect(:id))
+        @conversation ||= Conversation.find(params.expect(:id)) # rubocop:disable Decidim/OrganizationScopedFinder -- conversation permissions require the current user to be a participant
       end
 
       def new_conversation(recipient)

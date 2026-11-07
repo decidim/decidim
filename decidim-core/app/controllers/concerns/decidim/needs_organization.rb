@@ -37,6 +37,21 @@ module Decidim
       def verify_organization
         redirect_to decidim_system.root_path unless current_organization
       end
+
+      # Checks whether the given resource belongs to the current organization.
+      def in_organization?(resource)
+        return false if resource.blank?
+
+        resource.organization == current_organization
+      end
+
+      # Raises ActiveRecord::RecordNotFound when the given resource belongs to
+      # another organization. Blank resources are handled by the callers.
+      def ensure_in_organization!(resource)
+        return if resource.blank? || in_organization?(resource)
+
+        raise ActiveRecord::RecordNotFound
+      end
     end
   end
 end

@@ -619,9 +619,7 @@ describe Decidim::Initiatives::Admin::InitiativesController do
       end
 
       it "is not allowed" do
-        expect(Decidim::Initiatives::ExportInitiativesJob).not_to receive(:perform_later).with(user, "CSV", nil)
-
-        post :export, params: { format: :csv }
+        expect { post :export, params: { format: :csv } }.not_to have_enqueued_job(Decidim::Initiatives::ExportInitiativesJob).with(user, "CSV", nil)
         expect(flash[:alert]).not_to be_empty
         expect(response).to have_http_status(:found)
       end
@@ -633,9 +631,7 @@ describe Decidim::Initiatives::Admin::InitiativesController do
       end
 
       it "is allowed" do
-        expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", nil)
-
-        post :export, params: { format: :csv }
+        expect { post :export, params: { format: :csv } }.to have_enqueued_job(Decidim::Initiatives::ExportInitiativesJob).with(admin_user, organization, "csv", nil)
         expect(flash[:alert]).to be_nil
         expect(response).to have_http_status(:found)
       end
@@ -646,9 +642,8 @@ describe Decidim::Initiatives::Admin::InitiativesController do
         let(:comma_separated_ids) { collection_ids.join(",") }
 
         it "enqueues the job" do
-          expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids)
-
-          post :export, params: { format: :csv, collection_ids: comma_separated_ids }
+          expect { post :export, params: { format: :csv, collection_ids: comma_separated_ids } }
+            .to have_enqueued_job(Decidim::Initiatives::ExportInitiativesJob).with(admin_user, organization, "csv", collection_ids)
           expect(flash[:alert]).to be_nil
           expect(response).to have_http_status(:found)
         end

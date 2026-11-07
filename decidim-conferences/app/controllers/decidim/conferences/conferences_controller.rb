@@ -45,7 +45,7 @@ module Decidim
 
         @current_participatory_space ||= OrganizationConferences.new(current_organization).query.where(slug:).or(
           OrganizationConferences.new(current_organization).query.where(id: slug)
-        ).first!
+        ).includes(partners: [{ logo_attachment: :blob }]).first!
       end
 
       def published_conferences

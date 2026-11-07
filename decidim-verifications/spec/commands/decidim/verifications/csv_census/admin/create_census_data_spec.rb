@@ -20,7 +20,6 @@ module Decidim::Verifications::CsvCensus::Admin
     before do
       allow(form).to receive(:data).and_return(data)
       allow(Decidim::Verifications::CsvDatum).to receive(:insert_all)
-      allow(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).to receive(:perform_later)
     end
 
     context "when the file is in invalid format" do
@@ -44,8 +43,9 @@ module Decidim::Verifications::CsvCensus::Admin
       end
 
       it "enqueues the ProcessCensusDataJob" do
-        subject.call
-        expect(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).to have_received(:perform_later).with(["valid_email@example.com", "another_valid_email@example.com"], current_user)
+        expect { subject.call }
+          .to have_enqueued_job(Decidim::Verifications::CsvCensus::ProcessCensusDataJob)
+          .with(["valid_email@example.com", "another_valid_email@example.com"], current_user)
       end
 
       it "broadcasts :ok" do

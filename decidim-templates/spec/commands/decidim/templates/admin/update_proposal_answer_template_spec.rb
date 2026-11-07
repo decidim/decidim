@@ -68,6 +68,22 @@ module Decidim
             expect(template.reload.field_values["proposal_state_id"]).to eq(proposal_state_id)
           end
 
+          context "when the form has no component constraint" do
+            let(:component_constraint) { nil }
+
+            it "does not look up a component" do
+              expect(Decidim::Component).not_to receive(:for_organization)
+
+              expect { subject.call }.to broadcast(:ok)
+            end
+
+            it "does not associate a templatable" do
+              subject.call
+
+              expect(template.reload.templatable).to be_nil
+            end
+          end
+
           context "when the form has a component constraint" do
             context "and templatable is Proposal Component" do
               let(:component) { create(:component, manifest_name: :proposals, organization:) }
@@ -76,6 +92,18 @@ module Decidim
               it "creates the second resource" do
                 expect { subject.call }.to broadcast(:ok)
                 expect(template.reload.templatable).to eq(component)
+              end
+            end
+
+            context "and the component belongs to another organization" do
+              let(:other_organization) { create(:organization) }
+              let(:other_organization_component) { create(:component, manifest_name: :proposals, organization: other_organization) }
+              let(:component_constraint) { other_organization_component.id }
+
+              it "does not associate the component from another organization" do
+                expect { subject.call }.to broadcast(:ok)
+
+                expect(template.reload.templatable).not_to eq(other_organization_component)
               end
             end
           end

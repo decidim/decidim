@@ -104,7 +104,7 @@ describe "Dashboard" do
         expect(page).to have_text(translated_attribute(option11.body))
         expect(page).to have_text(translated_attribute(option12.body))
       end
-      expect(page).to have_no_selector("#question-#{question2.id}")
+      expect(page).to have_no_css("#question-#{question2.id}")
       expect_vote_percent(question1, option11, "0.0%")
       expect_vote_count(question1, option11, "0")
       expect_vote_percent(question1, option12, "0.0%")
@@ -123,7 +123,7 @@ describe "Dashboard" do
       expect_vote_percent(question1, option12, "0.0%")
       expect_vote_count(question1, option12, "0")
       expect_total_votes(question1, "1")
-      expect(page).to have_no_selector("#question-#{question2.id}")
+      expect(page).to have_no_css("#question-#{question2.id}")
 
       question2.update(published_results_at: Time.current)
       sleep 5

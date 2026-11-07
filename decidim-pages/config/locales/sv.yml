@@ -34,6 +34,8 @@ sv:
             body: Innehåll
         pages:
           edit:
+            add_attachments: Lägg till bilagor
+            edit_attachments: Redigera bilagor
             save: Uppdatera
             title: Redigera sida
           update:

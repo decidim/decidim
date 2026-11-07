@@ -20,6 +20,7 @@ module Decidim
         end
 
         def proposal_evaluators
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- proposal is scoped to the current component
           @proposal_evaluators ||= Decidim::Proposals::EvaluationAssignment.where(proposal:).filter_map do |assignment|
             assignment.evaluator unless assignment.evaluator == form.current_user
           end
