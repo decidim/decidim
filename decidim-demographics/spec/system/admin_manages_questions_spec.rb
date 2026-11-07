@@ -1094,6 +1094,24 @@ describe "Admin manages demographic questions" do
 
       expect(page).to have_callout("<script>alert(1)</script> cannot be removed because it has recorded answers.")
     end
+
+    # Removing the question marks its options as deleted as well, so the whole question
+    # is removed together with its recorded answers.
+    it "removes an answered question with its recorded answer" do
+      within ".questionnaire-question" do
+        # The options have their own "Remove" buttons, so the question's own button is
+        # targeted by class.
+        find(".remove-question").click
+      end
+
+      click_on "Save"
+
+      expect(page).to have_callout("Survey questions successfully saved.")
+
+      expect(Decidim::Forms::Question.exists?(question.id)).to be(false)
+      expect(Decidim::Forms::Response.exists?(response.id)).to be(false)
+      expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(false)
+    end
   end
 
   def expand_all_questions

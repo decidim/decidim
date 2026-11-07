@@ -397,6 +397,86 @@ module Decidim
               expect(messages.first).to include("First row")
             end
           end
+
+          # Removing a question in the editor marks its options and matrix rows as
+          # deleted too (see the onRemoveField handler in
+          # decidim-forms/app/packs/src/decidim/forms/admin/forms.js), so the whole
+          # question has to go together with its recorded answers.
+          context "and the whole question with recorded answers is removed" do
+            let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "single_option") }
+            let!(:response) { create(:response, question:, questionnaire:) }
+            let!(:response_option) { create(:response_option, question:, body: { en: "First response" }) }
+            let!(:choice) { create(:response_choice, response:, response_option:) }
+
+            let(:form_params) do
+              {
+                "questions" => {
+                  "0" => {
+                    "id" => question.id,
+                    "body" => question.body,
+                    "position" => 0,
+                    "question_type" => "single_option",
+                    "deleted" => "true",
+                    "response_options" => {
+                      "0" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "true" }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "broadcasts ok" do
+              expect { command.call }.to broadcast(:ok)
+            end
+
+            it "removes the question with its recorded answer" do
+              command.call
+
+              expect(Decidim::Forms::Question.exists?(question.id)).to be(false)
+              expect(Decidim::Forms::Response.exists?(response.id)).to be(false)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(false)
+            end
+          end
+
+          context "and the whole matrix question with recorded answers is removed" do
+            let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "matrix_single") }
+            let!(:response) { create(:response, question:, questionnaire:) }
+            let!(:response_option) { create(:response_option, question:) }
+            let!(:matrix_row) { create(:question_matrix_row, question:, body: { en: "First row" }) }
+            let!(:choice) { create(:response_choice, response:, matrix_row:, response_option:) }
+
+            let(:form_params) do
+              {
+                "questions" => {
+                  "0" => {
+                    "id" => question.id,
+                    "body" => question.body,
+                    "position" => 0,
+                    "question_type" => "matrix_single",
+                    "deleted" => "true",
+                    "response_options" => {
+                      "0" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "true" }
+                    },
+                    "matrix_rows" => {
+                      "0" => { "id" => matrix_row.id, "body" => matrix_row.body, "deleted" => "true" }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "broadcasts ok" do
+              expect { command.call }.to broadcast(:ok)
+            end
+
+            it "removes the question with its recorded answer" do
+              command.call
+
+              expect(Decidim::Forms::Question.exists?(question.id)).to be(false)
+              expect(Decidim::Forms::Response.exists?(response.id)).to be(false)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(false)
+            end
+          end
         end
 
         describe "when the questionnaire has existing questions" do

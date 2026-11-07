@@ -100,14 +100,20 @@ module Decidim
         def update_nested_model(form, attributes, parent_association)
           record = parent_association.find_by(id: form.id) || parent_association.build(attributes)
 
+          # A persisted record that is being removed takes its children with it through the
+          # dependent associations: a question destroys its responses first, and with them
+          # the recorded choices. Processing the nested form entries for it would try to
+          # remove the children one by one, which is refused while the answers exist, so the
+          # removal is done here and the nested entries are skipped.
+          if record.persisted? && form.deleted?
+            record.destroy!
+            return
+          end
+
           yield record if block_given?
 
           if record.persisted?
-            if form.deleted?
-              record.destroy!
-            else
-              record.update!(attributes)
-            end
+            record.update!(attributes)
           else
             record.save!
           end
