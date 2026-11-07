@@ -52,5 +52,9 @@ describe Decidim::LastActivity do
       expect(subject.count).to eq(3)
       expect(subject).not_to include(action_log_for_withdrawn_proposal)
     end
+
+    it "eager loads the user association to avoid N+1 queries" do
+      expect(subject.to_a).to all(satisfy { |activity| activity.association(:user).loaded? })
+    end
   end
 end

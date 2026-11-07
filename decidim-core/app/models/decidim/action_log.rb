@@ -247,12 +247,18 @@ module Decidim
         scope = klass.where(id: relation_ids)
 
         scope = if klass_name == "Decidim::Comments::Comment"
-                  scope.includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }])
+                  # `Comment#component` delegates to the commentable and the link to
+                  # the resource resolves the component's participatory space and its
+                  # organization (the mounted engine routes use the organization host),
+                  # so all of them have to be loaded together with the comment.
+                  scope.includes(
+                    :moderation,
+                    :commentable,
+                    author: [:organization, { avatar_attachment: :blob }],
+                    root_commentable: { component: { participatory_space: :organization } }
+                  )
                 else
-                  preloads = []
-                  preloads << :organization if klass.reflect_on_association(:organization)
-                  preloads << :moderation if klass.include?(Decidim::Reportable)
-                  preloads << :author if klass.include?(Decidim::Authorable)
+                  preloads = lazy_preload_associations(klass)
 
                   scope = scope.preload(*preloads) if preloads.any?
                   scope = scope.includes(:component).where.not(decidim_components: { published_at: nil }) if klass.include?(Decidim::HasComponent)
@@ -264,6 +270,33 @@ module Decidim
 
         scope.each { |relation| loader.call(relation.id, relation) }
       end
+    end
+
+    # Associations that are read for every record of a lazily loaded collection,
+    # so they have to be eager loaded to avoid N+1 queries.
+    #
+    # Returns an Array of association names.
+    def self.lazy_preload_associations(klass)
+      associations = []
+      associations << :organization if klass.reflect_on_association(:organization)
+      associations << :moderation if klass.include?(Decidim::Reportable)
+      # The author cell renders the avatar for every author, which can be a user.
+      # The avatar URL resolves the author's organization, so both have to be
+      # loaded together with the author. Author types without an attachment or
+      # without an organization (e.g. an organization itself) are skipped by the
+      # preloader.
+      associations << { author: [:organization, { avatar_attachment: :blob }] } if klass.include?(Decidim::Authorable)
+      # The link to the resource resolves the organization through the
+      # participatory space (the mounted engine routes use the organization host).
+      associations << { participatory_space: :organization } if klass.reflect_on_association(:participatory_space)
+      # The author cell renders the avatar for every user in the collection.
+      associations << { avatar_attachment: :blob } if klass.reflect_on_association(:avatar_attachment)
+      # Resources that belong to a component resolve the component's
+      # participatory space and its organization when rendering the link to the
+      # resource (the mounted engine routes use the organization host).
+      associations << { component: { participatory_space: :organization } } if klass.include?(Decidim::HasComponent)
+
+      associations
     end
 
     # Whether this activity or log is visible for a given user (can also be nil)
