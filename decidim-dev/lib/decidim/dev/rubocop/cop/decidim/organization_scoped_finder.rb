@@ -40,7 +40,7 @@ module RuboCop
         IGNORED_CONSTANT_PREFIXES = %w(Bundler ActiveRecord).freeze
 
         # SCREAMING_SNAKE_CASE constants hold plain values (e.g.
-        # `OPTIONS = [25, 50, 100]`), not ActiveRecord model classes, which
+        # `OPTIONS = [20, 50, 100]`), not ActiveRecord model classes, which
         # follow the CamelCase convention.
         VALUE_CONSTANT_PATTERN = /\A[A-Z][A-Z0-9_]*\z/
 

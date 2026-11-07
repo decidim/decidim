@@ -101,14 +101,14 @@ describe "Admin manages census" do
         dynamically_attach_file(:census_data_file, Decidim::Dev.asset("valid_emails.csv"))
         click_on "Upload file"
         expect(page).to have_text("Successfully imported")
-        expect(page).to have_css(".table-list tbody tr", count: 25)
+        expect(page).to have_css(".table-list tbody tr", count: 20)
         within "[data-pagination]" do
-          page.find("details", text: "25")
+          page.find("details", text: "20")
           expect(page).to have_text("Results per page")
           click_on "Next"
         end
         expect(page).to have_text("Current census data")
-        expect(page).to have_css(".table-list tbody tr", count: 2)
+        expect(page).to have_css(".table-list tbody tr", count: 7)
       end
     end
   end
