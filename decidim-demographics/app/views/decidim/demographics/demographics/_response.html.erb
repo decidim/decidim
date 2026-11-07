@@ -19,7 +19,7 @@
   <% end %>
 
   <% if translated_attribute(response.question.description).present? %>
-    <div class="response-questionnaire__question-description">
+    <div class="response-questionnaire__question-description editor-content">
       <%= decidim_sanitize_editor_admin translated_attribute(response.question.description) %>
     </div>
   <% end %>

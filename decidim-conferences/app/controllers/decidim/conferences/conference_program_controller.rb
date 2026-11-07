@@ -29,6 +29,7 @@ module Decidim
       def meetings
         return unless meeting_component&.published? || !meeting_component.presence
 
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- meeting_component is scoped to current_participatory_space
         @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_component).visible_for(current_user).order(:start_time)
       end
 
