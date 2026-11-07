@@ -68,7 +68,7 @@ module Decidim::AssetRouter
       context "with custom host configuration" do
         before do
           allow(ENV).to receive(:fetch).and_call_original
-          allow(ENV).to receive(:fetch).with("HOSTNAME", "localhost").and_return("example.org")
+          allow(ENV).to receive(:fetch).with("DECIDIM_HOST", "localhost").and_return("example.org")
         end
 
         it { is_expected.to eq("//example.org:#{Capybara.server_port}#{correct_asset_path}") }
