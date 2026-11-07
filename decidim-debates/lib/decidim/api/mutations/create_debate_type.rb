@@ -3,6 +3,8 @@
 module Decidim
   module Debates
     class CreateDebateType < Decidim::Api::Types::BaseMutation
+      include Decidim::Debates::DebateAttachmentUpload
+
       graphql_name "CreateDebate"
 
       description "Creates a debate"
@@ -18,6 +20,8 @@ module Decidim
         params = attributes.to_h.slice(:title, :description)
 
         params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: attributes.to_h.fetch(:taxonomies, [])).pluck(:id)
+
+        params[:add_attachments] = attachment_params(attributes.attachments)
 
         form = form(Decidim::Debates::DebateForm).from_params(params)
 

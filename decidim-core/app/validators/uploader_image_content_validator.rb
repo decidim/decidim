@@ -55,22 +55,6 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   # no fixed binary signature.
   SVG_SIGNATURES = ["<svg".b, "<?xml".b, "<!DOCTYPE svg".b].freeze
 
-  # The content types accepted for each image format detected from the file
-  # signature. The content type declared by the file must be one of these, so
-  # that the stored MIME type is consistent with the file contents. The lists
-  # include the aliases commonly used in the wild for the same format.
-  FORMAT_CONTENT_TYPES = {
-    png: %w(image/png),
-    jpeg: %w(image/jpeg image/jpg image/pjpeg),
-    gif: %w(image/gif),
-    bmp: %w(image/bmp image/x-ms-bmp image/windows-bmp),
-    tiff: %w(image/tiff image/x-tiff),
-    webp: %w(image/webp),
-    heif: %w(image/heic image/heif image/heic-sequence image/heif-sequence),
-    avif: %w(image/avif image/avis),
-    svg: %w(image/svg+xml)
-  }.freeze
-
   def validate_each(record, attribute, value)
     begin
       values = parse_values(value)
@@ -116,7 +100,7 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   # Strips the content type parameters (e.g. "image/png;charset=binary") and
   # normalizes the casing, as content types are case insensitive.
   def normalize_content_type(content_type)
-    content_type.to_s.split(";", 2).first.to_s.strip.downcase
+    Decidim::UploadContentTypes.normalize(content_type)
   end
 
   # Whether the format detected from the file signature is one of the
@@ -125,7 +109,7 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   def valid_image_format?(detected, content_type)
     return false if detected.nil?
 
-    FORMAT_CONTENT_TYPES.fetch(detected).include?(content_type)
+    Decidim::UploadContentTypes.match?(detected, content_type)
   end
 
   # Validates the contents of a file detected as SVG, which can contain active

@@ -98,6 +98,14 @@ FactoryBot.define do
       end
     end
 
+    trait :with_attachments_allowed do
+      settings do
+        {
+          attachments_allowed: true
+        }
+      end
+    end
+
     trait :with_votes_enabled do
       # Needed for likes tests
     end
