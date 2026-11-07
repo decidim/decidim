@@ -36,17 +36,14 @@ module Decidim::Meetings
           let(:closed_at) { 2.days.ago }
 
           it "does not send the reminder" do
-            expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
-
             expect { subject.generate }.not_to change(Decidim::Reminder, :count)
+            expect { subject.generate }.not_to have_enqueued_job(Decidim::Meetings::SendCloseMeetingReminderJob)
           end
         end
 
         context "and the user meeting is not closed" do
           it "sends reminder" do
-            expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later)
-
-            expect { subject.generate }.to change(Decidim::Reminder, :count).by(1)
+            expect { subject.generate }.to change(Decidim::Reminder, :count).by(1).and have_enqueued_job(Decidim::Meetings::SendCloseMeetingReminderJob)
           end
         end
 
@@ -57,9 +54,7 @@ module Decidim::Meetings
           let!(:meeting) { create(:meeting, :published, :official, component:, start_time:, end_time:, closed_at:) }
 
           it "sends reminder" do
-            expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later)
-
-            expect { subject.generate }.to change(Decidim::Reminder, :count).by(1)
+            expect { subject.generate }.to change(Decidim::Reminder, :count).by(1).and have_enqueued_job(Decidim::Meetings::SendCloseMeetingReminderJob)
           end
 
           context "and there are space admins" do
@@ -68,9 +63,7 @@ module Decidim::Meetings
               let!(:process_admin) { create(:process_admin, participatory_process: participatory_space) }
 
               it "sends reminder" do
-                expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later).twice
-
-                expect { subject.generate }.to change(Decidim::Reminder, :count).by(2)
+                expect { subject.generate }.to change(Decidim::Reminder, :count).by(2).and have_enqueued_job(Decidim::Meetings::SendCloseMeetingReminderJob).twice
               end
             end
 
@@ -79,9 +72,7 @@ module Decidim::Meetings
               let!(:process_admin) { create(:assembly_admin, assembly: participatory_space) }
 
               it "sends reminder" do
-                expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later).twice
-
-                expect { subject.generate }.to change(Decidim::Reminder, :count).by(2)
+                expect { subject.generate }.to change(Decidim::Reminder, :count).by(2).and have_enqueued_job(Decidim::Meetings::SendCloseMeetingReminderJob).twice
               end
             end
           end
@@ -96,18 +87,15 @@ module Decidim::Meetings
           let(:closed_at) { 2.days.ago }
 
           it "does not send the reminder" do
-            expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
-
             expect { subject.generate }.not_to change(Decidim::Reminder, :count)
+            expect { subject.generate }.not_to have_enqueued_job(Decidim::Meetings::SendCloseMeetingReminderJob)
             expect(Decidim::Reminder.first).to be_nil
           end
         end
 
         context "when the meeting is not closed" do
           it "sends reminder" do
-            expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later)
-
-            expect { subject.generate }.to change(Decidim::Reminder, :count).by(1)
+            expect { subject.generate }.to change(Decidim::Reminder, :count).by(1).and have_enqueued_job(Decidim::Meetings::SendCloseMeetingReminderJob)
             expect(Decidim::Reminder.first.records.count).to eq(1)
           end
         end
@@ -118,9 +106,8 @@ module Decidim::Meetings
         let(:end_time) { 9.days.ago }
 
         it "does not send the reminder" do
-          expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
-
           expect { subject.generate }.not_to change(Decidim::Reminder, :count)
+          expect { subject.generate }.not_to have_enqueued_job(Decidim::Meetings::SendCloseMeetingReminderJob)
           expect(Decidim::Reminder.first).to be_nil
         end
       end
@@ -131,9 +118,8 @@ module Decidim::Meetings
         let(:end_time) { 3.days.ago }
 
         it "sends existing reminder" do
-          expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later)
-
           expect { subject.generate }.not_to change(Decidim::Reminder, :count)
+          expect { subject.generate }.to have_enqueued_job(Decidim::Meetings::SendCloseMeetingReminderJob)
         end
       end
     end

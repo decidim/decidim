@@ -377,6 +377,23 @@ module Decidim
           config.add_predicate("dtlteq", arel_predicate: "lteq", formatter: minute_end, validator: value_presence, type: :datetime)
           # this allows to search for an integer inside a column that is an array
           config.add_predicate("contains", arel_predicate: "contains", formatter: array_cast, validator: integer_presence)
+
+          # Ransack 6 passes the case_sensitive flag to Arel, so the plain LIKE
+          # predicates became case-sensitive on PostgreSQL; before 6.0 the flag
+          # was never passed and every LIKE there became ILIKE. Decidim's search
+          # filters are case-insensitive by design (users type lowercase text
+          # against capitalized titles), so keep them case-insensitive on every
+          # dialect. See: https://github.com/activerecord-hackery/ransack/issues/1421
+          like_predicates = %w(cont not_cont start not_start end not_end)
+          like_predicates.each do |name|
+            formatter = Ransack.predicates[name].formatter
+            config.add_predicate(
+              name,
+              arel_predicate: "matches",
+              formatter: ->(value) { formatter.call(value.to_s.downcase) },
+              case_insensitive: true
+            )
+          end
         end
       end
 
