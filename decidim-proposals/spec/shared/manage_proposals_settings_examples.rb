@@ -18,9 +18,9 @@ shared_examples "manage settings" do
   context "when rich text editor is enabled" do
     it "shows the rich text editor in the body template setting" do
       within ".new_proposal_body_template_container" do
-        editor = find(".editor-toolbar")
+        editor = find(".editor-preview")
         page.scroll_to(editor)
-        expect(page).to have_css(".editor-toolbar")
+        expect(page).to have_css(".editor-preview")
       end
       expect(page).to have_text("New proposal body template")
     end

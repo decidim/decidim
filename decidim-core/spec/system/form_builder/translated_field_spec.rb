@@ -7,6 +7,7 @@ describe "Translated field" do
     Class.new(ActionView::Base) do
       include Decidim::LayoutHelper
       include Decidim::DecidimFormHelper
+      include Decidim::SanitizeHelper
 
       def protect_against_forgery?
         false
