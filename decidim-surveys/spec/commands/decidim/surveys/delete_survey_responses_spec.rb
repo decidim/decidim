@@ -36,6 +36,11 @@ module Decidim
             expect(survey.questionnaire.reload.responses).to be_empty
           end
 
+          it "deletes all the survey submissions" do
+            expect { command.call }.to change(Decidim::Forms::Submission, :count).by(-1)
+            expect(survey.questionnaire.reload).not_to be_responded_by(current_user)
+          end
+
           it "traces the action" do
             expect(Decidim.traceability).to receive(:perform_action!).with(
               "delete_all_responses",

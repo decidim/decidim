@@ -141,6 +141,15 @@ FactoryBot.define do
     end
   end
 
+  factory :submission, class: "Decidim::Forms::Submission" do
+    transient do
+      skip_injection { false }
+    end
+    questionnaire
+    user { create(:user, organization: questionnaire.questionnaire_for.organization, skip_injection:) }
+    session_token { user ? Digest::SHA256.hexdigest(user.id.to_s) : SecureRandom.hex(32) }
+  end
+
   factory :response, class: "Decidim::Forms::Response" do
     transient do
       skip_injection { false }
@@ -150,6 +159,7 @@ FactoryBot.define do
     question { create(:questionnaire_question, questionnaire:, skip_injection:) }
     user { create(:user, organization: questionnaire.questionnaire_for.organization, skip_injection:) }
     session_token { Digest::SHA256.hexdigest(user.id.to_s) }
+    submission { Decidim::Forms::Submission.find_or_create_by!(questionnaire:, session_token:, user:) }
 
     trait :with_attachments do
       after(:create) do |response, evaluator|
