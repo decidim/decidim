@@ -70,6 +70,7 @@ module Decidim::Core
             let(:decidim_force_ssl) { true }
 
             it "configures the session cookie store with the secure flag" do
+              expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::ActiveRecordStore)
               expect(Rails.application.config.session_options).to eq(
                 secure: true,
                 httponly: true,
@@ -85,6 +86,7 @@ module Decidim::Core
             let(:decidim_force_ssl) { false }
 
             it "configures the session cookie store without the secure flag" do
+              expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::ActiveRecordStore)
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
                 httponly: true,
@@ -100,6 +102,7 @@ module Decidim::Core
             let(:decidim_expire_session_after) { 1.hour }
 
             it "configures the session cookie store with the correct expire after value" do
+              expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::ActiveRecordStore)
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
                 httponly: true,
