@@ -305,7 +305,7 @@ describe Decidim::ActionLog do
       end
     end
 
-    it "eager loads the participatory_space association for components" do
+    it "eager loads the participatory_space and its organization associations for components" do
       components = create_list(:component, 2, :published, organization:)
       logs = components.map do |component|
         create(:action_log, action: "create", visibility: "all", resource: create(:dummy_resource, component:), organization:, participatory_space: component.participatory_space)
@@ -314,9 +314,10 @@ describe Decidim::ActionLog do
       lazy_components = logs.map(&:component_lazy)
 
       expect(lazy_components).to all(satisfy { |component| component.association(:participatory_space).loaded? })
+      expect(lazy_components).to all(satisfy { |component| component.participatory_space.association(:organization).loaded? })
     end
 
-    it "eager loads the component participatory space for resources with a component" do
+    it "eager loads the component participatory space and its organization for resources with a component" do
       components = create_list(:component, 2, :published, organization:)
       logs = components.map do |component|
         create(:action_log, action: "create", visibility: "all", resource: create(:dummy_resource, :published, component:), organization:, participatory_space: component.participatory_space)
@@ -326,9 +327,10 @@ describe Decidim::ActionLog do
 
       expect(resources).to all(satisfy { |resource| resource.association(:component).loaded? })
       expect(resources).to all(satisfy { |resource| resource.component.association(:participatory_space).loaded? })
+      expect(resources).to all(satisfy { |resource| resource.component.participatory_space.association(:organization).loaded? })
     end
 
-    it "eager loads the component through the commentable for comments" do
+    it "eager loads the component through the commentable and the organization through the participatory space for comments" do
       components = create_list(:component, 2, :published, organization:)
       logs = components.map do |component|
         comment = create(:comment, commentable: create(:dummy_resource, :published, component:))
@@ -340,6 +342,7 @@ describe Decidim::ActionLog do
       expect(comments).to all(satisfy { |comment| comment.association(:root_commentable).loaded? })
       expect(comments).to all(satisfy { |comment| comment.root_commentable.association(:component).loaded? })
       expect(comments).to all(satisfy { |comment| comment.root_commentable.component.association(:participatory_space).loaded? })
+      expect(comments).to all(satisfy { |comment| comment.root_commentable.component.participatory_space.association(:organization).loaded? })
     end
 
     it "eager loads the avatar attachment for users" do
