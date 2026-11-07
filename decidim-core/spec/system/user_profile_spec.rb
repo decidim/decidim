@@ -32,7 +32,7 @@ describe "Profile" do
     end
 
     it "is not indexable by crawlers" do
-      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+      expect(page.find('meta[name="robots"]', visible: :all)[:content]).to eq("noindex")
     end
 
     it "shows the profile page when clicking on the menu" do
@@ -56,7 +56,7 @@ describe "Profile" do
     end
 
     it "is not indexable by crawlers" do
-      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+      expect(page.find('meta[name="robots"]', visible: :all)[:content]).to eq("noindex")
     end
 
     context "when the user filters the public activity" do
@@ -130,7 +130,7 @@ describe "Profile" do
 
       it "is not indexable by crawlers" do
         click_on "Badges"
-        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+        expect(page.find('meta[name="robots"]', visible: :all)[:content]).to eq("noindex")
       end
     end
 
@@ -159,7 +159,7 @@ describe "Profile" do
         click_on "Followers"
 
         expect(page).to have_text(other_user.name)
-        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+        expect(page.find('meta[name="robots"]', visible: :all)[:content]).to eq("noindex")
       end
 
       it "lists the followings" do
@@ -170,7 +170,7 @@ describe "Profile" do
         expect(page).to have_text(translated(other_user.name))
         expect(page).to have_text(translated(user_to_follow.name))
         expect(page).to have_no_text(translated(public_resource.title))
-        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+        expect(page.find('meta[name="robots"]', visible: :all)[:content]).to eq("noindex")
       end
 
       context "when the user follows non public resources" do

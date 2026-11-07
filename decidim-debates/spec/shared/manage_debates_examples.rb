@@ -185,8 +185,8 @@ RSpec.shared_examples "manage debates" do
       choose "Open"
     end
 
-    expect(page).to have_no_selector "#debate_start_time"
-    expect(page).to have_no_selector "#debate_end_time"
+    expect(page).to have_no_css "#debate_start_time"
+    expect(page).to have_no_css "#debate_end_time"
 
     within ".new_debate" do
       select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
