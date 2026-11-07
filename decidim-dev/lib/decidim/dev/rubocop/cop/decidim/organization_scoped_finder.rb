@@ -27,7 +27,13 @@ module RuboCop
         ].freeze
         RESTRICT_ON_SEND = [*FINDER_METHODS, :where, :or].freeze
 
+        RECORD_LOADING_METHODS = [:load, :load_async].freeze
+
         SCOPE_ROOT_METHODS = [:current_organization, :collection].freeze
+
+        SCOPED_CREATION_FINDER_METHODS = [
+          :find_or_initialize_by, :find_or_create_by, :find_or_create_by!
+        ].freeze
 
         SCOPED_WHERE_KEYS = [:current_organization, :current_component].freeze
 
@@ -56,7 +62,7 @@ module RuboCop
           return if organization_scoped?(node.receiver)
           return unless unscoped_model_class?(node.receiver) || unscoped_or_relation?(node.receiver)
           return if constructed_scope_root?(node.receiver)
-          return if consumed_by_finder?(node)
+          return if consumed_by_outer_relation?(node)
 
           add_offense(node)
         end
@@ -70,7 +76,7 @@ module RuboCop
         def check_or_relation(node)
           return if node.ancestors.any? { |ancestor| ancestor.send_type? && ancestor.method_name == :or }
           return if scoped_or_branches?(node)
-          return if consumed_by_finder?(node)
+          return if consumed_by_outer_relation?(node)
 
           add_offense(node)
         end
@@ -96,9 +102,14 @@ module RuboCop
         # An `or` relation whose branches are not all scoped can leak records
         # from another organization even when its receiver chain has no model
         # constant, as in `current_organization.taxonomies.or(Taxonomy.all)`.
-        # `organization_scoped?` has already rejected it at this point.
+        # Walk the whole receiver chain so intermediate calls between the `or`
+        # and the terminal finder (e.g. `.order(:id)`) do not hide it.
+        # `organization_scoped?` has already rejected the chain at this point.
         def unscoped_or_relation?(node)
-          node.send_type? && node.method_name == :or
+          return false unless node&.send_type?
+          return !scoped_or_branches?(node) if node.method_name == :or
+
+          unscoped_or_relation?(node.receiver)
         end
 
         def ignored_constant?(node)
@@ -174,9 +185,20 @@ module RuboCop
           return false unless key.sym_type?
           return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
           return false unless value.send_type?
-          return false if value.receiver
+          return false unless value.method_name == :"current_#{key.value}"
+          return true unless value.receiver
 
-          value.method_name == :"current_#{key.value}"
+          # Accept form-provided context helpers such as
+          # `form.current_component` or `@form.current_organization`, but not
+          # arbitrary receivers that merely expose a similarly named method.
+          form_context_receiver?(value.receiver)
+        end
+
+        def form_context_receiver?(node)
+          return node.method_name == :form if node.send_type? && node.receiver.nil?
+          return node.name == :form if node.lvar_type?
+
+          node.ivar_type? && node.name == :@form
         end
 
         def scoped_trusted_value?(node)
@@ -242,19 +264,51 @@ module RuboCop
           end
         end
 
-        def consumed_by_finder?(node)
-          return false unless [:where, :or].include?(node.method_name)
-
+        # Report only the outermost relevant call of a receiver chain, so a
+        # single query cannot produce several offenses.
+        def consumed_by_outer_relation?(node)
+          loads_records = loads_records?(node)
           ancestor = node.parent
           while ancestor&.send_type?
             break unless ancestor.receiver == node
-            return true if FINDER_METHODS.include?(ancestor.method_name)
+            return true if reportable_outer_relation?(ancestor, loads_records)
 
+            loads_records ||= loads_records?(ancestor)
             node = ancestor
             ancestor = node.parent
           end
 
           false
+        end
+
+        # A call with a block is usually an Enumerable operation rather than a
+        # relation continuation, so the cop skips it and it cannot report the
+        # offense for the query it receives. Scoped creation finders are the
+        # exception: ActiveRecord applies their finder attributes before
+        # loading records, and their block only initializes values on a new
+        # record.
+        #
+        # Other calls that already scope their own arguments are also skipped
+        # by `relevant_node?`, so they cannot report the offense for an inner
+        # unscoped finder. Let that inner call remain reportable instead.
+        #
+        # A scoped call must not hide a lookup that already loaded records
+        # before it ran. It can only consume inner calls that build the query.
+        def reportable_outer_relation?(node, loads_records)
+          return false unless RESTRICT_ON_SEND.include?(node.method_name)
+          return false if node.block_node && !scoped_creation_finder?(node)
+          return true unless scoped_finder_arguments?(node)
+          return false if loads_records
+
+          true
+        end
+
+        def loads_records?(node)
+          FINDER_METHODS.include?(node.method_name) || RECORD_LOADING_METHODS.include?(node.method_name)
+        end
+
+        def scoped_creation_finder?(node)
+          SCOPED_CREATION_FINDER_METHODS.include?(node.method_name) && scoped_finder_arguments?(node)
         end
       end
     end
