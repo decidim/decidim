@@ -101,6 +101,8 @@ module Decidim
       }
     end
 
+    # Returns the metadata item with the formatted start date time, or nil when
+    # the dates are blank.
     def start_date_item
       return if dates_blank?
 

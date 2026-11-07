@@ -37,6 +37,8 @@ module Decidim
       t("show.pending_address", scope: "decidim.meetings.meetings")
     end
 
+    # Returns true when the model has both start and end times present, so the
+    # start-and-end-time section can be rendered.
     def display_start_and_end_time?
       return false unless model.respond_to?(:start_time) && model.respond_to?(:end_time)
 
