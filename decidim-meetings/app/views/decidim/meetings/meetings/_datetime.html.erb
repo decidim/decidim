@@ -1,8 +1,8 @@
 <div>
   <div>
-    <%= l meeting.start_time, format: "%d" %> <span><%= l meeting.start_time, format: "%B %Y" %></span>
+    <%= l meeting.start_time, format: "%d" %> <span><%= l meeting.start_time, format: :decidim_month_and_year %></span>
   </div>
   <div>
-    <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
+    <%= l meeting.start_time, format: :time_of_day %> - <%= l meeting.end_time, format: :time_of_day %>
   </div>
 </div>

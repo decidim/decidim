@@ -37,8 +37,12 @@ module Decidim
       t("show.pending_address", scope: "decidim.meetings.meetings")
     end
 
+    # Returns true when the model has both start and end times present, so the
+    # start-and-end-time section can be rendered.
     def display_start_and_end_time?
-      model.respond_to?(:start_time) && model.respond_to?(:end_time)
+      return false unless model.respond_to?(:start_time) && model.respond_to?(:end_time)
+
+      model.start_time.present? && model.end_time.present?
     end
 
     def start_and_end_time
@@ -63,11 +67,11 @@ module Decidim
     private
 
     def start_time
-      l model.start_time, format: "%H:%M %p"
+      l model.start_time, format: :time_of_day_12h
     end
 
     def end_time
-      l model.end_time, format: "%H:%M %p %Z"
+      l model.end_time, format: :time_of_day_12h_with_time_zone
     end
   end
 end

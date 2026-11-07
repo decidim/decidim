@@ -126,8 +126,36 @@ describe Decidim::CardMetadataCell, type: :cell do
         let(:start_date) { 4.days.from_now.at_beginning_of_day }
         let(:end_date) { 5.days.from_now.at_beginning_of_day }
 
-        it "displays the duration" do
-          expect(cell_html).to have_text("00:00 AM UTC")
+        it "displays the start time with the meridiem and the time zone" do
+          expect(cell_html).to have_text("12:00 AM UTC")
+        end
+      end
+
+      context "and the start time is during the day" do
+        let(:start_date) { Time.zone.parse("2026-01-15 15:04:00 UTC") }
+        let(:end_date) { Time.zone.parse("2026-01-15 18:30:00 UTC") }
+
+        it "displays the 12-hour time with the time zone" do
+          expect(cell_html).to have_text("03:04 PM UTC")
+          expect(cell_html).to have_no_text("15:04 PM")
+        end
+      end
+
+      context "and the start date is a Date" do
+        let(:start_date) { Date.parse("2026-01-15") }
+        let(:end_date) { Date.parse("2026-01-20") }
+
+        it "displays midnight in the current time zone" do
+          expect(cell_html).to have_text("12:00 AM UTC")
+        end
+      end
+
+      context "and the rendering time zone is the organization one", tz: "Madrid" do
+        let(:start_date) { Time.zone.parse("2026-01-15 15:04:00 UTC") }
+        let(:end_date) { Time.zone.parse("2026-01-15 18:30:00 UTC") }
+
+        it "displays the time zone abbreviation" do
+          expect(cell_html).to have_text("04:04 PM CET")
         end
       end
     end

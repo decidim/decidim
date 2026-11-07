@@ -523,9 +523,7 @@ describe "Explore meetings", :slow do
       expect(page).to have_i18n_content(meeting.location_hints, strip_tags: true)
       expect(page).to have_text(meeting.address)
       expect(page).to have_text(meeting.reference)
-      expect(page).to have_text(I18n.l(meeting.start_time, format: "%H:%M"))
-      expect(page).to have_text(I18n.l(meeting.end_time, format: "%H:%M"))
-      expect(page).to have_text("UTC")
+      expect(page).to have_text("#{I18n.l(meeting.start_time, format: :time_of_day_12h)} - #{I18n.l(meeting.end_time, format: :time_of_day_12h_with_time_zone)}")
 
       within ".meeting__calendar-day" do
         expect(page).to have_text(date.day)
