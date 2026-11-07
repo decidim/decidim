@@ -11,6 +11,7 @@ module Decidim
 
       translatable_fields :title, :description, :tos
       belongs_to :questionnaire_for, polymorphic: true
+      delegate :organization, to: :questionnaire_for, allow_nil: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
       has_many :responses, class_name: "Response", foreign_key: "decidim_questionnaire_id", dependent: :destroy
