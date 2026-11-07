@@ -8,8 +8,6 @@ shared_examples "manage impersonations examples" do
   let(:document_number) { "123456789X" }
 
   before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
     clear_enqueued_jobs
   end
 
