@@ -55,6 +55,16 @@ module Decidim
         expect(comment.down_votes_count).to eq(1)
       end
 
+      it "has a comment_votes association returning all the comment votes" do
+        expect(comment.comment_votes).to contain_exactly(up_vote, down_vote)
+      end
+
+      it "has the comment as the inverse of the comment_votes association" do
+        comment.comment_votes.reset
+
+        expect(comment.comment_votes.first.comment).to be(comment)
+      end
+
       it "has an associated participatory_process" do
         expect(comment.participatory_space).to eq(component.participatory_space)
       end

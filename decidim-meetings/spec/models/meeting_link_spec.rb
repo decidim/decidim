@@ -6,6 +6,12 @@ module Decidim::Meetings
   describe MeetingLink do
     let(:component) { create(:component) }
 
+    it "uses the meeting's meeting_links association as the inverse" do
+      meeting_link = create(:meeting_link, component:)
+
+      expect(meeting_link.meeting.meeting_links.first.meeting).to be(meeting_link.meeting)
+    end
+
     describe "find_meetings" do
       context "when meeting without links" do
         let!(:meeting) { create(:meeting) }

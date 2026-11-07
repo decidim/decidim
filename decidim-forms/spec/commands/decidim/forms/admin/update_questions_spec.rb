@@ -291,6 +291,114 @@ module Decidim
           end
         end
 
+        # The answers make the questions read-only unless the questionnaire is
+        # explicitly editable (as in demographics) or the component is unpublished,
+        # which is exactly the situation where an answered option can be removed.
+        describe "when the questionnaire has existing records with recorded answers" do
+          before { questionnaire.override_edit! }
+
+          context "and a response option with choices is removed" do
+            let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "single_option") }
+            let!(:response) { create(:response, question:, questionnaire:) }
+            let!(:response_option) { create(:response_option, question:, body: { en: "First response" }) }
+            let!(:choice) { create(:response_choice, response:, response_option:) }
+
+            let(:form_params) do
+              {
+                "questions" => {
+                  "0" => {
+                    "id" => question.id,
+                    "body" => question.body,
+                    "position" => 0,
+                    "question_type" => "single_option",
+                    "response_options" => {
+                      "0" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "true" }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "broadcasts invalid instead of raising" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+
+            it "keeps the option and the recorded answer" do
+              command.call
+
+              expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(true)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
+            end
+
+            it "broadcasts the reason for the refused removal" do
+              messages = []
+              command.on(:invalid) { |message| messages << message }
+              command.call
+
+              expect(messages.first).to include("First response")
+            end
+
+            # The message reaches the admin editor through the flash, which renders
+            # its value as HTML, so the saved text has to come out escaped.
+            it "escapes the saved markup of the option in the message" do
+              response_option.update!(body: { "en" => "<script>alert(1)</script>" })
+
+              messages = []
+              command.on(:invalid) { |message| messages << message }
+              command.call
+
+              expect(messages.first).to include("&lt;script&gt;alert(1)&lt;/script&gt;")
+              expect(messages.first).not_to include("<script>")
+            end
+          end
+
+          context "and a matrix row with choices is removed" do
+            let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "matrix_single") }
+            let!(:response) { create(:response, question:, questionnaire:) }
+            let!(:response_option) { create(:response_option, question:) }
+            let!(:matrix_row) { create(:question_matrix_row, question:, body: { en: "First row" }) }
+            let!(:choice) { create(:response_choice, response:, matrix_row:, response_option:) }
+
+            let(:form_params) do
+              {
+                "questions" => {
+                  "0" => {
+                    "id" => question.id,
+                    "body" => question.body,
+                    "position" => 0,
+                    "question_type" => "matrix_single",
+                    "response_options" => {
+                      "0" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "false" }
+                    },
+                    "matrix_rows" => {
+                      "0" => { "id" => matrix_row.id, "body" => matrix_row.body, "deleted" => "true" }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "broadcasts invalid instead of raising" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+
+            it "keeps the row and the recorded answer" do
+              command.call
+
+              expect(Decidim::Forms::QuestionMatrixRow.exists?(matrix_row.id)).to be(true)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
+            end
+
+            it "broadcasts the reason for the refused removal" do
+              messages = []
+              command.on(:invalid) { |message| messages << message }
+              command.call
+
+              expect(messages.first).to include("First row")
+            end
+          end
+        end
+
         describe "when the questionnaire has existing questions" do
           let!(:questions) { 0.upto(3).to_a.map { |x| create(:questionnaire_question, questionnaire:, position: x) } }
           let!(:question_2_response_options) { create_list(:response_option, 3, question: questions.second) }

@@ -15,6 +15,12 @@ module Decidim
         expect(invite.meeting).to be_a(Decidim::Meetings::Meeting)
       end
 
+      it "uses the meeting's invites association as the inverse" do
+        created_invite = create(:invite)
+
+        expect(created_invite.meeting.invites.first.meeting).to be(created_invite.meeting)
+      end
+
       it "has an associated user" do
         expect(invite.user).to be_a(Decidim::User)
       end

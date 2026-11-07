@@ -84,6 +84,8 @@ en:
             add_title_and_description: Add title and description
             save: Save
             title: Questions
+          errors:
+            cannot_remove_with_answers: "%{name} cannot be removed because it has recorded answers."
           form:
             add_question: Add question
             collapse: Collapse all questions

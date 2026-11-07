@@ -10,7 +10,7 @@ module Decidim
       include Decidim::Loggable
 
       belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal",
-                            counter_cache: true
+                            counter_cache: true, inverse_of: :evaluation_assignments
       belongs_to :evaluator_role, polymorphic: true
 
       def self.log_presenter_class_for(_log)

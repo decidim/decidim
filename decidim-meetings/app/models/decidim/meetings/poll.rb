@@ -9,7 +9,7 @@ module Decidim
               inverse_of: :questionnaire_for,
               as: :questionnaire_for
 
-      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
+      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting", inverse_of: :poll
 
       delegate :organization, to: :meeting
 
