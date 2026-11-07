@@ -595,6 +595,7 @@ module Decidim
                                        secure: Decidim.config.force_ssl,
                                        expire_after: Decidim.config.expire_session_after,
                                        httponly: true,
+                                       secure_session_only: true,
                                        same_site: :lax
 
               You are seeing this message because we have detected that your application already configures the session store. We recommend that you remove your snippet and use the default value provided by Decidim.

@@ -35,7 +35,21 @@ describe "AddSessionsTable", type: :migration do
     end
   end
 
+  def session_id_indexes
+    connection.indexes(:sessions).select { |existing| existing.columns == ["session_id"] }
+  end
+
   describe "#up" do
+    context "when the table does not exist" do
+      it "creates the table marked with CREATED_MARKER and the required indexes" do
+        migration.up
+
+        expect(connection.table_comment("sessions")).to eq(AddSessionsTable::CREATED_MARKER)
+        expect(session_id_indexes.map(&:unique)).to eq([true])
+        expect(connection.indexes(:sessions).map(&:columns)).to include(["updated_at"])
+      end
+    end
+
     context "when the existing table matches the session store schema" do
       before { create_sessions_table!(default_columns) }
 
@@ -82,10 +96,6 @@ describe "AddSessionsTable", type: :migration do
       it "raises naming the primary key configuration" do
         expect { migration.up }.to raise_error(/id is not the table primary key/)
       end
-    end
-
-    def session_id_indexes
-      connection.indexes(:sessions).select { |existing| existing.columns == ["session_id"] }
     end
 
     context "when no index on session_id exists" do
@@ -136,6 +146,41 @@ describe "AddSessionsTable", type: :migration do
 
       it "raises naming the duplicate session_id values" do
         expect { migration.up }.to raise_error(/duplicate session_id values/)
+      end
+    end
+  end
+
+  describe "#down" do
+    context "when the table does not exist" do
+      it "does nothing" do
+        expect { migration.down }.not_to raise_error
+
+        expect(connection.table_exists?(:sessions)).to be(false)
+      end
+    end
+
+    context "when the table was created by this migration (carries the marker)" do
+      before { migration.up }
+
+      it "drops the table" do
+        migration.down
+
+        expect(connection.table_exists?(:sessions)).to be(false)
+      end
+    end
+
+    context "when the table exists without the marker (created outside this migration)" do
+      before do
+        create_sessions_table!(default_columns)
+        connection.execute("INSERT INTO sessions (session_id, data) VALUES ('existing-session', 'data')")
+      end
+
+      it "keeps the table and its stored sessions" do
+        migration.up
+        migration.down
+
+        expect(connection.table_exists?(:sessions)).to be(true)
+        expect(connection.select_value("SELECT COUNT(*) FROM sessions WHERE session_id = 'existing-session'")).to eq(1)
       end
     end
   end
