@@ -6,6 +6,12 @@ module Decidim
       # This class is responsible for creating the imported proposal answers
       # and must be included in proposals component's import manifest.
       class ProposalAnswerCreator < Decidim::Admin::Import::Creator
+        class << self
+          def batch_notifier_klass
+            Decidim::Proposals::Import::BatchNotifier
+          end
+        end
+
         # Returns the resource class to be created with the provided data.
         def self.resource_klass
           Decidim::Proposals::Proposal
@@ -25,15 +31,14 @@ module Decidim
         end
 
         def finish!
-          Decidim.traceability.perform_action!(
-            "answer",
-            resource,
-            current_user
-          ) do
-            resource.try(:save!)
-          end
-
+          persist_resource!
           notify
+        end
+
+        def finish_without_notify!
+          persist_resource!
+          notify_without_followers
+          resource
         end
 
         private
@@ -56,7 +61,7 @@ module Decidim
 
           proposal.answer = answer
           proposal.answered_at = Time.current
-          @initial_state = proposal.proposal_state
+          @initial_state = proposal.state
 
           proposal_state = Decidim::Proposals::ProposalState.where(component:, token: state).first
 
@@ -70,7 +75,7 @@ module Decidim
         end
 
         def id
-          data[:id].to_i
+          normalize_id(data[:id])
         end
 
         def state
@@ -93,9 +98,38 @@ module Decidim
           context[:current_user]
         end
 
+        def persist_resource!
+          Decidim.traceability.perform_action!(
+            "answer",
+            resource,
+            current_user
+          ) do
+            resource.try(:save!)
+          end
+        end
+
         def notify
-          state = initial_state || resource.try(:state)
-          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, state)
+          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, initial_state)
+        end
+
+        def notify_without_followers
+          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, initial_state, notify_followers: false)
+        end
+
+        def normalize_id(raw_id)
+          values = case raw_id
+                   when nil
+                     []
+                   when String
+                     raw_id.split(",")
+                   when Array
+                     raw_id.flatten
+                   else
+                     [raw_id]
+                   end
+
+          value = values.find(&:present?)
+          value.respond_to?(:to_i) ? value.to_i : nil
         end
       end
     end
