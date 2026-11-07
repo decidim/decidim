@@ -229,6 +229,46 @@ module Decidim::Maintenance::ImportModels
         )
       end
 
+      context "when the component has scopes enabled and the space has them disabled" do
+        let(:space_scopes_enabled) { false }
+
+        it "returns the filter for the component with its own scope" do
+          expect(hash[:filters]).to include(
+            {
+              name: root_taxonomy_name,
+              internal_name: "#{root_taxonomy_name}: Dummy Component",
+              items: [
+                [
+                  "Scope 1",
+                  "Scope 1 second level",
+                  "Scope 1 third level"
+                ],
+                [
+                  "Scope 1",
+                  "Scope 1 second level",
+                  "Scope 1 third level > Scope 1 fourth level"
+                ],
+                [
+                  "Scope 1",
+                  "Scope 1 second level",
+                  "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level"
+                ]
+              ],
+              components: [dummy_component.to_global_id.to_s]
+            }
+          )
+        end
+      end
+
+      context "when the component has scopes enabled, no scope of its own, and the space has scopes disabled" do
+        let(:settings) { { scopes_enabled: true } }
+        let(:space_scopes_enabled) { false }
+
+        it "skips the component as the space scopes are disabled" do
+          expect(hash[:filters].count).to eq(1)
+        end
+      end
+
       context "and a component has no taxonomy filters" do
         let!(:dummy_component) { create(:surveys_component, name: { "en" => "Another Dummy Component" }, participatory_space: assembly) }
         let(:dummy_resource) { nil }
