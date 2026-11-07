@@ -301,6 +301,7 @@ module Decidim
             let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "single_option") }
             let!(:response) { create(:response, question:, questionnaire:) }
             let!(:response_option) { create(:response_option, question:, body: { en: "First response" }) }
+            let!(:other_response_option) { create(:response_option, question:, body: { en: "Second response" }) }
             let!(:choice) { create(:response_choice, response:, response_option:) }
 
             let(:form_params) do
@@ -312,7 +313,10 @@ module Decidim
                     "position" => 0,
                     "question_type" => "single_option",
                     "response_options" => {
-                      "0" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "true" }
+                      # The update entry comes first so it is processed before the
+                      # refused removal, which lets the rollback be verified.
+                      "0" => { "id" => other_response_option.id, "body" => { "en" => "Renamed option" }, "deleted" => "false" },
+                      "1" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "true" }
                     }
                   }
                 }
@@ -326,6 +330,16 @@ module Decidim
             it "keeps the option and the recorded answer" do
               command.call
 
+              expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(true)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
+            end
+
+            # The update of the other option is processed before the removal is
+            # refused, so the transaction has to roll it back with the removal.
+            it "rolls back the update processed before the refused removal" do
+              command.call
+
+              expect(other_response_option.reload.body["en"]).to eq("Second response")
               expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(true)
               expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
             end
