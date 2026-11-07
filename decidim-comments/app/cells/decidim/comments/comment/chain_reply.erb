@@ -1,0 +1,5 @@
+<div id="comment-<%= model.id %>-replies" class="comment-reply">
+  <% chain_reply.each do |reply| %>
+    <%= cell("decidim/comments/comment", reply, root_depth:, order:, target_chain_ids:) %>
+  <% end %>
+</div>

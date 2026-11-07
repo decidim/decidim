@@ -1,11 +1,25 @@
-<%= content_tag :div, id: options[:id], class: "flash flex-col #{css_class}", style: css_styles, data: { announcement: "" }.compact, hidden: options[:hidden] do %>
-  <% if has_title? %>
-    <div class="flash__title">
-      <%= clean_title %>
+<%= content_tag :div, id: options[:id], class: "flash #{icon_name ? "flash--with-icon" : "flex-col"} #{css_class}", style: css_styles, data: { announcement: "", alert_box: ("" if closable?) }.compact, hidden: options[:hidden] do %>
+  <% if icon_name %>
+    <div class="flash__icon" aria-hidden="true">
+      <%= icon icon_name %>
     </div>
   <% end %>
 
-  <div class="flash__message">
-    <%= text %>
-  </div>
+  <% if icon_name %><div class="flash__content"><% end %>
+    <% if has_title? %>
+      <div class="flash__title">
+        <%= clean_title %>
+      </div>
+    <% end %>
+
+    <div class="flash__message">
+      <%= text %>
+    </div>
+  <% if icon_name %></div><% end %>
+
+  <% if closable? %>
+    <%= button_tag type: "button", class: "close-button", data: { close: "" }, aria: { label: t("decidim.alert.dismiss") } do %>
+      <%= icon "close-line" %>
+    <% end %>
+  <% end %>
 <% end %>

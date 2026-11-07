@@ -1,5 +1,7 @@
 <%= render partial: "decidim/comments/comments/delete", formats: [:html], locals: { comment: model } %>
 
-<% if has_replies_in_children? %>
+<% if render_chain_reply? %>
+  <%= render :chain_reply %>
+<% elsif has_replies_in_children? %>
   <%= render :replies %>
 <% end %>

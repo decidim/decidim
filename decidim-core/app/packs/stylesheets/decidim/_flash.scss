@@ -7,6 +7,36 @@
     }
   }
 
+  &--with-icon {
+    @apply items-start;
+
+    .flash__icon svg {
+      @apply w-6 h-6;
+    }
+
+    .flash__content {
+      @apply flex flex-col gap-1 min-w-0;
+    }
+
+    .flash__title {
+      @apply text-md;
+    }
+
+    // Link with a trailing arrow (remixicon "arrow-right-line"). The cell
+    // sanitizes its content, so the arrow is drawn with CSS instead of an svg.
+    .flash__message a:not(.button) {
+      @apply inline-flex items-center gap-1 font-semibold text-sm no-underline;
+
+      &::after {
+        @apply w-4 h-4 flex-none bg-current;
+
+        content: "";
+        mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M16.172 11 10.808 5.636l1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z'/></svg>")
+          center / contain no-repeat;
+      }
+    }
+  }
+
   &__title {
     @apply font-semibold text-lg;
   }
