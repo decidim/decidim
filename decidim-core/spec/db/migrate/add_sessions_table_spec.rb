@@ -63,6 +63,14 @@ describe "AddSessionsTable", type: :migration do
       end
     end
 
+    context "when id is a generated bigint primary key" do
+      before { create_sessions_table!(default_columns, primary_key: :bigint) }
+
+      it "accepts the table" do
+        expect { migration.up }.not_to raise_error
+      end
+    end
+
     context "when data is one of the supported JSON types" do
       before { create_sessions_table!(default_columns.merge("data" => :jsonb)) }
 
@@ -110,6 +118,30 @@ describe "AddSessionsTable", type: :migration do
         expect { migration.up }.to raise_error(
           /Incompatible column\(s\): id \(uuid primary key without a generated default cannot be populated by the session store/
         )
+      end
+    end
+
+    context "when id is an integer primary key without a generated default" do
+      before { create_sessions_table!(default_columns, primary_key: :integer, default: nil) }
+
+      it "raises naming the missing generated default" do
+        expect { migration.up }.to raise_error(
+          /Incompatible column\(s\): id \(integer primary key without a generated default cannot be populated by the session store/
+        )
+      end
+    end
+
+    # Identity columns have no default function but are populated by the database, so they are
+    # accepted even though the check above looks for a generated default.
+    context "when id is an integer primary key created as identity" do
+      before do
+        connection.execute(
+          "CREATE TABLE sessions (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, session_id varchar, data text, created_at timestamp, updated_at timestamp)"
+        )
+      end
+
+      it "accepts the table" do
+        expect { migration.up }.not_to raise_error
       end
     end
 

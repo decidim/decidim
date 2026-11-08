@@ -10,7 +10,7 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
   # Columns the session store relies on, with the types each one accepts. The data column
   # also supports the JSON types, which the `:json` serializer writes into. The primary key
   # also accepts UUID columns, which the session store can use without changes as long as the
-  # database generates the values through a default (see `uuid_default_problem`).
+  # database generates the values through a default (see `primary_key_default_problem`).
   REQUIRED_COLUMNS = {
     "id" => [:integer, :uuid],
     "session_id" => [:string],
@@ -78,7 +78,7 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
       end
     end
     incompatible << "id is not the table primary key" unless connection.primary_key(:sessions) == "id"
-    incompatible.concat([uuid_default_problem(columns["id"]), session_id_length_problem(columns["session_id"])].compact)
+    incompatible.concat([primary_key_default_problem(columns["id"]), session_id_length_problem(columns["session_id"])].compact)
 
     [
       ("Missing column(s): #{missing.join(", ")}" unless missing.empty?),
@@ -92,13 +92,20 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
     "session_id (limit #{column.limit} cannot hold the #{MIN_SESSION_ID_LENGTH}-character private session IDs; widen the column before running this migration)"
   end
 
-  # A UUID key has no sequence behind it, so the session store can only insert rows when the
-  # database generates the value through a default such as `gen_random_uuid()`. Integer keys
-  # are unaffected because their sequence supplies the value.
-  def uuid_default_problem(column)
-    return if column.nil? || column.type != :uuid || column.default_function.present?
+  # The session store never supplies the primary key itself, so the database must generate it.
+  # A UUID key has no sequence behind it, so it needs a default such as `gen_random_uuid()`, and
+  # an integer key only gets its value from a sequence when the column is serial or identity; a
+  # key without a generated default fails on the first session insert.
+  def primary_key_default_problem(column)
+    return if column.nil? || column.auto_populated?
 
-    "id (uuid primary key without a generated default cannot be populated by the session store; add a default such as gen_random_uuid() before running this migration)"
+    case column.type
+    when :uuid
+      "id (uuid primary key without a generated default cannot be populated by the session store; add a default such as gen_random_uuid() before running this migration)"
+    when :integer
+      "id (integer primary key without a generated default cannot be populated by the session store; " \
+      "make the column serial or identity, or add a default such as nextval() before running this migration)"
+    end
   end
 
   # `if_not_exists` is name-based and would silently preserve a pre-existing non-unique
