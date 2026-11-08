@@ -25,8 +25,13 @@ describe "AddSessionsTable", type: :migration do
     }
   end
 
-  def create_sessions_table!(columns, primary_key: :integer)
-    connection.create_table :sessions, id: primary_key do |t|
+  # `default: :generated` keeps the adapter's own default (the sequence for integer keys,
+  # `gen_random_uuid()` for UUID keys); passing an explicit value, including nil, overrides it.
+  def create_sessions_table!(columns, primary_key: :integer, default: :generated)
+    options = { id: primary_key }
+    options[:default] = default unless default == :generated
+
+    connection.create_table :sessions, **options do |t|
       columns.each do |name, type|
         next if name == "id" && primary_key
 
@@ -95,6 +100,16 @@ describe "AddSessionsTable", type: :migration do
 
       it "accepts the table" do
         expect { migration.up }.not_to raise_error
+      end
+    end
+
+    context "when id is a UUID primary key without a generated default" do
+      before { create_sessions_table!(default_columns, primary_key: :uuid, default: nil) }
+
+      it "raises naming the missing generated default" do
+        expect { migration.up }.to raise_error(
+          /Incompatible column\(s\): id \(uuid primary key without a generated default cannot be populated by the session store/
+        )
       end
     end
 

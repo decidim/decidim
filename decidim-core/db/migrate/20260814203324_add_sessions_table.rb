@@ -9,7 +9,8 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
 
   # Columns the session store relies on, with the types each one accepts. The data column
   # also supports the JSON types, which the `:json` serializer writes into. The primary key
-  # also accepts UUID columns, which the session store can use without changes.
+  # also accepts UUID columns, which the session store can use without changes as long as the
+  # database generates the values through a default (see `uuid_default_problem`).
   REQUIRED_COLUMNS = {
     "id" => [:integer, :uuid],
     "session_id" => [:string],
@@ -77,9 +78,7 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
       end
     end
     incompatible << "id is not the table primary key" unless connection.primary_key(:sessions) == "id"
-
-    session_id_problem = session_id_length_problem(columns["session_id"])
-    incompatible << session_id_problem if session_id_problem
+    incompatible.concat([uuid_default_problem(columns["id"]), session_id_length_problem(columns["session_id"])].compact)
 
     [
       ("Missing column(s): #{missing.join(", ")}" unless missing.empty?),
@@ -91,6 +90,15 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
     return if column.nil? || column.limit.nil? || column.limit >= MIN_SESSION_ID_LENGTH
 
     "session_id (limit #{column.limit} cannot hold the #{MIN_SESSION_ID_LENGTH}-character private session IDs; widen the column before running this migration)"
+  end
+
+  # A UUID key has no sequence behind it, so the session store can only insert rows when the
+  # database generates the value through a default such as `gen_random_uuid()`. Integer keys
+  # are unaffected because their sequence supplies the value.
+  def uuid_default_problem(column)
+    return if column.nil? || column.type != :uuid || column.default_function.present?
+
+    "id (uuid primary key without a generated default cannot be populated by the session store; add a default such as gen_random_uuid() before running this migration)"
   end
 
   # `if_not_exists` is name-based and would silently preserve a pre-existing non-unique
