@@ -8,14 +8,20 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
   CREATED_MARKER = "decidim:add_sessions_table"
 
   # Columns the session store relies on, with the types each one accepts. The data column
-  # also supports the JSON types, which the `:json` serializer writes into.
+  # also supports the JSON types, which the `:json` serializer writes into. The primary key
+  # also accepts UUID columns, which the session store can use without changes.
   REQUIRED_COLUMNS = {
-    "id" => [:integer],
+    "id" => [:integer, :uuid],
     "session_id" => [:string],
     "data" => [:text, :json, :jsonb],
     "created_at" => [:datetime],
     "updated_at" => [:datetime]
   }.freeze
+
+  # With `secure_session_only` the store writes the private session ID, which is
+  # "2::" followed by the SHA256 hexdigest of the public ID: 67 characters. A string
+  # column shorter than this cannot hold the value.
+  MIN_SESSION_ID_LENGTH = 67
 
   def up
     if table_exists?(:sessions)
@@ -72,34 +78,58 @@ class AddSessionsTable < ActiveRecord::Migration[8.1]
     end
     incompatible << "id is not the table primary key" unless connection.primary_key(:sessions) == "id"
 
+    session_id_problem = session_id_length_problem(columns["session_id"])
+    incompatible << session_id_problem if session_id_problem
+
     [
       ("Missing column(s): #{missing.join(", ")}" unless missing.empty?),
       ("Incompatible column(s): #{incompatible.join(", ")}" unless incompatible.empty?)
     ].compact
   end
 
+  def session_id_length_problem(column)
+    return if column.nil? || column.limit.nil? || column.limit >= MIN_SESSION_ID_LENGTH
+
+    "session_id (limit #{column.limit} cannot hold the #{MIN_SESSION_ID_LENGTH}-character private session IDs; widen the column before running this migration)"
+  end
+
   # `if_not_exists` is name-based and would silently preserve a pre-existing non-unique
   # index on `session_id`, which the session store cannot rely on. Verify every index on
-  # the column, keep an existing unique one, replace the non-unique matches when uniqueness
-  # can be enforced, otherwise stop with an actionable error.
+  # the column, keep an existing unconditional unique one, replace the non-unique matches
+  # when uniqueness can be enforced, otherwise stop with an actionable error. A partial
+  # unique index (with a WHERE predicate) does not enforce uniqueness outside its
+  # predicate, so it does not satisfy the requirement on its own.
   def ensure_unique_session_id_index!
-    indexes = connection.indexes(:sessions).select { |existing| existing.columns == ["session_id"] }
+    indexes = session_id_indexes
     return add_index :sessions, :session_id, unique: true if indexes.empty?
 
     non_unique = indexes.reject(&:unique)
-    if indexes.any?(&:unique)
-      non_unique.each { |index| remove_index :sessions, name: index.name }
-      return
-    end
+    return remove_session_id_indexes(non_unique) if indexes.any? { |index| index.unique && index.where.nil? }
 
+    ensure_no_duplicate_session_ids!
+    remove_session_id_indexes(non_unique)
+    add_index :sessions, :session_id, unique: true, name: unique_session_id_index_name(session_id_indexes)
+  end
+
+  def session_id_indexes
+    connection.indexes(:sessions).select { |existing| existing.columns == ["session_id"] }
+  end
+
+  def remove_session_id_indexes(indexes)
+    indexes.each { |index| remove_index :sessions, name: index.name }
+  end
+
+  def ensure_no_duplicate_session_ids!
     duplicate_session_id = connection.select_value("SELECT session_id FROM sessions GROUP BY session_id HAVING COUNT(*) > 1 LIMIT 1")
-    if duplicate_session_id
-      raise "The existing `sessions` table has a non-unique index on `session_id` and duplicate session_id values " \
-            "(e.g. #{duplicate_session_id}). The required unique index cannot be created. Remove the duplicate " \
-            "sessions or make the index unique before running this migration."
-    end
+    return unless duplicate_session_id
 
-    non_unique.each { |index| remove_index :sessions, name: index.name }
-    add_index :sessions, :session_id, unique: true
+    raise "The existing `sessions` table has no unconditional unique index on `session_id` and duplicate session_id values " \
+          "(e.g. #{duplicate_session_id}). The required unique index cannot be created. Remove the duplicate " \
+          "sessions or make the index unique before running this migration."
+  end
+
+  # Avoid a name clash with the default name already used by a partial unique index.
+  def unique_session_id_index_name(indexes)
+    indexes.map(&:name).include?("index_sessions_on_session_id") ? "index_sessions_on_session_id_unconditional" : "index_sessions_on_session_id"
   end
 end

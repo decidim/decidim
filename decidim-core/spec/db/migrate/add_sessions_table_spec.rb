@@ -82,11 +82,30 @@ describe "AddSessionsTable", type: :migration do
       end
     end
 
-    context "when id is not a numeric primary key" do
+    context "when id is not a numeric or UUID primary key" do
       before { create_sessions_table!(default_columns, primary_key: :string) }
 
       it "raises naming the incompatible primary key" do
-        expect { migration.up }.to raise_error(/Incompatible column\(s\): id \(expected integer, found string\)/)
+        expect { migration.up }.to raise_error(/Incompatible column\(s\): id \(expected integer or uuid, found string\)/)
+      end
+    end
+
+    context "when id is a UUID primary key" do
+      before { create_sessions_table!(default_columns, primary_key: :uuid) }
+
+      it "accepts the table" do
+        expect { migration.up }.not_to raise_error
+      end
+    end
+
+    context "when session_id is limited to less than the private session ID length" do
+      before do
+        create_sessions_table!(default_columns)
+        connection.change_column :sessions, :session_id, :string, limit: 32
+      end
+
+      it "raises naming the too short column" do
+        expect { migration.up }.to raise_error(/Incompatible column\(s\): session_id \(limit 32 cannot hold the 67-character private session IDs/)
       end
     end
 
@@ -132,6 +151,38 @@ describe "AddSessionsTable", type: :migration do
         migration.up
 
         expect(session_id_indexes.map(&:name)).to eq(["sessions_session_id_unique"])
+      end
+    end
+
+    context "when only a partial unique index on session_id exists" do
+      before do
+        create_sessions_table!(default_columns)
+        connection.add_index :sessions, :session_id, name: "sessions_session_id_partial_unique", unique: true, where: "data IS NOT NULL"
+      end
+
+      it "keeps the partial index and adds an unconditional unique one" do
+        migration.up
+
+        partial = session_id_indexes.find { |index| index.name == "sessions_session_id_partial_unique" }
+        expect(partial.where).to eq("(data IS NOT NULL)")
+        expect(session_id_indexes.reject(&:where).map(&:unique)).to eq([true])
+      end
+    end
+
+    context "when a partial unique index and a full non-unique index on session_id exist" do
+      before do
+        create_sessions_table!(default_columns)
+        connection.add_index :sessions, :session_id, name: "sessions_session_id_partial_unique", unique: true, where: "data IS NOT NULL"
+        connection.add_index :sessions, :session_id, name: "sessions_session_id_non_unique"
+      end
+
+      it "removes the non-unique index and adds an unconditional unique one" do
+        migration.up
+
+        names = session_id_indexes.map(&:name)
+        expect(names).to include("sessions_session_id_partial_unique")
+        expect(names).not_to include("sessions_session_id_non_unique")
+        expect(session_id_indexes.reject(&:where).map(&:unique)).to eq([true])
       end
     end
 
