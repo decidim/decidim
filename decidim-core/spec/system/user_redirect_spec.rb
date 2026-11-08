@@ -22,7 +22,9 @@ describe "UserRedirect" do
       end
 
       it "renders a JSON with the manifest" do
-        expect(page).to have_text("\"display\": \"standalone\"")
+        manifest = JSON.parse(page.text)
+
+        expect(manifest["display"]).to eq("standalone")
       end
     end
 
