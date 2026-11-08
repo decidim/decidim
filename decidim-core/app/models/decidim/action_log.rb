@@ -12,7 +12,12 @@ module Decidim
                foreign_key: :decidim_organization_id,
                class_name: "Decidim::Organization"
 
-    belongs_to :user, class_name: "Decidim::UserBaseEntity", inverse_of: :action_logs
+    # As we need to generate logs that do not have a certain user (see #17282),
+    # we need to allow user to be optional.
+    belongs_to :user,
+               class_name: "Decidim::UserBaseEntity",
+               inverse_of: :action_logs,
+               optional: true
 
     belongs_to :component,
                foreign_key: :decidim_component_id,
@@ -198,6 +203,8 @@ module Decidim
     # Lazy loads the `user` association through BatchLoader, can be used
     # as a regular object.
     def user_lazy(cache: true)
+      return if user_id.blank? || user_type.blank?
+
       self.class.lazy_relation(user_id, user_type, cache)
     end
 
@@ -240,13 +247,17 @@ module Decidim
       BatchLoader.for(id_method).batch(cache:, key: klass.name.underscore) do |relation_ids, loader|
         scope = klass.where(id: relation_ids)
 
-        scope = if klass.include?(Decidim::HasComponent)
-                  scope.where(id: relation_ids).includes(:component).where.not(decidim_components: { published_at: nil })
-                elsif klass.reflect_on_association(:organization)
-                  scope.where(id: relation_ids).includes(:organization)
-                elsif klass_name == "Decidim::Comments::Comment"
-                  scope.where(id: relation_ids).includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }])
+        scope = if klass_name == "Decidim::Comments::Comment"
+                  scope.includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }])
                 else
+                  preloads = []
+                  preloads << :organization if klass.reflect_on_association(:organization)
+                  preloads << :moderation if klass.include?(Decidim::Reportable)
+                  preloads << :author if klass.include?(Decidim::Authorable)
+
+                  scope = scope.preload(*preloads) if preloads.any?
+                  scope = scope.includes(:component).where.not(decidim_components: { published_at: nil }) if klass.include?(Decidim::HasComponent)
+
                   scope
                 end
 

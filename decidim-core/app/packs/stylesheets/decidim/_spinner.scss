@@ -9,3 +9,19 @@
     @apply content-[""] sticky top-[50vh] ml-[50%] md:ml-[calc(50%-4rem)] block w-6 h-6 -mt-6 rounded-full animate-spin border-4 border-l-background border-y-background border-r-secondary z-20;
   }
 }
+
+// Pseudo-elements on table rows generate anonymous table cells, which shift
+// the row content. Render the spinner in the first cell instead.
+tr.spinner-container {
+  &::before {
+    @apply hidden;
+  }
+
+  td:first-child {
+    @apply relative;
+
+    &::after {
+      @apply content-[""] absolute top-1/2 left-1/2 -mt-3 -ml-3 block w-6 h-6 rounded-full animate-spin border-4 border-l-background border-y-background border-r-secondary z-20;
+    }
+  }
+}
