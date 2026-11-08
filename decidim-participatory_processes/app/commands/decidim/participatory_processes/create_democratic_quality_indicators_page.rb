@@ -5,9 +5,10 @@ module Decidim
     class CreateDemocraticQualityIndicatorsPage < Decidim::Command
       # Public: Initializes the command.
       #
-      # @param organization [Decidim::Organization] the organization to create the page for
-      def initialize(organization)
-        @organization = organization
+      # @param organization_id [Integer] an id to fetch a Decidim::Organization instance
+      def initialize(organization_id)
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- organization id comes from trusted internal callers, not user params
+        @organization = Decidim::Organization.find(organization_id)
       end
 
       # Executes the command that creates the required static page or returns it if it already exists.
