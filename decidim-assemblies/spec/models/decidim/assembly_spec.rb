@@ -58,6 +58,18 @@ module Decidim
 
           expect(Decidim::AssemblyUserRole.where(id: user_role.id)).not_to exist
         end
+
+        it "removes all user roles when the association cache is stale at permanent deletion" do
+          user_role
+          assembly.assembly_user_roles.to_a # load the association cache
+
+          # Create a role through a different instance so the loaded collection above is stale
+          Decidim::Assembly.find(assembly.id).assembly_user_roles.create!(user:, role: "collaborator")
+
+          assembly.really_destroy!
+
+          expect(Decidim::AssemblyUserRole.where(decidim_assembly_id: assembly.id)).not_to exist
+        end
       end
     end
 

@@ -73,7 +73,8 @@ module Decidim
              class_name: "Decidim::AssemblyUserRole",
              inverse_of: :assembly
 
-    after_real_destroy { assembly_user_roles.destroy_all }
+    # Query by the assembly id instead of the association, which may be a stale cached collection.
+    after_real_destroy { Decidim::AssemblyUserRole.where(assembly: self).destroy_all }
 
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
