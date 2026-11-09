@@ -272,6 +272,27 @@ module Decidim
         end
       end
 
+      describe "#maximum_votes_reached?" do
+        before do
+          component[:settings]["global"] = { threshold_per_proposal: 10 }
+          component.save!
+        end
+
+        it "uses the votes counter cache instead of querying the votes association" do
+          proposal.association(:votes).reset
+          proposal.update!(proposal_votes_count: 10)
+
+          queries = []
+          callback = ->(_name, _start, _finish, _id, payload) { queries << payload[:sql] unless payload[:cached] || payload[:name] == "SCHEMA" }
+          result = ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
+            proposal.maximum_votes_reached?
+          end
+
+          expect(result).to be(true)
+          expect(queries.grep(/decidim_proposals_proposal_votes/)).to be_empty
+        end
+      end
+
       describe "#editable_by?" do
         let(:author) { create(:user, :confirmed, organization:) }
 

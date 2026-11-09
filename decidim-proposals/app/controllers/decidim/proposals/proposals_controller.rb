@@ -35,20 +35,22 @@ module Decidim
         enforce_permission_to :read, :proposal
 
         if component_settings.participatory_texts_enabled?
-          @proposals = Decidim::Proposals::Proposal
-                       .where(component: current_component)
-                       .published
-                       .not_hidden
-                       .only_amendables
-                       .includes(:taxonomies, :attachments, :coauthorships)
-                       .order(position: :asc)
+          proposals = Decidim::Proposals::Proposal
+                      .where(component: current_component)
+                      .published
+                      .not_hidden
+                      .only_amendables
+                      .includes(:taxonomies, :attachments, :coauthorships, :resource_permission)
+          proposals = proposals.includes(:votes) if component_settings.threshold_per_proposal.positive?
+          @proposals = proposals.order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           @proposals = search.result
 
           @proposals = reorder(@proposals)
           @proposals = paginate(@proposals)
-          @proposals = @proposals.includes(:component, :coauthorships, :attachments)
+          @proposals = @proposals.includes(:component, :coauthorships, :attachments, :resource_permission)
+          @proposals = @proposals.includes(:votes) if component_settings.threshold_per_proposal.positive?
         end
       end
 

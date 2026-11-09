@@ -364,7 +364,7 @@ module Decidim
       def maximum_votes_reached?
         return false unless maximum_votes
 
-        votes.count >= maximum_votes
+        votes.size >= maximum_votes
       end
 
       # Public: Can accumulate more votes than maximum for this proposal.
