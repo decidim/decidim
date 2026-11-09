@@ -59,7 +59,7 @@ module Decidim
             it "does not query the scopes or their initiatives for each initiative type" do
               association_queries = lambda do |queries|
                 queries.select do |sql|
-                  sql.include?('"decidim_initiatives_type_scopes"') || sql.include?('"decidim_initiatives" WHERE')
+                  sql.match?(/decidim_initiatives_type_scopes/i) || sql.match?(/decidim_initiatives\b/i)
                 end
               end
 
@@ -78,7 +78,7 @@ module Decidim
               expect(response).to have_http_status(:ok)
 
               expect(many_queries.size).to eq(few_queries.size)
-              expect(many_queries).to all(include("IN ("))
+              expect(many_queries.size).to be <= 2
             end
           end
 
