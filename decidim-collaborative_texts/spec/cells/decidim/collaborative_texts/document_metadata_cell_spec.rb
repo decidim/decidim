@@ -20,6 +20,7 @@ module Decidim::CollaborativeTexts
 
     it "renders as draft" do
       expect(subject).to have_css("[data-status='draft']", text: "In review")
+      expect(subject).to have_css("[data-contributors-count]", text: "1 contributor")
     end
 
     it "computes the status once per card" do
@@ -32,6 +33,7 @@ module Decidim::CollaborativeTexts
 
       it "renders as accepting suggestions" do
         expect(subject).to have_css("[data-status='accepting_suggestions']", text: "Accepting suggestions")
+        expect(subject).to have_css("[data-contributors-count]", text: "1 contributor")
       end
     end
 
@@ -40,6 +42,7 @@ module Decidim::CollaborativeTexts
 
       it "renders as not accepting suggestions" do
         expect(subject).to have_css("[data-status='not_accepting_suggestions']", text: "Not accepting suggestions")
+        expect(subject).to have_css("[data-contributors-count]", text: "1 contributor")
       end
     end
 
@@ -49,11 +52,16 @@ module Decidim::CollaborativeTexts
 
       before do
         create_list(:collaborative_text_suggestion, 3, document_version: version)
+        document.add_coauthor(user)
         document.reload
       end
 
       it "renders the suggestions count" do
         expect(subject).to have_css("[data-suggestions-count]", text: "3 suggestions")
+      end
+
+      it "renders the contributors count" do
+        expect(subject).to have_css("[data-contributors-count]", text: "2 contributors")
       end
     end
   end
