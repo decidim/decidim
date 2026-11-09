@@ -13,11 +13,7 @@ module Decidim
       private
 
       def document_items
-        [status_item, count_item]
-      end
-
-      def count_item
-        status_key == "not_accepting_suggestions" ? contributors_count_item : suggestions_count_item
+        [status_item, suggestions_count_item, contributors_count_item]
       end
 
       def status_item
