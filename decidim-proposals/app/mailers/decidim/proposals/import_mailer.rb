@@ -4,9 +4,9 @@ module Decidim
   module Proposals
     class ImportMailer < Decidim::ApplicationMailer
       def proposals_imported(record, user)
-        setup_import_context(record, user)
-
         with_user(user) do
+          setup_import_context(record, user)
+
           mail(
             to: user.email,
             subject: I18n.t(
@@ -18,9 +18,9 @@ module Decidim
       end
 
       def proposal_answers_imported(record, user)
-        setup_import_context(record, user)
-
         with_user(user) do
+          setup_import_context(record, user)
+
           mail(
             to: user.email,
             subject: I18n.t(
