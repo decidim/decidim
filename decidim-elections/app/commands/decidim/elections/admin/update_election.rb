@@ -27,16 +27,12 @@ module Decidim
 
         def not_started_election_attributes
           {
-            title: parsed_title,
+            title: form.title,
             description: parsed_description,
             start_at: form.manual_start ? nil : form.start_at,
             end_at: form.end_at,
             results_availability: form.results_availability
           }
-        end
-
-        def parsed_title
-          Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
         end
 
         def parsed_description

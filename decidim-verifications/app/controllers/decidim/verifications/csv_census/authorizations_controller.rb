@@ -12,12 +12,15 @@ module Decidim
 
         def new
           @form = CensusForm.from_params(user: current_user)
-          ConfirmCensusAuthorization.call(@authorization, @form, session) do
+          ConfirmCensusAuthorization.call(@authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.new.success", scope: "decidim.verifications.csv_census")
             end
             on(:invalid) do
               flash[:alert] = t("authorizations.new.error", scope: "decidim.verifications.csv_census")
+            end
+            on(:locked) do
+              flash[:alert] = t("authorizations.new.locked", scope: "decidim.verifications.csv_census")
             end
             redirect_to decidim_verifications.authorizations_path
           end

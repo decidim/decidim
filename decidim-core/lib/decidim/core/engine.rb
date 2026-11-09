@@ -271,6 +271,15 @@ module Decidim
       end
 
       initializer "decidim_core.active_storage", before: "active_storage.configs" do |app|
+        app.config.active_storage.queues = {
+          analysis: :active_storage,
+          mirror: :active_storage,
+          preview_image: :active_storage,
+          purge: :active_storage,
+          sync_metadata: :active_storage,
+          transform: :active_storage
+        }
+
         next if app.config.active_storage.service_urls_expire_in.present?
 
         # Ensure that the ActiveStorage URLs are valid long enough because with

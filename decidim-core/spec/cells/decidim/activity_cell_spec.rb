@@ -92,9 +92,8 @@ describe Decidim::ActivityCell, type: :cell do
         let!(:original_hash) { subject.send(:cache_hash) }
 
         before do
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           resource.author.touch
-          # rubocop:enable Rails/SkipsModelValidations
 
           subject.user.reload
         end

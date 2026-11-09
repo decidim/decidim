@@ -44,7 +44,7 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
 
   private
 
-  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable-next Metrics/CyclomaticComplexity
   def extract_settings(organization)
     settings = {}
 
@@ -65,5 +65,4 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
 
     settings
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 end

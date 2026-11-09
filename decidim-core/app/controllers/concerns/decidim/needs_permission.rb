@@ -55,7 +55,7 @@ module Decidim
         raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
       end
 
-      # rubocop:disable Metrics/ParameterLists
+      # rubocop:disable-next Metrics/ParameterLists
       def allowed_to?(action, subject, extra_context = {}, chain = permission_class_chain, user = current_user, scope = nil)
         scope ||= permission_scope
         permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
@@ -70,7 +70,6 @@ module Decidim
       rescue Decidim::PermissionAction::PermissionNotSetError
         false
       end
-      # rubocop:enable Metrics/ParameterLists
 
       def admin_allowed_to?(action, subject, extra_context = {}, chain = permission_class_chain, user = current_user)
         allowed_to?(action, subject, extra_context, chain, user, :admin)

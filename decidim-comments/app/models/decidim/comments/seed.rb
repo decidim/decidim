@@ -99,7 +99,7 @@ module Decidim
           voting_author_ids = CommentVote.where(comment:).pluck(:decidim_author_id)
           author_ids = random_users.where.not(id: voting_author_ids).sample(config_value(:comments_votes_per_comment_count)).pluck(:id)
 
-          # rubocop:disable Rails/SkipsModelValidations
+          # rubocop:disable-next Rails/SkipsModelValidations
           CommentVote.insert_all(
             author_ids.map do |author_id|
               {
@@ -110,7 +110,6 @@ module Decidim
               }
             end
           )
-          # rubocop:enable Rails/SkipsModelValidations
 
           up_votes_count = CommentVote.where(decidim_comment_id: comment, weight: 1).count
           down_votes_count = CommentVote.where(decidim_comment_id: comment.id, weight: -1).count

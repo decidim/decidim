@@ -50,7 +50,7 @@ module Decidim
 
     private
 
-    # rubocop: disable Metrics/PerceivedComplexity
+    # rubocop: disable-next Metrics/PerceivedComplexity
     def authorized_to(tag, action, arguments, block)
       if block
         body = block
@@ -96,7 +96,6 @@ module Decidim
         send("#{tag}_to", content_tag(:span, body), url, html_options)
       end
     end
-    # rubocop: enable Metrics/PerceivedComplexity
 
     def modal_path(action, resource, opts = {})
       if (default_path = opts.delete(:authorizations_modal_path)).present?

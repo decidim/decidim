@@ -14,6 +14,7 @@ describe "Participatory process admin manages participatory processes" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.participatory_processes_path
+    expect(page).to have_text(translated(participatory_process.title))
   end
 
   it_behaves_like "manage processes examples"

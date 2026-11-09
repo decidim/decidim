@@ -132,9 +132,9 @@ describe "Admin manages newsletters" do
 
         perform_enqueued_jobs do
           click_on "Send me a test email"
+          expect(page).to have_text("Newsletter has been sent")
         end
 
-        expect(page).to have_text("Newsletter has been sent")
         expect(last_email.subject).to include("A fancy newsletter for")
       end
     end
@@ -143,14 +143,14 @@ describe "Admin manages newsletters" do
       it "sends a test email" do
         visit decidim_admin.newsletters_path
 
-        within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-          find("button[data-controller='dropdown']").click
-          perform_enqueued_jobs do
+        perform_enqueued_jobs do
+          within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
+            find("button[data-controller='dropdown']").click
             click_on "Send me a test email"
           end
+          expect(page).to have_text("Newsletter has been sent")
         end
 
-        expect(page).to have_text("Newsletter has been sent")
         expect(last_email.subject).to include("A fancy newsletter for")
       end
     end
