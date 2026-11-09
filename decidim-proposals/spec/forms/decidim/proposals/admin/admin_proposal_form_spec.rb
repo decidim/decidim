@@ -8,6 +8,31 @@ module Decidim
       describe ProposalForm do
         it_behaves_like "a proposal form", i18n: true, admin: true
         it_behaves_like "a proposal form with meeting as author", i18n: true, admin: true
+
+        describe "#meetings" do
+          let(:organization) { create(:organization, available_locales: [:en]) }
+          let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+          let(:component) { create(:proposal_component, participatory_space:) }
+          let(:meeting_component) { create(:meeting_component, participatory_space:) }
+          let!(:meetings) { create_list(:meeting, 2, :published, component: meeting_component) }
+
+          let(:form) do
+            described_class.new.with_context(
+              current_component: component,
+              current_organization: organization,
+              current_participatory_space: participatory_space
+            )
+          end
+
+          it "eager loads the component association, as presenters use it through the delegated organization" do
+            loaded_meetings = form.meetings.to_a
+
+            expect(loaded_meetings).to match_array(meetings)
+            loaded_meetings.each do |meeting|
+              expect(meeting.association(:component).loaded?).to be(true)
+            end
+          end
+        end
       end
     end
   end

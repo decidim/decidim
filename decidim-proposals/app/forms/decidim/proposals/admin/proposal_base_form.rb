@@ -52,8 +52,13 @@ module Decidim
 
         # Finds the Meetings of the current participatory space
         def meetings
-          @meetings ||= Decidim.find_resource_manifest(:meetings).try(:resource_scope, current_component)
-                          &.published&.order(title: :asc)
+          manifest = Decidim.find_resource_manifest(:meetings)
+          return unless manifest
+
+          @meetings ||= manifest.resource_scope(current_component)
+                                .includes(:component)
+                                .published
+                                .order(title: :asc)
         end
 
         # Return the meeting as author
