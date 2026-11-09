@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Proposal index query efficiency" do
+RSpec.describe "Proposal index" do
   let(:component) { create(:proposal_component, :with_votes_enabled, :with_threshold_per_proposal, threshold_per_proposal: 100) }
   let(:organization) { component.participatory_space.organization }
   let(:user) { create(:user, :confirmed, organization:) }
