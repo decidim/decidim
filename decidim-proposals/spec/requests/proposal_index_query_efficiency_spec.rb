@@ -26,6 +26,7 @@ RSpec.describe "Proposal index query efficiency" do
 
     expect(response).to have_http_status(:ok)
     expect(queries.grep(/COUNT\(\*\).*decidim_proposals_proposal_votes/)).to be_empty
+    expect(queries.grep(/SELECT "decidim_proposals_proposal_votes"\.\* FROM/)).to be_empty
     expect(queries.grep(/decidim_resource_permissions.*resource_id" = \$/)).to be_empty
   end
 end
