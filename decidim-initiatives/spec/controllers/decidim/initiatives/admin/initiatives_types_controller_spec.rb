@@ -113,6 +113,23 @@ module Decidim
         end
 
         context "when edit" do
+          render_views
+
+          def count_queries
+            queries = []
+            subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") do |_, _, _, _, payload|
+              next if payload[:cached] || payload[:name] == "SCHEMA"
+
+              queries << payload[:sql]
+            end
+
+            yield
+
+            queries
+          ensure
+            ActiveSupport::Notifications.unsubscribe(subscriber)
+          end
+
           context "and admin user" do
             before do
               sign_in admin_user, scope: :user
@@ -122,6 +139,25 @@ module Decidim
               get :edit, params: { id: initiative_type.to_param }
               expect(flash[:alert]).to be_nil
               expect(response).to have_http_status(:ok)
+            end
+
+            it "does not query the scope for each initiative type scope" do
+              scope_queries = lambda do |queries|
+                queries.select { |sql| sql.include?('"decidim_scopes"') }
+              end
+
+              create_list(:initiatives_type_scope, 2, type: initiative_type)
+
+              few_queries = scope_queries.call(count_queries { get :edit, params: { id: initiative_type.to_param } })
+              expect(response).to have_http_status(:ok)
+
+              create_list(:initiatives_type_scope, 4, type: initiative_type)
+
+              many_queries = scope_queries.call(count_queries { get :edit, params: { id: initiative_type.to_param } })
+              expect(response).to have_http_status(:ok)
+
+              expect(many_queries.size).to eq(few_queries.size)
+              expect(many_queries).to all(include("IN ("))
             end
           end
 
