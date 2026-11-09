@@ -38,8 +38,10 @@ module Decidim
       return { I18n.locale.to_s => I18n.t("decidim.scopes.global") } if global_scope?
 
       # Scopes are organization-owned records; a reference to another organization's
-      # scope must not disclose its name, so it renders as unavailable.
-      return { I18n.locale.to_s => I18n.t("decidim.initiatives.unavailable_scope") } if scope && scope.organization != type.organization
+      # scope must not disclose its name, so it renders as unavailable. The
+      # organization ids are compared directly to avoid loading the organization
+      # association for every scope.
+      return { I18n.locale.to_s => I18n.t("decidim.initiatives.unavailable_scope") } if scope && scope.decidim_organization_id != type.decidim_organization_id
 
       scope&.name.presence || { I18n.locale.to_s => I18n.t("decidim.initiatives.unavailable_scope") }
     end
