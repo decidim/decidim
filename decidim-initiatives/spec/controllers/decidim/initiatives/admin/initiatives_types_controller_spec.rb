@@ -177,6 +177,23 @@ module Decidim
             end
           end
 
+          context "and the initiative type references a scope from another organization" do
+            let(:other_organization) { create(:organization) }
+            let(:other_scope) { create(:scope, organization: other_organization) }
+
+            before do
+              sign_in admin_user, scope: :user
+              create(:initiatives_type_scope, type: initiative_type, scope: other_scope)
+            end
+
+            it "does not disclose the foreign organization's scope name" do
+              get :edit, params: { id: initiative_type.to_param }
+              expect(response).to have_http_status(:ok)
+              expect(response.body).not_to include(other_scope.name["en"])
+              expect(response.body).to include(I18n.t("decidim.initiatives.unavailable_scope"))
+            end
+          end
+
           context "and regular user" do
             before do
               sign_in user, scope: :user
