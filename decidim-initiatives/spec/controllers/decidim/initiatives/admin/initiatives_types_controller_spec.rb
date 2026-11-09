@@ -161,6 +161,22 @@ module Decidim
             end
           end
 
+          context "and the initiative type belongs to another organization" do
+            let(:other_organization) { create(:organization) }
+            let(:other_initiative_type) { create(:initiatives_type, organization: other_organization) }
+
+            before do
+              sign_in admin_user, scope: :user
+              create_list(:initiatives_type_scope, 2, type: other_initiative_type)
+            end
+
+            it "does not load initiative types from other organizations" do
+              expect do
+                get :edit, params: { id: other_initiative_type.to_param }
+              end.to raise_error(ActiveRecord::RecordNotFound)
+            end
+          end
+
           context "and regular user" do
             before do
               sign_in user, scope: :user
