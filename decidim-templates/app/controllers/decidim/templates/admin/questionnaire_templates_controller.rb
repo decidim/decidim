@@ -225,11 +225,12 @@ module Decidim
         end
 
         def template
-          @template ||= collection.find(params.expect(:id))
+          @template ||= collection.includes(templatable: { questions: [:response_options, :display_conditions, :matrix_rows] }).find(params.expect(:id))
         end
 
         def search(term)
           locales = current_organization.available_locales
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- @templates is assigned from collection, which is scoped to current_organization
           @templates
             .where(locales.map { |l| "name ->> '#{l}' ILIKE :text" }.join(" OR "), text: "%#{term}%")
             .or(@templates.where(locales.map { |l| "description ->> '#{l}' ILIKE :text" }.join(" OR "), text: "%#{term}%"))

@@ -14,16 +14,14 @@ module Decidim
       let(:original_value) { "My title" }
 
       it "schedules a job to save the attribute" do
-        expect(MachineTranslationSaveJob)
-          .to receive(:perform_later)
+        expect { subject.translate }
+          .to have_enqueued_job(MachineTranslationSaveJob)
           .with(
             resource,
             field_name,
             target_locale,
             "#{target_locale} - #{original_value}"
           )
-
-        subject.translate
       end
     end
   end

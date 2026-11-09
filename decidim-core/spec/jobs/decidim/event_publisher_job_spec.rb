@@ -32,7 +32,7 @@ describe Decidim::EventPublisherJob do
     let(:event_class) { "Decidim::Dev::DummyResourceEvent" }
 
     context "when the resource is publicable" do
-      let(:resource) { build(:dummy_resource) }
+      let(:resource) { create(:dummy_resource) }
 
       context "when it is published" do
         before do
@@ -40,10 +40,9 @@ describe Decidim::EventPublisherJob do
         end
 
         it "enqueues the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
-          expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
-
-          subject
+          expect { subject }
+            .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob)
+            .and have_enqueued_job(Decidim::NotificationGeneratorJob)
         end
       end
 
@@ -53,10 +52,9 @@ describe Decidim::EventPublisherJob do
         end
 
         it "does not enqueue the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
-          expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
-
-          subject
+          expect { subject }
+            .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob).exactly(0).times
+            .and have_enqueued_job(Decidim::NotificationGeneratorJob).exactly(0).times
         end
 
         context "when #force_send is true" do
@@ -65,17 +63,16 @@ describe Decidim::EventPublisherJob do
           end
 
           it "enqueues the jobs without checking if the resource is published" do
-            expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
-            expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
-
-            subject
+            expect { subject }
+              .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob)
+              .and have_enqueued_job(Decidim::NotificationGeneratorJob)
           end
         end
       end
     end
 
     context "when there is a component" do
-      let(:resource) { build(:dummy_resource) }
+      let(:resource) { create(:dummy_resource) }
 
       context "when it is published" do
         before do
@@ -84,10 +81,9 @@ describe Decidim::EventPublisherJob do
         end
 
         it "enqueues the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
-          expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
-
-          subject
+          expect { subject }
+            .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob)
+            .and have_enqueued_job(Decidim::NotificationGeneratorJob)
         end
       end
 
@@ -98,16 +94,15 @@ describe Decidim::EventPublisherJob do
         end
 
         it "does not enqueue the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
-          expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
-
-          subject
+          expect { subject }
+            .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob).exactly(0).times
+            .and have_enqueued_job(Decidim::NotificationGeneratorJob).exactly(0).times
         end
       end
     end
 
     context "when there is a participatory space" do
-      let(:resource) { build(:dummy_resource) }
+      let(:resource) { create(:dummy_resource) }
 
       context "when it is published" do
         before do
@@ -116,10 +111,9 @@ describe Decidim::EventPublisherJob do
         end
 
         it "enqueues the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
-          expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
-
-          subject
+          expect { subject }
+            .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob)
+            .and have_enqueued_job(Decidim::NotificationGeneratorJob)
         end
       end
 
@@ -130,97 +124,89 @@ describe Decidim::EventPublisherJob do
         end
 
         it "does not enqueue the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
-          expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
-
-          subject
+          expect { subject }
+            .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob).exactly(0).times
+            .and have_enqueued_job(Decidim::NotificationGeneratorJob).exactly(0).times
         end
       end
     end
 
     context "when the resource is a component" do
-      let(:resource) { build(:component) }
+      let(:resource) { create(:component) }
 
       it "enqueues the jobs" do
-        expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
-        expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
-
-        subject
+        expect { subject }
+          .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob)
+          .and have_enqueued_job(Decidim::NotificationGeneratorJob)
       end
 
       context "when it is not published" do
-        let(:resource) { build(:component, :unpublished) }
+        let(:resource) { create(:component, :unpublished) }
 
         it "does not enqueue the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
-          expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
-
-          subject
+          expect { subject }
+            .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob).exactly(0).times
+            .and have_enqueued_job(Decidim::NotificationGeneratorJob).exactly(0).times
         end
       end
     end
 
     context "when the resource is a participatory space" do
-      let(:resource) { build(:participatory_process) }
+      let(:resource) { create(:participatory_process) }
 
       it "enqueues the jobs" do
-        expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
-        expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
-
-        subject
+        expect { subject }
+          .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob)
+          .and have_enqueued_job(Decidim::NotificationGeneratorJob)
       end
 
       context "when it is not published" do
-        let(:resource) { build(:participatory_process, :unpublished) }
+        let(:resource) { create(:participatory_process, :unpublished) }
 
         it "does not enqueue the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
-          expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
-
-          subject
+          expect { subject }
+            .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob).exactly(0).times
+            .and have_enqueued_job(Decidim::NotificationGeneratorJob).exactly(0).times
         end
       end
     end
 
     context "when the event is not present" do
-      let(:resource) { build(:dummy_resource, :published) }
+      let(:resource) { create(:dummy_resource, :published) }
       let(:event_class) { nil }
 
       it "does not enqueue the jobs" do
-        expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
-        expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
-
-        subject
+        expect { subject }
+          .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob).exactly(0).times
+          .and have_enqueued_job(Decidim::NotificationGeneratorJob).exactly(0).times
       end
     end
 
     context "when the event class does not send emails" do
-      let(:resource) { build(:dummy_resource, :published) }
+      let(:resource) { create(:dummy_resource, :published) }
 
       before do
         allow(Decidim::Dev::DummyResourceEvent).to receive(:types).and_return([:notification])
       end
 
       it "does not enqueue the email job" do
-        expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
-        expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
-
-        subject
+        expect { subject }
+          .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob).exactly(0).times
+          .and have_enqueued_job(Decidim::NotificationGeneratorJob)
       end
     end
 
     context "when the event class does not send notifications" do
-      let(:resource) { build(:dummy_resource, :published) }
+      let(:resource) { create(:dummy_resource, :published) }
 
       before do
         allow(Decidim::Dev::DummyResourceEvent).to receive(:types).and_return([:email])
       end
 
       it "does not enqueue the notification job" do
-        expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
-        expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
-
-        subject
+        expect { subject }
+          .to have_enqueued_job(Decidim::EmailNotificationGeneratorJob)
+          .and have_enqueued_job(Decidim::NotificationGeneratorJob).exactly(0).times
       end
     end
   end
