@@ -246,13 +246,17 @@ module Decidim
       BatchLoader.for(id_method).batch(cache:, key: klass.name.underscore) do |relation_ids, loader|
         scope = klass.where(id: relation_ids)
 
-        scope = if klass.include?(Decidim::HasComponent)
-                  scope.where(id: relation_ids).includes(:component).where.not(decidim_components: { published_at: nil })
-                elsif klass.reflect_on_association(:organization)
-                  scope.where(id: relation_ids).includes(:organization)
-                elsif klass_name == "Decidim::Comments::Comment"
-                  scope.where(id: relation_ids).includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }])
+        scope = if klass_name == "Decidim::Comments::Comment"
+                  scope.includes(:moderation, :root_commentable, :commentable, author: [:organization, { avatar_attachment: :blob }])
                 else
+                  preloads = []
+                  preloads << :organization if klass.reflect_on_association(:organization)
+                  preloads << :moderation if klass.include?(Decidim::Reportable)
+                  preloads << :author if klass.include?(Decidim::Authorable)
+
+                  scope = scope.preload(*preloads) if preloads.any?
+                  scope = scope.includes(:component).where.not(decidim_components: { published_at: nil }) if klass.include?(Decidim::HasComponent)
+
                   scope
                 end
 

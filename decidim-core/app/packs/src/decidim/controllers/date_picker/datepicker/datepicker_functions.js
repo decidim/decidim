@@ -198,6 +198,11 @@ export const updateTimeValue = (time, hour, minute) => {
 export const formatDate = (value, formats) => {
   const splitValue = value.split(formats.separator).splice(0, 3).map((part) => part.replace(/[^0-9]/g, ""));
 
+  // Keep an empty date empty instead of silently defaulting to today
+  if (splitValue.every((part) => !part)) {
+    return "";
+  }
+
   let newValue = null;
   if (formats.order === "m-d-y") {
     newValue = [splitValue[0], splitValue[1], splitValue[2]];
