@@ -56,7 +56,7 @@ module Decidim
           return unless manifest
 
           @meetings ||= manifest.resource_scope(current_component)
-                                .includes(:component)
+                                .includes(component: { participatory_space: :organization })
                                 .published
                                 .order(title: :asc)
         end
