@@ -39,7 +39,7 @@
             <span class="sr-only"><%= decidim_html_escape(present(resource).title) %></span>
           <% end %>
         <% else %>
-          <% if resource.maximum_votes_reached? && !resource.can_accumulate_votes_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
+          <% if resource.maximum_votes_reached?(use_counter_cache: true) && !resource.can_accumulate_votes_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
             <%= content_tag :button, t("decidim.proposals.proposals.vote_button.maximum_votes_reached"), class: button_classes, disabled: true, data: { "proposal-vote-button": true } %>
           <% else %>
             <% if vote_limit_enabled? && remaining_votes_count_for_user == 0 %>

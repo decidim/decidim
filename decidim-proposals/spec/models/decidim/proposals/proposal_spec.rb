@@ -278,14 +278,36 @@ module Decidim
           component.save!
         end
 
-        it "uses the votes counter cache instead of querying the votes association" do
+        it "uses the database count of final votes instead of the counter cache" do
+          create_list(:proposal_vote, 10, proposal:)
+          proposal.proposal_votes_count = 0
+
+          expect(proposal.maximum_votes_reached?).to be(true)
+        end
+
+        it "uses the database count even when the votes association is preloaded" do
+          proposal.votes.load
+          create_list(:proposal_vote, 10, proposal:)
+          proposal.proposal_votes_count = 0
+
+          expect(proposal.maximum_votes_reached?).to be(true)
+        end
+
+        it "does not count temporary votes" do
+          create_list(:proposal_vote, 9, proposal:)
+          create(:proposal_vote, proposal:, temporary: true)
+
+          expect(proposal.maximum_votes_reached?).to be(false)
+        end
+
+        it "uses the votes counter cache when requested for rendering" do
           proposal.association(:votes).reset
           proposal.update!(proposal_votes_count: 10)
 
           queries = []
           callback = ->(_name, _start, _finish, _id, payload) { queries << payload[:sql] unless payload[:cached] || payload[:name] == "SCHEMA" }
           result = ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
-            proposal.maximum_votes_reached?
+            proposal.maximum_votes_reached?(use_counter_cache: true)
           end
 
           expect(result).to be(true)

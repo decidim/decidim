@@ -49,6 +49,19 @@ module Decidim
           end
         end
 
+        context "when the proposal is full according to the final votes but the counter cache is stale" do
+          before do
+            proposal.component[:settings]["global"] = { threshold_per_proposal: 10 }
+            proposal.component.save!
+            create_list(:proposal_vote, 10, proposal:)
+            proposal.proposal_votes_count = 0
+          end
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+        end
+
         context "when the threshold have been reached but proposal can accumulate more votes" do
           before do
             allow(proposal).to receive(:maximum_votes_reached?).and_return(true)

@@ -360,11 +360,18 @@ module Decidim
 
       # Public: The maximum amount of votes allowed for this proposal. 0 means infinite.
       #
+      # use_counter_cache - Boolean indicating whether the association counter
+      #                     cache can be used. This is useful for rendering, where
+      #                     preloaded votes or the counter cache avoid extra
+      #                     queries. Vote guards must use the database count so
+      #                     concurrent vote finalizations are taken into account.
+      #
       # Returns true if reached, false otherwise.
-      def maximum_votes_reached?
+      def maximum_votes_reached?(use_counter_cache: false)
         return false unless maximum_votes
 
-        votes.size >= maximum_votes
+        votes_count = use_counter_cache ? votes.size : votes.count
+        votes_count >= maximum_votes
       end
 
       # Public: Can accumulate more votes than maximum for this proposal.
