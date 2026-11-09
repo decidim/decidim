@@ -89,6 +89,10 @@ describe Decidim::Proposals::Import::BatchNotifier do
     context "when creator class is ProposalAnswerCreator" do
       let(:creator_class) { Decidim::Proposals::Import::ProposalAnswerCreator }
 
+      before do
+        allow(imported_resource).to receive(:published_state?).and_return(true)
+      end
+
       it "enqueues proposal answers imported email" do
         delivery = instance_double(ActionMailer::MessageDelivery, deliver_later: true)
         allow(Decidim::Proposals::ImportMailer).to receive(:proposal_answers_imported).and_return(delivery)
@@ -116,6 +120,21 @@ describe Decidim::Proposals::Import::BatchNotifier do
         it "does not generate in-app notification nor enqueue email" do
           notifier.notify!
 
+          expect(Decidim::NotificationGeneratorForRecipient).not_to have_received(:new)
+          expect(Decidim::Proposals::ImportMailer).not_to have_received(:proposal_answers_imported)
+        end
+      end
+
+      context "when the imported answer is not published" do
+        before do
+          allow(imported_resource).to receive(:published_state?).and_return(false)
+          allow(Decidim::Proposals::ImportMailer).to receive(:proposal_answers_imported)
+        end
+
+        it "does not generate in-app notification nor enqueue email" do
+          notifier.notify!
+
+          expect(followers_relation).not_to have_received(:where)
           expect(Decidim::NotificationGeneratorForRecipient).not_to have_received(:new)
           expect(Decidim::Proposals::ImportMailer).not_to have_received(:proposal_answers_imported)
         end
