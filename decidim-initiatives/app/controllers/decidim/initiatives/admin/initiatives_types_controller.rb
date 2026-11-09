@@ -19,7 +19,9 @@ module Decidim
         def index
           enforce_permission_to :index, :initiative_type
 
-          @initiatives_types = InitiativeTypes.for(current_organization)
+          # The destroy permission checks whether each type has initiatives through
+          # its scopes, so both associations are eager loaded to avoid N+1 queries.
+          @initiatives_types = InitiativeTypes.for(current_organization).includes(scopes: :initiatives)
         end
 
         # GET /admin/initiatives_types/new
