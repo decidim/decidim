@@ -22,10 +22,15 @@ module Decidim
         let!(:accepting) { create(:collaborative_text_document, :published, :accepting_suggestions, component:) }
         let!(:not_accepting) { create(:collaborative_text_document, :published, :not_accepting_suggestions, component:) }
         let!(:in_review) { create(:collaborative_text_document, :published, :accepting_suggestions, :draft, component:) }
+        let!(:older_draft) do
+          document = create(:collaborative_text_document, :published, :accepting_suggestions, :with_body, component:)
+          create(:collaborative_text_version, :draft, document:, created_at: 1.minute.ago)
+          document.reload
+        end
         let!(:unpublished) { create(:collaborative_text_document, :accepting_suggestions, component:) }
 
         it "returns the published documents accepting suggestions" do
-          expect(described_class.with_any_state("accepting_suggestions")).to contain_exactly(accepting)
+          expect(described_class.with_any_state("accepting_suggestions")).to contain_exactly(accepting, older_draft)
         end
 
         it "returns the published documents not accepting suggestions" do

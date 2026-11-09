@@ -27,7 +27,14 @@ module Decidim
       validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
-      scope :accepting_suggestions, -> { published.where(accepting_suggestions: true).where.not(id: Version.draft.select(:document_id)) }
+      scope :with_current_draft_version, lambda {
+        current_versions = Version.reorder(nil)
+                                  .select("DISTINCT ON (document_id) id")
+                                  .order(:document_id, created_at: :desc, id: :desc)
+
+        where(id: Version.draft.where(id: current_versions).select(:document_id))
+      }
+      scope :accepting_suggestions, -> { published.where(accepting_suggestions: true).where.not(id: with_current_draft_version) }
       scope :not_accepting_suggestions, -> { published.where.not(id: accepting_suggestions) }
 
       scope_search_multi :with_any_state, [:accepting_suggestions, :not_accepting_suggestions]
