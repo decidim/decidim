@@ -63,6 +63,29 @@ describe "Meetings in process home" do
     end
   end
 
+  context "when there are meetings linked from another space" do
+    let(:other_space) { create(:assembly, :published, organization:) }
+    let(:other_component) { create(:meeting_component, :published, participatory_space: other_space) }
+    let!(:own_meeting) { create(:meeting, :published, :upcoming, component:) }
+    let!(:linked_meeting) { create(:meeting, :published, :upcoming, component: other_component) }
+    let!(:not_linked_meeting) { create(:meeting, :published, :upcoming, component: other_component) }
+
+    before do
+      create(:meeting_link, meeting: linked_meeting, component:)
+    end
+
+    it "shows the linked meetings together with the space meetings" do
+      visit resource_locator(participatory_process).path
+
+      within("#participatory-process-homepage-highlighted-meetings") do
+        expect(page).to have_css(meetings_selector, count: 2)
+        expect(page).to have_text(translated(own_meeting.title))
+        expect(page).to have_text(translated(linked_meeting.title))
+        expect(page).to have_no_text(translated(not_linked_meeting.title))
+      end
+    end
+  end
+
   context "when there are past and upcoming meetings" do
     let!(:past_meetings) do
       create_list(:meeting, meetings_count, :published, :past, component:)
