@@ -30,11 +30,17 @@ module Decidim
 
       def base_relation
         @base_relation ||= Decidim::Meetings::Meeting.where(component: model)
+                                                     .or(linked_meetings)
                                                      .includes(:taxonomies, component: { participatory_space: :organization })
                                                      .not_withdrawn
                                                      .published
                                                      .not_hidden
                                                      .visible_for(current_user)
+      end
+
+      def linked_meetings
+        Decidim::Meetings::Meeting.where(id: MeetingLink.where(component: model).select(:decidim_meeting_id))
+                                  .where(component: Decidim::PublicComponents.for(current_organization, manifest_name: :meetings))
       end
 
       def section_id
