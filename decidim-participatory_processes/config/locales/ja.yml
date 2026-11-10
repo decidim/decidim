@@ -282,6 +282,7 @@ ja:
         activate: "%{user_name} が %{resource_name} の参加型プロセスで %{space_name} フェーズを有効化しました"
         create: "%{user_name} が %{resource_name} の参加型プロセスで %{space_name} フェーズを作成しました"
         delete: "%{user_name} が %{resource_name} の参加型プロセスで %{space_name} フェーズを削除しました"
+        system_activate: '%{resource_name} フェーズは、 %{space_name} 参加型プロセスで自動的に有効化されました。'
         update: "%{user_name} が %{resource_name} の参加型プロセスで %{space_name} フェーズを更新しました"
       participatory_process_user_role:
         create: "%{user_name} が参加者 %{resource_name} を %{space_name} 参加型プロセスに招待しました"
