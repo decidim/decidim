@@ -744,9 +744,11 @@ ja:
         create:
           invalid: このミーティングに参加する際に問題がありました。
           success: ミーティングに正常に参加しました．このミーティングに登録したため，更新がある場合は通知されます．
+          unauthorized: ミーティングに登録する前にログインする必要があります。
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
+          unauthorized: 招待を辞退する前にログインする必要があります。
         destroy:
           invalid: このミーティングから出発する問題があった。
           success: ミーティングを正常に退会しました。
