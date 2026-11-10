@@ -94,7 +94,7 @@ module Decidim
       def check_multiple
         @form = form(ConversationForm).from_params(params, sender: current_user)
 
-        conversation = conversation_between_multiple(@form.recipient.to_a.prepend(current_user))
+        conversation = conversation_between(*@form.recipient.to_a.prepend(current_user))
 
         if conversation
           enforce_permission_to :read, :conversation, conversation:
