@@ -60,8 +60,50 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose reference is resolved from the root of the origin serving the document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_root_relative_reference.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose link references an inline document, which the browsers of the readers do not open as a top-level document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_link_data_document.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose link uses a scheme which does not fetch a resource when the document is rendered" do
+      let(:content) { File.read(Decidim::Dev.asset("test_link_non_web_scheme.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose inline data reference declares its own encoding" do
       let(:content) { File.read(Decidim::Dev.asset("test_data_uri_declared_encoding.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose inline data reference has a fragment" do
+      let(:content) { File.read(Decidim::Dev.asset("test_data_uri_fragment.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose inline data references declare the parameters of the MIME type in different positions" do
+      let(:content) { File.read(Decidim::Dev.asset("test_data_uri_parameters.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose inline data reference has its Base64 payload percent encoded" do
+      let(:content) { File.read(Decidim::Dev.asset("test_data_uri_percent_decoded_base64.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG reaching the maximum depth of the nested inline data references" do
+      let(:content) { File.read(Decidim::Dev.asset("test_data_uri_max_depth.svg")) }
 
       it_behaves_like "a valid SVG document"
     end
@@ -72,8 +114,20 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose animation list of attribute names references elements of the document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_animation_attribute_names_list.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose presentation attributes reference elements of the document" do
       let(:content) { File.read(Decidim::Dev.asset("test_presentation_attribute_references.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose reference elements are resolved against the document itself" do
+      let(:content) { File.read(Decidim::Dev.asset("test_reference_elements_resolved_in_document.svg")) }
 
       it_behaves_like "a valid SVG document"
     end
@@ -108,8 +162,40 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose animation assigns a single value containing the parameters of the MIME type of a data reference" do
+      let(:content) { File.read(Decidim::Dev.asset("test_animation_data_uri_parameter.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose animation target and values use a percent encoded fragment" do
+      let(:content) { File.read(Decidim::Dev.asset("test_animation_percent_encoded_fragment.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose style sheet references only elements of the document" do
       let(:content) { File.read(Decidim::Dev.asset("test_css_references.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose image function and color profile are resolved against the document itself" do
+      let(:content) { File.read(Decidim::Dev.asset("test_relative_image_function.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose style sheet ends with an unterminated comment with multibyte characters" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_unclosed_comment.svg")) }
+
+      it "returns :valid without looping" do
+        expect(Timeout.timeout(5) { validation }).to eq(:valid)
+      end
+    end
+
+    context "with an SVG whose base is relative to the document itself" do
+      let(:content) { File.read(Decidim::Dev.asset("test_relative_base.svg")) }
 
       it_behaves_like "a valid SVG document"
     end
@@ -124,7 +210,12 @@ describe Decidim::SvgContentValidator do
         malicious_svg_animation_values.svg
         malicious_svg_animation_style.svg
         malicious_svg_animation_fill.svg
+        malicious_svg_animation_color_profile.svg
         malicious_svg_animation_attribute_names.svg
+        malicious_svg_animation_attribute_names_list.svg
+        malicious_svg_animation_attribute_names_event_handler.svg
+        malicious_svg_animation_data_uri.svg
+        malicious_svg_animation_data_uri_parameter.svg
         malicious_svg_attributename_case.svg
         malicious_svg_style_import.svg
         malicious_svg_style_import_string.svg
@@ -135,10 +226,16 @@ describe Decidim::SvgContentValidator do
         malicious_svg_css_backslash_url.svg
         malicious_svg_css_image_set.svg
         malicious_svg_css_image_set_nested_parentheses.svg
+        malicious_svg_css_image_function.svg
         malicious_svg_mask_attribute.svg
         malicious_svg_cursor_attribute.svg
         malicious_svg_fill_external_reference.svg
+        malicious_svg_stroke_external_reference.svg
+        malicious_svg_clip_path_external_reference.svg
+        malicious_svg_filter_external_reference.svg
         malicious_svg_marker_external_reference.svg
+        malicious_svg_marker_start_external_reference.svg
+        malicious_svg_color_profile_external_reference.svg
         malicious_svg_stylesheet_pi.svg
         malicious_svg_entity.svg
         malicious_svg_entity_parameter.svg
@@ -147,11 +244,33 @@ describe Decidim::SvgContentValidator do
         malicious_svg_data_uri_leading_space.svg
         malicious_svg_data_uri_deep_nested.svg
         malicious_svg_data_uri_declared_encoding.svg
+        malicious_svg_data_uri_percent_decoded_base64.svg
+        malicious_svg_data_uri_fragment.svg
+        malicious_svg_data_uri_base64_parameter_lookalike.svg
+        malicious_svg_data_uri_base64_not_last_parameter.svg
+        malicious_svg_data_uri_malformed_base64.svg
+        malicious_svg_data_uri_malformed_document.svg
+        malicious_svg_data_uri_max_depth_exceeded.svg
         malicious_svg_external_image.svg
         malicious_svg_external_use.svg
         malicious_svg_external_feimage.svg
         malicious_svg_cursor.svg
+        malicious_svg_gradient_external_reference.svg
+        malicious_svg_pattern_external_reference.svg
+        malicious_svg_filter_element_external_reference.svg
+        malicious_svg_text_path_external_reference.svg
+        malicious_svg_mpath_external_reference.svg
+        malicious_svg_tref_external_reference.svg
+        malicious_svg_alt_glyph_external_reference.svg
+        malicious_svg_font_face_uri_external_reference.svg
+        malicious_svg_color_profile_element_external_reference.svg
+        malicious_svg_animate_color_external_reference.svg
+        malicious_svg_animation_gradient_reference.svg
         malicious_svg_backslash_reference.svg
+        malicious_svg_protocol_relative_reference.svg
+        malicious_svg_base.svg
+        malicious_svg_base_child_element.svg
+        malicious_svg_base_protocol_relative.svg
         malicious_svg_external_animation.svg
         malicious_svg_external_animation_target.svg
         malicious_svg_external_animation_missing_target.svg
@@ -186,6 +305,128 @@ describe Decidim::SvgContentValidator do
       let(:content) { File.read(Decidim::Dev.asset("malformed_svg_unclosed_element.svg")) }
 
       it_behaves_like "an invalid SVG document"
+    end
+
+    context "with the SVG namespace declared as the default namespace of the root" do
+      let(:content) { %(<svg xmlns="http://www.w3.org/2000/svg"><circle r="1"/></svg>) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with the SVG namespace bound to a prefix of the root" do
+      let(:content) { %(<p:svg xmlns:p="http://www.w3.org/2000/svg"><p:circle r="1"/></p:svg>) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with a root which does not declare a namespace" do
+      let(:content) { %(<svg><circle r="1"/></svg>) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with a root which declares another namespace" do
+      let(:content) { %(<svg xmlns="http://www.w3.org/1999/xhtml"><script>alert(1)</script></svg>) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with descendants which declare another namespace" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><g xmlns="http://www.w3.org/1999/xhtml"><p>text</p></g></svg>)
+      end
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an element named like an SVG element in another namespace" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><g xmlns="http://www.w3.org/1999/xhtml"><image href="https://evil.example.org/x"/></g></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with a reference bound to the XLink namespace with another prefix" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg" xmlns:x="http://www.w3.org/1999/xlink"><image x:href="https://evil.example.org/x"/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with a reference bound to another namespace" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg" xmlns:x="http://example.com"><image x:href="https://evil.example.org/x"/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with a reference using a prefix which is not bound to a namespace" do
+      let(:content) { %(<svg xmlns="http://www.w3.org/2000/svg"><image xlink:href="https://evil.example.org/x"/></svg>) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with the XML namespace bound to another prefix" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg" xmlns:b="http://www.w3.org/XML/1998/namespace" b:base="https://evil.example.org/"><circle r="1"/></svg>)
+      end
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with a nested document which declares another namespace" do
+      let(:content) do
+        payload = "%3Csvg%20xmlns%3D%22http%3A%2F%2Fexample.com%2Fsvg%22%3E%3Ccircle%20r%3D%221%22%2F%3E%3C%2Fsvg%3E"
+        %(<svg xmlns="http://www.w3.org/2000/svg"><image width="1" height="1" href="data:image/svg+xml,#{payload}"/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with contents larger than the maximum size" do
+      let(:content) { "a" * (described_class::MAX_CONTENT_SIZE + 1) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with an XML nesting depth beyond the limit the parser enforces" do
+      let(:content) do
+        depth = 257
+        content = %(<svg xmlns="http://www.w3.org/2000/svg">)
+        content += %(#{("<g>" * depth)}<circle r="1"/>#{("</g>" * depth)}</svg>)
+        content
+      end
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with an element name longer than the limit the parser enforces" do
+      let(:content) do
+        name = "a" * 65_536
+        %(<svg xmlns="http://www.w3.org/2000/svg"><#{name} width="1"></#{name}></svg>)
+      end
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with an SVG with many elements and references, which stays under the limits" do
+      let(:content) do
+        references = %(<use href="#dot"/><image href="logo.png"/>) * 5000
+        %(<svg xmlns="http://www.w3.org/2000/svg"><defs><circle id="dot" r="1"/></defs>#{references}</svg>)
+      end
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG with a long reference which is not an external one" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><image href="#{"a" * 100_000}" width="1" height="1"/></svg>)
+      end
+
+      it_behaves_like "a valid SVG document"
     end
   end
 end
