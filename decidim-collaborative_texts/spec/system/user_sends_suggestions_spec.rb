@@ -83,8 +83,8 @@ describe "User adds suggestions" do
         find(".collaborative-texts-suggestions-box-item").hover
       end
 
-      expect(page).to have_text("A new content", count: 2)
-      expect(page).to have_no_text("First paragraph")
+      expect(all(".collaborative-texts-highlight del").map(&:text).join(" ")).to eq("First paragraph")
+      expect(all(".collaborative-texts-highlight ins").map(&:text).join(" ")).to eq("A new content")
 
       find("aside.layout-2col__aside").click # to force a "blur" event
       expect(page).to have_text("A new content", count: 1)
@@ -145,8 +145,8 @@ describe "User adds suggestions" do
           expect(page).to have_text("Edited First paragraph", count: 1)
           expect(page).to have_text("A new content", count: 1)
           find(".collaborative-texts-suggestions-box-item:first-child").hover
-          expect(page).to have_text("First paragraph", count: 1)
-          expect(page).to have_text("A new content", count: 2)
+          expect(all(".collaborative-texts-highlight del").map(&:text).join(" ")).to eq("First paragraph")
+          expect(all(".collaborative-texts-highlight ins").map(&:text).join(" ")).to eq("A new content")
         end
       end
     end
