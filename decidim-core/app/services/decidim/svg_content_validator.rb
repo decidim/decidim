@@ -220,7 +220,13 @@ module Decidim
     # the namespace of an inline document written with single quotes inside a
     # double quoted URL). Taking only the part before the other quote would
     # validate an incomplete reference instead of the one which is rendered.
-    SVG_CSS_URL_VALUE = /"([^")]+)"?|'([^')]+)'?|(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
+    #
+    # The closing parenthesis of a function is not a delimiter of a quoted value
+    # either, as it is part of the string token when the style sheet is
+    # tokenized (see #scrub_css). Cutting the value at it would read the text
+    # after the parenthesis as part of another value, which can hide an external
+    # URL following it (e.g. "image-set(\"a)b\" c, url(https://example.org))").
+    SVG_CSS_URL_VALUE = /"([^"]+)"?|'([^']+)'?|(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
 
     # The maximum depth of the documents nested inside inline data references,
     # which are validated with the same rules as the document itself.
