@@ -14,26 +14,45 @@ module RuboCop
       # scoped `collection`.
       #
       # The cop targets chains that start with an ActiveRecord model constant
-      # and end with a terminal finder (`find`, `find_by`, `find_by!`, `first`,
-      # `take`, etc.) unless the chain includes a recognized scoping step.
+      # and end with a terminal query method (`find`, `find_by`, `first`,
+      # `take`, `exists?`, `find_or_create_by`, `destroy_all`, etc.) unless the
+      # chain includes a recognized scoping step.
       class OrganizationScopedFinder < RuboCop::Cop::Base
         MSG = "Unscoped ActiveRecord finder detected. Scope the query to the current organization, " \
               "e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`."
 
+        # Terminal methods that execute a database query. This is the subset of
+        # `ActiveRecord::Querying::QUERYING_METHODS` that loads, creates,
+        # mutates, or deletes records, so an unscoped call can cross
+        # organization boundaries. Relation-building methods (`order`, `joins`,
+        # etc.) are not listed here because they do not run the query by
+        # themselves.
         FINDER_METHODS = [
           :find, :find_by, :find_by!, :find_sole_by, :first, :first!, :last, :last!,
           :sole, :sole!, :take, :take!,
-          :find_or_initialize_by, :find_or_create_by, :find_or_create_by!
+          :second, :second!, :third, :third!, :fourth, :fourth!, :fifth, :fifth!,
+          :forty_two, :forty_two!, :third_to_last, :third_to_last!, :second_to_last, :second_to_last!,
+          :exists?, :any?, :many?, :none?, :one?
         ].freeze
-        RESTRICT_ON_SEND = [*FINDER_METHODS, :where, :or].freeze
+
+        CREATION_FINDER_METHODS = [
+          :first_or_create, :first_or_create!, :first_or_initialize,
+          :find_or_create_by, :find_or_create_by!, :find_or_initialize_by,
+          :create_or_find_by, :create_or_find_by!
+        ].freeze
+
+        MUTATION_METHODS = [
+          :destroy, :destroy_all, :delete, :delete_all, :update_all, :touch_all, :destroy_by, :delete_by
+        ].freeze
+
+        QUERY_METHODS = [*FINDER_METHODS, *CREATION_FINDER_METHODS, *MUTATION_METHODS].freeze
+        RESTRICT_ON_SEND = [*QUERY_METHODS, :where, :or].freeze
 
         RECORD_LOADING_METHODS = [:load, :load_async].freeze
 
         SCOPE_ROOT_METHODS = [:current_organization, :collection].freeze
 
-        SCOPED_CREATION_FINDER_METHODS = [
-          :find_or_initialize_by, :find_or_create_by, :find_or_create_by!
-        ].freeze
+        SCOPED_CREATION_FINDER_METHODS = CREATION_FINDER_METHODS
 
         SCOPED_WHERE_KEYS = [:current_organization, :current_component].freeze
 
@@ -43,7 +62,24 @@ module RuboCop
 
         SCOPED_HELPER_METHODS = [:current_organization, :current_component, :current_participatory_space].freeze
 
-        IGNORED_CONSTANT_PREFIXES = %w(Bundler ActiveRecord).freeze
+        # Query objects are commonly built from a positional argument, e.g.
+        # `AssembliesWithUserRole.for(current_user)`. The current user is bound
+        # to the current organization, so it also establishes the tenant scope.
+        SCOPED_QUERY_ARGUMENT_METHODS = [*SCOPED_HELPER_METHODS, :current_user].freeze
+
+        # Framework and standard library constants expose query-like methods
+        # (`File.delete`, `Rails.cache.delete`, etc.) without being
+        # ActiveRecord models. Namespaced entries are matched as prefixes; the
+        # remaining ones are only ignored when they are the full constant name,
+        # so `Decidim` is ignored but `Decidim::Proposal` is not.
+        IGNORED_CONSTANT_PREFIXES = %w(
+          ActionController ActionDispatch ActionMailer ActionView ActiveModel ActiveSupport
+          ActiveRecord Arel Bundler Devise Doorkeeper Rack Rails
+        ).freeze
+        IGNORED_CONSTANTS = %w(
+          CGI Date DateTime Decidim Dir ENV File I18n JSON OpenSSL Pathname Process
+          SecureRandom Thread Time URI
+        ).freeze
 
         # SCREAMING_SNAKE_CASE constants hold plain values (e.g.
         # `OPTIONS = [25, 50, 100]`), not ActiveRecord model classes, which
@@ -116,6 +152,7 @@ module RuboCop
           return false unless node.const_type?
 
           IGNORED_CONSTANT_PREFIXES.any? { |prefix| node.source.start_with?(prefix) } ||
+            IGNORED_CONSTANTS.include?(node.source) ||
             value_constant?(node)
         end
 
@@ -230,9 +267,7 @@ module RuboCop
         def constructed_scope_root?(node)
           return false unless node.send_type?
 
-          if node.method_name == :new
-            return false unless node.receiver&.const_type?
-
+          if node.receiver&.const_type?
             return true if node.arguments.any? { |arg| scoped_constructor_argument?(arg) }
 
             return scoped_finder_arguments?(node)
@@ -243,15 +278,24 @@ module RuboCop
           constructed_scope_root?(node.receiver) if node.receiver
         end
 
-        # Query objects in Decidim commonly receive the organization as a
-        # positional argument, e.g. `OrganizationAssemblies.new(current_organization)`.
+        # Query objects in Decidim commonly receive the organization or the
+        # current user as a positional argument, e.g.
+        # `OrganizationAssemblies.new(current_organization)` or
+        # `AssembliesWithUserRole.for(current_user)`.
         # For `or` relations, every branch must either already be
         # organization-scoped or be constructed from an organization-scoped
         # query object.
         def scoped_constructor_argument?(node)
-          return scoped_helper_method?(node) unless node.send_type? && node.method_name == :or
+          return scoped_query_argument_method?(node) unless node.send_type? && node.method_name == :or
 
           scoped_or_branches?(node)
+        end
+
+        def scoped_query_argument_method?(node)
+          return false unless node.send_type?
+          return false if node.receiver
+
+          SCOPED_QUERY_ARGUMENT_METHODS.include?(node.method_name)
         end
 
         # An `or` relation is only safe when every nested branch is scoped,
@@ -304,7 +348,7 @@ module RuboCop
         end
 
         def loads_records?(node)
-          FINDER_METHODS.include?(node.method_name) || RECORD_LOADING_METHODS.include?(node.method_name)
+          QUERY_METHODS.include?(node.method_name) || RECORD_LOADING_METHODS.include?(node.method_name)
         end
 
         def scoped_creation_finder?(node)

@@ -532,4 +532,96 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
     RUBY
   end
+
+  [
+    :second, :second!, :third, :third!, :fourth, :fourth!, :fifth, :fifth!,
+    :forty_two, :forty_two!, :third_to_last, :third_to_last!, :second_to_last, :second_to_last!,
+    :exists?, :any?, :many?, :none?, :one?,
+    :first_or_create, :first_or_create!, :first_or_initialize,
+    :create_or_find_by, :create_or_find_by!,
+    :destroy, :destroy_all, :delete, :delete_all, :update_all, :touch_all, :destroy_by, :delete_by
+  ].each do |method|
+    it "registers an offense for unscoped Model.#{method}" do
+      source = "Template.#{method}"
+      carets = "^" * source.length
+      expect_offense(<<~RUBY)
+        #{source}
+        #{carets} Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+      RUBY
+    end
+  end
+
+  it "accepts predicates on an organization-scoped relation" do
+    expect_no_offenses(<<~RUBY)
+      current_organization.templates.exists?
+      current_organization.templates.any?
+      current_organization.templates.many?
+      current_organization.templates.none?
+      current_organization.templates.one?
+    RUBY
+  end
+
+  it "accepts destructive methods on an organization-scoped relation" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(organization: current_organization).update_all(name: "foo")
+      Template.where(organization: current_organization).touch_all
+      Template.where(organization: current_organization).destroy_by(name: "foo")
+      Template.where(organization: current_organization).delete_by(name: "foo")
+      current_organization.templates.delete_all
+      current_organization.templates.destroy_all
+    RUBY
+  end
+
+  it "accepts a where consumed by a scoped first_or_create" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").first_or_create(organization: current_organization)
+    RUBY
+  end
+
+  it "accepts a where consumed by a scoped first_or_create with a block" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").first_or_create(organization: current_organization) { |template| template.title = "bar" }
+    RUBY
+  end
+
+  it "accepts a where consumed by a scoped first_or_initialize" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").first_or_initialize(organization: current_organization)
+    RUBY
+  end
+
+  it "accepts a where consumed by a scoped create_or_find_by!" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").create_or_find_by!(organization: current_organization)
+    RUBY
+  end
+
+  it "accepts a query object built with current_user" do
+    expect_no_offenses(<<~RUBY)
+      AssembliesWithUserRole.for(current_user).any?
+    RUBY
+  end
+
+  it "accepts a query object built with current_organization" do
+    expect_no_offenses(<<~RUBY)
+      TaxonomyFilter.for(current_organization).where(id: current_component.settings.taxonomy_filters)
+    RUBY
+  end
+
+  it "registers an offense for a query object built with an untrusted argument" do
+    expect_offense(<<~RUBY)
+      AssembliesWithUserRole.for(params[:user_id]).any?
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "does not register an offense for query-like methods on non-model constants" do
+    expect_no_offenses(<<~RUBY)
+      File.extname("foo.txt").delete(".")
+      File.delete("foo.txt")
+      Time.current.second
+      Rails.cache.delete(:foo)
+      Decidim.participatory_space_manifests.any?
+    RUBY
+  end
 end
