@@ -144,6 +144,7 @@ export default class Suggestion {
       : diffWordsWithSpace(before, after);
     let paragraph = window.document.createElement("p");
     wrapper.appendChild(paragraph);
+    let previous = null;
     changes.forEach((change) => {
       change.value.split("\n").forEach((value, index) => {
         if (index > 0) {
@@ -152,6 +153,10 @@ export default class Suggestion {
         }
         if (!value) {
           return;
+        }
+        const flipped = previous && ((previous.added && change.removed) || (previous.removed && change.added));
+        if (flipped && !(/\s$/).test(previous.value) && !(/^\s/).test(value)) {
+          paragraph.appendChild(window.document.createTextNode(" "));
         }
         if (!change.added && !change.removed) {
           paragraph.appendChild(window.document.createTextNode(value));
@@ -164,6 +169,7 @@ export default class Suggestion {
         mark.textContent = value;
         paragraph.appendChild(mark);
       });
+      previous = change;
     });
   }
 
