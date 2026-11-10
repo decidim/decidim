@@ -404,8 +404,15 @@ module RuboCop
           offense_candidate?(node)
         end
 
+        # Records may have been loaded earlier in the receiver chain. In
+        # particular, an `or` relation must inherit that state from its
+        # receiver, so an outer scoped call cannot hide the warning for
+        # `Template.where(name: "foo").load.or(current_organization.templates)`.
         def loads_records?(node)
-          QUERY_METHODS.include?(node.method_name) || RECORD_LOADING_METHODS.include?(node.method_name)
+          return false unless node&.send_type?
+          return true if QUERY_METHODS.include?(node.method_name) || RECORD_LOADING_METHODS.include?(node.method_name)
+
+          loads_records?(node.receiver)
         end
 
         def scoped_creation_finder?(node)

@@ -184,6 +184,20 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense for a where loaded before an or consumed by a scoped where" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").load.or(current_organization.templates).where(organization: current_organization)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a where loaded before an or consumed by a scoped finder" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").load.or(current_organization.templates).where(organization: current_organization).first
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "registers an offense for where used as an argument" do
     expect_offense(<<~RUBY)
       current_organization.things.where(value: Template.where(name: "foo"))
