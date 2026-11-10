@@ -214,7 +214,13 @@ module Decidim
     # value of a function is not taken as a reference when it is itself a function
     # call, so that a function nested inside another one (e.g. "image(url(...))")
     # is matched on its own.
-    SVG_CSS_URL_VALUE = /["']([^"')]+)["']?|(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
+    #
+    # The content of a string is delimited by the quote which opens it, so the
+    # other quote is part of the value and cannot be used to cut it short (e.g.
+    # the namespace of an inline document written with single quotes inside a
+    # double quoted URL). Taking only the part before the other quote would
+    # validate an incomplete reference instead of the one which is rendered.
+    SVG_CSS_URL_VALUE = /"([^")]+)"?|'([^')]+)'?|(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
 
     # The maximum depth of the documents nested inside inline data references,
     # which are validated with the same rules as the document itself.

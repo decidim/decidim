@@ -186,6 +186,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose style sheet URL contains the quote which does not delimit it" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_url_opposite_quote.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose style sheet ends with an unterminated comment with multibyte characters" do
       let(:content) { File.read(Decidim::Dev.asset("test_css_unclosed_comment.svg")) }
 
@@ -227,6 +233,8 @@ describe Decidim::SvgContentValidator do
         malicious_svg_css_image_set.svg
         malicious_svg_css_image_set_nested_parentheses.svg
         malicious_svg_css_image_function.svg
+        malicious_svg_css_url_opposite_quote_nested_script.svg
+        malicious_svg_css_url_opposite_quote_nested_external_reference.svg
         malicious_svg_mask_attribute.svg
         malicious_svg_cursor_attribute.svg
         malicious_svg_fill_external_reference.svg
