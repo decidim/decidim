@@ -1,3 +1,5 @@
+import { diffWordsWithSpace } from "diff";
+
 export default class Suggestion {
   constructor(suggestionsList, entry) {
     this.id = entry.id;
@@ -21,6 +23,7 @@ export default class Suggestion {
         break;
       }
     }
+    this.original = entry.changeset.original || [];
     this.replace = entry.changeset.replace;
     this.summary = entry.summary;
     this.item = null;
@@ -60,7 +63,7 @@ export default class Suggestion {
       suggestion.changesWrapper.classList.add("collaborative-texts-highlight-hidden");
       suggestion.nodes.forEach((node) => node.classList.add("collaborative-texts-highlight-shown"));
     });
-    this._applyTo(this.highlightWrapper);
+    this._renderDiff(this.highlightWrapper);
   }
 
   // Restores the highlighted nodes to their original state
@@ -128,6 +131,47 @@ export default class Suggestion {
         node.replaceWith(paragraph);
       }
     });
+  }
+
+  // Render a word diff between the original and the replacement text, so the
+  // removed text is marked and the added text is highlighted when hovering
+  _renderDiff(wrapper) {
+    const before = this._text(this.original);
+    const after = this._text(this.replace);
+    // shortcut: very long selections are not word-diffed, they are marked as fully removed and added
+    const changes = before.length + after.length > 10000
+      ? [{ removed: true, value: before }, { added: true, value: after }]
+      : diffWordsWithSpace(before, after);
+    let paragraph = window.document.createElement("p");
+    wrapper.appendChild(paragraph);
+    changes.forEach((change) => {
+      change.value.split("\n").forEach((value, index) => {
+        if (index > 0) {
+          paragraph = window.document.createElement("p");
+          wrapper.appendChild(paragraph);
+        }
+        if (!value) {
+          return;
+        }
+        if (!change.added && !change.removed) {
+          paragraph.appendChild(window.document.createTextNode(value));
+          return;
+        }
+        const tag = change.added
+          ? "ins"
+          : "del";
+        const mark = window.document.createElement(tag);
+        mark.textContent = value;
+        paragraph.appendChild(mark);
+      });
+    });
+  }
+
+  // Plain text of the node list, keeping one line per original node
+  _text(nodes) {
+    const wrapper = window.document.createElement("div");
+    wrapper.innerHTML = nodes.join("\n");
+    return wrapper.textContent;
   }
 
   _hideOriginalNodes(className = "collaborative-texts-hidden") {
