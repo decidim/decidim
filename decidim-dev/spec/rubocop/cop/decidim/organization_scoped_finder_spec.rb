@@ -572,21 +572,38 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
-  it "accepts a where consumed by a scoped first_or_create" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for a where consumed by first_or_create with write-only organization arguments" do
+    expect_offense(<<~RUBY)
       Template.where(name: "foo").first_or_create(organization: current_organization)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
     RUBY
   end
 
-  it "accepts a where consumed by a scoped first_or_create with a block" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for a where consumed by first_or_create with a block" do
+    expect_offense(<<~RUBY)
       Template.where(name: "foo").first_or_create(organization: current_organization) { |template| template.title = "bar" }
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
     RUBY
   end
 
-  it "accepts a where consumed by a scoped first_or_initialize" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense for a where consumed by first_or_initialize with write-only organization arguments" do
+    expect_offense(<<~RUBY)
       Template.where(name: "foo").first_or_initialize(organization: current_organization)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a where consumed by update_all with write-only organization arguments" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").update_all(decidim_organization_id: current_organization.id)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for update_all with write-only organization arguments" do
+    expect_offense(<<~RUBY)
+      Template.update_all(organization: current_organization)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
     RUBY
   end
 

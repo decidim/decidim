@@ -45,6 +45,20 @@ module RuboCop
           :destroy, :destroy_all, :delete, :delete_all, :update_all, :touch_all, :destroy_by, :delete_by
         ].freeze
 
+        # Query methods whose argument hash filters the records they read,
+        # create, or delete. Only these can establish organization scope.
+        # Methods such as `first_or_create` or `update_all` use their arguments
+        # as values to write, so they do not filter out records from other
+        # organizations.
+        FILTERING_ARGUMENT_METHODS = [
+          :where,
+          :find_by, :find_by!, :find_sole_by,
+          :exists?, :any?, :many?, :none?, :one?,
+          :find_or_create_by, :find_or_create_by!, :find_or_initialize_by,
+          :create_or_find_by, :create_or_find_by!,
+          :destroy_by, :delete_by
+        ].freeze
+
         QUERY_METHODS = [*FINDER_METHODS, *CREATION_FINDER_METHODS, *MUTATION_METHODS].freeze
         RESTRICT_ON_SEND = [*QUERY_METHODS, :where, :or].freeze
 
@@ -52,7 +66,12 @@ module RuboCop
 
         SCOPE_ROOT_METHODS = [:current_organization, :collection].freeze
 
-        SCOPED_CREATION_FINDER_METHODS = CREATION_FINDER_METHODS
+        # Creation finders that use their argument hash to look up the existing
+        # record, so an organization in that hash really scopes the lookup.
+        SCOPED_CREATION_FINDER_METHODS = [
+          :find_or_create_by, :find_or_create_by!, :find_or_initialize_by,
+          :create_or_find_by, :create_or_find_by!
+        ].freeze
 
         SCOPED_WHERE_KEYS = [:current_organization, :current_component].freeze
 
@@ -174,8 +193,17 @@ module RuboCop
 
         # Also recognizes helpers that filter by a scoped association, such as
         # `MeetingLink.find_meetings(component: current_component)`.
+        # Known query methods that write their arguments instead of filtering
+        # with them (`first_or_create`, `update_all`, ...) cannot establish
+        # scope, even when the hash contains the current organization.
         def scoped_finder_arguments?(node)
+          return false if QUERY_METHODS.include?(node.method_name) && !filtering_argument_method?(node)
+
           node.arguments.any? { |arg| scoped_argument?(arg) }
+        end
+
+        def filtering_argument_method?(node)
+          FILTERING_ARGUMENT_METHODS.any? { |method| method == node.method_name }
         end
 
         def scoped_where?(node)
