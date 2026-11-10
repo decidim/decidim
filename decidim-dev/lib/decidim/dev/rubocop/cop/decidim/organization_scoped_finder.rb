@@ -86,6 +86,13 @@ module RuboCop
         # to the current organization, so it also establishes the tenant scope.
         SCOPED_QUERY_ARGUMENT_METHODS = [*SCOPED_HELPER_METHODS, :current_user].freeze
 
+        # Only these methods build a query object from a positional argument.
+        # Other methods called on a model constant may receive the current user
+        # without scoping the query, as in
+        # `Decidim::User.excluding(current_user)`, which only removes that user
+        # and still returns users from other organizations.
+        SCOPED_QUERY_CONSTRUCTOR_METHODS = [:new, :for].freeze
+
         # Framework and standard library constants expose query-like methods
         # (`File.delete`, `Rails.cache.delete`, etc.) without being
         # ActiveRecord models. Namespaced entries are matched as prefixes; the
@@ -305,7 +312,8 @@ module RuboCop
           return false unless node.send_type?
 
           if node.receiver&.const_type?
-            return true if node.arguments.any? { |arg| scoped_constructor_argument?(arg) }
+            return true if SCOPED_QUERY_CONSTRUCTOR_METHODS.include?(node.method_name) &&
+                           node.arguments.any? { |arg| scoped_constructor_argument?(arg) }
 
             return scoped_finder_arguments?(node)
           end

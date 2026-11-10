@@ -652,6 +652,13 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense when a model method only excludes the current user" do
+    expect_offense(<<~RUBY)
+      Decidim::User.excluding(current_user).first
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "does not register an offense for query-like methods on non-model constants" do
     expect_no_offenses(<<~RUBY)
       File.extname("foo.txt").delete(".")
