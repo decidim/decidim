@@ -218,9 +218,17 @@ describe("SuggestionsList", () => {
   it("highlights a suggestion on mouseover", () => {
     suggestion.highlight();
     expect(suggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
-    expect(suggestion.highlightWrapper.textContent).toBe("This is a replacement");
+    expect([...suggestion.highlightWrapper.querySelectorAll("del")].map((node) => node.textContent).join(" ")).toBe("some content");
+    expect([...suggestion.highlightWrapper.querySelectorAll("ins")].map((node) => node.textContent).join(" ")).toBe("This is a replacement");
     expect(doc.doc.querySelector(".collaborative-texts-highlight-hidden").innerHTML).toContain("Some content");
-    expect(doc.doc.querySelector(".collaborative-texts-highlight").innerHTML).toContain("This is a replacement");
+  });
+
+  it("only marks the changed words on mouseover", () => {
+    suggestion.replace = ["some updated text"];
+    suggestion.highlight();
+    expect(suggestion.highlightWrapper.textContent).toBe("some content updated text");
+    expect(suggestion.highlightWrapper.querySelector("del").textContent).toBe("content");
+    expect(suggestion.highlightWrapper.querySelector("ins").textContent).toBe("updated text");
   });
 
   it("blurs a suggestion on mouseout", () => {
