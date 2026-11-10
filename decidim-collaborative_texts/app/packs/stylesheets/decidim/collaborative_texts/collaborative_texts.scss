@@ -60,6 +60,14 @@
   &-highlight {
     @apply relative outline-dashed outline-1 outline-offset-2 outline-gray;
 
+    del {
+      @apply text-alert line-through;
+    }
+
+    ins {
+      @apply bg-success/20 text-success no-underline;
+    }
+
     &:not(.applied) .collaborative-texts-hidden {
       @apply block;
     }
