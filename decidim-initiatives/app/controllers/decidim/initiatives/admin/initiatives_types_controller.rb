@@ -9,6 +9,7 @@ module Decidim
         include Decidim::TranslatableAttributes
 
         before_action :set_controller_breadcrumb, except: [:index, :new, :create]
+        before_action :set_initiative_types_with_initiatives, only: [:index]
 
         add_breadcrumb_item_from_menu :admin_initiatives_menu
 
@@ -24,7 +25,6 @@ module Decidim
           # loading every initiative of the organization just to know if a type has
           # any.
           @initiatives_types = InitiativeTypes.for(current_organization)
-          @initiative_types_with_initiatives = InitiativeTypesWithInitiatives.for(current_organization)
         end
 
         # GET /admin/initiatives_types/new
@@ -103,6 +103,10 @@ module Decidim
         end
 
         private
+
+        def set_initiative_types_with_initiatives
+          @initiative_types_with_initiatives = InitiativeTypesWithInitiatives.for(current_organization)
+        end
 
         def set_controller_breadcrumb
           controller_breadcrumb_items <<
