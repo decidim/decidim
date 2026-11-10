@@ -113,10 +113,7 @@ module RuboCop
           # may be an unscoped relation whose receiver is not a model constant
           # (for example a delegated `taxonomies` relation).
           return check_or_relation(node) if node.method_name == :or
-
-          return if organization_scoped?(node.receiver)
-          return unless unscoped_model_class?(node.receiver) || unscoped_or_relation?(node.receiver)
-          return if constructed_scope_root?(node.receiver)
+          return unless offense_candidate?(node)
           return if consumed_by_outer_relation?(node)
 
           add_offense(node)
@@ -126,6 +123,18 @@ module RuboCop
 
         def relevant_node?(node)
           RESTRICT_ON_SEND.include?(node.method_name) && !node.block_node && !scoped_finder_arguments?(node)
+        end
+
+        # Whether a relevant call is itself an unscoped lookup this cop should
+        # report, ignoring whether an outer call consumes it. `on_send` uses
+        # this for the offense, and `reportable_outer_relation?` uses it to
+        # decide if an outer call will actually produce a warning.
+        def offense_candidate?(node)
+          return false if organization_scoped?(node.receiver)
+          return false unless unscoped_model_class?(node.receiver) || unscoped_or_relation?(node.receiver)
+          return false if constructed_scope_root?(node.receiver)
+
+          true
         end
 
         def check_or_relation(node)
@@ -360,19 +369,31 @@ module RuboCop
         # loading records, and their block only initializes values on a new
         # record.
         #
-        # Other calls that already scope their own arguments are also skipped
-        # by `relevant_node?`, so they cannot report the offense for an inner
-        # unscoped finder. Let that inner call remain reportable instead.
+        # Calls that already scope their own arguments are also skipped by
+        # `relevant_node?`, so they cannot report the offense for an inner
+        # unscoped finder. They can still consume the unscoped calls that build
+        # their relation, but only while those calls have not loaded records
+        # yet.
         #
         # A scoped call must not hide a lookup that already loaded records
         # before it ran. It can only consume inner calls that build the query.
+        # Nor can an outer call hide an inner lookup when the outer call itself
+        # reports nothing: in
+        # `Model.find(id).children.where(organization: current_organization).first`
+        # the final `first` is scoped through its receiver, so the earlier
+        # `find` must stay reportable.
         def reportable_outer_relation?(node, loads_records)
           return false unless RESTRICT_ON_SEND.include?(node.method_name)
           return false if node.block_node && !scoped_creation_finder?(node)
-          return true unless scoped_finder_arguments?(node)
-          return false if loads_records
+          return !scoped_or_branches?(node) if node.method_name == :or
 
-          true
+          if scoped_finder_arguments?(node)
+            return false if loads_records
+
+            return true
+          end
+
+          offense_candidate?(node)
         end
 
         def loads_records?(node)

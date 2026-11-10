@@ -101,6 +101,26 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense for an unscoped lookup followed by a scoped relation chain" do
+    expect_offense(<<~RUBY)
+      Decidim::Taxonomy.find(params[:id]).children.where(organization: current_organization).first
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for an unscoped lookup followed by a scoped relation chain through intermediate calls" do
+    expect_offense(<<~RUBY)
+      Decidim::Taxonomy.find(params[:id]).children.order(:id).where(organization: current_organization).first
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "accepts a relation chain whose records are only loaded after scoping" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").where(organization: current_organization).first
+    RUBY
+  end
+
   it "accepts a where consumed by a scoped non-creation finder" do
     expect_no_offenses(<<~RUBY)
       Template.where(name: "foo").find_by(organization: current_organization)
