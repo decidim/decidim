@@ -661,4 +661,29 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
       Decidim.participatory_space_manifests.any?
     RUBY
   end
+
+  it "does not register an offense for query-like methods on the Doorkeeper module itself" do
+    expect_no_offenses(<<~RUBY)
+      Doorkeeper.config.scopes.all
+    RUBY
+  end
+
+  it "registers an offense for unscoped Doorkeeper credential lookups" do
+    expect_offense(<<~RUBY)
+      Doorkeeper::Application.find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+      Doorkeeper::AccessToken.find_by(token: params[:token])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+      Doorkeeper::AccessGrant.find_by(token: params[:token])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "accepts organization-scoped Doorkeeper credential lookups" do
+    expect_no_offenses(<<~RUBY)
+      Doorkeeper::Application.find_by(organization: current_organization, id: params[:id])
+      Doorkeeper::AccessToken.find_by(organization: current_organization, token: params[:token])
+      Doorkeeper::AccessGrant.find_by(organization: current_organization, token: params[:token])
+    RUBY
+  end
 end

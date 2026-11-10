@@ -93,10 +93,10 @@ module RuboCop
         # so `Decidim` is ignored but `Decidim::Proposal` is not.
         IGNORED_CONSTANT_PREFIXES = %w(
           ActionController ActionDispatch ActionMailer ActionView ActiveModel ActiveSupport
-          ActiveRecord Arel Bundler Devise Doorkeeper Rack Rails
+          ActiveRecord Arel Bundler Devise Rack Rails
         ).freeze
         IGNORED_CONSTANTS = %w(
-          CGI Date DateTime Decidim Dir ENV File I18n JSON OpenSSL Pathname Process
+          CGI Date DateTime Decidim Dir Doorkeeper ENV File I18n JSON OpenSSL Pathname Process
           SecureRandom Thread Time URI
         ).freeze
 
