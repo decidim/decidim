@@ -702,6 +702,14 @@ module Decidim
     # it (e.g. "image-set( url(https://example.org))"). Reading it as a value would
     # consume the name of the nested function and leave its address without a
     # function name before it, which is never checked as a reference.
+    #
+    # The delimiters of an unquoted value are only the delimiters which the
+    # tokenization rules read as such: an escape sequence hides the character
+    # following it, so a quote or a parenthesis written as an escape is part of the
+    # value and does not end it (e.g. "url(local\"); mask-image:
+    # url(https://example.org))"). Stopping at the escaped character would read the
+    # rest of the style sheet as a string starting at that character, which hides the
+    # external URL declared after it.
     def scan_css_reference_value(scanner)
       if (quote = scanner.scan(/["']/))
         token = scan_css_string(scanner, quote)
@@ -712,13 +720,31 @@ module Decidim
         scanner.getch while scanner.match?(/\s/)
         return nil if scanner.match?(SVG_CSS_URL_FUNCTION_CALL)
 
-        value = +""
-        value << scanner.getch until scanner.eos? || scanner.match?(/["')(]/)
-        value
+        scan_css_unquoted_value(scanner)
       else
         scanner.getch
         nil
       end
+    end
+
+    # Consumes the unquoted value of a function which loads its arguments, and
+    # returns it as it is written. The value ends at a quote or a parenthesis, but
+    # only when the tokenization rules read it as a delimiter: an escape sequence
+    # hides the character following it, so the whole escape is consumed as part of
+    # the value (see #scan_css_reference_value).
+    def scan_css_unquoted_value(scanner)
+      value = +""
+      until scanner.eos?
+        escape = scanner.scan(CSS_ESCAPE)
+        if escape
+          value << escape
+        elsif scanner.match?(/["')(]/)
+          break
+        else
+          value << scanner.getch
+        end
+      end
+      value
     end
 
     # Removes the comments and the strings of a style sheet, which are not
