@@ -175,6 +175,12 @@ module Decidim
             expect(existing.reload.choices.pluck(:decidim_response_option_id)).to match_array(response_options.first(3).map(&:id))
           end
 
+          it "removes the attachments of a re-answered question that no longer accepts files" do
+            create(:attachment, :with_pdf, attached_to: existing_response)
+            command.call
+            expect(existing_response.reload.attachments).to be_empty
+          end
+
           it "keeps the responses of other participants" do
             other = create(:response, questionnaire:, question: question1)
             command.call

@@ -129,6 +129,7 @@ module Decidim
           ip_hash: form.context.ip_hash
         )
         response.choices.destroy_all if response.persisted?
+        response.attachments.destroy_all unless form_response.question.has_attachments?
         build_choices(response, form_response)
         response.save!
         response
