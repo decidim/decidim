@@ -90,9 +90,12 @@ module Decidim
 
         it "escapes the title in editor mode" do
           result = renderer.render(editor: true)
+          fragment = Loofah.fragment(result)
 
           expect(result).to include("&lt;img")
           expect(result).not_to include("<img")
+          expect(fragment.at_css("span[data-type='mentionResource']")["data-label"]).to eq(proposal.presenter.title.to_s)
+          expect(fragment.css("img[onerror]")).to be_empty
         end
 
         it "escapes the title in rendered links" do
