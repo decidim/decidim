@@ -119,6 +119,8 @@ cs:
                 label: Okresy (%{field})
               max_length:
                 label: Maximální délka (%{field})
+              max_points:
+                help: 'Maximální počet bodů přiřazených k vybraným projektům (výchozí: %{default_value}).'
               min_length:
                 label: Minimální délka (%{field})
               min_points:
