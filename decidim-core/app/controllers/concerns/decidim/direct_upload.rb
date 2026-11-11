@@ -42,11 +42,17 @@ module Decidim
     end
 
     def allowed_extensions
-      if user_has_elevated_role?
-        current_organization.settings.upload_allowed_file_extensions_admin
-      else
-        current_organization.settings.upload_allowed_file_extensions
-      end
+      extensions = if user_has_elevated_role?
+                     current_organization.settings.upload_allowed_file_extensions_admin
+                   else
+                     current_organization.settings.upload_allowed_file_extensions
+                   end
+
+      # The configured extensions are matched case-insensitively, as the
+      # filename extension is normalized before the comparison. An allowlist
+      # entry such as "JPG" must therefore accept both "photo.jpg" and
+      # "photo.JPG".
+      extensions.map { |pattern| pattern.to_s.downcase }
     end
 
     def content_types

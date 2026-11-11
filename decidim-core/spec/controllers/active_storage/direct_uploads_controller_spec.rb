@@ -108,6 +108,33 @@ module ActiveStorage
             expect(response).to have_http_status(:ok)
           end
         end
+
+        context "and the configured allowlist uses uppercase extensions" do
+          let(:extensions) { %w(TXT) }
+
+          it "returns success for a lowercase filename" do
+            post(:create, params:)
+
+            expect(response).to have_http_status(:ok)
+          end
+
+          context "with an uppercase filename" do
+            let(:blob) do
+              {
+                filename: "hello.TXT",
+                byte_size: 6,
+                checksum:,
+                content_type: "text/plain"
+              }
+            end
+
+            it "returns success" do
+              post(:create, params:)
+
+              expect(response).to have_http_status(:ok)
+            end
+          end
+        end
       end
 
       context "when the attachment is not allowed" do
