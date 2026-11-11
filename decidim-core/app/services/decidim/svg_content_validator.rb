@@ -206,6 +206,14 @@ module Decidim
     # of "url()" do, and the vendor prefixed spelling is matched as well.
     CSS_URL_FUNCTIONS = %w(url image image-set -webkit-image-set).freeze
 
+    # The escape sequences of CSS, which consist of a backslash followed by up
+    # to six hexadecimal digits, with an optional whitespace terminating the
+    # sequence, or by any other character. The groups are the codepoint and the
+    # escaped character (see #decode_css_escapes), and they are kept unnamed, as
+    # #scan returns only the named groups when the pattern has any (see
+    # SVG_CSS_URL_VALUE).
+    CSS_ESCAPE = /\\(?:(\h{1,6})[ \t\n\r\f]?|(.))/m
+
     # The URL references of a style sheet, captured after the comments and the
     # strings which do not define a URL are removed, so that each of them can
     # be validated as a reference. Only the strings of the functions which load
@@ -234,11 +242,21 @@ module Decidim
     # read the text after the token as part of the value, hiding an external URL
     # which follows it.
     #
+    # A hexadecimal escape consumes the whitespace or newline which terminates it,
+    # so the whole sequence is part of the token and the value must be captured as
+    # the complete escape (see CSS_ESCAPE). Stopping at the first character after
+    # the backslash would validate only the decoded character, and the rest of the
+    # URL after the newline would never be checked (e.g. "url(\"\\68\n" followed
+    # by "ttps://example.org\")", which the engines resolve to an external address).
+    #
     # An empty string is a complete value which must be consumed as such.
     # Requiring at least one character would leave the scan to start at its
     # closing quote, reading the rest of the style sheet as a single value which
     # hides the external URLs declared after it.
-    SVG_CSS_URL_VALUE = /(?:"((?:\\.|[^"\\\n\r\f])*)"?)|(?:'((?:\\.|[^'\\\n\r\f])*)'?)|(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
+    SVG_CSS_URL_VALUE = Regexp.union(
+      /(?:"((?:#{CSS_ESCAPE}|[^"\\\n\r\f])*)"?)|'((?:#{CSS_ESCAPE}|[^'\\\n\r\f])*)'?/im,
+      /(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
+    )
 
     # The maximum depth of the documents nested inside inline data references,
     # which are validated with the same rules as the document itself.
@@ -279,11 +297,6 @@ module Decidim
     # document itself, and "data:" references are inline but can contain a
     # nested document which is parsed when rendered.
     SVG_CSS_IMPORT = /@import/i
-
-    # The escape sequences of CSS, which consist of a backslash followed by up
-    # to six hexadecimal digits, with an optional whitespace terminating the
-    # sequence, or by any other character.
-    CSS_ESCAPE = /\\(?:(?<hex>\h{1,6})[ \t\n\r\f]?|(?<char>.))/m
 
     # Validates the contents of an SVG document. Returns :valid when the
     # document can be stored, :invalid when the contents are not a well formed
@@ -641,16 +654,22 @@ module Decidim
     # of the functions which load their arguments are decoded during the
     # scrubbing, so that the escaped spellings are still recognized (see
     # #scrub_css).
+    #
+    # The values are checked as they are found, so that a style sheet with many
+    # references does not keep all of them in memory before the first one is
+    # rejected.
     def forbidden_css_content?(css)
       scrubbed = scrub_css(css)
       return true if SVG_CSS_IMPORT.match?(decode_css_escapes(scrubbed))
 
-      scrubbed.scan(SVG_CSS_URL_VALUE).any? do |groups|
+      scrubbed.scan(SVG_CSS_URL_VALUE) do |groups|
         value = groups.compact.first
-        next false if value.nil?
+        next if value.nil?
 
-        forbidden_reference_value?(decode_css_escapes(value))
+        return true if forbidden_reference_value?(decode_css_escapes(value))
       end
+
+      false
     end
 
     # Removes the comments and the strings of a style sheet, which are not
@@ -774,8 +793,8 @@ module Decidim
     # the replacement character.
     def decode_css_escapes(css)
       css.gsub(CSS_ESCAPE) do
-        digits = Regexp.last_match[:hex]
-        next Regexp.last_match[:char] if digits.nil?
+        digits = Regexp.last_match(1)
+        next Regexp.last_match(2) if digits.nil?
 
         codepoint = digits.to_i(16)
         if codepoint.zero? || codepoint > 0x10FFFF || codepoint.between?(0xD800, 0xDFFF)

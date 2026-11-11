@@ -237,6 +237,8 @@ describe Decidim::SvgContentValidator do
         malicious_svg_css_empty_string_external_reference.svg
         malicious_svg_css_empty_string_single_quote_external_reference.svg
         malicious_svg_css_string_newline_external_reference.svg
+        malicious_svg_css_hex_escape_newline_external_reference.svg
+        malicious_svg_css_hex_escape_newline_single_quote_external_reference.svg
         malicious_svg_css_image_function.svg
         malicious_svg_css_url_opposite_quote_nested_script.svg
         malicious_svg_css_url_opposite_quote_nested_external_reference.svg
