@@ -2,6 +2,8 @@
 
 namespace :decidim_forms do
   namespace :upgrade do
+    # Responses saved while the upgrade is in progress by application instances running the previous
+    # version are left without a submission. You can run this task at any time to fix them.
     desc "Groups the questionnaire responses left without a submission into submissions"
     task fix_orphan_responses: :environment do
       orphans = Decidim::Forms::Response.where(decidim_submission_id: nil, decidim_questionnaire_id: Decidim::Forms::Questionnaire.select(:id))

@@ -62,7 +62,9 @@ gem "decidim-dev", DECIDIM_VERSION
 
 == Repairing questionnaire submissions
 
-The forms upgrade backfills existing questionnaire responses into submissions. If application instances running the previous version wrote responses while the upgrade was in progress, run the following task after all instances have been upgraded:
+The forms upgrade backfills existing questionnaire responses into submissions. We have noticed an edge case in which application instances running the previous version write responses while the upgrade is in progress, and those responses are left without a submission.
+
+You can run the following rake task after all instances have been upgraded to ensure your system is not corrupted.
 
 [source,console]
 ----
