@@ -226,7 +226,19 @@ module Decidim
     # tokenized (see #scrub_css). Cutting the value at it would read the text
     # after the parenthesis as part of another value, which can hide an external
     # URL following it (e.g. "image-set(\"a)b\" c, url(https://example.org))").
-    SVG_CSS_URL_VALUE = /"([^"]+)"?|'([^']+)'?|(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
+    #
+    # The value is captured as the string token which defines it, so the escape
+    # sequences and the newlines are kept as they are written and decoded after
+    # the capture (see #forbidden_css_content?): an escaped quote does not close
+    # the token, and an unescaped newline ends it. Capturing across them would
+    # read the text after the token as part of the value, hiding an external URL
+    # which follows it.
+    #
+    # An empty string is a complete value which must be consumed as such.
+    # Requiring at least one character would leave the scan to start at its
+    # closing quote, reading the rest of the style sheet as a single value which
+    # hides the external URLs declared after it.
+    SVG_CSS_URL_VALUE = /(?:"((?:\\.|[^"\\\n\r\f])*)"?)|(?:'((?:\\.|[^'\\\n\r\f])*)'?)|(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
 
     # The maximum depth of the documents nested inside inline data references,
     # which are validated with the same rules as the document itself.
@@ -620,11 +632,25 @@ module Decidim
     # before checking, as they can otherwise hide the references (e.g.
     # "u\rl(https://example.org)") or be mistaken for them (e.g. 'content:
     # "See @import instructions"').
+    #
+    # The references are captured on the scrubbed style sheet, before the escape
+    # sequences are decoded, so that the boundaries of the string tokens are
+    # preserved: an escaped quote is part of the value and not the end of it, and
+    # an unescaped newline ends the value. The captured values are decoded
+    # afterwards, as the engines read them as URLs only after decoding. The names
+    # of the functions which load their arguments are decoded during the
+    # scrubbing, so that the escaped spellings are still recognized (see
+    # #scrub_css).
     def forbidden_css_content?(css)
-      normalized = decode_css_escapes(scrub_css(css))
-      return true if SVG_CSS_IMPORT.match?(normalized)
+      scrubbed = scrub_css(css)
+      return true if SVG_CSS_IMPORT.match?(decode_css_escapes(scrubbed))
 
-      normalized.scan(SVG_CSS_URL_VALUE).any? { |groups| forbidden_reference_value?(groups.compact.first) }
+      scrubbed.scan(SVG_CSS_URL_VALUE).any? do |groups|
+        value = groups.compact.first
+        next false if value.nil?
+
+        forbidden_reference_value?(decode_css_escapes(value))
+      end
     end
 
     # Removes the comments and the strings of a style sheet, which are not
@@ -652,9 +678,10 @@ module Decidim
           string = scan_css_string(scanner, quote)
           output << string if url_functions.any?
         elsif (ident = scan_css_ident(scanner))
-          output << ident
+          url_function = css_url_function?(ident)
+          output << decoded_css_name(ident, url_function)
           if scanner.match?(/\(/)
-            url_functions.push(css_url_function?(ident))
+            url_functions.push(url_function)
             output << scanner.getch
           end
         else
@@ -731,6 +758,16 @@ module Decidim
     # written with escapes (e.g. "u\72l(...)") are also recognized.
     def css_url_function?(ident)
       CSS_URL_FUNCTIONS.any? { |name| decode_css_escapes(ident).casecmp?(name) }
+    end
+
+    # The name of an identifier as it is written, or decoded when it is the name
+    # of a function which loads its arguments, so that the escaped spellings are
+    # recognized when the references are captured on the scrubbed style sheet
+    # (see #forbidden_css_content?). The other identifiers are kept as they are
+    # written, as decoding them could turn an escaped character into one which
+    # the tokenization rules do not accept inside an identifier.
+    def decoded_css_name(ident, url_function)
+      url_function ? decode_css_escapes(ident) : ident
     end
 
     # Decodes the escape sequences of CSS. Invalid codepoints are replaced with
