@@ -14,9 +14,13 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" unless result
+
+        enforce_permission_to :read, :result, result:
       end
 
       def home
+        enforce_permission_to :read, :result
+
         @all_geocoded_results = results.geocoded
       end
 
@@ -25,18 +29,17 @@ module Decidim
       def results
         @results ||= begin
           parent_id = params[:parent_id].presence
-          search.result.where(
-            parent_id: [parent_id] + Result.where(parent_id:).pluck(:id)
-          ).page(params[:page]).per(12)
+          child_ids = Result.where(component: current_component, parent_id:).pluck(:id)
+          search.result.where(parent_id: [parent_id] + child_ids).page(params[:page]).per(12)
         end
       end
 
       def result
-        @result ||= search_collection.includes(:milestones).find_by(id: params[:id])
+        @result ||= search_collection.find_by(id: params[:id])
       end
 
       def search_collection
-        Result.where(component: current_component)
+        Result.where(component: current_component).includes(:component, :status, :milestones, :taxonomies)
       end
 
       def default_filter_params

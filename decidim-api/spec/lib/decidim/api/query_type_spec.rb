@@ -29,6 +29,40 @@ module Decidim
             expect(response["component"]).to be_nil
           end
         end
+
+        context "when requesting components from different spaces in the same query" do
+          let!(:current_user) { nil }
+          let!(:public_component) { create(:dummy_component, :published, participatory_space: public_process) }
+          let!(:restricted_component) { create(:dummy_component, :published, participatory_space: restricted_process) }
+          let(:public_process) { create(:participatory_process, :published, organization: current_organization) }
+          let(:restricted_process) { create(:participatory_process, :published, :restricted, organization: current_organization) }
+          let(:query) do
+            %({
+              publicComponent: component(id: "#{public_component.id}") { id }
+              restrictedComponent: component(id: "#{restricted_component.id}") { id }
+            })
+          end
+
+          it "does not expose the component from the restricted space" do
+            expect { response }.to raise_error(
+              Decidim::Api::Errors::UnauthorizedObjectError,
+              "You cannot view or edit this Component because you do not have permissions"
+            )
+          end
+
+          context "when the user is a member of the restricted space" do
+            let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+            before do
+              create(:participatory_process_user_role, participatory_process: restricted_process, user: current_user, role: "admin")
+            end
+
+            it "exposes both components" do
+              expect(response["publicComponent"]).to eq("id" => public_component.id.to_s)
+              expect(response["restrictedComponent"]).to eq("id" => restricted_component.id.to_s)
+            end
+          end
+        end
       end
 
       describe "decidim" do

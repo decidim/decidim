@@ -27,7 +27,10 @@
 }
 
 .title-decorator {
-  @apply h2 md:h1 decorator;
+  @apply h2 md:h1 decorator break-normal;
+
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }
 
 .text-with-links {

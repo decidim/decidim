@@ -55,21 +55,43 @@ module Decidim
           expect(flash[:notice]).to eq("The current transfer has been successfully completed.")
         end
 
-        it "does not update when conflict is nil" do
-          allow(Decidim::Verifications::Conflict)
-            .to receive(:find)
-            .with(conflict.id.to_s)
-            .and_return(nil)
-
-          put :update, params: {
-            id: conflict.id,
-            transfer_user: {
-              reason: "For a test",
-              email: "user@test.com"
+        it "raises not found when conflict does not exist" do
+          expect do
+            put :update, params: {
+              id: -1,
+              transfer_user: {
+                reason: "For a test",
+                email: "user@test.com"
+              }
             }
-          }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
 
-          expect(flash[:alert]).to eq("There was a problem transferring the current participant to managed participant.")
+      context "when accessing a conflict from another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:other_user) { create(:user, :confirmed, :admin, organization: other_organization) }
+        let(:other_managed_user) { create(:user, managed: true, organization: other_organization) }
+        let(:other_conflict) do
+          Decidim::Verifications::Conflict.create(current_user: other_user, managed_user: other_managed_user)
+        end
+
+        it "raises not found when editing a conflict from another organization" do
+          expect do
+            get :edit, params: { id: other_conflict.id }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+
+        it "raises not found when updating a conflict from another organization" do
+          expect do
+            put :update, params: {
+              id: other_conflict.id,
+              transfer_user: {
+                reason: "For a test",
+                email: "user@test.com"
+              }
+            }
+          end.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end

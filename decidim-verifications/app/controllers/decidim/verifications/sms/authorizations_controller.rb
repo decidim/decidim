@@ -43,7 +43,7 @@ module Decidim
 
           @form = ConfirmationForm.from_params(params)
 
-          ConfirmUserAuthorization.call(authorization, @form, session) do
+          ConfirmUserAuthorization.call(authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.sms")
 
@@ -53,6 +53,16 @@ module Decidim
             on(:invalid) do
               flash.now[:alert] = t("authorizations.update.error", scope: "decidim.verifications.sms")
               render :edit, status: :unprocessable_content
+            end
+
+            on(:locked) do
+              flash.now[:alert] = t("authorizations.update.locked", scope: "decidim.verifications.sms")
+              render :edit, status: :too_many_requests
+            end
+
+            on(:expired) do
+              flash[:alert] = t("authorizations.update.expired", scope: "decidim.verifications.sms")
+              redirect_to redirect_url || decidim_verifications.authorizations_path
             end
           end
         end
@@ -69,6 +79,7 @@ module Decidim
         private
 
         def authorization
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- user is current_user, scoped to current_organization
           @authorization ||= Decidim::Authorization.find_or_initialize_by(
             user: current_user,
             name: "sms"

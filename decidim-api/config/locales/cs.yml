@@ -3,6 +3,7 @@ cs:
   decidim:
     api:
       errors:
+        introspection_disabled: Introspekce je pro tento požadavek zakázána
         invalid_locale: Poskytnuta neplatná lokalizace
         locale_argument_error: Při interním zpracování i18n dat došlo k chybě
         not_found: "%{type} nenalezen"

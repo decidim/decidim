@@ -38,6 +38,19 @@ module Decidim
           it { is_expected.to be_truthy }
         end
 
+        context "with a space administrator" do
+          let(:participatory_process) { create(:participatory_process, organization:) }
+          let(:user) { create(:process_admin, :confirmed, organization:, participatory_process:) }
+
+          it { is_expected.to be_truthy }
+        end
+
+        context "with a user manager" do
+          let(:user) { create(:user, :user_manager, :confirmed, organization:) }
+
+          it { is_expected.to be_truthy }
+        end
+
         context "with an admin from another organization" do
           let(:other_organization) { create(:organization) }
           let(:user) { create(:user, :confirmed, :admin, organization: other_organization) }

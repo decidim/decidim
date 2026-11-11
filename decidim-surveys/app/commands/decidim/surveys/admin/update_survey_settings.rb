@@ -43,7 +43,6 @@ module Decidim
             allow_unregistered: form.allow_unregistered,
             starts_at: form.starts_at,
             ends_at: form.ends_at,
-            clean_after_publish: form.clean_after_publish,
             announcement: form.announcement
           )
         end

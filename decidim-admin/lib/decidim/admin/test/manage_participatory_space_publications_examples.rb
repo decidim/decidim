@@ -15,7 +15,7 @@ shared_examples "manage participatory space publications" do
 
       within("tr", text: translated_attribute(participatory_space.title)) do
         find("button[data-controller='dropdown']").click
-        find("a", text: "Publish", visible: true).click
+        find("a", text: "Publish", visible: :visible).click
       end
     end
 

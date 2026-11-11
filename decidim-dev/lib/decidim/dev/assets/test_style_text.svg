@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A logo whose style sheet mentions resource references only inside quoted text and comments, which are rendered as content and never loaded. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <style>.logo::after { content: "See @import instructions"; } .logo::before { content: "url(https://example.org/logo.png)"; } .logo::first-line { content: "u\72l(https://example.org/logo.png)"; } .logo { fill: url(#dot); /* background: url(https://example.org) */ }</style>
+  <defs>
+    <circle id="dot" cx="8" cy="8" r="8"/>
+  </defs>
+  <circle class="logo" cx="8" cy="8" r="8" fill="#000" style="content: 'url(https://example.org) and @import'"/>
+</svg>

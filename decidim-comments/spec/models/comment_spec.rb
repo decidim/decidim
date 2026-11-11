@@ -59,6 +59,22 @@ module Decidim
         expect(comment.participatory_space).to eq(component.participatory_space)
       end
 
+      describe ".for_organization" do
+        let(:organization) { commentable.organization }
+        let(:other_organization) { create(:organization) }
+        let(:other_participatory_space) { create(:participatory_process, organization: other_organization) }
+        let(:other_component) { create(:component, manifest_name: "dummy", participatory_space: other_participatory_space) }
+        let!(:other_commentable) { create(:dummy_resource, component: other_component) }
+        let!(:other_comment) { create(:comment, commentable: other_commentable) }
+
+        it "returns only comments from the given organization" do
+          comments = described_class.for_organization(organization:)
+
+          expect(comments).to include(comment)
+          expect(comments).not_to include(other_comment)
+        end
+      end
+
       it "is valid if its parent is a comment and can accept new comments" do
         allow(comment.root_commentable).to receive(:accepts_new_comments?).and_return(true)
         expect(replies[0]).to be_valid

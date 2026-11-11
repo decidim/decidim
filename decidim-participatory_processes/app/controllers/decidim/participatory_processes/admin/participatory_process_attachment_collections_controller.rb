@@ -11,6 +11,8 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
         include Decidim::Admin::Concerns::HasTabbedMenu
 
+        protected
+
         def after_destroy_path
           participatory_process_attachment_collections_path(current_participatory_process)
         end

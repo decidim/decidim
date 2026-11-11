@@ -29,6 +29,7 @@ export default defineConfig([globalIgnores([
   "**/coverage",
   "decidim-dev/**/*/test/**/*.js",
   "vendor/bundle",
+  "decidim-core/app/packs/stylesheets/decidim/tokens/tailwind-variables.js",
 ]), {
   extends: compat.extends("@decidim"),
 }]);

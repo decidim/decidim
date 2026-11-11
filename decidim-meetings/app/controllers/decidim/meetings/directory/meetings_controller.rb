@@ -17,6 +17,8 @@ module Decidim
         helper_method :meetings, :search
 
         def calendar
+          enforce_permission_to :read, :calendar
+
           render plain: CalendarRenderer.for(current_organization, filter_params), content_type: "type/calendar"
         end
 
@@ -28,12 +30,13 @@ module Decidim
         end
 
         def search_collection
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- meeting_components is scoped to current_organization
           Meeting.where(component: meeting_components).published.not_hidden.visible_for(current_user).with_availability(
             filter_params[:availability]
           ).includes(
-            :component,
+            :taxonomies,
             attachments: :file_attachment
-          )
+          ).preload(component: { participatory_space: :organization })
         end
 
         def default_filter_params
@@ -49,7 +52,7 @@ module Decidim
         end
 
         def meeting_components
-          @meeting_components ||= Decidim::Component
+          @meeting_components ||= Decidim::Component # rubocop:disable Decidim/OrganizationScopedFinder -- participatory_spaces is scoped to current_organization
                                   .where(manifest_name: "meetings")
                                   .where(participatory_space: participatory_spaces)
                                   .published

@@ -68,7 +68,7 @@ describe "Explore meetings", :slow do
       it "shows all the upcoming meetings" do
         visit_component
         within "#panel-dropdown-menu-date" do
-          expect(find("input[value='upcoming']", visible: false).checked?).to be(true)
+          expect(find("input[value='upcoming']", visible: :all).checked?).to be(true)
         end
 
         within "#meetings" do
@@ -549,7 +549,7 @@ describe "Explore meetings", :slow do
 
     context "without taxonomies" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("[data-tags]")
+        expect(page).to have_no_css("[data-tags]")
       end
     end
 

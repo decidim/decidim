@@ -77,8 +77,7 @@ module Decidim::Meetings
       end
 
       it "does not enqueue PromoteFromWaitlistJob" do
-        expect(PromoteFromWaitlistJob).not_to receive(:perform_later)
-        subject.call
+        expect { subject.call }.not_to have_enqueued_job(PromoteFromWaitlistJob)
       end
     end
 
@@ -90,15 +89,13 @@ module Decidim::Meetings
       end
 
       it "does not enqueue PromoteFromWaitlistJob" do
-        expect(PromoteFromWaitlistJob).not_to receive(:perform_later)
-        subject.call
+        expect { subject.call }.not_to have_enqueued_job(PromoteFromWaitlistJob)
       end
     end
 
     context "when there are no users on the waitlist" do
       it "does not enqueue PromoteFromWaitlistJob" do
-        expect(PromoteFromWaitlistJob).not_to receive(:perform_later)
-        subject.call
+        expect { subject.call }.not_to have_enqueued_job(PromoteFromWaitlistJob)
       end
     end
   end

@@ -22,6 +22,17 @@ shared_examples_for "collection has input sort" do |collection, field|
       expect(ids).to eq(replies_ids.reverse)
     end
   end
+
+  describe "UNKNOWN" do
+    let(:query) { %[{ #{collection}(order: { #{field}: "UNKNOWN" }) { id } }] }
+
+    it "returns a GraphQL error" do
+      expect { response }.to raise_error(
+        GraphQL::ExecutionError,
+        "Invalid order value for :#{field.underscore}, only ASC or DESC are valids (received \"UNKNOWN\")"
+      )
+    end
+  end
 end
 
 shared_examples_for "collection has i18n input sort" do |collection, field|
@@ -47,6 +58,17 @@ shared_examples_for "collection has i18n input sort" do |collection, field|
         expect(response_ids).to eq(ids.reverse)
       end
     end
+
+    describe "UNKNOWN" do
+      let(:query) { %[{ #{collection}(order: { #{field}: "UNKNOWN" }) { id } }] }
+
+      it "returns a GraphQL error" do
+        expect { response }.to raise_error(
+          GraphQL::ExecutionError,
+          "Invalid order value for :#{field.underscore}, only ASC or DESC are valids (received \"UNKNOWN\")"
+        )
+      end
+    end
   end
 
   context "when locale is specified" do
@@ -69,6 +91,17 @@ shared_examples_for "collection has i18n input sort" do |collection, field|
         ids = models.sort_by { |item| item.public_send(field.to_sym)["ca"] }.map { |item| item.id.to_i }
         expect(response_ids).not_to eq(ids)
         expect(response_ids).to eq(ids.reverse)
+      end
+    end
+
+    describe "UNKNOWN" do
+      let(:query) { %[{ #{collection}(order: { #{field}: "UNKNOWN", locale: "ca" }) { id } }] }
+
+      it "returns a GraphQL error" do
+        expect { response }.to raise_error(
+          GraphQL::ExecutionError,
+          "Invalid order value for :#{field.underscore}, only ASC or DESC are valids (received \"UNKNOWN\")"
+        )
       end
     end
 
@@ -102,6 +135,17 @@ shared_examples_for "connection has input sort" do |connection, field|
       expect(ids).to eq(replies_ids.reverse)
     end
   end
+
+  describe "UNKNOWN" do
+    let(:query) { %[{ #{connection}(order: {#{field}: "UNKNOWN"}) { edges { node { id } } } }] }
+
+    it "returns a GraphQL error" do
+      expect { response }.to raise_error(
+        GraphQL::ExecutionError,
+        "Invalid order value for :#{field.underscore}, only ASC or DESC are valids (received \"UNKNOWN\")"
+      )
+    end
+  end
 end
 
 # This example requires a let!(:most_liked)
@@ -121,6 +165,17 @@ shared_examples_for "connection has like_count sort" do |connection|
     it "returns the most liked first" do
       expect(response[connection]["edges"].count).to eq(4)
       expect(response[connection]["edges"].first["node"]["id"]).to eq(most_liked.id.to_s)
+    end
+  end
+
+  describe "UNKNOWN" do
+    let(:query) { %[{ #{connection}(order: {likeCount: "UNKNOWN"}) { edges { node { id } } } }] }
+
+    it "returns a GraphQL error" do
+      expect { response }.to raise_error(
+        GraphQL::ExecutionError,
+        "Invalid order value for :likes_count, only ASC or DESC are valids (received \"UNKNOWN\")"
+      )
     end
   end
 end

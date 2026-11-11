@@ -18,28 +18,38 @@ module Decidim
     before_action :ensure_user_not_blocked
 
     def show
+      enforce_permission_to :read, :profile
+
       redirect_to profile_activity_path(nickname: params.expect(:nickname).downcase)
     end
 
     def following
+      enforce_permission_to :read, :profile
+
       @content_cell = "decidim/following"
       @title_key = "following"
       render :show
     end
 
     def followers
+      enforce_permission_to :read, :profile
+
       @content_cell = "decidim/followers"
       @title_key = "followers"
       render :show
     end
 
     def badges
+      enforce_permission_to :read, :profile
+
       @content_cell = "decidim/badges"
       @title_key = "badges"
       render :show
     end
 
     def activity
+      enforce_permission_to :read, :profile
+
       @content_cell = "decidim/user_activity"
       @title_key = "activity"
       render :show
@@ -68,7 +78,7 @@ module Decidim
     def profile_holder
       return if params[:nickname].blank?
 
-      @profile_holder ||= Decidim::UserBaseEntity.find_by("nickname = ? AND decidim_organization_id = ?", params.expect(:nickname).downcase, current_organization.id)
+      @profile_holder ||= current_organization.user_entities.find_by(nickname: params.expect(:nickname).downcase)
     end
   end
 end

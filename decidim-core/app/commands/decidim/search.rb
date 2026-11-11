@@ -35,14 +35,21 @@ module Decidim
 
         results_count = result_ids.count
 
-        results = if filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
-                    paginate(klass.order_by_id_list(result_ids))
+        results = if filtered_by_type?(class_name)
+                    klass.order_by_id_list(result_ids)
                   elsif filters[:with_resource_type].present?
                     results_count = 0
                     ApplicationRecord.none
                   else
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
                   end
+
+        results = preload_rendered_associations(results)
+
+        uncommentable_ids = uncommentable_resource_ids(results)
+        results = results.where.not(id: uncommentable_ids) if uncommentable_ids.any?
+        results_count -= uncommentable_ids.count
+        results = paginate(results) if filtered_by_type?(class_name)
 
         results_by_type.update(class_name => {
                                  count: results_count,
@@ -60,6 +67,10 @@ module Decidim
       return collection if page_params.blank?
 
       collection.page(page_params[:page]).per(page_params[:per_page])
+    end
+
+    def filtered_by_type?(class_name)
+      filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
     end
 
     def spaces_to_filter
@@ -97,6 +108,7 @@ module Decidim
       query
     end
 
+<<<<<<< HEAD
     def excluded_commentable_ids(klass, result_ids)
       records = klass.preload(:commentable, :root_commentable).where(id: result_ids).to_a
       found_ids = records.map(&:id)
@@ -108,6 +120,16 @@ module Decidim
       excluded_ids = records.select { |obj| commentable_excluded?(obj) }.map(&:id)
 
       orphaned_ids + excluded_ids
+=======
+    def uncommentable_resource_ids(results)
+      # Only comment results have a `commentable`, so other searchable types can never
+      # match and are not loaded here. The exclusion has to run before pagination:
+      # `commentable?` is a per-instance check, so a page can only be built from the
+      # matches that have been evaluated.
+      return [] unless results.klass.method_defined?(:commentable)
+
+      results.select { |obj| related_uncommentable_resources?(obj) }.map(&:id)
+>>>>>>> develop
     end
 
     def commentable_excluded?(object)
@@ -126,6 +148,15 @@ module Decidim
 
     def resource_published?(object)
       object.respond_to?(:published?) ? object.published? : true
+    end
+
+    # Associations that the result cards read for every record: the engine route
+    # needs `organization`, and component resources need `component` and its
+    # participatory space. Preloading them avoids one query per result.
+    def preload_rendered_associations(results)
+      klass = results.klass
+
+      klass.respond_to?(:searchable_arguments) ? results.includes(*klass.searchable_arguments) : results
     end
   end
 end

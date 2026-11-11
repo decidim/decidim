@@ -8,7 +8,7 @@ es:
         weight: Orden de posición
       pabulib_rules:
         equalshares:
-          help: Método de Equal Shares (MES), reparto equitativo sin terminación. En las EM, cada votante comienza con una parte virtual igual del presupuesto y se selecciona un proyecto cuando sus partidarios pueden pagarlo conjuntamente.
+          help: Método de Equal Shares (MES), reparto equitativo sin terminación. En las MES, cada votante comienza con una parte virtual igual del presupuesto y se selecciona un proyecto cuando sus partidarios pueden pagarlo conjuntamente.
           label: Método de Equal Shares (reparto equitativo) (%{rule})
         equalshares/add1:
           help: Utiliza el equalshares (reparto equitativo) básico, pero si se detiene demasiado pronto, continúa incrementando el presupuesto virtual de cada votante 1 unidad cada vez (Add1) y vuelve a calcular, siempre que los proyectos seleccionados finalmente todavía quepan dentro del presupuesto real.
@@ -26,7 +26,7 @@ es:
           help: Se utiliza para casos especiales que no se adaptan a los algoritmos estándar, tales como reasignaciones manuales del presupuesto o reglas híbridas complejas.
           label: Maximización inmediata, personalizada (%{rule})
         greedy_exclusive:
-          help: Gestiona grupos de proyectos en conflicto. Funciona como greedy estándar pero si múltiples proyectos "seleccionados" entran en conflicto (por ejemplo, si se encuentran en la misma zona o categoría exclusiva), se aplica una regla de jerarquía (por ejemplo, los proyectos a nivel de distrito pueden tener prioridad sobre los de toda la ciudad, o viceversa) en lugar de confiar sólo en el número de votos.
+          help: Gestiona grupos de proyectos en conflicto. Funciona como maximización inmediata estándar pero si múltiples proyectos "seleccionados" entran en conflicto (por ejemplo, si se encuentran en la misma zona o categoría exclusiva), se aplica una regla de jerarquía (por ejemplo, los proyectos a nivel de distrito pueden tener prioridad sobre los de toda la ciudad, o viceversa) en lugar de confiar sólo en el número de votos.
           label: Maximización inmediata, exclusiva (%{rule})
         greedy_no_skip:
           help: Los proyectos se ordenan por número de votos (de más a menos). El algoritmo selecciona los proyectos que encajan en el presupuesto restante, pero se detiene inmediatamente al primer proyecto que no cabe. Ningún proyecto posterior se considera, incluso si encajaría con él.

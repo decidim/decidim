@@ -26,7 +26,12 @@ module Decidim
           # when processed by Tailwind
           content_directories_as_array_of_strings = content_directories.map { |content_directory| "'#{content_directory}'" }.join(",")
 
-          OpenStruct.new(tailwind_content_directories: content_directories_as_array_of_strings)
+          design_tokens_path = File.expand_path("../../../../app/packs/stylesheets/decidim/tokens/tailwind.js", __dir__)
+
+          OpenStruct.new(
+            tailwind_content_directories: content_directories_as_array_of_strings,
+            design_tokens_path:
+          )
         end
 
         def tailwind_configuration_template

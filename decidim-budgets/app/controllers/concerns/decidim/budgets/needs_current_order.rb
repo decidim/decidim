@@ -15,15 +15,8 @@ module Decidim
         #
         # Returns an Order.
         def current_order
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- budget is scoped to the current component and user is current_user
           @current_order ||= Order.includes(:projects).find_or_initialize_by(user: current_user, budget:)
-        end
-
-        def current_order=(order)
-          @current_order = order
-        end
-
-        def persisted_current_order
-          current_order if current_order&.persisted?
         end
 
         def can_have_order?
@@ -36,6 +29,16 @@ module Decidim
         # Return true if the user has voted the project
         def voted_for?(project)
           current_order && current_order.projects.include?(project)
+        end
+
+        private
+
+        def current_order=(order)
+          @current_order = order
+        end
+
+        def persisted_current_order
+          current_order if current_order&.persisted?
         end
       end
     end

@@ -14,10 +14,14 @@ module Decidim
       skip_around_action :use_organization_time_zone
 
       def show
+        enforce_permission_to :read, :calendar
+
         render plain: CalendarRenderer.for(current_component, filter_params), content_type: "type/calendar"
       end
 
       def meeting_calendar
+        enforce_permission_to(:read, :meeting, meeting:)
+
         send_data CalendarRenderer.for(meeting), content_type: "type/calendar", filename: "#{meeting.reference}.ics"
       end
 

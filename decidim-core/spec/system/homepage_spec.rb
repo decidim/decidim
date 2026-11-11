@@ -119,7 +119,7 @@ describe "Homepage" do
         end
 
         it "does not include the header snippets" do
-          expect(page).to have_no_selector("meta[data-hello]", visible: :all)
+          expect(page).to have_no_css("meta[data-hello]", visible: :all)
         end
 
         context "when header snippets are enabled" do

@@ -992,6 +992,7 @@ cs:
           unpublished:
             email_intro: Byli jste přidáni jako člen do participačního prostoru.
             email_outro: Obdrželi jste toto oznámení, protože vás správce přidal do <a href="%{resource_url}">%{resource_title}</a>. Pokud je přístup do tohoto prostoru omezený, budete mít přístup k němu pomocí vašeho účtu.
+            email_subject: Nyní máte přístup k %{resource_title}.
       reports:
         parent_hidden:
           email_outro: Obdrželi jste toto oznámení, protože jste autorem ovlivněného %{resource_type}.
@@ -1193,6 +1194,7 @@ cs:
           access_modes:
             restricted: Omezený
             transparent: Transparentní
+          not_found: Přístupový režim %{id} nebyl nalezen
         area_presenter:
           not_found: 'Oblast nebyla nalezena v databázi (ID: %{id})'
         area_type_presenter:
@@ -1549,6 +1551,10 @@ cs:
         never_logged_in: nikdy se nepřihlásil
         subject: Upozornění na neaktivní účet
     participatory_space:
+      labels:
+        reference: Odkaz na prostor
+        restricted: Omezený prostor
+        transparent: Transparentní prostor
       pages:
         user_profile:
           member_of:

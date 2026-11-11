@@ -10,6 +10,8 @@ module Decidim
 
       before_action :confirmed_user, only: [:new, :create, :renew]
 
+      protected
+
       def new
         raise NotImplementedError
       end

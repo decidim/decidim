@@ -8,11 +8,6 @@ module Decidim
     include Cell::ViewModel::Partial
     include Decidim::PaginateHelper
 
-    def paginate(scope, **options, &)
-      options = options.reverse_merge(views_prefix: "../views/")
-      super
-    end
-
     def per_page
       params[:per_page].to_i || Decidim::Paginable::OPTIONS.first
     end

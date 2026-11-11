@@ -52,7 +52,7 @@ describe "Notifications" do
 
       it "the button is not shown as active" do
         within ".main-bar" do
-          expect(page).to have_no_selector("[data-unread-items]")
+          expect(page).to have_no_css("[data-unread-items]")
         end
       end
     end
@@ -102,12 +102,12 @@ describe "Notifications" do
     context "when setting all notifications as read" do
       it "hides all notifications from the page" do
         click_on "Mark all as read"
-        expect(page).to have_no_selector("[data-notification]")
+        expect(page).to have_no_css("[data-notification]")
         expect(page).to have_no_text("Mark all as read")
         expect(page).to have_text("No notifications yet")
 
         within ".main-bar" do
-          expect(page).to have_no_selector("[data-unread-items]")
+          expect(page).to have_no_css("[data-unread-items]")
         end
       end
     end

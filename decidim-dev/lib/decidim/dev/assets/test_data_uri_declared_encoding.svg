@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- An inline data reference which declares its own encoding. Its contents are
+     decoded as bytes, so the declared encoding is still read when they are
+     parsed as a nested document. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><image width="16" height="16" href="data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22ISO-8859-1%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctext%3E%E9%3C%2Ftext%3E%3C%2Fsvg%3E"/></svg>

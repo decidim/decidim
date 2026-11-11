@@ -24,6 +24,41 @@ module Decidim
       it { is_expected.to be_versioned }
       it { is_expected.to act_as_paranoid }
 
+      describe "query efficiency" do
+        def count_queries
+          queries = []
+          callback = lambda do |_name, _start, _finish, _id, payload|
+            queries << payload[:sql] unless payload[:name] == "SCHEMA"
+          end
+
+          ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
+            yield
+          end
+
+          queries
+        end
+
+        before do
+          2.times { create(:coauthorship, coauthorable: proposal, author: create(:user, :confirmed, organization:)) }
+        end
+
+        context "when the coauthorships and their authors are preloaded" do
+          it "does not query again for the identities" do
+            record = described_class.includes({ coauthorships: :author }).find(proposal.id)
+
+            expect(count_queries { record.identities }).to be_empty
+          end
+        end
+
+        context "when only the coauthorships are preloaded" do
+          it "eager loads the authors instead of querying per coauthorship" do
+            record = described_class.includes(:coauthorships).find(proposal.id)
+
+            expect(count_queries { record.identities }.size).to eq(2)
+          end
+        end
+      end
+
       describe "newsletter participants" do
         subject { Decidim::Proposals::Proposal.newsletter_participant_ids(proposal.component) }
 
