@@ -29,9 +29,9 @@ const legacyMapSupport = ($map) => {
 
   const markersData = $map.data("markers-data");
 
-  let markerColor = getComputedStyle(document.documentElement).getPropertyValue("--primary");
-  if (!markerColor || markerColor.length < 1) {
-    markerColor = "#e02d2d";
+  let markerColor = getComputedStyle(document.documentElement).getPropertyValue("--primary").trim();
+  if (!markerColor) {
+    markerColor = getComputedStyle(document.documentElement).getPropertyValue("--color-color-primary").trim();
   }
 
   // Configure the map element with the new style
