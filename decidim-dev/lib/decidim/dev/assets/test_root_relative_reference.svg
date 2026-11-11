@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A reference starting at the root, which is accepted because it cannot resolve to
+     another host. It is still requested to the origin which serves the document when
+     it is rendered, with the credentials of the reader. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <image href="/assets/logo.png" width="16" height="16"/>
+</svg>
