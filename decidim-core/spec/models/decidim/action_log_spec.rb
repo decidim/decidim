@@ -345,6 +345,33 @@ describe Decidim::ActionLog do
       expect(comments).to all(satisfy { |comment| comment.root_commentable.component.participatory_space.association(:organization).loaded? })
     end
 
+    it "eager loads the commentable ancestor chain for replies" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        comment = create(:comment, commentable: create(:dummy_resource, :published, component:))
+        comment = create(:comment, commentable: comment) while comment.depth < Decidim::Comments::Comment::MAX_DEPTH
+
+        create(:action_log, action: "create", visibility: "all", resource: comment, organization:, participatory_space: component.participatory_space)
+      end
+
+      comments = logs.map(&:resource_lazy)
+
+      comments.each do |comment|
+        ancestors = []
+        ancestor = comment
+        while ancestor.commentable.is_a?(Decidim::Comments::Comment)
+          ancestors << ancestor
+          ancestor = ancestor.commentable
+        end
+        ancestors << ancestor
+
+        expect(ancestors).to all(satisfy { |record| record.association(:commentable).loaded? })
+        expect(ancestors.last.commentable.association(:component).loaded?).to be(true)
+        expect(ancestors.last.commentable.component.association(:participatory_space).loaded?).to be(true)
+        expect(ancestors.last.commentable.component.participatory_space.association(:organization).loaded?).to be(true)
+      end
+    end
+
     it "eager loads the avatar attachment for users" do
       users = create_list(:user, 2, :confirmed, organization:)
       logs = users.map do |user|

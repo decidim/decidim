@@ -253,14 +253,20 @@ module Decidim
                   # so all of them have to be loaded together with the comment. Roots
                   # that are participatory spaces themselves (e.g. `Decidim::Initiative`)
                   # have no component, so their own organization has to be loaded as well.
+                  # `Comment#organization` is resolved through `commentable`, which for a
+                  # reply is the parent comment, so the ancestor chain up to the root
+                  # commentable has to be loaded too.
                   scope.includes(
                     :moderation,
                     :commentable,
-                    author: [:organization, { avatar_attachment: :blob }],
-                    root_commentable: [
-                      :organization,
-                      { component: { participatory_space: :organization } }
-                    ]
+                    { author: [:organization, { avatar_attachment: :blob }] },
+                    {
+                      root_commentable: [
+                        :organization,
+                        { component: { participatory_space: :organization } }
+                      ]
+                    },
+                    *lazy_comment_ancestor_preloads(klass)
                   )
                 else
                   preloads = lazy_preload_associations(klass)
@@ -302,6 +308,24 @@ module Decidim
       associations << { component: { participatory_space: :organization } } if klass.include?(Decidim::HasComponent)
 
       associations
+    end
+
+    # `Comment#organization` is resolved through `commentable`, which for a reply is
+    # the parent comment. Without the whole ancestor chain the organization is queried
+    # once per distinct parent when the comment body is rendered.
+    #
+    # Returns an Array of nested association names, one entry per possible depth.
+    def self.lazy_comment_ancestor_preloads(klass)
+      root = [
+        :organization,
+        { component: { participatory_space: :organization } }
+      ]
+      chain = root
+      Array.new(klass.const_get(:MAX_DEPTH) + 1) do
+        preload = { commentable: chain }
+        chain = { commentable: chain }
+        preload
+      end
     end
 
     # Whether this activity or log is visible for a given user (can also be nil)

@@ -36,5 +36,18 @@ describe Decidim::ActionLog do
       expect(initiative_comment).to be_present
       expect(initiative_comment.root_commentable.association(:organization).loaded?).to be(true)
     end
+
+    it "eager loads the commentable ancestor chain for a reply to a root without a component association" do
+      initiative = resources.first
+      parent = create(:comment, commentable: initiative)
+      reply = create(:comment, commentable: parent)
+      log = create(:action_log, action: "create", visibility: "all", resource: reply, organization:, participatory_space: reply.participatory_space)
+
+      comment = log.resource_lazy
+
+      expect(comment.association(:commentable).loaded?).to be(true)
+      expect(comment.commentable.association(:commentable).loaded?).to be(true)
+      expect(comment.commentable.commentable.association(:organization).loaded?).to be(true)
+    end
   end
 end
