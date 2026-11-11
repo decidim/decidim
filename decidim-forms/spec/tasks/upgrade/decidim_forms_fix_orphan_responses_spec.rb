@@ -26,6 +26,7 @@ describe "rake decidim_forms:upgrade:fix_orphan_responses", type: :task do
     expect(new_submission.user).to be_nil
     expect(new_submission.ip_hash).to eq("ip-2")
     expect(new_submission.responses.count).to eq(2)
+    expect(questionnaire.reload.submissions_count).to eq(2)
     expect(Decidim::Forms::Response.where(decidim_submission_id: nil)).not_to exist
   end
 

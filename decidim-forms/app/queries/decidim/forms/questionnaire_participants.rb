@@ -36,7 +36,7 @@ module Decidim
       end
 
       def count_participants
-        @questionnaire.submissions.count
+        @questionnaire.submissions.size
       end
     end
   end

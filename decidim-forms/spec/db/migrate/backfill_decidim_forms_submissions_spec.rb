@@ -38,6 +38,7 @@ describe BackfillDecidimFormsSubmissions do
       migrator.migrate(:up)
 
       expect(questionnaire.submissions.count).to eq(3)
+      expect(questionnaire.reload.submissions_count).to eq(3)
       submission = questionnaire.submissions.find_by(session_token: "user-token")
       expect(submission.user).to eq(user)
       expect(submission.ip_hash).to eq(ip_hash)
@@ -107,6 +108,7 @@ describe BackfillDecidimFormsSubmissions do
       migrator.migrate(:up)
       migrator.migrate(:down)
       expect(Decidim::Forms::Submission.count).to eq(0)
+      expect(questionnaire.reload.submissions_count).to eq(0)
       expect(Decidim::Forms::Response.where.not(decidim_submission_id: nil)).not_to exist
     end
   end

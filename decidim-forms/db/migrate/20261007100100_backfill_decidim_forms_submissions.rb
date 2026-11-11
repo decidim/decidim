@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# This backfill is a schema migration on purpose. The code reads submissions to know
+# who has already responded and what to delete, and data migrations only run after
+# all the schema migrations: until then questionnaires would look as not responded.
 class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
   disable_ddl_transaction!
 
@@ -24,6 +27,9 @@ class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
         Submission.transaction do
           execute insert_submissions_sql(ids)
           execute link_responses_sql(ids)
+          # Keeps the lock until the counters are written, so a submission created meanwhile is not lost.
+          Questionnaire.where(id: ids).lock.pluck(:id)
+          execute reset_submissions_count_sql(ids)
         end
       end
     end
@@ -34,6 +40,7 @@ class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
   def down
     Response.where.not(decidim_submission_id: nil).update_all(decidim_submission_id: nil) # rubocop:disable Rails/SkipsModelValidations
     Submission.delete_all
+    Questionnaire.update_all(submissions_count: 0) # rubocop:disable Rails/SkipsModelValidations
   end
 
   private
@@ -88,6 +95,17 @@ class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
         AND responses.decidim_questionnaire_id IN (#{ids.join(",")})
         AND submissions.decidim_questionnaire_id = responses.decidim_questionnaire_id
         AND submissions.session_token = responses.session_token
+    SQL
+  end
+
+  def reset_submissions_count_sql(ids)
+    <<~SQL.squish
+      UPDATE decidim_forms_questionnaires AS questionnaires
+      SET submissions_count = (
+        SELECT COUNT(*) FROM decidim_forms_submissions AS submissions
+        WHERE submissions.decidim_questionnaire_id = questionnaires.id
+      )
+      WHERE questionnaires.id IN (#{ids.join(",")})
     SQL
   end
 end
