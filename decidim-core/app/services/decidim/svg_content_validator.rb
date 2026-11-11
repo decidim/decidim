@@ -217,13 +217,15 @@ module Decidim
     # starts the value read as a reference (see #scan_css_reference_value). The
     # value of a function is not taken as a reference when it is itself a function
     # call, so that a function nested inside another one (e.g. "image(url(...))")
-    # is read on its own.
+    # is read on its own. The whitespace which can separate the nested call from
+    # the parenthesis is not part of the value, as the engines read the arguments
+    # as tokens, so it is skipped before the check (see #scan_css_reference_value).
     #
     # The expression has no quantified group, as the values are read token by
     # token instead of with a quantified expression (see #scan_css_reference_value):
     # the regexp engine keeps one entry per repetition in its match stack, which
     # grows the memory proportionally to the length of a multi-megabyte value.
-    SVG_CSS_URL_FUNCTION_CALL = /(?:#{CSS_URL_FUNCTIONS.join("|")})\((?!#{CSS_URL_FUNCTIONS.join("|")}\()/im
+    SVG_CSS_URL_FUNCTION_CALL = /(?:#{CSS_URL_FUNCTIONS.join("|")})\(/im
 
     # The maximum depth of the documents nested inside inline data references,
     # which are validated with the same rules as the document itself.
@@ -692,6 +694,14 @@ module Decidim
     # Requiring at least one character would leave the scan to start at its
     # closing quote, reading the rest of the style sheet as a single value which
     # hides the external URLs declared after it.
+    #
+    # The whitespace between the parenthesis of a function and its argument is not
+    # part of the value, as the engines read the arguments as tokens. When the
+    # argument is a nested function call, it is read on its own, so the whitespace
+    # which can separate it from the enclosing function is skipped before checking
+    # it (e.g. "image-set( url(https://example.org))"). Reading it as a value would
+    # consume the name of the nested function and leave its address without a
+    # function name before it, which is never checked as a reference.
     def scan_css_reference_value(scanner)
       if (quote = scanner.scan(/["']/))
         token = scan_css_string(scanner, quote)
@@ -699,6 +709,9 @@ module Decidim
         value = value[0..-2] if value.end_with?(quote)
         value
       elsif scanner.scan(SVG_CSS_URL_FUNCTION_CALL)
+        scanner.getch while scanner.match?(/\s/)
+        return nil if scanner.match?(SVG_CSS_URL_FUNCTION_CALL)
+
         value = +""
         value << scanner.getch until scanner.eos? || scanner.match?(/["')(]/)
         value

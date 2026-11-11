@@ -60,6 +60,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose style sheet has a nested relative reference separated from the function by whitespace" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_image_set_nested_relative_url.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose reference is resolved from the root of the origin serving the document" do
       let(:content) { File.read(Decidim::Dev.asset("test_root_relative_reference.svg")) }
 
@@ -234,6 +240,7 @@ describe Decidim::SvgContentValidator do
         malicious_svg_css_image_set_nested_parentheses.svg
         malicious_svg_css_image_set_quote_parentheses_external_reference.svg
         malicious_svg_css_image_set_escaped_quote_external_reference.svg
+        malicious_svg_css_image_set_nested_url_external_reference.svg
         malicious_svg_css_empty_string_external_reference.svg
         malicious_svg_css_empty_string_single_quote_external_reference.svg
         malicious_svg_css_string_newline_external_reference.svg
