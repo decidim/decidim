@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# This backfill is a schema migration on purpose. The code reads submissions to know
-# who has already responded and what to delete, and data migrations only run after
-# all the schema migrations: until then questionnaires would look as not responded.
 class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
   disable_ddl_transaction!
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-require "./db/migrate/20261007100100_backfill_decidim_forms_submissions"
+require "./db/data/20261007100100_backfill_decidim_forms_submissions"
 
 describe BackfillDecidimFormsSubmissions do
   let(:migrator) { described_class.new.tap { |migration| migration.verbose = false } }
