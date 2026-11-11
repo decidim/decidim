@@ -209,54 +209,21 @@ module Decidim
     # The escape sequences of CSS, which consist of a backslash followed by up
     # to six hexadecimal digits, with an optional whitespace terminating the
     # sequence, or by any other character. The groups are the codepoint and the
-    # escaped character (see #decode_css_escapes), and they are kept unnamed, as
-    # #scan returns only the named groups when the pattern has any (see
-    # SVG_CSS_URL_VALUE).
+    # escaped character, read by position in #decode_css_escapes, so they are
+    # kept unnamed.
     CSS_ESCAPE = /\\(?:(\h{1,6})[ \t\n\r\f]?|(.))/m
 
-    # The URL references of a style sheet, captured after the comments and the
-    # strings which do not define a URL are removed, so that each of them can
-    # be validated as a reference. Only the strings of the functions which load
-    # their arguments survive the scrubbing, so the remaining strings are URL
-    # values, and the unquoted value of a "url()" function is matched as well. The
+    # The call of a function which loads its arguments as a resource, which
+    # starts the value read as a reference (see #scan_css_reference_value). The
     # value of a function is not taken as a reference when it is itself a function
     # call, so that a function nested inside another one (e.g. "image(url(...))")
-    # is matched on its own.
+    # is read on its own.
     #
-    # The content of a string is delimited by the quote which opens it, so the
-    # other quote is part of the value and cannot be used to cut it short (e.g.
-    # the namespace of an inline document written with single quotes inside a
-    # double quoted URL). Taking only the part before the other quote would
-    # validate an incomplete reference instead of the one which is rendered.
-    #
-    # The closing parenthesis of a function is not a delimiter of a quoted value
-    # either, as it is part of the string token when the style sheet is
-    # tokenized (see #scrub_css). Cutting the value at it would read the text
-    # after the parenthesis as part of another value, which can hide an external
-    # URL following it (e.g. "image-set(\"a)b\" c, url(https://example.org))").
-    #
-    # The value is captured as the string token which defines it, so the escape
-    # sequences and the newlines are kept as they are written and decoded after
-    # the capture (see #forbidden_css_content?): an escaped quote does not close
-    # the token, and an unescaped newline ends it. Capturing across them would
-    # read the text after the token as part of the value, hiding an external URL
-    # which follows it.
-    #
-    # A hexadecimal escape consumes the whitespace or newline which terminates it,
-    # so the whole sequence is part of the token and the value must be captured as
-    # the complete escape (see CSS_ESCAPE). Stopping at the first character after
-    # the backslash would validate only the decoded character, and the rest of the
-    # URL after the newline would never be checked (e.g. "url(\"\\68\n" followed
-    # by "ttps://example.org\")", which the engines resolve to an external address).
-    #
-    # An empty string is a complete value which must be consumed as such.
-    # Requiring at least one character would leave the scan to start at its
-    # closing quote, reading the rest of the style sheet as a single value which
-    # hides the external URLs declared after it.
-    SVG_CSS_URL_VALUE = Regexp.union(
-      /(?:"((?:#{CSS_ESCAPE}|[^"\\\n\r\f])*)"?)|'((?:#{CSS_ESCAPE}|[^'\\\n\r\f])*)'?/im,
-      /(?:#{CSS_URL_FUNCTIONS.join("|")})\(\s*+(?!#{CSS_URL_FUNCTIONS.join("|")}\()([^"')(]+)/im
-    )
+    # The expression has no quantified group, as the values are read token by
+    # token instead of with a quantified expression (see #scan_css_reference_value):
+    # the regexp engine keeps one entry per repetition in its match stack, which
+    # grows the memory proportionally to the length of a multi-megabyte value.
+    SVG_CSS_URL_FUNCTION_CALL = /(?:#{CSS_URL_FUNCTIONS.join("|")})\((?!#{CSS_URL_FUNCTIONS.join("|")}\()/im
 
     # The maximum depth of the documents nested inside inline data references,
     # which are validated with the same rules as the document itself.
@@ -291,7 +258,7 @@ module Decidim
     # The CSS at-rules which load external resources when the style sheets of
     # an SVG document are rendered. Imports always fetch a resource, so
     # documents containing them are rejected. The URL references are validated
-    # separately as references (see SVG_CSS_URL_VALUE), as the same rules apply
+    # separately as references (see #scan_css_reference_value), as the same rules apply
     # to them: references with a scheme or an authority fetch a resource from
     # another host, fragment and relative references are resolved against the
     # document itself, and "data:" references are inline but can contain a
@@ -646,6 +613,11 @@ module Decidim
     # "u\rl(https://example.org)") or be mistaken for them (e.g. 'content:
     # "See @import instructions"').
     #
+    # The input is normalized before the style sheet is tokenized, as the engines
+    # do (CSS Syntax Level 3, 5.1): CRLF, CR and FF are read as a single newline,
+    # so that a CRLF pair consumed by a hexadecimal escape does not cut the value
+    # short at the second character of the pair (see #normalize_css_newlines).
+    #
     # The references are captured on the scrubbed style sheet, before the escape
     # sequences are decoded, so that the boundaries of the string tokens are
     # preserved: an escaped quote is part of the value and not the end of it, and
@@ -659,17 +631,81 @@ module Decidim
     # references does not keep all of them in memory before the first one is
     # rejected.
     def forbidden_css_content?(css)
-      scrubbed = scrub_css(css)
+      scrubbed = scrub_css(normalize_css_newlines(css))
       return true if SVG_CSS_IMPORT.match?(decode_css_escapes(scrubbed))
 
-      scrubbed.scan(SVG_CSS_URL_VALUE) do |groups|
-        value = groups.compact.first
+      scanner = StringScanner.new(scrubbed)
+      until scanner.eos?
+        value = scan_css_reference_value(scanner)
         next if value.nil?
 
         return true if forbidden_reference_value?(decode_css_escapes(value))
       end
 
       false
+    end
+
+    # Normalizes the newlines of a style sheet as the engines do before
+    # tokenizing it (CSS Syntax Level 3, 5.1): CRLF, CR and FF are read as a
+    # single newline. A hexadecimal escape consumes the newline which terminates
+    # it, so without normalizing the CRLF pair the escape consumes only the CR
+    # and the value is cut short at the LF, hiding the URL which continues after
+    # the newline (e.g. "url(\"\\68&#13;&#10;ttps://example.org\")", which the
+    # engines resolve to an external address).
+    def normalize_css_newlines(css)
+      css.gsub(/\r\n?|[\r\f]/, "\n")
+    end
+
+    # Reads the next reference value of the scrubbed style sheet: a string token
+    # or the unquoted value of a function which loads its arguments. The values
+    # are read token by token instead of with a quantified expression, as the
+    # regexp engine keeps one entry per repetition in its match stack, which
+    # grows the memory proportionally to the length of a multi-megabyte value.
+    #
+    # The content of a string is delimited by the quote which opens it, so the
+    # other quote is part of the value and cannot be used to cut it short (e.g.
+    # the namespace of an inline document written with single quotes inside a
+    # double quoted URL). Taking only the part before the other quote would
+    # validate an incomplete reference instead of the one which is rendered.
+    #
+    # The closing parenthesis of a function is not a delimiter of a quoted value
+    # either, as it is part of the string token when the style sheet is
+    # tokenized (see #scrub_css). Cutting the value at it would read the text
+    # after the parenthesis as part of another value, which can hide an external
+    # URL following it (e.g. "image-set(\"a)b\" c, url(https://example.org))").
+    #
+    # The value is read as the string token which defines it, so the escape
+    # sequences and the newlines are kept as they are written and decoded after
+    # the capture (see #forbidden_css_content?): an escaped quote does not close
+    # the token, and an unescaped newline ends it. Capturing across them would
+    # read the text after the token as part of the value, hiding an external URL
+    # which follows it.
+    #
+    # A hexadecimal escape consumes the whitespace or newline which terminates it,
+    # so the whole sequence is part of the token and the value must be read as
+    # the complete escape (see CSS_ESCAPE). Stopping at the first character after
+    # the backslash would validate only the decoded character, and the rest of the
+    # URL after the newline would never be checked (e.g. "url(\"\\68\n" followed
+    # by "ttps://example.org\")", which the engines resolve to an external address).
+    #
+    # An empty string is a complete value which must be consumed as such.
+    # Requiring at least one character would leave the scan to start at its
+    # closing quote, reading the rest of the style sheet as a single value which
+    # hides the external URLs declared after it.
+    def scan_css_reference_value(scanner)
+      if (quote = scanner.scan(/["']/))
+        token = scan_css_string(scanner, quote)
+        value = token[1..-1]
+        value = value[0..-2] if value.end_with?(quote)
+        value
+      elsif scanner.scan(SVG_CSS_URL_FUNCTION_CALL)
+        value = +""
+        value << scanner.getch until scanner.eos? || scanner.match?(/["')(]/)
+        value
+      else
+        scanner.getch
+        nil
+      end
     end
 
     # Removes the comments and the strings of a style sheet, which are not
