@@ -27,5 +27,14 @@ describe Decidim::ActionLog do
       expect(dummy_comment.association(:root_commentable).loaded?).to be(true)
       expect(dummy_comment.root_commentable.association(:component).loaded?).to be(true)
     end
+
+    it "eager loads the organization for the roots without a component association" do
+      comments = action_logs.map(&:resource_lazy)
+
+      initiative_comment = comments.find { |comment| comment.root_commentable.is_a?(Decidim::Initiative) }
+
+      expect(initiative_comment).to be_present
+      expect(initiative_comment.root_commentable.association(:organization).loaded?).to be(true)
+    end
   end
 end

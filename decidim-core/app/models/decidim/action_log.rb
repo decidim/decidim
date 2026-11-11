@@ -250,12 +250,17 @@ module Decidim
                   # `Comment#component` delegates to the commentable and the link to
                   # the resource resolves the component's participatory space and its
                   # organization (the mounted engine routes use the organization host),
-                  # so all of them have to be loaded together with the comment.
+                  # so all of them have to be loaded together with the comment. Roots
+                  # that are participatory spaces themselves (e.g. `Decidim::Initiative`)
+                  # have no component, so their own organization has to be loaded as well.
                   scope.includes(
                     :moderation,
                     :commentable,
                     author: [:organization, { avatar_attachment: :blob }],
-                    root_commentable: { component: { participatory_space: :organization } }
+                    root_commentable: [
+                      :organization,
+                      { component: { participatory_space: :organization } }
+                    ]
                   )
                 else
                   preloads = lazy_preload_associations(klass)
