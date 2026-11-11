@@ -148,6 +148,20 @@ FactoryBot.define do
     questionnaire
     user { create(:user, organization: questionnaire.questionnaire_for.organization, skip_injection:) }
     session_token { user ? Digest::SHA256.hexdigest(user.id.to_s) : SecureRandom.hex(32) }
+
+    trait :with_responses do
+      after(:create) do |submission, evaluator|
+        submission.questionnaire.questions.each do |question|
+          create(:response,
+                 submission:,
+                 question:,
+                 questionnaire: submission.questionnaire,
+                 user: submission.user,
+                 session_token: submission.session_token,
+                 skip_injection: evaluator.skip_injection)
+        end
+      end
+    end
   end
 
   factory :response, class: "Decidim::Forms::Response" do
