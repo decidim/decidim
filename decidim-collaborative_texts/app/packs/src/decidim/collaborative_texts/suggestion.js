@@ -56,6 +56,10 @@ export default class Suggestion {
       this.changesWrapper.classList.add("collaborative-texts-highlight");
       return;
     }
+    // Browsers can fire mouseenter after touchstart, avoid duplicating the preview
+    if (this.highlightWrapper) {
+      return;
+    }
     this.highlightWrapper = window.document.createElement("div");
     this.highlightWrapper.classList.add("collaborative-texts-highlight");
     this.firstNode.before(this.highlightWrapper);
