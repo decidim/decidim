@@ -14,9 +14,10 @@ module Decidim
         }
       end
 
-      let(:blob) do
-        create(:attachment, :with_image, attached_to: create(:participatory_process, organization: current_organization)).reload.file_blob
+      let(:attachment) do
+        create(:attachment, :with_image, attached_to: create(:participatory_process, organization: current_organization))
       end
+      let(:blob) { attachment.reload.file_blob }
       let(:blob_id) { blob.id }
       let(:root_klass) { Decidim::Api::MutationType }
       let!(:type_class) { Decidim::Core::DeleteBlobType }
@@ -60,6 +61,12 @@ module Decidim
           blob
 
           expect { response }.to change(ActiveStorage::Attachment, :count).by(-1)
+        end
+
+        it "destroys the attachment record which uses the blob" do
+          blob
+
+          expect { response }.to change(Decidim::Attachment, :count).by(-1)
         end
 
         it "returns the deleted attachment" do

@@ -20,6 +20,8 @@ The `UpdateAttachment` mutation allows authenticated administrators to update at
 The `file` field is an upload, so a new file is sent with a
 https://github.com/jaydenseric/graphql-multipart-request-spec[multipart request].
 When `file` is not provided, the attachment keeps the file it already has.
+Attachments which are a link instead of a file keep their `link`, so their title,
+description and weight can be updated without sending a file.
 
 [source,graphql]
 ----

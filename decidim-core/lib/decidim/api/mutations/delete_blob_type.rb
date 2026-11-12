@@ -14,8 +14,17 @@ module Decidim
       def resolve(id:)
         resource = find_resource(id)
 
-        if resource.respond_to?(:attachments) && resource.attachments.any?
-          resource.attachments.destroy_all
+        attachments = resource.attachments.to_a
+        unless attachments.empty?
+          attachments.each do |attachment|
+            record = attachment.record
+            # Only the records which represent the uploaded file itself are removed
+            # with the blob. Destroying just the Active Storage join records would
+            # leave a `Decidim::Attachment` without a file, and its `url` and `type`
+            # GraphQL fields would then return null. The other records (e.g. an
+            # organization favicon) keep their row and only lose the file reference.
+            record.is_a?(Decidim::Attachment) ? record.destroy : attachment.destroy
+          end
           resource.purge
           return resource
         end

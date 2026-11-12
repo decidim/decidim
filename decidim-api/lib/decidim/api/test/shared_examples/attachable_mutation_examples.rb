@@ -332,6 +332,20 @@ shared_examples_for "updatable attachment" do |supports_collection:|
     end
   end
 
+  context "when the attachment is a link instead of a file" do
+    let(:attachment) { create(:attachment, :with_link, attached_to: model, weight: 999) }
+
+    it "updates the details keeping the link" do
+      original_link = attachment.link
+      response
+      attachment.reload
+      expect(attachment.title.except("machine_translations")).to eq(title)
+      expect(attachment.description.except("machine_translations")).to eq(description)
+      expect(attachment.weight).to eq(weight)
+      expect(attachment.link).to eq(original_link)
+    end
+  end
+
   include_examples "update attachment with collection support" if supports_collection
 end
 

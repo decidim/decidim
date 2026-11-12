@@ -5,6 +5,8 @@
 The `deleteBlob` mutation allows authenticated administrators to delete upload blobs attached to records of their own organization.
 Blobs attached to records of other organizations (or shared with them) cannot be deleted.
 
+The `Decidim::Attachment` records which use the blob are removed with it, otherwise they would remain without a file and their `url` and `type` fields would return null. The other records which reference the blob (e.g. an organization favicon) keep their row and only lose the file reference.
+
 Blobs which are not attached to any record cannot be deleted with this mutation. A blob does not belong to an organization by itself, its ownership is derived from the records it is attached to, so an unattached blob (for instance one created by xref:develop:api/reference/uploads/blobs/upload.adoc[uploadFile] and never used by an attachment) cannot be attributed to the requesting organization. These blobs are rejected with a `VALIDATION_ERROR`; they are removed by the xref:install:index.adoc#scheduled_tasks[scheduled cleanup task] (`rake decidim:attachments_cleanup`, hourly by default), which purges unattached blobs older than the configured window.
 
 [source,graphql]
