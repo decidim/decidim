@@ -9,6 +9,7 @@ module Decidim::Admin
     let(:user) { create(:user, :admin) }
     let(:attachment_collection) { create(:attachment_collection, collection_for: create(:participatory_process)) }
     let(:key) { "new-key" }
+    let(:errors) { ActiveModel::Errors.new(AttachmentCollectionForm.new) }
     let(:form) do
       instance_double(
         AttachmentCollectionForm,
@@ -20,7 +21,8 @@ module Decidim::Admin
         },
         weight: 1,
         key:,
-        current_user: user
+        current_user: user,
+        errors:
       )
     end
 
@@ -60,6 +62,36 @@ module Decidim::Admin
           attachment_collection.reload
           expect(attachment_collection.key).to eq(original_key)
         end
+      end
+    end
+
+    describe "when the key is already taken for the same collection holder" do
+      # The form validation is a check-then-insert, so a concurrent request can
+      # still reach the database constraint. The command must turn that into a
+      # form error instead of letting the exception bubble up.
+      let(:key) { "taken-key" }
+
+      before do
+        create(:attachment_collection, collection_for: attachment_collection.collection_for, key:)
+      end
+
+      it "broadcasts :invalid instead of raising" do
+        expect { subject }.to broadcast(:invalid)
+      end
+
+      it "adds the taken error to the form" do
+        subject
+
+        expect(errors[:key]).to eq(["has already been taken"])
+      end
+
+      it "keeps the original key" do
+        original_key = attachment_collection.key
+
+        subject
+
+        attachment_collection.reload
+        expect(attachment_collection.key).to eq(original_key)
       end
     end
 

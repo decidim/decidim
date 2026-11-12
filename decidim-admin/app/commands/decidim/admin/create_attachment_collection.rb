@@ -29,6 +29,9 @@ module Decidim
 
         create_attachment_collection
         broadcast(:ok, attachment_collection)
+      rescue ActiveRecord::RecordNotUnique
+        form.errors.add(:key, :taken)
+        broadcast(:invalid)
       end
 
       private
