@@ -265,10 +265,30 @@ module RuboCop
         end
 
         # `where(organization: organization)` and `where(organization: record.organization)`
-        # already restrict the relation to a single organization, so they are
-        # safe even when the value is not a `current_*` helper.
+        # restrict the relation to a single organization only when the value is
+        # the current organization or a record's own organization. Reject
+        # parameterized lookups such as
+        # `tenant_resolver.organization(params[:organization_id])`, because the
+        # resolver may select another tenant from untrusted input.
         def organization_value?(node)
-          node.send_type? && node.method_name == :organization
+          return false unless node&.send_type? && node.method_name == :organization
+          return false unless node.arguments.empty?
+          return true unless node.receiver
+
+          trusted_organization_receiver?(node.receiver)
+        end
+
+        # Records held in variables (`@user.organization`) and current-context
+        # helpers (`current_user.organization`, `form.organization`) are bound
+        # to the organization being queried. Arbitrary method calls are not,
+        # as they may resolve a tenant from request parameters.
+        def trusted_organization_receiver?(node)
+          return true if node.lvar_type? || node.ivar_type?
+          return false unless node.send_type?
+          return true if scoped_query_argument_method?(node)
+          return true if node.receiver&.self_type? && SCOPED_QUERY_ARGUMENT_METHODS.include?(node.method_name)
+
+          form_context_receiver?(node)
         end
 
         def scoped_association_pair?(key, value)
