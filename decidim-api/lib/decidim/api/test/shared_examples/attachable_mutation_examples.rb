@@ -293,10 +293,11 @@ shared_examples_for "updatable attachment" do |supports_collection:|
       }
     end
 
-    it "sets it to zero" do
+    it "keeps the stored weight" do
+      original_weight = attachment.weight
       response
       attachment.reload
-      expect(attachment.weight).to eq(0)
+      expect(attachment.weight).to eq(original_weight)
     end
   end
 
@@ -349,6 +350,17 @@ shared_examples_for "updatable attachment" do |supports_collection:|
       expect(attachment.description.except("machine_translations")).to eq(description)
       expect(attachment.weight).to eq(weight)
       expect(attachment.link).to eq(original_link)
+    end
+
+    context "and a file is sent" do
+      let(:attributes) { { title:, description:, weight:, file: uploaded_file } }
+
+      it "replaces the link with the file" do
+        response
+        attachment.reload
+        expect(attachment.link).to be_nil
+        expect(attachment.file).to be_attached
+      end
     end
   end
 
@@ -488,6 +500,40 @@ shared_examples_for "create attachment with collection support" do
 end
 
 shared_examples_for "update attachment with collection support" do
+  context "when the collection is not provided" do
+    let(:collection) { create(:attachment_collection, collection_for: model) }
+    let(:attributes) do
+      {
+        title:,
+        file: uploaded_file
+      }
+    end
+
+    before { attachment.update!(attachment_collection: collection) }
+
+    it "keeps the stored collection" do
+      response
+      attachment.reload
+      expect(attachment.attachment_collection).to eq(collection)
+    end
+
+    context "when it is explicitly null" do
+      let(:attributes) do
+        {
+          title:,
+          file: uploaded_file,
+          collection: nil
+        }
+      end
+
+      it "removes the association" do
+        response
+        attachment.reload
+        expect(attachment.attachment_collection).to be_nil
+      end
+    end
+  end
+
   context "when collection is provided using ID" do
     let(:collection) { create(:attachment_collection, collection_for: model) }
     let(:attributes) do

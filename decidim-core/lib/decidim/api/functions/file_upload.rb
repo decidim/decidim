@@ -94,9 +94,14 @@ module Decidim
         admin_upload? ? settings.upload_allowed_content_types_admin : settings.upload_allowed_content_types
       end
 
-      # Whether the upload is performed by an administrative role. It follows the
-      # same rule as `Decidim::DirectUpload#user_has_elevated_role?`, so the
-      # endpoint and the form apply the same restriction for the same user.
+      # Whether the upload is performed by an administrative role. It uses the rule
+      # the API applies for administrative actions, so it is broader than
+      # `Decidim::DirectUpload#user_has_elevated_role?` for user managers, who can
+      # perform administrative actions through the API. A file which passes this
+      # check but is rejected by the model validation (whose allowlists depend on the
+      # attachment context, not on the role) is left as an unattached blob and
+      # removed by the `decidim_attachments` cleanup task, in the same way as a
+      # direct upload through the browser.
       def admin_upload?
         user_can_perform_admin_actions?(current_user)
       end

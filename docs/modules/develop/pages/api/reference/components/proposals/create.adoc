@@ -84,6 +84,7 @@ mapped to its path.
 [source,bash]
 ----
 curl -X POST https://example.org/api/ \
+  -H "Authorization: Bearer ${ACCESS_TOKEN}" \
   -F 'operations={"query":"mutation ($componentId: ID!, $input: CreateProposalInput!) { component(id: $componentId) { ... on ProposalsMutation { createProposal(input: $input) { id } } } }","variables":{"componentId":9,"input":{"locale":"en","attributes":{"title":"Install Bike Lanes on Main Street","body":"We propose adding dedicated bike lanes along Main Street to improve cyclist safety and encourage sustainable transportation.","attachments":[{"file":null,"title":"Sidewalk photo"}]}}}}' \
   -F 'map={"0":["variables.input.attributes.attachments.0.file"]}' \
   -F '0=@/path/to/photo.jpg'

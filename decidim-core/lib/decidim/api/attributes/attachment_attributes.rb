@@ -10,7 +10,7 @@ module Decidim
       argument :description, GraphQL::Types::JSON, description: "The attachment description localized hash", required: false
       argument :file, ApolloUploadServer::Upload, "The file to upload and attach", required: false
       argument :title, GraphQL::Types::JSON, description: "The attachment title localized hash", required: false
-      argument :weight, GraphQL::Types::Int, description: "The attachment weight, i.e. its position, lowest first", required: false, default_value: 0
+      argument :weight, GraphQL::Types::Int, description: "The attachment weight, i.e. its position, lowest first", required: false
     end
   end
 end

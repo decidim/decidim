@@ -348,10 +348,11 @@ shared_examples_for "updatable attachment collection" do
       }
     end
 
-    it "sets it to zero" do
+    it "keeps the stored weight" do
+      original_weight = collection.weight
       response
       collection.reload
-      expect(collection.weight).to eq(0)
+      expect(collection.weight).to eq(original_weight)
     end
   end
 

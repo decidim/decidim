@@ -6,7 +6,7 @@ When you want to create a Decidim attachment collection, you need to rely on the
 
 [source]
 ----
-• description           (Optional) - JSON
+• description           (Required) - JSON
 • key                   (Optional) - String
 • name                  (Required) - JSON
 • weight                (Optional) - Integer

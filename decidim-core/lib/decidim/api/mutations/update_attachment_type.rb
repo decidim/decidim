@@ -59,18 +59,30 @@ module Decidim
         file_attribute = (attributes.file && create_blob!(attributes.file).signed_id) ||
                          attachment.file&.blob&.signed_id
 
-        attachment_attribute = attributes.collection&.id_value || attachment.attachment_collection&.id
+        # An omitted `collection` keeps the collection the attachment has, while an
+        # explicit null removes the association, so the two cases have to be told
+        # apart.
+        attachment_attribute = if attributes.to_h.has_key?(:collection)
+                                 attributes.collection&.id_value
+                               else
+                                 attachment.attachment_collection&.id
+                               end
+
         {
           # The `id` makes the form persisted, and the `link` is kept for the
           # attachments which are a link instead of a file (they have no blob to
           # fall back to), otherwise the form would be treated as a new attachment
-          # without a file and the update would be rejected.
+          # without a file and the update would be rejected. A new file replaces
+          # the link, so the link is only kept when no file is sent.
           id: attachment.id,
           title: attachment.title,
           description: attachment.description,
+          # The stored values are kept when the client does not send them, so the
+          # input objects have no default for `weight` and an omitted weight does
+          # not reorder the attachment.
           weight: attachment.weight,
           file: file_attribute,
-          link: attachment.link,
+          link: attributes.file ? nil : attachment.link,
           attachment_collection_id: attachment_attribute
         }.merge(
           attributes.to_h.slice(:title, :description, :weight)

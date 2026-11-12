@@ -73,6 +73,7 @@ mapped to its path.
 [source,bash]
 ----
 curl -X POST https://example.org/api/ \
+  -H "Authorization: Bearer ${ACCESS_TOKEN}" \
   -F 'operations={"query":"mutation ($componentId: ID!, $debateId: ID!, $input: UpdateDebateInput!) { component(id: $componentId) { ... on DebatesMutation { debate(id: $debateId) { update(input: $input) { id } } } } }","variables":{"componentId":5,"debateId":9,"input":{"locale":"en","attributes":{"title":"More sidewalks and less roads","description":"Cities need more people, not more cars","attachments":[{"file":null,"title":"Sidewalk photo"}]}}}}' \
   -F 'map={"0":["variables.input.attributes.attachments.0.file"]}' \
   -F '0=@/path/to/photo.jpg'

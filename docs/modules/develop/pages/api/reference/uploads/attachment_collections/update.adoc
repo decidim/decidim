@@ -8,7 +8,7 @@ When you want to update a Decidim attachment collection's details, you need to r
 ----
 • description           (Optional) - JSON
 • key                   (Optional) - String
-• name                  (Required) - JSON
+• name                  (Optional) - JSON
 • weight                (Optional) - Integer
 ----
 
@@ -25,7 +25,9 @@ administrator.
 
 When `key` is not provided, the key saved with the collection is kept: the key is
 only replaced when a new one is sent, so an update which does not include it does
-not remove the key used by the API to look the collection up.
+not remove the key used by the API to look the collection up. The same applies to
+the other fields: an omitted field keeps the value saved with the collection, so
+the weight is not reset to zero when it is not sent.
 
 [source,graphql]
 ----
