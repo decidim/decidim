@@ -91,6 +91,23 @@ describe "User adds suggestions" do
       expect(page).to have_text("First paragraph")
     end
 
+    it "toggles the suggestion highlight on touch" do
+      click_on document.title
+
+      within(".collaborative-texts-suggestions-box") do
+        click_on "1 suggestions"
+      end
+
+      item = find(".collaborative-texts-suggestions-box-item")
+      item.execute_script("this.dispatchEvent(new Event('touchstart', { bubbles: true }))")
+
+      expect(all(".collaborative-texts-highlight del").map(&:text).join(" ")).to eq("First paragraph")
+      expect(all(".collaborative-texts-highlight ins").map(&:text).join(" ")).to eq("A new content")
+
+      item.execute_script("this.dispatchEvent(new Event('touchstart', { bubbles: true }))")
+      expect(page).to have_no_css(".collaborative-texts-highlight")
+    end
+
     context "when suggestions are enabled" do
       let!(:document) { create(:collaborative_text_document, :published, accepting_suggestions: true, component:, body:) }
 
