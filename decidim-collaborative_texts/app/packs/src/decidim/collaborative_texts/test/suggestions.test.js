@@ -86,6 +86,7 @@ describe("SuggestionsList", () => {
   let firstSuggestion = null;
   let fetchResult = [
     {
+      "id": 1,
       "changeset": {
         "original": ["some content"],
         "replace": ["This is another replacement"],
@@ -96,6 +97,7 @@ describe("SuggestionsList", () => {
       "profileHtml": "<div>Profile</div>",
       "summary": "This is another summary"
     }, {
+      "id": 2,
       "changeset": {
         "original": ["some content"],
         "replace": ["This is a replacement"],
@@ -237,6 +239,23 @@ describe("SuggestionsList", () => {
     expect(suggestion.highlightWrapper).toBe(null);
     expect(doc.doc.querySelector(".collaborative-texts-hidden")).toBe(null);
     expect(doc.doc.querySelector(".collaborative-texts-highlight")).toBe(null);
+  });
+
+  it("reveals applied changes when a sibling preview is blurred", () => {
+    suggestion.apply();
+    firstSuggestion.highlight();
+    expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight-hidden")).toBe(true);
+    firstSuggestion.blur();
+    expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight-hidden")).toBe(false);
+  });
+
+  it("does not duplicate the highlight when triggered twice", () => {
+    suggestion.highlight();
+    suggestion.highlight();
+    expect(doc.doc.querySelectorAll(".collaborative-texts-highlight").length).toBe(1);
+    suggestion.blur();
+    expect(doc.doc.querySelector(".collaborative-texts-highlight")).toBe(null);
+    expect(doc.doc.querySelector(".collaborative-texts-highlight-hidden")).toBe(null);
   });
 
   it("toggles the highlight on touchstart", () => {
