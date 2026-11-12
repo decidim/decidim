@@ -357,18 +357,24 @@ describe Decidim::ActionLog do
       comments = logs.map(&:resource_lazy)
 
       comments.each do |comment|
-        ancestors = []
-        ancestor = comment
-        while ancestor.commentable.is_a?(Decidim::Comments::Comment)
-          ancestors << ancestor
-          ancestor = ancestor.commentable
-        end
-        ancestors << ancestor
+        # The chain is built from the already loaded associations only. Reading
+        # `commentable` would lazily load it, so the assertions below would pass
+        # even when the ancestor chain is not preloaded.
+        ancestors = [comment]
+        while ancestors.last.association(:commentable).loaded?
+          ancestor = ancestors.last.commentable
+          break unless ancestor.is_a?(Decidim::Comments::Comment)
 
+          ancestors << ancestor
+        end
+
+        expect(ancestors.size).to eq(Decidim::Comments::Comment::MAX_DEPTH + 1)
         expect(ancestors).to all(satisfy { |record| record.association(:commentable).loaded? })
-        expect(ancestors.last.commentable.association(:component).loaded?).to be(true)
-        expect(ancestors.last.commentable.component.association(:participatory_space).loaded?).to be(true)
-        expect(ancestors.last.commentable.component.participatory_space.association(:organization).loaded?).to be(true)
+
+        root = ancestors.last.commentable
+        expect(root.association(:component).loaded?).to be(true)
+        expect(root.component.association(:participatory_space).loaded?).to be(true)
+        expect(root.component.participatory_space.association(:organization).loaded?).to be(true)
       end
     end
 

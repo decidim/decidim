@@ -45,9 +45,13 @@ describe Decidim::ActionLog do
 
       comment = log.resource_lazy
 
+      # The associations are checked before being read; reading `commentable` would
+      # lazily load it and the assertions would pass without the ancestor preload.
       expect(comment.association(:commentable).loaded?).to be(true)
-      expect(comment.commentable.association(:commentable).loaded?).to be(true)
-      expect(comment.commentable.commentable.association(:organization).loaded?).to be(true)
+      parent = comment.association(:commentable).target
+      expect(parent.association(:commentable).loaded?).to be(true)
+      root = parent.association(:commentable).target
+      expect(root.association(:organization).loaded?).to be(true)
     end
   end
 end
