@@ -49,12 +49,12 @@ module Decidim
           expect(blob).to be_present
 
           expect do
-            execute_query(query, variables)
+            perform_enqueued_jobs { execute_query(query, variables) }
           end.to change { ActiveStorage::Blob.exists?(blob.id) }.from(true).to(false)
         end
 
         it "purges the file from the storage service" do
-          expect { response }.to change { ActiveStorage::Blob.service.exist?(blob.key) }.from(true).to(false)
+          expect { perform_enqueued_jobs { response } }.to change { ActiveStorage::Blob.service.exist?(blob.key) }.from(true).to(false)
         end
 
         it "destroys the records the blob is attached to" do
@@ -71,6 +71,40 @@ module Decidim
 
         it "returns the deleted attachment" do
           expect(blob_response).to eq({ "id" => blob.id.to_s })
+        end
+
+        context "when the blob is attached to an attachment in a restricted space" do
+          let(:attachment) do
+            create(:attachment, :with_pdf, attached_to: create(:participatory_process, :restricted, :published, organization: current_organization))
+          end
+          let(:query) do
+            %( mutation { deleteBlob(id: #{blob_id}) { id src signedId } })
+          end
+
+          # The attachment records are destroyed before the response is built, so
+          # the type can no longer see the private download requirement through
+          # the blob associations; the mutation has to remember it.
+          it "returns the private download url, which authorizes every request" do
+            expect(blob_response["src"]).to include("/private_downloads/")
+          end
+
+          it "does not return the direct Active Storage url" do
+            expect(blob_response["src"]).not_to include("/rails/active_storage/")
+          end
+
+          it "does not return the signed id, as it is a bearer credential for private files" do
+            expect(blob_response["signedId"]).to be_nil
+          end
+        end
+
+        context "when the blob is attached to an attachment in an open space" do
+          let(:query) do
+            %( mutation { deleteBlob(id: #{blob_id}) { id src signedId } })
+          end
+
+          it "returns the direct Active Storage url" do
+            expect(blob_response["src"]).to include("/rails/active_storage/")
+          end
         end
 
         context "when the blob is attached to a record of another organization" do

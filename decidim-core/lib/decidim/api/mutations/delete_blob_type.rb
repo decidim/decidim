@@ -16,6 +16,16 @@ module Decidim
 
         attachments = resource.attachments.to_a
         unless attachments.empty?
+          # The private download requirement comes from the record the blob is
+          # attached to. Once those records are destroyed the type can no longer
+          # detect it, so the attachment is remembered before the purge; without
+          # it `src` and `signed_id` fall back to the direct Active Storage url,
+          # a bearer credential which keeps working until the purge job runs.
+          private_download_attachment = attachments.find do |attachment|
+            record = attachment.record
+            record.respond_to?(:private_download_required?) && record.private_download_required?
+          end
+
           attachments.each do |attachment|
             record = attachment.record
             # Only the records which represent the uploaded file itself are removed
@@ -25,7 +35,9 @@ module Decidim
             # organization favicon) keep their row and only lose the file reference.
             record.is_a?(Decidim::Attachment) ? record.destroy : attachment.destroy
           end
-          resource.purge
+
+          context[:private_download_attachment] = private_download_attachment
+          resource.purge_later
           return resource
         end
 

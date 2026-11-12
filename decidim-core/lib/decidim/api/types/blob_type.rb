@@ -48,7 +48,7 @@ module Decidim
         @private_download_attachment ||= object.attachments.find do |attachment|
           record = attachment.record
           record.respond_to?(:private_download_required?) && record.private_download_required?
-        end
+        end || context[:private_download_attachment]
       end
 
       # Returned as an absolute url so external API clients can use it
