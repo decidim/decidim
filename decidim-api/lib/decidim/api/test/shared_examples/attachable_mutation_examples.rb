@@ -335,9 +335,15 @@ shared_examples_for "updatable attachment" do |supports_collection:|
   context "when the attachment is a link instead of a file" do
     let(:attachment) { create(:attachment, :with_link, attached_to: model, weight: 999) }
 
-    it "updates the details keeping the link" do
+    # No file is sent, so the update relies on the existing attachment being
+    # recognized as persisted and on keeping its link.
+    let(:attributes) { { title:, description:, weight: } }
+
+    it "updates the details without creating a blob" do
       original_link = attachment.link
-      response
+
+      expect { response }.not_to change(ActiveStorage::Blob, :count)
+
       attachment.reload
       expect(attachment.title.except("machine_translations")).to eq(title)
       expect(attachment.description.except("machine_translations")).to eq(description)
