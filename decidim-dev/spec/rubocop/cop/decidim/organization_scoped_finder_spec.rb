@@ -339,6 +339,14 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "accepts where(organization: organization).find with an organization argument" do
+    expect_no_offenses(<<~RUBY)
+      def find_template(organization)
+        Template.where(organization: organization).find(id)
+      end
+    RUBY
+  end
+
   it "accepts where(organization: @user.organization).find_by" do
     expect_no_offenses(<<~RUBY)
       Template.where(organization: @user.organization).find_by(id: params[:id])

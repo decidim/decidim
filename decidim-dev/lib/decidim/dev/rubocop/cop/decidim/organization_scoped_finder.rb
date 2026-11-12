@@ -271,11 +271,19 @@ module RuboCop
         # `tenant_resolver.organization(params[:organization_id])`, because the
         # resolver may select another tenant from untrusted input.
         def organization_value?(node)
+          # In `find_template(organization)`, Ruby parses the argument as a
+          # local variable rather than a send, but it is still the intended
+          # organization.
+          return true if organization_local_variable?(node)
           return false unless node&.send_type? && node.method_name == :organization
           return false unless node.arguments.empty?
           return true unless node.receiver
 
           trusted_organization_receiver?(node.receiver)
+        end
+
+        def organization_local_variable?(node)
+          node&.lvar_type? && node.name == :organization
         end
 
         # Records held in variables (`@user.organization`) and current-context
