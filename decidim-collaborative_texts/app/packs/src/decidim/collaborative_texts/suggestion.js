@@ -280,14 +280,27 @@ export default class Suggestion {
     });
   }
 
-  _resetDropdown() {
-
-  }
-
   _bindEvents() {
     this.item.addEventListener("mouseenter", this.highlight.bind(this));
     this.item.addEventListener("mouseleave", this.blur.bind(this));
+    this.item.addEventListener("touchstart", this._onTouchStart.bind(this));
     this.item.querySelector(".button-apply").addEventListener("click", this.apply.bind(this));
     this.item.querySelector(".button-restore").addEventListener("click", this.restore.bind(this));
+  }
+
+  // An event handler for touchstart for mobile devices
+  _onTouchStart(event) {
+    if (event.target.closest(".button-apply, .button-restore")) {
+      return;
+    }
+    let isShown = this.highlightWrapper;
+    if (this.applied) {
+      isShown = this.changesWrapper.classList.contains("collaborative-texts-highlight");
+    }
+    if (isShown) {
+      this.blur();
+    } else {
+      this.highlight();
+    }
   }
 }
