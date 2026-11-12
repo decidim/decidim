@@ -29,6 +29,10 @@ module Decidim
                         index_on_create: ->(budget) { budget.visible? },
                         index_on_update: ->(budget) { budget.visible? })
 
+      def self.searchable_arguments
+        [{ component: { participatory_space: :organization } }]
+      end
+
       def self.log_presenter_class_for(_log)
         Decidim::Budgets::AdminLog::BudgetPresenter
       end

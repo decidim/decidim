@@ -83,6 +83,10 @@ module Decidim
                       index_on_create: ->(_conference) { false },
                       index_on_update: ->(conference) { conference.visible? })
 
+    def self.searchable_arguments
+      [:organization]
+    end
+
     # Scope to return only the promoted conferences.
     #
     # Returns an ActiveRecord::Relation.
