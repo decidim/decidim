@@ -36,7 +36,13 @@ module Decidim
             record.is_a?(Decidim::Attachment) ? record.destroy : attachment.destroy
           end
 
-          context[:private_download_attachment] = private_download_attachment
+          # The context is shared by every field of the operation, so the
+          # attachment is stored per blob. An unkeyed value would also be used by
+          # another mutation in the same operation (e.g. `uploadFile`), which has
+          # no attachments of its own and would then report this file's private
+          # download url instead of its own signed id.
+          context[:private_download_attachments] = (context[:private_download_attachments] || {}).merge(resource.id => private_download_attachment)
+
           resource.purge_later
           return resource
         end

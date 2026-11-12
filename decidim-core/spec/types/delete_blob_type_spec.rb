@@ -107,6 +107,57 @@ module Decidim
           end
         end
 
+        context "when the same operation uploads another file" do
+          # The GraphQL context is shared by every field of the operation, so the
+          # attachment remembered for the deleted blob must only be used for that
+          # blob. The uploaded blob has no attachments, so an unkeyed fallback would
+          # make it report the deleted file's private download url and hide its own
+          # signed id.
+          let(:attachment) do
+            create(:attachment, :with_pdf, attached_to: create(:participatory_process, :restricted, :published, organization: current_organization))
+          end
+
+          let(:schema) do
+            Class.new(Decidim::Api::Schema) do
+              mutation(Decidim::Api::MutationType)
+              orphan_types(Decidim::Api.orphan_types)
+            end
+          end
+
+          let(:variables) { { input: { file: uploaded_file } } }
+          let(:uploaded_file) do
+            api_upload(
+              Rack::Test::UploadedFile.new(
+                Decidim::Dev.asset("city.jpeg"),
+                "image/jpeg",
+                original_filename: "city.jpeg"
+              )
+            )
+          end
+          let(:query) do
+            <<~GRAPHQL
+              mutation($input: UploadFileInput!) {
+                deleteBlob(id: #{blob_id}) { id src signedId }
+                uploadFile(input: $input) { blob { id src signedId } }
+              }
+            GRAPHQL
+          end
+
+          it "keeps the private download url for the deleted blob" do
+            expect(blob_response["src"]).to include("/private_downloads/")
+          end
+
+          it "returns the direct Active Storage url for the uploaded blob" do
+            expect(response.dig("uploadFile", "blob", "src")).to include("/rails/active_storage/")
+          end
+
+          it "returns the signed id of the uploaded blob" do
+            uploaded_blob = ActiveStorage::Blob.find(response.dig("uploadFile", "blob", "id"))
+
+            expect(response.dig("uploadFile", "blob", "signedId")).to eq(uploaded_blob.signed_id)
+          end
+        end
+
         context "when the blob is attached to a record of another organization" do
           let(:blob) do
             create(:attachment, :with_image, attached_to: create(:participatory_process, organization: create(:organization))).reload.file_blob

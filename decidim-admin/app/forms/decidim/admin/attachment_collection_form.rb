@@ -17,7 +17,11 @@ module Decidim
       validate :key_uniqueness
 
       def key=(value)
-        super(value&.strip)
+        # A blank key is stored as NULL rather than an empty string: the unique
+        # index on the key per holder considers an empty string a value, so two
+        # key-less collections for the same holder would be rejected, while NULL
+        # values are not duplicates of each other.
+        super(value.presence&.strip)
       end
 
       private

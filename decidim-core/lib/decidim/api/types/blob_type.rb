@@ -44,11 +44,17 @@ module Decidim
       # can download the file without any further authorization check. Files
       # that require a private download must always be served through the
       # private downloads controller, which authorizes every request.
+      #
+      # The context fallback is keyed by the blob id because the GraphQL context
+      # is shared by every field of the operation; without the key, a blob which
+      # has no attachments (e.g. one uploaded by a later field of the same
+      # operation) would use another blob's attachment and return its private
+      # download url instead of its own signed id.
       def private_download_attachment
         @private_download_attachment ||= object.attachments.find do |attachment|
           record = attachment.record
           record.respond_to?(:private_download_required?) && record.private_download_required?
-        end || context[:private_download_attachment]
+        end || context.dig(:private_download_attachments, object.id)
       end
 
       # Returned as an absolute url so external API clients can use it
