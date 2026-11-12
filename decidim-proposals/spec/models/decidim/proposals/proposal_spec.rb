@@ -300,18 +300,20 @@ module Decidim
           expect(proposal.maximum_votes_reached?).to be(false)
         end
 
-        it "uses the votes counter cache when requested for rendering" do
-          proposal.association(:votes).reset
+        it "uses the precomputed final votes count when available" do
+          create_list(:proposal_vote, 10, proposal:)
+          proposal.update!(proposal_votes_count: 0)
+
+          proposals = described_class.where(id: proposal.id)
+          described_class.preload_final_votes_counts(proposals)
+
+          expect(proposals.first.maximum_votes_reached?).to be(true)
+        end
+
+        it "ignores a stale counter cache when computing the threshold" do
           proposal.update!(proposal_votes_count: 10)
 
-          queries = []
-          callback = ->(_name, _start, _finish, _id, payload) { queries << payload[:sql] unless payload[:cached] || payload[:name] == "SCHEMA" }
-          result = ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
-            proposal.maximum_votes_reached?(use_counter_cache: true)
-          end
-
-          expect(result).to be(true)
-          expect(queries.grep(/decidim_proposals_proposal_votes/)).to be_empty
+          expect(proposal.maximum_votes_reached?).to be(false)
         end
       end
 

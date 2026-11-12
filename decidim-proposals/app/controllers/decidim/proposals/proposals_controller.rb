@@ -42,6 +42,7 @@ module Decidim
                       .only_amendables
                       .includes(:taxonomies, :attachments, :coauthorships, :resource_permission)
           @proposals = proposals.order(position: :asc)
+          @proposals = Decidim::Proposals::Proposal.preload_final_votes_counts(@proposals) if component_settings.threshold_per_proposal.positive?
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           @proposals = search.result
@@ -49,6 +50,7 @@ module Decidim
           @proposals = reorder(@proposals)
           @proposals = paginate(@proposals)
           @proposals = @proposals.includes(:component, :coauthorships, :attachments, :resource_permission)
+          @proposals = Decidim::Proposals::Proposal.preload_final_votes_counts(@proposals) if component_settings.threshold_per_proposal.positive?
         end
       end
 

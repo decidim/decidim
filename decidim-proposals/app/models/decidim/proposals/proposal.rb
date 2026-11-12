@@ -245,6 +245,23 @@ module Decidim
         (likes_participants_ids + participants_has_voted_ids + coauthors_recipients_ids + commentators_ids).flatten.compact.uniq
       end
 
+      # Public: Preloads the database count of final votes for a collection of
+      # proposals without loading every vote. This avoids both a query per
+      # proposal and the counter cache, which can be stale.
+      #
+      # Returns the given collection with the `final_votes_count` set.
+      def self.preload_final_votes_counts(proposals)
+        proposals = proposals.load
+        votes_counts = Decidim::Proposals::ProposalVote
+                       .final
+                       .where(decidim_proposal_id: proposals.map(&:id))
+                       .group(:decidim_proposal_id)
+                       .count
+
+        proposals.each { |proposal| proposal.final_votes_count = votes_counts.fetch(proposal.id, 0) }
+        proposals
+      end
+
       # Public: Updates the vote count of this proposal.
       #
       # Returns nothing.
@@ -358,19 +375,15 @@ module Decidim
         maximum_votes
       end
 
+      attr_writer :final_votes_count
+
       # Public: The maximum amount of votes allowed for this proposal. 0 means infinite.
       #
-      # use_counter_cache - Boolean indicating whether the association counter
-      #                     cache can be used. This is useful for rendering, where
-      #                     preloaded votes or the counter cache avoid extra
-      #                     queries. Vote guards must use the database count so
-      #                     concurrent vote finalizations are taken into account.
-      #
       # Returns true if reached, false otherwise.
-      def maximum_votes_reached?(use_counter_cache: false)
+      def maximum_votes_reached?
         return false unless maximum_votes
 
-        votes_count = use_counter_cache ? votes.size : votes.count
+        votes_count = @final_votes_count || votes.count
         votes_count >= maximum_votes
       end
 
