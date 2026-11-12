@@ -44,6 +44,10 @@ module Decidim
                         index_on_create: ->(post) { post.visible? },
                         index_on_update: ->(post) { post.visible? })
 
+      def self.searchable_arguments
+        [:taxonomies, { author: [:organization, :avatar_attachment] }, { component: { participatory_space: :organization } }]
+      end
+
       class << self
         def all_timestamp_attributes_in_model
           super + ["published_at"]

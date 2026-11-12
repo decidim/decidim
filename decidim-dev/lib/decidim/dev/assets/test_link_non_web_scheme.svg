@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A link with a scheme which does not fetch a resource when the document is
+     rendered and is not opened as a document by the browsers of the readers, so it
+     is accepted as the other links. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <a href="mailto:example@example.org"><text y="15">Example</text></a>
+</svg>

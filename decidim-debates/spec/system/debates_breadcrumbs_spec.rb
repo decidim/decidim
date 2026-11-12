@@ -7,6 +7,7 @@ describe "Debates Breadcrumb" do
   let(:manifest_name) { "debates" }
 
   let!(:debate) { create(:debate, component:) }
+  let!(:another_debate) { create(:debate, component:) }
 
   before do
     visit_component
