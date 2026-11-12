@@ -1,3 +1,4 @@
+/* eslint max-lines: ["error", 320] */
 import { diffWordsWithSpace } from "diff";
 
 export default class Suggestion {
