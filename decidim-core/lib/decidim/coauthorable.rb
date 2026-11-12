@@ -55,13 +55,6 @@ module Decidim
 
       validates :coauthorships, presence: true
 
-      # Overwrite default reload method to unset the instance variables so reloading works as expected.
-      def reload(options = nil)
-        remove_instance_variable(:@authors) if defined?(@authors)
-        remove_instance_variable(:@notifiable_identities) if defined?(@notifiable_identities)
-        super
-      end
-
       # Returns all the authors of a coauthorable.
       #
       # We need to do it this ways since the authors are polymorphic, and we cannot have a has_many through relation
@@ -154,6 +147,17 @@ module Decidim
 
         authors << author
       end
+    end
+
+    # Overwrite default reload method to unset the instance variables so reloading works as expected.
+    #
+    # This is defined outside the `included` block on purpose: it needs to be part of
+    # the ancestor chain so that classes including this concern can override `reload`
+    # and still clear the memoized values by calling `super`.
+    def reload(options = nil)
+      remove_instance_variable(:@authors) if defined?(@authors)
+      remove_instance_variable(:@notifiable_identities) if defined?(@notifiable_identities)
+      super
     end
   end
 end

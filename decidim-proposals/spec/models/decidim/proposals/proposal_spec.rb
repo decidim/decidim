@@ -315,6 +315,19 @@ module Decidim
 
           expect(proposal.maximum_votes_reached?).to be(false)
         end
+
+        it "discards the precomputed final votes count when the record is reloaded" do
+          create_list(:proposal_vote, 10, proposal:)
+
+          proposals = described_class.where(id: proposal.id)
+          described_class.preload_final_votes_counts(proposals)
+          preloaded_proposal = proposals.first
+          expect(preloaded_proposal.maximum_votes_reached?).to be(true)
+
+          Decidim::Proposals::ProposalVote.where(proposal:).delete_all
+
+          expect(preloaded_proposal.reload.maximum_votes_reached?).to be(false)
+        end
       end
 
       describe "#editable_by?" do
