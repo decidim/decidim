@@ -145,7 +145,7 @@ module Decidim
       def set_comment
         @comment = Decidim::Comments::Comment
                    .for_organization(organization: current_organization)
-                   .find(params.expect(:id))
+                   .find(params.require(:id))
       end
 
       def ensure_commentable!

@@ -36,7 +36,7 @@ module Decidim
       def set_comment
         @comment = Decidim::Comments::Comment
                    .for_organization(organization: current_organization)
-                   .find(params.expect(:comment_id))
+                   .find(params.require(:comment_id))
       end
     end
   end

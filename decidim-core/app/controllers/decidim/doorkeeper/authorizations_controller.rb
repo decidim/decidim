@@ -35,7 +35,7 @@ module Decidim
       def set_oauth_application
         return if params[:client_id].blank?
 
-        @oauth_application = current_organization.oauth_applications.find_by!(uid: params.expect(:client_id))
+        @oauth_application = current_organization.oauth_applications.find_by!(uid: params[:client_id])
       end
 
       def all_abilities?
