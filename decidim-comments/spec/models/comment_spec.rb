@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/proposals/test/factories"
 
 module Decidim
   module Comments
@@ -242,6 +243,23 @@ module Decidim
 
           it "converts all URLs to links and strips attributes in anchors" do
             expect(comment.formatted_body).to eq(result)
+          end
+        end
+
+        describe "when the comment contains a proposal mention" do
+          before { allow(Decidim).to receive(:content_processors).and_return([:mention_resource]) }
+
+          let(:payload) { %(Check this proposal"><img src=x onerror="alert(document.cookie)">) }
+          let(:proposal) { create(:proposal, title: { en: payload }) }
+          let(:comment) { create(:comment, commentable: proposal, body: { en: "See #{proposal.to_global_id}" }) }
+
+          it "escapes the title of the mentioned proposal" do
+            fragment = Loofah.fragment(comment.formatted_body)
+            mention = fragment.at_css(".editor-mention")
+
+            expect(mention.at_css("span").text).to eq(proposal.presenter.title)
+            expect(fragment.css("img[onerror]")).to be_empty
+            expect(fragment.css('img[src="x"]')).to be_empty
           end
         end
       end
