@@ -30,8 +30,7 @@ module Decidim
         end
 
         def search_collection
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- meeting_components is scoped to current_organization
-          Meeting.where(component: meeting_components).published.not_hidden.visible_for(current_user).with_availability(
+          Meeting.where(component: meeting_components).published.not_hidden.visible_for(current_user).with_availability( # rubocop:disable Decidim/OrganizationScopedFinder -- meeting_components is scoped to current_organization
             filter_params[:availability]
           ).includes(
             :component,

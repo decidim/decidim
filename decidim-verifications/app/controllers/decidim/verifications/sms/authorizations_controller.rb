@@ -79,8 +79,7 @@ module Decidim
         private
 
         def authorization
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- user is current_user, scoped to current_organization
-          @authorization ||= Decidim::Authorization.find_or_initialize_by(
+          @authorization ||= Decidim::Authorization.find_or_initialize_by( # rubocop:disable Decidim/OrganizationScopedFinder -- user is current_user, scoped to current_organization
             user: current_user,
             name: "sms"
           )
