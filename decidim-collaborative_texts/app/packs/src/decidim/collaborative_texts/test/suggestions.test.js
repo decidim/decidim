@@ -238,4 +238,25 @@ describe("SuggestionsList", () => {
     expect(doc.doc.querySelector(".collaborative-texts-hidden")).toBe(null);
     expect(doc.doc.querySelector(".collaborative-texts-highlight")).toBe(null);
   });
+
+  it("toggles the highlight on touchstart", () => {
+    suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
+    suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.highlightWrapper).toBe(null);
+  });
+
+  it("toggles the highlight of an applied suggestion on touchstart", () => {
+    suggestion.apply();
+    suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight")).toBe(true);
+    suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight")).toBe(false);
+  });
+
+  it("does not toggle the highlight when touching the suggestion actions", () => {
+    suggestion.item.querySelector(".button-apply").dispatchEvent(new Event("touchstart", { bubbles: true }));
+    suggestion.item.querySelector(".button-restore").dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.highlightWrapper).toBe(null);
+  });
 });
