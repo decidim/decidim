@@ -377,6 +377,13 @@ module Decidim
 
       attr_writer :final_votes_count
 
+      # A preloaded final votes count can become stale after the record is
+      # reloaded, for example when a vote guard acquires a row lock.
+      def reload(...)
+        @final_votes_count = nil
+        super
+      end
+
       # Public: The maximum amount of votes allowed for this proposal. 0 means infinite.
       #
       # Returns true if reached, false otherwise.
