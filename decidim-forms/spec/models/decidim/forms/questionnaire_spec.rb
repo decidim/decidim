@@ -40,6 +40,39 @@ module Decidim
         end
       end
 
+      describe "machine translations" do
+        let(:organization) { create(:organization, default_locale: "ca", available_locales: %w(ca en)) }
+        let!(:questionable) { create(:dummy_resource, organization:) }
+        let(:questionnaire) do
+          create(:questionnaire, questionnaire_for: questionable, title: { ca: "Títol", machine_translations: { en: "Title" } })
+        end
+
+        before do
+          allow(Decidim).to receive(:available_locales).and_return(%w(en ca))
+          allow(Decidim).to receive(:machine_translation_service_klass).and_return(Decidim::Dev::DummyTranslator)
+        end
+
+        context "when only the title in the organization default locale changes" do
+          before do
+            questionnaire.update!(title: { ca: "Títol actualitzat" })
+            clear_enqueued_jobs
+          end
+
+          it "schedules a fresh translation from the updated title" do
+            Decidim::MachineTranslationResourceJob.perform_now(
+              questionnaire,
+              questionnaire.translatable_previous_changes,
+              "ca"
+            )
+
+            expect(Decidim::MachineTranslationFieldsJob)
+              .to have_been_enqueued
+              .on_queue("translations")
+              .with(questionnaire, "title", "Títol actualitzat", "en", "ca")
+          end
+        end
+      end
+
       describe "#count_participants" do
         it "returns the unique participants number" do
           user1 = create(:user, organization: questionable.organization)
