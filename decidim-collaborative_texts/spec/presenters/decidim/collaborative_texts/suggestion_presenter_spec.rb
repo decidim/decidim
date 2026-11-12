@@ -91,6 +91,27 @@ module Decidim
           end
         end
       end
+
+      describe "#safe_json" do
+        let(:changeset) do
+          {
+            "original" => ["<p>Hello</p><script>alert('xss')</script>"],
+            "replace" => ["<p onmouseover=\"alert('xss')\">Hello</p><img src=\"x\" onerror=\"alert('xss')\">"]
+          }
+        end
+        let(:suggestion) { build(:collaborative_text_suggestion, changeset:) }
+
+        it "sanitizes the changeset html before sending it to the client" do
+          json = presenter.safe_json
+          sanitized_original = json[:changeset]["original"].join
+          sanitized_replace = json[:changeset]["replace"].join
+
+          expect(sanitized_original).not_to include("<script")
+          expect(sanitized_replace).not_to include("onmouseover")
+          expect(sanitized_replace).not_to include("onerror")
+          expect(sanitized_replace).to include("Hello")
+        end
+      end
     end
   end
 end

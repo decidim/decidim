@@ -161,7 +161,7 @@ describe "User adds suggestions" do
           expect(page).to have_text("First paragraph", count: 2)
           expect(page).to have_text("Edited First paragraph", count: 1)
           expect(page).to have_text("A new content", count: 1)
-          find(".collaborative-texts-suggestions-box-item:first-child").hover
+          find(".collaborative-texts-suggestions-box-item", text: "A new content").hover
           expect(all(".collaborative-texts-highlight del").map(&:text).join(" ")).to eq("First paragraph")
           expect(all(".collaborative-texts-highlight ins").map(&:text).join(" ")).to eq("A new content")
         end
