@@ -138,7 +138,7 @@ export default class Suggestion {
   _renderDiff(wrapper) {
     const before = this._text(this.original);
     const after = this._text(this.replace);
-    // shortcut: very long selections are not word-diffed, they are marked as fully removed and added
+    // Very long selections are not word-diffed, they are marked as fully removed and added
     const changes = before.length + after.length > 10000
       ? [{ removed: true, value: before }, { added: true, value: after }]
       : diffWordsWithSpace(before, after);
