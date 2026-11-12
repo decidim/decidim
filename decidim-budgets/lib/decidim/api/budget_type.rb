@@ -17,7 +17,6 @@ module Decidim
                                                                     deprecation_reason: "Please use totalBudget instead. This field is deprecated since decidim 0.33.0, and will be removed in the upcoming versions" # rubocop:disable Layout/LineLength
       field :total_budget, GraphQL::Types::Int, "The total budget", null: false
       field :url, String, "The URL for this budget", null: false
-      field :weight, GraphQL::Types::Int, "The weight for this budget", null: false
 
       def url
         Decidim::EngineRouter.main_proxy(object.component).budget_url(object)

@@ -80,9 +80,9 @@ module Decidim
       def reorder(budgets)
         case order
         when "highest_cost"
-          budgets.reorder(total_budget: :desc, weight: :asc)
+          budgets.reorder(total_budget: :desc, id: :asc)
         when "lowest_cost"
-          budgets.reorder(total_budget: :asc, weight: :asc)
+          budgets.reorder(total_budget: :asc, id: :asc)
         when "random"
           budgets.reorder(nil).order_randomly(random_seed)
         else
