@@ -16,13 +16,11 @@ module Decidim
 
         it "stores the participatory space for the seeded comments" do
           dummy_resource = create(:dummy_resource)
-          allow(subject).to receive(:config_value).with(:comments_per_resource_count).and_return(1)
-          allow(subject).to receive(:config_value).with(:comments_nested_probability).and_return(0)
-          allow(subject).to receive(:config_value).with(:comments_vote_skip_probability).and_return(1)
+          allow(subject).to receive(:rand).and_return(1)
 
           subject.comments_for(dummy_resource)
 
-          comment = Decidim::Comments::Comment.last
+          comment = Decidim::Comments::SortedComments.for(dummy_resource).last
           expect(comment.participatory_space).to eq(dummy_resource.participatory_space)
         end
       end
