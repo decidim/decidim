@@ -14,6 +14,7 @@ const markup = (formAttributes = "") => `
   </div>
   <form data-controller="unsaved-form" ${formAttributes} id="questionnaire">
     <input name="input name[title]">
+    <select class="language-change"><option>English</option></select>
     <button type="button" data-remote="true">Remote action</button>
     <div class="questionnaire-questions-list" data-draggable-table>
       <div class="card questionnaire-question">
@@ -235,6 +236,13 @@ describe("UnsavedFormController", () => {
     );
 
     document.querySelector(".add-question").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    expect(controller.dirty).toBe(false);
+    expectUnloadPrompt(false);
+  });
+
+  it("does not mark the form dirty when the language selector changes", () => {
+    form.querySelector(".language-change").dispatchEvent(new Event("change", { bubbles: true }));
 
     expect(controller.dirty).toBe(false);
     expectUnloadPrompt(false);

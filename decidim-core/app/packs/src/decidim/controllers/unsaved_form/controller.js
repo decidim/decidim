@@ -28,7 +28,12 @@ export default class extends Controller {
     this.edits = 0;
     this.sentEdits = new Map();
 
-    this.markDirty = () => {
+    this.markDirty = (event) => {
+      // Changing the visible locale tab is not a change to the form data.
+      if (event?.target?.closest?.(".language-change")) {
+        return;
+      }
+
       this.edits += 1;
       this.dirty = true;
       window.addEventListener("beforeunload", this.preventBeforeUnload);
