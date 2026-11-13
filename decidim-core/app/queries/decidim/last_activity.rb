@@ -28,8 +28,6 @@ module Decidim
     attr_reader :organization, :current_user
 
     def base_query
-      # The activities cell reads the `user` association for every activity it
-      # renders, so it has to be eager loaded to avoid N+1 queries.
       ActionLog
         .where(organization:, visibility:)
         .order(created_at: :desc)
